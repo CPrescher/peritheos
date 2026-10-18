@@ -1,24 +1,21 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "nickel",
   "name": "Nickel",
   "formula": "Ni",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
-  "symmetry": "CUBIC",
-  "space_group": "Fm-3m",
-  "space_group_number": 225,
-  "lattice": {"a": 3.52542, "b": null, "c": null, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
-  "atom_sites": [
-    {"element": "Ni", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0}
-  ],
-  "peaks": [],
-  "notes": "The lattice parameter is calculated from the fitted 300 K atomic reference volume. PhaseSmith calculates powder reflections and intensities from the ideal fcc structure.",
   "eos_records": [
     {
       "identifier": "nickel_dewaele_2008_vinet_1",
       "label": "Dewaele et al. (2008), Vinet",
+      "model": "Vinet",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 43.816, "error": 0.072},
+        "K0": {"value": 177.5, "error": 2.4},
+        "K0_prime": {"value": 4.83, "error": 0.09}
+      },
       "determination_method": "experimental",
       "reference": {
         "authors": ["Dewaele", "Torrent", "Loubeyre", "Mezouar"],
@@ -29,15 +26,7 @@
         "locator": "104102",
         "doi": "10.1103/PhysRevB.78.104102"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "Vinet",
-        "parameters": {"V0": 43.816, "K0": 177.5, "K0_prime": 4.83},
-        "model": "vinet"
-      },
-      "parameter_errors": {"V0": 0.072, "K0": 2.4, "K0_prime": 0.09},
       "parameter_error_confidence": 0.95,
-      "fixed_parameters": [],
       "experimental_pressure_range_gpa": [0.0, 157.0],
       "notes": "Quasi-hydrostatic helium-medium fit; published atomic V0=10.954 A^3 is multiplied by four atoms in the conventional fcc cell. Measurements extend to 157 GPa.",
       "pressure_calibration": {
@@ -61,37 +50,46 @@
         },
         "audit_date": "2026-09-03"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
-          "locations": ["Vinet formulation", "Table II, Ni and Ag rows"],
-          "doi": "10.1103/physrevb.78.104102"
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+            "locations": ["Vinet formulation", "Table II, Ni and Ag rows"],
+            "doi": "10.1103/physrevb.78.104102"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "nickel.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["nickel_dewaele_2008_table2_compression"],
+            "source_locations": ["Table II, Ni rows"],
+            "finding": "All 42 Ni pressure-volume observations printed in Table II, retaining both tabulated ruby-scale pressures and the author's helium-EOS pressure flag for selected run-6 points."
+          }
         },
-        "migration_source": {
-          "project": "Dioptas",
-          "version": "0.10.0",
-          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-          "file": "nickel.json"
-        },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-03",
-          "dataset_identifiers": ["nickel_dewaele_2008_table2_compression"],
-          "source_locations": ["Table II, Ni rows"],
-          "finding": "All 42 Ni pressure-volume observations printed in Table II, retaining both tabulated ruby-scale pressures and the author's helium-EOS pressure flag for selected run-6 points."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Vinet formulation; Table II, Ni and Ag rows."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Vinet formulation; Table II, Ni and Ag rows."
       }
     },
     {
       "identifier": "nickel_dewaele_2019_mao_vinet",
       "label": "Dewaele (2019), Ni MAO-scale Vinet",
+      "model": "Vinet",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 43.816, "error": 0.072},
+        "K0": {"value": 177.5, "error": 2.4},
+        "K0_prime": {"value": 4.83, "error": 0.09}
+      },
       "record_kind": "published",
       "determination_method": "experimental",
       "equation_kind": "isothermal",
@@ -102,15 +100,7 @@
         "source": "Minerals",
         "doi": "10.3390/min9110684"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "Vinet",
-        "model": "vinet",
-        "parameters": {"V0": 43.816, "K0": 177.5, "K0_prime": 4.83}
-      },
-      "parameter_errors": {"V0": 0.072, "K0": 2.4, "K0_prime": 0.09},
       "parameter_error_confidence": 0.95,
-      "fixed_parameters": [],
       "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 157.0],
       "pressure_range_status": "reported_exactly",
@@ -135,52 +125,61 @@
         },
         "audit_date": "2026-09-06"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-        "audit_date": "2026-09-06",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
-          "doi": "10.3390/min9110684",
-          "locations": ["Equation (1)", "Table 1"],
-          "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
-        },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-07",
-          "dataset_identifiers": ["nickel_dewaele_2008_table2_compression"],
-          "source_locations": ["nickel-dewaele-2008-table2-compression.csv", "Dewaele (2019), Equation (1) and Table 1"],
-          "finding": "All 42 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).",
-          "reproduction_resource": "docs/data/dewaele-2019-static-dac-refit.json",
-          "fit_scope": "complete",
-          "record_parameter_comparison": {
-            "absolute_parameter_difference": [0.0028524489041519274, 1.4507331167292818, 0.037459199246375086],
-            "max_abs_gpa": 1.6477734968674582,
-            "parameters": [10.956852448904153, 176.04926688327072, 4.867459199246375],
-            "rmse_gpa": 0.6016140965087852,
-            "within_reported_95pct_errors": true
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+          "audit_date": "2026-09-06",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+            "doi": "10.3390/min9110684",
+            "locations": ["Equation (1)", "Table 1"],
+            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-07",
+            "dataset_identifiers": ["nickel_dewaele_2008_table2_compression"],
+            "source_locations": ["nickel-dewaele-2008-table2-compression.csv", "Dewaele (2019), Equation (1) and Table 1"],
+            "finding": "All 42 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).",
+            "reproduction_resource": "docs/data/dewaele-2019-static-dac-refit.json",
+            "fit_scope": "complete",
+            "record_parameter_comparison": {
+              "absolute_parameter_difference": [0.0028524489041519274, 1.4507331167292818, 0.037459199246375086],
+              "max_abs_gpa": 1.6477734968674582,
+              "parameters": [10.956852448904153, 176.04926688327072, 4.867459199246375],
+              "rmse_gpa": 0.6016140965087852,
+              "within_reported_95pct_errors": true
+            }
           }
-        }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
+          "V0": "Table 1",
+          "K0": "Table 1",
+          "K0_prime": "Table 1"
+        },
+        "source_lineage": [
+          {
+            "role": "scientific equation and coefficients",
+            "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
+            "doi": "10.3390/min9110684"
+          }
+        ]
       },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
-        "V0": "Table 1",
-        "K0": "Table 1",
-        "K0_prime": "Table 1"
-      },
-      "source_lineage": [
-        {
-          "role": "scientific equation and coefficients",
-          "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
-          "doi": "10.3390/min9110684"
-        }
-      ],
       "fit_datasets": ["nickel_dewaele_2008_table2_compression"]
     },
     {
       "identifier": "nickel_dewaele_2019_dor_vinet",
       "label": "Dewaele (2019), Ni DOR-scale Vinet",
+      "model": "Vinet",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 43.808, "error": 0.072},
+        "K0": {"value": 176.0, "error": 2.4},
+        "K0_prime": {"value": 5.322, "error": 0.09}
+      },
       "record_kind": "published",
       "determination_method": "experimental",
       "equation_kind": "isothermal",
@@ -191,15 +190,7 @@
         "source": "Minerals",
         "doi": "10.3390/min9110684"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "Vinet",
-        "model": "vinet",
-        "parameters": {"V0": 43.808, "K0": 176.0, "K0_prime": 5.322}
-      },
-      "parameter_errors": {"V0": 0.072, "K0": 2.4, "K0_prime": 0.09},
       "parameter_error_confidence": 0.95,
-      "fixed_parameters": [],
       "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 157.0],
       "pressure_range_status": "reported_exactly",
@@ -224,52 +215,72 @@
         },
         "audit_date": "2026-09-06"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-        "audit_date": "2026-09-06",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
-          "doi": "10.3390/min9110684",
-          "locations": ["Equation (1)", "Table 1"],
-          "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
-        },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-07",
-          "dataset_identifiers": ["nickel_dewaele_2008_table2_compression"],
-          "source_locations": ["nickel-dewaele-2008-table2-compression.csv", "Dewaele (2019), Equation (1) and Table 1"],
-          "finding": "All 42 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).",
-          "reproduction_resource": "docs/data/dewaele-2019-static-dac-refit.json",
-          "fit_scope": "complete",
-          "record_parameter_comparison": {
-            "absolute_parameter_difference": [0.0026389157133568375, 1.480593467146889, 0.04394569130210524],
-            "max_abs_gpa": 1.7943285665471578,
-            "parameters": [10.954638915713357, 174.5194065328531, 5.365945691302105],
-            "rmse_gpa": 0.6562943317035914,
-            "within_reported_95pct_errors": true
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+          "audit_date": "2026-09-06",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+            "doi": "10.3390/min9110684",
+            "locations": ["Equation (1)", "Table 1"],
+            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-07",
+            "dataset_identifiers": ["nickel_dewaele_2008_table2_compression"],
+            "source_locations": ["nickel-dewaele-2008-table2-compression.csv", "Dewaele (2019), Equation (1) and Table 1"],
+            "finding": "All 42 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).",
+            "reproduction_resource": "docs/data/dewaele-2019-static-dac-refit.json",
+            "fit_scope": "complete",
+            "record_parameter_comparison": {
+              "absolute_parameter_difference": [0.0026389157133568375, 1.480593467146889, 0.04394569130210524],
+              "max_abs_gpa": 1.7943285665471578,
+              "parameters": [10.954638915713357, 174.5194065328531, 5.365945691302105],
+              "rmse_gpa": 0.6562943317035914,
+              "within_reported_95pct_errors": true
+            }
           }
-        }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
+          "V0": "Table 1",
+          "K0": "Table 1",
+          "K0_prime": "Table 1"
+        },
+        "source_lineage": [
+          {
+            "role": "scientific equation and coefficients",
+            "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
+            "doi": "10.3390/min9110684"
+          }
+        ]
       },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
-        "V0": "Table 1",
-        "K0": "Table 1",
-        "K0_prime": "Table 1"
-      },
-      "source_lineage": [
-        {
-          "role": "scientific equation and coefficients",
-          "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
-          "doi": "10.3390/min9110684"
-        }
-      ],
       "fit_datasets": ["nickel_dewaele_2008_table2_compression"]
     },
     {
       "identifier": "nickel_campbell_2009_bm3_mgd",
       "label": "Campbell et al. (2009), fcc Ni, 295 K BM3-Debye",
+      "model": "BM3",
+      "temperature_ref": 295.0,
+      "parameters": {
+        "V0": {"value": 43.751883341896516, "error": null, "fixed": true},
+        "K0": {"value": 179.0, "error": 3},
+        "K0_prime": {"value": 4.3, "error": 0.2}
+      },
+      "thermal": {
+        "debye_temperature_law": "variable_exponent",
+        "parameters": {
+          "Tr": {"value": 295.0, "error": null, "fixed": true},
+          "theta0": {"value": 415.0, "error": null, "fixed": true},
+          "gamma0": {"value": 2.5, "error": 0.06},
+          "n": {"value": 1.0, "error": null, "fixed": true},
+          "q": {"value": 1.0, "error": null, "fixed": true}
+        },
+        "model": "MieGruneisenDebye"
+      },
       "determination_method": "experimental",
       "reference": {
         "authors": ["Campbell", "Danielson", "Righter", "Seagle", "Wang", "Prakapenka"],
@@ -280,23 +291,7 @@
         "locator": "556-564",
         "doi": "10.1016/j.epsl.2009.07.022"
       },
-      "temperature_ref": 295.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 43.751883341896516, "K0": 179.0, "K0_prime": 4.3}
-      },
-      "thermal": {
-        "type": "MieGruneisenDebye",
-        "model": "mie_gruneisen_debye",
-        "debye_temperature_law": "variable_exponent",
-        "parameters": {"Tr": 295.0, "theta0": 415.0, "gamma0": 2.5, "q": 1.0, "n": 1.0},
-        "parameter_errors": {"Tr": null, "theta0": null, "gamma0": 0.06, "q": null, "n": null},
-        "fixed_parameters": ["Tr", "theta0", "n", "q"]
-      },
-      "parameter_errors": {"V0": null, "K0": 3, "K0_prime": 0.2},
       "parameter_error_confidence": null,
-      "fixed_parameters": ["V0"],
       "experimental_pressure_range_gpa": [2.336174779961698, 65.9],
       "experimental_temperature_range_k": [298.0, 2457.07],
       "notes": "Equation (5) and Table 1: 295 K BM3 plus Mie-Gruneisen-Debye, gamma=gamma0*(V/V0)^q and theta=theta0*(V/V0)^(-gamma(V)). No explicit electronic or anharmonic pressure. Source molar V0 is converted to the Z=4 conventional cell using exact SI Avogadro constant. Italicized Table 1 values are held fixed, and nonitalic values with errors are fitted. The confidence convention and covariance of published errors are not specified. Temperature-corrected workbook values are used as printed; no second correction is applied. All 101 source rows are bundled. Nine quenched DAC states are retained but excluded from the main 92-row refit because Section 2.2 warns of residual stresses; an all-row sensitivity fit is reported. ",
@@ -337,63 +332,65 @@
         },
         "notes": "MAP detector angle calibrated with NaCl a=5.6402 A (JCPDS 05-0628); DAC geometry with CeO2. MAP cooling cycles minimize deviatoric stress. The article writes DAC T_sample=295+0.97*(T_meas-295) and T_NaCl=(3*T_meas+295)/4. The workbook uses a 293 K baseline for some Ni-NiO DAC runs and 295 K for others; preserve its stored values. Equation (4) prints sigma_TNaCl=(T_meas-295)/2, while the hot DAC workbook rows use (T_meas-T_ambient)/4; preserve the workbook uncertainties. The workbook pressure-threshold footnote is approximate: honor the explicit NaCl phase column, including B2 rows below 26 GPa."
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "audit_date": "2026-09-19",
-        "note": "Verified against the publication of record, official supplements, independent Debye quadrature, source buffer outputs, and conditional primary-data refits. Published parameters are preserved despite refit-protocol limitations.",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "composition",
-          "published_uncertainties",
-          "fixed_parameters",
-          "thermal_model",
-          "temperature_correction",
-          "pressure_calibration",
-          "primary_data",
-          "validity",
-          "literature_reproduction"
-        ],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.1016/j.epsl.2009.07.022",
-          "doi": "10.1016/j.epsl.2009.07.022",
-          "locations": [
-            "Sections 2.1-2.2 and 3",
-            "Equation (5), Table 1, page 560",
-            "Official mmc1.pdf Figure S1 and mmc2.xls Tables S2-S5"
-          ],
-          "finding": "Four source-owned experimental thermal fits; adopted hcp-Fe and numerical buffer integrations are excluded as new EOS. Source explicitly treats FeO as stoichiometric B1; the exact 295 K variable-exponent thermal law is represented.",
-          "source_pdf_sha256": "e48e23a348370b1613f4e9439bd39e5d49b94c01b1e6c3d3d9a797f092ebd9f0"
-        },
-        "primary_data_check": {
-          "status": "bundled",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
           "audit_date": "2026-09-19",
-          "dataset_identifiers": ["ni_nio_campbell_2009_table_s3_pvt"],
-          "finding": "All 101 Table S3 observations and NaCl calibrant readings are bundled. The main diagnostic fits 92 heated/MAP rows; all-row and weighting sensitivity results are separately reported. Exact source weights and mask are unpublished."
+          "note": "Verified against the publication of record, official supplements, independent Debye quadrature, source buffer outputs, and conditional primary-data refits. Published parameters are preserved despite refit-protocol limitations.",
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "composition",
+            "published_uncertainties",
+            "fixed_parameters",
+            "thermal_model",
+            "temperature_correction",
+            "pressure_calibration",
+            "primary_data",
+            "validity",
+            "literature_reproduction"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/j.epsl.2009.07.022",
+            "doi": "10.1016/j.epsl.2009.07.022",
+            "locations": [
+              "Sections 2.1-2.2 and 3",
+              "Equation (5), Table 1, page 560",
+              "Official mmc1.pdf Figure S1 and mmc2.xls Tables S2-S5"
+            ],
+            "finding": "Four source-owned experimental thermal fits; adopted hcp-Fe and numerical buffer integrations are excluded as new EOS. Source explicitly treats FeO as stoichiometric B1; the exact 295 K variable-exponent thermal law is represented.",
+            "source_pdf_sha256": "e48e23a348370b1613f4e9439bd39e5d49b94c01b1e6c3d3d9a797f092ebd9f0"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-19",
+            "dataset_identifiers": ["ni_nio_campbell_2009_table_s3_pvt"],
+            "finding": "All 101 Table S3 observations and NaCl calibrant readings are bundled. The main diagnostic fits 92 heated/MAP rows; all-row and weighting sensitivity results are separately reported. Exact source weights and mask are unpublished."
+          },
+          "independent_reproduction": {
+            "script": "scripts/reproduce_campbell_2009_buffers.py",
+            "report": "docs/literature-reproductions/campbell-2009-buffers.md",
+            "results": "docs/data/campbell-2009-reproduction.json",
+            "benchmark": "Official Tables S4-S5 differentiated through Equation (6), with 0.02 cm3/mol paired-volume tolerance; independent Debye quadrature checks individual equations.",
+            "selection": "All Table S2 rows for FeO; only its 15 explicitly fcc rows for Fe. For Ni/NiO, retain all 92 heated/MAP Table S3 rows (T>295 K); exclude its nine 293-295 K quenched DAC rows from the main diagnostic. This exclusion follows the Section 2.2 stress warning but is an audit choice: the authors do not publish a regression row mask. All 101 rows are retained in the dataset and tested in a sensitivity refit."
+          }
         },
-        "independent_reproduction": {
-          "script": "scripts/reproduce_campbell_2009_buffers.py",
-          "report": "docs/literature-reproductions/campbell-2009-buffers.md",
-          "results": "docs/data/campbell-2009-reproduction.json",
-          "benchmark": "Official Tables S4-S5 differentiated through Equation (6), with 0.02 cm3/mol paired-volume tolerance; independent Debye quadrature checks individual equations.",
-          "selection": "All Table S2 rows for FeO; only its 15 explicitly fcc rows for Fe. For Ni/NiO, retain all 92 heated/MAP Table S3 rows (T>295 K); exclude its nine 293-295 K quenched DAC rows from the main diagnostic. This exclusion follows the Section 2.2 stress warning but is an audit choice: the authors do not publish a regression row mask. All 101 rows are retained in the dataset and tested in a sensitivity refit."
-        }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Sections 2.1-2.2 and 3; Equation (5), Table 1, page 560; Official mmc1.pdf Figure S1 and mmc2.xls Tables S2-S5.",
-        "equation": "Section 4.1 Equation (5), page 560, and its immediately following gamma(V) and theta(V) definitions. BM3 reference; FeO has K0_prime fixed to 4 (BM2-equivalent reference).",
-        "V0": "Table 1: 6.587 cm3/mol, fixed from JCPDS, footnote a; source does not identify the card number. Conversion Vcell=Vmolar*Z*1e24/NA, Z=4. No source V0 error.",
-        "K0": "Table 1, fitted; uncertainty as printed, confidence unspecified.",
-        "K0_prime": "Table 1, fitted; uncertainty as printed.",
-        "thermal": {
-          "Tr": "Equation (5): 295 K reference subtraction.",
-          "theta0": "Table 1, fixed from Knacke et al. (1991), footnote f.",
-          "gamma0": "Table 1, fitted; uncertainty as printed.",
-          "q": "Table 1, fixed to 1 (italics), not fitted.",
-          "n": "Physical atoms per source molar formula: one for metal, two for monoxide; fixed Debye normalization."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Sections 2.1-2.2 and 3; Equation (5), Table 1, page 560; Official mmc1.pdf Figure S1 and mmc2.xls Tables S2-S5.",
+          "equation": "Section 4.1 Equation (5), page 560, and its immediately following gamma(V) and theta(V) definitions. BM3 reference; FeO has K0_prime fixed to 4 (BM2-equivalent reference).",
+          "V0": "Table 1: 6.587 cm3/mol, fixed from JCPDS, footnote a; source does not identify the card number. Conversion Vcell=Vmolar*Z*1e24/NA, Z=4. No source V0 error.",
+          "K0": "Table 1, fitted; uncertainty as printed, confidence unspecified.",
+          "K0_prime": "Table 1, fitted; uncertainty as printed.",
+          "thermal": {
+            "Tr": "Equation (5): 295 K reference subtraction.",
+            "theta0": "Table 1, fixed from Knacke et al. (1991), footnote f.",
+            "gamma0": "Table 1, fitted; uncertainty as printed.",
+            "q": "Table 1, fixed to 1 (italics), not fitted.",
+            "n": "Physical atoms per source molar formula: one for metal, two for monoxide; fixed Debye normalization."
+          }
         }
       },
       "range_provenance": {
@@ -403,6 +400,15 @@
       "fit_datasets": ["ni_nio_campbell_2009_table_s3_pvt"]
     }
   ],
+  "symmetry": "CUBIC",
+  "space_group": "Fm-3m",
+  "space_group_number": 225,
+  "lattice": {"a": 3.52542, "b": null, "c": null, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Ni", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "The lattice parameter is calculated from the fitted 300 K atomic reference volume. PhaseSmith calculates powder reflections and intensities from the ideal fcc structure.",
   "datasets": [
     {
       "identifier": "nickel_dewaele_2008_table2_compression",

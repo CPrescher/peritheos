@@ -1,21 +1,23 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "fesio3_liquid",
   "name": "Liquid iron silicate",
   "formula": "FeSiO3",
   "phase": "FeSiO3 liquid",
-  "aliases": ["liquid FeSiO3", "molten ferrosilite", "FeSiO3 melt"],
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 1,
-  "cell_contents": "Liquid EOS volumes are expressed per FeSiO3 formula unit; no crystallographic unit cell is implied.",
-  "atom_sites": [],
-  "peaks": [],
-  "notes": "A non-crystalline material card. The format's cell-volume unit is used as a one-formula-unit volume basis.",
   "eos_records": [
     {
       "identifier": "fesio3_liquid_sun_2019_2500k_bm4_1",
       "label": "Sun et al. (2019), liquid FeSiO3 2500 K BM4 reference",
+      "model": "BM4",
+      "temperature_ref": 2500.0,
+      "parameters": {
+        "V0": {"value": 78.46047092, "error": null},
+        "K0": {"value": 2.217, "error": null},
+        "K0_prime": {"value": 22.913, "error": null},
+        "K0_double_prime": {"value": -175.628, "error": null}
+      },
       "record_kind": "published",
       "determination_method": "theoretical",
       "equation_kind": "isothermal",
@@ -28,15 +30,7 @@
         "locator": "3706-3716",
         "doi": "10.1029/2018GL081421"
       },
-      "temperature_ref": 2500.0,
-      "eos": {
-        "type": "BM4",
-        "model": "birch_murnaghan_4",
-        "parameters": {"V0": 78.46047092, "K0": 2.217, "K0_prime": 22.913, "K0_double_prime": -175.628}
-      },
-      "parameter_errors": {"V0": null, "K0": null, "K0_prime": null, "K0_double_prime": null},
       "parameter_error_confidence": null,
-      "fixed_parameters": [],
       "parameter_covariance": null,
       "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 131.928},
       "experimental_pressure_range_gpa": [0.0, 296.11],
@@ -64,42 +58,44 @@
         "recalculation": {"status": "not_applicable", "notes": "No experimental pressure standard is involved."},
         "audit_date": "2026-09-06"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Validated against the final open-access publication; LitCurate was used only as a discovery lead.",
-        "audit_date": "2026-09-08",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "published_uncertainties",
-          "validity",
-          "source_data"
-        ],
-        "primary_source_check": {
-          "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018GL081421",
-          "doi": "10.1029/2018gl081421",
-          "locations": ["Computational methods, Section 2", "Table 1", "Figure 1 and caption", "Equations (4)-(9), Section 3.1"],
-          "finding": "The article explicitly defines a 2500 K BM4 reference isotherm and reports all four coefficients. Figure 1 states that circles are the liquid states used in the EOS fit and squares are nonliquid; matching the exact Table 1 P-V-T coordinates to symbol shape gives 40 circles and six squares without digitizing coordinates. At the Table 1 V/Vx=1 state (V=40.72 cm^3/mol), the converted executable BM4 gives 1.08485 GPa versus the printed 1.07(12) GPa."
-        },
-        "primary_data_check": {
-          "status": "bundled",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Validated against the final open-access publication; LitCurate was used only as a discovery lead.",
           "audit_date": "2026-09-08",
-          "dataset_identifiers": ["fesio3_liquid_sun_2019_table1_pvt", "fesio3_liquid_sun_2019_figures_s3_s4_digitized"],
-          "source_locations": ["Table 1", "Figure 1 and caption", "Supporting Figures S3-S4"],
-          "finding": "All 46 printed P-V-T states and pressure standard errors are transcribed. Figure 1 symbol shapes supply an exact row classification at those already-tabulated coordinates: 40 circle states are liquid and used in the source EOS fit; six square states are nonliquid and excluded. The regression-line slopes in the original high-resolution raster TIFFs for supporting Figures S3-S4 are digitized at nine volumes, yielding the plotted Cv and gamma values with explicit digitization uncertainties."
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "published_uncertainties",
+            "validity",
+            "source_data"
+          ],
+          "primary_source_check": {
+            "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2018GL081421",
+            "doi": "10.1029/2018gl081421",
+            "locations": ["Computational methods, Section 2", "Table 1", "Figure 1 and caption", "Equations (4)-(9), Section 3.1"],
+            "finding": "The article explicitly defines a 2500 K BM4 reference isotherm and reports all four coefficients. Figure 1 states that circles are the liquid states used in the EOS fit and squares are nonliquid; matching the exact Table 1 P-V-T coordinates to symbol shape gives 40 circles and six squares without digitizing coordinates. At the Table 1 V/Vx=1 state (V=40.72 cm^3/mol), the converted executable BM4 gives 1.08485 GPa versus the printed 1.07(12) GPa."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-08",
+            "dataset_identifiers": ["fesio3_liquid_sun_2019_table1_pvt", "fesio3_liquid_sun_2019_figures_s3_s4_digitized"],
+            "source_locations": ["Table 1", "Figure 1 and caption", "Supporting Figures S3-S4"],
+            "finding": "All 46 printed P-V-T states and pressure standard errors are transcribed. Figure 1 symbol shapes supply an exact row classification at those already-tabulated coordinates: 40 circle states are liquid and used in the source EOS fit; six square states are nonliquid and excluded. The regression-line slopes in the original high-resolution raster TIFFs for supporting Figures S3-S4 are digitized at nine volumes, yielding the plotted Cv and gamma values with explicit digitization uncertainties."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Calculated states/theory determine this EOS; source: Computational methods, Section 2; Table 1; Figure 1 and caption; Equations (4)-(9), Section 3.1.",
+          "equation": "Section 3.1, Equations (4)-(9): the reference-temperature pressure P_T0(V) is a fourth-order Birch-Murnaghan EOS at T0=2500 K.",
+          "V0": "Section 3.1: 47.25 cm^3/mol, converted using the exact Avogadro constant to 78.46047092 A^3 per FeSiO3 formula unit.",
+          "K0": "Section 3.1: K_T0=2.217 GPa.",
+          "K0_prime": "Section 3.1: K'_T0=22.913.",
+          "K0_double_prime": "Section 3.1: K''_T0=-175.628 GPa^-1.",
+          "uncertainties": "The paper gives pressure standard errors for Table 1 states but no uncertainties or covariance for the fitted EOS coefficients."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Calculated states/theory determine this EOS; source: Computational methods, Section 2; Table 1; Figure 1 and caption; Equations (4)-(9), Section 3.1.",
-        "equation": "Section 3.1, Equations (4)-(9): the reference-temperature pressure P_T0(V) is a fourth-order Birch-Murnaghan EOS at T0=2500 K.",
-        "V0": "Section 3.1: 47.25 cm^3/mol, converted using the exact Avogadro constant to 78.46047092 A^3 per FeSiO3 formula unit.",
-        "K0": "Section 3.1: K_T0=2.217 GPa.",
-        "K0_prime": "Section 3.1: K'_T0=22.913.",
-        "K0_double_prime": "Section 3.1: K''_T0=-175.628 GPa^-1.",
-        "uncertainties": "The paper gives pressure standard errors for Table 1 states but no uncertainties or covariance for the fitted EOS coefficients."
       },
       "fit_datasets": ["fesio3_liquid_sun_2019_table1_pvt"],
       "numerical_reproduction": {
@@ -140,6 +136,11 @@
       }
     }
   ],
+  "aliases": ["liquid FeSiO3", "molten ferrosilite", "FeSiO3 melt"],
+  "cell_contents": "Liquid EOS volumes are expressed per FeSiO3 formula unit; no crystallographic unit cell is implied.",
+  "atom_sites": [],
+  "peaks": [],
+  "notes": "A non-crystalline material card. The format's cell-volume unit is used as a one-formula-unit volume basis.",
   "datasets": [
     {
       "identifier": "fesio3_liquid_sun_2019_table1_pvt",

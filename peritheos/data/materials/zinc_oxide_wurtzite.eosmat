@@ -1,26 +1,20 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "zinc_oxide_wurtzite",
   "name": "Zinc oxide (wurtzite B4)",
   "formula": "ZnO",
-  "aliases": ["zincite", "wurtzite ZnO"],
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 2,
-  "symmetry": "HEXAGONAL",
-  "space_group": "P63mc",
-  "space_group_number": 186,
-  "lattice": {"a": 3.2518875845, "b": null, "c": 5.2085483441, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
-  "atom_sites": [
-    {"element": "Zn", "wyckoff": "2b", "x": 0.3333333333, "y": 0.6666666667, "z": 0.0, "occupancy": 1.0},
-    {"element": "O", "wyckoff": "2b", "x": 0.3333333333, "y": 0.6666666667, "z": 0.3825, "occupancy": 1.0}
-  ],
-  "peaks": [],
-  "notes": "The wurtzite structure uses the ambient internal coordinate of Kisi and Elcombe, Acta Cryst. C 45, 1867-1870 (1989), doi:10.1107/S0108270189004269. The lattice preserves Hanna et al.'s reported c/a ratio and is normalized to their EoS V0.",
   "eos_records": [
     {
       "identifier": "zinc_oxide_wurtzite_hanna_2011_bm2_1",
       "label": "Hanna et al. (2011), wurtzite BM2",
+      "model": "BM2",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 47.7, "error": 0.12},
+        "K0": {"value": 139.0, "error": 8.0}
+      },
       "determination_method": "experimental",
       "reference": {
         "authors": ["Hanna", "Teklemichael", "McCluskey", "Bergman", "Huso"],
@@ -31,14 +25,6 @@
         "locator": "073511",
         "doi": "10.1063/1.3644969"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "BM2",
-        "parameters": {"V0": 47.7, "K0": 139.0},
-        "model": "birch_murnaghan_2"
-      },
-      "parameter_errors": {"V0": 0.12, "K0": 8.0},
-      "fixed_parameters": [],
       "experimental_pressure_range_gpa": [0.0, 8.3],
       "experimental_temperature_range_k": [300.0, 300.0],
       "notes": "Hanna et al. report V0 = 23.85(6) A^3 per ZnO and K0 = 139(8) GPa with K0' fixed at 4; V0 and its uncertainty are doubled here for the conventional Z=2 cell. The B4-to-B1 transition begins near 8.3 GPa.",
@@ -63,35 +49,48 @@
         },
         "audit_date": "2026-09-03"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.1063/1.3644969",
-          "locations": ["Static EOS formulation", "wurtzite and rocksalt EOS table"],
-          "doi": "10.1063/1.3644969"
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1063/1.3644969",
+            "locations": ["Static EOS formulation", "wurtzite and rocksalt EOS table"],
+            "doi": "10.1063/1.3644969"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "zinc_oxide_wurtzite.json"
+          },
+          "primary_data_check": {
+            "status": "plot_only",
+            "audit_date": "2026-09-03",
+            "digitized_dataset_identifiers": ["zinc_oxide_wurtzite_hanna_2011_figure2_bulk_digitized"],
+            "source_locations": ["Figure 2; Table I"],
+            "finding": "The pure-ZnO wurtzite pressure-volume observations are plotted in Figure 2. Seventeen separable bulk-sample crosses were digitized; open circles are the distinct nanocrystal series and were excluded. Table I contains fitted parameters rather than row-level measurements."
+          }
         },
-        "migration_source": {
-          "project": "Dioptas",
-          "version": "0.10.0",
-          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-          "file": "zinc_oxide_wurtzite.json"
-        },
-        "primary_data_check": {
-          "status": "plot_only",
-          "audit_date": "2026-09-03",
-          "digitized_dataset_identifiers": ["zinc_oxide_wurtzite_hanna_2011_figure2_bulk_digitized"],
-          "source_locations": ["Figure 2; Table I"],
-          "finding": "The pure-ZnO wurtzite pressure-volume observations are plotted in Figure 2. Seventeen separable bulk-sample crosses were digitized; open circles are the distinct nanocrystal series and were excluded. Table I contains fitted parameters rather than row-level measurements."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Static EOS formulation; wurtzite and rocksalt EOS table."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Static EOS formulation; wurtzite and rocksalt EOS table."
       }
     }
   ],
+  "aliases": ["zincite", "wurtzite ZnO"],
+  "symmetry": "HEXAGONAL",
+  "space_group": "P63mc",
+  "space_group_number": 186,
+  "lattice": {"a": 3.2518875845, "b": null, "c": 5.2085483441, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
+  "atom_sites": [
+    {"element": "Zn", "wyckoff": "2b", "x": 0.3333333333, "y": 0.6666666667, "z": 0.0, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "2b", "x": 0.3333333333, "y": 0.6666666667, "z": 0.3825, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "The wurtzite structure uses the ambient internal coordinate of Kisi and Elcombe, Acta Cryst. C 45, 1867-1870 (1989), doi:10.1107/S0108270189004269. The lattice preserves Hanna et al.'s reported c/a ratio and is normalized to their EoS V0.",
   "datasets": [
     {
       "identifier": "zinc_oxide_wurtzite_hanna_2011_figure2_bulk_digitized",

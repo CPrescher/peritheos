@@ -1,24 +1,21 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "magnesium_bcc",
   "name": "Magnesium (bcc)",
   "formula": "Mg",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 2,
-  "symmetry": "CUBIC",
-  "space_group": "Im-3m",
-  "space_group_number": 229,
-  "lattice": {"a": 3.5902720909, "b": null, "c": null, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
-  "atom_sites": [
-    {"element": "Mg", "wyckoff": "2a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0}
-  ],
-  "peaks": [],
-  "notes": "High-pressure bcc magnesium, stored separately from the hcp polymorph.",
   "eos_records": [
     {
       "identifier": "magnesium_bcc_stinton_2014_vinet_1",
       "label": "Stinton et al. (2014), bcc Vinet",
+      "model": "Vinet",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 46.2788, "error": 0.0016, "fixed": true},
+        "K0": {"value": 26.3, "error": 0.6},
+        "K0_prime": {"value": 5.1, "error": 0.06}
+      },
       "determination_method": "experimental",
       "reference": {
         "authors": ["Stinton", "MacLeod", "Cynn", "Errandonea", "Evans", "Proctor", "Meng", "McMahon"],
@@ -29,14 +26,6 @@
         "locator": "134105",
         "doi": "10.1103/PhysRevB.90.134105"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "Vinet",
-        "parameters": {"V0": 46.2788, "K0": 26.3, "K0_prime": 5.1},
-        "model": "vinet"
-      },
-      "parameter_errors": {"V0": 0.0016, "K0": 0.6, "K0_prime": 0.06},
-      "fixed_parameters": ["V0"],
       "experimental_pressure_range_gpa": [46.0, 211.0],
       "experimental_temperature_range_k": [300.0, 300.0],
       "notes": "Room-temperature bcc fit. The published 23.1394 A^3/atom reference volume is multiplied by two for the conventional bcc cell.",
@@ -50,35 +39,46 @@
         "audit_date": "2026-09-03",
         "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://link.aps.org/accepted/10.1103/PhysRevB.90.134105",
-          "locations": ["300 K EOS section", "Vinet fit table for hcp and bcc Mg"],
-          "doi": "10.1103/physrevb.90.134105"
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://link.aps.org/accepted/10.1103/PhysRevB.90.134105",
+            "locations": ["300 K EOS section", "Vinet fit table for hcp and bcc Mg"],
+            "doi": "10.1103/physrevb.90.134105"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "magnesium_bcc.json"
+          },
+          "primary_data_check": {
+            "status": "plot_only",
+            "audit_date": "2026-09-03",
+            "digitized_dataset_identifiers": ["magnesium_stinton_2014_figure1_bcc_digitized"],
+            "source_locations": ["Figure 1; Table I"],
+            "finding": "The room-temperature hcp- and bcc-Mg pressure-volume observations used for the EOS fits are plotted in Figure 1 but not tabulated. Table I contains only fitted EOS parameters, and the article provides no supplemental-data pointer."
+          }
         },
-        "migration_source": {
-          "project": "Dioptas",
-          "version": "0.10.0",
-          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-          "file": "magnesium_bcc.json"
-        },
-        "primary_data_check": {
-          "status": "plot_only",
-          "audit_date": "2026-09-03",
-          "digitized_dataset_identifiers": ["magnesium_stinton_2014_figure1_bcc_digitized"],
-          "source_locations": ["Figure 1; Table I"],
-          "finding": "The room-temperature hcp- and bcc-Mg pressure-volume observations used for the EOS fits are plotted in Figure 1 but not tabulated. Table I contains only fitted EOS parameters, and the article provides no supplemental-data pointer."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: 300 K EOS section; Vinet fit table for hcp and bcc Mg."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: 300 K EOS section; Vinet fit table for hcp and bcc Mg."
       }
     }
   ],
+  "symmetry": "CUBIC",
+  "space_group": "Im-3m",
+  "space_group_number": 229,
+  "lattice": {"a": 3.5902720909, "b": null, "c": null, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Mg", "wyckoff": "2a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "High-pressure bcc magnesium, stored separately from the hcp polymorph.",
   "datasets": [
     {
       "identifier": "magnesium_stinton_2014_figure1_bcc_digitized",

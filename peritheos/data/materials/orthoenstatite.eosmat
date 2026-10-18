@@ -1,11 +1,76 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "orthoenstatite",
   "name": "Orthoenstatite",
   "formula": "MgSiO3",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 16,
+  "eos_records": [
+    {
+      "identifier": "orthoenstatite_angel_2002_bm3_1",
+      "label": "Angel and Jackson (2002), BM3",
+      "model": "BM3",
+      "temperature_ref": 298.0,
+      "parameters": {
+        "V0": {"value": 832.5, "error": 0.2},
+        "K0": {"value": 105.8, "error": 0.5},
+        "K0_prime": {"value": 8.5, "error": 0.3}
+      },
+      "determination_method": "experimental",
+      "reference": {
+        "authors": ["Angel", "Jackson"],
+        "year": 2002,
+        "title": "Elasticity and equation of state of orthoenstatite, MgSiO3",
+        "source": "Am. Mineral.",
+        "volume": "87",
+        "locator": "558-561",
+        "doi": "10.2138/am-2002-0419"
+      },
+      "experimental_pressure_range_gpa": [0.0, 8.5],
+      "experimental_temperature_range_k": [298.0, 298.0],
+      "notes": "Combined room-pressure/high-pressure fit reported after reanalysis of the static compression data.",
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+      },
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Angel_Jackson_AmMin02_87_558.pdf",
+            "locations": ["Abstract", "Table 1", "Summary, page 561"],
+            "finding": "The recommended BM3 parameters combine two compression experiments, Brillouin data, and high-pressure ultrasonic data.",
+            "doi": "10.2138/am-2002-0419"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "orthoenstatite.json"
+          },
+          "primary_data_check": {
+            "status": "plot_only",
+            "audit_date": "2026-09-03",
+            "digitized_dataset_identifiers": ["orthoenstatite_angel_jackson_2002_figure2b_digitized"],
+            "source_locations": ["Figures 1 and 2; Table 1"],
+            "finding": "The orthoenstatite compression observations are shown graphically and combined with elasticity constraints; the article's table reports fitted elastic/EOS summaries rather than a row-level P-V dataset."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Table 1; Summary, page 561."
+        }
+      }
+    }
+  ],
   "symmetry": "ORTHORHOMBIC",
   "space_group": "Pbca",
   "space_group_number": 61,
@@ -24,71 +89,6 @@
   ],
   "peaks": [],
   "notes": "Pbca structure coordinates from Yang and Ghose, Am. Mineral. 80, 9-20 (1995); lattice scaled uniformly to the EoS V0.",
-  "eos_records": [
-    {
-      "identifier": "orthoenstatite_angel_2002_bm3_1",
-      "label": "Angel and Jackson (2002), BM3",
-      "determination_method": "experimental",
-      "reference": {
-        "authors": ["Angel", "Jackson"],
-        "year": 2002,
-        "title": "Elasticity and equation of state of orthoenstatite, MgSiO3",
-        "source": "Am. Mineral.",
-        "volume": "87",
-        "locator": "558-561",
-        "doi": "10.2138/am-2002-0419"
-      },
-      "temperature_ref": 298.0,
-      "eos": {
-        "type": "BM3",
-        "parameters": {"V0": 832.5, "K0": 105.8, "K0_prime": 8.5},
-        "model": "birch_murnaghan_3"
-      },
-      "parameter_errors": {"V0": 0.2, "K0": 0.5, "K0_prime": 0.3},
-      "fixed_parameters": [],
-      "experimental_pressure_range_gpa": [0.0, 8.5],
-      "experimental_temperature_range_k": [298.0, 298.0],
-      "notes": "Combined room-pressure/high-pressure fit reported after reanalysis of the static compression data.",
-      "pressure_calibration": {
-        "status": "unresolved",
-        "methods": [],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
-        },
-        "audit_date": "2026-09-03",
-        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
-      },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Angel_Jackson_AmMin02_87_558.pdf",
-          "locations": ["Abstract", "Table 1", "Summary, page 561"],
-          "finding": "The recommended BM3 parameters combine two compression experiments, Brillouin data, and high-pressure ultrasonic data.",
-          "doi": "10.2138/am-2002-0419"
-        },
-        "migration_source": {
-          "project": "Dioptas",
-          "version": "0.10.0",
-          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-          "file": "orthoenstatite.json"
-        },
-        "primary_data_check": {
-          "status": "plot_only",
-          "audit_date": "2026-09-03",
-          "digitized_dataset_identifiers": ["orthoenstatite_angel_jackson_2002_figure2b_digitized"],
-          "source_locations": ["Figures 1 and 2; Table 1"],
-          "finding": "The orthoenstatite compression observations are shown graphically and combined with elasticity constraints; the article's table reports fitted elastic/EOS summaries rather than a row-level P-V dataset."
-        }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Table 1; Summary, page 561."
-      }
-    }
-  ],
   "datasets": [
     {
       "identifier": "orthoenstatite_angel_jackson_2002_figure2b_digitized",

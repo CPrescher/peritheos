@@ -1,24 +1,21 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "silicon_x",
   "name": "Silicon (Si-X, fcc)",
   "formula": "Si",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
-  "symmetry": "CUBIC",
-  "space_group": "Fm-3m",
-  "space_group_number": 225,
-  "lattice": {"a": 3.761005, "b": null, "c": null, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
-  "atom_sites": [
-    {"element": "Si", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0}
-  ],
-  "peaks": [],
-  "notes": "Face-centered-cubic Si-X. The reference cell is calculated from the extrapolated conventional-cell V0. PhaseSmith calculates powder reflections and intensities from the ideal structure.",
   "eos_records": [
     {
       "identifier": "silicon_x_anzellini_2019_vinet_1",
       "label": "Anzellini et al. (2019), 300 K Vinet",
+      "model": "Vinet",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 53.2, "error": 0.8},
+        "K0": {"value": 136.0, "error": 5.0},
+        "K0_prime": {"value": 4.2, "error": 0.3}
+      },
       "determination_method": "experimental",
       "reference": {
         "authors": ["Anzellini", "Wharmby", "Miozzi", "Kleppe", "Daisenberger", "Wilhelm"],
@@ -29,15 +26,7 @@
         "locator": "15537",
         "doi": "10.1038/s41598-019-51931-1"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "Vinet",
-        "parameters": {"V0": 53.2, "K0": 136.0, "K0_prime": 4.2},
-        "model": "vinet"
-      },
-      "parameter_errors": {"V0": 0.8, "K0": 5.0, "K0_prime": 0.3},
       "parameter_error_confidence": 0.95,
-      "fixed_parameters": [],
       "experimental_pressure_range_gpa": [90.8, 105.2],
       "notes": "Table 8 room-temperature fit. Published V0=13.3 A^3/atom is multiplied by four atoms in the conventional fcc cell; V0 is extrapolated because Si-X appears above about 91 GPa.",
       "pressure_calibration": {
@@ -85,36 +74,47 @@
         },
         "audit_date": "2026-09-03"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.1038/s41598-019-51931-1",
-          "locations": ["Equation-of-state discussion", "Table 8"],
-          "finding": "Per-atom volumes were converted using each phase's conventional-cell Z.",
-          "doi": "10.1038/s41598-019-51931-1"
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1038/s41598-019-51931-1",
+            "locations": ["Equation-of-state discussion", "Table 8"],
+            "finding": "Per-atom volumes were converted using each phase's conventional-cell Z.",
+            "doi": "10.1038/s41598-019-51931-1"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "silicon_x.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["silicon_anzellini_2019_tables1_4_6_7_compression"],
+            "source_locations": ["Tables 1, 4, 6, and 7"],
+            "finding": "The 141 normalized Si lattice-parameter observations from Tables 1, 4, 6, and 7, retaining all reported pressure gauges and calibrant lattice parameters."
+          }
         },
-        "migration_source": {
-          "project": "Dioptas",
-          "version": "0.10.0",
-          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-          "file": "silicon_x.json"
-        },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-03",
-          "dataset_identifiers": ["silicon_anzellini_2019_tables1_4_6_7_compression"],
-          "source_locations": ["Tables 1, 4, 6, and 7"],
-          "finding": "The 141 normalized Si lattice-parameter observations from Tables 1, 4, 6, and 7, retaining all reported pressure gauges and calibrant lattice parameters."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation-of-state discussion; Table 8."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation-of-state discussion; Table 8."
       }
     }
   ],
+  "symmetry": "CUBIC",
+  "space_group": "Fm-3m",
+  "space_group_number": 225,
+  "lattice": {"a": 3.761005, "b": null, "c": null, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Si", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Face-centered-cubic Si-X. The reference cell is calculated from the extrapolated conventional-cell V0. PhaseSmith calculates powder reflections and intensities from the ideal structure.",
   "datasets": [
     {
       "identifier": "silicon_anzellini_2019_tables1_4_6_7_compression",

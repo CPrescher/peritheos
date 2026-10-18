@@ -1,24 +1,21 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "osmium",
   "name": "Osmium",
   "formula": "Os",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 2,
-  "symmetry": "HEXAGONAL",
-  "space_group": "P63/mmc",
-  "space_group_number": 194,
-  "lattice": {"a": 2.7348, "b": null, "c": 4.3193, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
-  "atom_sites": [
-    {"element": "Os", "wyckoff": "2c", "x": 0.3333333333, "y": 0.6666666667, "z": 0.25, "occupancy": 1.0}
-  ],
-  "peaks": [],
-  "notes": "Ambient hcp osmium structure; PhaseSmith calculates the reflection list.",
   "eos_records": [
     {
       "identifier": "osmium_takemura_2004_bm3_1",
       "label": "Takemura (2004), BM3",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 27.9766135265, "error": 0.0188},
+        "K0": {"value": 395.0, "error": 15.0},
+        "K0_prime": {"value": 4.5, "error": 0.5}
+      },
       "determination_method": "experimental",
       "reference": {
         "authors": ["Takemura"],
@@ -29,14 +26,6 @@
         "locator": "012101",
         "doi": "10.1103/PhysRevB.70.012101"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "BM3",
-        "parameters": {"V0": 27.9766135265, "K0": 395.0, "K0_prime": 4.5},
-        "model": "birch_murnaghan_3"
-      },
-      "parameter_errors": {"V0": 0.0188, "K0": 15.0, "K0_prime": 0.5},
-      "fixed_parameters": [],
       "experimental_pressure_range_gpa": [0.0, 58.2],
       "experimental_temperature_range_k": [300.0, 300.0],
       "pressure_calibration": {
@@ -60,36 +49,47 @@
         },
         "audit_date": "2026-09-03"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.012101/fulltext",
-          "locations": ["Table I", "page 2 EOS discussion", "Figure 2"],
-          "finding": "The paper fixes relative V0 to unity; the absolute hcp cell follows its stated ambient lattice parameters.",
-          "doi": "10.1103/physrevb.70.012101"
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.012101/fulltext",
+            "locations": ["Table I", "page 2 EOS discussion", "Figure 2"],
+            "finding": "The paper fixes relative V0 to unity; the absolute hcp cell follows its stated ambient lattice parameters.",
+            "doi": "10.1103/physrevb.70.012101"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "osmium.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["osmium_takemura_2004_table1_compression"],
+            "source_locations": ["Table I, page 012101-2"],
+            "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+          }
         },
-        "migration_source": {
-          "project": "Dioptas",
-          "version": "0.10.0",
-          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-          "file": "osmium.json"
-        },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-03",
-          "dataset_identifiers": ["osmium_takemura_2004_table1_compression"],
-          "source_locations": ["Table I, page 012101-2"],
-          "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table I; page 2 EOS discussion; Figure 2."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table I; page 2 EOS discussion; Figure 2."
       }
     }
   ],
+  "symmetry": "HEXAGONAL",
+  "space_group": "P63/mmc",
+  "space_group_number": 194,
+  "lattice": {"a": 2.7348, "b": null, "c": 4.3193, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
+  "atom_sites": [
+    {"element": "Os", "wyckoff": "2c", "x": 0.3333333333, "y": 0.6666666667, "z": 0.25, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Ambient hcp osmium structure; PhaseSmith calculates the reflection list.",
   "datasets": [
     {
       "identifier": "osmium_takemura_2004_table1_compression",

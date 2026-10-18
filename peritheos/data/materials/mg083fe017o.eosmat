@@ -1,30 +1,34 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "mg083fe017o",
   "name": "(Mg0.83Fe0.17)O high-spin ferropericlase",
   "formula": "Mg0.83Fe0.17O",
   "phase": "high-spin B1 ferropericlase",
-  "aliases": ["(Mg0.83,Fe0.17)O", "Fe17 ferropericlase"],
-  "family_id": "mg_fe_monoxide",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
-  "cell_contents": "Four Mg0.83Fe0.17O formula units per conventional rocksalt cell.",
-  "symmetry": "CUBIC",
-  "space_group": "Fm-3m",
-  "space_group_number": 225,
-  "lattice": {"a": 4.2331, "b": 4.2331, "c": 4.2331, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
-  "atom_sites": [
-    {"element": "Mg", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 0.83, "site_multiplicity": 4},
-    {"element": "Fe", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 0.17, "site_multiplicity": 4},
-    {"element": "O", "wyckoff": "4b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1.0, "site_multiplicity": 4}
-  ],
-  "peaks": [],
-  "notes": "The source synthesized a stoichiometric B1-NaCl powder and reports its ambient lattice parameter as 4.2331(2) A. The mixed cation sites are the ideal average rocksalt representation; the paper does not report an atomic-position refinement.",
   "eos_records": [
     {
       "identifier": "mg083fe017o_matsui_2012_bm3_mgd_1",
       "label": "Matsui et al. (2012), (Mg0.83Fe0.17)O high-spin BM3-MGD",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 75.849, "error": 0.011},
+        "K0": {"value": 160.0, "fixed": true},
+        "K0_prime": {"value": 4.08, "error": 0.02}
+      },
+      "thermal": {
+        "debye_temperature_law": "integrated_gruneisen",
+        "thermal_pressure_reference": "reference_temperature",
+        "parameters": {
+          "Tr": {"value": 300.0, "fixed": true},
+          "theta0": {"value": 500.0, "fixed": true},
+          "gamma0": {"value": 1.53, "error": 0.04},
+          "q": {"value": 0.7, "error": 0.2},
+          "n": {"value": 2.0, "fixed": true}
+        },
+        "model": "MieGruneisenDebye"
+      },
       "record_kind": "published",
       "determination_method": "experimental",
       "equation_kind": "thermal",
@@ -38,24 +42,7 @@
         "locator": "176-183",
         "doi": "10.2138/am.2012.3937"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 75.849, "K0": 160.0, "K0_prime": 4.08}
-      },
-      "thermal": {
-        "type": "MieGruneisenDebye",
-        "model": "mie_gruneisen_debye",
-        "debye_temperature_law": "integrated_gruneisen",
-        "thermal_pressure_reference": "reference_temperature",
-        "parameters": {"Tr": 300.0, "theta0": 500.0, "gamma0": 1.53, "q": 0.7, "n": 2.0},
-        "parameter_errors": {"gamma0": 0.04, "q": 0.2},
-        "fixed_parameters": ["Tr", "theta0", "n"]
-      },
-      "parameter_errors": {"V0": 0.011, "K0_prime": 0.02},
       "parameter_error_confidence": null,
-      "fixed_parameters": ["K0"],
       "parameter_covariance": null,
       "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 45.6658},
       "experimental_pressure_range_gpa": [0.0, 47.0],
@@ -95,41 +82,43 @@
         },
         "audit_date": "2026-09-05"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-05",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://www.rruff.net/odr/view/downloadfile/81129",
-          "doi": "10.2138/am.2012.3937",
-          "locations": [
-            "Experiments, page 177",
-            "Equations (1)-(6), pages 178-179",
-            "Tables 1 and 3, pages 178-179",
-            "High-spin to low-spin transition, page 180"
-          ],
-          "finding": "The source defines a reference-subtracted 300 K BM3-MGD EOS for stoichiometric high-spin (Mg0.83Fe0.17)O, fitted only below 47 GPa."
-        },
-        "primary_data_check": {
-          "status": "bundled",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
           "audit_date": "2026-09-05",
-          "dataset_identifiers": ["mg083fe017o_matsui_2012_table1_pvt"],
-          "source_locations": ["Table 1, all 34 rows"],
-          "finding": "Every printed temperature, ferropericlase conventional-cell volume, Au V/V0, observed/calculated pressure, residual, and parenthetical uncertainty is transcribed; the high-pressure rows remain explicit exclusions."
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://www.rruff.net/odr/view/downloadfile/81129",
+            "doi": "10.2138/am.2012.3937",
+            "locations": [
+              "Experiments, page 177",
+              "Equations (1)-(6), pages 178-179",
+              "Tables 1 and 3, pages 178-179",
+              "High-spin to low-spin transition, page 180"
+            ],
+            "finding": "The source defines a reference-subtracted 300 K BM3-MGD EOS for stoichiometric high-spin (Mg0.83Fe0.17)O, fitted only below 47 GPa."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-05",
+            "dataset_identifiers": ["mg083fe017o_matsui_2012_table1_pvt"],
+            "source_locations": ["Table 1, all 34 rows"],
+            "finding": "Every printed temperature, ferropericlase conventional-cell volume, Au V/V0, observed/calculated pressure, residual, and parenthetical uncertainty is transcribed; the high-pressure rows remain explicit exclusions."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experiments, page 177; Equations (1)-(6), pages 178-179; Tables 1 and 3, pages 178-179; High-spin to low-spin transition, page 180.",
+          "equation": "Equations (1)-(6), pages 178-179: 300 K BM3 plus a Mie-Gruneisen-Debye thermal-pressure increment E_D(V,T)-E_D(V,300 K).",
+          "V0": "Table 3: V0=75.849(11) A^3, fitted from the 300 K rows below 47 GPa.",
+          "K0": "Table 3 and page 179: K0T=160 GPa, fixed from the MgO literature.",
+          "K0_prime": "Table 3: K0T'=4.08(2), fitted from the 300 K rows below 47 GPa.",
+          "theta0": "Table 3 and page 179: theta0=500 K, fixed from ferropericlase literature.",
+          "gamma0": "Table 3: gamma0=1.53(4), fitted to the 700 and 1100 K rows below 47 GPa.",
+          "q": "Table 3: q=0.7(2), fitted to the 700 and 1100 K rows below 47 GPa.",
+          "fit_selection": "The 300 K BM3 fit and subsequent 700/1100 K thermal fit use measured rows below 47 GPa; all higher-pressure rows are retained but excluded because the source limits the EOS to high-spin Fe2+.",
+          "weighting": "Least-squares fitting is stated for gamma0 and q, but the source does not publish weights, covariance, or the numerical fitting program."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experiments, page 177; Equations (1)-(6), pages 178-179; Tables 1 and 3, pages 178-179; High-spin to low-spin transition, page 180.",
-        "equation": "Equations (1)-(6), pages 178-179: 300 K BM3 plus a Mie-Gruneisen-Debye thermal-pressure increment E_D(V,T)-E_D(V,300 K).",
-        "V0": "Table 3: V0=75.849(11) A^3, fitted from the 300 K rows below 47 GPa.",
-        "K0": "Table 3 and page 179: K0T=160 GPa, fixed from the MgO literature.",
-        "K0_prime": "Table 3: K0T'=4.08(2), fitted from the 300 K rows below 47 GPa.",
-        "theta0": "Table 3 and page 179: theta0=500 K, fixed from ferropericlase literature.",
-        "gamma0": "Table 3: gamma0=1.53(4), fitted to the 700 and 1100 K rows below 47 GPa.",
-        "q": "Table 3: q=0.7(2), fitted to the 700 and 1100 K rows below 47 GPa.",
-        "fit_selection": "The 300 K BM3 fit and subsequent 700/1100 K thermal fit use measured rows below 47 GPa; all higher-pressure rows are retained but excluded because the source limits the EOS to high-spin Fe2+.",
-        "weighting": "Least-squares fitting is stated for gamma0 and q, but the source does not publish weights, covariance, or the numerical fitting program."
       },
       "fit_datasets": ["mg083fe017o_matsui_2012_table1_pvt"],
       "experimental_configuration": {
@@ -143,6 +132,13 @@
     {
       "identifier": "mg083fe017o_solomatova_2016_hs_bm3_reference_1",
       "label": "Solomatova et al. (2016), Lin-data high-spin BM3 reference branch",
+      "model": "BM3",
+      "temperature_ref": 300,
+      "parameters": {
+        "V0": {"value": 75.94, "error": 0.1},
+        "K0": {"value": 160, "error": 2},
+        "K0_prime": {"value": 4.04, "error": 0.16}
+      },
       "record_kind": "published",
       "determination_method": "experimental",
       "equation_kind": "isothermal",
@@ -155,14 +151,6 @@
         "locator": "1084-1093",
         "doi": "10.2138/am-2016-5510"
       },
-      "temperature_ref": 300,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 75.94, "K0": 160, "K0_prime": 4.04}
-      },
-      "parameter_errors": {"V0": 0.1, "K0": 2, "K0_prime": 0.16},
-      "fixed_parameters": [],
       "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 45.6658},
       "validity": {
         "pressure_gpa": [0, 140],
@@ -175,32 +163,34 @@
         "recalculation": {"status": "missing_calibrant_observations", "notes": "Row-wise calibrants not reprinted."},
         "audit_date": "2026-09-05"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
-          "doi": "10.2138/am-2016-5510",
-          "locations": ["Table 7"],
-          "finding": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit."
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+            "doi": "10.2138/am-2016-5510",
+            "locations": ["Table 7"],
+            "finding": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit."
+          },
+          "primary_data_check": {
+            "status": "digitized_normalized_primary_figure",
+            "audit_date": "2026-09-08",
+            "digitized_dataset_identifiers": ["mg083fe017o_lin_2005_figure2_300k_digitized"],
+            "source_locations": ["Lin et al. (2005), Figure 2", "Solomatova et al. (2016), Tables 2 and 7"],
+            "finding": "The 43 plotted V/V0,HS observations are bundled, but the primary figure does not supply the absolute V0,HS normalization. A Table-7-anchored shape fit is diagnostic only, so the absolute HS/LS branch pair remains not independently refittable."
+          }
         },
-        "primary_data_check": {
-          "status": "digitized_normalized_primary_figure",
-          "audit_date": "2026-09-08",
-          "digitized_dataset_identifiers": ["mg083fe017o_lin_2005_figure2_300k_digitized"],
-          "source_locations": ["Lin et al. (2005), Figure 2", "Solomatova et al. (2016), Tables 2 and 7"],
-          "finding": "The 43 plotted V/V0,HS observations are bundled, but the primary figure does not supply the absolute V0,HS normalization. A Table-7-anchored shape fit is diagnostic only, so the absolute HS/LS branch pair remains not independently refittable."
+        "parameter_provenance": {
+          "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
+          "equation": "Table 7 paired BM3 reference branches.",
+          "V0": "Table 7: 75.94 A^3.",
+          "K0": "Table 7: 160 GPa.",
+          "K0_prime": "Table 7 HS value.",
+          "original_dataset": "Lin et al. (2005), DOI 10.1038/nature03825."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
-        "equation": "Table 7 paired BM3 reference branches.",
-        "V0": "Table 7: 75.94 A^3.",
-        "K0": "Table 7: 160 GPa.",
-        "K0_prime": "Table 7 HS value.",
-        "original_dataset": "Lin et al. (2005), DOI 10.1038/nature03825."
       },
       "spin_crossover_context": {
         "branch": "high_spin_reference",
@@ -212,6 +202,13 @@
     {
       "identifier": "mg083fe017o_solomatova_2016_ls_bm3_reference_2",
       "label": "Solomatova et al. (2016), Lin-data low-spin BM3 reference branch",
+      "model": "BM3",
+      "temperature_ref": 300,
+      "parameters": {
+        "V0": {"value": 72.29, "error": 0.41},
+        "K0": {"value": 190, "error": 6},
+        "K0_prime": {"value": 4, "error": null, "fixed": true}
+      },
       "record_kind": "published",
       "determination_method": "experimental",
       "equation_kind": "isothermal",
@@ -224,14 +221,6 @@
         "locator": "1084-1093",
         "doi": "10.2138/am-2016-5510"
       },
-      "temperature_ref": 300,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 72.29, "K0": 190, "K0_prime": 4}
-      },
-      "parameter_errors": {"V0": 0.41, "K0": 6, "K0_prime": null},
-      "fixed_parameters": ["K0_prime"],
       "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 45.6658},
       "validity": {
         "pressure_gpa": [0, 140],
@@ -244,32 +233,34 @@
         "recalculation": {"status": "missing_calibrant_observations", "notes": "Row-wise calibrants not reprinted."},
         "audit_date": "2026-09-05"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
-          "doi": "10.2138/am-2016-5510",
-          "locations": ["Table 7"],
-          "finding": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit."
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+            "doi": "10.2138/am-2016-5510",
+            "locations": ["Table 7"],
+            "finding": "Lin-data paired HS/LS BM3 branches from coupled MINUTI fit."
+          },
+          "primary_data_check": {
+            "status": "digitized_normalized_primary_figure",
+            "audit_date": "2026-09-08",
+            "digitized_dataset_identifiers": ["mg083fe017o_lin_2005_figure2_300k_digitized"],
+            "source_locations": ["Lin et al. (2005), Figure 2", "Solomatova et al. (2016), Tables 2 and 7"],
+            "finding": "The 43 plotted V/V0,HS observations are bundled, but the primary figure does not supply the absolute V0,HS normalization. A Table-7-anchored shape fit is diagnostic only, so the absolute HS/LS branch pair remains not independently refittable."
+          }
         },
-        "primary_data_check": {
-          "status": "digitized_normalized_primary_figure",
-          "audit_date": "2026-09-08",
-          "digitized_dataset_identifiers": ["mg083fe017o_lin_2005_figure2_300k_digitized"],
-          "source_locations": ["Lin et al. (2005), Figure 2", "Solomatova et al. (2016), Tables 2 and 7"],
-          "finding": "The 43 plotted V/V0,HS observations are bundled, but the primary figure does not supply the absolute V0,HS normalization. A Table-7-anchored shape fit is diagnostic only, so the absolute HS/LS branch pair remains not independently refittable."
+        "parameter_provenance": {
+          "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
+          "equation": "Table 7 paired BM3 reference branches.",
+          "V0": "Table 7: 72.29 A^3.",
+          "K0": "Table 7: 190 GPa.",
+          "K0_prime": "Fixed to 4.",
+          "original_dataset": "Lin et al. (2005), DOI 10.1038/nature03825."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
-        "equation": "Table 7 paired BM3 reference branches.",
-        "V0": "Table 7: 72.29 A^3.",
-        "K0": "Table 7: 190 GPa.",
-        "K0_prime": "Fixed to 4.",
-        "original_dataset": "Lin et al. (2005), DOI 10.1038/nature03825."
       },
       "spin_crossover_context": {
         "branch": "low_spin_reference",
@@ -279,6 +270,20 @@
       }
     }
   ],
+  "aliases": ["(Mg0.83,Fe0.17)O", "Fe17 ferropericlase"],
+  "family_id": "mg_fe_monoxide",
+  "cell_contents": "Four Mg0.83Fe0.17O formula units per conventional rocksalt cell.",
+  "symmetry": "CUBIC",
+  "space_group": "Fm-3m",
+  "space_group_number": 225,
+  "lattice": {"a": 4.2331, "b": 4.2331, "c": 4.2331, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Mg", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 0.83, "site_multiplicity": 4},
+    {"element": "Fe", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 0.17, "site_multiplicity": 4},
+    {"element": "O", "wyckoff": "4b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1.0, "site_multiplicity": 4}
+  ],
+  "peaks": [],
+  "notes": "The source synthesized a stoichiometric B1-NaCl powder and reports its ambient lattice parameter as 4.2331(2) A. The mixed cation sites are the ideal average rocksalt representation; the paper does not report an atomic-position refinement.",
   "datasets": [
     {
       "identifier": "mg083fe017o_matsui_2012_table1_pvt",

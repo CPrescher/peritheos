@@ -21,6 +21,7 @@ from peritheos import get_eos_record
 from peritheos.eos.rt import BM3
 from peritheos.eos.thermal import MieGruneisenDebye
 from peritheos.units import cell_volume_to_molar_volume
+from scripts.eosmat_io import read_material
 
 ROOT = Path(__file__).resolve().parents[1]
 TABLE_RECORD = "forsterite_katsura_2022_bm3_mgd"
@@ -252,9 +253,7 @@ def rerun_reconstructed_input() -> dict:
             }
         )
     # Table 2 error widths are a comparison scale, not script-specific errors.
-    document = json.loads(
-        (ROOT / "peritheos/data/materials/forsterite.eosmat").read_text()
-    )
+    document = read_material(ROOT / "peritheos/data/materials/forsterite.eosmat")
     table_record = next(
         record
         for record in document["eos_records"]
@@ -507,9 +506,7 @@ def update_global_ledgers(report: dict) -> None:
     from scripts.generate_paper_investigation_ledger import render as render_papers
     from scripts.validate_primary_eos_refits import render_markdown
 
-    document = json.loads(
-        (ROOT / "peritheos/data/materials/forsterite.eosmat").read_text()
-    )
+    document = read_material(ROOT / "peritheos/data/materials/forsterite.eosmat")
     records = [
         r for r in document["eos_records"] if r["identifier"] in {RECORD, TABLE_RECORD}
     ]

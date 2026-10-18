@@ -1,10 +1,10 @@
-import json
 from pathlib import Path
 
 import numpy as np
 import pytest
 
 from peritheos import Material
+from scripts.eosmat_io import read_material
 from scripts.reproduce_marcondes_2020_ferropericlase import (
     TABLE_I,
     bm3_pressure,
@@ -17,11 +17,7 @@ DOI = "10.1103/physrevb.102.104112"
 
 def _documents() -> list[dict]:
     return [
-        json.loads(
-            (ROOT / f"peritheos/data/materials/{name}.eosmat").read_text(
-                encoding="utf-8"
-            )
-        )
+        read_material(ROOT / f"peritheos/data/materials/{name}.eosmat")
         for name in ("mg096875fe003125o", "mg09375fe00625o")
     ]
 

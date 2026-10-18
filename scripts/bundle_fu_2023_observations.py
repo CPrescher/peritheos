@@ -10,7 +10,6 @@ from __future__ import annotations
 import argparse
 import csv
 import hashlib
-import json
 from pathlib import Path
 
 from audit_fu_2023_casio3_refit import (
@@ -19,6 +18,8 @@ from audit_fu_2023_casio3_refit import (
     _arrays,
     parse_greaux_table,
 )
+
+from scripts.eosmat_io import read_material, write_material
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "peritheos/data"
@@ -157,7 +158,7 @@ def bundle(workbook: Path) -> None:
     assert len(rows) == 174
     resource = write_csv(DATA / COMPOSITE_PATH, rows)
     path = DATA / "materials/ca_perovskite.eosmat"
-    document = json.loads(path.read_text(encoding="utf-8"))
+    document = read_material(path)
     dataset = next(d for d in document["datasets"] if d["identifier"] == DATASET)
     dataset.pop("rows", None)
     dataset.update(
@@ -242,9 +243,7 @@ def bundle(workbook: Path) -> None:
         )
         if record["identifier"] == PUBLISHED_RECORD:
             record["supporting_datasets"] = [DATASET]
-    path.write_text(
-        json.dumps(document, indent=1, ensure_ascii=False) + "\n", encoding="utf-8"
-    )
+    write_material(path, document)
 
 
 if __name__ == "__main__":

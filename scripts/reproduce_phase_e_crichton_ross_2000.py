@@ -16,6 +16,8 @@ from pathlib import Path
 import numpy as np
 from scipy.optimize import least_squares
 
+from scripts.eosmat_io import read_material
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "peritheos/data/datasets"
 CARD = ROOT / "peritheos/data/materials/phase_e_fe0072.eosmat"
@@ -163,7 +165,7 @@ def diagnostic_fit(observations, mode, include_ambient=True):
 
 
 def reproduce(card_path=CARD):
-    document = json.loads(Path(card_path).read_text())
+    document = read_material(Path(card_path))
     source = json.loads(SOURCE.read_text())
     rows = load_observations()
     embedded = np.asarray(document["datasets"][0]["rows"], dtype=float)

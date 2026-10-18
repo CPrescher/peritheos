@@ -1,42 +1,22 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "phase_egg",
   "name": "Phase Egg",
   "formula": "Al0.98Si0.92H1.39O4",
   "phase": "monoclinic Al-bearing hydrous phase Egg, sample S5050",
-  "aliases": ["AlSiO3OH phase Egg", "AlSiO3(OH) phase Egg", "phase egg", "AlSiO3OH", "AlSiO4H"],
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
-  "cell_contents": "Four nominal AlSiO3OH formula units in the conventional monoclinic P21/n cell; the analyzed EOS specimen has the non-stoichiometric central composition Al0.98Si0.92H1.39O4 per nominal formula unit.",
-  "symmetry": "MONOCLINIC",
-  "space_group": "P21/n",
-  "space_group_number": 14,
-  "lattice": {"a": 7.1835, "b": 4.3287, "c": 6.9672, "alpha": 90.0, "beta": 98.202, "gamma": 90.0},
-  "atom_sites": [
-    {"element": "Al", "wyckoff": "4e", "x": 0.06552, "y": 0.01868, "z": 0.71036, "occupancy": 1.0, "source_label": "AL"},
-    {"element": "Si", "wyckoff": "4e", "x": 0.68143, "y": 0.01029, "z": 0.5814, "occupancy": 1.0, "source_label": "SI"},
-    {"element": "O", "wyckoff": "4e", "x": 0.15108, "y": 0.2093, "z": 0.261, "occupancy": 1.0, "source_label": "O1"},
-    {"element": "O", "wyckoff": "4e", "x": 0.52213, "y": 0.201, "z": 0.39554, "occupancy": 1.0, "source_label": "O2"},
-    {"element": "O", "wyckoff": "4e", "x": 0.88225, "y": 0.2036, "z": 0.51364, "occupancy": 1.0, "source_label": "O3"},
-    {"element": "O", "wyckoff": "4e", "x": 0.76136, "y": 0.2228, "z": 0.1282, "occupancy": 1.0, "source_label": "O4"},
-    {
-      "element": "H",
-      "wyckoff": "4e",
-      "x": 0.796,
-      "y": 0.553,
-      "z": 0.422,
-      "occupancy": 1.0,
-      "source_label": "H",
-      "coordinate_provenance": "Schmidt et al. (1998), Table 4; used for the H atoms in Schulze et al. (2018), Figure 1, but not refined in the 2018 deposited CIF"
-    }
-  ],
-  "peaks": [],
-  "notes": "The article writes the analyzed composition as Al0.98(1)Si0.92(1)O3OH1.39(5). This is condensed hydroxyl notation for Al0.98Si0.92H1.39O4 (three O plus one O bearing 1.39 H), consistent with the official CIF analytical formula; it is not O4.39. The deposited 2018 X-ray structure fixes Al and Si occupancies to unity because refined and fixed-occupancy models were indistinguishable, and it contains no H atom site. The ideal fully occupied structural model therefore has Al4Si4H4O16 cell contents and is a diffraction model for the analyzed Al3.92Si3.68H5.56O16 composition, not an assertion that the measured vacancies or excess hydrogen were crystallographically resolved. The H coordinate is the powder-XRD position from Schmidt et al. (1998) explicitly used in the 2018 paper's Figure 1. The structural ambient volume, 214.431(13) A^3, differs from fitted V0 because the authors excluded the in-house ambient point from the synchrotron EOS regression. The Mookherjee et al. (2019) record uses the ideal nominal formula AlSiO3(OH); its EOS metadata remains record-specific. The ambient diffraction structure is Schmidt et al.'s ordered P21/n refinement: the seven fully occupied 4e sites give four AlSiO4H formula units and the reported lattice gives 212.99 A^3. P21/n is the alternate setting of P21/c (space-group number 14). The structural volume is intentionally distinct from the static-DFT LP EOS reference volume of 210.21 A^3. Phase D is a different composition and material in the catalog.",
   "eos_records": [
     {
       "identifier": "phase_egg_schulze_2018_bm3_1",
       "label": "Schulze et al. (2018), single-crystal BM3",
+      "model": "BM3",
+      "temperature_ref": 293.0,
+      "parameters": {
+        "V0": {"value": 214.08, "error": 0.17},
+        "K0": {"value": 153.0, "error": 8.0},
+        "K0_prime": {"value": 8.6, "error": 1.2}
+      },
       "record_kind": "published",
       "determination_method": "experimental",
       "equation_kind": "isothermal",
@@ -50,14 +30,6 @@
         "locator": "1975-1980",
         "doi": "10.2138/am-2018-6562"
       },
-      "temperature_ref": 293.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 214.08, "K0": 153.0, "K0_prime": 8.6}
-      },
-      "parameter_errors": {"V0": 0.17, "K0": 8.0, "K0_prime": 1.2},
-      "fixed_parameters": [],
       "parameter_covariance": null,
       "experimental_pressure_range_gpa": [1.09, 23.33],
       "pressure_range_status": "reported_exactly",
@@ -87,78 +59,80 @@
         },
         "audit_date": "2026-09-04"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Validated against the accepted author manuscript and official MSA deposit. The final article's Table 2 is internally inconsistent about the K0-prime error: the table prints 1.2, whereas the abstract and EOS prose print 1.3. The tabulated parameter error is stored and the discrepancy is not silently averaged.",
-        "audit_date": "2026-09-04",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "composition",
-          "cell_setting",
-          "formula_units_per_cell",
-          "structure",
-          "published_uncertainties",
-          "validity",
-          "pressure_calibration",
-          "primary_data"
-        ],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.2138/am-2018-6562",
-          "locations": [
-            "Methods, sample synthesis and characterization",
-            "Methods, high-pressure experiments",
-            "Results, compressibility of Phase Egg",
-            "Tables 1-2",
-            "official MSA deposit AM-18-126562, 6562schulze.cif and 6562supp.pdf"
-          ],
-          "finding": "The source fully defines a conventional-cell, room-temperature, three-free-parameter BM3 fit to 15 single-crystal synchrotron P-V observations. The separately printed re-fit uses Vanpeteghem et al.'s 2003 powder data and is not another fit to this specimen.",
-          "doi": "10.2138/am-2018-6562",
-          "accepted_manuscript_sha256": "41333eb0e784d90ca0277bdd7ac7c0a7fbd3109691463f04385c0baa199b038a",
-          "official_deposit_sha256": "fa91df7ca987165cfeb89d9cb3035afba02794bd10a7423cc4a5cc836ebbdd97"
-        },
-        "primary_data_check": {
-          "status": "bundled",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Validated against the accepted author manuscript and official MSA deposit. The final article's Table 2 is internally inconsistent about the K0-prime error: the table prints 1.2, whereas the abstract and EOS prose print 1.3. The tabulated parameter error is stored and the discrepancy is not silently averaged.",
           "audit_date": "2026-09-04",
-          "dataset_identifiers": ["phase_egg_schulze_2018_table1_compression"],
-          "source_locations": ["Table 1, article page 1978", "official MSA deposit AM-18-126562, CIF cell blocks"],
-          "finding": "All 16 Table 1 rows are embedded with cell-parameter and pressure uncertainties; the source-marked in-house ambient row is retained but flagged as excluded, leaving the 15 synchrotron rows used by the published fit. Ruby wavelengths are not reported."
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "composition",
+            "cell_setting",
+            "formula_units_per_cell",
+            "structure",
+            "published_uncertainties",
+            "validity",
+            "pressure_calibration",
+            "primary_data"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.2138/am-2018-6562",
+            "locations": [
+              "Methods, sample synthesis and characterization",
+              "Methods, high-pressure experiments",
+              "Results, compressibility of Phase Egg",
+              "Tables 1-2",
+              "official MSA deposit AM-18-126562, 6562schulze.cif and 6562supp.pdf"
+            ],
+            "finding": "The source fully defines a conventional-cell, room-temperature, three-free-parameter BM3 fit to 15 single-crystal synchrotron P-V observations. The separately printed re-fit uses Vanpeteghem et al.'s 2003 powder data and is not another fit to this specimen.",
+            "doi": "10.2138/am-2018-6562",
+            "accepted_manuscript_sha256": "41333eb0e784d90ca0277bdd7ac7c0a7fbd3109691463f04385c0baa199b038a",
+            "official_deposit_sha256": "fa91df7ca987165cfeb89d9cb3035afba02794bd10a7423cc4a5cc836ebbdd97"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-04",
+            "dataset_identifiers": ["phase_egg_schulze_2018_table1_compression"],
+            "source_locations": ["Table 1, article page 1978", "official MSA deposit AM-18-126562, CIF cell blocks"],
+            "finding": "All 16 Table 1 rows are embedded with cell-parameter and pressure uncertainties; the source-marked in-house ambient row is retained but flagged as excluded, leaving the 15 synchrotron rows used by the published fit. Ruby wavelengths are not reported."
+          },
+          "numerical_reproduction": {
+            "published_state": {"pressure_gpa": 23.33, "volume_a3": 193.75},
+            "calculated_pressure_gpa": 23.0655725641,
+            "absolute_difference_gpa": 0.2644274359,
+            "tolerance_gpa": 0.46,
+            "tolerance_basis": "The maximum absolute pressure residual of the printed 15-row dataset under the rounded published coefficients is 0.4535 GPa."
+          }
         },
-        "numerical_reproduction": {
-          "published_state": {"pressure_gpa": 23.33, "volume_a3": 193.75},
-          "calculated_pressure_gpa": 23.0655725641,
-          "absolute_difference_gpa": 0.2644274359,
-          "tolerance_gpa": 0.46,
-          "tolerance_basis": "The maximum absolute pressure residual of the printed 15-row dataset under the rounded published coefficients is 0.4535 GPa."
-        }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Methods, sample synthesis and characterization; Methods, high-pressure experiments; Results, compressibility of Phase Egg; Tables 1-2; official MSA deposit AM-18-126562, 6562schulze.cif and 6562supp.pdf.",
-        "equation": "Results, pages 1977-1978: F-f plot requires a third-order Birch-Murnaghan EOS; standard Eulerian finite-strain convention implemented by EosFit7c",
-        "V0": "Table 2, this-study column: 214.08(17) A^3 conventional cell; all three coefficients refined",
-        "K0": "Table 2, this-study column: 153(8) GPa; all three coefficients refined",
-        "K0_prime": "Table 2, this-study column: 8.6(1.2); all three coefficients refined",
-        "temperature_ref": "Official deposited CIF blocks report 293(2) K",
-        "fit_selection": "Results: the 0.0001 GPa in-house ambient point was excluded; the 15 synchrotron observations from 1.09 to 23.33 GPa were fitted"
-      },
-      "source_lineage": [
-        {
-          "role": "published_parameterization_and_observations",
-          "citation": "Schulze et al. (2018), DOI 10.2138/am-2018-6562",
-          "doi": "10.2138/am-2018-6562",
-          "locations": ["Results, EOS discussion", "Table 1", "Table 2, this-study column", "official deposit AM-18-126562"]
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Methods, sample synthesis and characterization; Methods, high-pressure experiments; Results, compressibility of Phase Egg; Tables 1-2; official MSA deposit AM-18-126562, 6562schulze.cif and 6562supp.pdf.",
+          "equation": "Results, pages 1977-1978: F-f plot requires a third-order Birch-Murnaghan EOS; standard Eulerian finite-strain convention implemented by EosFit7c",
+          "V0": "Table 2, this-study column: 214.08(17) A^3 conventional cell; all three coefficients refined",
+          "K0": "Table 2, this-study column: 153(8) GPa; all three coefficients refined",
+          "K0_prime": "Table 2, this-study column: 8.6(1.2); all three coefficients refined",
+          "temperature_ref": "Official deposited CIF blocks report 293(2) K",
+          "fit_selection": "Results: the 0.0001 GPa in-house ambient point was excluded; the 15 synchrotron observations from 1.09 to 23.33 GPa were fitted"
         },
-        {
-          "role": "comparison_refit_not_bundled_as_an_eos_record",
-          "citation": "Vanpeteghem et al. (2003), DOI 10.2138/am-2003-1002",
-          "doi": "10.2138/am-2003-1002",
-          "locations": ["Schulze et al. (2018), Table 2, Vanpeteghem refitted column"],
-          "notes": "The 211.41(11) A^3, 155(5) GPa, 6.7(5) BM3 row is Schulze et al.'s re-fit of Vanpeteghem's older powder observations, not a second fit to the 2018 single-crystal dataset. It is intentionally not a second EOS record in this one-record contribution."
-        }
-      ],
+        "source_lineage": [
+          {
+            "role": "published_parameterization_and_observations",
+            "citation": "Schulze et al. (2018), DOI 10.2138/am-2018-6562",
+            "doi": "10.2138/am-2018-6562",
+            "locations": ["Results, EOS discussion", "Table 1", "Table 2, this-study column", "official deposit AM-18-126562"]
+          },
+          {
+            "role": "comparison_refit_not_bundled_as_an_eos_record",
+            "citation": "Vanpeteghem et al. (2003), DOI 10.2138/am-2003-1002",
+            "doi": "10.2138/am-2003-1002",
+            "locations": ["Schulze et al. (2018), Table 2, Vanpeteghem refitted column"],
+            "notes": "The 211.41(11) A^3, 155(5) GPa, 6.7(5) BM3 row is Schulze et al.'s re-fit of Vanpeteghem's older powder observations, not a second fit to the 2018 single-crystal dataset. It is intentionally not a second EOS record in this one-record contribution."
+          }
+        ]
+      },
       "experimental_configuration": {
         "sample": "single crystal from synthesis run S5050",
         "pressure_medium": "neon",
@@ -170,6 +144,13 @@
     {
       "identifier": "phase_egg_mookherjee_2019_bm3_lp_1",
       "label": "Mookherjee et al. (2019), static LP BM3",
+      "model": "BM3",
+      "temperature_ref": 0.0,
+      "parameters": {
+        "V0": {"value": 210.21, "error": 0.14},
+        "K0": {"value": 164.4, "error": 1.8},
+        "K0_prime": {"value": 7.14, "error": 0.24}
+      },
       "record_kind": "published",
       "determination_method": "theoretical",
       "equation_kind": "isothermal",
@@ -182,15 +163,7 @@
         "locator": "130-139",
         "doi": "10.2138/am-2019-6694"
       },
-      "temperature_ref": 0.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 210.21, "K0": 164.4, "K0_prime": 7.14}
-      },
-      "parameter_errors": {"V0": 0.14, "K0": 1.8, "K0_prime": 0.24},
       "parameter_error_confidence": null,
-      "fixed_parameters": [],
       "parameter_covariance": null,
       "experimental_pressure_range_gpa": [-6.4, 43.7],
       "pressure_range_status": "theoretical",
@@ -225,78 +198,87 @@
         "recalculation": {"status": "not_applicable", "notes": "There are no experimental calibrant observations to re-reduce."},
         "audit_date": "2026-09-04"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Validated from the final publication, its official MSA supplement, and the cited primary crystallographic refinement; LitCurate was used only as a discovery lead.",
-        "audit_date": "2026-09-04",
-        "verified_fields": [
-          "publication_identifier",
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "crystallography",
-          "formula_units",
-          "published_uncertainties",
-          "validity",
-          "source_data"
-        ],
-        "primary_source_check": {
-          "access_url": "https://par.nsf.gov/servlets/purl/10089001",
-          "locations": [
-            "article footer and bibliographic header, page 130",
-            "Methods, pages 131-132",
-            "equations (1)-(2) and equation-of-state discussion, pages 132-133",
-            "official MSA deposit AM-19-16694, Supplementary Table 1, low-pressure block"
-          ],
-          "finding": "The final article identifies DOI 10.2138/am-2019-6694 and reports a static 0 K energy-volume BM3 fit for the ordered LP proton configuration. At V=196 A^3 the published coefficients give 14.72596 GPa, reproducing the supplement's 14.7 GPa after rounding. An unweighted diagnostic fit to all 11 supplementary LP P-V rows gives V0=210.2176 A^3, K0=164.8340 GPa, and K0'=7.08137, with pressure RMSE 0.02339 GPa; the underlying total energies, exact objective, weights, covariance, and error convention are not published.",
-          "doi": "10.2138/am-2019-6694"
-        },
-        "identifier_resolution": {
-          "canonical_doi": "10.2138/am-2019-6694",
-          "noncanonical_discovery_doi": "10.2138/am-2018-6694",
-          "finding": "Both identifiers resolve, but the 2018 record is the accepted manuscript and explicitly directs citation to the final 2019 DOI. Only the final publication is represented as an EOS record."
-        },
-        "primary_data_check": {
-          "status": "bundled",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Validated from the final publication, its official MSA supplement, and the cited primary crystallographic refinement; LitCurate was used only as a discovery lead.",
           "audit_date": "2026-09-04",
-          "dataset_identifiers": ["phase_egg_mookherjee_2019_supplement_lp_pv"],
-          "source_locations": ["official MSA deposit AM-19-16694, 6694_supp.xlsx, Supplementary Table 1, low-pressure block"],
-          "finding": "All 11 low-pressure static unit-cell-volume and pressure rows are transcribed at published precision. The authors fitted total energy versus volume, but the workbook does not tabulate the energies, row uncertainties, regression weights, objective, covariance, or fit statistic; the bundled P-V rows therefore support an independent curve-level diagnostic refit rather than exact reconstruction of the source energy fit."
-        }
-      },
-      "parameter_provenance": {
-        "determination_method": "Calculated states/theory determine this EOS; source: article footer and bibliographic header, page 130; Methods, pages 131-132; equations (1)-(2) and equation-of-state discussion, pages 132-133; official MSA deposit AM-19-16694, Supplementary Table 1, low-pressure block.",
-        "V0": "Mookherjee et al. (2019), equation-of-state section, pages 132-133: V0(LP)=210.21(+/-0.14) A^3",
-        "K0": "Mookherjee et al. (2019), equation-of-state section, pages 132-133: K0(LP)=164.4(+/-1.8) GPa",
-        "K0_prime": "Mookherjee et al. (2019), equation-of-state section, pages 132-133: K0'(LP)=7.14(+/-0.24)",
-        "equation": "Mookherjee et al. (2019), equations (1)-(2), page 132: third-order Birch-Murnaghan energy in Eulerian finite strain; its negative volume derivative is the standard BM3 pressure equation",
-        "volume_basis": "Mookherjee et al. (2019), methods and equation-of-state section: primitive phase-Egg unit cell; for primitive P21/c or alternate P21/n this is the conventional cell with Z=4",
-        "uncertainties": "The source prints +/- values but does not state a confidence level, regression weights, covariance, or whether the values are standard errors"
-      },
-      "source_lineage": [
-        {
-          "role": "final version of record, equation, and published parameters",
-          "citation": "Mookherjee et al. (2019), American Mineralogist 104, 130-139",
-          "doi": "10.2138/am-2019-6694"
+          "verified_fields": [
+            "publication_identifier",
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "crystallography",
+            "formula_units",
+            "published_uncertainties",
+            "validity",
+            "source_data"
+          ],
+          "primary_source_check": {
+            "access_url": "https://par.nsf.gov/servlets/purl/10089001",
+            "locations": [
+              "article footer and bibliographic header, page 130",
+              "Methods, pages 131-132",
+              "equations (1)-(2) and equation-of-state discussion, pages 132-133",
+              "official MSA deposit AM-19-16694, Supplementary Table 1, low-pressure block"
+            ],
+            "finding": "The final article identifies DOI 10.2138/am-2019-6694 and reports a static 0 K energy-volume BM3 fit for the ordered LP proton configuration. At V=196 A^3 the published coefficients give 14.72596 GPa, reproducing the supplement's 14.7 GPa after rounding. An unweighted diagnostic fit to all 11 supplementary LP P-V rows gives V0=210.2176 A^3, K0=164.8340 GPa, and K0'=7.08137, with pressure RMSE 0.02339 GPa; the underlying total energies, exact objective, weights, covariance, and error convention are not published.",
+            "doi": "10.2138/am-2019-6694"
+          },
+          "identifier_resolution": {
+            "canonical_doi": "10.2138/am-2019-6694",
+            "noncanonical_discovery_doi": "10.2138/am-2018-6694",
+            "finding": "Both identifiers resolve, but the 2018 record is the accepted manuscript and explicitly directs citation to the final 2019 DOI. Only the final publication is represented as an EOS record."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-04",
+            "dataset_identifiers": ["phase_egg_mookherjee_2019_supplement_lp_pv"],
+            "source_locations": ["official MSA deposit AM-19-16694, 6694_supp.xlsx, Supplementary Table 1, low-pressure block"],
+            "finding": "All 11 low-pressure static unit-cell-volume and pressure rows are transcribed at published precision. The authors fitted total energy versus volume, but the workbook does not tabulate the energies, row uncertainties, regression weights, objective, covariance, or fit statistic; the bundled P-V rows therefore support an independent curve-level diagnostic refit rather than exact reconstruction of the source energy fit."
+          }
         },
-        {
-          "role": "accepted-manuscript discovery alias; not a separate publication record",
-          "citation": "American Mineralogist preprint record 10.2138/am-2018-6694; the manuscript instructs readers to cite the final 2019 DOI",
-          "doi": "10.2138/am-2018-6694"
+        "parameter_provenance": {
+          "determination_method": "Calculated states/theory determine this EOS; source: article footer and bibliographic header, page 130; Methods, pages 131-132; equations (1)-(2) and equation-of-state discussion, pages 132-133; official MSA deposit AM-19-16694, Supplementary Table 1, low-pressure block.",
+          "V0": "Mookherjee et al. (2019), equation-of-state section, pages 132-133: V0(LP)=210.21(+/-0.14) A^3",
+          "K0": "Mookherjee et al. (2019), equation-of-state section, pages 132-133: K0(LP)=164.4(+/-1.8) GPa",
+          "K0_prime": "Mookherjee et al. (2019), equation-of-state section, pages 132-133: K0'(LP)=7.14(+/-0.24)",
+          "equation": "Mookherjee et al. (2019), equations (1)-(2), page 132: third-order Birch-Murnaghan energy in Eulerian finite strain; its negative volume derivative is the standard BM3 pressure equation",
+          "volume_basis": "Mookherjee et al. (2019), methods and equation-of-state section: primitive phase-Egg unit cell; for primitive P21/c or alternate P21/n this is the conventional cell with Z=4",
+          "uncertainties": "The source prints +/- values but does not state a confidence level, regression weights, covariance, or whether the values are standard errors"
         },
-        {
-          "role": "ambient crystallographic structure and formula-unit count",
-          "citation": "Schmidt et al. (1998), American Mineralogist 83, 881-888, Table 4",
-          "doi": "10.2138/am-1998-7-820"
-        }
-      ],
+        "source_lineage": [
+          {
+            "role": "final version of record, equation, and published parameters",
+            "citation": "Mookherjee et al. (2019), American Mineralogist 104, 130-139",
+            "doi": "10.2138/am-2019-6694"
+          },
+          {
+            "role": "accepted-manuscript discovery alias; not a separate publication record",
+            "citation": "American Mineralogist preprint record 10.2138/am-2018-6694; the manuscript instructs readers to cite the final 2019 DOI",
+            "doi": "10.2138/am-2018-6694"
+          },
+          {
+            "role": "ambient crystallographic structure and formula-unit count",
+            "citation": "Schmidt et al. (1998), American Mineralogist 83, 881-888, Table 4",
+            "doi": "10.2138/am-1998-7-820"
+          }
+        ]
+      },
       "fit_datasets": ["phase_egg_mookherjee_2019_supplement_lp_pv"]
     },
     {
       "identifier": "phase_egg_mookherjee_2019_bm3_hp_1",
       "label": "Mookherjee et al. (2019), static HP proton-transferred BM3",
+      "model": "BM3",
+      "temperature_ref": 0.0,
+      "parameters": {
+        "V0": {"value": 207.74, "error": 0.01},
+        "K0": {"value": 222.8, "error": 0.2},
+        "K0_prime": {"value": 4.44, "error": 0.02}
+      },
       "record_kind": "published",
       "determination_method": "theoretical",
       "equation_kind": "isothermal",
@@ -309,15 +291,7 @@
         "locator": "130-139",
         "doi": "10.2138/am-2019-6694"
       },
-      "temperature_ref": 0.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 207.74, "K0": 222.8, "K0_prime": 4.44}
-      },
-      "parameter_errors": {"V0": 0.01, "K0": 0.2, "K0_prime": 0.02},
       "parameter_error_confidence": null,
-      "fixed_parameters": [],
       "parameter_covariance": null,
       "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 120.071},
       "experimental_pressure_range_gpa": [-11.3, 44.0],
@@ -344,47 +318,75 @@
         "recalculation": {"status": "not_applicable", "notes": "No experimental pressure scale applies to the theoretical P-V states."},
         "audit_date": "2026-09-05"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://par.nsf.gov/servlets/purl/10089001",
-          "doi": "10.2138/am-2019-6694",
-          "locations": ["Methods, pages 131-132", "equations (1)-(2) and EOS discussion, pages 132-133", "Figure 3"],
-          "finding": "Complete static HP BM3 parameterization for the proton-transferred structure."
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://par.nsf.gov/servlets/purl/10089001",
+            "doi": "10.2138/am-2019-6694",
+            "locations": ["Methods, pages 131-132", "equations (1)-(2) and EOS discussion, pages 132-133", "Figure 3"],
+            "finding": "Complete static HP BM3 parameterization for the proton-transferred structure."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-05",
+            "dataset_identifiers": ["phase_egg_mookherjee_2019_supplement_hp_pv"],
+            "source_locations": ["official MSA deposit AM-19-16694, 6694_supp.xlsx, Supplementary Table 1, high-pressure block"],
+            "finding": "All five HP static P-V rows are embedded at spreadsheet precision; the source energy values and regression details are not published."
+          }
         },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-05",
-          "dataset_identifiers": ["phase_egg_mookherjee_2019_supplement_hp_pv"],
-          "source_locations": ["official MSA deposit AM-19-16694, 6694_supp.xlsx, Supplementary Table 1, high-pressure block"],
-          "finding": "All five HP static P-V rows are embedded at spreadsheet precision; the source energy values and regression details are not published."
-        }
-      },
-      "parameter_provenance": {
-        "determination_method": "Calculated states/theory determine this EOS; source: Methods, pages 131-132; equations (1)-(2) and EOS discussion, pages 132-133; Figure 3.",
-        "equation": "Equations (1)-(2): third-order Birch-Murnaghan energy in Eulerian finite strain; pressure is its negative volume derivative.",
-        "parameters": "Equation-of-state discussion on page 133: V0(HP)=207.74(+/-0.01) A3, K0(HP)=222.8(+/-0.2) GPa, and K0'(HP)=4.44(+/-0.02).",
-        "volume_basis": "Primitive monoclinic P21/c calculation cell, equivalent to the conventional Z=4 cell.",
-        "uncertainties": "Printed plus/minus values; confidence level and covariance are not reported."
-      },
-      "source_lineage": [
-        {
-          "role": "final version of record, equation, parameters, and supplementary P-V grid",
-          "citation": "Mookherjee et al. (2019), American Mineralogist 104, 130-139",
-          "doi": "10.2138/am-2019-6694"
+        "parameter_provenance": {
+          "determination_method": "Calculated states/theory determine this EOS; source: Methods, pages 131-132; equations (1)-(2) and EOS discussion, pages 132-133; Figure 3.",
+          "equation": "Equations (1)-(2): third-order Birch-Murnaghan energy in Eulerian finite strain; pressure is its negative volume derivative.",
+          "parameters": "Equation-of-state discussion on page 133: V0(HP)=207.74(+/-0.01) A3, K0(HP)=222.8(+/-0.2) GPa, and K0'(HP)=4.44(+/-0.02).",
+          "volume_basis": "Primitive monoclinic P21/c calculation cell, equivalent to the conventional Z=4 cell.",
+          "uncertainties": "Printed plus/minus values; confidence level and covariance are not reported."
         },
-        {
-          "role": "accepted-manuscript discovery alias; not a separate EOS",
-          "citation": "American Mineralogist preprint registration",
-          "doi": "10.2138/am-2018-6694"
-        }
-      ],
+        "source_lineage": [
+          {
+            "role": "final version of record, equation, parameters, and supplementary P-V grid",
+            "citation": "Mookherjee et al. (2019), American Mineralogist 104, 130-139",
+            "doi": "10.2138/am-2019-6694"
+          },
+          {
+            "role": "accepted-manuscript discovery alias; not a separate EOS",
+            "citation": "American Mineralogist preprint registration",
+            "doi": "10.2138/am-2018-6694"
+          }
+        ]
+      },
       "fit_datasets": ["phase_egg_mookherjee_2019_supplement_hp_pv"]
     }
   ],
+  "aliases": ["AlSiO3OH phase Egg", "AlSiO3(OH) phase Egg", "phase egg", "AlSiO3OH", "AlSiO4H"],
+  "cell_contents": "Four nominal AlSiO3OH formula units in the conventional monoclinic P21/n cell; the analyzed EOS specimen has the non-stoichiometric central composition Al0.98Si0.92H1.39O4 per nominal formula unit.",
+  "symmetry": "MONOCLINIC",
+  "space_group": "P21/n",
+  "space_group_number": 14,
+  "lattice": {"a": 7.1835, "b": 4.3287, "c": 6.9672, "alpha": 90.0, "beta": 98.202, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Al", "wyckoff": "4e", "x": 0.06552, "y": 0.01868, "z": 0.71036, "occupancy": 1.0, "source_label": "AL"},
+    {"element": "Si", "wyckoff": "4e", "x": 0.68143, "y": 0.01029, "z": 0.5814, "occupancy": 1.0, "source_label": "SI"},
+    {"element": "O", "wyckoff": "4e", "x": 0.15108, "y": 0.2093, "z": 0.261, "occupancy": 1.0, "source_label": "O1"},
+    {"element": "O", "wyckoff": "4e", "x": 0.52213, "y": 0.201, "z": 0.39554, "occupancy": 1.0, "source_label": "O2"},
+    {"element": "O", "wyckoff": "4e", "x": 0.88225, "y": 0.2036, "z": 0.51364, "occupancy": 1.0, "source_label": "O3"},
+    {"element": "O", "wyckoff": "4e", "x": 0.76136, "y": 0.2228, "z": 0.1282, "occupancy": 1.0, "source_label": "O4"},
+    {
+      "element": "H",
+      "wyckoff": "4e",
+      "x": 0.796,
+      "y": 0.553,
+      "z": 0.422,
+      "occupancy": 1.0,
+      "source_label": "H",
+      "coordinate_provenance": "Schmidt et al. (1998), Table 4; used for the H atoms in Schulze et al. (2018), Figure 1, but not refined in the 2018 deposited CIF"
+    }
+  ],
+  "peaks": [],
+  "notes": "The article writes the analyzed composition as Al0.98(1)Si0.92(1)O3OH1.39(5). This is condensed hydroxyl notation for Al0.98Si0.92H1.39O4 (three O plus one O bearing 1.39 H), consistent with the official CIF analytical formula; it is not O4.39. The deposited 2018 X-ray structure fixes Al and Si occupancies to unity because refined and fixed-occupancy models were indistinguishable, and it contains no H atom site. The ideal fully occupied structural model therefore has Al4Si4H4O16 cell contents and is a diffraction model for the analyzed Al3.92Si3.68H5.56O16 composition, not an assertion that the measured vacancies or excess hydrogen were crystallographically resolved. The H coordinate is the powder-XRD position from Schmidt et al. (1998) explicitly used in the 2018 paper's Figure 1. The structural ambient volume, 214.431(13) A^3, differs from fitted V0 because the authors excluded the in-house ambient point from the synchrotron EOS regression. The Mookherjee et al. (2019) record uses the ideal nominal formula AlSiO3(OH); its EOS metadata remains record-specific. The ambient diffraction structure is Schmidt et al.'s ordered P21/n refinement: the seven fully occupied 4e sites give four AlSiO4H formula units and the reported lattice gives 212.99 A^3. P21/n is the alternate setting of P21/c (space-group number 14). The structural volume is intentionally distinct from the static-DFT LP EOS reference volume of 210.21 A^3. Phase D is a different composition and material in the catalog.",
   "datasets": [
     {
       "identifier": "phase_egg_schulze_2018_table1_compression",

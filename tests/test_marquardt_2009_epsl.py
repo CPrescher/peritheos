@@ -8,6 +8,7 @@ import numpy as np
 import pytest
 
 from peritheos import Material
+from scripts.eosmat_io import read_material
 from scripts.reproduce_marquardt_2009_epsl import (
     DATASET,
     LS_RECORDS,
@@ -22,18 +23,14 @@ DOI = "10.1016/j.epsl.2009.08.017"
 
 
 def document():
-    return json.loads(
-        (ROOT / "peritheos/data/materials/mg090fe010o.eosmat").read_text(
-            encoding="utf-8"
-        )
-    )
+    return read_material(ROOT / "peritheos/data/materials/mg090fe010o.eosmat")
 
 
 def test_epsl_source_has_one_hs_and_twelve_ls_owned_published_records():
     records = [
         record
         for path in (ROOT / "peritheos/data/materials").glob("*.eosmat")
-        for record in json.loads(path.read_text(encoding="utf-8"))["eos_records"]
+        for record in read_material(path)["eos_records"]
         if record["reference"].get("doi") == DOI
     ]
     assert [r["identifier"] for r in records] == [RECORD, *LS_RECORDS]

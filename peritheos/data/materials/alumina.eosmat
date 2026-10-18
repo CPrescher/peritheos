@@ -1,28 +1,22 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "alumina",
   "name": "Alumina",
   "formula": "Al2O3",
   "phase": "corundum, trigonal R-3c (hexagonal setting)",
-  "aliases": ["Corundum"],
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 6,
-  "cell_contents": "Al12O18 (6 Al2O3 formula units) in the conventional hexagonal R-3c cell",
-  "symmetry": "HEXAGONAL",
-  "space_group": "R-3c",
-  "space_group_number": 167,
-  "lattice": {"a": 4.762813, "b": null, "c": 13.00314, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
-  "atom_sites": [
-    {"element": "Al", "wyckoff": "12c", "x": 0.0, "y": 0.0, "z": 0.3522, "occupancy": 1.0},
-    {"element": "O", "wyckoff": "18e", "x": 0.3061, "y": 0.0, "z": 0.25, "occupancy": 1.0}
-  ],
-  "peaks": [],
-  "notes": "Corundum phase reference: JCPDS 0-173. The reference cell is constrained to the fitted V0 while retaining the original axial ratio.",
   "eos_records": [
     {
       "identifier": "alumina_dewaele_2013_vinet_1",
       "label": "Dewaele and Torrent (2013), Vinet",
+      "model": "Vinet",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 255.45, "error": 0.52},
+        "K0": {"value": 254.1, "error": 7.6},
+        "K0_prime": {"value": 4.0, "error": 0.15}
+      },
       "determination_method": "experimental",
       "reference": {
         "authors": ["Dewaele", "Torrent"],
@@ -33,15 +27,7 @@
         "locator": "064107",
         "doi": "10.1103/PhysRevB.88.064107"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "Vinet",
-        "parameters": {"V0": 255.45, "K0": 254.1, "K0_prime": 4.0},
-        "model": "vinet"
-      },
-      "parameter_errors": {"V0": 0.52, "K0": 7.6, "K0_prime": 0.15},
       "parameter_error_confidence": 0.95,
-      "fixed_parameters": [],
       "experimental_pressure_range_gpa": [0.56, 165.0],
       "notes": "Quasihydrostatic 300 K Vinet fit to corundum data from 0.56 to 165 GPa. V0=255.45+/-0.52 A^3, K0=254.1+/-7.6 GPa, and K0'=4.00+/-0.15 were all fitted; errors are 95% confidence intervals.",
       "pressure_calibration": {
@@ -65,61 +51,81 @@
         },
         "audit_date": "2026-09-03"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.88.064107/fulltext",
-          "locations": ["section IV, page 064107-2", "Table I", "Figure 3", "section V"],
-          "finding": "All three experimental Vinet parameters were fitted; the quoted errors are 95% confidence intervals. The migrated constrained-fit metadata was corrected.",
-          "doi": "10.1103/physrevb.88.064107"
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.88.064107/fulltext",
+            "locations": ["section IV, page 064107-2", "Table I", "Figure 3", "section V"],
+            "finding": "All three experimental Vinet parameters were fitted; the quoted errors are 95% confidence intervals. The migrated constrained-fit metadata was corrected.",
+            "doi": "10.1103/physrevb.88.064107"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "alumina.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["alumina_dewaele_2013_table1_compression"],
+            "source_locations": ["Table I, page 064107-3"],
+            "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+          }
         },
-        "migration_source": {
-          "project": "Dioptas",
-          "version": "0.10.0",
-          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-          "file": "alumina.json"
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: section IV, page 064107-2; Table I; Figure 3; section V."
         },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-03",
-          "dataset_identifiers": ["alumina_dewaele_2013_table1_compression"],
-          "source_locations": ["Table I, page 064107-3"],
-          "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
-        }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: section IV, page 064107-2; Table I; Figure 3; section V."
-      },
-      "audit_corrections": [
-        {
-          "path": "parameter_errors",
-          "source_value": {"V0": null, "K0": null, "K0_prime": null},
-          "value": {"V0": 0.52, "K0": 7.6, "K0_prime": 0.15},
-          "reason": "The primary paper reports 95% confidence intervals for all three fit coefficients.",
-          "primary_reference": {"doi": "10.1103/physrevb.88.064107", "location": "section IV, Table I, Figure 3, and section V"}
-        },
-        {
-          "path": "fixed_parameters",
-          "source_value": ["K0_prime"],
-          "value": [],
-          "reason": "K0'=4.00+/-0.15 was fitted, not constrained to 4.",
-          "primary_reference": {"doi": "10.1103/physrevb.88.064107", "location": "section IV, Table I, Figure 3, and section V"}
-        },
-        {
-          "path": "experimental_pressure_range_gpa",
-          "source_value": [0.0, 165.0],
-          "value": [0.56, 165.0],
-          "reason": "Table I spans measured pressures from 0.56 to 165 GPa.",
-          "primary_reference": {"doi": "10.1103/physrevb.88.064107", "location": "section IV, Table I, Figure 3, and section V"}
-        }
-      ]
+        "audit_corrections": [
+          {
+            "path": "parameter_errors",
+            "source_value": {"V0": null, "K0": null, "K0_prime": null},
+            "value": {"V0": 0.52, "K0": 7.6, "K0_prime": 0.15},
+            "reason": "The primary paper reports 95% confidence intervals for all three fit coefficients.",
+            "primary_reference": {"doi": "10.1103/physrevb.88.064107", "location": "section IV, Table I, Figure 3, and section V"}
+          },
+          {
+            "path": "fixed_parameters",
+            "source_value": ["K0_prime"],
+            "value": [],
+            "reason": "K0'=4.00+/-0.15 was fitted, not constrained to 4.",
+            "primary_reference": {"doi": "10.1103/physrevb.88.064107", "location": "section IV, Table I, Figure 3, and section V"}
+          },
+          {
+            "path": "experimental_pressure_range_gpa",
+            "source_value": [0.0, 165.0],
+            "value": [0.56, 165.0],
+            "reason": "Table I spans measured pressures from 0.56 to 165 GPa.",
+            "primary_reference": {"doi": "10.1103/physrevb.88.064107", "location": "section IV, Table I, Figure 3, and section V"}
+          }
+        ]
+      }
     },
     {
       "identifier": "alumina_shi_2022_bm3_mgd_2",
       "label": "Shi et al. (2022), selected BM3-MGD corundum model 3",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 255.1, "error": null, "fixed": true},
+        "K0": {"value": 246.0, "error": 2.0},
+        "K0_prime": {"value": 4.0, "error": null, "fixed": true}
+      },
+      "thermal": {
+        "debye_temperature_law": "integrated_gruneisen",
+        "parameters": {
+          "Tr": {"value": 300.0, "error": null, "fixed": true},
+          "theta0": {"value": 1100.0, "error": null, "fixed": true},
+          "gamma0": {"value": 1.32, "error": 0.07},
+          "q": {"value": 0.8, "error": 0.4},
+          "n": {"value": 5.0, "error": null, "fixed": true}
+        },
+        "model": "MieGruneisenDebye"
+      },
       "determination_method": "experimental",
       "default": false,
       "reference": {
@@ -131,22 +137,6 @@
         "locator": "e2021JB023805",
         "doi": "10.1029/2021JB023805"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 255.1, "K0": 246.0, "K0_prime": 4.0}
-      },
-      "thermal": {
-        "type": "MieGruneisenDebye",
-        "model": "mie_gruneisen_debye",
-        "debye_temperature_law": "integrated_gruneisen",
-        "parameters": {"Tr": 300.0, "theta0": 1100.0, "gamma0": 1.32, "q": 0.8, "n": 5.0},
-        "parameter_errors": {"Tr": null, "theta0": null, "gamma0": 0.07, "q": 0.4, "n": null},
-        "fixed_parameters": ["Tr", "theta0", "n"]
-      },
-      "parameter_errors": {"V0": null, "K0": 2.0, "K0_prime": null},
-      "fixed_parameters": ["V0", "K0_prime"],
       "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 97.7],
       "pressure_range_status": "reported_exactly",
@@ -188,72 +178,86 @@
         "audit_date": "2026-09-05",
         "notes": "The tabulated reduced pressures are sufficient to reproduce the published Al2O3 fit; calibrant-level pressure recalculation is not possible."
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the primary article and the checksummed official Zenodo supporting-information deposit; no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-05",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "published_uncertainties",
-          "validity",
-          "fit_protocol"
-        ],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.1029/2021JB023805",
-          "locations": [
-            "main text, Equations 1-6, pages 3-4",
-            "main text, Table 1, page 4, selected corundum coefficients",
-            "main text, Table 2, page 6, three Debye-temperature sensitivity fits",
-            "Supporting Information, Figure S1, observations used to constrain the EOS",
-            "Supporting Information, Table S1, all corundum P-T-V observations",
-            "Supporting Information, Table S3, selected model used downstream"
-          ],
-          "finding": "The source reports one selected BM3-MGD corundum parameterization, not three interchangeable BM3 records. Model 3 fixes the conventional-cell V0, K0', and theta0 and fits K0, gamma0, and q. The complete Table S1 reproduces those coefficients under an unweighted pressure-residual refit.",
-          "doi": "10.1029/2021jb023805"
-        },
-        "primary_data_check": {
-          "status": "bundled",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the primary article and the checksummed official Zenodo supporting-information deposit; no external software catalog was used as scientific authority.",
           "audit_date": "2026-09-05",
-          "dataset_identifiers": ["alumina_shi_2022_table_s1_pvt"],
-          "source_locations": ["Official Supporting Information, Figure S1 and Table S1"],
-          "official_package": {
-            "doi": "10.5281/zenodo.5771198",
-            "filename": "Al2O3-Supporting information-v17.docx",
-            "md5": "da9d62e3e5b10f1a775b24d50b6c617b"
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "published_uncertainties",
+            "validity",
+            "fit_protocol"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1029/2021JB023805",
+            "locations": [
+              "main text, Equations 1-6, pages 3-4",
+              "main text, Table 1, page 4, selected corundum coefficients",
+              "main text, Table 2, page 6, three Debye-temperature sensitivity fits",
+              "Supporting Information, Figure S1, observations used to constrain the EOS",
+              "Supporting Information, Table S1, all corundum P-T-V observations",
+              "Supporting Information, Table S3, selected model used downstream"
+            ],
+            "finding": "The source reports one selected BM3-MGD corundum parameterization, not three interchangeable BM3 records. Model 3 fixes the conventional-cell V0, K0', and theta0 and fits K0, gamma0, and q. The complete Table S1 reproduces those coefficients under an unweighted pressure-residual refit.",
+            "doi": "10.1029/2021jb023805"
           },
-          "finding": "All 75 corundum P-T-V rows are bundled with every printed parenthetical uncertainty and their Pt-versus-NaCl pressure-calibrant grouping. The two horizontal table blocks are normalized without deduplication or inferred values."
-        }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: main text, Equations 1-6, pages 3-4; main text, Table 1, page 4, selected corundum coefficients; main text, Table 2, page 6, three Debye-temperature sensitivity fits; Supporting Information, Figure S1, observations used to constrain the EOS; Supporting Information, Table S1, all corundum P-T-V observations; Supporting Information, Table S3, selected model used downstream.",
-        "V0": "Shi et al. (2022), main Table 1 and Table 2 model 3; fixed conventional six-formula-unit corundum cell from Lutterotti and Scardi (1990)",
-        "K0": "Shi et al. (2022), main Table 1 selected model; fitted, with the selected-table 2 GPa uncertainty retained over Table 2's discrepant 1 GPa value",
-        "K0_prime": "Shi et al. (2022), Equations 1-2 and main Tables 1-2; fixed at 4",
-        "thermal.Tr": "Shi et al. (2022), Equations 1 and 3 and the 300 K reference data",
-        "thermal.theta0": "Shi et al. (2022), main Table 1 and Table 2 model 3; fixed at 1100 K",
-        "thermal.gamma0": "Shi et al. (2022), main Table 1 and Table 2 model 3; fitted",
-        "thermal.q": "Shi et al. (2022), main Table 1 and Table 2 model 3; fitted",
-        "thermal.n": "Shi et al. (2022), text following Equation 4; five atoms per Al2O3 formula unit",
-        "equation": "Shi et al. (2022), Equations 1-6; BM3 reference isotherm plus integrated constant-q Mie-Gruneisen-Debye thermal pressure"
-      },
-      "source_lineage": [
-        {
-          "role": "thermal EOS equations, selected coefficients, complete observations, and phase context",
-          "citation": "Shi et al. (2022), main article and Supporting Information",
-          "doi": "10.1029/2021JB023805"
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-05",
+            "dataset_identifiers": ["alumina_shi_2022_table_s1_pvt"],
+            "source_locations": ["Official Supporting Information, Figure S1 and Table S1"],
+            "official_package": {
+              "doi": "10.5281/zenodo.5771198",
+              "filename": "Al2O3-Supporting information-v17.docx",
+              "md5": "da9d62e3e5b10f1a775b24d50b6c617b"
+            },
+            "finding": "All 75 corundum P-T-V rows are bundled with every printed parenthetical uncertainty and their Pt-versus-NaCl pressure-calibrant grouping. The two horizontal table blocks are normalized without deduplication or inferred values."
+          }
         },
-        {
-          "role": "fixed ambient conventional corundum-cell volume",
-          "citation": "Lutterotti and Scardi (1990), as cited in Shi et al. (2022) Table 1 footnote"
-        }
-      ],
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: main text, Equations 1-6, pages 3-4; main text, Table 1, page 4, selected corundum coefficients; main text, Table 2, page 6, three Debye-temperature sensitivity fits; Supporting Information, Figure S1, observations used to constrain the EOS; Supporting Information, Table S1, all corundum P-T-V observations; Supporting Information, Table S3, selected model used downstream.",
+          "V0": "Shi et al. (2022), main Table 1 and Table 2 model 3; fixed conventional six-formula-unit corundum cell from Lutterotti and Scardi (1990)",
+          "K0": "Shi et al. (2022), main Table 1 selected model; fitted, with the selected-table 2 GPa uncertainty retained over Table 2's discrepant 1 GPa value",
+          "K0_prime": "Shi et al. (2022), Equations 1-2 and main Tables 1-2; fixed at 4",
+          "thermal.Tr": "Shi et al. (2022), Equations 1 and 3 and the 300 K reference data",
+          "thermal.theta0": "Shi et al. (2022), main Table 1 and Table 2 model 3; fixed at 1100 K",
+          "thermal.gamma0": "Shi et al. (2022), main Table 1 and Table 2 model 3; fitted",
+          "thermal.q": "Shi et al. (2022), main Table 1 and Table 2 model 3; fitted",
+          "thermal.n": "Shi et al. (2022), text following Equation 4; five atoms per Al2O3 formula unit",
+          "equation": "Shi et al. (2022), Equations 1-6; BM3 reference isotherm plus integrated constant-q Mie-Gruneisen-Debye thermal pressure"
+        },
+        "source_lineage": [
+          {
+            "role": "thermal EOS equations, selected coefficients, complete observations, and phase context",
+            "citation": "Shi et al. (2022), main article and Supporting Information",
+            "doi": "10.1029/2021JB023805"
+          },
+          {
+            "role": "fixed ambient conventional corundum-cell volume",
+            "citation": "Lutterotti and Scardi (1990), as cited in Shi et al. (2022) Table 1 footnote"
+          }
+        ]
+      },
       "fit_datasets": ["alumina_shi_2022_table_s1_pvt"]
     }
   ],
+  "aliases": ["Corundum"],
+  "cell_contents": "Al12O18 (6 Al2O3 formula units) in the conventional hexagonal R-3c cell",
+  "symmetry": "HEXAGONAL",
+  "space_group": "R-3c",
+  "space_group_number": 167,
+  "lattice": {"a": 4.762813, "b": null, "c": 13.00314, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
+  "atom_sites": [
+    {"element": "Al", "wyckoff": "12c", "x": 0.0, "y": 0.0, "z": 0.3522, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "18e", "x": 0.3061, "y": 0.0, "z": 0.25, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Corundum phase reference: JCPDS 0-173. The reference cell is constrained to the fitted V0 while retaining the original axial ratio.",
   "datasets": [
     {
       "identifier": "alumina_dewaele_2013_table1_compression",

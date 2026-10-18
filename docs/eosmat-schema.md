@@ -638,7 +638,8 @@ default record, exact `type`/`model` pairing, and equation-specific choices.
 
 ## Compatibility rules
 
-- Peritheos format 3 is the canonical write format.
+- Native [EOSMAT v4](eosmat-v4.md) is the format for bundled and new material
+  files. Format 3 remains a supported input and explicit compatibility export.
 - Native Dioptas 0.10 format-2 documents remain accepted as legacy input.
 - Unknown optional fields are preserved, but unknown equation types, models,
   or law values must be rejected before calculation.

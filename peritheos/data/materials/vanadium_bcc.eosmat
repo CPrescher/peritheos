@@ -1,25 +1,34 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "vanadium_bcc",
   "name": "Vanadium (bcc)",
   "formula": "V",
   "phase": "bcc",
-  "aliases": ["Vanadium"],
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 2,
-  "symmetry": "CUBIC",
-  "space_group": "Im-3m",
-  "space_group_number": 229,
-  "lattice": {"a": 3.0241, "b": 3.0241, "c": 3.0241, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
-  "atom_sites": [
-    {"element": "V", "wyckoff": "2a", "multiplicity": 2, "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0}
-  ],
-  "notes": "Pure elemental bcc vanadium, not V oxide or a multiphase sample aggregate. The separately sourced 298.15 K diffraction cell (27.6559412875 A^3) differs from the Crichton relaxed-foil EOS reference (27.995 A^3); retain both reported conventions. Advent foil sample purity is not quantified in the EOS manuscript.",
   "eos_records": [
     {
       "identifier": "vanadium_bcc_crichton_2016_bm3_thermal",
       "label": "Crichton et al. (2016), bcc V thermal BM3",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 27.995, "error": null},
+        "K0": {"value": 150.4, "error": 6.2},
+        "K0_prime": {"value": 5.5, "error": 1.0}
+      },
+      "thermal": {
+        "thermal_expansion_law": "linear_temperature",
+        "reference_volume_law": "integrated_expansivity",
+        "bulk_modulus_law": "linear_temperature",
+        "parameters": {
+          "Tr": {"value": 300.0, "fixed": true},
+          "alpha0": {"value": 4.8e-05, "error": 6e-06},
+          "alpha1": {"value": -2.4e-08, "error": 9e-09},
+          "dK_dT": {"value": -0.0446, "error": 0.0007}
+        },
+        "model": "AlphaKT"
+      },
       "determination_method": "experimental",
       "equation_kind": "thermal",
       "default": true,
@@ -32,25 +41,7 @@
         "locator": "16-22",
         "doi": "10.1080/08957959.2015.1123256"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 27.995, "K0": 150.4, "K0_prime": 5.5}
-      },
-      "thermal": {
-        "type": "AlphaKT",
-        "model": "thermal_reference_state",
-        "thermal_expansion_law": "linear_temperature",
-        "reference_volume_law": "integrated_expansivity",
-        "bulk_modulus_law": "linear_temperature",
-        "parameters": {"Tr": 300.0, "alpha0": 4.8e-05, "alpha1": -2.4e-08, "dK_dT": -0.0446},
-        "parameter_errors": {"alpha0": 6e-06, "alpha1": 9e-09, "dK_dT": 0.0007},
-        "fixed_parameters": ["Tr"]
-      },
-      "parameter_errors": {"V0": null, "K0": 6.2, "K0_prime": 1.0},
       "parameter_error_confidence": null,
-      "fixed_parameters": [],
       "experimental_pressure_range_gpa": [0.0, 11.5],
       "pressure_range_status": "reported_qualitatively",
       "experimental_temperature_range_k": [300.0, 1000.0],
@@ -78,61 +69,63 @@
         },
         "audit_date": "2026-09-19"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "audit_date": "2026-09-19",
-        "note": "Primary author manuscript and publisher abstract audit with independent Figure 2 curve reproduction; no claim of original 62-row fit recovery.",
-        "primary_source_check": {
-          "doi": "10.1080/08957959.2015.1123256",
-          "access_url": "https://discovery.ucl.ac.uk/id/eprint/1478098/1/High%20temperature%20equation%20of%20state%20of%20vanadium_submtd_revised.pdf",
-          "source_version": "UCL author accepted manuscript; numerical abstract cross-checked on publisher publication-of-record page",
-          "locations": [
-            "Accepted manuscript pp.4-7: Experimental, Results, Conclusion",
-            "Accepted manuscript p.11: Figure 2",
-            "Publisher abstract (21 January 2016)",
-            "Angel et al. (2014), pp.410, 412: earlier EosFit expansion and K(T) conventions"
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-19",
+          "note": "Primary author manuscript and publisher abstract audit with independent Figure 2 curve reproduction; no claim of original 62-row fit recovery.",
+          "primary_source_check": {
+            "doi": "10.1080/08957959.2015.1123256",
+            "access_url": "https://discovery.ucl.ac.uk/id/eprint/1478098/1/High%20temperature%20equation%20of%20state%20of%20vanadium_submtd_revised.pdf",
+            "source_version": "UCL author accepted manuscript; numerical abstract cross-checked on publisher publication-of-record page",
+            "locations": [
+              "Accepted manuscript pp.4-7: Experimental, Results, Conclusion",
+              "Accepted manuscript p.11: Figure 2",
+              "Publisher abstract (21 January 2016)",
+              "Angel et al. (2014), pp.410, 412: earlier EosFit expansion and K(T) conventions"
+            ],
+            "finding": "Main unconstrained experimental BM3 thermal fit; all five modulus/thermal coefficients and errors agree with the publisher abstract. V0=27.995 A^3 follows Results and Figure 2 equality of calculated and recovered volumes. The entire final typeset text was not accessible; version limitation is explicit."
+          },
+          "verified_fields": [
+            "composition",
+            "bcc phase",
+            "conventional two-atom volume",
+            "V0",
+            "K0",
+            "K0_prime",
+            "Tr",
+            "alpha0",
+            "alpha1",
+            "dK_dT",
+            "absolute-temperature integrated expansivity",
+            "linear K0(T)",
+            "parameter errors",
+            "experimental domain"
           ],
-          "finding": "Main unconstrained experimental BM3 thermal fit; all five modulus/thermal coefficients and errors agree with the publisher abstract. V0=27.995 A^3 follows Results and Figure 2 equality of calculated and recovered volumes. The entire final typeset text was not accessible; version limitation is explicit."
+          "primary_data_check": {
+            "status": "plot_only",
+            "digitized_dataset_identifiers": ["vanadium_crichton_2016_figure2_points"],
+            "finding": "Only a temperature-binned subset is plotted. The exact 62 P-V-T observations, their errors, and simultaneous NaCl/Au lattice readings were not recovered. A 29-point nominal-temperature proxy fit is diagnostic only; the 24 digitized curve checkpoints independently test the published parameterization.",
+            "reproduction_script": "scripts/reproduce_crichton_2016_vanadium.py"
+          },
+          "unresolved": [
+            "Full final typeset article and any inaccessible supplement could not be verified.",
+            "Exact NaCl/Au calibration versions are unspecified in the accessible methods.",
+            "The Conclusion expansion percentages disagree with the explicit coefficients; the latter match the independent plotted isotherms.",
+            "Original row-wise temperatures and covariance are absent."
+          ]
         },
-        "verified_fields": [
-          "composition",
-          "bcc phase",
-          "conventional two-atom volume",
-          "V0",
-          "K0",
-          "K0_prime",
-          "Tr",
-          "alpha0",
-          "alpha1",
-          "dK_dT",
-          "absolute-temperature integrated expansivity",
-          "linear K0(T)",
-          "parameter errors",
-          "experimental domain"
-        ],
-        "primary_data_check": {
-          "status": "plot_only",
-          "digitized_dataset_identifiers": ["vanadium_crichton_2016_figure2_points"],
-          "finding": "Only a temperature-binned subset is plotted. The exact 62 P-V-T observations, their errors, and simultaneous NaCl/Au lattice readings were not recovered. A 29-point nominal-temperature proxy fit is diagnostic only; the 24 digitized curve checkpoints independently test the published parameterization.",
-          "reproduction_script": "scripts/reproduce_crichton_2016_vanadium.py"
-        },
-        "unresolved": [
-          "Full final typeset article and any inaccessible supplement could not be verified.",
-          "Exact NaCl/Au calibration versions are unspecified in the accessible methods.",
-          "The Conclusion expansion percentages disagree with the explicit coefficients; the latter match the independent plotted isotherms.",
-          "Original row-wise temperatures and covariance are absent."
-        ]
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Accepted manuscript pp.4-7: Experimental, Results, Conclusion; Accepted manuscript p.11: Figure 2; Publisher abstract (21 January 2016); Angel et al. (2014), pp.410, 412: earlier EosFit expansion and K(T) conventions.",
-        "V0": "Results p.5: unconstrained relative reference volume 1.005(1), equal to independently recovered 1.005 = 27.995 A^3; Figure 2 caption confirms equality. Conventional bcc cell, Z=2. Absolute fitted-volume uncertainty is not explicitly printed; retain ratio error separately.",
-        "K0": "Results p.5, unconstrained 62-point unweighted fit: 150.4 +/-6.2 GPa.",
-        "K0_prime": "Results p.5: 5.5(10), fitted; constant with T in EosFit5 convention.",
-        "alpha0": "Results p.5: 4.8(6)e-5 K^-1, fitted intercept at T=0 in alpha(T)=alpha0+alpha1*T, NOT alpha(300 K).",
-        "alpha1": "Results p.5: -2.4(9)e-8 K^-2, fitted.",
-        "dK_dT": "Results p.5: -0.0446(7) GPa/K, fitted slope of K0(T) at zero pressure, not derivative of K0-prime.",
-        "Tr": "Experimental p.4 and K0,300 label: 300 K.",
-        "equation": "BM3; EOS-FIT5.2 (Angel 2002) with linear alpha(T); Angel et al. 2014 doi:10.1515/zkri-2013-1711 p.410 explicitly documents earlier EosFit exponential integral of alpha0+alpha1*T, p.412 linear K0(T)."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Accepted manuscript pp.4-7: Experimental, Results, Conclusion; Accepted manuscript p.11: Figure 2; Publisher abstract (21 January 2016); Angel et al. (2014), pp.410, 412: earlier EosFit expansion and K(T) conventions.",
+          "V0": "Results p.5: unconstrained relative reference volume 1.005(1), equal to independently recovered 1.005 = 27.995 A^3; Figure 2 caption confirms equality. Conventional bcc cell, Z=2. Absolute fitted-volume uncertainty is not explicitly printed; retain ratio error separately.",
+          "K0": "Results p.5, unconstrained 62-point unweighted fit: 150.4 +/-6.2 GPa.",
+          "K0_prime": "Results p.5: 5.5(10), fitted; constant with T in EosFit5 convention.",
+          "alpha0": "Results p.5: 4.8(6)e-5 K^-1, fitted intercept at T=0 in alpha(T)=alpha0+alpha1*T, NOT alpha(300 K).",
+          "alpha1": "Results p.5: -2.4(9)e-8 K^-2, fitted.",
+          "dK_dT": "Results p.5: -0.0446(7) GPa/K, fitted slope of K0(T) at zero pressure, not derivative of K0-prime.",
+          "Tr": "Experimental p.4 and K0,300 label: 300 K.",
+          "equation": "BM3; EOS-FIT5.2 (Angel 2002) with linear alpha(T); Angel et al. 2014 doi:10.1515/zkri-2013-1711 p.410 explicitly documents earlier EosFit exponential integral of alpha0+alpha1*T, p.412 linear K0(T)."
+        }
       },
       "range_provenance": {
         "source_location": "Abstract; Experimental; Figure 2",
@@ -149,6 +142,15 @@
       "validation_datasets": ["vanadium_crichton_2016_figure2_points", "vanadium_crichton_2016_figure2_curves"]
     }
   ],
+  "aliases": ["Vanadium"],
+  "symmetry": "CUBIC",
+  "space_group": "Im-3m",
+  "space_group_number": 229,
+  "lattice": {"a": 3.0241, "b": 3.0241, "c": 3.0241, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "V", "wyckoff": "2a", "multiplicity": 2, "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0}
+  ],
+  "notes": "Pure elemental bcc vanadium, not V oxide or a multiphase sample aggregate. The separately sourced 298.15 K diffraction cell (27.6559412875 A^3) differs from the Crichton relaxed-foil EOS reference (27.995 A^3); retain both reported conventions. Advent foil sample purity is not quantified in the EOS manuscript.",
   "datasets": [
     {
       "identifier": "vanadium_crichton_2016_figure2_points",

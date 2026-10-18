@@ -24,6 +24,8 @@ import numpy as np
 from scipy.integrate import quad
 from scipy.optimize import least_squares
 
+from scripts.eosmat_io import read_material, write_material
+
 SUN_PDF_SHA256 = "10d8f6389b59fd7dcb94e349cbac0390e04a2ec55a815b8d238fd97797fccb2b"
 GRE_AUX_SHA256 = "cde0964709863c3b487a054597fd3dd549738aaa9dc3f0c637a996932944479a"
 MOLAR_MASS_G_MOL = 116.162
@@ -422,9 +424,7 @@ def load_bundled_observations() -> tuple[
 ]:
     """Read the attributed source tables, validating catalog resource hashes."""
     data = Path(__file__).resolve().parents[1] / "peritheos/data"
-    document = json.loads(
-        (data / "materials/ca_perovskite.eosmat").read_text(encoding="utf-8")
-    )
+    document = read_material(data / "materials/ca_perovskite.eosmat")
 
     def read(identifier):
         resource = next(
@@ -598,11 +598,9 @@ def main() -> None:
     args = parser.parse_args()
     result = audit(args.sun_text, args.greaux_xlsx, args.sun_pdf)
     if args.update_record:
-        document = json.loads(args.update_record.read_text(encoding="utf-8"))
+        document = read_material(args.update_record)
         update_refit_record(document, result)
-        args.update_record.write_text(
-            json.dumps(document, indent=1, ensure_ascii=False) + "\n", encoding="utf-8"
-        )
+        write_material(args.update_record, document)
     rendered = json.dumps(result, indent=2, sort_keys=True) + "\n"
     if args.output:
         args.output.write_text(rendered, encoding="utf-8")

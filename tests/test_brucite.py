@@ -32,6 +32,7 @@ from scripts.brucite_reproduce import (
     source,
 )
 from scripts.brucite_stage import audit_document, catalog_document, staged_document
+from scripts.eosmat_io import read_material
 
 
 @pytest.fixture(scope="module")
@@ -283,7 +284,7 @@ def test_catalog_brucite_published_ranges_and_qualified_source_records():
         assert (
             "Not recommended" in record["scientific_validation"]["usage_recommendation"]
         )
-    assert load_eosmat(DATA.parent / "materials/brucite.eosmat") == document
+    assert read_material(DATA.parent / "materials/brucite.eosmat") == document
     assert search_eos_records(formula="Mg(OH)2", pressure_gpa=22.56)
     assert not search_eos_records(formula="Mg(OH)2", thermal=True)
     assert not search_eos_records(formula="Mg(OH)2", temperature_k=873)

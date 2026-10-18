@@ -1770,12 +1770,12 @@ Availability: **Explicit diagnostic selection; not recommended**.
 | Thermal | theta0 | 1162 | 204 | Not listed |
 | Thermal | gamma0 | 2.169 | 0.207 | Not listed |
 | Thermal | gamma\_inf | 2.169 | Not reported | Not listed |
-| Thermal | beta | 1 | Not reported | Yes |
 | Thermal | anharmonic\_a | 3.7e-05 | Not reported | Yes |
 | Thermal | anharmonic\_m | 1.87 | Not reported | Yes |
 | Thermal | electronic\_e | 0.000195 | Not reported | Yes |
 | Thermal | electronic\_g | 1.339 | Not reported | Yes |
 | Thermal | n | 1 | Not reported | Yes |
+| Thermal | beta | 1 | Not reported | Yes |
 
 Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
@@ -1909,13 +1909,13 @@ Availability: **Explicit diagnostic selection; not recommended**.
 | Thermal | Tr | 300 | Not reported | Yes |
 | Thermal | theta0 | 600 | 474 | Not listed |
 | Thermal | gamma0 | 2.609 | 0.35 | Not listed |
-| Thermal | gamma\_inf | 0 | Not reported | Yes |
-| Thermal | beta | 1.309 | 0.679 | Not listed |
 | Thermal | anharmonic\_a | 3.7e-05 | Not reported | Yes |
+| Thermal | beta | 1.309 | 0.679 | Not listed |
 | Thermal | anharmonic\_m | 1.87 | Not reported | Yes |
 | Thermal | electronic\_e | 0.000195 | Not reported | Yes |
 | Thermal | electronic\_g | 1.339 | Not reported | Yes |
 | Thermal | n | 1 | Not reported | Yes |
+| Thermal | gamma\_inf | 0 | Not reported | Yes |
 
 Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
@@ -2050,12 +2050,12 @@ Availability: **Explicit diagnostic selection; not recommended**.
 | Thermal | theta0 | 577 | 471 | Not listed |
 | Thermal | gamma0 | 2.882 | 0.394 | Not listed |
 | Thermal | gamma\_inf | 1.087 | 0.487 | Not listed |
-| Thermal | beta | 3.289 | Not reported | Yes |
 | Thermal | anharmonic\_a | 3.7e-05 | Not reported | Yes |
 | Thermal | anharmonic\_m | 1.87 | Not reported | Yes |
 | Thermal | electronic\_e | 0.000195 | Not reported | Yes |
 | Thermal | electronic\_g | 1.339 | Not reported | Yes |
 | Thermal | n | 1 | Not reported | Yes |
+| Thermal | beta | 3.289 | Not reported | Yes |
 
 Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
@@ -2187,15 +2187,15 @@ Availability: **Explicit diagnostic selection; not recommended**.
 | Primary | K0 | 213.0 | 1.8 | Not listed |
 | Primary | K0\_prime | 4.41 | 0.05 | Not listed |
 | Thermal | Tr | 300 | Not reported | Yes |
-| Thermal | theta0 | 417 | Not reported | Yes |
+| Thermal | anharmonic\_a | 3.7e-05 | Not reported | Yes |
 | Thermal | gamma0 | 2.883 | 0.374 | Not listed |
 | Thermal | gamma\_inf | 0.968 | 0.242 | Not listed |
-| Thermal | beta | 3.289 | Not reported | Yes |
-| Thermal | anharmonic\_a | 3.7e-05 | Not reported | Yes |
 | Thermal | anharmonic\_m | 1.87 | Not reported | Yes |
 | Thermal | electronic\_e | 0.000195 | Not reported | Yes |
 | Thermal | electronic\_g | 1.339 | Not reported | Yes |
 | Thermal | n | 1 | Not reported | Yes |
+| Thermal | beta | 3.289 | Not reported | Yes |
+| Thermal | theta0 | 417 | Not reported | Yes |
 
 Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
@@ -2327,15 +2327,15 @@ Availability: **Explicit diagnostic selection; not recommended**.
 | Primary | K0 | 213.0 | 1.8 | Not listed |
 | Primary | K0\_prime | 4.41 | 0.05 | Not listed |
 | Thermal | Tr | 300 | Not reported | Yes |
-| Thermal | theta0 | 417 | Not reported | Yes |
-| Thermal | gamma0 | 1.875 | Not reported | Yes |
-| Thermal | gamma\_inf | 1.305 | Not reported | Yes |
-| Thermal | beta | 1.161 | 0.237 | Not listed |
 | Thermal | anharmonic\_a | 3.7e-05 | Not reported | Yes |
 | Thermal | anharmonic\_m | 1.87 | Not reported | Yes |
 | Thermal | electronic\_e | 0.000195 | Not reported | Yes |
+| Thermal | beta | 1.161 | 0.237 | Not listed |
 | Thermal | electronic\_g | 1.339 | Not reported | Yes |
 | Thermal | n | 1 | Not reported | Yes |
+| Thermal | gamma0 | 1.875 | Not reported | Yes |
+| Thermal | gamma\_inf | 1.305 | Not reported | Yes |
+| Thermal | theta0 | 417 | Not reported | Yes |
 
 Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported

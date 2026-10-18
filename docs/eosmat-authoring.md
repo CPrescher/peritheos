@@ -173,3 +173,27 @@ independent of standalone authoring:
 python -m scripts.generate_material_summaries --check
 python -m scripts.generate_catalog_coverage --check
 ```
+
+The bundled library uses the same native v4 structure, with explicit units and
+inline evidence. For repository maintenance, migrate older files in place with
+`python -m scripts.migrate_eosmat_v4 [paths ...]`; without paths it selects the
+bundled library. `--check` reports files needing migration without writing them.
+The migration compares the complete scientific content before writing and is
+safe to repeat. Catalog maintenance tools read either layout and write v4.
+Use the installed `peritheos convert` command above for standalone files and
+explicit compatibility exports.
+
+Three historical refit scripts are fingerprinted by their scientific audit
+reports. Their original code and reports remain unchanged. Use the repository
+compatibility runner for their file access:
+
+```bash
+python -m scripts.run_eosmat_audit refit_hirose_fei_gold_speziale --check
+python -m scripts.run_eosmat_audit refit_miozzi_2020_speziale --check
+python -m scripts.run_eosmat_audit refit_miozzi_2020_tange --check
+```
+
+The runner gives the original script a temporary v3 export. A successful
+`--register` saves any material changes back as v4, after checking for concurrent
+edits. This compatibility step is only for these historical repository scripts;
+normal file reading, authoring and calculation use v4 directly.

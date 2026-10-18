@@ -1,25 +1,23 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "lead_fcc",
   "name": "Lead (fcc)",
   "formula": "Pb",
   "phase": "face-centered cubic lead, ambient-pressure phase",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
-  "symmetry": "CUBIC",
-  "space_group": "Fm-3m",
-  "space_group_number": 225,
-  "lattice": {"a": 4.951776, "b": null, "c": null, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
-  "atom_sites": [
-    {"element": "Pb", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0}
-  ],
-  "peaks": [],
-  "notes": "The fcc cell is calculated from the 300 K reference volume of the PVT EoS. PhaseSmith calculates powder reflections and intensities from the ideal structure.",
   "eos_records": [
     {
       "identifier": "lead_fcc_fortes_2019_bm4_1",
       "label": "Fortes (2019), 300 K BM4 slice",
+      "model": "BM4",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 121.418, "error": 0.005, "fixed": true},
+        "K0": {"value": 41.73, "error": 0.01, "fixed": true},
+        "K0_prime": {"value": 5.39, "error": 0.25},
+        "K0_double_prime": {"value": -0.33, "error": 0.02}
+      },
       "determination_method": "experimental",
       "default": true,
       "reference": {
@@ -30,14 +28,6 @@
         "locator": "RAL-TR-2019-002",
         "doi": "10.5286/raltr.2019002"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "BM4",
-        "parameters": {"V0": 121.418, "K0": 41.73, "K0_prime": 5.39, "K0_double_prime": -0.33},
-        "model": "birch_murnaghan_4"
-      },
-      "parameter_errors": {"V0": 0.005, "K0": 0.01, "K0_prime": 0.25, "K0_double_prime": 0.02},
-      "fixed_parameters": ["V0", "K0"],
       "experimental_pressure_range_gpa": [0.0, 13.0],
       "experimental_temperature_range_k": [295.0, 788.0],
       "notes": "Static 300 K slice of the report's temperature-dependent BM4 pressure-marker model. The report first constrained V0(T) from thermal expansion and K0(T) from elastic, heat-capacity, and expansivity data. It then varied K0_prime(300 K), dK0_prime/dT, and temperature-invariant K0_double_prime against a compiled 295-788 K compression dataset. The full polynomial surface is independently executable in scripts/audit_fortes_2019_fcc_pb.py, but is not stored as this isothermal record because the current thermal schema cannot represent it.",
@@ -87,54 +77,56 @@
         "audit_date": "2026-09-07",
         "notes": "Named methods are preserved only where the cited primary sources or Fortes Figure 4 identify them; no single calibration is assigned to the compiled fit."
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-07",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "published_uncertainties",
-          "validity",
-          "thermal_coefficients",
-          "fit_protocol",
-          "primary_data_limits",
-          "pressure_calibration"
-        ],
-        "primary_source_check": {
-          "access_url": "https://epubs.stfc.ac.uk/manifestation/40740885/RAL-TR-2019-002.pdf",
-          "locations": ["Equations 1-8", "sections 2.1-2.3", "Tables 1-2, report pages 8-9"],
-          "finding": "The stored BM4 record is exactly the 300 K isotherm of the fully specified polynomial P-V-T surface. The report's Table 1 constants are evaluated at Delta T=0 (300 K), not at absolute zero.",
-          "doi": "10.5286/raltr.2019002"
-        },
-        "migration_source": {
-          "project": "Dioptas",
-          "version": "0.10.0",
-          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-          "file": "lead_fcc.json"
-        },
-        "primary_data_check": {
-          "status": "combined_primary_data_partially_bundled",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
           "audit_date": "2026-09-07",
-          "dataset_identifiers": ["lead_fcc_kuznetsov_2002_table1_transition_pvt"],
-          "source_locations": ["Fortes (2019), Section 2.3, Figure 4, and Table 1", "Kuznetsov et al. (2002), Table 1 and Figure 3"],
-          "finding": "The published pressure surface is executable and three exact Kuznetsov fcc transition P-V-T anchors are bundled, but the compiled coefficient fit cannot be independently reproduced. The full 295-788 K Kuznetsov table was supplied privately to Fortes, while the exhaustive source-row selection, pressure-scale treatment, residual coordinate, weights, and covariance procedure are not published.",
-          "reproduction_resource": "docs/literature-reproductions/fortes-2019-fcc-pb.md"
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "published_uncertainties",
+            "validity",
+            "thermal_coefficients",
+            "fit_protocol",
+            "primary_data_limits",
+            "pressure_calibration"
+          ],
+          "primary_source_check": {
+            "access_url": "https://epubs.stfc.ac.uk/manifestation/40740885/RAL-TR-2019-002.pdf",
+            "locations": ["Equations 1-8", "sections 2.1-2.3", "Tables 1-2, report pages 8-9"],
+            "finding": "The stored BM4 record is exactly the 300 K isotherm of the fully specified polynomial P-V-T surface. The report's Table 1 constants are evaluated at Delta T=0 (300 K), not at absolute zero.",
+            "doi": "10.5286/raltr.2019002"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "lead_fcc.json"
+          },
+          "primary_data_check": {
+            "status": "combined_primary_data_partially_bundled",
+            "audit_date": "2026-09-07",
+            "dataset_identifiers": ["lead_fcc_kuznetsov_2002_table1_transition_pvt"],
+            "source_locations": ["Fortes (2019), Section 2.3, Figure 4, and Table 1", "Kuznetsov et al. (2002), Table 1 and Figure 3"],
+            "finding": "The published pressure surface is executable and three exact Kuznetsov fcc transition P-V-T anchors are bundled, but the compiled coefficient fit cannot be independently reproduced. The full 295-788 K Kuznetsov table was supplied privately to Fortes, while the exhaustive source-row selection, pressure-scale treatment, residual coordinate, weights, and covariance procedure are not published.",
+            "reproduction_resource": "docs/literature-reproductions/fortes-2019-fcc-pb.md"
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 1-8; sections 2.1-2.3; Tables 1-2, report pages 8-9.",
+          "equation": "Fortes (2019), Equations 1-5: fourth-order Eulerian finite-strain pressure with polynomial V0(T), K0(T), and K0_prime(T).",
+          "reference_state": "Table 1's polynomial constant terms correspond to Delta T=T-300 K=0 and therefore to 300 K, not absolute zero.",
+          "V0": "Table 1 V0(300 K)=121.418(5) A^3 per four-atom fcc conventional cell; fixed in the compression-stage fit after the thermal-expansion stage.",
+          "K0": "Table 1 K0(300 K)=41.73(1) GPa; fixed in the compression-stage fit after conversion of literature adiabatic elastic moduli with Equation 8.",
+          "K0_prime": "Table 1 K0_prime(300 K)=5.39(25), varied in the compression-stage fit together with its temperature slope e=0.0011(1) K^-1.",
+          "K0_double_prime": "Table 1 K0_double_prime=-0.33(2) GPa^-1, assumed temperature invariant and varied in the compression-stage fit.",
+          "covariance": "not published",
+          "uncertainty_method": "not reported"
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 1-8; sections 2.1-2.3; Tables 1-2, report pages 8-9.",
-        "equation": "Fortes (2019), Equations 1-5: fourth-order Eulerian finite-strain pressure with polynomial V0(T), K0(T), and K0_prime(T).",
-        "reference_state": "Table 1's polynomial constant terms correspond to Delta T=T-300 K=0 and therefore to 300 K, not absolute zero.",
-        "V0": "Table 1 V0(300 K)=121.418(5) A^3 per four-atom fcc conventional cell; fixed in the compression-stage fit after the thermal-expansion stage.",
-        "K0": "Table 1 K0(300 K)=41.73(1) GPa; fixed in the compression-stage fit after conversion of literature adiabatic elastic moduli with Equation 8.",
-        "K0_prime": "Table 1 K0_prime(300 K)=5.39(25), varied in the compression-stage fit together with its temperature slope e=0.0011(1) K^-1.",
-        "K0_double_prime": "Table 1 K0_double_prime=-0.33(2) GPa^-1, assumed temperature invariant and varied in the compression-stage fit.",
-        "covariance": "not published",
-        "uncertainty_method": "not reported"
       },
       "published_fit_provenance": {
         "software": {"name": "not reported", "version": "not reported"},
@@ -162,6 +154,13 @@
     {
       "identifier": "lead_fcc_kuznetsov_2002_bm3_2",
       "label": "Kuznetsov et al. (2002), 296 K BM3 slice",
+      "model": "BM3",
+      "temperature_ref": 296.0,
+      "parameters": {
+        "V0": {"value": 121.228, "error": null},
+        "K0": {"value": 40.5, "error": null},
+        "K0_prime": {"value": 5.74, "error": null}
+      },
       "record_kind": "published",
       "determination_method": "experimental",
       "equation_kind": "isothermal",
@@ -174,14 +173,6 @@
         "locator": "125-127",
         "doi": "10.1016/S0038-1098(02)00112-6"
       },
-      "temperature_ref": 296.0,
-      "eos": {
-        "type": "BM3",
-        "parameters": {"V0": 121.228, "K0": 40.5, "K0_prime": 5.74},
-        "model": "birch_murnaghan_3"
-      },
-      "parameter_errors": {"V0": null, "K0": null, "K0_prime": null},
-      "fixed_parameters": [],
       "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 13.1],
       "pressure_range_status": "reported_qualitatively",
@@ -219,55 +210,57 @@
         },
         "audit_date": "2026-09-08"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-08",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "published_uncertainties",
-          "validity",
-          "thermal_coefficients",
-          "fit_protocol",
-          "primary_data_limits",
-          "pressure_calibration"
-        ],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.1016/S0038-1098(02)00112-6",
-          "locations": ["Equations 1-3", "Table 1", "Table 2", "Figures 2-3"],
-          "finding": "The stored BM3 record is exactly the 296 K isotherm of the published fcc P-V-T surface. The paper observes fcc Pb at room temperature, reports transition onset near 12 GPa, and tabulates a 296 K fcc transition state at 13.1 GPa.",
-          "doi": "10.1016/S0038-1098(02)00112-6"
-        },
-        "primary_data_check": {
-          "status": "combined_primary_data_partially_bundled",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
           "audit_date": "2026-09-08",
-          "dataset_identifiers": ["lead_fcc_kuznetsov_2002_table1_transition_pvt"],
-          "source_locations": ["Kuznetsov et al. (2002), Table 1 and Figure 3"],
-          "finding": "Three exact fcc transition P-V-T anchors are bundled, but they are not the complete observations used to fit the nine-coefficient thermal BM3 surface. The full numerical P-V-T dataset, row selection, residual coordinate, weights, and covariance procedure are not published.",
-          "reproduction_resource": "docs/literature-reproductions/fortes-2019-fcc-pb.md"
-        }
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "published_uncertainties",
+            "validity",
+            "thermal_coefficients",
+            "fit_protocol",
+            "primary_data_limits",
+            "pressure_calibration"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/S0038-1098(02)00112-6",
+            "locations": ["Equations 1-3", "Table 1", "Table 2", "Figures 2-3"],
+            "finding": "The stored BM3 record is exactly the 296 K isotherm of the published fcc P-V-T surface. The paper observes fcc Pb at room temperature, reports transition onset near 12 GPa, and tabulates a 296 K fcc transition state at 13.1 GPa.",
+            "doi": "10.1016/S0038-1098(02)00112-6"
+          },
+          "primary_data_check": {
+            "status": "combined_primary_data_partially_bundled",
+            "audit_date": "2026-09-08",
+            "dataset_identifiers": ["lead_fcc_kuznetsov_2002_table1_transition_pvt"],
+            "source_locations": ["Kuznetsov et al. (2002), Table 1 and Figure 3"],
+            "finding": "Three exact fcc transition P-V-T anchors are bundled, but they are not the complete observations used to fit the nine-coefficient thermal BM3 surface. The full numerical P-V-T dataset, row selection, residual coordinate, weights, and covariance procedure are not published.",
+            "reproduction_resource": "docs/literature-reproductions/fortes-2019-fcc-pb.md"
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 1-3; Table 1; Table 2; Figures 2-3.",
+          "equation": "Kuznetsov et al. (2002), Equation 1, third-order Birch-Murnaghan pressure.",
+          "reference_state": "Equations 2-3 define t=T-T0 with T0=296 K; the Table 2 constants therefore give the 296 K reference isotherm.",
+          "V0": "Table 2 fcc V0=30.307 A^3/atom, converted to 121.228 A^3 per four-atom conventional fcc cell.",
+          "K0": "Table 2 fcc B0=40.5 GPa.",
+          "K0_prime": "Table 2 fcc B0_prime=5.74.",
+          "published_uncertainties": "not reported",
+          "covariance": "not published"
+        },
+        "source_lineage": [
+          {
+            "role": "scientific equation, coefficients, phase assignment, and calibration context",
+            "citation": "Kuznetsov et al. (2002), Equations 1-3 and Tables 1-2",
+            "doi": "10.1016/S0038-1098(02)00112-6"
+          }
+        ]
       },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 1-3; Table 1; Table 2; Figures 2-3.",
-        "equation": "Kuznetsov et al. (2002), Equation 1, third-order Birch-Murnaghan pressure.",
-        "reference_state": "Equations 2-3 define t=T-T0 with T0=296 K; the Table 2 constants therefore give the 296 K reference isotherm.",
-        "V0": "Table 2 fcc V0=30.307 A^3/atom, converted to 121.228 A^3 per four-atom conventional fcc cell.",
-        "K0": "Table 2 fcc B0=40.5 GPa.",
-        "K0_prime": "Table 2 fcc B0_prime=5.74.",
-        "published_uncertainties": "not reported",
-        "covariance": "not published"
-      },
-      "source_lineage": [
-        {
-          "role": "scientific equation, coefficients, phase assignment, and calibration context",
-          "citation": "Kuznetsov et al. (2002), Equations 1-3 and Tables 1-2",
-          "doi": "10.1016/S0038-1098(02)00112-6"
-        }
-      ],
       "published_fit_provenance": {
         "software": {"name": "not reported", "version": "not reported"},
         "dataset": "experimental fcc and hcp P-V-T observations; complete numerical table not published",
@@ -292,6 +285,15 @@
       }
     }
   ],
+  "symmetry": "CUBIC",
+  "space_group": "Fm-3m",
+  "space_group_number": 225,
+  "lattice": {"a": 4.951776, "b": null, "c": null, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Pb", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "The fcc cell is calculated from the 300 K reference volume of the PVT EoS. PhaseSmith calculates powder reflections and intensities from the ideal structure.",
   "datasets": [
     {
       "identifier": "lead_fcc_kuznetsov_2002_table1_transition_pvt",

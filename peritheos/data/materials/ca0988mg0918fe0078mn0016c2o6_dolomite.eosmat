@@ -1,25 +1,22 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "ca0988mg0918fe0078mn0016c2o6_dolomite",
   "name": "Natural Fe-bearing dolomite",
   "formula": "Ca0.988Mg0.918Fe0.078Mn0.016C2O6",
   "phase": "trigonal ferroan dolomite, R-3",
-  "aliases": ["Mao et al. Windham Fe-dolomite", "Dolomite-I"],
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 3,
-  "cell_contents": "Three Ca0.988Mg0.918Fe0.078Mn0.016C2O6 formula units per conventional hexagonal R-3 cell (Z=3).",
-  "symmetry": "TRIGONAL",
-  "space_group": "R-3",
-  "space_group_number": 148,
-  "lattice": {"a": 4.8126, "b": 4.8126, "c": 16.0413, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
-  "atom_sites": [],
-  "peaks": [],
-  "notes": "The source measured a natural Windham, Vermont specimen by electron microprobe. No composition-specific atomic-position refinement is reported, so atom_sites is intentionally empty. The ambient lattice gives 321.7583 A^3, independently confirming the published EOS cell basis and V0=321.77 A^3.",
   "eos_records": [
     {
       "identifier": "ca0988mg0918fe0078mn0016c2o6_dolomite_mao_2011_bm3_1",
       "label": "Mao et al. (2011), natural Fe-dolomite 300 K BM3",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 321.77, "error": 0.06},
+        "K0": {"value": 94.1, "error": 0.4},
+        "K0_prime": {"value": 4.0, "error": null, "fixed": true}
+      },
       "record_kind": "published",
       "determination_method": "experimental",
       "equation_kind": "isothermal",
@@ -33,15 +30,7 @@
         "locator": "L22303",
         "doi": "10.1029/2011GL049519"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 321.77, "K0": 94.1, "K0_prime": 4.0}
-      },
-      "parameter_errors": {"V0": 0.06, "K0": 0.4, "K0_prime": null},
       "parameter_error_confidence": null,
-      "fixed_parameters": ["K0_prime"],
       "parameter_covariance": null,
       "volume_basis": {"kind": "formula_units", "formula_units": 3.0, "molar_mass_g_mol": 187.159972},
       "experimental_pressure_range_gpa": [0.0, 17.0],
@@ -79,54 +68,56 @@
         },
         "audit_date": "2026-09-05"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Validated against the free-access publisher article; LitCurate was used only for discovery and candidate enumeration.",
-        "audit_date": "2026-09-05",
-        "verified_fields": [
-          "canonical_doi",
-          "composition",
-          "phase",
-          "cell_basis",
-          "equation",
-          "parameters",
-          "fixed_parameters",
-          "units",
-          "reference_state",
-          "published_uncertainties",
-          "validity",
-          "pressure_calibration",
-          "primary_data"
-        ],
-        "primary_source_check": {
-          "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011GL049519",
-          "doi": "10.1029/2011GL049519",
-          "locations": ["Experimental Procedure, paragraphs 5-6", "Discussion, paragraphs 10-11", "Figure 3"],
-          "finding": "The source explicitly reports the composition-specific 300 K trigonal Fe-dolomite BM3 with V0 and K0 fitted and K0'=4 fixed."
-        },
-        "primary_data_check": {
-          "status": "plot_only",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Validated against the free-access publisher article; LitCurate was used only for discovery and candidate enumeration.",
           "audit_date": "2026-09-05",
-          "digitized_dataset_identifiers": ["ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_fe_dolomite_digitized"],
-          "source_locations": ["Figure 3a, open-diamond observations"],
-          "finding": "Seven separable marker centers are bundled; the article and auxiliary files provide no numerical pressure-volume table."
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "phase",
+            "cell_basis",
+            "equation",
+            "parameters",
+            "fixed_parameters",
+            "units",
+            "reference_state",
+            "published_uncertainties",
+            "validity",
+            "pressure_calibration",
+            "primary_data"
+          ],
+          "primary_source_check": {
+            "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011GL049519",
+            "doi": "10.1029/2011GL049519",
+            "locations": ["Experimental Procedure, paragraphs 5-6", "Discussion, paragraphs 10-11", "Figure 3"],
+            "finding": "The source explicitly reports the composition-specific 300 K trigonal Fe-dolomite BM3 with V0 and K0 fitted and K0'=4 fixed."
+          },
+          "primary_data_check": {
+            "status": "plot_only",
+            "audit_date": "2026-09-05",
+            "digitized_dataset_identifiers": ["ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_fe_dolomite_digitized"],
+            "source_locations": ["Figure 3a, open-diamond observations"],
+            "finding": "Seven separable marker centers are bundled; the article and auxiliary files provide no numerical pressure-volume table."
+          },
+          "independent_refit": {
+            "method": "Figure-marker audit with unweighted pressure residuals; V0 and K0 free and K0'=4 fixed",
+            "parameters": {"V0": 320.64634937, "K0": 98.63544265, "K0_prime": 4.0},
+            "published_curve_pressure_rmse_gpa": 0.39915983,
+            "published_curve_pressure_max_abs_residual_gpa": 0.69344567,
+            "assessment": "The low-resolution raster does not reproduce the source regression weights or the very small printed errors, but all seven markers follow the published curve within 0.70 GPa; the digitized refit is diagnostic and does not replace the source coefficients."
+          }
         },
-        "independent_refit": {
-          "method": "Figure-marker audit with unweighted pressure residuals; V0 and K0 free and K0'=4 fixed",
-          "parameters": {"V0": 320.64634937, "K0": 98.63544265, "K0_prime": 4.0},
-          "published_curve_pressure_rmse_gpa": 0.39915983,
-          "published_curve_pressure_max_abs_residual_gpa": 0.69344567,
-          "assessment": "The low-resolution raster does not reproduce the source regression weights or the very small printed errors, but all seven markers follow the published curve within 0.70 GPa; the digitized refit is diagnostic and does not replace the source coefficients."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental Procedure, paragraphs 5-6; Discussion, paragraphs 10-11; Figure 3.",
+          "equation": "Discussion paragraph 11: third-order Birch-Murnaghan equation of state.",
+          "V0": "Discussion paragraph 11: V0=321.77(+/-0.06) A^3.",
+          "K0": "Discussion paragraph 11: K0=94.1(+/-0.4) GPa.",
+          "K0_prime": "Discussion paragraph 11: fixed at 4.",
+          "temperature_ref": "Figure 3 and Discussion identify the cell volumes as 300 K.",
+          "fit_selection": "Low-pressure trigonal Fe-dolomite observations before the approximately 17 GPa transition."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental Procedure, paragraphs 5-6; Discussion, paragraphs 10-11; Figure 3.",
-        "equation": "Discussion paragraph 11: third-order Birch-Murnaghan equation of state.",
-        "V0": "Discussion paragraph 11: V0=321.77(+/-0.06) A^3.",
-        "K0": "Discussion paragraph 11: K0=94.1(+/-0.4) GPa.",
-        "K0_prime": "Discussion paragraph 11: fixed at 4.",
-        "temperature_ref": "Figure 3 and Discussion identify the cell volumes as 300 K.",
-        "fit_selection": "Low-pressure trigonal Fe-dolomite observations before the approximately 17 GPa transition."
       },
       "sample_composition": "Natural Fe-dolomite from Windham, Vermont; electron-microprobe composition Ca0.988Mg0.918Fe0.078Mn0.016(CO3)2; a minor PbS impurity remained unreacted.",
       "fit_datasets": ["ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_fe_dolomite_digitized"],
@@ -140,6 +131,15 @@
       }
     }
   ],
+  "aliases": ["Mao et al. Windham Fe-dolomite", "Dolomite-I"],
+  "cell_contents": "Three Ca0.988Mg0.918Fe0.078Mn0.016C2O6 formula units per conventional hexagonal R-3 cell (Z=3).",
+  "symmetry": "TRIGONAL",
+  "space_group": "R-3",
+  "space_group_number": 148,
+  "lattice": {"a": 4.8126, "b": 4.8126, "c": 16.0413, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
+  "atom_sites": [],
+  "peaks": [],
+  "notes": "The source measured a natural Windham, Vermont specimen by electron microprobe. No composition-specific atomic-position refinement is reported, so atom_sites is intentionally empty. The ambient lattice gives 321.7583 A^3, independently confirming the published EOS cell basis and V0=321.77 A^3.",
   "datasets": [
     {
       "identifier": "ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_fe_dolomite_digitized",

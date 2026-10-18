@@ -1,24 +1,22 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "coesite_iv",
   "name": "Coesite-IV",
   "formula": "SiO2",
   "phase": "triclinic coesite-IV",
-  "aliases": ["coesite IV"],
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 16,
-  "cell_contents": "Sixteen SiO2 formula units in the triclinic P-1 conventional cell.",
-  "symmetry": "TRICLINIC",
-  "space_group": "P-1",
-  "space_group_number": 2,
-  "atom_sites": [],
-  "peaks": [],
-  "notes": "Metastable high-pressure silica polymorph containing tetra-, penta-, and hexa-coordinated Si. The EOS reference volume is a documented one-parameter reconstruction from exact primary Table 10 calculated P-V states because Supplementary Table 11 publishes K0 and K0' but omits V0.",
   "eos_records": [
     {
       "identifier": "coesite_iv_bykova_2018_am05_static_bm3_refit",
       "label": "Bykova et al. (2018), coesite-IV static AM05 BM3 reconstruction",
+      "model": "BM3",
+      "temperature_ref": 0.0,
+      "parameters": {
+        "V0": {"value": 438.6702, "error": null},
+        "K0": {"value": 168.52, "error": null, "fixed": true},
+        "K0_prime": {"value": 3.34, "error": null, "fixed": true}
+      },
       "record_kind": "derived",
       "determination_method": "theoretical",
       "equation_kind": "isothermal",
@@ -46,15 +44,7 @@
         "locator": "4789",
         "doi": "10.1038/s41467-018-07265-z"
       },
-      "temperature_ref": 0.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 438.6702, "K0": 168.52, "K0_prime": 3.34}
-      },
-      "parameter_errors": {"V0": null, "K0": null, "K0_prime": null},
       "parameter_error_confidence": null,
-      "fixed_parameters": ["K0", "K0_prime"],
       "parameter_covariance": null,
       "volume_basis": {"kind": "formula_units", "formula_units": 16.0, "molar_mass_g_mol": 60.083},
       "experimental_pressure_range_gpa": [27.0, 48.0],
@@ -75,45 +65,6 @@
         "recalculation": {"status": "not_applicable", "notes": "The EOS is based on calculated E-P-V states."},
         "audit_date": "2026-09-05"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://www.nature.com/articles/s41467-018-07265-z",
-          "doi": "10.1038/s41467-018-07265-z",
-          "locations": ["Methods: Ab initio calculations", "Supplementary Figure 6", "Supplementary Tables 10-11"],
-          "finding": "Independent calculated coesite-IV BM3; V0 reconstructed transparently because only K0 and K0' are printed."
-        },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-05",
-          "dataset_identifiers": ["coesite_iv_bykova_2018_table10_calc_pv"],
-          "finding": "All three exact calculated Table 10 states that remain coesite-IV are transcribed."
-        }
-      },
-      "parameter_provenance": {
-        "determination_method": "Bykova (2018), Methods: static VASP AM05 E(V) calculations supply the one-parameter BM3 refit; a Peritheos refit of calculated states remains theoretical.",
-        "equation": "Methods: calculated E-P-V states fitted with third-order Birch-Murnaghan.",
-        "parameters": "K0 and K0' are published in Supplementary Table 11. V0 is reconstructed by least squares from the three unambiguously coesite-IV exact calculated states in Supplementary Table 10, holding the published K0 and K0' fixed.",
-        "method": "Static 0 K VASP AM05 calculations; one-parameter reproducible refit."
-      },
-      "fit_provenance": {
-        "software": {"name": "Peritheos", "version": "0.6.0"},
-        "dataset": "coesite_iv_bykova_2018_table10_calc_pv",
-        "selection": {"predicate": "three Table 10 calculated states that remain coesite-IV", "included_rows": 3, "excluded_rows": 0},
-        "objective": "unweighted_pressure_residual_least_squares",
-        "refined_parameters": ["V0"],
-        "fixed_parameters": ["K0", "K0_prime"],
-        "statistics": {
-          "observations": 3,
-          "free_parameters": 1,
-          "pressure_residual_rmse_gpa": 0.080812,
-          "max_absolute_pressure_residual_gpa": 0.108394
-        },
-        "reproduction": {"script": "scripts/reproduce_tranche_b_mineral_eos.py", "solver": "scipy.optimize.least_squares"}
-      },
       "derivation": {
         "source_kind": "published_table",
         "source_identifier": "coesite_iv_bykova_2018_table10_calc_pv",
@@ -124,10 +75,63 @@
         "software": {"name": "Peritheos", "version": "0.6.0"},
         "access_and_licensing": "Primary article and supplementary information are CC BY 4.0."
       },
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://www.nature.com/articles/s41467-018-07265-z",
+            "doi": "10.1038/s41467-018-07265-z",
+            "locations": ["Methods: Ab initio calculations", "Supplementary Figure 6", "Supplementary Tables 10-11"],
+            "finding": "Independent calculated coesite-IV BM3; V0 reconstructed transparently because only K0 and K0' are printed."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-05",
+            "dataset_identifiers": ["coesite_iv_bykova_2018_table10_calc_pv"],
+            "finding": "All three exact calculated Table 10 states that remain coesite-IV are transcribed."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Bykova (2018), Methods: static VASP AM05 E(V) calculations supply the one-parameter BM3 refit; a Peritheos refit of calculated states remains theoretical.",
+          "equation": "Methods: calculated E-P-V states fitted with third-order Birch-Murnaghan.",
+          "parameters": "K0 and K0' are published in Supplementary Table 11. V0 is reconstructed by least squares from the three unambiguously coesite-IV exact calculated states in Supplementary Table 10, holding the published K0 and K0' fixed.",
+          "method": "Static 0 K VASP AM05 calculations; one-parameter reproducible refit."
+        },
+        "fit_provenance": {
+          "software": {"name": "Peritheos", "version": "0.6.0"},
+          "dataset": "coesite_iv_bykova_2018_table10_calc_pv",
+          "selection": {
+            "predicate": "three Table 10 calculated states that remain coesite-IV",
+            "included_rows": 3,
+            "excluded_rows": 0
+          },
+          "objective": "unweighted_pressure_residual_least_squares",
+          "refined_parameters": ["V0"],
+          "fixed_parameters": ["K0", "K0_prime"],
+          "statistics": {
+            "observations": 3,
+            "free_parameters": 1,
+            "pressure_residual_rmse_gpa": 0.080812,
+            "max_absolute_pressure_residual_gpa": 0.108394
+          },
+          "reproduction": {"script": "scripts/reproduce_tranche_b_mineral_eos.py", "solver": "scipy.optimize.least_squares"}
+        }
+      },
       "sample_composition": "Ideal SiO2, fully relaxed metastable coesite-IV structure.",
       "fit_datasets": ["coesite_iv_bykova_2018_table10_calc_pv"]
     }
   ],
+  "aliases": ["coesite IV"],
+  "cell_contents": "Sixteen SiO2 formula units in the triclinic P-1 conventional cell.",
+  "symmetry": "TRICLINIC",
+  "space_group": "P-1",
+  "space_group_number": 2,
+  "atom_sites": [],
+  "peaks": [],
+  "notes": "Metastable high-pressure silica polymorph containing tetra-, penta-, and hexa-coordinated Si. The EOS reference volume is a documented one-parameter reconstruction from exact primary Table 10 calculated P-V states because Supplementary Table 11 publishes K0 and K0' but omits V0.",
   "datasets": [
     {
       "identifier": "coesite_iv_bykova_2018_table10_calc_pv",

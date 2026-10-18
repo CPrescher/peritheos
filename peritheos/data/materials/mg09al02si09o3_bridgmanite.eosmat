@@ -1,63 +1,22 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "mg09al02si09o3_bridgmanite",
   "name": "Mg0.9Al0.2Si0.9O3 aluminous bridgmanite",
   "formula": "Mg0.9Al0.2Si0.9O3",
   "phase": "orthorhombic aluminous silicate perovskite, synthesis run en90G3",
-  "aliases": ["Mg0.9Al0.2Si0.9O3 perovskite", "10 mol% Al2O3 silicate perovskite", "aluminous bridgmanite en90G3"],
-  "family_id": "bridgmanite",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
-  "cell_contents": "Four nominal Mg0.9Al0.2Si0.9O3 formula units per conventional orthorhombic Pbnm cell (Z=4). The source establishes the composition, lattice, and space group but publishes neither fractional coordinates nor Al site occupancies. The stored atom_sites are therefore an explicitly identified MgSiO3 Pbnm positional-topology proxy and do not encode the specimen composition or an experimentally determined Al distribution.",
-  "symmetry": "ORTHORHOMBIC",
-  "space_group": "Pbnm",
-  "space_group_number": 62,
-  "lattice": {"a": 4.774, "b": 4.941, "c": 6.935, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
-  "atom_sites": [
-    {
-      "element": "Mg",
-      "wyckoff": "4c",
-      "x": 0.974,
-      "y": 0.063,
-      "z": 0.25,
-      "occupancy": 1.0,
-      "source_label": "MgSiO3 topology proxy Mg"
-    },
-    {
-      "element": "Si",
-      "wyckoff": "4b",
-      "x": 0.0,
-      "y": 0.5,
-      "z": 0.0,
-      "occupancy": 1.0,
-      "source_label": "MgSiO3 topology proxy Si"
-    },
-    {
-      "element": "O",
-      "wyckoff": "4c",
-      "x": 0.096,
-      "y": 0.477,
-      "z": 0.25,
-      "occupancy": 1.0,
-      "source_label": "MgSiO3 topology proxy O1"
-    },
-    {
-      "element": "O",
-      "wyckoff": "8d",
-      "x": 0.696,
-      "y": 0.291,
-      "z": 0.056,
-      "occupancy": 1.0,
-      "source_label": "MgSiO3 topology proxy O2"
-    }
-  ],
-  "peaks": [],
-  "notes": "Composition-specific Fe-free aluminous bridgmanite synthesized from a 90 mol% MgSiO3 plus 10 mol% Al2O3 glass. EPMA confirmed Mg0.9Al0.2Si0.9O3 within analytical error. The source later discusses equal Al occupation of large and small sites only as a hypothetical interpretation, so no site partition is asserted here. The stored lattice is the more precise of two mutually consistent atmospheric measurements. Its rounded a*b*c product is 163.585 A^3 and agrees with the printed 163.6(4) A^3 conventional-cell volume. Pbnm perovskite has Z=4; that cell content is a crystallographic inference because the paper does not explicitly print Z. The positional model is a pure-MgSiO3 topology proxy, not a composition-bearing refinement.",
   "eos_records": [
     {
       "identifier": "mg09al02si09o3_bridgmanite_kubo_2000_bm3_1",
       "label": "Kubo et al. (2000), adopted fixed-derivative BM3",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 163.6, "error": 0.4},
+        "K0": {"value": 225.5, "error": 1.2},
+        "K0_prime": {"value": 4.0, "fixed": true}
+      },
       "record_kind": "published",
       "determination_method": "experimental",
       "equation_kind": "isothermal",
@@ -71,15 +30,7 @@
         "locator": "103-107",
         "doi": "10.2183/pjab.76.103"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 163.6, "K0": 225.5, "K0_prime": 4.0}
-      },
-      "parameter_errors": {"V0": 0.4, "K0": 1.2},
       "parameter_error_confidence": null,
-      "fixed_parameters": ["K0_prime"],
       "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 8.71],
       "pressure_range_status": "reported_exactly",
@@ -136,51 +87,53 @@
         },
         "audit_date": "2026-09-05"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-05",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://www.jstage.jst.go.jp/article/pjab1977/76/8/76_8_103/_article",
-          "doi": "10.2183/pjab.76.103",
-          "locations": [
-            "abstract and Experimental section, pages 103-105",
-            "Table I, page 104",
-            "EOS discussion, Figure 2, Figure 3, and Table II, pages 105-106"
-          ],
-          "finding": "The source reports a preferred fixed-K0_prime BM3 and a secondary unconstrained BM3 for one Pbnm Mg0.9Al0.2Si0.9O3 specimen. It explicitly rejects precise interpretation of the free derivative, not the underlying fit.",
-          "publisher_pdf_sha256": "70fd8aac56e920c21442ed6884b24024e839f34b2b561f7f0b55aab178a3c214"
-        },
-        "primary_data_check": {
-          "status": "bundled",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
           "audit_date": "2026-09-05",
-          "dataset_identifiers": ["mg09al02si09o3_bridgmanite_kubo_2000_table1_compression"],
-          "source_locations": ["Kubo et al. (2000), Table I, page 104"],
-          "finding": "All ten printed run, pressure, lattice, conventional-cell-volume, axial-ratio, and uncertainty rows are directly transcribed. No digitization was required."
-        }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: abstract and Experimental section, pages 103-105; Table I, page 104; EOS discussion, Figure 2, Figure 3, and Table II, pages 105-106.",
-        "equation": "Page 106 EOS discussion: all Table I volumes fitted to a third-order Birch-Murnaghan EOS. The paper names but does not explicitly typeset the formula; Peritheos uses the standard Eulerian BM3 convention.",
-        "V0": "Table I ap107 atmospheric row: measured conventional-cell V0=163.6(4) A^3. The source fixed V/V0=1 separately at atmospheric pressure for each run rather than fitting one shared V0.",
-        "K0": "Abstract and page 106: KT0=225.5+/-1.2 GPa when K'T0=4 is assumed.",
-        "K0_prime": "Abstract and page 106: K'T0=4 fixed, chosen for consistency with MgSiO3 perovskite because the experimental compression did not constrain the derivative accurately.",
-        "temperature_ref": "Source says room temperature without a numerical value; encoded operationally as 300 K.",
-        "fit_selection": "All ten Table I rows are retained. They represent eight finite-pressure diffraction patterns plus one atmospheric measurement from each run; ruby pressure is the fit coordinate."
-      },
-      "source_lineage": [
-        {
-          "role": "published EOS coefficients, complete compression observations, experiment, and pressure calibration",
-          "citation": "Kubo et al. (2000), Proceedings of the Japan Academy, Series B 76, 103-107",
-          "doi": "10.2183/pjab.76.103"
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://www.jstage.jst.go.jp/article/pjab1977/76/8/76_8_103/_article",
+            "doi": "10.2183/pjab.76.103",
+            "locations": [
+              "abstract and Experimental section, pages 103-105",
+              "Table I, page 104",
+              "EOS discussion, Figure 2, Figure 3, and Table II, pages 105-106"
+            ],
+            "finding": "The source reports a preferred fixed-K0_prime BM3 and a secondary unconstrained BM3 for one Pbnm Mg0.9Al0.2Si0.9O3 specimen. It explicitly rejects precise interpretation of the free derivative, not the underlying fit.",
+            "publisher_pdf_sha256": "70fd8aac56e920c21442ed6884b24024e839f34b2b561f7f0b55aab178a3c214"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-05",
+            "dataset_identifiers": ["mg09al02si09o3_bridgmanite_kubo_2000_table1_compression"],
+            "source_locations": ["Kubo et al. (2000), Table I, page 104"],
+            "finding": "All ten printed run, pressure, lattice, conventional-cell-volume, axial-ratio, and uncertainty rows are directly transcribed. No digitization was required."
+          }
         },
-        {
-          "role": "isostructural positional-topology proxy only",
-          "citation": "Yagi et al. (1978), Physics and Chemistry of Minerals 3, 97-110",
-          "doi": "10.1007/BF00308114"
-        }
-      ],
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: abstract and Experimental section, pages 103-105; Table I, page 104; EOS discussion, Figure 2, Figure 3, and Table II, pages 105-106.",
+          "equation": "Page 106 EOS discussion: all Table I volumes fitted to a third-order Birch-Murnaghan EOS. The paper names but does not explicitly typeset the formula; Peritheos uses the standard Eulerian BM3 convention.",
+          "V0": "Table I ap107 atmospheric row: measured conventional-cell V0=163.6(4) A^3. The source fixed V/V0=1 separately at atmospheric pressure for each run rather than fitting one shared V0.",
+          "K0": "Abstract and page 106: KT0=225.5+/-1.2 GPa when K'T0=4 is assumed.",
+          "K0_prime": "Abstract and page 106: K'T0=4 fixed, chosen for consistency with MgSiO3 perovskite because the experimental compression did not constrain the derivative accurately.",
+          "temperature_ref": "Source says room temperature without a numerical value; encoded operationally as 300 K.",
+          "fit_selection": "All ten Table I rows are retained. They represent eight finite-pressure diffraction patterns plus one atmospheric measurement from each run; ruby pressure is the fit coordinate."
+        },
+        "source_lineage": [
+          {
+            "role": "published EOS coefficients, complete compression observations, experiment, and pressure calibration",
+            "citation": "Kubo et al. (2000), Proceedings of the Japan Academy, Series B 76, 103-107",
+            "doi": "10.2183/pjab.76.103"
+          },
+          {
+            "role": "isostructural positional-topology proxy only",
+            "citation": "Yagi et al. (1978), Physics and Chemistry of Minerals 3, 97-110",
+            "doi": "10.1007/BF00308114"
+          }
+        ]
+      },
       "sample_composition": "Sintered polycrystalline Mg0.9Al0.2Si0.9O3 perovskite from run en90G3; synthesized from 90 mol% MgSiO3 plus 10 mol% Al2O3 glass and composition-confirmed by EPMA",
       "experimental_configuration": {
         "sample": "Sintered polycrystalline run en90G3, synthesized at 27 GPa and 2000 degrees C for 83 minutes in a 6-8 multianvil apparatus; recovered single-phase Pbnm perovskite with grain size below 1 micrometre",
@@ -196,6 +149,13 @@
     {
       "identifier": "mg09al02si09o3_bridgmanite_kubo_2000_bm3_2",
       "label": "Kubo et al. (2000), unconstrained BM3",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 163.6, "error": 0.4},
+        "K0": {"value": 215.4, "error": 4.4},
+        "K0_prime": {"value": 7.2, "error": 1.4}
+      },
       "record_kind": "published",
       "determination_method": "experimental",
       "equation_kind": "isothermal",
@@ -208,15 +168,7 @@
         "locator": "103-107",
         "doi": "10.2183/pjab.76.103"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 163.6, "K0": 215.4, "K0_prime": 7.2}
-      },
-      "parameter_errors": {"V0": 0.4, "K0": 4.4, "K0_prime": 1.4},
       "parameter_error_confidence": null,
-      "fixed_parameters": [],
       "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 8.71],
       "pressure_range_status": "reported_exactly",
@@ -273,51 +225,53 @@
         },
         "audit_date": "2026-09-05"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-05",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://www.jstage.jst.go.jp/article/pjab1977/76/8/76_8_103/_article",
-          "doi": "10.2183/pjab.76.103",
-          "locations": [
-            "abstract and Experimental section, pages 103-105",
-            "Table I, page 104",
-            "EOS discussion, Figure 2, Figure 3, and Table II, pages 105-106"
-          ],
-          "finding": "The unconstrained coefficients are genuinely source-reported, but the paper treats them as a poorly constrained sensitivity result and adopts the fixed-derivative alternative.",
-          "publisher_pdf_sha256": "70fd8aac56e920c21442ed6884b24024e839f34b2b561f7f0b55aab178a3c214"
-        },
-        "primary_data_check": {
-          "status": "bundled",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
           "audit_date": "2026-09-05",
-          "dataset_identifiers": ["mg09al02si09o3_bridgmanite_kubo_2000_table1_compression"],
-          "source_locations": ["Kubo et al. (2000), Table I, page 104"],
-          "finding": "All ten printed run, pressure, lattice, conventional-cell-volume, axial-ratio, and uncertainty rows are directly transcribed. No digitization was required."
-        }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: abstract and Experimental section, pages 103-105; Table I, page 104; EOS discussion, Figure 2, Figure 3, and Table II, pages 105-106.",
-        "equation": "Page 106 EOS discussion: all Table I volumes fitted to a third-order Birch-Murnaghan EOS. The paper names but does not explicitly typeset the formula; Peritheos uses the standard Eulerian BM3 convention.",
-        "V0": "Table I ap107 atmospheric row: measured conventional-cell V0=163.6(4) A^3. The source fixed V/V0=1 separately at atmospheric pressure for each run rather than fitting one shared V0.",
-        "K0": "Page 106: unconstrained KT0=215.4+/-4.4 GPa.",
-        "K0_prime": "Page 106: unconstrained K'T0=7.2+/-1.4; the source immediately warns that this derivative is not accurately determined.",
-        "temperature_ref": "Source says room temperature without a numerical value; encoded operationally as 300 K.",
-        "fit_selection": "All ten Table I rows are retained. They represent eight finite-pressure diffraction patterns plus one atmospheric measurement from each run; ruby pressure is the fit coordinate."
-      },
-      "source_lineage": [
-        {
-          "role": "published EOS coefficients, complete compression observations, experiment, and pressure calibration",
-          "citation": "Kubo et al. (2000), Proceedings of the Japan Academy, Series B 76, 103-107",
-          "doi": "10.2183/pjab.76.103"
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://www.jstage.jst.go.jp/article/pjab1977/76/8/76_8_103/_article",
+            "doi": "10.2183/pjab.76.103",
+            "locations": [
+              "abstract and Experimental section, pages 103-105",
+              "Table I, page 104",
+              "EOS discussion, Figure 2, Figure 3, and Table II, pages 105-106"
+            ],
+            "finding": "The unconstrained coefficients are genuinely source-reported, but the paper treats them as a poorly constrained sensitivity result and adopts the fixed-derivative alternative.",
+            "publisher_pdf_sha256": "70fd8aac56e920c21442ed6884b24024e839f34b2b561f7f0b55aab178a3c214"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-05",
+            "dataset_identifiers": ["mg09al02si09o3_bridgmanite_kubo_2000_table1_compression"],
+            "source_locations": ["Kubo et al. (2000), Table I, page 104"],
+            "finding": "All ten printed run, pressure, lattice, conventional-cell-volume, axial-ratio, and uncertainty rows are directly transcribed. No digitization was required."
+          }
         },
-        {
-          "role": "isostructural positional-topology proxy only",
-          "citation": "Yagi et al. (1978), Physics and Chemistry of Minerals 3, 97-110",
-          "doi": "10.1007/BF00308114"
-        }
-      ],
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: abstract and Experimental section, pages 103-105; Table I, page 104; EOS discussion, Figure 2, Figure 3, and Table II, pages 105-106.",
+          "equation": "Page 106 EOS discussion: all Table I volumes fitted to a third-order Birch-Murnaghan EOS. The paper names but does not explicitly typeset the formula; Peritheos uses the standard Eulerian BM3 convention.",
+          "V0": "Table I ap107 atmospheric row: measured conventional-cell V0=163.6(4) A^3. The source fixed V/V0=1 separately at atmospheric pressure for each run rather than fitting one shared V0.",
+          "K0": "Page 106: unconstrained KT0=215.4+/-4.4 GPa.",
+          "K0_prime": "Page 106: unconstrained K'T0=7.2+/-1.4; the source immediately warns that this derivative is not accurately determined.",
+          "temperature_ref": "Source says room temperature without a numerical value; encoded operationally as 300 K.",
+          "fit_selection": "All ten Table I rows are retained. They represent eight finite-pressure diffraction patterns plus one atmospheric measurement from each run; ruby pressure is the fit coordinate."
+        },
+        "source_lineage": [
+          {
+            "role": "published EOS coefficients, complete compression observations, experiment, and pressure calibration",
+            "citation": "Kubo et al. (2000), Proceedings of the Japan Academy, Series B 76, 103-107",
+            "doi": "10.2183/pjab.76.103"
+          },
+          {
+            "role": "isostructural positional-topology proxy only",
+            "citation": "Yagi et al. (1978), Physics and Chemistry of Minerals 3, 97-110",
+            "doi": "10.1007/BF00308114"
+          }
+        ]
+      },
       "sample_composition": "Sintered polycrystalline Mg0.9Al0.2Si0.9O3 perovskite from run en90G3; synthesized from 90 mol% MgSiO3 plus 10 mol% Al2O3 glass and composition-confirmed by EPMA",
       "experimental_configuration": {
         "sample": "Sintered polycrystalline run en90G3, synthesized at 27 GPa and 2000 degrees C for 83 minutes in a 6-8 multianvil apparatus; recovered single-phase Pbnm perovskite with grain size below 1 micrometre",
@@ -331,6 +285,53 @@
       "author_fit_preference": "nonpreferred; source-reported sensitivity fit whose K0_prime the authors state cannot be determined very accurately from less than 4% compression"
     }
   ],
+  "aliases": ["Mg0.9Al0.2Si0.9O3 perovskite", "10 mol% Al2O3 silicate perovskite", "aluminous bridgmanite en90G3"],
+  "family_id": "bridgmanite",
+  "cell_contents": "Four nominal Mg0.9Al0.2Si0.9O3 formula units per conventional orthorhombic Pbnm cell (Z=4). The source establishes the composition, lattice, and space group but publishes neither fractional coordinates nor Al site occupancies. The stored atom_sites are therefore an explicitly identified MgSiO3 Pbnm positional-topology proxy and do not encode the specimen composition or an experimentally determined Al distribution.",
+  "symmetry": "ORTHORHOMBIC",
+  "space_group": "Pbnm",
+  "space_group_number": 62,
+  "lattice": {"a": 4.774, "b": 4.941, "c": 6.935, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {
+      "element": "Mg",
+      "wyckoff": "4c",
+      "x": 0.974,
+      "y": 0.063,
+      "z": 0.25,
+      "occupancy": 1.0,
+      "source_label": "MgSiO3 topology proxy Mg"
+    },
+    {
+      "element": "Si",
+      "wyckoff": "4b",
+      "x": 0.0,
+      "y": 0.5,
+      "z": 0.0,
+      "occupancy": 1.0,
+      "source_label": "MgSiO3 topology proxy Si"
+    },
+    {
+      "element": "O",
+      "wyckoff": "4c",
+      "x": 0.096,
+      "y": 0.477,
+      "z": 0.25,
+      "occupancy": 1.0,
+      "source_label": "MgSiO3 topology proxy O1"
+    },
+    {
+      "element": "O",
+      "wyckoff": "8d",
+      "x": 0.696,
+      "y": 0.291,
+      "z": 0.056,
+      "occupancy": 1.0,
+      "source_label": "MgSiO3 topology proxy O2"
+    }
+  ],
+  "peaks": [],
+  "notes": "Composition-specific Fe-free aluminous bridgmanite synthesized from a 90 mol% MgSiO3 plus 10 mol% Al2O3 glass. EPMA confirmed Mg0.9Al0.2Si0.9O3 within analytical error. The source later discusses equal Al occupation of large and small sites only as a hypothetical interpretation, so no site partition is asserted here. The stored lattice is the more precise of two mutually consistent atmospheric measurements. Its rounded a*b*c product is 163.585 A^3 and agrees with the printed 163.6(4) A^3 conventional-cell volume. Pbnm perovskite has Z=4; that cell content is a crystallographic inference because the paper does not explicitly print Z. The positional model is a pure-MgSiO3 topology proxy, not a composition-bearing refinement.",
   "datasets": [
     {
       "identifier": "mg09al02si09o3_bridgmanite_kubo_2000_table1_compression",

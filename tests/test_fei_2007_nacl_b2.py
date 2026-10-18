@@ -10,6 +10,7 @@ import pytest
 from peritheos import Material, get_eos_record, get_material, search_eos_records
 from peritheos.eosmat import validate_eosmat_document
 from peritheos.materials import NACL_B2_FEI_2007
+from scripts.eosmat_io import read_material
 from scripts.reproduce_fei_2007_nacl_b2 import (
     DATA,
     OUTPUT,
@@ -24,9 +25,7 @@ from scripts.reproduce_fei_2007_nacl_b2 import (
 
 
 def document():
-    return json.loads(
-        (ROOT / "peritheos/data/materials/nacl_b2.eosmat").read_text(encoding="utf-8")
-    )
+    return read_material(ROOT / "peritheos/data/materials/nacl_b2.eosmat")
 
 
 def test_canonical_record_preserves_published_equation_and_formula_unit_basis():

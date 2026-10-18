@@ -6,6 +6,7 @@ import pytest
 from jsonschema import Draft202012Validator
 
 from peritheos import Material, get_material_document
+from scripts.eosmat_io import read_material
 
 ROOT = Path(__file__).parents[1]
 
@@ -97,7 +98,7 @@ def test_li_zeng_reproduction_and_exact_doi_count():
 
     doi_records = []
     for path in (ROOT / "peritheos/data/materials").glob("*.eosmat"):
-        document = json.loads(path.read_text(encoding="utf-8"))
+        document = read_material(path)
         doi_records.extend(
             record
             for record in document.get("eos_records", [])

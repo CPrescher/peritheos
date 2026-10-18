@@ -1281,8 +1281,15 @@ def list_material_documents() -> tuple[str, ...]:
     )
 
 
-def get_material_document(identifier: str) -> dict[str, Any]:
-    """Return a defensive copy of one bundled `.eosmat` document."""
+def get_material_document(
+    identifier: str, *, format_version: int | None = 3
+) -> dict[str, Any]:
+    """Return one bundled document in the requested layout.
+
+    The default v3 dictionary keeps existing catalog integrations compatible.
+    Pass ``format_version=4`` for native EOSMAT or ``None`` for the stored
+    version. ``load_eosmat(path)`` always preserves the file's authored layout.
+    """
     available = list_material_documents()
     if identifier not in available:
         suggestions = difflib.get_close_matches(identifier, available, n=3, cutoff=0.5)
@@ -1295,6 +1302,8 @@ def get_material_document(identifier: str) -> dict[str, Any]:
         )
     resource = resources.files(_MATERIAL_PACKAGE).joinpath(f"{identifier}.eosmat")
     document = json.loads(resource.read_text(encoding="utf-8"))
+    if format_version is not None:
+        return convert_eosmat(document, version=format_version)
     validate_eosmat_document(document)
     return copy.deepcopy(document)
 
@@ -1310,12 +1319,20 @@ def list_eos_record_documents() -> tuple[str, ...]:
     )
 
 
-def get_eos_record_document(identifier: str) -> dict[str, Any]:
-    """Return one executable EOS record from the shared material library."""
+def get_eos_record_document(
+    identifier: str, *, format_version: int | None = 3
+) -> dict[str, Any]:
+    """Return one stored EOS record; request v4 or None for native fields.
+
+    The historical v3 dictionary remains the default, including document-only
+    records whose scientific status does not permit ordinary execution.
+    """
     matches = [
         record
         for material_identifier in list_material_documents()
-        for record in get_material_document(material_identifier)["eos_records"]
+        for record in get_material_document(
+            material_identifier, format_version=format_version
+        )["eos_records"]
         if record["identifier"] == identifier
     ]
     if len(matches) != 1:

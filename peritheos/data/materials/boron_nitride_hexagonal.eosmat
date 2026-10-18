@@ -1,25 +1,21 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "boron_nitride_hexagonal",
   "name": "Boron nitride (hexagonal)",
   "formula": "BN",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 2,
-  "symmetry": "HEXAGONAL",
-  "space_group": "P63/mmc",
-  "space_group_number": 194,
-  "lattice": {"a": 2.50425, "b": null, "c": 6.661664, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
-  "atom_sites": [
-    {"element": "B", "wyckoff": "2c", "x": 0.3333333333, "y": 0.6666666667, "z": 0.25, "occupancy": 1.0},
-    {"element": "N", "wyckoff": "2d", "x": 0.6666666667, "y": 0.3333333333, "z": 0.25, "occupancy": 1.0}
-  ],
-  "peaks": [],
-  "notes": "AA-prime stacked hexagonal boron nitride. The ambient axial ratio is scaled to the fitted 300 K V0. PhaseSmith calculates powder reflections and intensities from the ideal structure.",
   "eos_records": [
     {
       "identifier": "boron_nitride_hexagonal_muhammad_2024_bm3_1",
       "label": "Muhammad et al. (2024), helium-medium BM3",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 36.18, "error": 0.06},
+        "K0": {"value": 27.4, "error": 0.9},
+        "K0_prime": {"value": 11.4, "error": 0.8}
+      },
       "determination_method": "experimental",
       "reference": {
         "authors": [
@@ -40,14 +36,6 @@
         "locator": "9096-9107",
         "doi": "10.1039/D4NR00093E"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "BM3",
-        "parameters": {"V0": 36.18, "K0": 27.4, "K0_prime": 11.4},
-        "model": "birch_murnaghan_3"
-      },
-      "parameter_errors": {"V0": 0.06, "K0": 0.9, "K0_prime": 0.8},
-      "fixed_parameters": [],
       "experimental_pressure_range_gpa": [0.0, 9.5],
       "notes": "Hydrostatic helium-medium powder-XRD fit over 0-9.5 GPa. This replaces older strongly discrepant non-hydrostatic compressibility estimates for h-BN.",
       "pressure_calibration": {
@@ -85,35 +73,47 @@
         "audit_date": "2026-09-03",
         "notes": "The paper reports pressures as averages of ruby measurements before and after each diffraction exposure."
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.1039/D4NR00093E",
-          "locations": ["Equation 4", "Table 3", "Figure 5"],
-          "doi": "10.1039/d4nr00093e"
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1039/D4NR00093E",
+            "locations": ["Equation 4", "Table 3", "Figure 5"],
+            "doi": "10.1039/d4nr00093e"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "boron_nitride_hexagonal.json"
+          },
+          "primary_data_check": {
+            "status": "plot_only",
+            "audit_date": "2026-09-03",
+            "digitized_dataset_identifiers": ["boron_nitride_hexagonal_muhammad_2024_figure5c_digitized"],
+            "source_locations": ["Figure 5; Tables 3 and 4"],
+            "finding": "The helium-medium hBN lattice-parameter and volume observations are plotted in Figure 5 but not tabulated. Thirty-six separable volume markers were digitized from panel (c). Experimental volume error bars are not drawn in panel (c); the reported 0.1 GPa maximum before/after pressure difference gives a 0.05 GPa row-wise uncertainty upper bound."
+          }
         },
-        "migration_source": {
-          "project": "Dioptas",
-          "version": "0.10.0",
-          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-          "file": "boron_nitride_hexagonal.json"
-        },
-        "primary_data_check": {
-          "status": "plot_only",
-          "audit_date": "2026-09-03",
-          "digitized_dataset_identifiers": ["boron_nitride_hexagonal_muhammad_2024_figure5c_digitized"],
-          "source_locations": ["Figure 5; Tables 3 and 4"],
-          "finding": "The helium-medium hBN lattice-parameter and volume observations are plotted in Figure 5 but not tabulated. Thirty-six separable volume markers were digitized from panel (c). Experimental volume error bars are not drawn in panel (c); the reported 0.1 GPa maximum before/after pressure difference gives a 0.05 GPa row-wise uncertainty upper bound."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation 4; Table 3; Figure 5."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation 4; Table 3; Figure 5."
       }
     }
   ],
+  "symmetry": "HEXAGONAL",
+  "space_group": "P63/mmc",
+  "space_group_number": 194,
+  "lattice": {"a": 2.50425, "b": null, "c": 6.661664, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
+  "atom_sites": [
+    {"element": "B", "wyckoff": "2c", "x": 0.3333333333, "y": 0.6666666667, "z": 0.25, "occupancy": 1.0},
+    {"element": "N", "wyckoff": "2d", "x": 0.6666666667, "y": 0.3333333333, "z": 0.25, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "AA-prime stacked hexagonal boron nitride. The ambient axial ratio is scaled to the fitted 300 K V0. PhaseSmith calculates powder reflections and intensities from the ideal structure.",
   "datasets": [
     {
       "identifier": "boron_nitride_hexagonal_muhammad_2024_figure5c_digitized",

@@ -9,6 +9,7 @@ import pytest
 from peritheos import Material, get_eos_record, get_material, get_material_document
 from peritheos.errors import MaterialError, MaterialLookupError
 from scripts.apply_eos_recommendation_holds import NOT_RECOMMENDED, WADSLEYITE
+from scripts.eosmat_io import read_material
 from scripts.validate_primary_eos_refits import (
     DEWAELE_REFIT_JSON,
     _dewaele_2019_outcome,
@@ -22,7 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def source(identifier):
     for path in (ROOT / "peritheos/data/materials").glob("*.eosmat"):
-        document = json.loads(path.read_text())
+        document = read_material(path)
         for record in document["eos_records"]:
             if record["identifier"] == identifier:
                 return document, record

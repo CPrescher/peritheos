@@ -86,8 +86,8 @@ Automatic selection for equilibrium calculations.
 | Thermal | Tr | 295.0 | Not reported | Yes |
 | Thermal | theta0 | 480.0 | Not reported | Yes |
 | Thermal | gamma0 | 1.8 | 0.04 | Not listed |
-| Thermal | q | 1.0 | Not reported | Yes |
 | Thermal | n | 2.0 | Not reported | Yes |
+| Thermal | q | 1.0 | Not reported | Yes |
 
 Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported

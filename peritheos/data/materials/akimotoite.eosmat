@@ -1,28 +1,23 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "akimotoite",
   "name": "Akimotoite",
   "formula": "MgSiO3",
   "phase": "ilmenite-type (akimotoite)",
-  "aliases": ["MgSiO3 ilmenite", "ilmenite-type MgSiO3"],
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 6,
-  "symmetry": "TRIGONAL",
-  "space_group": "R-3",
-  "space_group_number": 148,
-  "lattice": {"a": 4.7277, "b": null, "c": 13.558, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
-  "atom_sites": [
-    {"element": "Mg", "wyckoff": "6c", "x": 0.0, "y": 0.0, "z": 0.3597, "occupancy": 1.0},
-    {"element": "Si", "wyckoff": "6c", "x": 0.0, "y": 0.0, "z": 0.15768, "occupancy": 1.0},
-    {"element": "O", "wyckoff": "18f", "x": 0.3214, "y": 0.0361, "z": 0.24077, "occupancy": 1.0}
-  ],
-  "peaks": [],
-  "notes": "Ilmenite-type MgSiO3 structure from Horiuchi et al., Am. Mineral. 67, 788-793 (1982). The conventional hexagonal cell has Z=6; this is also the cell and volume basis used by the Reynard et al. (1996) and Siersch et al. (2021) EOS records.",
   "eos_records": [
     {
       "identifier": "akimotoite_karki_2002_static_bm4_1",
       "label": "Karki and Wentzcovitch (2002), static LDA BM4",
+      "model": "BM4",
+      "temperature_ref": 0.0,
+      "parameters": {
+        "V0": {"value": 261.66, "error": null},
+        "K0": {"value": 210.0, "error": null},
+        "K0_prime": {"value": 4.57, "error": null},
+        "K0_double_prime": {"value": -0.041, "error": null}
+      },
       "record_kind": "published",
       "determination_method": "theoretical",
       "equation_kind": "isothermal",
@@ -35,15 +30,7 @@
         "locator": "2267",
         "doi": "10.1029/2001JB000702"
       },
-      "temperature_ref": 0.0,
-      "eos": {
-        "type": "BM4",
-        "model": "birch_murnaghan_4",
-        "parameters": {"V0": 261.66, "K0": 210.0, "K0_prime": 4.57, "K0_double_prime": -0.041}
-      },
-      "parameter_errors": {"V0": null, "K0": null, "K0_prime": null, "K0_double_prime": null},
       "parameter_error_confidence": null,
-      "fixed_parameters": [],
       "parameter_covariance": null,
       "volume_basis": {"kind": "formula_units", "formula_units": 6.0, "molar_mass_g_mol": 100.387},
       "experimental_pressure_range_gpa": [-11.0, 33.0],
@@ -72,47 +59,57 @@
         },
         "audit_date": "2026-09-05"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Validated against the primary article; LitCurate was used only for discovery.",
-        "audit_date": "2026-09-05",
-        "verified_fields": [
-          "canonical_doi",
-          "composition",
-          "phase",
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "theoretical_method",
-          "validity"
-        ],
-        "primary_source_check": {
-          "access_url": "https://citeseerx.ist.psu.edu/document?doi=61abb95b1fabd25290e81ac8133068de9d9b1f25&repid=rep1&type=pdf",
-          "doi": "10.1029/2001JB000702",
-          "locations": ["Section 2", "Section 3.2", "Table 3", "Figure 3"],
-          "finding": "The source explicitly identifies a fourth-order finite-strain fit and prints all four zero-pressure static coefficients."
-        },
-        "primary_data_check": {
-          "status": "parameterization_and_plot_only",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Validated against the primary article; LitCurate was used only for discovery.",
           "audit_date": "2026-09-05",
-          "source_locations": ["Table 3", "Figure 3"],
-          "finding": "Complete BM4 coefficients are tabulated, but the underlying free-energy-volume grid is shown only graphically and is not deposited."
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "phase",
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "theoretical_method",
+            "validity"
+          ],
+          "primary_source_check": {
+            "access_url": "https://citeseerx.ist.psu.edu/document?doi=61abb95b1fabd25290e81ac8133068de9d9b1f25&repid=rep1&type=pdf",
+            "doi": "10.1029/2001JB000702",
+            "locations": ["Section 2", "Section 3.2", "Table 3", "Figure 3"],
+            "finding": "The source explicitly identifies a fourth-order finite-strain fit and prints all four zero-pressure static coefficients."
+          },
+          "primary_data_check": {
+            "status": "parameterization_and_plot_only",
+            "audit_date": "2026-09-05",
+            "source_locations": ["Table 3", "Figure 3"],
+            "finding": "Complete BM4 coefficients are tabulated, but the underlying free-energy-volume grid is shown only graphically and is not deposited."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Calculated states/theory determine this EOS; source: Section 2; Section 3.2; Table 3; Figure 3.",
+          "equation": "Section 3.2 states that fourth-order finite-strain equations were fitted to calculated free energy versus volume at each temperature; this maps to the Eulerian fourth-order Birch-Murnaghan EOS.",
+          "V0": "Table 3: 43.61 A3 per formula unit for the static lattice; stored as 261.66 A3 for the Z=6 conventional hexagonal cell.",
+          "K0": "Table 3: KT=210 GPa at zero pressure.",
+          "K0_prime": "Table 3: dKT/dP=4.57 at zero pressure.",
+          "K0_double_prime": "Table 3: d2KT/dP2=-0.041 GPa^-1 at zero pressure."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Calculated states/theory determine this EOS; source: Section 2; Section 3.2; Table 3; Figure 3.",
-        "equation": "Section 3.2 states that fourth-order finite-strain equations were fitted to calculated free energy versus volume at each temperature; this maps to the Eulerian fourth-order Birch-Murnaghan EOS.",
-        "V0": "Table 3: 43.61 A3 per formula unit for the static lattice; stored as 261.66 A3 for the Z=6 conventional hexagonal cell.",
-        "K0": "Table 3: KT=210 GPa at zero pressure.",
-        "K0_prime": "Table 3: dKT/dP=4.57 at zero pressure.",
-        "K0_double_prime": "Table 3: d2KT/dP2=-0.041 GPa^-1 at zero pressure."
       },
       "sample_composition": "Stoichiometric MgSiO3 ilmenite; static 0 K LDA calculation."
     },
     {
       "identifier": "akimotoite_karki_2002_300k_bm4_2",
       "label": "Karki and Wentzcovitch (2002), 300 K QHA BM4",
+      "model": "BM4",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 265.2, "error": null},
+        "K0": {"value": 201.0, "error": null},
+        "K0_prime": {"value": 4.64, "error": null},
+        "K0_double_prime": {"value": -0.042, "error": null}
+      },
       "record_kind": "published",
       "determination_method": "theoretical",
       "equation_kind": "isothermal",
@@ -125,15 +122,7 @@
         "locator": "2267",
         "doi": "10.1029/2001JB000702"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "BM4",
-        "model": "birch_murnaghan_4",
-        "parameters": {"V0": 265.2, "K0": 201.0, "K0_prime": 4.64, "K0_double_prime": -0.042}
-      },
-      "parameter_errors": {"V0": null, "K0": null, "K0_prime": null, "K0_double_prime": null},
       "parameter_error_confidence": null,
-      "fixed_parameters": [],
       "parameter_covariance": null,
       "volume_basis": {"kind": "formula_units", "formula_units": 6.0, "molar_mass_g_mol": 100.387},
       "experimental_pressure_range_gpa": [-11.0, 33.0],
@@ -160,37 +149,47 @@
         "recalculation": {"status": "not_applicable", "notes": "No experimental pressure scale applies."},
         "audit_date": "2026-09-05"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Validated against Sections 2 and 3.2, Table 3, and Figure 3 of the primary article.",
-        "audit_date": "2026-09-05",
-        "verified_fields": ["equation", "parameters", "units", "temperature_ref", "theoretical_method", "validity"],
-        "primary_source_check": {
-          "access_url": "https://citeseerx.ist.psu.edu/document?doi=61abb95b1fabd25290e81ac8133068de9d9b1f25&repid=rep1&type=pdf",
-          "doi": "10.1029/2001JB000702",
-          "locations": ["Section 3.2", "Table 3", "Figure 3"],
-          "finding": "All four zero-pressure coefficients of the 300 K BM4 isotherm are printed in Table 3."
-        },
-        "primary_data_check": {
-          "status": "parameterization_and_plot_only",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Validated against Sections 2 and 3.2, Table 3, and Figure 3 of the primary article.",
           "audit_date": "2026-09-05",
-          "source_locations": ["Table 3", "Figure 3"],
-          "finding": "The fitted coefficients and curve are published, but the numerical free-energy-volume grid is unavailable."
+          "verified_fields": ["equation", "parameters", "units", "temperature_ref", "theoretical_method", "validity"],
+          "primary_source_check": {
+            "access_url": "https://citeseerx.ist.psu.edu/document?doi=61abb95b1fabd25290e81ac8133068de9d9b1f25&repid=rep1&type=pdf",
+            "doi": "10.1029/2001JB000702",
+            "locations": ["Section 3.2", "Table 3", "Figure 3"],
+            "finding": "All four zero-pressure coefficients of the 300 K BM4 isotherm are printed in Table 3."
+          },
+          "primary_data_check": {
+            "status": "parameterization_and_plot_only",
+            "audit_date": "2026-09-05",
+            "source_locations": ["Table 3", "Figure 3"],
+            "finding": "The fitted coefficients and curve are published, but the numerical free-energy-volume grid is unavailable."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Calculated states/theory determine this EOS; source: Section 3.2; Table 3; Figure 3.",
+          "equation": "Section 3.2: fourth-order finite-strain fit to the QHA free energy-volume results at each temperature.",
+          "V0": "Table 3: 44.20 A3 per formula unit at 300 K; stored as 265.20 A3 for Z=6.",
+          "K0": "Table 3: KT=201 GPa.",
+          "K0_prime": "Table 3: dKT/dP=4.64.",
+          "K0_double_prime": "Table 3: d2KT/dP2=-0.042 GPa^-1."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Calculated states/theory determine this EOS; source: Section 3.2; Table 3; Figure 3.",
-        "equation": "Section 3.2: fourth-order finite-strain fit to the QHA free energy-volume results at each temperature.",
-        "V0": "Table 3: 44.20 A3 per formula unit at 300 K; stored as 265.20 A3 for Z=6.",
-        "K0": "Table 3: KT=201 GPa.",
-        "K0_prime": "Table 3: dKT/dP=4.64.",
-        "K0_double_prime": "Table 3: d2KT/dP2=-0.042 GPa^-1."
       },
       "sample_composition": "Stoichiometric MgSiO3 ilmenite; 300 K quasiharmonic LDA isotherm."
     },
     {
       "identifier": "akimotoite_karki_2002_1000k_bm4_3",
       "label": "Karki and Wentzcovitch (2002), 1000 K QHA BM4",
+      "model": "BM4",
+      "temperature_ref": 1000.0,
+      "parameters": {
+        "V0": {"value": 270.18, "error": null},
+        "K0": {"value": 182.0, "error": null},
+        "K0_prime": {"value": 4.86, "error": null},
+        "K0_double_prime": {"value": -0.051, "error": null}
+      },
       "record_kind": "published",
       "determination_method": "theoretical",
       "equation_kind": "isothermal",
@@ -203,15 +202,7 @@
         "locator": "2267",
         "doi": "10.1029/2001JB000702"
       },
-      "temperature_ref": 1000.0,
-      "eos": {
-        "type": "BM4",
-        "model": "birch_murnaghan_4",
-        "parameters": {"V0": 270.18, "K0": 182.0, "K0_prime": 4.86, "K0_double_prime": -0.051}
-      },
-      "parameter_errors": {"V0": null, "K0": null, "K0_prime": null, "K0_double_prime": null},
       "parameter_error_confidence": null,
-      "fixed_parameters": [],
       "parameter_covariance": null,
       "volume_basis": {"kind": "formula_units", "formula_units": 6.0, "molar_mass_g_mol": 100.387},
       "experimental_pressure_range_gpa": [-11.0, 33.0],
@@ -238,37 +229,47 @@
         "recalculation": {"status": "not_applicable", "notes": "No experimental pressure scale applies."},
         "audit_date": "2026-09-05"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Validated against the primary article; LitCurate was discovery-only.",
-        "audit_date": "2026-09-05",
-        "verified_fields": ["equation", "parameters", "units", "temperature_ref", "theoretical_method", "validity"],
-        "primary_source_check": {
-          "access_url": "https://citeseerx.ist.psu.edu/document?doi=61abb95b1fabd25290e81ac8133068de9d9b1f25&repid=rep1&type=pdf",
-          "doi": "10.1029/2001JB000702",
-          "locations": ["Section 3.2", "Table 3", "Figure 3"],
-          "finding": "All four zero-pressure coefficients of the 1000 K BM4 isotherm are printed in Table 3."
-        },
-        "primary_data_check": {
-          "status": "parameterization_and_plot_only",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Validated against the primary article; LitCurate was discovery-only.",
           "audit_date": "2026-09-05",
-          "source_locations": ["Table 3", "Figure 3"],
-          "finding": "The fitted coefficients and plotted curve are published, but the numerical free-energy-volume grid is unavailable."
+          "verified_fields": ["equation", "parameters", "units", "temperature_ref", "theoretical_method", "validity"],
+          "primary_source_check": {
+            "access_url": "https://citeseerx.ist.psu.edu/document?doi=61abb95b1fabd25290e81ac8133068de9d9b1f25&repid=rep1&type=pdf",
+            "doi": "10.1029/2001JB000702",
+            "locations": ["Section 3.2", "Table 3", "Figure 3"],
+            "finding": "All four zero-pressure coefficients of the 1000 K BM4 isotherm are printed in Table 3."
+          },
+          "primary_data_check": {
+            "status": "parameterization_and_plot_only",
+            "audit_date": "2026-09-05",
+            "source_locations": ["Table 3", "Figure 3"],
+            "finding": "The fitted coefficients and plotted curve are published, but the numerical free-energy-volume grid is unavailable."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Calculated states/theory determine this EOS; source: Section 3.2; Table 3; Figure 3.",
+          "equation": "Section 3.2: fourth-order finite-strain fit to the QHA free energy-volume results at each temperature.",
+          "V0": "Table 3: 45.03 A3 per formula unit at 1000 K; stored as 270.18 A3 for Z=6.",
+          "K0": "Table 3: KT=182 GPa.",
+          "K0_prime": "Table 3: dKT/dP=4.86.",
+          "K0_double_prime": "Table 3: d2KT/dP2=-0.051 GPa^-1."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Calculated states/theory determine this EOS; source: Section 3.2; Table 3; Figure 3.",
-        "equation": "Section 3.2: fourth-order finite-strain fit to the QHA free energy-volume results at each temperature.",
-        "V0": "Table 3: 45.03 A3 per formula unit at 1000 K; stored as 270.18 A3 for Z=6.",
-        "K0": "Table 3: KT=182 GPa.",
-        "K0_prime": "Table 3: dKT/dP=4.86.",
-        "K0_double_prime": "Table 3: d2KT/dP2=-0.051 GPa^-1."
       },
       "sample_composition": "Stoichiometric MgSiO3 ilmenite; 1000 K quasiharmonic LDA isotherm."
     },
     {
       "identifier": "akimotoite_karki_2002_2000k_bm4_4",
       "label": "Karki and Wentzcovitch (2002), 2000 K QHA BM4",
+      "model": "BM4",
+      "temperature_ref": 2000.0,
+      "parameters": {
+        "V0": {"value": 291.54, "error": null},
+        "K0": {"value": 153.0, "error": null},
+        "K0_prime": {"value": 5.2, "error": null},
+        "K0_double_prime": {"value": -0.067, "error": null}
+      },
       "record_kind": "published",
       "determination_method": "theoretical",
       "equation_kind": "isothermal",
@@ -281,15 +282,7 @@
         "locator": "2267",
         "doi": "10.1029/2001JB000702"
       },
-      "temperature_ref": 2000.0,
-      "eos": {
-        "type": "BM4",
-        "model": "birch_murnaghan_4",
-        "parameters": {"V0": 291.54, "K0": 153.0, "K0_prime": 5.2, "K0_double_prime": -0.067}
-      },
-      "parameter_errors": {"V0": null, "K0": null, "K0_prime": null, "K0_double_prime": null},
       "parameter_error_confidence": null,
-      "fixed_parameters": [],
       "parameter_covariance": null,
       "volume_basis": {"kind": "formula_units", "formula_units": 6.0, "molar_mass_g_mol": 100.387},
       "experimental_pressure_range_gpa": [-11.0, 33.0],
@@ -316,37 +309,46 @@
         "recalculation": {"status": "not_applicable", "notes": "No experimental pressure scale applies."},
         "audit_date": "2026-09-05"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Validated against the primary article; LitCurate was discovery-only.",
-        "audit_date": "2026-09-05",
-        "verified_fields": ["equation", "parameters", "units", "temperature_ref", "theoretical_method", "validity", "source_limitations"],
-        "primary_source_check": {
-          "access_url": "https://citeseerx.ist.psu.edu/document?doi=61abb95b1fabd25290e81ac8133068de9d9b1f25&repid=rep1&type=pdf",
-          "doi": "10.1029/2001JB000702",
-          "locations": ["Section 3.2", "Table 3", "Figure 3"],
-          "finding": "All four zero-pressure coefficients of the 2000 K BM4 isotherm are printed in Table 3, with the source's general QHA limitation stated in the surrounding text."
-        },
-        "primary_data_check": {
-          "status": "parameterization_and_plot_only",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Validated against the primary article; LitCurate was discovery-only.",
           "audit_date": "2026-09-05",
-          "source_locations": ["Table 3", "Figure 3"],
-          "finding": "The fitted coefficients and plotted curve are published, but the numerical free-energy-volume grid is unavailable."
+          "verified_fields": ["equation", "parameters", "units", "temperature_ref", "theoretical_method", "validity", "source_limitations"],
+          "primary_source_check": {
+            "access_url": "https://citeseerx.ist.psu.edu/document?doi=61abb95b1fabd25290e81ac8133068de9d9b1f25&repid=rep1&type=pdf",
+            "doi": "10.1029/2001JB000702",
+            "locations": ["Section 3.2", "Table 3", "Figure 3"],
+            "finding": "All four zero-pressure coefficients of the 2000 K BM4 isotherm are printed in Table 3, with the source's general QHA limitation stated in the surrounding text."
+          },
+          "primary_data_check": {
+            "status": "parameterization_and_plot_only",
+            "audit_date": "2026-09-05",
+            "source_locations": ["Table 3", "Figure 3"],
+            "finding": "The fitted coefficients and plotted curve are published, but the numerical free-energy-volume grid is unavailable."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Calculated states/theory determine this EOS; source: Section 3.2; Table 3; Figure 3.",
+          "equation": "Section 3.2: fourth-order finite-strain fit to the QHA free energy-volume results at each temperature.",
+          "V0": "Table 3: 48.59 A3 per formula unit at 2000 K; stored as 291.54 A3 for Z=6.",
+          "K0": "Table 3: KT=153 GPa.",
+          "K0_prime": "Table 3: dKT/dP=5.20.",
+          "K0_double_prime": "Table 3: d2KT/dP2=-0.067 GPa^-1."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Calculated states/theory determine this EOS; source: Section 3.2; Table 3; Figure 3.",
-        "equation": "Section 3.2: fourth-order finite-strain fit to the QHA free energy-volume results at each temperature.",
-        "V0": "Table 3: 48.59 A3 per formula unit at 2000 K; stored as 291.54 A3 for Z=6.",
-        "K0": "Table 3: KT=153 GPa.",
-        "K0_prime": "Table 3: dKT/dP=5.20.",
-        "K0_double_prime": "Table 3: d2KT/dP2=-0.067 GPa^-1."
       },
       "sample_composition": "Stoichiometric MgSiO3 ilmenite; 2000 K quasiharmonic LDA isotherm."
     },
     {
       "identifier": "akimotoite_reynard_1996_bm3_ruby_2",
       "label": "Reynard et al. (1996), BM3, ruby pressure scale",
+      "model": "BM3",
+      "temperature_ref": 298.0,
+      "parameters": {
+        "V0": {"value": 262.3, "error": 0.4},
+        "K0": {"value": 212.0, "error": null, "fixed": true},
+        "K0_prime": {"value": 7.5, "error": 1.0}
+      },
       "record_kind": "published",
       "determination_method": "experimental",
       "reference": {
@@ -358,15 +360,7 @@
         "locator": "45-50",
         "doi": "10.2138/am-1996-1-206"
       },
-      "temperature_ref": 298.0,
-      "eos": {
-        "type": "BM3",
-        "parameters": {"V0": 262.3, "K0": 212.0, "K0_prime": 7.5},
-        "model": "birch_murnaghan_3"
-      },
-      "parameter_errors": {"V0": 0.4, "K0": null, "K0_prime": 1.0},
       "parameter_error_confidence": null,
-      "fixed_parameters": ["K0"],
       "experimental_pressure_range_gpa": [0.0, 27.8],
       "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [298.0, 298.0],
@@ -387,64 +381,73 @@
         "audit_date": "2026-09-04",
         "notes": "Ruby fluorescence is explicit, but the exact ruby scale is unresolved and is not inferred from publication year."
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Checked directly against the final American Mineralogist article; LitCurate was used only as a discovery lead.",
-        "audit_date": "2026-09-04",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "crystallographic_basis",
-          "published_uncertainties",
-          "fixed_parameters",
-          "validity",
-          "pressure_calibration"
-        ],
-        "primary_source_check": {
-          "access_url": "https://www.rruff.net/doclib/am/vol81/AM81_45.pdf",
-          "locations": [
-            "Abstract, page 45",
-            "Table 1 and experimental methods, page 46",
-            "EOS method, page 47",
-            "Figure 3e, page 48",
-            "EOS discussion, page 49"
-          ],
-          "finding": "The standard BM3 fit uses conventional hexagonal-cell volumes (Z=6), holds K0 at 212 GPa, varies V0, and gives V0=262.3(4) A^3 and K0'=7.5(10) on the ruby-pressure assignment. At V=239.13 A^3 the stored curve gives 27.53 GPa, consistent with the Table 1 ruby value 27.8[5] GPa.",
-          "doi": "10.2138/am-1996-1-206"
-        },
-        "reported_inconsistencies": [
-          {
-            "field": "Table 1 row Pr=0.95 GPa",
-            "lattice_derived_volume_a3": 260.7321,
-            "reported_volume_a3": 260.49,
-            "resolution": "Retain all printed values verbatim and use the reported V column for the EOS reproduction. The other 15 rows reproduce V=(sqrt(3)/2)*a^2*c within 0.01 A^3; the isolated 0.242 A^3 mismatch is larger than rounding but lies within the reported 0.89 A^3 volume uncertainty."
-          }
-        ],
-        "primary_data_check": {
-          "status": "bundled",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Checked directly against the final American Mineralogist article; LitCurate was used only as a discovery lead.",
           "audit_date": "2026-09-04",
-          "dataset_identifiers": ["akimotoite_reynard_1996_table1_compression"],
-          "source_locations": ["Table 1, page 46"],
-          "finding": "All 16 MgSiO3 ilmenite unit-cell rows are transcribed, including compression/decompression direction, both reported pressure assignments, cell parameters, conventional-cell volumes, reported uncertainties, reflection counts, and ice-VII calibrant volumes. All 16 rows have ruby pressures and were used for this refit."
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "crystallographic_basis",
+            "published_uncertainties",
+            "fixed_parameters",
+            "validity",
+            "pressure_calibration"
+          ],
+          "primary_source_check": {
+            "access_url": "https://www.rruff.net/doclib/am/vol81/AM81_45.pdf",
+            "locations": [
+              "Abstract, page 45",
+              "Table 1 and experimental methods, page 46",
+              "EOS method, page 47",
+              "Figure 3e, page 48",
+              "EOS discussion, page 49"
+            ],
+            "finding": "The standard BM3 fit uses conventional hexagonal-cell volumes (Z=6), holds K0 at 212 GPa, varies V0, and gives V0=262.3(4) A^3 and K0'=7.5(10) on the ruby-pressure assignment. At V=239.13 A^3 the stored curve gives 27.53 GPa, consistent with the Table 1 ruby value 27.8[5] GPa.",
+            "doi": "10.2138/am-1996-1-206"
+          },
+          "reported_inconsistencies": [
+            {
+              "field": "Table 1 row Pr=0.95 GPa",
+              "lattice_derived_volume_a3": 260.7321,
+              "reported_volume_a3": 260.49,
+              "resolution": "Retain all printed values verbatim and use the reported V column for the EOS reproduction. The other 15 rows reproduce V=(sqrt(3)/2)*a^2*c within 0.01 A^3; the isolated 0.242 A^3 mismatch is larger than rounding but lies within the reported 0.89 A^3 volume uncertainty."
+            }
+          ],
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-04",
+            "dataset_identifiers": ["akimotoite_reynard_1996_table1_compression"],
+            "source_locations": ["Table 1, page 46"],
+            "finding": "All 16 MgSiO3 ilmenite unit-cell rows are transcribed, including compression/decompression direction, both reported pressure assignments, cell parameters, conventional-cell volumes, reported uncertainties, reflection counts, and ice-VII calibrant volumes. All 16 rows have ruby pressures and were used for this refit."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract, page 45; Table 1 and experimental methods, page 46; EOS method, page 47; Figure 3e, page 48; EOS discussion, page 49.",
+          "equation": "Page 47 states that volumes were fitted to third-order Eulerian finite-strain equations of state; this maps to the standard third-order Birch-Murnaghan pressure-volume form.",
+          "V0": "Figure 3e, page 48: fitted V0=262.3(4) A^3.",
+          "K0": "Page 49 and Figure 3e: K0=212 GPa fixed to the Brillouin-scattering determination of Weidner and Ito (1985).",
+          "K0_prime": "Abstract, Figure 3e, and page 49: K0'=7.5(10) using ruby-fluorescence pressures.",
+          "volume_basis": "Table 1 conventional hexagonal unit-cell volume V=(sqrt(3)/2)*a^2*c; the MgSiO3 ilmenite cell has Z=6.",
+          "temperature_ref": "The experiment and EOS are reported at ambient temperature; 298 K is the operational ambient-temperature reference used by this record."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract, page 45; Table 1 and experimental methods, page 46; EOS method, page 47; Figure 3e, page 48; EOS discussion, page 49.",
-        "equation": "Page 47 states that volumes were fitted to third-order Eulerian finite-strain equations of state; this maps to the standard third-order Birch-Murnaghan pressure-volume form.",
-        "V0": "Figure 3e, page 48: fitted V0=262.3(4) A^3.",
-        "K0": "Page 49 and Figure 3e: K0=212 GPa fixed to the Brillouin-scattering determination of Weidner and Ito (1985).",
-        "K0_prime": "Abstract, Figure 3e, and page 49: K0'=7.5(10) using ruby-fluorescence pressures.",
-        "volume_basis": "Table 1 conventional hexagonal unit-cell volume V=(sqrt(3)/2)*a^2*c; the MgSiO3 ilmenite cell has Z=6.",
-        "temperature_ref": "The experiment and EOS are reported at ambient temperature; 298 K is the operational ambient-temperature reference used by this record."
       },
       "fit_datasets": ["akimotoite_reynard_1996_table1_compression"]
     },
     {
       "identifier": "akimotoite_reynard_1996_bm3_ice_vii_3",
       "label": "Reynard et al. (1996), preferred BM3, ice-VII pressure scale",
+      "model": "BM3",
+      "temperature_ref": 298.0,
+      "parameters": {
+        "V0": {"value": 262.3, "error": 0.4},
+        "K0": {"value": 212.0, "error": null, "fixed": true},
+        "K0_prime": {"value": 5.6, "error": 1.0}
+      },
       "record_kind": "published",
       "determination_method": "experimental",
       "reference": {
@@ -456,15 +459,7 @@
         "locator": "45-50",
         "doi": "10.2138/am-1996-1-206"
       },
-      "temperature_ref": 298.0,
-      "eos": {
-        "type": "BM3",
-        "parameters": {"V0": 262.3, "K0": 212.0, "K0_prime": 5.6},
-        "model": "birch_murnaghan_3"
-      },
-      "parameter_errors": {"V0": 0.4, "K0": null, "K0_prime": 1.0},
       "parameter_error_confidence": null,
-      "fixed_parameters": ["K0"],
       "experimental_pressure_range_gpa": [0.0, 25.2],
       "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [298.0, 298.0],
@@ -494,64 +489,73 @@
         "audit_date": "2026-09-04",
         "notes": "The calibration publication and row-wise calibrant volumes are resolved; only an executable bundled representation of that historical ice-VII EOS is absent."
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Checked directly against the final American Mineralogist article; LitCurate was used only as a discovery lead.",
-        "audit_date": "2026-09-04",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "crystallographic_basis",
-          "published_uncertainties",
-          "fixed_parameters",
-          "validity",
-          "pressure_calibration"
-        ],
-        "primary_source_check": {
-          "access_url": "https://www.rruff.net/doclib/am/vol81/AM81_45.pdf",
-          "locations": [
-            "Abstract, page 45",
-            "Table 1 and experimental methods, page 46",
-            "EOS method, page 47",
-            "Figure 3f, page 48",
-            "EOS discussion, page 49"
-          ],
-          "finding": "The standard BM3 fit uses conventional hexagonal-cell volumes (Z=6), holds K0 at 212 GPa, varies V0, and gives V0=262.3(4) A^3 and K0'=5.6(10) on the ice-VII pressure assignment. At V=239.13 A^3 the stored curve gives 25.39 GPa, consistent with the Table 1 ice-VII value 25.2[14] GPa.",
-          "doi": "10.2138/am-1996-1-206"
-        },
-        "reported_inconsistencies": [
-          {
-            "field": "Table 1 row Pr=0.95 GPa",
-            "lattice_derived_volume_a3": 260.7321,
-            "reported_volume_a3": 260.49,
-            "resolution": "Retain all printed values verbatim and use the reported V column for the EOS reproduction. The other 15 rows reproduce V=(sqrt(3)/2)*a^2*c within 0.01 A^3; the isolated 0.242 A^3 mismatch is larger than rounding but lies within the reported 0.89 A^3 volume uncertainty."
-          }
-        ],
-        "primary_data_check": {
-          "status": "bundled",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Checked directly against the final American Mineralogist article; LitCurate was used only as a discovery lead.",
           "audit_date": "2026-09-04",
-          "dataset_identifiers": ["akimotoite_reynard_1996_table1_compression"],
-          "source_locations": ["Table 1, page 46"],
-          "finding": "All 16 MgSiO3 ilmenite unit-cell rows are transcribed, including 12 printed finite-pressure Pi values and the two ambient measurements plotted at zero pressure in Figure 3f, both reported pressure assignments, cell parameters, conventional-cell volumes, uncertainties, reflection counts, and ice-VII calibrant volumes."
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "crystallographic_basis",
+            "published_uncertainties",
+            "fixed_parameters",
+            "validity",
+            "pressure_calibration"
+          ],
+          "primary_source_check": {
+            "access_url": "https://www.rruff.net/doclib/am/vol81/AM81_45.pdf",
+            "locations": [
+              "Abstract, page 45",
+              "Table 1 and experimental methods, page 46",
+              "EOS method, page 47",
+              "Figure 3f, page 48",
+              "EOS discussion, page 49"
+            ],
+            "finding": "The standard BM3 fit uses conventional hexagonal-cell volumes (Z=6), holds K0 at 212 GPa, varies V0, and gives V0=262.3(4) A^3 and K0'=5.6(10) on the ice-VII pressure assignment. At V=239.13 A^3 the stored curve gives 25.39 GPa, consistent with the Table 1 ice-VII value 25.2[14] GPa.",
+            "doi": "10.2138/am-1996-1-206"
+          },
+          "reported_inconsistencies": [
+            {
+              "field": "Table 1 row Pr=0.95 GPa",
+              "lattice_derived_volume_a3": 260.7321,
+              "reported_volume_a3": 260.49,
+              "resolution": "Retain all printed values verbatim and use the reported V column for the EOS reproduction. The other 15 rows reproduce V=(sqrt(3)/2)*a^2*c within 0.01 A^3; the isolated 0.242 A^3 mismatch is larger than rounding but lies within the reported 0.89 A^3 volume uncertainty."
+            }
+          ],
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-04",
+            "dataset_identifiers": ["akimotoite_reynard_1996_table1_compression"],
+            "source_locations": ["Table 1, page 46"],
+            "finding": "All 16 MgSiO3 ilmenite unit-cell rows are transcribed, including 12 printed finite-pressure Pi values and the two ambient measurements plotted at zero pressure in Figure 3f, both reported pressure assignments, cell parameters, conventional-cell volumes, uncertainties, reflection counts, and ice-VII calibrant volumes."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract, page 45; Table 1 and experimental methods, page 46; EOS method, page 47; Figure 3f, page 48; EOS discussion, page 49.",
+          "equation": "Page 47 states that volumes were fitted to third-order Eulerian finite-strain equations of state; this maps to the standard third-order Birch-Murnaghan pressure-volume form.",
+          "V0": "Figure 3f, page 48: fitted V0=262.3(4) A^3.",
+          "K0": "Page 49 and Figure 3f: K0=212 GPa fixed to the Brillouin-scattering determination of Weidner and Ito (1985).",
+          "K0_prime": "Abstract, Figure 3f, and page 49: K0'=5.6(10) using pressures calculated from the ice-VII EOS.",
+          "volume_basis": "Table 1 conventional hexagonal unit-cell volume V=(sqrt(3)/2)*a^2*c; the MgSiO3 ilmenite cell has Z=6.",
+          "temperature_ref": "The experiment and EOS are reported at ambient temperature; 298 K is the operational ambient-temperature reference used by this record."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract, page 45; Table 1 and experimental methods, page 46; EOS method, page 47; Figure 3f, page 48; EOS discussion, page 49.",
-        "equation": "Page 47 states that volumes were fitted to third-order Eulerian finite-strain equations of state; this maps to the standard third-order Birch-Murnaghan pressure-volume form.",
-        "V0": "Figure 3f, page 48: fitted V0=262.3(4) A^3.",
-        "K0": "Page 49 and Figure 3f: K0=212 GPa fixed to the Brillouin-scattering determination of Weidner and Ito (1985).",
-        "K0_prime": "Abstract, Figure 3f, and page 49: K0'=5.6(10) using pressures calculated from the ice-VII EOS.",
-        "volume_basis": "Table 1 conventional hexagonal unit-cell volume V=(sqrt(3)/2)*a^2*c; the MgSiO3 ilmenite cell has Z=6.",
-        "temperature_ref": "The experiment and EOS are reported at ambient temperature; 298 K is the operational ambient-temperature reference used by this record."
       },
       "fit_datasets": ["akimotoite_reynard_1996_table1_compression"]
     },
     {
       "identifier": "akimotoite_siersch_2021_bm3_1",
       "label": "Siersch et al. (2021), BM3",
+      "model": "BM3",
+      "temperature_ref": 298.0,
+      "parameters": {
+        "V0": {"value": 262.43, "error": 0.02},
+        "K0": {"value": 205.0, "error": 1.0},
+        "K0_prime": {"value": 4.9, "error": 0.2}
+      },
       "determination_method": "experimental",
       "default_for": "equilibrium",
       "reference": {
@@ -563,14 +567,6 @@
         "locator": "106786",
         "doi": "10.1016/j.pepi.2021.106786"
       },
-      "temperature_ref": 298.0,
-      "eos": {
-        "type": "BM3",
-        "parameters": {"V0": 262.43, "K0": 205.0, "K0_prime": 4.9},
-        "model": "birch_murnaghan_3"
-      },
-      "parameter_errors": {"V0": 0.02, "K0": 1.0, "K0_prime": 0.2},
-      "fixed_parameters": [],
       "experimental_pressure_range_gpa": [0.0, 24.86],
       "experimental_temperature_range_k": [298.0, 298.0],
       "pressure_calibration": {
@@ -583,37 +579,47 @@
         "audit_date": "2026-09-03",
         "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.1016/j.pepi.2021.106786",
-          "locations": ["Equation-of-state discussion", "Table 1"],
-          "doi": "10.1016/j.pepi.2021.106786"
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/j.pepi.2021.106786",
+            "locations": ["Equation-of-state discussion", "Table 1"],
+            "doi": "10.1016/j.pepi.2021.106786"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "akimotoite.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["akimotoite_siersch_2021_table2_compression"],
+            "source_locations": ["Table 2, article page 5"],
+            "finding": "All 54 crystal-specific MgSiO3 akimotoite observations (27 pressure points for each of crystals X1 and X2) printed in Table 2 and used for the combined BM3 fit."
+          }
         },
-        "migration_source": {
-          "project": "Dioptas",
-          "version": "0.10.0",
-          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-          "file": "akimotoite.json"
-        },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-03",
-          "dataset_identifiers": ["akimotoite_siersch_2021_table2_compression"],
-          "source_locations": ["Table 2, article page 5"],
-          "finding": "All 54 crystal-specific MgSiO3 akimotoite observations (27 pressure points for each of crystals X1 and X2) printed in Table 2 and used for the combined BM3 fit."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation-of-state discussion; Table 1."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation-of-state discussion; Table 1."
       }
     },
     {
       "identifier": "akimotoite_dorogokupets_2015_298k_rydberg_stacey",
       "label": "Dorogokupets et al. (2015), 298 K generalized Rydberg-Stacey",
+      "model": "RydbergStacey",
+      "temperature_ref": 298.15,
+      "parameters": {
+        "V0": {"value": 262.53122652018516, "error": null, "fixed": true},
+        "K0": {"value": 215.3, "error": null},
+        "K0_prime": {"value": 4.91, "error": null},
+        "K_infinity_prime": {"value": 1.6666666666666667, "error": null, "fixed": true}
+      },
       "record_kind": "published",
       "determination_method": "experimental",
       "equation_kind": "isothermal",
@@ -626,15 +632,7 @@
         "locator": "172-189",
         "doi": "10.1016/j.rgg.2015.01.011"
       },
-      "temperature_ref": 298.15,
-      "eos": {
-        "type": "RydbergStacey",
-        "model": "rydberg_stacey",
-        "parameters": {"V0": 262.53122652018516, "K0": 215.3, "K0_prime": 4.91, "K_infinity_prime": 1.6666666666666667}
-      },
-      "parameter_errors": {"V0": null, "K0": null, "K0_prime": null, "K_infinity_prime": null},
       "parameter_error_confidence": null,
-      "fixed_parameters": ["V0", "K_infinity_prime"],
       "parameter_covariance": null,
       "volume_basis": {"kind": "formula_units", "formula_units": 6.0, "molar_mass_g_mol": 100.387},
       "experimental_pressure_range_gpa": [0.0, 130.0],
@@ -663,52 +661,54 @@
         },
         "audit_date": "2026-09-08"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Validated against the final primary article; LitCurate was discovery-only.",
-        "audit_date": "2026-09-06",
-        "verified_fields": [
-          "canonical_doi",
-          "composition",
-          "phase",
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "volume_basis",
-          "pressure_calibration"
-        ],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.1016/j.rgg.2015.01.011",
-          "doi": "10.1016/j.rgg.2015.01.011",
-          "locations": ["Equations (1)-(5)", "Table 1", "MgSiO3-akimotoite subsection"],
-          "finding": "The primary paper supplies a complete k=5 generalized Rydberg isotherm; the discovery ledger's Birch label is incorrect."
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Validated against the final primary article; LitCurate was discovery-only.",
+          "audit_date": "2026-09-06",
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "phase",
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "volume_basis",
+            "pressure_calibration"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/j.rgg.2015.01.011",
+            "doi": "10.1016/j.rgg.2015.01.011",
+            "locations": ["Equations (1)-(5)", "Table 1", "MgSiO3-akimotoite subsection"],
+            "finding": "The primary paper supplies a complete k=5 generalized Rydberg isotherm; the discovery ledger's Birch label is incorrect."
+          },
+          "primary_data_check": {
+            "status": "partial_reconstruction",
+            "audit_date": "2026-09-08",
+            "dataset_identifiers": [
+              "dorogokupets_2015_akimotoite_298k_reconstruction",
+              "akimotoite_wang_2004_tables1_2_pvt",
+              "akimotoite_zhou_2014_table1_elasticity"
+            ],
+            "source_locations": [
+              "Table 1",
+              "Figures 6-7",
+              "Reynard et al. (1996), Table 1 and Figure 3f",
+              "Wang et al. (2004), Tables 1-2",
+              "Zhou et al. (2014), Table 1"
+            ],
+            "finding": "The complete 134-row Wang P-V-T table and 58-row Zhou akimotoite elasticity table are bundled with the Reynard observations. An unweighted fit of all 55 Zhou KS(P,T) values closely recovers Zhou's reported linear coefficients, so weighting does not explain the Dorogokupets mismatch. The 298 K fits still do not reproduce the published K0/K0_prime pair because the 2015 result is a joint thermal/acoustic optimization with an unstated residual construction and phase-specific fixed/free mask."
+          }
         },
-        "primary_data_check": {
-          "status": "partial_reconstruction",
-          "audit_date": "2026-09-08",
-          "dataset_identifiers": [
-            "dorogokupets_2015_akimotoite_298k_reconstruction",
-            "akimotoite_wang_2004_tables1_2_pvt",
-            "akimotoite_zhou_2014_table1_elasticity"
-          ],
-          "source_locations": [
-            "Table 1",
-            "Figures 6-7",
-            "Reynard et al. (1996), Table 1 and Figure 3f",
-            "Wang et al. (2004), Tables 1-2",
-            "Zhou et al. (2014), Table 1"
-          ],
-          "finding": "The complete 134-row Wang P-V-T table and 58-row Zhou akimotoite elasticity table are bundled with the Reynard observations. An unweighted fit of all 55 Zhou KS(P,T) values closely recovers Zhou's reported linear coefficients, so weighting does not explain the Dorogokupets mismatch. The 298 K fits still do not reproduce the published K0/K0_prime pair because the 2015 result is a joint thermal/acoustic optimization with an unstated residual construction and phase-specific fixed/free mask."
+        "parameter_provenance": {
+          "determination_method": "Experimental thermoelastic synthesis of heat capacity, expansion, acoustic and P-V-T measurements; see docs/literature-reproductions/dorogokupets-2015-mgsio3-refit.md, What the source optimized.",
+          "equation": "Equation (2), exactly mapped to Rydberg-Stacey with K_infinity_prime=k/3.",
+          "V0": "Table 1: 26.35 cm3/mol, converted with exact N_A and Z=6 to 262.53122652018516 A3.",
+          "K0": "Table 1: 215.3 GPa.",
+          "K0_prime": "Table 1: 4.91.",
+          "K_infinity_prime": "Table 1 fixes k=5; therefore K_infinity_prime=5/3."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Experimental thermoelastic synthesis of heat capacity, expansion, acoustic and P-V-T measurements; see docs/literature-reproductions/dorogokupets-2015-mgsio3-refit.md, What the source optimized.",
-        "equation": "Equation (2), exactly mapped to Rydberg-Stacey with K_infinity_prime=k/3.",
-        "V0": "Table 1: 26.35 cm3/mol, converted with exact N_A and Z=6 to 262.53122652018516 A3.",
-        "K0": "Table 1: 215.3 GPa.",
-        "K0_prime": "Table 1: 4.91.",
-        "K_infinity_prime": "Table 1 fixes k=5; therefore K_infinity_prime=5/3."
       },
       "sample_composition": "Stoichiometric MgSiO3 akimotoite thermodynamic reference phase; joint optimization of literature thermochemical, elastic, and P-V-T data.",
       "diagnostic_datasets": ["dorogokupets_2015_akimotoite_298k_reconstruction"]
@@ -716,6 +716,13 @@
     {
       "identifier": "akimotoite_wang_2004_t0133_bm3",
       "label": "Wang et al. (2004), T0133 Au-scale BM3",
+      "model": "BM3",
+      "temperature_ref": 298,
+      "parameters": {
+        "V0": {"value": 264.2, "error": 0.2},
+        "K0": {"value": 210, "error": null, "fixed": true},
+        "K0_prime": {"value": 4.8, "error": 0.5}
+      },
       "record_kind": "published",
       "determination_method": "experimental",
       "equation_kind": "isothermal",
@@ -728,15 +735,7 @@
         "locator": "57-80",
         "doi": "10.1016/j.pepi.2003.08.007"
       },
-      "temperature_ref": 298,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 264.2, "K0": 210, "K0_prime": 4.8}
-      },
-      "parameter_errors": {"V0": 0.2, "K0": null, "K0_prime": 0.5},
       "parameter_error_confidence": null,
-      "fixed_parameters": ["K0"],
       "parameter_covariance": null,
       "volume_basis": {"kind": "formula_units", "formula_units": 6, "molar_mass_g_mol": 100.387},
       "experimental_pressure_range_gpa": [0, 16.2],
@@ -770,48 +769,57 @@
         },
         "audit_date": "2026-09-08"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Parameters, fixed values, volume basis and fit observations checked against the user-supplied primary PDF.",
-        "audit_date": "2026-09-08",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "crystallographic_basis",
-          "published_uncertainties",
-          "fixed_parameters",
-          "pressure_calibration",
-          "validity"
-        ],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.1016/j.pepi.2003.08.007",
-          "doi": "10.1016/j.pepi.2003.08.007",
-          "locations": ["Section 3.2, page 61; Table 1, pages 62-63"],
-          "finding": "Secondary Au-scale fit, not the authors' preferred NaCl result. K0=210 GPa is fixed to the adopted Brillouin value. Only the 13 room-temperature rows are fitted; hot observations remain in the bundled source dataset."
-        },
-        "primary_data_check": {
-          "status": "bundled",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Parameters, fixed values, volume basis and fit observations checked against the user-supplied primary PDF.",
           "audit_date": "2026-09-08",
-          "dataset_identifiers": ["akimotoite_wang_2004_tables1_2_pvt"],
-          "source_locations": ["Tables 1-2, article pages 62-65"],
-          "finding": "All 298 K rows in Table 1, run T0133 (Au); independently refitted within printed parameter uncertainties."
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "crystallographic_basis",
+            "published_uncertainties",
+            "fixed_parameters",
+            "pressure_calibration",
+            "validity"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/j.pepi.2003.08.007",
+            "doi": "10.1016/j.pepi.2003.08.007",
+            "locations": ["Section 3.2, page 61; Table 1, pages 62-63"],
+            "finding": "Secondary Au-scale fit, not the authors' preferred NaCl result. K0=210 GPa is fixed to the adopted Brillouin value. Only the 13 room-temperature rows are fitted; hot observations remain in the bundled source dataset."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-08",
+            "dataset_identifiers": ["akimotoite_wang_2004_tables1_2_pvt"],
+            "source_locations": ["Tables 1-2, article pages 62-65"],
+            "finding": "All 298 K rows in Table 1, run T0133 (Au); independently refitted within printed parameter uncertainties."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 3.2, page 61; Table 1, pages 62-63.",
+          "equation": "Section 3.2, page 61; Table 1, pages 62-63",
+          "parameters": "Section 3.2, page 61; Table 1, pages 62-63",
+          "fixed_parameters": "Secondary Au-scale fit, not the authors' preferred NaCl result. K0=210 GPa is fixed to the adopted Brillouin value. Only the 13 room-temperature rows are fitted; hot observations remain in the bundled source dataset.",
+          "refit": "scripts/reproduce_wang_zhou_komabayashi_mgsio3.py; docs/data/wang-zhou-komabayashi-mgsio3-refit.json"
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 3.2, page 61; Table 1, pages 62-63.",
-        "equation": "Section 3.2, page 61; Table 1, pages 62-63",
-        "parameters": "Section 3.2, page 61; Table 1, pages 62-63",
-        "fixed_parameters": "Secondary Au-scale fit, not the authors' preferred NaCl result. K0=210 GPa is fixed to the adopted Brillouin value. Only the 13 room-temperature rows are fitted; hot observations remain in the bundled source dataset.",
-        "refit": "scripts/reproduce_wang_zhou_komabayashi_mgsio3.py; docs/data/wang-zhou-komabayashi-mgsio3-refit.json"
       },
       "fit_datasets": ["akimotoite_wang_2004_tables1_2_pvt"]
     },
     {
       "identifier": "akimotoite_wang_2004_t0150_bm3",
       "label": "Wang et al. (2004), preferred T0150 NaCl-scale BM3",
+      "model": "BM3",
+      "temperature_ref": 298,
+      "parameters": {
+        "V0": {"value": 263.9, "error": 0.2},
+        "K0": {"value": 210, "error": null, "fixed": true},
+        "K0_prime": {"value": 5.6, "error": 0.8}
+      },
       "record_kind": "published",
       "determination_method": "experimental",
       "equation_kind": "isothermal",
@@ -824,15 +832,7 @@
         "locator": "57-80",
         "doi": "10.1016/j.pepi.2003.08.007"
       },
-      "temperature_ref": 298,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 263.9, "K0": 210, "K0_prime": 5.6}
-      },
-      "parameter_errors": {"V0": 0.2, "K0": null, "K0_prime": 0.8},
       "parameter_error_confidence": null,
-      "fixed_parameters": ["K0"],
       "parameter_covariance": null,
       "volume_basis": {"kind": "formula_units", "formula_units": 6, "molar_mass_g_mol": 100.387},
       "experimental_pressure_range_gpa": [-0.05, 17.044],
@@ -865,48 +865,57 @@
         },
         "audit_date": "2026-09-08"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Parameters, fixed values, volume basis and fit observations checked against the user-supplied primary PDF.",
-        "audit_date": "2026-09-08",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "crystallographic_basis",
-          "published_uncertainties",
-          "fixed_parameters",
-          "pressure_calibration",
-          "validity"
-        ],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.1016/j.pepi.2003.08.007",
-          "doi": "10.1016/j.pepi.2003.08.007",
-          "locations": ["Section 3.2, page 61; Table 2, pages 64-65"],
-          "finding": "Authors' preferred static fit using NaCl pressures; separate from the T0133 Au experiment. K0=210 GPa is fixed. All ten 298 K observations are retained, including the printed -0.05 GPa recovered point. Wang's thermal fits additionally use external zero-pressure expansion data and are not represented as reproduced records here."
-        },
-        "primary_data_check": {
-          "status": "bundled",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Parameters, fixed values, volume basis and fit observations checked against the user-supplied primary PDF.",
           "audit_date": "2026-09-08",
-          "dataset_identifiers": ["akimotoite_wang_2004_tables1_2_pvt"],
-          "source_locations": ["Tables 1-2, article pages 62-65"],
-          "finding": "All 298 K rows in Table 2, run T0150 (NaCl); independently refitted within printed parameter uncertainties."
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "crystallographic_basis",
+            "published_uncertainties",
+            "fixed_parameters",
+            "pressure_calibration",
+            "validity"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/j.pepi.2003.08.007",
+            "doi": "10.1016/j.pepi.2003.08.007",
+            "locations": ["Section 3.2, page 61; Table 2, pages 64-65"],
+            "finding": "Authors' preferred static fit using NaCl pressures; separate from the T0133 Au experiment. K0=210 GPa is fixed. All ten 298 K observations are retained, including the printed -0.05 GPa recovered point. Wang's thermal fits additionally use external zero-pressure expansion data and are not represented as reproduced records here."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-08",
+            "dataset_identifiers": ["akimotoite_wang_2004_tables1_2_pvt"],
+            "source_locations": ["Tables 1-2, article pages 62-65"],
+            "finding": "All 298 K rows in Table 2, run T0150 (NaCl); independently refitted within printed parameter uncertainties."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 3.2, page 61; Table 2, pages 64-65.",
+          "equation": "Section 3.2, page 61; Table 2, pages 64-65",
+          "parameters": "Section 3.2, page 61; Table 2, pages 64-65",
+          "fixed_parameters": "Authors' preferred static fit using NaCl pressures; separate from the T0133 Au experiment. K0=210 GPa is fixed. All ten 298 K observations are retained, including the printed -0.05 GPa recovered point. Wang's thermal fits additionally use external zero-pressure expansion data and are not represented as reproduced records here.",
+          "refit": "scripts/reproduce_wang_zhou_komabayashi_mgsio3.py; docs/data/wang-zhou-komabayashi-mgsio3-refit.json"
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 3.2, page 61; Table 2, pages 64-65.",
-        "equation": "Section 3.2, page 61; Table 2, pages 64-65",
-        "parameters": "Section 3.2, page 61; Table 2, pages 64-65",
-        "fixed_parameters": "Authors' preferred static fit using NaCl pressures; separate from the T0133 Au experiment. K0=210 GPa is fixed. All ten 298 K observations are retained, including the printed -0.05 GPa recovered point. Wang's thermal fits additionally use external zero-pressure expansion data and are not represented as reproduced records here.",
-        "refit": "scripts/reproduce_wang_zhou_komabayashi_mgsio3.py; docs/data/wang-zhou-komabayashi-mgsio3-refit.json"
       },
       "fit_datasets": ["akimotoite_wang_2004_tables1_2_pvt"]
     },
     {
       "identifier": "akimotoite_zhou_2014_300k_bm3",
       "label": "Zhou et al. (2014), 300 K isothermal BM3",
+      "model": "BM3",
+      "temperature_ref": 300,
+      "parameters": {
+        "V0": {"value": 262.45, "error": 0.26},
+        "K0": {"value": 207, "error": 3},
+        "K0_prime": {"value": 4.6, "error": null, "fixed": true}
+      },
       "record_kind": "published",
       "determination_method": "experimental",
       "equation_kind": "isothermal",
@@ -919,15 +928,7 @@
         "locator": "97-105",
         "doi": "10.1016/j.pepi.2013.06.005"
       },
-      "temperature_ref": 300,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 262.45, "K0": 207, "K0_prime": 4.6}
-      },
-      "parameter_errors": {"V0": 0.26, "K0": 3, "K0_prime": null},
       "parameter_error_confidence": null,
-      "fixed_parameters": ["K0_prime"],
       "parameter_covariance": null,
       "volume_basis": {"kind": "formula_units", "formula_units": 6, "molar_mass_g_mol": 100.387},
       "experimental_pressure_range_gpa": [0, 25.02],
@@ -960,46 +961,60 @@
         },
         "audit_date": "2026-09-08"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Parameters, fixed values, volume basis and fit observations checked against the user-supplied primary PDF.",
-        "audit_date": "2026-09-08",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "crystallographic_basis",
-          "published_uncertainties",
-          "fixed_parameters",
-          "pressure_calibration",
-          "validity"
-        ],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.1016/j.pepi.2013.06.005",
-          "doi": "10.1016/j.pepi.2013.06.005",
-          "locations": ["Section 3.1, page 99; akimotoite portions of Table 1, pages 100-101"],
-          "finding": "Static isothermal K0T=207(3) GPa, not acoustic K0S=219.4(7) GPa. K0T'=4.6 is fixed using the acoustic derivative approximation stated in the paper. All 17 printed 300 K densities are converted to conventional-cell volumes using Z=6, M=100.387 g/mol and exact Avogadro constant. Rounded densities limit recovery of the underlying diffraction volumes; acoustic KS values are not pressure-volume observations."
-        },
-        "primary_data_check": {
-          "status": "bundled",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Parameters, fixed values, volume basis and fit observations checked against the user-supplied primary PDF.",
           "audit_date": "2026-09-08",
-          "dataset_identifiers": ["akimotoite_zhou_2014_table1_elasticity"],
-          "source_locations": ["Table 1, article pages 100-101"],
-          "finding": "All 17 akimotoite 300 K density rows, including three ambient density-only rows; V=6*M/(N_A*rho), M=100.387 g/mol; independently refitted within printed parameter uncertainties."
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "crystallographic_basis",
+            "published_uncertainties",
+            "fixed_parameters",
+            "pressure_calibration",
+            "validity"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/j.pepi.2013.06.005",
+            "doi": "10.1016/j.pepi.2013.06.005",
+            "locations": ["Section 3.1, page 99; akimotoite portions of Table 1, pages 100-101"],
+            "finding": "Static isothermal K0T=207(3) GPa, not acoustic K0S=219.4(7) GPa. K0T'=4.6 is fixed using the acoustic derivative approximation stated in the paper. All 17 printed 300 K densities are converted to conventional-cell volumes using Z=6, M=100.387 g/mol and exact Avogadro constant. Rounded densities limit recovery of the underlying diffraction volumes; acoustic KS values are not pressure-volume observations."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-08",
+            "dataset_identifiers": ["akimotoite_zhou_2014_table1_elasticity"],
+            "source_locations": ["Table 1, article pages 100-101"],
+            "finding": "All 17 akimotoite 300 K density rows, including three ambient density-only rows; V=6*M/(N_A*rho), M=100.387 g/mol; independently refitted within printed parameter uncertainties."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 3.1, page 99; akimotoite portions of Table 1, pages 100-101.",
+          "equation": "Section 3.1, page 99; akimotoite portions of Table 1, pages 100-101",
+          "parameters": "Section 3.1, page 99; akimotoite portions of Table 1, pages 100-101",
+          "fixed_parameters": "Static isothermal K0T=207(3) GPa, not acoustic K0S=219.4(7) GPa. K0T'=4.6 is fixed using the acoustic derivative approximation stated in the paper. All 17 printed 300 K densities are converted to conventional-cell volumes using Z=6, M=100.387 g/mol and exact Avogadro constant. Rounded densities limit recovery of the underlying diffraction volumes; acoustic KS values are not pressure-volume observations.",
+          "refit": "scripts/reproduce_wang_zhou_komabayashi_mgsio3.py; docs/data/wang-zhou-komabayashi-mgsio3-refit.json"
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 3.1, page 99; akimotoite portions of Table 1, pages 100-101.",
-        "equation": "Section 3.1, page 99; akimotoite portions of Table 1, pages 100-101",
-        "parameters": "Section 3.1, page 99; akimotoite portions of Table 1, pages 100-101",
-        "fixed_parameters": "Static isothermal K0T=207(3) GPa, not acoustic K0S=219.4(7) GPa. K0T'=4.6 is fixed using the acoustic derivative approximation stated in the paper. All 17 printed 300 K densities are converted to conventional-cell volumes using Z=6, M=100.387 g/mol and exact Avogadro constant. Rounded densities limit recovery of the underlying diffraction volumes; acoustic KS values are not pressure-volume observations.",
-        "refit": "scripts/reproduce_wang_zhou_komabayashi_mgsio3.py; docs/data/wang-zhou-komabayashi-mgsio3-refit.json"
       },
       "fit_datasets": ["akimotoite_zhou_2014_table1_elasticity"]
     }
   ],
+  "aliases": ["MgSiO3 ilmenite", "ilmenite-type MgSiO3"],
+  "symmetry": "TRIGONAL",
+  "space_group": "R-3",
+  "space_group_number": 148,
+  "lattice": {"a": 4.7277, "b": null, "c": 13.558, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
+  "atom_sites": [
+    {"element": "Mg", "wyckoff": "6c", "x": 0.0, "y": 0.0, "z": 0.3597, "occupancy": 1.0},
+    {"element": "Si", "wyckoff": "6c", "x": 0.0, "y": 0.0, "z": 0.15768, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "18f", "x": 0.3214, "y": 0.0361, "z": 0.24077, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Ilmenite-type MgSiO3 structure from Horiuchi et al., Am. Mineral. 67, 788-793 (1982). The conventional hexagonal cell has Z=6; this is also the cell and volume basis used by the Reynard et al. (1996) and Siersch et al. (2021) EOS records.",
   "datasets": [
     {
       "identifier": "akimotoite_reynard_1996_table1_compression",

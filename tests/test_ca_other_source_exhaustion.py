@@ -1,12 +1,12 @@
 import csv
 import hashlib
 import importlib.util
-import json
 from pathlib import Path
 
 import pytest
 
 from peritheos import Material, validate_eosmat_document
+from scripts.eosmat_io import read_material
 
 ROOT = Path(__file__).parents[1]
 MATERIALS = ROOT / "peritheos/data/materials"
@@ -14,7 +14,7 @@ DATA = ROOT / "peritheos/data/datasets"
 
 
 def _document(name: str):
-    document = json.loads((MATERIALS / name).read_text(encoding="utf-8"))
+    document = read_material(MATERIALS / name)
     validate_eosmat_document(document)
     return document
 

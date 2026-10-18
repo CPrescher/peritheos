@@ -1,30 +1,22 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "mg073fe027o",
   "name": "(Mg0.73Fe0.27)O magnesiowustite",
   "formula": "Mg0.73Fe0.27O",
   "phase": "cubic B1 magnesiowustite",
-  "aliases": ["Fe27", "ferropericlase", "magnesiowustite"],
-  "family_id": "mg_fe_monoxide",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
-  "cell_contents": "Four Mg0.73Fe0.27O formula units per conventional rocksalt cell",
-  "symmetry": "CUBIC",
-  "space_group": "Fm-3m",
-  "space_group_number": 225,
-  "lattice": {"a": 4.2599, "b": 4.2599, "c": 4.2599, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
-  "atom_sites": [
-    {"element": "Mg", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 0.73},
-    {"element": "Fe", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 0.27},
-    {"element": "O", "wyckoff": "4b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1.0}
-  ],
-  "peaks": [],
-  "notes": "Composition-specific Fe27 single crystal from Jacobsen et al. (2005). The ambient lattice parameter and all EOS observations are from the same crystal compressed in helium. No rhombohedral distortion was observed through 51.1 GPa.",
   "eos_records": [
     {
       "identifier": "mg073fe027o_jacobsen_2005_bm3_1",
       "label": "Jacobsen et al. (2005), (Mg0.73Fe0.27)O BM3",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 77.3, "error": 0.09},
+        "K0": {"value": 154.0, "error": 3.0},
+        "K0_prime": {"value": 4.0, "error": 0.1}
+      },
       "determination_method": "experimental",
       "reference": {
         "authors": ["Jacobsen", "Lin", "Angel", "Shen", "Prakapenka", "Dera", "Mao", "Hemley"],
@@ -35,15 +27,7 @@
         "locator": "577-583",
         "doi": "10.1107/S0909049505022326"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "BM3",
-        "parameters": {"V0": 77.3, "K0": 154.0, "K0_prime": 4.0},
-        "model": "birch_murnaghan_3"
-      },
-      "parameter_errors": {"V0": 0.09, "K0": 3.0, "K0_prime": 0.1},
       "parameter_error_confidence": null,
-      "fixed_parameters": [],
       "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 51.1],
       "pressure_range_status": "reported_exactly",
@@ -78,71 +62,87 @@
         },
         "audit_date": "2026-09-05"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Checked directly against the final IUCr article and its complete printed Table 1.",
-        "audit_date": "2026-09-05",
-        "verified_fields": [
-          "canonical_doi",
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "composition",
-          "crystallography",
-          "formula_units_per_cell",
-          "published_uncertainties",
-          "fixed_parameters",
-          "parameter_covariance",
-          "validity",
-          "pressure_calibration",
-          "primary_data",
-          "fit_selection",
-          "fit_reproducibility"
-        ],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.1107/S0909049505022326",
-          "locations": ["Experiment, pages 577-578", "Table 1, page 580", "Results section 3.2 and Figures 6-7, pages 581-582"],
-          "finding": "The source reports a cubic B1 Mg0.73Fe0.27O BM3 fit to all 16 Table 1 rows, with V0, K0, and K0' fitted.",
-          "doi": "10.1107/S0909049505022326"
-        },
-        "primary_data_check": {
-          "status": "bundled",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Checked directly against the final IUCr article and its complete printed Table 1.",
           "audit_date": "2026-09-05",
-          "dataset_identifiers": ["jacobsen_2005_table1_compression"],
-          "source_locations": ["Table 1, all 16 shared pressure rows and all phase-specific lattice/volume values"],
-          "finding": "The complete multiphase table is transcribed, including all 16 Fe27 cubic lattice parameters and estimated standard deviations. Conventional-cell volumes and propagated standard deviations are transparent derived columns."
-        },
-        "numerical_reproduction": {
-          "published_curve_pressure_rmse_gpa": 0.1939114407,
-          "published_curve_max_abs_residual_gpa": 0.4161484547,
-          "independent_refit": {
-            "model": "Third-order Birch-Murnaghan",
-            "selection": "All 16 Table 1 rows, flagged mg073fe027o_fit_included=1.",
-            "objective": "Effective-variance pressure residuals using propagated V=a^3 standard deviations and 0.075 GPa as the midpoint of the source's stated 0.05-0.1 GPa pressure precision range.",
-            "free_parameters": ["V0", "K0", "K0_prime"],
-            "fixed_parameters": [],
-            "parameters": {"V0": 77.3036882, "K0": 154.85488377, "K0_prime": 3.97082563},
-            "reduced_chi_square": 0.6601309155,
-            "raw_pressure_rmse_gpa": 0.2055089515,
-            "conclusion": "All three free coefficients reproduce the published values within their reported uncertainties."
+          "verified_fields": [
+            "canonical_doi",
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "composition",
+            "crystallography",
+            "formula_units_per_cell",
+            "published_uncertainties",
+            "fixed_parameters",
+            "parameter_covariance",
+            "validity",
+            "pressure_calibration",
+            "primary_data",
+            "fit_selection",
+            "fit_reproducibility"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1107/S0909049505022326",
+            "locations": ["Experiment, pages 577-578", "Table 1, page 580", "Results section 3.2 and Figures 6-7, pages 581-582"],
+            "finding": "The source reports a cubic B1 Mg0.73Fe0.27O BM3 fit to all 16 Table 1 rows, with V0, K0, and K0' fitted.",
+            "doi": "10.1107/S0909049505022326"
           },
-          "limitation": "The midpoint pressure precision is an explicit deterministic audit choice, not a reconstruction of undocumented EOS-FIT weights; the source publishes no covariance or confidence convention."
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-05",
+            "dataset_identifiers": ["jacobsen_2005_table1_compression"],
+            "source_locations": ["Table 1, all 16 shared pressure rows and all phase-specific lattice/volume values"],
+            "finding": "The complete multiphase table is transcribed, including all 16 Fe27 cubic lattice parameters and estimated standard deviations. Conventional-cell volumes and propagated standard deviations are transparent derived columns."
+          },
+          "numerical_reproduction": {
+            "published_curve_pressure_rmse_gpa": 0.1939114407,
+            "published_curve_max_abs_residual_gpa": 0.4161484547,
+            "independent_refit": {
+              "model": "Third-order Birch-Murnaghan",
+              "selection": "All 16 Table 1 rows, flagged mg073fe027o_fit_included=1.",
+              "objective": "Effective-variance pressure residuals using propagated V=a^3 standard deviations and 0.075 GPa as the midpoint of the source's stated 0.05-0.1 GPa pressure precision range.",
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "parameters": {"V0": 77.3036882, "K0": 154.85488377, "K0_prime": 3.97082563},
+              "reduced_chi_square": 0.6601309155,
+              "raw_pressure_rmse_gpa": 0.2055089515,
+              "conclusion": "All three free coefficients reproduce the published values within their reported uncertainties."
+            },
+            "limitation": "The midpoint pressure precision is an explicit deterministic audit choice, not a reconstruction of undocumented EOS-FIT weights; the source publishes no covariance or confidence convention."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experiment, pages 577-578; Table 1, page 580; Results section 3.2 and Figures 6-7, pages 581-582.",
+          "equation": "The article's third-order Birch-Murnaghan framework is stated in Results section 3.1; section 3.2 reports the Fe27 coefficients and its F-f diagnostic.",
+          "V0": "Results section 3.2, page 581: V0=77.30(9) A^3, fitted.",
+          "K0": "Results section 3.2, page 581: K0=154(3) GPa, fitted.",
+          "K0_prime": "Results section 3.2, page 581: K0'=4.0(1), fitted; the uncertainty and F-f discussion distinguish it from the fixed Fe0.93O values.",
+          "volume_basis": "Table 1 reports cubic lattice parameter a; V=a^3 is the conventional B1 cell containing four Mg0.73Fe0.27O formula units.",
+          "temperature_ref": "The source identifies the ambient lattice measurements as 300 K and reports a room-temperature static compression experiment."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experiment, pages 577-578; Table 1, page 580; Results section 3.2 and Figures 6-7, pages 581-582.",
-        "equation": "The article's third-order Birch-Murnaghan framework is stated in Results section 3.1; section 3.2 reports the Fe27 coefficients and its F-f diagnostic.",
-        "V0": "Results section 3.2, page 581: V0=77.30(9) A^3, fitted.",
-        "K0": "Results section 3.2, page 581: K0=154(3) GPa, fitted.",
-        "K0_prime": "Results section 3.2, page 581: K0'=4.0(1), fitted; the uncertainty and F-f discussion distinguish it from the fixed Fe0.93O values.",
-        "volume_basis": "Table 1 reports cubic lattice parameter a; V=a^3 is the conventional B1 cell containing four Mg0.73Fe0.27O formula units.",
-        "temperature_ref": "The source identifies the ambient lattice measurements as 300 K and reports a room-temperature static compression experiment."
       },
       "fit_datasets": ["jacobsen_2005_table1_compression"]
     }
   ],
+  "aliases": ["Fe27", "ferropericlase", "magnesiowustite"],
+  "family_id": "mg_fe_monoxide",
+  "cell_contents": "Four Mg0.73Fe0.27O formula units per conventional rocksalt cell",
+  "symmetry": "CUBIC",
+  "space_group": "Fm-3m",
+  "space_group_number": 225,
+  "lattice": {"a": 4.2599, "b": 4.2599, "c": 4.2599, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Mg", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 0.73},
+    {"element": "Fe", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 0.27},
+    {"element": "O", "wyckoff": "4b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Composition-specific Fe27 single crystal from Jacobsen et al. (2005). The ambient lattice parameter and all EOS observations are from the same crystal compressed in helium. No rhombohedral distortion was observed through 51.1 GPa.",
   "datasets": [
     {
       "identifier": "jacobsen_2005_table1_compression",

@@ -12,6 +12,7 @@ from pathlib import Path
 import numpy as np
 
 from peritheos import get_eos_record
+from scripts.eosmat_io import read_material, write_material
 from scripts.fit_yokoo_2009_gold_thermal import reconstruct as gold_reconstruction
 from scripts.fit_yokoo_2009_platinum_thermal import (
     reconstruct as platinum_reconstruction,
@@ -200,7 +201,7 @@ def record_definition(metal, document, report):
 def register():
     for metal, report in reports().items():
         path = MATERIALS / f"{metal}.eosmat"
-        document = json.loads(path.read_text(encoding="utf-8"))
+        document = read_material(path)
         record = record_definition(metal, document, report)
         existing = next(
             (
@@ -223,16 +224,11 @@ def register():
             ):
                 if record["identifier"] not in dataset["used_by_eos_records"]:
                     dataset["used_by_eos_records"].append(record["identifier"])
-        path.write_text(
-            json.dumps(document, indent=1, ensure_ascii=False, allow_nan=False) + "\n",
-            encoding="utf-8",
-        )
+        write_material(path, document)
     audit_path = ROOT / "peritheos/data/primary-source-audit.json"
     audit = json.loads(audit_path.read_text(encoding="utf-8"))
     for metal in RECORDS:
-        document = json.loads(
-            (MATERIALS / f"{metal}.eosmat").read_text(encoding="utf-8")
-        )
+        document = read_material(MATERIALS / f"{metal}.eosmat")
         record = next(
             r for r in document["eos_records"] if r["identifier"] == RECORDS[metal]
         )
@@ -259,10 +255,7 @@ def register():
         json.dumps(audit, indent=2, ensure_ascii=False, allow_nan=False) + "\n",
         encoding="utf-8",
     )
-    documents = [
-        json.loads(path.read_text(encoding="utf-8"))
-        for path in MATERIALS.glob("*.eosmat")
-    ]
+    documents = [read_material(path) for path in MATERIALS.glob("*.eosmat")]
     records = [r for d in documents for r in d["eos_records"]]
     path = MATERIALS / "manifest.json"
     manifest = json.loads(path.read_text(encoding="utf-8"))

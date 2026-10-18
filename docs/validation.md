@@ -10,7 +10,7 @@ between a validated equation and a fully reproduced original fitting procedure.
 
 Structural `.eosmat` validation and scientific EOS validation are deliberately
 separate. All 232 bundled material documents and 663 EOS records pass the
-format-3 validator; 228 documents construct executable materials. The
+native v4 validator; 228 documents construct executable materials. The
 coesite-V structure card and deferred fcc-Fe, FeS-VI and wadsleyite source cards do not. The collection combines the reviewed Dioptas migration with
 native, primary-sourced records for pressure standards and material EOS models,
 including the MgO, CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)

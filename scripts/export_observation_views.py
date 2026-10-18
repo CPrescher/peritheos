@@ -17,6 +17,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 
+from peritheos.eosmat import convert_eosmat  # noqa: E402
 from peritheos.observations import (  # noqa: E402
     observation_material_fingerprint,
     observation_source_fingerprint,
@@ -49,7 +50,9 @@ def export_observation_views(revision: str) -> dict:
     for entry in registry["datasets"]:
         path = "peritheos/data/materials/" + entry["material_id"] + ".eosmat"
         try:
-            document = json.loads(git("show", commit + ":" + path))
+            document = convert_eosmat(
+                json.loads(git("show", commit + ":" + path)), version=3
+            )
         except subprocess.CalledProcessError:
             rejected.append(
                 {
@@ -121,7 +124,9 @@ def export_observation_views(revision: str) -> dict:
     for path in paths:
         if not path.endswith(".eosmat"):
             continue
-        document = json.loads(git("show", commit + ":" + path))
+        document = convert_eosmat(
+            json.loads(git("show", commit + ":" + path)), version=3
+        )
         records = {r["identifier"]: r for r in document.get("eos_records", [])}
         for dataset in document.get("datasets", []):
             views = dataset.get("observation_views", [])

@@ -3179,13 +3179,13 @@ Availability: **Executable**.
 | Thermal | Tr | 300 | Not reported | Yes |
 | Thermal | theta0 | 1173 | 62 | Not listed |
 | Thermal | gamma0 | 3.2 | 0.2 | Not listed |
-| Thermal | gamma\_inf | 0 | Not reported | Yes |
-| Thermal | beta | 0.8 | 0.3 | Not listed |
 | Thermal | anharmonic\_a | 3.7e-05 | Not reported | Yes |
+| Thermal | beta | 0.8 | 0.3 | Not listed |
 | Thermal | anharmonic\_m | 1.87 | Not reported | Yes |
 | Thermal | electronic\_e | 0.000195 | Not reported | Yes |
 | Thermal | electronic\_g | 1.339 | Not reported | Yes |
 | Thermal | n | 1 | Not reported | Yes |
+| Thermal | gamma\_inf | 0 | Not reported | Yes |
 
 Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
@@ -3311,13 +3311,13 @@ Availability: **Executable**.
 | Thermal | Tr | 300 | Not reported | Yes |
 | Thermal | theta0 | 1168 | 61 | Not listed |
 | Thermal | gamma0 | 3.2 | 0.2 | Not listed |
-| Thermal | gamma\_inf | 0 | Not reported | Yes |
-| Thermal | beta | 0.8 | 0.3 | Not listed |
 | Thermal | anharmonic\_a | 3.7e-05 | Not reported | Yes |
+| Thermal | beta | 0.8 | 0.3 | Not listed |
 | Thermal | anharmonic\_m | 1.87 | Not reported | Yes |
 | Thermal | electronic\_e | 0.000195 | Not reported | Yes |
 | Thermal | electronic\_g | 1.339 | Not reported | Yes |
 | Thermal | n | 1 | Not reported | Yes |
+| Thermal | gamma\_inf | 0 | Not reported | Yes |
 
 Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported

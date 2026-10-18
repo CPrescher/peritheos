@@ -707,10 +707,10 @@ Availability: **Executable**.
 | Primary | K0 | 135.5 | 2.3 | Not listed |
 | Primary | K0\_prime | 5.3 | 0.2 | Not listed |
 | Thermal | Tr | 300.0 | Not reported | Yes |
-| Thermal | theta0 | 860.0 | Not reported | Yes |
+| Thermal | n | 35.0 | Not reported | Yes |
 | Thermal | gamma0 | 1.33 | 0.05 | Not listed |
 | Thermal | q | 2.03 | 0.35 | Not listed |
-| Thermal | n | 35.0 | Not reported | Yes |
+| Thermal | theta0 | 860.0 | Not reported | Yes |
 
 Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported

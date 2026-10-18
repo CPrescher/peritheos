@@ -1,24 +1,32 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "neon_fcc",
   "name": "Neon (fcc)",
   "formula": "Ne",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
-  "symmetry": "CUBIC",
-  "space_group": "Fm-3m",
-  "space_group_number": 225,
-  "lattice": {"a": 4.464, "b": null, "c": null, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
-  "atom_sites": [
-    {"element": "Ne", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0}
-  ],
-  "peaks": [],
-  "notes": "FCC neon; the Fei et al. (2007) primary Vinet fit is the default, with their BM3 fit retained as an alternative.",
   "eos_records": [
     {
       "identifier": "neon_fcc_fei_2007_bm3_1",
       "label": "Fei et al PNAS 2007 [BM3]",
+      "model": "BM3",
+      "parameters": {
+        "V0": {"value": 88.967, "error": null, "fixed": true},
+        "K0": {"value": 1.43, "error": 0.14},
+        "K0_prime": {"value": 8.02, "error": 0.31}
+      },
+      "thermal": {
+        "parameters": {
+          "Tr": {"value": 300.0, "error": null, "fixed": true},
+          "theta0": {"value": 75.1, "error": null, "fixed": true},
+          "gamma0": {"value": 2.05, "error": null, "fixed": true},
+          "q": {"value": 0.6, "error": 0.3},
+          "n": {"value": 1, "error": null, "fixed": true}
+        },
+        "debye_temperature_law": "variable_exponent",
+        "thermal_pressure_reference": "reference_temperature",
+        "model": "MieGruneisenDebye"
+      },
       "determination_method": "experimental",
       "reference": {
         "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
@@ -29,23 +37,7 @@
         "locator": "9182-9186",
         "doi": "10.1073/pnas.0609013104"
       },
-      "eos": {
-        "type": "BM3",
-        "parameters": {"V0": 88.967, "K0": 1.43, "K0_prime": 8.02},
-        "model": "birch_murnaghan_3"
-      },
-      "thermal": {
-        "type": "MieGruneisenDebye",
-        "parameters": {"Tr": 300.0, "theta0": 75.1, "gamma0": 2.05, "q": 0.6, "n": 1},
-        "parameter_errors": {"Tr": null, "theta0": null, "gamma0": null, "q": 0.3, "n": null},
-        "fixed_parameters": ["Tr", "theta0", "gamma0", "n"],
-        "debye_temperature_law": "variable_exponent",
-        "thermal_pressure_reference": "reference_temperature",
-        "model": "mie_gruneisen_debye"
-      },
-      "parameter_errors": {"V0": null, "K0": 0.14, "K0_prime": 0.31},
       "parameter_error_confidence": null,
-      "fixed_parameters": ["V0"],
       "parameter_covariance": null,
       "experimental_pressure_range_gpa": [4.7, 115.0],
       "pressure_range_status": "reported_qualitatively",
@@ -115,45 +107,47 @@
         },
         "audit_date": "2026-10-09"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/",
-          "locations": ["Equations 1-3", "Table 1", "Ne EOS discussion and Figure 5 caption"],
-          "finding": "Equation 3 uses the published variable-exponent Debye-temperature law. The room-temperature Ne fit used Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and the new measurements. Figure 5 states that the Hemley pressures were recalculated to the Dewaele et al. (2004) ruby scale. Table1 provides one thermal set for both separately fitted cold equations; BM3 thermal use is an explicit reconstruction and no separately fitted BM3 q is printed. V0=88.967 is common to both cold branches. Thermal reference is 300 K in Eq.3; calculated Figure5 curves are checked separately from measured markers.",
-          "doi": "10.1073/pnas.0609013104"
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/",
+            "locations": ["Equations 1-3", "Table 1", "Ne EOS discussion and Figure 5 caption"],
+            "finding": "Equation 3 uses the published variable-exponent Debye-temperature law. The room-temperature Ne fit used Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and the new measurements. Figure 5 states that the Hemley pressures were recalculated to the Dewaele et al. (2004) ruby scale. Table1 provides one thermal set for both separately fitted cold equations; BM3 thermal use is an explicit reconstruction and no separately fitted BM3 q is printed. V0=88.967 is common to both cold branches. Thermal reference is 300 K in Eq.3; calculated Figure5 curves are checked separately from measured markers.",
+            "doi": "10.1073/pnas.0609013104"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "neon_fcc.json"
+          },
+          "primary_data_check": {
+            "status": "plot_only",
+            "audit_date": "2026-10-09",
+            "dataset_identifiers": ["neon_hemley_1989_table1_fei_recalculated", "neon_finger_1981_table1"],
+            "digitized_dataset_identifiers": ["neon_fei_2007_figure5_digitized", "neon_fei_2007_figure5_1000k_digitized"],
+            "source_locations": [
+              "Ne EOS discussion and Figure 5 caption",
+              "Hemley et al. (1989), Table I",
+              "Finger et al. (1981), Table I, p.892"
+            ],
+            "finding": "54 recovered inputs: all 14 Finger Table I rows (293 K, original ruby scale), all 21 Hemley Table I rows (300 K, Fei-stated revised ruby scale), 13 separable new Figure5 cold markers and six 1000 K hot markers on published Fei Pt scale. Original complete new observations, paired calibrant volumes, fitting weights and covariance are absent. The unweighted 54-point joint fit reaches coefficient parity for K0, K0-prime and q within individual published error widths. Exact original-regression recovery and absolute accuracy are not established."
+          },
+          "reproduction_status": "parity",
+          "reproduction_basis": "54 recovered-input unweighted joint fit: K0, K0-prime and q within individual published error widths; combined-uncertainty and numerical similarity criteria passed. Exact original regression and absolute pressure accuracy remain unestablished. See docs/literature-reproductions/fei-2007-neon.md."
         },
-        "migration_source": {
-          "project": "Dioptas",
-          "version": "0.10.0",
-          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-          "file": "neon_fcc.json"
-        },
-        "primary_data_check": {
-          "status": "plot_only",
-          "audit_date": "2026-10-09",
-          "dataset_identifiers": ["neon_hemley_1989_table1_fei_recalculated", "neon_finger_1981_table1"],
-          "digitized_dataset_identifiers": ["neon_fei_2007_figure5_digitized", "neon_fei_2007_figure5_1000k_digitized"],
-          "source_locations": [
-            "Ne EOS discussion and Figure 5 caption",
-            "Hemley et al. (1989), Table I",
-            "Finger et al. (1981), Table I, p.892"
-          ],
-          "finding": "54 recovered inputs: all 14 Finger Table I rows (293 K, original ruby scale), all 21 Hemley Table I rows (300 K, Fei-stated revised ruby scale), 13 separable new Figure5 cold markers and six 1000 K hot markers on published Fei Pt scale. Original complete new observations, paired calibrant volumes, fitting weights and covariance are absent. The unweighted 54-point joint fit reaches coefficient parity for K0, K0-prime and q within individual published error widths. Exact original-regression recovery and absolute accuracy are not established."
-        },
-        "reproduction_status": "parity",
-        "reproduction_basis": "54 recovered-input unweighted joint fit: K0, K0-prime and q within individual published error widths; combined-uncertainty and numerical similarity criteria passed. Exact original regression and absolute pressure accuracy remain unestablished. See docs/literature-reproductions/fei-2007-neon.md."
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 1-3; Table 1; Ne EOS discussion and Figure 5 caption.",
-        "V0": "Fei Table1 and p.9185: adopted fixed conventional fcc-cell V0=88.967 A^3, common to Vinet and BM3. Finger TableII gives adopted low-temperature Vm0=13.394 cm3/mol; modern conversion gives 88.965041 A^3, a rounding difference.",
-        "theta0": "Fei Table1: adopted 75.1 K from Finger et al. (1981), TableII (Fugate and Swenson 1973).",
-        "gamma0": "Fei Table1: adopted 2.05. Finger TableII calls 2.05 gamma1 in its different gamma=1/2+gamma1*V/V0 law; preserve Fei gamma0=2.05 rather than transferring Finger law.",
-        "q": "Fei Table1: optimized q=0.6(3); confidence and covariance unspecified. A distinct BM3 q fit is not supplied.",
-        "thermal_equation": "Fei Eq3: subtract E(300 K,theta(V)) at the same volume and use printed theta=theta0*(V/V0)^(-gamma(V)), gamma(V)=gamma0*(V/V0)^q."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 1-3; Table 1; Ne EOS discussion and Figure 5 caption.",
+          "V0": "Fei Table1 and p.9185: adopted fixed conventional fcc-cell V0=88.967 A^3, common to Vinet and BM3. Finger TableII gives adopted low-temperature Vm0=13.394 cm3/mol; modern conversion gives 88.965041 A^3, a rounding difference.",
+          "theta0": "Fei Table1: adopted 75.1 K from Finger et al. (1981), TableII (Fugate and Swenson 1973).",
+          "gamma0": "Fei Table1: adopted 2.05. Finger TableII calls 2.05 gamma1 in its different gamma=1/2+gamma1*V/V0 law; preserve Fei gamma0=2.05 rather than transferring Finger law.",
+          "q": "Fei Table1: optimized q=0.6(3); confidence and covariance unspecified. A distinct BM3 q fit is not supplied.",
+          "thermal_equation": "Fei Eq3: subtract E(300 K,theta(V)) at the same volume and use printed theta=theta0*(V/V0)^(-gamma(V)), gamma(V)=gamma0*(V/V0)^q."
+        }
       },
       "fit_datasets": [
         "neon_fei_2007_figure5_digitized",
@@ -203,6 +197,24 @@
     {
       "identifier": "neon_fcc_fei_2007_vinet_2",
       "label": "Fei et al PNAS 2007 [Vinet]",
+      "model": "Vinet",
+      "parameters": {
+        "V0": {"value": 88.967, "error": null, "fixed": true},
+        "K0": {"value": 1.16, "error": 0.14},
+        "K0_prime": {"value": 8.23, "error": 0.31}
+      },
+      "thermal": {
+        "parameters": {
+          "Tr": {"value": 300.0, "error": null, "fixed": true},
+          "theta0": {"value": 75.1, "error": null, "fixed": true},
+          "gamma0": {"value": 2.05, "error": null, "fixed": true},
+          "q": {"value": 0.6, "error": 0.3},
+          "n": {"value": 1, "error": null, "fixed": true}
+        },
+        "debye_temperature_law": "variable_exponent",
+        "thermal_pressure_reference": "reference_temperature",
+        "model": "MieGruneisenDebye"
+      },
       "determination_method": "experimental",
       "default": true,
       "reference": {
@@ -214,23 +226,7 @@
         "locator": "9182-9186",
         "doi": "10.1073/pnas.0609013104"
       },
-      "eos": {
-        "type": "Vinet",
-        "parameters": {"V0": 88.967, "K0": 1.16, "K0_prime": 8.23},
-        "model": "vinet"
-      },
-      "thermal": {
-        "type": "MieGruneisenDebye",
-        "parameters": {"Tr": 300.0, "theta0": 75.1, "gamma0": 2.05, "q": 0.6, "n": 1},
-        "parameter_errors": {"Tr": null, "theta0": null, "gamma0": null, "q": 0.3, "n": null},
-        "fixed_parameters": ["Tr", "theta0", "gamma0", "n"],
-        "debye_temperature_law": "variable_exponent",
-        "thermal_pressure_reference": "reference_temperature",
-        "model": "mie_gruneisen_debye"
-      },
-      "parameter_errors": {"V0": null, "K0": 0.14, "K0_prime": 0.31},
       "parameter_error_confidence": null,
-      "fixed_parameters": ["V0"],
       "parameter_covariance": null,
       "experimental_pressure_range_gpa": [4.7, 115.0],
       "pressure_range_status": "reported_qualitatively",
@@ -300,45 +296,47 @@
         },
         "audit_date": "2026-10-09"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/",
-          "locations": ["Equations 1-3", "Table 1", "Ne EOS discussion and Figure 5 caption"],
-          "finding": "Equation 3 uses the published variable-exponent Debye-temperature law. The room-temperature Ne fit used Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and the new measurements. Figure 5 states that the Hemley pressures were recalculated to the Dewaele et al. (2004) ruby scale. Table1 provides one thermal set for both separately fitted cold equations; BM3 thermal use is an explicit reconstruction and no separately fitted BM3 q is printed. V0=88.967 is common to both cold branches. Thermal reference is 300 K in Eq.3; calculated Figure5 curves are checked separately from measured markers.",
-          "doi": "10.1073/pnas.0609013104"
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC1890468/",
+            "locations": ["Equations 1-3", "Table 1", "Ne EOS discussion and Figure 5 caption"],
+            "finding": "Equation 3 uses the published variable-exponent Debye-temperature law. The room-temperature Ne fit used Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and the new measurements. Figure 5 states that the Hemley pressures were recalculated to the Dewaele et al. (2004) ruby scale. Table1 provides one thermal set for both separately fitted cold equations; BM3 thermal use is an explicit reconstruction and no separately fitted BM3 q is printed. V0=88.967 is common to both cold branches. Thermal reference is 300 K in Eq.3; calculated Figure5 curves are checked separately from measured markers.",
+            "doi": "10.1073/pnas.0609013104"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "neon_fcc.json"
+          },
+          "primary_data_check": {
+            "status": "plot_only",
+            "audit_date": "2026-10-09",
+            "dataset_identifiers": ["neon_hemley_1989_table1_fei_recalculated", "neon_finger_1981_table1"],
+            "digitized_dataset_identifiers": ["neon_fei_2007_figure5_digitized", "neon_fei_2007_figure5_1000k_digitized"],
+            "source_locations": [
+              "Ne EOS discussion and Figure 5 caption",
+              "Hemley et al. (1989), Table I",
+              "Finger et al. (1981), Table I, p.892"
+            ],
+            "finding": "54 recovered inputs: all 14 Finger Table I rows (293 K, original ruby scale), all 21 Hemley Table I rows (300 K, Fei-stated revised ruby scale), 13 separable new Figure5 cold markers and six 1000 K hot markers on published Fei Pt scale. Original complete new observations, paired calibrant volumes, fitting weights and covariance are absent. The unweighted 54-point joint fit reaches coefficient parity for K0, K0-prime and q within individual published error widths. Exact original-regression recovery and absolute accuracy are not established."
+          },
+          "reproduction_status": "parity",
+          "reproduction_basis": "54 recovered-input unweighted joint fit: K0, K0-prime and q within individual published error widths; combined-uncertainty and numerical similarity criteria passed. Exact original regression and absolute pressure accuracy remain unestablished. See docs/literature-reproductions/fei-2007-neon.md."
         },
-        "migration_source": {
-          "project": "Dioptas",
-          "version": "0.10.0",
-          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-          "file": "neon_fcc.json"
-        },
-        "primary_data_check": {
-          "status": "plot_only",
-          "audit_date": "2026-10-09",
-          "dataset_identifiers": ["neon_hemley_1989_table1_fei_recalculated", "neon_finger_1981_table1"],
-          "digitized_dataset_identifiers": ["neon_fei_2007_figure5_digitized", "neon_fei_2007_figure5_1000k_digitized"],
-          "source_locations": [
-            "Ne EOS discussion and Figure 5 caption",
-            "Hemley et al. (1989), Table I",
-            "Finger et al. (1981), Table I, p.892"
-          ],
-          "finding": "54 recovered inputs: all 14 Finger Table I rows (293 K, original ruby scale), all 21 Hemley Table I rows (300 K, Fei-stated revised ruby scale), 13 separable new Figure5 cold markers and six 1000 K hot markers on published Fei Pt scale. Original complete new observations, paired calibrant volumes, fitting weights and covariance are absent. The unweighted 54-point joint fit reaches coefficient parity for K0, K0-prime and q within individual published error widths. Exact original-regression recovery and absolute accuracy are not established."
-        },
-        "reproduction_status": "parity",
-        "reproduction_basis": "54 recovered-input unweighted joint fit: K0, K0-prime and q within individual published error widths; combined-uncertainty and numerical similarity criteria passed. Exact original regression and absolute pressure accuracy remain unestablished. See docs/literature-reproductions/fei-2007-neon.md."
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 1-3; Table 1; Ne EOS discussion and Figure 5 caption.",
-        "V0": "Fei Table1 and p.9185: adopted fixed conventional fcc-cell V0=88.967 A^3, common to Vinet and BM3. Finger TableII gives adopted low-temperature Vm0=13.394 cm3/mol; modern conversion gives 88.965041 A^3, a rounding difference.",
-        "theta0": "Fei Table1: adopted 75.1 K from Finger et al. (1981), TableII (Fugate and Swenson 1973).",
-        "gamma0": "Fei Table1: adopted 2.05. Finger TableII calls 2.05 gamma1 in its different gamma=1/2+gamma1*V/V0 law; preserve Fei gamma0=2.05 rather than transferring Finger law.",
-        "q": "Fei Table1: optimized q=0.6(3); confidence and covariance unspecified. A distinct BM3 q fit is not supplied.",
-        "thermal_equation": "Fei Eq3: subtract E(300 K,theta(V)) at the same volume and use printed theta=theta0*(V/V0)^(-gamma(V)), gamma(V)=gamma0*(V/V0)^q."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations 1-3; Table 1; Ne EOS discussion and Figure 5 caption.",
+          "V0": "Fei Table1 and p.9185: adopted fixed conventional fcc-cell V0=88.967 A^3, common to Vinet and BM3. Finger TableII gives adopted low-temperature Vm0=13.394 cm3/mol; modern conversion gives 88.965041 A^3, a rounding difference.",
+          "theta0": "Fei Table1: adopted 75.1 K from Finger et al. (1981), TableII (Fugate and Swenson 1973).",
+          "gamma0": "Fei Table1: adopted 2.05. Finger TableII calls 2.05 gamma1 in its different gamma=1/2+gamma1*V/V0 law; preserve Fei gamma0=2.05 rather than transferring Finger law.",
+          "q": "Fei Table1: optimized q=0.6(3); confidence and covariance unspecified. A distinct BM3 q fit is not supplied.",
+          "thermal_equation": "Fei Eq3: subtract E(300 K,theta(V)) at the same volume and use printed theta=theta0*(V/V0)^(-gamma(V)), gamma(V)=gamma0*(V/V0)^q."
+        }
       },
       "fit_datasets": [
         "neon_fei_2007_figure5_digitized",
@@ -388,6 +386,13 @@
     {
       "identifier": "neon_fcc_hemley_1989_bm3_refit",
       "label": "Hemley et al. (1989) Table I direct 300 K BM3 refit",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 88.96504106290601, "error": null, "fixed": true},
+        "K0": {"value": 1.7277462566083195, "error": 0.22322191999036312},
+        "K0_prime": {"value": 6.972110967032526, "error": 0.5439133435530098}
+      },
       "determination_method": "experimental",
       "reference": {
         "authors": ["Hemley", "Zha", "Jephcoat", "Mao", "Finger", "Cox"],
@@ -398,14 +403,6 @@
         "locator": "11820-11827",
         "doi": "10.1103/PhysRevB.39.11820"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "BM3",
-        "parameters": {"V0": 88.96504106290601, "K0": 1.7277462566083195, "K0_prime": 6.972110967032526},
-        "model": "birch_murnaghan_3"
-      },
-      "parameter_errors": {"V0": null, "K0": 0.22322191999036312, "K0_prime": 0.5439133435530098},
-      "fixed_parameters": ["V0"],
       "experimental_pressure_range_gpa": [10.0, 110.4],
       "pressure_range_status": "reported_exactly",
       "notes": "Peritheos errors-in-variables BM3 refit of the 21 raw 300 K observations in Hemley et al. Table I, using the tabulated Mao-ruby pressures and lattice-parameter uncertainties. V0 is fixed to the paper's low-temperature 13.394 cm^3/mol value converted to the four-atom fcc cell. This direct table-only reference is intentionally distinct from Hemley et al.'s published thermally reduced 0 K fit, which also included the earlier Finger et al. low-pressure data and reported K0=1.097 GPa and K0'=9.23(3).",
@@ -430,34 +427,45 @@
         },
         "audit_date": "2026-09-04"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Primary observations and source protocol were validated; the stored coefficients are an explicitly identified Peritheos refit.",
-        "audit_date": "2026-09-04",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.1103/PhysRevB.39.11820",
-          "locations": ["Table I, page 11823", "Equation-of-state discussion and Figure 4, pages 11823-11824"],
-          "finding": "Table I provides 21 raw 300 K observations on the Mao ruby scale. The stored coefficients are a Peritheos errors-in-variables fit to that table alone; the paper's published thermally reduced 0 K fit also includes the earlier Finger et al. low-pressure series.",
-          "doi": "10.1103/physrevb.39.11820"
-        },
-        "primary_data_check": {
-          "status": "bundled",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Primary observations and source protocol were validated; the stored coefficients are an explicitly identified Peritheos refit.",
           "audit_date": "2026-09-04",
-          "dataset_identifiers": ["neon_hemley_1989_table1_compression"],
-          "source_locations": ["Table I, page 11823"],
-          "finding": "All 21 tabulated 300 K fcc-neon pressure, lattice-parameter, molar-volume, and uncertainty values are bundled."
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1103/PhysRevB.39.11820",
+            "locations": ["Table I, page 11823", "Equation-of-state discussion and Figure 4, pages 11823-11824"],
+            "finding": "Table I provides 21 raw 300 K observations on the Mao ruby scale. The stored coefficients are a Peritheos errors-in-variables fit to that table alone; the paper's published thermally reduced 0 K fit also includes the earlier Finger et al. low-pressure series.",
+            "doi": "10.1103/physrevb.39.11820"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-04",
+            "dataset_identifiers": ["neon_hemley_1989_table1_compression"],
+            "source_locations": ["Table I, page 11823"],
+            "finding": "All 21 tabulated 300 K fcc-neon pressure, lattice-parameter, molar-volume, and uncertainty values are bundled."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table I, page 11823; Equation-of-state discussion and Figure 4, pages 11823-11824.",
+          "V0": "Hemley et al. (1989), page 11824: fixed low-temperature V0=13.394 cm^3/mol, converted to the four-atom fcc cell",
+          "K0": "Peritheos errors-in-variables refit of Hemley et al. (1989), Table I",
+          "K0_prime": "Peritheos errors-in-variables refit of Hemley et al. (1989), Table I",
+          "equation": "Third-order Birch-Murnaghan equation used by Hemley et al. (1989)"
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table I, page 11823; Equation-of-state discussion and Figure 4, pages 11823-11824.",
-        "V0": "Hemley et al. (1989), page 11824: fixed low-temperature V0=13.394 cm^3/mol, converted to the four-atom fcc cell",
-        "K0": "Peritheos errors-in-variables refit of Hemley et al. (1989), Table I",
-        "K0_prime": "Peritheos errors-in-variables refit of Hemley et al. (1989), Table I",
-        "equation": "Third-order Birch-Murnaghan equation used by Hemley et al. (1989)"
       }
     }
   ],
+  "symmetry": "CUBIC",
+  "space_group": "Fm-3m",
+  "space_group_number": 225,
+  "lattice": {"a": 4.464, "b": null, "c": null, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Ne", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "FCC neon; the Fei et al. (2007) primary Vinet fit is the default, with their BM3 fit retained as an alternative.",
   "datasets": [
     {
       "identifier": "neon_fei_2007_figure5_digitized",

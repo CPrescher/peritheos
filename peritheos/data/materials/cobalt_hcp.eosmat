@@ -1,24 +1,21 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "cobalt_hcp",
   "name": "Cobalt",
   "formula": "Co",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 2,
-  "symmetry": "HEXAGONAL",
-  "space_group": "P63/mmc",
-  "space_group_number": 194,
-  "lattice": {"a": 2.514, "b": 2.514, "c": 4.105, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
-  "atom_sites": [
-    {"element": "Co", "wyckoff": "2c", "x": 0.3333333333, "y": 0.6666666667, "z": 0.25, "occupancy": 1.0}
-  ],
-  "peaks": [],
-  "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/Co-hcp.jcpds",
   "eos_records": [
     {
       "identifier": "cobalt_hcp_fujihisa_1996_vinet_1",
       "label": "Fujihisa and Takemura (1996), hcp Vinet",
+      "model": "Vinet",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 22.4685, "error": null, "fixed": true},
+        "K0": {"value": 199.0, "error": 6.0},
+        "K0_prime": {"value": 3.6, "error": 0.2}
+      },
       "determination_method": "experimental",
       "reference": {
         "authors": ["Fujihisa", "Takemura"],
@@ -29,14 +26,6 @@
         "locator": "5-7",
         "doi": "10.1103/PhysRevB.54.5"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "Vinet",
-        "parameters": {"V0": 22.4685, "K0": 199.0, "K0_prime": 3.6},
-        "model": "vinet"
-      },
-      "parameter_errors": {"V0": null, "K0": 6.0, "K0_prime": 0.2},
-      "fixed_parameters": ["V0"],
       "experimental_pressure_range_gpa": [0.0, 79.0],
       "notes": "Room-temperature hcp-cobalt Vinet fit to 79 GPa: K0=199+/-6 GPa and K0'=3.6+/-0.2. Volumes were normalized to the ambient hcp volume, retained here as the fixed conventional-cell V0.",
       "pressure_calibration": {
@@ -60,38 +49,47 @@
         },
         "audit_date": "2026-09-03"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.54.5/fulltext",
-          "locations": ["page 6, hcp-volume paragraph", "Figure 3"],
-          "finding": "The primary paper fits hcp cobalt with the Vinet EOS; the migrated BM3 model label was corrected.",
-          "doi": "10.1103/physrevb.54.5"
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.54.5/fulltext",
+            "locations": ["page 6, hcp-volume paragraph", "Figure 3"],
+            "finding": "The primary paper fits hcp cobalt with the Vinet EOS; the migrated BM3 model label was corrected.",
+            "doi": "10.1103/physrevb.54.5"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "cobalt_hcp.json"
+          },
+          "primary_data_check": {
+            "status": "plot_only",
+            "audit_date": "2026-09-03",
+            "digitized_dataset_identifiers": ["cobalt_hcp_fujihisa_1996_figure3_digitized"],
+            "source_locations": ["Figure 3; journal page 6"],
+            "finding": "The hcp-cobalt volume observations are published graphically in Figure 3; the article contains no numerical P-V table."
+          }
         },
-        "migration_source": {
-          "project": "Dioptas",
-          "version": "0.10.0",
-          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-          "file": "cobalt_hcp.json"
-        },
-        "primary_data_check": {
-          "status": "plot_only",
-          "audit_date": "2026-09-03",
-          "digitized_dataset_identifiers": ["cobalt_hcp_fujihisa_1996_figure3_digitized"],
-          "source_locations": ["Figure 3; journal page 6"],
-          "finding": "The hcp-cobalt volume observations are published graphically in Figure 3; the article contains no numerical P-V table."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 6, hcp-volume paragraph; Figure 3."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 6, hcp-volume paragraph; Figure 3."
       }
     },
     {
       "identifier": "cobalt_hcp_dewaele_2019_mao_vinet",
       "label": "Dewaele (2019), Co MAO-scale Vinet",
+      "model": "Vinet",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 22.154, "error": 0.024},
+        "K0": {"value": 197.0, "error": 3.2},
+        "K0_prime": {"value": 3.85, "error": 0.2}
+      },
       "record_kind": "published",
       "determination_method": "experimental",
       "equation_kind": "isothermal",
@@ -102,15 +100,7 @@
         "source": "Minerals",
         "doi": "10.3390/min9110684"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "Vinet",
-        "model": "vinet",
-        "parameters": {"V0": 22.154, "K0": 197.0, "K0_prime": 3.85}
-      },
-      "parameter_errors": {"V0": 0.024, "K0": 3.2, "K0_prime": 0.2},
       "parameter_error_confidence": 0.95,
-      "fixed_parameters": [],
       "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 66.0],
       "pressure_range_status": "reported_exactly",
@@ -135,52 +125,61 @@
         },
         "audit_date": "2026-09-06"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-        "audit_date": "2026-09-06",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
-          "doi": "10.3390/min9110684",
-          "locations": ["Equation (1)", "Table 1"],
-          "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
-        },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-07",
-          "dataset_identifiers": ["cobalt_dewaele_2008_table2_compression"],
-          "source_locations": ["cobalt-dewaele-2008-table2-compression.csv", "Dewaele (2019), Equation (1) and Table 1"],
-          "finding": "All 25 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).",
-          "reproduction_resource": "docs/data/dewaele-2019-static-dac-refit.json",
-          "fit_scope": "complete",
-          "record_parameter_comparison": {
-            "absolute_parameter_difference": [0.00010591571180817994, 0.028182380408424024, 0.0009285428349681268],
-            "max_abs_gpa": 0.6851271222889039,
-            "parameters": [11.077105915711808, 197.02818238040842, 3.849071457165032],
-            "rmse_gpa": 0.2542280308833028,
-            "within_reported_95pct_errors": true
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+          "audit_date": "2026-09-06",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+            "doi": "10.3390/min9110684",
+            "locations": ["Equation (1)", "Table 1"],
+            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-07",
+            "dataset_identifiers": ["cobalt_dewaele_2008_table2_compression"],
+            "source_locations": ["cobalt-dewaele-2008-table2-compression.csv", "Dewaele (2019), Equation (1) and Table 1"],
+            "finding": "All 25 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).",
+            "reproduction_resource": "docs/data/dewaele-2019-static-dac-refit.json",
+            "fit_scope": "complete",
+            "record_parameter_comparison": {
+              "absolute_parameter_difference": [0.00010591571180817994, 0.028182380408424024, 0.0009285428349681268],
+              "max_abs_gpa": 0.6851271222889039,
+              "parameters": [11.077105915711808, 197.02818238040842, 3.849071457165032],
+              "rmse_gpa": 0.2542280308833028,
+              "within_reported_95pct_errors": true
+            }
           }
-        }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
+          "V0": "Table 1",
+          "K0": "Table 1",
+          "K0_prime": "Table 1"
+        },
+        "source_lineage": [
+          {
+            "role": "scientific equation and coefficients",
+            "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
+            "doi": "10.3390/min9110684"
+          }
+        ]
       },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
-        "V0": "Table 1",
-        "K0": "Table 1",
-        "K0_prime": "Table 1"
-      },
-      "source_lineage": [
-        {
-          "role": "scientific equation and coefficients",
-          "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
-          "doi": "10.3390/min9110684"
-        }
-      ],
       "fit_datasets": ["cobalt_dewaele_2008_table2_compression"]
     },
     {
       "identifier": "cobalt_hcp_dewaele_2019_dor_vinet",
       "label": "Dewaele (2019), Co DOR-scale Vinet",
+      "model": "Vinet",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 22.154, "error": 0.024},
+        "K0": {"value": 194.85, "error": 3.2},
+        "K0_prime": {"value": 4.36, "error": 0.2}
+      },
       "record_kind": "published",
       "determination_method": "experimental",
       "equation_kind": "isothermal",
@@ -191,15 +190,7 @@
         "source": "Minerals",
         "doi": "10.3390/min9110684"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "Vinet",
-        "model": "vinet",
-        "parameters": {"V0": 22.154, "K0": 194.85, "K0_prime": 4.36}
-      },
-      "parameter_errors": {"V0": 0.024, "K0": 3.2, "K0_prime": 0.2},
       "parameter_error_confidence": 0.95,
-      "fixed_parameters": [],
       "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 66.0],
       "pressure_range_status": "reported_exactly",
@@ -224,50 +215,61 @@
         },
         "audit_date": "2026-09-06"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-        "audit_date": "2026-09-06",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
-          "doi": "10.3390/min9110684",
-          "locations": ["Equation (1)", "Table 1"],
-          "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
-        },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-07",
-          "dataset_identifiers": ["cobalt_dewaele_2008_table2_compression"],
-          "source_locations": ["cobalt-dewaele-2008-table2-compression.csv", "Dewaele (2019), Equation (1) and Table 1"],
-          "finding": "All 25 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).",
-          "reproduction_resource": "docs/data/dewaele-2019-static-dac-refit.json",
-          "fit_scope": "complete",
-          "record_parameter_comparison": {
-            "absolute_parameter_difference": [0.00013721511931841235, 0.0036959114136720927, 0.0015813686620074208],
-            "max_abs_gpa": 0.7302840600243741,
-            "parameters": [11.076862784880682, 194.84630408858632, 4.358418631337993],
-            "rmse_gpa": 0.26584864078177023,
-            "within_reported_95pct_errors": true
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+          "audit_date": "2026-09-06",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+            "doi": "10.3390/min9110684",
+            "locations": ["Equation (1)", "Table 1"],
+            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-07",
+            "dataset_identifiers": ["cobalt_dewaele_2008_table2_compression"],
+            "source_locations": ["cobalt-dewaele-2008-table2-compression.csv", "Dewaele (2019), Equation (1) and Table 1"],
+            "finding": "All 25 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).",
+            "reproduction_resource": "docs/data/dewaele-2019-static-dac-refit.json",
+            "fit_scope": "complete",
+            "record_parameter_comparison": {
+              "absolute_parameter_difference": [0.00013721511931841235, 0.0036959114136720927, 0.0015813686620074208],
+              "max_abs_gpa": 0.7302840600243741,
+              "parameters": [11.076862784880682, 194.84630408858632, 4.358418631337993],
+              "rmse_gpa": 0.26584864078177023,
+              "within_reported_95pct_errors": true
+            }
           }
-        }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
+          "V0": "Table 1",
+          "K0": "Table 1",
+          "K0_prime": "Table 1"
+        },
+        "source_lineage": [
+          {
+            "role": "scientific equation and coefficients",
+            "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
+            "doi": "10.3390/min9110684"
+          }
+        ]
       },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
-        "V0": "Table 1",
-        "K0": "Table 1",
-        "K0_prime": "Table 1"
-      },
-      "source_lineage": [
-        {
-          "role": "scientific equation and coefficients",
-          "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
-          "doi": "10.3390/min9110684"
-        }
-      ],
       "fit_datasets": ["cobalt_dewaele_2008_table2_compression"]
     }
   ],
+  "symmetry": "HEXAGONAL",
+  "space_group": "P63/mmc",
+  "space_group_number": 194,
+  "lattice": {"a": 2.514, "b": 2.514, "c": 4.105, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
+  "atom_sites": [
+    {"element": "Co", "wyckoff": "2c", "x": 0.3333333333, "y": 0.6666666667, "z": 0.25, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/Co-hcp.jcpds",
   "datasets": [
     {
       "identifier": "cobalt_hcp_fujihisa_1996_figure3_digitized",

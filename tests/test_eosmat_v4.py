@@ -48,7 +48,9 @@ def test_entire_catalog_migrates_with_every_scientific_field_and_source_array_in
         native = convert_eosmat(original)
         validator.validate(native)
         restored = convert_eosmat(native, version=3)
-        assert semantic(restored) == semantic(original), path.name
+        assert semantic(restored) == semantic(convert_eosmat(original, version=3)), (
+            path.name
+        )
         assert observation_material_fingerprint(
             original
         ) == observation_material_fingerprint(native)

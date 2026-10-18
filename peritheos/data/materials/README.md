@@ -1,5 +1,16 @@
 # Bundled material library
 
+The material files use [native EOSMAT v4](../../../docs/eosmat-v4.md): model and
+annotated coefficients come first, with full scientific evidence in each
+record's `evidence` section. Units remain explicit and metadata stays inline.
+No companion representation or external metadata registry is needed to read a
+file. Scientific values, observations and qualifications are preserved.
+
+`load_eosmat(path)` reads that native layout. For established integrations,
+`get_material_document(identifier)` still returns a v3-shaped dictionary by
+default; pass `format_version=4` for native fields. Older file readers can use
+`python -m peritheos convert native.eosmat compatible.eosmat --format-version 3`.
+
 This directory contains 232 curated material documents with 663 EOS records. The
 collection began with the 120-material, 147-EOS-record Dioptas 0.10.0 database,
 tag commit
@@ -7,7 +18,7 @@ tag commit
 <https://github.com/Dioptas/Dioptas>.
 
 Every EOS record has an explicit `determination_method` and a rationale under
-`parameter_provenance.determination_method`. The current collection classifies
+`evidence.parameter_provenance.determination_method`. The current collection classifies
 514 records as experimental, 114 as theoretical, 28 as hybrid, and seven as
 unknown. These counts include the two deferred Campbell source records and
 the deferred Morard FeS source record.
@@ -274,7 +285,7 @@ the preceding fit source for diamond and the nine metals; Dorogokupets (2010)
 is the earlier MgO source. Sokolova et al. (2016) supplies the Excel/VBA
 implementation, conventions, corrected equations, and the implemented MgO
 anharmonic-coefficient correction. Each `.eosmat` record stores these roles in
-`source_lineage`. Its identifier uses `_sokolova_2013` for the scientific fit
+`evidence.source_lineage`. Its identifier uses `_sokolova_2013` for the scientific fit
 year; the former workbook-year `_sokolova_2016` identifier is not retained.
 
 Only validated records are executable by default. Deferred evidence and
@@ -294,7 +305,7 @@ in the Somayazulu B4C article. The Hazen--Finger zircon record is corrected
 from BM2 to its published BM3 parameters with fixed `K0' = 6.5`. It also
 restores model-required `n`/`Z` values
 for Sokolova records, `n` for the Sun silica Debye records, and `Tr` for the
-Bezacier ice records, each with field-level `audit_corrections` provenance.
+Bezacier ice records, each with field-level `evidence.audit_corrections` provenance.
 The ten Shen--Smith (2026) Cu-anchored 300 K Vinet fits are validated directly
 against Equation (4), Tables I--II, and the phase-specific range discussion in
 the supplied version of record. Their printed `K0` and `K0'` errors are stored,
@@ -305,7 +316,7 @@ The Dioptas-facing thermal type `AlphaKT` is preserved for interchange, while
 its canonical mechanism identifier is `thermal_reference_state`. Peritheos
 evaluates validated instances with `ThermalReferenceStateEOS` rather than
 making the source/application label part of the public equation name.
-The corrected Anderson Au record instead uses the format-3 extension
+The corrected Anderson Au record instead uses the thermal component
 `LogVolumeThermalPressure` / `log_volume_thermal_pressure`. Older consumers
 must preserve this unknown component rather than evaluating it as `AlphaKT`;
 the latter is a different equation.
@@ -315,12 +326,12 @@ and `o8`) are intentionally not bundled because they contain no EOS record.
 The `.eosmat` schema still permits an empty `eos_records` array for
 application-created structure-only documents.
 
-The `.eosmat` documents use the Peritheos-owned format version 3. Their
-material, structure, and record layout is an additive evolution of the Dioptas
-0.10.0 format-2 layout, so Dioptas 0.10.0 can read and preserve them. A future
-Dioptas writer must preserve the version-3 top-level fields for a lossless
-round trip and honor the variable-exponent law before numerically
-evaluating the corrected Fei records. In the shared schema, an omitted
+The `.eosmat` documents use native format version 4. Explicit v3 compatibility
+exports retain the additive Dioptas 0.10.0 format-2 layout. Dioptas 0.10.0 can
+read those exports; direct v4 loading requires an updated consumer. A writer
+must preserve the complete source document for a lossless round trip and honor
+the variable-exponent law before numerically evaluating the corrected Fei
+records. In both supported EOSMAT versions, an omitted
 `debye_temperature_law` means `integrated_gruneisen`.
 An omitted `thermal_expansion_law` means `constant`; the explicit
 `linear_temperature` value requires `alpha1` and integrates

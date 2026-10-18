@@ -1,27 +1,34 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "rbi",
   "name": "Rubidium iodide (B2)",
   "formula": "RbI",
   "phase": "B2 (CsCl-type), cubic Pm-3m",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 1,
-  "cell_contents": "One RbI formula unit, two atoms, in the conventional cubic cell.",
-  "symmetry": "CUBIC",
-  "space_group": "Pm-3m",
-  "space_group_number": 221,
-  "lattice": {"a": 4.394589626193494, "b": 4.394589626193494, "c": 4.394589626193494, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
-  "atom_sites": [
-    {"element": "Rb", "wyckoff": "1a", "multiplicity": 1, "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
-    {"element": "I", "wyckoff": "1b", "multiplicity": 1, "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1.0}
-  ],
-  "peaks": [],
-  "notes": "B2 solid is not stable at ambient pressure. The reference cell is a hypothetical zero-pressure extrapolation, not an ambient measurement. Phase boundaries and melting must be checked separately.",
   "eos_records": [
     {
       "identifier": "rbi_b2_farla_2025_bm3_mgd_cscl",
       "label": "Farla et al. (2025), RbI-B2 BM3-MGD, CsCl pressures (case 1)",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 84.8701517232553, "error": 0.033210781343476936, "fixed": true},
+        "K0": {"value": 13.69, "error": 0.04},
+        "K0_prime": {"value": 4.95, "error": 0.01}
+      },
+      "thermal": {
+        "debye_temperature_law": "integrated_gruneisen",
+        "thermal_pressure_reference": "reference_temperature",
+        "parameters": {
+          "Tr": {"value": 300.0, "error": null, "fixed": true},
+          "theta0": {"value": 118, "error": null, "fixed": true},
+          "gamma0": {"value": 2.21, "error": 0.07},
+          "q": {"value": 1.42, "error": 0.1},
+          "n": {"value": 2.0, "error": null, "fixed": true}
+        },
+        "model": "MieGruneisenDebye"
+      },
       "record_kind": "published",
       "determination_method": "hybrid",
       "equation_kind": "thermal",
@@ -35,24 +42,7 @@
         "locator": "115901",
         "doi": "10.1063/5.0248905"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 84.8701517232553, "K0": 13.69, "K0_prime": 4.95}
-      },
-      "thermal": {
-        "type": "MieGruneisenDebye",
-        "model": "mie_gruneisen_debye",
-        "debye_temperature_law": "integrated_gruneisen",
-        "thermal_pressure_reference": "reference_temperature",
-        "parameters": {"Tr": 300.0, "theta0": 118, "gamma0": 2.21, "q": 1.42, "n": 2.0},
-        "parameter_errors": {"Tr": null, "theta0": null, "gamma0": 0.07, "q": 0.1, "n": null},
-        "fixed_parameters": ["Tr", "theta0", "n"]
-      },
-      "parameter_errors": {"V0": 0.033210781343476936, "K0": 0.04, "K0_prime": 0.01},
       "parameter_error_confidence": null,
-      "fixed_parameters": ["V0"],
       "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.54, 26.05],
       "pressure_range_status": "reported_exactly",
@@ -127,88 +117,90 @@
         },
         "notes": "Above about 1100 K the paper observes Mo/Pt apparent pressures lower than CsCl (up to ~1/~3 GPa); it prefers CsCl. It also questions CsCl behavior for BT815 at 17-19 GPa and high T. No correction is inferred here."
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "audit_date": "2026-10-15",
-        "note": "Primary accepted manuscript from DESY and official AIP supplement audited. Model checked against independent quadrature and source Tables S5-S7 with explicit coefficient precision qualification. Fit/workflow parity is not claimed.",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://bib-pubdb1.desy.de/record/616759/files/Final%20version%20before%20publication.pdf",
-          "doi": "10.1063/5.0248905",
-          "locations": [
-            "Accepted manuscript sections 2-5, Eqs. (1),(6)-(9), Table I case 1",
-            "Official supplement section 1, Tables S1, S4, S7"
-          ],
-          "finding": "Integrated Debye law and n=2 at 300 K; hypothetical DAC-extrapolated B2 V0 held fixed; CsCl-based combined-data coefficients retained. Final publisher PDF could not be downloaded (HTTP 403); source version is explicit."
-        },
-        "primary_data_check": {
-          "status": "bundled",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
           "audit_date": "2026-10-15",
-          "dataset_identifiers": ["rbi_farla_2025_observations", "rbi_farla_2025_benchmarks"],
-          "source_locations": ["Tables S1, S4, S7"],
-          "finding": "All recoverable printed DAC/LVP numbers, errors and calibrant readings retained; all 54 calculated ratios retained separately. Original GSAS/EoSFit7 files mentioned in article are not present in retrieved public supplement.",
-          "reconstruction_assessment": {
-            "equation_validated": true,
-            "published_curve_consistency": "All 54 ratios pass individual state sensitivity envelopes. A single coefficient vector within half-last-digit bounds matches all rounded RbBr/RbI ratios; the stronger RbCl search remains unresolved. Neither check recovers author coefficients.",
-            "independent_refit": "Unweighted baseline and conditional effective-variance fits retained. Follow-up iterates frozen weights without a pressure-error floor; differences are below 1.65 reported parameter esds but do not all round to the publication. No replacement coefficients added.",
+          "note": "Primary accepted manuscript from DESY and official AIP supplement audited. Model checked against independent quadrature and source Tables S5-S7 with explicit coefficient precision qualification. Fit/workflow parity is not claimed.",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://bib-pubdb1.desy.de/record/616759/files/Final%20version%20before%20publication.pdf",
+            "doi": "10.1063/5.0248905",
+            "locations": [
+              "Accepted manuscript sections 2-5, Eqs. (1),(6)-(9), Table I case 1",
+              "Official supplement section 1, Tables S1, S4, S7"
+            ],
+            "finding": "Integrated Debye law and n=2 at 300 K; hypothetical DAC-extrapolated B2 V0 held fixed; CsCl-based combined-data coefficients retained. Final publisher PDF could not be downloaded (HTTP 403); source version is explicit."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-10-15",
+            "dataset_identifiers": ["rbi_farla_2025_observations", "rbi_farla_2025_benchmarks"],
+            "source_locations": ["Tables S1, S4, S7"],
+            "finding": "All recoverable printed DAC/LVP numbers, errors and calibrant readings retained; all 54 calculated ratios retained separately. Original GSAS/EoSFit7 files mentioned in article are not present in retrieved public supplement.",
+            "reconstruction_assessment": {
+              "equation_validated": true,
+              "published_curve_consistency": "All 54 ratios pass individual state sensitivity envelopes. A single coefficient vector within half-last-digit bounds matches all rounded RbBr/RbI ratios; the stronger RbCl search remains unresolved. Neither check recovers author coefficients.",
+              "independent_refit": "Unweighted baseline and conditional effective-variance fits retained. Follow-up iterates frozen weights without a pressure-error floor; differences are below 1.65 reported parameter esds but do not all round to the publication. No replacement coefficients added.",
+              "author_fit_parity": false,
+              "author_workflow_parity": false
+            }
+          },
+          "unresolved_issues": [
+            "Source molar and cell V0 uncertainties disagree after unit conversion (especially RbCl); canonical values/errors are converted from the molar row actually used by EoSFit7; both printed forms are retained. Rounded coefficients do not reproduce every benchmark at the last printed ratio digit. Full covariance, original EoSFit7 inputs, and raw GSAS projects were not exposed by the retrieved public deposit. Supplement footnotes cite Decker 1973 and Matsui 2007 whereas main references cite Decker 1971 and Matsui 2009. Historical CsCl Vinet-MGD coefficients and GUI defaults are recovered; the saved runtime settings and five pressure discrepancies remain unresolved."
+          ],
+          "independent_numerical_check": {
+            "script": "scripts/reproduce_rubidium_halides_farla_2025.py",
+            "report": "docs/data/rubidium-halides-farla-2025-reproduction.json",
+            "audit_report": "docs/literature-reproductions/rubidium-halides-farla-2025.md",
+            "source_table": "S7",
+            "benchmark_rows": 54,
+            "max_absolute_source_ratio_difference": 0.00024011957888880886,
+            "outside_coefficient_rounding_envelope": 0,
+            "max_native_reference_ratio_difference": 7.771561172376096e-15,
+            "independent_fit_rows": 121,
+            "source_pressure_rmse_gpa": 0.12780834540828995,
+            "source_pressure_max_abs_gpa": 0.3952445221393184,
             "author_fit_parity": false,
-            "author_workflow_parity": false
+            "author_workflow_parity": false,
+            "follow_up_script": "scripts/investigate_rubidium_halides_farla_2025.py",
+            "follow_up_report": "docs/data/rubidium-halides-farla-2025-follow-up.json",
+            "iterated_weight_max_difference_reported_esd": 1.6277532360427838,
+            "joint_rounded_table_solution_found": true,
+            "direct_eosfit_console": {
+              "audit_date": "2026-10-16",
+              "version": "7.60",
+              "script": "scripts/run_rubidium_halides_farla_2025_eosfit.py",
+              "report": "docs/data/rubidium-halides-farla-2025-eosfit7c/manifest.json",
+              "converged_cases": 6,
+              "published_max_difference_reported_esd": 1.625500000000013,
+              "maximum_k0_difference_from_independent_irls_gpa": 9.012944171082893e-05,
+              "author_fit_parity": false,
+              "qualification": "Direct diagnostic executable fits of printed observations, not recovered author files. Native refit errors/covariance remain separate from the published record."
+            },
+            "constrained_case3_diagnostic": {
+              "audit_date": "2026-10-16",
+              "script": "scripts/run_rubidium_halides_farla_2025_case3_eosfit.py",
+              "report": "docs/data/rubidium-halides-farla-2025-case3-eosfit7c/manifest.json",
+              "variants": ["rbi"],
+              "canonical_published_record_case": 1,
+              "case3_parameters_replace_canonical_record": false,
+              "qualification": "Separate Case 3 thermal refits with fixed static anchors. Diagnostic sub-last-digit examples reproduce Case 3 thermal coefficient rounding, not original author inputs or Case 1 fit parity."
+            }
           }
         },
-        "unresolved_issues": [
-          "Source molar and cell V0 uncertainties disagree after unit conversion (especially RbCl); canonical values/errors are converted from the molar row actually used by EoSFit7; both printed forms are retained. Rounded coefficients do not reproduce every benchmark at the last printed ratio digit. Full covariance, original EoSFit7 inputs, and raw GSAS projects were not exposed by the retrieved public deposit. Supplement footnotes cite Decker 1973 and Matsui 2007 whereas main references cite Decker 1971 and Matsui 2009. Historical CsCl Vinet-MGD coefficients and GUI defaults are recovered; the saved runtime settings and five pressure discrepancies remain unresolved."
-        ],
-        "independent_numerical_check": {
-          "script": "scripts/reproduce_rubidium_halides_farla_2025.py",
-          "report": "docs/data/rubidium-halides-farla-2025-reproduction.json",
-          "audit_report": "docs/literature-reproductions/rubidium-halides-farla-2025.md",
-          "source_table": "S7",
-          "benchmark_rows": 54,
-          "max_absolute_source_ratio_difference": 0.00024011957888880886,
-          "outside_coefficient_rounding_envelope": 0,
-          "max_native_reference_ratio_difference": 7.771561172376096e-15,
-          "independent_fit_rows": 121,
-          "source_pressure_rmse_gpa": 0.12780834540828995,
-          "source_pressure_max_abs_gpa": 0.3952445221393184,
-          "author_fit_parity": false,
-          "author_workflow_parity": false,
-          "follow_up_script": "scripts/investigate_rubidium_halides_farla_2025.py",
-          "follow_up_report": "docs/data/rubidium-halides-farla-2025-follow-up.json",
-          "iterated_weight_max_difference_reported_esd": 1.6277532360427838,
-          "joint_rounded_table_solution_found": true,
-          "direct_eosfit_console": {
-            "audit_date": "2026-10-16",
-            "version": "7.60",
-            "script": "scripts/run_rubidium_halides_farla_2025_eosfit.py",
-            "report": "docs/data/rubidium-halides-farla-2025-eosfit7c/manifest.json",
-            "converged_cases": 6,
-            "published_max_difference_reported_esd": 1.625500000000013,
-            "maximum_k0_difference_from_independent_irls_gpa": 9.012944171082893e-05,
-            "author_fit_parity": false,
-            "qualification": "Direct diagnostic executable fits of printed observations, not recovered author files. Native refit errors/covariance remain separate from the published record."
-          },
-          "constrained_case3_diagnostic": {
-            "audit_date": "2026-10-16",
-            "script": "scripts/run_rubidium_halides_farla_2025_case3_eosfit.py",
-            "report": "docs/data/rubidium-halides-farla-2025-case3-eosfit7c/manifest.json",
-            "variants": ["rbi"],
-            "canonical_published_record_case": 1,
-            "case3_parameters_replace_canonical_record": false,
-            "qualification": "Separate Case 3 thermal refits with fixed static anchors. Diagnostic sub-last-digit examples reproduce Case 3 thermal coefficient rounding, not original author inputs or Case 1 fit parity."
-          }
+        "parameter_provenance": {
+          "determination_method": "Hybrid: experimentally fitted DAC/LVP parameters with fixed Debye temperatures derived from DFT elastic constants of Haddadi et al. (2009), as explicitly described in the official supplement. Main-text reference 41 instead lists Kumara Swamy et al. (1996); the supplement resolves the actual calculation source.",
+          "equation": "Main Eqs. (1), (6)-(9): 300 K BM3 plus gamma(V)[ED(V,T)-ED(V,300)]/V; theta=theta0 exp[(gamma0-gamma)/q], gamma=gamma0(V/V0)^q. Integrated law, not theta0(V/V0)^[-gamma(V)].",
+          "V0": "Table I, case 1: fixed DAC-derived 51.11 +/- 0.02 cm^3/mol; convert by 1e24/NA to the Z=1 conventional cell. Printed cell alternative 84.87 +/- 0.02 A^3 retained without replacing the molar value.",
+          "K0": "Table I, case 1: freely fitted with weighted P,V,T errors using EoSFit7.",
+          "K0_prime": "Table I, case 1: freely fitted with weighted P,V,T errors using EoSFit7.",
+          "gamma0": "Table I, case 1: fitted jointly with K0, K0_prime, q; V0 and theta0 fixed.",
+          "q": "Table I, case 1; Eq. (9), logarithmic volume dependence of gamma.",
+          "theta0": "Table I and supplement section 1: 118 K fixed; DFT elastic constants via Haddadi et al. (2009), not a free fit parameter.",
+          "n": "Eq. (7): two atoms per formula unit. Z=1, so two atoms per conventional Pm-3m cell.",
+          "Tr": "Main text section 3 and Eqs. (2),(6): 300 K."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Hybrid: experimentally fitted DAC/LVP parameters with fixed Debye temperatures derived from DFT elastic constants of Haddadi et al. (2009), as explicitly described in the official supplement. Main-text reference 41 instead lists Kumara Swamy et al. (1996); the supplement resolves the actual calculation source.",
-        "equation": "Main Eqs. (1), (6)-(9): 300 K BM3 plus gamma(V)[ED(V,T)-ED(V,300)]/V; theta=theta0 exp[(gamma0-gamma)/q], gamma=gamma0(V/V0)^q. Integrated law, not theta0(V/V0)^[-gamma(V)].",
-        "V0": "Table I, case 1: fixed DAC-derived 51.11 +/- 0.02 cm^3/mol; convert by 1e24/NA to the Z=1 conventional cell. Printed cell alternative 84.87 +/- 0.02 A^3 retained without replacing the molar value.",
-        "K0": "Table I, case 1: freely fitted with weighted P,V,T errors using EoSFit7.",
-        "K0_prime": "Table I, case 1: freely fitted with weighted P,V,T errors using EoSFit7.",
-        "gamma0": "Table I, case 1: fitted jointly with K0, K0_prime, q; V0 and theta0 fixed.",
-        "q": "Table I, case 1; Eq. (9), logarithmic volume dependence of gamma.",
-        "theta0": "Table I and supplement section 1: 118 K fixed; DFT elastic constants via Haddadi et al. (2009), not a free fit parameter.",
-        "n": "Eq. (7): two atoms per formula unit. Z=1, so two atoms per conventional Pm-3m cell.",
-        "Tr": "Main text section 3 and Eqs. (2),(6): 300 K."
       },
       "source_parameters": {
         "V0_molar_cm3_mol": 51.11,
@@ -240,6 +232,17 @@
       ]
     }
   ],
+  "cell_contents": "One RbI formula unit, two atoms, in the conventional cubic cell.",
+  "symmetry": "CUBIC",
+  "space_group": "Pm-3m",
+  "space_group_number": 221,
+  "lattice": {"a": 4.394589626193494, "b": 4.394589626193494, "c": 4.394589626193494, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Rb", "wyckoff": "1a", "multiplicity": 1, "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
+    {"element": "I", "wyckoff": "1b", "multiplicity": 1, "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "B2 solid is not stable at ambient pressure. The reference cell is a hypothetical zero-pressure extrapolation, not an ambient measurement. Phase boundaries and melting must be checked separately.",
   "datasets": [
     {
       "identifier": "rbi_farla_2025_observations",

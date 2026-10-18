@@ -16,6 +16,7 @@ from collections import Counter
 from pathlib import Path
 
 from scripts.audit_sata_2010_fes_vi import observations as sata_observations
+from scripts.eosmat_io import read_material, render_material
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "peritheos/data/datasets"
@@ -24,7 +25,7 @@ AUTHOR = ROOT / "docs/data/fes-author-eosfit/sources"
 SOURCE = DATA / "morard_2026_author_sources"
 RECORD = "fes_vi_morard_2026_bm3_mgd"
 PREFIX = "fes_morard_2026_author_"
-REFERENCE = json.loads(CARD.read_text(encoding="utf-8"))["eos_records"][0]["reference"]
+REFERENCE = read_material(CARD)["eos_records"][0]["reference"]
 VALUE_COLUMNS = [
     ("pressure_gpa", "pressure", "GPa"),
     ("pressure_uncertainty_gpa", "pressure", "GPa"),
@@ -401,7 +402,7 @@ def main():
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
     datasets, outputs = build()
-    document = json.loads(CARD.read_text(encoding="utf-8"))
+    document = read_material(CARD)
     old = [
         x
         for x in document["datasets"]
@@ -464,7 +465,7 @@ def main():
         "cold_row_attribution": "Figure 6 and Section III.D identify the paper's cold data/fit as Sata (2008) and Ohfuji (2007) literature data. The eleven additional 300 K points match the GSAS deposit but are not individually attributed in the paper; original-study authorship remains unconfirmed.",
         "reference_temperature_qualification": "The paper shows a 300 K isotherm and uses ambient-temperature literature data; it does not explicitly state the EosFit Tref setting. The printed-coefficient source record uses 300 K as its declared audit interpretation, whereas the supplied saved file explicitly sets Tref=298 K.",
     }
-    outputs[CARD] = (json.dumps(document, indent=1, ensure_ascii=False) + "\n").encode()
+    outputs[CARD] = render_material(document).encode()
     for path, payload in outputs.items():
         if args.check:
             if not path.exists() or path.read_bytes() != payload:

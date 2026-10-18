@@ -1,11 +1,74 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "ringwoodite",
   "name": "Ringwoodite",
   "formula": "Mg2SiO4",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 8,
+  "eos_records": [
+    {
+      "identifier": "ringwoodite_meng_1994_bm3_1",
+      "label": "Meng et al. (1994), 300 K BM3",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 526.7, "error": 0.3},
+        "K0": {"value": 182.0, "error": 3.0},
+        "K0_prime": {"value": 4.2, "error": 0.3}
+      },
+      "determination_method": "experimental",
+      "reference": {
+        "authors": ["Meng", "Fei", "Weidner", "Gwanmesia", "Hu"],
+        "year": 1994,
+        "title": "Hydrostatic compression of γ-Mg2SiO4 to mantle pressures and 700 K: Thermal equation of state and related thermoelastic properties",
+        "source": "Physics and Chemistry of Minerals",
+        "volume": "21",
+        "locator": "407-413",
+        "doi": "10.1007/BF00203299"
+      },
+      "experimental_pressure_range_gpa": [0.0, 30.0],
+      "notes": "Hydrostatic compression of gamma-Mg2SiO4 to mantle pressures and 700 K. The stored values are the publication's 300 K isothermal fit.",
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+      },
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1007/BF00203299",
+            "locations": ["300 K fit reported in the article; EOS table and P-V-T discussion"],
+            "doi": "10.1007/bf00203299"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "ringwoodite.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["ringwoodite_meng_1994_table1_pvt"],
+            "source_locations": ["Table 1, journal page 408"],
+            "finding": "All 32 gamma-Mg2SiO4 P-V-T observations printed in Table 1, including the 12-point 300 K isotherm used for the stored BM3 fit."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: 300 K fit reported in the article; EOS table and P-V-T discussion."
+        }
+      }
+    }
+  ],
   "symmetry": "CUBIC",
   "space_group": "Fd-3m",
   "space_group_number": 227,
@@ -19,69 +82,6 @@
   ],
   "peaks": [],
   "notes": "The BM3 reference cell is from Meng et al., Physics and Chemistry of Minerals 21, 407-413 (1994), doi:10.1007/BF00203299. Fractional coordinates and the experimentally refined partial Mg-Si disorder are from Sasaki et al., Journal of Geophysical Research 87, 7829-7832 (1982), doi:10.1029/JB087iB09p07829, COD 1549722 (origin choice used by that CIF). Phase-line intensities were calculated from the cited structure using independent-atom X-ray form factors.",
-  "eos_records": [
-    {
-      "identifier": "ringwoodite_meng_1994_bm3_1",
-      "label": "Meng et al. (1994), 300 K BM3",
-      "determination_method": "experimental",
-      "reference": {
-        "authors": ["Meng", "Fei", "Weidner", "Gwanmesia", "Hu"],
-        "year": 1994,
-        "title": "Hydrostatic compression of γ-Mg2SiO4 to mantle pressures and 700 K: Thermal equation of state and related thermoelastic properties",
-        "source": "Physics and Chemistry of Minerals",
-        "volume": "21",
-        "locator": "407-413",
-        "doi": "10.1007/BF00203299"
-      },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "BM3",
-        "parameters": {"V0": 526.7, "K0": 182.0, "K0_prime": 4.2},
-        "model": "birch_murnaghan_3"
-      },
-      "parameter_errors": {"V0": 0.3, "K0": 3.0, "K0_prime": 0.3},
-      "fixed_parameters": [],
-      "experimental_pressure_range_gpa": [0.0, 30.0],
-      "notes": "Hydrostatic compression of gamma-Mg2SiO4 to mantle pressures and 700 K. The stored values are the publication's 300 K isothermal fit.",
-      "pressure_calibration": {
-        "status": "unresolved",
-        "methods": [],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
-        },
-        "audit_date": "2026-09-03",
-        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
-      },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.1007/BF00203299",
-          "locations": ["300 K fit reported in the article; EOS table and P-V-T discussion"],
-          "doi": "10.1007/bf00203299"
-        },
-        "migration_source": {
-          "project": "Dioptas",
-          "version": "0.10.0",
-          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-          "file": "ringwoodite.json"
-        },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-03",
-          "dataset_identifiers": ["ringwoodite_meng_1994_table1_pvt"],
-          "source_locations": ["Table 1, journal page 408"],
-          "finding": "All 32 gamma-Mg2SiO4 P-V-T observations printed in Table 1, including the 12-point 300 K isotherm used for the stored BM3 fit."
-        }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: 300 K fit reported in the article; EOS table and P-V-T discussion."
-      }
-    }
-  ],
   "datasets": [
     {
       "identifier": "ringwoodite_meng_1994_table1_pvt",

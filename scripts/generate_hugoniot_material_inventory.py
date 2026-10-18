@@ -3,8 +3,9 @@
 from __future__ import annotations
 
 import csv
-import json
 from pathlib import Path
+
+from scripts.eosmat_io import read_material
 
 ROOT = Path(__file__).resolve().parents[1]
 MATERIALS = ROOT / "peritheos" / "data" / "materials"
@@ -36,7 +37,7 @@ def equation_kind(record: dict) -> str:
 def main() -> None:
     rows = []
     for input_path in sorted(MATERIALS.glob("*.eosmat")):
-        document = json.loads(input_path.read_text(encoding="utf-8"))
+        document = read_material(input_path)
         phase = document.get("phase")
         kinds = tuple(dict.fromkeys(equation_kind(r) for r in document["eos_records"]))
         rows.append(

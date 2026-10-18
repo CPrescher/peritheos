@@ -5,7 +5,8 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from peritheos import Material, load_eosmat
+from peritheos import Material
+from scripts.eosmat_io import read_material
 from scripts.reproduce_kawai_2012_nal_cf import MOLAR_A3, reproduce_phase
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -53,7 +54,7 @@ CASES = {
 
 
 def _document(case):
-    return load_eosmat(MATERIAL_ROOT / f"{case['material']}.eosmat")
+    return read_material(MATERIAL_ROOT / f"{case['material']}.eosmat")
 
 
 @pytest.mark.parametrize("phase", CASES)

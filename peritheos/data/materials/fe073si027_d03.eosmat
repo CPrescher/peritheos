@@ -1,30 +1,33 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "fe073si027_d03",
   "name": "Fe–16 wt% Si (D03)",
   "formula": "Fe0.73Si0.27",
   "phase": "d03",
-  "aliases": ["Fe16Si D03", "Fe–15.9 wt% Si D03"],
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 16,
-  "cell_contents": "16 atoms per conventional cell; 16 formula units of Fe0.73Si0.27",
-  "symmetry": "CUBIC",
-  "space_group": "Fm-3m",
-  "space_group_number": 225,
-  "lattice": {"a": 5.653027322939556, "b": 5.653027322939556, "c": 5.653027322939556, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
-  "atom_sites": [
-    {"element": "Si", "wyckoff": "4a", "x": 0, "y": 0, "z": 0, "occupancy": 1},
-    {"element": "Fe", "wyckoff": "4b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 0.92},
-    {"element": "Si", "wyckoff": "4b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 0.08},
-    {"element": "Fe", "wyckoff": "8c", "x": 0.25, "y": 0.25, "z": 0.25, "occupancy": 1}
-  ],
-  "peaks": [],
-  "notes": "D03/BiF3 topology, Fm-3m, 16 atoms/cell. Reference lattice from 2012 Table S2 row 4 atomic volume converted to a cubic cell. Site occupancies are a documented maximal-order approximation enforcing the measured alloy composition, not a published refinement. Si fills 4a and occupies 0.08 of 4b; remaining sites are Fe. Superlattice intensities depend on unknown order and are approximate; measured peak positions/phase identity are the robust diffraction information.",
   "eos_records": [
     {
       "identifier": "fe073si027_d03_fischer_2014_vinet_1",
       "label": "Fischer et al. (2014), Fe0.73Si0.27 d03 VINET + MGD",
+      "model": "Vinet",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 180.64008188343976, "error": 0.10627450029912619, "fixed": true},
+        "K0": {"value": 193.9, "error": 4.8, "fixed": true},
+        "K0_prime": {"value": 4.91, "error": 0.59, "fixed": true}
+      },
+      "thermal": {
+        "parameters": {
+          "Tr": {"value": 300.0, "error": null, "fixed": true},
+          "theta0": {"value": 417.0, "error": null, "fixed": true},
+          "gamma0": {"value": 1.9, "error": 0.07},
+          "q": {"value": 1.0, "error": null, "fixed": true},
+          "n": {"value": 1.0, "error": null, "fixed": true}
+        },
+        "debye_temperature_law": "integrated_gruneisen",
+        "model": "MieGruneisenDebye"
+      },
       "record_kind": "published",
       "determination_method": "experimental",
       "equation_kind": "thermal",
@@ -39,23 +42,7 @@
         "locator": "2810-2827",
         "doi": "10.1002/2013JB010898"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "Vinet",
-        "model": "vinet",
-        "parameters": {"V0": 180.64008188343976, "K0": 193.9, "K0_prime": 4.91}
-      },
-      "thermal": {
-        "type": "MieGruneisenDebye",
-        "model": "mie_gruneisen_debye",
-        "parameters": {"Tr": 300.0, "theta0": 417.0, "gamma0": 1.9, "q": 1.0, "n": 1.0},
-        "debye_temperature_law": "integrated_gruneisen",
-        "parameter_errors": {"Tr": null, "theta0": null, "gamma0": 0.07, "q": null, "n": null},
-        "fixed_parameters": ["Tr", "theta0", "q", "n"]
-      },
-      "parameter_errors": {"V0": 0.10627450029912619, "K0": 4.8, "K0_prime": 0.59},
       "parameter_error_confidence": null,
-      "fixed_parameters": ["V0", "K0", "K0_prime"],
       "parameter_covariance": null,
       "experimental_pressure_range_gpa": [0.0, 63.03555479484396],
       "pressure_range_status": "reported_exactly",
@@ -115,50 +102,52 @@
         },
         "notes": "KBr is the principal pressure standard. Room-temperature compression uses neon medium and ruby as an additional standard; source tables do not include ruby wavelengths or per-row marker attribution. Zero uncertainties at the reference row do not define infinite fitting weight."
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "audit_date": "2026-09-19",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "published_uncertainties",
-          "fixed_parameters",
-          "primary_data",
-          "pressure_calibration",
-          "fit_selection",
-          "numerical_reproduction"
-        ],
-        "primary_source_check": {
-          "doi": "10.1002/2013JB010898",
-          "access_url": "https://doi.org/10.1002/2013JB010898",
-          "locations": ["Table S5 and Text S1, page 2", "2012 official Table S2, source worksheet row numbers retained"],
-          "finding": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
-        },
-        "primary_data_check": {
-          "status": "bundled",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
           "audit_date": "2026-09-19",
-          "dataset_identifiers": ["fischer_2012_table_s2_pvt"],
-          "source_locations": ["2012 official Table S2, source worksheet row numbers retained"],
-          "finding": "All 185 rows and available coordinate errors/marker measurements are preserved. 98 D03 observations are selected for this branch. No mixed-phase observations are silently admitted."
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "published_uncertainties",
+            "fixed_parameters",
+            "primary_data",
+            "pressure_calibration",
+            "fit_selection",
+            "numerical_reproduction"
+          ],
+          "primary_source_check": {
+            "doi": "10.1002/2013JB010898",
+            "access_url": "https://doi.org/10.1002/2013JB010898",
+            "locations": ["Table S5 and Text S1, page 2", "2012 official Table S2, source worksheet row numbers retained"],
+            "finding": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-19",
+            "dataset_identifiers": ["fischer_2012_table_s2_pvt"],
+            "source_locations": ["2012 official Table S2, source worksheet row numbers retained"],
+            "finding": "All 185 rows and available coordinate errors/marker measurements are preserved. 98 D03 observations are selected for this branch. No mixed-phase observations are silently admitted."
+          },
+          "note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
         },
-        "note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table S5 and Text S1, page 2; 2012 official Table S2, source worksheet row numbers retained.",
-        "equation": "Main equations (1)-(2); standard Vinet replaces BM3 for the alternatives according to Text S1. Thermal pressure is referenced to 300 K using the integrated-Gruneisen Debye-temperature law.",
-        "V0": "Table S5 and Text S1, page 2: 6.799 cm^3/mol atoms; multiply by 16/0.602214076 for this cell. Measured and held fixed.",
-        "K0": "Table S5 and Text S1, page 2: 193.9 GPa. Fitted at 300 K then fixed in the thermal stage.",
-        "K0_prime": "Table S5 and Text S1, page 2: 4.91. Fitted at 300 K then fixed in the thermal stage.",
-        "uncertainties": "Source-reported errors; confidence convention and covariance unspecified. Measured V0 errors remain recorded even when V0 is fixed.",
-        "fit_protocol": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. The inherited 2012 protocol fits K0/K0_prime to 32 room-temperature observations, then gamma0 to 66 high-temperature rows with the published static coefficients held fixed; the independent script reports both stages.",
-        "gamma0": "Table S5 and Text S1, page 2: 1.9 ± 0.07, fitted.",
-        "q": "Fixed at one.",
-        "theta0": "417 K, fixed to the adopted iron value.",
-        "n": "One atom per fractional alloy formula; cell-to-formula normalization uses the explicit Z.",
-        "Tr": "300 K thermal-energy subtraction."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table S5 and Text S1, page 2; 2012 official Table S2, source worksheet row numbers retained.",
+          "equation": "Main equations (1)-(2); standard Vinet replaces BM3 for the alternatives according to Text S1. Thermal pressure is referenced to 300 K using the integrated-Gruneisen Debye-temperature law.",
+          "V0": "Table S5 and Text S1, page 2: 6.799 cm^3/mol atoms; multiply by 16/0.602214076 for this cell. Measured and held fixed.",
+          "K0": "Table S5 and Text S1, page 2: 193.9 GPa. Fitted at 300 K then fixed in the thermal stage.",
+          "K0_prime": "Table S5 and Text S1, page 2: 4.91. Fitted at 300 K then fixed in the thermal stage.",
+          "uncertainties": "Source-reported errors; confidence convention and covariance unspecified. Measured V0 errors remain recorded even when V0 is fixed.",
+          "fit_protocol": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. The inherited 2012 protocol fits K0/K0_prime to 32 room-temperature observations, then gamma0 to 66 high-temperature rows with the published static coefficients held fixed; the independent script reports both stages.",
+          "gamma0": "Table S5 and Text S1, page 2: 1.9 ± 0.07, fitted.",
+          "q": "Fixed at one.",
+          "theta0": "417 K, fixed to the adopted iron value.",
+          "n": "One atom per fractional alloy formula; cell-to-formula normalization uses the explicit Z.",
+          "Tr": "300 K thermal-energy subtraction."
+        }
       },
       "sample_composition": "15.9 wt% Si, Fe0.73Si0.27, homogeneous microprobe composition, Fischer et al. (2012)",
       "range_provenance": {
@@ -169,6 +158,20 @@
       "fit_datasets": ["fischer_2012_table_s2_pvt"]
     }
   ],
+  "aliases": ["Fe16Si D03", "Fe–15.9 wt% Si D03"],
+  "cell_contents": "16 atoms per conventional cell; 16 formula units of Fe0.73Si0.27",
+  "symmetry": "CUBIC",
+  "space_group": "Fm-3m",
+  "space_group_number": 225,
+  "lattice": {"a": 5.653027322939556, "b": 5.653027322939556, "c": 5.653027322939556, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Si", "wyckoff": "4a", "x": 0, "y": 0, "z": 0, "occupancy": 1},
+    {"element": "Fe", "wyckoff": "4b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 0.92},
+    {"element": "Si", "wyckoff": "4b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 0.08},
+    {"element": "Fe", "wyckoff": "8c", "x": 0.25, "y": 0.25, "z": 0.25, "occupancy": 1}
+  ],
+  "peaks": [],
+  "notes": "D03/BiF3 topology, Fm-3m, 16 atoms/cell. Reference lattice from 2012 Table S2 row 4 atomic volume converted to a cubic cell. Site occupancies are a documented maximal-order approximation enforcing the measured alloy composition, not a published refinement. Si fills 4a and occupies 0.08 of 4b; remaining sites are Fe. Superlattice intensities depend on unknown order and are approximate; measured peak positions/phase identity are the robust diffraction information.",
   "datasets": [
     {
       "identifier": "fischer_2012_table_s2_pvt",

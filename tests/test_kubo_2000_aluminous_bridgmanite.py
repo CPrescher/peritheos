@@ -7,8 +7,9 @@ from pathlib import Path
 
 import pytest
 
-from peritheos import Material, load_eosmat, validate_eosmat_document
+from peritheos import Material, validate_eosmat_document
 from peritheos.eosmat import validate_pressure_calibration_references
+from scripts.eosmat_io import read_material
 from scripts.reproduce_kubo_2000_aluminous_bridgmanite import (
     refit_model,
     reproduce_model,
@@ -32,7 +33,7 @@ CHECKSUM = "1d18597504e34fe54cdbb839a29f63f7118324c046351c3174d7e2d923f7eb9f"
 
 
 def _load():
-    document = load_eosmat(MATERIAL_PATH)
+    document = read_material(MATERIAL_PATH)
     validate_eosmat_document(document)
     material = Material.from_eosmat(document)
     records = {record.identifier: record for record in material.eos_records}

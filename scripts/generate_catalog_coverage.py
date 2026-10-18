@@ -13,6 +13,7 @@ from collections import Counter
 from pathlib import Path
 
 from peritheos import list_eos_records, list_materials
+from scripts.eosmat_io import read_material
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
@@ -32,7 +33,7 @@ def collect_coverage() -> dict:
     for path in sorted((ROOT / "peritheos/data/materials").glob("*.eosmat")):
         payload = path.read_bytes()
         fingerprint.update(path.name.encode() + b"\0" + payload + b"\0")
-        document = json.loads(payload)
+        document = read_material(path)
         identifier = document["identifier"]
         material = materials.get(identifier)
         kinds: Counter = Counter()

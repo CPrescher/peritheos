@@ -1,14 +1,268 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "mg0991fe0008mn0001co3_magnesite",
   "name": "Natural magnesite (Harwood 2212)",
   "formula": "Mg0.991Fe0.008Mn0.001CO3",
   "phase": "rhombohedral magnesite, R-3c",
-  "aliases": ["Harwood collection specimen 2212", "Redfern magnesite"],
-  "family_id": "magnesite",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 6,
+  "eos_records": [
+    {
+      "identifier": "mg0991fe0008mn0001co3_redfern_1993_bm2_1",
+      "label": "Redfern et al. (1993), K0' fixed to 4",
+      "model": "BM3",
+      "temperature_ref": 298.0,
+      "parameters": {
+        "V0": {"value": 279.4, "error": 0.2, "fixed": true},
+        "K0": {"value": 142.0, "error": 9.0},
+        "K0_prime": {"value": 4.0, "error": null, "fixed": true}
+      },
+      "record_kind": "published",
+      "determination_method": "experimental",
+      "equation_kind": "isothermal",
+      "reference": {
+        "authors": ["Redfern", "Wood", "Henderson"],
+        "year": 1993,
+        "title": "Static compressibility of magnesite to 20 GPa: Implications for MgCO3 in the lower mantle",
+        "source": "Geophysical Research Letters",
+        "volume": "20",
+        "locator": "2099-2102",
+        "doi": "10.1029/93GL02507"
+      },
+      "parameter_error_confidence": null,
+      "parameter_covariance": null,
+      "volume_basis": {"kind": "formula_units", "formula_units": 6.0, "molar_mass_g_mol": 84.595953},
+      "experimental_pressure_range_gpa": [0.0, 19.7],
+      "pressure_range_status": "reported_exactly",
+      "experimental_temperature_range_k": [298.0, 298.0],
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "NaCl",
+            "reference": {
+              "authors": ["Decker"],
+              "year": 1971,
+              "title": "High-pressure equation of state for NaCl, KCl, and CsCl",
+              "source": "Journal of Applied Physics",
+              "volume": "42",
+              "locator": "3239-3244",
+              "doi": "10.1063/1.1660714"
+            },
+            "source_location": "Redfern et al. (1993), Experimental Methods, page 2099",
+            "scope": "All room-temperature compression observations",
+            "reported_relative_pressure_uncertainty": 0.02,
+            "notes": "The primary paper states that pressure was calculated from the least-squares-refined cell volume of internal NaCl using the Decker (1971) EOS; the estimated pressure uncertainty is +/-2%."
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Table 1 provides calibrated sample pressures but not the corresponding row-wise NaCl cell volumes."
+        },
+        "audit_date": "2026-09-08"
+      },
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Original four-page paper, Experimental Methods, Table 1, equations (1)-(2), and Figure 2 caption checked. All 18 table rows are bundled and the reduced Birch fit is directly reproduced.",
+          "audit_date": "2026-09-08",
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "equation",
+            "parameters",
+            "fixed_parameters",
+            "pressure_calibration",
+            "volume_basis",
+            "reference_state",
+            "primary_data"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1029/93GL02507",
+            "doi": "10.1029/93GL02507",
+            "locations": ["Abstract", "Experimental Methods, page 2099", "Table 1 and Equation-of-State section, page 2100"],
+            "finding": "The source publishes 18 pressure-volume rows and reports an all-row reduced Birch least-squares fit with V0=279.4(2) A3, K0=142(9) GPa, and K0'=4."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-08",
+            "dataset_identifiers": ["mg0991fe0008mn0001co3_redfern_1993_table1_pv"],
+            "source_locations": ["Table 1, page 2100"],
+            "finding": "All 18 printed pressure, lattice-parameter, cell-volume, and parenthetical-uncertainty rows are transcribed directly from Table 1; no figure digitization is used."
+          },
+          "fit_protocol": {
+            "securely_resolved": {"V0": "fixed to the measured ambient Table 1 value", "K0": "fitted", "K0_prime": "fixed at 4"},
+            "selection": "All 18 Table 1 rows.",
+            "objective": "The paper states least squares but does not specify residual direction or weighting; the reproduction uses unweighted pressure residuals."
+          },
+          "independent_refit": {
+            "status": "parity",
+            "observations": 18,
+            "parameters": {"V0": 279.4, "K0": 142.85474666097645, "K0_prime": 4.0},
+            "pressure_rmse_gpa": 0.522269741084158,
+            "objective": "unweighted_pressure_residuals"
+          },
+          "source_data_audit": "docs/data/redfern-1993-magnesite-audit.json"
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Experimental Methods, page 2099; Table 1 and Equation-of-State section, page 2100.",
+          "equation": "Equation-of-State section, page 2100: least-squares fit to the reduced Birch equation with K0'=4.",
+          "parameters": "Abstract and page 2100: Table 1 ambient V0=279.4(2) A3; the reduced fit gives K0=142(9) GPa with K0'=4. V0 is the measured reference volume used to form V/V0 and is fixed in the reproduction."
+        },
+        "fit_provenance": {
+          "software": {"name": "Peritheos", "version": "0.7.0"},
+          "dataset": "mg0991fe0008mn0001co3_redfern_1993_table1_pv",
+          "selection": {"predicate": "fit_included_bm2=1; all Table 1 rows", "included_rows": 18, "excluded_rows": 0},
+          "objective": "unweighted_pressure_residuals",
+          "refined_parameters": ["K0"],
+          "fixed_parameters": ["V0", "K0_prime"],
+          "covariance_scaling": "residual_variance",
+          "statistics": {"observations": 18, "free_parameters": 1, "pressure_rmse_gpa": 0.522269741084158},
+          "reproduction": {"script": "scripts/reproduce_redfern_1993_magnesite.py", "status": "parity"}
+        }
+      },
+      "fit_datasets": ["mg0991fe0008mn0001co3_redfern_1993_table1_pv"]
+    },
+    {
+      "identifier": "mg0991fe0008mn0001co3_redfern_1993_bm3_2",
+      "label": "Redfern et al. (1993), unconstrained BM3",
+      "model": "BM3",
+      "temperature_ref": 298.0,
+      "parameters": {
+        "V0": {"value": 279.4, "error": 0.2, "fixed": true},
+        "K0": {"value": 151.0, "error": 7.0},
+        "K0_prime": {"value": 2.5, "error": null}
+      },
+      "record_kind": "published",
+      "determination_method": "experimental",
+      "equation_kind": "isothermal",
+      "reference": {
+        "authors": ["Redfern", "Wood", "Henderson"],
+        "year": 1993,
+        "title": "Static compressibility of magnesite to 20 GPa: Implications for MgCO3 in the lower mantle",
+        "source": "Geophysical Research Letters",
+        "volume": "20",
+        "locator": "2099-2102",
+        "doi": "10.1029/93GL02507"
+      },
+      "parameter_error_confidence": null,
+      "parameter_covariance": null,
+      "volume_basis": {"kind": "formula_units", "formula_units": 6.0, "molar_mass_g_mol": 84.595953},
+      "experimental_pressure_range_gpa": [0.0, 19.7],
+      "pressure_range_status": "reported_exactly",
+      "experimental_temperature_range_k": [298.0, 298.0],
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "NaCl",
+            "reference": {
+              "authors": ["Decker"],
+              "year": 1971,
+              "title": "High-pressure equation of state for NaCl, KCl, and CsCl",
+              "source": "Journal of Applied Physics",
+              "volume": "42",
+              "locator": "3239-3244",
+              "doi": "10.1063/1.1660714"
+            },
+            "source_location": "Redfern et al. (1993), Experimental Methods, page 2099",
+            "scope": "All room-temperature compression observations",
+            "reported_relative_pressure_uncertainty": 0.02,
+            "notes": "The primary paper states that pressure was calculated from the least-squares-refined cell volume of internal NaCl using the Decker (1971) EOS; the estimated pressure uncertainty is +/-2%."
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Table 1 provides calibrated sample pressures but not the corresponding row-wise NaCl cell volumes."
+        },
+        "audit_date": "2026-09-08"
+      },
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Original four-page paper, Experimental Methods, Table 1, equations (1)-(2), and Figure 2 caption checked. All 18 table rows are bundled and the nine-row finite-strain selection is directly refitted.",
+          "audit_date": "2026-09-08",
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "equation",
+            "parameters",
+            "fixed_parameters",
+            "pressure_calibration",
+            "volume_basis",
+            "reference_state",
+            "primary_data"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1029/93GL02507",
+            "doi": "10.1029/93GL02507",
+            "locations": ["Abstract", "Experimental Methods, page 2099", "Table 1, Equation (2), and Figure 2 caption, page 2100"],
+            "finding": "The source publishes 18 pressure-volume rows and reports a weighted finite-strain regression of the nine rows with fV>0.01, giving K0=151(7) GPa and fitted K0'=2.5."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-08",
+            "dataset_identifiers": ["mg0991fe0008mn0001co3_redfern_1993_table1_pv"],
+            "source_locations": ["Table 1, page 2100"],
+            "finding": "All 18 printed pressure, lattice-parameter, cell-volume, and parenthetical-uncertainty rows are transcribed directly from Table 1; no figure digitization is used."
+          },
+          "fit_protocol": {
+            "securely_resolved": {
+              "V0": "fixed to the measured ambient Table 1 value used to define fV",
+              "K0": "fitted",
+              "K0_prime": "fitted"
+            },
+            "selection": "Nine Table 1 rows with Eulerian strain fV>0.01 (4.6-19.7 GPa).",
+            "objective": "The paper states weighted regression of the volume data but does not publish the exact weighting implementation; the reproduction minimizes volume residuals using the printed one-sigma volume uncertainties."
+          },
+          "independent_refit": {
+            "status": "similar",
+            "observations": 9,
+            "parameters": {"V0": 279.4, "K0": 150.77458546383642, "K0_prime": 2.724874690363499},
+            "pressure_rmse_gpa": 0.6133293082682305,
+            "weighted_volume_reduced_chi_square": 1.6681166408872052,
+            "objective": "weighted_volume_residuals",
+            "qualification": "The fitted coefficients are consistent with the published fit, but K0_prime is weakly constrained (refit one-sigma uncertainty 1.345) and the source reports no K0_prime uncertainty, so strict uncertainty parity cannot be established."
+          },
+          "reported_inconsistencies": [
+            {
+              "source": "Yu et al. (2024), Table 1, doi:10.1029/2023JB028026",
+              "finding": "The comparison table marks the Redfern K0'=2.5 value as fixed.",
+              "resolution": "Rejected for source mapping because the Redfern publisher abstract calls it the full fit and Ross (1997) explicitly states that K0' was not constrained."
+            }
+          ],
+          "source_data_audit": "docs/data/redfern-1993-magnesite-audit.json"
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Experimental Methods, page 2099; Table 1, Equation (2), and Figure 2 caption, page 2100.",
+          "equation": "Equation (2) and Figure 2, page 2100: third-order Eulerian finite-strain Birch-Murnaghan analysis for observations with fV>0.01.",
+          "parameters": "Abstract, Equation-of-State section, and Figure 2 caption: Table 1 ambient V0=279.4(2) A3; weighted regression gives K0=151(7) GPa and fitted K0'=2.5. V0 defines the reported finite strains and is fixed in the reproduction."
+        },
+        "fit_provenance": {
+          "software": {"name": "Peritheos", "version": "0.7.0"},
+          "dataset": "mg0991fe0008mn0001co3_redfern_1993_table1_pv",
+          "selection": {"predicate": "fit_included_bm3=1; Eulerian strain fV>0.01", "included_rows": 9, "excluded_rows": 9},
+          "objective": "weighted_volume_residuals",
+          "weights": ["volume_uncertainty_a3"],
+          "refined_parameters": ["K0", "K0_prime"],
+          "fixed_parameters": ["V0"],
+          "covariance_scaling": "absolute_table_uncertainties",
+          "statistics": {
+            "observations": 9,
+            "free_parameters": 2,
+            "pressure_rmse_gpa": 0.6133293082682305,
+            "weighted_volume_reduced_chi_square": 1.6681166408872052
+          },
+          "reproduction": {"script": "scripts/reproduce_redfern_1993_magnesite.py", "status": "similar"}
+        }
+      },
+      "fit_datasets": ["mg0991fe0008mn0001co3_redfern_1993_table1_pv"]
+    }
+  ],
+  "aliases": ["Harwood collection specimen 2212", "Redfern magnesite"],
+  "family_id": "magnesite",
   "cell_contents": "Six Mg0.991Fe0.008Mn0.001CO3 formula units per conventional hexagonal R-3c cell.",
   "symmetry": "HEXAGONAL",
   "space_group": "R-3c",
@@ -23,255 +277,6 @@
   ],
   "peaks": [],
   "notes": "Composition-specific card for the natural cleavage rhomb studied by Redfern et al. The displayed lattice is a volume-consistent conventional-cell representation; the paper reports V0 rather than a complete ambient structural refinement.",
-  "eos_records": [
-    {
-      "identifier": "mg0991fe0008mn0001co3_redfern_1993_bm2_1",
-      "label": "Redfern et al. (1993), K0' fixed to 4",
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Redfern", "Wood", "Henderson"],
-        "year": 1993,
-        "title": "Static compressibility of magnesite to 20 GPa: Implications for MgCO3 in the lower mantle",
-        "source": "Geophysical Research Letters",
-        "volume": "20",
-        "locator": "2099-2102",
-        "doi": "10.1029/93GL02507"
-      },
-      "temperature_ref": 298.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 279.4, "K0": 142.0, "K0_prime": 4.0}
-      },
-      "parameter_errors": {"V0": 0.2, "K0": 9.0, "K0_prime": null},
-      "parameter_error_confidence": null,
-      "fixed_parameters": ["V0", "K0_prime"],
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 6.0, "molar_mass_g_mol": 84.595953},
-      "experimental_pressure_range_gpa": [0.0, 19.7],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [298.0, 298.0],
-      "pressure_calibration": {
-        "status": "resolved",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "material": "NaCl",
-            "reference": {
-              "authors": ["Decker"],
-              "year": 1971,
-              "title": "High-pressure equation of state for NaCl, KCl, and CsCl",
-              "source": "Journal of Applied Physics",
-              "volume": "42",
-              "locator": "3239-3244",
-              "doi": "10.1063/1.1660714"
-            },
-            "source_location": "Redfern et al. (1993), Experimental Methods, page 2099",
-            "scope": "All room-temperature compression observations",
-            "reported_relative_pressure_uncertainty": 0.02,
-            "notes": "The primary paper states that pressure was calculated from the least-squares-refined cell volume of internal NaCl using the Decker (1971) EOS; the estimated pressure uncertainty is +/-2%."
-          }
-        ],
-        "recalculation": {
-          "status": "missing_calibrant_observations",
-          "notes": "Table 1 provides calibrated sample pressures but not the corresponding row-wise NaCl cell volumes."
-        },
-        "audit_date": "2026-09-08"
-      },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Original four-page paper, Experimental Methods, Table 1, equations (1)-(2), and Figure 2 caption checked. All 18 table rows are bundled and the reduced Birch fit is directly reproduced.",
-        "audit_date": "2026-09-08",
-        "verified_fields": [
-          "canonical_doi",
-          "composition",
-          "equation",
-          "parameters",
-          "fixed_parameters",
-          "pressure_calibration",
-          "volume_basis",
-          "reference_state",
-          "primary_data"
-        ],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.1029/93GL02507",
-          "doi": "10.1029/93GL02507",
-          "locations": ["Abstract", "Experimental Methods, page 2099", "Table 1 and Equation-of-State section, page 2100"],
-          "finding": "The source publishes 18 pressure-volume rows and reports an all-row reduced Birch least-squares fit with V0=279.4(2) A3, K0=142(9) GPa, and K0'=4."
-        },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-08",
-          "dataset_identifiers": ["mg0991fe0008mn0001co3_redfern_1993_table1_pv"],
-          "source_locations": ["Table 1, page 2100"],
-          "finding": "All 18 printed pressure, lattice-parameter, cell-volume, and parenthetical-uncertainty rows are transcribed directly from Table 1; no figure digitization is used."
-        },
-        "fit_protocol": {
-          "securely_resolved": {"V0": "fixed to the measured ambient Table 1 value", "K0": "fitted", "K0_prime": "fixed at 4"},
-          "selection": "All 18 Table 1 rows.",
-          "objective": "The paper states least squares but does not specify residual direction or weighting; the reproduction uses unweighted pressure residuals."
-        },
-        "independent_refit": {
-          "status": "parity",
-          "observations": 18,
-          "parameters": {"V0": 279.4, "K0": 142.85474666097645, "K0_prime": 4.0},
-          "pressure_rmse_gpa": 0.522269741084158,
-          "objective": "unweighted_pressure_residuals"
-        },
-        "source_data_audit": "docs/data/redfern-1993-magnesite-audit.json"
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Experimental Methods, page 2099; Table 1 and Equation-of-State section, page 2100.",
-        "equation": "Equation-of-State section, page 2100: least-squares fit to the reduced Birch equation with K0'=4.",
-        "parameters": "Abstract and page 2100: Table 1 ambient V0=279.4(2) A3; the reduced fit gives K0=142(9) GPa with K0'=4. V0 is the measured reference volume used to form V/V0 and is fixed in the reproduction."
-      },
-      "fit_provenance": {
-        "software": {"name": "Peritheos", "version": "0.7.0"},
-        "dataset": "mg0991fe0008mn0001co3_redfern_1993_table1_pv",
-        "selection": {"predicate": "fit_included_bm2=1; all Table 1 rows", "included_rows": 18, "excluded_rows": 0},
-        "objective": "unweighted_pressure_residuals",
-        "refined_parameters": ["K0"],
-        "fixed_parameters": ["V0", "K0_prime"],
-        "covariance_scaling": "residual_variance",
-        "statistics": {"observations": 18, "free_parameters": 1, "pressure_rmse_gpa": 0.522269741084158},
-        "reproduction": {"script": "scripts/reproduce_redfern_1993_magnesite.py", "status": "parity"}
-      },
-      "fit_datasets": ["mg0991fe0008mn0001co3_redfern_1993_table1_pv"]
-    },
-    {
-      "identifier": "mg0991fe0008mn0001co3_redfern_1993_bm3_2",
-      "label": "Redfern et al. (1993), unconstrained BM3",
-      "record_kind": "published",
-      "determination_method": "experimental",
-      "equation_kind": "isothermal",
-      "reference": {
-        "authors": ["Redfern", "Wood", "Henderson"],
-        "year": 1993,
-        "title": "Static compressibility of magnesite to 20 GPa: Implications for MgCO3 in the lower mantle",
-        "source": "Geophysical Research Letters",
-        "volume": "20",
-        "locator": "2099-2102",
-        "doi": "10.1029/93GL02507"
-      },
-      "temperature_ref": 298.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 279.4, "K0": 151.0, "K0_prime": 2.5}
-      },
-      "parameter_errors": {"V0": 0.2, "K0": 7.0, "K0_prime": null},
-      "parameter_error_confidence": null,
-      "fixed_parameters": ["V0"],
-      "parameter_covariance": null,
-      "volume_basis": {"kind": "formula_units", "formula_units": 6.0, "molar_mass_g_mol": 84.595953},
-      "experimental_pressure_range_gpa": [0.0, 19.7],
-      "pressure_range_status": "reported_exactly",
-      "experimental_temperature_range_k": [298.0, 298.0],
-      "pressure_calibration": {
-        "status": "resolved",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "material": "NaCl",
-            "reference": {
-              "authors": ["Decker"],
-              "year": 1971,
-              "title": "High-pressure equation of state for NaCl, KCl, and CsCl",
-              "source": "Journal of Applied Physics",
-              "volume": "42",
-              "locator": "3239-3244",
-              "doi": "10.1063/1.1660714"
-            },
-            "source_location": "Redfern et al. (1993), Experimental Methods, page 2099",
-            "scope": "All room-temperature compression observations",
-            "reported_relative_pressure_uncertainty": 0.02,
-            "notes": "The primary paper states that pressure was calculated from the least-squares-refined cell volume of internal NaCl using the Decker (1971) EOS; the estimated pressure uncertainty is +/-2%."
-          }
-        ],
-        "recalculation": {
-          "status": "missing_calibrant_observations",
-          "notes": "Table 1 provides calibrated sample pressures but not the corresponding row-wise NaCl cell volumes."
-        },
-        "audit_date": "2026-09-08"
-      },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Original four-page paper, Experimental Methods, Table 1, equations (1)-(2), and Figure 2 caption checked. All 18 table rows are bundled and the nine-row finite-strain selection is directly refitted.",
-        "audit_date": "2026-09-08",
-        "verified_fields": [
-          "canonical_doi",
-          "composition",
-          "equation",
-          "parameters",
-          "fixed_parameters",
-          "pressure_calibration",
-          "volume_basis",
-          "reference_state",
-          "primary_data"
-        ],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.1029/93GL02507",
-          "doi": "10.1029/93GL02507",
-          "locations": ["Abstract", "Experimental Methods, page 2099", "Table 1, Equation (2), and Figure 2 caption, page 2100"],
-          "finding": "The source publishes 18 pressure-volume rows and reports a weighted finite-strain regression of the nine rows with fV>0.01, giving K0=151(7) GPa and fitted K0'=2.5."
-        },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-08",
-          "dataset_identifiers": ["mg0991fe0008mn0001co3_redfern_1993_table1_pv"],
-          "source_locations": ["Table 1, page 2100"],
-          "finding": "All 18 printed pressure, lattice-parameter, cell-volume, and parenthetical-uncertainty rows are transcribed directly from Table 1; no figure digitization is used."
-        },
-        "fit_protocol": {
-          "securely_resolved": {"V0": "fixed to the measured ambient Table 1 value used to define fV", "K0": "fitted", "K0_prime": "fitted"},
-          "selection": "Nine Table 1 rows with Eulerian strain fV>0.01 (4.6-19.7 GPa).",
-          "objective": "The paper states weighted regression of the volume data but does not publish the exact weighting implementation; the reproduction minimizes volume residuals using the printed one-sigma volume uncertainties."
-        },
-        "independent_refit": {
-          "status": "similar",
-          "observations": 9,
-          "parameters": {"V0": 279.4, "K0": 150.77458546383642, "K0_prime": 2.724874690363499},
-          "pressure_rmse_gpa": 0.6133293082682305,
-          "weighted_volume_reduced_chi_square": 1.6681166408872052,
-          "objective": "weighted_volume_residuals",
-          "qualification": "The fitted coefficients are consistent with the published fit, but K0_prime is weakly constrained (refit one-sigma uncertainty 1.345) and the source reports no K0_prime uncertainty, so strict uncertainty parity cannot be established."
-        },
-        "reported_inconsistencies": [
-          {
-            "source": "Yu et al. (2024), Table 1, doi:10.1029/2023JB028026",
-            "finding": "The comparison table marks the Redfern K0'=2.5 value as fixed.",
-            "resolution": "Rejected for source mapping because the Redfern publisher abstract calls it the full fit and Ross (1997) explicitly states that K0' was not constrained."
-          }
-        ],
-        "source_data_audit": "docs/data/redfern-1993-magnesite-audit.json"
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Experimental Methods, page 2099; Table 1, Equation (2), and Figure 2 caption, page 2100.",
-        "equation": "Equation (2) and Figure 2, page 2100: third-order Eulerian finite-strain Birch-Murnaghan analysis for observations with fV>0.01.",
-        "parameters": "Abstract, Equation-of-State section, and Figure 2 caption: Table 1 ambient V0=279.4(2) A3; weighted regression gives K0=151(7) GPa and fitted K0'=2.5. V0 defines the reported finite strains and is fixed in the reproduction."
-      },
-      "fit_provenance": {
-        "software": {"name": "Peritheos", "version": "0.7.0"},
-        "dataset": "mg0991fe0008mn0001co3_redfern_1993_table1_pv",
-        "selection": {"predicate": "fit_included_bm3=1; Eulerian strain fV>0.01", "included_rows": 9, "excluded_rows": 9},
-        "objective": "weighted_volume_residuals",
-        "weights": ["volume_uncertainty_a3"],
-        "refined_parameters": ["K0", "K0_prime"],
-        "fixed_parameters": ["V0"],
-        "covariance_scaling": "absolute_table_uncertainties",
-        "statistics": {
-          "observations": 9,
-          "free_parameters": 2,
-          "pressure_rmse_gpa": 0.6133293082682305,
-          "weighted_volume_reduced_chi_square": 1.6681166408872052
-        },
-        "reproduction": {"script": "scripts/reproduce_redfern_1993_magnesite.py", "status": "similar"}
-      },
-      "fit_datasets": ["mg0991fe0008mn0001co3_redfern_1993_table1_pv"]
-    }
-  ],
   "datasets": [
     {
       "identifier": "mg0991fe0008mn0001co3_redfern_1993_table1_pv",

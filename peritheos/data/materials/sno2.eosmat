@@ -1,25 +1,21 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "sno2",
   "name": "SnO2",
   "formula": "SnO2",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 2,
-  "symmetry": "TETRAGONAL",
-  "space_group": "P42/mnm",
-  "space_group_number": 136,
-  "lattice": {"a": 4.7382, "b": 4.7382, "c": 3.1871, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
-  "atom_sites": [
-    {"element": "Sn", "wyckoff": "2a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
-    {"element": "O", "wyckoff": "4f", "x": 0.307, "y": 0.307, "z": 0.0, "occupancy": 1.0}
-  ],
-  "peaks": [],
-  "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/sno2_cassit.jcpds. Cassiterite coordinates matching the ambient card cell: Baur, Acta Crystallographica 9, 515-520 (1956).",
   "eos_records": [
     {
       "identifier": "sno2_hazen_1981_bm3_1",
       "label": "Hazen and Finger (1981), rutile SnO2 BM3",
+      "model": "BM3",
+      "temperature_ref": 293.15,
+      "parameters": {
+        "V0": {"value": 71.4957, "error": null},
+        "K0": {"value": 218.0, "error": 2.0},
+        "K0_prime": {"value": 7.0, "error": null, "fixed": true}
+      },
       "determination_method": "experimental",
       "reference": {
         "authors": ["Hazen", "Finger"],
@@ -30,14 +26,6 @@
         "locator": "143-151",
         "doi": "10.1016/0022-3697(81)90074-3"
       },
-      "temperature_ref": 293.15,
-      "eos": {
-        "type": "BM3",
-        "parameters": {"V0": 71.4957, "K0": 218.0, "K0_prime": 7.0},
-        "model": "birch_murnaghan_3"
-      },
-      "parameter_errors": {"V0": null, "K0": 2.0, "K0_prime": null},
-      "fixed_parameters": ["K0_prime"],
       "experimental_pressure_range_gpa": [0.0, 4.96],
       "notes": "20 degC BM3 representation with K0' fixed at 7: K0=218+/-2 GPa. V0=71.4957 A^3 is calculated from the Table 3 ambient a0 and c0; the paper does not publish an EOS-fit V0 error or parameter covariance.",
       "pressure_calibration": {
@@ -50,52 +38,68 @@
         "audit_date": "2026-09-03",
         "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://www.researchgate.net/publication/256267527_Bulk_Moduli_and_High-Pressure_Crystal_Structures_of_Rutile-Type_Compounds",
-          "locations": ["EOS fit discussion, journal page 144", "Tables 1 and 2, journal pages 145-146", "Table 3, journal page 147"],
-          "finding": "The author-uploaded primary article reports K0 with K0'=7 assumed. The SnO2 and GeO2 V0 values are calculated from the Table 3 ambient lattice constants; no EOS-fit covariance or V0 error is published.",
-          "doi": "10.1016/0022-3697(81)90074-3"
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://www.researchgate.net/publication/256267527_Bulk_Moduli_and_High-Pressure_Crystal_Structures_of_Rutile-Type_Compounds",
+            "locations": [
+              "EOS fit discussion, journal page 144",
+              "Tables 1 and 2, journal pages 145-146",
+              "Table 3, journal page 147"
+            ],
+            "finding": "The author-uploaded primary article reports K0 with K0'=7 assumed. The SnO2 and GeO2 V0 values are calculated from the Table 3 ambient lattice constants; no EOS-fit covariance or V0 error is published.",
+            "doi": "10.1016/0022-3697(81)90074-3"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "sno2.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["rutile_hazen_finger_1981_table1_sno2_geo2_compression"],
+            "source_locations": ["Table 1, journal page 145"],
+            "finding": "The complete SnO2 and GeO2 subsets of Hazen and Finger Table 1: four compression observations for each rutile-type compound."
+          }
         },
-        "migration_source": {
-          "project": "Dioptas",
-          "version": "0.10.0",
-          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-          "file": "sno2.json"
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: EOS fit discussion, journal page 144; Tables 1 and 2, journal pages 145-146; Table 3, journal page 147."
         },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-03",
-          "dataset_identifiers": ["rutile_hazen_finger_1981_table1_sno2_geo2_compression"],
-          "source_locations": ["Table 1, journal page 145"],
-          "finding": "The complete SnO2 and GeO2 subsets of Hazen and Finger Table 1: four compression observations for each rutile-type compound."
-        }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: EOS fit discussion, journal page 144; Tables 1 and 2, journal pages 145-146; Table 3, journal page 147."
-      },
-      "audit_corrections": [
-        {
-          "path": "eos.parameters.V0",
-          "source_value": 71.5521,
-          "value": 71.4957,
-          "reason": "Calculated directly from the Table 3 ambient rutile lattice constants.",
-          "primary_reference": {"doi": "10.1016/0022-3697(81)90074-3", "location": "Tables 1-3 and EOS discussion, pages 144-147"}
-        },
-        {
-          "path": "experimental_pressure_range_gpa",
-          "source_value": [0.0, 5.0],
-          "value": [0.0, 4.96],
-          "reason": "Use the highest pressure tabulated for this material.",
-          "primary_reference": {"doi": "10.1016/0022-3697(81)90074-3", "location": "Tables 1-3 and EOS discussion, pages 144-147"}
-        }
-      ]
+        "audit_corrections": [
+          {
+            "path": "eos.parameters.V0",
+            "source_value": 71.5521,
+            "value": 71.4957,
+            "reason": "Calculated directly from the Table 3 ambient rutile lattice constants.",
+            "primary_reference": {"doi": "10.1016/0022-3697(81)90074-3", "location": "Tables 1-3 and EOS discussion, pages 144-147"}
+          },
+          {
+            "path": "experimental_pressure_range_gpa",
+            "source_value": [0.0, 5.0],
+            "value": [0.0, 4.96],
+            "reason": "Use the highest pressure tabulated for this material.",
+            "primary_reference": {"doi": "10.1016/0022-3697(81)90074-3", "location": "Tables 1-3 and EOS discussion, pages 144-147"}
+          }
+        ]
+      }
     }
   ],
+  "symmetry": "TETRAGONAL",
+  "space_group": "P42/mnm",
+  "space_group_number": 136,
+  "lattice": {"a": 4.7382, "b": 4.7382, "c": 3.1871, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Sn", "wyckoff": "2a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "4f", "x": 0.307, "y": 0.307, "z": 0.0, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/sno2_cassit.jcpds. Cassiterite coordinates matching the ambient card cell: Baur, Acta Crystallographica 9, 515-520 (1956).",
   "datasets": [
     {
       "identifier": "rutile_hazen_finger_1981_table1_sno2_geo2_compression",

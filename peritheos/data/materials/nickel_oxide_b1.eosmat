@@ -1,27 +1,33 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "nickel_oxide_b1",
   "name": "Nickel oxide (cubic B1 model)",
   "formula": "NiO",
   "phase": "B1 (cubic-average model)",
-  "aliases": ["cubic bunsenite"],
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
-  "symmetry": "CUBIC",
-  "space_group": "Fm-3m",
-  "space_group_number": 225,
-  "lattice": {"a": 4.177131582441286, "b": 4.177131582441286, "c": 4.177131582441286, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
-  "atom_sites": [
-    {"element": "Ni", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
-    {"element": "O", "wyckoff": "4b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1.0}
-  ],
-  "peaks": [],
-  "notes": "Ideal rocksalt structural model following Roth (1958), Introduction and Fig. 1; conventional Fm-3m cell with four Ni and four O. The reference edge is normalized to Campbell Table 1 V0, not claimed as a separate ambient cubic refinement. Roth establishes cubic paramagnetic NiO and a rhombohedral distortion below the Neel temperature (523 K at ambient pressure). Campbell reports B1 and fits one cubic-average volume model, including low-temperature MAP points; this record cannot predict magnetic ordering, rhombohedral splitting, or the pressure-dependent Neel boundary. Use the separate nickel_oxide rhombohedral card for resolved low-temperature diffraction.",
   "eos_records": [
     {
       "identifier": "nickel_oxide_b1_campbell_2009_bm3_mgd",
       "label": "Campbell et al. (2009), cubic-average B1 NiO, 295 K BM3-Debye",
+      "model": "BM3",
+      "temperature_ref": 295.0,
+      "parameters": {
+        "V0": {"value": 72.88438073639448, "error": null, "fixed": true},
+        "K0": {"value": 190.0, "error": 3},
+        "K0_prime": {"value": 5.4, "error": 0.2}
+      },
+      "thermal": {
+        "debye_temperature_law": "variable_exponent",
+        "parameters": {
+          "Tr": {"value": 295.0, "error": null, "fixed": true},
+          "theta0": {"value": 480.0, "error": null, "fixed": true},
+          "gamma0": {"value": 1.8, "error": 0.04},
+          "n": {"value": 2.0, "error": null, "fixed": true},
+          "q": {"value": 1.0, "error": null, "fixed": true}
+        },
+        "model": "MieGruneisenDebye"
+      },
       "determination_method": "experimental",
       "reference": {
         "authors": ["Campbell", "Danielson", "Righter", "Seagle", "Wang", "Prakapenka"],
@@ -32,23 +38,7 @@
         "locator": "556-564",
         "doi": "10.1016/j.epsl.2009.07.022"
       },
-      "temperature_ref": 295.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 72.88438073639448, "K0": 190.0, "K0_prime": 5.4}
-      },
-      "thermal": {
-        "type": "MieGruneisenDebye",
-        "model": "mie_gruneisen_debye",
-        "debye_temperature_law": "variable_exponent",
-        "parameters": {"Tr": 295.0, "theta0": 480.0, "gamma0": 1.8, "q": 1.0, "n": 2.0},
-        "parameter_errors": {"Tr": null, "theta0": null, "gamma0": 0.04, "q": null, "n": null},
-        "fixed_parameters": ["Tr", "theta0", "n", "q"]
-      },
-      "parameter_errors": {"V0": null, "K0": 3, "K0_prime": 0.2},
       "parameter_error_confidence": null,
-      "fixed_parameters": ["V0"],
       "experimental_pressure_range_gpa": [2.336174779961698, 65.9],
       "experimental_temperature_range_k": [298.0, 2457.07],
       "notes": "Equation (5) and Table 1: 295 K BM3 plus Mie-Gruneisen-Debye, gamma=gamma0*(V/V0)^q and theta=theta0*(V/V0)^(-gamma(V)). No explicit electronic or anharmonic pressure. Source molar V0 is converted to the Z=4 conventional cell using exact SI Avogadro constant. Italicized Table 1 values are held fixed, and nonitalic values with errors are fitted. The confidence convention and covariance of published errors are not specified. Temperature-corrected workbook values are used as printed; no second correction is applied. All 101 source rows are bundled. Nine quenched DAC states are retained but excluded from the main 92-row refit because Section 2.2 warns of residual stresses; an all-row sensitivity fit is reported. Ideal rocksalt structural model following Roth (1958), Introduction and Fig. 1; conventional Fm-3m cell with four Ni and four O. The reference edge is normalized to Campbell Table 1 V0, not claimed as a separate ambient cubic refinement. Roth establishes cubic paramagnetic NiO and a rhombohedral distortion below the Neel temperature (523 K at ambient pressure). Campbell reports B1 and fits one cubic-average volume model, including low-temperature MAP points; this record cannot predict magnetic ordering, rhombohedral splitting, or the pressure-dependent Neel boundary. Use the separate nickel_oxide rhombohedral card for resolved low-temperature diffraction. ",
@@ -89,63 +79,65 @@
         },
         "notes": "MAP detector angle calibrated with NaCl a=5.6402 A (JCPDS 05-0628); DAC geometry with CeO2. MAP cooling cycles minimize deviatoric stress. The article writes DAC T_sample=295+0.97*(T_meas-295) and T_NaCl=(3*T_meas+295)/4. The workbook uses a 293 K baseline for some Ni-NiO DAC runs and 295 K for others; preserve its stored values. Equation (4) prints sigma_TNaCl=(T_meas-295)/2, while the hot DAC workbook rows use (T_meas-T_ambient)/4; preserve the workbook uncertainties. The workbook pressure-threshold footnote is approximate: honor the explicit NaCl phase column, including B2 rows below 26 GPa."
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "audit_date": "2026-09-19",
-        "note": "Verified against the publication of record, official supplements, independent Debye quadrature, source buffer outputs, and conditional primary-data refits. Published parameters are preserved despite refit-protocol limitations.",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "composition",
-          "published_uncertainties",
-          "fixed_parameters",
-          "thermal_model",
-          "temperature_correction",
-          "pressure_calibration",
-          "primary_data",
-          "validity",
-          "literature_reproduction"
-        ],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.1016/j.epsl.2009.07.022",
-          "doi": "10.1016/j.epsl.2009.07.022",
-          "locations": [
-            "Sections 2.1-2.2 and 3",
-            "Equation (5), Table 1, page 560",
-            "Official mmc1.pdf Figure S1 and mmc2.xls Tables S2-S5"
-          ],
-          "finding": "Four source-owned experimental thermal fits; adopted hcp-Fe and numerical buffer integrations are excluded as new EOS. Source explicitly treats FeO as stoichiometric B1; the exact 295 K variable-exponent thermal law is represented.",
-          "source_pdf_sha256": "e48e23a348370b1613f4e9439bd39e5d49b94c01b1e6c3d3d9a797f092ebd9f0"
-        },
-        "primary_data_check": {
-          "status": "bundled",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
           "audit_date": "2026-09-19",
-          "dataset_identifiers": ["ni_nio_campbell_2009_table_s3_pvt"],
-          "finding": "All 101 Table S3 observations and NaCl calibrant readings are bundled. The main diagnostic fits 92 heated/MAP rows; all-row and weighting sensitivity results are separately reported. Exact source weights and mask are unpublished."
+          "note": "Verified against the publication of record, official supplements, independent Debye quadrature, source buffer outputs, and conditional primary-data refits. Published parameters are preserved despite refit-protocol limitations.",
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "composition",
+            "published_uncertainties",
+            "fixed_parameters",
+            "thermal_model",
+            "temperature_correction",
+            "pressure_calibration",
+            "primary_data",
+            "validity",
+            "literature_reproduction"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/j.epsl.2009.07.022",
+            "doi": "10.1016/j.epsl.2009.07.022",
+            "locations": [
+              "Sections 2.1-2.2 and 3",
+              "Equation (5), Table 1, page 560",
+              "Official mmc1.pdf Figure S1 and mmc2.xls Tables S2-S5"
+            ],
+            "finding": "Four source-owned experimental thermal fits; adopted hcp-Fe and numerical buffer integrations are excluded as new EOS. Source explicitly treats FeO as stoichiometric B1; the exact 295 K variable-exponent thermal law is represented.",
+            "source_pdf_sha256": "e48e23a348370b1613f4e9439bd39e5d49b94c01b1e6c3d3d9a797f092ebd9f0"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-19",
+            "dataset_identifiers": ["ni_nio_campbell_2009_table_s3_pvt"],
+            "finding": "All 101 Table S3 observations and NaCl calibrant readings are bundled. The main diagnostic fits 92 heated/MAP rows; all-row and weighting sensitivity results are separately reported. Exact source weights and mask are unpublished."
+          },
+          "independent_reproduction": {
+            "script": "scripts/reproduce_campbell_2009_buffers.py",
+            "report": "docs/literature-reproductions/campbell-2009-buffers.md",
+            "results": "docs/data/campbell-2009-reproduction.json",
+            "benchmark": "Official Tables S4-S5 differentiated through Equation (6), with 0.02 cm3/mol paired-volume tolerance; independent Debye quadrature checks individual equations.",
+            "selection": "All Table S2 rows for FeO; only its 15 explicitly fcc rows for Fe. For Ni/NiO, retain all 92 heated/MAP Table S3 rows (T>295 K); exclude its nine 293-295 K quenched DAC rows from the main diagnostic. This exclusion follows the Section 2.2 stress warning but is an audit choice: the authors do not publish a regression row mask. All 101 rows are retained in the dataset and tested in a sensitivity refit."
+          }
         },
-        "independent_reproduction": {
-          "script": "scripts/reproduce_campbell_2009_buffers.py",
-          "report": "docs/literature-reproductions/campbell-2009-buffers.md",
-          "results": "docs/data/campbell-2009-reproduction.json",
-          "benchmark": "Official Tables S4-S5 differentiated through Equation (6), with 0.02 cm3/mol paired-volume tolerance; independent Debye quadrature checks individual equations.",
-          "selection": "All Table S2 rows for FeO; only its 15 explicitly fcc rows for Fe. For Ni/NiO, retain all 92 heated/MAP Table S3 rows (T>295 K); exclude its nine 293-295 K quenched DAC rows from the main diagnostic. This exclusion follows the Section 2.2 stress warning but is an audit choice: the authors do not publish a regression row mask. All 101 rows are retained in the dataset and tested in a sensitivity refit."
-        }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Sections 2.1-2.2 and 3; Equation (5), Table 1, page 560; Official mmc1.pdf Figure S1 and mmc2.xls Tables S2-S5.",
-        "equation": "Section 4.1 Equation (5), page 560, and its immediately following gamma(V) and theta(V) definitions. BM3 reference; FeO has K0_prime fixed to 4 (BM2-equivalent reference).",
-        "V0": "Table 1: 10.973 cm3/mol, fixed from JCPDS, footnote a; source does not identify the card number. Conversion Vcell=Vmolar*Z*1e24/NA, Z=4. No source V0 error.",
-        "K0": "Table 1, fitted; uncertainty as printed, confidence unspecified.",
-        "K0_prime": "Table 1, fitted; uncertainty as printed.",
-        "thermal": {
-          "Tr": "Equation (5): 295 K reference subtraction.",
-          "theta0": "Table 1, fixed from Knacke et al. (1991), footnote f.",
-          "gamma0": "Table 1, fitted; uncertainty as printed.",
-          "q": "Table 1, fixed to 1 (italics), not fitted.",
-          "n": "Physical atoms per source molar formula: one for metal, two for monoxide; fixed Debye normalization."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Sections 2.1-2.2 and 3; Equation (5), Table 1, page 560; Official mmc1.pdf Figure S1 and mmc2.xls Tables S2-S5.",
+          "equation": "Section 4.1 Equation (5), page 560, and its immediately following gamma(V) and theta(V) definitions. BM3 reference; FeO has K0_prime fixed to 4 (BM2-equivalent reference).",
+          "V0": "Table 1: 10.973 cm3/mol, fixed from JCPDS, footnote a; source does not identify the card number. Conversion Vcell=Vmolar*Z*1e24/NA, Z=4. No source V0 error.",
+          "K0": "Table 1, fitted; uncertainty as printed, confidence unspecified.",
+          "K0_prime": "Table 1, fitted; uncertainty as printed.",
+          "thermal": {
+            "Tr": "Equation (5): 295 K reference subtraction.",
+            "theta0": "Table 1, fixed from Knacke et al. (1991), footnote f.",
+            "gamma0": "Table 1, fitted; uncertainty as printed.",
+            "q": "Table 1, fixed to 1 (italics), not fitted.",
+            "n": "Physical atoms per source molar formula: one for metal, two for monoxide; fixed Debye normalization."
+          }
         }
       },
       "range_provenance": {
@@ -155,6 +147,17 @@
       "fit_datasets": ["ni_nio_campbell_2009_table_s3_pvt"]
     }
   ],
+  "aliases": ["cubic bunsenite"],
+  "symmetry": "CUBIC",
+  "space_group": "Fm-3m",
+  "space_group_number": 225,
+  "lattice": {"a": 4.177131582441286, "b": 4.177131582441286, "c": 4.177131582441286, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Ni", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "4b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Ideal rocksalt structural model following Roth (1958), Introduction and Fig. 1; conventional Fm-3m cell with four Ni and four O. The reference edge is normalized to Campbell Table 1 V0, not claimed as a separate ambient cubic refinement. Roth establishes cubic paramagnetic NiO and a rhombohedral distortion below the Neel temperature (523 K at ambient pressure). Campbell reports B1 and fits one cubic-average volume model, including low-temperature MAP points; this record cannot predict magnetic ordering, rhombohedral splitting, or the pressure-dependent Neel boundary. Use the separate nickel_oxide rhombohedral card for resolved low-temperature diffraction.",
   "datasets": [
     {
       "identifier": "ni_nio_campbell_2009_table_s3_pvt",

@@ -4,8 +4,9 @@
 from __future__ import annotations
 
 import copy
-import json
 from pathlib import Path
+
+from scripts.eosmat_io import read_material, write_material
 
 ROOT = Path(__file__).resolve().parents[1]
 MATERIALS = ROOT / "peritheos" / "data" / "materials"
@@ -421,7 +422,7 @@ def _dataset(spec: dict, used_by: str) -> dict:
 def update() -> None:
     for material, config in CONFIG.items():
         path = MATERIALS / f"{material}.eosmat"
-        document = json.loads(path.read_text(encoding="utf-8"))
+        document = read_material(path)
         records = document["eos_records"]
         records[:] = [
             record for record in records if record["identifier"] != config["zhu_id"]
@@ -456,7 +457,7 @@ def update() -> None:
         document["datasets"].extend(
             _dataset(spec, config["zhu_id"]) for spec in DATASETS[material]
         )
-        path.write_text(json.dumps(document, indent=1) + "\n", encoding="utf-8")
+        write_material(path, document)
 
 
 if __name__ == "__main__":

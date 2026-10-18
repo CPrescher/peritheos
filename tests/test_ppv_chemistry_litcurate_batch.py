@@ -7,6 +7,7 @@ from pathlib import Path
 import pytest
 
 from peritheos import Material, get_material_document
+from scripts.eosmat_io import read_material
 
 ROOT = Path(__file__).parents[1]
 
@@ -179,7 +180,7 @@ def test_chantel_reproduction_and_withheld_source_rows():
 
     accepted = []
     for path in (ROOT / "peritheos/data/materials").glob("*.eosmat"):
-        document = json.loads(path.read_text(encoding="utf-8"))
+        document = read_material(path)
         accepted.extend(
             record
             for record in document.get("eos_records", [])
@@ -267,7 +268,7 @@ def test_every_candidate_row_has_exactly_one_audit_disposition(
 
 def test_caracas_candidates_remain_out_of_production_without_primary_table():
     for path in (ROOT / "peritheos/data/materials").glob("*.eosmat"):
-        document = json.loads(path.read_text(encoding="utf-8"))
+        document = read_material(path)
         assert all(
             record.get("reference", {}).get("doi", "").lower() != "10.1029/2005gl023164"
             for record in document.get("eos_records", [])

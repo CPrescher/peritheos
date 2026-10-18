@@ -70,7 +70,9 @@ def test_entire_catalog_compacts_without_changing_any_original_scientific_field(
         # A generated sharing pool is additional, duplicated metadata. All
         # original fields, source arrays and unknown extensions remain exact.
         restored.pop("shared_metadata", None)
-        assert equivalent(restored) == equivalent(original), path
+        assert equivalent(restored) == equivalent(
+            convert_eosmat(original, version=3)
+        ), path
         assert compact.get("datasets") == original.get("datasets"), path
         assert observation_material_fingerprint(
             compact

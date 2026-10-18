@@ -8,7 +8,8 @@ import numpy as np
 import pytest
 from scipy.optimize import least_squares
 
-from peritheos import Material, load_eosmat
+from peritheos import Material
+from scripts.eosmat_io import read_material
 
 ROOT = Path(__file__).resolve().parents[1]
 MATERIALS = ROOT / "peritheos" / "data" / "materials"
@@ -68,7 +69,7 @@ CASES = {
 
 
 def _document(material_identifier):
-    return load_eosmat(MATERIALS / f"{material_identifier}.eosmat")
+    return read_material(MATERIALS / f"{material_identifier}.eosmat")
 
 
 def _rows(case):

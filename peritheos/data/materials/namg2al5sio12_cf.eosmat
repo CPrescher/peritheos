@@ -1,13 +1,162 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "namg2al5sio12_cf",
   "name": "NaMg2Al5SiO12 calcium-ferrite phase",
   "formula": "NaMg2Al5SiO12",
   "phase": "calcium-ferrite-type (CF) phase, orthorhombic Pbnm",
-  "aliases": ["NaMg2Al5SiO12 CF", "33Na-67Mg calcium-ferrite phase"],
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 1.3333333333333333,
+  "eos_records": [
+    {
+      "identifier": "namg2al5sio12_cf_kawai_2012_bm3_1",
+      "label": "Kawai and Tsuchiya (2012), NaMg2Al5SiO12 CF static-LDA BM3",
+      "model": "BM3",
+      "temperature_ref": 0.0,
+      "parameters": {
+        "V0": {"value": 233.80390065807762, "error": null},
+        "K0": {"value": 213.2, "error": null},
+        "K0_prime": {"value": 4.12, "error": null}
+      },
+      "record_kind": "published",
+      "determination_method": "theoretical",
+      "equation_kind": "isothermal",
+      "default_for": "equilibrium",
+      "default": true,
+      "reference": {
+        "authors": ["Kawai", "Tsuchiya"],
+        "year": 2012,
+        "title": "Phase stability and elastic properties of the NAL and CF phases in the NaMg2Al5SiO12 system from first principles",
+        "source": "American Mineralogist",
+        "volume": "97",
+        "locator": "305-314",
+        "doi": "10.2138/am.2012.3915"
+      },
+      "parameter_error_confidence": null,
+      "parameter_covariance": null,
+      "experimental_pressure_range_gpa": [0.0, 150.0],
+      "pressure_range_status": "theoretical",
+      "experimental_temperature_range_k": [0.0, 0.0],
+      "validity": {
+        "pressure_gpa": [0.0, 150.0],
+        "temperature_k": [0.0, 0.0],
+        "volume_ratio": [0.7085889564, 1.0],
+        "notes": [
+          "Bounded to the Figure 2d and Figure 5 CF calculation interval; this is not a phase-stability guarantee.",
+          "Static LDA record; no thermal correction is included."
+        ]
+      },
+      "notes": "Published static-theory parameterization. All three printed coefficients are treated as fitted; no statistical errors are reported. There is no pressure calibration. The LitCurate description 'orthorhombic perovskite' is corrected to calcium-ferrite type Pbnm.",
+      "pressure_calibration": {
+        "status": "not_applicable",
+        "methods": [
+          {
+            "kind": "ab_initio",
+            "reference": {
+              "authors": ["Kawai", "Tsuchiya"],
+              "year": 2012,
+              "source": "American Mineralogist",
+              "doi": "10.2138/am.2012.3915"
+            },
+            "source_location": "First-principles computation details, pages 307-308"
+          }
+        ],
+        "recalculation": {
+          "status": "not_applicable",
+          "notes": "These are direct static-DFT stresses/pressures; no experimental pressure gauge or calibration scale exists."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Validated against the final typeset MSA article. The conventional-cell conversion and BM3 convention reproduce the vector-digitized Figure 2d curve.",
+          "audit_date": "2026-09-05",
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "composition",
+            "cell_setting",
+            "formula_units_per_cell",
+            "published_uncertainties",
+            "validity",
+            "pressure_calibration",
+            "primary_data"
+          ],
+          "primary_source_check": {
+            "access_url": "https://web.archive.org/web/20120721021120id_/http://www.minsocam.org/ProcessIP.lasso?year=2012&filename=Kawai_p305-314_12_LR.pdf",
+            "doi": "10.2138/am.2012.3915",
+            "locations": [
+              "structure-model discussion, pages 305-307",
+              "Figure 2d and caption, page 307",
+              "first-principles details and Table 1, page 308"
+            ],
+            "finding": "The source reports one static-LDA standard BM3 for exact NaMg2Al5SiO12 calcium-ferrite type Pbnm. It does not publish coefficient uncertainties, covariance, or the underlying numerical DFT grid.",
+            "publisher_pdf_sha256": "8273dc07c0ba3dca62724d490e035e945ee6c4123d7c6319f140afc44c7ec089"
+          },
+          "primary_data_check": {
+            "status": "plot_only",
+            "audit_date": "2026-09-05",
+            "digitized_dataset_identifiers": ["namg2al5sio12_cf_kawai_2012_figure2d_vector_digitized"],
+            "source_locations": ["Figure 2d, dark-blue current-study triangles"],
+            "finding": "All eight visible current-study markers were extracted from PDF vector geometry. Earlier-study comparison markers were excluded."
+          },
+          "numerical_reproduction": {
+            "published_curve_volume_rmse_a3": 0.15178736886,
+            "published_curve_max_abs_volume_residual_a3": 0.198344317864,
+            "volume_residual_refit": {"V0": 233.944765268382, "K0": 213.205584668798, "K0_prime": 4.132190010213, "rmse_a3": 0.030775628572},
+            "finding": "The digitized curve independently confirms equation order, volume basis, and rounded coefficients. The refit is diagnostic only because the original grid and fitting protocol are not published."
+          },
+          "reported_inconsistencies": [
+            {
+              "field": "Table 1 CF K0 superscript b",
+              "source_values": ["213.2 with superscript b", "no b footnote"],
+              "finding": "The value is unambiguous, but the orphan superscript is not interpreted."
+            },
+            {
+              "field": "Figure 4 layer formulas",
+              "source_values": ["prose: NaMg3Al7SiO16 and Na2Mg2Al6Si2O16", "caption: corresponding formulas ending O12"],
+              "finding": "The 28-atom layer stoichiometries require O16; the caption's O12 strings are documented as typographical errors and are not propagated."
+            }
+          ]
+        },
+        "parameter_provenance": {
+          "determination_method": "Calculated states/theory determine this EOS; source: structure-model discussion, pages 305-307; Figure 2d and caption, page 307; first-principles details and Table 1, page 308.",
+          "equation": "Results, page 308: calculated volumes were fitted with a third-order Birch-Murnaghan equation; the formula is not printed, so Peritheos uses the standard Eulerian BM3 convention verified against Figure 2d.",
+          "V0": "Table 1: 35.2 cm3/mol on a silent O4 basis. Multiplication by four and division by 0.602214076 cm3 mol-1 per A3 gives 233.80390065807762 A3 for the conventional Pbnm cell containing four O4 units.",
+          "K0": "Table 1, CF (NaMg2Al5SiO12): B0=213.2 GPa. The printed superscript b has no corresponding table footnote and is retained as an unresolved typesetting defect, not interpreted.",
+          "K0_prime": "Table 1, CF (NaMg2Al5SiO12): B0'=4.12; no fixed qualifier is printed.",
+          "temperature_ref": "Methods: every structure was fully relaxed to a static (0 K) configuration.",
+          "fit_selection": "All eight visible current-study CF triangles in Figure 2d are retained. The paper does not state whether its fit used one configuration, every configuration, or configuration-averaged volumes; differences are described only as small."
+        },
+        "source_lineage": [
+          {
+            "role": "published EOS coefficients, plotted pressure-volume curve, composition, and calculation protocol",
+            "citation": "Kawai and Tsuchiya (2012), American Mineralogist 97, 305-314",
+            "doi": "10.2138/am.2012.3915"
+          },
+          {
+            "role": "isostructural crystallographic topology proxy only",
+            "citation": "Qin et al. (2023), American Mineralogist 108, 2331-2337, official deposit",
+            "doi": "10.2138/am-2022-8432"
+          }
+        ]
+      },
+      "sample_composition": "Exactly NaMg2Al5SiO12 (33Na-67Mg), represented by twelve 84-atom 1x1x3 ordered CF supercells",
+      "computational_configuration": {
+        "method": "density-functional theory in the local-density approximation",
+        "code": "PWSCF / Quantum ESPRESSO",
+        "plane_wave_cutoff_ry": 50.0,
+        "k_point_grid": [2, 2, 2],
+        "relaxation": "damped variable-cell-shape constant-pressure molecular dynamics; all structural parameters relaxed to residual forces below 5.0e-5 Ry/a.u.",
+        "configuration_sampling": "twelve 1x1x3 supercells made from two NaMg3Al7SiO16 layers and one Na2Mg2Al6Si2O16 layer with distinct cation arrangements"
+      },
+      "fit_datasets": ["namg2al5sio12_cf_kawai_2012_figure2d_vector_digitized"]
+    }
+  ],
+  "aliases": ["NaMg2Al5SiO12 CF", "33Na-67Mg calcium-ferrite phase"],
   "cell_contents": "Four O4-normalized formula units, equivalently 4/3 NaMg2Al5SiO12 units, per conventional primitive orthorhombic Pbnm cell. Kawai and Tsuchiya used a 1x1x3 supercell containing 84 atoms, hence three 28-atom conventional cells. The stored crystallographic model is an explicitly identified NaAlSiO4 topology proxy and does not represent the calculated Mg-bearing cation ordering.",
   "symmetry": "ORTHORHOMBIC",
   "space_group": "Pbnm",
@@ -107,155 +256,6 @@
   ],
   "peaks": [],
   "notes": "The lattice, coordinates, elements, and occupancies are transcribed without modification from Qin et al.'s deposited ideal NaAlSiO4 refinement and are present only as an isostructural topology proxy. They are not NaMg2Al5SiO12 coordinates and do not encode any of Kawai and Tsuchiya's twelve ordered supercells. No Mg substitution, Al/Si partition, or target occupancy is inferred. The executable EOS V0, rather than this 1.7 GPa proxy lattice, defines the target phase's zero-pressure volume.",
-  "eos_records": [
-    {
-      "identifier": "namg2al5sio12_cf_kawai_2012_bm3_1",
-      "label": "Kawai and Tsuchiya (2012), NaMg2Al5SiO12 CF static-LDA BM3",
-      "record_kind": "published",
-      "determination_method": "theoretical",
-      "equation_kind": "isothermal",
-      "default_for": "equilibrium",
-      "default": true,
-      "reference": {
-        "authors": ["Kawai", "Tsuchiya"],
-        "year": 2012,
-        "title": "Phase stability and elastic properties of the NAL and CF phases in the NaMg2Al5SiO12 system from first principles",
-        "source": "American Mineralogist",
-        "volume": "97",
-        "locator": "305-314",
-        "doi": "10.2138/am.2012.3915"
-      },
-      "temperature_ref": 0.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 233.80390065807762, "K0": 213.2, "K0_prime": 4.12}
-      },
-      "parameter_errors": {"V0": null, "K0": null, "K0_prime": null},
-      "parameter_error_confidence": null,
-      "fixed_parameters": [],
-      "parameter_covariance": null,
-      "experimental_pressure_range_gpa": [0.0, 150.0],
-      "pressure_range_status": "theoretical",
-      "experimental_temperature_range_k": [0.0, 0.0],
-      "validity": {
-        "pressure_gpa": [0.0, 150.0],
-        "temperature_k": [0.0, 0.0],
-        "volume_ratio": [0.7085889564, 1.0],
-        "notes": [
-          "Bounded to the Figure 2d and Figure 5 CF calculation interval; this is not a phase-stability guarantee.",
-          "Static LDA record; no thermal correction is included."
-        ]
-      },
-      "notes": "Published static-theory parameterization. All three printed coefficients are treated as fitted; no statistical errors are reported. There is no pressure calibration. The LitCurate description 'orthorhombic perovskite' is corrected to calcium-ferrite type Pbnm.",
-      "pressure_calibration": {
-        "status": "not_applicable",
-        "methods": [
-          {
-            "kind": "ab_initio",
-            "reference": {
-              "authors": ["Kawai", "Tsuchiya"],
-              "year": 2012,
-              "source": "American Mineralogist",
-              "doi": "10.2138/am.2012.3915"
-            },
-            "source_location": "First-principles computation details, pages 307-308"
-          }
-        ],
-        "recalculation": {
-          "status": "not_applicable",
-          "notes": "These are direct static-DFT stresses/pressures; no experimental pressure gauge or calibration scale exists."
-        },
-        "audit_date": "2026-09-05"
-      },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Validated against the final typeset MSA article. The conventional-cell conversion and BM3 convention reproduce the vector-digitized Figure 2d curve.",
-        "audit_date": "2026-09-05",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "composition",
-          "cell_setting",
-          "formula_units_per_cell",
-          "published_uncertainties",
-          "validity",
-          "pressure_calibration",
-          "primary_data"
-        ],
-        "primary_source_check": {
-          "access_url": "https://web.archive.org/web/20120721021120id_/http://www.minsocam.org/ProcessIP.lasso?year=2012&filename=Kawai_p305-314_12_LR.pdf",
-          "doi": "10.2138/am.2012.3915",
-          "locations": [
-            "structure-model discussion, pages 305-307",
-            "Figure 2d and caption, page 307",
-            "first-principles details and Table 1, page 308"
-          ],
-          "finding": "The source reports one static-LDA standard BM3 for exact NaMg2Al5SiO12 calcium-ferrite type Pbnm. It does not publish coefficient uncertainties, covariance, or the underlying numerical DFT grid.",
-          "publisher_pdf_sha256": "8273dc07c0ba3dca62724d490e035e945ee6c4123d7c6319f140afc44c7ec089"
-        },
-        "primary_data_check": {
-          "status": "plot_only",
-          "audit_date": "2026-09-05",
-          "digitized_dataset_identifiers": ["namg2al5sio12_cf_kawai_2012_figure2d_vector_digitized"],
-          "source_locations": ["Figure 2d, dark-blue current-study triangles"],
-          "finding": "All eight visible current-study markers were extracted from PDF vector geometry. Earlier-study comparison markers were excluded."
-        },
-        "numerical_reproduction": {
-          "published_curve_volume_rmse_a3": 0.15178736886,
-          "published_curve_max_abs_volume_residual_a3": 0.198344317864,
-          "volume_residual_refit": {"V0": 233.944765268382, "K0": 213.205584668798, "K0_prime": 4.132190010213, "rmse_a3": 0.030775628572},
-          "finding": "The digitized curve independently confirms equation order, volume basis, and rounded coefficients. The refit is diagnostic only because the original grid and fitting protocol are not published."
-        },
-        "reported_inconsistencies": [
-          {
-            "field": "Table 1 CF K0 superscript b",
-            "source_values": ["213.2 with superscript b", "no b footnote"],
-            "finding": "The value is unambiguous, but the orphan superscript is not interpreted."
-          },
-          {
-            "field": "Figure 4 layer formulas",
-            "source_values": ["prose: NaMg3Al7SiO16 and Na2Mg2Al6Si2O16", "caption: corresponding formulas ending O12"],
-            "finding": "The 28-atom layer stoichiometries require O16; the caption's O12 strings are documented as typographical errors and are not propagated."
-          }
-        ]
-      },
-      "parameter_provenance": {
-        "determination_method": "Calculated states/theory determine this EOS; source: structure-model discussion, pages 305-307; Figure 2d and caption, page 307; first-principles details and Table 1, page 308.",
-        "equation": "Results, page 308: calculated volumes were fitted with a third-order Birch-Murnaghan equation; the formula is not printed, so Peritheos uses the standard Eulerian BM3 convention verified against Figure 2d.",
-        "V0": "Table 1: 35.2 cm3/mol on a silent O4 basis. Multiplication by four and division by 0.602214076 cm3 mol-1 per A3 gives 233.80390065807762 A3 for the conventional Pbnm cell containing four O4 units.",
-        "K0": "Table 1, CF (NaMg2Al5SiO12): B0=213.2 GPa. The printed superscript b has no corresponding table footnote and is retained as an unresolved typesetting defect, not interpreted.",
-        "K0_prime": "Table 1, CF (NaMg2Al5SiO12): B0'=4.12; no fixed qualifier is printed.",
-        "temperature_ref": "Methods: every structure was fully relaxed to a static (0 K) configuration.",
-        "fit_selection": "All eight visible current-study CF triangles in Figure 2d are retained. The paper does not state whether its fit used one configuration, every configuration, or configuration-averaged volumes; differences are described only as small."
-      },
-      "source_lineage": [
-        {
-          "role": "published EOS coefficients, plotted pressure-volume curve, composition, and calculation protocol",
-          "citation": "Kawai and Tsuchiya (2012), American Mineralogist 97, 305-314",
-          "doi": "10.2138/am.2012.3915"
-        },
-        {
-          "role": "isostructural crystallographic topology proxy only",
-          "citation": "Qin et al. (2023), American Mineralogist 108, 2331-2337, official deposit",
-          "doi": "10.2138/am-2022-8432"
-        }
-      ],
-      "sample_composition": "Exactly NaMg2Al5SiO12 (33Na-67Mg), represented by twelve 84-atom 1x1x3 ordered CF supercells",
-      "computational_configuration": {
-        "method": "density-functional theory in the local-density approximation",
-        "code": "PWSCF / Quantum ESPRESSO",
-        "plane_wave_cutoff_ry": 50.0,
-        "k_point_grid": [2, 2, 2],
-        "relaxation": "damped variable-cell-shape constant-pressure molecular dynamics; all structural parameters relaxed to residual forces below 5.0e-5 Ry/a.u.",
-        "configuration_sampling": "twelve 1x1x3 supercells made from two NaMg3Al7SiO16 layers and one Na2Mg2Al6Si2O16 layer with distinct cation arrangements"
-      },
-      "fit_datasets": ["namg2al5sio12_cf_kawai_2012_figure2d_vector_digitized"]
-    }
-  ],
   "datasets": [
     {
       "identifier": "namg2al5sio12_cf_kawai_2012_figure2d_vector_digitized",

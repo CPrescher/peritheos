@@ -1,30 +1,22 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "calcium_germanate_perovskite",
   "name": "Calcium germanate perovskite",
   "formula": "CaGeO3",
   "phase": "orthorhombic GdFeO3-type perovskite",
-  "aliases": ["CaGeO3 perovskite"],
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
-  "cell_contents": "Four CaGeO3 formula units in the conventional orthorhombic Pbnm cell.",
-  "symmetry": "ORTHORHOMBIC",
-  "space_group": "Pbnm",
-  "space_group_number": 62,
-  "lattice": {"a": 5.2614, "b": 5.2701, "c": 7.44677, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
-  "atom_sites": [
-    {"element": "Ca", "wyckoff": "4c", "x": -0.0051, "y": 0.0283, "z": 0.25, "occupancy": 1.0, "source_label": "Ca"},
-    {"element": "Ge", "wyckoff": "4b", "x": 0.0, "y": 0.5, "z": 0.0, "occupancy": 1.0, "source_label": "Ge"},
-    {"element": "O", "wyckoff": "4c", "x": 0.0606, "y": 0.4916, "z": 0.25, "occupancy": 1.0, "source_label": "O1"},
-    {"element": "O", "wyckoff": "8d", "x": 0.7157, "y": 0.283, "z": 0.032, "occupancy": 1.0, "source_label": "O2"}
-  ],
-  "peaks": [],
-  "notes": "The conventional-cell lattice is the near-ambient measurement of the EOS specimen in Ross and Angel (1999). Fractional coordinates are from the twin-corrected Pbnm refinement of Sasaki et al. (1983). The four occupied Wyckoff orbits give Ca4Ge4O12 (Z=4). The numerical 298 K EOS reference is an operational encoding of the source's qualitative room-temperature statement, not a reported thermometer reading.",
   "eos_records": [
     {
       "identifier": "calcium_germanate_perovskite_ross_1999_bm3_1",
       "label": "Ross and Angel (1999), single-crystal BM3",
+      "model": "BM3",
+      "temperature_ref": 298.0,
+      "parameters": {
+        "V0": {"value": 206.49, "error": 0.017},
+        "K0": {"value": 194.0, "error": 2.1},
+        "K0_prime": {"value": 6.1, "error": 0.5}
+      },
       "record_kind": "published",
       "determination_method": "experimental",
       "equation_kind": "isothermal",
@@ -38,15 +30,7 @@
         "locator": "277-281",
         "doi": "10.2138/am-1999-0309"
       },
-      "temperature_ref": 298.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 206.49, "K0": 194.0, "K0_prime": 6.1}
-      },
-      "parameter_errors": {"V0": 0.017, "K0": 2.1, "K0_prime": 0.5},
       "parameter_error_confidence": null,
-      "fixed_parameters": [],
       "parameter_covariance": null,
       "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 160.705},
       "experimental_pressure_range_gpa": [0.0001, 8.553],
@@ -89,70 +73,72 @@
         },
         "audit_date": "2026-09-05"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Validated directly against the final publisher article and its Table 1. The publisher page exposes no supplementary file. The article gives parameter errors but no confidence level or parameter covariance matrix, so the printed errors are preserved and covariance remains null.",
-        "audit_date": "2026-09-05",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "composition",
-          "cell_setting",
-          "formula_units_per_cell",
-          "structure",
-          "published_uncertainties",
-          "covariance_availability",
-          "validity",
-          "pressure_calibration",
-          "primary_data",
-          "numerical_reproduction",
-          "independent_refit"
-        ],
-        "primary_source_check": {
-          "access_url": "https://www.degruyterbrill.com/document/doi/10.2138/am-1999-0309/html",
-          "locations": [
-            "Abstract",
-            "Experimental methods, journal page 278",
-            "Table 1, journal page 278",
-            "Results, journal page 279",
-            "Figure 1"
-          ],
-          "finding": "The source defines a 9-observation, room-temperature, conventional-cell, three-free-parameter BM3 fit. Standard BM3 reproduces the source's 0.03 GPa maximum residual and weighted chi-square of 1.1.",
-          "doi": "10.2138/am-1999-0309"
-        },
-        "primary_data_check": {
-          "status": "bundled",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Validated directly against the final publisher article and its Table 1. The publisher page exposes no supplementary file. The article gives parameter errors but no confidence level or parameter covariance matrix, so the printed errors are preserved and covariance remains null.",
           "audit_date": "2026-09-05",
-          "dataset_identifiers": ["calcium_germanate_perovskite_ross_1999_table1_compression"],
-          "source_locations": ["Table 1, journal page 278"],
-          "finding": "All 9 printed CaGeO3 pressure, lattice-parameter, conventional-cell-volume, and estimated-standard-deviation values are transcribed. Row-wise quartz volumes are not published."
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "composition",
+            "cell_setting",
+            "formula_units_per_cell",
+            "structure",
+            "published_uncertainties",
+            "covariance_availability",
+            "validity",
+            "pressure_calibration",
+            "primary_data",
+            "numerical_reproduction",
+            "independent_refit"
+          ],
+          "primary_source_check": {
+            "access_url": "https://www.degruyterbrill.com/document/doi/10.2138/am-1999-0309/html",
+            "locations": [
+              "Abstract",
+              "Experimental methods, journal page 278",
+              "Table 1, journal page 278",
+              "Results, journal page 279",
+              "Figure 1"
+            ],
+            "finding": "The source defines a 9-observation, room-temperature, conventional-cell, three-free-parameter BM3 fit. Standard BM3 reproduces the source's 0.03 GPa maximum residual and weighted chi-square of 1.1.",
+            "doi": "10.2138/am-1999-0309"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-05",
+            "dataset_identifiers": ["calcium_germanate_perovskite_ross_1999_table1_compression"],
+            "source_locations": ["Table 1, journal page 278"],
+            "finding": "All 9 printed CaGeO3 pressure, lattice-parameter, conventional-cell-volume, and estimated-standard-deviation values are transcribed. Row-wise quartz volumes are not published."
+          },
+          "numerical_reproduction": {
+            "observations": 9,
+            "published_curve_rmse_gpa": 0.0191108763,
+            "published_curve_max_abs_residual_gpa": 0.0304503891,
+            "source_reported_max_abs_residual_gpa": 0.03,
+            "source_reported_weighted_chi_square": 1.1
+          },
+          "independent_refit": {
+            "objective": "effective-variance pressure residuals combining the reported pressure and volume estimated standard deviations; the ambient pressure has no printed error and is treated as fixed",
+            "parameters": {"V0": 206.4894269, "K0": 194.03279818, "K0_prime": 6.09858913},
+            "reduced_chi_square": 1.102859623,
+            "raw_pressure_rmse_gpa": 0.019129005,
+            "conclusion": "The independent refit recovers every published coefficient within its printed uncertainty and reproduces the source's rounded weighted chi-square."
+          }
         },
-        "numerical_reproduction": {
-          "observations": 9,
-          "published_curve_rmse_gpa": 0.0191108763,
-          "published_curve_max_abs_residual_gpa": 0.0304503891,
-          "source_reported_max_abs_residual_gpa": 0.03,
-          "source_reported_weighted_chi_square": 1.1
-        },
-        "independent_refit": {
-          "objective": "effective-variance pressure residuals combining the reported pressure and volume estimated standard deviations; the ambient pressure has no printed error and is treated as fixed",
-          "parameters": {"V0": 206.4894269, "K0": 194.03279818, "K0_prime": 6.09858913},
-          "reduced_chi_square": 1.102859623,
-          "raw_pressure_rmse_gpa": 0.019129005,
-          "conclusion": "The independent refit recovers every published coefficient within its printed uncertainty and reproduces the source's rounded weighted chi-square."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Experimental methods, journal page 278; Table 1, journal page 278; Results, journal page 279; Figure 1.",
+          "equation": "Ross and Angel (1999), Experimental methods and Results, journal pages 278-279: pressure-dependent weighted least-squares fit of a Birch (1947) third-order Birch-Murnaghan EOS; reproduction of the reported residuals and weighted chi-square verifies the standard Eulerian finite-strain convention",
+          "V0": "Ross and Angel (1999), abstract and Results, journal page 279: 206.490 +/- 0.017 A^3 conventional Pbnm cell; fitted",
+          "K0": "Ross and Angel (1999), abstract and Results, journal page 279: 194.0 +/- 2.1 GPa; fitted",
+          "K0_prime": "Ross and Angel (1999), abstract and Results, journal page 279: 6.1 +/- 0.5; fitted",
+          "temperature_ref": "The article states room temperature without a numeric thermometer reading; 298 K is the operational room-temperature reference used by this record",
+          "fit_selection": "All 9 CaGeO3 rows in Table 1, from 0.0001 to 8.553 GPa"
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Experimental methods, journal page 278; Table 1, journal page 278; Results, journal page 279; Figure 1.",
-        "equation": "Ross and Angel (1999), Experimental methods and Results, journal pages 278-279: pressure-dependent weighted least-squares fit of a Birch (1947) third-order Birch-Murnaghan EOS; reproduction of the reported residuals and weighted chi-square verifies the standard Eulerian finite-strain convention",
-        "V0": "Ross and Angel (1999), abstract and Results, journal page 279: 206.490 +/- 0.017 A^3 conventional Pbnm cell; fitted",
-        "K0": "Ross and Angel (1999), abstract and Results, journal page 279: 194.0 +/- 2.1 GPa; fitted",
-        "K0_prime": "Ross and Angel (1999), abstract and Results, journal page 279: 6.1 +/- 0.5; fitted",
-        "temperature_ref": "The article states room temperature without a numeric thermometer reading; 298 K is the operational room-temperature reference used by this record",
-        "fit_selection": "All 9 CaGeO3 rows in Table 1, from 0.0001 to 8.553 GPa"
       },
       "fit_datasets": ["calcium_germanate_perovskite_ross_1999_table1_compression"],
       "experimental_configuration": {
@@ -163,6 +149,20 @@
       }
     }
   ],
+  "aliases": ["CaGeO3 perovskite"],
+  "cell_contents": "Four CaGeO3 formula units in the conventional orthorhombic Pbnm cell.",
+  "symmetry": "ORTHORHOMBIC",
+  "space_group": "Pbnm",
+  "space_group_number": 62,
+  "lattice": {"a": 5.2614, "b": 5.2701, "c": 7.44677, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Ca", "wyckoff": "4c", "x": -0.0051, "y": 0.0283, "z": 0.25, "occupancy": 1.0, "source_label": "Ca"},
+    {"element": "Ge", "wyckoff": "4b", "x": 0.0, "y": 0.5, "z": 0.0, "occupancy": 1.0, "source_label": "Ge"},
+    {"element": "O", "wyckoff": "4c", "x": 0.0606, "y": 0.4916, "z": 0.25, "occupancy": 1.0, "source_label": "O1"},
+    {"element": "O", "wyckoff": "8d", "x": 0.7157, "y": 0.283, "z": 0.032, "occupancy": 1.0, "source_label": "O2"}
+  ],
+  "peaks": [],
+  "notes": "The conventional-cell lattice is the near-ambient measurement of the EOS specimen in Ross and Angel (1999). Fractional coordinates are from the twin-corrected Pbnm refinement of Sasaki et al. (1983). The four occupied Wyckoff orbits give Ca4Ge4O12 (Z=4). The numerical 298 K EOS reference is an operational encoding of the source's qualitative room-temperature statement, not a reported thermometer reading.",
   "datasets": [
     {
       "identifier": "calcium_germanate_perovskite_ross_1999_table1_compression",

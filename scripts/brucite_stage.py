@@ -20,6 +20,7 @@ from scripts.brucite_reproduce import (
     reproduce,
     source,
 )
+from scripts.eosmat_io import render_material
 
 
 def staged_document():
@@ -347,7 +348,11 @@ def main():
             conditional_thermal_document(),
         ),
     ):
-        payload = json.dumps(document, indent=2, allow_nan=False) + "\n"
+        payload = (
+            render_material(document)
+            if path == ROOT / "peritheos/data/materials/brucite.eosmat"
+            else json.dumps(document, indent=2, allow_nan=False) + "\n"
+        )
         if args.check:
             if path.read_text() != payload:
                 raise SystemExit(f"Staged brucite card is outdated: {path}")

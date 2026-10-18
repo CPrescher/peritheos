@@ -209,7 +209,7 @@ fn morard_fes_deferred_source_round_trips_and_matches_independent_quadrature() {
     let volume = record.volume(100.0, 2000.0).unwrap();
     assert_close(record.pressure(volume, 2000.0).unwrap(), 100.0, 1e-8);
     assert_eq!(
-        material.document["eos_records"][0]["scientific_validation"]["status"],
+        material.document["eos_records"][0]["evidence"]["scientific_validation"]["status"],
         "deferred"
     );
     let restored = load_eosmat_str(&material.to_json().unwrap()).unwrap();
@@ -1148,7 +1148,7 @@ fn mosenfelder_ppv_reference_isentrope_record_is_executable() {
     assert_eq!(
         record
             .document
-            .pointer("/thermal/parameters/Cvmax")
+            .pointer("/thermal/parameters/Cvmax/value")
             .and_then(serde_json::Value::as_f64),
         Some(103.901_062_5)
     );
@@ -1492,7 +1492,7 @@ fn maltby_published_is_executable_without_claiming_reproduction() {
         .iter()
         .find(|r| r["identifier"] == record.identifier)
         .unwrap();
-    assert_eq!(raw["scientific_validation"]["status"], "not_reproduced");
+    assert_eq!(raw["evidence"]["scientific_validation"]["status"], "not_reproduced");
     assert_eq!(raw["default"], false);
 }
 

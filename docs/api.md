@@ -209,9 +209,13 @@ from peritheos import (
 
 `list_material_documents()` returns the identifiers of all bundled
 material cards, including source-only cards with no executable EOS.
-`get_material_document(identifier)` returns a defensive copy of one
-flat format-3 `.eosmat` document, including optional structure and its raw EOS
-records. `load_eosmat()` also accepts native Dioptas 0.10.0 format-2 files;
+`get_material_document(identifier)` returns a defensive copy in the historical
+v3 dictionary layout so existing integrations keep working. The bundled files
+themselves use native v4. Pass `format_version=4` to get native fields, or
+`format_version=None` to retain the stored version. The same options apply to
+`get_eos_record_document(identifier)`, including document-only records.
+`load_eosmat()` always retains the file's authored layout and also accepts native
+Dioptas 0.10.0 format-2 files;
 `save_eosmat()` validates and preserves optional fields and the input version.
 `load_eosmat()` also reads native v4. `convert_eosmat(document, version=4)`
 migrates a complete v3 document; `version=3` exports for older readers.

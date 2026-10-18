@@ -1,29 +1,22 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "srsio3_cubic_perovskite",
   "name": "Cubic SrSiO3 perovskite",
   "formula": "SrSiO3",
   "phase": "cubic perovskite, Pm-3m",
-  "aliases": ["cubic strontium metasilicate"],
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 1,
-  "cell_contents": "One SrSiO3 formula unit per primitive cubic Pm-3m cell.",
-  "symmetry": "CUBIC",
-  "space_group": "Pm-3m",
-  "space_group_number": 221,
-  "lattice": {"a": 3.6638, "b": 3.6638, "c": 3.6638, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
-  "atom_sites": [
-    {"element": "Sr", "wyckoff": "1a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
-    {"element": "Si", "wyckoff": "1b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1.0},
-    {"element": "O", "wyckoff": "3c", "x": 0.5, "y": 0.5, "z": 0.0, "occupancy": 1.0}
-  ],
-  "peaks": [],
-  "notes": "The experimental lattice parameter a0=3.6638 A is derived in the primary paper from the fitted V0. The ideal Pm-3m atom sites are fixed by symmetry.",
   "eos_records": [
     {
       "identifier": "srsio3_cubic_xiao_2013_experimental_bm2_1",
       "label": "Xiao et al. (2013), experimental cubic SrSiO3",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 49.18, "error": 0.05},
+        "K0": {"value": 211.0, "error": 3.0},
+        "K0_prime": {"value": 4.0, "error": null, "fixed": true}
+      },
       "record_kind": "published",
       "determination_method": "experimental",
       "equation_kind": "isothermal",
@@ -36,15 +29,7 @@
         "locator": "2096-2104",
         "doi": "10.2138/am.2013.4470"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 49.18, "K0": 211.0, "K0_prime": 4.0}
-      },
-      "parameter_errors": {"V0": 0.05, "K0": 3.0, "K0_prime": null},
       "parameter_error_confidence": null,
-      "fixed_parameters": ["K0_prime"],
       "parameter_covariance": null,
       "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 163.702},
       "experimental_pressure_range_gpa": [9.0, 37.8],
@@ -61,36 +46,45 @@
         },
         "audit_date": "2026-09-05"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.2138/am.2013.4470",
-          "doi": "10.2138/am.2013.4470",
-          "locations": ["Experimental methods", "Results", "Table 1", "Figure 5"],
-          "finding": "One experimental cubic BM2 parameterization is reported."
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.2138/am.2013.4470",
+            "doi": "10.2138/am.2013.4470",
+            "locations": ["Experimental methods", "Results", "Table 1", "Figure 5"],
+            "finding": "One experimental cubic BM2 parameterization is reported."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-05",
+            "dataset_identifiers": ["srsio3_cubic_xiao_2013_table1_pv"],
+            "source_locations": ["Table 1"],
+            "finding": "All 17 printed rows and the source-defined 16-row selection are retained."
+          }
         },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-05",
-          "dataset_identifiers": ["srsio3_cubic_xiao_2013_table1_pv"],
-          "source_locations": ["Table 1"],
-          "finding": "All 17 printed rows and the source-defined 16-row selection are retained."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental methods; Results; Table 1; Figure 5.",
+          "equation": "Results section prints the third-order Birch-Murnaghan pressure equation.",
+          "parameters": "Experimental fit: V0=49.18(5) A3, K0=211(3) GPa, K0'=4 fixed.",
+          "fit_selection": "Sixteen Table 1 rows from 9.0 to 37.8 GPa; the 6.2 GPa point was excluded because partial amorphization starts below 9 GPa."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental methods; Results; Table 1; Figure 5.",
-        "equation": "Results section prints the third-order Birch-Murnaghan pressure equation.",
-        "parameters": "Experimental fit: V0=49.18(5) A3, K0=211(3) GPa, K0'=4 fixed.",
-        "fit_selection": "Sixteen Table 1 rows from 9.0 to 37.8 GPa; the 6.2 GPa point was excluded because partial amorphization starts below 9 GPa."
       },
       "fit_datasets": ["srsio3_cubic_xiao_2013_table1_pv"]
     },
     {
       "identifier": "srsio3_cubic_xiao_2013_gga_bm2_2",
       "label": "Xiao et al. (2013), static-GGA cubic SrSiO3",
+      "model": "BM3",
+      "temperature_ref": 0.0,
+      "parameters": {
+        "V0": {"value": 49.97, "error": 0.01},
+        "K0": {"value": 207.7, "error": 0.4},
+        "K0_prime": {"value": 4.0, "error": null, "fixed": true}
+      },
       "record_kind": "published",
       "determination_method": "theoretical",
       "equation_kind": "isothermal",
@@ -103,15 +97,7 @@
         "locator": "2096-2104",
         "doi": "10.2138/am.2013.4470"
       },
-      "temperature_ref": 0.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 49.97, "K0": 207.7, "K0_prime": 4.0}
-      },
-      "parameter_errors": {"V0": 0.01, "K0": 0.4, "K0_prime": null},
       "parameter_error_confidence": null,
-      "fixed_parameters": ["K0_prime"],
       "parameter_covariance": null,
       "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 163.702},
       "experimental_pressure_range_gpa": [0.0, 40.0],
@@ -125,30 +111,45 @@
         "recalculation": {"status": "not_applicable", "notes": "Static first-principles EOS."},
         "audit_date": "2026-09-05"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.2138/am.2013.4470",
-          "doi": "10.2138/am.2013.4470",
-          "locations": ["Computational methods", "Results", "Figure 5"],
-          "finding": "A distinct static-GGA cubic EOS is published."
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.2138/am.2013.4470",
+            "doi": "10.2138/am.2013.4470",
+            "locations": ["Computational methods", "Results", "Figure 5"],
+            "finding": "A distinct static-GGA cubic EOS is published."
+          },
+          "primary_data_check": {
+            "status": "parameterization_and_plot_only",
+            "audit_date": "2026-09-05",
+            "finding": "Calculated states are plotted but not tabulated; no graphical pseudo-precision was introduced."
+          }
         },
-        "primary_data_check": {
-          "status": "parameterization_and_plot_only",
-          "audit_date": "2026-09-05",
-          "finding": "Calculated states are plotted but not tabulated; no graphical pseudo-precision was introduced."
+        "parameter_provenance": {
+          "determination_method": "Xiao (2013), static-GGA cubic calculation: computed compression fit, distinct from the cubic experimental fit.",
+          "equation": "Same printed Birch-Murnaghan convention used for calculated P-V results.",
+          "parameters": "Static-GGA cubic fit: V0=49.97(1) A3, K0=207.7(4) GPa, K0'=4 fixed."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Xiao (2013), static-GGA cubic calculation: computed compression fit, distinct from the cubic experimental fit.",
-        "equation": "Same printed Birch-Murnaghan convention used for calculated P-V results.",
-        "parameters": "Static-GGA cubic fit: V0=49.97(1) A3, K0=207.7(4) GPa, K0'=4 fixed."
       }
     }
   ],
+  "aliases": ["cubic strontium metasilicate"],
+  "cell_contents": "One SrSiO3 formula unit per primitive cubic Pm-3m cell.",
+  "symmetry": "CUBIC",
+  "space_group": "Pm-3m",
+  "space_group_number": 221,
+  "lattice": {"a": 3.6638, "b": 3.6638, "c": 3.6638, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Sr", "wyckoff": "1a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
+    {"element": "Si", "wyckoff": "1b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "3c", "x": 0.5, "y": 0.5, "z": 0.0, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "The experimental lattice parameter a0=3.6638 A is derived in the primary paper from the fitted V0. The ideal Pm-3m atom sites are fixed by symmetry.",
   "datasets": [
     {
       "identifier": "srsio3_cubic_xiao_2013_table1_pv",

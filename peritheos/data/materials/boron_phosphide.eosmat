@@ -1,25 +1,21 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "boron_phosphide",
   "name": "Boron phosphide",
   "formula": "BP",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
-  "symmetry": "CUBIC",
-  "space_group": "F-43m",
-  "space_group_number": 216,
-  "lattice": {"a": 4.533999, "b": null, "c": null, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
-  "atom_sites": [
-    {"element": "B", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
-    {"element": "P", "wyckoff": "4c", "x": 0.25, "y": 0.25, "z": 0.25, "occupancy": 1.0}
-  ],
-  "peaks": [],
-  "notes": "The zinc-blende cell is calculated from the fixed experimental V0. PhaseSmith calculates powder reflections and intensities from the ideal structure.",
   "eos_records": [
     {
       "identifier": "boron_phosphide_le_godec_2014_vinet_1",
       "label": "Le Godec et al. (2014), 300 K Vinet",
+      "model": "Vinet",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 93.2061, "error": null, "fixed": true},
+        "K0": {"value": 179.0, "error": 1.0},
+        "K0_prime": {"value": 3.3, "error": 0.1}
+      },
       "determination_method": "experimental",
       "reference": {
         "authors": ["Le Godec", "Mezouar", "Kurakevych", "Munsch", "Nwagwu", "Edgar", "Solozhenko"],
@@ -30,14 +26,6 @@
         "locator": "61-64",
         "doi": "10.3103/S1063457614010092"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "Vinet",
-        "parameters": {"V0": 93.2061, "K0": 179.0, "K0_prime": 3.3},
-        "model": "vinet"
-      },
-      "parameter_errors": {"V0": null, "K0": 1.0, "K0_prime": 0.1},
-      "fixed_parameters": ["V0"],
       "experimental_pressure_range_gpa": [0.0, 55.0],
       "experimental_temperature_range_k": [300.0, 300.0],
       "notes": "Single-crystal XRD in neon. The Vinet fit fixed the conventional zinc-blende V0 to 93.2061 A^3; no uncertainty was reported for that fixed value. No phase transition or amorphization was observed to 55 GPa.",
@@ -51,36 +39,48 @@
         "audit_date": "2026-09-03",
         "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://arxiv.org/abs/1407.1677",
-          "locations": ["Vinet formulation", "EOS comparison table", "Figure 2"],
-          "finding": "The author manuscript states that V0=93.2061 A^3 was fixed.",
-          "doi": "10.3103/s1063457614010092"
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://arxiv.org/abs/1407.1677",
+            "locations": ["Vinet formulation", "EOS comparison table", "Figure 2"],
+            "finding": "The author manuscript states that V0=93.2061 A^3 was fixed.",
+            "doi": "10.3103/s1063457614010092"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "boron_phosphide.json"
+          },
+          "primary_data_check": {
+            "status": "plot_only",
+            "audit_date": "2026-09-03",
+            "digitized_dataset_identifiers": ["boron_phosphide_le_godec_2014_figure2_digitized"],
+            "source_locations": ["Figure 2; EOS parameter table"],
+            "finding": "The single-crystal boron-phosphide pressure-volume observations are plotted in Figure 2 but not tabulated. The article's sole table contains fitted Vinet, Birch-Murnaghan, and Murnaghan parameters rather than the row-level measurements, and no supplemental dataset is cited."
+          }
         },
-        "migration_source": {
-          "project": "Dioptas",
-          "version": "0.10.0",
-          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-          "file": "boron_phosphide.json"
-        },
-        "primary_data_check": {
-          "status": "plot_only",
-          "audit_date": "2026-09-03",
-          "digitized_dataset_identifiers": ["boron_phosphide_le_godec_2014_figure2_digitized"],
-          "source_locations": ["Figure 2; EOS parameter table"],
-          "finding": "The single-crystal boron-phosphide pressure-volume observations are plotted in Figure 2 but not tabulated. The article's sole table contains fitted Vinet, Birch-Murnaghan, and Murnaghan parameters rather than the row-level measurements, and no supplemental dataset is cited."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Vinet formulation; EOS comparison table; Figure 2."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Vinet formulation; EOS comparison table; Figure 2."
       }
     }
   ],
+  "symmetry": "CUBIC",
+  "space_group": "F-43m",
+  "space_group_number": 216,
+  "lattice": {"a": 4.533999, "b": null, "c": null, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "B", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
+    {"element": "P", "wyckoff": "4c", "x": 0.25, "y": 0.25, "z": 0.25, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "The zinc-blende cell is calculated from the fixed experimental V0. PhaseSmith calculates powder reflections and intensities from the ideal structure.",
   "datasets": [
     {
       "identifier": "boron_phosphide_le_godec_2014_figure2_digitized",

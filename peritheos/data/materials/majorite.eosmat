@@ -1,14 +1,87 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "majorite",
   "name": "Majorite (MgSiO3 tetragonal garnet)",
   "formula": "MgSiO3",
   "phase": "tetragonal MgSiO3 garnet (majorite), I41/a",
-  "aliases": ["MgSiO3 majorite", "tetragonal MgSiO3 garnet"],
-  "family_id": "garnet",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 32,
+  "eos_records": [
+    {
+      "identifier": "majorite_yagi_1992_bm3_1",
+      "label": "Yagi et al. (1992), MgSiO3 majorite BM3",
+      "model": "BM3",
+      "temperature_ref": 298.0,
+      "parameters": {
+        "V0": {"value": 1513.1, "error": null, "fixed": true},
+        "K0": {"value": 161.2, "error": null},
+        "K0_prime": {"value": 4.0, "error": null, "fixed": true}
+      },
+      "determination_method": "experimental",
+      "reference": {
+        "authors": ["Yagi", "Uchiyama", "Akaogi", "Ito"],
+        "year": 1992,
+        "title": "Isothermal compression curve of MgSiO3 tetragonal garnet",
+        "source": "Phys. Earth Planet. Inter.",
+        "volume": "74",
+        "locator": "1-7",
+        "doi": "10.1016/0031-9201(92)90063-2"
+      },
+      "experimental_pressure_range_gpa": [0.0, 9.72],
+      "pressure_range_status": "reported_exactly",
+      "notes": "Room-temperature MgSiO3 tetragonal-garnet BM3 with the measured one-bar V0=1513.1 A^3 and K0'=4 assumed. The fit gives K0=161.2 GPa. The paper prints no fit error or covariance for V0 or K0, so the migrated +/-4 GPa value is removed rather than inferred from the separate composition-regression uncertainties. The diffraction structure in this file is an independent 1518.5 A^3 cell.",
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+      },
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/0031-9201(92)90063-2",
+            "locations": [
+              "page 4, Figure 3 and Birch-Murnaghan fit paragraph",
+              "page 4, Table 1 and V0 footnote",
+              "page 5, Table 2, this-study 1 bar cell"
+            ],
+            "finding": "The source prints K0=161.2 GPa for fixed K0'=4 and V0=1513.1 A^3, but no fit uncertainty for K0 or V0. The migrated +/-4 GPa was not a fit error from this EOS and is removed.",
+            "doi": "10.1016/0031-9201(92)90063-2"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "mgsio3.json; majorite.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["majorite_yagi_1992_table1_compression"],
+            "source_locations": ["Table 1, journal page 4"],
+            "finding": "All ten MgSiO3 majorite compression observations printed in Table 1."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 4, Figure 3 and Birch-Murnaghan fit paragraph; page 4, Table 1 and V0 footnote; page 5, Table 2, this-study 1 bar cell.",
+          "V0": "Yagi et al. (1992), Table 1 footnote and Table 2 this-study row",
+          "K0": "Yagi et al. (1992), page 4, Figure 3 fit paragraph",
+          "K0_prime": "Yagi et al. (1992), page 4: fixed at 4",
+          "equation": "Yagi et al. (1992), page 3, Birch-Murnaghan fit description"
+        }
+      }
+    }
+  ],
+  "aliases": ["MgSiO3 majorite", "tetragonal MgSiO3 garnet"],
+  "family_id": "garnet",
   "symmetry": "TETRAGONAL",
   "space_group": "I41/a",
   "space_group_number": 88,
@@ -136,79 +209,6 @@
     [0, 1, 1, 8.125, 2.0]
   ],
   "notes": "Tetragonal MgSiO3 majorite consolidated from the duplicate Dioptas/JCPDS majorite and mgsio3-maj entries. The richer mgsio3-maj diffraction list is retained. The full I41/a structure, including partial Mg-Si octahedral disorder, is from Angel et al., American Mineralogist 74, 509-512 (1989), COD 9010029. The published coordinates were shifted by +1/2 along x to restore the standard I41/a origin specified in the paper's Table 2 note. Their conventional cell contains eight Mg4Si4O12 garnet units, equivalent to 32 MgSiO3 units; this corrects the earlier Z=16 metadata. Source file(s): JCPDS/current user/jcpds/mgsio3-maj.jcpds, JCPDS/dac_user_jcpds/mgsio3-maj.jcpds, JCPDS/current user/jcpds/ver3/majorite.jcpds.",
-  "eos_records": [
-    {
-      "identifier": "majorite_yagi_1992_bm3_1",
-      "label": "Yagi et al. (1992), MgSiO3 majorite BM3",
-      "determination_method": "experimental",
-      "reference": {
-        "authors": ["Yagi", "Uchiyama", "Akaogi", "Ito"],
-        "year": 1992,
-        "title": "Isothermal compression curve of MgSiO3 tetragonal garnet",
-        "source": "Phys. Earth Planet. Inter.",
-        "volume": "74",
-        "locator": "1-7",
-        "doi": "10.1016/0031-9201(92)90063-2"
-      },
-      "temperature_ref": 298.0,
-      "eos": {
-        "type": "BM3",
-        "parameters": {"V0": 1513.1, "K0": 161.2, "K0_prime": 4.0},
-        "model": "birch_murnaghan_3"
-      },
-      "parameter_errors": {"V0": null, "K0": null, "K0_prime": null},
-      "fixed_parameters": ["V0", "K0_prime"],
-      "experimental_pressure_range_gpa": [0.0, 9.72],
-      "pressure_range_status": "reported_exactly",
-      "notes": "Room-temperature MgSiO3 tetragonal-garnet BM3 with the measured one-bar V0=1513.1 A^3 and K0'=4 assumed. The fit gives K0=161.2 GPa. The paper prints no fit error or covariance for V0 or K0, so the migrated +/-4 GPa value is removed rather than inferred from the separate composition-regression uncertainties. The diffraction structure in this file is an independent 1518.5 A^3 cell.",
-      "pressure_calibration": {
-        "status": "unresolved",
-        "methods": [],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
-        },
-        "audit_date": "2026-09-03",
-        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
-      },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.1016/0031-9201(92)90063-2",
-          "locations": [
-            "page 4, Figure 3 and Birch-Murnaghan fit paragraph",
-            "page 4, Table 1 and V0 footnote",
-            "page 5, Table 2, this-study 1 bar cell"
-          ],
-          "finding": "The source prints K0=161.2 GPa for fixed K0'=4 and V0=1513.1 A^3, but no fit uncertainty for K0 or V0. The migrated +/-4 GPa was not a fit error from this EOS and is removed.",
-          "doi": "10.1016/0031-9201(92)90063-2"
-        },
-        "migration_source": {
-          "project": "Dioptas",
-          "version": "0.10.0",
-          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-          "file": "mgsio3.json; majorite.json"
-        },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-03",
-          "dataset_identifiers": ["majorite_yagi_1992_table1_compression"],
-          "source_locations": ["Table 1, journal page 4"],
-          "finding": "All ten MgSiO3 majorite compression observations printed in Table 1."
-        }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 4, Figure 3 and Birch-Murnaghan fit paragraph; page 4, Table 1 and V0 footnote; page 5, Table 2, this-study 1 bar cell.",
-        "V0": "Yagi et al. (1992), Table 1 footnote and Table 2 this-study row",
-        "K0": "Yagi et al. (1992), page 4, Figure 3 fit paragraph",
-        "K0_prime": "Yagi et al. (1992), page 4: fixed at 4",
-        "equation": "Yagi et al. (1992), page 3, Birch-Murnaghan fit description"
-      }
-    }
-  ],
   "datasets": [
     {
       "identifier": "majorite_yagi_1992_table1_compression",

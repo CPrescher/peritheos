@@ -1,12 +1,12 @@
 import csv
 import hashlib
-import json
 from collections import defaultdict
 from pathlib import Path
 
 import pytest
 
-from peritheos import Material, load_eosmat
+from peritheos import Material
+from scripts.eosmat_io import read_material
 from scripts.reproduce_fu_2024_bridgmanite import reproduce_model
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -33,7 +33,7 @@ CHECKSUM = "c735c80ede486b5ab85b755f1ab450a56e20864b41f7adeb2e2798e818090fff"
 
 
 def load_source() -> tuple[dict, Material]:
-    document = load_eosmat(MATERIAL_PATH)
+    document = read_material(MATERIAL_PATH)
     return document, Material.from_eosmat(document)
 
 
@@ -131,7 +131,7 @@ def test_fu_records_load_execute_and_invert(
 
 
 def test_fu_primary_data_transcription_checksum_and_source_disagreements():
-    document = json.loads(MATERIAL_PATH.read_text(encoding="utf-8"))
+    document = read_material(MATERIAL_PATH)
     dataset = document["datasets"][0]
 
     assert dataset["identifier"] == DATASET_ID
@@ -191,7 +191,7 @@ def test_fu_independent_equation_and_diagnostic_refits(
 
 def test_fu_pressure_calibration_resolves_to_bundled_gold_record():
     document, _ = load_source()
-    gold = load_eosmat(MATERIAL_PATH.with_name("gold.eosmat"))
+    gold = read_material(MATERIAL_PATH.with_name("gold.eosmat"))
     gold_record_ids = {record["identifier"] for record in gold["eos_records"]}
     for source in document["eos_records"]:
         if source["reference"]["doi"].lower() != "10.2138/am-2023-8969":

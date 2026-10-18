@@ -27,6 +27,7 @@ from scripts.brucite_reproduce import (
     reference_volume as published_reference_volume,
 )
 from scripts.brucite_v0_audit import ambient_linear_alpha_fits
+from scripts.eosmat_io import read_material
 
 REPORT = ROOT / "docs/data/brucite-curved-expansion.json"
 PREFIX = "brucite_peritheos_fukui_2003_curved_expansion"
@@ -360,7 +361,7 @@ def write_comparison_plot(report):
     from matplotlib.ticker import MaxNLocator
 
     rows = observations("fukui_2003", "table4")
-    card = json.loads((ROOT / "peritheos/data/materials/brucite.eosmat").read_text())
+    card = read_material(ROOT / "peritheos/data/materials/brucite.eosmat")
     record = next(
         r
         for r in card["eos_records"]

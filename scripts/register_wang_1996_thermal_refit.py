@@ -7,11 +7,11 @@ an analyst choice; no reconstruction of the original source weights is claimed.
 import copy
 import csv
 import hashlib
-import json
 
 import numpy as np
 import scipy
 
+from scripts.eosmat_io import read_material, write_material
 from scripts.reproduce_wang_1996_casio3 import DATASET_ID as SOURCE_ID
 from scripts.reproduce_wang_1996_casio3 import ROOT, load_table, thermal_fit
 
@@ -95,7 +95,7 @@ def register():
         writer.writeheader()
         writer.writerows(selected)
     material_path = ROOT / "peritheos/data/materials/ca_perovskite.eosmat"
-    doc = json.loads(material_path.read_text(encoding="utf-8"))
+    doc = read_material(material_path)
     published = next(
         r
         for r in doc["eos_records"]
@@ -260,9 +260,7 @@ def register():
     doc["datasets"] = [d for d in doc["datasets"] if d["identifier"] != DATASET_ID] + [
         dataset
     ]
-    material_path.write_text(
-        json.dumps(doc, indent=1, ensure_ascii=False) + "\n", encoding="utf-8"
-    )
+    write_material(material_path, doc)
 
 
 if __name__ == "__main__":

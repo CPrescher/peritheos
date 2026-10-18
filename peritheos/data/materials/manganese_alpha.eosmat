@@ -1,27 +1,21 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "manganese_alpha",
   "name": "Manganese (alpha)",
   "formula": "Mn",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 58,
-  "symmetry": "CUBIC",
-  "space_group": "I-43m",
-  "space_group_number": 217,
-  "lattice": {"a": 8.9125, "b": null, "c": null, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
-  "atom_sites": [
-    {"element": "Mn", "wyckoff": "2a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
-    {"element": "Mn", "wyckoff": "8c", "x": 0.317, "y": 0.317, "z": 0.317, "occupancy": 1.0},
-    {"element": "Mn", "wyckoff": "24g", "x": 0.356, "y": 0.356, "z": 0.034, "occupancy": 1.0},
-    {"element": "Mn", "wyckoff": "24g", "x": 0.089, "y": 0.089, "z": 0.282, "occupancy": 1.0}
-  ],
-  "peaks": [],
-  "notes": "Complex alpha-Mn structure and fixed ambient cell from Gazzara et al., Acta Cryst. 22, 859-862 (1967).",
   "eos_records": [
     {
       "identifier": "manganese_alpha_magad_weiss_2021_bm3_1",
       "label": "Magad-Weiss et al. (2021), BM3",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 707.9435488281, "error": null, "fixed": true},
+        "K0": {"value": 204.0, "error": 3.0},
+        "K0_prime": {"value": 3.7, "error": 0.4}
+      },
       "determination_method": "experimental",
       "reference": {
         "authors": ["Magad-Weiss", "Adeleke", "Greenberg", "Prakapenka", "Yao", "Stavrou"],
@@ -32,14 +26,6 @@
         "locator": "014101",
         "doi": "10.1103/PhysRevB.103.014101"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "BM3",
-        "parameters": {"V0": 707.9435488281, "K0": 204.0, "K0_prime": 3.7},
-        "model": "birch_murnaghan_3"
-      },
-      "parameter_errors": {"V0": null, "K0": 3.0, "K0_prime": 0.4},
-      "fixed_parameters": ["V0"],
       "experimental_pressure_range_gpa": [14.0, 220.0],
       "experimental_temperature_range_k": [300.0, 300.0],
       "notes": "The high-pressure fit fixed V0 to the independent ambient structure value.",
@@ -53,35 +39,49 @@
         "audit_date": "2026-09-03",
         "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.1103/PhysRevB.103.014101",
-          "locations": ["Equation-of-state section", "EOS fit table"],
-          "doi": "10.1103/physrevb.103.014101"
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1103/PhysRevB.103.014101",
+            "locations": ["Equation-of-state section", "EOS fit table"],
+            "doi": "10.1103/physrevb.103.014101"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "manganese_alpha.json"
+          },
+          "primary_data_check": {
+            "status": "plot_only",
+            "audit_date": "2026-09-03",
+            "digitized_dataset_identifiers": ["manganese_alpha_magad_weiss_2021_figure2_digitized"],
+            "source_locations": ["Figure 2; EOS discussion on journal page 014101-2"],
+            "finding": "The new alpha-Mn pressure-volume observations and their BM3 fit are published graphically in Figure 2. The six-page article contains no numerical experimental-data table or supplemental-data pointer. Nineteen visible red markers, including the ambient reference point, were digitized; plotted uncertainty bars could not be separated reliably from the marker size."
+          }
         },
-        "migration_source": {
-          "project": "Dioptas",
-          "version": "0.10.0",
-          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-          "file": "manganese_alpha.json"
-        },
-        "primary_data_check": {
-          "status": "plot_only",
-          "audit_date": "2026-09-03",
-          "digitized_dataset_identifiers": ["manganese_alpha_magad_weiss_2021_figure2_digitized"],
-          "source_locations": ["Figure 2; EOS discussion on journal page 014101-2"],
-          "finding": "The new alpha-Mn pressure-volume observations and their BM3 fit are published graphically in Figure 2. The six-page article contains no numerical experimental-data table or supplemental-data pointer. Nineteen visible red markers, including the ambient reference point, were digitized; plotted uncertainty bars could not be separated reliably from the marker size."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation-of-state section; EOS fit table."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation-of-state section; EOS fit table."
       }
     }
   ],
+  "symmetry": "CUBIC",
+  "space_group": "I-43m",
+  "space_group_number": 217,
+  "lattice": {"a": 8.9125, "b": null, "c": null, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Mn", "wyckoff": "2a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
+    {"element": "Mn", "wyckoff": "8c", "x": 0.317, "y": 0.317, "z": 0.317, "occupancy": 1.0},
+    {"element": "Mn", "wyckoff": "24g", "x": 0.356, "y": 0.356, "z": 0.034, "occupancy": 1.0},
+    {"element": "Mn", "wyckoff": "24g", "x": 0.089, "y": 0.089, "z": 0.282, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Complex alpha-Mn structure and fixed ambient cell from Gazzara et al., Acta Cryst. 22, 859-862 (1967).",
   "datasets": [
     {
       "identifier": "manganese_alpha_magad_weiss_2021_figure2_digitized",

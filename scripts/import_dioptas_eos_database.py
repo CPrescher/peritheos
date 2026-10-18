@@ -11,6 +11,8 @@ import json
 import re
 from pathlib import Path
 
+from scripts.eosmat_io import write_material
+
 DIOPTAS_VERSION = "0.10.0"
 DIOPTAS_COMMIT = "5a8bfd81d10bfab3499039603380aae34576d60a"
 DIOPTAS_URL = "https://github.com/Dioptas/Dioptas"
@@ -164,10 +166,7 @@ def main() -> None:
         material_count += 1
         record_count += len(document["eos_records"])
         destination = args.destination / f"{source_path.stem}.eosmat"
-        destination.write_text(
-            json.dumps(document, indent=1, ensure_ascii=False, allow_nan=False) + "\n",
-            encoding="utf-8",
-        )
+        write_material(destination, document)
     if record_count != 147:
         raise ValueError(f"Expected 147 Dioptas EOS records, found {record_count}")
     if material_count != 116:

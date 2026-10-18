@@ -11,6 +11,7 @@ import json
 
 import scipy
 
+from scripts.eosmat_io import read_material, write_material
 from scripts.fit_argon_errandonea_combined import PREFERRED, REPORT, observations
 from scripts.reproduce_argon_errandonea_2006 import ROOT
 
@@ -34,7 +35,7 @@ def register():
         writer.writeheader()
         writer.writerows(rows)
     material_path = ROOT / "peritheos/data/materials/argon_fcc.eosmat"
-    doc = json.loads(material_path.read_text(encoding="utf-8"))
+    doc = read_material(material_path)
     published = next(
         r
         for r in doc["eos_records"]
@@ -181,7 +182,7 @@ def register():
     doc["datasets"] = [d for d in doc["datasets"] if d["identifier"] != DATASET_ID] + [
         dataset
     ]
-    material_path.write_text(json.dumps(doc, indent=1) + "\n", encoding="utf-8")
+    write_material(material_path, doc)
 
 
 if __name__ == "__main__":

@@ -1,26 +1,33 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "fe_fcc",
   "name": "Iron (fcc)",
   "formula": "Fe",
   "phase": "fcc",
-  "aliases": ["gamma iron", "austenite"],
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
-  "symmetry": "CUBIC",
-  "space_group": "Fm-3m",
-  "space_group_number": 225,
-  "lattice": {"a": 3.521, "b": 3.521, "c": 3.521, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
-  "atom_sites": [
-    {"element": "Fe", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0}
-  ],
-  "peaks": [],
-  "notes": "Diffraction reference is Nishihara et al. (2012), sample M620 at 17.59 GPa and 1273 K, a=3.521 A, not the extrapolated 295 K zero-pressure EOS cell. Pure fcc Fe is distinct from bcc and hcp Fe; the EOS reference does not imply ambient phase stability.",
   "eos_records": [
     {
       "identifier": "fe_fcc_campbell_2009_bm3_mgd",
       "label": "Campbell et al. (2009), fcc Fe, 295 K BM3-Debye",
+      "model": "BM3",
+      "temperature_ref": 295.0,
+      "parameters": {
+        "V0": {"value": 46.99989775728856, "error": null, "fixed": true},
+        "K0": {"value": 133.0, "error": 3},
+        "K0_prime": {"value": 5.0, "error": null, "fixed": true}
+      },
+      "thermal": {
+        "debye_temperature_law": "variable_exponent",
+        "parameters": {
+          "Tr": {"value": 295.0, "error": null, "fixed": true},
+          "theta0": {"value": 470.0, "error": null, "fixed": true},
+          "gamma0": {"value": 1.95, "error": 0.04},
+          "q": {"value": 1.6, "error": 0.6},
+          "n": {"value": 1.0, "error": null, "fixed": true}
+        },
+        "model": "MieGruneisenDebye"
+      },
       "determination_method": "experimental",
       "reference": {
         "authors": ["Campbell", "Danielson", "Righter", "Seagle", "Wang", "Prakapenka"],
@@ -31,23 +38,7 @@
         "locator": "556-564",
         "doi": "10.1016/j.epsl.2009.07.022"
       },
-      "temperature_ref": 295.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 46.99989775728856, "K0": 133.0, "K0_prime": 5.0}
-      },
-      "thermal": {
-        "type": "MieGruneisenDebye",
-        "model": "mie_gruneisen_debye",
-        "debye_temperature_law": "variable_exponent",
-        "parameters": {"Tr": 295.0, "theta0": 470.0, "gamma0": 1.95, "q": 1.6, "n": 1.0},
-        "parameter_errors": {"Tr": null, "theta0": null, "gamma0": 0.04, "q": 0.6, "n": null},
-        "fixed_parameters": ["Tr", "theta0", "n"]
-      },
-      "parameter_errors": {"V0": null, "K0": 3, "K0_prime": null},
       "parameter_error_confidence": null,
-      "fixed_parameters": ["V0", "K0_prime"],
       "experimental_pressure_range_gpa": [3.9954833425198, 27.0],
       "experimental_temperature_range_k": [873.0, 2160.0],
       "notes": "Equation (5) and Table 1: 295 K BM3 plus Mie-Gruneisen-Debye, gamma=gamma0*(V/V0)^q and theta=theta0*(V/V0)^(-gamma(V)). No explicit electronic or anharmonic pressure. Source molar V0 is converted to the Z=4 conventional cell using exact SI Avogadro constant. Italicized Table 1 values are held fixed, and nonitalic values with errors are fitted. The confidence convention and covariance of published errors are not specified. Temperature-corrected workbook values are used as printed; no second correction is applied. The published fit also includes Seagle et al. (2008). Its 81 V-T rows are linked, but exact row-wise pressures and Campbell recalibration are not published. Independent refits therefore report a current-study subset and a nominal-isobar sensitivity reconstruction. Only stable fcc-Fe rows enter this branch; hcp Fe is explicitly adopted from Dewaele (2006), not a new Campbell fit. ",
@@ -88,68 +79,70 @@
         },
         "notes": "MAP detector angle calibrated with NaCl a=5.6402 A (JCPDS 05-0628); DAC geometry with CeO2. MAP cooling cycles minimize deviatoric stress. The article writes DAC T_sample=295+0.97*(T_meas-295) and T_NaCl=(3*T_meas+295)/4. The workbook uses a 293 K baseline for some Ni-NiO DAC runs and 295 K for others; preserve its stored values. Equation (4) prints sigma_TNaCl=(T_meas-295)/2, while the hot DAC workbook rows use (T_meas-T_ambient)/4; preserve the workbook uncertainties. The workbook pressure-threshold footnote is approximate: honor the explicit NaCl phase column, including B2 rows below 26 GPa."
       },
-      "scientific_validation": {
-        "status": "deferred",
-        "audit_date": "2026-09-20",
-        "note": "Deferred from the executable catalog because substantial coefficient-refit discrepancies remain after the Seagle pressure reconstruction, protocol comparisons and thermal-correction diagnostics. Published equations and parameters are retained as source evidence, not accepted executable EOS. The exact combined pressure reduction and regression inputs remain unresolved; this does not establish that the publication is wrong. See docs/literature-reproductions/campbell-2009-mismatch.md.",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "composition",
-          "published_uncertainties",
-          "fixed_parameters",
-          "thermal_model",
-          "temperature_correction",
-          "pressure_calibration",
-          "primary_data",
-          "validity",
-          "literature_reproduction"
-        ],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.1016/j.epsl.2009.07.022",
-          "doi": "10.1016/j.epsl.2009.07.022",
-          "locations": [
-            "Sections 2.1-2.2 and 3",
-            "Equation (5), Table 1, page 560",
-            "Official mmc1.pdf Figure S1 and mmc2.xls Tables S2-S5"
+      "evidence": {
+        "scientific_validation": {
+          "status": "deferred",
+          "audit_date": "2026-09-20",
+          "note": "Deferred from the executable catalog because substantial coefficient-refit discrepancies remain after the Seagle pressure reconstruction, protocol comparisons and thermal-correction diagnostics. Published equations and parameters are retained as source evidence, not accepted executable EOS. The exact combined pressure reduction and regression inputs remain unresolved; this does not establish that the publication is wrong. See docs/literature-reproductions/campbell-2009-mismatch.md.",
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "composition",
+            "published_uncertainties",
+            "fixed_parameters",
+            "thermal_model",
+            "temperature_correction",
+            "pressure_calibration",
+            "primary_data",
+            "validity",
+            "literature_reproduction"
           ],
-          "finding": "Four source-owned experimental thermal fits; adopted hcp-Fe and numerical buffer integrations are excluded as new EOS. Source explicitly treats FeO as stoichiometric B1; the exact 295 K variable-exponent thermal law is represented.",
-          "source_pdf_sha256": "e48e23a348370b1613f4e9439bd39e5d49b94c01b1e6c3d3d9a797f092ebd9f0"
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/j.epsl.2009.07.022",
+            "doi": "10.1016/j.epsl.2009.07.022",
+            "locations": [
+              "Sections 2.1-2.2 and 3",
+              "Equation (5), Table 1, page 560",
+              "Official mmc1.pdf Figure S1 and mmc2.xls Tables S2-S5"
+            ],
+            "finding": "Four source-owned experimental thermal fits; adopted hcp-Fe and numerical buffer integrations are excluded as new EOS. Source explicitly treats FeO as stoichiometric B1; the exact 295 K variable-exponent thermal law is represented.",
+            "source_pdf_sha256": "e48e23a348370b1613f4e9439bd39e5d49b94c01b1e6c3d3d9a797f092ebd9f0"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-19",
+            "dataset_identifiers": ["feo_campbell_2009_table_s2_pvt", "feo_seagle_2008_supplement_volume_temperature"],
+            "finding": "Conditional reproduction, not an exact recovery of the unpublished regression protocol. Campbell specifies least squares but no residual variable, weights, covariance, or final row mask. The main diagnostic uses equal pressure-residual weights and simultaneous fitting of the three Table 1 free parameters. Fe/FeO main fits use current-study Table S2 only: Seagle contributes 81 recoverable V-T pairs but no individual pressures or NaCl observations. Separate sensitivities reconstruct 65 hcp-calibrated pressures using benchmark-checked Seagle (2006), compare its conflicting reference volumes, and optionally retain 16 unresolved rows as nominal-isobar estimates. A separate protocol audit adds 14 conditional fcc pressures from Funamori/Boehler/Basinski, leaving only two missing-iron-volume rows without individual pressures. The exact historical fcc reduction and combined regression remain unresolved. These are derived pressures, not original row-level pressure data. No refitted coefficients replace the source records. See literature-reproductions/campbell-2009-buffers.md."
+          },
+          "independent_reproduction": {
+            "script": "scripts/reproduce_campbell_2009_buffers.py",
+            "report": "docs/literature-reproductions/campbell-2009-buffers.md",
+            "results": "docs/data/campbell-2009-reproduction.json",
+            "benchmark": "Official Tables S4-S5 differentiated through Equation (6), with 0.02 cm3/mol paired-volume tolerance; independent Debye quadrature checks individual equations.",
+            "selection": "All Table S2 rows for FeO; only its 15 explicitly fcc rows for Fe. For Ni/NiO, retain all 92 heated/MAP Table S3 rows (T>295 K); exclude its nine 293-295 K quenched DAC rows from the main diagnostic. This exclusion follows the Section 2.2 stress warning but is an audit choice: the authors do not publish a regression row mask. All 101 rows are retained in the dataset and tested in a sensitivity refit."
+          },
+          "unresolved": [
+            "substantial combined-data coefficient-refit discrepancy",
+            "exact Seagle pressure reduction used by Campbell",
+            "author regression inputs, row selection and fitting procedure"
+          ]
         },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-19",
-          "dataset_identifiers": ["feo_campbell_2009_table_s2_pvt", "feo_seagle_2008_supplement_volume_temperature"],
-          "finding": "Conditional reproduction, not an exact recovery of the unpublished regression protocol. Campbell specifies least squares but no residual variable, weights, covariance, or final row mask. The main diagnostic uses equal pressure-residual weights and simultaneous fitting of the three Table 1 free parameters. Fe/FeO main fits use current-study Table S2 only: Seagle contributes 81 recoverable V-T pairs but no individual pressures or NaCl observations. Separate sensitivities reconstruct 65 hcp-calibrated pressures using benchmark-checked Seagle (2006), compare its conflicting reference volumes, and optionally retain 16 unresolved rows as nominal-isobar estimates. A separate protocol audit adds 14 conditional fcc pressures from Funamori/Boehler/Basinski, leaving only two missing-iron-volume rows without individual pressures. The exact historical fcc reduction and combined regression remain unresolved. These are derived pressures, not original row-level pressure data. No refitted coefficients replace the source records. See literature-reproductions/campbell-2009-buffers.md."
-        },
-        "independent_reproduction": {
-          "script": "scripts/reproduce_campbell_2009_buffers.py",
-          "report": "docs/literature-reproductions/campbell-2009-buffers.md",
-          "results": "docs/data/campbell-2009-reproduction.json",
-          "benchmark": "Official Tables S4-S5 differentiated through Equation (6), with 0.02 cm3/mol paired-volume tolerance; independent Debye quadrature checks individual equations.",
-          "selection": "All Table S2 rows for FeO; only its 15 explicitly fcc rows for Fe. For Ni/NiO, retain all 92 heated/MAP Table S3 rows (T>295 K); exclude its nine 293-295 K quenched DAC rows from the main diagnostic. This exclusion follows the Section 2.2 stress warning but is an audit choice: the authors do not publish a regression row mask. All 101 rows are retained in the dataset and tested in a sensitivity refit."
-        },
-        "unresolved": [
-          "substantial combined-data coefficient-refit discrepancy",
-          "exact Seagle pressure reduction used by Campbell",
-          "author regression inputs, row selection and fitting procedure"
-        ]
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Sections 2.1-2.2 and 3; Equation (5), Table 1, page 560; Official mmc1.pdf Figure S1 and mmc2.xls Tables S2-S5.",
-        "equation": "Section 4.1 Equation (5), page 560, and its immediately following gamma(V) and theta(V) definitions. BM3 reference; FeO has K0_prime fixed to 4 (BM2-equivalent reference).",
-        "V0": "Table 1: 7.076 cm3/mol, fixed from JCPDS, footnote a; source does not identify the card number. Conversion Vcell=Vmolar*Z*1e24/NA, Z=4. No source V0 error.",
-        "K0": "Table 1, fitted; uncertainty as printed, confidence unspecified.",
-        "K0_prime": "Table 1 fixed, footnote c: Funamori et al. (1996).",
-        "thermal": {
-          "Tr": "Equation (5): 295 K reference subtraction.",
-          "theta0": "Table 1, fixed from Chase (1998), footnote e.",
-          "gamma0": "Table 1, fitted; uncertainty as printed.",
-          "q": "Table 1, fitted; uncertainty as printed.",
-          "n": "Physical atoms per source molar formula: one for metal, two for monoxide; fixed Debye normalization."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Sections 2.1-2.2 and 3; Equation (5), Table 1, page 560; Official mmc1.pdf Figure S1 and mmc2.xls Tables S2-S5.",
+          "equation": "Section 4.1 Equation (5), page 560, and its immediately following gamma(V) and theta(V) definitions. BM3 reference; FeO has K0_prime fixed to 4 (BM2-equivalent reference).",
+          "V0": "Table 1: 7.076 cm3/mol, fixed from JCPDS, footnote a; source does not identify the card number. Conversion Vcell=Vmolar*Z*1e24/NA, Z=4. No source V0 error.",
+          "K0": "Table 1, fitted; uncertainty as printed, confidence unspecified.",
+          "K0_prime": "Table 1 fixed, footnote c: Funamori et al. (1996).",
+          "thermal": {
+            "Tr": "Equation (5): 295 K reference subtraction.",
+            "theta0": "Table 1, fixed from Chase (1998), footnote e.",
+            "gamma0": "Table 1, fitted; uncertainty as printed.",
+            "q": "Table 1, fitted; uncertainty as printed.",
+            "n": "Physical atoms per source molar formula: one for metal, two for monoxide; fixed Debye normalization."
+          }
         }
       },
       "range_provenance": {
@@ -159,6 +152,16 @@
       "fit_datasets": ["feo_campbell_2009_table_s2_pvt", "feo_seagle_2008_supplement_volume_temperature"]
     }
   ],
+  "aliases": ["gamma iron", "austenite"],
+  "symmetry": "CUBIC",
+  "space_group": "Fm-3m",
+  "space_group_number": 225,
+  "lattice": {"a": 3.521, "b": 3.521, "c": 3.521, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Fe", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Diffraction reference is Nishihara et al. (2012), sample M620 at 17.59 GPa and 1273 K, a=3.521 A, not the extrapolated 295 K zero-pressure EOS cell. Pure fcc Fe is distinct from bcc and hcp Fe; the EOS reference does not imply ambient phase stability.",
   "datasets": [
     {
       "identifier": "feo_campbell_2009_table_s2_pvt",

@@ -16,6 +16,8 @@ import json
 import re
 from pathlib import Path
 
+from scripts.eosmat_io import read_material, write_material
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "peritheos/data/datasets"
 MATERIALS = ROOT / "peritheos/data/materials"
@@ -89,6 +91,9 @@ def ref(source):
 
 
 def dump(path, value):
+    if path.suffix == ".eosmat":
+        write_material(path, value)
+        return
     path.write_text(
         json.dumps(value, indent=1, ensure_ascii=False, allow_nan=False) + "\n"
     )
@@ -498,10 +503,10 @@ SCALES = {
 
 
 def build():
-    iron = json.loads((MATERIALS / "iron.eosmat").read_text())
+    iron = read_material(MATERIALS / "iron.eosmat")
     alloy_path = MATERIALS / "fe09ni01_hcp.eosmat"
     if alloy_path.exists():
-        alloy = json.loads(alloy_path.read_text())
+        alloy = read_material(alloy_path)
     else:
         alloy = {
             k: copy.deepcopy(v)
@@ -841,7 +846,7 @@ def build():
                 d["used_by_eos_records"].append("iron_dewaele_2006_bm3")
         dump(MATERIALS / (mat + ".eosmat"), doc)
     nacl_path = MATERIALS / "nacl_b2.eosmat"
-    nacl = json.loads(nacl_path.read_text())
+    nacl = read_material(nacl_path)
     r = record(
         "nacl_b2_sakai_2014_yokoo_pt_bm3",
         "sakai2014",

@@ -4,8 +4,9 @@ from pathlib import Path
 
 import pytest
 
-from peritheos import Material, load_eosmat
+from peritheos import Material
 from peritheos.eosmat import validate_pressure_calibration_references
+from scripts.eosmat_io import read_material
 from scripts.reproduce_ismailova_2016_fe_bridgmanite import (
     diagnostic_refit,
     published_curve_diagnostic,
@@ -29,7 +30,7 @@ CHECKSUM = "2fa03e31214c2bbddabcaa67aaff4921ab04d04431c124856fb228f7dad77591"
 
 
 def _load():
-    document = load_eosmat(MATERIAL_PATH)
+    document = read_material(MATERIAL_PATH)
     with DATA_PATH.open(newline="", encoding="utf-8") as stream:
         rows = list(csv.DictReader(stream))
     return document, document["eos_records"][0], document["datasets"][0], rows

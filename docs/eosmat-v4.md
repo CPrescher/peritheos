@@ -177,8 +177,11 @@ conversion nor successful parsing sets a parity status or recommends an EOS.
 
 ## Migration and compatibility
 
-Python and Rust read v2/v3/v4, including native local-sharing files with updated readers. New standalone files default to v4; existing
-catalog files remain readable without rewriting their scientific data. Older
+Python and Rust read v2/v3/v4, including native local-sharing files with updated
+readers. Standalone files and all 232 bundled library files use native v4. The
+library keeps units visible in the header and evidence inline; migration changes
+the organization, not scientific values, observations, source evidence or usage
+restrictions. Older
 applications whose pinned reader supports only v3 need an explicit v3 export:
 
 ```bash

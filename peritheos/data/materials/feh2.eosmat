@@ -1,37 +1,20 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "feh2",
   "name": "FeH2",
   "formula": "FeH2",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
-  "symmetry": "TETRAGONAL",
-  "space_group": "I4/mmm",
-  "space_group_number": 139,
-  "lattice": {"a": 2.714, "b": 2.714, "c": 9.2142, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
-  "atom_sites": [
-    {"element": "Fe", "wyckoff": "4e", "x": 0.0, "y": 0.0, "z": 0.853, "occupancy": 1.0},
-    {"element": "H", "wyckoff": "4c", "x": 0.0, "y": 0.5, "z": 0.0, "occupancy": 1.0},
-    {"element": "H", "wyckoff": "4d", "x": 0.0, "y": 0.5, "z": 0.25, "occupancy": 1.0}
-  ],
-  "peaks": [
-    [2, 1, 1, 1.2033, 10.0],
-    [2, 0, 0, 1.357, 10.0],
-    [1, 1, 4, 1.4745, 50.0],
-    [0, 0, 6, 1.5357, 10.0],
-    [1, 1, 2, 1.7715, 10.0],
-    [1, 1, 0, 1.9191, 50.0],
-    [1, 0, 3, 2.0338, 100.0],
-    [0, 0, 4, 2.3036, 50.0],
-    [1, 0, 1, 2.6034, 100.0],
-    [0, 0, 2, 4.6071, 50.0]
-  ],
-  "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/FeH2_tetragonal.jcpds. The I4/mmm structure is from Pepin et al., Phys. Rev. Lett. 113, 265504 (2014), doi:10.1103/PhysRevLett.113.265504. Fe was experimentally refined at 67 GPa; the two H sites were obtained by DFT because hydrogen positions could not be determined from the X-ray data. Fractional coordinates are paired here with the legacy reference lattice to enable full-range reflection generation; the legacy peaks are retained.",
   "eos_records": [
     {
       "identifier": "feh2_p_pin_2014_vinet_1",
       "label": "Pepin et al. (2014), Vinet",
+      "model": "Vinet",
+      "parameters": {
+        "V0": {"value": 67.8895, "error": 0.7174},
+        "K0": {"value": 127.2, "error": 8.1},
+        "K0_prime": {"value": 5.0, "error": null, "fixed": true}
+      },
       "determination_method": "experimental",
       "reference": {
         "authors": ["Pépin", "Dewaele", "Geneste", "Loubeyre", "Mezouar"],
@@ -42,13 +25,6 @@
         "locator": "265504",
         "doi": "10.1103/PhysRevLett.113.265504"
       },
-      "eos": {
-        "type": "Vinet",
-        "parameters": {"V0": 67.8895, "K0": 127.2, "K0_prime": 5.0},
-        "model": "vinet"
-      },
-      "parameter_errors": {"V0": 0.7174, "K0": 8.1, "K0_prime": null},
-      "fixed_parameters": ["K0_prime"],
       "experimental_pressure_range_gpa": [23.0, 87.0],
       "notes": "Experimental Vinet fit: molar V0 = 10.221(108) cm^3/mol and K0 = 127.2(81) GPa, with K0' fixed at 5. V0 and its uncertainty were converted to the Z=4 tetragonal cell.",
       "pressure_calibration": {
@@ -72,36 +48,60 @@
         },
         "audit_date": "2026-09-03"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.113.265504/fulltext",
-          "locations": ["Vinet discussion", "Figure 3", "Table I, experimental FeH2 and FeH3 rows"],
-          "finding": "Molar volumes were converted to the represented conventional cells.",
-          "doi": "10.1103/physrevlett.113.265504"
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.113.265504/fulltext",
+            "locations": ["Vinet discussion", "Figure 3", "Table I, experimental FeH2 and FeH3 rows"],
+            "finding": "Molar volumes were converted to the represented conventional cells.",
+            "doi": "10.1103/physrevlett.113.265504"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "feh2.json"
+          },
+          "primary_data_check": {
+            "status": "plot_only",
+            "audit_date": "2026-09-03",
+            "digitized_dataset_identifiers": ["feh2_pepin_2014_figure3_digitized"],
+            "source_locations": ["Figure 3; Table I"],
+            "finding": "The experimental FeH2 and FeH3 compression observations are plotted in Figure 3 but not tabulated. Table I contains only the fitted Vinet parameters and theoretical comparison values."
+          }
         },
-        "migration_source": {
-          "project": "Dioptas",
-          "version": "0.10.0",
-          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-          "file": "feh2.json"
-        },
-        "primary_data_check": {
-          "status": "plot_only",
-          "audit_date": "2026-09-03",
-          "digitized_dataset_identifiers": ["feh2_pepin_2014_figure3_digitized"],
-          "source_locations": ["Figure 3; Table I"],
-          "finding": "The experimental FeH2 and FeH3 compression observations are plotted in Figure 3 but not tabulated. Table I contains only the fitted Vinet parameters and theoretical comparison values."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Vinet discussion; Figure 3; Table I, experimental FeH2 and FeH3 rows."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Vinet discussion; Figure 3; Table I, experimental FeH2 and FeH3 rows."
       }
     }
   ],
+  "symmetry": "TETRAGONAL",
+  "space_group": "I4/mmm",
+  "space_group_number": 139,
+  "lattice": {"a": 2.714, "b": 2.714, "c": 9.2142, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Fe", "wyckoff": "4e", "x": 0.0, "y": 0.0, "z": 0.853, "occupancy": 1.0},
+    {"element": "H", "wyckoff": "4c", "x": 0.0, "y": 0.5, "z": 0.0, "occupancy": 1.0},
+    {"element": "H", "wyckoff": "4d", "x": 0.0, "y": 0.5, "z": 0.25, "occupancy": 1.0}
+  ],
+  "peaks": [
+    [2, 1, 1, 1.2033, 10.0],
+    [2, 0, 0, 1.357, 10.0],
+    [1, 1, 4, 1.4745, 50.0],
+    [0, 0, 6, 1.5357, 10.0],
+    [1, 1, 2, 1.7715, 10.0],
+    [1, 1, 0, 1.9191, 50.0],
+    [1, 0, 3, 2.0338, 100.0],
+    [0, 0, 4, 2.3036, 50.0],
+    [1, 0, 1, 2.6034, 100.0],
+    [0, 0, 2, 4.6071, 50.0]
+  ],
+  "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/FeH2_tetragonal.jcpds. The I4/mmm structure is from Pepin et al., Phys. Rev. Lett. 113, 265504 (2014), doi:10.1103/PhysRevLett.113.265504. Fe was experimentally refined at 67 GPa; the two H sites were obtained by DFT because hydrogen positions could not be determined from the X-ray data. Fractional coordinates are paired here with the legacy reference lattice to enable full-range reflection generation; the legacy peaks are retained.",
   "datasets": [
     {
       "identifier": "feh2_pepin_2014_figure3_digitized",

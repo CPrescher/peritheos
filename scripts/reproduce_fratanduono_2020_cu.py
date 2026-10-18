@@ -20,6 +20,7 @@ from scipy.interpolate import PchipInterpolator
 from scipy.optimize import least_squares
 
 from peritheos.eos.rt import Vinet3
+from scripts.eosmat_io import read_material
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "docs/data"
@@ -51,7 +52,7 @@ def extract_supplement(pdf: Path) -> None:
     import pdfplumber
 
     digest = hashlib.sha256(pdf.read_bytes()).hexdigest()
-    record = json.loads((ROOT / "peritheos/data/materials/copper.eosmat").read_text())
+    record = read_material(ROOT / "peritheos/data/materials/copper.eosmat")
     source = next(
         r
         for r in record["eos_records"]

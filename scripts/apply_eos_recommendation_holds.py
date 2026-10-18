@@ -2,8 +2,9 @@
 
 from __future__ import annotations
 
-import json
 from pathlib import Path
+
+from scripts.eosmat_io import read_material, write_material
 
 ROOT = Path(__file__).resolve().parents[1]
 MATERIALS = ROOT / "peritheos/data/materials"
@@ -22,7 +23,7 @@ WADSLEYITE = "wadsleyite_katsura_2009_bm3_1"
 def apply() -> None:
     found = set()
     for path in sorted(MATERIALS.glob("*.eosmat")):
-        document = json.loads(path.read_text())
+        document = read_material(path)
         changed = False
         for record in document["eos_records"]:
             identifier = record["identifier"]
@@ -69,7 +70,7 @@ def apply() -> None:
             # recommendation decision; no coefficient or observation is edited.
             changed = True
         if changed:
-            path.write_text(json.dumps(document, indent=1, ensure_ascii=False) + "\n")
+            write_material(path, document)
     expected = set(NOT_RECOMMENDED) | {WADSLEYITE}
     if found != expected:
         raise ValueError(f"Missing reviewed records: {expected - found}")

@@ -1,25 +1,22 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "mg075fe025sio3_bridgmanite",
   "name": "25 mol.% FeSiO3 bridgmanite model",
   "formula": "Mg0.75Fe0.25SiO3",
   "phase": "Pbnm perovskite model crystal",
-  "aliases": ["(Mg0.75Fe0.25)SiO3 perovskite", "Fe25 bridgmanite"],
-  "family_id": "bridgmanite",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
-  "cell_contents": "Four Mg0.75Fe0.25SiO3 formula units per conventional Pbnm cell.",
-  "symmetry": "ORTHORHOMBIC",
-  "space_group": "Pbnm",
-  "space_group_number": 62,
-  "atom_sites": [],
-  "peaks": [],
-  "notes": "Ordered static model crystal at x=0.25, not a claim of a natural homogeneous Fe distribution.",
   "eos_records": [
     {
       "identifier": "mg075fe025sio3_bridgmanite_kiefer_2002_gga_bm3",
       "label": "Kiefer et al. (2002), Fe25 GGA BM3",
+      "model": "BM3",
+      "temperature_ref": 0.0,
+      "parameters": {
+        "V0": {"value": 160.5, "error": null},
+        "K0": {"value": 270.0, "error": null},
+        "K0_prime": {"value": 3.96, "error": null}
+      },
       "record_kind": "published",
       "determination_method": "theoretical",
       "equation_kind": "isothermal",
@@ -32,15 +29,7 @@
         "locator": "1539",
         "doi": "10.1029/2002GL014683"
       },
-      "temperature_ref": 0.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 160.5, "K0": 270.0, "K0_prime": 3.96}
-      },
-      "parameter_errors": {"V0": null, "K0": null, "K0_prime": null},
       "parameter_error_confidence": null,
-      "fixed_parameters": [],
       "parameter_covariance": null,
       "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 108.272},
       "experimental_pressure_range_gpa": [0.0, 136.0],
@@ -59,34 +48,43 @@
         "recalculation": {"status": "not_applicable", "notes": "Static first-principles EOS."},
         "audit_date": "2026-09-05"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://discovery.ucl.ac.uk/id/eprint/112632/",
-          "doi": "10.1029/2002gl014683",
-          "locations": ["Methods", "Table 1 and following paragraph"],
-          "finding": "The x=0.25 EOS triplet is explicitly reported and distinct from the Table 1 aggregate elastic modulus and derivative."
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://discovery.ucl.ac.uk/id/eprint/112632/",
+            "doi": "10.1029/2002gl014683",
+            "locations": ["Methods", "Table 1 and following paragraph"],
+            "finding": "The x=0.25 EOS triplet is explicitly reported and distinct from the Table 1 aggregate elastic modulus and derivative."
+          },
+          "primary_data_check": {
+            "status": "theoretical_parameterization_only",
+            "audit_date": "2026-09-05",
+            "finding": "Complete coefficients are printed, but the underlying energy-volume grid is not tabulated."
+          }
         },
-        "primary_data_check": {
-          "status": "theoretical_parameterization_only",
-          "audit_date": "2026-09-05",
-          "finding": "Complete coefficients are printed, but the underlying energy-volume grid is not tabulated."
+        "parameter_provenance": {
+          "determination_method": "Calculated states/theory determine this EOS; source: Methods; Table 1 and following paragraph.",
+          "equation": "Text following Table 1 identifies values derived from the equation of state; the static finite-strain energy form maps to BM3.",
+          "parameters": "Text following Table 1: V0=160.5 A^3, K0=270.0 GPa, K0'=3.96 for x=0.25.",
+          "method": "Variable-cell plane-wave pseudopotential GGA calculation with one Fe substituted for Mg in the 20-atom cell."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Calculated states/theory determine this EOS; source: Methods; Table 1 and following paragraph.",
-        "equation": "Text following Table 1 identifies values derived from the equation of state; the static finite-strain energy form maps to BM3.",
-        "parameters": "Text following Table 1: V0=160.5 A^3, K0=270.0 GPa, K0'=3.96 for x=0.25.",
-        "method": "Variable-cell plane-wave pseudopotential GGA calculation with one Fe substituted for Mg in the 20-atom cell."
       },
       "sample_composition": "Static ordered (Mg0.75Fe0.25)SiO3 Pbnm perovskite calculation (x=0.25)."
     },
     {
       "identifier": "mg075fe025sio3_bridgmanite_wu_2013_gga_bm3",
       "label": "Wu et al. (2013), Fe25 high-spin GGA BM3",
+      "model": "BM3",
+      "temperature_ref": 0.0,
+      "parameters": {
+        "V0": {"value": 164.977, "error": null},
+        "K0": {"value": 248.0, "error": null},
+        "K0_prime": {"value": 4.03, "error": null}
+      },
       "record_kind": "published",
       "determination_method": "theoretical",
       "equation_kind": "isothermal",
@@ -99,15 +97,7 @@
         "locator": "049101",
         "doi": "10.7498/aps.62.049101"
       },
-      "temperature_ref": 0.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 164.977, "K0": 248.0, "K0_prime": 4.03}
-      },
-      "parameter_errors": {"V0": null, "K0": null, "K0_prime": null},
       "parameter_error_confidence": null,
-      "fixed_parameters": [],
       "parameter_covariance": null,
       "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 108.272},
       "experimental_pressure_range_gpa": [0.0, 140.0],
@@ -128,33 +118,44 @@
         "recalculation": {"status": "not_applicable", "notes": "First-principles static EOS."},
         "audit_date": "2026-09-05"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://wulixb.iphy.ac.cn/pdf-content/10.7498/aps.62.049101.pdf",
-          "doi": "10.7498/aps.62.049101",
-          "locations": ["Section 2", "Equation (10)", "Section 3 and Table 1"],
-          "finding": "Complete source-generated Fe25 high-spin BM3 composition branch."
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://wulixb.iphy.ac.cn/pdf-content/10.7498/aps.62.049101.pdf",
+            "doi": "10.7498/aps.62.049101",
+            "locations": ["Section 2", "Equation (10)", "Section 3 and Table 1"],
+            "finding": "Complete source-generated Fe25 high-spin BM3 composition branch."
+          },
+          "primary_data_check": {
+            "status": "theoretical_parameterization_only",
+            "audit_date": "2026-09-05",
+            "source_pdf_sha256": "765f2c28d5c76c557d61048877b49624e3cd8e3a15440ae5a61900e5163104fd",
+            "finding": "Pressure-dependent calculations are plotted, but the numerical P-V grid is not tabulated."
+          }
         },
-        "primary_data_check": {
-          "status": "theoretical_parameterization_only",
-          "audit_date": "2026-09-05",
-          "source_pdf_sha256": "765f2c28d5c76c557d61048877b49624e3cd8e3a15440ae5a61900e5163104fd",
-          "finding": "Pressure-dependent calculations are plotted, but the numerical P-V grid is not tabulated."
+        "parameter_provenance": {
+          "determination_method": "Calculated states/theory determine this EOS; source: Section 2; Equation (10); Section 3 and Table 1.",
+          "equation": "Equation (10), third-order Birch-Murnaghan pressure-volume EOS.",
+          "parameters": "Table 1 Fe25 calculation column: V0=164.977 A^3, B0=248 GPa, B0'=4.03.",
+          "method": "CASTEP ultrasoft-pseudopotential PBE-GGA static calculation with one high-spin Fe2+ replacing Mg in the 20-atom cell."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Calculated states/theory determine this EOS; source: Section 2; Equation (10); Section 3 and Table 1.",
-        "equation": "Equation (10), third-order Birch-Murnaghan pressure-volume EOS.",
-        "parameters": "Table 1 Fe25 calculation column: V0=164.977 A^3, B0=248 GPa, B0'=4.03.",
-        "method": "CASTEP ultrasoft-pseudopotential PBE-GGA static calculation with one high-spin Fe2+ replacing Mg in the 20-atom cell."
       },
       "sample_composition": "Static ordered high-spin (Mg0.75Fe0.25)SiO3 Pbnm model cell."
     }
   ],
+  "aliases": ["(Mg0.75Fe0.25)SiO3 perovskite", "Fe25 bridgmanite"],
+  "family_id": "bridgmanite",
+  "cell_contents": "Four Mg0.75Fe0.25SiO3 formula units per conventional Pbnm cell.",
+  "symmetry": "ORTHORHOMBIC",
+  "space_group": "Pbnm",
+  "space_group_number": 62,
+  "atom_sites": [],
+  "peaks": [],
+  "notes": "Ordered static model crystal at x=0.25, not a claim of a natural homogeneous Fe distribution.",
   "datasets": [],
   "source": {
     "structure_reference": {

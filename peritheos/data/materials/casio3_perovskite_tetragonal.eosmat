@@ -1,22 +1,22 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "casio3_perovskite_tetragonal",
   "name": "Tetragonal CaSiO3 perovskite",
   "formula": "CaSiO3",
   "phase": "room-temperature tetragonal CaSiO3 perovskite",
-  "aliases": ["tetragonal davemaoite", "tetragonal Ca-perovskite"],
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 1,
-  "cell_contents": "The EOS volume follows the source's one-formula-unit P4/mmm pseudocell indexing. The diffraction data do not uniquely distinguish P4/mmm from an octahedrally rotated tetragonal supercell.",
-  "symmetry": "TETRAGONAL",
-  "atom_sites": [],
-  "peaks": [],
-  "notes": "Shim et al. (2002) resolve tetragonal splitting above 20 GPa but explicitly leave the exact space group open. No unique atomic model, lattice metric, or ambient structure is inferred.",
   "eos_records": [
     {
       "identifier": "casio3_perovskite_tetragonal_shim_2002_bm3_1",
       "label": "Shim et al. (2002), tetragonal CaSiO3 BM3",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 45.58, "error": null, "fixed": true},
+        "K0": {"value": 255.0, "error": 5.0},
+        "K0_prime": {"value": 4.0, "error": null, "fixed": true}
+      },
       "record_kind": "published",
       "determination_method": "experimental",
       "equation_kind": "isothermal",
@@ -29,15 +29,7 @@
         "locator": "2166",
         "doi": "10.1029/2002GL016148"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 45.58, "K0": 255.0, "K0_prime": 4.0}
-      },
-      "parameter_errors": {"V0": null, "K0": 5.0, "K0_prime": null},
       "parameter_error_confidence": 0.6826894921370859,
-      "fixed_parameters": ["V0", "K0_prime"],
       "parameter_covariance": null,
       "volume_basis": {"kind": "formula_units", "formula_units": 1.0, "molar_mass_g_mol": 116.161},
       "experimental_pressure_range_gpa": [19.7, 45.8],
@@ -77,66 +69,74 @@
         },
         "audit_date": "2026-09-06"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Validated against the author-hosted version of record; LitCurate was used only as a discovery lead.",
-        "audit_date": "2026-09-06",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "published_uncertainties",
-          "validity",
-          "pressure_calibration"
-        ],
-        "primary_source_check": {
-          "access_url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/shim_et_al-2002-grl.pdf",
-          "doi": "10.1029/2002gl016148",
-          "locations": ["abstract", "paragraphs 4-10", "Figure 2"],
-          "finding": "Six diffraction images at 19.7-45.8 GPa support a source-owned BM3 fit with adopted V0 and K0' and fitted K0=255(5) GPa. Rows 408-409 in LitCurate are incomplete literature comparisons, not additional fits by this paper."
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Validated against the author-hosted version of record; LitCurate was used only as a discovery lead.",
+          "audit_date": "2026-09-06",
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "published_uncertainties",
+            "validity",
+            "pressure_calibration"
+          ],
+          "primary_source_check": {
+            "access_url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/shim_et_al-2002-grl.pdf",
+            "doi": "10.1029/2002gl016148",
+            "locations": ["abstract", "paragraphs 4-10", "Figure 2"],
+            "finding": "Six diffraction images at 19.7-45.8 GPa support a source-owned BM3 fit with adopted V0 and K0' and fitted K0=255(5) GPa. Rows 408-409 in LitCurate are incomplete literature comparisons, not additional fits by this paper."
+          },
+          "primary_data_check": {
+            "status": "plot_digitized",
+            "audit_date": "2026-10-08",
+            "dataset_identifiers": ["casio3_perovskite_tetragonal_shim_2002_figure2a_digitized"],
+            "observation_count": 6,
+            "finding": "Six unique Figure 2a marker centers and plotted 1-sigma error-bar halfwidths recovered from the author-hosted vector PDF: five tetragonal refinements and the open cubic refinement at 19.7 GPa. Volumes derive from plotted V/V0 using the source-adopted V0=45.58 A3. These remain approximate plot-derived observations, not an original numerical table or original regression weights. The pressure observations use paragraph 7 printed values; digitized horizontal readings remain separate."
+          },
+          "figure_digitization_check": {
+            "status": "qualified_numerical_check",
+            "fixed_parameters": {"V0": 45.58, "K0_prime": 4},
+            "pressure_weighted_K0_gpa": 254.7407,
+            "errors_in_both_axes_effective_weight_K0_gpa": 255.0081,
+            "unweighted_pressure_residual_K0_gpa": 262.2289,
+            "finding": "Diagnostic fits using the plotted errors agree with published K0=255(5) GPa. Weight choice changes the answer; no original-fit reproduction or original parameter-error reproduction is asserted. Published parameters and errors remain unchanged.",
+            "pressure_coordinates": "Six pressures printed in paragraph 7; volumes and source error bars digitized from Figure 2a."
+          }
         },
-        "primary_data_check": {
-          "status": "plot_digitized",
-          "audit_date": "2026-10-08",
-          "dataset_identifiers": ["casio3_perovskite_tetragonal_shim_2002_figure2a_digitized"],
-          "observation_count": 6,
-          "finding": "Six unique Figure 2a marker centers and plotted 1-sigma error-bar halfwidths recovered from the author-hosted vector PDF: five tetragonal refinements and the open cubic refinement at 19.7 GPa. Volumes derive from plotted V/V0 using the source-adopted V0=45.58 A3. These remain approximate plot-derived observations, not an original numerical table or original regression weights. The pressure observations use paragraph 7 printed values; digitized horizontal readings remain separate."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: abstract; paragraphs 4-10; Figure 2.",
+          "equation": "Paragraph 10: Birch-Murnaghan compression fit.",
+          "V0": "Paragraph 10: 45.58 A^3 adopted from Wang et al. (1996).",
+          "K0": "Abstract and paragraph 10: K0T=255+/-5 GPa.",
+          "K0_prime": "Abstract and paragraph 10: K0T'=4 fixed.",
+          "uncertainties": "The paper states that error bars are one standard deviation; no parameter covariance or regression weights are published."
         },
-        "figure_digitization_check": {
-          "status": "qualified_numerical_check",
-          "fixed_parameters": {"V0": 45.58, "K0_prime": 4},
-          "pressure_weighted_K0_gpa": 254.7407,
-          "errors_in_both_axes_effective_weight_K0_gpa": 255.0081,
-          "unweighted_pressure_residual_K0_gpa": 262.2289,
-          "finding": "Diagnostic fits using the plotted errors agree with published K0=255(5) GPa. Weight choice changes the answer; no original-fit reproduction or original parameter-error reproduction is asserted. Published parameters and errors remain unchanged.",
-          "pressure_coordinates": "Six pressures printed in paragraph 7; volumes and source error bars digitized from Figure 2a."
-        }
+        "source_lineage": [
+          {
+            "role": "tetragonal diffraction observations and EOS fit",
+            "citation": "Shim, Jeanloz, and Duffy (2002), paragraphs 7-10",
+            "doi": "10.1029/2002GL016148"
+          },
+          {
+            "role": "adopted zero-pressure volume",
+            "citation": "Wang, Weidner, and Guyot (1996), JGR 101, 661-672",
+            "doi": "10.1029/95JB03254"
+          }
+        ]
       },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: abstract; paragraphs 4-10; Figure 2.",
-        "equation": "Paragraph 10: Birch-Murnaghan compression fit.",
-        "V0": "Paragraph 10: 45.58 A^3 adopted from Wang et al. (1996).",
-        "K0": "Abstract and paragraph 10: K0T=255+/-5 GPa.",
-        "K0_prime": "Abstract and paragraph 10: K0T'=4 fixed.",
-        "uncertainties": "The paper states that error bars are one standard deviation; no parameter covariance or regression weights are published."
-      },
-      "source_lineage": [
-        {
-          "role": "tetragonal diffraction observations and EOS fit",
-          "citation": "Shim, Jeanloz, and Duffy (2002), paragraphs 7-10",
-          "doi": "10.1029/2002GL016148"
-        },
-        {
-          "role": "adopted zero-pressure volume",
-          "citation": "Wang, Weidner, and Guyot (1996), JGR 101, 661-672",
-          "doi": "10.1029/95JB03254"
-        }
-      ],
       "supporting_datasets": ["casio3_perovskite_tetragonal_shim_2002_figure2a_digitized"]
     }
   ],
+  "aliases": ["tetragonal davemaoite", "tetragonal Ca-perovskite"],
+  "cell_contents": "The EOS volume follows the source's one-formula-unit P4/mmm pseudocell indexing. The diffraction data do not uniquely distinguish P4/mmm from an octahedrally rotated tetragonal supercell.",
+  "symmetry": "TETRAGONAL",
+  "atom_sites": [],
+  "peaks": [],
+  "notes": "Shim et al. (2002) resolve tetragonal splitting above 20 GPa but explicitly leave the exact space group open. No unique atomic model, lattice metric, or ambient structure is inferred.",
   "datasets": [
     {
       "identifier": "casio3_perovskite_tetragonal_shim_2002_figure2a_digitized",

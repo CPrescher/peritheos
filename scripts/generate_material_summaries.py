@@ -15,7 +15,7 @@ from typing import Any
 from urllib.parse import quote
 
 from peritheos import list_materials
-from peritheos.eosmat import load_eosmat
+from peritheos.eosmat import convert_eosmat, load_eosmat
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "docs/material-summaries"
@@ -158,6 +158,8 @@ def coefficient(record: Mapping[str, Any], name: str) -> str:
 def render_material(
     document: Mapping[str, Any], *, executable: set[str], defaults: Mapping[str, str]
 ) -> str:
+    if document.get("format_version") == 4:
+        document = convert_eosmat(document, version=3)
     identifier = document["identifier"]
     records = document["eos_records"]
     source = SOURCE_URL + "materials/" + quote(identifier) + ".eosmat"

@@ -1,28 +1,29 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "tho2_cotunnite",
   "name": "Thorium dioxide (cotunnite type)",
   "formula": "ThO2",
   "phase": "cotunnite",
-  "aliases": ["thorium_dioxide_cotunnite"],
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
-  "symmetry": "ORTHORHOMBIC",
-  "space_group": "Pnma",
-  "space_group_number": 62,
-  "lattice": {"a": 5.898, "b": 3.6, "c": 6.862, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
-  "atom_sites": [
-    {"element": "Th", "wyckoff": "4c", "x": 0.261, "y": 0.25, "z": 0.111, "occupancy": 1.0},
-    {"element": "O", "wyckoff": "4c", "x": 0.163, "y": 0.25, "z": 0.449, "occupancy": 1.0},
-    {"element": "O", "wyckoff": "4c", "x": 0.12, "y": 0.75, "z": 0.27, "occupancy": 1.0}
-  ],
-  "peaks": [],
-  "notes": "End-member ThO2 (Strem 99.99%); conventional cell contains Th4O8. Distinct phase, not a multiphase aggregate. Structure and EOS provenance are separate.",
   "eos_records": [
     {
       "identifier": "tho2_cotunnite_chidester_2018_bm3_linear_thermal",
       "label": "Chidester et al. (2018), cotunnite-type ThO2 experimental thermal EOS",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 164.39336765021082, "error": 0.3985293761217232},
+        "K0": {"value": 190, "error": 3},
+        "K0_prime": {"value": 4.0, "error": null, "fixed": true}
+      },
+      "thermal": {
+        "parameters": {
+          "Tr": {"value": 300.0, "error": null, "fixed": true},
+          "alpha_KT": {"value": 0.0037, "error": 0.0004}
+        },
+        "model": "LinearThermalPressure"
+      },
       "record_kind": "published",
       "determination_method": "experimental",
       "equation_kind": "thermal",
@@ -34,21 +35,6 @@
         "source": "American Mineralogist 103, 749–756",
         "doi": "10.2138/am-2018-6212"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 164.39336765021082, "K0": 190, "K0_prime": 4.0}
-      },
-      "thermal": {
-        "type": "LinearThermalPressure",
-        "model": "linear_thermal_pressure",
-        "parameters": {"Tr": 300.0, "alpha_KT": 0.0037},
-        "parameter_errors": {"Tr": null, "alpha_KT": 0.0004},
-        "fixed_parameters": ["Tr"]
-      },
-      "parameter_errors": {"V0": 0.3985293761217232, "K0": 3, "K0_prime": null},
-      "fixed_parameters": ["K0_prime"],
       "experimental_pressure_range_gpa": [16.6, 62],
       "pressure_range_status": "reported_exactly",
       "experimental_temperature_range_k": [1018, 2553],
@@ -86,41 +72,55 @@
         },
         "audit_date": "2026-09-19"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "audit_date": "2026-09-19",
-        "note": "Primary article and official CSVs audited; independent source-equation evaluation and diagnostic refits in scripts/reproduce_chidester_2018_tho2.py.",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.2138/am-2018-6212",
-          "doi": "10.2138/am-2018-6212",
-          "locations": ["Table 1, p.750", "Methods, p.751", "Equations 1–3, p.754", "Figure 7, p.754", "Supplemental Table 2"],
-          "finding": "Both source-owned fits are experimental; older experimental and calculated literature rows in Table 1 are comparisons, not new fits. BM3 with K0_prime fixed 4 plus constant linear thermal pressure."
-        },
-        "primary_data_check": {
-          "status": "bundled",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
           "audit_date": "2026-09-19",
-          "dataset_identifiers": ["tho2_cotunnite_chidester_2018_table_s2"],
-          "source_locations": ["Supplemental Table 2"],
-          "finding": "All 59 high-temperature observations. No reliable room-temperature lattice parameters or volumes: the 300 K reference curve and V0 are extrapolations, not measured ambient cotunnite properties. All coordinate and lattice errors retained; confidence convention, fit weights, covariance and raw calibrant readings unreported.",
-          "reproduction_resource": "docs/data/chidester-2018-tho2-reproduction.json"
-        }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table 1, p.750; Methods, p.751; Equations 1–3, p.754; Figure 7, p.754; Supplemental Table 2.",
-        "reference_isotherm": {
-          "V0": "Table 1 p.750 and EOS text p.754: 24.75(0.06) cm^3/mol of ThO2; multiply by 4e24/N_A for conventional Z=4 cell. Fitted extrapolated value.",
-          "K0": "Table 1 p.750: fitted; GPa.",
-          "K0_prime": "Table 1 (bold) and p.754: fixed at 4."
+          "note": "Primary article and official CSVs audited; independent source-equation evaluation and diagnostic refits in scripts/reproduce_chidester_2018_tho2.py.",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.2138/am-2018-6212",
+            "doi": "10.2138/am-2018-6212",
+            "locations": ["Table 1, p.750", "Methods, p.751", "Equations 1–3, p.754", "Figure 7, p.754", "Supplemental Table 2"],
+            "finding": "Both source-owned fits are experimental; older experimental and calculated literature rows in Table 1 are comparisons, not new fits. BM3 with K0_prime fixed 4 plus constant linear thermal pressure."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-19",
+            "dataset_identifiers": ["tho2_cotunnite_chidester_2018_table_s2"],
+            "source_locations": ["Supplemental Table 2"],
+            "finding": "All 59 high-temperature observations. No reliable room-temperature lattice parameters or volumes: the 300 K reference curve and V0 are extrapolations, not measured ambient cotunnite properties. All coordinate and lattice errors retained; confidence convention, fit weights, covariance and raw calibrant readings unreported.",
+            "reproduction_resource": "docs/data/chidester-2018-tho2-reproduction.json"
+          }
         },
-        "thermal_correction": {
-          "Tr": "Equations 1–3 p.754: fixed 300 K.",
-          "alpha_KT": "Table 1 and Equation 3 p.754: fitted constant product alpha*K_T in GPa/K, not constant alpha and not Debye MGD."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table 1, p.750; Methods, p.751; Equations 1–3, p.754; Figure 7, p.754; Supplemental Table 2.",
+          "reference_isotherm": {
+            "V0": "Table 1 p.750 and EOS text p.754: 24.75(0.06) cm^3/mol of ThO2; multiply by 4e24/N_A for conventional Z=4 cell. Fitted extrapolated value.",
+            "K0": "Table 1 p.750: fitted; GPa.",
+            "K0_prime": "Table 1 (bold) and p.754: fixed at 4."
+          },
+          "thermal_correction": {
+            "Tr": "Equations 1–3 p.754: fixed 300 K.",
+            "alpha_KT": "Table 1 and Equation 3 p.754: fitted constant product alpha*K_T in GPa/K, not constant alpha and not Debye MGD."
+          }
         }
       },
       "fit_datasets": ["tho2_cotunnite_chidester_2018_table_s2"]
     }
   ],
+  "aliases": ["thorium_dioxide_cotunnite"],
+  "symmetry": "ORTHORHOMBIC",
+  "space_group": "Pnma",
+  "space_group_number": 62,
+  "lattice": {"a": 5.898, "b": 3.6, "c": 6.862, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Th", "wyckoff": "4c", "x": 0.261, "y": 0.25, "z": 0.111, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "4c", "x": 0.163, "y": 0.25, "z": 0.449, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "4c", "x": 0.12, "y": 0.75, "z": 0.27, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "End-member ThO2 (Strem 99.99%); conventional cell contains Th4O8. Distinct phase, not a multiphase aggregate. Structure and EOS provenance are separate.",
   "datasets": [
     {
       "identifier": "tho2_cotunnite_chidester_2018_table_s2",

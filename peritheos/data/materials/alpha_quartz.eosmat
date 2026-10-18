@@ -1,25 +1,21 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "alpha_quartz",
   "name": "Alpha quartz",
   "formula": "SiO2",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 3,
-  "symmetry": "TRIGONAL",
-  "space_group": "P3221",
-  "space_group_number": 154,
-  "lattice": {"a": 4.913, "b": 4.913, "c": 5.40482, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
-  "atom_sites": [
-    {"element": "Si", "wyckoff": "3a", "x": 0.4697, "y": 0.0, "z": 0.0, "occupancy": 1.0},
-    {"element": "O", "wyckoff": "6c", "x": 0.4133, "y": 0.2672, "z": 0.1188, "occupancy": 1.0}
-  ],
-  "peaks": [],
-  "notes": "Ambient cell and compression are from Angel et al., Journal of Applied Crystallography 30, 461-466 (1997), doi:10.1107/S0021889897000861. Fractional coordinates are the 298 K refinement of Kihara, European Journal of Mineralogy 2, 63-77 (1990), doi:10.1127/ejm/2/1/0063, COD 9005017. Phase-line intensities were calculated from the cited structure using independent-atom X-ray form factors.",
   "eos_records": [
     {
       "identifier": "alpha_quartz_angel_1997_bm3_1",
       "label": "Angel et al. (1997), single-crystal BM3",
+      "model": "BM3",
+      "temperature_ref": 298.0,
+      "parameters": {
+        "V0": {"value": 112.981, "error": 0.002},
+        "K0": {"value": 37.12, "error": 0.09},
+        "K0_prime": {"value": 5.99, "error": 0.04}
+      },
       "determination_method": "experimental",
       "reference": {
         "authors": ["Angel", "Allan", "Miletich", "Finger"],
@@ -30,14 +26,6 @@
         "locator": "461-466",
         "doi": "10.1107/S0021889897000861"
       },
-      "temperature_ref": 298.0,
-      "eos": {
-        "type": "BM3",
-        "parameters": {"V0": 112.981, "K0": 37.12, "K0_prime": 5.99},
-        "model": "birch_murnaghan_3"
-      },
-      "parameter_errors": {"V0": 0.002, "K0": 0.09, "K0_prime": 0.04},
-      "fixed_parameters": [],
       "experimental_pressure_range_gpa": [0.0, 8.9],
       "experimental_temperature_range_k": [298.0, 298.0],
       "notes": "Third-order Birch-Murnaghan fit to 22 single-crystal measurements from ambient pressure to 8.9 GPa at room temperature. The range describes the fitted data, not the alpha-quartz stability field.",
@@ -51,37 +39,46 @@
         "audit_date": "2026-09-03",
         "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.1107/S0021889897000861",
-          "locations": ["Primary abstract", "third-order Birch-Murnaghan fit"],
-          "doi": "10.1107/s0021889897000861"
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1107/S0021889897000861",
+            "locations": ["Primary abstract", "third-order Birch-Murnaghan fit"],
+            "doi": "10.1107/s0021889897000861"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "alpha_quartz.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["alpha_quartz_angel_1997_table1_compression"],
+            "source_locations": ["Table 1, journal page 463"],
+            "finding": "All 23 alpha-quartz unit-cell observations printed in Table 1, including the simultaneously measured fluorite volumes used to determine pressure."
+          }
         },
-        "migration_source": {
-          "project": "Dioptas",
-          "version": "0.10.0",
-          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-          "file": "alpha_quartz.json"
-        },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-03",
-          "dataset_identifiers": ["alpha_quartz_angel_1997_table1_compression"],
-          "source_locations": ["Table 1, journal page 463"],
-          "finding": "All 23 alpha-quartz unit-cell observations printed in Table 1, including the simultaneously measured fluorite volumes used to determine pressure."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Primary abstract; third-order Birch-Murnaghan fit."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Primary abstract; third-order Birch-Murnaghan fit."
       }
     },
     {
       "identifier": "alpha_quartz_driver_2010_qmc_300k_vinet",
       "label": "Driver et al. (2010), QMC 300 K Vinet",
+      "model": "Vinet",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 112.91675014, "error": 0.88910827},
+        "K0": {"value": 32.0, "error": 6.0},
+        "K0_prime": {"value": 7.0, "error": 1.0}
+      },
       "record_kind": "published",
       "determination_method": "theoretical",
       "equation_kind": "isothermal",
@@ -94,14 +91,6 @@
         "locator": "9519-9524",
         "doi": "10.1073/pnas.0912130107"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "Vinet",
-        "model": "vinet",
-        "parameters": {"V0": 112.91675014, "K0": 32.0, "K0_prime": 7.0}
-      },
-      "parameter_errors": {"V0": 0.88910827, "K0": 6.0, "K0_prime": 1.0},
-      "fixed_parameters": [],
       "volume_basis": {"kind": "formula_units", "formula_units": 3.0, "molar_mass_g_mol": 60.083},
       "experimental_pressure_range_gpa": [0.0, 40.0],
       "pressure_range_status": "theoretical",
@@ -119,41 +108,53 @@
         "recalculation": {"status": "not_applicable", "notes": "Quantum Monte Carlo thermal EOS."},
         "audit_date": "2026-09-05"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Full Vinet coefficient and uncertainty transcription with exact unit-cell conversion.",
-        "audit_date": "2026-09-05",
-        "verified_fields": [
-          "canonical_doi",
-          "composition",
-          "phase",
-          "equation",
-          "parameters",
-          "uncertainties",
-          "volume_basis",
-          "reference_state",
-          "theoretical_method"
-        ],
-        "primary_source_check": {
-          "access_url": "https://arxiv.org/pdf/1001.2066",
-          "doi": "10.1073/pnas.0912130107",
-          "locations": ["Equations of States section", "Figure 1a", "Table 1"],
-          "finding": "The source reports a distinct QMC 300 K Vinet for quartz in addition to the two high-pressure silica rows found by LitCurate."
-        },
-        "primary_data_check": {
-          "status": "parameterization_and_plot_only",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Full Vinet coefficient and uncertainty transcription with exact unit-cell conversion.",
           "audit_date": "2026-09-05",
-          "finding": "The source describes approximately six volumes spanning +/-10% and plots the statistical envelope, but does not tabulate the individual QMC energies or pressures."
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "phase",
+            "equation",
+            "parameters",
+            "uncertainties",
+            "volume_basis",
+            "reference_state",
+            "theoretical_method"
+          ],
+          "primary_source_check": {
+            "access_url": "https://arxiv.org/pdf/1001.2066",
+            "doi": "10.1073/pnas.0912130107",
+            "locations": ["Equations of States section", "Figure 1a", "Table 1"],
+            "finding": "The source reports a distinct QMC 300 K Vinet for quartz in addition to the two high-pressure silica rows found by LitCurate."
+          },
+          "primary_data_check": {
+            "status": "parameterization_and_plot_only",
+            "audit_date": "2026-09-05",
+            "finding": "The source describes approximately six volumes spanning +/-10% and plots the statistical envelope, but does not tabulate the individual QMC energies or pressures."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Calculated states/theory determine this EOS; source: Equations of States section; Figure 1a; Table 1.",
+          "equation": "Equations of States section: Vinet fits to thermal Helmholtz-free-energy isotherms.",
+          "parameters": "Table 1, quartz QMC column.",
+          "volume_conversion": "254(2) bohr3 per SiO2 multiplied by (0.529177210903 A/bohr)^3 and Z=3."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Calculated states/theory determine this EOS; source: Equations of States section; Figure 1a; Table 1.",
-        "equation": "Equations of States section: Vinet fits to thermal Helmholtz-free-energy isotherms.",
-        "parameters": "Table 1, quartz QMC column.",
-        "volume_conversion": "254(2) bohr3 per SiO2 multiplied by (0.529177210903 A/bohr)^3 and Z=3."
       }
     }
   ],
+  "symmetry": "TRIGONAL",
+  "space_group": "P3221",
+  "space_group_number": 154,
+  "lattice": {"a": 4.913, "b": 4.913, "c": 5.40482, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
+  "atom_sites": [
+    {"element": "Si", "wyckoff": "3a", "x": 0.4697, "y": 0.0, "z": 0.0, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "6c", "x": 0.4133, "y": 0.2672, "z": 0.1188, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Ambient cell and compression are from Angel et al., Journal of Applied Crystallography 30, 461-466 (1997), doi:10.1107/S0021889897000861. Fractional coordinates are the 298 K refinement of Kihara, European Journal of Mineralogy 2, 63-77 (1990), doi:10.1127/ejm/2/1/0063, COD 9005017. Phase-line intensities were calculated from the cited structure using independent-atom X-ray form factors.",
   "datasets": [
     {
       "identifier": "alpha_quartz_angel_1997_table1_compression",

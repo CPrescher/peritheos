@@ -8,6 +8,7 @@ import math
 from pathlib import Path
 
 from peritheos import Material
+from scripts.eosmat_io import read_material
 
 ROOT = Path(__file__).parents[1]
 MATERIALS = ROOT / "peritheos/data/materials"
@@ -26,7 +27,7 @@ def _sun_2019_thermal_pressure(volume_cm3_mol: float, temperature_k: float) -> f
 
 
 def _record(material_file: str, identifier: str):
-    document = json.loads((MATERIALS / material_file).read_text(encoding="utf-8"))
+    document = read_material(MATERIALS / material_file)
     material = Material.from_eosmat(document, record_identifiers=[identifier])
     return material.get_eos_record(identifier)
 

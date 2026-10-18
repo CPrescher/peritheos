@@ -1,12 +1,85 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "iceviii",
   "name": "Ice VIII (D2O)",
   "formula": "D2O",
-  "aliases": ["Heavy ice VIII", "Deuterated ice VIII"],
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 8,
+  "eos_records": [
+    {
+      "identifier": "iceviii_besson_1994_bm3_1",
+      "label": "Besson et al. (1994), D2O ice VIII, 300 K BM3",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 165.39, "error": null},
+        "K0": {"value": 20.4, "error": null},
+        "K0_prime": {"value": 4.7, "error": null}
+      },
+      "determination_method": "experimental",
+      "reference": {
+        "authors": ["Besson", "Pruzan", "Klotz", "Hamel", "Silvi", "Nelmes", "Loveday", "Wilson", "Hull"],
+        "year": 1994,
+        "title": "Variation of interatomic distances in ice VIII to 10 GPa",
+        "source": "Phys. Rev. B",
+        "volume": "49",
+        "locator": "12540-12550",
+        "doi": "10.1103/PhysRevB.49.12540"
+      },
+      "experimental_pressure_range_gpa": [0.0, 10.0],
+      "notes": "Besson et al. give the 300 K D2O ice-VIII molar V0=12.45 cm^3/mol, converted here to the Z=8 tetragonal cell. Their BM3 fit gives K0=20.4 GPa and K0'=4.7 for 0-10 GPa. They state that no pressure/volume error can be quoted because the result depends on the adopted 300 K EOS, and that it must not be used above 10 GPa.",
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+      },
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.49.12540/fulltext",
+            "locations": ["Equation (1), page 12543", "Table I, 300 K row", "page 12544, stated 0-10 GPa limit"],
+            "finding": "The EOS and crystallographic data are for D2O ice VIII, not ordinary H2O; the material metadata was corrected accordingly. The authors state that no pressure/volume error can be quoted because it depends on the adopted EOS.",
+            "doi": "10.1103/physrevb.49.12540"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "iceviii.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["ice_viii_besson_1994_table2_structure"],
+            "source_locations": ["Table II, journal page 12545"],
+            "finding": "All eight D2O ice-VIII structural refinements printed in Table II."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1), page 12543; Table I, 300 K row; page 12544, stated 0-10 GPa limit."
+        },
+        "audit_corrections": [
+          {
+            "path": "material.formula",
+            "source_value": "H2O",
+            "value": "D2O",
+            "reason": "The primary neutron-diffraction EOS is explicitly for deuterated ice VIII.",
+            "primary_reference": {"doi": "10.1103/physrevb.49.12540", "location": "title, abstract, section II.B, and Table I"}
+          }
+        ]
+      }
+    }
+  ],
+  "aliases": ["Heavy ice VIII", "Deuterated ice VIII"],
   "symmetry": "TETRAGONAL",
   "space_group": "I41/amd",
   "space_group_number": 141,
@@ -51,79 +124,6 @@
     [1, 0, 1, 3.6556, 2.2]
   ],
   "notes": "Deuterated tetragonal ice VIII. The isotope identity is part of the EOS provenance: Besson et al. (1994) measured D2O, not H2O. The legacy powder lines are retained for interchange because a publication-verified ordered atomic-site model has not yet been curated.",
-  "eos_records": [
-    {
-      "identifier": "iceviii_besson_1994_bm3_1",
-      "label": "Besson et al. (1994), D2O ice VIII, 300 K BM3",
-      "determination_method": "experimental",
-      "reference": {
-        "authors": ["Besson", "Pruzan", "Klotz", "Hamel", "Silvi", "Nelmes", "Loveday", "Wilson", "Hull"],
-        "year": 1994,
-        "title": "Variation of interatomic distances in ice VIII to 10 GPa",
-        "source": "Phys. Rev. B",
-        "volume": "49",
-        "locator": "12540-12550",
-        "doi": "10.1103/PhysRevB.49.12540"
-      },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "BM3",
-        "parameters": {"V0": 165.39, "K0": 20.4, "K0_prime": 4.7},
-        "model": "birch_murnaghan_3"
-      },
-      "parameter_errors": {"V0": null, "K0": null, "K0_prime": null},
-      "fixed_parameters": [],
-      "experimental_pressure_range_gpa": [0.0, 10.0],
-      "notes": "Besson et al. give the 300 K D2O ice-VIII molar V0=12.45 cm^3/mol, converted here to the Z=8 tetragonal cell. Their BM3 fit gives K0=20.4 GPa and K0'=4.7 for 0-10 GPa. They state that no pressure/volume error can be quoted because the result depends on the adopted 300 K EOS, and that it must not be used above 10 GPa.",
-      "pressure_calibration": {
-        "status": "unresolved",
-        "methods": [],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
-        },
-        "audit_date": "2026-09-03",
-        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
-      },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.49.12540/fulltext",
-          "locations": ["Equation (1), page 12543", "Table I, 300 K row", "page 12544, stated 0-10 GPa limit"],
-          "finding": "The EOS and crystallographic data are for D2O ice VIII, not ordinary H2O; the material metadata was corrected accordingly. The authors state that no pressure/volume error can be quoted because it depends on the adopted EOS.",
-          "doi": "10.1103/physrevb.49.12540"
-        },
-        "migration_source": {
-          "project": "Dioptas",
-          "version": "0.10.0",
-          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-          "file": "iceviii.json"
-        },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-03",
-          "dataset_identifiers": ["ice_viii_besson_1994_table2_structure"],
-          "source_locations": ["Table II, journal page 12545"],
-          "finding": "All eight D2O ice-VIII structural refinements printed in Table II."
-        }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1), page 12543; Table I, 300 K row; page 12544, stated 0-10 GPa limit."
-      },
-      "audit_corrections": [
-        {
-          "path": "material.formula",
-          "source_value": "H2O",
-          "value": "D2O",
-          "reason": "The primary neutron-diffraction EOS is explicitly for deuterated ice VIII.",
-          "primary_reference": {"doi": "10.1103/physrevb.49.12540", "location": "title, abstract, section II.B, and Table I"}
-        }
-      ]
-    }
-  ],
   "datasets": [
     {
       "identifier": "ice_viii_besson_1994_table2_structure",

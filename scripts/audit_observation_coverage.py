@@ -23,6 +23,7 @@ from peritheos.observations import (  # noqa: E402
     plan_dataset_observations,
     resolve_dataset_observations,
 )
+from scripts.eosmat_io import read_material
 
 
 def audit_observation_coverage(materials: Path, *, resolve: bool = True) -> dict:
@@ -30,7 +31,7 @@ def audit_observation_coverage(materials: Path, *, resolve: bool = True) -> dict
     records = []
     material_paths = sorted(materials.glob("*.eosmat"))
     for path in material_paths:
-        document = json.loads(path.read_text(encoding="utf-8"))
+        document = read_material(path)
         for record in document["eos_records"]:
             identifier = record["identifier"]
             audit = record.get("scientific_validation", {}).get(

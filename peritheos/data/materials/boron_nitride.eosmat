@@ -1,26 +1,21 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "boron_nitride",
   "name": "Boron Nitride",
   "formula": "BN",
   "phase": "cubic zinc-blende",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
-  "symmetry": "CUBIC",
-  "space_group": "F-43m",
-  "space_group_number": 216,
-  "lattice": {"a": 3.6152, "b": 3.6152, "c": 3.6152, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
-  "atom_sites": [
-    {"element": "B", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
-    {"element": "N", "wyckoff": "4c", "x": 0.25, "y": 0.25, "z": 0.25, "occupancy": 1.0}
-  ],
-  "peaks": [],
-  "notes": "The original card was imported 12.08.2026 from JCPDS/dac_user_jcpds/BN-cubic.jcpds. The reference lattice was updated to Datchi et al.'s measured a0=3.6152(2) A at 295 K; Section III independently confirms zinc-blende F-43m c-BN. The conventional zinc-blende Wyckoff sites give four BN formula units per cell.",
   "eos_records": [
     {
       "identifier": "boron_nitride_datchi_2007_vinet_1",
       "label": "Datchi et al. (2007), Vinet",
+      "model": "Vinet",
+      "parameters": {
+        "V0": {"value": 47.2496, "error": 0.0048, "fixed": true},
+        "K0": {"value": 395.0, "error": 2.0},
+        "K0_prime": {"value": 3.62, "error": 0.05}
+      },
       "determination_method": "experimental",
       "reference": {
         "authors": ["Datchi", "Dewaele", "Le Godec", "Loubeyre"],
@@ -31,13 +26,6 @@
         "locator": "214104",
         "doi": "10.1103/PhysRevB.75.214104"
       },
-      "eos": {
-        "type": "Vinet",
-        "parameters": {"V0": 47.2496, "K0": 395.0, "K0_prime": 3.62},
-        "model": "vinet"
-      },
-      "parameter_errors": {"V0": 0.0048, "K0": 2.0, "K0_prime": 0.05},
-      "fixed_parameters": ["V0"],
       "experimental_pressure_range_gpa": [0.0, 162.5],
       "notes": "V0=5.9062 A^3/atom multiplied by 8 atoms in the conventional cubic cell. The fitted range is described as 160 GPa in prose; Table IV's highest row is 162.5 GPa. The unsupported migrated K0=500 record was removed.",
       "pressure_calibration": {
@@ -73,37 +61,58 @@
         },
         "audit_date": "2026-09-03"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-05",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.1103/PhysRevB.75.214104",
-          "locations": ["Section II", "Table I", "Figure 1 caption", "Table IV"],
-          "doi": "10.1103/physrevb.75.214104"
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-05",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1103/PhysRevB.75.214104",
+            "locations": ["Section II", "Table I", "Figure 1 caption", "Table IV"],
+            "doi": "10.1103/physrevb.75.214104"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "boron_nitride.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["cubic_boron_nitride_datchi_2007_table4_pvt"],
+            "source_locations": ["Table IV, journal page 214104-5"],
+            "finding": "All 66 c-BN P-V-T observations printed in Table IV, including the 295 K compression series to 162.5 GPa and high-temperature observations to 948 K."
+          }
         },
-        "migration_source": {
-          "project": "Dioptas",
-          "version": "0.10.0",
-          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-          "file": "boron_nitride.json"
-        },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-03",
-          "dataset_identifiers": ["cubic_boron_nitride_datchi_2007_table4_pvt"],
-          "source_locations": ["Table IV, journal page 214104-5"],
-          "finding": "All 66 c-BN P-V-T observations printed in Table IV, including the 295 K compression series to 162.5 GPa and high-temperature observations to 948 K."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section II; Table I; Figure 1 caption; Table IV."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section II; Table I; Figure 1 caption; Table IV."
       }
     },
     {
       "identifier": "boron_nitride_datchi_2007_vinet_mgd_2",
       "label": "Datchi et al. (2007), 0 K Vinet + MGD",
+      "model": "Vinet",
+      "temperature_ref": 295.0,
+      "parameters": {
+        "V0": {"value": 47.2208, "error": 0.0032, "fixed": true},
+        "K0": {"value": 397.0, "error": 2.0, "fixed": true},
+        "K0_prime": {"value": 3.62, "error": 0.05, "fixed": true}
+      },
+      "thermal": {
+        "debye_temperature_law": "integrated_gruneisen",
+        "thermal_pressure_reference": "absolute_zero",
+        "parameters": {
+          "Tr": {"value": 295.0, "error": null, "fixed": true},
+          "theta0": {"value": 1700.0, "error": null, "fixed": true},
+          "gamma0": {"value": 1.04, "error": 0.02, "fixed": true},
+          "q": {"value": 4.0, "error": 1.5},
+          "n": {"value": 2.0, "error": null, "fixed": true}
+        },
+        "model": "MieGruneisenDebye"
+      },
       "determination_method": "experimental",
       "reference": {
         "authors": ["Datchi", "Dewaele", "Le Godec", "Loubeyre"],
@@ -114,24 +123,7 @@
         "locator": "214104",
         "doi": "10.1103/PhysRevB.75.214104"
       },
-      "temperature_ref": 295.0,
-      "eos": {
-        "type": "Vinet",
-        "model": "vinet",
-        "parameters": {"V0": 47.2208, "K0": 397.0, "K0_prime": 3.62}
-      },
-      "thermal": {
-        "type": "MieGruneisenDebye",
-        "model": "mie_gruneisen_debye",
-        "debye_temperature_law": "integrated_gruneisen",
-        "thermal_pressure_reference": "absolute_zero",
-        "parameters": {"Tr": 295.0, "theta0": 1700.0, "gamma0": 1.04, "q": 4.0, "n": 2.0},
-        "parameter_errors": {"Tr": null, "theta0": null, "gamma0": 0.02, "q": 1.5, "n": null},
-        "fixed_parameters": ["Tr", "theta0", "gamma0", "n"]
-      },
-      "parameter_errors": {"V0": 0.0032, "K0": 2.0, "K0_prime": 0.05},
       "parameter_error_confidence": null,
-      "fixed_parameters": ["V0", "K0", "K0_prime"],
       "volume": {"reference_value": 47.2208, "public_to_model_scale": 0.0150553519, "model_unit": "J bar^-1 mol^-1"},
       "experimental_pressure_range_gpa": [0.0, 162.5],
       "experimental_temperature_range_k": [295.0, 948.0],
@@ -185,52 +177,54 @@
         },
         "audit_date": "2026-09-05"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "The author-posted primary manuscript was checked for the equation baseline, fixed/fitted coefficients, uncertainties, phase and volume basis, calibration, complete Table IV observations, and numerical reproduction.",
-        "audit_date": "2026-09-05",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "volume_basis",
-          "published_uncertainties",
-          "validity",
-          "pressure_calibration",
-          "primary_data"
-        ],
-        "primary_source_check": {
-          "access_url": "https://arxiv.org/abs/cond-mat/0702656",
-          "publication_url": "https://doi.org/10.1103/PhysRevB.75.214104",
-          "locations": ["Section II", "Equations 1-4", "Table IV", "Table V", "Figure 4"],
-          "doi": "10.1103/physrevb.75.214104"
-        },
-        "primary_data_check": {
-          "status": "bundled",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "The author-posted primary manuscript was checked for the equation baseline, fixed/fitted coefficients, uncertainties, phase and volume basis, calibration, complete Table IV observations, and numerical reproduction.",
           "audit_date": "2026-09-05",
-          "dataset_identifiers": ["cubic_boron_nitride_datchi_2007_table4_pvt"],
-          "source_locations": ["Table IV, journal page 214104-5"],
-          "finding": "All 66 printed P-V-T rows are bundled. The lattice parameter is retained at the table's higher precision and used to reconstruct V=a^3/8 for reproduction and refitting."
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "volume_basis",
+            "published_uncertainties",
+            "validity",
+            "pressure_calibration",
+            "primary_data"
+          ],
+          "primary_source_check": {
+            "access_url": "https://arxiv.org/abs/cond-mat/0702656",
+            "publication_url": "https://doi.org/10.1103/PhysRevB.75.214104",
+            "locations": ["Section II", "Equations 1-4", "Table IV", "Table V", "Figure 4"],
+            "doi": "10.1103/physrevb.75.214104"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-05",
+            "dataset_identifiers": ["cubic_boron_nitride_datchi_2007_table4_pvt"],
+            "source_locations": ["Table IV, journal page 214104-5"],
+            "finding": "All 66 printed P-V-T rows are bundled. The lattice parameter is retained at the table's higher precision and used to reconstruct V=a^3/8 for reproduction and refitting."
+          },
+          "unresolved_issues": [
+            "Section IV prints gamma_th0=1.04(1), while final Table V prints 1.04(2); the final table is authoritative here.",
+            "The regression objective, weights, unrounded observations, and parameter covariance are not published.",
+            "Exact pressure re-reduction is unavailable without the row-wise optical-marker shifts and helium volumes."
+          ]
         },
-        "unresolved_issues": [
-          "Section IV prints gamma_th0=1.04(1), while final Table V prints 1.04(2); the final table is authoritative here.",
-          "The regression objective, weights, unrounded observations, and parameter covariance are not published.",
-          "Exact pressure re-reduction is unavailable without the row-wise optical-marker shifts and helium volumes."
-        ]
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section II; Equations 1-4; Table IV; Table V; Figure 4.",
-        "V0": "Section IV and Table V: V0,0=5.9026(4) A^3/atom from the ambient-pressure thermal-expansion fit, multiplied by 8 atoms per conventional cell",
-        "K0": "Section IV and Table V: B0,0=397(2) GPa, obtained by adding the cited 2 GPa 0-to-300 K correction to the 295 K Vinet modulus",
-        "K0_prime": "Section IV and Table V: B0,0'=3.62(5), fixed equal to the 295 K Vinet value",
-        "thermal.Tr": "Section III and Table IV: 295 K is the measured room-temperature series and is retained as the record's default/reporting temperature; absolute_zero means it is not subtracted from the total thermal pressure",
-        "thermal.theta0": "Section IV, Equation 3, and Table V: theta0=1700 K adopted from infrared and heat-capacity literature; no uncertainty is reported",
-        "thermal.gamma0": "Section V and Table V: gamma_th0=1.04(2), fixed during the q-only P-V-T fit",
-        "thermal.q": "Section V and Table V: q=4(1.5), the only varied parameter in the final P-V-T fit",
-        "thermal.n": "Equation 3 is the three-mode Debye energy per mole of atoms; n=2 on Peritheos's per-mole-BN volume basis",
-        "equation": "Equations 2-4 and Section V: 0 K Vinet cold pressure plus absolute Debye vibrational pressure, with gamma=gamma0(V/V0)^q and theta obtained by integrating gamma=-d ln(theta)/d ln(V)"
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section II; Equations 1-4; Table IV; Table V; Figure 4.",
+          "V0": "Section IV and Table V: V0,0=5.9026(4) A^3/atom from the ambient-pressure thermal-expansion fit, multiplied by 8 atoms per conventional cell",
+          "K0": "Section IV and Table V: B0,0=397(2) GPa, obtained by adding the cited 2 GPa 0-to-300 K correction to the 295 K Vinet modulus",
+          "K0_prime": "Section IV and Table V: B0,0'=3.62(5), fixed equal to the 295 K Vinet value",
+          "thermal.Tr": "Section III and Table IV: 295 K is the measured room-temperature series and is retained as the record's default/reporting temperature; absolute_zero means it is not subtracted from the total thermal pressure",
+          "thermal.theta0": "Section IV, Equation 3, and Table V: theta0=1700 K adopted from infrared and heat-capacity literature; no uncertainty is reported",
+          "thermal.gamma0": "Section V and Table V: gamma_th0=1.04(2), fixed during the q-only P-V-T fit",
+          "thermal.q": "Section V and Table V: q=4(1.5), the only varied parameter in the final P-V-T fit",
+          "thermal.n": "Equation 3 is the three-mode Debye energy per mole of atoms; n=2 on Peritheos's per-mole-BN volume basis",
+          "equation": "Equations 2-4 and Section V: 0 K Vinet cold pressure plus absolute Debye vibrational pressure, with gamma=gamma0(V/V0)^q and theta obtained by integrating gamma=-d ln(theta)/d ln(V)"
+        }
       },
       "uncertainties": {
         "reported_as": "Parenthetical last-digit parameter errors are standard deviations of the fits, not absolute uncertainties.",
@@ -247,6 +241,16 @@
       }
     }
   ],
+  "symmetry": "CUBIC",
+  "space_group": "F-43m",
+  "space_group_number": 216,
+  "lattice": {"a": 3.6152, "b": 3.6152, "c": 3.6152, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "B", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
+    {"element": "N", "wyckoff": "4c", "x": 0.25, "y": 0.25, "z": 0.25, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "The original card was imported 12.08.2026 from JCPDS/dac_user_jcpds/BN-cubic.jcpds. The reference lattice was updated to Datchi et al.'s measured a0=3.6152(2) A at 295 K; Section III independently confirms zinc-blende F-43m c-BN. The conventional zinc-blende Wyckoff sites give four BN formula units per cell.",
   "datasets": [
     {
       "identifier": "cubic_boron_nitride_datchi_2007_table4_pvt",

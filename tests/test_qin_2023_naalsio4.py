@@ -1,12 +1,12 @@
 import csv
 import hashlib
-import json
 import math
 from pathlib import Path
 
 import pytest
 
-from peritheos import Material, load_eosmat
+from peritheos import Material
+from scripts.eosmat_io import read_material
 from scripts.reproduce_qin_2023_naalsio4 import reproduce_sample
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -73,7 +73,7 @@ CASES = (
 
 @pytest.mark.parametrize("case", CASES, ids=lambda case: case["material"])
 def test_qin_material_records_load_execute_and_invert(case):
-    document = load_eosmat(MATERIAL_ROOT / f"{case['material']}.eosmat")
+    document = read_material(MATERIAL_ROOT / f"{case['material']}.eosmat")
     material = Material.from_eosmat(document)
     source = document["eos_records"][0]
     record = material.eos_records[0]
@@ -107,9 +107,7 @@ def test_qin_material_records_load_execute_and_invert(case):
 
 @pytest.mark.parametrize("case", CASES, ids=lambda case: case["dataset"])
 def test_qin_primary_table_transcription_and_checksum(case):
-    document = json.loads(
-        (MATERIAL_ROOT / f"{case['material']}.eosmat").read_text(encoding="utf-8")
-    )
+    document = read_material(MATERIAL_ROOT / f"{case['material']}.eosmat")
     dataset = document["datasets"][0]
     path = DATA_ROOT / case["csv"]
 
@@ -132,11 +130,7 @@ def test_qin_primary_table_transcription_and_checksum(case):
 
 
 def test_qin_fe_free_source_inconsistencies_are_preserved():
-    document = json.loads(
-        (MATERIAL_ROOT / "na093al102si100o4_calcium_ferrite.eosmat").read_text(
-            encoding="utf-8"
-        )
-    )
+    document = read_material(MATERIAL_ROOT / "na093al102si100o4_calcium_ferrite.eosmat")
     with (DATA_ROOT / "na093al102si100o4-qin-2023-table-s3-pv.csv").open(
         newline="", encoding="utf-8"
     ) as stream:
@@ -158,10 +152,8 @@ def test_qin_fe_free_source_inconsistencies_are_preserved():
 
 
 def test_qin_fe_bearing_structure_proxy_is_explicit_and_does_not_infer_fe_sites():
-    document = json.loads(
-        (MATERIAL_ROOT / "na088al099fe013si094o4_calcium_ferrite.eosmat").read_text(
-            encoding="utf-8"
-        )
+    document = read_material(
+        MATERIAL_ROOT / "na088al099fe013si094o4_calcium_ferrite.eosmat"
     )
 
     assert {site["element"] for site in document["atom_sites"]} == {

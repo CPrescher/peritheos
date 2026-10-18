@@ -1,30 +1,20 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "coesite",
   "name": "Coesite",
   "formula": "SiO2",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 16,
-  "symmetry": "MONOCLINIC",
-  "space_group": "C2/c",
-  "space_group_number": 15,
-  "lattice": {"a": 7.1356, "b": 12.3692, "c": 7.17363, "alpha": 90.0, "beta": 120.34, "gamma": 90.0},
-  "atom_sites": [
-    {"element": "Si", "wyckoff": "8f", "x": 0.14035, "y": 0.10833, "z": 0.0723, "occupancy": 1.0},
-    {"element": "Si", "wyckoff": "8f", "x": 0.50674, "y": 0.15796, "z": 0.54072, "occupancy": 1.0},
-    {"element": "O", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
-    {"element": "O", "wyckoff": "4e", "x": 0.5, "y": 0.11634, "z": 0.75, "occupancy": 1.0},
-    {"element": "O", "wyckoff": "8f", "x": 0.2661, "y": 0.12324, "z": 0.9401, "occupancy": 1.0},
-    {"element": "O", "wyckoff": "8f", "x": 0.3114, "y": 0.10378, "z": 0.328, "occupancy": 1.0},
-    {"element": "O", "wyckoff": "8f", "x": 0.0175, "y": 0.21177, "z": 0.4784, "occupancy": 1.0}
-  ],
-  "peaks": [],
-  "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/sio2-coe2.jcpds, JCPDS/current user/CVS/sio2-coe2.jcpds. Ambient coesite coordinates: Levien and Prewitt, American Mineralogist 66, 324-333 (1981).",
   "eos_records": [
     {
       "identifier": "coesite_levien_1981_bm3_1",
       "label": "data from JCPDS and Levien and Prewitt, 1981",
+      "model": "BM3",
+      "parameters": {
+        "V0": {"value": 546.4414, "error": null},
+        "K0": {"value": 96.0, "error": 3.0},
+        "K0_prime": {"value": 8.4, "error": 1.9}
+      },
       "determination_method": "experimental",
       "reference": {
         "authors": ["Levien", "Prewitt"],
@@ -34,13 +24,6 @@
         "volume": "66",
         "locator": "324-333"
       },
-      "eos": {
-        "type": "BM3",
-        "parameters": {"V0": 546.4414, "K0": 96.0, "K0_prime": 8.4},
-        "model": "birch_murnaghan_3"
-      },
-      "parameter_errors": {"V0": null, "K0": 3.0, "K0_prime": 1.9},
-      "fixed_parameters": [],
       "experimental_pressure_range_gpa": [0.0, 5.2],
       "notes": "Levien and Prewitt report K0 = 96 +/- 3 GPa and K0' = 8.4 +/- 1.9. V0 is retained from the cited ambient structure; no separate fitted V0 uncertainty was reported.",
       "pressure_calibration": {
@@ -53,38 +36,47 @@
         "audit_date": "2026-09-03",
         "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://msaweb.org/AmMin/AM66/AM66_324.pdf",
-          "locations": ["Abstract", "Table 7, P-V data", "page 328, Elasticity section, Birch-Murnaghan fit"],
-          "finding": "The conventional-cell V0 is calculated from the paper's ambient lattice parameters; K0 and K0' are the reported unweighted fit.",
-          "doi": null
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://msaweb.org/AmMin/AM66/AM66_324.pdf",
+            "locations": ["Abstract", "Table 7, P-V data", "page 328, Elasticity section, Birch-Murnaghan fit"],
+            "finding": "The conventional-cell V0 is calculated from the paper's ambient lattice parameters; K0 and K0' are the reported unweighted fit.",
+            "doi": null
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "coesite.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["coesite_levien_1981_table7_pv"],
+            "source_locations": ["Table 7, page 330"],
+            "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+          }
         },
-        "migration_source": {
-          "project": "Dioptas",
-          "version": "0.10.0",
-          "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-          "file": "coesite.json"
-        },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-03",
-          "dataset_identifiers": ["coesite_levien_1981_table7_pv"],
-          "source_locations": ["Table 7, page 330"],
-          "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Table 7, P-V data; page 328, Elasticity section, Birch-Murnaghan fit."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Table 7, P-V data; page 328, Elasticity section, Birch-Murnaghan fit."
       }
     },
     {
       "identifier": "coesite_i_iii_bykova_2018_300k_bm3",
       "label": "Bykova et al. (2018), combined coesite-I/II/III 300 K BM3",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 547.2, "error": 0.16},
+        "K0": {"value": 103.0, "error": 2.0},
+        "K0_prime": {"value": 3.02, "error": 0.15}
+      },
       "record_kind": "published",
       "determination_method": "experimental",
       "equation_kind": "isothermal",
@@ -112,15 +104,7 @@
         "locator": "4789",
         "doi": "10.1038/s41467-018-07265-z"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 547.2, "K0": 103.0, "K0_prime": 3.02}
-      },
-      "parameter_errors": {"V0": 0.16, "K0": 2.0, "K0_prime": 0.15},
       "parameter_error_confidence": null,
-      "fixed_parameters": [],
       "parameter_covariance": null,
       "volume_basis": {"kind": "formula_units", "formula_units": 16.0, "molar_mass_g_mol": 60.083},
       "experimental_pressure_range_gpa": [0.0, 36.9],
@@ -142,41 +126,58 @@
         },
         "audit_date": "2026-09-05"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://www.nature.com/articles/s41467-018-07265-z",
-          "doi": "10.1038/s41467-018-07265-z",
-          "locations": [
-            "Results: Crystal structure of coesite-III",
-            "Figure 1 caption",
-            "Methods: X-ray diffraction",
-            "Supplementary Tables 1-2",
-            "Cernok thesis Table 5.1 reproducing the cited 2014 diffraction Table 1"
-          ],
-          "finding": "One source-owned BM3 fitted jointly to coesite-I, II, and III pressure-volume data. Twenty-four exact observations can be recovered from Supplementary Table 2 and the cited diffraction table; several current-study coesite-I observations remain plot-only."
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://www.nature.com/articles/s41467-018-07265-z",
+            "doi": "10.1038/s41467-018-07265-z",
+            "locations": [
+              "Results: Crystal structure of coesite-III",
+              "Figure 1 caption",
+              "Methods: X-ray diffraction",
+              "Supplementary Tables 1-2",
+              "Cernok thesis Table 5.1 reproducing the cited 2014 diffraction Table 1"
+            ],
+            "finding": "One source-owned BM3 fitted jointly to coesite-I, II, and III pressure-volume data. Twenty-four exact observations can be recovered from Supplementary Table 2 and the cited diffraction table; several current-study coesite-I observations remain plot-only."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-08",
+            "dataset_identifiers": ["coesite_i_ii_cernok_2014_table1_pv", "coesite_ii_iii_bykova_2018_table2_pv"],
+            "source_locations": ["Bykova et al. (2018), Supplementary Table 2", "Cernok et al. (2014), Table 1; author thesis Table 5.1"],
+            "finding": "Twenty-four exact coesite-I/II/III P-V observations are bundled. They are the complete numerical subset recoverable from the article, supplement, deposited crystallographic files, and cited diffraction work; several current-study coesite-I points visible in Figure 1 were not tabulated."
+          }
         },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-08",
-          "dataset_identifiers": ["coesite_i_ii_cernok_2014_table1_pv", "coesite_ii_iii_bykova_2018_table2_pv"],
-          "source_locations": ["Bykova et al. (2018), Supplementary Table 2", "Cernok et al. (2014), Table 1; author thesis Table 5.1"],
-          "finding": "Twenty-four exact coesite-I/II/III P-V observations are bundled. They are the complete numerical subset recoverable from the article, supplement, deposited crystallographic files, and cited diffraction work; several current-study coesite-I points visible in Figure 1 were not tabulated."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Results: Crystal structure of coesite-III; Figure 1 caption; Methods: X-ray diffraction; Supplementary Tables 1-2; Cernok thesis Table 5.1 reproducing the cited 2014 diffraction Table 1.",
+          "equation": "Results, Crystal structure of coesite-III: third-order Birch-Murnaghan.",
+          "parameters": "Results paragraph and Figure 1 caption; V0/Z is multiplied by Z=16 for this conventional-cell material card.",
+          "method": "Combined single-crystal XRD pressure-volume data for coesite-I, II, and III. The exact recoverable subset comprises nine observations from the cited Cernok et al. diffraction work and 15 observations from Supplementary Table 2; current-study coesite-I points remain graphical only."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Results: Crystal structure of coesite-III; Figure 1 caption; Methods: X-ray diffraction; Supplementary Tables 1-2; Cernok thesis Table 5.1 reproducing the cited 2014 diffraction Table 1.",
-        "equation": "Results, Crystal structure of coesite-III: third-order Birch-Murnaghan.",
-        "parameters": "Results paragraph and Figure 1 caption; V0/Z is multiplied by Z=16 for this conventional-cell material card.",
-        "method": "Combined single-crystal XRD pressure-volume data for coesite-I, II, and III. The exact recoverable subset comprises nine observations from the cited Cernok et al. diffraction work and 15 observations from Supplementary Table 2; current-study coesite-I points remain graphical only."
       },
       "sample_composition": "High-purity SiO2 coesite single crystals; combined coesite-I, coesite-II, and coesite-III compression branch.",
       "fit_datasets": ["coesite_i_ii_cernok_2014_table1_pv", "coesite_ii_iii_bykova_2018_table2_pv"]
     }
   ],
+  "symmetry": "MONOCLINIC",
+  "space_group": "C2/c",
+  "space_group_number": 15,
+  "lattice": {"a": 7.1356, "b": 12.3692, "c": 7.17363, "alpha": 90.0, "beta": 120.34, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Si", "wyckoff": "8f", "x": 0.14035, "y": 0.10833, "z": 0.0723, "occupancy": 1.0},
+    {"element": "Si", "wyckoff": "8f", "x": 0.50674, "y": 0.15796, "z": 0.54072, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "4e", "x": 0.5, "y": 0.11634, "z": 0.75, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "8f", "x": 0.2661, "y": 0.12324, "z": 0.9401, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "8f", "x": 0.3114, "y": 0.10378, "z": 0.328, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "8f", "x": 0.0175, "y": 0.21177, "z": 0.4784, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/sio2-coe2.jcpds, JCPDS/current user/CVS/sio2-coe2.jcpds. Ambient coesite coordinates: Levien and Prewitt, American Mineralogist 66, 324-333 (1981).",
   "datasets": [
     {
       "identifier": "coesite_levien_1981_table7_pv",

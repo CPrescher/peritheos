@@ -1,48 +1,22 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "magnesiowustite_fe75",
   "name": "Fe75 magnesiowustite",
   "formula": "Mg0.240Fe0.717O",
   "phase": "cation-deficient rocksalt magnesiowustite, cubic Fm-3m",
-  "aliases": ["Fe75", "(Mg0.240Fe0.717 vacancy0.043)O", "magnesiowüstite Fe75"],
-  "family_id": "mg_fe_monoxide",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
-  "cell_contents": "Mg0.960Fe2.868 vacancy0.172O4 in the conventional rocksalt cell; composition is normalized to one oxygen and Z=4 on that basis.",
-  "symmetry": "CUBIC",
-  "space_group": "Fm-3m",
-  "space_group_number": 225,
-  "lattice": {"a": 4.27419, "b": 4.27419, "c": 4.27419, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
-  "atom_sites": [
-    {
-      "element": "Mg",
-      "wyckoff": "4a",
-      "x": 0.0,
-      "y": 0.0,
-      "z": 0.0,
-      "occupancy": 0.24,
-      "site_multiplicity": 4,
-      "source_label": "M-site Mg"
-    },
-    {
-      "element": "Fe",
-      "wyckoff": "4a",
-      "x": 0.0,
-      "y": 0.0,
-      "z": 0.0,
-      "occupancy": 0.717,
-      "site_multiplicity": 4,
-      "source_label": "total Fe in oxygen-normalized composition"
-    },
-    {"element": "O", "wyckoff": "4b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1.0, "site_multiplicity": 4}
-  ],
-  "peaks": [],
-  "notes": "Fe75 is the article's less-stoichiometric magnesiowustite specimen. The average B1 atom-site representation preserves the oxygen-normalized bulk composition from Table 1; it does not claim to resolve the article's refined split of ferric iron between octahedral and interstitial sites. The lattice is the zero-pressure measurement made in the diamond cell without pressure fluid for the exact EOS specimen.",
   "eos_records": [
     {
       "identifier": "magnesiowustite_fe75_jacobsen_2002_bm3_1",
       "label": "Jacobsen et al. (2002), Fe75 error-weighted BM3",
+      "model": "BM3",
+      "temperature_ref": 298.0,
+      "parameters": {
+        "V0": {"value": 78.082, "error": 0.003},
+        "K0": {"value": 151.3, "error": 0.6},
+        "K0_prime": {"value": 5.55, "error": 0.19}
+      },
       "record_kind": "published",
       "determination_method": "experimental",
       "equation_kind": "isothermal",
@@ -56,15 +30,7 @@
         "locator": "2037; ECV 4-1-ECV 4-14",
         "doi": "10.1029/2001JB000490"
       },
-      "temperature_ref": 298.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 78.082, "K0": 151.3, "K0_prime": 5.55}
-      },
-      "parameter_errors": {"V0": 0.003, "K0": 0.6, "K0_prime": 0.19},
       "parameter_error_confidence": null,
-      "fixed_parameters": [],
       "parameter_covariance": null,
       "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 61.873065},
       "experimental_pressure_range_gpa": [0.0001, 7.179],
@@ -107,63 +73,65 @@
         },
         "audit_date": "2026-09-05"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Validated directly against the complete free-access publisher article. No supplementary data file is listed; the official HTML exposes Tables 1 and 4-6 in full.",
-        "audit_date": "2026-09-05",
-        "verified_fields": [
-          "canonical_doi",
-          "composition",
-          "phase",
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "volume_basis",
-          "published_uncertainties",
-          "fixed_parameters",
-          "fit_selection",
-          "pressure_calibration",
-          "primary_data",
-          "numerical_reproduction",
-          "independent_refit"
-        ],
-        "primary_source_check": {
-          "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2001JB000490",
-          "doi": "10.1029/2001JB000490",
-          "locations": ["Paragraphs 23-26", "Tables 1 and 5-6", "Figures 5-6"],
-          "finding": "The source defines a three-free-parameter, error-weighted BM3 fit to all 7 Fe75 observations and gives the Eulerian equation, conventional-cell volume basis, exact sample composition, and quartz pressure calibration."
-        },
-        "primary_data_check": {
-          "status": "bundled",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Validated directly against the complete free-access publisher article. No supplementary data file is listed; the official HTML exposes Tables 1 and 4-6 in full.",
           "audit_date": "2026-09-05",
-          "dataset_identifiers": ["magnesiowustite_fe75_jacobsen_2002_table5_compression"],
-          "source_locations": ["Table 5"],
-          "finding": "All 7 printed Fe75 lattice parameters, V/V0 values, simultaneous quartz volumes, reduced pressures, and parenthetical standard deviations are transcribed losslessly; Table 5's three blank Fe75 entries are not invented as observations."
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "phase",
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "volume_basis",
+            "published_uncertainties",
+            "fixed_parameters",
+            "fit_selection",
+            "pressure_calibration",
+            "primary_data",
+            "numerical_reproduction",
+            "independent_refit"
+          ],
+          "primary_source_check": {
+            "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2001JB000490",
+            "doi": "10.1029/2001JB000490",
+            "locations": ["Paragraphs 23-26", "Tables 1 and 5-6", "Figures 5-6"],
+            "finding": "The source defines a three-free-parameter, error-weighted BM3 fit to all 7 Fe75 observations and gives the Eulerian equation, conventional-cell volume basis, exact sample composition, and quartz pressure calibration."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-05",
+            "dataset_identifiers": ["magnesiowustite_fe75_jacobsen_2002_table5_compression"],
+            "source_locations": ["Table 5"],
+            "finding": "All 7 printed Fe75 lattice parameters, V/V0 values, simultaneous quartz volumes, reduced pressures, and parenthetical standard deviations are transcribed losslessly; Table 5's three blank Fe75 entries are not invented as observations."
+          },
+          "numerical_reproduction": {
+            "observations": 7,
+            "published_curve_rmse_gpa": 0.0050573088,
+            "published_curve_max_abs_residual_gpa": 0.0083438849,
+            "quartz_recalculation_rmse_gpa": 0.0049481673,
+            "quartz_recalculation_max_abs_residual_gpa": 0.0066362842
+          },
+          "independent_refit": {
+            "objective": "Effective-variance pressure residuals combining tabulated pressure and lattice-parameter standard deviations; the ambient pressure has no printed standard deviation.",
+            "parameters": {"V0": 78.08178497, "K0": 151.33110627, "K0_prime": 5.54968606},
+            "reduced_chi_square": 0.6580563993,
+            "conclusion": "The independent refit recovers every published coefficient within its printed standard deviation."
+          }
         },
-        "numerical_reproduction": {
-          "observations": 7,
-          "published_curve_rmse_gpa": 0.0050573088,
-          "published_curve_max_abs_residual_gpa": 0.0083438849,
-          "quartz_recalculation_rmse_gpa": 0.0049481673,
-          "quartz_recalculation_max_abs_residual_gpa": 0.0066362842
-        },
-        "independent_refit": {
-          "objective": "Effective-variance pressure residuals combining tabulated pressure and lattice-parameter standard deviations; the ambient pressure has no printed standard deviation.",
-          "parameters": {"V0": 78.08178497, "K0": 151.33110627, "K0_prime": 5.54968606},
-          "reduced_chi_square": 0.6580563993,
-          "conclusion": "The independent refit recovers every published coefficient within its printed standard deviation."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Paragraphs 23-26; Tables 1 and 5-6; Figures 5-6.",
+          "equation": "Paragraphs 25-26 and Figure 6: standard third-order Birch-Murnaghan EOS in the Eulerian finite-strain convention, with f=[(V0/V)^(2/3)-1]/2 and F=P/[3f(1+2f)^(5/2)].",
+          "V0": "Paragraph 25: freely fitted V0=78.082(3) A^3 for the conventional cubic cell.",
+          "K0": "Paragraph 25 and Table 6: freely fitted isothermal K0=151.3(6) GPa.",
+          "K0_prime": "Paragraph 25 and Table 6: freely fitted K'=5.55(19).",
+          "reference_temperature": "The article reports room/ambient temperature but no numeric kelvin value; 298 K is an explicit operational reference for this isothermal record.",
+          "fit_selection": "Paragraphs 24-25 and Table 5: all 7 Fe75 rows, including the zero-pressure in-cell observation; three Table 5 pressure steps contain no Fe75 measurement and are not observations.",
+          "weighting": "Paragraph 25: error-weighted three-parameter fit with EoSFIT; the table supplies row-wise sample-lattice and pressure standard deviations."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Paragraphs 23-26; Tables 1 and 5-6; Figures 5-6.",
-        "equation": "Paragraphs 25-26 and Figure 6: standard third-order Birch-Murnaghan EOS in the Eulerian finite-strain convention, with f=[(V0/V)^(2/3)-1]/2 and F=P/[3f(1+2f)^(5/2)].",
-        "V0": "Paragraph 25: freely fitted V0=78.082(3) A^3 for the conventional cubic cell.",
-        "K0": "Paragraph 25 and Table 6: freely fitted isothermal K0=151.3(6) GPa.",
-        "K0_prime": "Paragraph 25 and Table 6: freely fitted K'=5.55(19).",
-        "reference_temperature": "The article reports room/ambient temperature but no numeric kelvin value; 298 K is an explicit operational reference for this isothermal record.",
-        "fit_selection": "Paragraphs 24-25 and Table 5: all 7 Fe75 rows, including the zero-pressure in-cell observation; three Table 5 pressure steps contain no Fe75 measurement and are not observations.",
-        "weighting": "Paragraph 25: error-weighted three-parameter fit with EoSFIT; the table supplies row-wise sample-lattice and pressure standard deviations."
       },
       "fit_datasets": ["magnesiowustite_fe75_jacobsen_2002_table5_compression"],
       "experimental_configuration": {
@@ -176,6 +144,38 @@
       }
     }
   ],
+  "aliases": ["Fe75", "(Mg0.240Fe0.717 vacancy0.043)O", "magnesiowüstite Fe75"],
+  "family_id": "mg_fe_monoxide",
+  "cell_contents": "Mg0.960Fe2.868 vacancy0.172O4 in the conventional rocksalt cell; composition is normalized to one oxygen and Z=4 on that basis.",
+  "symmetry": "CUBIC",
+  "space_group": "Fm-3m",
+  "space_group_number": 225,
+  "lattice": {"a": 4.27419, "b": 4.27419, "c": 4.27419, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {
+      "element": "Mg",
+      "wyckoff": "4a",
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "occupancy": 0.24,
+      "site_multiplicity": 4,
+      "source_label": "M-site Mg"
+    },
+    {
+      "element": "Fe",
+      "wyckoff": "4a",
+      "x": 0.0,
+      "y": 0.0,
+      "z": 0.0,
+      "occupancy": 0.717,
+      "site_multiplicity": 4,
+      "source_label": "total Fe in oxygen-normalized composition"
+    },
+    {"element": "O", "wyckoff": "4b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1.0, "site_multiplicity": 4}
+  ],
+  "peaks": [],
+  "notes": "Fe75 is the article's less-stoichiometric magnesiowustite specimen. The average B1 atom-site representation preserves the oxygen-normalized bulk composition from Table 1; it does not claim to resolve the article's refined split of ferric iron between octahedral and interstitial sites. The lattice is the zero-pressure measurement made in the diamond cell without pressure fluid for the exact EOS specimen.",
   "datasets": [
     {
       "identifier": "magnesiowustite_fe75_jacobsen_2002_table5_compression",

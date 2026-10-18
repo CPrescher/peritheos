@@ -8,6 +8,7 @@ import numpy as np
 import pytest
 
 from peritheos import Material, search_eos_records
+from scripts.eosmat_io import read_material
 from scripts.reproduce_fei_2007_ferropericlase import (
     DOI,
     FP20_LS_REFIT,
@@ -33,7 +34,7 @@ PUBLISHED = {
 
 def documents():
     return [
-        json.loads((ROOT / f"peritheos/data/materials/{name}.eosmat").read_text())
+        read_material(ROOT / f"peritheos/data/materials/{name}.eosmat")
         for name in TABLES
     ]
 

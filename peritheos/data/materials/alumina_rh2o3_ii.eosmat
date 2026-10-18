@@ -1,29 +1,33 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "alumina_rh2o3_ii",
   "name": "Rh2O3(II)-type alumina",
   "formula": "Al2O3",
   "phase": "Rh2O3(II)-type, orthorhombic Pbcn",
-  "aliases": ["Rh2O3(II)-Al2O3", "orthorhombic alumina"],
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
-  "cell_contents": "Al8O12 (4 Al2O3 formula units) in the conventional orthorhombic Pbcn cell",
-  "symmetry": "ORTHORHOMBIC",
-  "space_group": "Pbcn",
-  "space_group_number": 60,
-  "lattice": {"a": 6.393, "b": 4.362, "c": 4.543, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
-  "atom_sites": [
-    {"element": "Al", "wyckoff": "8d", "x": 0.114, "y": 0.758, "z": 0.028, "occupancy": 1.0},
-    {"element": "O", "wyckoff": "8d", "x": 0.849, "y": 0.619, "z": 0.12, "occupancy": 1.0},
-    {"element": "O", "wyckoff": "4c", "x": 0.0, "y": 0.046, "z": 0.25, "occupancy": 1.0}
-  ],
-  "peaks": [],
-  "notes": "Diffraction-ready Rh2O3(II)-type Al2O3 model from Lin et al., Nature Materials 3, 389-393 (2004), doi:10.1038/nmat1121. The conventional Pbcn lattice and refined coordinates are their 113 GPa, 300 K structure, not an ambient cell; its 126.7 A^3 volume agrees with the high-pressure phase observations. The EOS reference volume is instead a fitted extrapolation to 0 GPa and 300 K. Site multiplicities give Al8O12 and Z=4.",
   "eos_records": [
     {
       "identifier": "alumina_rh2o3_ii_shi_2022_bm3_mgd_1",
       "label": "Shi et al. (2022), selected BM3-MGD model 2",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 165.2, "error": 0.7},
+        "K0": {"value": 256.0, "error": 6.0},
+        "K0_prime": {"value": 4.0, "error": null, "fixed": true}
+      },
+      "thermal": {
+        "debye_temperature_law": "integrated_gruneisen",
+        "parameters": {
+          "Tr": {"value": 300.0, "error": null, "fixed": true},
+          "theta0": {"value": 600.0, "error": 200.0},
+          "gamma0": {"value": 1.47, "error": 0.05},
+          "q": {"value": 1.0, "error": null, "fixed": true},
+          "n": {"value": 5.0, "error": null, "fixed": true}
+        },
+        "model": "MieGruneisenDebye"
+      },
       "determination_method": "experimental",
       "default": true,
       "reference": {
@@ -35,22 +39,6 @@
         "locator": "e2021JB023805",
         "doi": "10.1029/2021JB023805"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 165.2, "K0": 256.0, "K0_prime": 4.0}
-      },
-      "thermal": {
-        "type": "MieGruneisenDebye",
-        "model": "mie_gruneisen_debye",
-        "debye_temperature_law": "integrated_gruneisen",
-        "parameters": {"Tr": 300.0, "theta0": 600.0, "gamma0": 1.47, "q": 1.0, "n": 5.0},
-        "parameter_errors": {"Tr": null, "theta0": 200.0, "gamma0": 0.05, "q": null, "n": null},
-        "fixed_parameters": ["Tr", "q", "n"]
-      },
-      "parameter_errors": {"V0": 0.7, "K0": 6.0, "K0_prime": null},
-      "fixed_parameters": ["K0_prime"],
       "parameter_covariance": null,
       "experimental_pressure_range_gpa": [96.5, 153.0],
       "pressure_range_status": "reported_qualitatively",
@@ -80,58 +68,73 @@
         "audit_date": "2026-09-04",
         "notes": "Shi et al. also checked B2-NaCl pressures against Pt, but the Rh2O3(II) thermal EOS fit used Pt pressures exclusively."
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-04",
-        "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.1029/2021JB023805",
-          "locations": [
-            "main text, Equations 1-6, pages 3-4",
-            "main text, Table 1, page 4, selected Rh2O3(II) coefficients",
-            "main text, Table 3, page 7, five q-sensitivity fits",
-            "Supporting Information, Table S2, all Rh2O3(II) P-T-V observations",
-            "Supporting Information, Table S3, selected model reproduced downstream"
-          ],
-          "finding": "The source reports a BM3 reference isotherm embedded in a full Mie-Gruneisen-Debye thermal EOS, not a stand-alone BM3. Of five Rh2O3(II) q-sensitivity fits, model 2 with q=1 is the selected parameterization used in Table 1 and Table S3. The table volumes are conventional Pbcn-cell volumes with Z=4.",
-          "doi": "10.1029/2021jb023805"
-        },
-        "primary_data_check": {
-          "status": "bundled",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
           "audit_date": "2026-09-04",
-          "dataset_identifiers": ["alumina_rh2o3_ii_shi_2022_table_s2_pvt"],
-          "source_locations": ["Official Supporting Information, Table S2"],
-          "finding": "All 75 Pt-calibrated Rh2O3(II) P-T-V rows are bundled with their printed parenthetical uncertainties, including both identical 156.7 GPa, 3670 K transition-onset rows."
-        }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: main text, Equations 1-6, pages 3-4; main text, Table 1, page 4, selected Rh2O3(II) coefficients; main text, Table 3, page 7, five q-sensitivity fits; Supporting Information, Table S2, all Rh2O3(II) P-T-V observations; Supporting Information, Table S3, selected model reproduced downstream.",
-        "V0": "Shi et al. (2022), main Table 1 and Table 3 model 2; fitted extrapolated four-formula-unit Pbcn-cell volume",
-        "K0": "Shi et al. (2022), main Table 1 and Table 3 model 2; fitted",
-        "K0_prime": "Shi et al. (2022), main Table 1 and Table 3; fixed at 4",
-        "thermal.Tr": "Shi et al. (2022), Equations 1 and 3 and the 300 K reference data; reference-isotherm temperature",
-        "thermal.theta0": "Shi et al. (2022), main Table 1 and Table 3 model 2; fitted",
-        "thermal.gamma0": "Shi et al. (2022), main Table 1 and Table 3 model 2; fitted",
-        "thermal.q": "Shi et al. (2022), main Table 3 model 2; fixed at 1",
-        "thermal.n": "Shi et al. (2022), text following Equation 4; five atoms per Al2O3 formula unit",
-        "equation": "Shi et al. (2022), Equations 1-6; BM3 reference isotherm plus integrated constant-q Mie-Gruneisen-Debye thermal pressure"
-      },
-      "source_lineage": [
-        {
-          "role": "thermal EOS equations, preferred coefficients, observations, and phase-range context",
-          "citation": "Shi et al. (2022), main article and Supporting Information",
-          "doi": "10.1029/2021JB023805"
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1029/2021JB023805",
+            "locations": [
+              "main text, Equations 1-6, pages 3-4",
+              "main text, Table 1, page 4, selected Rh2O3(II) coefficients",
+              "main text, Table 3, page 7, five q-sensitivity fits",
+              "Supporting Information, Table S2, all Rh2O3(II) P-T-V observations",
+              "Supporting Information, Table S3, selected model reproduced downstream"
+            ],
+            "finding": "The source reports a BM3 reference isotherm embedded in a full Mie-Gruneisen-Debye thermal EOS, not a stand-alone BM3. Of five Rh2O3(II) q-sensitivity fits, model 2 with q=1 is the selected parameterization used in Table 1 and Table S3. The table volumes are conventional Pbcn-cell volumes with Z=4.",
+            "doi": "10.1029/2021jb023805"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-04",
+            "dataset_identifiers": ["alumina_rh2o3_ii_shi_2022_table_s2_pvt"],
+            "source_locations": ["Official Supporting Information, Table S2"],
+            "finding": "All 75 Pt-calibrated Rh2O3(II) P-T-V rows are bundled with their printed parenthetical uncertainties, including both identical 156.7 GPa, 3670 K transition-onset rows."
+          }
         },
-        {
-          "role": "Pbcn structure, conventional lattice, fractional coordinates, and Z=4 identity",
-          "citation": "Lin et al. (2004), Table 1 at 113 GPa and 300 K",
-          "doi": "10.1038/nmat1121"
-        }
-      ],
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: main text, Equations 1-6, pages 3-4; main text, Table 1, page 4, selected Rh2O3(II) coefficients; main text, Table 3, page 7, five q-sensitivity fits; Supporting Information, Table S2, all Rh2O3(II) P-T-V observations; Supporting Information, Table S3, selected model reproduced downstream.",
+          "V0": "Shi et al. (2022), main Table 1 and Table 3 model 2; fitted extrapolated four-formula-unit Pbcn-cell volume",
+          "K0": "Shi et al. (2022), main Table 1 and Table 3 model 2; fitted",
+          "K0_prime": "Shi et al. (2022), main Table 1 and Table 3; fixed at 4",
+          "thermal.Tr": "Shi et al. (2022), Equations 1 and 3 and the 300 K reference data; reference-isotherm temperature",
+          "thermal.theta0": "Shi et al. (2022), main Table 1 and Table 3 model 2; fitted",
+          "thermal.gamma0": "Shi et al. (2022), main Table 1 and Table 3 model 2; fitted",
+          "thermal.q": "Shi et al. (2022), main Table 3 model 2; fixed at 1",
+          "thermal.n": "Shi et al. (2022), text following Equation 4; five atoms per Al2O3 formula unit",
+          "equation": "Shi et al. (2022), Equations 1-6; BM3 reference isotherm plus integrated constant-q Mie-Gruneisen-Debye thermal pressure"
+        },
+        "source_lineage": [
+          {
+            "role": "thermal EOS equations, preferred coefficients, observations, and phase-range context",
+            "citation": "Shi et al. (2022), main article and Supporting Information",
+            "doi": "10.1029/2021JB023805"
+          },
+          {
+            "role": "Pbcn structure, conventional lattice, fractional coordinates, and Z=4 identity",
+            "citation": "Lin et al. (2004), Table 1 at 113 GPa and 300 K",
+            "doi": "10.1038/nmat1121"
+          }
+        ]
+      },
       "fit_datasets": ["alumina_rh2o3_ii_shi_2022_table_s2_pvt"]
     }
   ],
+  "aliases": ["Rh2O3(II)-Al2O3", "orthorhombic alumina"],
+  "cell_contents": "Al8O12 (4 Al2O3 formula units) in the conventional orthorhombic Pbcn cell",
+  "symmetry": "ORTHORHOMBIC",
+  "space_group": "Pbcn",
+  "space_group_number": 60,
+  "lattice": {"a": 6.393, "b": 4.362, "c": 4.543, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Al", "wyckoff": "8d", "x": 0.114, "y": 0.758, "z": 0.028, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "8d", "x": 0.849, "y": 0.619, "z": 0.12, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "4c", "x": 0.0, "y": 0.046, "z": 0.25, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Diffraction-ready Rh2O3(II)-type Al2O3 model from Lin et al., Nature Materials 3, 389-393 (2004), doi:10.1038/nmat1121. The conventional Pbcn lattice and refined coordinates are their 113 GPa, 300 K structure, not an ambient cell; its 126.7 A^3 volume agrees with the high-pressure phase observations. The EOS reference volume is instead a fitted extrapolation to 0 GPa and 300 K. Site multiplicities give Al8O12 and Z=4.",
   "datasets": [
     {
       "identifier": "alumina_rh2o3_ii_shi_2022_table_s2_pvt",

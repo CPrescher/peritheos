@@ -1,63 +1,22 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "mg09fe01sio3_bridgmanite",
   "name": "(Mg0.9Fe0.1)SiO3 bridgmanite (Pv10)",
   "formula": "Mg0.9Fe0.1SiO3",
   "phase": "orthorhombic Pbnm Fe-bearing bridgmanite, Pv10 sample",
-  "aliases": ["Pv10", "10 mol.% Fe bridgmanite", "(Mg0.9Fe0.1)SiO3 perovskite"],
-  "family_id": "bridgmanite",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
-  "cell_contents": "Four nominal Mg0.9Fe0.1SiO3 formula units per conventional Pbnm bridgmanite cell (Z=4). The stored atom_sites are an explicitly identified MgSiO3 positional-topology proxy and do not encode the specimen's unresolved Fe2+/Fe3+ site occupancies.",
-  "symmetry": "ORTHORHOMBIC",
-  "space_group": "Pbnm",
-  "space_group_number": 62,
-  "lattice": {"a": 4.7981, "b": 4.9447, "c": 6.9231, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
-  "atom_sites": [
-    {
-      "element": "Mg",
-      "wyckoff": "4c",
-      "x": 0.974,
-      "y": 0.063,
-      "z": 0.25,
-      "occupancy": 1.0,
-      "source_label": "MgSiO3 topology proxy Mg"
-    },
-    {
-      "element": "Si",
-      "wyckoff": "4b",
-      "x": 0.0,
-      "y": 0.5,
-      "z": 0.0,
-      "occupancy": 1.0,
-      "source_label": "MgSiO3 topology proxy Si"
-    },
-    {
-      "element": "O",
-      "wyckoff": "4c",
-      "x": 0.096,
-      "y": 0.477,
-      "z": 0.25,
-      "occupancy": 1.0,
-      "source_label": "MgSiO3 topology proxy O1"
-    },
-    {
-      "element": "O",
-      "wyckoff": "8d",
-      "x": 0.696,
-      "y": 0.291,
-      "z": 0.056,
-      "occupancy": 1.0,
-      "source_label": "MgSiO3 topology proxy O2"
-    }
-  ],
-  "peaks": [],
-  "notes": "The composition-specific material is kept separate from pure MgSiO3 bridgmanite and from the existing Mg0.88Fe0.12SiO3 perovskite. Mao et al. report an electron-microscope composition of (Mg0.9Fe0.1)SiO3 and approximately 20% of total Fe as B-site Fe3+, with the remaining approximately 80% as A-site Fe2+. They do not publish refined Fe site occupancies. The exact same-batch Pbnm lattice comes from Lin et al. (2012), whereas the fractional coordinates are an explicit MgSiO3 topology proxy from Yagi et al. (1978); no Fe distribution or Fe scattering factor is inferred. The same-batch lattice volume is 164.2517 A^3, the Table S1 measured ambient high-spin volume is 163.27(4) A^3, and the executable low-spin EOS extrapolates to V0=162.6(3) A^3. These distinct source values are preserved rather than forced to agree.",
   "eos_records": [
     {
       "identifier": "mg09fe01sio3_bridgmanite_mao_2015_low_spin_bm3_1",
       "label": "Mao et al. (2015), post-transition B-site Fe3+ low-spin BM3",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 162.6, "error": 0.3},
+        "K0": {"value": 284.0, "error": 4.0},
+        "K0_prime": {"value": 4.0, "error": null, "fixed": true}
+      },
       "record_kind": "published",
       "determination_method": "experimental",
       "equation_kind": "isothermal",
@@ -71,15 +30,7 @@
         "locator": "4335-4342",
         "doi": "10.1002/2015GL064400"
       },
-      "temperature_ref": 300.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 162.6, "K0": 284.0, "K0_prime": 4.0}
-      },
-      "parameter_errors": {"V0": 0.3, "K0": 4.0, "K0_prime": null},
       "parameter_error_confidence": null,
-      "fixed_parameters": ["K0_prime"],
       "parameter_covariance": null,
       "experimental_pressure_range_gpa": [25.4, 125.6],
       "pressure_range_status": "reported_exactly",
@@ -121,111 +72,113 @@
         },
         "audit_date": "2026-09-05"
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Validated against the final publisher article, official Wiley Supporting Information S1, and the cited same-batch Lin et al. (2012) characterization. LitCurate was used for discovery only.",
-        "audit_date": "2026-09-05",
-        "verified_fields": [
-          "canonical_doi",
-          "composition",
-          "phase",
-          "crystal_system",
-          "cell_setting",
-          "formula_units_per_cell",
-          "spin_branch",
-          "equation",
-          "parameters",
-          "fixed_parameters",
-          "units",
-          "reference_state",
-          "published_uncertainties",
-          "validity",
-          "pressure_calibration",
-          "primary_data"
-        ],
-        "primary_source_check": {
-          "access_url": "https://doi.org/10.1002/2015GL064400",
-          "doi": "10.1002/2015GL064400",
-          "locations": [
-            "final article, pages 4335-4342, especially Experiments and Results",
-            "official Wiley attachment grl53012-sup-0001-supinfo.doc, Texts S1-S2, Figure S5, and Tables S1-S2",
-            "Lin et al. (2012), doi:10.2138/am.2012.4000, Experimental methods and Figure 1 caption for same-batch Pbnm lattice and spectroscopy context"
-          ],
-          "finding": "The source fully defines one executable post-transition isothermal EOS for Pv10: a standard third-order Birch-Murnaghan pressure-volume fit to all observations above 25 GPa, with conventional Pbnm-cell V0=162.6(+/-0.3) A^3, KT0=284(+/-4) GPa, and fixed KT0'=4. The high-spin branch is discussed and was used to model the transition, but its fitted parameters are not printed and it is therefore not added.",
-          "article_sha256": "13269b3b921b5c9608812667e8a9a333285ade378e0d22ace9a2bfc6430201cc",
-          "official_supporting_information_sha256": "dd35edb13babbd7ff7a5b6f0c2b4106463d04e8e8a49d779bcfb3e093a5b40b5"
-        },
-        "primary_data_check": {
-          "status": "bundled",
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Validated against the final publisher article, official Wiley Supporting Information S1, and the cited same-batch Lin et al. (2012) characterization. LitCurate was used for discovery only.",
           "audit_date": "2026-09-05",
-          "dataset_identifiers": ["mg09fe01sio3_bridgmanite_mao_2015_table_s1_pv"],
-          "source_locations": ["official Wiley Supporting Information S1, Table S1"],
-          "finding": "All 97 printed P, Pstd, conventional-cell V, and Vstd observations from three runs are bundled, including all 28 laser-annealing flags and the measured ambient high-spin anchor. The explicit above-25-GPa rule selects 63 low-spin rows for the published EOS."
-        },
-        "numerical_reproduction": {
-          "states": [
-            {
-              "source_pressure_gpa": 80.7,
-              "source_volume_a3": 134.04,
-              "source_pressure_standard_deviation_gpa": 1.6,
-              "calculated_pressure_gpa": 80.7786155467,
-              "absolute_difference_gpa": 0.0786155467
-            },
-            {
-              "source_pressure_gpa": 125.6,
-              "source_volume_a3": 125.06,
-              "source_pressure_standard_deviation_gpa": 2.6,
-              "calculated_pressure_gpa": 126.1842681245,
-              "absolute_difference_gpa": 0.5842681245
-            }
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "phase",
+            "crystal_system",
+            "cell_setting",
+            "formula_units_per_cell",
+            "spin_branch",
+            "equation",
+            "parameters",
+            "fixed_parameters",
+            "units",
+            "reference_state",
+            "published_uncertainties",
+            "validity",
+            "pressure_calibration",
+            "primary_data"
           ],
-          "tolerance_basis": "Each independent high-pressure Table S1 state is reproduced within its printed pressure standard deviation using only the rounded published coefficients."
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1002/2015GL064400",
+            "doi": "10.1002/2015GL064400",
+            "locations": [
+              "final article, pages 4335-4342, especially Experiments and Results",
+              "official Wiley attachment grl53012-sup-0001-supinfo.doc, Texts S1-S2, Figure S5, and Tables S1-S2",
+              "Lin et al. (2012), doi:10.2138/am.2012.4000, Experimental methods and Figure 1 caption for same-batch Pbnm lattice and spectroscopy context"
+            ],
+            "finding": "The source fully defines one executable post-transition isothermal EOS for Pv10: a standard third-order Birch-Murnaghan pressure-volume fit to all observations above 25 GPa, with conventional Pbnm-cell V0=162.6(+/-0.3) A^3, KT0=284(+/-4) GPa, and fixed KT0'=4. The high-spin branch is discussed and was used to model the transition, but its fitted parameters are not printed and it is therefore not added.",
+            "article_sha256": "13269b3b921b5c9608812667e8a9a333285ade378e0d22ace9a2bfc6430201cc",
+            "official_supporting_information_sha256": "dd35edb13babbd7ff7a5b6f0c2b4106463d04e8e8a49d779bcfb3e093a5b40b5"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-05",
+            "dataset_identifiers": ["mg09fe01sio3_bridgmanite_mao_2015_table_s1_pv"],
+            "source_locations": ["official Wiley Supporting Information S1, Table S1"],
+            "finding": "All 97 printed P, Pstd, conventional-cell V, and Vstd observations from three runs are bundled, including all 28 laser-annealing flags and the measured ambient high-spin anchor. The explicit above-25-GPa rule selects 63 low-spin rows for the published EOS."
+          },
+          "numerical_reproduction": {
+            "states": [
+              {
+                "source_pressure_gpa": 80.7,
+                "source_volume_a3": 134.04,
+                "source_pressure_standard_deviation_gpa": 1.6,
+                "calculated_pressure_gpa": 80.7786155467,
+                "absolute_difference_gpa": 0.0786155467
+              },
+              {
+                "source_pressure_gpa": 125.6,
+                "source_volume_a3": 125.06,
+                "source_pressure_standard_deviation_gpa": 2.6,
+                "calculated_pressure_gpa": 126.1842681245,
+                "absolute_difference_gpa": 0.5842681245
+              }
+            ],
+            "tolerance_basis": "Each independent high-pressure Table S1 state is reproduced within its printed pressure standard deviation using only the rounded published coefficients."
+          },
+          "independent_refit": {
+            "selection": "63 Table S1 observations with reported pressure >25 GPa",
+            "objective": "diagnostic iteratively reweighted effective variance in pressure, sigma_eff^2 = sigma_P^2 + (dP/dV sigma_V)^2",
+            "free_parameters": ["V0", "K0"],
+            "fixed_parameters": {"K0_prime": 4.0},
+            "refit_parameters": {"V0": 162.5849494078, "K0": 283.9449500278},
+            "published_curve_pressure_rmse_gpa": 0.4607032343,
+            "refit_curve_pressure_rmse_gpa": 0.4622988013,
+            "result": "parity",
+            "notes": "The diagnostic refit recovers both printed free coefficients within their rounding intervals. The publication gives neither its numerical objective nor weighting details, software, covariance matrix, or fit statistic, so the effective-variance reconstruction is not asserted to be the authors' exact fit protocol and its covariance is not substituted for missing source covariance."
+          },
+          "unresolved_issues": [
+            "No numerical parameter covariance is recoverable. Supporting Figure S5 shows only a graphical 1-sigma K0-V0 confidence ellipse.",
+            "The source does not state fit software, objective, weighting details, or a fit statistic.",
+            "Supporting Text S2 says a high-spin EOS was fitted below the transition onset, but neither the article nor official supplement prints its coefficients; no executable high-spin record is inferred.",
+            "The 2015 source reports approximately 20% of total Fe as B-site Fe3+ and approximately 80% as A-site Fe2+, but does not publish crystallographic site occupancies or a charge-balanced site formula.",
+            "The supporting-information attachment does not state a data reuse license."
+          ]
         },
-        "independent_refit": {
-          "selection": "63 Table S1 observations with reported pressure >25 GPa",
-          "objective": "diagnostic iteratively reweighted effective variance in pressure, sigma_eff^2 = sigma_P^2 + (dP/dV sigma_V)^2",
-          "free_parameters": ["V0", "K0"],
-          "fixed_parameters": {"K0_prime": 4.0},
-          "refit_parameters": {"V0": 162.5849494078, "K0": 283.9449500278},
-          "published_curve_pressure_rmse_gpa": 0.4607032343,
-          "refit_curve_pressure_rmse_gpa": 0.4622988013,
-          "result": "parity",
-          "notes": "The diagnostic refit recovers both printed free coefficients within their rounding intervals. The publication gives neither its numerical objective nor weighting details, software, covariance matrix, or fit statistic, so the effective-variance reconstruction is not asserted to be the authors' exact fit protocol and its covariance is not substituted for missing source covariance."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: final article, pages 4335-4342, especially Experiments and Results; official Wiley attachment grl53012-sup-0001-supinfo.doc, Texts S1-S2, Figure S5, and Tables S1-S2; Lin et al. (2012), doi:10.2138/am.2012.4000, Experimental methods and Figure 1 caption for same-batch Pbnm lattice and spectroscopy context.",
+          "equation": "Final article, Results, page 4337, and Supporting Information Text S2: third-order Birch-Murnaghan pressure-volume EOS for observations above the completed spin transition. A standard Eulerian BM3 with fixed K0'=4 reproduces the reported coefficients and Table S1 curve.",
+          "V0": "Final article, Results, page 4337, and Supporting Information Table S2, this-study low-spin row: V0=162.6(+/-0.3) A^3 conventional Pbnm unit cell",
+          "K0": "Final article abstract and Results, page 4337, and Supporting Information Table S2: KT0=284(+/-4) GPa",
+          "K0_prime": "Final article, Results, page 4337, and Supporting Information Table S2: fixed KT0'=4",
+          "temperature_ref": "Final article abstract, Experiments, and Results: compression data and EOS at 300 K",
+          "fit_selection": "Final article, Results, and Supporting Information Text S2: all P-V observations above 25 GPa, after completion of the 18-25 GPa transition; 63 Table S1 rows"
         },
-        "unresolved_issues": [
-          "No numerical parameter covariance is recoverable. Supporting Figure S5 shows only a graphical 1-sigma K0-V0 confidence ellipse.",
-          "The source does not state fit software, objective, weighting details, or a fit statistic.",
-          "Supporting Text S2 says a high-spin EOS was fitted below the transition onset, but neither the article nor official supplement prints its coefficients; no executable high-spin record is inferred.",
-          "The 2015 source reports approximately 20% of total Fe as B-site Fe3+ and approximately 80% as A-site Fe2+, but does not publish crystallographic site occupancies or a charge-balanced site formula.",
-          "The supporting-information attachment does not state a data reuse license."
+        "source_lineage": [
+          {
+            "role": "published EOS coefficients, branch definition, primary P-V observations, experiment, and pressure calibration",
+            "citation": "Mao et al. (2015), Geophysical Research Letters 42, 4335-4342, plus official Supporting Information S1",
+            "doi": "10.1002/2015GL064400"
+          },
+          {
+            "role": "same-batch composition, Pbnm lattice, and iron spin/site characterization",
+            "citation": "Lin et al. (2012), American Mineralogist 97, 592-597",
+            "doi": "10.2138/am.2012.4000"
+          },
+          {
+            "role": "isostructural positional-topology proxy only",
+            "citation": "Yagi et al. (1978), Physics and Chemistry of Minerals 3, 97-110",
+            "doi": "10.1007/BF00308114"
+          }
         ]
       },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: final article, pages 4335-4342, especially Experiments and Results; official Wiley attachment grl53012-sup-0001-supinfo.doc, Texts S1-S2, Figure S5, and Tables S1-S2; Lin et al. (2012), doi:10.2138/am.2012.4000, Experimental methods and Figure 1 caption for same-batch Pbnm lattice and spectroscopy context.",
-        "equation": "Final article, Results, page 4337, and Supporting Information Text S2: third-order Birch-Murnaghan pressure-volume EOS for observations above the completed spin transition. A standard Eulerian BM3 with fixed K0'=4 reproduces the reported coefficients and Table S1 curve.",
-        "V0": "Final article, Results, page 4337, and Supporting Information Table S2, this-study low-spin row: V0=162.6(+/-0.3) A^3 conventional Pbnm unit cell",
-        "K0": "Final article abstract and Results, page 4337, and Supporting Information Table S2: KT0=284(+/-4) GPa",
-        "K0_prime": "Final article, Results, page 4337, and Supporting Information Table S2: fixed KT0'=4",
-        "temperature_ref": "Final article abstract, Experiments, and Results: compression data and EOS at 300 K",
-        "fit_selection": "Final article, Results, and Supporting Information Text S2: all P-V observations above 25 GPa, after completion of the 18-25 GPa transition; 63 Table S1 rows"
-      },
-      "source_lineage": [
-        {
-          "role": "published EOS coefficients, branch definition, primary P-V observations, experiment, and pressure calibration",
-          "citation": "Mao et al. (2015), Geophysical Research Letters 42, 4335-4342, plus official Supporting Information S1",
-          "doi": "10.1002/2015GL064400"
-        },
-        {
-          "role": "same-batch composition, Pbnm lattice, and iron spin/site characterization",
-          "citation": "Lin et al. (2012), American Mineralogist 97, 592-597",
-          "doi": "10.2138/am.2012.4000"
-        },
-        {
-          "role": "isostructural positional-topology proxy only",
-          "citation": "Yagi et al. (1978), Physics and Chemistry of Minerals 3, 97-110",
-          "doi": "10.1007/BF00308114"
-        }
-      ],
       "sample_composition": "(Mg0.9Fe0.1)SiO3 (Pv10), Al-free polycrystalline bridgmanite with a small stishovite impurity",
       "iron_speciation": "Approximately 20% of total Fe is Fe3+ assigned to the octahedral B site and approximately 80% is Fe2+ assigned to the pseudododecahedral A site; this EOS is the pressure-above-25-GPa branch where the B-site Fe3+ is low spin. The A-site Fe2+ remains high spin in the same-batch spectroscopy to 120 GPa.",
       "experimental_configuration": {
@@ -241,6 +194,13 @@
     {
       "identifier": "mg09fe01sio3_bridgmanite_mao_1991_bm2_2",
       "label": "Mao et al. (1991), Fe10 bridgmanite K0'=4 fit",
+      "model": "BM3",
+      "temperature_ref": 298.0,
+      "parameters": {
+        "V0": {"value": 162.79, "error": 0.08, "fixed": true},
+        "K0": {"value": 261.0, "error": 4.0},
+        "K0_prime": {"value": 4.0, "error": null, "fixed": true}
+      },
       "record_kind": "published",
       "determination_method": "experimental",
       "equation_kind": "isothermal",
@@ -253,15 +213,7 @@
         "locator": "8069-8079",
         "doi": "10.1029/91JB00176"
       },
-      "temperature_ref": 298.0,
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {"V0": 162.79, "K0": 261.0, "K0_prime": 4.0}
-      },
-      "parameter_errors": {"V0": 0.08, "K0": 4.0, "K0_prime": null},
       "parameter_error_confidence": null,
-      "fixed_parameters": ["V0", "K0_prime"],
       "parameter_covariance": null,
       "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 103.541},
       "experimental_pressure_range_gpa": [0.0, 30.0],
@@ -320,49 +272,98 @@
         "audit_date": "2026-09-08",
         "notes": "The final article explicitly states that only gold pressures were used for its perovskite EOS; that main pressure axis is linked to an executable record. Ruby and neon served as checks. The overall status remains partial because row-wise ruby and neon readings are not printed and the rounded Anderson reference volume does not exactly regenerate the tabulated pressures."
       },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-        "audit_date": "2026-09-01",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "published_uncertainties",
-          "validity",
-          "parameter_errors"
-        ],
-        "primary_source_check": {
-          "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/91JB00176",
-          "doi": "10.1029/91jb00176",
-          "locations": [
-            "Final article abstract and journal pages 8071-8074",
-            "Final article Tables 1-3",
-            "Final article equation-of-state fit paragraph and Figure 4"
+      "evidence": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "published_uncertainties",
+            "validity",
+            "parameter_errors"
           ],
-          "finding": "Table 1 supplies the three composition-specific V0 values. The fit paragraph explicitly selects the Fe10 data and reports K0=261(4) GPa with K0'=4; Tables 2-3 provide the final gold-pressure observations."
+          "primary_source_check": {
+            "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/abs/10.1029/91JB00176",
+            "doi": "10.1029/91jb00176",
+            "locations": [
+              "Final article abstract and journal pages 8071-8074",
+              "Final article Tables 1-3",
+              "Final article equation-of-state fit paragraph and Figure 4"
+            ],
+            "finding": "Table 1 supplies the three composition-specific V0 values. The fit paragraph explicitly selects the Fe10 data and reports K0=261(4) GPa with K0'=4; Tables 2-3 provide the final gold-pressure observations."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-08",
+            "dataset_identifiers": ["mao_1991_tables2_3_bridgmanite_pv"],
+            "source_locations": ["Table 1", "Table 2, nine 300 K Fe10 rows", "Table 3, seven composition-comparison rows"],
+            "diagnostic_dataset_identifiers": ["mao_1989_carnegie_table8_bridgmanite_pv"],
+            "diagnostic_dataset_scope": "Authoritative 12-row precursor table retained to document the changed pressure reduction and fit scope.",
+            "finding": "All 16 final room-temperature rows are transcribed. The source selects the nine Fe10 rows; with V0=162.79 A3 and K0'=4 fixed, an unweighted pressure-residual fit gives K0=260.80 GPa and reproduces the reported 261(4) GPa."
+          }
         },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-08",
-          "dataset_identifiers": ["mao_1991_tables2_3_bridgmanite_pv"],
-          "source_locations": ["Table 1", "Table 2, nine 300 K Fe10 rows", "Table 3, seven composition-comparison rows"],
-          "diagnostic_dataset_identifiers": ["mao_1989_carnegie_table8_bridgmanite_pv"],
-          "diagnostic_dataset_scope": "Authoritative 12-row precursor table retained to document the changed pressure reduction and fit scope.",
-          "finding": "All 16 final room-temperature rows are transcribed. The source selects the nine Fe10 rows; with V0=162.79 A3 and K0'=4 fixed, an unweighted pressure-residual fit gives K0=260.80 GPa and reproduces the reported 261(4) GPa."
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Final article abstract and journal pages 8071-8074; Final article Tables 1-3; Final article equation-of-state fit paragraph and Figure 4.",
+          "equation": "The final 298 K isotherms use a Birch equation with K0'=4 fixed; Peritheos stores the algebraically identical BM3 special case.",
+          "parameters": "Final-publication Table 1 gives V0=162.79(8) A3 for Fe10; the room-temperature fit paragraph gives K0=261(4) GPa with K0'=4.",
+          "fit_scope": "The shared elastic coefficient was fitted only to the nine 300 K Fe10 rows in Table 2. The MgSiO3 and Fe20 rows demonstrate indistinguishable compression, while their Table 1 V0 values remain composition specific."
         }
-      },
-      "parameter_provenance": {
-        "determination_method": "Measurements or their experimental reduction determine this EOS; source: Final article abstract and journal pages 8071-8074; Final article Tables 1-3; Final article equation-of-state fit paragraph and Figure 4.",
-        "equation": "The final 298 K isotherms use a Birch equation with K0'=4 fixed; Peritheos stores the algebraically identical BM3 special case.",
-        "parameters": "Final-publication Table 1 gives V0=162.79(8) A3 for Fe10; the room-temperature fit paragraph gives K0=261(4) GPa with K0'=4.",
-        "fit_scope": "The shared elastic coefficient was fitted only to the nine 300 K Fe10 rows in Table 2. The MgSiO3 and Fe20 rows demonstrate indistinguishable compression, while their Table 1 V0 values remain composition specific."
       },
       "fit_datasets": ["mao_1991_tables2_3_bridgmanite_pv"]
     }
   ],
+  "aliases": ["Pv10", "10 mol.% Fe bridgmanite", "(Mg0.9Fe0.1)SiO3 perovskite"],
+  "family_id": "bridgmanite",
+  "cell_contents": "Four nominal Mg0.9Fe0.1SiO3 formula units per conventional Pbnm bridgmanite cell (Z=4). The stored atom_sites are an explicitly identified MgSiO3 positional-topology proxy and do not encode the specimen's unresolved Fe2+/Fe3+ site occupancies.",
+  "symmetry": "ORTHORHOMBIC",
+  "space_group": "Pbnm",
+  "space_group_number": 62,
+  "lattice": {"a": 4.7981, "b": 4.9447, "c": 6.9231, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {
+      "element": "Mg",
+      "wyckoff": "4c",
+      "x": 0.974,
+      "y": 0.063,
+      "z": 0.25,
+      "occupancy": 1.0,
+      "source_label": "MgSiO3 topology proxy Mg"
+    },
+    {
+      "element": "Si",
+      "wyckoff": "4b",
+      "x": 0.0,
+      "y": 0.5,
+      "z": 0.0,
+      "occupancy": 1.0,
+      "source_label": "MgSiO3 topology proxy Si"
+    },
+    {
+      "element": "O",
+      "wyckoff": "4c",
+      "x": 0.096,
+      "y": 0.477,
+      "z": 0.25,
+      "occupancy": 1.0,
+      "source_label": "MgSiO3 topology proxy O1"
+    },
+    {
+      "element": "O",
+      "wyckoff": "8d",
+      "x": 0.696,
+      "y": 0.291,
+      "z": 0.056,
+      "occupancy": 1.0,
+      "source_label": "MgSiO3 topology proxy O2"
+    }
+  ],
+  "peaks": [],
+  "notes": "The composition-specific material is kept separate from pure MgSiO3 bridgmanite and from the existing Mg0.88Fe0.12SiO3 perovskite. Mao et al. report an electron-microscope composition of (Mg0.9Fe0.1)SiO3 and approximately 20% of total Fe as B-site Fe3+, with the remaining approximately 80% as A-site Fe2+. They do not publish refined Fe site occupancies. The exact same-batch Pbnm lattice comes from Lin et al. (2012), whereas the fractional coordinates are an explicit MgSiO3 topology proxy from Yagi et al. (1978); no Fe distribution or Fe scattering factor is inferred. The same-batch lattice volume is 164.2517 A^3, the Table S1 measured ambient high-spin volume is 163.27(4) A^3, and the executable low-spin EOS extrapolates to V0=162.6(3) A^3. These distinct source values are preserved rather than forced to agree.",
   "datasets": [
     {
       "identifier": "mao_1991_tables2_3_bridgmanite_pv",
