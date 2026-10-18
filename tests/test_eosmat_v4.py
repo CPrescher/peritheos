@@ -43,7 +43,7 @@ def test_entire_catalog_migrates_with_every_scientific_field_and_source_array_in
     paths = sorted((ROOT / "peritheos/data/materials").glob("*.eosmat"))
     assert len(paths) == 232
     for path in paths:
-        original = json.loads(path.read_text())
+        original = json.loads(path.read_text(encoding="utf-8"))
         before = copy.deepcopy(original)
         native = convert_eosmat(original)
         validator.validate(native)

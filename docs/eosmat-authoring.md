@@ -115,6 +115,8 @@ in [Adding materials and EOS](adding-materials-and-eos.md).
 source values, record order and unknown material/record extensions. It writes
 existing destinations so deliberate edits can be saved. The creation and
 migration commands use new destinations to protect existing files.
+Saved files use UTF-8 and LF line endings on every platform, preserving accented
+names and scientific symbols as readable text.
 
 ```bash
 python -m peritheos validate my_material.eosmat

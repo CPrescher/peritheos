@@ -1305,7 +1305,7 @@ def save_eosmat(path: str | Path, document: Mapping[str, Any]) -> None:
 
     validate_eosmat_document(document)
     payload = format_eosmat(document)
-    Path(path).write_text(payload, encoding="utf-8")
+    Path(path).write_bytes(payload.encode("utf-8"))
 
 
 def list_material_documents() -> tuple[str, ...]:

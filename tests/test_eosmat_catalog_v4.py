@@ -46,7 +46,7 @@ def test_native_catalog_and_compatibility_views_preserve_complete_content(identi
             record["evidence"]["scientific_validation"] == old["scientific_validation"]
         )
         assert "eos" not in record
-    assert render_material(native) == path.read_text()
+    assert render_material(native) == path.read_text(encoding="utf-8")
     assert not migrate_file(path, check=True)
 
 

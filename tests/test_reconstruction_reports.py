@@ -104,7 +104,7 @@ def test_invalid_navigation_fields_are_rejected_by_schema_and_python(field, valu
 def test_supporting_reports_use_only_explicit_existing_local_references(tmp_path):
     directory = tmp_path / "docs/literature-reproductions"
     directory.mkdir(parents=True)
-    (directory / "existing.md").write_text("# Explicit report\n")
+    (directory / "existing.md").write_text("# Explicit report\n", encoding="utf-8")
     record = {
         "notes": "See docs/literature-reproductions/existing.md and literature-reproductions/missing.md"
     }
@@ -119,10 +119,10 @@ def test_illustrated_reports_match_exact_identifiers_without_guessing_from_a_mat
     directory = tmp_path / "docs/literature-reproductions"
     directory.mkdir(parents=True)
     (directory / "exact.md").write_text(
-        "# Existing plot\n`example_bm3`\n![Recorded plot](plot.png)"
+        "# Existing plot\n`example_bm3`\n![Recorded plot](plot.png)", encoding="utf-8"
     )
     (directory / "different.md").write_text(
-        "# Other EOS\n`example_bm3_thermal`\n![Other plot](other.png)"
+        "# Other EOS\n`example_bm3_thermal`\n![Other plot](other.png)", encoding="utf-8"
     )
     assert illustrated_mentions("example_bm3", tmp_path) == [
         "literature-reproductions/exact.md"
@@ -146,13 +146,15 @@ def test_every_bundled_link_opens_its_record_and_each_graph_matches_its_input():
             public = urlsplit(assessment["report_url"])
             assert public.fragment == fragment
             assert public.path.endswith("/" + document["identifier"] + "/")
-            assert f'<a id="{fragment}"></a>' in (ROOT / local).read_text()
+            assert f'<a id="{fragment}"></a>' in (ROOT / local).read_text(
+                encoding="utf-8"
+            )
             figure = (
                 ROOT
                 / "docs/reconstruction-reports/figures"
                 / (record["identifier"] + ".svg")
             )
-            page = (ROOT / local).read_text()
+            page = (ROOT / local).read_text(encoding="utf-8")
             if figure.exists():
                 assert current_figure(figure.read_bytes(), assessment)
                 assert f"figures/{record['identifier']}.svg" in page

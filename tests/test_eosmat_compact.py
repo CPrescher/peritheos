@@ -62,7 +62,7 @@ def sample():
 def test_entire_catalog_compacts_without_changing_any_original_scientific_field():
     schema = Draft202012Validator(eosmat_schema(4))
     for path in sorted((ROOT / "peritheos/data/materials").glob("*.eosmat")):
-        original = json.loads(path.read_text())
+        original = json.loads(path.read_text(encoding="utf-8"))
         before = copy.deepcopy(original)
         compact = convert_eosmat(original, compact=True)
         schema.validate(compact)

@@ -36,4 +36,4 @@ def render_material(document: Mapping[str, Any]) -> str:
 
 def write_material(path: Path, document: Mapping[str, Any]) -> None:
     """Write native v4 after conversion and validation have succeeded."""
-    path.write_text(render_material(document), encoding="utf-8")
+    path.write_bytes(render_material(document).encode("utf-8"))

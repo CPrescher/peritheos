@@ -218,7 +218,7 @@ def report_page(document: Mapping[str, Any], *, root: Path) -> str:
     material = document["identifier"]
     previous = root / "docs/primary-eos-refits.md"
     anchors = (
-        set(re.findall(r'<a id="([^"]+)"', previous.read_text()))
+        set(re.findall(r'<a id="([^"]+)"', previous.read_text(encoding="utf-8")))
         if previous.exists()
         else set()
     )

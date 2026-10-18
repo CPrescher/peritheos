@@ -58,6 +58,7 @@ def test_readable_writer_preserves_extensions_array_order_and_numerical_precisio
     assert math.copysign(1, loaded["extension"]["values"][1]) == -1
     payload = path.read_text(encoding="utf-8")
     assert payload == format_eosmat(loaded)
+    assert path.read_bytes() == payload.encode("utf-8")
     assert payload.index('"identifier": "example_material"') < payload.index(
         '"eos_records"'
     )
