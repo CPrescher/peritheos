@@ -2,6 +2,8 @@ use std::error::Error;
 use std::fs;
 use std::path::{Path, PathBuf};
 
+use serde_json::{json, Value};
+
 use peritheos::{
     load_eosmat, load_eosmat_str, save_eosmat, serialize_eosmat, validate_eosmat_document,
     EosmatError, EosmatErrorKind, Material,
@@ -87,6 +89,52 @@ fn canonical_documents_validate_serialize_and_round_trip_without_losing_extensio
     ));
     saved.save(&path).unwrap();
     fs::remove_file(path).unwrap();
+}
+
+#[test]
+fn pressure_scale_variants_are_explicit_references_and_round_trip_losslessly() {
+    let mut document: Value = serde_json::from_str(simple_document()).unwrap();
+    let mut variant = document["eos_records"][0].clone();
+    variant["identifier"] = json!("alternate_scale_bm3");
+    variant["label"] = json!("Published alternative pressure scale");
+    variant["default"] = json!(false);
+    variant["pressure_scale_variant_of"] = json!("test_bm3");
+    variant["eos"]["parameters"]["K0"] = json!(170.0);
+    document["eos_records"]
+        .as_array_mut()
+        .unwrap()
+        .push(variant);
+    let material = load_eosmat_str(&document.to_string()).unwrap();
+    assert_eq!(material.source_records().count(), 1);
+    assert_eq!(material.equilibrium_records().count(), 1);
+    assert_eq!(material.reference_variants().count(), 1);
+    let reference = material.record("alternate_scale_bm3").unwrap();
+    assert_eq!(reference.pressure_scale_variant_of(), Some("test_bm3"));
+    assert!(reference.pressure(9.0, 300.0).unwrap().is_finite());
+    assert_eq!(material.default_record().unwrap().identifier, "test_bm3");
+    validate_eosmat_document(&document).unwrap();
+
+    for bad in [
+        Value::Null,
+        json!(""),
+        json!("missing"),
+        json!("alternate_scale_bm3"),
+    ] {
+        let mut malformed = document.clone();
+        malformed["eos_records"][1]["pressure_scale_variant_of"] = bad;
+        assert!(validate_eosmat_document(&malformed).is_err());
+    }
+    let mut malformed = document.clone();
+    malformed["eos_records"][1]["default"] = json!(true);
+    assert!(validate_eosmat_document(&malformed).is_err());
+    let mut malformed = document.clone();
+    malformed["eos_records"][0]["pressure_scale_variant_of"] = json!("alternate_scale_bm3");
+    assert!(validate_eosmat_document(&malformed).is_err());
+    let mut malformed = document.clone();
+    malformed["eos_records"][1]["fixed_parameters"] = json!(["K0"]);
+    assert!(validate_eosmat_document(&malformed).is_err());
+    let serialized = serialize_eosmat(&document).unwrap();
+    assert_eq!(load_eosmat_str(&serialized).unwrap().document, document);
 }
 
 #[test]
@@ -209,7 +257,7 @@ fn morard_fes_deferred_source_round_trips_and_matches_independent_quadrature() {
     let volume = record.volume(100.0, 2000.0).unwrap();
     assert_close(record.pressure(volume, 2000.0).unwrap(), 100.0, 1e-8);
     assert_eq!(
-        material.document["eos_records"][0]["scientific_validation"]["status"],
+        material.document["eos_records"][0]["evidence"]["scientific_validation"]["status"],
         "deferred"
     );
     let restored = load_eosmat_str(&material.to_json().unwrap()).unwrap();
@@ -1148,7 +1196,7 @@ fn mosenfelder_ppv_reference_isentrope_record_is_executable() {
     assert_eq!(
         record
             .document
-            .pointer("/thermal/parameters/Cvmax")
+            .pointer("/thermal/parameters/Cvmax/value")
             .and_then(serde_json::Value::as_f64),
         Some(103.901_062_5)
     );
@@ -1492,7 +1540,10 @@ fn maltby_published_is_executable_without_claiming_reproduction() {
         .iter()
         .find(|r| r["identifier"] == record.identifier)
         .unwrap();
-    assert_eq!(raw["scientific_validation"]["status"], "not_reproduced");
+    assert_eq!(
+        raw["evidence"]["scientific_validation"]["status"],
+        "not_reproduced"
+    );
     assert_eq!(raw["default"], false);
 }
 

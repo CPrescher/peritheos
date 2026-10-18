@@ -1,261 +1,216 @@
 {
- "format_version": 3,
- "name": "Zirconium (omega)",
- "aliases": [
-  "omega-Zr"
- ],
- "formula": "Zr",
- "symmetry": "HEXAGONAL",
- "lattice": {
-  "a": 5.044,
-  "b": null,
-  "c": 3.137,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 120.0
- },
- "formula_units_per_cell": 3,
- "space_group": "P6/mmm",
- "space_group_number": 191,
- "atom_sites": [
-  {
-   "element": "Zr",
-   "wyckoff": "1a",
-   "x": 0.0,
-   "y": 0.0,
-   "z": 0.0,
-   "occupancy": 1.0
-  },
-  {
-   "element": "Zr",
-   "wyckoff": "2d",
-   "x": 0.3333333333,
-   "y": 0.6666666667,
-   "z": 0.5,
-   "occupancy": 1.0
-  }
- ],
- "notes": "McHardy et al.'s measured zero-pressure omega-Zr lattice; its rounded axes agree with the constrained EoS volume within 0.05 A^3.",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "McHardy et al. (2026), omega Vinet",
-   "reference": {
-    "authors": [
-     "McHardy",
-     "Storm",
-     "Lonsdale",
-     "Roy",
-     "McMahon"
-    ],
-    "year": 2026,
-    "title": "Phase transitions in Zr to 240 GPa",
-    "source": "Phys. Rev. B",
-    "volume": "113",
-    "locator": "174115",
-    "doi": "10.1103/zp3m-kjpc"
-   },
-   "eos": {
-    "type": "Vinet",
-    "parameters": {
-     "V0": 69.15,
-     "K0": 98.0,
-     "K0_prime": 3.6
-    },
-    "model": "vinet"
-   },
-   "parameter_errors": {
-    "V0": 0.09,
-    "K0": 2.0,
-    "K0_prime": 0.2
-   },
-   "fixed_parameters": [
-    "V0"
-   ],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    33.0
-   ],
-   "experimental_temperature_range_k": [
-    300.0,
-    300.0
-   ],
-   "temperature_ref": 300.0,
-   "notes": "The fit constrained V0 to the independently measured decompression value 23.05(3) A^3/atom; volume and uncertainty are tripled for the conventional Z=3 cell.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Vinet formulation; Table I, beta row; Table II, alpha and omega rows."
-   },
-   "identifier": "zirconium_omega_mchardy_2026_vinet_1",
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
-    },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1103/zp3m-kjpc",
-     "locations": [
-      "Vinet formulation",
-      "Table I, beta row",
-      "Table II, alpha and omega rows"
-     ],
-     "finding": "The beta-phase V0 is explicitly an extrapolated fixed fit parameter.",
-     "doi": "10.1103/zp3m-kjpc"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "zirconium_omega.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "zirconium_omega_mchardy_2026_table_s7_compression"
-     ],
-     "source_locations": [
-      "Supplementary Table S7"
-     ],
-     "finding": "All 41 omega-Zr observations in supplementary Table S7, including the recovered ambient-pressure point, Al calibrant volumes, calculated pressures, lattice parameters, atomic volumes, and published pointwise uncertainties."
+  "format_version": 4,
+  "identifier": "zirconium_omega",
+  "name": "Zirconium (omega)",
+  "formula": "Zr",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 3,
+  "eos_records": [
+    {
+      "identifier": "zirconium_omega_mchardy_2026_vinet_1",
+      "label": "McHardy et al. (2026), omega Vinet",
+      "model": "Vinet",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 69.15, "error": 0.09, "fixed": true},
+        "K0": {"value": 98.0, "error": 2.0},
+        "K0_prime": {"value": 3.6, "error": 0.2}
+      },
+      "experimental_pressure_range_gpa": [0.0, 33.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "determination_method": "experimental",
+      "notes": "The fit constrained V0 to the independently measured decompression value 23.05(3) A^3/atom; volume and uncertainty are tripled for the conventional Z=3 cell.",
+      "reference": {
+        "authors": ["McHardy", "Storm", "Lonsdale", "Roy", "McMahon"],
+        "year": 2026,
+        "title": "Phase transitions in Zr to 240 GPa",
+        "source": "Phys. Rev. B",
+        "volume": "113",
+        "locator": "174115",
+        "doi": "10.1103/zp3m-kjpc"
+      },
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/zirconium_omega/#record-zirconium_omega_mchardy_2026_vinet_1",
+            "report_path": "docs/reconstruction-reports/zirconium_omega.md#record-zirconium_omega_mchardy_2026_vinet_1",
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 98.0,
+                "published_error": 2.0,
+                "refit": 98.13329221132443,
+                "refit_error": 1.1441660819186006,
+                "difference": 0.1332922113244308,
+                "relative_difference": 0.0013601246053513347,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.6,
+                "published_error": 0.2,
+                "refit": 3.570748942579878,
+                "refit_error": 0.1558997950288912,
+                "difference": -0.029251057420121906,
+                "relative_difference": 0.008125293727811641,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "atomic_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 41,
+              "observed_pressure_range_gpa": [-0.04, 32.8],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [54.94799999999999, 69.15],
+              "degrees_of_freedom": 39,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.4115115083763052,
+              "published_rmse_gpa": 0.44045901342474203,
+              "reduced_chi_square": 1.7764827589675236,
+              "dataset_identifiers": ["zirconium_omega_mchardy_2026_table_s7_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1103/zp3m-kjpc",
+            "locations": ["Vinet formulation", "Table I, beta row", "Table II, alpha and omega rows"],
+            "finding": "The beta-phase V0 is explicitly an extrapolated fixed fit parameter.",
+            "doi": "10.1103/zp3m-kjpc"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "zirconium_omega.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["zirconium_omega_mchardy_2026_table_s7_compression"],
+            "source_locations": ["Supplementary Table S7"],
+            "finding": "All 41 omega-Zr observations in supplementary Table S7, including the recovered ambient-pressure point, Al calibrant volumes, calculated pressures, lattice parameters, atomic volumes, and published pointwise uncertainties."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Vinet formulation; Table I, beta row; Table II, alpha and omega rows."
+        }
+      }
     }
-   }
-  }
- ],
- "format": "peritheos.material",
- "identifier": "zirconium_omega",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "datasets": [
-  {
-   "identifier": "zirconium_omega_mchardy_2026_table_s7_compression",
-   "kind": "pressure_volume_lattice_parameters",
-   "description": "All 41 omega-Zr observations in supplementary Table S7, including the recovered ambient-pressure point, Al calibrant volumes, calculated pressures, lattice parameters, atomic volumes, and published pointwise uncertainties.",
-   "source_location": "Supplementary Table S7",
-   "source_url": "https://journals.aps.org/prb/supplemental/10.1103/zp3m-kjpc/sup_mat.pdf",
-   "columns": [
+  ],
+  "aliases": ["omega-Zr"],
+  "symmetry": "HEXAGONAL",
+  "space_group": "P6/mmm",
+  "space_group_number": 191,
+  "lattice": {"a": 5.044, "b": null, "c": 3.137, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
+  "atom_sites": [
+    {"element": "Zr", "wyckoff": "1a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
+    {"element": "Zr", "wyckoff": "2d", "x": 0.3333333333, "y": 0.6666666667, "z": 0.5, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "McHardy et al.'s measured zero-pressure omega-Zr lattice; its rounded axes agree with the constrained EoS volume within 0.05 A^3.",
+  "datasets": [
     {
-     "name": "cell",
-     "quantity": "diamond_anvil_cell_experiment",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "pressure_calibrant",
-     "quantity": "pressure_calibrant",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "calibrant_atomic_volume_a3",
-     "quantity": "calibrant_atomic_volume",
-     "unit": "angstrom^3/atom",
-     "role": "value"
-    },
-    {
-     "name": "calibrant_atomic_volume_uncertainty_a3",
-     "quantity": "calibrant_atomic_volume",
-     "unit": "angstrom^3/atom",
-     "role": "uncertainty",
-     "of": "calibrant_atomic_volume_a3"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_uncertainty_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "uncertainty",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "lattice_a_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_a_uncertainty_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "uncertainty",
-     "of": "lattice_a_angstrom"
-    },
-    {
-     "name": "lattice_c_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_c_uncertainty_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "uncertainty",
-     "of": "lattice_c_angstrom"
-    },
-    {
-     "name": "atomic_volume_a3",
-     "quantity": "atomic_volume",
-     "unit": "angstrom^3/atom",
-     "role": "value"
-    },
-    {
-     "name": "atomic_volume_uncertainty_a3",
-     "quantity": "atomic_volume",
-     "unit": "angstrom^3/atom",
-     "role": "uncertainty",
-     "of": "atomic_volume_a3"
+      "identifier": "zirconium_omega_mchardy_2026_table_s7_compression",
+      "kind": "pressure_volume_lattice_parameters",
+      "description": "All 41 omega-Zr observations in supplementary Table S7, including the recovered ambient-pressure point, Al calibrant volumes, calculated pressures, lattice parameters, atomic volumes, and published pointwise uncertainties.",
+      "source_location": "Supplementary Table S7",
+      "source_url": "https://journals.aps.org/prb/supplemental/10.1103/zp3m-kjpc/sup_mat.pdf",
+      "columns": [
+        {"name": "cell", "quantity": "diamond_anvil_cell_experiment", "unit": "1", "role": "flag"},
+        {"name": "pressure_calibrant", "quantity": "pressure_calibrant", "unit": "1", "role": "flag"},
+        {
+          "name": "calibrant_atomic_volume_a3",
+          "quantity": "calibrant_atomic_volume",
+          "unit": "angstrom^3/atom",
+          "role": "value"
+        },
+        {
+          "name": "calibrant_atomic_volume_uncertainty_a3",
+          "quantity": "calibrant_atomic_volume",
+          "unit": "angstrom^3/atom",
+          "role": "uncertainty",
+          "of": "calibrant_atomic_volume_a3"
+        },
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_uncertainty_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_a_uncertainty_angstrom",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "lattice_a_angstrom"
+        },
+        {"name": "lattice_c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_c_uncertainty_angstrom",
+          "quantity": "lattice_parameter_c",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "lattice_c_angstrom"
+        },
+        {"name": "atomic_volume_a3", "quantity": "atomic_volume", "unit": "angstrom^3/atom", "role": "value"},
+        {
+          "name": "atomic_volume_uncertainty_a3",
+          "quantity": "atomic_volume",
+          "unit": "angstrom^3/atom",
+          "role": "uncertainty",
+          "of": "atomic_volume_a3"
+        }
+      ],
+      "resource": {
+        "path": "datasets/zirconium-omega-mchardy-2026-table-s7-compression.csv",
+        "sha256": "1ec6283ed1355d7bfaa41bb473730350a9bccae9b03e7d20f6bbe8ce17686ae4",
+        "media_type": "text/csv"
+      },
+      "notes": "Parenthesized last-digit uncertainties are expanded to absolute values. Phase labels follow the article's omega-Zr assignment; the supplementary PDF's embedded font maps the Greek glyph incorrectly during text extraction.",
+      "reference": {
+        "authors": ["McHardy", "Storm", "Lonsdale", "Roy", "McMahon"],
+        "year": 2026,
+        "source": "Phys. Rev. B",
+        "volume": "113",
+        "locator": "174115",
+        "doi": "10.1103/zp3m-kjpc"
+      },
+      "used_by_eos_records": ["zirconium_omega_mchardy_2026_vinet_1"]
     }
-   ],
-   "resource": {
-    "path": "datasets/zirconium-omega-mchardy-2026-table-s7-compression.csv",
-    "sha256": "1ec6283ed1355d7bfaa41bb473730350a9bccae9b03e7d20f6bbe8ce17686ae4",
-    "media_type": "text/csv"
-   },
-   "notes": "Parenthesized last-digit uncertainties are expanded to absolute values. Phase labels follow the article's omega-Zr assignment; the supplementary PDF's embedded font maps the Greek glyph incorrectly during text extraction.",
-   "reference": {
-    "authors": [
-     "McHardy",
-     "Storm",
-     "Lonsdale",
-     "Roy",
-     "McMahon"
-    ],
-    "year": 2026,
-    "source": "Phys. Rev. B",
-    "volume": "113",
-    "locator": "174115",
-    "doi": "10.1103/zp3m-kjpc"
-   },
-   "used_by_eos_records": [
-    "zirconium_omega_mchardy_2026_vinet_1"
-   ]
-  }
- ]
+  ]
 }

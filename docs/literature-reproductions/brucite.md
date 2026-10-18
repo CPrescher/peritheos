@@ -1,29 +1,39 @@
-# Brucite source audit and published-range catalog records
+# Brucite source audit: thermal EOS not recommended
 
-Audit date: 2026-10-16. **Disposition: published-range lattice-average EOSs installed.**
-The former 0–0.5 GPa restriction was an audit choice without a measured bulk
-lattice boundary. It is removed. Hydrogen rearrangement is preserved in the
-phase annotations; the empirical volume EOS is not an H-order-resolved
-thermodynamic model. The ambient atomic coordinates remain a reference structure.
+Disposition date: **2026-10-17. Published thermal-EOS parity was not achieved;
+the Fukui (2003) thermal EOS is not recommended.**
 
-| Record | Pressure (GPa) | Temperature (K) | Disposition |
-|---|---:|---:|---|
-| Fukui published 300 K BM3, material default | 0–22.56 | 300 | Source validated; original parameters unchanged |
-| Fukui published 473 K BM3 | 5.95–16.52 | 473 | Source validated; original parameters unchanged |
-| Fukui published 673 K BM3 | 5.62–16.09 | 673 | Source validated; original parameters unchanged |
-| Fukui published 873 K BM3 | 5.21–15.48 | 873 | Qualified explicit selection, `not_reproduced`; original normalization inconsistency preserved |
-| Peritheos unweighted 873 K table refit | 5.21–15.48 | 873 | Separate reproducible refit; conditional covariance |
-| Peritheos unweighted continuous thermal table refit | 5.95–15.48 | 300–873 | Separate reproducible interpolation model; conditional covariance |
-| Literal Fukui 300 K anchored, published-slope reconstruction | 5.95–15.48 | 300–873 | Qualified explicit selection, `not_reproduced`; original surface not recovered |
-| Peritheos curved-expansion refits, four source-modulus isotherms | Each source slice’s measured span | 300/473/673/873 | Nondefault shared ambient-expansion refit; published isotherm moduli unchanged |
-| Peritheos curved expansion + published thermal slopes | 5.95–15.48 | 300–873 | Nondefault ambient-expansion refit; explicit 300 K anchors, distinct from the four tabulated moduli |
+The printed coefficients and expansion law do not consistently reproduce the
+published P–V–T observations. At 873 K, the printed expansion gives
+V0 = 42.51595 Å³, while Fig. 6(c)'s markers imply about 42.70 Å³. The literal
+published 873 K curve has a pressure RMS residual of 0.486 GPa. The cause is
+unresolved; this does not establish which source value or fitting step is wrong.
+The full continuous published surface and author workflow have not been recovered.
 
-`check_validity=True` enforces these domains. The thermal domain is the common
-pressure interval of all four measured slices, not the outer bounding rectangle
-of the experiments. At higher pressures use the appropriate source isotherm.
-All 102 Fukui/Xia printed observations and errors remain bundled. No source
-observation or coefficient is silently changed. Earlier staged cards are retained
-as audit snapshots; the installed card contains the current disposition.
+Further model development is outside Peritheos's curation scope. The independent
+refits below are **historical diagnostics**, not validated replacements, corrections
+of the publication, or evidence of author-fit parity. Improved residuals and a
+reproducible optimizer are insufficient to recommend a replacement EOS.
+
+| Evidence | Current disposition |
+|---|---|
+| Published 300, 473 and 673 K BM3 isotherms | Retained individually over their source-checked measured pressure spans; 300 K remains the default |
+| Original 873 K curve and 300 K anchored continuous reconstruction | `not_reproduced`, not recommended; withheld from executable discovery |
+| All seven Peritheos refits, including curved expansion | Diagnostic evidence only; withheld from executable discovery |
+| Printed coefficients, 102 Fukui/Xia observations, uncertainties and structural sources | Preserved without correction |
+
+The three retained isotherms do not provide a continuous temperature model or
+validate the full published thermal EOS. Their conditional parameter agreement
+is distinct from author-workflow reproduction. Phase annotations remain;
+no unsupported 0.5 GPa cutoff is imposed.
+
+The complete twelve-record audit archive is
+`output/material-candidates/brucite/brucite-diagnostic-archive.eosmat`.
+The bundled `brucite.eosmat` contains only the three retained published isotherms.
+The numerical investigations and earlier integration history below are retained
+as evidence; historical statements about installing or selecting refits are
+superseded by this disposition. No further fitting or author contact is planned
+as part of this curation task.
 
 ## Source authority and recovery
 
@@ -184,6 +194,330 @@ Fukui table tokens are checked against the checksummed final PDF using local
 printed minus on -0.06(13) to ')'; the check performs only that documented
 substitution and removes the two first-row footnote markers.
 
+## Stated sequential procedure: staged isotherm refits
+
+The [staged comparison](../data/brucite-staged-comparison.png) explicitly
+replays two separate steps. First, all 11 Table 1 ambient volumes are fitted
+with V0(T)=V300 exp[alpha(T−300)], using unweighted volume residuals and free
+V300 and constant alpha. This gives **V300=40.916585 Å³** and
+**alpha=6.69185184e-5 K^-1**, essentially the printed 40.917 and 6.69e-5.
+Second, the resulting V0(T) values are held fixed while K0 and Kprime are
+fitted independently at 300/473/673/873 K using unweighted pressure residuals
+to every same-temperature Table 4 row. The reference law is constant-alpha;
+no curved expansion, MGD thermal term or interpolation of moduli is added.
+
+![Independent staged isotherm refits versus published coefficients at all four temperatures](../data/brucite-staged-comparison.png)
+
+The red curves use the original printed expansion law and tabulated moduli;
+the blue curves use the freshly fitted ambient law and independently refitted
+moduli. The plots put pressure on x and volume on y, with volume residuals
+at observed pressure below. Grey residual bars show reported observational
+P/V errors about zero, not model uncertainty or regression weights.
+
+| T (K) | Staged K0 (GPa) | Staged Kprime | Published volume RMS (Å³) | Staged volume RMS (Å³) | Published pressure RMS (GPa) | Staged pressure RMS (GPa) |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 300 | 42.02492 | 6.60246 | 0.06881 | 0.06671 | 0.22791 | 0.21675 |
+| 473 | 33.69563 | 8.08438 | 0.11222 | 0.08909 | 0.33631 | 0.26256 |
+| 673 | 29.03391 | 8.84450 | 0.06408 | 0.06349 | 0.23028 | 0.22807 |
+| 873 | 25.47592 | 9.68046 | 0.17073 | 0.05866 | 0.48626 | 0.15803 |
+
+Thus the stated sequential fitting structure can describe the 873 K data
+substantially better without replacing the ambient expansion law. This does
+not establish the publication's unreported objective, weights, full precision
+or covariance. It also does not establish a single continuous thermal EOS:
+these are four separate isotherm regressions. Source phase/calibration limits
+persist, and the catalog and original coefficients are unchanged.
+
+The [staged report](../data/brucite-staged-comparison.json) records checksums,
+row selections, both-stage objectives, ambient and fixed-V0 conditional
+covariance, coefficients and pressure/volume residuals. The second-stage
+covariance excludes uncertainty inherited from the ambient regression and
+the shared correlations it creates between temperatures. It also excludes
+coordinate errors, calibration systematics and phase/model uncertainty.
+Regenerate the report and [PDF](../data/brucite-staged-comparison.pdf) with
+`python -m scripts.brucite_staged_comparison --plot`; `--check` verifies the
+saved report.
+
+## Continuous model from linear trends of the staged moduli
+
+The next sequential step fits **linear temperature dependence to the four
+staged modulus pairs**, with the staged ambient law held exactly fixed:
+
+\[
+V_0(T)=40.9165851955\exp[6.69185183775\times10^{-5}(T-300)]\;\mathrm{\AA^3},
+\]
+
+\[
+K_0(T)=40.411152632-0.02807347309(T-300)\;\mathrm{GPa},
+\]
+
+\[
+K'_0(T)=6.855997233+0.005172312941(T-300),
+\]
+
+with T in kelvin. Both intercepts and slopes are free; the lines are not
+forced through the 300 K staged moduli. Each of the four input temperatures
+receives equal weight in each modulus regression. This is an explicit
+unweighted staged-regression baseline, **not** a new optimization of pressure
+or volume residuals against the raw P–V–T observations. The resulting
+continuous model is P(V,T)=BM3[V;V0(T),K0(T),Kprime(T)].
+
+![Continuous EOS derived from staged modulus temperature trends, with published and independent-isotherm comparisons](../data/brucite-staged-continuous.png)
+
+Blue shows this continuous EOS, red the original published individual
+isotherms, and dashed grey the independent staged curves before the
+temperature regressions. Pressure is on x and volume on y; residual panels
+show model minus observed volume at observed pressure, with printed P/V
+error bars about zero. The fitted lines and staged coefficients are shown
+separately below; their error bars are conditional stage-2 local errors,
+not weights in the temperature fit.
+
+![Linear temperature fits to staged K0 and Kprime](../data/brucite-staged-moduli.png)
+
+| T (K) | Published volume RMS (Å³) | Separate staged volume RMS (Å³) | Continuous staged volume RMS (Å³) |
+| --- | ---: | ---: | ---: |
+| 300 | 0.06881 | 0.06671 | 0.09307 |
+| 473 | 0.11222 | 0.08909 | 0.14407 |
+| 673 | 0.06408 | 0.06349 | 0.11618 |
+| 873 | 0.17073 | 0.05866 | 0.14911 |
+| All 37 rows | 0.10759 | 0.06997 | 0.12352 |
+
+The continuous staged model's overall pressure RMS is **0.38616 GPa**,
+versus **0.21922 GPa** for the separate staged isotherms and **0.32449 GPa**
+for the original tabulated-isotherm reconstruction. Linear smoothing of the
+moduli therefore loses much of the separate-fit improvement. This result
+does not establish that every possible continuous linear-modulus fit must
+fail: equal-weight line fitting to correlated modulus estimates minimizes
+a different objective from fitting the observed P–V–T points directly.
+The ambient expansion predictions are unchanged exactly in this comparison.
+
+The [continuous staged report](../data/brucite-staged-continuous.json)
+preserves the unchanged ambient coefficients, input staged-report hash,
+all modulus inputs, fitted slopes/intercepts, row residuals and two explicitly
+separate conditional covariance estimates. The first uses the four-pair
+regression scatter, including K/Kprime residual cross-correlation. The second
+propagates each stage-2 K/Kprime covariance through the linear regression
+operator, assuming independence between slices conditional on fixed ambient
+coefficients. They describe different assumptions and are not added. Both
+exclude ambient-law uncertainty, pressure-scale errors, unknown inter-slice
+covariance and model/phase discrepancy. No author covariance is inferred.
+
+The model agrees with the existing Peritheos `ThermalReferenceStateEOS`
+implementation at the observation states. Its evaluation and inversion are
+also checked at intermediate temperatures; those checks establish numerical
+continuity, not independent physical validity between the measured isotherms.
+The source pressure/temperature and phase qualifications remain applicable.
+No catalog record, original coefficients or defaults are changed.
+
+Regenerate the report, [EOS comparison PDF](../data/brucite-staged-continuous.pdf)
+and [modulus-trend PDF](../data/brucite-staged-moduli.pdf) with
+`python -m scripts.brucite_staged_continuous --plot`; `--check` verifies
+the saved report.
+
+## Joint fixed-expansion fit with pressure and volume uncertainties
+
+The next diagnostic fits **all 37 Table 4 P–V–T observations jointly**,
+retaining the same staged ambient constant-alpha law exactly. Both linear
+compression intercepts and slopes are free, so the global parameters are
+K300, Kprime300, dK/dT and dKprime/dT. The four independent staged modulus
+estimates are not the regression targets in this calculation.
+
+The uncertainty-aware fit minimizes the exact errors-in-variables objective
+
+\[
+\chi^2=\sum_{i=1}^{37}\left[
+\left(\frac{P_{\rm BM3}(V_i^*,T_i;\boldsymbol\theta)-P_i}{\sigma_{P,i}}\right)^2
++\left(\frac{V_i^*-V_i}{\sigma_{V,i}}\right)^2\right].
+\]
+
+There are four global compression parameters and **37 latent volumes V***,
+with pressure on the model curve at each latent volume. This is an
+orthogonal-distance fit in the supplied coordinate-error metric. It is
+not merely pressure regression divided by a parameter-dependent effective
+error. The 74 normalized residual components and 41 fitted quantities give
+**33 degrees of freedom**. All printed P/V errors are interpreted as
+independent Gaussian standard deviations; no within-row or cross-row
+covariance is supplied. Temperatures remain fixed because row-wise T errors
+are unreported. The pressure-standard systematic is not represented by
+the quoted coordinate errors.
+
+The 11 Table 1 observations already determined the fixed ambient law.
+Their zero-pressure predicted volumes cannot change with the four fitted
+compression coefficients, so they add no information to this regression.
+No synthetic ambient pressure error is introduced. This preserves all
+ambient predictions without forcing them into a fabricated P–V error model.
+
+![Joint brucite fit with pressure and volume errors at all four temperatures](../data/brucite-joint-pv-errors.png)
+
+Blue is the joint fit with both P/V errors, grey dashed is an explicit joint
+unweighted-pressure baseline with the same fixed expansion and functional
+form, and red is the original published separate-isotherm reconstruction.
+Upper panels show observed volumes against pressure with both coordinate
+errors. Lower panels show the signed error-normalized distance to each
+curve. Its magnitude is sqrt[(DeltaP/sigmaP)^2+(DeltaV/sigmaV)^2] after
+profiling the latent volume for that curve; the sign follows Pmodel(Vobs)−Pobs.
+The shaded ±1 and ±2 bands indicate reported-error units, not a propagated
+model confidence band. Latent projections do not replace the original data.
+
+The fitted coefficients and **conditional absolute-sigma** local errors are:
+
+| Parameter | Joint P/V-error estimate | Conditional local standard error |
+| --- | ---: | ---: |
+| K300 (GPa) | 36.11486 | 0.52941 |
+| Kprime300 | 8.44590 | 0.23585 |
+| dK/dT (GPa/K) | -0.01580196 | 0.00150062 |
+| dKprime/dT (1/K) | 0.00005713 | 0.00076365 |
+
+The expansion remains V0(T)=40.9165851955 exp[6.69185183775e-5(T−300)] Å³.
+The global coefficients are interior to the disclosed diagnostic bounds,
+which keep K and Kprime positive across 300–873 K. Three starts converge
+to the same objective. An independently implemented public native
+`fit_joint_eos` run agrees in chi-square to better than 5e-7 and in all
+coefficients to better than 0.001 of its conditional local standard errors.
+The standalone analytic derivatives are also checked against numerical
+derivatives, and the resulting model evaluates/inverts between temperatures.
+
+| T (K) | Published volume RMS (Å³) | Unweighted joint volume RMS (Å³) | Joint P/V-error volume RMS (Å³) |
+| --- | ---: | ---: | ---: |
+| 300 | 0.06881 | 0.10583 | 0.12476 |
+| 473 | 0.11222 | 0.11214 | 0.10439 |
+| 673 | 0.06408 | 0.10360 | 0.08466 |
+| 873 | 0.17073 | 0.09561 | 0.09933 |
+| All 37 rows | 0.10759 | 0.10465 | 0.10727 |
+
+The weighted fit gives **chi-square=173.40757**, **reduced chi-square=5.25477**.
+Its unweighted pressure RMS is 0.32328 GPa. The unweighted joint baseline
+has pressure RMS 0.31032 GPa and profiled chi-square 199.12921 under the
+same P/V error metric; the weighted regression improves its own normalized
+objective, not the unweighted RMS. The published individual-isotherm
+curves have profiled chi-square 177.05286, but they are a distinct comparator
+with independently specified coefficients, not the same four-parameter fit.
+
+Accounting for P/V errors therefore **does not resolve the discrepancy of
+this continuous linear-modulus model**. Several observations remain roughly
+3–6 reported error units from the curve. Reduced chi-square far above one
+signals residual scatter relative to the adopted errors and model; it does
+not by itself identify incorrect observations, a pressure-scale error or a
+phase mechanism. No rows are excluded or downweighted beyond their reported
+coordinate errors, and no robust-loss clipping is applied.
+
+The [full report](../data/brucite-joint-pv-errors.json) retains source and
+staged-report hashes, all coordinate corrections and normalized residuals,
+per-temperature statistics, parameter bounds, multi-start runs and native
+verification. The primary covariance is the inverse profiled information
+matrix, eliminating the latent-volume block by a Schur complement, with
+the reported sigmas treated as absolute. A separate covariance inflated by
+the reduced chi-square is stored only as a dispersion-scaled diagnostic.
+Neither covariance includes fixed ambient-law uncertainty, pressure-scale
+correlations, missing temperature errors or model/phase discrepancy; scaling
+the covariance does not repair a systematic lack of fit.
+
+Regenerate the report and [PDF](../data/brucite-joint-pv-errors.pdf) with
+`python -m scripts.brucite_joint_pv_errors --plot`; `--check` replays it.
+The result is diagnostic; the catalog, original coefficients, scientific
+statuses and defaults remain unchanged.
+
+## Quadratic temperature dependence with the same P/V error model
+
+The quadratic comparison holds the ambient expansion law **exactly fixed**
+and retains all 37 Table 4 observations and their reported P/V errors. Both
+moduli now have quadratic temperature dependence, fitted jointly to the raw
+P–V–T observations using the same exact errors-in-variables objective as the
+linear comparison. No points are excluded or clipped, and no ambient-law or
+pressure-scale adjustment is made.
+
+For ΔT=T−300 K, the fitted ordinary polynomial laws are
+
+\[
+K_0(T)=38.94454510-0.03241679434\Delta T
++8.76609291\times10^{-6}\Delta T^2\quad\mathrm{GPa},
+\]
+
+\[
+K'_0(T)=7.537113365+0.001798430146\Delta T
++8.12092215\times10^{-6}\Delta T^2.
+\]
+
+The quadratic coefficients multiply the **full squared term**, with no
+factor of one-half; the second temperature derivatives are twice these
+coefficients. All six global coefficients are free. Numerically, the fits
+use a quadratic Bernstein basis in u=(T−300)/573 with bounded positive
+coefficients, guaranteeing positive reference moduli over 300–873 K.
+The ordinary coefficients and their complete covariance are transformed
+exactly from that basis. All six fitted coefficients are interior to the
+disclosed bounds.
+
+![Quadratic versus linear joint fits with both pressure and volume errors](../data/brucite-quadratic-pv-errors.png)
+
+Blue is quadratic, grey dashed is the previous linear model with the same
+P/V errors, and red is the original published individual-isotherm EOS.
+Pressure is on x and volume on y. Lower panels retain the signed
+error-normalized orthogonal distance, with ±1/±2 error-unit shading.
+
+| Model | Global parameters | Chi-square | Degrees of freedom | Reduced chi-square | Volume RMS, all 37 rows (Å³) |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Joint linear moduli | 4 | 173.40757 | 33 | 5.25477 | 0.10727 |
+| Joint quadratic moduli | 6 | 98.09320 | 31 | 3.16430 | 0.07752 |
+
+Thus quadratic dependence reduces chi-square by 75.31437 with two additional
+global parameters, and the unweighted volume RMS by approximately 27.7%.
+The quadratic pressure RMS is 0.24400 GPa. This is an improvement on the
+same fitted rows, not an independent prediction test or a recovered author
+parameterization. The reduced chi-square remains far above one under the
+same observational assumptions.
+
+| T (K) | Linear volume RMS (Å³) | Quadratic volume RMS (Å³) | Linear chi-square contribution | Quadratic chi-square contribution |
+| --- | ---: | ---: | ---: | ---: |
+| 300 | 0.12476 | 0.08191 | 79.62798 | 31.06176 |
+| 473 | 0.10439 | 0.08959 | 49.30525 | 20.22318 |
+| 673 | 0.08466 | 0.06570 | 9.26173 | 10.48083 |
+| 873 | 0.09933 | 0.06745 | 35.21261 | 36.32744 |
+
+The raw volume RMS improves at every temperature, while the normalized
+objective does not improve in every slice. In particular, the large 873 K
+residual near 9.49 GPa persists. It remains in the regression; the fit does
+not identify that observation as incorrect or establish a physical cause.
+
+As a flexibility control, each temperature is also fitted independently
+with the **same fixed V0(T) and exact P/V error objective**. These are new
+error-aware isotherm fits, distinct from the earlier unweighted staged
+moduli. Their total chi-square is **61.02290** with 29 degrees of freedom,
+giving reduced chi-square **2.10424**. They therefore retain excess scatter
+without any imposed temperature trend. This shows that changing the
+temperature law alone does not eliminate all mismatch under this fixed-law
+BM3/error-model construction; it is not a claim about every possible EOS.
+
+![Quadratic and linear modulus curves with independent error-aware isotherm fits](../data/brucite-quadratic-moduli.png)
+
+The black points are those independent P/V-error fits, with conditional
+local error bars. They are not inputs to either joint fit. Their K/Kprime
+correlations are retained in the report but are not represented by the
+individual vertical error bars, so deviations from a single modulus point
+must not be interpreted without the coupled compression curve.
+
+Four starting points converge to the same quadratic objective. Independent
+ODRPACK optimization agrees in chi-square to better than 1e-5, and native
+BM3 evaluation/inversion agrees at source and intermediate temperatures.
+These checks establish numerical reproducibility and continuous evaluation,
+not physical validity between the four measured temperatures. The empirical
+quadratic coefficients should not be extrapolated beyond 300–873 K.
+
+The [quadratic report](../data/brucite-quadratic-pv-errors.json) stores the
+unchanged ambient coefficients and source hashes, the linear-comparator hash,
+all coordinate projections and residuals, six-parameter absolute-sigma
+covariance, polynomial/basis transformations, multi-start and ODRPACK checks,
+an explicit unweighted-pressure quadratic baseline, and the four independent
+error-aware isotherm controls. The covariance profiles out 37 latent volumes;
+74 residual components minus 43 fitted quantities gives 31 degrees of freedom.
+A separately dispersion-scaled covariance is included as a diagnostic only.
+Ambient-law uncertainty, temperature errors, pressure-scale and inter-row
+correlations, and model/phase discrepancy remain outside these local errors.
+
+Regenerate the report and [EOS comparison PDF](../data/brucite-quadratic-pv-errors.pdf)
+and [modulus PDF](../data/brucite-quadratic-moduli.pdf) with
+`python -m scripts.brucite_quadratic_pv_errors --plot`; `--check` replays it.
+No catalog record, source coefficient, scientific status or default changes.
+
 ## Qualified thermal reconstruction and original-fit limits
 
 Fukui p. 513 explicitly defines B(T)=B(T=300)+(dB/dT)(T−300), with B
@@ -288,7 +622,7 @@ mean **42.696 A^3**. The printed expansion law gives **42.515951 A^3**.
 Thus the table/figure/reference-volume combination is internally inconsistent;
 a simple assertion that K0 should read 25.9 is not supported by the solid curve.
 The exact unpublished normalization or author intent remains unrecovered.
-The catalog preserves the original curve as `not_reproduced`, explicit selection.
+The audit archive preserves the original curve as `not_reproduced`; it is no longer executable through catalog selection.
 
 For usable, reproducible 873 K data representation, the separate Peritheos fit
 fixes V0 to the **printed** expansion law, retains all eight printed observations,
@@ -370,7 +704,10 @@ analytic-normal-equation checks validate the unweighted optima and covariance.
 
 ## Curved-expansion catalog refits with published moduli
 
-The purple law is now a separate **Peritheos refit variant** in the catalog.
+**Historical investigation; these refits are now withheld and not recommended.**
+
+The purple law was investigated as a separate **Peritheos refit variant**.
+Its former catalog installation is superseded by the current disposition.
 The original seven brucite records, coefficients, qualifications and default
 are unchanged. Its three expansion coefficients come only from the unweighted
 free-anchor fit to all 11 ambient Table 1 observations above; the compression
@@ -436,12 +773,19 @@ and excludes their unknown covariance, systematic calibration error and model
 uncertainty. The curvature and high-temperature extrapolation remain qualified.
 
 ```python
-from peritheos import get_eos_record
+from peritheos import Material, load_eosmat
 
-curved = get_eos_record("brucite_peritheos_fukui_2003_curved_expansion_thermal_refit")
+audit = Material.from_eosmat(
+    load_eosmat("output/material-candidates/brucite/brucite-diagnostic-archive.eosmat"),
+    require_primary_validation=False,  # explicit inspection of withheld diagnostics
+)
+
+curved = audit.get_eos_record(
+    "brucite_peritheos_fukui_2003_curved_expansion_thermal_refit"
+)
 volume = curved.volume(10, 873, check_validity=True)
 
-hot_slice = get_eos_record(
+hot_slice = audit.get_eos_record(
     "brucite_peritheos_fukui_2003_curved_expansion_873k_bm3_refit"
 )
 ```
@@ -659,7 +1003,7 @@ independent published 300 K slice; no exact join between those models is claimed
 The continuous fit predicts weak negative volumetric expansivity near the upper
 corner (about −4.50e-6 K^-1 at 15.48 GPa/873 K). This is a consequence of the
 smooth regression, not an observed anomaly or phase-transition evidence.
-Its accepted purpose is empirical volume interpolation; entropy, thermal
+Its investigated purpose was empirical volume interpolation; entropy, thermal
 expansion anomalies and other differential thermodynamics remain unvalidated.
 
 The report and `.eosmat` retain the full 4×4 covariance, parameter order and
@@ -669,58 +1013,24 @@ on the fixed source V0/alpha and the chosen pressure-residual model. They exclud
 calibrant systematics and uncertainty/covariance in the fixed expansion law;
 small fit errors do not establish physical validation or calibration accuracy.
 
-The common refit ledger distinguishes conditional source-coefficient agreement
-at 300/473/673 K, the unsuccessful unweighted 873 K source comparison, and
-`registered_peritheos_refit_reproduced` for the two independently reproducible
-new fits. The latter is not parity with the original paper's coefficients or
-workflow. The literal source-slope reconstruction remains `source_reconstruction`.
+Earlier ledger snapshots distinguished conditional source-coefficient agreement
+from numerical replay of the Peritheos refits. The current common ledger
+contains only the three retained published isotherms; the paper-level ledger
+explicitly records failure to reproduce and recommend the full thermal EOS.
+All other numerical outcomes remain in the diagnostic reports and archive.
 
 ## Selecting the records
 
 ```python
-from peritheos import get_material, get_eos_record
+from peritheos import get_material
 
-static = get_material("brucite").default_record()
-static.volume(22.56, 300, check_validity=True)
-
-hot = get_eos_record("brucite_peritheos_fukui_2003_873k_bm3_refit")
-hot.volume(15.48, 873, check_validity=True)
-
-thermal = get_eos_record("brucite_peritheos_fukui_2003_thermal_refit")
-thermal.volume(10, 873, check_validity=True)
+material = get_material("brucite")
+static = material.default_record()
+volume = static.volume(10, 300, check_validity=True)
 ```
 
-Strict `Material.from_eosmat(document)` loading includes the ten source-validated
-published/refit records. The qualified original 873 K curve and literal thermal
-reconstruction require explicit selection plus `require_primary_validation=False`
-through that constructor. Direct identifier lookup also permits that explicit
-choice, preserving `not_reproduced`. Search respects each record's validity.
-
-## Reproduction and verification
-
-From the repository root:
-
-```sh
-uv run python scripts/brucite_reproduce.py --write --plot
-uv run python -m scripts.brucite_stage
-uv run python scripts/brucite_reproduce.py --check --source-check
-uv run python -m scripts.brucite_stage --check
-uv run pytest -q -W error tests/test_brucite.py
-cargo test -p peritheos --test brucite_staged --locked
-uv run ruff check scripts/brucite_reproduce.py scripts/brucite_stage.py tests/test_brucite.py
-uv run ruff format --check scripts/brucite_reproduce.py scripts/brucite_stage.py tests/test_brucite.py
-rustfmt --check crates/peritheos/tests/brucite_staged.rs
-```
-
-`--source-check` requires the locally checksummed Fukui, He, Duffy and Wu PDFs
-at the documented staging-source paths and Poppler `pdftotext`; ordinary reproduction and tests
-are offline and do not require publisher PDFs. The report records the Python,
-NumPy and SciPy versions. Exact generated-file comparison assumes that recorded
-environment; numerical outcomes should be compared with tolerance across
-different numerical-library versions.
-
-Catalog integration also refreshes the manifest, source audit, refit and paper
-ledgers, coverage snapshot, backlog and current documentation counts. The
-[integration note](../research/brucite-integration.md) records the final checks
-and remaining qualifications. No commit, push, release or author contact is
-part of this addition.
+The executable material contains only the published 300, 473 and 673 K
+isotherms. No 873 K or continuous thermal record is exposed. Original and
+refit coefficients remain in the diagnostic archive with explicit exclusion
+and recommendation metadata; loading that archive requires accepting its
+unvalidated records explicitly.

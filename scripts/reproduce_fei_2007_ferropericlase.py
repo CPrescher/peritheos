@@ -15,6 +15,8 @@ from pathlib import Path
 
 import numpy as np
 
+from scripts.eosmat_io import read_material
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "peritheos/data/datasets"
 DOI = "10.1029/2007GL030712"
@@ -165,9 +167,7 @@ def reproduce() -> list[dict]:
     results = []
     for material, (table, _) in TABLES.items():
         rows = list(csv.DictReader(io.StringIO(normalized_csv(material))))
-        document = json.loads(
-            (ROOT / f"peritheos/data/materials/{material}.eosmat").read_text()
-        )
+        document = read_material(ROOT / f"peritheos/data/materials/{material}.eosmat")
         for record in document["eos_records"]:
             if (
                 record["reference"]["doi"] != DOI

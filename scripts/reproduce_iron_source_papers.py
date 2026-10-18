@@ -12,6 +12,8 @@ from pathlib import Path
 import numpy as np
 from scipy.optimize import brentq, least_squares
 
+from scripts.eosmat_io import read_material
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "peritheos/data/datasets"
 REPORT = ROOT / "docs/data/iron-source-papers-reproduction.json"
@@ -346,11 +348,7 @@ def fit_record(r):
 def reproduce():
     report = {}
     for material in ("iron", "fe09ni01_hcp", "nacl_b2"):
-        doc = json.loads(
-            (ROOT / "peritheos/data/materials" / f"{material}.eosmat").read_text(
-                encoding="utf-8"
-            )
-        )
+        doc = read_material(ROOT / "peritheos/data/materials" / f"{material}.eosmat")
         for r in doc["eos_records"]:
             if belongs(r["identifier"]):
                 report[r["identifier"]] = fit_record(r)

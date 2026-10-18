@@ -1,335 +1,253 @@
 {
- "format_version": 3,
- "name": "Fayalite",
- "formula": "Fe2SiO4",
- "symmetry": "ORTHORHOMBIC",
- "lattice": {
-  "a": 4.8248,
-  "b": 10.4604,
-  "c": 6.1007,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 4,
- "space_group": "Pbnm",
- "space_group_number": 62,
- "atom_sites": [
-  {
-   "element": "Fe",
-   "wyckoff": "4a",
-   "x": 0.0,
-   "y": 0.0,
-   "z": 0.0,
-   "occupancy": 1.0
-  },
-  {
-   "element": "Fe",
-   "wyckoff": "4c",
-   "x": 0.9915,
-   "y": 0.2774,
-   "z": 0.25,
-   "occupancy": 1.0
-  },
-  {
-   "element": "Si",
-   "wyckoff": "4c",
-   "x": 0.4262,
-   "y": 0.094,
-   "z": 0.25,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "4c",
-   "x": 0.7657,
-   "y": 0.0913,
-   "z": 0.25,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "4c",
-   "x": 0.2215,
-   "y": 0.4474,
-   "z": 0.25,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "8d",
-   "x": 0.2777,
-   "y": 0.1628,
-   "z": 0.0331,
-   "occupancy": 1.0
-  }
- ],
- "notes": "Room-temperature olivine structure and compression data from Bejina et al. (2021).",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Bejina et al. (2021), 302 K BM3",
-   "reference": {
-    "authors": [
-     "Béjina",
-     "Bystricky",
-     "Tercé",
-     "Whitaker",
-     "Chen"
-    ],
-    "year": 2021,
-    "title": "Equation of state and sound wave velocities of fayalite at high pressures and temperatures: implications for the seismic properties of the martian mantle",
-    "source": "Eur. J. Mineral.",
-    "volume": "33",
-    "locator": "519-535",
-    "doi": "10.5194/ejm-33-519-2021"
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 307.84,
-     "K0": 130.4,
-     "K0_prime": 5.3
-    },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": 0.05,
-    "K0": 1.4,
-    "K0_prime": null
-   },
-   "fixed_parameters": [
-    "K0_prime"
-   ],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    5.0
-   ],
-   "experimental_temperature_range_k": [
-    302.0,
-    302.0
-   ],
-   "temperature_ref": 302.0,
-   "notes": "The room-temperature fit fixed K0'=5.3.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation-of-state section; Table 3."
-   },
-   "identifier": "fayalite_b_jina_2021_bm3_1",
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
-      "reference": {
-       "authors": [
-        "Brown"
-       ],
-       "year": 1999,
-       "source": "J. Appl. Phys.",
-       "doi": "10.1063/1.371596"
+  "format_version": 4,
+  "identifier": "fayalite",
+  "name": "Fayalite",
+  "formula": "Fe2SiO4",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 4,
+  "eos_records": [
+    {
+      "identifier": "fayalite_b_jina_2021_bm3_1",
+      "label": "Bejina et al. (2021), 302 K BM3",
+      "model": "BM3",
+      "temperature_ref": 302.0,
+      "parameters": {
+        "V0": {"value": 307.84, "error": 0.05},
+        "K0": {"value": 130.4, "error": 1.4},
+        "K0_prime": {"value": 5.3, "error": null, "fixed": true}
       },
-      "source_location": "Experimental pressure determination; NaCl standard"
-     }
-    ],
-    "recalculation": {
-     "status": "reference_model_not_supported",
-     "notes": "The pressure reference is identified, but its exact published calibration model is not yet executable in Peritheos."
-    },
-    "audit_date": "2026-09-03"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.5194/ejm-33-519-2021",
-     "locations": [
-      "Equation-of-state section",
-      "Table 3"
-     ],
-     "doi": "10.5194/ejm-33-519-2021"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "fayalite.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "fayalite_bejina_2021_table1_pvt_elastic"
-     ],
-     "source_locations": [
-      "Table 1 and publisher XLSX"
-     ],
-     "finding": "All 60 fayalite observations in the publisher-provided Table 1 workbook, including stress-corrected pressure, temperature, unit-cell parameters, volume, and measured P- and S-wave velocities."
+      "experimental_pressure_range_gpa": [0.0, 5.0],
+      "experimental_temperature_range_k": [302.0, 302.0],
+      "determination_method": "experimental",
+      "notes": "The room-temperature fit fixed K0'=5.3.",
+      "reference": {
+        "authors": ["Béjina", "Bystricky", "Tercé", "Whitaker", "Chen"],
+        "year": 2021,
+        "title": "Equation of state and sound wave velocities of fayalite at high pressures and temperatures: implications for the seismic properties of the martian mantle",
+        "source": "Eur. J. Mineral.",
+        "volume": "33",
+        "locator": "519-535",
+        "doi": "10.5194/ejm-33-519-2021"
+      },
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Brown"],
+              "year": 1999,
+              "source": "J. Appl. Phys.",
+              "doi": "10.1063/1.371596"
+            },
+            "source_location": "Experimental pressure determination; NaCl standard"
+          }
+        ],
+        "recalculation": {
+          "status": "reference_model_not_supported",
+          "notes": "The pressure reference is identified, but its exact published calibration model is not yet executable in Peritheos."
+        },
+        "audit_date": "2026-09-03"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/fayalite/#record-fayalite_b_jina_2021_bm3_1",
+            "report_path": "docs/reconstruction-reports/fayalite.md#record-fayalite_b_jina_2021_bm3_1",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 307.84,
+                "published_error": 0.05,
+                "refit": 307.83148863498826,
+                "refit_error": 0.1875870524877686,
+                "difference": -0.008511365011713679,
+                "relative_difference": 2.7648664928903584e-05,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 130.4,
+                "published_error": 1.4,
+                "refit": 130.41522962996078,
+                "refit_error": 5.250152975765392,
+                "difference": 0.015229629960771263,
+                "relative_difference": 0.0001167916408034606,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows; reference-T rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 11,
+              "observed_pressure_range_gpa": [-0.02, 4.96],
+              "observed_temperature_range_k": [301.0, 302.0],
+              "observed_volume_range": [297.26, 307.84],
+              "degrees_of_freedom": 9,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.049073666524717646,
+              "published_rmse_gpa": 0.05878307470903604,
+              "reduced_chi_square": 0.073409331943693,
+              "dataset_identifiers": ["fayalite_bejina_2021_table1_pvt_elastic"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.5194/ejm-33-519-2021",
+            "locations": ["Equation-of-state section", "Table 3"],
+            "doi": "10.5194/ejm-33-519-2021"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "fayalite.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["fayalite_bejina_2021_table1_pvt_elastic"],
+            "source_locations": ["Table 1 and publisher XLSX"],
+            "finding": "All 60 fayalite observations in the publisher-provided Table 1 workbook, including stress-corrected pressure, temperature, unit-cell parameters, volume, and measured P- and S-wave velocities."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation-of-state section; Table 3."
+        }
+      }
     }
-   }
-  }
- ],
- "format": "peritheos.material",
- "identifier": "fayalite",
- "family_id": "olivine",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "datasets": [
-  {
-   "identifier": "fayalite_bejina_2021_table1_pvt_elastic",
-   "kind": "pressure_volume_temperature_lattice_parameters_wave_velocities",
-   "description": "All 60 fayalite observations in the publisher-provided Table 1 workbook, including stress-corrected pressure, temperature, unit-cell parameters, volume, and measured P- and S-wave velocities.",
-   "source_location": "Table 1 and publisher XLSX",
-   "source_url": "https://ejm.copernicus.org/articles/33/519/2021/ejm-33-519-2021-t01.xlsx",
-   "license": "CC BY 4.0",
-   "columns": [
+  ],
+  "family_id": "olivine",
+  "symmetry": "ORTHORHOMBIC",
+  "space_group": "Pbnm",
+  "space_group_number": 62,
+  "lattice": {"a": 4.8248, "b": 10.4604, "c": 6.1007, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Fe", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
+    {"element": "Fe", "wyckoff": "4c", "x": 0.9915, "y": 0.2774, "z": 0.25, "occupancy": 1.0},
+    {"element": "Si", "wyckoff": "4c", "x": 0.4262, "y": 0.094, "z": 0.25, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "4c", "x": 0.7657, "y": 0.0913, "z": 0.25, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "4c", "x": 0.2215, "y": 0.4474, "z": 0.25, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "8d", "x": 0.2777, "y": 0.1628, "z": 0.0331, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Room-temperature olivine structure and compression data from Bejina et al. (2021).",
+  "datasets": [
     {
-     "name": "diffraction_number",
-     "quantity": "diffraction_pattern_identifier",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "stress_corrected_pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_gpa_standard_deviation",
-     "quantity": "stress_corrected_pressure",
-     "unit": "GPa",
-     "role": "standard_deviation",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "temperature_k",
-     "quantity": "temperature",
-     "unit": "K",
-     "role": "value"
-    },
-    {
-     "name": "temperature_k_standard_deviation",
-     "quantity": "temperature",
-     "unit": "K",
-     "role": "standard_deviation",
-     "of": "temperature_k"
-    },
-    {
-     "name": "unit_cell_volume_a3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "unit_cell_volume_a3_standard_deviation",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "standard_deviation",
-     "of": "unit_cell_volume_a3"
-    },
-    {
-     "name": "lattice_a_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_a_angstrom_standard_deviation",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "lattice_a_angstrom"
-    },
-    {
-     "name": "lattice_b_angstrom",
-     "quantity": "lattice_parameter_b",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_b_angstrom_standard_deviation",
-     "quantity": "lattice_parameter_b",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "lattice_b_angstrom"
-    },
-    {
-     "name": "lattice_c_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_c_angstrom_standard_deviation",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "lattice_c_angstrom"
-    },
-    {
-     "name": "p_wave_velocity_km_s",
-     "quantity": "p_wave_velocity",
-     "unit": "km/s",
-     "role": "value"
-    },
-    {
-     "name": "p_wave_velocity_km_s_standard_deviation",
-     "quantity": "p_wave_velocity",
-     "unit": "km/s",
-     "role": "standard_deviation",
-     "of": "p_wave_velocity_km_s"
-    },
-    {
-     "name": "s_wave_velocity_km_s",
-     "quantity": "s_wave_velocity",
-     "unit": "km/s",
-     "role": "value"
-    },
-    {
-     "name": "s_wave_velocity_km_s_standard_deviation",
-     "quantity": "s_wave_velocity",
-     "unit": "km/s",
-     "role": "standard_deviation",
-     "of": "s_wave_velocity_km_s"
+      "identifier": "fayalite_bejina_2021_table1_pvt_elastic",
+      "kind": "pressure_volume_temperature_lattice_parameters_wave_velocities",
+      "description": "All 60 fayalite observations in the publisher-provided Table 1 workbook, including stress-corrected pressure, temperature, unit-cell parameters, volume, and measured P- and S-wave velocities.",
+      "source_location": "Table 1 and publisher XLSX",
+      "source_url": "https://ejm.copernicus.org/articles/33/519/2021/ejm-33-519-2021-t01.xlsx",
+      "license": "CC BY 4.0",
+      "columns": [
+        {"name": "diffraction_number", "quantity": "diffraction_pattern_identifier", "unit": "1", "role": "flag"},
+        {"name": "pressure_gpa", "quantity": "stress_corrected_pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_gpa_standard_deviation",
+          "quantity": "stress_corrected_pressure",
+          "unit": "GPa",
+          "role": "standard_deviation",
+          "of": "pressure_gpa"
+        },
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {
+          "name": "temperature_k_standard_deviation",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "standard_deviation",
+          "of": "temperature_k"
+        },
+        {
+          "name": "unit_cell_volume_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "value"
+        },
+        {
+          "name": "unit_cell_volume_a3_standard_deviation",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "standard_deviation",
+          "of": "unit_cell_volume_a3"
+        },
+        {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_a_angstrom_standard_deviation",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_a_angstrom"
+        },
+        {"name": "lattice_b_angstrom", "quantity": "lattice_parameter_b", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_b_angstrom_standard_deviation",
+          "quantity": "lattice_parameter_b",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_b_angstrom"
+        },
+        {"name": "lattice_c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_c_angstrom_standard_deviation",
+          "quantity": "lattice_parameter_c",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_c_angstrom"
+        },
+        {"name": "p_wave_velocity_km_s", "quantity": "p_wave_velocity", "unit": "km/s", "role": "value"},
+        {
+          "name": "p_wave_velocity_km_s_standard_deviation",
+          "quantity": "p_wave_velocity",
+          "unit": "km/s",
+          "role": "standard_deviation",
+          "of": "p_wave_velocity_km_s"
+        },
+        {"name": "s_wave_velocity_km_s", "quantity": "s_wave_velocity", "unit": "km/s", "role": "value"},
+        {
+          "name": "s_wave_velocity_km_s_standard_deviation",
+          "quantity": "s_wave_velocity",
+          "unit": "km/s",
+          "role": "standard_deviation",
+          "of": "s_wave_velocity_km_s"
+        }
+      ],
+      "resource": {
+        "path": "datasets/fayalite-bejina-2021-table1-pvt-elastic.csv",
+        "sha256": "3083ec0be37734de46dc560478035c9c3732050e0fa9874e891f00a6ba9992bd",
+        "media_type": "text/csv"
+      },
+      "notes": "All tabulated uncertainties are explicitly 1 sigma. PFa is the NaCl pressure corrected for the measured differential stress in both NaCl and fayalite. Wave velocities were not measured for diffraction pattern 156 and are left blank.",
+      "reference": {
+        "authors": ["Béjina", "Bystricky", "Tercé", "Whitaker", "Chen"],
+        "year": 2021,
+        "source": "Eur. J. Mineral.",
+        "volume": "33",
+        "locator": "519-535",
+        "doi": "10.5194/ejm-33-519-2021"
+      },
+      "used_by_eos_records": ["fayalite_b_jina_2021_bm3_1"]
     }
-   ],
-   "resource": {
-    "path": "datasets/fayalite-bejina-2021-table1-pvt-elastic.csv",
-    "sha256": "3083ec0be37734de46dc560478035c9c3732050e0fa9874e891f00a6ba9992bd",
-    "media_type": "text/csv"
-   },
-   "notes": "All tabulated uncertainties are explicitly 1 sigma. PFa is the NaCl pressure corrected for the measured differential stress in both NaCl and fayalite. Wave velocities were not measured for diffraction pattern 156 and are left blank.",
-   "reference": {
-    "authors": [
-     "Béjina",
-     "Bystricky",
-     "Tercé",
-     "Whitaker",
-     "Chen"
-    ],
-    "year": 2021,
-    "source": "Eur. J. Mineral.",
-    "volume": "33",
-    "locator": "519-535",
-    "doi": "10.5194/ejm-33-519-2021"
-   },
-   "used_by_eos_records": [
-    "fayalite_b_jina_2021_bm3_1"
-   ]
-  }
- ]
+  ]
 }

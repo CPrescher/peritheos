@@ -13,6 +13,8 @@ from pathlib import Path
 
 import numpy as np
 
+from scripts.eosmat_io import read_material
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "peritheos/data/datasets/rhenium-sakai-2018-figure10.csv"
 PROVENANCE = DATA.with_name("rhenium-sakai-2018-figure10-source.json")
@@ -23,9 +25,9 @@ def extract(pdf: Path) -> None:
 
     record = next(
         r
-        for r in json.loads(
-            (ROOT / "peritheos/data/materials/rhenium.eosmat").read_text()
-        )["eos_records"]
+        for r in read_material(ROOT / "peritheos/data/materials/rhenium.eosmat")[
+            "eos_records"
+        ]
         if r["identifier"] == "rhenium_sakai_2018_yokoo_pt_vinet"
     )
     checksum = hashlib.sha256(pdf.read_bytes()).hexdigest()

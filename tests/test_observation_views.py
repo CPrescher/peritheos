@@ -19,6 +19,7 @@ from peritheos import (
     resolve_dataset_observations,
     validate_eosmat_document,
 )
+from peritheos.datasets import Dataset
 from peritheos.observations import (
     CELL_UNIT,
     observation_material_fingerprint,
@@ -40,8 +41,10 @@ def test_entire_packaged_registry_is_bound_valid_unambiguous_and_resolves():
     for entry in registry["datasets"]:
         document = get_material_document(entry["material_id"])
         dataset = next(
-            d for d in document["datasets"] if d["identifier"] == entry["dataset_id"]
+            (d for d in document["datasets"] if d["identifier"] == entry["dataset_id"]),
+            None,
         )
+        assert dataset is not None, (entry["material_id"], entry["dataset_id"])
         assert observation_source_fingerprint(dataset) == entry["declaration_sha256"]
         assert (
             observation_material_fingerprint(document)
@@ -64,6 +67,83 @@ def test_entire_packaged_registry_is_bound_valid_unambiguous_and_resolves():
             assert np.isfinite(data.pressure_gpa).all()
             assert (data.volume_a3 > 0).all()
             assert not data.pressure_gpa.flags.writeable
+
+
+@pytest.mark.parametrize(
+    "alias,source,pressure,volume,power,factor,count",
+    [
+        (
+            "gold_sakai_2025_dewaele_2004_au_input",
+            "gold_dewaele_2004_table1_compression",
+            "ruby_pressure_revised_gpa",
+            "atomic_volume_a3",
+            1,
+            4,
+            37,
+        ),
+        (
+            "gold_sakai_2025_takemura_2008_au_input",
+            "gold_takemura_2008_table3_compression",
+            "ruby_pressure_dorogokupets_gpa",
+            "lattice_111_angstrom",
+            3,
+            1,
+            86,
+        ),
+        (
+            "gold_sakai_2025_hirose_2008_au_mgo_input",
+            "gold_hirose_2008_table1",
+            "pressure_gpa",
+            "volume_a3",
+            1,
+            1,
+            21,
+        ),
+    ],
+)
+def test_sakai_gold_aliases_retain_source_tables_and_reported_coordinates(
+    alias, source, pressure, volume, power, factor, count
+):
+    document = get_material_document("gold")
+    datasets = {d["identifier"]: d for d in document["datasets"]}
+    original, declaration = datasets[source], datasets[alias]
+    assert declaration["provenance"]["reused_dataset_identifier"] == source
+    # A different EOS association must not rewrite source metadata or duplicate CSVs.
+    association_fields = {
+        "identifier",
+        "used_by_eos_records",
+        "description",
+        "notes",
+        "provenance",
+        "pressure_reductions",
+    }
+    for key, value in original.items():
+        if key not in association_fields:
+            assert declaration[key] == value, key
+    for key, value in original.get("provenance", {}).items():
+        assert declaration["provenance"][key] == value, key
+    data = resolve_dataset_observations(
+        document, "gold_sakai_2025_rydberg_stacey_1", alias
+    )
+    source_data = Dataset.from_mapping(original)
+    assert data.dataset.checksum_verified and source_data.checksum_verified
+    assert len(data.dataset) == len(source_data) == count
+    for column in original["columns"]:
+        name = column["name"]
+        np.testing.assert_equal(data.dataset[name], source_data[name])
+    np.testing.assert_equal(data.row_indices, np.arange(count))
+    np.testing.assert_allclose(data.pressure_gpa, source_data[pressure])
+    np.testing.assert_allclose(data.volume_a3, factor * source_data[volume] ** power)
+    if source == "gold_hirose_2008_table1":
+        np.testing.assert_equal(data.temperature_k, source_data["temperature_k"])
+        np.testing.assert_equal(
+            data.pressure_uncertainty, source_data["pressure_gpa_uncertainty"]
+        )
+        np.testing.assert_equal(
+            data.volume_uncertainty, source_data["volume_uncertainty_a3"]
+        )
+        assert data.pressure_uncertainty_role == "uncertainty"
+        assert data.volume_uncertainty_role == "uncertainty"
 
 
 @pytest.mark.parametrize(
@@ -200,6 +280,21 @@ def test_stale_source_or_material_binding_fails_closed():
             "nacl_b1_shen_2026_vinet_1",
             "shen_smith_2026_table_s1_simultaneous_volumes",
         )
+
+
+@pytest.mark.parametrize(
+    "record,dataset",
+    [
+        ("gold_fei_2007_vinet_2", "gold_fei_2007_figure1_digitized"),
+        ("gold_hirose_2008_bm3_fit2", "gold_hirose_2008_table1"),
+    ],
+)
+def test_changed_gold_calibration_requires_review_before_resolving(record, dataset):
+    document = get_material_document("gold")
+    declaration = next(r for r in document["eos_records"] if r["identifier"] == record)
+    declaration["pressure_calibration"]["recalculation"]["notes"] += " Changed."
+    with pytest.raises(DatasetError, match="pressure calibration changed"):
+        resolve_dataset_observations(document, record, dataset)
 
 
 @pytest.mark.parametrize(

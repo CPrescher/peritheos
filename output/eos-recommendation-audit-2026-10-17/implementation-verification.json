@@ -1,0 +1,59 @@
+{
+  "source_records_preserved": 663,
+  "dataset_files_unchanged": 486,
+  "corrected_audit_statuses": {
+    "parity": 10,
+    "similar": 4,
+    "not_refittable": 1
+  },
+  "corrected_identifiers": [
+    "e_feooh_hc_low_spin_thompson_2017_bm3_1",
+    "fe093o_b1_jacobsen_2005_bm3_1",
+    "ferropericlase_fe27_jacobsen_2002_bm3_1",
+    "iron_dewaele_2019_dor_vinet",
+    "iron_dewaele_2019_mao_vinet",
+    "magnesiowustite_fe56_jacobsen_2002_bm3_1",
+    "magnesiowustite_fe75_jacobsen_2002_bm3_1",
+    "mg0215fe0762vac0023o_finkelstein_2017_bm3_helium_1",
+    "mg0215fe0762vac0023o_finkelstein_2017_bm3_neon_cubic_2",
+    "mg0490fe0483ti0027o_solomatova_2016_hs_bm3_reference_1",
+    "mg0490fe0483ti0027o_solomatova_2016_ls_bm3_reference_2",
+    "mg073fe027o_jacobsen_2005_bm3_1",
+    "mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3",
+    "mgfe94o_b1_dobrosavljevic_2019_bm3_1",
+    "mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1"
+  ],
+  "catalog_summary": {
+    "not_refittable": 177,
+    "parity": 247,
+    "parity_not_achieved": 60,
+    "similar": 163,
+    "source_reconstruction": 16,
+    "total": 663
+  },
+  "not_recommended_records": [
+    "ca_perovskite_fu_2023_bm3_mgd_refit",
+    "fe09ni01_hcp_sakai_2014_type1_thermal",
+    "fe09ni01_hcp_sakai_2014_type2_thermal",
+    "fe09ni01_hcp_sakai_2014_type4_1_thermal",
+    "fe09ni01_hcp_sakai_2014_type4_2_thermal",
+    "fe09ni01_hcp_sakai_2014_type4_3_thermal",
+    "palladium_baty_2024_bm3_1"
+  ],
+  "held_default": "wadsleyite_katsura_2009_bm3_1",
+  "executable_materials": 228,
+  "executable_records": 659,
+  "verification": {
+    "rust_workspace": "passed",
+    "ruff_lint_and_format": "passed",
+    "mypy": "passed, 56 source files",
+    "generated_ledgers": "passed",
+    "full_python_initial_run": {
+      "passed": 2979,
+      "failed": 7,
+      "failed_expectations_corrected_and_targeted_reruns_passed": true,
+      "full_suite_not_repeated_after_final_test_repairs": true
+    },
+    "strict_documentation": "blocked by 8 existing/concurrent link warnings"
+  }
+}

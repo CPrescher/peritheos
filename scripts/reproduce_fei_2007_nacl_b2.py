@@ -20,6 +20,7 @@ from scipy.integrate import quad
 from scipy.optimize import brentq, least_squares
 
 from peritheos.materials import NACL_B2_FEI_2007
+from scripts.eosmat_io import read_material, write_material
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "peritheos/data/datasets"
@@ -544,7 +545,7 @@ def refit_record(published, datasets, source, report):
 
 
 def register_refit(source, report):
-    document = json.loads(MATERIAL.read_text(encoding="utf-8"))
+    document = read_material(MATERIAL)
     published = next(
         r for r in document["eos_records"] if r["identifier"] == "nacl_b2_fei_2007"
     )
@@ -557,10 +558,7 @@ def register_refit(source, report):
             users = dataset["used_by_eos_records"]
             if REFIT_ID not in users:
                 users.append(REFIT_ID)
-    MATERIAL.write_text(
-        json.dumps(document, indent=1, ensure_ascii=False, allow_nan=False) + "\n",
-        encoding="utf-8",
-    )
+    write_material(MATERIAL, document)
 
 
 def plot(source, report):

@@ -24,7 +24,7 @@ from peritheos.pressure_calibrations import (
 )
 
 EOSMAT_FORMAT = "peritheos.material"
-EOSMAT_FORMAT_VERSION = 3
+EOSMAT_FORMAT_VERSION = 4
 _AVOGADRO = 6.022_140_76e23
 _HUGONIOT_MASS_BASIS_RTOL = 1.0e-3
 _MATERIAL_PACKAGE = "peritheos.data.materials"
@@ -179,22 +179,27 @@ def _finite_range(value: Any, location: str) -> tuple[float, float]:
 
 
 def validate_eosmat_document(document: Mapping[str, Any]) -> None:
-    """Validate the shared format-2 structure without executing EOS code.
+    """Validate native v4, historical v3, or legacy v2 EOSMAT structure.
 
     The absent ``format`` discriminator used by native Dioptas 0.10.0 files is
     accepted for backward compatibility. Scientific validation status is
     metadata and is not inferred from structural validity.
     """
     document = _require_mapping(document, "document")
+    if document.get("format_version") == 4:
+        from peritheos._eosmat_v4 import to_v3
+
+        validate_eosmat_document(to_v3(document))
+        return
     format_name = document.get("format")
     version = document.get("format_version")
     is_legacy_dioptas = format_name is None and version == 2
-    is_canonical = format_name == EOSMAT_FORMAT and version == EOSMAT_FORMAT_VERSION
+    is_canonical = format_name == EOSMAT_FORMAT and version == 3
     if not (is_legacy_dioptas or is_canonical):
         if format_name not in (None, EOSMAT_FORMAT):
             raise EosmatError(f"Unsupported material format {format_name!r}")
         raise EosmatError(
-            "Supported eosmat documents are Peritheos format 3 or legacy "
+            "Supported eosmat documents are Peritheos format 3 or 4, or legacy "
             "Dioptas format 2"
         )
 
@@ -1197,6 +1202,45 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
             raise EosmatError(
                 f"A material may have at most one default {category} EOS record"
             )
+    records_by_id = {
+        record.get("identifier"): record for record in document.get("eos_records", [])
+    }
+    for record in records_by_id.values():
+        if "pressure_scale_variant_of" not in record:
+            continue
+        parent_id = record["pressure_scale_variant_of"]
+        if not isinstance(parent_id, str) or not parent_id:
+            raise EosmatError("pressure_scale_variant_of must be a non-empty string")
+        parent = records_by_id.get(parent_id)
+        if parent is None or parent is record:
+            raise EosmatError(
+                "pressure_scale_variant_of must identify another EOS in the material"
+            )
+        if "pressure_scale_variant_of" in parent:
+            raise EosmatError("pressure-scale reference variants cannot form chains")
+        if record.get("default") is True or record.get("default_for") is not None:
+            raise EosmatError("A pressure-scale reference variant cannot be a default")
+        if any(
+            r.get("record_kind", "published") != "published" for r in (record, parent)
+        ):
+            raise EosmatError(
+                "Pressure-scale reference variants must be published fits"
+            )
+        if (
+            record["eos"]["type"] != parent["eos"]["type"]
+            or record.get("thermal", {}).get("type")
+            != parent.get("thermal", {}).get("type")
+            or record.get("temperature_ref") != parent.get("temperature_ref")
+        ):
+            raise EosmatError(
+                "Pressure-scale reference variants must share the source model and temperature"
+            )
+        if set(record["fixed_parameters"]) != set(parent["fixed_parameters"]) or set(
+            record.get("thermal", {}).get("fixed_parameters", [])
+        ) != set(parent.get("thermal", {}).get("fixed_parameters", [])):
+            raise EosmatError(
+                "Pressure-scale reference variants must share the source fit constraints"
+            )
     for dataset_identifier, record_identifier in dataset_record_links:
         if record_identifier not in record_identifiers:
             raise EosmatError(
@@ -1252,11 +1296,16 @@ def load_eosmat(path: str | Path) -> dict[str, Any]:
 
 
 def save_eosmat(path: str | Path, document: Mapping[str, Any]) -> None:
-    """Validate and save a Dioptas-compatible `.eosmat` document."""
+    """Validate and save readable EOSMAT JSON, retaining its native version.
+
+    Material identity comes first, with short numerical groups on one line.
+    All field values, array order, and unknown extension fields are retained.
+    """
+    from peritheos._eosmat_format import format_eosmat
+
     validate_eosmat_document(document)
-    with Path(path).open("w", encoding="utf-8") as stream:
-        json.dump(document, stream, indent=1, ensure_ascii=False, allow_nan=False)
-        stream.write("\n")
+    payload = format_eosmat(document)
+    Path(path).write_bytes(payload.encode("utf-8"))
 
 
 def list_material_documents() -> tuple[str, ...]:
@@ -1271,8 +1320,15 @@ def list_material_documents() -> tuple[str, ...]:
     )
 
 
-def get_material_document(identifier: str) -> dict[str, Any]:
-    """Return a defensive copy of one bundled `.eosmat` document."""
+def get_material_document(
+    identifier: str, *, format_version: int | None = 3
+) -> dict[str, Any]:
+    """Return one bundled document in the requested layout.
+
+    The default v3 dictionary keeps existing catalog integrations compatible.
+    Pass ``format_version=4`` for native EOSMAT or ``None`` for the stored
+    version. ``load_eosmat(path)`` always preserves the file's authored layout.
+    """
     available = list_material_documents()
     if identifier not in available:
         suggestions = difflib.get_close_matches(identifier, available, n=3, cutoff=0.5)
@@ -1285,6 +1341,8 @@ def get_material_document(identifier: str) -> dict[str, Any]:
         )
     resource = resources.files(_MATERIAL_PACKAGE).joinpath(f"{identifier}.eosmat")
     document = json.loads(resource.read_text(encoding="utf-8"))
+    if format_version is not None:
+        return convert_eosmat(document, version=format_version)
     validate_eosmat_document(document)
     return copy.deepcopy(document)
 
@@ -1300,12 +1358,20 @@ def list_eos_record_documents() -> tuple[str, ...]:
     )
 
 
-def get_eos_record_document(identifier: str) -> dict[str, Any]:
-    """Return one executable EOS record from the shared material library."""
+def get_eos_record_document(
+    identifier: str, *, format_version: int | None = 3
+) -> dict[str, Any]:
+    """Return one stored EOS record; request v4 or None for native fields.
+
+    The historical v3 dictionary remains the default, including document-only
+    records whose scientific status does not permit ordinary execution.
+    """
     matches = [
         record
         for material_identifier in list_material_documents()
-        for record in get_material_document(material_identifier)["eos_records"]
+        for record in get_material_document(
+            material_identifier, format_version=format_version
+        )["eos_records"]
         if record["identifier"] == identifier
     ]
     if len(matches) != 1:
@@ -1426,15 +1492,63 @@ def validate_pressure_calibration_references() -> None:
                     )
 
 
-def eosmat_schema() -> dict[str, Any]:
-    """Return the bundled normative JSON Schema document."""
-    resource = resources.files("peritheos.data").joinpath("eosmat-v3.schema.json")
+def convert_eosmat(
+    document: Mapping[str, Any],
+    *,
+    version: int = 4,
+    compact: bool = False,
+    inline: bool = False,
+) -> dict[str, Any]:
+    """Convert the native file structure between v3 and v4, without refitting.
+
+    V4 is a complete EOSMAT document, directly readable and editable. V3 export
+    supports older consumers. No source data or detailed evidence is discarded.
+    Optional empty component maps may disappear; parameter/error/fixed meanings,
+    all source arrays, numerical values and extension fields are retained.
+
+    ``compact=True`` optionally shares exact repeated metadata inside native v4.
+    ``inline=True`` expands that metadata for older v4 readers. Both retain all
+    definitions, including unused supporting information. These options cannot
+    be combined; v3 exports always expand references.
+    """
+    from peritheos._eosmat_metadata import expand_metadata, share_metadata
+    from peritheos._eosmat_v4 import to_v3, to_v4
+
+    if compact and (inline or version != 4):
+        raise EosmatError("compact requires v4 and cannot be combined with inline")
+
+    if version not in (3, 4):
+        raise EosmatError("EOSMAT conversion supports versions 3 and 4")
+    validate_eosmat_document(document)
+    current = document.get("format_version")
+    if current not in (3, 4):
+        raise EosmatError("Read legacy v2 with Material.from_eosmat before exporting")
+    result = copy.deepcopy(dict(document))
+    if current != version:
+        result = to_v4(result) if version == 4 else to_v3(result)
+    if version == 4:
+        if compact:
+            result = share_metadata(result)
+        elif inline:
+            result = expand_metadata(result)
+    validate_eosmat_document(result)
+    return result
+
+
+def eosmat_schema(version: int = 3) -> dict[str, Any]:
+    """Return a version-specific schema; the historical default remains v3."""
+    if version not in (3, 4):
+        raise EosmatError("EOSMAT schemas are available for versions 3 and 4")
+    resource = resources.files("peritheos.data").joinpath(
+        f"eosmat-v{version}.schema.json"
+    )
     return json.loads(resource.read_text(encoding="utf-8"))
 
 
 __all__ = [
     "EOSMAT_FORMAT",
     "EOSMAT_FORMAT_VERSION",
+    "convert_eosmat",
     "eosmat_schema",
     "get_eos_record_document",
     "get_material_document",

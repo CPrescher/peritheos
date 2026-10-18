@@ -1,280 +1,249 @@
 {
- "format_version": 3,
- "name": "Silicon (Si-V, simple hexagonal)",
- "formula": "Si",
- "symmetry": "HEXAGONAL",
- "lattice": {
-  "a": 2.664021,
-  "b": null,
-  "c": 2.489348,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 120.0
- },
- "formula_units_per_cell": 1,
- "space_group": "P6/mmm",
- "space_group_number": 191,
- "atom_sites": [
-  {
-   "element": "Si",
-   "wyckoff": "1a",
-   "x": 0.0,
-   "y": 0.0,
-   "z": 0.0,
-   "occupancy": 1.0
-  }
- ],
- "notes": "Simple-hexagonal Si-V. Because the high-pressure phase cannot be recovered, the reference cell is constructed from the extrapolated EoS V0 and the axial ratio measured at 17.9 GPa. PhaseSmith calculates powder reflections and intensities from the ideal structure.",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Anzellini et al. (2019), 300 K Vinet",
-   "reference": {
-    "authors": [
-     "Anzellini",
-     "Wharmby",
-     "Miozzi",
-     "Kleppe",
-     "Daisenberger",
-     "Wilhelm"
-    ],
-    "year": 2019,
-    "title": "Quasi-hydrostatic equation of state of silicon up to 1 megabar at ambient temperature",
-    "source": "Sci. Rep.",
-    "volume": "9",
-    "locator": "15537",
-    "doi": "10.1038/s41598-019-51931-1"
-   },
-   "eos": {
-    "type": "Vinet",
-    "parameters": {
-     "V0": 15.3,
-     "K0": 95.0,
-     "K0_prime": 4.6
-    },
-    "model": "vinet"
-   },
-   "parameter_errors": {
-    "V0": 0.1,
-    "K0": 10.0,
-    "K0_prime": 0.5
-   },
-   "parameter_error_confidence": 0.95,
-   "fixed_parameters": [],
-   "experimental_pressure_range_gpa": [
-    15.8,
-    40.9
-   ],
-   "temperature_ref": 300.0,
-   "notes": "Table 8 room-temperature fit. Si-V was observed from 15.8 to 40.9 GPa; V0 is an extrapolated atomic and one-atom cell volume.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation-of-state discussion; Table 8."
-   },
-   "identifier": "silicon_v_anzellini_2019_vinet_1",
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "ruby_fluorescence",
-      "reference": {
-       "authors": [
-        "Dorogokupets",
-        "Oganov"
-       ],
-       "year": 2007,
-       "source": "Phys. Rev. B",
-       "doi": "10.1103/PhysRevB.75.024115"
+  "format_version": 4,
+  "identifier": "silicon_v",
+  "name": "Silicon (Si-V, simple hexagonal)",
+  "formula": "Si",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 1,
+  "eos_records": [
+    {
+      "identifier": "silicon_v_anzellini_2019_vinet_1",
+      "label": "Anzellini et al. (2019), 300 K Vinet",
+      "model": "Vinet",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 15.3, "error": 0.1},
+        "K0": {"value": 95.0, "error": 10.0},
+        "K0_prime": {"value": 4.6, "error": 0.5}
       },
-      "source_location": "Methods and Table 1",
-      "scope": "all runs",
-      "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
-     },
-     {
-      "kind": "equation_of_state",
+      "parameter_error_confidence": 0.95,
+      "experimental_pressure_range_gpa": [15.8, 40.9],
+      "determination_method": "experimental",
+      "notes": "Table 8 room-temperature fit. Si-V was observed from 15.8 to 40.9 GPa; V0 is an extrapolated atomic and one-atom cell volume.",
       "reference": {
-       "authors": [
-        "Dorogokupets",
-        "Oganov"
-       ],
-       "year": 2007,
-       "source": "Phys. Rev. B",
-       "doi": "10.1103/PhysRevB.75.024115"
+        "authors": ["Anzellini", "Wharmby", "Miozzi", "Kleppe", "Daisenberger", "Wilhelm"],
+        "year": 2019,
+        "title": "Quasi-hydrostatic equation of state of silicon up to 1 megabar at ambient temperature",
+        "source": "Sci. Rep.",
+        "volume": "9",
+        "locator": "15537",
+        "doi": "10.1038/s41598-019-51931-1"
       },
-      "source_location": "Methods; W volume gauge",
-      "scope": "runs ST1-ST3"
-     },
-     {
-      "kind": "equation_of_state",
-      "reference": {
-       "authors": [
-        "Dorogokupets",
-        "Oganov"
-       ],
-       "year": 2007,
-       "source": "Phys. Rev. B",
-       "doi": "10.1103/PhysRevB.75.024115"
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": ["Dorogokupets", "Oganov"],
+              "year": 2007,
+              "source": "Phys. Rev. B",
+              "doi": "10.1103/PhysRevB.75.024115"
+            },
+            "source_location": "Methods and Table 1",
+            "scope": "all runs",
+            "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
+          },
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Dorogokupets", "Oganov"],
+              "year": 2007,
+              "source": "Phys. Rev. B",
+              "doi": "10.1103/PhysRevB.75.024115"
+            },
+            "source_location": "Methods; W volume gauge",
+            "scope": "runs ST1-ST3"
+          },
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Dorogokupets", "Oganov"],
+              "year": 2007,
+              "source": "Phys. Rev. B",
+              "doi": "10.1103/PhysRevB.75.024115"
+            },
+            "source_location": "Methods; Au volume gauge",
+            "scope": "runs ST1-ST3",
+            "notes": "The same Dorogokupets-Oganov internally consistent calibration supplied the Au and W gauges."
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+        },
+        "audit_date": "2026-09-03"
       },
-      "source_location": "Methods; Au volume gauge",
-      "scope": "runs ST1-ST3",
-      "notes": "The same Dorogokupets-Oganov internally consistent calibration supplied the Au and W gauges."
-     }
-    ],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
-    },
-    "audit_date": "2026-09-03"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1038/s41598-019-51931-1",
-     "locations": [
-      "Equation-of-state discussion",
-      "Table 8"
-     ],
-     "finding": "Per-atom volumes were converted using each phase's conventional-cell Z.",
-     "doi": "10.1038/s41598-019-51931-1"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "silicon_v.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "silicon_anzellini_2019_tables1_4_6_7_compression"
-     ],
-     "source_locations": [
-      "Tables 1, 4, 6, and 7"
-     ],
-     "finding": "The 141 normalized Si lattice-parameter observations from Tables 1, 4, 6, and 7, retaining all reported pressure gauges and calibrant lattice parameters."
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/silicon_v/#record-silicon_v_anzellini_2019_vinet_1",
+            "report_path": "docs/reconstruction-reports/silicon_v.md#record-silicon_v_anzellini_2019_vinet_1",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 15.3,
+                "published_error": 0.1,
+                "refit": 15.398680325458853,
+                "refit_error": 0.2511515948522007,
+                "difference": 0.09868032545885264,
+                "relative_difference": 0.006449694474434812,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 95.0,
+                "published_error": 10.0,
+                "refit": 83.56047245234265,
+                "refit_error": 19.126864284156326,
+                "difference": -11.439527547657349,
+                "relative_difference": 0.12041607944902473,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.6,
+                "published_error": 0.5,
+                "refit": 5.5963602776412325,
+                "refit_error": 1.0498700096843687,
+                "difference": 0.9963602776412328,
+                "relative_difference": 0.21660006035678975,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "phase=V",
+              "columns": {
+                "pressure": "pressure_gold_gpa|pressure_tungsten_gpa|pressure_ruby_gpa",
+                "temperature": null,
+                "volume": "silicon_lattice_a_angstrom"
+              },
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 24,
+              "observed_pressure_range_gpa": [15.6, 39.8],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [12.024283226271233, 13.545256687031127],
+              "degrees_of_freedom": 21,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.35663684362693326,
+              "published_rmse_gpa": 0.6494279872034816,
+              "reduced_chi_square": 0.1453598151224933,
+              "dataset_identifiers": ["silicon_anzellini_2019_tables1_4_6_7_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1038/s41598-019-51931-1",
+            "locations": ["Equation-of-state discussion", "Table 8"],
+            "finding": "Per-atom volumes were converted using each phase's conventional-cell Z.",
+            "doi": "10.1038/s41598-019-51931-1"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "silicon_v.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["silicon_anzellini_2019_tables1_4_6_7_compression"],
+            "source_locations": ["Tables 1, 4, 6, and 7"],
+            "finding": "The 141 normalized Si lattice-parameter observations from Tables 1, 4, 6, and 7, retaining all reported pressure gauges and calibrant lattice parameters."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation-of-state discussion; Table 8."
+        }
+      }
     }
-   }
-  }
- ],
- "format": "peritheos.material",
- "identifier": "silicon_v",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "datasets": [
-  {
-   "identifier": "silicon_anzellini_2019_tables1_4_6_7_compression",
-   "kind": "multiphase_pressure_lattice_parameters",
-   "description": "The 141 normalized Si lattice-parameter observations from Tables 1, 4, 6, and 7, retaining all reported pressure gauges and calibrant lattice parameters.",
-   "source_location": "Tables 1, 4, 6, and 7",
-   "source_url": "https://www.nature.com/articles/s41598-019-51931-1",
-   "license": "CC BY 4.0",
-   "columns": [
+  ],
+  "symmetry": "HEXAGONAL",
+  "space_group": "P6/mmm",
+  "space_group_number": 191,
+  "lattice": {"a": 2.664021, "b": null, "c": 2.489348, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
+  "atom_sites": [
+    {"element": "Si", "wyckoff": "1a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Simple-hexagonal Si-V. Because the high-pressure phase cannot be recovered, the reference cell is constructed from the extrapolated EoS V0 and the axial ratio measured at 17.9 GPa. PhaseSmith calculates powder reflections and intensities from the ideal structure.",
+  "datasets": [
     {
-     "name": "source_table",
-     "quantity": "source_table",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "run",
-     "quantity": "run_identifier",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "pressure_ruby_gpa",
-     "quantity": "pressure_from_ruby",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_gold_gpa",
-     "quantity": "pressure_from_gold",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_tungsten_gpa",
-     "quantity": "pressure_from_tungsten",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "gold_lattice_a_angstrom",
-     "quantity": "gold_lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "tungsten_lattice_a_angstrom",
-     "quantity": "tungsten_lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "phase",
-     "quantity": "silicon_phase",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "silicon_lattice_a_angstrom",
-     "quantity": "silicon_lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "silicon_lattice_b_angstrom",
-     "quantity": "silicon_lattice_parameter_b",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "silicon_lattice_c_angstrom",
-     "quantity": "silicon_lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "value"
+      "identifier": "silicon_anzellini_2019_tables1_4_6_7_compression",
+      "kind": "multiphase_pressure_lattice_parameters",
+      "description": "The 141 normalized Si lattice-parameter observations from Tables 1, 4, 6, and 7, retaining all reported pressure gauges and calibrant lattice parameters.",
+      "source_location": "Tables 1, 4, 6, and 7",
+      "source_url": "https://www.nature.com/articles/s41598-019-51931-1",
+      "license": "CC BY 4.0",
+      "columns": [
+        {"name": "source_table", "quantity": "source_table", "unit": "1", "role": "flag"},
+        {"name": "run", "quantity": "run_identifier", "unit": "1", "role": "flag"},
+        {"name": "pressure_ruby_gpa", "quantity": "pressure_from_ruby", "unit": "GPa", "role": "value"},
+        {"name": "pressure_gold_gpa", "quantity": "pressure_from_gold", "unit": "GPa", "role": "value"},
+        {"name": "pressure_tungsten_gpa", "quantity": "pressure_from_tungsten", "unit": "GPa", "role": "value"},
+        {"name": "gold_lattice_a_angstrom", "quantity": "gold_lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {
+          "name": "tungsten_lattice_a_angstrom",
+          "quantity": "tungsten_lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {"name": "phase", "quantity": "silicon_phase", "unit": "1", "role": "flag"},
+        {
+          "name": "silicon_lattice_a_angstrom",
+          "quantity": "silicon_lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {
+          "name": "silicon_lattice_b_angstrom",
+          "quantity": "silicon_lattice_parameter_b",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {
+          "name": "silicon_lattice_c_angstrom",
+          "quantity": "silicon_lattice_parameter_c",
+          "unit": "angstrom",
+          "role": "value"
+        }
+      ],
+      "resource": {
+        "path": "datasets/silicon-anzellini-2019-tables1-4-6-7-compression.csv",
+        "sha256": "a29b61df2641e29b82c66e4aba7a3824fdebd5b987ef450d87ee40e2f4bc5951",
+        "media_type": "text/csv"
+      },
+      "notes": "Rows with coexisting phases are represented once per reported phase while sharing the same pressure/calibrant observation. Tables 4, 6, and 7 also contain Si-II, Si-VI, and Si-XI observations for which Peritheos has no EOS record; they are retained to keep the source tables complete. Pointwise uncertainties are not tabulated.",
+      "reference": {
+        "authors": ["Anzellini", "Wharmby", "Miozzi", "Kleppe", "Daisenberger", "Wilhelm"],
+        "year": 2019,
+        "source": "Sci. Rep.",
+        "volume": "9",
+        "locator": "15537",
+        "doi": "10.1038/s41598-019-51931-1"
+      },
+      "used_by_eos_records": ["silicon_v_anzellini_2019_vinet_1"]
     }
-   ],
-   "resource": {
-    "path": "datasets/silicon-anzellini-2019-tables1-4-6-7-compression.csv",
-    "sha256": "a29b61df2641e29b82c66e4aba7a3824fdebd5b987ef450d87ee40e2f4bc5951",
-    "media_type": "text/csv"
-   },
-   "notes": "Rows with coexisting phases are represented once per reported phase while sharing the same pressure/calibrant observation. Tables 4, 6, and 7 also contain Si-II, Si-VI, and Si-XI observations for which Peritheos has no EOS record; they are retained to keep the source tables complete. Pointwise uncertainties are not tabulated.",
-   "reference": {
-    "authors": [
-     "Anzellini",
-     "Wharmby",
-     "Miozzi",
-     "Kleppe",
-     "Daisenberger",
-     "Wilhelm"
-    ],
-    "year": 2019,
-    "source": "Sci. Rep.",
-    "volume": "9",
-    "locator": "15537",
-    "doi": "10.1038/s41598-019-51931-1"
-   },
-   "used_by_eos_records": [
-    "silicon_v_anzellini_2019_vinet_1"
-   ]
-  }
- ]
+  ]
 }

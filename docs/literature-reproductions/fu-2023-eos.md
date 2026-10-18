@@ -1,5 +1,12 @@
 # Fu et al. (2023): bridgmanite compression and CaSiO3 thermal refit
 
+> Current disposition (17 October 2026): the affected published thermal EOS
+> is **not recommended** and is retained as an explicit-selection
+> `not_reproduced` record. Historical acceptance statements below are superseded
+> for this parameterization; source coefficients and observations are unchanged.
+> See the [recommendation dispositions](../research/eos-recommendation-dispositions-2026-10-17.md).
+
+
 ## Primary-source audit
 
 - Citation: S. Fu, Y. Zhang, T. Okuchi, and J.-F. Lin, “Single-crystal elasticity of (Al,Fe)-bearing bridgmanite up to 82 GPa,” *American Mineralogist* **108**, 719–730 (2023), DOI [`10.2138/am-2022-8435`](https://doi.org/10.2138/am-2022-8435).

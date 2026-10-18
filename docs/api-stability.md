@@ -29,7 +29,14 @@ improvements that make an annotation more precise are not runtime API changes.
 
 ## `.eosmat` compatibility
 
-The canonical `.eosmat` format version 3 is a public exchange contract.
+Native EOSMAT version 4 simplifies model identifiers, parameter annotations and
+evidence organization. Historical version 3 remains a supported public exchange
+contract, and native Dioptas format-2 files remain readable. New standalone
+creation defaults to v4; load/save retains the input version. Explicit v3 export
+supports consumers pinned to the previous reader. These are two versions of the
+same material format, with one authoritative editable file per material.
+
+The canonical `.eosmat` format version 3 was already published before v4.
 Readers must preserve unknown optional fields, and additive optional fields do
 not require a format-version increment. Removing a field, changing its unit or
 meaning, or making an optional field mandatory requires a new format version
@@ -40,6 +47,15 @@ Stable material and record identifiers are not reused for a different phase or
 parameterization. A scientific correction creates an auditable data change;
 saved project reproducibility must not depend on silently resolving an old
 identifier to altered parameters.
+
+Published fits differing only by pressure scale may be grouped using the
+optional `pressure_scale_variant_of` field. Original identifiers and numerical
+results remain stable. Normal `list_eos_records()` / search discovery excludes
+these reference variants; pass `include_reference_variants=True` for the full
+executable collection or use `list_reference_variants(source_identifier)`.
+`Material.eos_records` retains all loaded records, while `source_records` and
+`equilibrium_records` present normal choices. This discovery change does not
+replace a saved reference identifier with a dynamically converted curve.
 
 The bundled `.eosmat` identifiers are canonical for the executable catalog.
 Historical pressure-scale identifiers and module-level convenience constants
@@ -80,6 +96,21 @@ listing/search results keep their meanings. Applications adopt grouping
 explicitly through `group_materials()`. Membership does not select a default
 composition or alter any numerical record.
 
+## Dependency support
+
+The base Python library requires Python >=3.9, NumPy >=1.22.0 and SciPy >=1.9.3.
+Peritheos 0.15.0 raises the NumPy floor from 1.21.0 because the macOS ARM64
+NumPy 1.21 wheels crash in their bundled OpenBLAS matrix routines on the
+tested Apple M4 Pro. Limiting OpenBLAS to one thread does not reliably prevent
+the crashes. This dependency change preserves the scientific equations,
+fitting objectives, coefficients and source observations.
+
+NumPy 1.21.0 previously passed the Linux minimum-dependency CI suite; that result
+does not establish support for its different macOS binary. Minimum direct
+dependencies are now checked on Linux and macOS, in addition to the locked
+current-dependency platform and Python matrix. Passing tests establishes the
+tested software behavior, not physical validation of a model.
+
 ## Compatibility commitments
 
 `volume()` is the preferred pressure-to-volume method. `calculate_volume()` is
@@ -99,3 +130,12 @@ Patch releases may improve numerical precision, validation, warning text, or
 solver robustness without treating the last floating-point bit or exact error
 message as stable. Published calculations should record the Peritheos version,
 model order, complete parameters, units, and uncertainty convention.
+
+### Optional native EOSMAT metadata sharing
+
+Plain inline v4, historical v3 and legacy v2 remain supported. The native v4
+local-sharing capability is opt-in: an older v4 reader needs `convert --inline`,
+and a v3 reader needs `convert --format-version 3`. Compatibility exports expand
+references and retain unused definitions rather than discarding supporting data.
+The optional reconstruction assessment requires an explicit scope and basis;
+legacy reproduction metadata and existing scientific classifications are retained.

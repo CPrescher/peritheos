@@ -12,6 +12,7 @@ Full model, fitting, units, and development documentation is available at
 Rust users can start with the workflow-oriented [Rust API guide](docs/rust-api.md)
 and the runnable examples in the unified Rust crate.
 Release history is recorded in the [changelog](CHANGELOG.md).
+Project goals and guidance for coding agents are in [AGENTS.md](AGENTS.md).
 
 ## Features
 
@@ -45,7 +46,7 @@ Release history is recorded in the [changelog](CHANGELOG.md).
 - Versioned material and EOS-record catalog with explicit literature provenance,
   calibration/data envelopes, extrapolation enabled by default, inversion, and
   measurement/parameter uncertainty
-- A Peritheos-owned `.eosmat` schema and 232-material-document/672-record EOS library with optional
+- A Peritheos-owned `.eosmat` schema and 232-material-document/663-record EOS library with optional
   diffraction structure, stable identifiers, and Dioptas 0.10 storage-read
   compatibility
 - Recursive pressure-scale normalization across Au, Pt, KCl, ruby R1, and
@@ -135,16 +136,21 @@ that need the serialized representation. See [Loading observation
 datasets](docs/datasets.md) for column discovery, supported conversions,
 uncertainty semantics, and resource-integrity behavior.
 
-The normal catalog API constructs 229 materials and 669 executable
-records (660 primary-source-validated and nine qualified explicit-selection
+The normal catalog API constructs 228 materials and 659 executable
+records (641 primary-source-validated and 18 qualified explicit-selection
 implementations) directly
 from the bundled `.eosmat` files. See [Material catalog](docs/catalog.md) for
 typed discovery examples, [Pressure standards](docs/pressure-standards.md) for
 EOS records commonly used in that application, and
 [Dioptas and `.eosmat`](docs/dioptas-integration.md)
-for the shared material library. The [`.eosmat` schema reference](docs/eosmat-schema.md)
-defines its fields, equation discriminators, defaults, units, and compatibility
-rules.
+for the shared material library. The [native EOSMAT v4 reference](docs/eosmat-v4.md) defines the current file
+structure and units; the [v3 compatibility reference](docs/eosmat-schema.md)
+retains historical fields and advanced scientific semantics.
+
+Create your own standalone material with `create_eosmat()` or
+`python -m peritheos create`, without database registration. The
+[standalone EOSMAT guide](docs/eosmat-authoring.md) starts with a small file and
+explains how to add uncertainties, thermal models and observations.
 
 ### Room-temperature equations of state
 

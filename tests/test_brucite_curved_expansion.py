@@ -6,12 +6,19 @@ import numpy as np
 import pytest
 from jsonschema import Draft202012Validator
 
-from peritheos import Material, eosmat_schema, get_eos_record, get_material
+from peritheos import Material, eosmat_schema, get_material
 from peritheos.errors import MaterialError
+from scripts import brucite_curved_expansion
 from scripts.brucite_curved_expansion import PREFIX, REPORT, ledger_outcome, reproduce
 from scripts.brucite_replay_checks import check_report
 from scripts.brucite_reproduce import bm3, observations, source
-from scripts.brucite_stage import catalog_document
+from scripts.brucite_stage import audit_document
+
+
+def audit_record(identifier):
+    return Material.from_eosmat(
+        audit_document(), require_primary_validation=False
+    ).get_eos_record(identifier)
 
 
 @pytest.fixture(scope="module")
@@ -22,12 +29,32 @@ def report():
     return saved
 
 
+def test_comparison_plot_uses_archived_diagnostic_without_catalog_promotion(
+    report, tmp_path, monkeypatch
+):
+    monkeypatch.setattr(brucite_curved_expansion, "ROOT", tmp_path)
+    (tmp_path / "docs/data").mkdir(parents=True)
+    comparison = brucite_curved_expansion.write_comparison_plot(report)
+    assert len(comparison) == 4
+    for actual, expected in zip(comparison, report["isotherms"]):
+        assert actual["new_continuous"]["pressure_rmse_gpa"] == pytest.approx(
+            expected["continuous_variant"]["pressure_rmse_gpa"], abs=1e-12
+        )
+    for extension in ("png", "pdf"):
+        assert (
+            tmp_path / f"docs/data/brucite-continuous-comparison.{extension}"
+        ).stat().st_size > 0
+    assert report["continuous_variant"]["identifier"] not in {
+        record.identifier for record in get_material("brucite").eos_records
+    }
+
+
 @pytest.mark.parametrize("index,temperature", [(0, 300), (1, 473), (2, 673), (3, 873)])
 def test_curved_isotherms_preserve_published_moduli_and_source_ranges(
     report, index, temperature
 ):
-    original = get_eos_record(f"brucite_fukui_2003_{temperature}k_bm3")
-    refit = get_eos_record(f"{PREFIX}_{temperature}k_bm3_refit")
+    original = audit_record(f"brucite_fukui_2003_{temperature}k_bm3")
+    refit = audit_record(f"{PREFIX}_{temperature}k_bm3_refit")
     meta = refit.eosmat_metadata
     assert not refit.is_default
     assert meta["record_kind"] == "refit"
@@ -76,7 +103,7 @@ def test_curved_isotherms_preserve_published_moduli_and_source_ranges(
 
 
 def test_curved_thermal_uses_exact_purple_law_and_published_slopes(report):
-    r = get_eos_record(f"{PREFIX}_thermal_refit")
+    r = audit_record(f"{PREFIX}_thermal_refit")
     meta = r.eosmat_metadata
     fit = report["fit"]
     assert not r.is_default
@@ -116,10 +143,10 @@ def test_curved_thermal_uses_exact_purple_law_and_published_slopes(report):
 
 def test_curved_expansion_covariance_roundtrip_and_registered_fit(report):
     check_report(report, json.loads(REPORT.read_text(encoding="utf-8")))
-    doc = catalog_document()
+    doc = audit_document()
     Draft202012Validator(eosmat_schema()).validate(doc)
-    m = Material.from_eosmat(doc)
-    restored = Material.from_eosmat(m.to_eosmat())
+    m = Material.from_eosmat(doc, require_primary_validation=False)
+    restored = Material.from_eosmat(m.to_eosmat(), require_primary_validation=False)
     r = restored.get_eos_record(f"{PREFIX}_thermal_refit")
     assert r.eosmat_metadata["parameter_covariance"]["parameter_order"] == [
         "rt_eos.V0",

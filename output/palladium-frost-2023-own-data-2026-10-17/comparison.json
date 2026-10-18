@@ -1,0 +1,82 @@
+{
+  "source_doi": "10.1063/5.0161038",
+  "source_tables": "Supplementary Tables I\u2013III",
+  "data_sha256": "92e4ece39614b1a9f980bff32ae3986083b06bd9673ef0e615f4d27bd39fa75c",
+  "published_parameters_cell_units": {
+    "V0": 58.678,
+    "K0": 189.3,
+    "K0_prime": 5.473
+  },
+  "temperature_k": 300,
+  "refit_performed": false,
+  "observations": 93,
+  "observed_pressure_range_gpa": [
+    2.99,
+    181.79
+  ],
+  "residual_definitions": {
+    "volume": "(V_observed - V_published(P_observed))/4, in angstrom^3/atom",
+    "pressure": "P_published(V_observed) - P_observed, in GPa"
+  },
+  "error_bars": "Reported coordinate errors; residual bars combine volume and pressure contributions by independent first-order propagation. Parameter covariance, run correlations, and calibration systematics are not included.",
+  "all_93_rows": {
+    "volume_rmse_a3_atom": 0.0191799485267748,
+    "volume_mean_residual_a3_atom": 0.00041119821016528333,
+    "volume_max_absolute_residual_a3_atom": 0.0637632017465517,
+    "relative_volume_rmse_percent": 0.15220214043735325,
+    "pressure_rmse_gpa": 0.7719918204007176,
+    "pressure_mean_residual_gpa": 0.004731088581250834,
+    "pressure_max_absolute_residual_gpa": 2.5750254109916284
+  },
+  "loadings": {
+    "BX18": {
+      "observations": 26,
+      "pressure_range_gpa": [
+        7.2,
+        60.32
+      ],
+      "volume_rmse_a3_atom": 0.016953225000409827,
+      "volume_mean_residual_a3_atom": -0.008325271606533163,
+      "volume_max_absolute_residual_a3_atom": 0.030922274619392454,
+      "relative_volume_rmse_percent": 0.13450435032839056,
+      "pressure_rmse_gpa": 0.5585734877122941,
+      "pressure_mean_residual_gpa": 0.32207521330318845,
+      "pressure_max_absolute_residual_gpa": 1.1501575145708145
+    },
+    "BX32": {
+      "observations": 20,
+      "pressure_range_gpa": [
+        2.99,
+        62.74
+      ],
+      "volume_rmse_a3_atom": 0.027922343782388774,
+      "volume_mean_residual_a3_atom": 0.0038110240413997687,
+      "volume_max_absolute_residual_a3_atom": 0.0637632017465517,
+      "relative_volume_rmse_percent": 0.20224656151909995,
+      "pressure_rmse_gpa": 0.5711411269164165,
+      "pressure_mean_residual_gpa": 0.02820818404741765,
+      "pressure_max_absolute_residual_gpa": 1.1287379151510066
+    },
+    "HP": {
+      "observations": 47,
+      "pressure_range_gpa": [
+        29.1,
+        181.79
+      ],
+      "volume_rmse_a3_atom": 0.015399707194459638,
+      "volume_mean_residual_a3_atom": 0.00379740456355826,
+      "volume_max_absolute_residual_a3_atom": 0.04309829613606908,
+      "relative_volume_rmse_percent": 0.13573600432381822,
+      "pressure_rmse_gpa": 0.931587307879966,
+      "pressure_mean_residual_gpa": -0.18081123380372183,
+      "pressure_max_absolute_residual_gpa": 2.5750254109916284
+    }
+  },
+  "separate_ambient_measurement": {
+    "used_in_93_row_statistics": false,
+    "a_angstrom": 3.89088,
+    "a_error_angstrom": 2e-05,
+    "volume_a3_atom": 14.725956695482369,
+    "volume_residual_a3_atom": 0.05645669548236931
+  }
+}

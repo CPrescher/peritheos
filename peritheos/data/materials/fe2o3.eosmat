@@ -1,297 +1,244 @@
 {
- "format_version": 3,
- "name": "Fe2O3",
- "formula": "Fe2O3",
- "aliases": [
-  "Hematite"
- ],
- "symmetry": "HEXAGONAL",
- "lattice": {
-  "a": 5.0354,
-  "b": null,
-  "c": 13.7477,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 120.0
- },
- "formula_units_per_cell": 6,
- "space_group": "R-3c",
- "space_group_number": 167,
- "atom_sites": [
-  {
-   "element": "Fe",
-   "wyckoff": "12c",
-   "x": 0.0,
-   "y": 0.0,
-   "z": 0.3552,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "18e",
-   "x": 0.3059,
-   "y": 0.0,
-   "z": 0.25,
-   "occupancy": 1.0
-  }
- ],
- "notes": "Hematite phase reference: JCPDS 33-664. Cell and asymmetric-unit coordinates are the ambient-pressure single-crystal refinement of Schouwink et al.",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Schouwink et al. (2011), 300 K BM2",
-   "reference": {
-    "authors": [
-     "Schouwink",
-     "Dubrovinsky",
-     "Glazyrin",
-     "Merlini",
-     "Hanfland",
-     "Pippinger",
-     "Miletich"
-    ],
-    "year": 2011,
-    "title": "High-pressure structural behavior of α-Fe2O3 studied by single-crystal X-ray diffraction and synchrotron radiation up to 25 GPa",
-    "source": "Am. Mineral.",
-    "volume": "96",
-    "locator": "1781-1786",
-    "doi": "10.2138/am.2011.3775"
-   },
-   "eos": {
-    "type": "BM2",
-    "parameters": {
-     "V0": 301.88,
-     "K0": 207.0
-    },
-    "model": "birch_murnaghan_2"
-   },
-   "parameter_errors": {
-    "V0": 0.02,
-    "K0": 3.0
-   },
-   "fixed_parameters": [],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    25.3
-   ],
-   "temperature_ref": 300.0,
-   "notes": "Recommended finite-strain result from neon-medium single-crystal XRD to 25.3 GPa. Second-order Birch-Murnaghan fixes K0'=4 by definition; the unconstrained alternative was not selected.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation-of-state section; BM2 fit table."
-   },
-   "identifier": "fe2o3_schouwink_2011_bm2_1",
-   "pressure_calibration": {
-    "status": "partially_resolved",
-    "methods": [
-     {
-      "kind": "ruby_fluorescence",
-      "reference": {
-       "authors": [
-        "Mao",
-        "Xu",
-        "Bell"
-       ],
-       "year": 1986,
-       "source": "J. Geophys. Res.",
-       "doi": "10.1029/JB091iB05p04673"
+  "format_version": 4,
+  "identifier": "fe2o3",
+  "name": "Fe2O3",
+  "formula": "Fe2O3",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 6,
+  "eos_records": [
+    {
+      "identifier": "fe2o3_schouwink_2011_bm2_1",
+      "label": "Schouwink et al. (2011), 300 K BM2",
+      "model": "BM2",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 301.88, "error": 0.02},
+        "K0": {"value": 207.0, "error": 3.0}
       },
-      "source_location": "Experimental methods; primary pressure measurement",
-      "reference_calibration_record": "ruby_mao_1986"
-     },
-     {
-      "kind": "equation_of_state",
+      "experimental_pressure_range_gpa": [0.0, 25.3],
+      "determination_method": "experimental",
+      "notes": "Recommended finite-strain result from neon-medium single-crystal XRD to 25.3 GPa. Second-order Birch-Murnaghan fixes K0'=4 by definition; the unconstrained alternative was not selected.",
       "reference": {
-       "authors": [
-        "Fei",
-        "Ricolleau",
-        "Frank",
-        "Mibe",
-        "Shen",
-        "Prakapenka"
-       ],
-       "year": 2007,
-       "source": "Proc. Natl. Acad. Sci. USA",
-       "doi": "10.1073/pnas.0609013104"
+        "authors": ["Schouwink", "Dubrovinsky", "Glazyrin", "Merlini", "Hanfland", "Pippinger", "Miletich"],
+        "year": 2011,
+        "title": "High-pressure structural behavior of α-Fe2O3 studied by single-crystal X-ray diffraction and synchrotron radiation up to 25 GPa",
+        "source": "Am. Mineral.",
+        "volume": "96",
+        "locator": "1781-1786",
+        "doi": "10.2138/am.2011.3775"
       },
-      "source_location": "Experimental methods; solid-Ne cross-check",
-      "reference_eos_record": "neon_fcc_fei_2007_vinet_2",
-      "scope": "cross-check"
-     }
-    ],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
-    },
-    "audit_date": "2026-09-03",
-    "notes": "The Ne cross-check resolves to a library EOS; the primary ruby wavelength model is not executable."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.2138/am.2011.3775",
-     "locations": [
-      "Equation-of-state section",
-      "BM2 fit table"
-     ],
-     "doi": "10.2138/am.2011.3775"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "fe2o3.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "hematite_schouwink_2011_table1_compression"
-     ],
-     "source_locations": [
-      "Table 1, journal page 1782"
-     ],
-     "finding": "All ten single-crystal hematite structural refinements printed in Table 1, including lattice parameters, cell volume, atomic coordinates, and refinement residual."
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": ["Mao", "Xu", "Bell"],
+              "year": 1986,
+              "source": "J. Geophys. Res.",
+              "doi": "10.1029/JB091iB05p04673"
+            },
+            "source_location": "Experimental methods; primary pressure measurement",
+            "reference_calibration_record": "ruby_mao_1986"
+          },
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
+              "year": 2007,
+              "source": "Proc. Natl. Acad. Sci. USA",
+              "doi": "10.1073/pnas.0609013104"
+            },
+            "source_location": "Experimental methods; solid-Ne cross-check",
+            "reference_eos_record": "neon_fcc_fei_2007_vinet_2",
+            "scope": "cross-check"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "The Ne cross-check resolves to a library EOS; the primary ruby wavelength model is not executable."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/fe2o3/#record-fe2o3_schouwink_2011_bm2_1",
+            "report_path": "docs/reconstruction-reports/fe2o3.md#record-fe2o3_schouwink_2011_bm2_1",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 301.88,
+                "published_error": 0.02,
+                "refit": 301.54909681558917,
+                "refit_error": 0.8294701872016501,
+                "difference": -0.330903184410829,
+                "relative_difference": 0.0010961414615437558,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 207.0,
+                "published_error": 3.0,
+                "refit": 218.39138175241462,
+                "refit_error": 11.085104070739309,
+                "difference": 11.391381752414617,
+                "relative_difference": 0.05503082972180974,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": [],
+              "observations": 10,
+              "observed_pressure_range_gpa": [1e-05, 25.3],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [273.8, 301.88],
+              "degrees_of_freedom": 8,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.3415974696917147,
+              "published_rmse_gpa": 0.6339258036877141,
+              "reduced_chi_square": 0.15012917900636616,
+              "dataset_identifiers": ["hematite_schouwink_2011_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.2138/am.2011.3775",
+            "locations": ["Equation-of-state section", "BM2 fit table"],
+            "doi": "10.2138/am.2011.3775"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "fe2o3.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["hematite_schouwink_2011_table1_compression"],
+            "source_locations": ["Table 1, journal page 1782"],
+            "finding": "All ten single-crystal hematite structural refinements printed in Table 1, including lattice parameters, cell volume, atomic coordinates, and refinement residual."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation-of-state section; BM2 fit table."
+        }
+      }
     }
-   }
-  }
- ],
- "format": "peritheos.material",
- "identifier": "fe2o3",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "datasets": [
-  {
-   "identifier": "hematite_schouwink_2011_table1_compression",
-   "kind": "pressure_volume_structure",
-   "description": "All ten single-crystal hematite structural refinements printed in Table 1, including lattice parameters, cell volume, atomic coordinates, and refinement residual.",
-   "source_location": "Table 1, journal page 1782",
-   "source_url": "https://doi.org/10.2138/am.2011.3775",
-   "columns": [
+  ],
+  "aliases": ["Hematite"],
+  "symmetry": "HEXAGONAL",
+  "space_group": "R-3c",
+  "space_group_number": 167,
+  "lattice": {"a": 5.0354, "b": null, "c": 13.7477, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
+  "atom_sites": [
+    {"element": "Fe", "wyckoff": "12c", "x": 0.0, "y": 0.0, "z": 0.3552, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "18e", "x": 0.3059, "y": 0.0, "z": 0.25, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Hematite phase reference: JCPDS 33-664. Cell and asymmetric-unit coordinates are the ambient-pressure single-crystal refinement of Schouwink et al.",
+  "datasets": [
     {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_uncertainty_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "bound",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "lattice_a_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_a_standard_deviation_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "lattice_a_angstrom"
-    },
-    {
-     "name": "lattice_c_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_c_standard_deviation_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "lattice_c_angstrom"
-    },
-    {
-     "name": "unit_cell_volume_a3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "unit_cell_volume_standard_deviation_a3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "standard_deviation",
-     "of": "unit_cell_volume_a3"
-    },
-    {
-     "name": "iron_fractional_z",
-     "quantity": "iron_fractional_z",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "iron_fractional_z_standard_deviation",
-     "quantity": "iron_fractional_z",
-     "unit": "1",
-     "role": "standard_deviation",
-     "of": "iron_fractional_z"
-    },
-    {
-     "name": "oxygen_fractional_x",
-     "quantity": "oxygen_fractional_x",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "oxygen_fractional_x_standard_deviation",
-     "quantity": "oxygen_fractional_x",
-     "unit": "1",
-     "role": "standard_deviation",
-     "of": "oxygen_fractional_x"
-    },
-    {
-     "name": "r1_percent",
-     "quantity": "r1_refinement_residual",
-     "unit": "%",
-     "role": "value"
+      "identifier": "hematite_schouwink_2011_table1_compression",
+      "kind": "pressure_volume_structure",
+      "description": "All ten single-crystal hematite structural refinements printed in Table 1, including lattice parameters, cell volume, atomic coordinates, and refinement residual.",
+      "source_location": "Table 1, journal page 1782",
+      "source_url": "https://doi.org/10.2138/am.2011.3775",
+      "columns": [
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_uncertainty_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "bound",
+          "of": "pressure_gpa"
+        },
+        {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_a_standard_deviation_angstrom",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_a_angstrom"
+        },
+        {"name": "lattice_c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_c_standard_deviation_angstrom",
+          "quantity": "lattice_parameter_c",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_c_angstrom"
+        },
+        {
+          "name": "unit_cell_volume_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "value"
+        },
+        {
+          "name": "unit_cell_volume_standard_deviation_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "standard_deviation",
+          "of": "unit_cell_volume_a3"
+        },
+        {"name": "iron_fractional_z", "quantity": "iron_fractional_z", "unit": "1", "role": "value"},
+        {
+          "name": "iron_fractional_z_standard_deviation",
+          "quantity": "iron_fractional_z",
+          "unit": "1",
+          "role": "standard_deviation",
+          "of": "iron_fractional_z"
+        },
+        {"name": "oxygen_fractional_x", "quantity": "oxygen_fractional_x", "unit": "1", "role": "value"},
+        {
+          "name": "oxygen_fractional_x_standard_deviation",
+          "quantity": "oxygen_fractional_x",
+          "unit": "1",
+          "role": "standard_deviation",
+          "of": "oxygen_fractional_x"
+        },
+        {"name": "r1_percent", "quantity": "r1_refinement_residual", "unit": "%", "role": "value"}
+      ],
+      "resource": {
+        "path": "datasets/hematite-schouwink-2011-table1-compression.csv",
+        "sha256": "84185d515282ca33c781b6cab5804a6eedaaf039502404ae21186f6b4f54fdc0",
+        "media_type": "text/csv"
+      },
+      "notes": "The near-ambient pressure is preserved as the printed 10^-5 GPa value. Pressure was measured by ruby fluorescence and cross-checked with solid neon; pressures were measured before and after each collection. Parenthesized structural-refinement uncertainties are retained as printed.",
+      "reference": {
+        "authors": ["Schouwink", "Dubrovinsky", "Glazyrin", "Merlini", "Hanfland", "Pippinger", "Miletich"],
+        "year": 2011,
+        "source": "Am. Mineral.",
+        "volume": "96",
+        "locator": "1781-1786",
+        "doi": "10.2138/am.2011.3775"
+      },
+      "used_by_eos_records": ["fe2o3_schouwink_2011_bm2_1"]
     }
-   ],
-   "resource": {
-    "path": "datasets/hematite-schouwink-2011-table1-compression.csv",
-    "sha256": "84185d515282ca33c781b6cab5804a6eedaaf039502404ae21186f6b4f54fdc0",
-    "media_type": "text/csv"
-   },
-   "notes": "The near-ambient pressure is preserved as the printed 10^-5 GPa value. Pressure was measured by ruby fluorescence and cross-checked with solid neon; pressures were measured before and after each collection. Parenthesized structural-refinement uncertainties are retained as printed.",
-   "reference": {
-    "authors": [
-     "Schouwink",
-     "Dubrovinsky",
-     "Glazyrin",
-     "Merlini",
-     "Hanfland",
-     "Pippinger",
-     "Miletich"
-    ],
-    "year": 2011,
-    "source": "Am. Mineral.",
-    "volume": "96",
-    "locator": "1781-1786",
-    "doi": "10.2138/am.2011.3775"
-   },
-   "used_by_eos_records": [
-    "fe2o3_schouwink_2011_bm2_1"
-   ]
-  }
- ]
+  ]
 }

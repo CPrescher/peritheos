@@ -1,466 +1,39 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "superhydrous_phase_b_lt",
   "name": "Superhydrous phase B (LT, nominally pure Mg)",
   "formula": "Mg10Si3O18H4",
-  "symmetry": "ORTHORHOMBIC",
-  "lattice": {
-    "a": 14.024,
-    "b": 5.109,
-    "c": 8.733,
-    "alpha": 90.0,
-    "beta": 90.0,
-    "gamma": 90.0
-  },
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 2,
-  "space_group": "Pnn2",
-  "space_group_number": 34,
-  "units": {
-    "pressure": "GPa",
-    "temperature": "K",
-    "volume": "angstrom^3/conventional_unit_cell"
-  },
-  "peaks": [],
-  "atom_sites": [
-    {
-      "label": "Mg1",
-      "element": "Mg",
-      "wyckoff": "4c",
-      "x": 0.1731,
-      "y": 0.3279,
-      "z": 0.0053,
-      "occupancy": 1.0
-    },
-    {
-      "label": "Mg2A",
-      "element": "Mg",
-      "wyckoff": "4c",
-      "x": 0.1775,
-      "y": 0.8358,
-      "z": 0.1752,
-      "occupancy": 1.0
-    },
-    {
-      "label": "Mg2B",
-      "element": "Mg",
-      "wyckoff": "4c",
-      "x": 0.324,
-      "y": 0.3461,
-      "z": 0.3242,
-      "occupancy": 1.0
-    },
-    {
-      "label": "Mg3A",
-      "element": "Mg",
-      "wyckoff": "2b",
-      "x": 0.0,
-      "y": 0.5,
-      "z": 0.8286,
-      "occupancy": 1.0
-    },
-    {
-      "label": "Mg3B",
-      "element": "Mg",
-      "wyckoff": "2b",
-      "x": 0.0,
-      "y": 0.5,
-      "z": 0.187,
-      "occupancy": 1.0
-    },
-    {
-      "label": "Mg4A",
-      "element": "Mg",
-      "wyckoff": "2a",
-      "x": 0.0,
-      "y": 0.0,
-      "z": 0.6625,
-      "occupancy": 1.0
-    },
-    {
-      "label": "Mg4B",
-      "element": "Mg",
-      "wyckoff": "2a",
-      "x": 0.0,
-      "y": 0.0,
-      "z": 0.3455,
-      "occupancy": 1.0
-    },
-    {
-      "label": "Si1",
-      "element": "Si",
-      "wyckoff": "2a",
-      "x": 0.0,
-      "y": 0.0,
-      "z": 0.0077,
-      "occupancy": 1.0
-    },
-    {
-      "label": "Si2",
-      "element": "Si",
-      "wyckoff": "4c",
-      "x": 0.3766,
-      "y": 0.0141,
-      "z": 0.0051,
-      "occupancy": 1.0
-    },
-    {
-      "label": "O1",
-      "element": "O",
-      "wyckoff": "4c",
-      "x": 0.4153,
-      "y": 0.7088,
-      "z": 0.9936,
-      "occupancy": 1.0
-    },
-    {
-      "label": "O2",
-      "element": "O",
-      "wyckoff": "4c",
-      "x": 0.0783,
-      "y": 0.6931,
-      "z": 0.005,
-      "occupancy": 1.0
-    },
-    {
-      "label": "O3A",
-      "element": "O",
-      "wyckoff": "4c",
-      "x": 0.2495,
-      "y": 0.022,
-      "z": 0.3451,
-      "occupancy": 1.0
-    },
-    {
-      "label": "O3B",
-      "element": "O",
-      "wyckoff": "4c",
-      "x": 0.2552,
-      "y": 0.512,
-      "z": 0.162,
-      "occupancy": 1.0
-    },
-    {
-      "label": "O4A",
-      "element": "O",
-      "wyckoff": "4c",
-      "x": 0.076,
-      "y": 0.144,
-      "z": 0.1531,
-      "occupancy": 1.0
-    },
-    {
-      "label": "O4B",
-      "element": "O",
-      "wyckoff": "4c",
-      "x": 0.4298,
-      "y": 0.647,
-      "z": 0.3619,
-      "occupancy": 1.0
-    },
-    {
-      "label": "O5A",
-      "element": "O",
-      "wyckoff": "4c",
-      "x": 0.4145,
-      "y": 0.153,
-      "z": 0.1599,
-      "occupancy": 1.0
-    },
-    {
-      "label": "O5B",
-      "element": "O",
-      "wyckoff": "4c",
-      "x": 0.0889,
-      "y": 0.685,
-      "z": 0.3479,
-      "occupancy": 1.0
-    },
-    {
-      "label": "O6",
-      "element": "O",
-      "wyckoff": "4c",
-      "x": 0.2598,
-      "y": 0.0048,
-      "z": 0.007,
-      "occupancy": 1.0
-    },
-    {
-      "label": "H1",
-      "element": "H",
-      "wyckoff": "4c",
-      "x": 0.3,
-      "y": 0.6,
-      "z": 0.1,
-      "occupancy": 1.0
-    },
-    {
-      "label": "H2",
-      "element": "H",
-      "wyckoff": "4c",
-      "x": 0.45,
-      "y": 0.18,
-      "z": 0.27,
-      "occupancy": 1.0
-    }
-  ],
-  "notes": "Nominal Mg10Si3O14(OH)4, 35 atoms/formula unit and Z=2. Litasov et al. (2007) infer LT polymorph from synthesis/measurement temperatures, without a full in-situ structural refinement. Independent diffraction model: Koch-Müller et al. (2005) Table 4, MKM0105 Pnn2, with author-corrected O6 and official 2014 H2 erratum. Retain the structure-source a=14.024, b=5.109, c=8.733 Å orientation (a/b exchanged relative to Litasov). This ideal fully occupied structural proxy is not the EOS specimen and is not rescaled to fitted V0. H2 is an IR-derived positional estimate. Distinct from Al-bearing Xu (2024) superhydrous phase B.",
-  "structure_provenance": {
-    "reference": {
-      "authors": [
-        "Koch-Müller",
-        "Dera",
-        "Fei",
-        "Hellwig",
-        "Liu",
-        "Van Orman",
-        "Wirth"
-      ],
-      "year": 2005,
-      "source": "Physics and Chemistry of Minerals",
-      "volume": "32",
-      "locator": "349–361",
-      "doi": "10.1007/s00269-005-0007-4"
-    },
-    "source_location": "Tables 4–5, p. 359, MKM0105 Pnn2 column",
-    "source_url": "https://artscimedia.case.edu/wp-content/uploads/sites/186/2016/06/14222658/Koch_Muller_et_al_PCM_2005.pdf",
-    "archive_url": "https://www.crystallography.net/cod/9007379.cif",
-    "archive_resource": {
-      "path": "datasets/superhydrous-phase-b-koch-muller-2005-mkm0105.cif",
-      "sha256": "9118860e2e0e65a8a8fac0743d2ad154d5611d80f40b53e2444715dfad12adf3"
-    },
-    "lattice_errors_angstrom": {
-      "a": 0.021,
-      "b": 0.004,
-      "c": 0.012
-    },
-    "corrections": [
-      {
-        "site": "O6",
-        "coordinate": "z",
-        "printed_value": 0.3479,
-        "value": 0.007,
-        "authority": "AMCSD 0008972 / COD 9007379 explicitly states z(O6) corrected by authors; uncertainty on corrected value not given."
-      },
-      {
-        "site": "H2",
-        "printed_value": [
-          0.27,
-          0.18,
-          0.45
-        ],
-        "value": [
-          0.45,
-          0.18,
-          0.27
-        ],
-        "authority": "Official 2014 erratum, DOI 10.1007/s00269-014-0697-6, p. 725",
-        "source_url": "https://link.springer.com/content/pdf/10.1007/s00269-014-0697-6.pdf"
-      }
-    ],
-    "symmetry_operations": [
-      "x,y,z",
-      "1/2+x,1/2-y,1/2+z",
-      "1/2-x,1/2+y,1/2+z",
-      "-x,-y,z"
-    ],
-    "notes": "All sites occupancy 1; 70 atoms/conventional cell. Si1 z=1.0077 and O1 z=-0.0064 wrapped into [0,1). H1 from structure refinement; H2 from polarized IR; no numerical H errors reported. Archive CIF retained unmodified, including superseded H2; material applies the 2014 correction.",
-    "fractional_coordinate_errors": {
-      "Si1": [
-        null,
-        null,
-        0.0013
-      ],
-      "Si2": [
-        0.0002,
-        0.0007,
-        0.0009
-      ],
-      "Mg1": [
-        0.0003,
-        0.0009,
-        0.0012
-      ],
-      "Mg2A": [
-        0.0005,
-        0.0017,
-        0.0009
-      ],
-      "Mg2B": [
-        0.0004,
-        0.0014,
-        0.0006
-      ],
-      "Mg3A": [
-        null,
-        null,
-        0.0012
-      ],
-      "Mg3B": [
-        null,
-        null,
-        0.0011
-      ],
-      "Mg4A": [
-        null,
-        null,
-        0.001
-      ],
-      "Mg4B": [
-        null,
-        null,
-        0.0013
-      ],
-      "O1": [
-        0.0005,
-        0.0017,
-        0.0018
-      ],
-      "O2": [
-        0.0005,
-        0.0017,
-        0.002
-      ],
-      "O3A": [
-        0.0008,
-        0.003,
-        0.0014
-      ],
-      "O3B": [
-        0.0011,
-        0.003,
-        0.002
-      ],
-      "O4A": [
-        0.001,
-        0.003,
-        0.0017
-      ],
-      "O4B": [
-        0.0008,
-        0.003,
-        0.0014
-      ],
-      "O5A": [
-        0.0009,
-        0.003,
-        0.0016
-      ],
-      "O5B": [
-        0.0008,
-        0.003,
-        0.0014
-      ],
-      "O6": [
-        0.0005,
-        0.0019,
-        null
-      ],
-      "H1": [
-        null,
-        null,
-        null
-      ],
-      "H2": [
-        null,
-        null,
-        null
-      ]
-    }
-  },
   "eos_records": [
     {
-      "determination_method": "experimental",
       "identifier": "superhydrous_phase_b_lt_litasov_2007_bm3_a89",
       "label": "Litasov et al. (2007), bm3 a89",
-      "reference": {
-        "authors": [
-          "Litasov",
-          "Ohtani",
-          "Ghosh",
-          "Nishihara",
-          "Suzuki",
-          "Funakoshi"
-        ],
-        "year": 2007,
-        "title": "Thermal equation of state of superhydrous phase B to 27 GPa and 1373 K",
-        "source": "Physics of the Earth and Planetary Interiors",
-        "volume": "164",
-        "locator": "142–160",
-        "doi": "10.1016/j.pepi.2007.06.003"
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 623.38, "error": 0.39},
+        "K0": {"value": 138.7, "error": 3},
+        "K0_prime": {"value": 4.9, "error": 0.3}
       },
-      "default": false,
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 24.3],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "determination_method": "experimental",
       "record_kind": "published",
       "equation_kind": "isothermal",
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {
-          "V0": 623.38,
-          "K0": 138.7,
-          "K0_prime": 4.9
-        }
-      },
-      "parameter_errors": {
-        "V0": 0.39,
-        "K0": 3,
-        "K0_prime": 0.3
-      },
-      "fixed_parameters": [],
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "temperature_ref": 300.0,
-      "experimental_pressure_range_gpa": [
-        0.0,
-        24.3
-      ],
-      "experimental_temperature_range_k": [
-        300.0,
-        300.0
-      ],
-      "fit_datasets": [
-        "superhydrous_phase_b_lt_litasov_2007_table2"
-      ],
-      "parameter_provenance": {
-       "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–7, pp. 144–152; Equations (1)–(10), pp. 147–150; Section 4.2, p. 153.",
-        "cold_curve": "Table 4; conventional unit-cell Å^3, GPa and dimensionless Kprime. Parentheses retained; confidence/statistic and covariance unspecified.",
-        "thermal": "None (300 K only)"
-      },
+      "default": false,
       "notes": "Published experimental fit to nominally pure Mg superhydrous phase B. 300 K subset: 17 in-situ plus three ambient observations. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported.",
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "audit_date": "2026-09-19",
-        "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "published_uncertainties",
-          "validity"
-        ],
-        "primary_source_check": {
-          "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
-          "doi": "10.1016/j.pepi.2007.06.003",
-          "locations": [
-            "Tables 1–7, pp. 144–152",
-            "Equations (1)–(10), pp. 147–150",
-            "Section 4.2, p. 153"
-          ],
-          "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
-        },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-19",
-          "dataset_identifiers": [
-            "superhydrous_phase_b_lt_litasov_2007_table2"
-          ],
-          "source_locations": [
-            "Table 2, pp. 144–145"
-          ],
-          "finding": "All 66 in-situ rows, 3 ambient cell measurements, both pressure scales, gold volumes and reported errors retained."
-        }
+      "fit_datasets": ["superhydrous_phase_b_lt_litasov_2007_table2"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Litasov", "Ohtani", "Ghosh", "Nishihara", "Suzuki", "Funakoshi"],
+        "year": 2007,
+        "title": "Thermal equation of state of superhydrous phase B to 27 GPa and 1373 K",
+        "source": "Physics of the Earth and Planetary Interiors",
+        "volume": "164",
+        "locator": "142–160",
+        "doi": "10.1016/j.pepi.2007.06.003"
       },
       "pressure_calibration": {
         "status": "partially_resolved",
@@ -469,11 +42,7 @@
           {
             "kind": "equation_of_state",
             "reference": {
-              "authors": [
-                "Anderson",
-                "Isaak",
-                "Yamamoto"
-              ],
+              "authors": ["Anderson", "Isaak", "Yamamoto"],
               "year": 1989,
               "doi": "10.1063/1.342969",
               "source": "Journal of Applied Physics"
@@ -488,699 +57,133 @@
           "notes": "Paired Au observations are bundled, but canonical Anderson coefficients do not exactly reproduce printed pressures; source realization unresolved. See diagnostic."
         }
       },
-      "audit_corrections": [
-        {
-          "path": "eos.model",
-          "source_value": "Eq. (1): 7/3 minus 7/3",
-          "value": "birch_murnaghan_3",
-          "reason": "Repeated exponent gives identically zero pressure; use standard BM3 7/3 minus 5/3, supported by source BM3 label and independent Table 2 reproduction.",
-          "primary_reference": {
-            "doi": "10.1016/j.pepi.2007.06.003",
-            "location": "Eq. (1), p. 147"
-          }
-        }
-      ]
-    },
-    {
-      "determination_method": "experimental",
-      "identifier": "superhydrous_phase_b_lt_litasov_2007_bm3_t03",
-      "label": "Litasov et al. (2007), bm3 t03",
-      "reference": {
-        "authors": [
-          "Litasov",
-          "Ohtani",
-          "Ghosh",
-          "Nishihara",
-          "Suzuki",
-          "Funakoshi"
-        ],
-        "year": 2007,
-        "title": "Thermal equation of state of superhydrous phase B to 27 GPa and 1373 K",
-        "source": "Physics of the Earth and Planetary Interiors",
-        "volume": "164",
-        "locator": "142–160",
-        "doi": "10.1016/j.pepi.2007.06.003"
-      },
-      "default": false,
-      "record_kind": "published",
-      "equation_kind": "isothermal",
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {
-          "V0": 623.34,
-          "K0": 134.7,
-          "K0_prime": 6
-        }
-      },
-      "parameter_errors": {
-        "V0": 0.04,
-        "K0": 1.8,
-        "K0_prime": 0.3
-      },
-      "fixed_parameters": [],
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "temperature_ref": 300.0,
-      "experimental_pressure_range_gpa": [
-        0.0,
-        25.1
-      ],
-      "experimental_temperature_range_k": [
-        300.0,
-        300.0
-      ],
-      "fit_datasets": [
-        "superhydrous_phase_b_lt_litasov_2007_table2"
-      ],
-      "parameter_provenance": {
-       "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–7, pp. 144–152; Equations (1)–(10), pp. 147–150; Section 4.2, p. 153.",
-        "cold_curve": "Table 4; conventional unit-cell Å^3, GPa and dimensionless Kprime. Parentheses retained; confidence/statistic and covariance unspecified.",
-        "thermal": "None (300 K only)"
-      },
-      "notes": "Published experimental fit to nominally pure Mg superhydrous phase B. 300 K subset: 17 in-situ plus three ambient observations. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported. Table 4 RT values 134.7(1.8),6.0(0.3) supersede prose 132.7(1.5),6.2(0.6), which conflates RT and HTBM fits.",
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "audit_date": "2026-09-19",
-        "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "published_uncertainties",
-          "validity"
-        ],
-        "primary_source_check": {
-          "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
-          "doi": "10.1016/j.pepi.2007.06.003",
-          "locations": [
-            "Tables 1–7, pp. 144–152",
-            "Equations (1)–(10), pp. 147–150",
-            "Section 4.2, p. 153"
-          ],
-          "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
-        },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-19",
-          "dataset_identifiers": [
-            "superhydrous_phase_b_lt_litasov_2007_table2"
-          ],
-          "source_locations": [
-            "Table 2, pp. 144–145"
-          ],
-          "finding": "All 66 in-situ rows, 3 ambient cell measurements, both pressure scales, gold volumes and reported errors retained."
-        }
-      },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "audit_date": "2026-09-19",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "reference": {
-              "authors": [
-                "Tsuchiya"
-              ],
-              "year": 2003,
-              "doi": "10.1029/2003JB002446",
-              "source": "Journal of Geophysical Research: Solid Earth"
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/superhydrous_phase_b_lt/#record-superhydrous_phase_b_lt_litasov_2007_bm3_a89",
+            "report_path": "docs/reconstruction-reports/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_bm3_a89",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 623.38,
+                "published_error": 0.39,
+                "refit": 623.3136511689688,
+                "refit_error": 0.18823779100714583,
+                "difference": -0.06634883103117772,
+                "relative_difference": 0.00010643400659497854,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 138.7,
+                "published_error": 3.0,
+                "refit": 138.4342806122216,
+                "refit_error": 1.4952624685883737,
+                "difference": -0.26571938777837545,
+                "relative_difference": 0.0019157850596854757,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.9,
+                "published_error": 0.3,
+                "refit": 4.9487496801675,
+                "refit_error": 0.158131776207648,
+                "difference": 0.04874968016750003,
+                "relative_difference": 0.009948914319897965,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "independent_nonlinear_pressure_least_squares",
+              "objective": "unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3",
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 20,
+              "observed_pressure_range_gpa": [0.0, 24.3],
+              "observed_temperature_range_k": [300.0, 300.0],
+              "solver_success": true,
+              "rmse_gpa": 0.07312160499987383,
+              "published_rmse_gpa": 0.07514057887346923,
+              "dataset_identifiers": ["superhydrous_phase_b_lt_litasov_2007_table2"]
             },
-            "source_location": "Section 2 and Table 2: Au volumes, P2 (T03)",
-            "notes": "Source pressure values preserved, never recomputed from an approximate marker EOS."
+            "report": "docs/data/primary-eos-refits.json"
           }
-        ],
-        "recalculation": {
-          "status": "reference_eos_not_bundled",
-          "notes": "Paired Au observations are bundled. Exact Tsuchiya realization is not bundled."
-        }
-      },
-      "audit_corrections": [
-        {
-          "path": "eos.model",
-          "source_value": "Eq. (1): 7/3 minus 7/3",
-          "value": "birch_murnaghan_3",
-          "reason": "Repeated exponent gives identically zero pressure; use standard BM3 7/3 minus 5/3, supported by source BM3 label and independent Table 2 reproduction.",
-          "primary_reference": {
-            "doi": "10.1016/j.pepi.2007.06.003",
-            "location": "Eq. (1), p. 147"
-          }
-        }
-      ]
-    },
-    {
-      "determination_method": "experimental",
-      "identifier": "superhydrous_phase_b_lt_litasov_2007_htbm_a89",
-      "label": "Litasov et al. (2007), htbm a89",
-      "reference": {
-        "authors": [
-          "Litasov",
-          "Ohtani",
-          "Ghosh",
-          "Nishihara",
-          "Suzuki",
-          "Funakoshi"
-        ],
-        "year": 2007,
-        "title": "Thermal equation of state of superhydrous phase B to 27 GPa and 1373 K",
-        "source": "Physics of the Earth and Planetary Interiors",
-        "volume": "164",
-        "locator": "142–160",
-        "doi": "10.1016/j.pepi.2007.06.003"
-      },
-      "default": true,
-      "record_kind": "published",
-      "equation_kind": "thermal",
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {
-          "V0": 623.47,
-          "K0": 135.8,
-          "K0_prime": 5.3
-        }
-      },
-      "parameter_errors": {
-        "V0": 0.37,
-        "K0": 2.6,
-        "K0_prime": 0.2
-      },
-      "fixed_parameters": [],
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "temperature_ref": 300.0,
-      "experimental_pressure_range_gpa": [
-        0.0,
-        26.6
-      ],
-      "experimental_temperature_range_k": [
-        300.0,
-        1373.0
-      ],
-      "fit_datasets": [
-        "superhydrous_phase_b_lt_litasov_2007_table2"
-      ],
-      "parameter_provenance": {
-       "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–7, pp. 144–152; Equations (1)–(10), pp. 147–150; Section 4.2, p. 153.",
-        "cold_curve": "Table 4; conventional unit-cell Å^3, GPa and dimensionless Kprime. Parentheses retained; confidence/statistic and covariance unspecified.",
-        "thermal": "Table 4, reference T0=300 K."
-      },
-      "notes": "Published experimental fit to nominally pure Mg superhydrous phase B. All 66 in-situ plus three ambient Table 2 observations are retained for diagnostic refitting. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported.",
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "audit_date": "2026-09-19",
-        "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "published_uncertainties",
-          "validity"
-        ],
-        "primary_source_check": {
-          "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
-          "doi": "10.1016/j.pepi.2007.06.003",
-          "locations": [
-            "Tables 1–7, pp. 144–152",
-            "Equations (1)–(10), pp. 147–150",
-            "Section 4.2, p. 153"
-          ],
-          "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
         },
-        "primary_data_check": {
-          "status": "bundled",
+        "scientific_validation": {
+          "status": "primary_source_validated",
           "audit_date": "2026-09-19",
-          "dataset_identifiers": [
-            "superhydrous_phase_b_lt_litasov_2007_table2"
-          ],
-          "source_locations": [
-            "Table 2, pp. 144–145"
-          ],
-          "finding": "All 66 in-situ rows, 3 ambient cell measurements, both pressure scales, gold volumes and reported errors retained."
-        }
-      },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "audit_date": "2026-09-19",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "reference": {
-              "authors": [
-                "Anderson",
-                "Isaak",
-                "Yamamoto"
-              ],
-              "year": 1989,
-              "doi": "10.1063/1.342969",
-              "source": "Journal of Applied Physics"
-            },
-            "source_location": "Section 2 and Table 2: Au volumes, P1 (A89)",
-            "notes": "Source pressure values preserved, never recomputed from an approximate marker EOS.",
-            "related_eos_record": "gold_anderson_1989_bm3_1"
-          }
-        ],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "Paired Au observations are bundled, but canonical Anderson coefficients do not exactly reproduce printed pressures; source realization unresolved. See diagnostic."
-        }
-      },
-      "audit_corrections": [
-        {
-          "path": "eos.model",
-          "source_value": "Eq. (1): 7/3 minus 7/3",
-          "value": "birch_murnaghan_3",
-          "reason": "Repeated exponent gives identically zero pressure; use standard BM3 7/3 minus 5/3, supported by source BM3 label and independent Table 2 reproduction.",
-          "primary_reference": {
+          "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
             "doi": "10.1016/j.pepi.2007.06.003",
-            "location": "Eq. (1), p. 147"
+            "locations": ["Tables 1–7, pp. 144–152", "Equations (1)–(10), pp. 147–150", "Section 4.2, p. 153"],
+            "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-19",
+            "dataset_identifiers": ["superhydrous_phase_b_lt_litasov_2007_table2"],
+            "source_locations": ["Table 2, pp. 144–145"],
+            "finding": "All 66 in-situ rows, 3 ambient cell measurements, both pressure scales, gold volumes and reported errors retained."
           }
-        }
-      ],
-      "thermal": {
-        "type": "AlphaKT",
-        "model": "thermal_reference_state",
-        "parameters": {
-          "Tr": 300.0,
-          "alpha0": 3.21e-05,
-          "alpha1": 1.19e-08,
-          "dK_dT": -0.026
         },
-        "parameter_errors": {
-          "Tr": null,
-          "alpha0": 1.4e-06,
-          "alpha1": 3.7e-09,
-          "dK_dT": 0.003
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–7, pp. 144–152; Equations (1)–(10), pp. 147–150; Section 4.2, p. 153.",
+          "cold_curve": "Table 4; conventional unit-cell Å^3, GPa and dimensionless Kprime. Parentheses retained; confidence/statistic and covariance unspecified.",
+          "thermal": "None (300 K only)"
         },
-        "fixed_parameters": [
-          "Tr"
-        ],
-        "thermal_expansion_law": "linear_temperature",
-        "reference_volume_law": "integrated_expansivity",
-        "bulk_modulus_law": "linear_temperature"
-      }
-    },
-    {
-      "determination_method": "experimental",
-      "identifier": "superhydrous_phase_b_lt_litasov_2007_htbm_t03",
-      "label": "Litasov et al. (2007), htbm t03",
-      "reference": {
-        "authors": [
-          "Litasov",
-          "Ohtani",
-          "Ghosh",
-          "Nishihara",
-          "Suzuki",
-          "Funakoshi"
-        ],
-        "year": 2007,
-        "title": "Thermal equation of state of superhydrous phase B to 27 GPa and 1373 K",
-        "source": "Physics of the Earth and Planetary Interiors",
-        "volume": "164",
-        "locator": "142–160",
-        "doi": "10.1016/j.pepi.2007.06.003"
-      },
-      "default": false,
-      "record_kind": "published",
-      "equation_kind": "thermal",
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {
-          "V0": 623.34,
-          "K0": 132.7,
-          "K0_prime": 6.2
-        }
-      },
-      "parameter_errors": {
-        "V0": 0.04,
-        "K0": 1.5,
-        "K0_prime": 0.2
-      },
-      "fixed_parameters": [],
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "temperature_ref": 300.0,
-      "experimental_pressure_range_gpa": [
-        0.0,
-        28.1
-      ],
-      "experimental_temperature_range_k": [
-        300.0,
-        1373.0
-      ],
-      "fit_datasets": [
-        "superhydrous_phase_b_lt_litasov_2007_table2"
-      ],
-      "parameter_provenance": {
-       "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–7, pp. 144–152; Equations (1)–(10), pp. 147–150; Section 4.2, p. 153.",
-        "cold_curve": "Table 4; conventional unit-cell Å^3, GPa and dimensionless Kprime. Parentheses retained; confidence/statistic and covariance unspecified.",
-        "thermal": "Table 4, reference T0=300 K."
-      },
-      "notes": "Published experimental fit to nominally pure Mg superhydrous phase B. All 66 in-situ plus three ambient Table 2 observations are retained for diagnostic refitting. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported.",
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "audit_date": "2026-09-19",
-        "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "published_uncertainties",
-          "validity"
-        ],
-        "primary_source_check": {
-          "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
-          "doi": "10.1016/j.pepi.2007.06.003",
-          "locations": [
-            "Tables 1–7, pp. 144–152",
-            "Equations (1)–(10), pp. 147–150",
-            "Section 4.2, p. 153"
-          ],
-          "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
-        },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-19",
-          "dataset_identifiers": [
-            "superhydrous_phase_b_lt_litasov_2007_table2"
-          ],
-          "source_locations": [
-            "Table 2, pp. 144–145"
-          ],
-          "finding": "All 66 in-situ rows, 3 ambient cell measurements, both pressure scales, gold volumes and reported errors retained."
-        }
-      },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "audit_date": "2026-09-19",
-        "methods": [
+        "audit_corrections": [
           {
-            "kind": "equation_of_state",
-            "reference": {
-              "authors": [
-                "Tsuchiya"
-              ],
-              "year": 2003,
-              "doi": "10.1029/2003JB002446",
-              "source": "Journal of Geophysical Research: Solid Earth"
-            },
-            "source_location": "Section 2 and Table 2: Au volumes, P2 (T03)",
-            "notes": "Source pressure values preserved, never recomputed from an approximate marker EOS."
+            "path": "eos.model",
+            "source_value": "Eq. (1): 7/3 minus 7/3",
+            "value": "birch_murnaghan_3",
+            "reason": "Repeated exponent gives identically zero pressure; use standard BM3 7/3 minus 5/3, supported by source BM3 label and independent Table 2 reproduction.",
+            "primary_reference": {"doi": "10.1016/j.pepi.2007.06.003", "location": "Eq. (1), p. 147"}
           }
-        ],
-        "recalculation": {
-          "status": "reference_eos_not_bundled",
-          "notes": "Paired Au observations are bundled. Exact Tsuchiya realization is not bundled."
-        }
-      },
-      "audit_corrections": [
-        {
-          "path": "eos.model",
-          "source_value": "Eq. (1): 7/3 minus 7/3",
-          "value": "birch_murnaghan_3",
-          "reason": "Repeated exponent gives identically zero pressure; use standard BM3 7/3 minus 5/3, supported by source BM3 label and independent Table 2 reproduction.",
-          "primary_reference": {
-            "doi": "10.1016/j.pepi.2007.06.003",
-            "location": "Eq. (1), p. 147"
-          }
-        }
-      ],
-      "thermal": {
-        "type": "AlphaKT",
-        "model": "thermal_reference_state",
-        "parameters": {
-          "Tr": 300.0,
-          "alpha0": 3.38e-05,
-          "alpha1": 1.26e-08,
-          "dK_dT": -0.027
-        },
-        "parameter_errors": {
-          "Tr": null,
-          "alpha0": 1.5e-06,
-          "alpha1": 3.7e-09,
-          "dK_dT": 0.003
-        },
-        "fixed_parameters": [
-          "Tr"
-        ],
-        "thermal_expansion_law": "linear_temperature",
-        "reference_volume_law": "integrated_expansivity",
-        "bulk_modulus_law": "linear_temperature"
-      }
-    },
-    {
-      "determination_method": "experimental",
-      "identifier": "superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89",
-      "label": "Litasov et al. (2007), thermal pressure a89",
-      "reference": {
-        "authors": [
-          "Litasov",
-          "Ohtani",
-          "Ghosh",
-          "Nishihara",
-          "Suzuki",
-          "Funakoshi"
-        ],
-        "year": 2007,
-        "title": "Thermal equation of state of superhydrous phase B to 27 GPa and 1373 K",
-        "source": "Physics of the Earth and Planetary Interiors",
-        "volume": "164",
-        "locator": "142–160",
-        "doi": "10.1016/j.pepi.2007.06.003"
-      },
-      "default": false,
-      "record_kind": "published",
-      "equation_kind": "thermal",
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {
-          "V0": 623.5,
-          "K0": 135.3,
-          "K0_prime": 5.3
-        }
-      },
-      "parameter_errors": {
-        "V0": 0.36,
-        "K0": 2.3,
-        "K0_prime": 0.2
-      },
-      "fixed_parameters": [],
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "temperature_ref": 300.0,
-      "experimental_pressure_range_gpa": [
-        0.0,
-        26.6
-      ],
-      "experimental_temperature_range_k": [
-        300.0,
-        1373.0
-      ],
-      "fit_datasets": [
-        "superhydrous_phase_b_lt_litasov_2007_table2"
-      ],
-      "parameter_provenance": {
-       "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–7, pp. 144–152; Equations (1)–(10), pp. 147–150; Section 4.2, p. 153.",
-        "cold_curve": "Table 5; conventional unit-cell Å^3, GPa and dimensionless Kprime. Parentheses retained; confidence/statistic and covariance unspecified.",
-        "thermal": "Table 5, reference T0=300 K.",
-        "alpha_KT_ref": {
-          "derivation": "Table 5 alpha0*K0; source alpha0 is preserved separately. Product error unavailable without covariance.",
-          "alpha0_per_k": 3.78e-05,
-          "alpha0_error_per_k": 1.9e-06
-        }
-      },
-      "notes": "Published experimental fit to nominally pure Mg superhydrous phase B. All 66 in-situ plus three ambient Table 2 observations are retained for diagnostic refitting. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported. Equation (6) final five-parameter model omits the unresolved quadratic term.",
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "audit_date": "2026-09-19",
-        "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "published_uncertainties",
-          "validity"
-        ],
-        "primary_source_check": {
-          "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
-          "doi": "10.1016/j.pepi.2007.06.003",
-          "locations": [
-            "Tables 1–7, pp. 144–152",
-            "Equations (1)–(10), pp. 147–150",
-            "Section 4.2, p. 153"
-          ],
-          "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
-        },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-19",
-          "dataset_identifiers": [
-            "superhydrous_phase_b_lt_litasov_2007_table2"
-          ],
-          "source_locations": [
-            "Table 2, pp. 144–145"
-          ],
-          "finding": "All 66 in-situ rows, 3 ambient cell measurements, both pressure scales, gold volumes and reported errors retained."
-        }
-      },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "audit_date": "2026-09-19",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "reference": {
-              "authors": [
-                "Anderson",
-                "Isaak",
-                "Yamamoto"
-              ],
-              "year": 1989,
-              "doi": "10.1063/1.342969",
-              "source": "Journal of Applied Physics"
-            },
-            "source_location": "Section 2 and Table 2: Au volumes, P1 (A89)",
-            "notes": "Source pressure values preserved, never recomputed from an approximate marker EOS.",
-            "related_eos_record": "gold_anderson_1989_bm3_1"
-          }
-        ],
-        "recalculation": {
-          "status": "not_possible",
-          "notes": "Paired Au observations are bundled, but canonical Anderson coefficients do not exactly reproduce printed pressures; source realization unresolved. See diagnostic."
-        }
-      },
-      "audit_corrections": [
-        {
-          "path": "eos.model",
-          "source_value": "Eq. (1): 7/3 minus 7/3",
-          "value": "birch_murnaghan_3",
-          "reason": "Repeated exponent gives identically zero pressure; use standard BM3 7/3 minus 5/3, supported by source BM3 label and independent Table 2 reproduction.",
-          "primary_reference": {
-            "doi": "10.1016/j.pepi.2007.06.003",
-            "location": "Eq. (1), p. 147"
-          }
-        }
-      ],
-      "thermal": {
-        "type": "LogVolumeThermalPressure",
-        "model": "log_volume_thermal_pressure",
-        "parameters": {
-          "Tr": 300.0,
-          "alpha_KT_ref": 0.00511434,
-          "dK_dT_V": -0.002
-        },
-        "parameter_errors": {
-          "Tr": null,
-          "alpha_KT_ref": null,
-          "dK_dT_V": 0.002
-        },
-        "fixed_parameters": [
-          "Tr"
         ]
       }
     },
     {
+      "identifier": "superhydrous_phase_b_lt_litasov_2007_bm3_t03",
+      "label": "Litasov et al. (2007), bm3 t03",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 623.34, "error": 0.04},
+        "K0": {"value": 134.7, "error": 1.8},
+        "K0_prime": {"value": 6, "error": 0.3}
+      },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 25.1],
+      "experimental_temperature_range_k": [300.0, 300.0],
       "determination_method": "experimental",
-      "identifier": "superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89",
-      "label": "Litasov et al. (2007), mgd free debye a89",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "default": false,
+      "notes": "Published experimental fit to nominally pure Mg superhydrous phase B. 300 K subset: 17 in-situ plus three ambient observations. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported. Table 4 RT values 134.7(1.8),6.0(0.3) supersede prose 132.7(1.5),6.2(0.6), which conflates RT and HTBM fits.",
+      "fit_datasets": ["superhydrous_phase_b_lt_litasov_2007_table2"],
+      "parameter_covariance": null,
       "reference": {
-        "authors": [
-          "Litasov",
-          "Ohtani",
-          "Ghosh",
-          "Nishihara",
-          "Suzuki",
-          "Funakoshi"
-        ],
+        "authors": ["Litasov", "Ohtani", "Ghosh", "Nishihara", "Suzuki", "Funakoshi"],
         "year": 2007,
         "title": "Thermal equation of state of superhydrous phase B to 27 GPa and 1373 K",
         "source": "Physics of the Earth and Planetary Interiors",
         "volume": "164",
         "locator": "142–160",
         "doi": "10.1016/j.pepi.2007.06.003"
-      },
-      "default": false,
-      "record_kind": "published",
-      "equation_kind": "thermal",
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {
-          "V0": 623.53,
-          "K0": 135.5,
-          "K0_prime": 5.3
-        }
-      },
-      "parameter_errors": {
-        "V0": 0.35,
-        "K0": 2.3,
-        "K0_prime": 0.2
-      },
-      "fixed_parameters": [],
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "temperature_ref": 300.0,
-      "experimental_pressure_range_gpa": [
-        0.0,
-        26.6
-      ],
-      "experimental_temperature_range_k": [
-        300.0,
-        1373.0
-      ],
-      "fit_datasets": [
-        "superhydrous_phase_b_lt_litasov_2007_table2"
-      ],
-      "parameter_provenance": {
-       "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–7, pp. 144–152; Equations (1)–(10), pp. 147–150; Section 4.2, p. 153.",
-        "cold_curve": "Table 6; conventional unit-cell Å^3, GPa and dimensionless Kprime. Parentheses retained; confidence/statistic and covariance unspecified.",
-        "thermal": "Table 6, reference T0=300 K."
-      },
-      "notes": "Published experimental fit to nominally pure Mg superhydrous phase B. All 66 in-situ plus three ambient Table 2 observations are retained for diagnostic refitting. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported. Eq. (9) printed sign reversed explicitly: theta=theta0 exp[(gamma0-gamma)/q], required by gamma=-dln(theta)/dln(V). This is an inferred correction, not an author erratum. Published coefficients unchanged. n=35 atoms/formula unit includes hydrogen.",
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "audit_date": "2026-09-19",
-        "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "published_uncertainties",
-          "validity"
-        ],
-        "primary_source_check": {
-          "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
-          "doi": "10.1016/j.pepi.2007.06.003",
-          "locations": [
-            "Tables 1–7, pp. 144–152",
-            "Equations (1)–(10), pp. 147–150",
-            "Section 4.2, p. 153"
-          ],
-          "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
-        },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-19",
-          "dataset_identifiers": [
-            "superhydrous_phase_b_lt_litasov_2007_table2"
-          ],
-          "source_locations": [
-            "Table 2, pp. 144–145"
-          ],
-          "finding": "All 66 in-situ rows, 3 ambient cell measurements, both pressure scales, gold volumes and reported errors retained."
-        }
       },
       "pressure_calibration": {
         "status": "partially_resolved",
@@ -1189,164 +192,159 @@
           {
             "kind": "equation_of_state",
             "reference": {
-              "authors": [
-                "Anderson",
-                "Isaak",
-                "Yamamoto"
-              ],
-              "year": 1989,
-              "doi": "10.1063/1.342969",
-              "source": "Journal of Applied Physics"
+              "authors": ["Tsuchiya"],
+              "year": 2003,
+              "doi": "10.1029/2003JB002446",
+              "source": "Journal of Geophysical Research: Solid Earth"
             },
-            "source_location": "Section 2 and Table 2: Au volumes, P1 (A89)",
-            "notes": "Source pressure values preserved, never recomputed from an approximate marker EOS.",
-            "related_eos_record": "gold_anderson_1989_bm3_1"
+            "source_location": "Section 2 and Table 2: Au volumes, P2 (T03)",
+            "notes": "Source pressure values preserved, never recomputed from an approximate marker EOS."
           }
         ],
         "recalculation": {
-          "status": "not_possible",
-          "notes": "Paired Au observations are bundled, but canonical Anderson coefficients do not exactly reproduce printed pressures; source realization unresolved. See diagnostic."
+          "status": "reference_eos_not_bundled",
+          "notes": "Paired Au observations are bundled. Exact Tsuchiya realization is not bundled."
         }
       },
-      "audit_corrections": [
-        {
-          "path": "eos.model",
-          "source_value": "Eq. (1): 7/3 minus 7/3",
-          "value": "birch_murnaghan_3",
-          "reason": "Repeated exponent gives identically zero pressure; use standard BM3 7/3 minus 5/3, supported by source BM3 label and independent Table 2 reproduction.",
-          "primary_reference": {
-            "doi": "10.1016/j.pepi.2007.06.003",
-            "location": "Eq. (1), p. 147"
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/superhydrous_phase_b_lt/#record-superhydrous_phase_b_lt_litasov_2007_bm3_t03",
+            "report_path": "docs/reconstruction-reports/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_bm3_t03",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 623.34,
+                "published_error": 0.04,
+                "refit": 623.3045744919759,
+                "refit_error": 0.1698748530533363,
+                "difference": -0.0354255080241046,
+                "relative_difference": 5.683175798778291e-05,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 134.7,
+                "published_error": 1.8,
+                "refit": 134.17297395805127,
+                "refit_error": 1.3398123800210247,
+                "difference": -0.5270260419487158,
+                "relative_difference": 0.003912591254259212,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 6.0,
+                "published_error": 0.3,
+                "refit": 6.042880934079354,
+                "refit_error": 0.15276815848196748,
+                "difference": 0.04288093407935367,
+                "relative_difference": 0.007146822346558945,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "independent_nonlinear_pressure_least_squares",
+              "objective": "unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3",
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 20,
+              "observed_pressure_range_gpa": [0.0, 25.1],
+              "observed_temperature_range_k": [300.0, 300.0],
+              "solver_success": true,
+              "rmse_gpa": 0.06397977143078648,
+              "published_rmse_gpa": 0.07552462214798593,
+              "dataset_identifiers": ["superhydrous_phase_b_lt_litasov_2007_table2"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
           }
         },
-        {
-          "path": "thermal.debye_temperature_law",
-          "source_value": "theta=theta0 exp[(gamma-gamma0)/q]",
-          "value": "integrated_gruneisen",
-          "reason": "Thermodynamic identity and independent free fit recovering theta0≈553 K support conventional sign. Literal-sign control preserved in reproduction; not an official correction.",
-          "primary_reference": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-19",
+          "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
             "doi": "10.1016/j.pepi.2007.06.003",
-            "location": "Eqs. (7)–(10) and Table 6, p. 150"
+            "locations": ["Tables 1–7, pp. 144–152", "Equations (1)–(10), pp. 147–150", "Section 4.2, p. 153"],
+            "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-19",
+            "dataset_identifiers": ["superhydrous_phase_b_lt_litasov_2007_table2"],
+            "source_locations": ["Table 2, pp. 144–145"],
+            "finding": "All 66 in-situ rows, 3 ambient cell measurements, both pressure scales, gold volumes and reported errors retained."
           }
-        }
-      ],
-      "thermal": {
-        "type": "MieGruneisenDebye",
-        "model": "mie_gruneisen_debye",
-        "parameters": {
-          "Tr": 300.0,
-          "theta0": 552.0,
-          "gamma0": 1.18,
-          "q": 1.74,
-          "n": 35.0
         },
-        "parameter_errors": {
-          "Tr": null,
-          "theta0": 130.0,
-          "gamma0": 0.06,
-          "q": 0.45,
-          "n": null
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–7, pp. 144–152; Equations (1)–(10), pp. 147–150; Section 4.2, p. 153.",
+          "cold_curve": "Table 4; conventional unit-cell Å^3, GPa and dimensionless Kprime. Parentheses retained; confidence/statistic and covariance unspecified.",
+          "thermal": "None (300 K only)"
         },
-        "fixed_parameters": [
-          "Tr",
-          "n"
-        ],
-        "debye_temperature_law": "integrated_gruneisen",
-        "thermal_pressure_reference": "reference_temperature"
+        "audit_corrections": [
+          {
+            "path": "eos.model",
+            "source_value": "Eq. (1): 7/3 minus 7/3",
+            "value": "birch_murnaghan_3",
+            "reason": "Repeated exponent gives identically zero pressure; use standard BM3 7/3 minus 5/3, supported by source BM3 label and independent Table 2 reproduction.",
+            "primary_reference": {"doi": "10.1016/j.pepi.2007.06.003", "location": "Eq. (1), p. 147"}
+          }
+        ]
       }
     },
     {
+      "identifier": "superhydrous_phase_b_lt_litasov_2007_htbm_a89",
+      "label": "Litasov et al. (2007), htbm a89",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 623.47, "error": 0.37},
+        "K0": {"value": 135.8, "error": 2.6},
+        "K0_prime": {"value": 5.3, "error": 0.2}
+      },
+      "thermal": {
+        "model": "AlphaKT",
+        "parameters": {
+          "Tr": {"value": 300.0, "error": null, "fixed": true},
+          "alpha0": {"value": 3.21e-05, "error": 1.4e-06},
+          "alpha1": {"value": 1.19e-08, "error": 3.7e-09},
+          "dK_dT": {"value": -0.026, "error": 0.003}
+        },
+        "thermal_expansion_law": "linear_temperature",
+        "reference_volume_law": "integrated_expansivity",
+        "bulk_modulus_law": "linear_temperature"
+      },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 26.6],
+      "experimental_temperature_range_k": [300.0, 1373.0],
       "determination_method": "experimental",
-      "identifier": "superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89",
-      "label": "Litasov et al. (2007), mgd elastic debye a89",
+      "record_kind": "published",
+      "equation_kind": "thermal",
+      "default": true,
+      "notes": "Published experimental fit to nominally pure Mg superhydrous phase B. All 66 in-situ plus three ambient Table 2 observations are retained for diagnostic refitting. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported.",
+      "fit_datasets": ["superhydrous_phase_b_lt_litasov_2007_table2"],
+      "parameter_covariance": null,
       "reference": {
-        "authors": [
-          "Litasov",
-          "Ohtani",
-          "Ghosh",
-          "Nishihara",
-          "Suzuki",
-          "Funakoshi"
-        ],
+        "authors": ["Litasov", "Ohtani", "Ghosh", "Nishihara", "Suzuki", "Funakoshi"],
         "year": 2007,
         "title": "Thermal equation of state of superhydrous phase B to 27 GPa and 1373 K",
         "source": "Physics of the Earth and Planetary Interiors",
         "volume": "164",
         "locator": "142–160",
         "doi": "10.1016/j.pepi.2007.06.003"
-      },
-      "default": false,
-      "record_kind": "published",
-      "equation_kind": "thermal",
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {
-          "V0": 623.53,
-          "K0": 135.5,
-          "K0_prime": 5.3
-        }
-      },
-      "parameter_errors": {
-        "V0": 0.35,
-        "K0": 2.3,
-        "K0_prime": 0.2
-      },
-      "fixed_parameters": [],
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "temperature_ref": 300.0,
-      "experimental_pressure_range_gpa": [
-        0.0,
-        26.6
-      ],
-      "experimental_temperature_range_k": [
-        300.0,
-        1373.0
-      ],
-      "fit_datasets": [
-        "superhydrous_phase_b_lt_litasov_2007_table2"
-      ],
-      "parameter_provenance": {
-       "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–7, pp. 144–152; Equations (1)–(10), pp. 147–150; Section 4.2, p. 153.",
-        "cold_curve": "Table 6; conventional unit-cell Å^3, GPa and dimensionless Kprime. Parentheses retained; confidence/statistic and covariance unspecified.",
-        "thermal": "Table 6, reference T0=300 K."
-      },
-      "notes": "Published experimental fit to nominally pure Mg superhydrous phase B. All 66 in-situ plus three ambient Table 2 observations are retained for diagnostic refitting. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported. Eq. (9) printed sign reversed explicitly: theta=theta0 exp[(gamma0-gamma)/q], required by gamma=-dln(theta)/dln(V). This is an inferred correction, not an author erratum. Published coefficients unchanged. n=35 atoms/formula unit includes hydrogen.",
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "audit_date": "2026-09-19",
-        "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "published_uncertainties",
-          "validity"
-        ],
-        "primary_source_check": {
-          "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
-          "doi": "10.1016/j.pepi.2007.06.003",
-          "locations": [
-            "Tables 1–7, pp. 144–152",
-            "Equations (1)–(10), pp. 147–150",
-            "Section 4.2, p. 153"
-          ],
-          "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
-        },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-19",
-          "dataset_identifiers": [
-            "superhydrous_phase_b_lt_litasov_2007_table2"
-          ],
-          "source_locations": [
-            "Table 2, pp. 144–145"
-          ],
-          "finding": "All 66 in-situ rows, 3 ambient cell measurements, both pressure scales, gold volumes and reported errors retained."
-        }
       },
       "pressure_calibration": {
         "status": "partially_resolved",
@@ -1355,11 +353,7 @@
           {
             "kind": "equation_of_state",
             "reference": {
-              "authors": [
-                "Anderson",
-                "Isaak",
-                "Yamamoto"
-              ],
+              "authors": ["Anderson", "Isaak", "Yamamoto"],
               "year": 1989,
               "doi": "10.1063/1.342969",
               "source": "Journal of Applied Physics"
@@ -1374,55 +368,939 @@
           "notes": "Paired Au observations are bundled, but canonical Anderson coefficients do not exactly reproduce printed pressures; source realization unresolved. See diagnostic."
         }
       },
-      "audit_corrections": [
-        {
-          "path": "eos.model",
-          "source_value": "Eq. (1): 7/3 minus 7/3",
-          "value": "birch_murnaghan_3",
-          "reason": "Repeated exponent gives identically zero pressure; use standard BM3 7/3 minus 5/3, supported by source BM3 label and independent Table 2 reproduction.",
-          "primary_reference": {
-            "doi": "10.1016/j.pepi.2007.06.003",
-            "location": "Eq. (1), p. 147"
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/superhydrous_phase_b_lt/#record-superhydrous_phase_b_lt_litasov_2007_htbm_a89",
+            "report_path": "docs/reconstruction-reports/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_htbm_a89",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 623.47,
+                "published_error": 0.37,
+                "refit": 623.4622455180263,
+                "refit_error": 0.2575824161972996,
+                "difference": -0.007754481973734073,
+                "relative_difference": 1.2437618447935062e-05,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 135.8,
+                "published_error": 2.6,
+                "refit": 135.781767022147,
+                "refit_error": 1.8576732611740419,
+                "difference": -0.018232977853017474,
+                "relative_difference": 0.0001342634598896721,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.3,
+                "published_error": 0.2,
+                "refit": 5.251179243570913,
+                "refit_error": 0.1935188739453234,
+                "difference": -0.048820756429086565,
+                "relative_difference": 0.009211463477186144,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "alpha0",
+                "published": 3.21e-05,
+                "published_error": 1.4e-06,
+                "refit": 3.200583361010583e-05,
+                "refit_error": 1.1271048909251933e-06,
+                "difference": -9.416638989416846e-08,
+                "relative_difference": 0.002933532395456961,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "alpha1",
+                "published": 1.19e-08,
+                "published_error": 3.7e-09,
+                "refit": 1.1515771971921886e-08,
+                "refit_error": 2.5662916001040617e-09,
+                "difference": -3.8422802807811506e-10,
+                "relative_difference": 0.03228806958639622,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "dK_dT",
+                "published": -0.026,
+                "published_error": 0.003,
+                "refit": -0.02563806087001639,
+                "refit_error": 0.0026413691487219004,
+                "difference": 0.0003619391299836093,
+                "relative_difference": 0.013920735768600359,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "independent_nonlinear_pressure_least_squares",
+              "objective": "unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3",
+              "free_parameters": ["V0", "K0", "K0_prime", "alpha0", "alpha1", "dK_dT"],
+              "fixed_parameters": ["Tr"],
+              "observations": 69,
+              "observed_pressure_range_gpa": [0.0, 26.6],
+              "observed_temperature_range_k": [300.0, 1373.0],
+              "solver_success": true,
+              "rmse_gpa": 0.10813474664224723,
+              "published_rmse_gpa": 0.12637114188299595,
+              "dataset_identifiers": ["superhydrous_phase_b_lt_litasov_2007_table2"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
           }
         },
-        {
-          "path": "thermal.debye_temperature_law",
-          "source_value": "theta=theta0 exp[(gamma-gamma0)/q]",
-          "value": "integrated_gruneisen",
-          "reason": "Thermodynamic identity and independent free fit recovering theta0≈553 K support conventional sign. Literal-sign control preserved in reproduction; not an official correction.",
-          "primary_reference": {
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-19",
+          "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
             "doi": "10.1016/j.pepi.2007.06.003",
-            "location": "Eqs. (7)–(10) and Table 6, p. 150"
+            "locations": ["Tables 1–7, pp. 144–152", "Equations (1)–(10), pp. 147–150", "Section 4.2, p. 153"],
+            "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-19",
+            "dataset_identifiers": ["superhydrous_phase_b_lt_litasov_2007_table2"],
+            "source_locations": ["Table 2, pp. 144–145"],
+            "finding": "All 66 in-situ rows, 3 ambient cell measurements, both pressure scales, gold volumes and reported errors retained."
           }
-        }
-      ],
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–7, pp. 144–152; Equations (1)–(10), pp. 147–150; Section 4.2, p. 153.",
+          "cold_curve": "Table 4; conventional unit-cell Å^3, GPa and dimensionless Kprime. Parentheses retained; confidence/statistic and covariance unspecified.",
+          "thermal": "Table 4, reference T0=300 K."
+        },
+        "audit_corrections": [
+          {
+            "path": "eos.model",
+            "source_value": "Eq. (1): 7/3 minus 7/3",
+            "value": "birch_murnaghan_3",
+            "reason": "Repeated exponent gives identically zero pressure; use standard BM3 7/3 minus 5/3, supported by source BM3 label and independent Table 2 reproduction.",
+            "primary_reference": {"doi": "10.1016/j.pepi.2007.06.003", "location": "Eq. (1), p. 147"}
+          }
+        ]
+      }
+    },
+    {
+      "identifier": "superhydrous_phase_b_lt_litasov_2007_htbm_t03",
+      "label": "Litasov et al. (2007), htbm t03",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 623.34, "error": 0.04},
+        "K0": {"value": 132.7, "error": 1.5},
+        "K0_prime": {"value": 6.2, "error": 0.2}
+      },
       "thermal": {
-        "type": "MieGruneisenDebye",
-        "model": "mie_gruneisen_debye",
+        "model": "AlphaKT",
         "parameters": {
-          "Tr": 300.0,
-          "theta0": 860.0,
-          "gamma0": 1.33,
-          "q": 2.03,
-          "n": 35.0
+          "Tr": {"value": 300.0, "error": null, "fixed": true},
+          "alpha0": {"value": 3.38e-05, "error": 1.5e-06},
+          "alpha1": {"value": 1.26e-08, "error": 3.7e-09},
+          "dK_dT": {"value": -0.027, "error": 0.003}
         },
-        "parameter_errors": {
-          "Tr": null,
-          "theta0": null,
-          "gamma0": 0.05,
-          "q": 0.35,
-          "n": null
-        },
-        "fixed_parameters": [
-          "Tr",
-          "n",
-          "theta0"
+        "thermal_expansion_law": "linear_temperature",
+        "reference_volume_law": "integrated_expansivity",
+        "bulk_modulus_law": "linear_temperature"
+      },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 28.1],
+      "experimental_temperature_range_k": [300.0, 1373.0],
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "thermal",
+      "default": false,
+      "notes": "Published experimental fit to nominally pure Mg superhydrous phase B. All 66 in-situ plus three ambient Table 2 observations are retained for diagnostic refitting. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported.",
+      "fit_datasets": ["superhydrous_phase_b_lt_litasov_2007_table2"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Litasov", "Ohtani", "Ghosh", "Nishihara", "Suzuki", "Funakoshi"],
+        "year": 2007,
+        "title": "Thermal equation of state of superhydrous phase B to 27 GPa and 1373 K",
+        "source": "Physics of the Earth and Planetary Interiors",
+        "volume": "164",
+        "locator": "142–160",
+        "doi": "10.1016/j.pepi.2007.06.003"
+      },
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "audit_date": "2026-09-19",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Tsuchiya"],
+              "year": 2003,
+              "doi": "10.1029/2003JB002446",
+              "source": "Journal of Geophysical Research: Solid Earth"
+            },
+            "source_location": "Section 2 and Table 2: Au volumes, P2 (T03)",
+            "notes": "Source pressure values preserved, never recomputed from an approximate marker EOS."
+          }
         ],
-        "debye_temperature_law": "integrated_gruneisen",
-        "thermal_pressure_reference": "reference_temperature"
+        "recalculation": {
+          "status": "reference_eos_not_bundled",
+          "notes": "Paired Au observations are bundled. Exact Tsuchiya realization is not bundled."
+        }
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/superhydrous_phase_b_lt/#record-superhydrous_phase_b_lt_litasov_2007_htbm_t03",
+            "report_path": "docs/reconstruction-reports/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_htbm_t03",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 623.34,
+                "published_error": 0.04,
+                "refit": 623.4132846844781,
+                "refit_error": 0.32053807668176815,
+                "difference": 0.07328468447803971,
+                "relative_difference": 0.00011756775512246881,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 132.7,
+                "published_error": 1.5,
+                "refit": 131.88958651317557,
+                "refit_error": 2.3053574330701823,
+                "difference": -0.8104134868244159,
+                "relative_difference": 0.006107109923318884,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 6.2,
+                "published_error": 0.2,
+                "refit": 6.321468991688166,
+                "refit_error": 0.25752601139591985,
+                "difference": 0.1214689916881655,
+                "relative_difference": 0.019591772852929918,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "alpha0",
+                "published": 3.38e-05,
+                "published_error": 1.5e-06,
+                "refit": 3.4301504516603735e-05,
+                "refit_error": 1.2279635579527844e-06,
+                "difference": 5.015045166037338e-07,
+                "relative_difference": 0.014837411733838278,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "alpha1",
+                "published": 1.26e-08,
+                "published_error": 3.7e-09,
+                "refit": 1.3796464886515867e-08,
+                "refit_error": 3.2022085346294376e-09,
+                "difference": 1.1964648865158663e-09,
+                "relative_difference": 0.0949575306758624,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "dK_dT",
+                "published": -0.027,
+                "published_error": 0.003,
+                "refit": -0.028476152419237243,
+                "refit_error": 0.0030487576398255853,
+                "difference": -0.0014761524192372436,
+                "relative_difference": 0.05467231182360161,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "independent_nonlinear_pressure_least_squares",
+              "objective": "unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3",
+              "free_parameters": ["V0", "K0", "K0_prime", "alpha0", "alpha1", "dK_dT"],
+              "fixed_parameters": ["Tr"],
+              "observations": 69,
+              "observed_pressure_range_gpa": [0.0, 28.1],
+              "observed_temperature_range_k": [300.0, 1373.0],
+              "solver_success": true,
+              "rmse_gpa": 0.13036669472985118,
+              "published_rmse_gpa": 0.13411117660373725,
+              "dataset_identifiers": ["superhydrous_phase_b_lt_litasov_2007_table2"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-19",
+          "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
+            "doi": "10.1016/j.pepi.2007.06.003",
+            "locations": ["Tables 1–7, pp. 144–152", "Equations (1)–(10), pp. 147–150", "Section 4.2, p. 153"],
+            "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-19",
+            "dataset_identifiers": ["superhydrous_phase_b_lt_litasov_2007_table2"],
+            "source_locations": ["Table 2, pp. 144–145"],
+            "finding": "All 66 in-situ rows, 3 ambient cell measurements, both pressure scales, gold volumes and reported errors retained."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–7, pp. 144–152; Equations (1)–(10), pp. 147–150; Section 4.2, p. 153.",
+          "cold_curve": "Table 4; conventional unit-cell Å^3, GPa and dimensionless Kprime. Parentheses retained; confidence/statistic and covariance unspecified.",
+          "thermal": "Table 4, reference T0=300 K."
+        },
+        "audit_corrections": [
+          {
+            "path": "eos.model",
+            "source_value": "Eq. (1): 7/3 minus 7/3",
+            "value": "birch_murnaghan_3",
+            "reason": "Repeated exponent gives identically zero pressure; use standard BM3 7/3 minus 5/3, supported by source BM3 label and independent Table 2 reproduction.",
+            "primary_reference": {"doi": "10.1016/j.pepi.2007.06.003", "location": "Eq. (1), p. 147"}
+          }
+        ]
+      }
+    },
+    {
+      "identifier": "superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89",
+      "label": "Litasov et al. (2007), thermal pressure a89",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 623.5, "error": 0.36},
+        "K0": {"value": 135.3, "error": 2.3},
+        "K0_prime": {"value": 5.3, "error": 0.2}
+      },
+      "thermal": {
+        "model": "LogVolumeThermalPressure",
+        "parameters": {
+          "Tr": {"value": 300.0, "error": null, "fixed": true},
+          "alpha_KT_ref": {"value": 0.00511434, "error": null},
+          "dK_dT_V": {"value": -0.002, "error": 0.002}
+        }
+      },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 26.6],
+      "experimental_temperature_range_k": [300.0, 1373.0],
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "thermal",
+      "default": false,
+      "notes": "Published experimental fit to nominally pure Mg superhydrous phase B. All 66 in-situ plus three ambient Table 2 observations are retained for diagnostic refitting. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported. Equation (6) final five-parameter model omits the unresolved quadratic term.",
+      "fit_datasets": ["superhydrous_phase_b_lt_litasov_2007_table2"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Litasov", "Ohtani", "Ghosh", "Nishihara", "Suzuki", "Funakoshi"],
+        "year": 2007,
+        "title": "Thermal equation of state of superhydrous phase B to 27 GPa and 1373 K",
+        "source": "Physics of the Earth and Planetary Interiors",
+        "volume": "164",
+        "locator": "142–160",
+        "doi": "10.1016/j.pepi.2007.06.003"
+      },
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "audit_date": "2026-09-19",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Anderson", "Isaak", "Yamamoto"],
+              "year": 1989,
+              "doi": "10.1063/1.342969",
+              "source": "Journal of Applied Physics"
+            },
+            "source_location": "Section 2 and Table 2: Au volumes, P1 (A89)",
+            "notes": "Source pressure values preserved, never recomputed from an approximate marker EOS.",
+            "related_eos_record": "gold_anderson_1989_bm3_1"
+          }
+        ],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "Paired Au observations are bundled, but canonical Anderson coefficients do not exactly reproduce printed pressures; source realization unresolved. See diagnostic."
+        }
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/superhydrous_phase_b_lt/#record-superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89",
+            "report_path": "docs/reconstruction-reports/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 623.5,
+                "published_error": 0.36,
+                "refit": 623.4219252201992,
+                "refit_error": 0.2574001592778335,
+                "difference": -0.07807477980077238,
+                "relative_difference": 0.00012522017610388513,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 135.3,
+                "published_error": 2.3,
+                "refit": 135.74064618734764,
+                "refit_error": 1.8281533804001846,
+                "difference": 0.4406461873476246,
+                "relative_difference": 0.003256808480026789,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.3,
+                "published_error": 0.2,
+                "refit": 5.243358562078898,
+                "refit_error": 0.19049273951553658,
+                "difference": -0.05664143792110199,
+                "relative_difference": 0.01068706375869849,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "alpha0",
+                "published": 3.78e-05,
+                "published_error": 1.9e-06,
+                "refit": 3.765818152298365e-05,
+                "refit_error": 1.8495010952658433e-06,
+                "difference": -1.4181847701635035e-07,
+                "relative_difference": 0.00375181156127911,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "dK_dT_V",
+                "published": -0.002,
+                "published_error": 0.002,
+                "refit": -0.0023183141091294244,
+                "refit_error": 0.00214140639296662,
+                "difference": -0.00031831410912942434,
+                "relative_difference": 0.15915705456471216,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "independent_nonlinear_pressure_least_squares",
+              "objective": "unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3",
+              "free_parameters": ["V0", "K0", "K0_prime", "alpha0", "dK_dT_V"],
+              "fixed_parameters": ["Tr"],
+              "observations": 69,
+              "observed_pressure_range_gpa": [0.0, 26.6],
+              "observed_temperature_range_k": [300.0, 1373.0],
+              "solver_success": true,
+              "rmse_gpa": 0.1097657364937112,
+              "published_rmse_gpa": 0.11554793085237937,
+              "dataset_identifiers": ["superhydrous_phase_b_lt_litasov_2007_table2"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-19",
+          "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
+            "doi": "10.1016/j.pepi.2007.06.003",
+            "locations": ["Tables 1–7, pp. 144–152", "Equations (1)–(10), pp. 147–150", "Section 4.2, p. 153"],
+            "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-19",
+            "dataset_identifiers": ["superhydrous_phase_b_lt_litasov_2007_table2"],
+            "source_locations": ["Table 2, pp. 144–145"],
+            "finding": "All 66 in-situ rows, 3 ambient cell measurements, both pressure scales, gold volumes and reported errors retained."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–7, pp. 144–152; Equations (1)–(10), pp. 147–150; Section 4.2, p. 153.",
+          "cold_curve": "Table 5; conventional unit-cell Å^3, GPa and dimensionless Kprime. Parentheses retained; confidence/statistic and covariance unspecified.",
+          "thermal": "Table 5, reference T0=300 K.",
+          "alpha_KT_ref": {
+            "derivation": "Table 5 alpha0*K0; source alpha0 is preserved separately. Product error unavailable without covariance.",
+            "alpha0_per_k": 3.78e-05,
+            "alpha0_error_per_k": 1.9e-06
+          }
+        },
+        "audit_corrections": [
+          {
+            "path": "eos.model",
+            "source_value": "Eq. (1): 7/3 minus 7/3",
+            "value": "birch_murnaghan_3",
+            "reason": "Repeated exponent gives identically zero pressure; use standard BM3 7/3 minus 5/3, supported by source BM3 label and independent Table 2 reproduction.",
+            "primary_reference": {"doi": "10.1016/j.pepi.2007.06.003", "location": "Eq. (1), p. 147"}
+          }
+        ]
+      }
+    },
+    {
+      "identifier": "superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89",
+      "label": "Litasov et al. (2007), mgd free debye a89",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 623.53, "error": 0.35},
+        "K0": {"value": 135.5, "error": 2.3},
+        "K0_prime": {"value": 5.3, "error": 0.2}
+      },
+      "thermal": {
+        "model": "MieGruneisenDebye",
+        "parameters": {
+          "Tr": {"value": 300.0, "error": null, "fixed": true},
+          "theta0": {"value": 552.0, "error": 130.0},
+          "gamma0": {"value": 1.18, "error": 0.06},
+          "q": {"value": 1.74, "error": 0.45},
+          "n": {"value": 35.0, "error": null, "fixed": true}
+        },
+        "thermal_pressure_reference": "reference_temperature",
+        "debye_temperature_law": "integrated_gruneisen"
+      },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 26.6],
+      "experimental_temperature_range_k": [300.0, 1373.0],
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "thermal",
+      "default": false,
+      "notes": "Published experimental fit to nominally pure Mg superhydrous phase B. All 66 in-situ plus three ambient Table 2 observations are retained for diagnostic refitting. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported. Eq. (9) printed sign reversed explicitly: theta=theta0 exp[(gamma0-gamma)/q], required by gamma=-dln(theta)/dln(V). This is an inferred correction, not an author erratum. Published coefficients unchanged. n=35 atoms/formula unit includes hydrogen.",
+      "fit_datasets": ["superhydrous_phase_b_lt_litasov_2007_table2"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Litasov", "Ohtani", "Ghosh", "Nishihara", "Suzuki", "Funakoshi"],
+        "year": 2007,
+        "title": "Thermal equation of state of superhydrous phase B to 27 GPa and 1373 K",
+        "source": "Physics of the Earth and Planetary Interiors",
+        "volume": "164",
+        "locator": "142–160",
+        "doi": "10.1016/j.pepi.2007.06.003"
+      },
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "audit_date": "2026-09-19",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Anderson", "Isaak", "Yamamoto"],
+              "year": 1989,
+              "doi": "10.1063/1.342969",
+              "source": "Journal of Applied Physics"
+            },
+            "source_location": "Section 2 and Table 2: Au volumes, P1 (A89)",
+            "notes": "Source pressure values preserved, never recomputed from an approximate marker EOS.",
+            "related_eos_record": "gold_anderson_1989_bm3_1"
+          }
+        ],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "Paired Au observations are bundled, but canonical Anderson coefficients do not exactly reproduce printed pressures; source realization unresolved. See diagnostic."
+        }
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/superhydrous_phase_b_lt/#record-superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89",
+            "report_path": "docs/reconstruction-reports/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 623.53,
+                "published_error": 0.35,
+                "refit": 623.4388972064203,
+                "refit_error": 0.24944769436570002,
+                "difference": -0.09110279357969375,
+                "relative_difference": 0.00014610811601638055,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 135.5,
+                "published_error": 2.3,
+                "refit": 135.97491671356167,
+                "refit_error": 1.7681851781412292,
+                "difference": 0.47491671356166876,
+                "relative_difference": 0.0035049203952890683,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.3,
+                "published_error": 0.2,
+                "refit": 5.244516100967703,
+                "refit_error": 0.18277000501213322,
+                "difference": -0.055483899032297224,
+                "relative_difference": 0.010468660194773062,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.18,
+                "published_error": 0.06,
+                "refit": 1.185292049457412,
+                "refit_error": 0.06378945142973545,
+                "difference": 0.005292049457412018,
+                "relative_difference": 0.0044847876757728965,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "q",
+                "published": 1.74,
+                "published_error": 0.45,
+                "refit": 1.75834067005706,
+                "refit_error": 0.43826222534954634,
+                "difference": 0.018340670057060082,
+                "relative_difference": 0.010540614975321886,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "theta0",
+                "published": 552.0,
+                "published_error": 130.0,
+                "refit": 553.0327419309925,
+                "refit_error": 129.02514723448633,
+                "difference": 1.032741930992529,
+                "relative_difference": 0.0018709092952763206,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "independent_nonlinear_pressure_least_squares",
+              "objective": "unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3",
+              "free_parameters": ["V0", "K0", "K0_prime", "gamma0", "q", "theta0"],
+              "fixed_parameters": ["Tr", "n"],
+              "observations": 69,
+              "observed_pressure_range_gpa": [0.0, 26.6],
+              "observed_temperature_range_k": [300.0, 1373.0],
+              "solver_success": true,
+              "rmse_gpa": 0.10555102599548966,
+              "published_rmse_gpa": 0.10662679200955953,
+              "dataset_identifiers": ["superhydrous_phase_b_lt_litasov_2007_table2"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-19",
+          "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
+            "doi": "10.1016/j.pepi.2007.06.003",
+            "locations": ["Tables 1–7, pp. 144–152", "Equations (1)–(10), pp. 147–150", "Section 4.2, p. 153"],
+            "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-19",
+            "dataset_identifiers": ["superhydrous_phase_b_lt_litasov_2007_table2"],
+            "source_locations": ["Table 2, pp. 144–145"],
+            "finding": "All 66 in-situ rows, 3 ambient cell measurements, both pressure scales, gold volumes and reported errors retained."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–7, pp. 144–152; Equations (1)–(10), pp. 147–150; Section 4.2, p. 153.",
+          "cold_curve": "Table 6; conventional unit-cell Å^3, GPa and dimensionless Kprime. Parentheses retained; confidence/statistic and covariance unspecified.",
+          "thermal": "Table 6, reference T0=300 K."
+        },
+        "audit_corrections": [
+          {
+            "path": "eos.model",
+            "source_value": "Eq. (1): 7/3 minus 7/3",
+            "value": "birch_murnaghan_3",
+            "reason": "Repeated exponent gives identically zero pressure; use standard BM3 7/3 minus 5/3, supported by source BM3 label and independent Table 2 reproduction.",
+            "primary_reference": {"doi": "10.1016/j.pepi.2007.06.003", "location": "Eq. (1), p. 147"}
+          },
+          {
+            "path": "thermal.debye_temperature_law",
+            "source_value": "theta=theta0 exp[(gamma-gamma0)/q]",
+            "value": "integrated_gruneisen",
+            "reason": "Thermodynamic identity and independent free fit recovering theta0≈553 K support conventional sign. Literal-sign control preserved in reproduction; not an official correction.",
+            "primary_reference": {"doi": "10.1016/j.pepi.2007.06.003", "location": "Eqs. (7)–(10) and Table 6, p. 150"}
+          }
+        ]
+      }
+    },
+    {
+      "identifier": "superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89",
+      "label": "Litasov et al. (2007), mgd elastic debye a89",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 623.53, "error": 0.35},
+        "K0": {"value": 135.5, "error": 2.3},
+        "K0_prime": {"value": 5.3, "error": 0.2}
+      },
+      "thermal": {
+        "model": "MieGruneisenDebye",
+        "parameters": {
+          "Tr": {"value": 300.0, "error": null, "fixed": true},
+          "n": {"value": 35.0, "error": null, "fixed": true},
+          "gamma0": {"value": 1.33, "error": 0.05},
+          "q": {"value": 2.03, "error": 0.35},
+          "theta0": {"value": 860.0, "error": null, "fixed": true}
+        },
+        "thermal_pressure_reference": "reference_temperature",
+        "debye_temperature_law": "integrated_gruneisen"
+      },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 26.6],
+      "experimental_temperature_range_k": [300.0, 1373.0],
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "thermal",
+      "default": false,
+      "notes": "Published experimental fit to nominally pure Mg superhydrous phase B. All 66 in-situ plus three ambient Table 2 observations are retained for diagnostic refitting. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported. Eq. (9) printed sign reversed explicitly: theta=theta0 exp[(gamma0-gamma)/q], required by gamma=-dln(theta)/dln(V). This is an inferred correction, not an author erratum. Published coefficients unchanged. n=35 atoms/formula unit includes hydrogen.",
+      "fit_datasets": ["superhydrous_phase_b_lt_litasov_2007_table2"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Litasov", "Ohtani", "Ghosh", "Nishihara", "Suzuki", "Funakoshi"],
+        "year": 2007,
+        "title": "Thermal equation of state of superhydrous phase B to 27 GPa and 1373 K",
+        "source": "Physics of the Earth and Planetary Interiors",
+        "volume": "164",
+        "locator": "142–160",
+        "doi": "10.1016/j.pepi.2007.06.003"
+      },
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "audit_date": "2026-09-19",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Anderson", "Isaak", "Yamamoto"],
+              "year": 1989,
+              "doi": "10.1063/1.342969",
+              "source": "Journal of Applied Physics"
+            },
+            "source_location": "Section 2 and Table 2: Au volumes, P1 (A89)",
+            "notes": "Source pressure values preserved, never recomputed from an approximate marker EOS.",
+            "related_eos_record": "gold_anderson_1989_bm3_1"
+          }
+        ],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "Paired Au observations are bundled, but canonical Anderson coefficients do not exactly reproduce printed pressures; source realization unresolved. See diagnostic."
+        }
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/superhydrous_phase_b_lt/#record-superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89",
+            "report_path": "docs/reconstruction-reports/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 623.53,
+                "published_error": 0.35,
+                "refit": 623.4578471395107,
+                "refit_error": 0.2628146780234006,
+                "difference": -0.07215286048926828,
+                "relative_difference": 0.00011571674256133351,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 135.5,
+                "published_error": 2.3,
+                "refit": 136.4007508677185,
+                "refit_error": 1.8566318232260446,
+                "difference": 0.9007508677185001,
+                "relative_difference": 0.006647607879841329,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.3,
+                "published_error": 0.2,
+                "refit": 5.230646346561506,
+                "refit_error": 0.1910796105824656,
+                "difference": -0.06935365343849398,
+                "relative_difference": 0.01308559498839509,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.33,
+                "published_error": 0.05,
+                "refit": 1.3032844333315172,
+                "refit_error": 0.05985831782617076,
+                "difference": -0.02671556666848285,
+                "relative_difference": 0.020086892231941992,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "q",
+                "published": 2.03,
+                "published_error": 0.35,
+                "refit": 2.0956167406141364,
+                "refit_error": 0.45011556388002655,
+                "difference": 0.06561674061413658,
+                "relative_difference": 0.03232351754390965,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "independent_nonlinear_pressure_least_squares",
+              "objective": "unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3",
+              "free_parameters": ["V0", "K0", "K0_prime", "gamma0", "q"],
+              "fixed_parameters": ["Tr", "n", "theta0"],
+              "observations": 69,
+              "observed_pressure_range_gpa": [0.0, 26.6],
+              "observed_temperature_range_k": [300.0, 1373.0],
+              "solver_success": true,
+              "rmse_gpa": 0.11240879143243881,
+              "published_rmse_gpa": 0.1230806599723373,
+              "dataset_identifiers": ["superhydrous_phase_b_lt_litasov_2007_table2"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-19",
+          "note": "Primary-source tables, equations, structure and independent Table 2 reproduction audited; explicit equation corrections retained.",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
+            "doi": "10.1016/j.pepi.2007.06.003",
+            "locations": ["Tables 1–7, pp. 144–152", "Equations (1)–(10), pp. 147–150", "Section 4.2, p. 153"],
+            "finding": "Author-uploaded publication of record inspected in full. Table 4 takes precedence over conflicting RT Tsuchiya prose; Eq. (1) second exponent corrected from 7/3 to 5/3. MGD Eq. (9) uses explicitly documented thermodynamic sign interpretation, not an author erratum. Table 2 provides independent P–V–T checks and diagnostic refits. See docs/literature-reproductions/litasov-2007-superhydrous-phase-b.md for all accepted and held candidates."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-19",
+            "dataset_identifiers": ["superhydrous_phase_b_lt_litasov_2007_table2"],
+            "source_locations": ["Table 2, pp. 144–145"],
+            "finding": "All 66 in-situ rows, 3 ambient cell measurements, both pressure scales, gold volumes and reported errors retained."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Tables 1–7, pp. 144–152; Equations (1)–(10), pp. 147–150; Section 4.2, p. 153.",
+          "cold_curve": "Table 6; conventional unit-cell Å^3, GPa and dimensionless Kprime. Parentheses retained; confidence/statistic and covariance unspecified.",
+          "thermal": "Table 6, reference T0=300 K."
+        },
+        "audit_corrections": [
+          {
+            "path": "eos.model",
+            "source_value": "Eq. (1): 7/3 minus 7/3",
+            "value": "birch_murnaghan_3",
+            "reason": "Repeated exponent gives identically zero pressure; use standard BM3 7/3 minus 5/3, supported by source BM3 label and independent Table 2 reproduction.",
+            "primary_reference": {"doi": "10.1016/j.pepi.2007.06.003", "location": "Eq. (1), p. 147"}
+          },
+          {
+            "path": "thermal.debye_temperature_law",
+            "source_value": "theta=theta0 exp[(gamma-gamma0)/q]",
+            "value": "integrated_gruneisen",
+            "reason": "Thermodynamic identity and independent free fit recovering theta0≈553 K support conventional sign. Literal-sign control preserved in reproduction; not an official correction.",
+            "primary_reference": {"doi": "10.1016/j.pepi.2007.06.003", "location": "Eqs. (7)–(10) and Table 6, p. 150"}
+          }
+        ]
       }
     }
   ],
+  "symmetry": "ORTHORHOMBIC",
+  "space_group": "Pnn2",
+  "space_group_number": 34,
+  "lattice": {"a": 14.024, "b": 5.109, "c": 8.733, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"label": "Mg1", "element": "Mg", "wyckoff": "4c", "x": 0.1731, "y": 0.3279, "z": 0.0053, "occupancy": 1.0},
+    {"label": "Mg2A", "element": "Mg", "wyckoff": "4c", "x": 0.1775, "y": 0.8358, "z": 0.1752, "occupancy": 1.0},
+    {"label": "Mg2B", "element": "Mg", "wyckoff": "4c", "x": 0.324, "y": 0.3461, "z": 0.3242, "occupancy": 1.0},
+    {"label": "Mg3A", "element": "Mg", "wyckoff": "2b", "x": 0.0, "y": 0.5, "z": 0.8286, "occupancy": 1.0},
+    {"label": "Mg3B", "element": "Mg", "wyckoff": "2b", "x": 0.0, "y": 0.5, "z": 0.187, "occupancy": 1.0},
+    {"label": "Mg4A", "element": "Mg", "wyckoff": "2a", "x": 0.0, "y": 0.0, "z": 0.6625, "occupancy": 1.0},
+    {"label": "Mg4B", "element": "Mg", "wyckoff": "2a", "x": 0.0, "y": 0.0, "z": 0.3455, "occupancy": 1.0},
+    {"label": "Si1", "element": "Si", "wyckoff": "2a", "x": 0.0, "y": 0.0, "z": 0.0077, "occupancy": 1.0},
+    {"label": "Si2", "element": "Si", "wyckoff": "4c", "x": 0.3766, "y": 0.0141, "z": 0.0051, "occupancy": 1.0},
+    {"label": "O1", "element": "O", "wyckoff": "4c", "x": 0.4153, "y": 0.7088, "z": 0.9936, "occupancy": 1.0},
+    {"label": "O2", "element": "O", "wyckoff": "4c", "x": 0.0783, "y": 0.6931, "z": 0.005, "occupancy": 1.0},
+    {"label": "O3A", "element": "O", "wyckoff": "4c", "x": 0.2495, "y": 0.022, "z": 0.3451, "occupancy": 1.0},
+    {"label": "O3B", "element": "O", "wyckoff": "4c", "x": 0.2552, "y": 0.512, "z": 0.162, "occupancy": 1.0},
+    {"label": "O4A", "element": "O", "wyckoff": "4c", "x": 0.076, "y": 0.144, "z": 0.1531, "occupancy": 1.0},
+    {"label": "O4B", "element": "O", "wyckoff": "4c", "x": 0.4298, "y": 0.647, "z": 0.3619, "occupancy": 1.0},
+    {"label": "O5A", "element": "O", "wyckoff": "4c", "x": 0.4145, "y": 0.153, "z": 0.1599, "occupancy": 1.0},
+    {"label": "O5B", "element": "O", "wyckoff": "4c", "x": 0.0889, "y": 0.685, "z": 0.3479, "occupancy": 1.0},
+    {"label": "O6", "element": "O", "wyckoff": "4c", "x": 0.2598, "y": 0.0048, "z": 0.007, "occupancy": 1.0},
+    {"label": "H1", "element": "H", "wyckoff": "4c", "x": 0.3, "y": 0.6, "z": 0.1, "occupancy": 1.0},
+    {"label": "H2", "element": "H", "wyckoff": "4c", "x": 0.45, "y": 0.18, "z": 0.27, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Nominal Mg10Si3O14(OH)4, 35 atoms/formula unit and Z=2. Litasov et al. (2007) infer LT polymorph from synthesis/measurement temperatures, without a full in-situ structural refinement. Independent diffraction model: Koch-Müller et al. (2005) Table 4, MKM0105 Pnn2, with author-corrected O6 and official 2014 H2 erratum. Retain the structure-source a=14.024, b=5.109, c=8.733 Å orientation (a/b exchanged relative to Litasov). This ideal fully occupied structural proxy is not the EOS specimen and is not rescaled to fitted V0. H2 is an IR-derived positional estimate. Distinct from Al-bearing Xu (2024) superhydrous phase B.",
   "datasets": [
     {
       "identifier": "superhydrous_phase_b_lt_litasov_2007_table2",
@@ -1431,14 +1309,7 @@
       "source_location": "Table 2, pp. 144–145",
       "source_url": "https://www.researchgate.net/publication/256823665_Thermal_equation_of_state_of_superhydrous_phase_B_to_27_GPa_and_1373_K",
       "reference": {
-        "authors": [
-          "Litasov",
-          "Ohtani",
-          "Ghosh",
-          "Nishihara",
-          "Suzuki",
-          "Funakoshi"
-        ],
+        "authors": ["Litasov", "Ohtani", "Ghosh", "Nishihara", "Suzuki", "Funakoshi"],
         "year": 2007,
         "source": "Physics of the Earth and Planetary Interiors",
         "volume": "164",
@@ -1447,24 +1318,9 @@
       },
       "row_count": 69,
       "columns": [
-        {
-          "name": "measurement_number",
-          "quantity": "measurement_number",
-          "unit": "1",
-          "role": "value"
-        },
-        {
-          "name": "temperature_k",
-          "quantity": "temperature_k",
-          "unit": "K",
-          "role": "value"
-        },
-        {
-          "name": "au_volume_a3",
-          "quantity": "au_volume_a3",
-          "unit": "angstrom^3",
-          "role": "value"
-        },
+        {"name": "measurement_number", "quantity": "measurement_number", "unit": "1", "role": "value"},
+        {"name": "temperature_k", "quantity": "temperature_k", "unit": "K", "role": "value"},
+        {"name": "au_volume_a3", "quantity": "au_volume_a3", "unit": "angstrom^3", "role": "value"},
         {
           "name": "au_volume_sigma_a3",
           "quantity": "au_volume_a3",
@@ -1472,12 +1328,7 @@
           "role": "standard_deviation",
           "of": "au_volume_a3"
         },
-        {
-          "name": "pressure_a89_gpa",
-          "quantity": "pressure_a89_gpa",
-          "unit": "GPa",
-          "role": "value"
-        },
+        {"name": "pressure_a89_gpa", "quantity": "pressure_a89_gpa", "unit": "GPa", "role": "value"},
         {
           "name": "pressure_sigma_gpa",
           "quantity": "pressure_gpa",
@@ -1485,18 +1336,8 @@
           "role": "standard_deviation",
           "of": "pressure_a89_gpa"
         },
-        {
-          "name": "pressure_t03_gpa",
-          "quantity": "pressure_t03_gpa",
-          "unit": "GPa",
-          "role": "value"
-        },
-        {
-          "name": "a_angstrom",
-          "quantity": "a_angstrom",
-          "unit": "angstrom",
-          "role": "value"
-        },
+        {"name": "pressure_t03_gpa", "quantity": "pressure_t03_gpa", "unit": "GPa", "role": "value"},
+        {"name": "a_angstrom", "quantity": "a_angstrom", "unit": "angstrom", "role": "value"},
         {
           "name": "a_sigma_angstrom",
           "quantity": "a_angstrom",
@@ -1504,12 +1345,7 @@
           "role": "standard_deviation",
           "of": "a_angstrom"
         },
-        {
-          "name": "b_angstrom",
-          "quantity": "b_angstrom",
-          "unit": "angstrom",
-          "role": "value"
-        },
+        {"name": "b_angstrom", "quantity": "b_angstrom", "unit": "angstrom", "role": "value"},
         {
           "name": "b_sigma_angstrom",
           "quantity": "b_angstrom",
@@ -1517,12 +1353,7 @@
           "role": "standard_deviation",
           "of": "b_angstrom"
         },
-        {
-          "name": "c_angstrom",
-          "quantity": "c_angstrom",
-          "unit": "angstrom",
-          "role": "value"
-        },
+        {"name": "c_angstrom", "quantity": "c_angstrom", "unit": "angstrom", "role": "value"},
         {
           "name": "c_sigma_angstrom",
           "quantity": "c_angstrom",
@@ -1530,12 +1361,7 @@
           "role": "standard_deviation",
           "of": "c_angstrom"
         },
-        {
-          "name": "volume_a3",
-          "quantity": "volume_a3",
-          "unit": "angstrom^3",
-          "role": "value"
-        },
+        {"name": "volume_a3", "quantity": "volume_a3", "unit": "angstrom^3", "role": "value"},
         {
           "name": "volume_sigma_a3",
           "quantity": "volume_a3",
@@ -1558,10 +1384,7 @@
         "superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89",
         "superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89"
       ],
-      "uncertainty": {
-        "reported_as": "estimated_standard_deviation",
-        "covariance": "not_reported"
-      },
+      "uncertainty": {"reported_as": "estimated_standard_deviation", "covariance": "not_reported"},
       "notes": "measurement_number 4..69 denotes SB2-004..069. -1,-2 are recovered synchrotron cells; -3 lab XRD. Ambient P=0 GPa and T=300 K are explicit reference-state assignments, not separately printed readings. Blank Au and pressure error remain missing. Source gives same uncertainty for P2 as P1 (shared pressure_sigma_gpa). Temperature errors are not tabulated; thermocouple pressure-emf effect not corrected. Au a0=4.0786 Å sets diffraction geometry. All source lattice axes retained, with long b; do not confuse structure-source long a. Table 2 footnote explicitly identifies parentheses as estimated standard deviations."
     },
     {
@@ -1571,14 +1394,7 @@
       "row_count": 30,
       "source_location": "Table 3, p. 146",
       "reference": {
-        "authors": [
-          "Litasov",
-          "Ohtani",
-          "Ghosh",
-          "Nishihara",
-          "Suzuki",
-          "Funakoshi"
-        ],
+        "authors": ["Litasov", "Ohtani", "Ghosh", "Nishihara", "Suzuki", "Funakoshi"],
         "year": 2007,
         "source": "Physics of the Earth and Planetary Interiors",
         "volume": "164",
@@ -1586,54 +1402,14 @@
         "doi": "10.1016/j.pepi.2007.06.003"
       },
       "columns": [
-        {
-          "name": "d_observed_angstrom",
-          "quantity": "d_observed_angstrom",
-          "unit": "angstrom",
-          "role": "value"
-        },
-        {
-          "name": "relative_intensity",
-          "quantity": "relative_intensity",
-          "unit": "1",
-          "role": "value"
-        },
-        {
-          "name": "d_calculated_angstrom",
-          "quantity": "d_calculated_angstrom",
-          "unit": "angstrom",
-          "role": "value"
-        },
-        {
-          "name": "phase_code",
-          "quantity": "phase_code",
-          "unit": "1",
-          "role": "value"
-        },
-        {
-          "name": "h",
-          "quantity": "h",
-          "unit": "1",
-          "role": "value"
-        },
-        {
-          "name": "k",
-          "quantity": "k",
-          "unit": "1",
-          "role": "value"
-        },
-        {
-          "name": "l",
-          "quantity": "l",
-          "unit": "1",
-          "role": "value"
-        },
-        {
-          "name": "fluorescence_code",
-          "quantity": "fluorescence_code",
-          "unit": "1",
-          "role": "value"
-        }
+        {"name": "d_observed_angstrom", "quantity": "d_observed_angstrom", "unit": "angstrom", "role": "value"},
+        {"name": "relative_intensity", "quantity": "relative_intensity", "unit": "1", "role": "value"},
+        {"name": "d_calculated_angstrom", "quantity": "d_calculated_angstrom", "unit": "angstrom", "role": "value"},
+        {"name": "phase_code", "quantity": "phase_code", "unit": "1", "role": "value"},
+        {"name": "h", "quantity": "h", "unit": "1", "role": "value"},
+        {"name": "k", "quantity": "k", "unit": "1", "role": "value"},
+        {"name": "l", "quantity": "l", "unit": "1", "role": "value"},
+        {"name": "fluorescence_code", "quantity": "fluorescence_code", "unit": "1", "role": "value"}
       ],
       "resource": {
         "path": "datasets/superhydrous-phase-b-litasov-2007-table3-peaks.csv",
@@ -1651,5 +1427,63 @@
         "superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89"
       ]
     }
-  ]
+  ],
+  "structure_provenance": {
+    "reference": {
+      "authors": ["Koch-Müller", "Dera", "Fei", "Hellwig", "Liu", "Van Orman", "Wirth"],
+      "year": 2005,
+      "source": "Physics and Chemistry of Minerals",
+      "volume": "32",
+      "locator": "349–361",
+      "doi": "10.1007/s00269-005-0007-4"
+    },
+    "source_location": "Tables 4–5, p. 359, MKM0105 Pnn2 column",
+    "source_url": "https://artscimedia.case.edu/wp-content/uploads/sites/186/2016/06/14222658/Koch_Muller_et_al_PCM_2005.pdf",
+    "archive_url": "https://www.crystallography.net/cod/9007379.cif",
+    "archive_resource": {
+      "path": "datasets/superhydrous-phase-b-koch-muller-2005-mkm0105.cif",
+      "sha256": "9118860e2e0e65a8a8fac0743d2ad154d5611d80f40b53e2444715dfad12adf3"
+    },
+    "lattice_errors_angstrom": {"a": 0.021, "b": 0.004, "c": 0.012},
+    "corrections": [
+      {
+        "site": "O6",
+        "coordinate": "z",
+        "printed_value": 0.3479,
+        "value": 0.007,
+        "authority": "AMCSD 0008972 / COD 9007379 explicitly states z(O6) corrected by authors; uncertainty on corrected value not given."
+      },
+      {
+        "site": "H2",
+        "printed_value": [0.27, 0.18, 0.45],
+        "value": [0.45, 0.18, 0.27],
+        "authority": "Official 2014 erratum, DOI 10.1007/s00269-014-0697-6, p. 725",
+        "source_url": "https://link.springer.com/content/pdf/10.1007/s00269-014-0697-6.pdf"
+      }
+    ],
+    "symmetry_operations": ["x,y,z", "1/2+x,1/2-y,1/2+z", "1/2-x,1/2+y,1/2+z", "-x,-y,z"],
+    "notes": "All sites occupancy 1; 70 atoms/conventional cell. Si1 z=1.0077 and O1 z=-0.0064 wrapped into [0,1). H1 from structure refinement; H2 from polarized IR; no numerical H errors reported. Archive CIF retained unmodified, including superseded H2; material applies the 2014 correction.",
+    "fractional_coordinate_errors": {
+      "Si1": [null, null, 0.0013],
+      "Si2": [0.0002, 0.0007, 0.0009],
+      "Mg1": [0.0003, 0.0009, 0.0012],
+      "Mg2A": [0.0005, 0.0017, 0.0009],
+      "Mg2B": [0.0004, 0.0014, 0.0006],
+      "Mg3A": [null, null, 0.0012],
+      "Mg3B": [null, null, 0.0011],
+      "Mg4A": [null, null, 0.001],
+      "Mg4B": [null, null, 0.0013],
+      "O1": [0.0005, 0.0017, 0.0018],
+      "O2": [0.0005, 0.0017, 0.002],
+      "O3A": [0.0008, 0.003, 0.0014],
+      "O3B": [0.0011, 0.003, 0.002],
+      "O4A": [0.001, 0.003, 0.0017],
+      "O4B": [0.0008, 0.003, 0.0014],
+      "O5A": [0.0009, 0.003, 0.0016],
+      "O5B": [0.0008, 0.003, 0.0014],
+      "O6": [0.0005, 0.0019, null],
+      "H1": [null, null, null],
+      "H2": [null, null, null]
+    }
+  }
 }

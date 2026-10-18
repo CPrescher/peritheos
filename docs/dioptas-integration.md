@@ -5,7 +5,7 @@ material library. Dioptas consumes that library and uses the optional
 crystallographic fields to calculate and display diffraction reflections.
 Peritheos preserves those fields but does not need them for EOS calculations.
 
-## One flat material document
+## One flat material document (v3 compatibility example)
 
 There is no nested "Dioptas material containing a Peritheos material". A
 single document stores the shared identity, optional structure, and zero or
@@ -38,7 +38,7 @@ more EOS records:
 }
 ```
 
-Only `format`, `format_version`, `identifier`, `name`, `formula`, `units`, and
+In the historical v3 layout shown here, only `format`, `format_version`, `identifier`, `name`, `formula`, `units`, and
 `eos_records` are required by the canonical format. `symmetry`, lattice, space
 group, formula units per cell, atom sites, lossless CIF source, and fallback
 peaks are optional. This permits both an EOS-only Peritheos material and a
@@ -66,7 +66,7 @@ printed data under the documented equations.
 Peritheos-native records add aragonite, B2-KCl, RbCl-B2, diamond, MgO, CaSiO3,
 stishovite, akimotoite, Phase Egg, and Rh2O3(II)-type alumina models. Together
 with two explicitly derived Dewaele-anchored diamond compositions, these bring
-the distributed catalog to 232 material documents and 671 EOS records. Native records
+the distributed catalog to 232 material documents and 663 EOS records. Native records
 carry primary-publication provenance rather than fabricated Dioptas migration
 sources.
 
@@ -97,9 +97,9 @@ For `MieGruneisenDebye`, an absent `debye_temperature_law` means
 new or edited records so the scientific choice is visible without consulting
 the schema default.
 
-Migration is not scientific validation. The current audit covers all 671
-bundled records: 659 are `primary_source_validated`, nine qualified
-`not_reproduced` records require explicit selection, and three are `deferred`.
+Migration is not scientific validation. The current audit covers all 663
+bundled records: 645 are `primary_source_validated`, fourteen qualified
+`not_reproduced` records require explicit selection, and four are `deferred`.
 Deferred records remain source evidence for interchange and are excluded from
 normal executable loading. See the [coverage overview](catalog-coverage.md)
 and [validation definitions](catalog.md#eos-record-categories).
@@ -131,7 +131,8 @@ save_eosmat("copy.eosmat", material)
 
 The reader accepts:
 
-- canonical Peritheos `.eosmat` format 3; and
+- native Peritheos EOSMAT v4 (with updated readers), including local metadata sharing;
+- historical Peritheos `.eosmat` format 3; and
 - unmodified Dioptas 0.10.0 material format 2, which has the same flat shape
   but lacks the Peritheos format discriminator and stable identifiers.
 
@@ -147,11 +148,16 @@ The Rust API provides the same round trip through `Material::validate`,
 ## Dioptas compatibility
 
 [Dioptas 0.10.0's material loader](https://github.com/Dioptas/Dioptas/blob/0.10.0/dioptas/model/eos/material.py)
-already accepts the canonical format-3 files because the material and record
+accepts explicit format-3 compatibility exports because the material and record
 shape is an additive extension of its format 2. Its
 [`EosPhase`](https://github.com/Dioptas/Dioptas/blob/0.10.0/dioptas/model/util/eos_phase.py)
 uses Peritheos as the numerical engine and performs the conventional-cell to
 molar-volume conversion required by thermal and Holzapfel models.
+
+The bundled Peritheos library now uses v4. For Dioptas versions with a v3-only
+reader, export the selected file with
+`python -m peritheos convert native.eosmat compatible.eosmat --format-version 3`.
+Reading v4 directly requires a consumer that dispatches the native v4 layout.
 
 All 116 mechanically migrated documents and all 147 raw records were loaded with the
 Dioptas 0.10.0 `Material` implementation as an interoperability regression.
@@ -203,3 +209,19 @@ and is not stored as a scientific material role.
 Peritheos remains responsible for the EOS model registry and scientific record
 semantics. Dioptas remains responsible for interpreting structures,
 calculating reflections, and storing GUI/project state.
+
+## Native v4 and consumer compatibility
+
+New standalone files use [native v4](eosmat-v4.md), with one model identifier and
+errors/fixed flags beside parameter values. The basic example above describes
+v3 compatibility, not the required layout of a new v4 file. The installed Python
+and current Rust readers support both layouts. Do not assume a Dioptas release
+or another application's pinned reader includes every new capability:
+
+```bash
+python -m peritheos convert native.eosmat dioptas-compatible.eosmat --format-version 3
+```
+
+For a v4 consumer that predates optional local metadata sharing, export with
+`--inline` instead. Both routes retain complete scientific information and expand
+references; structure, source observations and unknown extensions remain attached.

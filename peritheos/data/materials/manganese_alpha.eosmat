@@ -1,260 +1,207 @@
 {
- "format_version": 3,
- "name": "Manganese (alpha)",
- "formula": "Mn",
- "symmetry": "CUBIC",
- "lattice": {
-  "a": 8.9125,
-  "b": null,
-  "c": null,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 58,
- "space_group": "I-43m",
- "space_group_number": 217,
- "atom_sites": [
-  {
-   "element": "Mn",
-   "wyckoff": "2a",
-   "x": 0.0,
-   "y": 0.0,
-   "z": 0.0,
-   "occupancy": 1.0
-  },
-  {
-   "element": "Mn",
-   "wyckoff": "8c",
-   "x": 0.317,
-   "y": 0.317,
-   "z": 0.317,
-   "occupancy": 1.0
-  },
-  {
-   "element": "Mn",
-   "wyckoff": "24g",
-   "x": 0.356,
-   "y": 0.356,
-   "z": 0.034,
-   "occupancy": 1.0
-  },
-  {
-   "element": "Mn",
-   "wyckoff": "24g",
-   "x": 0.089,
-   "y": 0.089,
-   "z": 0.282,
-   "occupancy": 1.0
-  }
- ],
- "notes": "Complex alpha-Mn structure and fixed ambient cell from Gazzara et al., Acta Cryst. 22, 859-862 (1967).",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Magad-Weiss et al. (2021), BM3",
-   "reference": {
-    "authors": [
-     "Magad-Weiss",
-     "Adeleke",
-     "Greenberg",
-     "Prakapenka",
-     "Yao",
-     "Stavrou"
-    ],
-    "year": 2021,
-    "title": "High-pressure structural study of α-Mn: Experiments and calculations",
-    "source": "Phys. Rev. B",
-    "volume": "103",
-    "locator": "014101",
-    "doi": "10.1103/PhysRevB.103.014101"
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 707.9435488281,
-     "K0": 204.0,
-     "K0_prime": 3.7
-    },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": 3.0,
-    "K0_prime": 0.4
-   },
-   "fixed_parameters": [
-    "V0"
-   ],
-   "experimental_pressure_range_gpa": [
-    14.0,
-    220.0
-   ],
-   "experimental_temperature_range_k": [
-    300.0,
-    300.0
-   ],
-   "temperature_ref": 300.0,
-   "notes": "The high-pressure fit fixed V0 to the independent ambient structure value.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation-of-state section; EOS fit table."
-   },
-   "identifier": "manganese_alpha_magad_weiss_2021_bm3_1",
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
-    },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1103/PhysRevB.103.014101",
-     "locations": [
-      "Equation-of-state section",
-      "EOS fit table"
-     ],
-     "doi": "10.1103/physrevb.103.014101"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "manganese_alpha.json"
-    },
-    "primary_data_check": {
-     "status": "plot_only",
-     "audit_date": "2026-09-03",
-     "digitized_dataset_identifiers": [
-      "manganese_alpha_magad_weiss_2021_figure2_digitized"
-     ],
-     "source_locations": [
-      "Figure 2; EOS discussion on journal page 014101-2"
-     ],
-     "finding": "The new alpha-Mn pressure-volume observations and their BM3 fit are published graphically in Figure 2. The six-page article contains no numerical experimental-data table or supplemental-data pointer. Nineteen visible red markers, including the ambient reference point, were digitized; plotted uncertainty bars could not be separated reliably from the marker size."
+  "format_version": 4,
+  "identifier": "manganese_alpha",
+  "name": "Manganese (alpha)",
+  "formula": "Mn",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 58,
+  "eos_records": [
+    {
+      "identifier": "manganese_alpha_magad_weiss_2021_bm3_1",
+      "label": "Magad-Weiss et al. (2021), BM3",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 707.9435488281, "error": null, "fixed": true},
+        "K0": {"value": 204.0, "error": 3.0},
+        "K0_prime": {"value": 3.7, "error": 0.4}
+      },
+      "experimental_pressure_range_gpa": [14.0, 220.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "determination_method": "experimental",
+      "notes": "The high-pressure fit fixed V0 to the independent ambient structure value.",
+      "reference": {
+        "authors": ["Magad-Weiss", "Adeleke", "Greenberg", "Prakapenka", "Yao", "Stavrou"],
+        "year": 2021,
+        "title": "High-pressure structural study of α-Mn: Experiments and calculations",
+        "source": "Phys. Rev. B",
+        "volume": "103",
+        "locator": "014101",
+        "doi": "10.1103/PhysRevB.103.014101"
+      },
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/manganese_alpha/#record-manganese_alpha_magad_weiss_2021_bm3_1",
+            "report_path": "docs/reconstruction-reports/manganese_alpha.md#record-manganese_alpha_magad_weiss_2021_bm3_1",
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 204.0,
+                "published_error": 3.0,
+                "refit": 203.83582561229912,
+                "refit_error": 1.917238757870573,
+                "difference": -0.1641743877008821,
+                "relative_difference": 0.0008047764102984417,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.7,
+                "published_error": 0.4,
+                "refit": 3.687595506134069,
+                "refit_error": 0.036604871988022064,
+                "difference": -0.012404493865931343,
+                "relative_difference": 0.0033525659097111736,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 19,
+              "observed_pressure_range_gpa": [0.0, 222.4624],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [444.96863, 707.943549],
+              "degrees_of_freedom": 17,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 2.526971766541642,
+              "published_rmse_gpa": 2.57625523860102,
+              "reduced_chi_square": 7.136831757004302,
+              "dataset_identifiers": ["manganese_alpha_magad_weiss_2021_figure2_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1103/PhysRevB.103.014101",
+            "locations": ["Equation-of-state section", "EOS fit table"],
+            "doi": "10.1103/physrevb.103.014101"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "manganese_alpha.json"
+          },
+          "primary_data_check": {
+            "status": "plot_only",
+            "audit_date": "2026-09-03",
+            "digitized_dataset_identifiers": ["manganese_alpha_magad_weiss_2021_figure2_digitized"],
+            "source_locations": ["Figure 2; EOS discussion on journal page 014101-2"],
+            "finding": "The new alpha-Mn pressure-volume observations and their BM3 fit are published graphically in Figure 2. The six-page article contains no numerical experimental-data table or supplemental-data pointer. Nineteen visible red markers, including the ambient reference point, were digitized; plotted uncertainty bars could not be separated reliably from the marker size."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation-of-state section; EOS fit table."
+        }
+      }
     }
-   }
-  }
- ],
- "datasets": [
-  {
-   "identifier": "manganese_alpha_magad_weiss_2021_figure2_digitized",
-   "kind": "pressure_volume_ratio_digitized",
-   "description": "Nineteen plotted alpha-Mn observations digitized from Figure 2, including the ambient reference point. Experimental error-bar endpoints are not separately tabulated because they cannot be resolved reliably from the rasterized markers; digitization uncertainty is retained explicitly.",
-   "reference": {
-    "authors": [
-     "Magad-Weiss",
-     "Adeleke",
-     "Greenberg",
-     "Prakapenka",
-     "Yao",
-     "Stavrou"
-    ],
-    "year": 2021,
-    "source": "Phys. Rev. B",
-    "volume": "103",
-    "locator": "014101",
-    "doi": "10.1103/PhysRevB.103.014101"
-   },
-   "source_location": "Figure 2, red circles labeled This study",
-   "columns": [
+  ],
+  "symmetry": "CUBIC",
+  "space_group": "I-43m",
+  "space_group_number": 217,
+  "lattice": {"a": 8.9125, "b": null, "c": null, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Mn", "wyckoff": "2a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
+    {"element": "Mn", "wyckoff": "8c", "x": 0.317, "y": 0.317, "z": 0.317, "occupancy": 1.0},
+    {"element": "Mn", "wyckoff": "24g", "x": 0.356, "y": 0.356, "z": 0.034, "occupancy": 1.0},
+    {"element": "Mn", "wyckoff": "24g", "x": 0.089, "y": 0.089, "z": 0.282, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Complex alpha-Mn structure and fixed ambient cell from Gazzara et al., Acta Cryst. 22, 859-862 (1967).",
+  "datasets": [
     {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "volume_ratio",
-     "quantity": "relative_volume",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "volume_a3_conventional_cell",
-     "quantity": "volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value"
-    },
-    {
-     "name": "pressure_digitization_uncertainty_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "uncertainty",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "volume_ratio_digitization_uncertainty",
-     "quantity": "relative_volume",
-     "unit": "1",
-     "role": "uncertainty",
-     "of": "volume_ratio"
+      "identifier": "manganese_alpha_magad_weiss_2021_figure2_digitized",
+      "kind": "pressure_volume_ratio_digitized",
+      "description": "Nineteen plotted alpha-Mn observations digitized from Figure 2, including the ambient reference point. Experimental error-bar endpoints are not separately tabulated because they cannot be resolved reliably from the rasterized markers; digitization uncertainty is retained explicitly.",
+      "reference": {
+        "authors": ["Magad-Weiss", "Adeleke", "Greenberg", "Prakapenka", "Yao", "Stavrou"],
+        "year": 2021,
+        "source": "Phys. Rev. B",
+        "volume": "103",
+        "locator": "014101",
+        "doi": "10.1103/PhysRevB.103.014101"
+      },
+      "source_location": "Figure 2, red circles labeled This study",
+      "columns": [
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "volume_ratio", "quantity": "relative_volume", "unit": "1", "role": "value"},
+        {
+          "name": "volume_a3_conventional_cell",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "pressure_digitization_uncertainty_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "volume_ratio_digitization_uncertainty",
+          "quantity": "relative_volume",
+          "unit": "1",
+          "role": "uncertainty",
+          "of": "volume_ratio"
+        }
+      ],
+      "resource": {
+        "path": "datasets/manganese-alpha-magad-weiss-2021-figure2-digitized.csv",
+        "sha256": "a9d8f60b6661a3be4b9d522e5af31ffff6fa002bd708f572ba6b3f2e5cd88ce2",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["manganese_alpha_magad_weiss_2021_bm3_1"],
+      "provenance": {
+        "type": "digitized_from_figure",
+        "method": "Extracted the raster Figure 2 image from the official APS PDF, calibrated the printed axes, and digitized the centers of the red filled-circle markers. Relative volumes were converted using the record's fixed conventional-cell V0.",
+        "source_pdf_sha256": "dfb5fc202a4d195ab7624a7f056c9e18a642647fe5410d68daf075e8b40dbd07",
+        "axis_calibration_pixels_embedded_figure": {
+          "pressure": [
+            [180.0, 0.0],
+            [978.0, 225.0]
+          ],
+          "volume_ratio": [
+            [22.0, 1.0],
+            [849.0, 0.6]
+          ]
+        },
+        "quality_control": {"published_bm3_rms_pressure_residual_gpa": 2.5763, "published_bm3_max_abs_pressure_residual_gpa": 5.574},
+        "digitized_on": "2026-09-03"
+      },
+      "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.103.014101/fulltext"
     }
-   ],
-   "resource": {
-    "path": "datasets/manganese-alpha-magad-weiss-2021-figure2-digitized.csv",
-    "sha256": "a9d8f60b6661a3be4b9d522e5af31ffff6fa002bd708f572ba6b3f2e5cd88ce2",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "manganese_alpha_magad_weiss_2021_bm3_1"
-   ],
-   "provenance": {
-    "type": "digitized_from_figure",
-    "method": "Extracted the raster Figure 2 image from the official APS PDF, calibrated the printed axes, and digitized the centers of the red filled-circle markers. Relative volumes were converted using the record's fixed conventional-cell V0.",
-    "source_pdf_sha256": "dfb5fc202a4d195ab7624a7f056c9e18a642647fe5410d68daf075e8b40dbd07",
-    "axis_calibration_pixels_embedded_figure": {
-     "pressure": [
-      [
-       180.0,
-       0.0
-      ],
-      [
-       978.0,
-       225.0
-      ]
-     ],
-     "volume_ratio": [
-      [
-       22.0,
-       1.0
-      ],
-      [
-       849.0,
-       0.6
-      ]
-     ]
-    },
-    "quality_control": {
-     "published_bm3_rms_pressure_residual_gpa": 2.5763,
-     "published_bm3_max_abs_pressure_residual_gpa": 5.574
-    },
-    "digitized_on": "2026-09-03"
-   },
-   "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.103.014101/fulltext"
-  }
- ],
- "format": "peritheos.material",
- "identifier": "manganese_alpha",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- }
+  ]
 }

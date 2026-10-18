@@ -1,8 +1,8 @@
-import json
 from pathlib import Path
 
 import pytest
 
+from scripts.eosmat_io import read_material
 from scripts.reproduce_aip_handbook_cu_vinet_refit import (
     load_observations,
     refit,
@@ -33,7 +33,7 @@ def test_cu_vinet_l8_refit_is_reproducible_and_improves_the_objective():
 def test_cu_refit_is_a_separate_dataset_backed_catalog_record():
     root = Path(__file__).resolve().parents[1]
     path = root / "peritheos" / "data" / "materials" / "cu_handbook_1972_legacy.eosmat"
-    document = json.loads(path.read_text(encoding="utf-8"))
+    document = read_material(path)
     records = {record["identifier"]: record for record in document["eos_records"]}
     datasets = {dataset["identifier"]: dataset for dataset in document["datasets"]}
 

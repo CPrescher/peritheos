@@ -1,439 +1,401 @@
 {
- "format_version": 3,
- "name": "Calcium carbonate (post-aragonite Pmmn)",
- "aliases": [
-  "post-aragonite CaCO3",
-  "CaCO3-Pmmn"
- ],
- "formula": "CaCO3",
- "symmetry": "ORTHORHOMBIC",
- "lattice": {
-  "a": 4.548592982,
-  "b": 4.9797326888,
-  "c": 4.315966702,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 2,
- "space_group": "Pmmn",
- "space_group_number": 59,
- "atom_sites": [
-  {
-   "element": "Ca",
-   "wyckoff": "2b",
-   "x": 0.0,
-   "y": 0.5,
-   "z": 0.6151,
-   "occupancy": 1.0
-  },
-  {
-   "element": "C",
-   "wyckoff": "2a",
-   "x": 0.0,
-   "y": 0.0,
-   "z": 0.9897,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "2a",
-   "x": 0.0,
-   "y": 0.0,
-   "z": 0.6742,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "4f",
-   "x": 0.0,
-   "y": 0.2359,
-   "z": 0.1429,
-   "occupancy": 1.0
-  }
- ],
- "notes": "Pmmn coordinates and 36 GPa axial ratios are from Oganov, Glass, and Ono, Earth Planet. Sci. Lett. 241, 95-103 (2006), doi:10.1016/j.epsl.2005.10.014. Axes are extrapolated to and normalized against Lv et al.'s fixed V0.",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Lv et al. (2020), 300 K BM3",
-   "default": true,
-   "reference": {
-    "authors": [
-     "Lv",
-     "Liu",
-     "Greenberg",
-     "Prakapenka",
-     "Dorfman"
-    ],
-    "year": 2020,
-    "title": "Thermal equation of state of post-aragonite CaCO3-Pmmn",
-    "source": "Am. Mineral.",
-    "volume": "105",
-    "locator": "1365-1374",
-    "doi": "10.2138/am-2020-7279"
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 97.76,
-     "K0": 146.7,
-     "K0_prime": 3.4
-    },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": 1.9,
-    "K0_prime": 0.1
-   },
-   "fixed_parameters": [
-    "V0"
-   ],
-   "experimental_pressure_range_gpa": [
-    49.0,
-    75.0
-   ],
-   "experimental_temperature_range_k": [
-    300.0,
-    300.0
-   ],
-   "temperature_ref": 300.0,
-   "notes": "Room-temperature BM3 fit with V0 fixed at 97.76 A^3.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table 1, static BM3 row; Table 2, MGD reference-isotherm row."
-   },
-   "identifier": "calcium_carbonate_post_aragonite_lv_2020_bm3_1",
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
-      "reference": {
-       "authors": [
-        "Fei",
-        "Ricolleau",
-        "Frank",
-        "Mibe",
-        "Shen",
-        "Prakapenka"
-       ],
-       "year": 2007,
-       "source": "Proc. Natl. Acad. Sci. USA",
-       "doi": "10.1073/pnas.0609013104"
+  "format_version": 4,
+  "identifier": "calcium_carbonate_post_aragonite",
+  "name": "Calcium carbonate (post-aragonite Pmmn)",
+  "formula": "CaCO3",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 2,
+  "eos_records": [
+    {
+      "identifier": "calcium_carbonate_post_aragonite_lv_2020_bm3_1",
+      "label": "Lv et al. (2020), 300 K BM3",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 97.76, "error": null, "fixed": true},
+        "K0": {"value": 146.7, "error": 1.9},
+        "K0_prime": {"value": 3.4, "error": 0.1}
       },
-      "source_location": "Experimental methods; Au thermal EOS of Fei et al. (2007)",
-      "reference_eos_record": "gold_fei_2007_vinet_2"
-     }
-    ],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The exact reference EOS is executable in the bundled library, but recalculation also requires the row-wise calibrant volume and temperature observations."
-    },
-    "audit_date": "2026-09-03",
-    "notes": "Earlier comparison data were recalculated on a Pt scale; the link identifies the Au calibration used for the present fitted measurements."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.2138/am-2020-7279",
-     "locations": [
-      "Table 1, static BM3 row",
-      "Table 2, MGD reference-isotherm row"
-     ],
-     "doi": "10.2138/am-2020-7279"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "calcium_carbonate_post_aragonite.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "calcium_carbonate_post_aragonite_lv_2020_supplementary_table_pvt"
-     ],
-     "source_locations": [
-      "MSA Deposit AM-20-97279, 7279_suppTable.pdf, Supplementary table"
-     ],
-     "finding": "All 131 CaCO3-Pmmn observations in the MSA deposit's supplementary table, including the nine 298 K measurements and 122 high-temperature measurements."
-    }
-   }
-  },
-  {
-   "label": "Lv et al. (2020), BM3-MGD",
-   "reference": {
-    "authors": [
-     "Lv",
-     "Liu",
-     "Greenberg",
-     "Prakapenka",
-     "Dorfman"
-    ],
-    "year": 2020,
-    "title": "Thermal equation of state of post-aragonite CaCO3-Pmmn",
-    "source": "Am. Mineral.",
-    "volume": "105",
-    "locator": "1365-1374",
-    "doi": "10.2138/am-2020-7279"
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 97.76,
-     "K0": 151.0,
-     "K0_prime": 3.2
-    },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": 4.0,
-    "K0_prime": 0.2
-   },
-   "fixed_parameters": [
-    "V0"
-   ],
-   "experimental_pressure_range_gpa": [
-    49.0,
-    75.0
-   ],
-   "experimental_temperature_range_k": [
-    300.0,
-    2200.0
-   ],
-   "temperature_ref": 300.0,
-   "thermal": {
-    "type": "MieGruneisenDebye",
-    "parameters": {
-     "Tr": 300.0,
-     "theta0": 631.0,
-     "gamma0": 1.6,
-     "q": 1.3,
-     "n": 5
-    },
-    "parameter_errors": {
-     "Tr": null,
-     "theta0": null,
-     "gamma0": 0.5,
-     "q": 0.9,
-     "n": null
-    },
-    "fixed_parameters": [
-     "Tr",
-     "theta0",
-     "n"
-    ],
-    "model": "mie_gruneisen_debye"
-   },
-   "notes": "Joint high-pressure/high-temperature BM3-MGD fit. V0 and the Debye temperature were fixed; n is the five-atom formula-unit count used by the thermal model.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table 1, static BM3 row; Table 2, MGD reference-isotherm row."
-   },
-   "identifier": "calcium_carbonate_post_aragonite_lv_2020_bm3_2",
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
+      "experimental_pressure_range_gpa": [49.0, 75.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "determination_method": "experimental",
+      "default": true,
+      "notes": "Room-temperature BM3 fit with V0 fixed at 97.76 A^3.",
       "reference": {
-       "authors": [
-        "Fei",
-        "Ricolleau",
-        "Frank",
-        "Mibe",
-        "Shen",
-        "Prakapenka"
-       ],
-       "year": 2007,
-       "source": "Proc. Natl. Acad. Sci. USA",
-       "doi": "10.1073/pnas.0609013104"
+        "authors": ["Lv", "Liu", "Greenberg", "Prakapenka", "Dorfman"],
+        "year": 2020,
+        "title": "Thermal equation of state of post-aragonite CaCO3-Pmmn",
+        "source": "Am. Mineral.",
+        "volume": "105",
+        "locator": "1365-1374",
+        "doi": "10.2138/am-2020-7279"
       },
-      "source_location": "Experimental methods; Au thermal EOS of Fei et al. (2007)",
-      "reference_eos_record": "gold_fei_2007_vinet_2"
-     }
-    ],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The exact reference EOS is executable in the bundled library, but recalculation also requires the row-wise calibrant volume and temperature observations."
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
+              "year": 2007,
+              "source": "Proc. Natl. Acad. Sci. USA",
+              "doi": "10.1073/pnas.0609013104"
+            },
+            "source_location": "Experimental methods; Au thermal EOS of Fei et al. (2007)",
+            "reference_eos_record": "gold_fei_2007_vinet_2"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The exact reference EOS is executable in the bundled library, but recalculation also requires the row-wise calibrant volume and temperature observations."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "Earlier comparison data were recalculated on a Pt scale; the link identifies the Au calibration used for the present fitted measurements."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/calcium_carbonate_post_aragonite/#record-calcium_carbonate_post_aragonite_lv_2020_bm3_1",
+            "report_path": "docs/reconstruction-reports/calcium_carbonate_post_aragonite.md#record-calcium_carbonate_post_aragonite_lv_2020_bm3_1",
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 146.7,
+                "published_error": 1.9,
+                "refit": 144.5929609338873,
+                "refit_error": 2.586747610266589,
+                "difference": -2.1070390661126908,
+                "relative_difference": 0.01436291115277908,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.4,
+                "published_error": 0.1,
+                "refit": 3.4716122358570867,
+                "refit_error": 0.11888904427946788,
+                "difference": 0.07161223585708676,
+                "relative_difference": 0.02106242231090787,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows; reference-T rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 9,
+              "observed_pressure_range_gpa": [49.9, 67.5],
+              "observed_temperature_range_k": [298.0, 298.0],
+              "observed_volume_range": [73.36, 77.55],
+              "degrees_of_freedom": 7,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.06174187449610127,
+              "published_rmse_gpa": 0.23539926066074293,
+              "reduced_chi_square": 0.6275147397495696,
+              "dataset_identifiers": ["calcium_carbonate_post_aragonite_lv_2020_supplementary_table_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.2138/am-2020-7279",
+            "locations": ["Table 1, static BM3 row", "Table 2, MGD reference-isotherm row"],
+            "doi": "10.2138/am-2020-7279"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "calcium_carbonate_post_aragonite.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["calcium_carbonate_post_aragonite_lv_2020_supplementary_table_pvt"],
+            "source_locations": ["MSA Deposit AM-20-97279, 7279_suppTable.pdf, Supplementary table"],
+            "finding": "All 131 CaCO3-Pmmn observations in the MSA deposit's supplementary table, including the nine 298 K measurements and 122 high-temperature measurements."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table 1, static BM3 row; Table 2, MGD reference-isotherm row."
+        }
+      }
     },
-    "audit_date": "2026-09-03",
-    "notes": "Earlier comparison data were recalculated on a Pt scale; the link identifies the Au calibration used for the present fitted measurements."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.2138/am-2020-7279",
-     "locations": [
-      "Table 1, static BM3 row",
-      "Table 2, MGD reference-isotherm row"
-     ],
-     "doi": "10.2138/am-2020-7279"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "calcium_carbonate_post_aragonite.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "calcium_carbonate_post_aragonite_lv_2020_supplementary_table_pvt"
-     ],
-     "source_locations": [
-      "MSA Deposit AM-20-97279, 7279_suppTable.pdf, Supplementary table"
-     ],
-     "finding": "The complete 131-row supplementary P-V-T table used for the joint BM3-MGD fit is bundled, including all printed lattice parameters and uncertainties."
+    {
+      "identifier": "calcium_carbonate_post_aragonite_lv_2020_bm3_2",
+      "label": "Lv et al. (2020), BM3-MGD",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 97.76, "error": null, "fixed": true},
+        "K0": {"value": 151.0, "error": 4.0},
+        "K0_prime": {"value": 3.2, "error": 0.2}
+      },
+      "thermal": {
+        "model": "MieGruneisenDebye",
+        "parameters": {
+          "Tr": {"value": 300.0, "error": null, "fixed": true},
+          "theta0": {"value": 631.0, "error": null, "fixed": true},
+          "gamma0": {"value": 1.6, "error": 0.5},
+          "q": {"value": 1.3, "error": 0.9},
+          "n": {"value": 5, "error": null, "fixed": true}
+        }
+      },
+      "experimental_pressure_range_gpa": [49.0, 75.0],
+      "experimental_temperature_range_k": [300.0, 2200.0],
+      "determination_method": "experimental",
+      "notes": "Joint high-pressure/high-temperature BM3-MGD fit. V0 and the Debye temperature were fixed; n is the five-atom formula-unit count used by the thermal model.",
+      "reference": {
+        "authors": ["Lv", "Liu", "Greenberg", "Prakapenka", "Dorfman"],
+        "year": 2020,
+        "title": "Thermal equation of state of post-aragonite CaCO3-Pmmn",
+        "source": "Am. Mineral.",
+        "volume": "105",
+        "locator": "1365-1374",
+        "doi": "10.2138/am-2020-7279"
+      },
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
+              "year": 2007,
+              "source": "Proc. Natl. Acad. Sci. USA",
+              "doi": "10.1073/pnas.0609013104"
+            },
+            "source_location": "Experimental methods; Au thermal EOS of Fei et al. (2007)",
+            "reference_eos_record": "gold_fei_2007_vinet_2"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The exact reference EOS is executable in the bundled library, but recalculation also requires the row-wise calibrant volume and temperature observations."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "Earlier comparison data were recalculated on a Pt scale; the link identifies the Au calibration used for the present fitted measurements."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/calcium_carbonate_post_aragonite/#record-calcium_carbonate_post_aragonite_lv_2020_bm3_2",
+            "report_path": "docs/reconstruction-reports/calcium_carbonate_post_aragonite.md#record-calcium_carbonate_post_aragonite_lv_2020_bm3_2",
+            "parameters": [
+              {
+                "parameter": "rt_eos.K0",
+                "published": 151.0,
+                "published_error": 4.0,
+                "refit": 145.86922539169947,
+                "refit_error": 2.4239535716869662,
+                "difference": -5.130774608300527,
+                "relative_difference": 0.033978639790069716,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0_prime",
+                "published": 3.2,
+                "published_error": 0.2,
+                "refit": 3.4221699921801916,
+                "refit_error": 0.10972862838417025,
+                "difference": 0.2221699921801914,
+                "relative_difference": 0.06942812255630981,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.6,
+                "published_error": 0.5,
+                "refit": 1.9709866972164265,
+                "refit_error": 0.3541053047096985,
+                "difference": 0.3709866972164264,
+                "relative_difference": 0.2318666857602665,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "q",
+                "published": 1.3,
+                "published_error": 0.9,
+                "refit": 1.9929012405528448,
+                "refit_error": 0.694145219843853,
+                "difference": 0.6929012405528447,
+                "relative_difference": 0.533000954271419,
+                "similar": false,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["rt_eos.K0", "rt_eos.K0_prime", "gamma0", "q"],
+              "fixed_parameters": ["V0", "Tr", "theta0", "n"],
+              "observations": 131,
+              "observed_pressure_range_gpa": [49.9, 75.0],
+              "observed_temperature_range_k": [298.0, 2160.0],
+              "observed_volume_range": [73.36, 78.49],
+              "degrees_of_freedom": 127,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.5272073115307907,
+              "published_rmse_gpa": 0.6064708499687894,
+              "reduced_chi_square": 0.9552103532874094,
+              "dataset_identifiers": ["calcium_carbonate_post_aragonite_lv_2020_supplementary_table_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.2138/am-2020-7279",
+            "locations": ["Table 1, static BM3 row", "Table 2, MGD reference-isotherm row"],
+            "doi": "10.2138/am-2020-7279"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "calcium_carbonate_post_aragonite.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["calcium_carbonate_post_aragonite_lv_2020_supplementary_table_pvt"],
+            "source_locations": ["MSA Deposit AM-20-97279, 7279_suppTable.pdf, Supplementary table"],
+            "finding": "The complete 131-row supplementary P-V-T table used for the joint BM3-MGD fit is bundled, including all printed lattice parameters and uncertainties."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table 1, static BM3 row; Table 2, MGD reference-isotherm row."
+        }
+      }
     }
-   }
-  }
- ],
- "format": "peritheos.material",
- "identifier": "calcium_carbonate_post_aragonite",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "datasets": [
-  {
-   "identifier": "calcium_carbonate_post_aragonite_lv_2020_supplementary_table_pvt",
-   "kind": "pressure_volume_temperature_lattice_parameters",
-   "description": "All 131 CaCO3-Pmmn observations in the MSA deposit's supplementary table, including the nine 298 K measurements and 122 high-temperature measurements.",
-   "source_location": "MSA Deposit AM-20-97279, 7279_suppTable.pdf, Supplementary table",
-   "source_url": "http://www.minsocam.org/MSA/AmMin/TOC/2020/Sep2020_data/AM-20-97279.zip",
-   "columns": [
+  ],
+  "aliases": ["post-aragonite CaCO3", "CaCO3-Pmmn"],
+  "symmetry": "ORTHORHOMBIC",
+  "space_group": "Pmmn",
+  "space_group_number": 59,
+  "lattice": {"a": 4.548592982, "b": 4.9797326888, "c": 4.315966702, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Ca", "wyckoff": "2b", "x": 0.0, "y": 0.5, "z": 0.6151, "occupancy": 1.0},
+    {"element": "C", "wyckoff": "2a", "x": 0.0, "y": 0.0, "z": 0.9897, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "2a", "x": 0.0, "y": 0.0, "z": 0.6742, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "4f", "x": 0.0, "y": 0.2359, "z": 0.1429, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Pmmn coordinates and 36 GPa axial ratios are from Oganov, Glass, and Ono, Earth Planet. Sci. Lett. 241, 95-103 (2006), doi:10.1016/j.epsl.2005.10.014. Axes are extrapolated to and normalized against Lv et al.'s fixed V0.",
+  "datasets": [
     {
-     "name": "temperature_k",
-     "quantity": "temperature",
-     "unit": "K",
-     "role": "value"
-    },
-    {
-     "name": "temperature_uncertainty_k",
-     "quantity": "temperature",
-     "unit": "K",
-     "role": "uncertainty",
-     "of": "temperature_k"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_uncertainty_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "uncertainty",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "unit_cell_volume_a3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "unit_cell_volume_uncertainty_a3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "uncertainty",
-     "of": "unit_cell_volume_a3"
-    },
-    {
-     "name": "lattice_a_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_a_uncertainty_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "uncertainty",
-     "of": "lattice_a_angstrom"
-    },
-    {
-     "name": "lattice_b_angstrom",
-     "quantity": "lattice_parameter_b",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_b_uncertainty_angstrom",
-     "quantity": "lattice_parameter_b",
-     "unit": "angstrom",
-     "role": "uncertainty",
-     "of": "lattice_b_angstrom"
-    },
-    {
-     "name": "lattice_c_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_c_uncertainty_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "uncertainty",
-     "of": "lattice_c_angstrom"
+      "identifier": "calcium_carbonate_post_aragonite_lv_2020_supplementary_table_pvt",
+      "kind": "pressure_volume_temperature_lattice_parameters",
+      "description": "All 131 CaCO3-Pmmn observations in the MSA deposit's supplementary table, including the nine 298 K measurements and 122 high-temperature measurements.",
+      "source_location": "MSA Deposit AM-20-97279, 7279_suppTable.pdf, Supplementary table",
+      "source_url": "http://www.minsocam.org/MSA/AmMin/TOC/2020/Sep2020_data/AM-20-97279.zip",
+      "columns": [
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {
+          "name": "temperature_uncertainty_k",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "uncertainty",
+          "of": "temperature_k"
+        },
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_uncertainty_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "unit_cell_volume_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "value"
+        },
+        {
+          "name": "unit_cell_volume_uncertainty_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "uncertainty",
+          "of": "unit_cell_volume_a3"
+        },
+        {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_a_uncertainty_angstrom",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "lattice_a_angstrom"
+        },
+        {"name": "lattice_b_angstrom", "quantity": "lattice_parameter_b", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_b_uncertainty_angstrom",
+          "quantity": "lattice_parameter_b",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "lattice_b_angstrom"
+        },
+        {"name": "lattice_c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_c_uncertainty_angstrom",
+          "quantity": "lattice_parameter_c",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "lattice_c_angstrom"
+        }
+      ],
+      "resource": {
+        "path": "datasets/calcium-carbonate-post-aragonite-lv-2020-supplementary-table-pvt.csv",
+        "sha256": "6e4466a0c06147660a850a9ef24e1bcf14cf18ee1b3f4583b3bdbc6814cb681a",
+        "media_type": "text/csv"
+      },
+      "notes": "Numbers in parentheses are separated as last-digit uncertainties exactly as specified by the supplementary-table footnote. Room-temperature values are printed as 298 K without a temperature uncertainty.",
+      "reference": {
+        "authors": ["Lv", "Liu", "Greenberg", "Prakapenka", "Dorfman"],
+        "year": 2020,
+        "source": "Am. Mineral.",
+        "volume": "105",
+        "locator": "1365-1374",
+        "doi": "10.2138/am-2020-7279"
+      },
+      "used_by_eos_records": ["calcium_carbonate_post_aragonite_lv_2020_bm3_1", "calcium_carbonate_post_aragonite_lv_2020_bm3_2"]
     }
-   ],
-   "resource": {
-    "path": "datasets/calcium-carbonate-post-aragonite-lv-2020-supplementary-table-pvt.csv",
-    "sha256": "6e4466a0c06147660a850a9ef24e1bcf14cf18ee1b3f4583b3bdbc6814cb681a",
-    "media_type": "text/csv"
-   },
-   "notes": "Numbers in parentheses are separated as last-digit uncertainties exactly as specified by the supplementary-table footnote. Room-temperature values are printed as 298 K without a temperature uncertainty.",
-   "reference": {
-    "authors": [
-     "Lv",
-     "Liu",
-     "Greenberg",
-     "Prakapenka",
-     "Dorfman"
-    ],
-    "year": 2020,
-    "source": "Am. Mineral.",
-    "volume": "105",
-    "locator": "1365-1374",
-    "doi": "10.2138/am-2020-7279"
-   },
-   "used_by_eos_records": [
-    "calcium_carbonate_post_aragonite_lv_2020_bm3_1",
-    "calcium_carbonate_post_aragonite_lv_2020_bm3_2"
-   ]
-  }
- ]
+  ]
 }

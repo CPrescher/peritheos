@@ -50,7 +50,7 @@ def test_primary_refit_ledger_covers_every_bundled_record_once():
 
     assert ledger["format"] == "peritheos.primary-eos-refit-validation"
     assert ledger["format_version"] == 1
-    assert len(identifiers) == len(set(identifiers)) == 672
+    assert len(identifiers) == len(set(identifiers)) == 663
     assert set(identifiers) == set(list_eos_record_documents())
 
 
@@ -58,13 +58,13 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     ledger = load_ledger()
     statuses = Counter(item["status"] for item in ledger["records"])
 
-    assert ledger["summary"] == {"total": 672, **dict(sorted(statuses.items()))}
+    assert ledger["summary"] == {"total": 663, **dict(sorted(statuses.items()))}
     assert statuses == {
-        "not_refittable": 176,
-        "parity": 244,
-        "parity_not_achieved": 76,
-        "similar": 159,
-        "source_reconstruction": 17,
+        "not_refittable": 177,
+        "parity": 247,
+        "parity_not_achieved": 62,
+        "similar": 161,
+        "source_reconstruction": 16,
     }
     assert all(
         item.get("reason")
@@ -540,6 +540,9 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     )
     frost_vinet = by_identifier["palladium_frost_2023_vinet_1"]
     assert frost_vinet["status"] == "similar"
+    assert frost_vinet["reproduction_status"] == "not_reproduced"
+    assert frost_vinet["rmse_gpa"] == pytest.approx(0.82532275)
+    assert frost_vinet["adjusted_volume_pressure_rmse_gpa"] == pytest.approx(0.27635881)
     assert frost_vinet["observations"] == 93
     assert frost_vinet["dataset_identifiers"] == [
         "palladium_frost_2023_tables_i_iii_compression"
@@ -549,6 +552,8 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     )
     frost_bm3 = by_identifier["palladium_frost_2023_bm3_2"]
     assert frost_bm3["status"] == "similar"
+    assert frost_bm3["reproduction_status"] == "not_reproduced"
+    assert frost_bm3["rmse_gpa"] == pytest.approx(0.91538047)
     assert frost_bm3["observations"] == 93
     assert frost_bm3["dataset_identifiers"] == [
         "palladium_frost_2023_tables_i_iii_compression"
@@ -723,7 +728,12 @@ def test_shen_smith_cu_pressure_reconstruction_and_all_fixed_v0_refits():
         "fe_shen_2026_vinet_1": ("parity", 42, 162.351481044, 5.345415186),
         "gold_shen_2026_vinet_3": ("parity", 228, 167.641501844, 5.843889939),
         "iron_shen_2026_vinet_2": ("parity", 380, 169.011430224, 5.497551611),
-        "mgo_shen_2026_vinet_3": ("similar", 194, 161.827434484, 3.953583035),
+        "mgo_shen_2026_vinet_3": (
+            "parity_not_achieved",
+            194,
+            161.827434484,
+            3.953583035,
+        ),
         "molybdenum_shen_2026_vinet_1": (
             "parity",
             283,
@@ -731,7 +741,12 @@ def test_shen_smith_cu_pressure_reconstruction_and_all_fixed_v0_refits():
             4.053530585,
         ),
         "nacl_b1_shen_2026_vinet_1": ("parity", 55, 23.474248787, 5.230899183),
-        "nacl_b2_shen_2026_vinet_2": ("similar", 125, 25.447259252, 5.582768069),
+        "nacl_b2_shen_2026_vinet_2": (
+            "parity_not_achieved",
+            125,
+            25.447259252,
+            5.582768069,
+        ),
         "platinum_shen_2026_vinet_2": ("parity", 387, 261.261958425, 5.722331509),
         "tantalum_shen_2026_vinet_2": ("parity", 198, 195.309129528, 3.613634035),
         "tungsten_shen_2026_vinet_3": ("parity", 335, 304.921448469, 4.114318637),
@@ -764,6 +779,30 @@ def test_shen_smith_cu_pressure_reconstruction_and_all_fixed_v0_refits():
             "psi": 1.65,
         }
         assert "no pressure weights" in result["qualification"]
+
+
+@pytest.mark.parametrize(
+    "identifier,raw_count,excluded,published_rms",
+    [
+        ("mgo_shen_2026_vinet_3", 194, 0, 1.16124094155),
+        ("nacl_b2_shen_2026_vinet_2", 131, 6, 0.622380976445),
+    ],
+)
+def test_shen_source_discrepancies_override_broad_coefficient_similarity(
+    identifier, raw_count, excluded, published_rms
+):
+    row = next(
+        r for r in load_ledger()["records"] if r["record_identifier"] == identifier
+    )
+    assert row["status"] == "parity_not_achieved"
+    assert row["coefficient_comparison_status"] == "similar"
+    assert row["reproduction_status"] == "not_reproduced"
+    assert row["author_workflow_reproduced"] is False
+    assert row["source_fit_input_completeness"] == "unconfirmed"
+    assert row["source_phase_observations"] == raw_count
+    assert row["excluded_phase_observations"] == excluded
+    assert row["published_rmse_gpa"] == pytest.approx(published_rms)
+    assert row["published_rmse_gpa"] > 2 * row["rmse_gpa"]
 
 
 def test_chen_independent_refit_does_not_promote_source_author_coefficients():

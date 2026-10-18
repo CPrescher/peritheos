@@ -23,11 +23,11 @@ and records which materials have static, thermal, and Hugoniot coverage. Its
 between the live material files and the scientific ledgers. It includes local
 work and must not be read as the contents of a published release.
 
-The 2026-10-16 integration contains 232 stored material documents / 672 records,
-229 executable materials / 669 records, and thermal EOS coverage for 64 materials
-(including brucite’s independent thermal table-data refit). Stored
-assessments are 660 primary-source validated, nine qualified `not_reproduced`,
-and three deferred. Both scientific ledgers cover all 672 record identities.
+The current local catalog contains 232 stored material documents / 663 records,
+228 executable materials / 659 records, and thermal EOS coverage for 62 materials
+(brucite has no accepted thermal EOS). Stored
+assessments are 645 primary-source validated, fourteen qualified `not_reproduced`,
+and four deferred. Both scientific ledgers cover all 663 record identities.
 Forsterite, diopside, the rubidium halides, phase E, and the scoped brucite
 addition are integrated. Fe-ringwoodite remains staged pending its own review.
 Brucite does not yet provide an accepted broad high-pressure thermal or
@@ -45,7 +45,7 @@ sources, compositions, and pressure standards remain distinguishable.
 | G01 | Forsterite thermal EOS | Thermal coverage added via Katsura (2022); both source variants achieve conditional numerical parity. Full-precision author-script values at theta0=760 K are recommended; static default preserved. | [Source audit](literature-reproductions/forsterite-katsura-2009-2022.md). Original Katsura (2009), DOI [10.1016/j.pepi.2008.08.002](https://doi.org/10.1016/j.pepi.2008.08.002), remains a combined-fit input/normalization hold; final article and all 52 Table 1 rows recovered. |
 | G02 | Diopside | Implemented and integrated: Thompson (2008) static default and Zhao (1998) thermal record; conditional parameter parity within reported error widths | [Audit](literature-reproductions/diopside.md). Preserve the original tables and separate corrected refit dataset, including the graph-corroborated row-15 pressure and its non-statistical reading bound. Exact original workflow remains unrecovered. |
 | G03 / C07 | B2 RbCl, RbBr, RbI thermal markers | Implemented and integrated: three published thermal records; RbCl static default preserved; independent fits classified similar | [Audit](literature-reproductions/rubidium-halides-farla-2025.md). Retain coefficient-precision, benchmark and composite-CsCl calibration qualifications; independent EosFit replay is not recovery of the original author project. |
-| G04 / C12 | Brucite | Integrated over the published lattice-average pressure range, with unchanged source coefficients and separate Peritheos 873 K/thermal table refits | [Audit](literature-reproductions/brucite.md). Static 300 K extends to 22.56 GPa; thermal refit covers 5.95–15.48 GPa, 300–873 K. Original 873 K normalization and source-slope reconstruction remain qualified. |
+| G04 / C12 | Brucite | Only published 300/473/673 K isotherms integrated; full thermal EOS not recommended | [Audit](literature-reproductions/brucite.md). Published-data parity not achieved; 873 K normalization and continuous reconstruction unresolved. All Peritheos refits retained only as diagnostics outside executable selection. |
 | G05 / C10 | Fe2SiO4 ringwoodite | Absent from bundle; source audit and staged addition started in a separate chat on 2026-10-16 | Audit Armentrout–Kavner (2011), DOI [10.1029/2011GL046949](https://doi.org/10.1029/2011GL046949), with its adopted constraints and molar/cell conversion; create a separate Fe endmember. |
 | G06 / C11 | Dense hydrous phase E | Implemented and integrated: measured Fe-bearing phase E static BM3, with fit parity within reported uncertainty | [Audit, differences and residual plot](literature-reproductions/phase-e-crichton-ross-2000.md). All 11 source rows/errors retained; phase-specific peak-position fallback. Published coefficients and exact measured composition preserved. |
 | G07 | Garnet thermal coverage | Pyrope, almandine and majorite each have one static record; queued literature search | Find source-owned, composition-specific P–V–T parameterizations and primary observations; do not treat this family as a mixing model. |
@@ -59,7 +59,7 @@ sources, compositions, and pressure standards remain distinguishable.
 
 | Work item | Current disposition | Next action / reopening condition |
 |---|---|---|
-| Coverage and backlog maintenance | Accepted additions reconcile all 672 stored records across coverage and both scientific ledgers | Run `python -m scripts.generate_catalog_coverage` after additions; use `--check` to detect drift. Reconcile shared ledgers after reviewing parallel additions. |
+| Coverage and backlog maintenance | Accepted additions reconcile all 663 stored records across coverage and both scientific ledgers | Run `python -m scripts.generate_catalog_coverage` after additions; use `--check` to detect drift. Reconcile shared ledgers after reviewing parallel additions. |
 | Catalog integration checks | Catalog-count and Fei Au range expectations reconciled; Rust floating-point JSON round-trip fixed | Keep coverage and ledger checks synchronized with accepted additions. Staged second-batch candidates do not change bundled totals. |
 | Calibration dependencies | See the generated coverage overview for current `reference_eos_not_bundled` and `reference_model_not_supported` totals | Check for stale metadata/links first, then audit genuinely missing standards (including Tsuchiya Au and historical NaCl/Pt formulations). These status counts do not establish that every cited scale is absent. |
 | Sakai (2025) nine-material network | All nine published RT records accepted; Au conditional central-value parity integrated in the common ledger | Extend source reconstruction to the remaining sequential calibration stages using measured paired volumes. Keep calculated Table S9 outputs separate. [Audit](literature-reproductions/sakai-2025-nine-materials.md). |
@@ -442,26 +442,20 @@ production EOS record added.**
 
 ### C12 — Brucite Mg(OH)2
 
-**Current status (2026-10-16): published-range lattice-average catalog entry.**
+**Current status (2026-10-17): three published isotherms retained; full thermal EOS not recommended.**
 
 - Default: unchanged Fukui (2003) 300 K BM3 through 22.56 GPa; published
   473/673 K slices retain their measured ranges. Hydrogen rearrangement does
   not impose an unsupported 0.5 GPa bulk volume cutoff.
-- Separate Peritheos unweighted fits provide 873 K use to 15.48 GPa and
-  continuous thermal interpolation over 5.95–15.48 GPa, 300–873 K. Objective,
-  all selected rows, fixed expansion assumptions and conditional covariance
-  are retained. These are not original-author fits or pressure standards.
-- Additional curved-expansion refits preserve all four tabulated source
-  moduli at their isotherms. A separate continuous variant adopts the printed
-  slopes and explicit 300 K anchors. Expansion alone is fitted to ambient
-  Table 1 data; original records/default and source error widths are preserved.
-- Original 873 K coefficients and source-slope reconstruction remain qualified:
-  plotted markers imply a normalization near 42.70 A^3, versus the printed
-  expansion's 42.516 A^3. No source coefficient is silently corrected.
-- Direct He (2023) ambient F-free hydrogenated neutron structure and Sun (2025)
-  lattice evidence support the stated scope. Exact H-order/phase equilibrium,
-  paired Au readings and original author workflow remain separate limitations.
-  Fei–Mao and Xia alternatives remain incomplete. See the [full audit](literature-reproductions/brucite.md).
+- **Full published thermal EOS not recommended:** parity with the published
+  P–V–T data was not achieved. The 873 K normalization and continuous source
+  reconstruction remain unresolved. Their unchanged coefficients and all
+  Peritheos refits are retained as diagnostic evidence outside executable selection.
+- Only the published 300/473/673 K isotherms remain executable, each within its
+  source-checked measured pressure span. These do not provide interpolation
+  between temperatures. Source observations, errors and primary ambient structure
+  are preserved. Further model development is outside this curation task.
+  See the [full audit](literature-reproductions/brucite.md).
 
 ### C13 — Delta-AlOOH
 

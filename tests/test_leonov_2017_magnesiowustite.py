@@ -1,10 +1,10 @@
-import json
 from pathlib import Path
 
 import numpy as np
 import pytest
 
 from peritheos import Material
+from scripts.eosmat_io import read_material
 from scripts.reproduce_leonov_2017_magnesiowustite import (
     TABLE_I,
     bm3_pressure,
@@ -28,7 +28,7 @@ MATERIALS = {
 
 def _document(identifier: str) -> dict:
     path = ROOT / "peritheos" / "data" / "materials" / f"{identifier}.eosmat"
-    return json.loads(path.read_text(encoding="utf-8"))
+    return read_material(path)
 
 
 def _records() -> dict[float, tuple[dict, dict]]:

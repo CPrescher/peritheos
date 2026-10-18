@@ -1,6 +1,7 @@
 """Peritheos: thermodynamic equations of state calculations."""
 
 from peritheos.acoustics import EulerianFiniteStrainAcoustic
+from peritheos.authoring import create_eosmat
 from peritheos.catalog import (
     DeterminationMethod,
     MaterialFamily,
@@ -15,6 +16,7 @@ from peritheos.catalog import (
     list_eos_records,
     list_material_families,
     list_materials,
+    list_reference_variants,
     search_eos_records,
     search_materials,
 )
@@ -29,6 +31,7 @@ from peritheos.eos import EquationOfState
 from peritheos.eosmat import (
     EOSMAT_FORMAT,
     EOSMAT_FORMAT_VERSION,
+    convert_eosmat,
     eosmat_schema,
     get_eos_record_document,
     get_material_document,
@@ -83,6 +86,7 @@ from peritheos.pressure_calibrations import (
     CalibrationPathRecalculation,
     CommonPressureCalibrationRoutes,
     DiamondRamanCalibration,
+    PressureScaledEOS,
     PressureScaleRecalculation,
     RubyFluorescenceCalibration,
     RubyPressureScaleRecalculation,
@@ -114,7 +118,7 @@ from peritheos.uncertainty import (
     PredictionUncertainty,
 )
 
-__version__ = "0.14.1"
+__version__ = "0.15.0"
 
 __all__ = [
     "CalibrationPathRecalculation",
@@ -163,6 +167,7 @@ __all__ = [
     "plan_dataset_observations",
     "resolve_dataset_observations",
     "PressureScaleRecalculation",
+    "PressureScaledEOS",
     "RubyFluorescenceCalibration",
     "RubyPressureScaleRecalculation",
     "XrdPressureRecalculation",
@@ -174,6 +179,8 @@ __all__ = [
     "ValidationError",
     "ValidationStatus",
     "__version__",
+    "create_eosmat",
+    "convert_eosmat",
     "eosmat_schema",
     "find_common_pressure_calibration_routes",
     "get_eos_record",
@@ -188,6 +195,7 @@ __all__ = [
     "find_pressure_calibration_path",
     "list_eos_record_documents",
     "list_eos_records",
+    "list_reference_variants",
     "list_material_families",
     "list_materials",
     "list_material_documents",

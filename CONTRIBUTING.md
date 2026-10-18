@@ -3,6 +3,9 @@
 Contributions are welcome, particularly independently reproducible validation
 cases, numerical robustness improvements, and documentation clarifications.
 
+The enduring project goals, human-readable EOSMAT principles and shared-checkout
+guidance are collected in [AGENTS.md](AGENTS.md).
+
 ## Development setup
 
 Install [uv](https://docs.astral.sh/uv/) and create the locked development
@@ -21,6 +24,46 @@ uv run --python 3.9 mypy
 uv run pytest -q -W error --cov --cov-report=term-missing
 uv run --group docs mkdocs build --strict
 ```
+
+The development group includes Matplotlib because the reconstruction-report
+tests render figures. Matplotlib remains optional for installed library users.
+The minimum-dependency job runs on both Linux and macOS with Python 3.9,
+NumPy 1.22.0 and SciPy 1.9.3. To reproduce that environment:
+
+```bash
+uv venv --python 3.9 /tmp/peritheos-minimum
+uv pip install --python /tmp/peritheos-minimum/bin/python \
+  --resolution lowest-direct --constraint .github/minimum-test-constraints.txt \
+  --editable . 'pytest>=7.4.4' 'Pillow>=9.2,<13' \
+  'jsonschema>=4.18,<5' 'matplotlib>=3.7,<4'
+OPENBLAS_NUM_THREADS=1 /tmp/peritheos-minimum/bin/python -m pytest -q -W error
+```
+
+The minimum job uses one OpenBLAS thread to avoid oversubscribing the old
+NumPy/SciPy thread pools during reconstruction audits. This test resource
+setting does not change the equations or fitting methods.
+
+The constraint file pins the declared runtime floors so plotting dependencies
+cannot silently select a newer NumPy. It also bounds the old plotting parser,
+which otherwise emits third-party deprecation warnings. The development and docs
+groups carry the same bound for Python 3.9, whose last compatible Matplotlib
+still uses those parser APIs. The parser bound does not constrain library users
+or suppress warnings from Peritheos. See
+[dependency support](docs/api-stability.md#dependency-support) for the NumPy floor.
+
+Free-threaded Python CI also renders the diagnostic PDFs. It builds the locked
+FontTools dependency in its supported pure-Python mode because the optional
+compiled font extension enables the GIL. To reproduce this setup separately:
+
+```bash
+UV_PROJECT_ENVIRONMENT=.venv-free-threaded FONTTOOLS_WITH_CYTHON=0 \
+  uv sync --python 3.14t --frozen --no-binary-package fonttools
+UV_PROJECT_ENVIRONMENT=.venv-free-threaded \
+  uv run --python 3.14t --frozen --no-sync pytest -q -W error
+```
+
+CI checks that the PDF backend imports with the GIL disabled. PDF tests and
+warnings-as-errors remain enabled; installed Peritheos does not require FontTools.
 
 ## Scientific changes
 

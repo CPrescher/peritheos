@@ -8,6 +8,8 @@ from pathlib import Path
 import numpy as np
 from scipy.optimize import least_squares
 
+from scripts.eosmat_io import read_material
+
 ROOT = Path(__file__).parents[1]
 MATERIAL = ROOT / "peritheos/data/materials/phase_egg.eosmat"
 RECORD = "phase_egg_mookherjee_2019_bm3_hp_1"
@@ -22,7 +24,7 @@ def bm3_pressure(volume, v0, k0, k0_prime):
 
 
 def reproduce():
-    document = json.loads(MATERIAL.read_text(encoding="utf-8"))
+    document = read_material(MATERIAL)
     record = next(x for x in document["eos_records"] if x["identifier"] == RECORD)
     dataset = next(x for x in document["datasets"] if x["identifier"] == DATASET)
     rows = np.asarray(dataset["rows"], dtype=float)

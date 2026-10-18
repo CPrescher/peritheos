@@ -1,21 +1,423 @@
 {
-  "format": "peritheos.material",
-  "format_version": 3,
+  "format_version": 4,
   "identifier": "fe084si016_hcp",
   "name": "Fe–9 wt% Si (hcp)",
   "formula": "Fe0.84Si0.16",
   "phase": "hcp",
-  "aliases": [
-    "Fe9Si hcp",
-    "Fe–8.75 wt% Si hcp"
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 2,
+  "eos_records": [
+    {
+      "identifier": "fe084si016_hcp_fischer_2014_bm3_1",
+      "label": "Fischer et al. (2014), Fe0.84Si0.16 hcp BM3 + MGD",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 23.921725801706437, "error": 0.17933821925477544},
+        "K0": {"value": 129.1, "error": 1.4},
+        "K0_prime": {"value": 5.29, "error": 0.08}
+      },
+      "thermal": {
+        "model": "MieGruneisenDebye",
+        "parameters": {
+          "Tr": {"value": 300.0, "error": null, "fixed": true},
+          "theta0": {"value": 417.0, "error": null, "fixed": true},
+          "gamma0": {"value": 1.14, "error": 0.14},
+          "q": {"value": 1.0, "error": null, "fixed": true},
+          "n": {"value": 1.0, "error": null, "fixed": true}
+        },
+        "debye_temperature_law": "integrated_gruneisen"
+      },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [46.46991151576709, 197.0644255148494],
+      "experimental_temperature_range_k": [1128.7150000000001, 2566.255],
+      "pressure_range_status": "reported_exactly",
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "thermal",
+      "default_for": "equilibrium",
+      "default": true,
+      "sample_composition": "8.75 ± 0.40 wt% Si, Fe0.84Si0.16, Fischer et al. (2013)",
+      "notes": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. BM3 is the source-preferred default; Vinet is a separately preserved published alternative. Do not extrapolate the fixed structure or thermal EOS across phase coexistence boundaries.",
+      "range_provenance": {
+        "source_location": "2014 official Table S1, source worksheet row numbers retained",
+        "selection": "phase=hcp",
+        "note": "Marginal bounds of selected observations, not a rectangular phase-stability guarantee."
+      },
+      "fit_datasets": ["fischer_2014_table_s1_pvt"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Fischer", "Campbell", "Caracas", "Reaman", "Heinz", "Dera", "Prakapenka"],
+        "year": 2014,
+        "title": "Equations of state in the Fe–FeSi system at high pressures and temperatures",
+        "source": "Journal of Geophysical Research: Solid Earth",
+        "volume": "119",
+        "locator": "2810-2827",
+        "doi": "10.1002/2013JB010898"
+      },
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "audit_date": "2026-09-19",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "B2 KBr",
+            "reference": {
+              "authors": ["Fischer", "Campbell", "Caracas", "Reaman", "Dera", "Prakapenka"],
+              "year": 2012,
+              "title": "Equation of state and phase diagram of Fe–16Si alloy as a candidate component of Earth’s core",
+              "source": "Earth and Planetary Science Letters",
+              "volume": "357–358",
+              "locator": "268-276",
+              "doi": "10.1016/j.epsl.2012.09.022"
+            },
+            "source_location": "Fischer (2014) Sections 2-3; Fischer (2012) methods/Table 1",
+            "notes": "Exact Fischer 2012 B2 KBr thermal calibration is not bundled; do not substitute the Dewaele 2012 KBr record. KBr is colder than the sample; the marker temperature requires the source gradient correction."
+          }
+        ],
+        "recalculation": {
+          "status": "reference_eos_not_bundled",
+          "notes": "Raw KBr lattice parameters are retained for all compressed observations. Only corrected sample temperatures are tabulated; marker temperatures would require reconstruction of the original surface-temperature/gradient procedure, not a second sample correction. Secondary ruby/neon raw readings are not tabulated."
+        },
+        "notes": "KBr is the principal pressure standard. Room-temperature compression uses neon medium and ruby as an additional standard; source tables do not include ruby wavelengths or per-row marker attribution. Zero uncertainties at the reference row do not define infinite fitting weight."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Complete single-phase source rows with published fixed choices. Unweighted pressure residuals and residual-scaled refit errors are diagnostics: source weights, coefficient confidence and covariance are unspecified. Parity denotes the ledger's numerical/combined-error criterion, not recovery of the authors' regression covariance. The Fe-16Si entry checks the 66-row thermal stage; the independent script also refits its 32-row static stage. See the [Fischer audit](literature-reproductions/fischer-2014-fesi.md).",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/fe084si016_hcp/#record-fe084si016_hcp_fischer_2014_bm3_1",
+            "report_path": "docs/reconstruction-reports/fe084si016_hcp.md#record-fe084si016_hcp_fischer_2014_bm3_1",
+            "parameters": [
+              {
+                "parameter": "rt_eos.V0",
+                "published": 23.921725801706437,
+                "published_error": 0.17933821925477544,
+                "refit": 23.877799732461103,
+                "refit_error": 0.29640929957744455,
+                "difference": -0.04392606924533382,
+                "relative_difference": 0.0018362416495134473,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0",
+                "published": 129.1,
+                "published_error": 1.4,
+                "refit": 131.1223222591529,
+                "refit_error": 14.641112194006409,
+                "difference": 2.022322259152901,
+                "relative_difference": 0.01566477350234625,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0_prime",
+                "published": 5.29,
+                "published_error": 0.08,
+                "refit": 5.254359871574407,
+                "refit_error": 0.2693800928158629,
+                "difference": -0.03564012842559272,
+                "relative_difference": 0.0067372643526640305,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.14,
+                "published_error": 0.14,
+                "refit": 1.1846549216904039,
+                "refit_error": 0.15009376867056062,
+                "difference": 0.04465492169040397,
+                "relative_difference": 0.039170983938950854,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "pressure_residuals",
+              "selection": "phase=hcp",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "hcp_volume_a3"},
+              "absolute_sigma": false,
+              "free_parameters": ["rt_eos.V0", "rt_eos.K0", "rt_eos.K0_prime", "gamma0"],
+              "fixed_parameters": ["Tr", "theta0", "q", "n"],
+              "observations": 76,
+              "observed_pressure_range_gpa": [46.46991151576709, 197.0644255148494],
+              "observed_temperature_range_k": [1128.7150000000001, 2566.255],
+              "observed_volume_range": [15.242475553688518, 19.650928459386936],
+              "degrees_of_freedom": 72,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 1.353860642273373,
+              "published_rmse_gpa": 1.3644500996350781,
+              "reduced_chi_square": 1.9347685630689186,
+              "dataset_identifiers": ["fischer_2014_table_s1_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-19",
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "published_uncertainties",
+            "fixed_parameters",
+            "primary_data",
+            "pressure_calibration",
+            "fit_selection",
+            "numerical_reproduction"
+          ],
+          "primary_source_check": {
+            "doi": "10.1002/2013JB010898",
+            "access_url": "https://doi.org/10.1002/2013JB010898",
+            "locations": ["Table 1 and Section 4.1", "2014 official Table S1, source worksheet row numbers retained"],
+            "finding": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-19",
+            "dataset_identifiers": ["fischer_2014_table_s1_pvt"],
+            "source_locations": ["2014 official Table S1, source worksheet row numbers retained"],
+            "finding": "All 211 rows and available coordinate errors/marker measurements are preserved. 76 hcp observations are selected for this branch. No mixed-phase observations are silently admitted."
+          },
+          "note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table 1 and Section 4.1; 2014 official Table S1, source worksheet row numbers retained.",
+          "equation": "Main equations (1)-(2); standard Vinet replaces BM3 for the alternatives according to Text S1. Thermal pressure is referenced to 300 K using the integrated-Gruneisen Debye-temperature law.",
+          "V0": "Table 1 and Section 4.1: 7.203 cm^3/mol atoms; multiply by 2/0.602214076 for this cell. Fitted with the thermal parameters.",
+          "K0": "Table 1 and Section 4.1: 129.1 GPa. Fitted.",
+          "K0_prime": "Table 1 and Section 4.1: 5.29. Fitted.",
+          "uncertainties": "Source-reported errors; confidence convention and covariance unspecified. Measured V0 errors remain recorded even when V0 is fixed.",
+          "fit_protocol": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged.",
+          "gamma0": "Table 1 and Section 4.1: 1.14 ± 0.14, fitted.",
+          "q": "Fixed at one.",
+          "theta0": "417 K, fixed to the adopted iron value.",
+          "n": "One atom per fractional alloy formula; cell-to-formula normalization uses the explicit Z.",
+          "Tr": "300 K thermal-energy subtraction."
+        }
+      }
+    },
+    {
+      "identifier": "fe084si016_hcp_fischer_2014_vinet_2",
+      "label": "Fischer et al. (2014), Fe0.84Si0.16 hcp VINET + MGD",
+      "model": "Vinet",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 24.187412052454253, "error": 0.08302695335869234},
+        "K0": {"value": 111.4, "error": 1.2},
+        "K0_prime": {"value": 6.08, "error": 0.08}
+      },
+      "thermal": {
+        "model": "MieGruneisenDebye",
+        "parameters": {
+          "Tr": {"value": 300.0, "error": null, "fixed": true},
+          "theta0": {"value": 417.0, "error": null, "fixed": true},
+          "gamma0": {"value": 1.15, "error": 0.15},
+          "q": {"value": 1.0, "error": null, "fixed": true},
+          "n": {"value": 1.0, "error": null, "fixed": true}
+        },
+        "debye_temperature_law": "integrated_gruneisen"
+      },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [46.46991151576709, 197.0644255148494],
+      "experimental_temperature_range_k": [1128.7150000000001, 2566.255],
+      "pressure_range_status": "reported_exactly",
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "thermal",
+      "default": false,
+      "sample_composition": "8.75 ± 0.40 wt% Si, Fe0.84Si0.16, Fischer et al. (2013)",
+      "notes": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. BM3 is the source-preferred default; Vinet is a separately preserved published alternative. Do not extrapolate the fixed structure or thermal EOS across phase coexistence boundaries.",
+      "range_provenance": {
+        "source_location": "2014 official Table S1, source worksheet row numbers retained",
+        "selection": "phase=hcp",
+        "note": "Marginal bounds of selected observations, not a rectangular phase-stability guarantee."
+      },
+      "fit_datasets": ["fischer_2014_table_s1_pvt"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Fischer", "Campbell", "Caracas", "Reaman", "Heinz", "Dera", "Prakapenka"],
+        "year": 2014,
+        "title": "Equations of state in the Fe–FeSi system at high pressures and temperatures",
+        "source": "Journal of Geophysical Research: Solid Earth",
+        "volume": "119",
+        "locator": "2810-2827",
+        "doi": "10.1002/2013JB010898"
+      },
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "audit_date": "2026-09-19",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "B2 KBr",
+            "reference": {
+              "authors": ["Fischer", "Campbell", "Caracas", "Reaman", "Dera", "Prakapenka"],
+              "year": 2012,
+              "title": "Equation of state and phase diagram of Fe–16Si alloy as a candidate component of Earth’s core",
+              "source": "Earth and Planetary Science Letters",
+              "volume": "357–358",
+              "locator": "268-276",
+              "doi": "10.1016/j.epsl.2012.09.022"
+            },
+            "source_location": "Fischer (2014) Sections 2-3; Fischer (2012) methods/Table 1",
+            "notes": "Exact Fischer 2012 B2 KBr thermal calibration is not bundled; do not substitute the Dewaele 2012 KBr record. KBr is colder than the sample; the marker temperature requires the source gradient correction."
+          }
+        ],
+        "recalculation": {
+          "status": "reference_eos_not_bundled",
+          "notes": "Raw KBr lattice parameters are retained for all compressed observations. Only corrected sample temperatures are tabulated; marker temperatures would require reconstruction of the original surface-temperature/gradient procedure, not a second sample correction. Secondary ruby/neon raw readings are not tabulated."
+        },
+        "notes": "KBr is the principal pressure standard. Room-temperature compression uses neon medium and ruby as an additional standard; source tables do not include ruby wavelengths or per-row marker attribution. Zero uncertainties at the reference row do not define infinite fitting weight."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Complete single-phase source rows with published fixed choices. Unweighted pressure residuals and residual-scaled refit errors are diagnostics: source weights, coefficient confidence and covariance are unspecified. Parity denotes the ledger's numerical/combined-error criterion, not recovery of the authors' regression covariance. The Fe-16Si entry checks the 66-row thermal stage; the independent script also refits its 32-row static stage. See the [Fischer audit](literature-reproductions/fischer-2014-fesi.md).",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/fe084si016_hcp/#record-fe084si016_hcp_fischer_2014_vinet_2",
+            "report_path": "docs/reconstruction-reports/fe084si016_hcp.md#record-fe084si016_hcp_fischer_2014_vinet_2",
+            "parameters": [
+              {
+                "parameter": "rt_eos.V0",
+                "published": 24.187412052454253,
+                "published_error": 0.08302695335869234,
+                "refit": 24.22943692257538,
+                "refit_error": 0.33293807509812645,
+                "difference": 0.042024870121128544,
+                "relative_difference": 0.001737468648154293,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0",
+                "published": 111.4,
+                "published_error": 1.2,
+                "refit": 109.52134882742749,
+                "refit_error": 13.511642518280398,
+                "difference": -1.8786511725725177,
+                "relative_difference": 0.016864014116449888,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0_prime",
+                "published": 6.08,
+                "published_error": 0.08,
+                "refit": 6.124474609084446,
+                "refit_error": 0.27279937825655115,
+                "difference": 0.044474609084446115,
+                "relative_difference": 0.007314902809941795,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.15,
+                "published_error": 0.15,
+                "refit": 1.19757940302062,
+                "refit_error": 0.15251652052914422,
+                "difference": 0.047579403020620026,
+                "relative_difference": 0.04137339393097394,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "pressure_residuals",
+              "selection": "phase=hcp",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "hcp_volume_a3"},
+              "absolute_sigma": false,
+              "free_parameters": ["rt_eos.V0", "rt_eos.K0", "rt_eos.K0_prime", "gamma0"],
+              "fixed_parameters": ["Tr", "theta0", "q", "n"],
+              "observations": 76,
+              "observed_pressure_range_gpa": [46.46991151576709, 197.0644255148494],
+              "observed_temperature_range_k": [1128.7150000000001, 2566.255],
+              "observed_volume_range": [15.242475553688518, 19.650928459386936],
+              "degrees_of_freedom": 72,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 1.355083352265737,
+              "published_rmse_gpa": 1.3839029983369042,
+              "reduced_chi_square": 1.938264830009289,
+              "dataset_identifiers": ["fischer_2014_table_s1_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-09-19",
+          "verified_fields": [
+            "equation",
+            "parameters",
+            "units",
+            "reference_state",
+            "phase",
+            "published_uncertainties",
+            "fixed_parameters",
+            "primary_data",
+            "pressure_calibration",
+            "fit_selection",
+            "numerical_reproduction"
+          ],
+          "primary_source_check": {
+            "doi": "10.1002/2013JB010898",
+            "access_url": "https://doi.org/10.1002/2013JB010898",
+            "locations": ["Table S4 and Text S1, page 1", "2014 official Table S1, source worksheet row numbers retained"],
+            "finding": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-19",
+            "dataset_identifiers": ["fischer_2014_table_s1_pvt"],
+            "source_locations": ["2014 official Table S1, source worksheet row numbers retained"],
+            "finding": "All 211 rows and available coordinate errors/marker measurements are preserved. 76 hcp observations are selected for this branch. No mixed-phase observations are silently admitted."
+          },
+          "note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table S4 and Text S1, page 1; 2014 official Table S1, source worksheet row numbers retained.",
+          "equation": "Main equations (1)-(2); standard Vinet replaces BM3 for the alternatives according to Text S1. Thermal pressure is referenced to 300 K using the integrated-Gruneisen Debye-temperature law.",
+          "V0": "Table S4 and Text S1, page 1: 7.283 cm^3/mol atoms; multiply by 2/0.602214076 for this cell. Fitted with the thermal parameters.",
+          "K0": "Table S4 and Text S1, page 1: 111.4 GPa. Fitted.",
+          "K0_prime": "Table S4 and Text S1, page 1: 6.08. Fitted.",
+          "uncertainties": "Source-reported errors; confidence convention and covariance unspecified. Measured V0 errors remain recorded even when V0 is fixed.",
+          "fit_protocol": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged.",
+          "gamma0": "Table S4 and Text S1, page 1: 1.15 ± 0.15, fitted.",
+          "q": "Fixed at one.",
+          "theta0": "417 K, fixed to the adopted iron value.",
+          "n": "One atom per fractional alloy formula; cell-to-formula normalization uses the explicit Z.",
+          "Tr": "300 K thermal-energy subtraction."
+        }
+      }
+    }
   ],
+  "aliases": ["Fe9Si hcp", "Fe–8.75 wt% Si hcp"],
   "cell_contents": "2 atoms per conventional cell; 2 formula units of Fe0.84Si0.16",
-  "units": {
-    "pressure": "GPa",
-    "temperature": "K",
-    "volume": "angstrom^3/conventional_unit_cell"
-  },
   "symmetry": "HEXAGONAL",
+  "space_group": "P63/mmc",
+  "space_group_number": 194,
   "lattice": {
     "a": 2.3845569007078415,
     "b": 2.3845569007078415,
@@ -24,396 +426,12 @@
     "beta": 90.0,
     "gamma": 120.0
   },
-  "formula_units_per_cell": 2,
-  "space_group": "P63/mmc",
-  "space_group_number": 194,
   "atom_sites": [
-    {
-      "element": "Fe",
-      "wyckoff": "2c",
-      "x": 0.3333333333333333,
-      "y": 0.6666666666666666,
-      "z": 0.25,
-      "occupancy": 0.84
-    },
-    {
-      "element": "Si",
-      "wyckoff": "2c",
-      "x": 0.3333333333333333,
-      "y": 0.6666666666666666,
-      "z": 0.25,
-      "occupancy": 0.16
-    }
+    {"element": "Fe", "wyckoff": "2c", "x": 0.3333333333333333, "y": 0.6666666666666666, "z": 0.25, "occupancy": 0.84},
+    {"element": "Si", "wyckoff": "2c", "x": 0.3333333333333333, "y": 0.6666666666666666, "z": 0.25, "occupancy": 0.16}
   ],
   "peaks": [],
-  "source": {
-    "structure_reference": {
-      "authors": [
-        "Fischer",
-        "Campbell",
-        "Reaman",
-        "Miller",
-        "Heinz",
-        "Dera",
-        "Prakapenka"
-      ],
-      "year": 2013,
-      "title": "Phase relations in the Fe–FeSi system at high pressures and temperatures",
-      "source": "Earth and Planetary Science Letters",
-      "volume": "373",
-      "locator": "54-64",
-      "doi": "10.1016/j.epsl.2013.04.035"
-    },
-    "structure_location": "P63/mmc hcp substitutional model: Fe0.84Si0.16 on 2c. Source identifies the hcp topology but does not refine chemical site occupancies; these enforce the measured bulk composition. Reference axes derive from 2014 Table S1 row 19 at 59.3958006581 GPa and 1186.915 K, not ambient conditions. The fixed structural c/a is a diffraction reference, not an EOS prediction of anisotropic compression."
-  },
   "notes": "P63/mmc hcp substitutional model: Fe0.84Si0.16 on 2c. Source identifies the hcp topology but does not refine chemical site occupancies; these enforce the measured bulk composition. Reference axes derive from 2014 Table S1 row 19 at 59.3958006581 GPa and 1186.915 K, not ambient conditions. The fixed structural c/a is a diffraction reference, not an EOS prediction of anisotropic compression.",
-  "eos_records": [
-    {
-      "determination_method": "experimental",
-      "identifier": "fe084si016_hcp_fischer_2014_bm3_1",
-      "label": "Fischer et al. (2014), Fe0.84Si0.16 hcp BM3 + MGD",
-      "default": true,
-      "record_kind": "published",
-      "equation_kind": "thermal",
-      "reference": {
-        "authors": [
-          "Fischer",
-          "Campbell",
-          "Caracas",
-          "Reaman",
-          "Heinz",
-          "Dera",
-          "Prakapenka"
-        ],
-        "year": 2014,
-        "title": "Equations of state in the Fe–FeSi system at high pressures and temperatures",
-        "source": "Journal of Geophysical Research: Solid Earth",
-        "volume": "119",
-        "locator": "2810-2827",
-        "doi": "10.1002/2013JB010898"
-      },
-      "sample_composition": "8.75 ± 0.40 wt% Si, Fe0.84Si0.16, Fischer et al. (2013)",
-      "eos": {
-        "type": "BM3",
-        "model": "birch_murnaghan_3",
-        "parameters": {
-          "V0": 23.921725801706437,
-          "K0": 129.1,
-          "K0_prime": 5.29
-        }
-      },
-      "parameter_errors": {
-        "V0": 0.17933821925477544,
-        "K0": 1.4,
-        "K0_prime": 0.08
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "fixed_parameters": [],
-      "temperature_ref": 300.0,
-      "experimental_pressure_range_gpa": [
-        46.46991151576709,
-        197.0644255148494
-      ],
-      "experimental_temperature_range_k": [
-        1128.7150000000001,
-        2566.255
-      ],
-      "pressure_range_status": "reported_exactly",
-      "range_provenance": {
-        "source_location": "2014 official Table S1, source worksheet row numbers retained",
-        "selection": "phase=hcp",
-        "note": "Marginal bounds of selected observations, not a rectangular phase-stability guarantee."
-      },
-      "fit_datasets": [
-        "fischer_2014_table_s1_pvt"
-      ],
-      "notes": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. BM3 is the source-preferred default; Vinet is a separately preserved published alternative. Do not extrapolate the fixed structure or thermal EOS across phase coexistence boundaries.",
-      "parameter_provenance": {
-       "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table 1 and Section 4.1; 2014 official Table S1, source worksheet row numbers retained.",
-        "equation": "Main equations (1)-(2); standard Vinet replaces BM3 for the alternatives according to Text S1. Thermal pressure is referenced to 300 K using the integrated-Gruneisen Debye-temperature law.",
-        "V0": "Table 1 and Section 4.1: 7.203 cm^3/mol atoms; multiply by 2/0.602214076 for this cell. Fitted with the thermal parameters.",
-        "K0": "Table 1 and Section 4.1: 129.1 GPa. Fitted.",
-        "K0_prime": "Table 1 and Section 4.1: 5.29. Fitted.",
-        "uncertainties": "Source-reported errors; confidence convention and covariance unspecified. Measured V0 errors remain recorded even when V0 is fixed.",
-        "fit_protocol": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged.",
-        "gamma0": "Table 1 and Section 4.1: 1.14 ± 0.14, fitted.",
-        "q": "Fixed at one.",
-        "theta0": "417 K, fixed to the adopted iron value.",
-        "n": "One atom per fractional alloy formula; cell-to-formula normalization uses the explicit Z.",
-        "Tr": "300 K thermal-energy subtraction."
-      },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "audit_date": "2026-09-19",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "material": "B2 KBr",
-            "reference": {
-              "authors": [
-                "Fischer",
-                "Campbell",
-                "Caracas",
-                "Reaman",
-                "Dera",
-                "Prakapenka"
-              ],
-              "year": 2012,
-              "title": "Equation of state and phase diagram of Fe–16Si alloy as a candidate component of Earth’s core",
-              "source": "Earth and Planetary Science Letters",
-              "volume": "357–358",
-              "locator": "268-276",
-              "doi": "10.1016/j.epsl.2012.09.022"
-            },
-            "source_location": "Fischer (2014) Sections 2-3; Fischer (2012) methods/Table 1",
-            "notes": "Exact Fischer 2012 B2 KBr thermal calibration is not bundled; do not substitute the Dewaele 2012 KBr record. KBr is colder than the sample; the marker temperature requires the source gradient correction."
-          }
-        ],
-        "recalculation": {
-          "status": "reference_eos_not_bundled",
-          "notes": "Raw KBr lattice parameters are retained for all compressed observations. Only corrected sample temperatures are tabulated; marker temperatures would require reconstruction of the original surface-temperature/gradient procedure, not a second sample correction. Secondary ruby/neon raw readings are not tabulated."
-        },
-        "notes": "KBr is the principal pressure standard. Room-temperature compression uses neon medium and ruby as an additional standard; source tables do not include ruby wavelengths or per-row marker attribution. Zero uncertainties at the reference row do not define infinite fitting weight."
-      },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "audit_date": "2026-09-19",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "published_uncertainties",
-          "fixed_parameters",
-          "primary_data",
-          "pressure_calibration",
-          "fit_selection",
-          "numerical_reproduction"
-        ],
-        "primary_source_check": {
-          "doi": "10.1002/2013JB010898",
-          "access_url": "https://doi.org/10.1002/2013JB010898",
-          "locations": [
-            "Table 1 and Section 4.1",
-            "2014 official Table S1, source worksheet row numbers retained"
-          ],
-          "finding": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
-        },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-19",
-          "dataset_identifiers": [
-            "fischer_2014_table_s1_pvt"
-          ],
-          "source_locations": [
-            "2014 official Table S1, source worksheet row numbers retained"
-          ],
-          "finding": "All 211 rows and available coordinate errors/marker measurements are preserved. 76 hcp observations are selected for this branch. No mixed-phase observations are silently admitted."
-        },
-        "note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
-      },
-      "default_for": "equilibrium",
-      "thermal": {
-        "type": "MieGruneisenDebye",
-        "model": "mie_gruneisen_debye",
-        "parameters": {
-          "Tr": 300.0,
-          "theta0": 417.0,
-          "gamma0": 1.14,
-          "q": 1.0,
-          "n": 1.0
-        },
-        "debye_temperature_law": "integrated_gruneisen",
-        "parameter_errors": {
-          "Tr": null,
-          "theta0": null,
-          "gamma0": 0.14,
-          "q": null,
-          "n": null
-        },
-        "fixed_parameters": [
-          "Tr",
-          "theta0",
-          "q",
-          "n"
-        ]
-      }
-    },
-    {
-      "determination_method": "experimental",
-      "identifier": "fe084si016_hcp_fischer_2014_vinet_2",
-      "label": "Fischer et al. (2014), Fe0.84Si0.16 hcp VINET + MGD",
-      "default": false,
-      "record_kind": "published",
-      "equation_kind": "thermal",
-      "reference": {
-        "authors": [
-          "Fischer",
-          "Campbell",
-          "Caracas",
-          "Reaman",
-          "Heinz",
-          "Dera",
-          "Prakapenka"
-        ],
-        "year": 2014,
-        "title": "Equations of state in the Fe–FeSi system at high pressures and temperatures",
-        "source": "Journal of Geophysical Research: Solid Earth",
-        "volume": "119",
-        "locator": "2810-2827",
-        "doi": "10.1002/2013JB010898"
-      },
-      "sample_composition": "8.75 ± 0.40 wt% Si, Fe0.84Si0.16, Fischer et al. (2013)",
-      "eos": {
-        "type": "Vinet",
-        "model": "vinet",
-        "parameters": {
-          "V0": 24.187412052454253,
-          "K0": 111.4,
-          "K0_prime": 6.08
-        }
-      },
-      "parameter_errors": {
-        "V0": 0.08302695335869234,
-        "K0": 1.2,
-        "K0_prime": 0.08
-      },
-      "parameter_error_confidence": null,
-      "parameter_covariance": null,
-      "fixed_parameters": [],
-      "temperature_ref": 300.0,
-      "experimental_pressure_range_gpa": [
-        46.46991151576709,
-        197.0644255148494
-      ],
-      "experimental_temperature_range_k": [
-        1128.7150000000001,
-        2566.255
-      ],
-      "pressure_range_status": "reported_exactly",
-      "range_provenance": {
-        "source_location": "2014 official Table S1, source worksheet row numbers retained",
-        "selection": "phase=hcp",
-        "note": "Marginal bounds of selected observations, not a rectangular phase-stability guarantee."
-      },
-      "fit_datasets": [
-        "fischer_2014_table_s1_pvt"
-      ],
-      "notes": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. BM3 is the source-preferred default; Vinet is a separately preserved published alternative. Do not extrapolate the fixed structure or thermal EOS across phase coexistence boundaries.",
-      "parameter_provenance": {
-       "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table S4 and Text S1, page 1; 2014 official Table S1, source worksheet row numbers retained.",
-        "equation": "Main equations (1)-(2); standard Vinet replaces BM3 for the alternatives according to Text S1. Thermal pressure is referenced to 300 K using the integrated-Gruneisen Debye-temperature law.",
-        "V0": "Table S4 and Text S1, page 1: 7.283 cm^3/mol atoms; multiply by 2/0.602214076 for this cell. Fitted with the thermal parameters.",
-        "K0": "Table S4 and Text S1, page 1: 111.4 GPa. Fitted.",
-        "K0_prime": "Table S4 and Text S1, page 1: 6.08. Fitted.",
-        "uncertainties": "Source-reported errors; confidence convention and covariance unspecified. Measured V0 errors remain recorded even when V0 is fixed.",
-        "fit_protocol": "Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged.",
-        "gamma0": "Table S4 and Text S1, page 1: 1.15 ± 0.15, fitted.",
-        "q": "Fixed at one.",
-        "theta0": "417 K, fixed to the adopted iron value.",
-        "n": "One atom per fractional alloy formula; cell-to-formula normalization uses the explicit Z.",
-        "Tr": "300 K thermal-energy subtraction."
-      },
-      "pressure_calibration": {
-        "status": "partially_resolved",
-        "audit_date": "2026-09-19",
-        "methods": [
-          {
-            "kind": "equation_of_state",
-            "material": "B2 KBr",
-            "reference": {
-              "authors": [
-                "Fischer",
-                "Campbell",
-                "Caracas",
-                "Reaman",
-                "Dera",
-                "Prakapenka"
-              ],
-              "year": 2012,
-              "title": "Equation of state and phase diagram of Fe–16Si alloy as a candidate component of Earth’s core",
-              "source": "Earth and Planetary Science Letters",
-              "volume": "357–358",
-              "locator": "268-276",
-              "doi": "10.1016/j.epsl.2012.09.022"
-            },
-            "source_location": "Fischer (2014) Sections 2-3; Fischer (2012) methods/Table 1",
-            "notes": "Exact Fischer 2012 B2 KBr thermal calibration is not bundled; do not substitute the Dewaele 2012 KBr record. KBr is colder than the sample; the marker temperature requires the source gradient correction."
-          }
-        ],
-        "recalculation": {
-          "status": "reference_eos_not_bundled",
-          "notes": "Raw KBr lattice parameters are retained for all compressed observations. Only corrected sample temperatures are tabulated; marker temperatures would require reconstruction of the original surface-temperature/gradient procedure, not a second sample correction. Secondary ruby/neon raw readings are not tabulated."
-        },
-        "notes": "KBr is the principal pressure standard. Room-temperature compression uses neon medium and ruby as an additional standard; source tables do not include ruby wavelengths or per-row marker attribution. Zero uncertainties at the reference row do not define infinite fitting weight."
-      },
-      "scientific_validation": {
-        "status": "primary_source_validated",
-        "audit_date": "2026-09-19",
-        "verified_fields": [
-          "equation",
-          "parameters",
-          "units",
-          "reference_state",
-          "phase",
-          "published_uncertainties",
-          "fixed_parameters",
-          "primary_data",
-          "pressure_calibration",
-          "fit_selection",
-          "numerical_reproduction"
-        ],
-        "primary_source_check": {
-          "doi": "10.1002/2013JB010898",
-          "access_url": "https://doi.org/10.1002/2013JB010898",
-          "locations": [
-            "Table S4 and Text S1, page 1",
-            "2014 official Table S1, source worksheet row numbers retained"
-          ],
-          "finding": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
-        },
-        "primary_data_check": {
-          "status": "bundled",
-          "audit_date": "2026-09-19",
-          "dataset_identifiers": [
-            "fischer_2014_table_s1_pvt"
-          ],
-          "source_locations": [
-            "2014 official Table S1, source worksheet row numbers retained"
-          ],
-          "finding": "All 211 rows and available coordinate errors/marker measurements are preserved. 76 hcp observations are selected for this branch. No mixed-phase observations are silently admitted."
-        },
-        "note": "Verified primary parameters and exact atomic-volume conversion, source-fixed choices, single-phase data selection and independent BM3/Vinet/MGD evaluation. Source coefficient errors are retained; diagnostic fitting weights are explicitly an audit assumption. See docs/literature-reproductions/fischer-2014-fesi.md."
-      },
-      "thermal": {
-        "type": "MieGruneisenDebye",
-        "model": "mie_gruneisen_debye",
-        "parameters": {
-          "Tr": 300.0,
-          "theta0": 417.0,
-          "gamma0": 1.15,
-          "q": 1.0,
-          "n": 1.0
-        },
-        "debye_temperature_law": "integrated_gruneisen",
-        "parameter_errors": {
-          "Tr": null,
-          "theta0": null,
-          "gamma0": 0.15,
-          "q": null,
-          "n": null
-        },
-        "fixed_parameters": [
-          "Tr",
-          "theta0",
-          "q",
-          "n"
-        ]
-      }
-    }
-  ],
   "datasets": [
     {
       "identifier": "fischer_2014_table_s1_pvt",
@@ -422,24 +440,9 @@
       "source_location": "2014 official Table S1, source worksheet row numbers retained",
       "source_url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1002%2F2013JB010898&file=2013JB010898ts01.xls",
       "columns": [
-        {
-          "name": "source_row",
-          "quantity": "source_row",
-          "unit": "1",
-          "role": "flag"
-        },
-        {
-          "name": "phase",
-          "quantity": "phase",
-          "unit": "1",
-          "role": "flag"
-        },
-        {
-          "name": "temperature_k",
-          "quantity": "temperature",
-          "unit": "K",
-          "role": "value"
-        },
+        {"name": "source_row", "quantity": "source_row", "unit": "1", "role": "flag"},
+        {"name": "phase", "quantity": "phase", "unit": "1", "role": "flag"},
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
         {
           "name": "temperature_uncertainty_k",
           "quantity": "temperature",
@@ -447,12 +450,7 @@
           "role": "uncertainty",
           "of": "temperature_k"
         },
-        {
-          "name": "pressure_gpa",
-          "quantity": "pressure",
-          "unit": "GPa",
-          "role": "value"
-        },
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
         {
           "name": "pressure_uncertainty_gpa",
           "quantity": "pressure",
@@ -460,12 +458,7 @@
           "role": "uncertainty",
           "of": "pressure_gpa"
         },
-        {
-          "name": "kbr_a_angstrom",
-          "quantity": "kbr_a_angstrom",
-          "unit": "angstrom",
-          "role": "value"
-        },
+        {"name": "kbr_a_angstrom", "quantity": "kbr_a_angstrom", "unit": "angstrom", "role": "value"},
         {
           "name": "kbr_a_uncertainty_angstrom",
           "quantity": "kbr_a_angstrom",
@@ -473,12 +466,7 @@
           "role": "uncertainty",
           "of": "kbr_a_angstrom"
         },
-        {
-          "name": "d03_a_angstrom",
-          "quantity": "d03_a_angstrom",
-          "unit": "angstrom",
-          "role": "value"
-        },
+        {"name": "d03_a_angstrom", "quantity": "d03_a_angstrom", "unit": "angstrom", "role": "value"},
         {
           "name": "d03_a_uncertainty_angstrom",
           "quantity": "d03_a_angstrom",
@@ -486,12 +474,7 @@
           "role": "uncertainty",
           "of": "d03_a_angstrom"
         },
-        {
-          "name": "hcp_a_angstrom",
-          "quantity": "hcp_a_angstrom",
-          "unit": "angstrom",
-          "role": "value"
-        },
+        {"name": "hcp_a_angstrom", "quantity": "hcp_a_angstrom", "unit": "angstrom", "role": "value"},
         {
           "name": "hcp_a_uncertainty_angstrom",
           "quantity": "hcp_a_angstrom",
@@ -499,12 +482,7 @@
           "role": "uncertainty",
           "of": "hcp_a_angstrom"
         },
-        {
-          "name": "hcp_c_over_a",
-          "quantity": "hcp_c_over_a",
-          "unit": "1",
-          "role": "value"
-        },
+        {"name": "hcp_c_over_a", "quantity": "hcp_c_over_a", "unit": "1", "role": "value"},
         {
           "name": "hcp_c_over_a_uncertainty",
           "quantity": "hcp_c_over_a",
@@ -512,12 +490,7 @@
           "role": "uncertainty",
           "of": "hcp_c_over_a"
         },
-        {
-          "name": "b2_a_angstrom",
-          "quantity": "b2_a_angstrom",
-          "unit": "angstrom",
-          "role": "value"
-        },
+        {"name": "b2_a_angstrom", "quantity": "b2_a_angstrom", "unit": "angstrom", "role": "value"},
         {
           "name": "b2_a_uncertainty_angstrom",
           "quantity": "b2_a_angstrom",
@@ -525,12 +498,7 @@
           "role": "uncertainty",
           "of": "b2_a_angstrom"
         },
-        {
-          "name": "fcc_a_angstrom",
-          "quantity": "fcc_a_angstrom",
-          "unit": "angstrom",
-          "role": "value"
-        },
+        {"name": "fcc_a_angstrom", "quantity": "fcc_a_angstrom", "unit": "angstrom", "role": "value"},
         {
           "name": "fcc_a_uncertainty_angstrom",
           "quantity": "fcc_a_angstrom",
@@ -538,12 +506,7 @@
           "role": "uncertainty",
           "of": "fcc_a_angstrom"
         },
-        {
-          "name": "source_flags",
-          "quantity": "source_flags",
-          "unit": "1",
-          "role": "flag"
-        },
+        {"name": "source_flags", "quantity": "source_flags", "unit": "1", "role": "flag"},
         {
           "name": "d03_volume_a3",
           "quantity": "sample_volume",
@@ -575,15 +538,7 @@
         "media_type": "text/csv"
       },
       "reference": {
-        "authors": [
-          "Fischer",
-          "Campbell",
-          "Caracas",
-          "Reaman",
-          "Heinz",
-          "Dera",
-          "Prakapenka"
-        ],
+        "authors": ["Fischer", "Campbell", "Caracas", "Reaman", "Heinz", "Dera", "Prakapenka"],
         "year": 2014,
         "title": "Equations of state in the Fe–FeSi system at high pressures and temperatures",
         "source": "Journal of Geophysical Research: Solid Earth",
@@ -591,15 +546,24 @@
         "locator": "2810-2827",
         "doi": "10.1002/2013JB010898"
       },
-      "used_by_eos_records": [
-        "fe084si016_hcp_fischer_2014_bm3_1",
-        "fe084si016_hcp_fischer_2014_vinet_2"
-      ],
+      "used_by_eos_records": ["fe084si016_hcp_fischer_2014_bm3_1", "fe084si016_hcp_fischer_2014_vinet_2"],
       "provenance": {
         "type": "transcribed_official_supplement",
         "source_workbook_sha256": "c79452c8fbf63828f22a2eb92bacf81d6c73b823ee5db5fbf43877498ab202be"
       },
       "notes": "Original numerical precision is retained. Source zero uncertainties remain zero, blank uncertainties remain blank. No open data license was identified. The CSV contains factual measurements, not the source table image or layout. Sample temperatures already include the source gradient correction and must not be corrected again. Asterisks are recorded in source_flags and their numeric fields left blank: * means one d-spacing, uncertainty undefined; ** in Table S2 means phase detected but no reliable lattice parameter. The exceptional S2 row 62 marks both phase columns **, which is preserved without repair. Derived cubic volumes are a^3; hcp volumes are sqrt(3)/2*a^3*(c/a). Covariance of a and c/a is not given, so no independent-error volume sigma is fabricated. The complete S2 data also support the withheld B2 audit. KBr lattice uncertainties are standard errors across indexed d-spacings; pressure errors propagate marker lattice and temperature uncertainty. The 2012 source also identifies sample lattice errors as standard errors. The 2014 temperature errors combine 100 K analytical uncertainty, differences between the two sample sides and thickness correction; no confidence level is specified."
     }
-  ]
+  ],
+  "source": {
+    "structure_reference": {
+      "authors": ["Fischer", "Campbell", "Reaman", "Miller", "Heinz", "Dera", "Prakapenka"],
+      "year": 2013,
+      "title": "Phase relations in the Fe–FeSi system at high pressures and temperatures",
+      "source": "Earth and Planetary Science Letters",
+      "volume": "373",
+      "locator": "54-64",
+      "doi": "10.1016/j.epsl.2013.04.035"
+    },
+    "structure_location": "P63/mmc hcp substitutional model: Fe0.84Si0.16 on 2c. Source identifies the hcp topology but does not refine chemical site occupancies; these enforce the measured bulk composition. Reference axes derive from 2014 Table S1 row 19 at 59.3958006581 GPa and 1186.915 K, not ambient conditions. The fixed structural c/a is a diffraction reference, not an EOS prediction of anisotropic compression."
+  }
 }

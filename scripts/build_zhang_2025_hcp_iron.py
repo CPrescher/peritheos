@@ -11,12 +11,13 @@ from __future__ import annotations
 import argparse
 import csv
 import hashlib
-import json
 import re
 import xml.etree.ElementTree as ET
 import zipfile
 from pathlib import Path
 from typing import Any
+
+from scripts.eosmat_io import read_material, write_material
 
 ROOT = Path(__file__).resolve().parents[1]
 MATERIAL = ROOT / "peritheos" / "data" / "materials" / "iron.eosmat"
@@ -721,7 +722,7 @@ def build_dataset(resource_sha256: str) -> dict[str, Any]:
 
 
 def apply(resource_sha256: str) -> None:
-    document = json.loads(MATERIAL.read_text(encoding="utf-8"))
+    document = read_material(MATERIAL)
     identifiers = {
         f"iron_zhang_2025_fit{fit}_{FIT_SPECS[fit]['model']}_mgd" for fit in FIT_SPECS
     }
@@ -735,10 +736,7 @@ def apply(resource_sha256: str) -> None:
         for dataset in document.get("datasets", [])
         if dataset["identifier"] != DATASET_ID
     ] + [build_dataset(resource_sha256)]
-    MATERIAL.write_text(
-        json.dumps(document, indent=1, ensure_ascii=False, allow_nan=False) + "\n",
-        encoding="utf-8",
-    )
+    write_material(MATERIAL, document)
 
 
 def main() -> None:

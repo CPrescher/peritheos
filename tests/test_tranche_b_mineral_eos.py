@@ -12,7 +12,7 @@ from peritheos import (
     list_eos_record_documents,
     validate_eosmat_document,
 )
-from peritheos.eosmat import load_eosmat
+from scripts.eosmat_io import read_material
 from scripts.reproduce_tranche_b_mineral_eos import (
     BM2,
     BM3,
@@ -71,7 +71,7 @@ FILES = [
 def _records() -> list[tuple[dict, Material]]:
     found = []
     for filename in FILES:
-        document = load_eosmat(MATERIALS / filename)
+        document = read_material(MATERIALS / filename)
         validate_eosmat_document(document)
         if not document["eos_records"]:
             continue
@@ -199,7 +199,7 @@ def test_bykova_combined_coesite_tables_and_v_held_candidate_are_preserved():
         0.5244076465
     )
 
-    coesite_v = load_eosmat(MATERIALS / "coesite_v.eosmat")
+    coesite_v = read_material(MATERIALS / "coesite_v.eosmat")
     assert coesite_v["eos_records"] == []
     with pytest.raises(KeyError, match="Unknown material 'coesite_v'"):
         get_material("coesite_v")
@@ -222,7 +222,7 @@ def test_bykova_combined_coesite_tables_and_v_held_candidate_are_preserved():
 def test_hold_papers_do_not_create_production_records():
     found = []
     for path in MATERIALS.glob("*.eosmat"):
-        document = json.loads(path.read_text(encoding="utf-8"))
+        document = read_material(path)
         found.extend(
             record
             for record in document.get("eos_records", [])

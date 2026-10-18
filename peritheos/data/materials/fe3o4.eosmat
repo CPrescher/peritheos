@@ -1,246 +1,191 @@
 {
- "format_version": 3,
- "name": "Fe3O4",
- "formula": "Fe3O4",
- "symmetry": "CUBIC",
- "lattice": {
-  "a": 8.3958,
-  "b": 8.3958,
-  "c": 8.3958,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 8,
- "space_group": "Fd-3m",
- "space_group_number": 227,
- "atom_sites": [
-  {
-   "element": "Fe",
-   "wyckoff": "8a",
-   "x": 0.125,
-   "y": 0.125,
-   "z": 0.125,
-   "occupancy": 1.0
-  },
-  {
-   "element": "Fe",
-   "wyckoff": "16d",
-   "x": 0.5,
-   "y": 0.5,
-   "z": 0.5,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "32e",
-   "x": 0.2549,
-   "y": 0.2549,
-   "z": 0.2549,
-   "occupancy": 1.0
-  }
- ],
- "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/current user/jcpds/fe3o4.jcpds. Room-temperature inverse-spinel structure: Fleet, Acta Crystallographica B37, 917-920 (1981), doi:10.1107/S0567740881004597.",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Mao et al. (1974), magnetite BM3",
-   "reference": {
-    "authors": [
-     "Mao",
-     "Takahashi",
-     "Bassett",
-     "Kinsland",
-     "Merrill"
-    ],
-    "year": 1974,
-    "title": "Isothermal compression of magnetite to 320 KB",
-    "source": "J. Geophys. Res.",
-    "volume": "79",
-    "locator": "1165-1170",
-    "doi": "10.1029/JB079i008p01165"
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 591.434826984,
-     "K0": 183.0,
-     "K0_prime": 4.0
-    },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": 0.634133124,
-    "K0": 10.0,
-    "K0_prime": 0.4
-   },
-   "fixed_parameters": [
-    "V0",
-    "K0_prime"
-   ],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    32.0
-   ],
-   "notes": "Room-temperature (23+/-3 degC) magnetite BM3. V0 and its propagated error come from the paper's a0=8.394(3) A sample, not the independent structural lattice in this file. K0'=4+/-0.4 was assumed, and the authors formed the +/-10 GPa K0 uncertainty by adding fit, NaCl pressure-scale, and assumed-K0' contributions; it is not a covariance-derived one-sigma error. The low-pressure spinel reflections persist to 32 GPa, but a high-pressure phase begins to coexist above about 25 GPa.",
-   "determination_method": "experimental",
-   "identifier": "fe3o4_mao_1974_bm3_1",
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
-    },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1029/JB079i008p01165",
-     "locations": [
-      "page 1165, ambient a=8.394(3) A",
-      "page 1167, Table 3 and printed Birch-Murnaghan equation",
-      "pages 1167-1168, assumed K0'=4+/-0.4 and K0 error budget"
-     ],
-     "finding": "V0 and its error are propagated from the paper's own ambient lattice parameter. The +/-10 GPa K0 error is the authors' sum of independent fit, pressure-scale, and assumed-K0' contributions, not a covariance matrix or a uniform one-sigma statistical error.",
-     "doi": "10.1029/jb079i008p01165"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "fe3o4.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "magnetite_mao_1974_table3_compression"
-     ],
-     "source_locations": [
-      "Table 3, journal page 1167"
-     ],
-     "finding": "All 13 room-temperature magnetite compression observations printed in Table 3, with the source's phase-coexistence flags retained."
+  "format_version": 4,
+  "identifier": "fe3o4",
+  "name": "Fe3O4",
+  "formula": "Fe3O4",
+  "phase": "magnetite, cubic inverse-spinel Fd-3m",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 8,
+  "eos_records": [
+    {
+      "identifier": "fe3o4_mao_1974_bm3_1",
+      "label": "Mao et al. (1974), magnetite BM3",
+      "model": "BM3",
+      "temperature_ref": 296.15,
+      "parameters": {
+        "V0": {"value": 591.434826984, "error": 0.634133124, "fixed": true},
+        "K0": {"value": 183.0, "error": 10.0},
+        "K0_prime": {"value": 4.0, "error": 0.4, "fixed": true}
+      },
+      "experimental_pressure_range_gpa": [0.0, 32.0],
+      "pressure_range_status": "reported_exactly",
+      "determination_method": "experimental",
+      "notes": "Room-temperature (23+/-3 degC) magnetite BM3. V0 and its propagated error come from the paper's a0=8.394(3) A sample, not the independent structural lattice in this file. K0'=4+/-0.4 was assumed, and the authors formed the +/-10 GPa K0 uncertainty by adding fit, NaCl pressure-scale, and assumed-K0' contributions; it is not a covariance-derived one-sigma error. The low-pressure spinel reflections persist to 32 GPa, but a high-pressure phase begins to coexist above about 25 GPa.",
+      "reference": {
+        "authors": ["Mao", "Takahashi", "Bassett", "Kinsland", "Merrill"],
+        "year": 1974,
+        "title": "Isothermal compression of magnetite to 320 KB",
+        "source": "J. Geophys. Res.",
+        "volume": "79",
+        "locator": "1165-1170",
+        "doi": "10.1029/JB079i008p01165"
+      },
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/fe3o4/#record-fe3o4_mao_1974_bm3_1",
+            "report_path": "docs/reconstruction-reports/fe3o4.md#record-fe3o4_mao_1974_bm3_1",
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 183.0,
+                "published_error": 10.0,
+                "refit": 183.3545636138488,
+                "refit_error": 3.2041147970713055,
+                "difference": 0.3545636138487964,
+                "relative_difference": 0.001937506086605445,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_kbar", "temperature": null, "volume": "magnetite_molar_volume_cm3_mol"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 13,
+              "observed_pressure_range_gpa": [0.0, 32.0],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [516.2283852030055, 591.6832804153851],
+              "degrees_of_freedom": 12,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 1.2664209166186853,
+              "published_rmse_gpa": 1.2670669106978538,
+              "reduced_chi_square": 1.7374737662200872,
+              "dataset_identifiers": ["magnetite_mao_1974_table3_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1029/JB079i008p01165",
+            "locations": [
+              "page 1165, ambient a=8.394(3) A",
+              "page 1167, Table 3 and printed Birch-Murnaghan equation",
+              "pages 1167-1168, assumed K0'=4+/-0.4 and K0 error budget"
+            ],
+            "finding": "V0 and its error are propagated from the paper's own ambient lattice parameter. The +/-10 GPa K0 error is the authors' sum of independent fit, pressure-scale, and assumed-K0' contributions, not a covariance matrix or a uniform one-sigma statistical error.",
+            "doi": "10.1029/jb079i008p01165"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "fe3o4.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["magnetite_mao_1974_table3_compression"],
+            "source_locations": ["Table 3, journal page 1167"],
+            "finding": "All 13 room-temperature magnetite compression observations printed in Table 3, with the source's phase-coexistence flags retained."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 1165, ambient a=8.394(3) A; page 1167, Table 3 and printed Birch-Murnaghan equation; pages 1167-1168, assumed K0'=4+/-0.4 and K0 error budget.",
+          "V0": "Mao et al. (1974), page 1165: a0=8.394+/-0.003 A; V0=a0^3 and sigma(V0)=3*a0^2*sigma(a0)",
+          "K0": "Mao et al. (1974), pages 1167-1168, summed error budget",
+          "K0_prime": "Mao et al. (1974), pages 1167-1168: assumed 4+/-0.4",
+          "equation": "Mao et al. (1974), page 1167, printed Birch-Murnaghan equation"
+        }
+      }
     }
-   },
-   "temperature_ref": 296.15,
-   "pressure_range_status": "reported_exactly",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 1165, ambient a=8.394(3) A; page 1167, Table 3 and printed Birch-Murnaghan equation; pages 1167-1168, assumed K0'=4+/-0.4 and K0 error budget.",
-    "V0": "Mao et al. (1974), page 1165: a0=8.394+/-0.003 A; V0=a0^3 and sigma(V0)=3*a0^2*sigma(a0)",
-    "K0": "Mao et al. (1974), pages 1167-1168, summed error budget",
-    "K0_prime": "Mao et al. (1974), pages 1167-1168: assumed 4+/-0.4",
-    "equation": "Mao et al. (1974), page 1167, printed Birch-Murnaghan equation"
-   }
-  }
- ],
- "format": "peritheos.material",
- "identifier": "fe3o4",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "phase": "magnetite, cubic inverse-spinel Fd-3m",
- "datasets": [
-  {
-   "identifier": "magnetite_mao_1974_table3_compression",
-   "kind": "pressure_volume_lattice_parameters",
-   "description": "All 13 room-temperature magnetite compression observations printed in Table 3, with the source's phase-coexistence flags retained.",
-   "source_location": "Table 3, journal page 1167",
-   "source_url": "https://doi.org/10.1029/JB079i008p01165",
-   "columns": [
+  ],
+  "symmetry": "CUBIC",
+  "space_group": "Fd-3m",
+  "space_group_number": 227,
+  "lattice": {"a": 8.3958, "b": 8.3958, "c": 8.3958, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Fe", "wyckoff": "8a", "x": 0.125, "y": 0.125, "z": 0.125, "occupancy": 1.0},
+    {"element": "Fe", "wyckoff": "16d", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "32e", "x": 0.2549, "y": 0.2549, "z": 0.2549, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/current user/jcpds/fe3o4.jcpds. Room-temperature inverse-spinel structure: Fleet, Acta Crystallographica B37, 917-920 (1981), doi:10.1107/S0567740881004597.",
+  "datasets": [
     {
-     "name": "run",
-     "quantity": "run_identifier",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "nacl_lattice_a_angstrom",
-     "quantity": "nacl_lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "nacl_normalized_volume",
-     "quantity": "nacl_volume_ratio",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "pressure_kbar",
-     "quantity": "pressure_from_nacl",
-     "unit": "kbar",
-     "role": "value"
-    },
-    {
-     "name": "magnetite_lattice_a_angstrom",
-     "quantity": "magnetite_lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "magnetite_molar_volume_cm3_mol",
-     "quantity": "magnetite_molar_volume",
-     "unit": "cm^3/mol",
-     "role": "value"
-    },
-    {
-     "name": "magnetite_normalized_volume",
-     "quantity": "magnetite_volume_ratio",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "magnetite_high_pressure_phase_coexists",
-     "quantity": "magnetite_phase_coexistence",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "nacl_b2_phase_coexists",
-     "quantity": "nacl_b1_b2_phase_coexistence",
-     "unit": "1",
-     "role": "flag"
+      "identifier": "magnetite_mao_1974_table3_compression",
+      "kind": "pressure_volume_lattice_parameters",
+      "description": "All 13 room-temperature magnetite compression observations printed in Table 3, with the source's phase-coexistence flags retained.",
+      "source_location": "Table 3, journal page 1167",
+      "source_url": "https://doi.org/10.1029/JB079i008p01165",
+      "columns": [
+        {"name": "run", "quantity": "run_identifier", "unit": "1", "role": "flag"},
+        {"name": "nacl_lattice_a_angstrom", "quantity": "nacl_lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {"name": "nacl_normalized_volume", "quantity": "nacl_volume_ratio", "unit": "1", "role": "value"},
+        {"name": "pressure_kbar", "quantity": "pressure_from_nacl", "unit": "kbar", "role": "value"},
+        {
+          "name": "magnetite_lattice_a_angstrom",
+          "quantity": "magnetite_lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {
+          "name": "magnetite_molar_volume_cm3_mol",
+          "quantity": "magnetite_molar_volume",
+          "unit": "cm^3/mol",
+          "role": "value"
+        },
+        {"name": "magnetite_normalized_volume", "quantity": "magnetite_volume_ratio", "unit": "1", "role": "value"},
+        {
+          "name": "magnetite_high_pressure_phase_coexists",
+          "quantity": "magnetite_phase_coexistence",
+          "unit": "1",
+          "role": "flag"
+        },
+        {"name": "nacl_b2_phase_coexists", "quantity": "nacl_b1_b2_phase_coexistence", "unit": "1", "role": "flag"}
+      ],
+      "resource": {
+        "path": "datasets/magnetite-mao-1974-table3-compression.csv",
+        "sha256": "5944d40193ff9c860ec267fbb9d05ab6c2c4a6dbd6d7ba5b8494d0625aad5e18",
+        "media_type": "text/csv"
+      },
+      "notes": "Measurements are at 23+/-3 degC. The source calculates pressure from B1-NaCl even where B1 and B2 NaCl coexist and tabulates no pointwise uncertainties. Magnetite's high-pressure phase coexists above 248 kbar; the table remains useful for the source's low-pressure spinel EOS fit because the spinel lattice parameter is still reported.",
+      "reference": {
+        "authors": ["Mao", "Takahashi", "Bassett", "Kinsland", "Merrill"],
+        "year": 1974,
+        "source": "J. Geophys. Res.",
+        "volume": "79",
+        "locator": "1165-1170",
+        "doi": "10.1029/JB079i008p01165"
+      },
+      "used_by_eos_records": ["fe3o4_mao_1974_bm3_1"]
     }
-   ],
-   "resource": {
-    "path": "datasets/magnetite-mao-1974-table3-compression.csv",
-    "sha256": "5944d40193ff9c860ec267fbb9d05ab6c2c4a6dbd6d7ba5b8494d0625aad5e18",
-    "media_type": "text/csv"
-   },
-   "notes": "Measurements are at 23+/-3 degC. The source calculates pressure from B1-NaCl even where B1 and B2 NaCl coexist and tabulates no pointwise uncertainties. Magnetite's high-pressure phase coexists above 248 kbar; the table remains useful for the source's low-pressure spinel EOS fit because the spinel lattice parameter is still reported.",
-   "reference": {
-    "authors": [
-     "Mao",
-     "Takahashi",
-     "Bassett",
-     "Kinsland",
-     "Merrill"
-    ],
-    "year": 1974,
-    "source": "J. Geophys. Res.",
-    "volume": "79",
-    "locator": "1165-1170",
-    "doi": "10.1029/JB079i008p01165"
-   },
-   "used_by_eos_records": [
-    "fe3o4_mao_1974_bm3_1"
-   ]
-  }
- ]
+  ]
 }

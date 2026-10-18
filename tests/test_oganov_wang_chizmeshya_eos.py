@@ -7,6 +7,7 @@ import numpy as np
 import pytest
 
 from peritheos import Material, get_material_document, validate_eosmat_document
+from scripts.eosmat_io import read_material
 from scripts.reproduce_oganov_wang_chizmeshya_eos import reproduce
 
 ROOT = Path(__file__).parents[1]
@@ -135,7 +136,7 @@ def test_numerical_reproduction_matches_available_primary_data():
 def test_karki_elastic_moduli_are_not_stored_as_volume_eos_records():
     found = []
     for path in (ROOT / "peritheos" / "data" / "materials").glob("*.eosmat"):
-        document = json.loads(path.read_text(encoding="utf-8"))
+        document = read_material(path)
         found.extend(_doi_records(document, KARKI_DOI))
     assert found == []
 

@@ -1,10 +1,11 @@
 import csv
 import hashlib
 import importlib.util
-import json
 from pathlib import Path
 
 import pytest
+
+from scripts.eosmat_io import read_material
 
 ROOT = Path(__file__).resolve().parents[1]
 MATERIAL = (
@@ -31,7 +32,7 @@ def _load_reproduction_module():
 
 
 def test_koemets_record_and_dataset_metadata_are_linked():
-    document = json.loads(MATERIAL.read_text(encoding="utf-8"))
+    document = read_material(MATERIAL)
     record = next(
         item for item in document["eos_records"] if item["identifier"] == RECORD_ID
     )

@@ -51,6 +51,10 @@ def observation_source_fingerprint(dataset: Mapping[str, Any]) -> str:
 
 def observation_material_fingerprint(document: Mapping[str, Any]) -> str:
     """Bind cell conversions to material identity and the declared cell basis."""
+    if document.get("format_version") == 4:
+        from peritheos._eosmat_v4 import to_v3
+
+        document = to_v3(document)
     fields = (
         "identifier",
         "formula",

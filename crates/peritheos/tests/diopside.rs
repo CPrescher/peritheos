@@ -4,12 +4,7 @@ use peritheos::{load_eosmat, load_eosmat_str};
 
 #[test]
 fn diopside_published_records_load_evaluate_invert_and_preserve_metadata() {
-    let path = Path::new(env!("CARGO_MANIFEST_DIR"))
-        .join("../../peritheos/data/materials/diopside.eosmat");
-    if !path.is_file() {
-        // The Python resource tree is not included in the standalone Rust crate.
-        return;
-    }
+    let path = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/data/diopside.eosmat");
     let material = load_eosmat(path).unwrap();
     material.validate().unwrap();
     assert_eq!(material.eos_records.len(), 2);
@@ -36,12 +31,12 @@ fn diopside_published_records_load_evaluate_invert_and_preserve_metadata() {
         assert!((static_record.pressure(volume, 300.0).unwrap() - pressure).abs() < 1e-9);
     }
     assert_eq!(
-        thermal.document["scientific_validation"]["numerical_reproduction"]
+        thermal.document["evidence"]["scientific_validation"]["numerical_reproduction"]
             ["author_fit_reproduced"],
         false
     );
     assert_eq!(
-        thermal.document["scientific_validation"]["parity_assessment"]
+        thermal.document["evidence"]["scientific_validation"]["parity_assessment"]
             ["parameter_parity_with_documented_table_error"],
         true
     );

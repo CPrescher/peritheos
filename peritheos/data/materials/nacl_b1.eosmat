@@ -1,226 +1,221 @@
 {
- "format_version": 3,
- "name": "NaCl (B1)",
- "formula": "NaCl",
- "symmetry": "CUBIC",
- "lattice": {
-  "a": 5.6402,
-  "b": null,
-  "c": null,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 4,
- "space_group": "Fm-3m",
- "space_group_number": 225,
- "atom_sites": [
-  {
-   "element": "Na",
-   "wyckoff": "4a",
-   "x": 0.0,
-   "y": 0.0,
-   "z": 0.0,
-   "occupancy": 1.0
-  },
-  {
-   "element": "Cl",
-   "wyckoff": "4b",
-   "x": 0.5,
-   "y": 0.5,
-   "z": 0.5,
-   "occupancy": 1.0
-  }
- ],
- "notes": "Rock-salt B1 phase reference: JCPDS 5-0628.",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Shen and Smith (2026), Cu-referenced Vinet",
-   "reference": {
-    "authors": [
-     "Shen",
-     "Smith"
-    ],
-    "year": 2026,
-    "title": "Simultaneous x-ray diffraction measurements of nine pressure calibrants to 140 GPa",
-    "source": "Phys. Rev. B",
-    "volume": "113",
-    "locator": "144113",
-    "doi": "10.1103/fxgq-96sg"
-   },
-   "eos": {
-    "type": "Vinet",
-    "parameters": {
-     "V0": 179.41,
-     "K0": 23.5,
-     "K0_prime": 5.23
-    },
-    "model": "vinet"
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": 0.3,
-    "K0_prime": 0.06
-   },
-   "fixed_parameters": [
-    "V0"
-   ],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    31.0
-   ],
-   "temperature_ref": 300.0,
-   "notes": "Table II Cu-referenced fit using DAC-2 data; V0 fixed to the JCPDS 5-0628 value. Reported uncertainties: K0 +/- 0.3 GPa and K0' +/- 0.06. The B1 phase data extend to 31 GPa; coexistence-region data near 30-35 GPa were excluded.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (4), page 8; Table I and footnotes, page 4; Table II, pages 9-12; Section III.E, pages 8 and 12-14; Experimental methods, page 2; Supplemental Table S1, official Excel workbook; Fratanduono et al. (2020), Table I and Supplemental Eq. (2)."
-   },
-   "identifier": "nacl_b1_shen_2026_vinet_1",
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
-      "reference": {
-       "authors": [
-        "Fratanduono et al."
-       ],
-       "year": 2020,
-       "source": "Phys. Rev. Lett.",
-       "doi": "10.1103/PhysRevLett.124.015701"
+  "format_version": 4,
+  "identifier": "nacl_b1",
+  "name": "NaCl (B1)",
+  "formula": "NaCl",
+  "phase": "B1 (rock-salt), cubic Fm-3m",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 4,
+  "eos_records": [
+    {
+      "identifier": "nacl_b1_shen_2026_vinet_1",
+      "label": "Shen and Smith (2026), NaCl-B1 Cu-referenced Vinet",
+      "model": "Vinet",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 179.41, "error": null, "fixed": true},
+        "K0": {"value": 23.5, "error": 0.3},
+        "K0_prime": {"value": 5.23, "error": 0.06}
       },
-      "source_location": "Experimental methods and Section III.E; Cu-anchored reduced-300 K volumes",
-      "scope": "all fitted observations",
-      "reference_eos_record": "copper_fratanduono_2020_vinet3_298k"
-     }
-    ],
-    "recalculation": {
-     "status": "ready",
-     "notes": "Reconstructed from Fratanduono et al. (2020) Supplemental Material Eq. (2) with the main article Table I central 298 K coefficients (rho0=8.939 g/cm3, K0=133.6 GPa, eta=6.29, beta=2.06, psi=1.65). Each target volume is paired with the Cu volume from the same experiment and run; no unpublished pressure weights or covariance are inferred."
-    },
-    "audit_date": "2026-09-08"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1103/fxgq-96sg",
-     "locations": [
-      "Equation (4), page 8",
-      "Table I and footnotes, page 4",
-      "Table II, pages 9-12",
-      "Section III.E, pages 8 and 12-14",
-      "Experimental methods, page 2",
-      "Supplemental Table S1, official Excel workbook",
-      "Fratanduono et al. (2020), Table I and Supplemental Eq. (2)"
-     ],
-     "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
-     "doi": "10.1103/fxgq-96sg"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "nacl_b1.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "shen_smith_2026_table_s1_simultaneous_volumes"
-     ],
-     "source_locations": [
-      "Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets"
-     ],
-     "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+      "experimental_pressure_range_gpa": [0.0, 31.0],
+      "determination_method": "experimental",
+      "notes": "Table II Cu-referenced fit using DAC-2 data; V0 fixed to the JCPDS 5-0628 value. Reported uncertainties: K0 +/- 0.3 GPa and K0' +/- 0.06. The B1 phase data extend to 31 GPa; coexistence-region data near 30-35 GPa were excluded.",
+      "reference": {
+        "authors": ["Shen", "Smith"],
+        "year": 2026,
+        "title": "Simultaneous x-ray diffraction measurements of nine pressure calibrants to 140 GPa",
+        "source": "Phys. Rev. B",
+        "volume": "113",
+        "locator": "144113",
+        "doi": "10.1103/fxgq-96sg"
+      },
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Fratanduono et al."],
+              "year": 2020,
+              "source": "Phys. Rev. Lett.",
+              "doi": "10.1103/PhysRevLett.124.015701"
+            },
+            "source_location": "Experimental methods and Section III.E; Cu-anchored reduced-300 K volumes",
+            "scope": "all fitted observations",
+            "reference_eos_record": "copper_fratanduono_2020_vinet3_298k"
+          }
+        ],
+        "recalculation": {
+          "status": "ready",
+          "notes": "Reconstructed from Fratanduono et al. (2020) Supplemental Material Eq. (2) with the main article Table I central 298 K coefficients (rho0=8.939 g/cm3, K0=133.6 GPa, eta=6.29, beta=2.06, psi=1.65). Each target volume is paired with the Cu volume from the same experiment and run; no unpublished pressure weights or covariance are inferred."
+        },
+        "audit_date": "2026-09-08"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/nacl_b1/#record-nacl_b1_shen_2026_vinet_1",
+            "report_path": "docs/reconstruction-reports/nacl_b1.md#record-nacl_b1_shen_2026_vinet_1",
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 23.5,
+                "published_error": 0.3,
+                "refit": 23.474248786791218,
+                "refit_error": 0.27216361080427626,
+                "difference": -0.02575121320878182,
+                "relative_difference": 0.0010957963067566732,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.23,
+                "published_error": 0.06,
+                "refit": 5.230899182734111,
+                "refit_error": 0.06419770303779525,
+                "difference": 0.0008991827341109371,
+                "relative_difference": 0.0001719278650307719,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "fixed_v0_vinet_with_reconstructed_cu_pressure",
+              "objective": "unweighted_pressure_residuals",
+              "selection": "NaCl-B1; DAC-2; Cu pressure below 30 GPa (coexistence excluded)",
+              "columns": {
+                "pressure": "Fratanduono-2020 298 K Cu pressure reconstructed per run",
+                "temperature": null,
+                "volume": "unit_cell_volume_a3"
+              },
+              "absolute_sigma": false,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 55,
+              "observed_pressure_range_gpa": [2.786190605963631, 29.97672608654248],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [115.96851, 162.26096],
+              "degrees_of_freedom": 53,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.21166411541792335,
+              "published_rmse_gpa": 0.2124712610232223,
+              "reduced_chi_square": 0.04649232785963884,
+              "pressure_reconstruction": {
+                "density0_g_cm3": 8.939,
+                "doi": "10.1103/PhysRevLett.124.015701",
+                "model": "vinet_3",
+                "pairing": "Each phase volume uses the single Cu volume with the same experiment and run number; both source-labeled Pt first/last measurements are retained when the run is selected.",
+                "parameters": {"K0_gpa": 133.6, "beta": 2.06, "eta": 6.29, "psi": 1.65},
+                "reference": "Fratanduono et al. (2020)",
+                "reference_eos_record": "copper_fratanduono_2020_vinet3_298k",
+                "reference_unit_cell_volume_a3": 47.218085048721,
+                "source_locations": ["main article Table I, 298 K isotherm row", "Supplemental Material Eq. (2), Section S4"]
+              },
+              "dataset_identifiers": ["shen_smith_2026_table_s1_simultaneous_volumes"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1103/fxgq-96sg",
+            "locations": [
+              "Equation (4), page 8",
+              "Table I and footnotes, page 4",
+              "Table II, pages 9-12",
+              "Section III.E, pages 8 and 12-14",
+              "Experimental methods, page 2",
+              "Supplemental Table S1, official Excel workbook",
+              "Fratanduono et al. (2020), Table I and Supplemental Eq. (2)"
+            ],
+            "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
+            "doi": "10.1103/fxgq-96sg"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "nacl_b1.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["shen_smith_2026_table_s1_simultaneous_volumes"],
+            "source_locations": ["Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets"],
+            "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (4), page 8; Table I and footnotes, page 4; Table II, pages 9-12; Section III.E, pages 8 and 12-14; Experimental methods, page 2; Supplemental Table S1, official Excel workbook; Fratanduono et al. (2020), Table I and Supplemental Eq. (2)."
+        }
+      }
     }
-   }
-  }
- ],
- "format": "peritheos.material",
- "identifier": "nacl_b1",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "datasets": [
-  {
-   "identifier": "shen_smith_2026_table_s1_simultaneous_volumes",
-   "kind": "simultaneous_unit_cell_volumes",
-   "description": "All 3,511 non-missing unit-cell volume measurements and standard errors from the two Supplemental Table S1 worksheets.",
-   "reference": {
-    "authors": [
-     "Shen",
-     "Smith"
-    ],
-    "year": 2026,
-    "source": "Phys. Rev. B",
-    "volume": "113",
-    "locator": "144113",
-    "doi": "10.1103/fxgq-96sg"
-   },
-   "source_location": "Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets",
-   "columns": [
+  ],
+  "symmetry": "CUBIC",
+  "space_group": "Fm-3m",
+  "space_group_number": 225,
+  "lattice": {"a": 5.6402, "b": null, "c": null, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Na", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
+    {"element": "Cl", "wyckoff": "4b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Rock-salt B1 phase reference: JCPDS 5-0628.",
+  "datasets": [
     {
-     "name": "experiment",
-     "quantity": "experiment_identifier",
-     "unit": "dimensionless",
-     "role": "flag"
-    },
-    {
-     "name": "run_number",
-     "quantity": "run_number",
-     "unit": "dimensionless",
-     "role": "flag"
-    },
-    {
-     "name": "phase",
-     "quantity": "phase_identifier",
-     "unit": "dimensionless",
-     "role": "flag"
-    },
-    {
-     "name": "measurement_sequence",
-     "quantity": "measurement_sequence",
-     "unit": "dimensionless",
-     "role": "flag"
-    },
-    {
-     "name": "unit_cell_volume_a3",
-     "quantity": "unit_cell_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value"
-    },
-    {
-     "name": "unit_cell_volume_standard_error_a3",
-     "quantity": "unit_cell_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "standard_error",
-     "of": "unit_cell_volume_a3"
+      "identifier": "shen_smith_2026_table_s1_simultaneous_volumes",
+      "kind": "simultaneous_unit_cell_volumes",
+      "description": "All 3,511 non-missing unit-cell volume measurements and standard errors from the two Supplemental Table S1 worksheets.",
+      "reference": {
+        "authors": ["Shen", "Smith"],
+        "year": 2026,
+        "source": "Phys. Rev. B",
+        "volume": "113",
+        "locator": "144113",
+        "doi": "10.1103/fxgq-96sg"
+      },
+      "source_location": "Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets",
+      "columns": [
+        {"name": "experiment", "quantity": "experiment_identifier", "unit": "dimensionless", "role": "flag"},
+        {"name": "run_number", "quantity": "run_number", "unit": "dimensionless", "role": "flag"},
+        {"name": "phase", "quantity": "phase_identifier", "unit": "dimensionless", "role": "flag"},
+        {"name": "measurement_sequence", "quantity": "measurement_sequence", "unit": "dimensionless", "role": "flag"},
+        {
+          "name": "unit_cell_volume_a3",
+          "quantity": "unit_cell_volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "unit_cell_volume_standard_error_a3",
+          "quantity": "unit_cell_volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "standard_error",
+          "of": "unit_cell_volume_a3"
+        }
+      ],
+      "resource": {
+        "path": "datasets/shen-smith-2026-table-s1-volumes.csv",
+        "sha256": "1e8841829f67a7bdbcd654d3a4b87dcdbbaa81bc700b73e9c1800ae71d989f36",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["nacl_b1_shen_2026_vinet_1"],
+      "notes": "The source workbook contains 228 numbered DAC-1 runs and 194 numbered DAC-2 runs. Each non-missing volume/error pair was normalized to one CSV row while retaining the experiment and run identifiers; blank and '--' cells were omitted, not inferred. Pt measurements bracketing each scan retain their source first/last sequence labels. Phase labels distinguish bcc-Fe from hcp-Fe and NaCl-B1 from NaCl-B2. The workbook defines the errors as standard errors combining peak-fitting standard deviations and dispersion among volumes from different (hkl) peaks. Cu reference volumes are included even though no separate Shen-Smith Cu EOS record is bundled. The complete workbook is retained rather than only the lower-scatter run subsets used for the preferred fits.",
+      "source_url": "https://journals.aps.org/prb/supplemental/10.1103/fxgq-96sg/Table-S1.xlsx"
     }
-   ],
-   "resource": {
-    "path": "datasets/shen-smith-2026-table-s1-volumes.csv",
-    "sha256": "1e8841829f67a7bdbcd654d3a4b87dcdbbaa81bc700b73e9c1800ae71d989f36",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "nacl_b1_shen_2026_vinet_1"
-   ],
-   "notes": "The source workbook contains 228 numbered DAC-1 runs and 194 numbered DAC-2 runs. Each non-missing volume/error pair was normalized to one CSV row while retaining the experiment and run identifiers; blank and '--' cells were omitted, not inferred. Pt measurements bracketing each scan retain their source first/last sequence labels. Phase labels distinguish bcc-Fe from hcp-Fe and NaCl-B1 from NaCl-B2. The workbook defines the errors as standard errors combining peak-fitting standard deviations and dispersion among volumes from different (hkl) peaks. Cu reference volumes are included even though no separate Shen-Smith Cu EOS record is bundled. The complete workbook is retained rather than only the lower-scatter run subsets used for the preferred fits.",
-   "source_url": "https://journals.aps.org/prb/supplemental/10.1103/fxgq-96sg/Table-S1.xlsx"
-  }
- ]
+  ]
 }

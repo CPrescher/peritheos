@@ -1,11 +1,11 @@
 import csv
 import hashlib
-import json
 from importlib import resources
 from pathlib import Path
 
 import pytest
 
+from scripts.eosmat_io import read_material
 from scripts.reproduce_sun_2010_morse_eos import verify_table
 
 DOI = "10.1515/zna-2010-1-202"
@@ -42,7 +42,7 @@ def test_sun_parameter_table_is_a_non_catalog_benchmark_fixture():
     records = []
     material_root = Path(__file__).parents[1] / "peritheos" / "data" / "materials"
     for path in material_root.glob("*.eosmat"):
-        document = json.loads(path.read_text(encoding="utf-8"))
+        document = read_material(path)
         records.extend(document.get("eos_records", []))
 
     assert not any(

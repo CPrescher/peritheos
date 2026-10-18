@@ -5,6 +5,10 @@
 peritheos/data/datasets/klb1-ricolleau-2009-table-s1.tsv text eol=lf whitespace=-blank-at-eol,-blank-at-eof
 # JSON audit resources have byte-level provenance hashes.
 *.json text eol=lf
+# Generated reconstruction pages are compared with their exact UTF-8 output.
+docs/reconstruction-reports/*.md text eol=lf
+# Coefficient graphs contain a checksum of their exact SVG bytes.
+docs/reconstruction-reports/figures/*.svg -text whitespace=-blank-at-eol,-blank-at-eof
 # Preserve official ThO2 deposit bytes (mixed CSV/TSV and source line endings).
 peritheos/data/datasets/chidester_2018_sources/*.csv -text
 # Crystallographic source archives also have byte-level provenance hashes.
@@ -27,3 +31,13 @@ peritheos/data/datasets/*.LICENSE.md text eol=lf
 # Diopside source excerpts and correction notes are fingerprinted byte for byte.
 peritheos/data/datasets/diopside-*-original.txt text eol=lf
 peritheos/data/datasets/diopside-zhao-1998-corrected-pvt.README.md text eol=lf
+
+# These newly recovered/source-derived CSVs are fingerprinted as supplied.
+peritheos/data/datasets/brown-nacl-1999-*.csv -text -eol whitespace=cr-at-eol
+peritheos/data/datasets/ferrous-ringwoodite-*.csv -text whitespace=cr-at-eol
+output/material-candidates/brown-nacl-1999/*.csv -text whitespace=cr-at-eol
+output/material-candidates/ferrous-ringwoodite/*.csv -text whitespace=cr-at-eol
+output/palladium-baty-2024-refit-2026-10-17/*.csv -text whitespace=cr-at-eol
+output/palladium-frost-2023-own-data-2026-10-17/*.csv -text whitespace=cr-at-eol
+# Preserve generated research-figure bytes, including Matplotlib path spacing.
+output/**/*.svg -text whitespace=-blank-at-eol,-blank-at-eof

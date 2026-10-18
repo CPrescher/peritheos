@@ -129,7 +129,9 @@ def rubidium_outcome(record):
     if not fit["converged"] or not all(p["similar"] for p in comparisons):
         raise AssertionError("Rubidium conditional refit no longer supports similarity")
     report = json.loads(
-        (ROOT / "docs/data/rubidium-halides-farla-2025-reproduction.json").read_text()
+        (ROOT / "docs/data/rubidium-halides-farla-2025-reproduction.json").read_text(
+            encoding="utf-8"
+        )
     )
     published_rmse = report["compounds"][compound]["independent_fits"][0][
         "source_pressure_rmse_gpa"

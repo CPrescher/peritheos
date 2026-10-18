@@ -1,649 +1,579 @@
 {
- "format_version": 3,
- "name": "Coesite",
- "formula": "SiO2",
- "symmetry": "MONOCLINIC",
- "lattice": {
-  "a": 7.1356,
-  "b": 12.3692,
-  "c": 7.17363,
-  "alpha": 90.0,
-  "beta": 120.34,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 16,
- "space_group": "C2/c",
- "space_group_number": 15,
- "atom_sites": [
-  {
-   "element": "Si",
-   "wyckoff": "8f",
-   "x": 0.14035,
-   "y": 0.10833,
-   "z": 0.0723,
-   "occupancy": 1.0
-  },
-  {
-   "element": "Si",
-   "wyckoff": "8f",
-   "x": 0.50674,
-   "y": 0.15796,
-   "z": 0.54072,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "4a",
-   "x": 0.0,
-   "y": 0.0,
-   "z": 0.0,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "4e",
-   "x": 0.5,
-   "y": 0.11634,
-   "z": 0.75,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "8f",
-   "x": 0.2661,
-   "y": 0.12324,
-   "z": 0.9401,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "8f",
-   "x": 0.3114,
-   "y": 0.10378,
-   "z": 0.328,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "8f",
-   "x": 0.0175,
-   "y": 0.21177,
-   "z": 0.4784,
-   "occupancy": 1.0
-  }
- ],
- "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/sio2-coe2.jcpds, JCPDS/current user/CVS/sio2-coe2.jcpds. Ambient coesite coordinates: Levien and Prewitt, American Mineralogist 66, 324-333 (1981).",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "data from JCPDS and Levien and Prewitt, 1981",
-   "reference": {
-    "authors": [
-     "Levien",
-     "Prewitt"
-    ],
-    "year": 1981,
-    "title": "High-pressure crystal structure and compressibility of coesite",
-    "source": "American Mineralogist",
-    "volume": "66",
-    "locator": "324-333"
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 546.4414,
-     "K0": 96.0,
-     "K0_prime": 8.4
+  "format_version": 4,
+  "identifier": "coesite",
+  "name": "Coesite",
+  "formula": "SiO2",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 16,
+  "eos_records": [
+    {
+      "identifier": "coesite_levien_1981_bm3_1",
+      "label": "data from JCPDS and Levien and Prewitt, 1981",
+      "model": "BM3",
+      "parameters": {
+        "V0": {"value": 546.4414, "error": null},
+        "K0": {"value": 96.0, "error": 3.0},
+        "K0_prime": {"value": 8.4, "error": 1.9}
+      },
+      "experimental_pressure_range_gpa": [0.0, 5.2],
+      "determination_method": "experimental",
+      "notes": "Levien and Prewitt report K0 = 96 +/- 3 GPa and K0' = 8.4 +/- 1.9. V0 is retained from the cited ambient structure; no separate fitted V0 uncertainty was reported.",
+      "reference": {
+        "authors": ["Levien", "Prewitt"],
+        "year": 1981,
+        "title": "High-pressure crystal structure and compressibility of coesite",
+        "source": "American Mineralogist",
+        "volume": "66",
+        "locator": "324-333"
+      },
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/coesite/#record-coesite_levien_1981_bm3_1",
+            "report_path": "docs/reconstruction-reports/coesite.md#record-coesite_levien_1981_bm3_1",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 546.4414,
+                "published_error": null,
+                "refit": 546.5964858387507,
+                "refit_error": 5.822449033638128,
+                "difference": 0.15508583875066506,
+                "relative_difference": 0.00028381055818732813,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 96.0,
+                "published_error": 3.0,
+                "refit": 93.71378327889249,
+                "refit_error": 87.98300095945046,
+                "difference": -2.2862167211075075,
+                "relative_difference": 0.023814757511536538,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 8.4,
+                "published_error": 1.9,
+                "refit": 9.1627406043609,
+                "refit_error": 40.05716604483446,
+                "difference": 0.7627406043609,
+                "relative_difference": 0.09080245290010713,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_kbar", "temperature": null, "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 9,
+              "observed_pressure_range_gpa": [0.0001, 5.19],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [522.59, 546.46],
+              "degrees_of_freedom": 6,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.05640961475040628,
+              "published_rmse_gpa": 0.05759570610686654,
+              "reduced_chi_square": 0.004780579200274352,
+              "dataset_identifiers": ["coesite_levien_1981_table7_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://msaweb.org/AmMin/AM66/AM66_324.pdf",
+            "locations": ["Abstract", "Table 7, P-V data", "page 328, Elasticity section, Birch-Murnaghan fit"],
+            "finding": "The conventional-cell V0 is calculated from the paper's ambient lattice parameters; K0 and K0' are the reported unweighted fit.",
+            "doi": null
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "coesite.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["coesite_levien_1981_table7_pv"],
+            "source_locations": ["Table 7, page 330"],
+            "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Table 7, P-V data; page 328, Elasticity section, Birch-Murnaghan fit."
+        }
+      }
     },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": 3.0,
-    "K0_prime": 1.9
-   },
-   "fixed_parameters": [],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    5.2
-   ],
-   "notes": "Levien and Prewitt report K0 = 96 +/- 3 GPa and K0' = 8.4 +/- 1.9. V0 is retained from the cited ambient structure; no separate fitted V0 uncertainty was reported.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Table 7, P-V data; page 328, Elasticity section, Birch-Murnaghan fit."
-   },
-   "identifier": "coesite_levien_1981_bm3_1",
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
-    },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://msaweb.org/AmMin/AM66/AM66_324.pdf",
-     "locations": [
-      "Abstract",
-      "Table 7, P-V data",
-      "page 328, Elasticity section, Birch-Murnaghan fit"
-     ],
-     "finding": "The conventional-cell V0 is calculated from the paper's ambient lattice parameters; K0 and K0' are the reported unweighted fit.",
-     "doi": null
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "coesite.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "coesite_levien_1981_table7_pv"
-     ],
-     "source_locations": [
-      "Table 7, page 330"
-     ],
-     "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+    {
+      "identifier": "coesite_i_iii_bykova_2018_300k_bm3",
+      "label": "Bykova et al. (2018), combined coesite-I/II/III 300 K BM3",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 547.2, "error": 0.16},
+        "K0": {"value": 103.0, "error": 2.0},
+        "K0_prime": {"value": 3.02, "error": 0.15}
+      },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 36.9],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_qualitatively",
+      "validity": {
+        "pressure_gpa": [0.0, 36.9],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "Effective compression branch across the minor coesite-I to II to III transitions, explicitly represented by one EOS in the source."
+        ]
+      },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 16.0, "molar_mass_g_mol": 60.083},
+      "sample_composition": "High-purity SiO2 coesite single crystals; combined coesite-I, coesite-II, and coesite-III compression branch.",
+      "fit_datasets": ["coesite_i_ii_cernok_2014_table1_pv", "coesite_ii_iii_bykova_2018_table2_pv"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": [
+          "Bykova",
+          "Bykov",
+          "Cernok",
+          "Tidholm",
+          "Simak",
+          "Hellman",
+          "Belov",
+          "Abrikosov",
+          "Liermann",
+          "Hanfland",
+          "Prakapenka",
+          "Prescher",
+          "Dubrovinskaia",
+          "Dubrovinsky"
+        ],
+        "year": 2018,
+        "title": "Metastable silica high pressure polymorphs as structural proxies of deep Earth silicate melts",
+        "source": "Nature Communications",
+        "volume": "9",
+        "locator": "4789",
+        "doi": "10.1038/s41467-018-07265-z"
+      },
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "Neon diffraction and ruby were used for pressure estimation, but the exact calibration equation and paired marker observations are not published with the fit."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "Conditional partial reproduction. The 24 exact bundled rows are the complete numerical subset recovered from Bykova et al. Supplementary Table 2 and the exact table in their cited Cernok et al. diffraction work. Several current-study coesite-I points used by the source remain plot-only, and the source does not report its objective or weights. The unweighted pressure-residual diagnostic therefore tests the documented phase selection without claiming recovery of the unavailable full fit.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/coesite/#record-coesite_i_iii_bykova_2018_300k_bm3",
+            "report_path": "docs/reconstruction-reports/coesite.md#record-coesite_i_iii_bykova_2018_300k_bm3",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 547.2,
+                "published_error": 0.16,
+                "refit": 542.2160145294428,
+                "refit_error": 2.5725077130329166,
+                "difference": -4.983985470557286,
+                "relative_difference": 0.009108160582158782,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 103.0,
+                "published_error": 2.0,
+                "refit": 126.32781341412414,
+                "refit_error": 7.542236025710828,
+                "difference": 23.327813414124137,
+                "relative_difference": 0.22648362537984598,
+                "similar": false,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.02,
+                "published_error": 0.15,
+                "refit": 1.6951442857040346,
+                "refit_error": 0.26037357376244485,
+                "difference": -1.3248557142959654,
+                "relative_difference": 0.43869394513111437,
+                "similar": false,
+                "within_combined_2sigma": false
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 24,
+              "observed_pressure_range_gpa": [2.42, 36.9],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [418.4, 534.1],
+              "degrees_of_freedom": 21,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.6967701888903175,
+              "published_rmse_gpa": 1.2698145840663828,
+              "reduced_chi_square": 0.5548442241442844,
+              "dataset_identifiers": ["coesite_i_ii_cernok_2014_table1_pv", "coesite_ii_iii_bykova_2018_table2_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://www.nature.com/articles/s41467-018-07265-z",
+            "doi": "10.1038/s41467-018-07265-z",
+            "locations": [
+              "Results: Crystal structure of coesite-III",
+              "Figure 1 caption",
+              "Methods: X-ray diffraction",
+              "Supplementary Tables 1-2",
+              "Cernok thesis Table 5.1 reproducing the cited 2014 diffraction Table 1"
+            ],
+            "finding": "One source-owned BM3 fitted jointly to coesite-I, II, and III pressure-volume data. Twenty-four exact observations can be recovered from Supplementary Table 2 and the cited diffraction table; several current-study coesite-I observations remain plot-only."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-08",
+            "dataset_identifiers": ["coesite_i_ii_cernok_2014_table1_pv", "coesite_ii_iii_bykova_2018_table2_pv"],
+            "source_locations": ["Bykova et al. (2018), Supplementary Table 2", "Cernok et al. (2014), Table 1; author thesis Table 5.1"],
+            "finding": "Twenty-four exact coesite-I/II/III P-V observations are bundled. They are the complete numerical subset recoverable from the article, supplement, deposited crystallographic files, and cited diffraction work; several current-study coesite-I points visible in Figure 1 were not tabulated."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Results: Crystal structure of coesite-III; Figure 1 caption; Methods: X-ray diffraction; Supplementary Tables 1-2; Cernok thesis Table 5.1 reproducing the cited 2014 diffraction Table 1.",
+          "equation": "Results, Crystal structure of coesite-III: third-order Birch-Murnaghan.",
+          "parameters": "Results paragraph and Figure 1 caption; V0/Z is multiplied by Z=16 for this conventional-cell material card.",
+          "method": "Combined single-crystal XRD pressure-volume data for coesite-I, II, and III. The exact recoverable subset comprises nine observations from the cited Cernok et al. diffraction work and 15 observations from Supplementary Table 2; current-study coesite-I points remain graphical only."
+        }
+      }
     }
-   }
-  },
-  {
-   "determination_method": "experimental",
-   "identifier": "coesite_i_iii_bykova_2018_300k_bm3",
-   "label": "Bykova et al. (2018), combined coesite-I/II/III 300 K BM3",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Bykova",
-     "Bykov",
-     "Cernok",
-     "Tidholm",
-     "Simak",
-     "Hellman",
-     "Belov",
-     "Abrikosov",
-     "Liermann",
-     "Hanfland",
-     "Prakapenka",
-     "Prescher",
-     "Dubrovinskaia",
-     "Dubrovinsky"
-    ],
-    "year": 2018,
-    "title": "Metastable silica high pressure polymorphs as structural proxies of deep Earth silicate melts",
-    "source": "Nature Communications",
-    "volume": "9",
-    "locator": "4789",
-    "doi": "10.1038/s41467-018-07265-z"
-   },
-   "sample_composition": "High-purity SiO2 coesite single crystals; combined coesite-I, coesite-II, and coesite-III compression branch.",
-   "eos": {
-    "type": "BM3",
-    "model": "birch_murnaghan_3",
-    "parameters": {
-     "V0": 547.2,
-     "K0": 103.0,
-     "K0_prime": 3.02
+  ],
+  "symmetry": "MONOCLINIC",
+  "space_group": "C2/c",
+  "space_group_number": 15,
+  "lattice": {"a": 7.1356, "b": 12.3692, "c": 7.17363, "alpha": 90.0, "beta": 120.34, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Si", "wyckoff": "8f", "x": 0.14035, "y": 0.10833, "z": 0.0723, "occupancy": 1.0},
+    {"element": "Si", "wyckoff": "8f", "x": 0.50674, "y": 0.15796, "z": 0.54072, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "4e", "x": 0.5, "y": 0.11634, "z": 0.75, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "8f", "x": 0.2661, "y": 0.12324, "z": 0.9401, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "8f", "x": 0.3114, "y": 0.10378, "z": 0.328, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "8f", "x": 0.0175, "y": 0.21177, "z": 0.4784, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/sio2-coe2.jcpds, JCPDS/current user/CVS/sio2-coe2.jcpds. Ambient coesite coordinates: Levien and Prewitt, American Mineralogist 66, 324-333 (1981).",
+  "datasets": [
+    {
+      "identifier": "coesite_levien_1981_table7_pv",
+      "kind": "pressure_volume",
+      "description": "All nine coesite unit-cell observations used in the unweighted BM3 fit.",
+      "reference": {
+        "authors": ["Levien", "Prewitt"],
+        "year": 1981,
+        "source": "American Mineralogist",
+        "volume": "66",
+        "locator": "324-333"
+      },
+      "source_location": "Table 7, page 330",
+      "columns": [
+        {"name": "pressure_kbar", "quantity": "pressure", "unit": "kbar", "role": "value"},
+        {
+          "name": "pressure_sigma_kbar",
+          "quantity": "pressure",
+          "unit": "kbar",
+          "role": "standard_deviation",
+          "of": "pressure_kbar"
+        },
+        {"name": "a_a", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {
+          "name": "a_sigma_a",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "a_a"
+        },
+        {"name": "b_a", "quantity": "lattice_parameter_b", "unit": "angstrom", "role": "value"},
+        {
+          "name": "b_sigma_a",
+          "quantity": "lattice_parameter_b",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "b_a"
+        },
+        {"name": "c_a", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
+        {
+          "name": "c_sigma_a",
+          "quantity": "lattice_parameter_c",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "c_a"
+        },
+        {"name": "beta_deg", "quantity": "lattice_angle_beta", "unit": "degree", "role": "value"},
+        {
+          "name": "beta_sigma_deg",
+          "quantity": "lattice_angle_beta",
+          "unit": "degree",
+          "role": "standard_deviation",
+          "of": "beta_deg"
+        },
+        {"name": "volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+        {
+          "name": "volume_sigma_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "standard_deviation",
+          "of": "volume_a3"
+        }
+      ],
+      "resource": {
+        "path": "datasets/coesite-levien-1981-table7-pv.csv",
+        "sha256": "ba8c7fcdd377eeb28f24a3ba0586884120159b6ecbf9eb6d87caa2c59e75f1cc",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["coesite_levien_1981_bm3_1"],
+      "notes": "The ambient row is encoded as 0.001 kbar (1 atm) and has no pressure sigma. Parenthesized figures are the source's estimated standard deviations."
+    },
+    {
+      "identifier": "coesite_i_ii_cernok_2014_table1_pv",
+      "kind": "pressure_volume",
+      "description": "Nine measured coesite-I/II observations incorporated as literature data in the Bykova et al. (2018) combined coesite-I/II/III BM3 fit. The fitted ambient row printed in the source table is intentionally excluded as non-independent EOS output.",
+      "reference": {
+        "authors": ["Cernok", "Bykova", "Boffa Ballaran", "Liermann", "Hanfland", "Dubrovinsky"],
+        "year": 2014,
+        "title": "High-pressure crystal chemistry of coesite-I and its transition to coesite-II",
+        "source": "Zeitschrift fur Kristallographie - Crystalline Materials",
+        "volume": "229",
+        "locator": "761-773",
+        "doi": "10.1515/zkri-2014-1763"
+      },
+      "source_location": "Article Table 1; author thesis Table 5.1, page 72",
+      "source_url": "https://epub.uni-bayreuth.de/id/eprint/2719/1/AnaCernok_thesis.pdf",
+      "columns": [
+        {"name": "phase", "quantity": "phase_identifier", "unit": "text", "role": "flag"},
+        {
+          "name": "formula_units_per_source_cell",
+          "quantity": "formula_units_per_cell",
+          "unit": "dimensionless",
+          "role": "flag"
+        },
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_sigma_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "standard_deviation",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "volume_a3_source_cell",
+          "quantity": "source_unit_cell_volume",
+          "unit": "angstrom^3/source_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "volume_sigma_a3_source_cell",
+          "quantity": "source_unit_cell_volume",
+          "unit": "angstrom^3/source_unit_cell",
+          "role": "standard_deviation",
+          "of": "volume_a3_source_cell"
+        },
+        {
+          "name": "volume_a3_z16_equivalent_cell",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "volume_sigma_a3_z16_equivalent_cell",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "standard_deviation",
+          "of": "volume_a3_z16_equivalent_cell"
+        },
+        {
+          "name": "volume_a3_per_formula_unit",
+          "quantity": "formula_unit_volume",
+          "unit": "angstrom^3/formula_unit",
+          "role": "value"
+        },
+        {
+          "name": "volume_sigma_a3_per_formula_unit",
+          "quantity": "formula_unit_volume",
+          "unit": "angstrom^3/formula_unit",
+          "role": "standard_deviation",
+          "of": "volume_a3_per_formula_unit"
+        }
+      ],
+      "resource": {
+        "path": "datasets/coesite-i-ii-cernok-2014-table1-pv.csv",
+        "sha256": "733b94709bd150635b1fe5e7975a652055cc745e604dad723f2b06146b3ce575",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["coesite_i_iii_bykova_2018_300k_bm3"],
+      "notes": "The source cells contain Z=16 for coesite-I and Z=32 for coesite-II. Per-formula-unit volumes and their standard deviations are exact divisions by Z.",
+      "provenance": {
+        "type": "transcribed_from_table",
+        "method": "Pressure, pressure standard deviation, source-cell volume, and volume standard deviation were transcribed from the cited diffraction table as reproduced in the lead author's institutional thesis. The table's fitted ambient EOS row was excluded; per-formula-unit quantities were divided by the phase-specific Z.",
+        "source_pdf_sha256": "093882fd5953cc0eab8517e6ed4ddc4e6003628097956b0b5029d5a4822fdd2c",
+        "quality_control": {"row_count": 9, "excluded_fitted_rows": 1},
+        "transcribed_on": "2026-09-07"
+      }
+    },
+    {
+      "identifier": "coesite_ii_iii_bykova_2018_table2_pv",
+      "kind": "pressure_volume",
+      "description": "All 15 coesite-II and coesite-III unit-cell observations in Bykova et al. (2018) Supplementary Table 2, including distinct repeat measurements and the two high-pressure coesite-III states coexisting with coesite-IV.",
+      "reference": {
+        "authors": [
+          "Bykova",
+          "Bykov",
+          "Cernok",
+          "Tidholm",
+          "Simak",
+          "Hellman",
+          "Belov",
+          "Abrikosov",
+          "Liermann",
+          "Hanfland",
+          "Prakapenka",
+          "Prescher",
+          "Dubrovinskaia",
+          "Dubrovinsky"
+        ],
+        "year": 2018,
+        "title": "Metastable silica high pressure polymorphs as structural proxies of deep Earth silicate melts",
+        "source": "Nature Communications",
+        "volume": "9",
+        "locator": "4789",
+        "doi": "10.1038/s41467-018-07265-z"
+      },
+      "source_location": "Supplementary Table 2",
+      "source_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-018-07265-z/MediaObjects/41467_2018_7265_MOESM1_ESM.pdf",
+      "columns": [
+        {"name": "phase", "quantity": "phase_identifier", "unit": "text", "role": "flag"},
+        {
+          "name": "formula_units_per_source_cell",
+          "quantity": "formula_units_per_cell",
+          "unit": "dimensionless",
+          "role": "flag"
+        },
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_sigma_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "standard_deviation",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "volume_a3_source_cell",
+          "quantity": "source_unit_cell_volume",
+          "unit": "angstrom^3/source_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "volume_sigma_a3_source_cell",
+          "quantity": "source_unit_cell_volume",
+          "unit": "angstrom^3/source_unit_cell",
+          "role": "standard_deviation",
+          "of": "volume_a3_source_cell"
+        },
+        {
+          "name": "volume_a3_z16_equivalent_cell",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "volume_sigma_a3_z16_equivalent_cell",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "standard_deviation",
+          "of": "volume_a3_z16_equivalent_cell"
+        },
+        {
+          "name": "volume_a3_per_formula_unit",
+          "quantity": "formula_unit_volume",
+          "unit": "angstrom^3/formula_unit",
+          "role": "value"
+        },
+        {
+          "name": "volume_sigma_a3_per_formula_unit",
+          "quantity": "formula_unit_volume",
+          "unit": "angstrom^3/formula_unit",
+          "role": "standard_deviation",
+          "of": "volume_a3_per_formula_unit"
+        },
+        {"name": "sample_id", "quantity": "sample_identifier", "unit": "text", "role": "flag"}
+      ],
+      "resource": {
+        "path": "datasets/coesite-ii-iii-bykova-2018-table2-pv.csv",
+        "sha256": "8aca860f04909fc827fc09ea6e24039d0364dcc21f3c774b07cb03cdcfe945e2",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["coesite_i_iii_bykova_2018_300k_bm3"],
+      "notes": "The source cells contain Z=32 for coesite-II and Z=24 for coesite-III. The source's V/Z column is retained directly. Repeated pressures are distinct measurements identified in Supplementary Table 1 by attenuation or DAC orientation.",
+      "provenance": {
+        "type": "transcribed_from_table",
+        "method": "Phase, pressure, pressure standard deviation, source-cell volume, volume standard deviation, V/Z, V/Z standard deviation, and sample identifier were transcribed from Supplementary Table 2.",
+        "source_pdf_sha256": "9d4bcb36ae6a89b19f5bbcc3fc671f3c1bfc6530a76915382c6132d3d907e459",
+        "quality_control": {"row_count": 15, "coesite_ii_rows": 4, "coesite_iii_rows": 11},
+        "transcribed_on": "2026-09-07"
+      }
     }
-   },
-   "parameter_errors": {
-    "V0": 0.16,
-    "K0": 2.0,
-    "K0_prime": 0.15
-   },
-   "parameter_error_confidence": null,
-   "parameter_covariance": null,
-   "fixed_parameters": [],
-   "fit_datasets": [
-    "coesite_i_ii_cernok_2014_table1_pv",
-    "coesite_ii_iii_bykova_2018_table2_pv"
-   ],
-   "temperature_ref": 300.0,
-   "experimental_pressure_range_gpa": [
-    0.0,
-    36.9
-   ],
-   "pressure_range_status": "reported_qualitatively",
-   "experimental_temperature_range_k": [
-    300.0,
-    300.0
-   ],
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 16.0,
-    "molar_mass_g_mol": 60.083
-   },
-   "validity": {
-    "pressure_gpa": [
-     0.0,
-     36.9
-    ],
-    "temperature_k": [
-     300.0,
-     300.0
-    ],
-    "notes": [
-     "Effective compression branch across the minor coesite-I to II to III transitions, explicitly represented by one EOS in the source."
-    ]
-   },
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Results: Crystal structure of coesite-III; Figure 1 caption; Methods: X-ray diffraction; Supplementary Tables 1-2; Cernok thesis Table 5.1 reproducing the cited 2014 diffraction Table 1.",
-    "equation": "Results, Crystal structure of coesite-III: third-order Birch-Murnaghan.",
-    "parameters": "Results paragraph and Figure 1 caption; V0/Z is multiplied by Z=16 for this conventional-cell material card.",
-    "method": "Combined single-crystal XRD pressure-volume data for coesite-I, II, and III. The exact recoverable subset comprises nine observations from the cited Cernok et al. diffraction work and 15 observations from Supplementary Table 2; current-study coesite-I points remain graphical only."
-   },
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "Neon diffraction and ruby were used for pressure estimation, but the exact calibration equation and paired marker observations are not published with the fit."
-    },
-    "audit_date": "2026-09-05"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://www.nature.com/articles/s41467-018-07265-z",
-     "doi": "10.1038/s41467-018-07265-z",
-     "locations": [
-      "Results: Crystal structure of coesite-III",
-      "Figure 1 caption",
-      "Methods: X-ray diffraction",
-      "Supplementary Tables 1-2",
-      "Cernok thesis Table 5.1 reproducing the cited 2014 diffraction Table 1"
-     ],
-     "finding": "One source-owned BM3 fitted jointly to coesite-I, II, and III pressure-volume data. Twenty-four exact observations can be recovered from Supplementary Table 2 and the cited diffraction table; several current-study coesite-I observations remain plot-only."
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-08",
-     "dataset_identifiers": [
-      "coesite_i_ii_cernok_2014_table1_pv",
-      "coesite_ii_iii_bykova_2018_table2_pv"
-     ],
-     "source_locations": [
-      "Bykova et al. (2018), Supplementary Table 2",
-      "Cernok et al. (2014), Table 1; author thesis Table 5.1"
-     ],
-     "finding": "Twenty-four exact coesite-I/II/III P-V observations are bundled. They are the complete numerical subset recoverable from the article, supplement, deposited crystallographic files, and cited diffraction work; several current-study coesite-I points visible in Figure 1 were not tabulated."
-    }
-   }
-  }
- ],
- "format": "peritheos.material",
- "identifier": "coesite",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "datasets": [
-  {
-   "identifier": "coesite_levien_1981_table7_pv",
-   "kind": "pressure_volume",
-   "description": "All nine coesite unit-cell observations used in the unweighted BM3 fit.",
-   "reference": {
-    "authors": [
-     "Levien",
-     "Prewitt"
-    ],
-    "year": 1981,
-    "source": "American Mineralogist",
-    "volume": "66",
-    "locator": "324-333"
-   },
-   "source_location": "Table 7, page 330",
-   "columns": [
-    {
-     "name": "pressure_kbar",
-     "quantity": "pressure",
-     "unit": "kbar",
-     "role": "value"
-    },
-    {
-     "name": "pressure_sigma_kbar",
-     "quantity": "pressure",
-     "unit": "kbar",
-     "role": "standard_deviation",
-     "of": "pressure_kbar"
-    },
-    {
-     "name": "a_a",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "a_sigma_a",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "a_a"
-    },
-    {
-     "name": "b_a",
-     "quantity": "lattice_parameter_b",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "b_sigma_a",
-     "quantity": "lattice_parameter_b",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "b_a"
-    },
-    {
-     "name": "c_a",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "c_sigma_a",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "c_a"
-    },
-    {
-     "name": "beta_deg",
-     "quantity": "lattice_angle_beta",
-     "unit": "degree",
-     "role": "value"
-    },
-    {
-     "name": "beta_sigma_deg",
-     "quantity": "lattice_angle_beta",
-     "unit": "degree",
-     "role": "standard_deviation",
-     "of": "beta_deg"
-    },
-    {
-     "name": "volume_a3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "volume_sigma_a3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "standard_deviation",
-     "of": "volume_a3"
-    }
-   ],
-   "resource": {
-    "path": "datasets/coesite-levien-1981-table7-pv.csv",
-    "sha256": "ba8c7fcdd377eeb28f24a3ba0586884120159b6ecbf9eb6d87caa2c59e75f1cc",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "coesite_levien_1981_bm3_1"
-   ],
-   "notes": "The ambient row is encoded as 0.001 kbar (1 atm) and has no pressure sigma. Parenthesized figures are the source's estimated standard deviations."
-  },
-  {
-   "identifier": "coesite_i_ii_cernok_2014_table1_pv",
-   "kind": "pressure_volume",
-   "description": "Nine measured coesite-I/II observations incorporated as literature data in the Bykova et al. (2018) combined coesite-I/II/III BM3 fit. The fitted ambient row printed in the source table is intentionally excluded as non-independent EOS output.",
-   "reference": {
-    "authors": [
-     "Cernok",
-     "Bykova",
-     "Boffa Ballaran",
-     "Liermann",
-     "Hanfland",
-     "Dubrovinsky"
-    ],
-    "year": 2014,
-    "title": "High-pressure crystal chemistry of coesite-I and its transition to coesite-II",
-    "source": "Zeitschrift fur Kristallographie - Crystalline Materials",
-    "volume": "229",
-    "locator": "761-773",
-    "doi": "10.1515/zkri-2014-1763"
-   },
-   "source_location": "Article Table 1; author thesis Table 5.1, page 72",
-   "source_url": "https://epub.uni-bayreuth.de/id/eprint/2719/1/AnaCernok_thesis.pdf",
-   "columns": [
-    {
-     "name": "phase",
-     "quantity": "phase_identifier",
-     "unit": "text",
-     "role": "flag"
-    },
-    {
-     "name": "formula_units_per_source_cell",
-     "quantity": "formula_units_per_cell",
-     "unit": "dimensionless",
-     "role": "flag"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_sigma_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "standard_deviation",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "volume_a3_source_cell",
-     "quantity": "source_unit_cell_volume",
-     "unit": "angstrom^3/source_unit_cell",
-     "role": "value"
-    },
-    {
-     "name": "volume_sigma_a3_source_cell",
-     "quantity": "source_unit_cell_volume",
-     "unit": "angstrom^3/source_unit_cell",
-     "role": "standard_deviation",
-     "of": "volume_a3_source_cell"
-    },
-    {
-     "name": "volume_a3_z16_equivalent_cell",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value"
-    },
-    {
-     "name": "volume_sigma_a3_z16_equivalent_cell",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "standard_deviation",
-     "of": "volume_a3_z16_equivalent_cell"
-    },
-    {
-     "name": "volume_a3_per_formula_unit",
-     "quantity": "formula_unit_volume",
-     "unit": "angstrom^3/formula_unit",
-     "role": "value"
-    },
-    {
-     "name": "volume_sigma_a3_per_formula_unit",
-     "quantity": "formula_unit_volume",
-     "unit": "angstrom^3/formula_unit",
-     "role": "standard_deviation",
-     "of": "volume_a3_per_formula_unit"
-    }
-   ],
-   "resource": {
-    "path": "datasets/coesite-i-ii-cernok-2014-table1-pv.csv",
-    "sha256": "733b94709bd150635b1fe5e7975a652055cc745e604dad723f2b06146b3ce575",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "coesite_i_iii_bykova_2018_300k_bm3"
-   ],
-   "notes": "The source cells contain Z=16 for coesite-I and Z=32 for coesite-II. Per-formula-unit volumes and their standard deviations are exact divisions by Z.",
-   "provenance": {
-    "type": "transcribed_from_table",
-    "method": "Pressure, pressure standard deviation, source-cell volume, and volume standard deviation were transcribed from the cited diffraction table as reproduced in the lead author's institutional thesis. The table's fitted ambient EOS row was excluded; per-formula-unit quantities were divided by the phase-specific Z.",
-    "source_pdf_sha256": "093882fd5953cc0eab8517e6ed4ddc4e6003628097956b0b5029d5a4822fdd2c",
-    "quality_control": {
-     "row_count": 9,
-     "excluded_fitted_rows": 1
-    },
-    "transcribed_on": "2026-09-07"
-   }
-  },
-  {
-   "identifier": "coesite_ii_iii_bykova_2018_table2_pv",
-   "kind": "pressure_volume",
-   "description": "All 15 coesite-II and coesite-III unit-cell observations in Bykova et al. (2018) Supplementary Table 2, including distinct repeat measurements and the two high-pressure coesite-III states coexisting with coesite-IV.",
-   "reference": {
-    "authors": [
-     "Bykova",
-     "Bykov",
-     "Cernok",
-     "Tidholm",
-     "Simak",
-     "Hellman",
-     "Belov",
-     "Abrikosov",
-     "Liermann",
-     "Hanfland",
-     "Prakapenka",
-     "Prescher",
-     "Dubrovinskaia",
-     "Dubrovinsky"
-    ],
-    "year": 2018,
-    "title": "Metastable silica high pressure polymorphs as structural proxies of deep Earth silicate melts",
-    "source": "Nature Communications",
-    "volume": "9",
-    "locator": "4789",
-    "doi": "10.1038/s41467-018-07265-z"
-   },
-   "source_location": "Supplementary Table 2",
-   "source_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-018-07265-z/MediaObjects/41467_2018_7265_MOESM1_ESM.pdf",
-   "columns": [
-    {
-     "name": "phase",
-     "quantity": "phase_identifier",
-     "unit": "text",
-     "role": "flag"
-    },
-    {
-     "name": "formula_units_per_source_cell",
-     "quantity": "formula_units_per_cell",
-     "unit": "dimensionless",
-     "role": "flag"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_sigma_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "standard_deviation",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "volume_a3_source_cell",
-     "quantity": "source_unit_cell_volume",
-     "unit": "angstrom^3/source_unit_cell",
-     "role": "value"
-    },
-    {
-     "name": "volume_sigma_a3_source_cell",
-     "quantity": "source_unit_cell_volume",
-     "unit": "angstrom^3/source_unit_cell",
-     "role": "standard_deviation",
-     "of": "volume_a3_source_cell"
-    },
-    {
-     "name": "volume_a3_z16_equivalent_cell",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value"
-    },
-    {
-     "name": "volume_sigma_a3_z16_equivalent_cell",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "standard_deviation",
-     "of": "volume_a3_z16_equivalent_cell"
-    },
-    {
-     "name": "volume_a3_per_formula_unit",
-     "quantity": "formula_unit_volume",
-     "unit": "angstrom^3/formula_unit",
-     "role": "value"
-    },
-    {
-     "name": "volume_sigma_a3_per_formula_unit",
-     "quantity": "formula_unit_volume",
-     "unit": "angstrom^3/formula_unit",
-     "role": "standard_deviation",
-     "of": "volume_a3_per_formula_unit"
-    },
-    {
-     "name": "sample_id",
-     "quantity": "sample_identifier",
-     "unit": "text",
-     "role": "flag"
-    }
-   ],
-   "resource": {
-    "path": "datasets/coesite-ii-iii-bykova-2018-table2-pv.csv",
-    "sha256": "8aca860f04909fc827fc09ea6e24039d0364dcc21f3c774b07cb03cdcfe945e2",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "coesite_i_iii_bykova_2018_300k_bm3"
-   ],
-   "notes": "The source cells contain Z=32 for coesite-II and Z=24 for coesite-III. The source's V/Z column is retained directly. Repeated pressures are distinct measurements identified in Supplementary Table 1 by attenuation or DAC orientation.",
-   "provenance": {
-    "type": "transcribed_from_table",
-    "method": "Phase, pressure, pressure standard deviation, source-cell volume, volume standard deviation, V/Z, V/Z standard deviation, and sample identifier were transcribed from Supplementary Table 2.",
-    "source_pdf_sha256": "9d4bcb36ae6a89b19f5bbcc3fc671f3c1bfc6530a76915382c6132d3d907e459",
-    "quality_control": {
-     "row_count": 15,
-     "coesite_ii_rows": 4,
-     "coesite_iii_rows": 11
-    },
-    "transcribed_on": "2026-09-07"
-   }
-  }
- ]
+  ]
 }

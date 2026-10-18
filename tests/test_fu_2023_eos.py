@@ -280,7 +280,9 @@ def test_fu_2023_casio3_reconstructed_pressure_equation_matches_catalog_model():
     temperature = np.array([1200.0])
     reconstructed = module._predictions(module.PUBLISHED, volume, temperature)[0][0]
     model = Material.from_eosmat(
-        get_material_document("ca_perovskite"), record_identifiers=[CA_RECORD]
+        get_material_document("ca_perovskite"),
+        record_identifiers=[CA_RECORD],
+        require_primary_validation=False,
     ).get_eos_record(CA_RECORD)
     assert reconstructed == pytest.approx(model.pressure(38.0, 1200.0), rel=2e-12)
 

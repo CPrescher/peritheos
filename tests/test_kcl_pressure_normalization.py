@@ -17,6 +17,7 @@ from peritheos import (
     resolve_dataset_pressure,
 )
 from scripts.audit_kcl_pressure_normalization import CASES, OUTPUT, SOURCE, audit
+from scripts.eosmat_io import read_material
 from scripts.reproduce_fei_2007_gold import check_saved
 
 
@@ -109,7 +110,7 @@ def test_manifest_recalculation_counts_match_current_records():
     counts = Counter(
         record["pressure_calibration"]["recalculation"]["status"]
         for path in root.glob("*.eosmat")
-        for record in json.loads(path.read_text(encoding="utf-8"))["eos_records"]
+        for record in read_material(path)["eos_records"]
     )
     assert json.loads((root / "manifest.json").read_text(encoding="utf-8"))[
         "pressure_calibration"

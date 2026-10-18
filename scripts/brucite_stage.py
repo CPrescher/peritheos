@@ -20,6 +20,7 @@ from scripts.brucite_reproduce import (
     reference_volume,
     source,
 )
+from scripts.eosmat_io import render_material
 
 
 def staged_document():
@@ -341,12 +342,17 @@ def main():
     for path, document in (
         (STAGED, staged_document()),
         (ROOT / "peritheos/data/materials/brucite.eosmat", catalog_document()),
+        (STAGED.with_name("brucite-diagnostic-archive.eosmat"), audit_document()),
         (
             STAGED.with_name("brucite-conditional-thermal.eosmat"),
             conditional_thermal_document(),
         ),
     ):
-        payload = json.dumps(document, indent=2, allow_nan=False) + "\n"
+        payload = (
+            render_material(document)
+            if path == ROOT / "peritheos/data/materials/brucite.eosmat"
+            else json.dumps(document, indent=2, allow_nan=False) + "\n"
+        )
         if args.check:
             if path.read_text(encoding="utf-8") != payload:
                 raise SystemExit(f"Staged brucite card is outdated: {path}")
@@ -426,8 +432,8 @@ def conditional_thermal_document():
     return document
 
 
-def catalog_document():
-    """Published lattice-average slices plus separately attributed table refits."""
+def audit_document():
+    """Preserve published coefficients and historical refits as audit evidence."""
     document = staged_document()
     report = json.loads(REPORT.read_text(encoding="utf-8"))
     phase_note = (
@@ -651,11 +657,73 @@ def catalog_document():
         phase_note
         + " Direct ambient average F-free hydrogenated structure from He (2023), Table 4.3. Source structure and EOS samples differ; no rescaling. All 102 Fukui/Xia observations preserved."
     )
-    document["phase_scope"] = source()["catalog_disposition"]
+    # The source manifest retains the historical investigation state. This
+    # current curation decision supersedes its earlier integration proposal.
+    document["phase_scope"] = copy.deepcopy(source()["catalog_disposition"])
+    document["phase_scope"].update(
+        held_isotherms_k=[873],
+        thermal_status="Not recommended: published thermal-EOS parity not achieved. All refits are historical diagnostics only.",
+        source_873k_status="Not reproduced; unchanged coefficients archived outside executable selection.",
+        thermal_interpolation_pressure_gpa=None,
+        qualified_thermal_temperature_k=None,
+    )
     document["phase_references"] = [
         source()["sources"][key]
         for key in ("duffy_1995_phase", "wu_2026_phase", "sun_2025_phase")
     ]
+    document["curation_disposition"] = {
+        "date": "2026-10-17",
+        "published_thermal_eos_parity": "not_achieved",
+        "thermal_eos_recommendation": "not_recommended",
+        "reason": "The printed expansion law, 873 K data/figure normalization and continuous source reconstruction are not mutually reproduced. No source correction or validated replacement has been established.",
+        "research_scope": "Further model development is outside the Peritheos curation scope. Existing refits are historical diagnostics only.",
+        "retained_catalog_isotherms_k": [300, 473, 673],
+    }
+    for record in records:
+        validation = record["scientific_validation"]
+        record.pop("catalog_access", None)
+        if (
+            validation["status"] == "primary_source_validated"
+            and record.get("record_kind") != "refit"
+        ):
+            validation["usage_recommendation"] = (
+                "Source-checked isotherm at its stated temperature only. This does not validate the full published thermal EOS or an interpolation between temperatures."
+            )
+            continue
+        is_refit = record.get("record_kind") == "refit"
+        validation.update(
+            status="deferred" if is_refit else "not_reproduced",
+            audit_date="2026-10-17",
+            usage_recommendation="Not recommended. Historical audit evidence only; excluded from the executable catalog.",
+            note="Diagnostic Peritheos refit only; numerical replay does not establish published-EOS parity or a validated replacement."
+            if is_refit
+            else "Published-EOS parity not achieved. The 873 K normalization and continuous source reconstruction remain unresolved; published coefficients are preserved without correction.",
+        )
+        record["notes"] += (
+            " Current disposition: not recommended; historical audit evidence only."
+        )
+    document["integration_status"] = (
+        "Audit archive: full thermal EOS not recommended; unresolved source curves and all Peritheos refits withheld from the executable catalog."
+    )
+    return document
+
+
+def catalog_document():
+    """Bundle only the three individually source-checked published isotherms."""
+    document = audit_document()
+    document["eos_records"] = [
+        r
+        for r in document["eos_records"]
+        if r["scientific_validation"]["status"] == "primary_source_validated"
+    ]
+    installed = [r["identifier"] for r in document["eos_records"]]
+    for dataset in document["datasets"]:
+        dataset["used_by_eos_records"] = (
+            installed if "fukui" in dataset["identifier"] else []
+        )
+    document["integration_status"] = (
+        "Only published 300/473/673 K isotherms installed. Full thermal EOS not recommended: published-data parity not achieved. Original 873 K/continuous coefficients and all refits retained in the diagnostic archive."
+    )
     return document
 
 

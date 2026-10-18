@@ -1,8 +1,12 @@
 # Material catalog
 
+Browse the [readable material summaries](material-summaries/index.md) for
+parameter comparisons, uncertainties, calibration, selection holds and source
+qualifications. These sheets are generated from the complete EOSMAT documents.
+
 Peritheos exposes the complete bundled library through the normal executable
-API. `list_materials()` returns 229 `Material` objects and
-`list_eos_records()` returns their 669 `EOSRecord` objects. Both are ordered by
+API. `list_materials()` returns 228 `Material` objects and
+`list_eos_records()` returns their 659 `EOSRecord` objects. Both are ordered by
 stable identifier and constructed from the same `.eosmat` files returned by
 the advanced `get_material_document()` API.
 
@@ -22,19 +26,27 @@ show the small coefficient and pressure-curve differences. Its phase-specific
 diffraction fallback supplies indexed peak positions with uniform display
 markers; it does not assert sample-specific atomic occupancies or intensities.
 
-Brucite (`brucite`) uses a directly verified fluorine-free neutron reference
-structure. Published Fukui (2003) 300/473/673 K BM3 curves retain their measured
-pressure spans, up to 22.56 GPa at 300 K. Hydrogen rearrangement is annotated
-within a layered lattice-average volume model. Separate Peritheos table-data
-refits provide 873 K use to 15.48 GPa and thermal interpolation over
-5.95–15.48 GPa, 300–873 K, with conditional covariance. The inconsistent
-original 873 K curve and literal source-slope reconstruction retain
-`not_reproduced` and explicit selection. The [brucite audit](literature-reproductions/brucite.md)
-explains the graphical normalization mismatch and the scope of each record.
-The additional curved-expansion refits keep the published isotherm moduli,
-with a separate continuous variant retaining the published slopes and explicit
-300 K anchors. Their expansion coefficients come from an independent ambient-data
-fit; the original source records and material default remain unchanged.
+Brucite (`brucite`) retains the individually source-checked Fukui (2003)
+300/473/673 K BM3 isotherms and a primary ambient neutron structure.
+**The full published thermal EOS is not recommended: parity with the published
+P–V–T data was not achieved.** The unresolved 873 K curve, continuous source
+reconstruction and all Peritheos refits are withheld from executable selection
+and preserved as audit evidence. These three isotherms do not provide a
+continuous temperature model. The [audit](literature-reproductions/brucite.md)
+documents the normalization discrepancy and diagnostic fits.
+
+Seven additional published EOSs are explicitly not recommended: Fu's cubic
+CaSiO3 thermal fit, Baty's experimental Pd BM3 and Sakai's five Fe-Ni thermal
+variants. They remain available only for diagnostic selection, with
+`not_reproduced` status. Wadsleyite's sole EOS is deferred and absent from
+executable discovery; no replacement default is selected. See the
+[recommendation dispositions](research/eos-recommendation-dispositions-2026-10-17.md).
+
+Shen and Smith's MgO and NaCl-B2 records are also `not_reproduced` and not
+recommended for quantitative use, with explicit diagnostic selection only.
+Their published curves disagree with direct fixed-volume fits to the available
+Table S1 observations. Exact author fit inputs remain unconfirmed; see the
+[source-input audit](literature-reproductions/shen-smith-2026-cu-refits.md).
 
 ## EOS record categories
 
@@ -84,7 +96,7 @@ The [primary EOS refit ledger](primary-eos-refits.md) uses these outcomes:
 |---|---|
 | Parity (`parity`) | Recovered free coefficients meet the documented uncertainty and numerical comparison criteria. Conditional or source-specific criteria are stated explicitly. |
 | Similar (`similar`) | The independent result meets documented numerical similarity criteria or a qualified uncertainty comparison. Similarity is not a statistical confidence claim. |
-| Parity not achieved (`parity_not_achieved`) | A fit produced a comparison, but at least one coefficient fails the stated agreement criteria. |
+| Parity not achieved (`parity_not_achieved`) | A fit produced a comparison, but coefficient agreement or a dedicated published-curve reproduction check remains unresolved. |
 | Source reconstruction (`source_reconstruction`) | Source equations, calculations or compositions are checked without independently refitting the complete EOS. |
 | Direct refit unavailable (`not_refittable`) | Available observations or reduction details do not support an independent fit of the complete EOS. |
 | Refit failed (`refit_failed`) | Extraction or numerical fitting failed before a usable comparison was produced. This differs from a completed fit with discrepant coefficients. |
@@ -346,7 +358,11 @@ diamond record remains available through its module-level constant and record
 identifier. The two colliding anchored record identifiers have equation-identical
 canonical counterparts, so their numerical behavior is unchanged.
 
-The NaCl-B2 catalog includes eight [Sakai et al. (2011) experimental fits](literature-reproductions/sakai-2011-nacl-b2.md): BM3 and Vinet on four separate Pt scales. These retain their own reference volumes and uncertainties and are distinct from the 2014 Yokoo-Pt recalibration.
+NaCl materials and EOS labels explicitly distinguish NaCl-B1 (rock-salt,
+Fm-3m) from NaCl-B2 (CsCl-type, Pm-3m). The phase description is also
+available through `Material.phase` and `EOSRecord.phase`.
+
+The NaCl-B2 catalog retains eight [Sakai et al. (2011) published fits](literature-reproductions/sakai-2011-nacl-b2.md). Normal discovery shows the Matsui-Pt BM3 and Vinet sources; the other six fits and the later 2014 Yokoo-Pt recalibration are published pressure-scale reference variants. Use `source.on_pressure_scale(target_node)` to evaluate a source on another reachable scale. `list_reference_variants(source.identifier)` and `include_reference_variants=True` expose the original alternatives. See the [catalog-wide variant audit](research/pressure-scale-variant-audit.md) for other grouped materials and the [conversion interface](pressure-scale-normalization.md#one-source-eos-selectable-output-scale) for pressure and volume calculations.
 
 The [Matsui (2009) Pt audit](literature-reproductions/matsui-2009-platinum.md)
 registers `platinum_matsui_2009_vinet_mgd_electronic` alongside the unchanged

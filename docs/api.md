@@ -56,13 +56,16 @@ from peritheos.materials import DEFERRED_EOS_RECORDS
 
 `get_material(identifier)` returns a material phase and
 `list_materials(formula=...)` lists or filters all bundled materials.
-`get_eos_record(identifier)` and `list_eos_records(formula=...)` expose all
-records. These canonical objects are constructed from the bundled `.eosmat`
+`get_eos_record(identifier)` explicitly retrieves any executable record.
+`list_eos_records(formula=...)` lists source choices; pass
+`include_reference_variants=True` to include published pressure-scale alternatives,
+or use `list_reference_variants(source_identifier)` to inspect one source's
+alternatives. These canonical objects are constructed from the bundled `.eosmat`
 documents. The pre-0.7 convenience constants remain in an isolated
 compatibility layer and are excluded from canonical listing and search. Each
 `Material` owns its `eos_records`, supports `get_eos_record(identifier)`, and
 provides `to_dict()`/`from_dict()` and `to_eosmat()`/`from_eosmat()` for the
-canonical executable format-3 material document. Optional crystallographic
+canonical executable material document, preserving v3 or v4 on export. Optional crystallographic
 fields are preserved but not interpreted. Loading uses a fixed model registry
 and never imports an implementation path. The legacy executable snapshot-v2
 reader and `to_snapshot_dict()` remain compatibility-only APIs.
@@ -74,6 +77,12 @@ It stays in the common
 `Material.equilibrium_records` return convenient filtered views. Hugoniot
 records expose `shock_velocity()`, `particle_velocity()`, `density()`, and
 `specific_internal_energy_change()` in addition to `pressure()` and `volume()`.
+
+For an equilibrium source record, `record.on_pressure_scale(target_node)` returns
+a `PressureScaledEOS` view. Its `pressure()` and `volume()` methods transform
+through the same audited calibration route in opposite directions, preserving
+the source volume convention. `recalculate()` returns the full intermediate-state
+provenance. See [direct pressure-scale views](pressure-scale-normalization.md#one-source-eos-selectable-output-scale).
 
 `search_materials()` and `search_eos_records()` accept typed filters for free
 text, name, alias, formula, phase, model family, DOI, author/reference,
@@ -138,6 +147,64 @@ ambiguous selection, checksum failures, and unsupported conversions raise
 storage contract, and [Error handling](error-handling.md) for exception bases
 and stable codes.
 
+## Standalone `.eosmat` files
+
+`create_eosmat(identifier, formula, model, parameters, *, temperature_ref, ...)`
+returns a small, structurally valid native EOSMAT v4 dictionary for a user's own material.
+It accepts an exact model type such as `BM3` or its canonical identifier
+`birch_murnaghan_3`, and fills in the matching exchange identifiers. Parameters
+use GPa, kelvin and conventional-cell Å³. The reference temperature is required.
+
+```python
+from peritheos import create_eosmat, save_eosmat
+
+document = create_eosmat(
+    "my_material",
+    "X",
+    "BM3",
+    {"V0": 10.0, "K0": 160.0, "K0_prime": 4.0},
+    temperature_ref=300,
+)
+save_eosmat("my_material.eosmat", document)
+```
+
+These coefficients are fictional. Optional keyword arguments are `name`,
+`reference`, `parameter_errors`, `fixed_parameters`, `formula_units_per_cell`
+and `thermal`, plus `format_version=3` for older consumers. A thermal input mapping can provide its `type` or `model`, parameters
+and complete formulation-specific options. No cell contents are inferred.
+The creator constructs the selected model to check its configuration without
+adding unprovided metadata or changing the source inputs.
+
+New records remain diagnostic and unreviewed. V4 stores detailed checks in
+`evidence` and keeps errors/fixed flags beside parameter values. See the
+[native format reference](eosmat-v4.md).
+`Material.from_eosmat(document, require_primary_validation=False)` explicitly
+accepts them for calculations. Creation and numerical construction do not
+establish source validation or fit reproduction. All full-schema fields can
+subsequently be added to the returned dictionary. See the
+[standalone authoring workflow](eosmat-authoring.md) for the installed
+`python -m peritheos create` command, uncertainty handling and database contribution.
+
+### Readable files and local metadata sharing
+
+New standalone files display their units explicitly. V4 formatting places EOS
+records before long crystallographic detail, and a record label before its
+coefficients. Ordinary files stay inline; sharing is optional for repeated
+metadata in large database files.
+
+`convert_eosmat(document, version=4, compact=True)` deduplicates exact repeated
+metadata into a file-local `shared_metadata` table. `inline=True` expands local
+references for first-generation v4 readers. The two options are mutually
+exclusive; v3 exports are always expanded. Unused definitions and all original
+scientific fields are retained. Load/save preserves compact files directly;
+model-based reserialization may normalize metadata just as for other EOSMAT files.
+
+The installed commands `python -m peritheos validate FILE` and
+`python -m peritheos format FILE [--check]` validate declarations or format layout
+without scientific inference. See [the authoring guide](eosmat-authoring.md) for
+complete examples, and [native v4](eosmat-v4.md) for the optional standardized
+`evidence.reproduction.assessment` and its explicit comparison scope/basis.
+
 ## Shared `.eosmat` material library
 
 ```python
@@ -151,13 +218,20 @@ from peritheos import (
 )
 ```
 
-`list_material_documents()` returns the identifiers of all 225 bundled
+`list_material_documents()` returns the identifiers of all bundled
 material cards, including source-only cards with no executable EOS.
-`get_material_document(identifier)` returns a defensive copy of one
-flat format-3 `.eosmat` document, including optional structure and its raw EOS
-records. `load_eosmat()` also accepts native Dioptas 0.10.0 format-2 files;
-`save_eosmat()` validates and preserves optional fields. `eosmat_schema()`
-returns the bundled normative JSON Schema.
+`get_material_document(identifier)` returns a defensive copy in the historical
+v3 dictionary layout so existing integrations keep working. The bundled files
+themselves use native v4. Pass `format_version=4` to get native fields, or
+`format_version=None` to retain the stored version. The same options apply to
+`get_eos_record_document(identifier)`, including document-only records.
+`load_eosmat()` always retains the file's authored layout and also accepts native
+Dioptas 0.10.0 format-2 files;
+`save_eosmat()` validates and preserves optional fields and the input version.
+`load_eosmat()` also reads native v4. `convert_eosmat(document, version=4)`
+migrates a complete v3 document; `version=3` exports for older readers.
+`eosmat_schema(4)` returns the native schema; the historical no-argument schema
+call retains v3 for existing callers.
 The [`.eosmat` schema reference](eosmat-schema.md) documents the complete
 field contract and consumer defaults.
 
@@ -215,11 +289,11 @@ coverage.
 Transferred Dioptas records have completed a primary-source classification,
 and native primary-sourced records include aragonite, KCl, RbCl, diamond, MgO,
 CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)-type alumina.
-The library contains 650 source records in 227 material documents. Of these,
-640 are `primary_source_validated`; seven qualified, nondefault
+The library contains 663 source records in 232 material documents. Of these,
+645 are `primary_source_validated`; fourteen qualified, nondefault
 `not_reproduced` implementations require explicit selection. The executable
-catalog contains 647 records across 224 materials. Three `deferred` records
-preserve the Campbell fcc-Fe/FeO and Morard FeS findings and are excluded from
+catalog contains 659 records across 228 materials. Four `deferred` records
+preserve the Campbell fcc-Fe/FeO, Morard FeS and held wadsleyite findings and are excluded from
 executable discovery. This status
 records source validation, not numerical refit parity; see
 [Validation](validation.md) for reproduction results and scientific limitations.

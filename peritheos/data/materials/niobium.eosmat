@@ -1,525 +1,437 @@
 {
- "format_version": 3,
- "name": "Niobium",
- "formula": "Nb",
- "symmetry": "CUBIC",
- "lattice": {
-  "a": 3.300704,
-  "b": null,
-  "c": null,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 2,
- "space_group": "Im-3m",
- "space_group_number": 229,
- "atom_sites": [
-  {
-   "element": "Nb",
-   "wyckoff": "2a",
-   "x": 0.0,
-   "y": 0.0,
-   "z": 0.0,
-   "occupancy": 1.0
-  }
- ],
- "notes": "Body-centered-cubic niobium. The reference cell is calculated from the published atomic V0. PhaseSmith calculates powder reflections and intensities from the ideal structure.",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Takemura and Singh (2006), helium-medium BM3",
-   "reference": {
-    "authors": [
-     "Takemura",
-     "Singh"
-    ],
-    "year": 2006,
-    "title": "High-pressure equation of state for Nb with a helium-pressure medium: Powder x-ray diffraction experiments",
-    "source": "Phys. Rev. B",
-    "volume": "73",
-    "locator": "224119",
-    "doi": "10.1103/PhysRevB.73.224119"
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 35.9599,
-     "K0": 168.0,
-     "K0_prime": 3.4
-    },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": 0.0098,
-    "K0": 4.0,
-    "K0_prime": 0.3
-   },
-   "fixed_parameters": [
-    "V0"
-   ],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    71.5
-   ],
-   "temperature_ref": 300.0,
-   "notes": "Adopted 300 K BM3 fit to the quasihydrostatic helium data through 71.5 GPa: K0=168+/-4 GPa and K0'=3.4+/-0.3. V0 is fixed from a=3.3007(3) A at atmospheric pressure; the parameter errors span the alternative fit using data through 134 GPa.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table I; Table II; section III.B, pages 224119-5 to -6."
-   },
-   "identifier": "niobium_takemura_2006_bm3_1",
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "ruby_fluorescence",
-      "reference": {
-       "authors": [
-        "Mao",
-        "Bell",
-        "Shaner",
-        "Steinberg"
-       ],
-       "year": 1978,
-       "source": "J. Appl. Phys.",
-       "doi": "10.1063/1.325277"
+  "format_version": 4,
+  "identifier": "niobium",
+  "name": "Niobium",
+  "formula": "Nb",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 2,
+  "eos_records": [
+    {
+      "identifier": "niobium_takemura_2006_bm3_1",
+      "label": "Takemura and Singh (2006), helium-medium BM3",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 35.9599, "error": 0.0098, "fixed": true},
+        "K0": {"value": 168.0, "error": 4.0},
+        "K0_prime": {"value": 3.4, "error": 0.3}
       },
-      "source_location": "Experimental methods; hydrostatic/nonhydrostatic ruby pressure scales",
-      "reference_calibration_record": "ruby_mao_1978"
-     }
-    ],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
-    },
-    "audit_date": "2026-09-03"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.73.224119/fulltext",
-     "locations": [
-      "Table I",
-      "Table II",
-      "section III.B, pages 224119-5 to -6"
-     ],
-     "finding": "The adopted BM3 fit is the 0-71.5 GPa quasihydrostatic helium subset; the wider errors span the alternative fit through 134 GPa.",
-     "doi": "10.1103/physrevb.73.224119"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "niobium.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "niobium_takemura_2006_table1_compression"
-     ],
-     "source_locations": [
-      "Table I, pages 224119-2 to 224119-3"
-     ],
-     "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
-    }
-   },
-   "audit_corrections": [
-    {
-     "path": "parameter_errors.V0",
-     "source_value": null,
-     "value": 0.0098,
-     "reason": "Propagated from the primary paper's a=3.3007(3) A atmospheric lattice parameter.",
-     "primary_reference": {
-      "doi": "10.1103/physrevb.73.224119",
-      "location": "Table I, Table II, and section III.B"
-     }
-    },
-    {
-     "path": "experimental_pressure_range_gpa",
-     "source_value": [
-      0.0,
-      134.0
-     ],
-     "value": [
-      0.0,
-      71.5
-     ],
-     "reason": "The adopted fit uses the best quasihydrostatic helium subset through 71.5 GPa.",
-     "primary_reference": {
-      "doi": "10.1103/physrevb.73.224119",
-      "location": "Table I, Table II, and section III.B"
-     }
-    }
-   ]
-  },
-  {
-   "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
-   "reference": {
-    "authors": [
-     "Sokolova",
-     "Dorogokupets",
-     "Litasov"
-    ],
-    "year": 2013,
-    "title": "Self-consistent pressure scales based on the equations of state for ruby, diamond, MgO, B2–NaCl, as well as Au, Pt, and other metals to 4 Mbar and 3000 K",
-    "source": "Russian Geology and Geophysics",
-    "volume": "54",
-    "locator": "181-199",
-    "details": "Tables 1 and 4",
-    "doi": "10.1016/j.rgg.2013.01.005"
-   },
-   "eos": {
-    "type": "Holzapfel",
-    "parameters": {
-     "V0": 35.960629619878574,
-     "K0": 170.5,
-     "K0_prime": 3.65,
-     "n": 1.0,
-     "Z": 41.0
-    },
-    "model": "holzapfel",
-    "parameter_errors": {
-     "n": null,
-     "Z": null
-    },
-    "fixed_parameters": [
-     "n",
-     "Z"
-    ]
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": null,
-    "K0_prime": null
-   },
-   "fixed_parameters": [],
-   "pressure_range_status": "reference_parameterization",
-   "temperature_ref": 298.15,
-   "thermal": {
-    "type": "Sokolova2016",
-    "parameters": {
-     "Tr": 298.15,
-     "QE1o": 134.0,
-     "mE1": 1.5,
-     "QE2o": 302.0,
-     "mE2": 1.5,
-     "delta": -0.326,
-     "t": -0.763,
-     "a_0": 0.0,
-     "m": 0.0,
-     "g": 0.9,
-     "e_0": 115.9,
-     "n": 1.0
-    },
-    "parameter_errors": {
-     "Tr": null,
-     "QE1o": null,
-     "mE1": null,
-     "QE2o": null,
-     "mE2": null,
-     "delta": null,
-     "t": null,
-     "a_0": null,
-     "m": null,
-     "g": null,
-     "e_0": null,
-     "n": null
-    },
-    "fixed_parameters": [
-     "n"
-    ],
-    "model": "multi_oscillator_gruneisen_thermal_pressure"
-   },
-   "notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Sokolova (2013), Tables 1 and 4: joint synthesis of shock, ultrasonic, diffraction, expansion and thermochemical measurements. The 2016 workbook implements the fit; it does not supply a separate theoretical fit grid."
-   },
-   "identifier": "niobium_sokolova_2013_holzapfel_2",
-   "pressure_calibration": {
-    "status": "not_applicable",
-    "methods": [
-     {
-      "kind": "self_consistent",
+      "experimental_pressure_range_gpa": [0.0, 71.5],
+      "determination_method": "experimental",
+      "notes": "Adopted 300 K BM3 fit to the quasihydrostatic helium data through 71.5 GPa: K0=168+/-4 GPa and K0'=3.4+/-0.3. V0 is fixed from a=3.3007(3) A at atmospheric pressure; the parameter errors span the alternative fit using data through 134 GPa.",
       "reference": {
-       "authors": [
-        "Sokolova",
-        "Dorogokupets",
-        "Litasov"
-       ],
-       "year": 2013,
-       "source": "Russian Geology and Geophysics",
-       "doi": "10.1016/j.rgg.2013.01.005"
+        "authors": ["Takemura", "Singh"],
+        "year": 2006,
+        "title": "High-pressure equation of state for Nb with a helium-pressure medium: Powder x-ray diffraction experiments",
+        "source": "Phys. Rev. B",
+        "volume": "73",
+        "locator": "224119",
+        "doi": "10.1103/PhysRevB.73.224119"
       },
-      "source_location": "Equations 1-15 and Tables 1 and 4; simultaneous optimization"
-     }
-    ],
-    "recalculation": {
-     "status": "not_applicable",
-     "notes": "This is a jointly optimized pressure-scale model rather than a fit reduced with one external reference EOS."
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": ["Mao", "Bell", "Shaner", "Steinberg"],
+              "year": 1978,
+              "source": "J. Appl. Phys.",
+              "doi": "10.1063/1.325277"
+            },
+            "source_location": "Experimental methods; hydrostatic/nonhydrostatic ruby pressure scales",
+            "reference_calibration_record": "ruby_mao_1978"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+        },
+        "audit_date": "2026-09-03"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/niobium/#record-niobium_takemura_2006_bm3_1",
+            "report_path": "docs/reconstruction-reports/niobium.md#record-niobium_takemura_2006_bm3_1",
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 168.0,
+                "published_error": 4.0,
+                "refit": 166.1726317999564,
+                "refit_error": 0.41775349958426705,
+                "difference": -1.827368200043594,
+                "relative_difference": 0.010877191666926155,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.4,
+                "published_error": 0.3,
+                "refit": 3.533481315869524,
+                "refit_error": 0.02788348319255274,
+                "difference": 0.13348131586952405,
+                "relative_difference": 0.039259210549860014,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_ratio"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 43,
+              "observed_pressure_range_gpa": [0.11, 134.0],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [23.974465329999997, 35.83404035],
+              "degrees_of_freedom": 41,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 1.6974999302349352,
+              "published_rmse_gpa": 1.3567892071381271,
+              "reduced_chi_square": 7.6347616513898515,
+              "dataset_identifiers": ["niobium_takemura_2006_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.73.224119/fulltext",
+            "locations": ["Table I", "Table II", "section III.B, pages 224119-5 to -6"],
+            "finding": "The adopted BM3 fit is the 0-71.5 GPa quasihydrostatic helium subset; the wider errors span the alternative fit through 134 GPa.",
+            "doi": "10.1103/physrevb.73.224119"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "niobium.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["niobium_takemura_2006_table1_compression"],
+            "source_locations": ["Table I, pages 224119-2 to 224119-3"],
+            "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Table I; Table II; section III.B, pages 224119-5 to -6."
+        },
+        "audit_corrections": [
+          {
+            "path": "parameter_errors.V0",
+            "source_value": null,
+            "value": 0.0098,
+            "reason": "Propagated from the primary paper's a=3.3007(3) A atmospheric lattice parameter.",
+            "primary_reference": {"doi": "10.1103/physrevb.73.224119", "location": "Table I, Table II, and section III.B"}
+          },
+          {
+            "path": "experimental_pressure_range_gpa",
+            "source_value": [0.0, 134.0],
+            "value": [0.0, 71.5],
+            "reason": "The adopted fit uses the best quasihydrostatic helium subset through 71.5 GPa.",
+            "primary_reference": {"doi": "10.1103/physrevb.73.224119", "location": "Table I, Table II, and section III.B"}
+          }
+        ]
+      }
     },
-    "audit_date": "2026-09-03"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-06",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1016/j.rgg.2013.01.005",
-     "locations": [
-      "Equations 1-15",
-      "Table 1 input reference values",
-      "Table 4 optimized parameters for all eleven markers",
-      "Figures 3-11 cross-calibration tests"
-     ],
-     "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
-     "doi": "10.1016/j.rgg.2013.01.005"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "niobium.json"
-    },
-    "primary_data_check": {
-     "status": "parameterization_only",
-     "audit_date": "2026-09-08",
-     "source_locations": [
-      "Sokolova et al. (2013), Tables 1-4 and Equation (20)",
-      "Dorogokupets and Oganov (2007), two-stage optimization protocol",
-      "Sokolova et al. (2016), official mmc1-mmc11 workbooks"
-     ],
-     "comparison_dataset_identifiers": [
-      "niobium_takemura_2006_table1_compression"
-     ],
-     "manifest": "datasets/sokolova-2013-global-calibration-manifest.json",
-     "finding": "The complete coefficient-refit objective remains unavailable because the source omits row-level thermochemical/ultrasonic inputs, weights, optimizer details, and covariance. Machine-readable comparison rows do support a coupled eleven-marker reconstruction of the shared ruby Equation (20) from the Table 2/3 precursor isotherms and a Table 4 closure test; it must not be classified as an independent EOS refit."
-    },
-    "source_reconstruction": {
-     "status": "coupled_cross_calibration_reconstructed",
-     "result": "docs/data/sokolova-2013-global-calibration.json",
-     "observations": 392,
-     "markers": 11,
-     "independent_eos_refit": false
+    {
+      "identifier": "niobium_sokolova_2013_holzapfel_2",
+      "label": "Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)",
+      "model": "Holzapfel",
+      "temperature_ref": 298.15,
+      "parameters": {
+        "V0": {"value": 35.960629619878574, "error": null},
+        "K0": {"value": 170.5, "error": null},
+        "K0_prime": {"value": 3.65, "error": null},
+        "n": 1.0,
+        "Z": 41.0
+      },
+      "equation_options": {
+        "parameter_errors": {"n": null, "Z": null},
+        "fixed_parameters": ["n", "Z"]
+      },
+      "thermal": {
+        "model": "Sokolova2016",
+        "parameters": {
+          "Tr": {"value": 298.15, "error": null},
+          "QE1o": {"value": 134.0, "error": null},
+          "mE1": {"value": 1.5, "error": null},
+          "QE2o": {"value": 302.0, "error": null},
+          "mE2": {"value": 1.5, "error": null},
+          "delta": {"value": -0.326, "error": null},
+          "t": {"value": -0.763, "error": null},
+          "a_0": {"value": 0.0, "error": null},
+          "m": {"value": 0.0, "error": null},
+          "g": {"value": 0.9, "error": null},
+          "e_0": {"value": 115.9, "error": null},
+          "n": {"value": 1.0, "error": null, "fixed": true}
+        }
+      },
+      "pressure_range_status": "reference_parameterization",
+      "determination_method": "experimental",
+      "notes": "This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The *_sokolova_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source_lineage as the implementation and correction source.",
+      "reference": {
+        "authors": ["Sokolova", "Dorogokupets", "Litasov"],
+        "year": 2013,
+        "title": "Self-consistent pressure scales based on the equations of state for ruby, diamond, MgO, B2–NaCl, as well as Au, Pt, and other metals to 4 Mbar and 3000 K",
+        "source": "Russian Geology and Geophysics",
+        "volume": "54",
+        "locator": "181-199",
+        "details": "Tables 1 and 4",
+        "doi": "10.1016/j.rgg.2013.01.005"
+      },
+      "pressure_calibration": {
+        "status": "not_applicable",
+        "methods": [
+          {
+            "kind": "self_consistent",
+            "reference": {
+              "authors": ["Sokolova", "Dorogokupets", "Litasov"],
+              "year": 2013,
+              "source": "Russian Geology and Geophysics",
+              "doi": "10.1016/j.rgg.2013.01.005"
+            },
+            "source_location": "Equations 1-15 and Tables 1 and 4; simultaneous optimization"
+          }
+        ],
+        "recalculation": {
+          "status": "not_applicable",
+          "notes": "This is a jointly optimized pressure-scale model rather than a fit reduced with one external reference EOS."
+        },
+        "audit_date": "2026-09-03"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "source_reconstruction",
+            "scope": "source_equation",
+            "source_status": "source_reconstruction",
+            "basis": "All eleven machine-readable comparison series enter one shared Equation (20) objective against the mean Table 2 Holzapfel and Table 3 Vinet isotherm. Table 4 is retained as a post-calibration closure test. The calculation cannot recover the eleven EOS parameter sets independently because the source omits complete thermochemical/ultrasonic rows, weights, and covariance.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/niobium/#record-niobium_sokolova_2013_holzapfel_2",
+            "report_path": "docs/reconstruction-reports/niobium.md#record-niobium_sokolova_2013_holzapfel_2",
+            "fit": {
+              "fit_kind": "coupled_eleven_marker_ruby_cross_calibration",
+              "objective": "minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight",
+              "fixed_parameters": ["n", "Z", "n"],
+              "observations": 43,
+              "rmse_gpa": 2.985195422138322,
+              "published_rmse_gpa": 3.1276690001706005,
+              "comparison_scope": "shared_ruby_calibration",
+              "dataset_identifiers": ["niobium_takemura_2006_table1_compression"],
+              "published_ruby_parameters": {"A_gpa": 1870.0, "m": 6.0},
+              "sensitivity_fit_ruby_parameters": {"A_gpa": 1869.3837840502665, "m": 6.10334763359135}
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-06",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/j.rgg.2013.01.005",
+            "locations": [
+              "Equations 1-15",
+              "Table 1 input reference values",
+              "Table 4 optimized parameters for all eleven markers",
+              "Figures 3-11 cross-calibration tests"
+            ],
+            "finding": "The stored Sokolova marker coefficients reproduce the corresponding columns of Tables 1 and 4. Sokolova et al. (2016) is recorded separately as the spreadsheet implementation and correction source, not represented as a new experimental fit.",
+            "doi": "10.1016/j.rgg.2013.01.005"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "niobium.json"
+          },
+          "primary_data_check": {
+            "status": "parameterization_only",
+            "audit_date": "2026-09-08",
+            "source_locations": [
+              "Sokolova et al. (2013), Tables 1-4 and Equation (20)",
+              "Dorogokupets and Oganov (2007), two-stage optimization protocol",
+              "Sokolova et al. (2016), official mmc1-mmc11 workbooks"
+            ],
+            "comparison_dataset_identifiers": ["niobium_takemura_2006_table1_compression"],
+            "manifest": "datasets/sokolova-2013-global-calibration-manifest.json",
+            "finding": "The complete coefficient-refit objective remains unavailable because the source omits row-level thermochemical/ultrasonic inputs, weights, optimizer details, and covariance. Machine-readable comparison rows do support a coupled eleven-marker reconstruction of the shared ruby Equation (20) from the Table 2/3 precursor isotherms and a Table 4 closure test; it must not be classified as an independent EOS refit."
+          },
+          "source_reconstruction": {
+            "status": "coupled_cross_calibration_reconstructed",
+            "result": "docs/data/sokolova-2013-global-calibration.json",
+            "observations": 392,
+            "markers": 11,
+            "independent_eos_refit": false
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Sokolova (2013), Tables 1 and 4: joint synthesis of shock, ultrasonic, diffraction, expansion and thermochemical measurements. The 2016 workbook implements the fit; it does not supply a separate theoretical fit grid."
+        },
+        "source_lineage": [
+          {
+            "role": "reference volume, composition, and shock inputs",
+            "citation": "Sokolova et al. (2013), Table 1",
+            "doi": "10.1016/j.rgg.2013.01.005"
+          },
+          {
+            "role": "final cross-calibrated Holzapfel and thermal coefficients",
+            "citation": "Sokolova et al. (2013), Table 4",
+            "doi": "10.1016/j.rgg.2013.01.005"
+          },
+          {
+            "role": "preceding simultaneous-optimization fit",
+            "citation": "Dorogokupets et al. (2012), Table 4",
+            "doi": "10.5800/GT-2012-3-2-0067"
+          },
+          {
+            "role": "spreadsheet implementation, conventions, and corrections",
+            "citation": "Sokolova et al. (2016), equations 1-12, Tables 1-3, and Appendix A",
+            "doi": "10.1016/j.cageo.2016.06.002"
+          }
+        ],
+        "audit_corrections": [
+          {
+            "path": "eos.parameters.n",
+            "source_value": null,
+            "value": 1.0,
+            "reason": "Required model input omitted by the Dioptas migration; restored from the Sokolova et al. (2016) model definitions.",
+            "primary_reference": {"doi": "10.1016/j.cageo.2016.06.002", "location": "Equations (1)-(3) and Table 2"}
+          },
+          {
+            "path": "eos.parameters.Z",
+            "source_value": null,
+            "value": 41.0,
+            "reason": "Required model input omitted by the Dioptas migration; restored from the Sokolova et al. (2016) model definitions.",
+            "primary_reference": {"doi": "10.1016/j.cageo.2016.06.002", "location": "Equations (1)-(3) and Table 2"}
+          },
+          {
+            "path": "thermal.parameters.n",
+            "source_value": null,
+            "value": 1.0,
+            "reason": "Required model input omitted by the Dioptas migration; restored from the Sokolova et al. (2016) model definitions.",
+            "primary_reference": {"doi": "10.1016/j.cageo.2016.06.002", "location": "Equations (1)-(3) and Table 2"}
+          }
+        ]
+      }
     }
-   },
-   "source_lineage": [
+  ],
+  "symmetry": "CUBIC",
+  "space_group": "Im-3m",
+  "space_group_number": 229,
+  "lattice": {"a": 3.300704, "b": null, "c": null, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Nb", "wyckoff": "2a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Body-centered-cubic niobium. The reference cell is calculated from the published atomic V0. PhaseSmith calculates powder reflections and intensities from the ideal structure.",
+  "datasets": [
     {
-     "role": "reference volume, composition, and shock inputs",
-     "citation": "Sokolova et al. (2013), Table 1",
-     "doi": "10.1016/j.rgg.2013.01.005"
-    },
-    {
-     "role": "final cross-calibrated Holzapfel and thermal coefficients",
-     "citation": "Sokolova et al. (2013), Table 4",
-     "doi": "10.1016/j.rgg.2013.01.005"
-    },
-    {
-     "role": "preceding simultaneous-optimization fit",
-     "citation": "Dorogokupets et al. (2012), Table 4",
-     "doi": "10.5800/GT-2012-3-2-0067"
-    },
-    {
-     "role": "spreadsheet implementation, conventions, and corrections",
-     "citation": "Sokolova et al. (2016), equations 1-12, Tables 1-3, and Appendix A",
-     "doi": "10.1016/j.cageo.2016.06.002"
+      "identifier": "niobium_takemura_2006_table1_compression",
+      "kind": "pressure_volume",
+      "description": "Complete 43-row niobium structural dataset from all five experimental runs.",
+      "reference": {
+        "authors": ["Takemura", "Singh"],
+        "year": 2006,
+        "source": "Phys. Rev. B",
+        "volume": "73",
+        "locator": "224119",
+        "doi": "10.1103/PhysRevB.73.224119"
+      },
+      "source_location": "Table I, pages 224119-2 to 224119-3",
+      "columns": [
+        {"name": "run", "quantity": "experimental_run", "unit": "1", "role": "flag"},
+        {"name": "wavelength_a", "quantity": "xray_wavelength", "unit": "angstrom", "role": "value"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_sigma_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "standard_deviation",
+          "of": "pressure_gpa"
+        },
+        {"name": "volume_ratio", "quantity": "volume_ratio", "unit": "1", "role": "value"},
+        {
+          "name": "volume_ratio_sigma",
+          "quantity": "volume_ratio",
+          "unit": "1",
+          "role": "standard_deviation",
+          "of": "volume_ratio"
+        },
+        {"name": "a_a", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {
+          "name": "a_sigma_a",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "a_a"
+        },
+        {"name": "d110_a", "quantity": "d_spacing_110", "unit": "angstrom", "role": "value"},
+        {
+          "name": "d110_sigma_a",
+          "quantity": "d_spacing_110",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "d110_a"
+        },
+        {"name": "d200_a", "quantity": "d_spacing_200", "unit": "angstrom", "role": "value"},
+        {
+          "name": "d200_sigma_a",
+          "quantity": "d_spacing_200",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "d200_a"
+        },
+        {"name": "d211_a", "quantity": "d_spacing_211", "unit": "angstrom", "role": "value"},
+        {
+          "name": "d211_sigma_a",
+          "quantity": "d_spacing_211",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "d211_a"
+        },
+        {"name": "differential_stress_gpa", "quantity": "differential_stress", "unit": "GPa", "role": "value"},
+        {
+          "name": "differential_stress_sigma_gpa",
+          "quantity": "differential_stress",
+          "unit": "GPa",
+          "role": "standard_deviation",
+          "of": "differential_stress_gpa"
+        }
+      ],
+      "resource": {
+        "path": "datasets/niobium-takemura-2006-table1-compression.csv",
+        "sha256": "66c97de01cc792471e989a151b1dada233f7b3fa93f261d5776d37cee8667742",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["niobium_takemura_2006_bm3_1"],
+      "notes": "Run 1 used methanol-ethanol-water; the other runs used helium. The paper excludes run 11 from bulk-modulus refinement because of large differential stress and adopts the best quasihydrostatic subset through 71.5 GPa.",
+      "source_url": "https://doi.org/10.1103/PhysRevB.73.224119"
     }
-   ],
-   "audit_corrections": [
-    {
-     "path": "eos.parameters.n",
-     "source_value": null,
-     "value": 1.0,
-     "reason": "Required model input omitted by the Dioptas migration; restored from the Sokolova et al. (2016) model definitions.",
-     "primary_reference": {
-      "doi": "10.1016/j.cageo.2016.06.002",
-      "location": "Equations (1)-(3) and Table 2"
-     }
-    },
-    {
-     "path": "eos.parameters.Z",
-     "source_value": null,
-     "value": 41.0,
-     "reason": "Required model input omitted by the Dioptas migration; restored from the Sokolova et al. (2016) model definitions.",
-     "primary_reference": {
-      "doi": "10.1016/j.cageo.2016.06.002",
-      "location": "Equations (1)-(3) and Table 2"
-     }
-    },
-    {
-     "path": "thermal.parameters.n",
-     "source_value": null,
-     "value": 1.0,
-     "reason": "Required model input omitted by the Dioptas migration; restored from the Sokolova et al. (2016) model definitions.",
-     "primary_reference": {
-      "doi": "10.1016/j.cageo.2016.06.002",
-      "location": "Equations (1)-(3) and Table 2"
-     }
-    }
-   ]
-  }
- ],
- "format": "peritheos.material",
- "identifier": "niobium",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "datasets": [
-  {
-   "identifier": "niobium_takemura_2006_table1_compression",
-   "kind": "pressure_volume",
-   "description": "Complete 43-row niobium structural dataset from all five experimental runs.",
-   "reference": {
-    "authors": [
-     "Takemura",
-     "Singh"
-    ],
-    "year": 2006,
-    "source": "Phys. Rev. B",
-    "volume": "73",
-    "locator": "224119",
-    "doi": "10.1103/PhysRevB.73.224119"
-   },
-   "source_location": "Table I, pages 224119-2 to 224119-3",
-   "columns": [
-    {
-     "name": "run",
-     "quantity": "experimental_run",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "wavelength_a",
-     "quantity": "xray_wavelength",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_sigma_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "standard_deviation",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "volume_ratio",
-     "quantity": "volume_ratio",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "volume_ratio_sigma",
-     "quantity": "volume_ratio",
-     "unit": "1",
-     "role": "standard_deviation",
-     "of": "volume_ratio"
-    },
-    {
-     "name": "a_a",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "a_sigma_a",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "a_a"
-    },
-    {
-     "name": "d110_a",
-     "quantity": "d_spacing_110",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "d110_sigma_a",
-     "quantity": "d_spacing_110",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "d110_a"
-    },
-    {
-     "name": "d200_a",
-     "quantity": "d_spacing_200",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "d200_sigma_a",
-     "quantity": "d_spacing_200",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "d200_a"
-    },
-    {
-     "name": "d211_a",
-     "quantity": "d_spacing_211",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "d211_sigma_a",
-     "quantity": "d_spacing_211",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "d211_a"
-    },
-    {
-     "name": "differential_stress_gpa",
-     "quantity": "differential_stress",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "differential_stress_sigma_gpa",
-     "quantity": "differential_stress",
-     "unit": "GPa",
-     "role": "standard_deviation",
-     "of": "differential_stress_gpa"
-    }
-   ],
-   "resource": {
-    "path": "datasets/niobium-takemura-2006-table1-compression.csv",
-    "sha256": "66c97de01cc792471e989a151b1dada233f7b3fa93f261d5776d37cee8667742",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "niobium_takemura_2006_bm3_1"
-   ],
-   "notes": "Run 1 used methanol-ethanol-water; the other runs used helium. The paper excludes run 11 from bulk-modulus refinement because of large differential stress and adopts the best quasihydrostatic subset through 71.5 GPa.",
-   "source_url": "https://doi.org/10.1103/PhysRevB.73.224119"
-  }
- ]
+  ]
 }

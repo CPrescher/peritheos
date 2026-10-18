@@ -4,8 +4,8 @@
   of Mg(OH)2 brucite under high pressure and pressure dependence of entropy.
   *Physics and Chemistry of Minerals*, **30**, 511–516.
   [doi:10.1007/s00269-003-0353-z](https://doi.org/10.1007/s00269-003-0353-z).
-  Restricted 300 K default and qualified thermal reconstruction; all 48
-  observations retained. See the [brucite audit](literature-reproductions/brucite.md).
+  Published 300/473/673 K isotherms retained; full thermal EOS not recommended
+  because published-data parity was not achieved. All 48 observations retained. See the [brucite audit](literature-reproductions/brucite.md).
 - He, Xuejing (2023). *Hydrogen-bonding configurations of magnesium
   hydroxyfluoride and fluorine-doped magnesium hydroxide under high pressure*.
   Doctoral thesis, University of Tokyo, Table 4.3, pp. 81–82.

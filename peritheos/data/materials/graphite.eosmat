@@ -1,238 +1,220 @@
 {
- "format_version": 3,
- "name": "Graphite",
- "formula": "C",
- "symmetry": "HEXAGONAL",
- "lattice": {
-  "a": 2.459515,
-  "b": null,
-  "c": 6.70386,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 120.0
- },
- "formula_units_per_cell": 4,
- "space_group": "P63/mmc",
- "space_group_number": 194,
- "atom_sites": [
-  {
-   "element": "C",
-   "wyckoff": "2b",
-   "x": 0.0,
-   "y": 0.0,
-   "z": 0.25,
-   "occupancy": 1.0
-  },
-  {
-   "element": "C",
-   "wyckoff": "2c",
-   "x": 0.3333333333,
-   "y": 0.6666666667,
-   "z": 0.25,
-   "occupancy": 1.0
-  }
- ],
- "notes": "Phase reference: JCPDS 41-1487. The reference cell is constrained to the fitted 300 K V0 while retaining the ambient axial ratio measured by Hanfland et al.",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Hanfland et al. (1989), 300 K Murnaghan",
-   "reference": {
-    "authors": [
-     "Hanfland",
-     "Beister",
-     "Syassen"
-    ],
-    "year": 1989,
-    "title": "Graphite under pressure: Equation of state and first-order Raman modes",
-    "source": "Phys. Rev. B",
-    "volume": "39",
-    "locator": "12598-12603",
-    "doi": "10.1103/PhysRevB.39.12598"
-   },
-   "eos": {
-    "type": "Murnaghan",
-    "parameters": {
-     "V0": 35.12,
-     "K0": 33.8,
-     "K0_prime": 8.9
-    },
-    "model": "murnaghan"
-   },
-   "parameter_errors": {
-    "V0": 0.02,
-    "K0": 3.0,
-    "K0_prime": 1.0
-   },
-   "fixed_parameters": [],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    14.0
-   ],
-   "temperature_ref": 300.0,
-   "notes": "Hydrostatic powder-XRD fit for hexagonal graphite. Valid only below the observed room-temperature transformation near 14 GPa.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Page 12599; Murnaghan fit paragraph; Figure 1."
-   },
-   "identifier": "graphite_hanfland_1989_murnaghan_1",
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
-    },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1103/PhysRevB.39.12598",
-     "locations": [
-      "Page 12599",
-      "Murnaghan fit paragraph",
-      "Figure 1"
-     ],
-     "doi": "10.1103/physrevb.39.12598"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "graphite.json"
-    },
-    "primary_data_check": {
-     "status": "plot_only",
-     "audit_date": "2026-09-03",
-     "digitized_dataset_identifiers": [
-      "graphite_hanfland_1989_figure2_digitized"
-     ],
-     "source_locations": [
-      "Figures 1 and 2; Table I; journal pages 12599-12600"
-     ],
-     "finding": "The graphite lattice-parameter observations are plotted in Figure 1 and the pressure-volume observations in Figure 2, but neither array is tabulated. Table I contains fitted axial compression coefficients."
+  "format_version": 4,
+  "identifier": "graphite",
+  "name": "Graphite",
+  "formula": "C",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 4,
+  "eos_records": [
+    {
+      "identifier": "graphite_hanfland_1989_murnaghan_1",
+      "label": "Hanfland et al. (1989), 300 K Murnaghan",
+      "model": "Murnaghan",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 35.12, "error": 0.02},
+        "K0": {"value": 33.8, "error": 3.0},
+        "K0_prime": {"value": 8.9, "error": 1.0}
+      },
+      "experimental_pressure_range_gpa": [0.0, 14.0],
+      "determination_method": "experimental",
+      "notes": "Hydrostatic powder-XRD fit for hexagonal graphite. Valid only below the observed room-temperature transformation near 14 GPa.",
+      "reference": {
+        "authors": ["Hanfland", "Beister", "Syassen"],
+        "year": 1989,
+        "title": "Graphite under pressure: Equation of state and first-order Raman modes",
+        "source": "Phys. Rev. B",
+        "volume": "39",
+        "locator": "12598-12603",
+        "doi": "10.1103/PhysRevB.39.12598"
+      },
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/graphite/#record-graphite_hanfland_1989_murnaghan_1",
+            "report_path": "docs/reconstruction-reports/graphite.md#record-graphite_hanfland_1989_murnaghan_1",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 35.12,
+                "published_error": 0.02,
+                "refit": 35.289557787941845,
+                "refit_error": 0.2150381422338965,
+                "difference": 0.16955778794184795,
+                "relative_difference": 0.0048279552375241445,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 33.8,
+                "published_error": 3.0,
+                "refit": 31.350635504713292,
+                "refit_error": 4.714053277201576,
+                "difference": -2.449364495286705,
+                "relative_difference": 0.0724664051859972,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 8.9,
+                "published_error": 1.0,
+                "refit": 9.140728272853567,
+                "refit_error": 0.9628978195027382,
+                "difference": 0.24072827285356624,
+                "relative_difference": 0.02704812054534452,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_ratio"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 10,
+              "observed_pressure_range_gpa": [0.0, 13.1351],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [29.851999999999997, 35.12],
+              "degrees_of_freedom": 7,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.15305430860689825,
+              "published_rmse_gpa": 0.34294152687069585,
+              "reduced_chi_square": 1.7262608481249881,
+              "dataset_identifiers": ["graphite_hanfland_1989_figure2_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1103/PhysRevB.39.12598",
+            "locations": ["Page 12599", "Murnaghan fit paragraph", "Figure 1"],
+            "doi": "10.1103/physrevb.39.12598"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "graphite.json"
+          },
+          "primary_data_check": {
+            "status": "plot_only",
+            "audit_date": "2026-09-03",
+            "digitized_dataset_identifiers": ["graphite_hanfland_1989_figure2_digitized"],
+            "source_locations": ["Figures 1 and 2; Table I; journal pages 12599-12600"],
+            "finding": "The graphite lattice-parameter observations are plotted in Figure 1 and the pressure-volume observations in Figure 2, but neither array is tabulated. Table I contains fitted axial compression coefficients."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Page 12599; Murnaghan fit paragraph; Figure 1."
+        },
+        "audit_corrections": [
+          {
+            "path": "parameter_errors.V0",
+            "source_value": null,
+            "value": 0.02,
+            "reason": "The primary paper reports V0=35.12(2) A^3.",
+            "primary_reference": {"doi": "10.1103/physrevb.39.12598", "location": "page 12599, Murnaghan-fit paragraph"}
+          }
+        ]
+      }
     }
-   },
-   "audit_corrections": [
+  ],
+  "symmetry": "HEXAGONAL",
+  "space_group": "P63/mmc",
+  "space_group_number": 194,
+  "lattice": {"a": 2.459515, "b": null, "c": 6.70386, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
+  "atom_sites": [
+    {"element": "C", "wyckoff": "2b", "x": 0.0, "y": 0.0, "z": 0.25, "occupancy": 1.0},
+    {"element": "C", "wyckoff": "2c", "x": 0.3333333333, "y": 0.6666666667, "z": 0.25, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Phase reference: JCPDS 41-1487. The reference cell is constrained to the fitted 300 K V0 while retaining the ambient axial ratio measured by Hanfland et al.",
+  "datasets": [
     {
-     "path": "parameter_errors.V0",
-     "source_value": null,
-     "value": 0.02,
-     "reason": "The primary paper reports V0=35.12(2) A^3.",
-     "primary_reference": {
-      "doi": "10.1103/physrevb.39.12598",
-      "location": "page 12599, Murnaghan-fit paragraph"
-     }
-    }
-   ]
-  }
- ],
- "datasets": [
-  {
-   "identifier": "graphite_hanfland_1989_figure2_digitized",
-   "kind": "pressure_volume_ratio_digitized",
-   "description": "Ten plotted 300 K graphite pressure-volume observations digitized from Figure 2.",
-   "reference": {
-    "authors": [
-     "Hanfland",
-     "Beister",
-     "Syassen"
-    ],
-    "year": 1989,
-    "source": "Phys. Rev. B",
-    "volume": "39",
-    "locator": "12598-12603",
-    "doi": "10.1103/PhysRevB.39.12598"
-   },
-   "source_location": "Figure 2, solid-circle experimental series",
-   "columns": [
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "volume_ratio",
-     "quantity": "relative_volume",
-     "unit": "dimensionless",
-     "role": "value"
-    },
-    {
-     "name": "pressure_digitization_uncertainty_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "uncertainty",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "volume_ratio_digitization_uncertainty",
-     "quantity": "relative_volume",
-     "unit": "dimensionless",
-     "role": "uncertainty",
-     "of": "volume_ratio"
-    }
-   ],
-   "resource": {
-    "path": "datasets/graphite-hanfland-1989-figure2-digitized.csv",
-    "sha256": "cf0ef03884ae28212c8c6b49880a1bc5dadd87181b26c7f149a0b68e63f9e77a",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "graphite_hanfland_1989_murnaghan_1"
-   ],
-   "provenance": {
-    "type": "digitized_from_figure",
-    "method": "Rasterized the locally archived publication PDF at 300 dpi, located the solid-marker centers by distance-transform maxima, and calibrated against the printed axes. The clipped ambient marker was set to the known plotted origin (V/V0=1, P=0).",
-    "source_pdf_sha256": "300a6b03af667f71a27fc7c269e7a928af57d4b846bded25feaefa0e37b1089e",
-    "axis_calibration_pixels_300dpi": {
-     "volume_ratio": [
-      [
-       442.0,
-       0.85
+      "identifier": "graphite_hanfland_1989_figure2_digitized",
+      "kind": "pressure_volume_ratio_digitized",
+      "description": "Ten plotted 300 K graphite pressure-volume observations digitized from Figure 2.",
+      "reference": {
+        "authors": ["Hanfland", "Beister", "Syassen"],
+        "year": 1989,
+        "source": "Phys. Rev. B",
+        "volume": "39",
+        "locator": "12598-12603",
+        "doi": "10.1103/PhysRevB.39.12598"
+      },
+      "source_location": "Figure 2, solid-circle experimental series",
+      "columns": [
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "volume_ratio", "quantity": "relative_volume", "unit": "dimensionless", "role": "value"},
+        {
+          "name": "pressure_digitization_uncertainty_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "volume_ratio_digitization_uncertainty",
+          "quantity": "relative_volume",
+          "unit": "dimensionless",
+          "role": "uncertainty",
+          "of": "volume_ratio"
+        }
       ],
-      [
-       1136.0,
-       1.0
-      ]
-     ],
-     "pressure": [
-      [
-       2771.0,
-       0.0
-      ],
-      [
-       2697.0,
-       2.0
-      ]
-     ]
-    },
-    "quality_control": {
-     "published_murnaghan_rms_pressure_residual_gpa": 0.3429,
-     "published_murnaghan_max_abs_pressure_residual_gpa": 0.8005
-    },
-    "digitized_on": "2026-09-03"
-   }
-  }
- ],
- "format": "peritheos.material",
- "identifier": "graphite",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- }
+      "resource": {
+        "path": "datasets/graphite-hanfland-1989-figure2-digitized.csv",
+        "sha256": "cf0ef03884ae28212c8c6b49880a1bc5dadd87181b26c7f149a0b68e63f9e77a",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["graphite_hanfland_1989_murnaghan_1"],
+      "provenance": {
+        "type": "digitized_from_figure",
+        "method": "Rasterized the locally archived publication PDF at 300 dpi, located the solid-marker centers by distance-transform maxima, and calibrated against the printed axes. The clipped ambient marker was set to the known plotted origin (V/V0=1, P=0).",
+        "source_pdf_sha256": "300a6b03af667f71a27fc7c269e7a928af57d4b846bded25feaefa0e37b1089e",
+        "axis_calibration_pixels_300dpi": {
+          "volume_ratio": [
+            [442.0, 0.85],
+            [1136.0, 1.0]
+          ],
+          "pressure": [
+            [2771.0, 0.0],
+            [2697.0, 2.0]
+          ]
+        },
+        "quality_control": {
+          "published_murnaghan_rms_pressure_residual_gpa": 0.3429,
+          "published_murnaghan_max_abs_pressure_residual_gpa": 0.8005
+        },
+        "digitized_on": "2026-09-03"
+      }
+    }
+  ]
 }

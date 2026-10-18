@@ -1,0 +1,2104 @@
+{
+  "date": "2026-10-17",
+  "dataset_sha256": "92e4ece39614b1a9f980bff32ae3986083b06bd9673ef0e615f4d27bd39fa75c",
+  "observations": 93,
+  "pressure_range_gpa": [
+    2.99,
+    181.79
+  ],
+  "selection": "All 93 Tables I-III rows; no exclusions; ambient point separate",
+  "source_protocol": "Uncertainty-aware nonlinear Marquardt-Levenberg; exact objective, constraints, covariance convention and software not supplied",
+  "original_author_workflow_reproduced": false,
+  "parameter_error_confidence": "Not stated in the source; two-error-width comparison is conditional",
+  "covariance_scope": "Conditional iid coordinate errors; excludes run correlations, calibration systematics and EOS inadequacy",
+  "models": {
+    "Vinet": {
+      "published": [
+        58.678,
+        189.3,
+        5.473
+      ],
+      "published_error_widths": [
+        0.073,
+        3.0,
+        0.063
+      ],
+      "unweighted_pressure_baseline": [
+        58.59241500937655,
+        193.4365738357355,
+        5.38154006232419
+      ],
+      "unweighted_pressure_rms_gpa": 0.7630970476919026,
+      "effective_variance_interpretation": [
+        58.76686085834123,
+        184.17248759565038,
+        5.604564636078508
+      ],
+      "orthogonal_refit": [
+        58.766517834598524,
+        184.1906054787682,
+        5.603711657152113
+      ],
+      "scipy_odr_independent": [
+        58.766517866632555,
+        184.1906041278877,
+        5.603711685620932
+      ],
+      "scipy_odr_objective": 1714.4177799154918,
+      "literal_marquardt_levenberg_same_orthogonal_objective": [
+        58.76651805223189,
+        184.19059351153308,
+        5.603711934464986
+      ],
+      "literal_marquardt_levenberg_objective": 1714.4177799558327,
+      "orthogonal_objective": 1714.4177799155113,
+      "published_fixed_orthogonal_objective": 1833.6405284525722,
+      "degrees_of_freedom_refit": 90,
+      "reduced_chi_square_refit": 19.049086443505683,
+      "published_pressure_rms_gpa": 0.7719918205638062,
+      "refit_pressure_rms_gpa": 0.8253227497720835,
+      "published_pressure_max_abs_gpa": 2.57502541834441,
+      "formal_errors_absolute_coordinate_sigma": [
+        0.014475840563624408,
+        0.6128828634440229,
+        0.013813323444447387
+      ],
+      "conditional_errors_scaled_by_residual_variance": [
+        0.06318018124950509,
+        2.674943139012713,
+        0.06028860811518314
+      ],
+      "covariance_absolute_coordinate_sigma": [
+        [
+          0.0002095499600234738,
+          -0.008571032003025373,
+          0.00017481483380493197
+        ],
+        [
+          -0.008571032003025373,
+          0.37562540430334473,
+          -0.008168169300387308
+        ],
+        [
+          0.00017481483380493197,
+          -0.008168169300387308,
+          0.00019080790458091986
+        ]
+      ],
+      "correlation": [
+        [
+          1.0,
+          -0.9660772323006475,
+          0.8742513455209973
+        ],
+        [
+          -0.9660772323006475,
+          0.9999999999999999,
+          -0.9648261620801377
+        ],
+        [
+          0.8742513455209973,
+          -0.9648261620801377,
+          1.0000000000000002
+        ]
+      ],
+      "shift_in_combined_error_widths": [
+        1.1894131686357243,
+        -1.6686656056388276,
+        2.026645005336184
+      ],
+      "within_combined_two_error_widths": [
+        true,
+        true,
+        false
+      ],
+      "shift_in_combined_error_widths_residual_scaled": [
+        0.9168656321790617,
+        -1.271193445327371,
+        1.498999090034753
+      ],
+      "within_combined_two_error_widths_residual_scaled": [
+        true,
+        true,
+        true
+      ],
+      "max_first_order_source_coordinate_rounding_bound_gpa": 0.0466928231518445,
+      "row_diagnostics": [
+        {
+          "source_row": 1,
+          "pressure_gpa": 7.2,
+          "observed_volume_cell_a3": 56.80023558399999,
+          "volume_error_cell_a3": 0.0044329007999999994,
+          "published_pressure_residual_at_measured_volume_gpa": -0.47263686230026636,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.30755440717866467,
+          "refit_adjusted_volume_cell_a3": 56.797945018530385,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.29861428017977154
+        },
+        {
+          "source_row": 2,
+          "pressure_gpa": 8.23,
+          "observed_volume_cell_a3": 56.48166417203201,
+          "volume_error_cell_a3": 0.008832620544,
+          "published_pressure_residual_at_measured_volume_gpa": -0.21805803348464003,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.07214713025775588,
+          "refit_adjusted_volume_cell_a3": 56.47964572735916,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.0639866292963962
+        },
+        {
+          "source_row": 3,
+          "pressure_gpa": 10.31,
+          "observed_volume_cell_a3": 56.001652607979,
+          "volume_error_cell_a3": 0.008782506486,
+          "published_pressure_residual_at_measured_volume_gpa": -0.2765555634837398,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.15934256766503552,
+          "refit_adjusted_volume_cell_a3": 55.99705583255013,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.1397438942697118
+        },
+        {
+          "source_row": 4,
+          "pressure_gpa": 13.66,
+          "observed_volume_cell_a3": 55.21059005055199,
+          "volume_error_cell_a3": 0.008699604504,
+          "published_pressure_residual_at_measured_volume_gpa": -0.05686098963376729,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.013775078091171622,
+          "refit_adjusted_volume_cell_a3": 55.21100665540987,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.011837818284917034
+        },
+        {
+          "source_row": 5,
+          "pressure_gpa": 16.58,
+          "observed_volume_cell_a3": 54.573634425490994,
+          "volume_error_cell_a3": 0.008632564566,
+          "published_pressure_residual_at_measured_volume_gpa": 0.12773572189897564,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.1617849071200581,
+          "refit_adjusted_volume_cell_a3": 54.57870465048766,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.13650704037389616
+        },
+        {
+          "source_row": 6,
+          "pressure_gpa": 20.2,
+          "observed_volume_cell_a3": 53.885938265011,
+          "volume_error_cell_a3": 0.008559890646,
+          "published_pressure_residual_at_measured_volume_gpa": 0.10799543288259628,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.10379633553402101,
+          "refit_adjusted_volume_cell_a3": 53.88931190703306,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.085659253519772
+        },
+        {
+          "source_row": 7,
+          "pressure_gpa": 22.37,
+          "observed_volume_cell_a3": 53.484623807733,
+          "volume_error_cell_a3": 0.008517337974,
+          "published_pressure_residual_at_measured_volume_gpa": 0.16555614729054824,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.1397853167677674,
+          "refit_adjusted_volume_cell_a3": 53.48925800206243,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.11375493820676041
+        },
+        {
+          "source_row": 8,
+          "pressure_gpa": 25.09,
+          "observed_volume_cell_a3": 53.030239093000006,
+          "volume_error_cell_a3": 0.008469029400000001,
+          "published_pressure_residual_at_measured_volume_gpa": 0.08660160435649544,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.03720185179531654,
+          "refit_adjusted_volume_cell_a3": 53.03149931991706,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.02976123010770948
+        },
+        {
+          "source_row": 9,
+          "pressure_gpa": 27.09,
+          "observed_volume_cell_a3": 52.709066549784005,
+          "volume_error_cell_a3": 0.008434800216000002,
+          "published_pressure_residual_at_measured_volume_gpa": 0.03279261934455846,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.032730319540966946,
+          "refit_adjusted_volume_cell_a3": 52.70794166686113,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.02585066546034298
+        },
+        {
+          "source_row": 10,
+          "pressure_gpa": 29.85,
+          "observed_volume_cell_a3": 52.292645404875,
+          "volume_error_cell_a3": 0.008390316150000002,
+          "published_pressure_residual_at_measured_volume_gpa": -0.1016640751819331,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.18728614287706336,
+          "refit_adjusted_volume_cell_a3": 52.286092693341914,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.14533282911584422
+        },
+        {
+          "source_row": 11,
+          "pressure_gpa": 31.57,
+          "observed_volume_cell_a3": 51.995354348224005,
+          "volume_error_cell_a3": 0.008358485856,
+          "published_pressure_residual_at_measured_volume_gpa": 0.12600667086308803,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.026651211363013516,
+          "refit_adjusted_volume_cell_a3": 51.996297320867576,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.020417168253395346
+        },
+        {
+          "source_row": 12,
+          "pressure_gpa": 33.83,
+          "observed_volume_cell_a3": 51.69919219327699,
+          "volume_error_cell_a3": 0.008326716054,
+          "published_pressure_residual_at_measured_volume_gpa": -0.13081177672889766,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.24328760278925898,
+          "refit_adjusted_volume_cell_a3": 51.690482416167455,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.18378217623394022
+        },
+        {
+          "source_row": 13,
+          "pressure_gpa": 35.88,
+          "observed_volume_cell_a3": 51.370983904024,
+          "volume_error_cell_a3": 0.008291437656,
+          "published_pressure_residual_at_measured_volume_gpa": 0.11494218420190805,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.01136235594228907,
+          "refit_adjusted_volume_cell_a3": 51.37057264099356,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.008451342797329175
+        },
+        {
+          "source_row": 14,
+          "pressure_gpa": 37.19,
+          "observed_volume_cell_a3": 51.151573922561,
+          "volume_error_cell_a3": 0.008267811846,
+          "published_pressure_residual_at_measured_volume_gpa": 0.3855009770640123,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.2504013143964272,
+          "refit_adjusted_volume_cell_a3": 51.16069767814371,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.1842888015540609
+        },
+        {
+          "source_row": 15,
+          "pressure_gpa": 38.65,
+          "observed_volume_cell_a3": 50.97402179855201,
+          "volume_error_cell_a3": 0.008248668504,
+          "published_pressure_residual_at_measured_volume_gpa": 0.2321255316464672,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.09018939661119418,
+          "refit_adjusted_volume_cell_a3": 50.977327793197254,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.06575637548645119
+        },
+        {
+          "source_row": 16,
+          "pressure_gpa": 40.06,
+          "observed_volume_cell_a3": 50.755744390625004,
+          "volume_error_cell_a3": 0.00822510375,
+          "published_pressure_residual_at_measured_volume_gpa": 0.46304425386972525,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.3130662739165899,
+          "refit_adjusted_volume_cell_a3": 50.767289962091226,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.22571745168541923
+        },
+        {
+          "source_row": 17,
+          "pressure_gpa": 41.7,
+          "observed_volume_cell_a3": 50.575007064141005,
+          "volume_error_cell_a3": 0.008205566166,
+          "published_pressure_residual_at_measured_volume_gpa": 0.21123741187587797,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.05491842035191041,
+          "refit_adjusted_volume_cell_a3": 50.577044132609835,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.03919108081302625
+        },
+        {
+          "source_row": 18,
+          "pressure_gpa": 42.81,
+          "observed_volume_cell_a3": 50.423355920384,
+          "volume_error_cell_a3": 0.008189154816,
+          "published_pressure_residual_at_measured_volume_gpa": 0.2870539212885461,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.12564684496480538,
+          "refit_adjusted_volume_cell_a3": 50.42803507381112,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.08892223945904476
+        },
+        {
+          "source_row": 19,
+          "pressure_gpa": 44.23,
+          "observed_volume_cell_a3": 50.214820613956995,
+          "volume_error_cell_a3": 0.008166560694,
+          "published_pressure_residual_at_measured_volume_gpa": 0.529624695409666,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.36158306444207255,
+          "refit_adjusted_volume_cell_a3": 50.22835185743848,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.25298425630334975
+        },
+        {
+          "source_row": 20,
+          "pressure_gpa": 46.06,
+          "observed_volume_cell_a3": 49.986503828253,
+          "volume_error_cell_a3": 0.008141787414,
+          "published_pressure_residual_at_measured_volume_gpa": 0.563263461092383,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.38846213400520924,
+          "refit_adjusted_volume_cell_a3": 50.00112052360517,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.2681906240722327
+        },
+        {
+          "source_row": 21,
+          "pressure_gpa": 48.22,
+          "observed_volume_cell_a3": 49.702082429662994,
+          "volume_error_cell_a3": 0.008110873733999999,
+          "published_pressure_residual_at_measured_volume_gpa": 0.789951399304563,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.6075101382846313,
+          "refit_adjusted_volume_cell_a3": 49.725074440419064,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.4124280372066025
+        },
+        {
+          "source_row": 22,
+          "pressure_gpa": 50.73,
+          "observed_volume_cell_a3": 49.39450588737099,
+          "volume_error_cell_a3": 0.008077376886,
+          "published_pressure_residual_at_measured_volume_gpa": 0.9447085478171289,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.7550451108844669,
+          "refit_adjusted_volume_cell_a3": 49.42324605351624,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.5029116854409494
+        },
+        {
+          "source_row": 23,
+          "pressure_gpa": 53.21,
+          "observed_volume_cell_a3": 49.104290564659,
+          "volume_error_cell_a3": 0.008045706966,
+          "published_pressure_residual_at_measured_volume_gpa": 1.0615032245040439,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.8660856443468461,
+          "refit_adjusted_volume_cell_a3": 49.13741460094373,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.5661678663779526
+        },
+        {
+          "source_row": 24,
+          "pressure_gpa": 55.64,
+          "observed_volume_cell_a3": 48.831244192151,
+          "volume_error_cell_a3": 0.008015853606,
+          "published_pressure_residual_at_measured_volume_gpa": 1.1501575131572537,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.950330402976185,
+          "refit_adjusted_volume_cell_a3": 48.86773105688334,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.6099766010832042
+        },
+        {
+          "source_row": 25,
+          "pressure_gpa": 57.97,
+          "observed_volume_cell_a3": 48.587168449,
+          "volume_error_cell_a3": 0.0079891206,
+          "published_pressure_residual_at_measured_volume_gpa": 1.1354105084564665,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.9325171239884682,
+          "refit_adjusted_volume_cell_a3": 48.6230822332612,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.5883948346420453
+        },
+        {
+          "source_row": 26,
+          "pressure_gpa": 60.32,
+          "observed_volume_cell_a3": 48.34788870699999,
+          "volume_error_cell_a3": 0.0079628694,
+          "published_pressure_residual_at_measured_volume_gpa": 1.1153310247960562,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.9102798581881331,
+          "refit_adjusted_volume_cell_a3": 48.383034709637464,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.5645231994617603
+        },
+        {
+          "source_row": 27,
+          "pressure_gpa": 2.99,
+          "observed_volume_cell_a3": 58.050510847999995,
+          "volume_error_cell_a3": 0.013493145599999997,
+          "published_pressure_residual_at_measured_volume_gpa": -0.8940880496848105,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.6532828521009462,
+          "refit_adjusted_volume_cell_a3": 58.01703566938906,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.5393871903543608
+        },
+        {
+          "source_row": 28,
+          "pressure_gpa": 5.87,
+          "observed_volume_cell_a3": 56.906691641344004,
+          "volume_error_cell_a3": 0.013315313664,
+          "published_pressure_residual_at_measured_volume_gpa": 0.4379314595164159,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.6094375057213206,
+          "refit_adjusted_volume_cell_a3": 56.93958554729802,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.4828038709163245
+        },
+        {
+          "source_row": 29,
+          "pressure_gpa": 9.95,
+          "observed_volume_cell_a3": 56.217099714112,
+          "volume_error_cell_a3": 0.022012542960000003,
+          "published_pressure_residual_at_measured_volume_gpa": -0.8369199926014321,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.7068588046896558,
+          "refit_adjusted_volume_cell_a3": 56.13938937709099,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.3820078233733888
+        },
+        {
+          "source_row": 30,
+          "pressure_gpa": 11.62,
+          "observed_volume_cell_a3": 55.89632862787501,
+          "volume_error_cell_a3": 0.0175429827,
+          "published_pressure_residual_at_measured_volume_gpa": -1.1287379146045886,
+          "refit_pressure_residual_at_measured_volume_gpa": -1.0177839288212667,
+          "refit_adjusted_volume_cell_a3": 55.81005102911704,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.6439582956713696
+        },
+        {
+          "source_row": 31,
+          "pressure_gpa": 15.35,
+          "observed_volume_cell_a3": 54.967359186648004,
+          "volume_error_cell_a3": 0.017348069808,
+          "published_pressure_residual_at_measured_volume_gpa": -0.5864549340278948,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.5299029588358124,
+          "refit_adjusted_volume_cell_a3": 54.92210909656488,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.3132456415172875
+        },
+        {
+          "source_row": 32,
+          "pressure_gpa": 20.24,
+          "observed_volume_cell_a3": 54.01015199999999,
+          "volume_error_cell_a3": 0.01714608,
+          "published_pressure_residual_at_measured_volume_gpa": -0.6021912665204496,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.5995941440386368,
+          "refit_adjusted_volume_cell_a3": 53.95888713452481,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.3268956680773094
+        },
+        {
+          "source_row": 33,
+          "pressure_gpa": 23.64,
+          "observed_volume_cell_a3": 53.310208315455995,
+          "volume_error_cell_a3": 0.025496432927999992,
+          "published_pressure_residual_at_measured_volume_gpa": -0.10591851535881958,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.1408656279007694,
+          "refit_adjusted_volume_cell_a3": 53.293464878206706,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.0448943382897653
+        },
+        {
+          "source_row": 34,
+          "pressure_gpa": 29.31,
+          "observed_volume_cell_a3": 52.31362400000001,
+          "volume_error_cell_a3": 0.008392560000000002,
+          "published_pressure_residual_at_measured_volume_gpa": 0.30323439102562944,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.21860154365207052,
+          "refit_adjusted_volume_cell_a3": 52.32125798108721,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.16987511896285312
+        },
+        {
+          "source_row": 35,
+          "pressure_gpa": 34.68,
+          "observed_volume_cell_a3": 51.499608390125,
+          "volume_error_cell_a3": 0.00830527215,
+          "published_pressure_residual_at_measured_volume_gpa": 0.40556996478776597,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.28459176664213715,
+          "refit_adjusted_volume_cell_a3": 51.509856281741165,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.21310868447375952
+        },
+        {
+          "source_row": 36,
+          "pressure_gpa": 36.01,
+          "observed_volume_cell_a3": 51.362692912448004,
+          "volume_error_cell_a3": 0.008290545504,
+          "published_pressure_residual_at_measured_volume_gpa": 0.04399206372714559,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.08265156534233142,
+          "refit_adjusted_volume_cell_a3": 51.35969995923592,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.061444573017062964
+        },
+        {
+          "source_row": 37,
+          "pressure_gpa": 39.42,
+          "observed_volume_cell_a3": 50.85450962864899,
+          "volume_error_cell_a3": 0.008235770406,
+          "published_pressure_residual_at_measured_volume_gpa": 0.3557912892675077,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.20940124596439347,
+          "refit_adjusted_volume_cell_a3": 50.862211372001205,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.151746782510493
+        },
+        {
+          "source_row": 38,
+          "pressure_gpa": 42.49,
+          "observed_volume_cell_a3": 50.415167208888,
+          "volume_error_cell_a3": 0.008188268184,
+          "published_pressure_residual_at_measured_volume_gpa": 0.6716372770469832,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.5099616658660366,
+          "refit_adjusted_volume_cell_a3": 50.43414592202684,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.3609891879652096
+        },
+        {
+          "source_row": 39,
+          "pressure_gpa": 44.57,
+          "observed_volume_cell_a3": 50.173998877387,
+          "volume_error_cell_a3": 0.008162134134,
+          "published_pressure_residual_at_measured_volume_gpa": 0.5194750657351079,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.3501853730136233,
+          "refit_adjusted_volume_cell_a3": 50.18711727150053,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.2444262716812844
+        },
+        {
+          "source_row": 40,
+          "pressure_gpa": 46.73,
+          "observed_volume_cell_a3": 49.88886601979699,
+          "volume_error_cell_a3": 0.008131181813999999,
+          "published_pressure_residual_at_measured_volume_gpa": 0.7043414131053325,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.5268172359593848,
+          "refit_adjusted_volume_cell_a3": 49.90872687781247,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.3616859885746777
+        },
+        {
+          "source_row": 41,
+          "pressure_gpa": 51.5,
+          "observed_volume_cell_a3": 49.329915046875,
+          "volume_error_cell_a3": 0.00807033375,
+          "published_pressure_residual_at_measured_volume_gpa": 0.7456344534907018,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.5545987485255282,
+          "refit_adjusted_volume_cell_a3": 49.35105886621087,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.36771106514456164
+        },
+        {
+          "source_row": 42,
+          "pressure_gpa": 53.35,
+          "observed_volume_cell_a3": 49.15660622796799,
+          "volume_error_cell_a3": 0.008051420543999998,
+          "published_pressure_residual_at_measured_volume_gpa": 0.4473570847151933,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.2528974979677159,
+          "refit_adjusted_volume_cell_a3": 49.166282294668605,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.16567598099128134
+        },
+        {
+          "source_row": 43,
+          "pressure_gpa": 56.72,
+          "observed_volume_cell_a3": 48.81922139859199,
+          "volume_error_cell_a3": 0.008014537823999999,
+          "published_pressure_residual_at_measured_volume_gpa": 0.18277738289746281,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.017220527512854744,
+          "refit_adjusted_volume_cell_a3": 48.81855888327376,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.011019711343884353
+        },
+        {
+          "source_row": 44,
+          "pressure_gpa": 57.94,
+          "observed_volume_cell_a3": 48.671102500831,
+          "volume_error_cell_a3": 0.007998318726,
+          "published_pressure_residual_at_measured_volume_gpa": 0.3623213802190506,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.1603861940695026,
+          "refit_adjusted_volume_cell_a3": 48.67728238079521,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.10161892671655437
+        },
+        {
+          "source_row": 45,
+          "pressure_gpa": 60.91,
+          "observed_volume_cell_a3": 48.391697714120994,
+          "volume_error_cell_a3": 0.007967678886,
+          "published_pressure_residual_at_measured_volume_gpa": 0.09422502960041612,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.11049592502718752,
+          "refit_adjusted_volume_cell_a3": 48.38742523825316,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.06857577357142475
+        },
+        {
+          "source_row": 46,
+          "pressure_gpa": 62.74,
+          "observed_volume_cell_a3": 48.272280894530994,
+          "volume_error_cell_a3": 0.007954565525999999,
+          "published_pressure_residual_at_measured_volume_gpa": -0.5558138952701839,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.7613650008077428,
+          "refit_adjusted_volume_cell_a3": 48.24277584290754,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.46763550090012984
+        },
+        {
+          "source_row": 47,
+          "pressure_gpa": 29.1,
+          "observed_volume_cell_a3": 52.221360134152,
+          "volume_error_cell_a3": 0.012574033956,
+          "published_pressure_residual_at_measured_volume_gpa": 1.1096948883381934,
+          "refit_pressure_residual_at_measured_volume_gpa": 1.020730838104047,
+          "refit_adjusted_volume_cell_a3": 52.283977125215074,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.6182183735928106
+        },
+        {
+          "source_row": 48,
+          "pressure_gpa": 31.8,
+          "observed_volume_cell_a3": 51.97028292143199,
+          "volume_error_cell_a3": 0.012533698115999997,
+          "published_pressure_residual_at_measured_volume_gpa": 0.06312397702883743,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.037364516409407855,
+          "refit_adjusted_volume_cell_a3": 51.96798071704958,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.022100074997435826
+        },
+        {
+          "source_row": 49,
+          "pressure_gpa": 35.1,
+          "observed_volume_cell_a3": 51.532836622596996,
+          "volume_error_cell_a3": 0.012463266320999996,
+          "published_pressure_residual_at_measured_volume_gpa": -0.24731517941231118,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.36689760086756706,
+          "refit_adjusted_volume_cell_a3": 51.51018497849655,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.20918278056392836
+        },
+        {
+          "source_row": 50,
+          "pressure_gpa": 38.28,
+          "observed_volume_cell_a3": 50.994646250787,
+          "volume_error_cell_a3": 0.012376340000999998,
+          "published_pressure_residual_at_measured_volume_gpa": 0.44906344039843304,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.3079081168155682,
+          "refit_adjusted_volume_cell_a3": 51.0136085260643,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.16820212657220424
+        },
+        {
+          "source_row": 51,
+          "pressure_gpa": 41.65,
+          "observed_volume_cell_a3": 50.562699713351996,
+          "volume_error_cell_a3": 0.012306352356,
+          "published_pressure_residual_at_measured_volume_gpa": 0.3567527569592315,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.20001280386174614,
+          "refit_adjusted_volume_cell_a3": 50.574986914317094,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.10507400607421147
+        },
+        {
+          "source_row": 52,
+          "pressure_gpa": 45.62,
+          "observed_volume_cell_a3": 50.178080055104004,
+          "volume_error_cell_a3": 0.012243865104000001,
+          "published_pressure_residual_at_measured_volume_gpa": -0.5635672404732475,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.7327329188580762,
+          "refit_adjusted_volume_cell_a3": 50.13316934671046,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.36967798574639943
+        },
+        {
+          "source_row": 53,
+          "pressure_gpa": 47.66,
+          "observed_volume_cell_a3": 49.836032,
+          "volume_error_cell_a3": 0.01218816,
+          "published_pressure_residual_at_measured_volume_gpa": 0.21680743279502934,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.03785306703098712,
+          "refit_adjusted_volume_cell_a3": 49.83833819081285,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.018548667328815327
+        },
+        {
+          "source_row": 54,
+          "pressure_gpa": 51.77,
+          "observed_volume_cell_a3": 49.39450588737099,
+          "volume_error_cell_a3": 0.012116065328999998,
+          "published_pressure_residual_at_measured_volume_gpa": -0.09529145218287738,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.28495488911553934,
+          "refit_adjusted_volume_cell_a3": 49.37727040084184,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.13336891426894226
+        },
+        {
+          "source_row": 55,
+          "pressure_gpa": 54.78,
+          "observed_volume_cell_a3": 49.084179043544,
+          "volume_error_cell_a3": 0.012065264963999999,
+          "published_pressure_residual_at_measured_volume_gpa": -0.32550803400577877,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.5212843944256704,
+          "refit_adjusted_volume_cell_a3": 49.05284636746274,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.23595241573092096
+        },
+        {
+          "source_row": 56,
+          "pressure_gpa": 58.72,
+          "observed_volume_cell_a3": 48.695101400412995,
+          "volume_error_cell_a3": 0.016001895468000002,
+          "published_pressure_residual_at_measured_volume_gpa": -0.6459644780830232,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.8476069563899813,
+          "refit_adjusted_volume_cell_a3": 48.63281547659669,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.25463445764111725
+        },
+        {
+          "source_row": 57,
+          "pressure_gpa": 61.65,
+          "observed_volume_cell_a3": 48.359833994737,
+          "volume_error_cell_a3": 0.011946271401,
+          "published_pressure_residual_at_measured_volume_gpa": -0.33242048872900654,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.5373845477061323,
+          "refit_adjusted_volume_cell_a3": 48.328138203886105,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.2248327397908625
+        },
+        {
+          "source_row": 58,
+          "pressure_gpa": 65.89,
+          "observed_volume_cell_a3": 47.927083420224,
+          "volume_error_cell_a3": 0.011874896784,
+          "published_pressure_residual_at_measured_volume_gpa": -0.2077345795141099,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.4144040270596321,
+          "refit_adjusted_volume_cell_a3": 47.902974061482645,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.165165964759737
+        },
+        {
+          "source_row": 59,
+          "pressure_gpa": 69.22,
+          "observed_volume_cell_a3": 47.618998614936004,
+          "volume_error_cell_a3": 0.015765270192,
+          "published_pressure_residual_at_measured_volume_gpa": -0.30312034313878655,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.5090878732016364,
+          "refit_adjusted_volume_cell_a3": 47.583777200296424,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.132164178915815
+        },
+        {
+          "source_row": 60,
+          "pressure_gpa": 73.61,
+          "observed_volume_cell_a3": 47.218114473983995,
+          "volume_error_cell_a3": 0.015676664832,
+          "published_pressure_residual_at_measured_volume_gpa": -0.3187195950432482,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.5211864730008529,
+          "refit_adjusted_volume_cell_a3": 47.182938380795214,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.12771007562115244
+        },
+        {
+          "source_row": 61,
+          "pressure_gpa": 77.0,
+          "observed_volume_cell_a3": 46.90527463014399,
+          "volume_error_cell_a3": 0.015607345152,
+          "published_pressure_residual_at_measured_volume_gpa": -0.15992501623283317,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.3574765870849319,
+          "refit_adjusted_volume_cell_a3": 46.88162450402862,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.08378854877155106
+        },
+        {
+          "source_row": 62,
+          "pressure_gpa": 82.24,
+          "observed_volume_cell_a3": 46.489015612493,
+          "volume_error_cell_a3": 0.011636152640999996,
+          "published_pressure_residual_at_measured_volume_gpa": -0.48623970454292476,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.6740416637094739,
+          "refit_adjusted_volume_cell_a3": 46.451990521411915,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.22501310675262687
+        },
+        {
+          "source_row": 63,
+          "pressure_gpa": 85.98,
+          "observed_volume_cell_a3": 46.190993472,
+          "volume_error_cell_a3": 0.011586369599999998,
+          "published_pressure_residual_at_measured_volume_gpa": -0.5684175452942384,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.7468242894471615,
+          "refit_adjusted_volume_cell_a3": 46.15055015907054,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.2397425543108085
+        },
+        {
+          "source_row": 64,
+          "pressure_gpa": 88.58,
+          "observed_volume_cell_a3": 46.013563473704004,
+          "volume_error_cell_a3": 0.015408906672,
+          "published_pressure_residual_at_measured_volume_gpa": -0.9333581654268528,
+          "refit_pressure_residual_at_measured_volume_gpa": -1.1051549469114406,
+          "refit_adjusted_volume_cell_a3": 45.94485121613326,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.225086451953743
+        },
+        {
+          "source_row": 65,
+          "pressure_gpa": 92.15,
+          "observed_volume_cell_a3": 45.755946562663006,
+          "volume_error_cell_a3": 0.011513504601000002,
+          "published_pressure_residual_at_measured_volume_gpa": -1.1798341579631852,
+          "refit_pressure_residual_at_measured_volume_gpa": -1.3406150824365852,
+          "refit_adjusted_volume_cell_a3": 45.684948337275785,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.40468931109066375
+        },
+        {
+          "source_row": 66,
+          "pressure_gpa": 95.27,
+          "observed_volume_cell_a3": 45.514588593663994,
+          "volume_error_cell_a3": 0.011472980543999999,
+          "published_pressure_residual_at_measured_volume_gpa": -1.0996347480656965,
+          "refit_pressure_residual_at_measured_volume_gpa": -1.2485000805641846,
+          "refit_adjusted_volume_cell_a3": 45.44932146773246,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.36493758740941473
+        },
+        {
+          "source_row": 67,
+          "pressure_gpa": 98.85,
+          "observed_volume_cell_a3": 45.27408087972099,
+          "volume_error_cell_a3": 0.011432527928999998,
+          "published_pressure_residual_at_measured_volume_gpa": -1.4051195843319704,
+          "refit_pressure_residual_at_measured_volume_gpa": -1.5404991338092913,
+          "refit_adjusted_volume_cell_a3": 45.19463413944632,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.43482358888283557
+        },
+        {
+          "source_row": 68,
+          "pressure_gpa": 102.91,
+          "observed_volume_cell_a3": 44.992663629263006,
+          "volume_error_cell_a3": 0.011385103401000001,
+          "published_pressure_residual_at_measured_volume_gpa": -1.5218820041815206,
+          "refit_pressure_residual_at_measured_volume_gpa": -1.639332920249771,
+          "refit_adjusted_volume_cell_a3": 44.90949444533081,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.44458335346291733
+        },
+        {
+          "source_row": 69,
+          "pressure_gpa": 106.13,
+          "observed_volume_cell_a3": 44.746436926007995,
+          "volume_error_cell_a3": 0.011343528035999998,
+          "published_pressure_residual_at_measured_volume_gpa": -1.1898957360825193,
+          "refit_pressure_residual_at_measured_volume_gpa": -1.2896607119424743,
+          "refit_adjusted_volume_cell_a3": 44.681956787673876,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.3384679652142637
+        },
+        {
+          "source_row": 70,
+          "pressure_gpa": 109.31,
+          "observed_volume_cell_a3": 44.561414904677,
+          "volume_error_cell_a3": 0.011312236881,
+          "published_pressure_residual_at_measured_volume_gpa": -1.6365168279998414,
+          "refit_pressure_residual_at_measured_volume_gpa": -1.7217057774233808,
+          "refit_adjusted_volume_cell_a3": 44.476335717130816,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.4388228293242378
+        },
+        {
+          "source_row": 71,
+          "pressure_gpa": 112.69,
+          "observed_volume_cell_a3": 44.324279819000004,
+          "volume_error_cell_a3": 0.011272068900000001,
+          "published_pressure_residual_at_measured_volume_gpa": -1.430426822323554,
+          "refit_pressure_residual_at_measured_volume_gpa": -1.4952487481388488,
+          "refit_adjusted_volume_cell_a3": 44.25148387228742,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.36870853416333205
+        },
+        {
+          "source_row": 72,
+          "pressure_gpa": 115.39,
+          "observed_volume_cell_a3": 44.12918423447199,
+          "volume_error_cell_a3": 0.011238968195999998,
+          "published_pressure_residual_at_measured_volume_gpa": -1.1085933256289593,
+          "refit_pressure_residual_at_measured_volume_gpa": -1.1551811657372468,
+          "refit_adjusted_volume_cell_a3": 44.073639767628585,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.2773793480710509
+        },
+        {
+          "source_row": 73,
+          "pressure_gpa": 119.34,
+          "observed_volume_cell_a3": 43.863729379163,
+          "volume_error_cell_a3": 0.011193851601000001,
+          "published_pressure_residual_at_measured_volume_gpa": -0.8404278846173838,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.859964583282121,
+          "refit_adjusted_volume_cell_a3": 43.82309601475925,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.19885559746160197
+        },
+        {
+          "source_row": 74,
+          "pressure_gpa": 121.74,
+          "observed_volume_cell_a3": 43.684871408459,
+          "volume_error_cell_a3": 0.011163401649,
+          "published_pressure_residual_at_measured_volume_gpa": -0.3272879686813184,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.327080284664774,
+          "refit_adjusted_volume_cell_a3": 43.66959756338181,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.07386506148966987
+        },
+        {
+          "source_row": 75,
+          "pressure_gpa": 123.67,
+          "observed_volume_cell_a3": 43.569617764672,
+          "volume_error_cell_a3": 0.011143758095999998,
+          "published_pressure_residual_at_measured_volume_gpa": -0.34912380979579893,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.335522080567344,
+          "refit_adjusted_volume_cell_a3": 43.55407440659698,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.07445466996600203
+        },
+        {
+          "source_row": 76,
+          "pressure_gpa": 126.13,
+          "observed_volume_cell_a3": 43.424909412949,
+          "volume_error_cell_a3": 0.011119069809,
+          "published_pressure_residual_at_measured_volume_gpa": -0.378318634050558,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.34713395419011306,
+          "refit_adjusted_volume_cell_a3": 43.40899085057477,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.07534334761751893
+        },
+        {
+          "source_row": 77,
+          "pressure_gpa": 129.76,
+          "observed_volume_cell_a3": 43.228768564735994,
+          "volume_error_cell_a3": 0.011085562943999998,
+          "published_pressure_residual_at_measured_volume_gpa": -0.6502402082253127,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.5938219350974805,
+          "refit_adjusted_volume_cell_a3": 43.201922741122885,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.12486622595054087
+        },
+        {
+          "source_row": 78,
+          "pressure_gpa": 132.62,
+          "observed_volume_cell_a3": 43.036903365183996,
+          "volume_error_cell_a3": 0.011052737423999998,
+          "published_pressure_residual_at_measured_volume_gpa": -0.15334482182393572,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.07062882673216109,
+          "refit_adjusted_volume_cell_a3": 43.03375304398813,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.014461283629344734
+        },
+        {
+          "source_row": 79,
+          "pressure_gpa": 135.69,
+          "observed_volume_cell_a3": 42.86397594497299,
+          "volume_error_cell_a3": 0.011023110080999996,
+          "published_pressure_residual_at_measured_volume_gpa": -0.13537185709174082,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.027536453549970474,
+          "refit_adjusted_volume_cell_a3": 42.862763281932,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.0054888383215541126
+        },
+        {
+          "source_row": 80,
+          "pressure_gpa": 138.01,
+          "observed_volume_cell_a3": 42.720835145912,
+          "volume_error_cell_a3": 0.010998555876,
+          "published_pressure_residual_at_measured_volume_gpa": 0.1463865746318902,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.276064297525636,
+          "refit_adjusted_volume_cell_a3": 42.73286634555922,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.053896912261933494
+        },
+        {
+          "source_row": 81,
+          "pressure_gpa": 141.7,
+          "observed_volume_cell_a3": 42.490281467375,
+          "volume_error_cell_a3": 0.010958949225,
+          "published_pressure_residual_at_measured_volume_gpa": 0.7359229871634341,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.9028509318403621,
+          "refit_adjusted_volume_cell_a3": 42.52896807979412,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.170550695591686
+        },
+        {
+          "source_row": 82,
+          "pressure_gpa": 145.66,
+          "observed_volume_cell_a3": 42.296967275688,
+          "volume_error_cell_a3": 0.010925684675999999,
+          "published_pressure_residual_at_measured_volume_gpa": 0.4507716912551132,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.6509727822925697,
+          "refit_adjusted_volume_cell_a3": 42.3244378761596,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.1190299358838729
+        },
+        {
+          "source_row": 83,
+          "pressure_gpa": 148.72,
+          "observed_volume_cell_a3": 42.12602900987499,
+          "volume_error_cell_a3": 0.010896228224999997,
+          "published_pressure_residual_at_measured_volume_gpa": 0.7076337041824559,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.9388655258485699,
+          "refit_adjusted_volume_cell_a3": 42.16513017726222,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.16726599833981481
+        },
+        {
+          "source_row": 84,
+          "pressure_gpa": 152.07,
+          "observed_volume_cell_a3": 41.94106450278401,
+          "volume_error_cell_a3": 0.010864309824000001,
+          "published_pressure_residual_at_measured_volume_gpa": 1.01949803014557,
+          "refit_pressure_residual_at_measured_volume_gpa": 1.2860674643617642,
+          "refit_adjusted_volume_cell_a3": 41.993859380232934,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.2227591380399474
+        },
+        {
+          "source_row": 85,
+          "pressure_gpa": 154.48,
+          "observed_volume_cell_a3": 41.803600367816,
+          "volume_error_cell_a3": 0.010840557924000002,
+          "published_pressure_residual_at_measured_volume_gpa": 1.3810042476040394,
+          "refit_pressure_residual_at_measured_volume_gpa": 1.675058950649742,
+          "refit_adjusted_volume_cell_a3": 41.871632488512304,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.2842945698957635
+        },
+        {
+          "source_row": 86,
+          "pressure_gpa": 157.93,
+          "observed_volume_cell_a3": 41.612376163077,
+          "volume_error_cell_a3": 0.010807473681,
+          "published_pressure_residual_at_measured_volume_gpa": 1.858867526365401,
+          "refit_pressure_residual_at_measured_volume_gpa": 2.1929469826388868,
+          "refit_adjusted_volume_cell_a3": 41.700108693400004,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.3616694011162451
+        },
+        {
+          "source_row": 87,
+          "pressure_gpa": 164.04,
+          "observed_volume_cell_a3": 41.45766118099999,
+          "volume_error_cell_a3": 0.010780668899999998,
+          "published_pressure_residual_at_measured_volume_gpa": -1.0102498541753846,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.6422159551732989,
+          "refit_adjusted_volume_cell_a3": 41.43238147848422,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.10155315682609967
+        },
+        {
+          "source_row": 88,
+          "pressure_gpa": 166.56,
+          "observed_volume_cell_a3": 41.342773668552006,
+          "volume_error_cell_a3": 0.010760742756,
+          "published_pressure_residual_at_measured_volume_gpa": -1.0865300101233402,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.6923465278918854,
+          "refit_adjusted_volume_cell_a3": 41.31578459618656,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.10736815297084945
+        },
+        {
+          "source_row": 89,
+          "pressure_gpa": 169.84,
+          "observed_volume_cell_a3": 41.170840676999994,
+          "volume_error_cell_a3": 0.010730888099999997,
+          "published_pressure_residual_at_measured_volume_gpa": -0.6492368341736494,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.21438808431307166,
+          "refit_adjusted_volume_cell_a3": 41.162599929632115,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.03238794178548687
+        },
+        {
+          "source_row": 90,
+          "pressure_gpa": 172.58,
+          "observed_volume_cell_a3": 41.045773837375,
+          "volume_error_cell_a3": 0.0142788603,
+          "published_pressure_residual_at_measured_volume_gpa": -0.639106909340768,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.17349402305836747,
+          "refit_adjusted_volume_cell_a3": 41.0387194548946,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.015436092867588513
+        },
+        {
+          "source_row": 91,
+          "pressure_gpa": 175.99,
+          "observed_volume_cell_a3": 40.83196326287499,
+          "volume_error_cell_a3": 0.014229230699999998,
+          "published_pressure_residual_at_measured_volume_gpa": 0.7443010792226801,
+          "refit_pressure_residual_at_measured_volume_gpa": 1.2648906354160658,
+          "refit_adjusted_volume_cell_a3": 40.882447748806484,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.10924455521933396
+        },
+        {
+          "source_row": 92,
+          "pressure_gpa": 178.73,
+          "observed_volume_cell_a3": 40.672093519,
+          "volume_error_cell_a3": 0.014192065200000003,
+          "published_pressure_residual_at_measured_volume_gpa": 1.6657420939909002,
+          "refit_pressure_residual_at_measured_volume_gpa": 2.229465432516747,
+          "refit_adjusted_volume_cell_a3": 40.75981940521417,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.18813258324536264
+        },
+        {
+          "source_row": 93,
+          "pressure_gpa": 181.79,
+          "observed_volume_cell_a3": 40.50202632968801,
+          "volume_error_cell_a3": 0.014152475568,
+          "published_pressure_residual_at_measured_volume_gpa": 2.57502541834441,
+          "refit_pressure_residual_at_measured_volume_gpa": 3.1866028121027625,
+          "refit_adjusted_volume_cell_a3": 40.62550003648212,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.2621572939071939
+        }
+      ]
+    },
+    "BM3": {
+      "published": [
+        58.588,
+        197.5,
+        4.996
+      ],
+      "published_error_widths": [
+        0.076,
+        3.3,
+        0.066
+      ],
+      "unweighted_pressure_baseline": [
+        58.47743730448859,
+        202.94770649681797,
+        4.880678232965817
+      ],
+      "unweighted_pressure_rms_gpa": 0.8292994609057956,
+      "effective_variance_interpretation": [
+        58.685011752778934,
+        191.45080847228184,
+        5.148578938607648
+      ],
+      "orthogonal_refit": [
+        58.684580565652254,
+        191.47672084321542,
+        5.147381675981763
+      ],
+      "scipy_odr_independent": [
+        58.684580633407414,
+        191.4767174641508,
+        5.147381756427633
+      ],
+      "scipy_odr_objective": 1987.1646297026434,
+      "literal_marquardt_levenberg_same_orthogonal_objective": [
+        58.684580601238075,
+        191.47671567339094,
+        5.147381892548475
+      ],
+      "literal_marquardt_levenberg_objective": 1987.1646298324326,
+      "orthogonal_objective": 1987.164629702656,
+      "published_fixed_orthogonal_objective": 2161.0447788865695,
+      "degrees_of_freedom_refit": 90,
+      "reduced_chi_square_refit": 22.079606996696178,
+      "published_pressure_rms_gpa": 0.8454188589667355,
+      "refit_pressure_rms_gpa": 0.9153804742784648,
+      "published_pressure_max_abs_gpa": 3.0480392414313258,
+      "formal_errors_absolute_coordinate_sigma": [
+        0.014085123608273974,
+        0.6218646977653612,
+        0.013925053750169437
+      ],
+      "conditional_errors_scaled_by_residual_variance": [
+        0.06618450606969396,
+        2.9220764409623476,
+        0.06543235473684578
+      ],
+      "covariance_absolute_coordinate_sigma": [
+        [
+          0.00019839070706035688,
+          -0.008439204554223086,
+          0.00016960713205380258
+        ],
+        [
+          -0.008439204554223086,
+          0.38671570232680413,
+          -0.00833237826501881
+        ],
+        [
+          0.00016960713205380258,
+          -0.00833237826501881,
+          0.0001939071219451079
+        ]
+      ],
+      "correlation": [
+        [
+          1.0000000000000002,
+          -0.9634849778108348,
+          0.8647420295410617
+        ],
+        [
+          -0.9634849778108348,
+          1.0000000000000002,
+          -0.9622240196819611
+        ],
+        [
+          0.8647420295410617,
+          -0.9622240196819611,
+          1.0
+        ]
+      ],
+      "shift_in_combined_error_widths": [
+        1.2495192012367877,
+        -1.793666412582136,
+        2.2442541833570164
+      ],
+      "within_combined_two_error_widths": [
+        true,
+        true,
+        false
+      ],
+      "shift_in_combined_error_widths_residual_scaled": [
+        0.9583410355679076,
+        -1.3665106234791575,
+        1.6288532838657472
+      ],
+      "within_combined_two_error_widths_residual_scaled": [
+        true,
+        true,
+        true
+      ],
+      "max_first_order_source_coordinate_rounding_bound_gpa": 0.047381164311765145,
+      "row_diagnostics": [
+        {
+          "source_row": 1,
+          "pressure_gpa": 7.2,
+          "observed_volume_cell_a3": 56.80023558399999,
+          "volume_error_cell_a3": 0.0044329007999999994,
+          "published_pressure_residual_at_measured_volume_gpa": -0.5865936409493333,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.40295657523749817,
+          "refit_adjusted_volume_cell_a3": 56.797181927480146,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.39081648914645584
+        },
+        {
+          "source_row": 2,
+          "pressure_gpa": 8.23,
+          "observed_volume_cell_a3": 56.48166417203201,
+          "volume_error_cell_a3": 0.008832620544,
+          "published_pressure_residual_at_measured_volume_gpa": -0.3055581692546001,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.14525783760162625,
+          "refit_adjusted_volume_cell_a3": 56.47754743140246,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.12833429928280538
+        },
+        {
+          "source_row": 3,
+          "pressure_gpa": 10.31,
+          "observed_volume_cell_a3": 56.001652607979,
+          "volume_error_cell_a3": 0.008782506486,
+          "published_pressure_residual_at_measured_volume_gpa": -0.32734501984620223,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.2018596481291901,
+          "refit_adjusted_volume_cell_a3": 55.99576736647857,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.17641326921208744
+        },
+        {
+          "source_row": 4,
+          "pressure_gpa": 13.66,
+          "observed_volume_cell_a3": 55.21059005055199,
+          "volume_error_cell_a3": 0.008699604504,
+          "published_pressure_residual_at_measured_volume_gpa": -0.05564589879431914,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.013624732767221204,
+          "refit_adjusted_volume_cell_a3": 55.21100509526623,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.011675171742997037
+        },
+        {
+          "source_row": 5,
+          "pressure_gpa": 16.58,
+          "observed_volume_cell_a3": 54.573634425490994,
+          "volume_error_cell_a3": 0.008632564566,
+          "published_pressure_residual_at_measured_volume_gpa": 0.16293571874961543,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.18829094363215404,
+          "refit_adjusted_volume_cell_a3": 54.579564639333434,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.15850985785515093
+        },
+        {
+          "source_row": 6,
+          "pressure_gpa": 20.2,
+          "observed_volume_cell_a3": 53.885938265011,
+          "volume_error_cell_a3": 0.008559890646,
+          "published_pressure_residual_at_measured_volume_gpa": 0.1718225562756288,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.15148720354043732,
+          "refit_adjusted_volume_cell_a3": 53.89087629734165,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.12481819255752669
+        },
+        {
+          "source_row": 7,
+          "pressure_gpa": 22.37,
+          "observed_volume_cell_a3": 53.484623807733,
+          "volume_error_cell_a3": 0.008517337974,
+          "published_pressure_residual_at_measured_volume_gpa": 0.2421841558471911,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.1961756904224572,
+          "refit_adjusted_volume_cell_a3": 53.491139883081004,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.15945880088175812
+        },
+        {
+          "source_row": 8,
+          "pressure_gpa": 25.09,
+          "observed_volume_cell_a3": 53.030239093000006,
+          "volume_error_cell_a3": 0.008469029400000001,
+          "published_pressure_residual_at_measured_volume_gpa": 0.17424483032824156,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.10019271276370034,
+          "refit_adjusted_volume_cell_a3": 53.033636331062944,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.08010049972866184
+        },
+        {
+          "source_row": 9,
+          "pressure_gpa": 27.09,
+          "observed_volume_cell_a3": 52.709066549784005,
+          "volume_error_cell_a3": 0.008434800216000002,
+          "published_pressure_residual_at_measured_volume_gpa": 0.1260027683775995,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.032861100285970224,
+          "refit_adjusted_volume_cell_a3": 52.710196323115035,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.025946213293039477
+        },
+        {
+          "source_row": 10,
+          "pressure_gpa": 29.85,
+          "observed_volume_cell_a3": 52.292645404875,
+          "volume_error_cell_a3": 0.008390316150000002,
+          "published_pressure_residual_at_measured_volume_gpa": -0.003946234813387406,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.12083324590662414,
+          "refit_adjusted_volume_cell_a3": 52.28841894179107,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.09378263986901558
+        },
+        {
+          "source_row": 11,
+          "pressure_gpa": 31.57,
+          "observed_volume_cell_a3": 51.995354348224005,
+          "volume_error_cell_a3": 0.008358485856,
+          "published_pressure_residual_at_measured_volume_gpa": 0.22509490858314862,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.0920157738119336,
+          "refit_adjusted_volume_cell_a3": 51.99860795444378,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.07052819563183732
+        },
+        {
+          "source_row": 12,
+          "pressure_gpa": 33.83,
+          "observed_volume_cell_a3": 51.69919219327699,
+          "volume_error_cell_a3": 0.008326716054,
+          "published_pressure_residual_at_measured_volume_gpa": -0.03186201265422994,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.18038592263732767,
+          "refit_adjusted_volume_cell_a3": 51.69274050928382,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.13638199809524565
+        },
+        {
+          "source_row": 13,
+          "pressure_gpa": 35.88,
+          "observed_volume_cell_a3": 51.370983904024,
+          "volume_error_cell_a3": 0.008291437656,
+          "published_pressure_residual_at_measured_volume_gpa": 0.21202226176954042,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.04724554294121219,
+          "refit_adjusted_volume_cell_a3": 51.37269189228971,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.03518392452524921
+        },
+        {
+          "source_row": 14,
+          "pressure_gpa": 37.19,
+          "observed_volume_cell_a3": 51.151573922561,
+          "volume_error_cell_a3": 0.008267811846,
+          "published_pressure_residual_at_measured_volume_gpa": 0.48034887498640444,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.30524897496049164,
+          "refit_adjusted_volume_cell_a3": 51.16268121019576,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.2249792356827598
+        },
+        {
+          "source_row": 15,
+          "pressure_gpa": 38.65,
+          "observed_volume_cell_a3": 50.97402179855201,
+          "volume_error_cell_a3": 0.008248668504,
+          "published_pressure_residual_at_measured_volume_gpa": 0.32460500801965964,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.14148815669129533,
+          "refit_adjusted_volume_cell_a3": 50.979200751793975,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.10332671976828323
+        },
+        {
+          "source_row": 16,
+          "pressure_gpa": 40.06,
+          "observed_volume_cell_a3": 50.755744390625004,
+          "volume_error_cell_a3": 0.00822510375,
+          "published_pressure_residual_at_measured_volume_gpa": 0.5519397794474443,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.3594005463490362,
+          "refit_adjusted_volume_cell_a3": 50.76897862354914,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.2596047760598026
+        },
+        {
+          "source_row": 17,
+          "pressure_gpa": 41.7,
+          "observed_volume_cell_a3": 50.575007064141005,
+          "volume_error_cell_a3": 0.008205566166,
+          "published_pressure_residual_at_measured_volume_gpa": 0.2966187884589857,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.09665606599844523,
+          "refit_adjusted_volume_cell_a3": 50.57858665189016,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.06911712865581876
+        },
+        {
+          "source_row": 18,
+          "pressure_gpa": 42.81,
+          "observed_volume_cell_a3": 50.423355920384,
+          "volume_error_cell_a3": 0.008189154816,
+          "published_pressure_residual_at_measured_volume_gpa": 0.36911530076376664,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.16319971054259952,
+          "refit_adjusted_volume_cell_a3": 50.42942383963654,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.11575197213538502
+        },
+        {
+          "source_row": 19,
+          "pressure_gpa": 44.23,
+          "observed_volume_cell_a3": 50.214820613956995,
+          "volume_error_cell_a3": 0.008166560694,
+          "published_pressure_residual_at_measured_volume_gpa": 0.6065844506665528,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.39291163979488886,
+          "refit_adjusted_volume_cell_a3": 50.22950048683802,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.27555706177985684
+        },
+        {
+          "source_row": 20,
+          "pressure_gpa": 46.06,
+          "observed_volume_cell_a3": 49.986503828253,
+          "volume_error_cell_a3": 0.008141787414,
+          "published_pressure_residual_at_measured_volume_gpa": 0.6339525163513926,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.41238168396721164,
+          "refit_adjusted_volume_cell_a3": 50.00199550385608,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.28543823627314424
+        },
+        {
+          "source_row": 21,
+          "pressure_gpa": 48.22,
+          "observed_volume_cell_a3": 49.702082429662994,
+          "volume_error_cell_a3": 0.008110873733999999,
+          "published_pressure_residual_at_measured_volume_gpa": 0.8518804629870687,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.6213892075760512,
+          "refit_adjusted_volume_cell_a3": 49.725562583424775,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.42303181397004863
+        },
+        {
+          "source_row": 22,
+          "pressure_gpa": 50.73,
+          "observed_volume_cell_a3": 49.39450588737099,
+          "volume_error_cell_a3": 0.008077376886,
+          "published_pressure_residual_at_measured_volume_gpa": 0.9960649839468232,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.7571456646395234,
+          "refit_adjusted_volume_cell_a3": 49.4232825641663,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.5058319947883874
+        },
+        {
+          "source_row": 23,
+          "pressure_gpa": 53.21,
+          "observed_volume_cell_a3": 49.104290564659,
+          "volume_error_cell_a3": 0.008045706966,
+          "published_pressure_residual_at_measured_volume_gpa": 1.1019334830096241,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.8563002943635851,
+          "refit_adjusted_volume_cell_a3": 49.13699411515375,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.5615562685427307
+        },
+        {
+          "source_row": 24,
+          "pressure_gpa": 55.64,
+          "observed_volume_cell_a3": 48.831244192151,
+          "volume_error_cell_a3": 0.008015853606,
+          "published_pressure_residual_at_measured_volume_gpa": 1.179560879567802,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.9287802331169814,
+          "refit_adjusted_volume_cell_a3": 48.86685728480702,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.598123941375043
+        },
+        {
+          "source_row": 25,
+          "pressure_gpa": 57.97,
+          "observed_volume_cell_a3": 48.587168449,
+          "volume_error_cell_a3": 0.0079891206,
+          "published_pressure_residual_at_measured_volume_gpa": 1.1544244774020456,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.9000591094335064,
+          "refit_adjusted_volume_cell_a3": 48.6217910829194,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.5698515750848756
+        },
+        {
+          "source_row": 26,
+          "pressure_gpa": 60.32,
+          "observed_volume_cell_a3": 48.34788870699999,
+          "volume_error_cell_a3": 0.0079628694,
+          "published_pressure_residual_at_measured_volume_gpa": 1.1237480554128965,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.8668512390755296,
+          "refit_adjusted_volume_cell_a3": 48.381322370723424,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.5394554428395537
+        },
+        {
+          "source_row": 27,
+          "pressure_gpa": 2.99,
+          "observed_volume_cell_a3": 58.050510847999995,
+          "volume_error_cell_a3": 0.013493145599999997,
+          "published_pressure_residual_at_measured_volume_gpa": -1.127360965710342,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.8509018396683601,
+          "refit_adjusted_volume_cell_a3": 58.006132997586114,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.6958020441980315
+        },
+        {
+          "source_row": 28,
+          "pressure_gpa": 5.87,
+          "observed_volume_cell_a3": 56.906691641344004,
+          "volume_error_cell_a3": 0.013315313664,
+          "published_pressure_residual_at_measured_volume_gpa": 0.31476787235246206,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.5062385117341952,
+          "refit_adjusted_volume_cell_a3": 56.934331563287465,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.3977479046136052
+        },
+        {
+          "source_row": 29,
+          "pressure_gpa": 9.95,
+          "observed_volume_cell_a3": 56.217099714112,
+          "volume_error_cell_a3": 0.022012542960000003,
+          "published_pressure_residual_at_measured_volume_gpa": -0.903712749040313,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.7626577798957079,
+          "refit_adjusted_volume_cell_a3": 56.13315601686226,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.4063661905859899
+        },
+        {
+          "source_row": 30,
+          "pressure_gpa": 11.62,
+          "observed_volume_cell_a3": 55.89632862787501,
+          "volume_error_cell_a3": 0.0175429827,
+          "published_pressure_residual_at_measured_volume_gpa": -1.1719876006102048,
+          "refit_pressure_residual_at_measured_volume_gpa": -1.0540769889887827,
+          "refit_adjusted_volume_cell_a3": 55.80666649785853,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.66035577994964
+        },
+        {
+          "source_row": 31,
+          "pressure_gpa": 15.35,
+          "observed_volume_cell_a3": 54.967359186648004,
+          "volume_error_cell_a3": 0.017348069808,
+          "published_pressure_residual_at_measured_volume_gpa": -0.5714217260618408,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.5190810057510635,
+          "refit_adjusted_volume_cell_a3": 54.922967180067225,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.3046451082034256
+        },
+        {
+          "source_row": 32,
+          "pressure_gpa": 20.24,
+          "observed_volume_cell_a3": 54.01015199999999,
+          "volume_error_cell_a3": 0.01714608,
+          "published_pressure_residual_at_measured_volume_gpa": -0.542910467050536,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.5551432292698557,
+          "refit_adjusted_volume_cell_a3": 53.96267516206566,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.3013782713485753
+        },
+        {
+          "source_row": 33,
+          "pressure_gpa": 23.64,
+          "observed_volume_cell_a3": 53.310208315455995,
+          "volume_error_cell_a3": 0.025496432927999992,
+          "published_pressure_residual_at_measured_volume_gpa": -0.024625980818619553,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.08153477422018085,
+          "refit_adjusted_volume_cell_a3": 53.30052628700588,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.025911670446181034
+        },
+        {
+          "source_row": 34,
+          "pressure_gpa": 29.31,
+          "observed_volume_cell_a3": 52.31362400000001,
+          "volume_error_cell_a3": 0.008392560000000002,
+          "published_pressure_residual_at_measured_volume_gpa": 0.4007977333517587,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.28507806622600285,
+          "refit_adjusted_volume_cell_a3": 52.323577126747445,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.22156570752528282
+        },
+        {
+          "source_row": 35,
+          "pressure_gpa": 34.68,
+          "observed_volume_cell_a3": 51.499608390125,
+          "volume_error_cell_a3": 0.00830527215,
+          "published_pressure_residual_at_measured_volume_gpa": 0.5035949213681263,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.3450750991205851,
+          "refit_adjusted_volume_cell_a3": 51.512020493626295,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.2586739452238547
+        },
+        {
+          "source_row": 36,
+          "pressure_gpa": 36.01,
+          "observed_volume_cell_a3": 51.362692912448004,
+          "volume_error_cell_a3": 0.008290545504,
+          "published_pressure_residual_at_measured_volume_gpa": 0.14100194871986105,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.024172968519515337,
+          "refit_adjusted_volume_cell_a3": 51.36181863781966,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.01799258304637874
+        },
+        {
+          "source_row": 37,
+          "pressure_gpa": 39.42,
+          "observed_volume_cell_a3": 50.85450962864899,
+          "volume_error_cell_a3": 0.008235770406,
+          "published_pressure_residual_at_measured_volume_gpa": 0.44639912601947884,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.25806269509580915,
+          "refit_adjusted_volume_cell_a3": 50.86398704631478,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.18733892863913582
+        },
+        {
+          "source_row": 38,
+          "pressure_gpa": 42.49,
+          "observed_volume_cell_a3": 50.415167208888,
+          "volume_error_cell_a3": 0.008188268184,
+          "published_pressure_residual_at_measured_volume_gpa": 0.7535099262390048,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.5472802531062584,
+          "refit_adjusted_volume_cell_a3": 50.43550231770271,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.3882528830057197
+        },
+        {
+          "source_row": 39,
+          "pressure_gpa": 44.57,
+          "observed_volume_cell_a3": 50.173998877387,
+          "volume_error_cell_a3": 0.008162134134,
+          "published_pressure_residual_at_measured_volume_gpa": 0.5953653130333905,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.3802338597173929,
+          "refit_adjusted_volume_cell_a3": 50.18821988914347,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.2660406747794255
+        },
+        {
+          "source_row": 40,
+          "pressure_gpa": 46.73,
+          "observed_volume_cell_a3": 49.88886601979699,
+          "volume_error_cell_a3": 0.008131181813999999,
+          "published_pressure_residual_at_measured_volume_gpa": 0.7721386926355436,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.5473879588884856,
+          "refit_adjusted_volume_cell_a3": 49.90946927018535,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.3768064995210665
+        },
+        {
+          "source_row": 41,
+          "pressure_gpa": 51.5,
+          "observed_volume_cell_a3": 49.329915046875,
+          "volume_error_cell_a3": 0.00807033375,
+          "published_pressure_residual_at_measured_volume_gpa": 0.7946352925688487,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.5541148648397609,
+          "refit_adjusted_volume_cell_a3": 49.35100897636522,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.3685156673575207
+        },
+        {
+          "source_row": 42,
+          "pressure_gpa": 53.35,
+          "observed_volume_cell_a3": 49.15660622796799,
+          "volume_error_cell_a3": 0.008051420543999998,
+          "published_pressure_residual_at_measured_volume_gpa": 0.4898204451132102,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.24530512265826587,
+          "refit_adjusted_volume_cell_a3": 49.16597839184934,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.16121225043431764
+        },
+        {
+          "source_row": 43,
+          "pressure_gpa": 56.72,
+          "observed_volume_cell_a3": 48.81922139859199,
+          "volume_error_cell_a3": 0.008014537823999999,
+          "published_pressure_residual_at_measured_volume_gpa": 0.21168008999979548,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.03930006166350353,
+          "refit_adjusted_volume_cell_a3": 48.81771137627468,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.025232889693555194
+        },
+        {
+          "source_row": 44,
+          "pressure_gpa": 57.94,
+          "observed_volume_cell_a3": 48.671102500831,
+          "volume_error_cell_a3": 0.007998318726,
+          "published_pressure_residual_at_measured_volume_gpa": 0.3849598902745157,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.13171563008362597,
+          "refit_adjusted_volume_cell_a3": 48.67617148400822,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.08373701744766748
+        },
+        {
+          "source_row": 45,
+          "pressure_gpa": 60.91,
+          "observed_volume_cell_a3": 48.391697714120994,
+          "volume_error_cell_a3": 0.007967678886,
+          "published_pressure_residual_at_measured_volume_gpa": 0.10460920779683391,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.15189918178537454,
+          "refit_adjusted_volume_cell_a3": 48.38583061569803,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.09459891641514417
+        },
+        {
+          "source_row": 46,
+          "pressure_gpa": 62.74,
+          "observed_volume_cell_a3": 48.272280894530994,
+          "volume_error_cell_a3": 0.007954565525999999,
+          "published_pressure_residual_at_measured_volume_gpa": -0.5508175471205519,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.8083038379720264,
+          "refit_adjusted_volume_cell_a3": 48.240988006625585,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.4982031079266349
+        },
+        {
+          "source_row": 47,
+          "pressure_gpa": 29.1,
+          "observed_volume_cell_a3": 52.221360134152,
+          "volume_error_cell_a3": 0.012574033956,
+          "published_pressure_residual_at_measured_volume_gpa": 1.2078805634881604,
+          "refit_pressure_residual_at_measured_volume_gpa": 1.0870508128181058,
+          "refit_adjusted_volume_cell_a3": 52.28803261134131,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.6586905974338286
+        },
+        {
+          "source_row": 48,
+          "pressure_gpa": 31.8,
+          "observed_volume_cell_a3": 51.97028292143199,
+          "volume_error_cell_a3": 0.012533698115999997,
+          "published_pressure_residual_at_measured_volume_gpa": 0.16225825606064603,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.02784441383697356,
+          "refit_adjusted_volume_cell_a3": 51.97199795387307,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.016486587893624005
+        },
+        {
+          "source_row": 49,
+          "pressure_gpa": 35.1,
+          "observed_volume_cell_a3": 51.532836622596996,
+          "volume_error_cell_a3": 0.012463266320999996,
+          "published_pressure_residual_at_measured_volume_gpa": -0.14909035702689977,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.3059699031903591,
+          "refit_adjusted_volume_cell_a3": 51.51395461111545,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.17477916482970102
+        },
+        {
+          "source_row": 50,
+          "pressure_gpa": 38.28,
+          "observed_volume_cell_a3": 50.994646250787,
+          "volume_error_cell_a3": 0.012376340000999998,
+          "published_pressure_residual_at_measured_volume_gpa": 0.5418434723689103,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.3596419374865647,
+          "refit_adjusted_volume_cell_a3": 51.0167863728448,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.19701163794700705
+        },
+        {
+          "source_row": 51,
+          "pressure_gpa": 41.65,
+          "observed_volume_cell_a3": 50.562699713351996,
+          "volume_error_cell_a3": 0.012306352356,
+          "published_pressure_residual_at_measured_volume_gpa": 0.4418771985480632,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.24142183927931882,
+          "refit_adjusted_volume_cell_a3": 50.577526947564984,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.12726867027701871
+        },
+        {
+          "source_row": 52,
+          "pressure_gpa": 45.62,
+          "observed_volume_cell_a3": 50.178080055104004,
+          "volume_error_cell_a3": 0.012243865104000001,
+          "published_pressure_residual_at_measured_volume_gpa": -0.4875690422601622,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.7025555652319184,
+          "refit_adjusted_volume_cell_a3": 50.13502359511149,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.3558950122362319
+        },
+        {
+          "source_row": 53,
+          "pressure_gpa": 47.66,
+          "observed_volume_cell_a3": 49.836032,
+          "volume_error_cell_a3": 0.01218816,
+          "published_pressure_residual_at_measured_volume_gpa": 0.282989003849238,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.05656832940609746,
+          "refit_adjusted_volume_cell_a3": 49.83947857503732,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.02784188440264046
+        },
+        {
+          "source_row": 54,
+          "pressure_gpa": 51.77,
+          "observed_volume_cell_a3": 49.39450588737099,
+          "volume_error_cell_a3": 0.012116065328999998,
+          "published_pressure_residual_at_measured_volume_gpa": -0.04393501605318306,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.2828543353604829,
+          "refit_adjusted_volume_cell_a3": 49.37739274804849,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.13302658870452433
+        },
+        {
+          "source_row": 55,
+          "pressure_gpa": 54.78,
+          "observed_volume_cell_a3": 49.084179043544,
+          "volume_error_cell_a3": 0.012065264963999999,
+          "published_pressure_residual_at_measured_volume_gpa": -0.285866453940109,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.5319183207564819,
+          "refit_adjusted_volume_cell_a3": 49.05219306105126,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.2419823378780066
+        },
+        {
+          "source_row": 56,
+          "pressure_gpa": 58.72,
+          "observed_volume_cell_a3": 48.695101400412995,
+          "volume_error_cell_a3": 0.016001895468000002,
+          "published_pressure_residual_at_measured_volume_gpa": -0.6222992877525968,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.8752012757004479,
+          "refit_adjusted_volume_cell_a3": 48.63066745418524,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.2646031748877604
+        },
+        {
+          "source_row": 57,
+          "pressure_gpa": 61.65,
+          "observed_volume_cell_a3": 48.359833994737,
+          "volume_error_cell_a3": 0.011946271401,
+          "published_pressure_residual_at_measured_volume_gpa": -0.3234659654149965,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.580260259651503,
+          "refit_adjusted_volume_cell_a3": 48.325582078649546,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.24404168759397038
+        },
+        {
+          "source_row": 58,
+          "pressure_gpa": 65.89,
+          "observed_volume_cell_a3": 47.927083420224,
+          "volume_error_cell_a3": 0.011874896784,
+          "published_pressure_residual_at_measured_volume_gpa": -0.21869919274196548,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.47753223078839824,
+          "refit_adjusted_volume_cell_a3": 47.899274667254886,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.19130240023417855
+        },
+        {
+          "source_row": 59,
+          "pressure_gpa": 69.22,
+          "observed_volume_cell_a3": 47.618998614936004,
+          "volume_error_cell_a3": 0.015765270192,
+          "published_pressure_residual_at_measured_volume_gpa": -0.3286436235927397,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.5867185510886657,
+          "refit_adjusted_volume_cell_a3": 47.57832338867261,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.1532057257773971
+        },
+        {
+          "source_row": 60,
+          "pressure_gpa": 73.61,
+          "observed_volume_cell_a3": 47.218114473983995,
+          "volume_error_cell_a3": 0.015676664832,
+          "published_pressure_residual_at_measured_volume_gpa": -0.36326562247228367,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.6173775928090919,
+          "refit_adjusted_volume_cell_a3": 47.17636385901445,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.1520826819079133
+        },
+        {
+          "source_row": 61,
+          "pressure_gpa": 77.0,
+          "observed_volume_cell_a3": 46.90527463014399,
+          "volume_error_cell_a3": 0.015607345152,
+          "published_pressure_residual_at_measured_volume_gpa": -0.21906768187265868,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.46757979065043287,
+          "refit_adjusted_volume_cell_a3": 46.87428247872491,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.11011979296216623
+        },
+        {
+          "source_row": 62,
+          "pressure_gpa": 82.24,
+          "observed_volume_cell_a3": 46.489015612493,
+          "volume_error_cell_a3": 0.011636152640999996,
+          "published_pressure_residual_at_measured_volume_gpa": -0.5639440049362179,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.8013261797722606,
+          "refit_adjusted_volume_cell_a3": 46.44495175363488,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.26842707196658466
+        },
+        {
+          "source_row": 63,
+          "pressure_gpa": 85.98,
+          "observed_volume_cell_a3": 46.190993472,
+          "volume_error_cell_a3": 0.011586369599999998,
+          "published_pressure_residual_at_measured_volume_gpa": -0.6584350093487501,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.8850841556129723,
+          "refit_adjusted_volume_cell_a3": 46.143016297579955,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.28492897911904436
+        },
+        {
+          "source_row": 64,
+          "pressure_gpa": 88.58,
+          "observed_volume_cell_a3": 46.013563473704004,
+          "volume_error_cell_a3": 0.015408906672,
+          "published_pressure_residual_at_measured_volume_gpa": -1.0301790326377898,
+          "refit_pressure_residual_at_measured_volume_gpa": -1.2492757381538127,
+          "refit_adjusted_volume_cell_a3": 45.93579437336153,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.2550915754922869
+        },
+        {
+          "source_row": 65,
+          "pressure_gpa": 92.15,
+          "observed_volume_cell_a3": 45.755946562663006,
+          "volume_error_cell_a3": 0.011513504601000002,
+          "published_pressure_residual_at_measured_volume_gpa": -1.2856652562890787,
+          "refit_pressure_residual_at_measured_volume_gpa": -1.492175012345598,
+          "refit_adjusted_volume_cell_a3": 45.67686333166594,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.45119743873972595
+        },
+        {
+          "source_row": 66,
+          "pressure_gpa": 95.27,
+          "observed_volume_cell_a3": 45.514588593663994,
+          "volume_error_cell_a3": 0.011472980543999999,
+          "published_pressure_residual_at_measured_volume_gpa": -1.2127965650467445,
+          "refit_pressure_residual_at_measured_volume_gpa": -1.405691875689925,
+          "refit_adjusted_volume_cell_a3": 45.44106281950369,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.41129372845898615
+        },
+        {
+          "source_row": 67,
+          "pressure_gpa": 98.85,
+          "observed_volume_cell_a3": 45.27408087972099,
+          "volume_error_cell_a3": 0.011432527928999998,
+          "published_pressure_residual_at_measured_volume_gpa": -1.5243167033139997,
+          "refit_pressure_residual_at_measured_volume_gpa": -1.7018048679609876,
+          "refit_adjusted_volume_cell_a3": 45.18628511305407,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.48044949869877485
+        },
+        {
+          "source_row": 68,
+          "pressure_gpa": 102.91,
+          "observed_volume_cell_a3": 44.992663629263006,
+          "volume_error_cell_a3": 0.011385103401000001,
+          "published_pressure_residual_at_measured_volume_gpa": -1.6462493560574956,
+          "refit_pressure_residual_at_measured_volume_gpa": -1.8032570578437372,
+          "refit_adjusted_volume_cell_a3": 44.901174181187294,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.4886535188680625
+        },
+        {
+          "source_row": 69,
+          "pressure_gpa": 106.13,
+          "observed_volume_cell_a3": 44.746436926007995,
+          "volume_error_cell_a3": 0.011343528035999998,
+          "published_pressure_residual_at_measured_volume_gpa": -1.3168430732566208,
+          "refit_pressure_residual_at_measured_volume_gpa": -1.453650236038456,
+          "refit_adjusted_volume_cell_a3": 44.673776508356696,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.3808722520157062
+        },
+        {
+          "source_row": 70,
+          "pressure_gpa": 109.31,
+          "observed_volume_cell_a3": 44.561414904677,
+          "volume_error_cell_a3": 0.011312236881,
+          "published_pressure_residual_at_measured_volume_gpa": -1.764044200112096,
+          "refit_pressure_residual_at_measured_volume_gpa": -1.8842046798958165,
+          "refit_adjusted_volume_cell_a3": 44.46835462789929,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.4790544099045775
+        },
+        {
+          "source_row": 71,
+          "pressure_gpa": 112.69,
+          "observed_volume_cell_a3": 44.324279819000004,
+          "volume_error_cell_a3": 0.011272068900000001,
+          "published_pressure_residual_at_measured_volume_gpa": -1.5567855487741866,
+          "refit_pressure_residual_at_measured_volume_gpa": -1.6536879395676465,
+          "refit_adjusted_volume_cell_a3": 44.243841582107805,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.4063753710986049
+        },
+        {
+          "source_row": 72,
+          "pressure_gpa": 115.39,
+          "observed_volume_cell_a3": 44.12918423447199,
+          "volume_error_cell_a3": 0.011238968195999998,
+          "published_pressure_residual_at_measured_volume_gpa": -1.2322085592398508,
+          "refit_pressure_residual_at_measured_volume_gpa": -1.3082903768719802,
+          "refit_adjusted_volume_cell_a3": 44.066353716291495,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.31280678128131
+        },
+        {
+          "source_row": 73,
+          "pressure_gpa": 119.34,
+          "observed_volume_cell_a3": 43.863729379163,
+          "volume_error_cell_a3": 0.011193851601000001,
+          "published_pressure_residual_at_measured_volume_gpa": -0.9574280046951458,
+          "refit_pressure_residual_at_measured_volume_gpa": -1.0026238280845519,
+          "refit_adjusted_volume_cell_a3": 43.816435363389715,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.2305781413050596
+        },
+        {
+          "source_row": 74,
+          "pressure_gpa": 121.74,
+          "observed_volume_cell_a3": 43.684871408459,
+          "volume_error_cell_a3": 0.011163401649,
+          "published_pressure_residual_at_measured_volume_gpa": -0.4377684786201712,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.46042209972607395,
+          "refit_adjusted_volume_cell_a3": 43.66341446671457,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.10332788979552276
+        },
+        {
+          "source_row": 75,
+          "pressure_gpa": 123.67,
+          "observed_volume_cell_a3": 43.569617764672,
+          "volume_error_cell_a3": 0.011143758095999998,
+          "published_pressure_residual_at_measured_volume_gpa": -0.45444914138549564,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.46181111470028213,
+          "refit_adjusted_volume_cell_a3": 43.54827258730017,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.1017778771162483
+        },
+        {
+          "source_row": 76,
+          "pressure_gpa": 126.13,
+          "observed_volume_cell_a3": 43.424909412949,
+          "volume_error_cell_a3": 0.011119069809,
+          "published_pressure_residual_at_measured_volume_gpa": -0.4760447310144258,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.4633329304952838,
+          "refit_adjusted_volume_cell_a3": 43.40371739406805,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.09979874758205654
+        },
+        {
+          "source_row": 77,
+          "pressure_gpa": 129.76,
+          "observed_volume_cell_a3": 43.228768564735994,
+          "volume_error_cell_a3": 0.011085562943999998,
+          "published_pressure_residual_at_measured_volume_gpa": -0.7355332485407189,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.6940133198158094,
+          "refit_adjusted_volume_cell_a3": 43.19748927853428,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.14466113869906394
+        },
+        {
+          "source_row": 78,
+          "pressure_gpa": 132.62,
+          "observed_volume_cell_a3": 43.036903365183996,
+          "volume_error_cell_a3": 0.011052737423999998,
+          "published_pressure_residual_at_measured_volume_gpa": -0.2239230701073609,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.1523797126809825,
+          "refit_adjusted_volume_cell_a3": 43.03013051747567,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.030896949937044837
+        },
+        {
+          "source_row": 79,
+          "pressure_gpa": 135.69,
+          "observed_volume_cell_a3": 42.86397594497299,
+          "volume_error_cell_a3": 0.011023110080999996,
+          "published_pressure_residual_at_measured_volume_gpa": -0.19035829170829288,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.09013584486018544,
+          "refit_adjusted_volume_cell_a3": 42.8600222325279,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.017774328984017984
+        },
+        {
+          "source_row": 80,
+          "pressure_gpa": 138.01,
+          "observed_volume_cell_a3": 42.720835145912,
+          "volume_error_cell_a3": 0.010998555876,
+          "published_pressure_residual_at_measured_volume_gpa": 0.1060901121911968,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.23125121870759813,
+          "refit_adjusted_volume_cell_a3": 42.73086961312972,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.044628182184624166
+        },
+        {
+          "source_row": 81,
+          "pressure_gpa": 141.7,
+          "observed_volume_cell_a3": 42.490281467375,
+          "volume_error_cell_a3": 0.010958949225,
+          "published_pressure_residual_at_measured_volume_gpa": 0.7229280758846812,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.8906229329141411,
+          "refit_adjusted_volume_cell_a3": 42.528254576973026,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.16608457235528817
+        },
+        {
+          "source_row": 82,
+          "pressure_gpa": 145.66,
+          "observed_volume_cell_a3": 42.296967275688,
+          "volume_error_cell_a3": 0.010925684675999999,
+          "published_pressure_residual_at_measured_volume_gpa": 0.4643836345138084,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.6700749681490379,
+          "refit_adjusted_volume_cell_a3": 42.32508666362531,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.12079380769466752
+        },
+        {
+          "source_row": 83,
+          "pressure_gpa": 148.72,
+          "observed_volume_cell_a3": 42.12602900987499,
+          "volume_error_cell_a3": 0.010896228224999997,
+          "published_pressure_residual_at_measured_volume_gpa": 0.7478072459212513,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.9889382242915019,
+          "refit_adjusted_volume_cell_a3": 42.16696488505467,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.1735118315321813
+        },
+        {
+          "source_row": 84,
+          "pressure_gpa": 152.07,
+          "observed_volume_cell_a3": 41.94106450278401,
+          "volume_error_cell_a3": 0.010864309824000001,
+          "published_pressure_residual_at_measured_volume_gpa": 1.0918381240168458,
+          "refit_pressure_residual_at_measured_volume_gpa": 1.3733327367572201,
+          "refit_adjusted_volume_cell_a3": 41.997065479222215,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.23398100050624748
+        },
+        {
+          "source_row": 85,
+          "pressure_gpa": 154.48,
+          "observed_volume_cell_a3": 41.803600367816,
+          "volume_error_cell_a3": 0.010840557924000002,
+          "published_pressure_residual_at_measured_volume_gpa": 1.4796940727205197,
+          "refit_pressure_residual_at_measured_volume_gpa": 1.7925873117510207,
+          "refit_adjusted_volume_cell_a3": 41.87588760076021,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.29899626955480585
+        },
+        {
+          "source_row": 86,
+          "pressure_gpa": 157.93,
+          "observed_volume_cell_a3": 41.612376163077,
+          "volume_error_cell_a3": 0.010807473681,
+          "published_pressure_residual_at_measured_volume_gpa": 1.9978898850069413,
+          "refit_pressure_residual_at_measured_volume_gpa": 2.356513653491646,
+          "refit_adjusted_volume_cell_a3": 41.705920846638016,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.3814586344434474
+        },
+        {
+          "source_row": 87,
+          "pressure_gpa": 164.04,
+          "observed_volume_cell_a3": 41.45766118099999,
+          "volume_error_cell_a3": 0.010780668899999998,
+          "published_pressure_residual_at_measured_volume_gpa": -0.835285843039145,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.4378602427289593,
+          "refit_adjusted_volume_cell_a3": 41.440572118367825,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.06783762450390896
+        },
+        {
+          "source_row": 88,
+          "pressure_gpa": 166.56,
+          "observed_volume_cell_a3": 41.342773668552006,
+          "volume_error_cell_a3": 0.010760742756,
+          "published_pressure_residual_at_measured_volume_gpa": -0.8828593783163114,
+          "refit_pressure_residual_at_measured_volume_gpa": -0.45554644423935997,
+          "refit_adjusted_volume_cell_a3": 41.32517426697955,
+          "refit_pressure_residual_at_adjusted_volume_gpa": -0.06915498106579321
+        },
+        {
+          "source_row": 89,
+          "pressure_gpa": 169.84,
+          "observed_volume_cell_a3": 41.170840676999994,
+          "volume_error_cell_a3": 0.010730888099999997,
+          "published_pressure_residual_at_measured_volume_gpa": -0.3992320612606193,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.07456702308496688,
+          "refit_adjusted_volume_cell_a3": 41.17367948093772,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.011013777155369553
+        },
+        {
+          "source_row": 90,
+          "pressure_gpa": 172.58,
+          "observed_volume_cell_a3": 41.045773837375,
+          "volume_error_cell_a3": 0.0142788603,
+          "published_pressure_residual_at_measured_volume_gpa": -0.35273859014029085,
+          "refit_pressure_residual_at_measured_volume_gpa": 0.156235211918613,
+          "refit_adjusted_volume_cell_a3": 41.05205264120528,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.013557365731827531
+        },
+        {
+          "source_row": 91,
+          "pressure_gpa": 175.99,
+          "observed_volume_cell_a3": 40.83196326287499,
+          "volume_error_cell_a3": 0.014229230699999998,
+          "published_pressure_residual_at_measured_volume_gpa": 1.0983204710252608,
+          "refit_pressure_residual_at_measured_volume_gpa": 1.6701683530571927,
+          "refit_adjusted_volume_cell_a3": 40.897794496230986,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.14048710542439835
+        },
+        {
+          "source_row": 92,
+          "pressure_gpa": 178.73,
+          "observed_volume_cell_a3": 40.672093519,
+          "volume_error_cell_a3": 0.014192065200000003,
+          "published_pressure_residual_at_measured_volume_gpa": 2.075118026627848,
+          "refit_pressure_residual_at_measured_volume_gpa": 2.6963102959169873,
+          "refit_adjusted_volume_cell_a3": 40.77680280496649,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.22135008506984377
+        },
+        {
+          "source_row": 93,
+          "pressure_gpa": 181.79,
+          "observed_volume_cell_a3": 40.50202632968801,
+          "volume_error_cell_a3": 0.014152475568,
+          "published_pressure_residual_at_measured_volume_gpa": 3.0480392414313258,
+          "refit_pressure_residual_at_measured_volume_gpa": 3.7239911489494375,
+          "refit_adjusted_volume_cell_a3": 40.6443369416365,
+          "refit_pressure_residual_at_adjusted_volume_gpa": 0.29768497000620187
+        }
+      ]
+    }
+  }
+}

@@ -31,6 +31,8 @@ nav:
   - Home: index.md
   - Getting started: getting-started.md
   - Material catalog: catalog.md
+  - Readable material summaries: material-summaries/index.md
+  - EOS reconstruction reports: reconstruction-reports/index.md
   - Observation datasets: datasets.md
   - Dataset pressure reductions: dataset-pressure-reductions.md
   - EOS models: models.md
@@ -54,7 +56,9 @@ nav:
   - Pressure standards: pressure-standards.md
   - Pressure-scale normalization: pressure-scale-normalization.md
   - Dioptas integration: dioptas-integration.md
-  - EOSMAT schema: eosmat-schema.md
+  - EOSMAT v4: eosmat-v4.md
+  - EOSMAT v3 compatibility: eosmat-schema.md
+  - Reading and editing EOSMAT: eosmat-authoring.md
   - Advanced DAC analysis: dac-thermal-pressure.md
   - Units and reference states: units.md
   - API reference: api.md
@@ -62,12 +66,16 @@ nav:
   - API stability: api-stability.md
   - Error handling: error-handling.md
   - Validation: validation.md
+  - EOS labels and reconstruction status: eos-labels.md
   - Source audits and reproductions:
       - All source audits: source-audits.md
       - Forsterite thermal EOS: literature-reproductions/forsterite-katsura-2009-2022.md
       - Diopside EOS: literature-reproductions/diopside.md
       - Phase E EOS and parity: literature-reproductions/phase-e-crichton-ross-2000.md
       - Rubidium halide thermal EOS: literature-reproductions/rubidium-halides-farla-2025.md
+      - Sakai 2025 gold reconstruction: literature-reproductions/sakai-2025-gold.md
+      - Frost 2023 palladium audit: literature-reproductions/palladium-frost-2023-audit.md
+      - Baty 2024 palladium disposition: literature-reproductions/palladium-baty-2024-disposition.md
       - Paper investigation ledger: paper-investigation-ledger.md
       - Primary EOS refit validation: primary-eos-refits.md
       - Incomplete datasets and author requests: dataset-requests.md
@@ -87,6 +95,10 @@ nav:
       - Thompson 2017 epsilon-FeOOH EOS: epsilon-feooh-thompson-2017.md
   - Catalog coverage: catalog-coverage.md
   - Material EOS backlog: material-eos-candidates.md
+  - Staged research:
+      - Brown NaCl historical-data reconstruction: research/brown-nacl-1999-primary-data-reproduction.md
+      - Ferrous ringwoodite source investigation: research/ferrous-ringwoodite-armentrout-2011-integration.md
+      - Pressure-scale variant audit: research/pressure-scale-variant-audit.md
   - LitCurate candidate workflow: litcurate-candidate-workflow.md
   - Adding materials and EOS models: adding-materials-and-eos.md
   - References: references.md
@@ -97,6 +109,7 @@ nav:
       - Rust migration completion record: rust-completion-plan.md
       - SciRS2 feasibility audit: scirs2-feasibility.md
 markdown_extensions:
+  - md_in_html
   - tables
   - fenced_code
   - pymdownx.arithmatex:

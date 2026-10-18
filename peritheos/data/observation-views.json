@@ -1367,7 +1367,7 @@
     {
       "material_id": "brucite",
       "dataset_id": "brucite_fukui_2003_table4",
-      "declaration_sha256": "9c206770ff5606782d328c58958446b764cee457e6523a807112d75b81869aaf",
+      "declaration_sha256": "f0e08f2e0bdb46acb3240f85e9fa27efdfa84f390e1a9a0547f42f8bacd15fc7",
       "material_identity_sha256": "f87032e7f209f27c3d56c7fcb417a9b4d3150a2668c158e9b5bc7741bff75396",
       "views": [
         {
@@ -1375,19 +1375,10 @@
           "eos_records": [
             "brucite_fukui_2003_300k_bm3",
             "brucite_fukui_2003_473k_bm3",
-            "brucite_fukui_2003_673k_bm3",
-            "brucite_fukui_2003_873k_bm3",
-            "brucite_fukui_2003_300k_anchored_thermal",
-            "brucite_peritheos_fukui_2003_873k_bm3_refit",
-            "brucite_peritheos_fukui_2003_thermal_refit",
-            "brucite_peritheos_fukui_2003_curved_expansion_300k_bm3_refit",
-            "brucite_peritheos_fukui_2003_curved_expansion_473k_bm3_refit",
-            "brucite_peritheos_fukui_2003_curved_expansion_673k_bm3_refit",
-            "brucite_peritheos_fukui_2003_curved_expansion_873k_bm3_refit",
-            "brucite_peritheos_fukui_2003_curved_expansion_thermal_refit"
+            "brucite_fukui_2003_673k_bm3"
           ],
           "evidence_kind": "experimental",
-          "notes": "All original brucite Table 4 observations are retained on their printed pressure, conventional-cell volume and temperature coordinates. This source display does not assert a fit mask, published-parameter reproduction or scientific recommendation. Fit/diagnostic qualifications remain those of the unchanged source records.",
+          "notes": "Original source coordinates and units are retained, with explicit conversion to the declared conventional cell. The plotted source pressure scale is not silently replaced by a different target EOS scale. No fit or author-workflow reproduction is implied.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -1407,23 +1398,13 @@
           "uncertainties": {
             "pressure": "pressure_error_gpa",
             "volume": "cell_volume_error_a3"
-          },
-          "phase_reviewed": true
+          }
         }
       ],
       "record_pressure_calibration_sha256": {
         "brucite_fukui_2003_300k_bm3": "dd2f7f1d382391af68adaa888d358c239ca398b123932f371aac5a3a7a1062c8",
         "brucite_fukui_2003_473k_bm3": "dd2f7f1d382391af68adaa888d358c239ca398b123932f371aac5a3a7a1062c8",
-        "brucite_fukui_2003_673k_bm3": "dd2f7f1d382391af68adaa888d358c239ca398b123932f371aac5a3a7a1062c8",
-        "brucite_fukui_2003_873k_bm3": "dd2f7f1d382391af68adaa888d358c239ca398b123932f371aac5a3a7a1062c8",
-        "brucite_fukui_2003_300k_anchored_thermal": "dd2f7f1d382391af68adaa888d358c239ca398b123932f371aac5a3a7a1062c8",
-        "brucite_peritheos_fukui_2003_873k_bm3_refit": "dd2f7f1d382391af68adaa888d358c239ca398b123932f371aac5a3a7a1062c8",
-        "brucite_peritheos_fukui_2003_thermal_refit": "dd2f7f1d382391af68adaa888d358c239ca398b123932f371aac5a3a7a1062c8",
-        "brucite_peritheos_fukui_2003_curved_expansion_300k_bm3_refit": "dd2f7f1d382391af68adaa888d358c239ca398b123932f371aac5a3a7a1062c8",
-        "brucite_peritheos_fukui_2003_curved_expansion_473k_bm3_refit": "dd2f7f1d382391af68adaa888d358c239ca398b123932f371aac5a3a7a1062c8",
-        "brucite_peritheos_fukui_2003_curved_expansion_673k_bm3_refit": "dd2f7f1d382391af68adaa888d358c239ca398b123932f371aac5a3a7a1062c8",
-        "brucite_peritheos_fukui_2003_curved_expansion_873k_bm3_refit": "dd2f7f1d382391af68adaa888d358c239ca398b123932f371aac5a3a7a1062c8",
-        "brucite_peritheos_fukui_2003_curved_expansion_thermal_refit": "dd2f7f1d382391af68adaa888d358c239ca398b123932f371aac5a3a7a1062c8"
+        "brucite_fukui_2003_673k_bm3": "dd2f7f1d382391af68adaa888d358c239ca398b123932f371aac5a3a7a1062c8"
       }
     },
     {
@@ -9955,7 +9936,7 @@
       "material_id": "nacl_b1",
       "dataset_id": "shen_smith_2026_table_s1_simultaneous_volumes",
       "declaration_sha256": "21073b7bc807bf22531a2b51a2b5eac255d1d9642a6a9a11949d2458f3dc9b85",
-      "material_identity_sha256": "213b656fafe41690d0c052346ed2d78d958743eb35f6ba9bfaed9409083eddd4",
+      "material_identity_sha256": "bcfb79e3787e4cfa0c000c527cd8d18a3db65337b87ee3fbd4f953605e15b9ff",
       "views": [
         {
           "identifier": "nacl_b1_shen_2026_vinet_1_observations",
@@ -10024,7 +10005,7 @@
       "material_id": "nacl_b2",
       "dataset_id": "nacl_b2_sakai_2025_table_s9_rs_eos_grid",
       "declaration_sha256": "8f7a943dbe9413c0375f2f96f9fec3041b71866f4b24990eaa74a3957d97e9cc",
-      "material_identity_sha256": "ac5f9efd07ae91558e078371035b68faf09d7567a05f8d66c20f5da0dc8601fc",
+      "material_identity_sha256": "ee32a47302ae4643d9309d4722f7b561403e56ace819400446b7f423ccc231a5",
       "views": [
         {
           "identifier": "nacl_b2_sakai_2025_rydberg_stacey_1_observations",
@@ -10056,7 +10037,7 @@
       "material_id": "nacl_b2",
       "dataset_id": "shen_smith_2026_table_s1_simultaneous_volumes",
       "declaration_sha256": "0be8248df7de66a7700314d854d5b40a3650edc08457104e87ff24d4e734b273",
-      "material_identity_sha256": "ac5f9efd07ae91558e078371035b68faf09d7567a05f8d66c20f5da0dc8601fc",
+      "material_identity_sha256": "ee32a47302ae4643d9309d4722f7b561403e56ace819400446b7f423ccc231a5",
       "views": [
         {
           "identifier": "nacl_b2_shen_2026_vinet_2_observations",
@@ -10125,7 +10106,7 @@
       "material_id": "nacl_b2",
       "dataset_id": "nacl_b2_sakai_2011_table1",
       "declaration_sha256": "fcbbff81c933a1f5334e5e85dc049ad2d480d06956872f56a41f28348d57015c",
-      "material_identity_sha256": "ac5f9efd07ae91558e078371035b68faf09d7567a05f8d66c20f5da0dc8601fc",
+      "material_identity_sha256": "ee32a47302ae4643d9309d4722f7b561403e56ace819400446b7f423ccc231a5",
       "views": [
         {
           "identifier": "nacl_b2_sakai_2011_do_pt_bm3_observations",
@@ -10243,7 +10224,7 @@
       "material_id": "nacl_b2",
       "dataset_id": "nacl_b2_sata_2002_table1_sakai_input",
       "declaration_sha256": "1fdfa0e4972b7182ad56713a00d79c15eee06afa45bfefe590b0c489a5113a57",
-      "material_identity_sha256": "ac5f9efd07ae91558e078371035b68faf09d7567a05f8d66c20f5da0dc8601fc",
+      "material_identity_sha256": "ee32a47302ae4643d9309d4722f7b561403e56ace819400446b7f423ccc231a5",
       "views": [
         {
           "identifier": "nacl_b2_sakai_2011_do_pt_bm3_observations",
@@ -10293,7 +10274,7 @@
       "material_id": "nacl_b2",
       "dataset_id": "nacl_b2_fei_2007_figure3_digitized",
       "declaration_sha256": "4d77ab6669ca956051f4d552245b22fc54d2f4531e0c3c6656ce4b66d5f52eba",
-      "material_identity_sha256": "ac5f9efd07ae91558e078371035b68faf09d7567a05f8d66c20f5da0dc8601fc",
+      "material_identity_sha256": "ee32a47302ae4643d9309d4722f7b561403e56ace819400446b7f423ccc231a5",
       "views": [
         {
           "identifier": "nacl_b2_fei_2007_observations",
@@ -10334,7 +10315,7 @@
       "material_id": "nacl_b2",
       "dataset_id": "nacl_b2_fei_2007_figure4_digitized",
       "declaration_sha256": "57ecfb51504111f362f122cce2a751c4964531424ed5f329d90e4aa212de2a08",
-      "material_identity_sha256": "ac5f9efd07ae91558e078371035b68faf09d7567a05f8d66c20f5da0dc8601fc",
+      "material_identity_sha256": "ee32a47302ae4643d9309d4722f7b561403e56ace819400446b7f423ccc231a5",
       "views": [
         {
           "identifier": "nacl_b2_fei_2007_observations",

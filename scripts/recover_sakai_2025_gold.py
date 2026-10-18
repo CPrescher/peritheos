@@ -94,6 +94,13 @@ def write_csv(path, rows):
         writer.writerows(rows)
 
 
+def write_workbook_archive(path, raw):
+    """Keep the fingerprinted UTF-8 archive identical on every platform."""
+    Path(path).write_bytes(
+        (json.dumps(raw, indent=2, ensure_ascii=False) + "\n").encode("utf-8")
+    )
+
+
 def paired_rows(sheets):
     """Normalize every row on the five observed Au ancestor/direct tables."""
     rows = []
@@ -255,9 +262,7 @@ def recover(workbook, dewaele_pdf, output_dir):
         "source_url": WORKBOOK_URL,
         "sheets": selected,
     }
-    output_dir / "sakai-2025-au-workbook-cells.json".write_bytes(
-        (json.dumps(raw, indent=2, ensure_ascii=False) + "\n").encode("utf-8")
-    )
+    write_workbook_archive(output_dir / "sakai-2025-au-workbook-cells.json", raw)
     rows = paired_rows(sheets)
     write_csv(output_dir / "sakai-2025-au-calibration-paired-volumes.csv", rows)
     write_csv(

@@ -10,7 +10,23 @@ from peritheos.eos import rt, thermal
 ROOT = Path(__file__).resolve().parents[1]
 
 
+def test_catalog_landing_summaries_match_scientific_status_counts():
+    manifest = json.loads(
+        (ROOT / "peritheos/data/materials/manifest.json").read_text(encoding="utf-8")
+    )
+    counts = manifest["scientific_validation"]["counts"]
+    for path in (ROOT / "README.md", ROOT / "docs/index.md"):
+        text = " ".join(path.read_text(encoding="utf-8").split())
+        assert f"{counts['primary_source_validated']} primary-source-validated" in text
+        assert f"{counts['not_reproduced']} qualified explicit-selection" in text
+
+
 def test_validation_narrative_matches_primary_refit_ledger():
+    subprocess.run(
+        [sys.executable, "-m", "scripts.generate_validation_summary", "--check"],
+        cwd=ROOT,
+        check=True,
+    )
     summary = json.loads(
         (ROOT / "docs/data/primary-eos-refits.json").read_text(encoding="utf-8")
     )["summary"]

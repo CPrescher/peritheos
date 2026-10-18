@@ -1,269 +1,237 @@
 {
- "format_version": 3,
- "name": "Argon (hcp)",
- "phase": "hcp",
- "formula": "Ar",
- "symmetry": "HEXAGONAL",
- "lattice": {
-  "a": 3.8,
-  "b": null,
-  "c": 6.2,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 120.0
- },
- "formula_units_per_cell": 2,
- "space_group": "P63/mmc",
- "space_group_number": 194,
- "atom_sites": [
-  {
-   "element": "Ar",
-   "wyckoff": "2c",
-   "x": 0.3333333333,
-   "y": 0.6666666667,
-   "z": 0.25,
-   "occupancy": 1.0
-  }
- ],
- "notes": "The ambient hcp lattice parameters are the fitted values a=3.8(3) A and c=6.2(5) A reported by Wittlinger et al.; ambient hcp argon could not be measured directly.",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Wittlinger et al. (1997), hcp argon",
-   "reference": {
-    "authors": [
-     "Wittlinger",
-     "Fischer",
-     "Werner",
-     "Schneider",
-     "Schulz"
-    ],
-    "year": 1997,
-    "title": "High-Pressure Study of h.c.p.-Argon",
-    "source": "Acta Crystallogr. B",
-    "volume": "53",
-    "locator": "745-749",
-    "doi": "10.1107/S0108768197005739"
-   },
-   "eos": {
-    "type": "BM2",
-    "parameters": {
-     "V0": 78.0,
-     "K0": 6.5
-    },
-    "model": "birch_murnaghan_2"
-   },
-   "parameter_errors": {
-    "V0": 3.0,
-    "K0": 1.3
-   },
-   "fixed_parameters": [],
-   "experimental_pressure_range_gpa": [
-    1.2,
-    8.5
-   ],
-   "notes": "NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. The publication reports V0=78(3) A^3 and K0=6.5(1.3) GPa; K0_prime is fixed at 4 by BM2. V0 is a fitted reference volume because ambient hcp argon could not be measured directly. Historical hcp-only fit over 1.2-8.5 GPa; not recommended as a general argon pressure standard or for high-pressure extrapolation. The published curve has 0.772 GPa RMS residual on the nine digitized observations. An errors-in-variables diagnostic has about 0.451 GPa RMS at the original observations, versus 0.012 GPa at adjusted coordinates; these metrics must not be compared as equivalent improvements.",
-   "identifier": "argon_hcp_wittlinger_1997_bm2_1",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Primary article; hcp Ar EOS fit and reported uncertainty."
-   },
-   "pressure_calibration": {
-    "status": "partially_resolved",
-    "methods": [
-     {
-      "kind": "ruby_fluorescence",
-      "source_location": "Section 2.1; ruby pieces in the sample chamber used for pressure measurement",
-      "notes": "The article does not identify the exact ruby calibration equation."
-     }
-    ],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
-    },
-    "audit_date": "2026-09-03",
-    "notes": "Ruby fluorescence is identified explicitly, but the exact scale is not."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Primary-source validation covers transcription of the equation and coefficients, not reproduction of the fit. NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. ",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1107/S0108768197005739",
-     "locations": [
-      "Primary article",
-      "hcp Ar EOS fit and reported uncertainty"
-     ],
-     "doi": "10.1107/s0108768197005739"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "argon_hcp.json"
-    },
-    "primary_data_check": {
-     "status": "plot_only",
-     "audit_date": "2026-09-03",
-     "digitized_dataset_identifiers": [
-      "argon_hcp_wittlinger_1997_figure3_digitized"
-     ],
-     "source_locations": [
-      "Figure 3; Section 3.2; journal pages 747-748"
-     ],
-     "finding": "The hcp-argon relative-volume observations used for the Birch-Murnaghan fit are published graphically in Figure 3. Nine experimental markers and their asymmetric vertical error bars were digitized. The plotted fitted reference point at P=0 and V/V0=1 was excluded because the paper explicitly states that ambient hcp volume was not measured."
-    },
-    "usage_recommendation": "NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. Historical hcp compression only; prefer the separate Dewaele (2021) fcc thermal EOS for fcc argon. Do not extrapolate this BM2 fit beyond 8.5 GPa as a pressure standard.",
-    "independent_numerical_check": {
-     "audit_date": "2026-09-24",
-     "script": "scripts/reproduce_argon.py",
-     "report": "docs/data/argon-reproduction.json",
-     "finding": "NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. Published transcription preserved. Large digitized volume errors admit the source curve, but coefficient identification is weak. Raw-observation residuals do not support the old 60-fold improvement claim from adjusted-coordinate RMSE. A fresh full-text check was blocked by institutional access; this diagnostic uses previously audited source values and stored digitization.",
-     "status": "not_reproduced"
-    },
-    "reproduction_status": "not_reproduced"
-   }
-  }
- ],
- "datasets": [
-  {
-   "identifier": "argon_hcp_wittlinger_1997_figure3_digitized",
-   "kind": "pressure_volume_ratio_digitized",
-   "description": "Nine experimental hcp-argon observations digitized from Figure 3 with the plotted asymmetric volume error bars. Digitization uncertainty is retained separately; the non-experimental fitted reference marker at P=0 and V/V0=1 is excluded.",
-   "reference": {
-    "authors": [
-     "Wittlinger",
-     "Fischer",
-     "Werner",
-     "Schneider",
-     "Schulz"
-    ],
-    "year": 1997,
-    "source": "Acta Crystallogr. B",
-    "volume": "53",
-    "locator": "745-749",
-    "doi": "10.1107/S0108768197005739"
-   },
-   "source_location": "Figure 3",
-   "source_url": "https://onlinelibrary.wiley.com/doi/epdf/10.1107/S0108768197005739",
-   "columns": [
+  "format_version": 4,
+  "identifier": "argon_hcp",
+  "name": "Argon (hcp)",
+  "formula": "Ar",
+  "phase": "hcp",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 2,
+  "eos_records": [
     {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "volume_ratio",
-     "quantity": "relative_volume",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "volume_a3_conventional_cell",
-     "quantity": "volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value"
-    },
-    {
-     "name": "volume_ratio_error_minus",
-     "quantity": "relative_volume",
-     "unit": "1",
-     "role": "uncertainty",
-     "of": "volume_ratio"
-    },
-    {
-     "name": "volume_ratio_error_plus",
-     "quantity": "relative_volume",
-     "unit": "1",
-     "role": "uncertainty",
-     "of": "volume_ratio"
-    },
-    {
-     "name": "volume_error_minus_a3_conventional_cell",
-     "quantity": "volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "uncertainty",
-     "of": "volume_a3_conventional_cell"
-    },
-    {
-     "name": "volume_error_plus_a3_conventional_cell",
-     "quantity": "volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "uncertainty",
-     "of": "volume_a3_conventional_cell"
-    },
-    {
-     "name": "pressure_digitization_uncertainty_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "uncertainty",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "volume_ratio_digitization_uncertainty",
-     "quantity": "relative_volume",
-     "unit": "1",
-     "role": "uncertainty",
-     "of": "volume_ratio"
+      "identifier": "argon_hcp_wittlinger_1997_bm2_1",
+      "label": "Wittlinger et al. (1997), hcp argon",
+      "model": "BM2",
+      "parameters": {
+        "V0": {"value": 78.0, "error": 3.0},
+        "K0": {"value": 6.5, "error": 1.3}
+      },
+      "experimental_pressure_range_gpa": [1.2, 8.5],
+      "determination_method": "experimental",
+      "notes": "NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. The publication reports V0=78(3) A^3 and K0=6.5(1.3) GPa; K0_prime is fixed at 4 by BM2. V0 is a fitted reference volume because ambient hcp argon could not be measured directly. Historical hcp-only fit over 1.2-8.5 GPa; not recommended as a general argon pressure standard or for high-pressure extrapolation. The published curve has 0.772 GPa RMS residual on the nine digitized observations. An errors-in-variables diagnostic has about 0.451 GPa RMS at the original observations, versus 0.012 GPa at adjusted coordinates; these metrics must not be compared as equivalent improvements.",
+      "reference": {
+        "authors": ["Wittlinger", "Fischer", "Werner", "Schneider", "Schulz"],
+        "year": 1997,
+        "title": "High-Pressure Study of h.c.p.-Argon",
+        "source": "Acta Crystallogr. B",
+        "volume": "53",
+        "locator": "745-749",
+        "doi": "10.1107/S0108768197005739"
+      },
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "source_location": "Section 2.1; ruby pieces in the sample chamber used for pressure measurement",
+            "notes": "The article does not identify the exact ruby calibration equation."
+          }
+        ],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "Ruby fluorescence is identified explicitly, but the exact scale is not."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "NOT REPRODUCED: the available digitization does not establish a source-faithful reproduction of the published fit. Original observations, regression settings and covariance are unavailable; the shared fitted V0 normalization limits independent coefficient recovery. The numerical fits below are diagnostics only. Broad error-bar overlap is not successful reproduction. Comparison uses atomic volume: hcp cell/2 and fcc cell/4. Different phases are compared, not identified. Nine digitized points have large volume errors and share the fitted 78 A^3 normalization; unknown covariance limits coefficient inference. No replacement EOS is promoted from this diagnostic. Original article could not be reopened without institutional access on 2026-09-24; source transcription relies on the existing primary-source audit.",
+            "qualifications": [
+              "Usage recommendation: NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. Historical hcp compression only; prefer the separate Dewaele (2021) fcc thermal EOS for fcc argon. Do not extrapolate this BM2 fit beyond 8.5 GPa as a pressure standard.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/argon_hcp/#record-argon_hcp_wittlinger_1997_bm2_1",
+            "report_path": "docs/reconstruction-reports/argon_hcp.md#record-argon_hcp_wittlinger_1997_bm2_1",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 78.0,
+                "published_error": 3.0,
+                "refit": 72.78172096898437,
+                "refit_error": null,
+                "relative_difference": 0.06690101321814905,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 6.5,
+                "published_error": 1.3,
+                "refit": 8.060302736427957,
+                "refit_error": null,
+                "relative_difference": 0.2400465748350703,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "digitized_bm2_errors_in_variables",
+              "objective": "P and V residuals with digitization uncertainty combined with plotted volume error",
+              "selection": "All nine experimental markers; fitted ambient marker excluded",
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": [],
+              "observations": 9,
+              "solver_success": true,
+              "rmse_gpa": 0.4510113341777895,
+              "published_rmse_gpa": 0.7722620448085159,
+              "reduced_chi_square": 0.20254793447243688,
+              "dataset_identifiers": ["argon_hcp_wittlinger_1997_figure3_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Primary-source validation covers transcription of the equation and coefficients, not reproduction of the fit. NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. ",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1107/S0108768197005739",
+            "locations": ["Primary article", "hcp Ar EOS fit and reported uncertainty"],
+            "doi": "10.1107/s0108768197005739"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "argon_hcp.json"
+          },
+          "primary_data_check": {
+            "status": "plot_only",
+            "audit_date": "2026-09-03",
+            "digitized_dataset_identifiers": ["argon_hcp_wittlinger_1997_figure3_digitized"],
+            "source_locations": ["Figure 3; Section 3.2; journal pages 747-748"],
+            "finding": "The hcp-argon relative-volume observations used for the Birch-Murnaghan fit are published graphically in Figure 3. Nine experimental markers and their asymmetric vertical error bars were digitized. The plotted fitted reference point at P=0 and V/V0=1 was excluded because the paper explicitly states that ambient hcp volume was not measured."
+          },
+          "usage_recommendation": "NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. Historical hcp compression only; prefer the separate Dewaele (2021) fcc thermal EOS for fcc argon. Do not extrapolate this BM2 fit beyond 8.5 GPa as a pressure standard.",
+          "independent_numerical_check": {
+            "audit_date": "2026-09-24",
+            "script": "scripts/reproduce_argon.py",
+            "report": "docs/data/argon-reproduction.json",
+            "finding": "NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. Published transcription preserved. Large digitized volume errors admit the source curve, but coefficient identification is weak. Raw-observation residuals do not support the old 60-fold improvement claim from adjusted-coordinate RMSE. A fresh full-text check was blocked by institutional access; this diagnostic uses previously audited source values and stored digitization.",
+            "status": "not_reproduced"
+          },
+          "reproduction_status": "not_reproduced"
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Primary article; hcp Ar EOS fit and reported uncertainty."
+        }
+      }
     }
-   ],
-   "resource": {
-    "path": "datasets/argon-hcp-wittlinger-1997-figure3-digitized.csv",
-    "sha256": "904297ff79c1bda82820341c87856216395e2daf3d70216209a2185c55efd0c6",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "argon_hcp_wittlinger_1997_bm2_1"
-   ],
-   "provenance": {
-    "type": "digitized_from_figure",
-    "method": "Captured the institutionally accessible Wiley ePDF at enlarged scale, calibrated the printed axes, digitized marker centers, and digitized the upper and lower caps of each visible vertical error bar. Volumes use the paper's fitted V0=78 A^3.",
-    "source_figure_sha256": "04eeb8e0bff25533d3358e3904ad6444ba09c244336dbbe27f3014d8bd496481",
-    "axis_calibration_pixels_source_figure": {
-     "pressure": [
-      [
-       826.0,
-       0.0
+  ],
+  "symmetry": "HEXAGONAL",
+  "space_group": "P63/mmc",
+  "space_group_number": 194,
+  "lattice": {"a": 3.8, "b": null, "c": 6.2, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
+  "atom_sites": [
+    {"element": "Ar", "wyckoff": "2c", "x": 0.3333333333, "y": 0.6666666667, "z": 0.25, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "The ambient hcp lattice parameters are the fitted values a=3.8(3) A and c=6.2(5) A reported by Wittlinger et al.; ambient hcp argon could not be measured directly.",
+  "datasets": [
+    {
+      "identifier": "argon_hcp_wittlinger_1997_figure3_digitized",
+      "kind": "pressure_volume_ratio_digitized",
+      "description": "Nine experimental hcp-argon observations digitized from Figure 3 with the plotted asymmetric volume error bars. Digitization uncertainty is retained separately; the non-experimental fitted reference marker at P=0 and V/V0=1 is excluded.",
+      "reference": {
+        "authors": ["Wittlinger", "Fischer", "Werner", "Schneider", "Schulz"],
+        "year": 1997,
+        "source": "Acta Crystallogr. B",
+        "volume": "53",
+        "locator": "745-749",
+        "doi": "10.1107/S0108768197005739"
+      },
+      "source_location": "Figure 3",
+      "source_url": "https://onlinelibrary.wiley.com/doi/epdf/10.1107/S0108768197005739",
+      "columns": [
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "volume_ratio", "quantity": "relative_volume", "unit": "1", "role": "value"},
+        {
+          "name": "volume_a3_conventional_cell",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "volume_ratio_error_minus",
+          "quantity": "relative_volume",
+          "unit": "1",
+          "role": "uncertainty",
+          "of": "volume_ratio"
+        },
+        {
+          "name": "volume_ratio_error_plus",
+          "quantity": "relative_volume",
+          "unit": "1",
+          "role": "uncertainty",
+          "of": "volume_ratio"
+        },
+        {
+          "name": "volume_error_minus_a3_conventional_cell",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "uncertainty",
+          "of": "volume_a3_conventional_cell"
+        },
+        {
+          "name": "volume_error_plus_a3_conventional_cell",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "uncertainty",
+          "of": "volume_a3_conventional_cell"
+        },
+        {
+          "name": "pressure_digitization_uncertainty_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "volume_ratio_digitization_uncertainty",
+          "quantity": "relative_volume",
+          "unit": "1",
+          "role": "uncertainty",
+          "of": "volume_ratio"
+        }
       ],
-      [
-       1163.0,
-       10.0
-      ]
-     ],
-     "volume_ratio": [
-      [
-       79.0,
-       1.0
-      ],
-      [
-       412.0,
-       0.5
-      ]
-     ]
-    },
-    "quality_control": {
-     "published_bm2_rms_pressure_residual_gpa": 0.7723,
-     "published_bm2_max_abs_pressure_residual_gpa": 1.3082
-    },
-    "digitized_on": "2026-09-03"
-   }
-  }
- ],
- "format": "peritheos.material",
- "identifier": "argon_hcp",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- }
+      "resource": {
+        "path": "datasets/argon-hcp-wittlinger-1997-figure3-digitized.csv",
+        "sha256": "904297ff79c1bda82820341c87856216395e2daf3d70216209a2185c55efd0c6",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["argon_hcp_wittlinger_1997_bm2_1"],
+      "provenance": {
+        "type": "digitized_from_figure",
+        "method": "Captured the institutionally accessible Wiley ePDF at enlarged scale, calibrated the printed axes, digitized marker centers, and digitized the upper and lower caps of each visible vertical error bar. Volumes use the paper's fitted V0=78 A^3.",
+        "source_figure_sha256": "04eeb8e0bff25533d3358e3904ad6444ba09c244336dbbe27f3014d8bd496481",
+        "axis_calibration_pixels_source_figure": {
+          "pressure": [
+            [826.0, 0.0],
+            [1163.0, 10.0]
+          ],
+          "volume_ratio": [
+            [79.0, 1.0],
+            [412.0, 0.5]
+          ]
+        },
+        "quality_control": {"published_bm2_rms_pressure_residual_gpa": 0.7723, "published_bm2_max_abs_pressure_residual_gpa": 1.3082},
+        "digitized_on": "2026-09-03"
+      }
+    }
+  ]
 }

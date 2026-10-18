@@ -1,0 +1,20 @@
+{
+  "date": "2026-10-16",
+  "tests": "17 passed; warnings treated as errors",
+  "lint": "ruff passed",
+  "source_pdf_hashes_verified": 9,
+  "zotero_records_verified_with_PDF": 8,
+  "files": {
+    "scripts/brown_nacl_1999_recover.py": "cc3fcfae5be112d1f56372a4c9eaaaf40f9548362749440a9eb4a335bc900995",
+    "scripts/brown_nacl_1999_reconstruct.py": "a281e6cbbe910fd4dc5802170ad11a4aced1d117ede96ea91e9090c881278286",
+    "tests/test_brown_nacl_1999_reconstruction.py": "75e1add302bed3622c87eb7eca9623097b07f87689dbbb161b5c7068e9c49b5b",
+    "docs/research/brown-nacl-1999-primary-data-reproduction.md": "8d4207adb8857926625433ee2b2e2b0ad622223c25d0966d4fc041f69f18111d",
+    "scripts/brown_nacl_1999_independent_eos.py": "89ce55864fcfcea26a97b9dfde3e316f1d38b2751b073c029d62481cbc93be47",
+    "tests/test_brown_nacl_1999_independent_eos.py": "0c8642bb67123ccd51df5a7da2fde957700c09d99b339e556dd2d5313025c6fa",
+    "peritheos/data/datasets/brown-nacl-1999-source.json": "d715a1d852ecdc65dbc75bb834387a15903791eeec11e69bf6ce7d8592140396",
+    "output/material-candidates/brown-nacl-1999/nacl_b1_historical_data_2026_refit.json": "f0a31ad095e99c56c2f9919149c7f6237fab85ee23fcb70c2d451c1ae1ce1fd4",
+    "output/material-candidates/brown-nacl-1999/nacl_b1_historical_data_2026_refit.pvt.csv": "7bec025d159b6ca64cdfabf832e4172875cf18c138c098891c0f82f18c98374f"
+  },
+  "author_correspondence_update": "2026-10-16: author acknowledgement preserved; exact affected term not supplied; no source corrections adopted",
+  "independent_refit": "nacl_b1_historical_data_2026_refit: source-independent loading, exact initial-state constraint, pressure/volume round trips, positive compressibility and domain rejection verified"
+}

@@ -81,7 +81,6 @@ def test_families_have_separate_lookup_namespace_and_curated_scope():
         "ca_perovskite_tetragonal",
         "casio3_perovskite_tetragonal",
         "klb1_ca_perovskite",
-        "wadsleyite",
         "ringwoodite",
         "mgal2o4_cafe2o4",
         "namg2al5sio12_cf",
@@ -92,6 +91,9 @@ def test_families_have_separate_lookup_namespace_and_curated_scope():
         "fesio3_post_perovskite_ii",
     ):
         assert get_material(identifier).family_id is None
+    assert get_material_document("wadsleyite").get("family_id") is None
+    with pytest.raises(MaterialLookupError):
+        get_material("wadsleyite")  # Its only EOS is on hold.
     assert get_material("mgsio3_post_perovskite").family_id == "post_perovskite"
 
 

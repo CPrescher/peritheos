@@ -72,6 +72,29 @@ branch kind, precursor state, mass basis, branch domain, and
 `state_from_particle_velocity()`. The generic `default_record()` remains for
 compatibility but always prefers an equilibrium record.
 
+## Native EOSMAT v4 files
+
+`load_eosmat`, `load_eosmat_str` and `material_from_value` accept native v4,
+including file-local shared metadata, as well as v3/v2. The original native
+`Material.document` is retained by `to_json()` and `save()`. Unsupported models,
+dangling references, cycles, metadata overrides and invalid reconstruction
+assessments fail validation; there is no fallback equation or inferred parity.
+
+```rust,no_run
+use peritheos::{load_eosmat, export_eosmat_v3, save_eosmat};
+
+let material = load_eosmat("my-material.eosmat")?;
+material.save("native-copy.eosmat")?;
+let legacy = export_eosmat_v3(&material.document)?;
+save_eosmat("v3-copy.eosmat", &legacy)?;
+# Ok::<(), Box<dyn std::error::Error>>(())
+```
+
+V3 export expands shared metadata while retaining unused supporting definitions.
+The [authoring guide](eosmat-authoring.md) includes complete basic, thermal and
+database-style v4 files and installed creation/validation/formatting commands.
+These teaching files are diagnostic and make no scientific validation claim.
+
 ## Work with the common traits
 
 Rust trait methods must be brought into scope:

@@ -9,10 +9,10 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 672,
-    "deferred": 3,
-    "not_reproduced": 9,
-    "primary_source_validated": 660
+    "records": 663,
+    "deferred": 4,
+    "not_reproduced": 18,
+    "primary_source_validated": 641
   },
   "records": [
     {
@@ -1467,7 +1467,8 @@
           "Eqs. 1-2 and Tables 1-6, pp. 512-515"
         ],
         "finding": "BM3 and published moduli transcribed from Tables 5-6; V0 from Eq. (1) and Tables 2-3. Independent source observations checked; author weights and covariance unreported."
-      }
+      },
+      "usage_recommendation": "Source-checked isotherm at its stated temperature only. This does not validate the full published thermal EOS or an interpolation between temperatures."
     },
     {
       "material": "brucite",
@@ -1485,7 +1486,8 @@
           "Eqs. 1-2 and Tables 1-6, pp. 512-515"
         ],
         "finding": "BM3 and published moduli transcribed from Tables 5-6; V0 from Eq. (1) and Tables 2-3. Independent source observations checked; author weights and covariance unreported."
-      }
+      },
+      "usage_recommendation": "Source-checked isotherm at its stated temperature only. This does not validate the full published thermal EOS or an interpolation between temperatures."
     },
     {
       "material": "brucite",
@@ -1503,176 +1505,8 @@
           "Eqs. 1-2 and Tables 1-6, pp. 512-515"
         ],
         "finding": "BM3 and published moduli transcribed from Tables 5-6; V0 from Eq. (1) and Tables 2-3. Independent source observations checked; author weights and covariance unreported."
-      }
-    },
-    {
-      "material": "brucite",
-      "file": "brucite.eosmat",
-      "record": "brucite_fukui_2003_873k_bm3",
-      "label": "Fukui et al. (2003), 873 K lattice-average BM3",
-      "doi": "10.1007/s00269-003-0353-z",
-      "status": "not_reproduced",
-      "note": "Primary equation, coefficients, units, uncertainties and source PVT observations directly checked. Published parameters preserved; exact author regression is not reproduced. Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only. Printed Table 4/6 and Fig. 6(c) normalization are inconsistent: the plotted markers imply V0 about 42.70 A^3 rather than the printed expansion's 42.516 A^3. Original source curve has 0.486 GPa RMS residual; select the independent table refit for data-based use.",
-      "primary_source_check": {
-        "doi": "10.1007/s00269-003-0353-z",
-        "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
-        "source_equation_validated": true,
-        "locations": [
-          "Eqs. 1-2 and Tables 1-6, pp. 512-515"
-        ],
-        "finding": "BM3 and published moduli transcribed from Tables 5-6; V0 from Eq. (1) and Tables 2-3. Independent source observations checked; author weights and covariance unreported."
-      }
-    },
-    {
-      "material": "brucite",
-      "file": "brucite.eosmat",
-      "record": "brucite_fukui_2003_300k_anchored_thermal",
-      "label": "Fukui (2003), published slopes with 300 K anchors; qualified reconstruction",
-      "doi": "10.1007/s00269-003-0353-z",
-      "status": "not_reproduced",
-      "note": "Qualified literal reconstruction, not recovery of the author's fitted continuous surface. Source normalization inconsistency remains recorded; separately attributed Peritheos fits are available.",
-      "primary_source_check": {
-        "doi": "10.1007/s00269-003-0353-z",
-        "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
-        "source_equation_validated": true,
-        "locations": [
-          "Eqs. 1-2 and Tables 1-6, pp. 512-515"
-        ]
       },
-      "usage_recommendation": "Explicit source-comparison selection only within the common measured pressure interval. Prefer the independent thermal refit for reproducible table-data interpolation; neither model is a phase-equilibrium calculation or pressure standard."
-    },
-    {
-      "material": "brucite",
-      "file": "brucite.eosmat",
-      "record": "brucite_peritheos_fukui_2003_873k_bm3_refit",
-      "label": "Peritheos unweighted fit to Fukui (2003) Table 4, 873 K BM3",
-      "doi": "10.1007/s00269-003-0353-z",
-      "status": "primary_source_validated",
-      "note": "Independent Peritheos refit: primary observations and fixed reference-volume law verified, optimizer and covariance reproducible. Coefficients belong to Peritheos, not Fukui. Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only.",
-      "primary_source_check": {
-        "doi": "10.1007/s00269-003-0353-z",
-        "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
-        "source_equation_validated": true,
-        "locations": [
-          "Eqs. 1-2 and Tables 1-6, pp. 512-515"
-        ],
-        "finding": "All selected printed Table 4 observations retained with original errors; source Eq. (1)/Tables 2-3 supply fixed V0(T). Optimized coefficients are explicitly attributed to Peritheos."
-      },
-      "usage_recommendation": "Use within the represented measured/interpolation domain. Conditional model-fit covariance excludes source V0/alpha uncertainty and calibrant systematics; residual scatter is not pressure-standard accuracy."
-    },
-    {
-      "material": "brucite",
-      "file": "brucite.eosmat",
-      "record": "brucite_peritheos_fukui_2003_thermal_refit",
-      "label": "Peritheos unweighted fit to Fukui (2003) Table 4, continuous thermal BM3",
-      "doi": "10.1007/s00269-003-0353-z",
-      "status": "primary_source_validated",
-      "note": "Independent Peritheos refit: primary observations and fixed reference-volume law verified, optimizer and covariance reproducible. Coefficients belong to Peritheos, not Fukui. Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only.",
-      "primary_source_check": {
-        "doi": "10.1007/s00269-003-0353-z",
-        "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
-        "source_equation_validated": true,
-        "locations": [
-          "Eqs. 1-2 and Tables 1-6, pp. 512-515"
-        ],
-        "finding": "All selected printed Table 4 observations retained with original errors; source Eq. (1)/Tables 2-3 supply fixed V0(T). Optimized coefficients are explicitly attributed to Peritheos."
-      },
-      "usage_recommendation": "Use within the represented measured/interpolation domain. Conditional model-fit covariance excludes source V0/alpha uncertainty and calibrant systematics; residual scatter is not pressure-standard accuracy."
-    },
-    {
-      "material": "brucite",
-      "file": "brucite.eosmat",
-      "record": "brucite_peritheos_fukui_2003_curved_expansion_300k_bm3_refit",
-      "label": "Peritheos curved expansion + Fukui published 300 K moduli; refit",
-      "doi": "10.1007/s00269-003-0353-z",
-      "status": "primary_source_validated",
-      "note": "New Peritheos ambient-expansion refit with source moduli adopted; primary Table 1 regression and independent Table 4 pressure residuals checked. Original published records/defaults preserved. No author-workflow reproduction or recovery of an unreported author expansion law claimed.",
-      "primary_source_check": {
-        "doi": "10.1007/s00269-003-0353-z",
-        "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
-        "source_equation_validated": true,
-        "locations": [
-          "Eqs. 1-2 and Tables 1-6, pp. 512-515"
-        ],
-        "finding": "Fukui Table 1 supplies all 11 fitted ambient volumes; Tables 5/6 and p. 513 supply adopted moduli/slopes. Table 4 supplies independent pressure benchmarks. The curved expansion coefficients are Peritheos results, not published author coefficients."
-      },
-      "usage_recommendation": "Explicit selection of this nondefault refit. Use within its represented pressure/temperature domain for volume calculations. Curvature is weakly constrained; high-temperature V0 is extrapolated. Covariance excludes source modulus/slopes and pressure-calibration uncertainty."
-    },
-    {
-      "material": "brucite",
-      "file": "brucite.eosmat",
-      "record": "brucite_peritheos_fukui_2003_curved_expansion_473k_bm3_refit",
-      "label": "Peritheos curved expansion + Fukui published 473 K moduli; refit",
-      "doi": "10.1007/s00269-003-0353-z",
-      "status": "primary_source_validated",
-      "note": "New Peritheos ambient-expansion refit with source moduli adopted; primary Table 1 regression and independent Table 4 pressure residuals checked. Original published records/defaults preserved. No author-workflow reproduction or recovery of an unreported author expansion law claimed.",
-      "primary_source_check": {
-        "doi": "10.1007/s00269-003-0353-z",
-        "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
-        "source_equation_validated": true,
-        "locations": [
-          "Eqs. 1-2 and Tables 1-6, pp. 512-515"
-        ],
-        "finding": "Fukui Table 1 supplies all 11 fitted ambient volumes; Tables 5/6 and p. 513 supply adopted moduli/slopes. Table 4 supplies independent pressure benchmarks. The curved expansion coefficients are Peritheos results, not published author coefficients."
-      },
-      "usage_recommendation": "Explicit selection of this nondefault refit. Use within its represented pressure/temperature domain for volume calculations. Curvature is weakly constrained; high-temperature V0 is extrapolated. Covariance excludes source modulus/slopes and pressure-calibration uncertainty."
-    },
-    {
-      "material": "brucite",
-      "file": "brucite.eosmat",
-      "record": "brucite_peritheos_fukui_2003_curved_expansion_673k_bm3_refit",
-      "label": "Peritheos curved expansion + Fukui published 673 K moduli; refit",
-      "doi": "10.1007/s00269-003-0353-z",
-      "status": "primary_source_validated",
-      "note": "New Peritheos ambient-expansion refit with source moduli adopted; primary Table 1 regression and independent Table 4 pressure residuals checked. Original published records/defaults preserved. No author-workflow reproduction or recovery of an unreported author expansion law claimed.",
-      "primary_source_check": {
-        "doi": "10.1007/s00269-003-0353-z",
-        "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
-        "source_equation_validated": true,
-        "locations": [
-          "Eqs. 1-2 and Tables 1-6, pp. 512-515"
-        ],
-        "finding": "Fukui Table 1 supplies all 11 fitted ambient volumes; Tables 5/6 and p. 513 supply adopted moduli/slopes. Table 4 supplies independent pressure benchmarks. The curved expansion coefficients are Peritheos results, not published author coefficients."
-      },
-      "usage_recommendation": "Explicit selection of this nondefault refit. Use within its represented pressure/temperature domain for volume calculations. Curvature is weakly constrained; high-temperature V0 is extrapolated. Covariance excludes source modulus/slopes and pressure-calibration uncertainty."
-    },
-    {
-      "material": "brucite",
-      "file": "brucite.eosmat",
-      "record": "brucite_peritheos_fukui_2003_curved_expansion_873k_bm3_refit",
-      "label": "Peritheos curved expansion + Fukui published 873 K moduli; refit",
-      "doi": "10.1007/s00269-003-0353-z",
-      "status": "primary_source_validated",
-      "note": "New Peritheos ambient-expansion refit with source moduli adopted; primary Table 1 regression and independent Table 4 pressure residuals checked. Original published records/defaults preserved. No author-workflow reproduction or recovery of an unreported author expansion law claimed.",
-      "primary_source_check": {
-        "doi": "10.1007/s00269-003-0353-z",
-        "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
-        "source_equation_validated": true,
-        "locations": [
-          "Eqs. 1-2 and Tables 1-6, pp. 512-515"
-        ],
-        "finding": "Fukui Table 1 supplies all 11 fitted ambient volumes; Tables 5/6 and p. 513 supply adopted moduli/slopes. Table 4 supplies independent pressure benchmarks. The curved expansion coefficients are Peritheos results, not published author coefficients."
-      },
-      "usage_recommendation": "Explicit selection of this nondefault refit. Use within its represented pressure/temperature domain for volume calculations. Curvature is weakly constrained; high-temperature V0 is extrapolated. Covariance excludes source modulus/slopes and pressure-calibration uncertainty."
-    },
-    {
-      "material": "brucite",
-      "file": "brucite.eosmat",
-      "record": "brucite_peritheos_fukui_2003_curved_expansion_thermal_refit",
-      "label": "Peritheos curved expansion + Fukui published thermal slopes; refit",
-      "doi": "10.1007/s00269-003-0353-z",
-      "status": "primary_source_validated",
-      "note": "New Peritheos ambient-expansion refit with source moduli adopted; primary Table 1 regression and independent Table 4 pressure residuals checked. Original published records/defaults preserved. No author-workflow reproduction or recovery of an unreported author expansion law claimed.",
-      "primary_source_check": {
-        "doi": "10.1007/s00269-003-0353-z",
-        "access_url": "https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1",
-        "source_equation_validated": true,
-        "locations": [
-          "Eqs. 1-2 and Tables 1-6, pp. 512-515"
-        ],
-        "finding": "Fukui Table 1 supplies all 11 fitted ambient volumes; Tables 5/6 and p. 513 supply adopted moduli/slopes. Table 4 supplies independent pressure benchmarks. The curved expansion coefficients are Peritheos results, not published author coefficients."
-      },
-      "usage_recommendation": "Explicit selection of this nondefault refit. Use within its represented pressure/temperature domain for volume calculations. Curvature is weakly constrained; high-temperature V0 is extrapolated. Covariance excludes source modulus/slopes and pressure-calibration uncertainty."
+      "usage_recommendation": "Source-checked isotherm at its stated temperature only. This does not validate the full published thermal EOS or an interpolation between temperatures."
     },
     {
       "material": "ca0988mg0918fe0078mn0016c2o6_dolomite",
@@ -2199,7 +2033,7 @@
       "record": "ca_perovskite_fu_2023_bm3_mgd_refit",
       "label": "Joint Sun (2016) + Gréaux (2019) data, cubic CaSiO3 BM3-MGD (Fu 2023)",
       "doi": "10.2138/am-2022-8435",
-      "status": "primary_source_validated",
+      "status": "not_reproduced",
       "note": "Primary-source validation verifies the published joint Sun (2016)–Gréaux (2019) equation conventions and Table S3 coefficients only. The published joint fit is NOT REPRODUCED from the 174 candidate observations; its exact row selection, objective, weights and covariance are undisclosed. The discrepancy remains unresolved and does not establish that every prediction is invalid.",
       "primary_source_check": {
         "access_url": "http://www.minsocam.org/MSA/AmMin/TOC/2023/Apr2023_data/AM-23-48435.zip",
@@ -2213,7 +2047,10 @@
         "finding": "The source publishes a complete CaSiO3 BM3-MGD coefficient set, but not its regression objective, weights, covariance, code, or row manifest. The official ZIP contains only the supplement PDF and CIF. A 174-observation candidate selection can be reconstructed from the 140 Sun rows matching the Figure S3 temperature legend and 34 cubic Gréaux rows; multiple explicit weightings do not recover Table S3."
       },
       "reproduction_status": "not_reproduced",
-      "usage_recommendation": "Retain unchanged as the Fu (2023) published joint literature parameterization for qualified comparison, with an explicit non-reproduction warning. Do not describe it as a reproduced fit or silently substitute the independent Peritheos candidate-data refit. Treat the high-temperature discrepancy as unresolved; the 300 K cubic branch is an extrapolated reference."
+      "usage_recommendation": "not_recommended_for_quantitative_use",
+      "recommendation_date": "2026-10-17",
+      "recommendation_audit": "docs/research/eos-recommendation-dispositions-2026-10-17.md",
+      "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published thermal parameterization retains an unresolved high-temperature discrepancy against the reconstructed source observations; source normalization checks do not reconcile it."
     },
     {
       "material": "ca_perovskite",
@@ -3735,7 +3572,7 @@
       "record": "fe09ni01_hcp_sakai_2014_type1_thermal",
       "label": "Sakai et al. (2014), Fe0.9Ni0.1 type1 thermal EOS (P4 + P7)",
       "doi": "10.1016/j.pepi.2013.12.010",
-      "status": "primary_source_validated",
+      "status": "not_reproduced",
       "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
       "primary_source_check": {
         "doi": "10.1016/j.pepi.2013.12.010",
@@ -3744,7 +3581,12 @@
           "Tables 4, 6–8; Section 3.5"
         ],
         "finding": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Type 1 constant gamma: gamma_inf tied to gamma0 and theta=theta0*(V/V0)^(-gamma0), following the Type 4 limiting definition in Section 3.5; printed Table 6 q is not independently tabulated. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression."
-      }
+      },
+      "usage_recommendation": "not_recommended_for_quantitative_use",
+      "reproduction_status": "not_reproduced",
+      "recommendation_date": "2026-10-17",
+      "recommendation_audit": "docs/research/eos-recommendation-dispositions-2026-10-17.md",
+      "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy."
     },
     {
       "material": "fe09ni01_hcp",
@@ -3752,7 +3594,7 @@
       "record": "fe09ni01_hcp_sakai_2014_type2_thermal",
       "label": "Sakai et al. (2014), Fe0.9Ni0.1 type2 thermal EOS (P4 + P7)",
       "doi": "10.1016/j.pepi.2013.12.010",
-      "status": "primary_source_validated",
+      "status": "not_reproduced",
       "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
       "primary_source_check": {
         "doi": "10.1016/j.pepi.2013.12.010",
@@ -3761,7 +3603,12 @@
           "Tables 4, 6–8; Section 3.5"
         ],
         "finding": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression."
-      }
+      },
+      "usage_recommendation": "not_recommended_for_quantitative_use",
+      "reproduction_status": "not_reproduced",
+      "recommendation_date": "2026-10-17",
+      "recommendation_audit": "docs/research/eos-recommendation-dispositions-2026-10-17.md",
+      "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy."
     },
     {
       "material": "fe09ni01_hcp",
@@ -3769,7 +3616,7 @@
       "record": "fe09ni01_hcp_sakai_2014_type4_1_thermal",
       "label": "Sakai et al. (2014), Fe0.9Ni0.1 type4_1 thermal EOS (P4 + P7)",
       "doi": "10.1016/j.pepi.2013.12.010",
-      "status": "primary_source_validated",
+      "status": "not_reproduced",
       "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
       "primary_source_check": {
         "doi": "10.1016/j.pepi.2013.12.010",
@@ -3778,7 +3625,12 @@
           "Tables 4, 6–8; Section 3.5"
         ],
         "finding": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression."
-      }
+      },
+      "usage_recommendation": "not_recommended_for_quantitative_use",
+      "reproduction_status": "not_reproduced",
+      "recommendation_date": "2026-10-17",
+      "recommendation_audit": "docs/research/eos-recommendation-dispositions-2026-10-17.md",
+      "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy."
     },
     {
       "material": "fe09ni01_hcp",
@@ -3786,7 +3638,7 @@
       "record": "fe09ni01_hcp_sakai_2014_type4_2_thermal",
       "label": "Sakai et al. (2014), Fe0.9Ni0.1 type4_2 thermal EOS (P4 + P7)",
       "doi": "10.1016/j.pepi.2013.12.010",
-      "status": "primary_source_validated",
+      "status": "not_reproduced",
       "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
       "primary_source_check": {
         "doi": "10.1016/j.pepi.2013.12.010",
@@ -3795,7 +3647,12 @@
           "Tables 4, 6–8; Section 3.5"
         ],
         "finding": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression."
-      }
+      },
+      "usage_recommendation": "not_recommended_for_quantitative_use",
+      "reproduction_status": "not_reproduced",
+      "recommendation_date": "2026-10-17",
+      "recommendation_audit": "docs/research/eos-recommendation-dispositions-2026-10-17.md",
+      "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy."
     },
     {
       "material": "fe09ni01_hcp",
@@ -3803,7 +3660,7 @@
       "record": "fe09ni01_hcp_sakai_2014_type4_3_thermal",
       "label": "Sakai et al. (2014), Fe0.9Ni0.1 type4_3 thermal EOS (P4 + P7)",
       "doi": "10.1016/j.pepi.2013.12.010",
-      "status": "primary_source_validated",
+      "status": "not_reproduced",
       "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
       "primary_source_check": {
         "doi": "10.1016/j.pepi.2013.12.010",
@@ -3812,7 +3669,12 @@
           "Tables 4, 6–8; Section 3.5"
         ],
         "finding": "Tables 6–8; Section 3.5. P4 BM3 reference isotherm, P7 MgO thermal pressures. Anharmonic/electronic constants adopted from pure Fe. Full cold-curve parameters and their uncertainty retained, fixed in thermal regression."
-      }
+      },
+      "usage_recommendation": "not_recommended_for_quantitative_use",
+      "reproduction_status": "not_reproduced",
+      "recommendation_date": "2026-10-17",
+      "recommendation_audit": "docs/research/eos-recommendation-dispositions-2026-10-17.md",
+      "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy."
     },
     {
       "material": "fe2o3",
@@ -9000,8 +8862,8 @@
       "record": "mgo_shen_2026_vinet_3",
       "label": "Shen and Smith (2026), Cu-referenced Vinet",
       "doi": "10.1103/fxgq-96sg",
-      "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "status": "not_reproduced",
+      "note": "Equation and printed coefficients remain source-checked, but the Table II fit is not reproduced from the available published inputs. The published fixed-V0 MgO Vinet curve gives 1.161241 GPa pressure RMS and residuals up to +2.8032 GPa on all 194 DAC-2 Table S1 observations. A direct unweighted refit gives K0=161.827434 GPa, K0_prime=3.953583 and RMS 0.475879 GPa, versus published 161.9 GPa and 4.08. The source-fit discrepancy is unresolved.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1103/fxgq-96sg",
         "locations": [
@@ -9015,7 +8877,12 @@
         ],
         "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
         "doi": "10.1103/fxgq-96sg"
-      }
+      },
+      "usage_recommendation": "not_recommended_for_quantitative_use",
+      "reproduction_status": "not_reproduced",
+      "recommendation_date": "2026-10-17",
+      "recommendation_audit": "docs/literature-reproductions/shen-smith-2026-cu-refits.md",
+      "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 MgO Vinet curve gives 1.161241 GPa pressure RMS and residuals up to +2.8032 GPa on all 194 DAC-2 Table S1 observations. A direct unweighted refit gives K0=161.827434 GPa, K0_prime=3.953583 and RMS 0.475879 GPa, versus published 161.9 GPa and 4.08. The source-fit discrepancy is unresolved."
     },
     {
       "material": "mgo",
@@ -10216,7 +10083,7 @@
       "material": "nacl_b1",
       "file": "nacl_b1.eosmat",
       "record": "nacl_b1_shen_2026_vinet_1",
-      "label": "Shen and Smith (2026), Cu-referenced Vinet",
+      "label": "Shen and Smith (2026), NaCl-B1 Cu-referenced Vinet",
       "doi": "10.1103/fxgq-96sg",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -10259,7 +10126,7 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_heinz_1984_bm2_1",
-      "label": "Heinz and Jeanloz (1984), B2",
+      "label": "Heinz and Jeanloz (1984), NaCl-B2 BM2",
       "doi": "10.1103/physrevb.30.6045",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -10278,10 +10145,10 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_shen_2026_vinet_2",
-      "label": "Shen and Smith (2026), Cu-referenced Vinet",
+      "label": "Shen and Smith (2026), NaCl-B2 Cu-referenced Vinet",
       "doi": "10.1103/fxgq-96sg",
-      "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "status": "not_reproduced",
+      "note": "Equation and printed coefficients remain source-checked, but the Table II fit is not reproduced from the available published inputs. The published fixed-V0 NaCl-B2 Vinet curve gives 0.622381 GPa pressure RMS and mean residual -0.547610 GPa on 125 DAC-2 Table S1 observations above 35 GPa; all 125 residuals are negative. A direct unweighted refit gives K0=25.447259 GPa, K0_prime=5.582768 and RMS 0.293229 GPa, versus published 24.92 GPa and 5.63. The source-fit discrepancy is unresolved; including the above-33-GPa transition rows does not restore agreement.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1103/fxgq-96sg",
         "locations": [
@@ -10295,13 +10162,18 @@
         ],
         "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
         "doi": "10.1103/fxgq-96sg"
-      }
+      },
+      "usage_recommendation": "not_recommended_for_quantitative_use",
+      "reproduction_status": "not_reproduced",
+      "recommendation_date": "2026-10-17",
+      "recommendation_audit": "docs/literature-reproductions/shen-smith-2026-cu-refits.md",
+      "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 NaCl-B2 Vinet curve gives 0.622381 GPa pressure RMS and mean residual -0.547610 GPa on 125 DAC-2 Table S1 observations above 35 GPa; all 125 residuals are negative. A direct unweighted refit gives K0=25.447259 GPa, K0_prime=5.582768 and RMS 0.293229 GPa, versus published 24.92 GPa and 5.63. The source-fit discrepancy is unresolved; including the above-33-GPa transition rows does not restore agreement."
     },
     {
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_sakai_2014_yokoo_pt_bm3",
-      "label": "Sakai et al. (2014), yokoo_pt_bm3",
+      "label": "Sakai et al. (2014), NaCl-B2 BM3, Yokoo et al. (2009) Pt scale",
       "doi": "10.1016/j.pepi.2013.12.010",
       "status": "primary_source_validated",
       "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
@@ -10318,7 +10190,7 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_sakai_2011_matsui_pt_bm3",
-      "label": "Sakai et al. (2011), BM3, Matsui et al. (2009) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 BM3, Matsui et al. (2009) Pt scale",
       "doi": "10.1063/1.3573393",
       "status": "primary_source_validated",
       "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
@@ -10351,7 +10223,7 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_sakai_2011_matsui_pt_vinet",
-      "label": "Sakai et al. (2011), Vinet, Matsui et al. (2009) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 Vinet, Matsui et al. (2009) Pt scale",
       "doi": "10.1063/1.3573393",
       "status": "primary_source_validated",
       "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
@@ -10384,7 +10256,7 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_sakai_2011_fei_pt_bm3",
-      "label": "Sakai et al. (2011), BM3, Fei et al. (2007) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 BM3, Fei et al. (2007) Pt scale",
       "doi": "10.1063/1.3573393",
       "status": "primary_source_validated",
       "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
@@ -10417,7 +10289,7 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_sakai_2011_fei_pt_vinet",
-      "label": "Sakai et al. (2011), Vinet, Fei et al. (2007) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 Vinet, Fei et al. (2007) Pt scale",
       "doi": "10.1063/1.3573393",
       "status": "primary_source_validated",
       "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
@@ -10450,7 +10322,7 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_sakai_2011_do_pt_bm3",
-      "label": "Sakai et al. (2011), BM3, Dorogokupets and Oganov (2007) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 BM3, Dorogokupets and Oganov (2007) Pt scale",
       "doi": "10.1063/1.3573393",
       "status": "primary_source_validated",
       "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
@@ -10483,7 +10355,7 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_sakai_2011_do_pt_vinet",
-      "label": "Sakai et al. (2011), Vinet, Dorogokupets and Oganov (2007) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 Vinet, Dorogokupets and Oganov (2007) Pt scale",
       "doi": "10.1063/1.3573393",
       "status": "primary_source_validated",
       "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
@@ -10516,7 +10388,7 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_sakai_2011_holmes_pt_bm3",
-      "label": "Sakai et al. (2011), BM3, Holmes et al. (1989) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 BM3, Holmes et al. (1989) Pt scale",
       "doi": "10.1063/1.3573393",
       "status": "primary_source_validated",
       "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
@@ -10549,7 +10421,7 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_sakai_2011_holmes_pt_vinet",
-      "label": "Sakai et al. (2011), Vinet, Holmes et al. (1989) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 Vinet, Holmes et al. (1989) Pt scale",
       "doi": "10.1063/1.3573393",
       "status": "primary_source_validated",
       "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
@@ -11027,8 +10899,8 @@
       "record": "palladium_frost_2023_vinet_1",
       "label": "Frost et al. (2023), Vinet",
       "doi": "10.1063/5.0161038",
-      "status": "primary_source_validated",
-      "note": "Equation, parameters, uncertainties, fitting method, range, phase, and pressure standards were checked against the complete primary article.",
+      "status": "not_reproduced",
+      "note": "Equation, published coefficients, units and all observations are source-checked against the final article and supplement. The original fit protocol is not fully recovered; uncertainty agreement depends on the assumed covariance convention. The record remains not_reproduced pending protocol clarification, rather than a demonstrated failure of the authors' full protocol.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1063/5.0161038",
         "locations": [
@@ -11042,7 +10914,15 @@
         ],
         "finding": "The paper reports three hydrogen-free Pd-in-neon runs to 182 GPa and fits both Vinet and BM3 forms using pressure and volume uncertainties. Supplementary Tables I-III provide all 93 sample observations; Runs 1 and 2 use tungsten pressure markers and Run 3 uses gold.",
         "doi": "10.1063/5.0161038"
-      }
+      },
+      "reproduction_status": "not_reproduced",
+      "source_equation_status": "reproduced",
+      "fit_reproduction_status": "not_reproduced",
+      "recommendation_date": "2026-10-17",
+      "recommendation_audit": "docs/literature-reproductions/palladium-frost-2023-audit.md",
+      "recommendation_reason": "The original author regression remains unrecovered. The final paper specifies uncertainty-aware Marquardt-Levenberg fitting but not the exact objective, ambient-point inclusion, constraints or covariance convention. Independent refits have similar central coefficients; the combined-two-width comparison fails with absolute-error covariance and passes with residual-scaled covariance. This is not a demonstrated failed replay of the author protocol. Quantitative recommendation and the default remain on hold pending clarification.",
+      "usage_recommendation": "not_recommended_for_quantitative_use",
+      "fit_audit_date": "2026-10-17"
     },
     {
       "material": "palladium",
@@ -11050,8 +10930,8 @@
       "record": "palladium_frost_2023_bm3_2",
       "label": "Frost et al. (2023), BM3",
       "doi": "10.1063/5.0161038",
-      "status": "primary_source_validated",
-      "note": "Equation, parameters, uncertainties, fitting method, range, phase, and pressure standards were checked against the complete primary article.",
+      "status": "not_reproduced",
+      "note": "Equation, published coefficients, units and all observations are source-checked against the final article and supplement. The original fit protocol is not fully recovered; uncertainty agreement depends on the assumed covariance convention. The record remains not_reproduced pending protocol clarification, rather than a demonstrated failure of the authors' full protocol.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1063/5.0161038",
         "locations": [
@@ -11064,7 +10944,15 @@
         ],
         "finding": "Table I reports the alternative BM3 coefficients for the same three hydrogen-free Pd-in-neon runs to 182 GPa used in the Vinet fit, and supplementary Tables I-III provide all 93 sample observations.",
         "doi": "10.1063/5.0161038"
-      }
+      },
+      "reproduction_status": "not_reproduced",
+      "source_equation_status": "reproduced",
+      "fit_reproduction_status": "not_reproduced",
+      "recommendation_date": "2026-10-17",
+      "recommendation_audit": "docs/literature-reproductions/palladium-frost-2023-audit.md",
+      "recommendation_reason": "The original author regression remains unrecovered. The final paper specifies uncertainty-aware Marquardt-Levenberg fitting but not the exact objective, ambient-point inclusion, constraints or covariance convention. Independent refits have similar central coefficients; the combined-two-width comparison fails with absolute-error covariance and passes with residual-scaled covariance. This is not a demonstrated failed replay of the author protocol. Quantitative recommendation and the default remain on hold pending clarification.",
+      "usage_recommendation": "not_recommended_for_quantitative_use",
+      "fit_audit_date": "2026-10-17"
     },
     {
       "material": "palladium",
@@ -11072,7 +10960,7 @@
       "record": "palladium_baty_2024_bm3_1",
       "label": "Baty et al. (2024), BM3",
       "doi": "10.1063/5.0179469",
-      "status": "primary_source_validated",
+      "status": "not_reproduced",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1063/5.0179469",
@@ -11084,7 +10972,12 @@
         ],
         "finding": "The paper reports the BM3 fit in the text and plots its own 300 K P-V observations in Figure 3. The official supplementary Table S1 supplies the complete 78-point compression dataset.",
         "doi": "10.1063/5.0179469"
-      }
+      },
+      "usage_recommendation": "not_recommended_for_quantitative_use",
+      "reproduction_status": "not_reproduced",
+      "recommendation_date": "2026-10-17",
+      "recommendation_audit": "docs/research/eos-recommendation-dispositions-2026-10-17.md",
+      "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The verified experimental Table S1 observations and source equation do not recover the published experimental BM3 fit under the completed audit checks."
     },
     {
       "material": "pbs_b1",
@@ -13206,7 +13099,7 @@
       "record": "wadsleyite_katsura_2009_bm3_1",
       "label": "Katsura et al. (2009), high-temperature BM3-MGD",
       "doi": "10.1029/2009gl038107",
-      "status": "primary_source_validated",
+      "status": "deferred",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
       "primary_source_check": {
         "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2009GL038107",
@@ -13217,7 +13110,11 @@
         ],
         "finding": "The paper supplies the BM3 reference isotherm and Mie-Gruneisen-Debye parameters. Theta0=814 K is explicitly fixed; K0=169.2(9) GPa is fixed in the fit but its source uncertainty is retained.",
         "doi": "10.1029/2009gl038107"
-      }
+      },
+      "usage_recommendation": "on_hold_not_recommended_pending_source_mapping_review",
+      "recommendation_date": "2026-10-17",
+      "recommendation_audit": "docs/research/eos-recommendation-dispositions-2026-10-17.md",
+      "recommendation_reason": "Current wadsleyite default on hold and not recommended pending source/model mapping review. This does not establish an error in the publication; no replacement default is selected."
     },
     {
       "material": "wollastonite",

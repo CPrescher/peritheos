@@ -523,8 +523,8 @@ coverage is 10.7–129.307150 GPa and 298–3399 K. Neither the reference-state
 extrapolation nor core-condition predictions receive new validation.
 
 ```sh
-python -m scripts.refit_miozzi_2020_tange --register
-python -m scripts.refit_miozzi_2020_tange --check
+python -m scripts.run_eosmat_audit refit_miozzi_2020_tange --register
+python -m scripts.run_eosmat_audit refit_miozzi_2020_tange --check
 ```
 
 The first command regenerates evidence/derived inputs and registers only the
@@ -793,4 +793,4 @@ refit = get_eos_record("iron_miozzi_2020_speziale_2001_bm3_mgd_refit")
 ```
 
 Reproduce and check with
-`python -m scripts.refit_miozzi_2020_speziale --check`.
+`python -m scripts.run_eosmat_audit refit_miozzi_2020_speziale --check`.

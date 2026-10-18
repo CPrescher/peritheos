@@ -1,0 +1,618 @@
+{
+  "format": "peritheos-standalone-refit-v1",
+  "id": "nacl_b1_historical_data_2026_refit",
+  "label": "NaCl B1 historical-data reconstruction (2026)",
+  "record_kind": "refit",
+  "status": "staged_independent_reconstruction; not a validated replacement pressure standard",
+  "published_eos_status": "Brown (1999) cannot be reproduced from the available published material; author acknowledges an energy-term error",
+  "relation_to_brown": "Uses the historical experimental sources and quasiharmonic reduction strategy discussed by Brown; neither his Tables I/II nor an inferred correction enters fitting or model selection.",
+  "material": {
+    "formula": "NaCl",
+    "phase": "B1",
+    "space_group": "Fm-3m",
+    "formula_units_per_conventional_cell": 4
+  },
+  "determination_method": "hybrid",
+  "constants": {
+    "R": 8.31446261815324,
+    "M": 58.443,
+    "N": 2,
+    "VREF": 0.462000462000462,
+    "TREF": 293.0,
+    "PREF": 0.000101325
+  },
+  "units": {
+    "v": "cm3/g",
+    "pressure": "GPa",
+    "energy": "J/g",
+    "temperature": "K"
+  },
+  "settings": {
+    "q": 1.5035191435500774,
+    "gamma0": 1.63,
+    "theta_ref": 276.0,
+    "join_width": 0.025,
+    "smoothing": 1e-06,
+    "n_basis": 6,
+    "junction_weight": 1.0,
+    "shock_mode": "observations",
+    "energy_reference": "initial_total_zero",
+    "expansion_convention": "room_length",
+    "expansion_step_c": 50.0,
+    "shock_initial_density": 2.1645,
+    "spline_kind": "finite_basis",
+    "reference_anchor": true
+  },
+  "equations": {
+    "pressure": "P(v,T)=P_cold(v)+gamma(v)*e_D(T,theta(v))/(1000*v)",
+    "cold": "Cubic B-spline in x=v/VREF-1; full knots and coefficients below",
+    "gamma": "gamma0*exp(q*(-w*logaddexp(0,-log(v/VREF)/w)))",
+    "theta": "theta_ref*exp(-integral_VREF^v gamma(u)/u du); base.Thermal numerical quadrature",
+    "e_D": "9*n*R*T/M*(T/theta)^3*integral_0^(theta/T) x^3/(exp(x)-1) dx; n=2, all three modes per atom",
+    "cold_energy": "e_cold(VREF)=-e_D(TREF,theta_ref); e_cold(v)=e_cold(VREF)-1000*integral_VREF^v P_cold(u)du",
+    "energy_reference": "Total initial energy is zero. Cold branch represents the fitted effective ground-state contribution, including any zero-point pressure; do not add an extra zero-point term."
+  },
+  "cold_spline": {
+    "degree": 3,
+    "knots_x": [
+      -0.31973898858075045,
+      -0.31973898858075045,
+      -0.31973898858075045,
+      -0.31973898858075045,
+      -0.17337486925884704,
+      -0.027010749936943634,
+      0.11935336938495977,
+      0.11935336938495977,
+      0.11935336938495977,
+      0.11935336938495977
+    ],
+    "coefficients_gpa": [
+      23.580285215721844,
+      15.067588990708197,
+      5.706758555893156,
+      -0.5653772399383572,
+      -2.011485892434249,
+      -2.541720808136003
+    ]
+  },
+  "evaluation_domain": {
+    "specific_volume_cm3_g": [
+      0.3142809015565949,
+      0.5171417737976253
+    ],
+    "temperature_k": [
+      293.0,
+      1023.15
+    ],
+    "interpretation": "Numerical evaluation bounds only, not a rectangular experimental or phase-stability range; no volume/temperature extrapolation in saved evaluator.",
+    "observations": "BK 25-500 C, up to 3.2 GPa; expansion polynomial samples 50-750 C; shock reductions to printed 26.4 GPa with calculated shock temperatures."
+  },
+  "fit_provenance": {
+    "script": "scripts/brown_nacl_1999_independent_eos.py",
+    "engine": "scripts/brown_nacl_1999_reconstruct.py",
+    "software": {
+      "python": "3.9.6",
+      "numpy": "2.0.2",
+      "scipy": "1.13.1"
+    },
+    "dataset": {
+      "peritheos/data/datasets/brown-nacl-1999-boehler-kennedy-1980-table1.csv": "a71d5b6555586be92f6802d9e133155d1615b31b2993c5e6fc47f8f1aca623e1",
+      "peritheos/data/datasets/brown-nacl-1999-fritz-1971-table1.csv": "f2f8bc7288413cc5f54db0a03472ffdca209f08a283e5d9dfb8d551665ee6a5c",
+      "peritheos/data/datasets/brown-nacl-1999-published-coefficients.json": "6fa64df5ce1159cf8a71546cd95014ac380f4da7b1965e8224a10ef05de2c523"
+    },
+    "source_metadata": "peritheos/data/datasets/brown-nacl-1999-source.json",
+    "row_selection": "All 82 BK rows and all 43 Fritz impedance-matched velocity pairs; 15 explicitly synthetic Enck-Dommel polynomial samples at 50 C spacing; no source table pressure/volume overwritten.",
+    "inner_objective": "Iterate RH cold-energy reduction; at each step minimize sum_i(P_cold(x_i)-reduced_target_i)^2 + lambda*integral (d2P_cold/dx2)^2 dx, subject to exact initial P,V,T.",
+    "outer_objective": "Minimize BK pressure mean-square residual versus q in [0.5,2.5], refitting the cold curve each time; conditional staged optimization, not a simultaneous likelihood fit.",
+    "weights": "Equal per reduced-pressure row in GPa; polynomial samples are not independent measurements; source accuracy statements are not Gaussian sigma weights.",
+    "varied_parameters": [
+      "q",
+      "six cold-spline coefficients with one exact reference constraint"
+    ],
+    "fixed_parameters": "gamma0=1.63 (rounded Spetzler); theta_ref=276 K, rho_ref=2.1645 g/cm3, TREF=293 K (Fritz); gamma join width .025, six basis functions, smoothing 1e-6, and q bounds are analyst choices.",
+    "model_choice": "Low dimensional smooth candidate to avoid the diagnostic natural-spline derivative oscillations; not optimized against Brown tables or held-out thermodynamic values. No assertion that these choices recover Brown's workflow.",
+    "coefficient_uncertainty": null,
+    "covariance": null,
+    "uncertainty_note": "Uncertainties are unavailable; structural sensitivity below is not a confidence interval."
+  },
+  "fit_statistics": {
+    "settings": {
+      "q": 1.5035191435500774,
+      "gamma0": 1.63,
+      "theta_ref": 276.0,
+      "join_width": 0.025,
+      "smoothing": 1e-06,
+      "n_basis": 6,
+      "junction_weight": 1.0,
+      "shock_mode": "observations",
+      "energy_reference": "initial_total_zero",
+      "expansion_convention": "room_length",
+      "expansion_step_c": 50.0,
+      "shock_initial_density": 2.1645,
+      "spline_kind": "finite_basis",
+      "reference_anchor": true
+    },
+    "rows_by_group": {
+      "BK": 82,
+      "ED_polynomial": 15,
+      "shock": 43
+    },
+    "reduced_pressure_rms_gpa": {
+      "BK": 0.015109978829331095,
+      "ED_polynomial": 0.008666221203436625,
+      "shock": 0.18666547229397218
+    },
+    "iterations": 11,
+    "last_iteration_change_gpa": 8.480327551296796e-12,
+    "min_cold_kt_gpa": 12.165281536336646,
+    "rh_residual_equals_fit_residual_max_gpa": 6.750155989720952e-13,
+    "ambient_300": {
+      "v": 0.4623835764788625,
+      "theta": 275.63680790201204,
+      "gamma": 1.589062131320682,
+      "kt": 23.682320133323497,
+      "ks": 25.023498103433756,
+      "cv": 0.8186265014573071,
+      "cp": 0.8649869857055577,
+      "alpha": 0.00011879551120828586,
+      "bulk_sound_km_s": 3.4015370862417087,
+      "dt_dp_s": 19.050839232217047
+    },
+    "knots_x": [
+      -0.31973898858075045,
+      -0.31973898858075045,
+      -0.31973898858075045,
+      -0.31973898858075045,
+      -0.17337486925884704,
+      -0.027010749936943634,
+      0.11935336938495977,
+      0.11935336938495977,
+      0.11935336938495977,
+      0.11935336938495977
+    ],
+    "coefficients_gpa": [
+      23.580285215721844,
+      15.067588990708197,
+      5.706758555893156,
+      -0.5653772399383572,
+      -2.011485892434249,
+      -2.541720808136003
+    ]
+  },
+  "validation": {
+    "yamamoto": [
+      {
+        "T_k": 294.0,
+        "model_ks_gpa": 25.08602515757899,
+        "source_ks_gpa": 25.35,
+        "model_cp_j_g_k": 0.862227342482278,
+        "source_cp_j_g_k": 0.8635
+      },
+      {
+        "T_k": 338.0,
+        "model_ks_gpa": 24.631219262450788,
+        "source_ks_gpa": 24.89,
+        "model_cp_j_g_k": 0.8809161647220688,
+        "source_cp_j_g_k": 0.8792
+      },
+      {
+        "T_k": 381.0,
+        "model_ks_gpa": 24.196261700877393,
+        "source_ks_gpa": 24.41,
+        "model_cp_j_g_k": 0.8967380951657556,
+        "source_cp_j_g_k": 0.8913000000000001
+      },
+      {
+        "T_k": 419.0,
+        "model_ks_gpa": 23.820257760025406,
+        "source_ks_gpa": 24.03,
+        "model_cp_j_g_k": 0.9095880321719805,
+        "source_cp_j_g_k": 0.9015000000000001
+      },
+      {
+        "T_k": 449.0,
+        "model_ks_gpa": 23.52871800533532,
+        "source_ks_gpa": 23.69,
+        "model_cp_j_g_k": 0.9192942509307537,
+        "source_cp_j_g_k": 0.9095000000000001
+      },
+      {
+        "T_k": 479.0,
+        "model_ks_gpa": 23.241391592640834,
+        "source_ks_gpa": 23.41,
+        "model_cp_j_g_k": 0.9287747618070217,
+        "source_cp_j_g_k": 0.9173
+      },
+      {
+        "T_k": 511.0,
+        "model_ks_gpa": 22.938925180693605,
+        "source_ks_gpa": 23.090000000000003,
+        "model_cp_j_g_k": 0.9387577496399871,
+        "source_cp_j_g_k": 0.926
+      },
+      {
+        "T_k": 544.0,
+        "model_ks_gpa": 22.630611107468358,
+        "source_ks_gpa": 22.540000000000003,
+        "model_cp_j_g_k": 0.9490127300400513,
+        "source_cp_j_g_k": 0.935
+      },
+      {
+        "T_k": 563.0,
+        "model_ks_gpa": 22.45448243005721,
+        "source_ks_gpa": 22.27,
+        "model_cp_j_g_k": 0.9549309460360816,
+        "source_cp_j_g_k": 0.9400000000000001
+      },
+      {
+        "T_k": 571.0,
+        "model_ks_gpa": 22.38058988597467,
+        "source_ks_gpa": 22.16,
+        "model_cp_j_g_k": 0.9574300839156301,
+        "source_cp_j_g_k": 0.9420000000000001
+      },
+      {
+        "T_k": 596.0,
+        "model_ks_gpa": 22.15060660526551,
+        "source_ks_gpa": 21.740000000000002,
+        "model_cp_j_g_k": 0.9652797084537447,
+        "source_cp_j_g_k": 0.9485
+      },
+      {
+        "T_k": 637.0,
+        "model_ks_gpa": 21.776274160811553,
+        "source_ks_gpa": 21.240000000000002,
+        "model_cp_j_g_k": 0.9783323089355895,
+        "source_cp_j_g_k": 0.9605000000000001
+      },
+      {
+        "T_k": 675.0,
+        "model_ks_gpa": 21.432589229561536,
+        "source_ks_gpa": 20.76,
+        "model_cp_j_g_k": 0.9906918479952359,
+        "source_cp_j_g_k": 0.9715
+      },
+      {
+        "T_k": 702.0,
+        "model_ks_gpa": 21.19069943015332,
+        "source_ks_gpa": 20.450000000000003,
+        "model_cp_j_g_k": 0.9996564274715198,
+        "source_cp_j_g_k": 0.9800000000000001
+      },
+      {
+        "T_k": 745.0,
+        "model_ks_gpa": 20.810854628486403,
+        "source_ks_gpa": 19.91,
+        "model_cp_j_g_k": 1.014282762207742,
+        "source_cp_j_g_k": 0.995
+      },
+      {
+        "T_k": 766.0,
+        "model_ks_gpa": 20.628535483309534,
+        "source_ks_gpa": 19.67,
+        "model_cp_j_g_k": 1.0215897104622937,
+        "source_cp_j_g_k": 1.003
+      }
+    ],
+    "janaf": [
+      {
+        "T_k": 298.0,
+        "source_cp_j_g_k": 0.8641741034765945,
+        "model_cp_j_g_k": 0.864075951722788
+      },
+      {
+        "T_k": 300.0,
+        "source_cp_j_g_k": 0.8647467834656447,
+        "model_cp_j_g_k": 0.8649869857055577
+      },
+      {
+        "T_k": 400.0,
+        "source_cp_j_g_k": 0.8956715028743499,
+        "model_cp_j_g_k": 0.9032605721423511
+      },
+      {
+        "T_k": 500.0,
+        "source_cp_j_g_k": 0.9228738023542294,
+        "model_cp_j_g_k": 0.935334856354425
+      },
+      {
+        "T_k": 600.0,
+        "source_cp_j_g_k": 0.9491454968519025,
+        "model_cp_j_g_k": 0.9665423507187656
+      },
+      {
+        "T_k": 700.0,
+        "source_cp_j_g_k": 0.9787101012866137,
+        "model_cp_j_g_k": 0.9989867804061933
+      },
+      {
+        "T_k": 800.0,
+        "source_cp_j_g_k": 1.0147889405967698,
+        "model_cp_j_g_k": 1.0336502279576005
+      },
+      {
+        "T_k": 900.0,
+        "source_cp_j_g_k": 1.0585273747604709,
+        "model_cp_j_g_k": 1.0705799061109498
+      },
+      {
+        "T_k": 1000.0,
+        "source_cp_j_g_k": 1.1097822337804544,
+        "model_cp_j_g_k": 1.1084029684870846
+      }
+    ],
+    "yamamoto_max_relative_ks_difference": 0.04873083290846636,
+    "janaf_max_relative_cp_difference": 0.02071775809090326,
+    "cold_kt_range_gpa": [
+      12.166354967931955,
+      118.68213163189021
+    ],
+    "cold_kprime_range": [
+      3.1849500825374504,
+      6.416609183164287
+    ],
+    "initial_pressure_error_gpa": -1.810753153322353e-16,
+    "independence": "Elastic moduli and Cp held out of fitting/model choice; gamma0 adopts Spetzler's ambient value. These sources share historical auxiliary data."
+  },
+  "limitations": [
+    "Original Enck-Dommel individual data and Brown's private Fritz extended tables are unavailable.",
+    "Historical pressure-scale assumptions remain; no modern recalibration or anharmonic correction.",
+    "No source covariance or statistically justified coefficient uncertainty; no catalog parent invented.",
+    "Independent reconstruction, not a correction to Brown (1999) or a reproduction of his EOS."
+  ],
+  "structural_sensitivity_fixed_q": {
+    "eight_basis": {
+      "settings": {
+        "q": 1.5035191435500774,
+        "gamma0": 1.63,
+        "theta_ref": 276.0,
+        "join_width": 0.025,
+        "smoothing": 1e-06,
+        "n_basis": 8,
+        "junction_weight": 1.0,
+        "shock_mode": "observations",
+        "energy_reference": "initial_total_zero",
+        "expansion_convention": "room_length",
+        "expansion_step_c": 50.0,
+        "shock_initial_density": 2.1645,
+        "spline_kind": "finite_basis",
+        "reference_anchor": true
+      },
+      "fit_statistics": {
+        "settings": {
+          "q": 1.5035191435500774,
+          "gamma0": 1.63,
+          "theta_ref": 276.0,
+          "join_width": 0.025,
+          "smoothing": 1e-06,
+          "n_basis": 8,
+          "junction_weight": 1.0,
+          "shock_mode": "observations",
+          "energy_reference": "initial_total_zero",
+          "expansion_convention": "room_length",
+          "expansion_step_c": 50.0,
+          "shock_initial_density": 2.1645,
+          "spline_kind": "finite_basis",
+          "reference_anchor": true
+        },
+        "rows_by_group": {
+          "BK": 82,
+          "ED_polynomial": 15,
+          "shock": 43
+        },
+        "reduced_pressure_rms_gpa": {
+          "BK": 0.016313998066095996,
+          "ED_polynomial": 0.006567479900949174,
+          "shock": 0.18624795286429877
+        },
+        "iterations": 10,
+        "last_iteration_change_gpa": 6.8080652226854e-11,
+        "min_cold_kt_gpa": 10.325114380512279,
+        "rh_residual_equals_fit_residual_max_gpa": 2.7817748105007922e-12,
+        "ambient_300": {
+          "v": 0.4623867325516362,
+          "theta": 275.63381825472084,
+          "gamma": 1.589070149475803,
+          "kt": 23.489728821675868,
+          "ks": 24.830912378286364,
+          "cv": 0.8186272376802242,
+          "cp": 0.8653680663421983,
+          "alpha": 0.000119769405220704,
+          "bulk_sound_km_s": 3.388433921573772,
+          "dt_dp_s": 19.198692242159186
+        },
+        "knots_x": [
+          -0.31973898858075045,
+          -0.31973898858075045,
+          -0.31973898858075045,
+          -0.31973898858075045,
+          -0.2319205169876084,
+          -0.14410204539446636,
+          -0.056283573801324316,
+          0.03153489779181773,
+          0.11935336938495977,
+          0.11935336938495977,
+          0.11935336938495977,
+          0.11935336938495977
+        ],
+        "coefficients_gpa": [
+          23.57905209861937,
+          18.47107098314992,
+          11.042188264279847,
+          4.752625793028713,
+          0.7349992946251476,
+          -1.4226777235868286,
+          -2.2556006119923273,
+          -2.5256183408944985
+        ]
+      },
+      "pressure_at_v03709_t300_gpa": 9.249181087567722
+    },
+    "lambda_divided_by_10": {
+      "settings": {
+        "q": 1.5035191435500774,
+        "gamma0": 1.63,
+        "theta_ref": 276.0,
+        "join_width": 0.025,
+        "smoothing": 1e-07,
+        "n_basis": 6,
+        "junction_weight": 1.0,
+        "shock_mode": "observations",
+        "energy_reference": "initial_total_zero",
+        "expansion_convention": "room_length",
+        "expansion_step_c": 50.0,
+        "shock_initial_density": 2.1645,
+        "spline_kind": "finite_basis",
+        "reference_anchor": true
+      },
+      "fit_statistics": {
+        "settings": {
+          "q": 1.5035191435500774,
+          "gamma0": 1.63,
+          "theta_ref": 276.0,
+          "join_width": 0.025,
+          "smoothing": 1e-07,
+          "n_basis": 6,
+          "junction_weight": 1.0,
+          "shock_mode": "observations",
+          "energy_reference": "initial_total_zero",
+          "expansion_convention": "room_length",
+          "expansion_step_c": 50.0,
+          "shock_initial_density": 2.1645,
+          "spline_kind": "finite_basis",
+          "reference_anchor": true
+        },
+        "rows_by_group": {
+          "BK": 82,
+          "ED_polynomial": 15,
+          "shock": 43
+        },
+        "reduced_pressure_rms_gpa": {
+          "BK": 0.015311890117927664,
+          "ED_polynomial": 0.009637284136478881,
+          "shock": 0.18659826370576726
+        },
+        "iterations": 11,
+        "last_iteration_change_gpa": 9.425349389857729e-12,
+        "min_cold_kt_gpa": 12.285593812426345,
+        "rh_residual_equals_fit_residual_max_gpa": 7.425171588693047e-13,
+        "ambient_300": {
+          "v": 0.4623839991977767,
+          "theta": 275.6364074716489,
+          "gamma": 1.5890632053238436,
+          "kt": 23.65588823833772,
+          "ks": 24.997066956805078,
+          "cv": 0.8186266000666758,
+          "cp": 0.8650389166670464,
+          "alpha": 0.00011892823329365712,
+          "bulk_sound_km_s": 3.3997417236758043,
+          "dt_dp_s": 19.07099590607663
+        },
+        "knots_x": [
+          -0.31973898858075045,
+          -0.31973898858075045,
+          -0.31973898858075045,
+          -0.31973898858075045,
+          -0.17337486925884704,
+          -0.027010749936943634,
+          0.11935336938495977,
+          0.11935336938495977,
+          0.11935336938495977,
+          0.11935336938495977
+        ],
+        "coefficients_gpa": [
+          23.5848731764826,
+          15.058653981678104,
+          5.715065985726132,
+          -0.5702946222786154,
+          -2.007227316650635,
+          -2.5427061528798145
+        ]
+      },
+      "pressure_at_v03709_t300_gpa": 9.26062543647155
+    },
+    "lambda_times_10": {
+      "settings": {
+        "q": 1.5035191435500774,
+        "gamma0": 1.63,
+        "theta_ref": 276.0,
+        "join_width": 0.025,
+        "smoothing": 1e-05,
+        "n_basis": 6,
+        "junction_weight": 1.0,
+        "shock_mode": "observations",
+        "energy_reference": "initial_total_zero",
+        "expansion_convention": "room_length",
+        "expansion_step_c": 50.0,
+        "shock_initial_density": 2.1645,
+        "spline_kind": "finite_basis",
+        "reference_anchor": true
+      },
+      "fit_statistics": {
+        "settings": {
+          "q": 1.5035191435500774,
+          "gamma0": 1.63,
+          "theta_ref": 276.0,
+          "join_width": 0.025,
+          "smoothing": 1e-05,
+          "n_basis": 6,
+          "junction_weight": 1.0,
+          "shock_mode": "observations",
+          "energy_reference": "initial_total_zero",
+          "expansion_convention": "room_length",
+          "expansion_step_c": 50.0,
+          "shock_initial_density": 2.1645,
+          "spline_kind": "finite_basis",
+          "reference_anchor": true
+        },
+        "rows_by_group": {
+          "BK": 82,
+          "ED_polynomial": 15,
+          "shock": 43
+        },
+        "reduced_pressure_rms_gpa": {
+          "BK": 0.01358742535969705,
+          "ED_polynomial": 0.003797866013875591,
+          "shock": 0.18861153028821437
+        },
+        "iterations": 10,
+        "last_iteration_change_gpa": 1.333333443653828e-11,
+        "min_cold_kt_gpa": 11.156063580617827,
+        "rh_residual_equals_fit_residual_max_gpa": 4.973799150320701e-13,
+        "ambient_300": {
+          "v": 0.46237994603474963,
+          "theta": 275.64024695285866,
+          "gamma": 1.5890529066083774,
+          "kt": 23.911833535379962,
+          "ks": 25.253005076949126,
+          "cv": 0.8186256545567105,
+          "cp": 0.864540888512543,
+          "alpha": 0.00011765539307526134,
+          "bulk_sound_km_s": 3.4170869354897886,
+          "dt_dp_s": 18.87758983653229
+        },
+        "knots_x": [
+          -0.31973898858075045,
+          -0.31973898858075045,
+          -0.31973898858075045,
+          -0.31973898858075045,
+          -0.17337486925884704,
+          -0.027010749936943634,
+          0.11935336938495977,
+          0.11935336938495977,
+          0.11935336938495977,
+          0.11935336938495977
+        ],
+        "coefficients_gpa": [
+          23.537100210966734,
+          15.150381433730132,
+          5.631606433039167,
+          -0.5218487830951235,
+          -2.0487886051362243,
+          -2.5350358337403227
+        ]
+      },
+      "pressure_at_v03709_t300_gpa": 9.257555113608875
+    }
+  }
+}

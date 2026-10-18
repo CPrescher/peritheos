@@ -1,540 +1,281 @@
 {
- "format_version": 3,
- "name": "Ice VIII (D2O)",
- "formula": "D2O",
- "symmetry": "TETRAGONAL",
- "lattice": {
-  "a": 4.4493,
-  "b": 4.4493,
-  "c": 6.413,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 8,
- "space_group": "I41/amd",
- "space_group_number": 141,
- "notes": "Deuterated tetragonal ice VIII. The isotope identity is part of the EOS provenance: Besson et al. (1994) measured D2O, not H2O. The legacy powder lines are retained for interchange because a publication-verified ordered atomic-site model has not yet been curated.",
- "peaks": [
-  [
-   4,
-   3,
-   1,
-   0.8814,
-   0.0
+  "format_version": 4,
+  "identifier": "iceviii",
+  "name": "Ice VIII (D2O)",
+  "formula": "D2O",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 8,
+  "eos_records": [
+    {
+      "identifier": "iceviii_besson_1994_bm3_1",
+      "label": "Besson et al. (1994), D2O ice VIII, 300 K BM3",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 165.39, "error": null},
+        "K0": {"value": 20.4, "error": null},
+        "K0_prime": {"value": 4.7, "error": null}
+      },
+      "experimental_pressure_range_gpa": [0.0, 10.0],
+      "determination_method": "experimental",
+      "notes": "Besson et al. give the 300 K D2O ice-VIII molar V0=12.45 cm^3/mol, converted here to the Z=8 tetragonal cell. Their BM3 fit gives K0=20.4 GPa and K0'=4.7 for 0-10 GPa. They state that no pressure/volume error can be quoted because the result depends on the adopted 300 K EOS, and that it must not be used above 10 GPa.",
+      "reference": {
+        "authors": ["Besson", "Pruzan", "Klotz", "Hamel", "Silvi", "Nelmes", "Loveday", "Wilson", "Hull"],
+        "year": 1994,
+        "title": "Variation of interatomic distances in ice VIII to 10 GPa",
+        "source": "Phys. Rev. B",
+        "volume": "49",
+        "locator": "12540-12550",
+        "doi": "10.1103/PhysRevB.49.12540"
+      },
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/iceviii/#record-iceviii_besson_1994_bm3_1",
+            "report_path": "docs/reconstruction-reports/iceviii.md#record-iceviii_besson_1994_bm3_1",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 165.39,
+                "published_error": null,
+                "refit": 164.20388092233128,
+                "refit_error": 0.9913120787739277,
+                "difference": -1.1861190776687067,
+                "relative_difference": 0.007171649299647541,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 20.4,
+                "published_error": null,
+                "refit": 21.270881822937042,
+                "refit_error": 1.7708080007452651,
+                "difference": 0.8708818229370436,
+                "relative_difference": 0.04269028543809038,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.7,
+                "published_error": null,
+                "refit": 4.613800292647819,
+                "refit_error": 0.37288871105817895,
+                "difference": -0.08619970735218097,
+                "relative_difference": 0.01834036326642148,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "molar_volume_cm3_mol"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 8,
+              "observed_pressure_range_gpa": [2.7, 9.9],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [126.97145923238101, 148.54518279310363],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.03116448674282915,
+              "published_rmse_gpa": 0.13812058093248714,
+              "reduced_chi_square": 0.0015539603743103584,
+              "dataset_identifiers": ["ice_viii_besson_1994_table2_structure"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.49.12540/fulltext",
+            "locations": ["Equation (1), page 12543", "Table I, 300 K row", "page 12544, stated 0-10 GPa limit"],
+            "finding": "The EOS and crystallographic data are for D2O ice VIII, not ordinary H2O; the material metadata was corrected accordingly. The authors state that no pressure/volume error can be quoted because it depends on the adopted EOS.",
+            "doi": "10.1103/physrevb.49.12540"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "iceviii.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["ice_viii_besson_1994_table2_structure"],
+            "source_locations": ["Table II, journal page 12545"],
+            "finding": "All eight D2O ice-VIII structural refinements printed in Table II."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1), page 12543; Table I, 300 K row; page 12544, stated 0-10 GPa limit."
+        },
+        "audit_corrections": [
+          {
+            "path": "material.formula",
+            "source_value": "H2O",
+            "value": "D2O",
+            "reason": "The primary neutron-diffraction EOS is explicitly for deuterated ice VIII.",
+            "primary_reference": {"doi": "10.1103/physrevb.49.12540", "location": "title, abstract, section II.B, and Table I"}
+          }
+        ]
+      }
+    }
   ],
-  [
-   3,
-   2,
-   5,
-   0.8893,
-   0.3
+  "aliases": ["Heavy ice VIII", "Deuterated ice VIII"],
+  "symmetry": "TETRAGONAL",
+  "space_group": "I41/amd",
+  "space_group_number": 141,
+  "lattice": {"a": 4.4493, "b": 4.4493, "c": 6.413, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "O", "wyckoff": "8e", "x": 0.0, "y": 0.25, "z": 0.1106, "occupancy": 1.0},
+    {"element": "D", "wyckoff": "16h", "x": 0.0, "y": 0.4256, "z": 0.2011, "occupancy": 1.0}
   ],
-  [
-   1,
-   0,
-   7,
-   0.8973,
-   0.3
+  "peaks": [
+    [4, 3, 1, 0.8814, 0.0],
+    [3, 2, 5, 0.8893, 0.3],
+    [1, 0, 7, 0.8973, 0.3],
+    [4, 0, 4, 0.9139, 1.7],
+    [4, 2, 2, 0.9502, 0.0],
+    [4, 1, 3, 0.9633, 0.2],
+    [2, 0, 6, 0.9634, 0.0],
+    [3, 0, 5, 0.9701, 0.2],
+    [4, 2, 0, 0.9949, 2.8],
+    [3, 3, 2, 0.9968, 2.8],
+    [1, 1, 6, 1.012, 2.3],
+    [4, 0, 2, 1.0509, 0.0],
+    [3, 1, 4, 1.0575, 0.0],
+    [4, 1, 1, 1.0642, 0.0],
+    [3, 2, 3, 1.0687, 0.3],
+    [2, 1, 5, 1.078, 0.8],
+    [4, 0, 0, 1.1123, 2.4],
+    [2, 2, 4, 1.1228, 4.5],
+    [3, 2, 1, 1.2118, 0.1],
+    [3, 0, 3, 1.2185, 0.3],
+    [1, 0, 5, 1.2324, 0.7],
+    [3, 1, 2, 1.2884, 18.3],
+    [2, 0, 4, 1.3007, 8.6],
+    [3, 0, 1, 1.445, 0.1],
+    [2, 1, 3, 1.4565, 1.2],
+    [2, 2, 0, 1.5731, 11.7],
+    [0, 0, 4, 1.6032, 5.6],
+    [2, 0, 2, 1.8278, 0.0],
+    [2, 1, 1, 1.9004, 0.4],
+    [1, 0, 3, 1.9268, 2.0],
+    [2, 0, 0, 2.2246, 49.8],
+    [1, 1, 2, 2.2457, 100.0],
+    [1, 0, 1, 3.6556, 2.2]
   ],
-  [
-   4,
-   0,
-   4,
-   0.9139,
-   1.7
-  ],
-  [
-   4,
-   2,
-   2,
-   0.9502,
-   0.0
-  ],
-  [
-   4,
-   1,
-   3,
-   0.9633,
-   0.2
-  ],
-  [
-   2,
-   0,
-   6,
-   0.9634,
-   0.0
-  ],
-  [
-   3,
-   0,
-   5,
-   0.9701,
-   0.2
-  ],
-  [
-   4,
-   2,
-   0,
-   0.9949,
-   2.8
-  ],
-  [
-   3,
-   3,
-   2,
-   0.9968,
-   2.8
-  ],
-  [
-   1,
-   1,
-   6,
-   1.012,
-   2.3
-  ],
-  [
-   4,
-   0,
-   2,
-   1.0509,
-   0.0
-  ],
-  [
-   3,
-   1,
-   4,
-   1.0575,
-   0.0
-  ],
-  [
-   4,
-   1,
-   1,
-   1.0642,
-   0.0
-  ],
-  [
-   3,
-   2,
-   3,
-   1.0687,
-   0.3
-  ],
-  [
-   2,
-   1,
-   5,
-   1.078,
-   0.8
-  ],
-  [
-   4,
-   0,
-   0,
-   1.1123,
-   2.4
-  ],
-  [
-   2,
-   2,
-   4,
-   1.1228,
-   4.5
-  ],
-  [
-   3,
-   2,
-   1,
-   1.2118,
-   0.1
-  ],
-  [
-   3,
-   0,
-   3,
-   1.2185,
-   0.3
-  ],
-  [
-   1,
-   0,
-   5,
-   1.2324,
-   0.7
-  ],
-  [
-   3,
-   1,
-   2,
-   1.2884,
-   18.3
-  ],
-  [
-   2,
-   0,
-   4,
-   1.3007,
-   8.6
-  ],
-  [
-   3,
-   0,
-   1,
-   1.445,
-   0.1
-  ],
-  [
-   2,
-   1,
-   3,
-   1.4565,
-   1.2
-  ],
-  [
-   2,
-   2,
-   0,
-   1.5731,
-   11.7
-  ],
-  [
-   0,
-   0,
-   4,
-   1.6032,
-   5.6
-  ],
-  [
-   2,
-   0,
-   2,
-   1.8278,
-   0.0
-  ],
-  [
-   2,
-   1,
-   1,
-   1.9004,
-   0.4
-  ],
-  [
-   1,
-   0,
-   3,
-   1.9268,
-   2.0
-  ],
-  [
-   2,
-   0,
-   0,
-   2.2246,
-   49.8
-  ],
-  [
-   1,
-   1,
-   2,
-   2.2457,
-   100.0
-  ],
-  [
-   1,
-   0,
-   1,
-   3.6556,
-   2.2
+  "notes": "Deuterated tetragonal ice VIII. The isotope identity is part of the EOS provenance: Besson et al. (1994) measured D2O, not H2O. The legacy powder lines are retained for interchange because a publication-verified ordered atomic-site model has not yet been curated.",
+  "datasets": [
+    {
+      "identifier": "ice_viii_besson_1994_table2_structure",
+      "kind": "pressure_volume_structure",
+      "description": "All eight D2O ice-VIII structural refinements printed in Table II.",
+      "source_location": "Table II, journal page 12545",
+      "source_url": "https://doi.org/10.1103/PhysRevB.49.12540",
+      "columns": [
+        {"name": "load_mn", "quantity": "applied_load", "unit": "MN", "role": "value"},
+        {"name": "lattice_a_nm", "quantity": "lattice_parameter_a", "unit": "nm", "role": "value"},
+        {
+          "name": "lattice_a_standard_deviation_nm",
+          "quantity": "lattice_parameter_a",
+          "unit": "nm",
+          "role": "standard_deviation",
+          "of": "lattice_a_nm"
+        },
+        {"name": "lattice_c_nm", "quantity": "lattice_parameter_c", "unit": "nm", "role": "value"},
+        {
+          "name": "lattice_c_standard_deviation_nm",
+          "quantity": "lattice_parameter_c",
+          "unit": "nm",
+          "role": "standard_deviation",
+          "of": "lattice_c_nm"
+        },
+        {"name": "axial_ratio", "quantity": "c_over_a", "unit": "1", "role": "value"},
+        {
+          "name": "axial_ratio_standard_deviation",
+          "quantity": "c_over_a",
+          "unit": "1",
+          "role": "standard_deviation",
+          "of": "axial_ratio"
+        },
+        {"name": "molar_volume_cm3_mol", "quantity": "molar_volume", "unit": "cm^3/mol", "role": "value"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "oxygen_deuterium_distance_pm", "quantity": "oxygen_deuterium_distance", "unit": "pm", "role": "value"},
+        {
+          "name": "oxygen_deuterium_distance_standard_deviation_pm",
+          "quantity": "oxygen_deuterium_distance",
+          "unit": "pm",
+          "role": "standard_deviation",
+          "of": "oxygen_deuterium_distance_pm"
+        },
+        {"name": "oxygen_z", "quantity": "oxygen_fractional_z", "unit": "1", "role": "value"},
+        {
+          "name": "oxygen_z_standard_deviation",
+          "quantity": "oxygen_fractional_z",
+          "unit": "1",
+          "role": "standard_deviation",
+          "of": "oxygen_z"
+        },
+        {"name": "deuterium_y", "quantity": "deuterium_fractional_y", "unit": "1", "role": "value"},
+        {
+          "name": "deuterium_y_standard_deviation",
+          "quantity": "deuterium_fractional_y",
+          "unit": "1",
+          "role": "standard_deviation",
+          "of": "deuterium_y"
+        },
+        {"name": "deuterium_z", "quantity": "deuterium_fractional_z", "unit": "1", "role": "value"},
+        {
+          "name": "deuterium_z_standard_deviation",
+          "quantity": "deuterium_fractional_z",
+          "unit": "1",
+          "role": "standard_deviation",
+          "of": "deuterium_z"
+        }
+      ],
+      "resource": {
+        "path": "datasets/ice-viii-besson-1994-table2-structure.csv",
+        "sha256": "f07ddc91a1ef78f9f81f401c23e7ad62b30f3ae7d40b9359b51694f6909b764b",
+        "media_type": "text/csv"
+      },
+      "notes": "The table's structural-refinement uncertainties are estimated standard deviations. The source explicitly says no errors can be quoted for its EOS-derived pressure and volume columns. These approximately 265 K structural rows accompany, but were not the direct observations fitted to, the paper's 300 K BM3 parameterization.",
+      "reference": {
+        "authors": ["Besson", "Pruzan", "Klotz", "Hamel", "Silvi", "Nelmes", "Loveday", "Wilson", "Hull"],
+        "year": 1994,
+        "source": "Phys. Rev. B",
+        "volume": "49",
+        "locator": "12540-12550",
+        "doi": "10.1103/PhysRevB.49.12540"
+      },
+      "used_by_eos_records": ["iceviii_besson_1994_bm3_1"]
+    }
   ]
- ],
- "eos_records": [
-  {
-   "label": "Besson et al. (1994), D2O ice VIII, 300 K BM3",
-   "reference": {
-    "authors": [
-     "Besson",
-     "Pruzan",
-     "Klotz",
-     "Hamel",
-     "Silvi",
-     "Nelmes",
-     "Loveday",
-     "Wilson",
-     "Hull"
-    ],
-    "year": 1994,
-    "title": "Variation of interatomic distances in ice VIII to 10 GPa",
-    "source": "Phys. Rev. B",
-    "volume": "49",
-    "locator": "12540-12550",
-    "doi": "10.1103/PhysRevB.49.12540"
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 165.39,
-     "K0": 20.4,
-     "K0_prime": 4.7
-    },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": null,
-    "K0_prime": null
-   },
-   "fixed_parameters": [],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    10.0
-   ],
-   "notes": "Besson et al. give the 300 K D2O ice-VIII molar V0=12.45 cm^3/mol, converted here to the Z=8 tetragonal cell. Their BM3 fit gives K0=20.4 GPa and K0'=4.7 for 0-10 GPa. They state that no pressure/volume error can be quoted because the result depends on the adopted 300 K EOS, and that it must not be used above 10 GPa.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1), page 12543; Table I, 300 K row; page 12544, stated 0-10 GPa limit."
-   },
-   "identifier": "iceviii_besson_1994_bm3_1",
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
-    },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.49.12540/fulltext",
-     "locations": [
-      "Equation (1), page 12543",
-      "Table I, 300 K row",
-      "page 12544, stated 0-10 GPa limit"
-     ],
-     "finding": "The EOS and crystallographic data are for D2O ice VIII, not ordinary H2O; the material metadata was corrected accordingly. The authors state that no pressure/volume error can be quoted because it depends on the adopted EOS.",
-     "doi": "10.1103/physrevb.49.12540"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "iceviii.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "ice_viii_besson_1994_table2_structure"
-     ],
-     "source_locations": [
-      "Table II, journal page 12545"
-     ],
-     "finding": "All eight D2O ice-VIII structural refinements printed in Table II."
-    }
-   },
-   "temperature_ref": 300.0,
-   "audit_corrections": [
-    {
-     "path": "material.formula",
-     "source_value": "H2O",
-     "value": "D2O",
-     "reason": "The primary neutron-diffraction EOS is explicitly for deuterated ice VIII.",
-     "primary_reference": {
-      "doi": "10.1103/physrevb.49.12540",
-      "location": "title, abstract, section II.B, and Table I"
-     }
-    }
-   ]
-  }
- ],
- "atom_sites": [
-  {
-   "element": "O",
-   "wyckoff": "8e",
-   "x": 0.0,
-   "y": 0.25,
-   "z": 0.1106,
-   "occupancy": 1.0
-  },
-  {
-   "element": "D",
-   "wyckoff": "16h",
-   "x": 0.0,
-   "y": 0.4256,
-   "z": 0.2011,
-   "occupancy": 1.0
-  }
- ],
- "format": "peritheos.material",
- "identifier": "iceviii",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "aliases": [
-  "Heavy ice VIII",
-  "Deuterated ice VIII"
- ],
- "datasets": [
-  {
-   "identifier": "ice_viii_besson_1994_table2_structure",
-   "kind": "pressure_volume_structure",
-   "description": "All eight D2O ice-VIII structural refinements printed in Table II.",
-   "source_location": "Table II, journal page 12545",
-   "source_url": "https://doi.org/10.1103/PhysRevB.49.12540",
-   "columns": [
-    {
-     "name": "load_mn",
-     "quantity": "applied_load",
-     "unit": "MN",
-     "role": "value"
-    },
-    {
-     "name": "lattice_a_nm",
-     "quantity": "lattice_parameter_a",
-     "unit": "nm",
-     "role": "value"
-    },
-    {
-     "name": "lattice_a_standard_deviation_nm",
-     "quantity": "lattice_parameter_a",
-     "unit": "nm",
-     "role": "standard_deviation",
-     "of": "lattice_a_nm"
-    },
-    {
-     "name": "lattice_c_nm",
-     "quantity": "lattice_parameter_c",
-     "unit": "nm",
-     "role": "value"
-    },
-    {
-     "name": "lattice_c_standard_deviation_nm",
-     "quantity": "lattice_parameter_c",
-     "unit": "nm",
-     "role": "standard_deviation",
-     "of": "lattice_c_nm"
-    },
-    {
-     "name": "axial_ratio",
-     "quantity": "c_over_a",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "axial_ratio_standard_deviation",
-     "quantity": "c_over_a",
-     "unit": "1",
-     "role": "standard_deviation",
-     "of": "axial_ratio"
-    },
-    {
-     "name": "molar_volume_cm3_mol",
-     "quantity": "molar_volume",
-     "unit": "cm^3/mol",
-     "role": "value"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "oxygen_deuterium_distance_pm",
-     "quantity": "oxygen_deuterium_distance",
-     "unit": "pm",
-     "role": "value"
-    },
-    {
-     "name": "oxygen_deuterium_distance_standard_deviation_pm",
-     "quantity": "oxygen_deuterium_distance",
-     "unit": "pm",
-     "role": "standard_deviation",
-     "of": "oxygen_deuterium_distance_pm"
-    },
-    {
-     "name": "oxygen_z",
-     "quantity": "oxygen_fractional_z",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "oxygen_z_standard_deviation",
-     "quantity": "oxygen_fractional_z",
-     "unit": "1",
-     "role": "standard_deviation",
-     "of": "oxygen_z"
-    },
-    {
-     "name": "deuterium_y",
-     "quantity": "deuterium_fractional_y",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "deuterium_y_standard_deviation",
-     "quantity": "deuterium_fractional_y",
-     "unit": "1",
-     "role": "standard_deviation",
-     "of": "deuterium_y"
-    },
-    {
-     "name": "deuterium_z",
-     "quantity": "deuterium_fractional_z",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "deuterium_z_standard_deviation",
-     "quantity": "deuterium_fractional_z",
-     "unit": "1",
-     "role": "standard_deviation",
-     "of": "deuterium_z"
-    }
-   ],
-   "resource": {
-    "path": "datasets/ice-viii-besson-1994-table2-structure.csv",
-    "sha256": "f07ddc91a1ef78f9f81f401c23e7ad62b30f3ae7d40b9359b51694f6909b764b",
-    "media_type": "text/csv"
-   },
-   "notes": "The table's structural-refinement uncertainties are estimated standard deviations. The source explicitly says no errors can be quoted for its EOS-derived pressure and volume columns. These approximately 265 K structural rows accompany, but were not the direct observations fitted to, the paper's 300 K BM3 parameterization.",
-   "reference": {
-    "authors": [
-     "Besson",
-     "Pruzan",
-     "Klotz",
-     "Hamel",
-     "Silvi",
-     "Nelmes",
-     "Loveday",
-     "Wilson",
-     "Hull"
-    ],
-    "year": 1994,
-    "source": "Phys. Rev. B",
-    "volume": "49",
-    "locator": "12540-12550",
-    "doi": "10.1103/PhysRevB.49.12540"
-   },
-   "used_by_eos_records": [
-    "iceviii_besson_1994_bm3_1"
-   ]
-  }
- ]
 }

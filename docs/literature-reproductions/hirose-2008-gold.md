@@ -257,7 +257,7 @@ ranges, not a validated P-T rectangle or a recommendation to extrapolate to 3000
 No independent holdout validation or absolute-pressure accuracy is claimed.
 
 Reproduce and check the registered coefficients with
-`python -m scripts.refit_hirose_fei_gold_speziale --check`. Registration uses
+`python -m scripts.run_eosmat_audit refit_hirose_fei_gold_speziale --check`. Registration uses
 `--register` and inserts or updates only this record and its derived dataset;
 shared global ledgers and manifests require later reconciliation.
 

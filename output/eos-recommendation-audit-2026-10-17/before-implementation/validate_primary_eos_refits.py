@@ -1,0 +1,6278 @@
+#!/usr/bin/env python3
+"""Refit every bundled EOS record for which primary observations permit it.
+
+The generated ledger is intentionally conservative.  A record without row-level
+observations, or whose pressures require a calibration that Peritheos cannot yet
+execute, is reported as ``not_refittable`` instead of being fitted to invented
+or circularly reconstructed data.
+"""
+
+from __future__ import annotations
+
+import argparse
+import csv
+import json
+import math
+import re
+import runpy
+import sys
+from collections import Counter
+from dataclasses import dataclass
+from functools import lru_cache
+from pathlib import Path
+from types import SimpleNamespace
+from typing import Any
+
+import numpy as np
+from scipy.constants import Avogadro
+from scipy.optimize import least_squares, minimize
+
+from peritheos import get_eos_record, get_material_document, list_material_documents
+from peritheos.eos import ThermalEOS
+from peritheos.eos.rt import BM2, BM3, BM4, Baonza, Murnaghan, NaturalStrain3, Vinet
+from peritheos.eos.thermal import (
+    SoundVelocityDebyeHelmholtz,
+    ThermalReferenceStateEOS,
+)
+from peritheos.fitting import (
+    fit_joint_eos,
+    fit_linear_us_up,
+    fit_rt_eos,
+)
+from peritheos.materials import Material
+from scripts.refit_miozzi_2020_speziale import RECORD_ID as MIOZZI_SPEZIALE_REFIT_ID
+from scripts.refit_miozzi_2020_speziale import (
+    ledger_outcome as miozzi_speziale_refit_outcome,
+)
+from scripts.refit_miozzi_2020_tange import RECORD_ID as MIOZZI_TANGE_REFIT_ID
+from scripts.refit_miozzi_2020_tange import ledger_outcome as miozzi_tange_refit_outcome
+from scripts.reproduce_akins_2004_mgsio3_liquid import (
+    reproduce as reproduce_akins_2004_mgsio3_liquid,
+)
+from scripts.reproduce_campbell_2009_buffers import (
+    QUALIFICATION as CAMPBELL_QUALIFICATION,
+)
+from scripts.reproduce_campbell_2009_buffers import (
+    RECORDS as CAMPBELL_RECORDS,
+)
+from scripts.reproduce_campbell_2009_buffers import (
+    S2 as CAMPBELL_S2,
+)
+from scripts.reproduce_campbell_2009_buffers import (
+    S3 as CAMPBELL_S3,
+)
+from scripts.reproduce_campbell_2009_buffers import (
+    SELECTION as CAMPBELL_SELECTION,
+)
+from scripts.reproduce_campbell_2009_buffers import (
+    fit_result as fit_campbell,
+)
+from scripts.reproduce_diamond_thermal_composites import (
+    reproduce as reproduce_diamond_composites,
+)
+from scripts.reproduce_miozzi_2020_iron import ledger_outcome as miozzi_2020_outcome
+from scripts.reproduce_noguchi_1999_nio import fit_journal_isotherm
+
+ROOT = Path(__file__).resolve().parents[1]
+DATA_ROOT = ROOT / "peritheos" / "data"
+DEFAULT_JSON = ROOT / "docs" / "data" / "primary-eos-refits.json"
+DEFAULT_MARKDOWN = ROOT / "docs" / "primary-eos-refits.md"
+DEWAELE_REFIT_JSON = ROOT / "docs" / "data" / "dewaele-2019-static-dac-refit.json"
+DORFMAN_REFIT_JSON = ROOT / "docs" / "data" / "dorfman-2012-cocompression-refit.json"
+DATCHI_DIAMOND_REFIT_JSON = ROOT / "docs" / "data" / "datchi-2007-diamond-refit.json"
+
+FU_2023_CASIO3_REFIT_JSON = ROOT / "docs" / "data" / "fu-2023-casio3-refit-audit.json"
+FU_2023_CASIO3_REGISTERED_REFIT = (
+    "ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit"
+)
+
+SOKOLOVA_RECONSTRUCTION_JSON = (
+    ROOT / "docs" / "data" / "sokolova-2013-global-calibration.json"
+)
+TANGE_2009_PARTIAL_JSON = (
+    ROOT / "docs" / "data" / "tange-2009-mgo-partial-validation.json"
+)
+TANGE_2009_APPROXIMATE_JSON = (
+    ROOT / "docs" / "data" / "tange-2009-mgo-approximate-refit.json"
+)
+
+RICOLLEAU_REFIT_JSON = ROOT / "docs" / "data" / "ricolleau-2009-klb1-eos-refit.json"
+
+DOROGOKUPETS_REFIT_JSON = ROOT / "docs" / "data" / "dorogokupets-2015-298k-refit.json"
+MGSIO3_PRIMARY_REFIT_JSON = ROOT / "docs/data/wang-zhou-komabayashi-mgsio3-refit.json"
+
+DOROGOKUPETS_2015_FIT_BRANCH = {
+    "akimotoite_dorogokupets_2015_298k_rydberg_stacey": (
+        "akimotoite_wang_plus_reynard_ruby"
+    ),
+    "bridgmanite_dorogokupets_2015_298k_rydberg_stacey": "bridgmanite",
+    "mgsio3_post_perovskite_dorogokupets_2015_298k_rydberg_stacey": ("post_perovskite"),
+}
+ZHU_REPRODUCTION = ROOT / "scripts" / "reproduce_zhu_2025_pressure_standards.py"
+NOGUCHI_REFIT_JSON = ROOT / "docs" / "data" / "noguchi-2013-casio3-refit.json"
+NOGUCHI_RECORD_ID = "ca_perovskite_noguchi_2013_bm2_mgd_1"
+
+
+SOLOMATOVA_RECORD_SOURCES = {
+    "mg090fe010o_solomatova_2016_hs_bm3_reference_1": "mg090_marq",
+    "mg090fe010o_solomatova_2016_ls_bm3_reference_2": "mg090_marq",
+    "mg083fe017o_solomatova_2016_hs_bm3_reference_1": "mg083_lin",
+    "mg083fe017o_solomatova_2016_ls_bm3_reference_2": "mg083_lin",
+    "mg075fe025o_solomatova_2016_hs_bm3_reference_1": "mg075_mao",
+    "mg075fe025o_solomatova_2016_ls_bm3_reference_2": "mg075_mao",
+    "mg065fe035o_solomatova_2016_hs_bm3_reference_1": "mg065_chen",
+    "mg065fe035o_solomatova_2016_ls_bm3_reference_2": "mg065_chen",
+    "mg061fe039o_solomatova_2016_fei_hs_bm3_reference_1": "mg061_fei",
+    "mg061fe039o_solomatova_2016_fei_ls_bm3_reference_2": "mg061_fei",
+    "mg061fe039o_solomatova_2016_zhuravlev_hs_bm3_reference_3": "mg061_zhuravlev",
+    "mg061fe039o_solomatova_2016_zhuravlev_ls_bm3_reference_4": "mg061_zhuravlev",
+    "mgfe60o_solomatova_2016_hs_bm3_reference_1": "mg040_lin",
+    "mgfe60o_solomatova_2016_ls_bm3_reference_2": "mg040_lin",
+}
+
+MODEL_CLASSES = {
+    "Baonza": Baonza,
+    "BM2": BM2,
+    "BM3": BM3,
+    "BM4": BM4,
+    "Murnaghan": Murnaghan,
+    "NaturalStrain3": NaturalStrain3,
+    "Vinet": Vinet,
+}
+
+# These observations do not define the pressure-volume fit stored by the record.
+INDIRECT_DATA = {
+    "platinum_matsui_2009_vinet_300k": "The unchanged 300 K Vinet branch and separately registered tabulated thermal scale reproduce the published pressure parameterization. Electronic Table I is recovered, with linear interpolation explicitly a numerical implementation choice. Marsh inputs, original Hugoniot/expansion sampling, weights and joint-fit objective remain unresolved; original author fit is not reproduced.",
+    "fe088sio3_bridgmanite_ismailova_2016_300k_bm2": "Supplementary Table S2 bundles only four selected crystallographic states, while Figure 3A plots substantially more compression and decompression markers for the published BM2 fit. The source gives no complete row list, inclusion/exclusion flags, regression objective, numerical weights, or row-wise Ne calibrant volumes. The four exact rows are checkpoint data, not a defensible reconstruction of the source fit input.",
+    "iron_dewaele_2006_vinet_thermal": "The bundled EPAPS rows constrain the near-room-temperature Vinet reference isotherm. The high-temperature Gruneisen coefficients were determined with separate shock-wave data and the anharmonic/electronic terms with ab-initio pressures, so the complete thermal fit input is not available for an independent joint refit.",
+    "lead_hcp_kuznetsov_2002_bm3_3": "The bundled Figure 3 coordinates are plot-digitized room-temperature and source-reduced markers, not the complete original P-V-T observations used to fit the nine-coefficient hcp thermal BM3 surface. The original rows, residual coordinate, weights, and covariance procedure are not published. See the [dedicated Fortes/Kuznetsov audit](literature-reproductions/fortes-2019-fcc-pb.md).",
+    "lead_fcc_kuznetsov_2002_bm3_2": "The three bundled Table 1 rows are rounded fcc states at the phase transition, not the complete P-V-T observations used to fit the source's nine-coefficient thermal BM3 surface. The full numerical dataset, row selection, residual coordinate, weights, and covariance procedure are not published. See the [dedicated Fortes/Kuznetsov audit](literature-reproductions/fortes-2019-fcc-pb.md).",
+    "lead_fcc_fortes_2019_bm4_1": "The published pressure surface is executable and three exact Kuznetsov fcc transition P-V-T anchors are bundled, but the compiled coefficient fit cannot be independently reproduced. The full 295-788 K Kuznetsov table was supplied privately to Fortes, while the exhaustive source-row selection, pressure-scale treatment, residual coordinate, weights, and covariance procedure are not published. See the [dedicated Fortes audit](literature-reproductions/fortes-2019-fcc-pb.md).",
+    "mg090fe010o_marquardt_2009b_hs_bm3": "EPSL Table 2 supplies the P-V observations, but the published HS fit also uses a room-pressure Brillouin constraint whose weighting is unspecified. Only the 14 rows below 45 GPa belong to this fit. The separate script scripts/reproduce_marquardt_2009_epsl.py performs a P-V-only validation; it cannot reproduce the complete source objective.",
+    "platinum_holmes_1989_vinet_1": "Equation (11) and Table IV make the published 300 K Vinet curve exactly reconstructable, but the source does not tabulate its LMTO E0(V), P0(V), density-of-states, or 300 K fit grid. The bundled Table III rows are shock-Hugoniot qualification experiments and must not be fitted as a 300 K isotherm; the source-derived equation checkpoints are circular fit inputs. The underlying theoretical regression therefore remains not independently refittable.",
+    "diamond_correa_2008_dewaele_anchored": "The linked diffraction rows constrain only the Dewaele reference isotherm; the Correa thermal term is a separately published theoretical model.",
+    "diamond_benedict_2014_dewaele_anchored": "The linked diffraction rows constrain only the Dewaele reference isotherm; the Benedict thermal term is a separately published theoretical model.",
+    "mgal2o4_cafe2o4_funamori_1998_bm2_1": "The source construction is not a regression: recovered V0 is held fixed, K0-prime=4 is assumed, and the only compressed observation determines K0 algebraically. The article has no supplement, and the audit found no associated repository series; the complete reported endpoint evidence is bundled, but it leaves zero independent residual degrees of freedom.",
+    "mgal2o4_cati2o4_funamori_1998_bm2_1": "The source construction is not a regression: recovered V0 is held fixed, K0-prime=4 is assumed, and the only compressed observation determines K0 algebraically. The article has no supplement, and the audit found no associated repository series; the complete reported endpoint evidence is bundled, but it leaves zero independent residual degrees of freedom.",
+    "gold_anderson_1989_bm3_1": "Tables I-IV contain heterogeneous literature properties, separately regressed coefficients, and derived thermodynamic diagnostics, while Table V is output from Equation (29). The source performs staged smoothing, one-dimensional regressions, numerical integrations, and qualitative K0' trials; it does not define a global observation matrix, objective, weights, integration protocol, or covariance that could be reproduced as a direct EOS coefficient refit.",
+    "platinum_dorogokupets_oganov_2007_vinet_4": "The 36 bundled Dewaele static rows are a recoverable stage-2 subset, and the seven Holmes shots are an independent Equation-15 diagnostic. The published result is nevertheless a two-stage weighted optimization of six metals: the complete observation inventory and weights, selected Shock Wave Database rows, Collard-McLellan Figure 1 K_S(T) coordinates, and platinum-specific thermochemical row mapping are not published. The dedicated audit therefore validates exact calculated outputs and partial source subsets without claiming a numerical reconstruction of the global objective.",
+}
+
+SHEN_PREFIX = "shen_smith_2026_table_s1_simultaneous_volumes"
+
+SHEN_CU_RECORD = "copper_fratanduono_2020_vinet3_298k"
+
+# The experiment/run masks are stated in Shen and Smith's Table II and
+# Sections III.B/E. The NaCl coexistence rows are retained in the source CSV
+# but excluded here using the article's approximately 30--35 GPa interval.
+SHEN_SELECTIONS = {
+    "fe_shen_2026_vinet_1": ("bcc-Fe", {"DAC-1", "DAC-2"}, None),
+    "gold_shen_2026_vinet_3": ("Au", {"DAC-1"}, None),
+    "iron_shen_2026_vinet_2": ("hcp-Fe", {"DAC-1", "DAC-2"}, None),
+    "mgo_shen_2026_vinet_3": ("MgO", {"DAC-2"}, None),
+    "molybdenum_shen_2026_vinet_1": ("Mo", {"DAC-1", "DAC-2"}, None),
+    "nacl_b1_shen_2026_vinet_1": ("NaCl-B1", {"DAC-2"}, "below_30_gpa"),
+    "nacl_b2_shen_2026_vinet_2": ("NaCl-B2", {"DAC-2"}, "above_35_gpa"),
+    "platinum_shen_2026_vinet_2": ("Pt", {"DAC-2"}, None),
+    "tantalum_shen_2026_vinet_2": ("Ta", {"DAC-1"}, None),
+    "tungsten_shen_2026_vinet_3": ("W", {"DAC-1", "DAC-2"}, None),
+}
+
+# These plot-only observations do not provide numerical experimental error
+# bars. The stored uncertainties describe digitization, not the weights used
+# in the papers' least-squares fits.
+UNWEIGHTED_DATASETS = {
+    "ca_perovskite_wang_weidner_1994_figure3_digitized",
+    # Diagnostic pressure objective; source normalized-volume weights unavailable.
+    "mgal2o4_cafe2o4_irifune_2002_text_pv",
+    # Sueda reports least squares but no weights or uncertainty confidence.
+    "mgal2o4_cafe2o4_sueda_2009_table1_pvt",
+    "ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_dolomite_iii_digitized",
+    "ca0988mg0918fe0078mn0016c2o6_mao_2011_figure3_fe_dolomite_digitized",
+    "mg075fe025o_mao_2011_figure1_300k_digitized",
+    "mg090fe009al0005ca0005sio3_shieh_2006_figure2_ppv_digitized",
+    "mg090fe009al0005ca0005sio3_shieh_2006_figure2_pv_digitized",
+    "namg2al5sio12_cf_kawai_2012_figure2d_vector_digitized",
+    "namg2al5sio12_nal_kawai_2012_figure2c_vector_digitized",
+    "neon_fei_2007_figure5_digitized",
+    "iron_zhang_2025_tables_s1_s3_s4_pvt",
+    "iridium_anzellini_2025_figure4_300k_830k_vector_digitized",
+    "iron_zhang_2025_tables_s1_s3_s4_pvt",
+}
+
+COMBINED_FIT_DATASET_RECORDS = {
+    "coesite_i_iii_bykova_2018_300k_bm3",
+    "cscl_campbell_1994_bm3_1",
+    "neon_fcc_fei_2007_bm3_1",
+    "neon_fcc_fei_2007_vinet_2",
+}
+
+MAO_1991_BRIDGMANITE_RECORDS = {
+    "bridgmanite_mao_1991_bm2_1",
+    "mg09fe01sio3_bridgmanite_mao_1991_bm2_2",
+    "mg080fe020sio3_bridgmanite_mao_1991_bm2_1",
+}
+
+# These tables report one-sigma uncertainties on a cubic lattice parameter.
+# Convert sigma_a to sigma_V with the first-order derivative of V=a^3.
+CUBIC_LATTICE_SIGMA_DATASETS = {
+    "cscl_campbell_1994_table1_compression",
+    "rbcl_campbell_1994_table1_compression",
+}
+
+FIT_QUALIFICATIONS = {
+    "platinum_fei_2007_vinet_300k": "Conditional cold-subset diagnostic: all 36 Dewaele (2004) observations use the revised ruby pressures with published V0 and K0 fixed. The separate platinum_fei_2007_vinet_mgd audit reconstructs the paired Au pressure reduction and a qualified joint thermal fit; the author's complete objective and confidence convention remain unspecified. This checks the 300 K branch without asserting recovery of the full fitting procedure.",
+    **{
+        f"fesi_b2_fischer_2014_{model}_refit": (
+            "Stored Peritheos refit reproduction using all 114 single-phase B2 rows "
+            "and physical n=2 per FeSi formula. Parity compares against independently "
+            "fitted Peritheos coefficients, not Fischer's published B2 parameters, "
+            "which remain withheld. Unweighted pressure residuals; V0, K0-prime "
+            "and theta0 are conditional fixed assumptions. Full covariance, "
+            "weighting/reference sensitivities and pressure-block holdouts are "
+            "in the [Fischer audit](literature-reproductions/fischer-2014-fesi.md). "
+            "No validated core extrapolation."
+        )
+        for model in ("bm3", "vinet")
+    },
+    **{
+        identifier: (
+            "Complete single-phase source rows with published fixed choices. "
+            "Unweighted pressure residuals and residual-scaled refit errors are "
+            "diagnostics: source weights, coefficient confidence and covariance "
+            "are unspecified. Parity denotes the ledger's numerical/combined-error "
+            "criterion, not recovery of the authors' regression covariance. "
+            "The Fe-16Si entry checks the 66-row thermal stage; the independent "
+            "script also refits its 32-row static stage. See the "
+            "[Fischer audit](literature-reproductions/fischer-2014-fesi.md)."
+        )
+        for identifier in (
+            "fesi_b20_fischer_2014_bm3_1",
+            "fesi_b20_fischer_2014_vinet_2",
+            "fe084si016_d03_fischer_2014_bm3_1",
+            "fe084si016_d03_fischer_2014_vinet_2",
+            "fe084si016_hcp_fischer_2014_bm3_1",
+            "fe084si016_hcp_fischer_2014_vinet_2",
+            "fe073si027_d03_fischer_2014_vinet_1",
+        )
+    },
+    **{
+        f"mg090fe010o_marquardt_2009b_ls_bm3_s1_{i:02d}": "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties."
+        for i in range(1, 13)
+    },
+    "ca_perovskite_tetragonal_chen_2018_vinet": "Complete source-scope table check with unresolved fitting details: all seven I4/mcm Table 1 rows are used, K0-prime is fixed at 4, and the reported Ye et al. Pt pressures are retained. The source does not publish pressure uncertainties, residual direction, weights, fit software, unrounded inputs, or covariance. The generic fit therefore uses an errors-in-variables objective with one-sigma volume errors propagated from the table's two-sigma lattice errors; the dedicated reproduction also reports unweighted pressure- and volume-residual sensitivity fits. Those diagnostics do not define a replacement EOS, and the classification is capped at similar because statistical parity cannot be established without the source weighting and pressure-error model.",
+    "coesite_i_iii_bykova_2018_300k_bm3": "Conditional partial reproduction. The 24 exact bundled rows are the complete numerical subset recovered from Bykova et al. Supplementary Table 2 and the exact table in their cited Cernok et al. diffraction work. Several current-study coesite-I points used by the source remain plot-only, and the source does not report its objective or weights. The unweighted pressure-residual diagnostic therefore tests the documented phase selection without claiming recovery of the unavailable full fit.",
+    "ca_perovskite_wang_weidner_1994_bm2": "Complete plot-scope check: Wang and Weidner state that the BM2 used only the four room-temperature Figure 3 points above 2.0 GPa and fixed K0'=4. All four marker centers are bundled and an unweighted pressure-residual refit recovers V0 and K0 within the published uncertainties. This is not a numerical-table reproduction: the source does not publish the four P-V rows, residual coordinate, weights, covariance, or confidence convention. See the [dedicated Wang-Weidner reproduction](literature-reproductions/wang-weidner-1994-casio3.md).",
+    "mgal2o4_cati2o4_ono_2006_bm2_2": "All 14 Table 3 rows, including two recovered ambient cells. Source weights and selection are unspecified; zero-rounded volume errors preclude using those errors as weights. The unweighted diagnostic recovers the printed coefficients; the dedicated Ono reproduction documents the sensitivity to excluding ambient cells.",
+    "mgal2o4_cafe2o4_irifune_2002_bm2_2": "Three compressed states only; fixed averaged V0 and implicit K0-prime=4. This unweighted pressure diagnostic differs from the stated normalized-volume objective with unspecified weights. The dedicated reproduction also checks that objective; neither supplies source covariance. The refit error is a residual-scaled diagnostic, not a published uncertainty.",
+    "mgal2o4_cafe2o4_sueda_2009_htbm_2": "Staged thermal diagnostic on all 46 Table 1 rows, with the published 300 K BM3 triplet fixed. The source does not specify weights or uncertainty confidence, so use unweighted pressure residuals. The independent static-stage reconstruction and printed-equation corrections are documented in the [Sueda audit](literature-reproductions/sueda-2009-mgal2o4-cafe2o4.md).",
+    "mgal2o4_cafe2o4_sueda_2009_mgd_3": "Staged thermal diagnostic on all 46 Table 1 rows, with the published 300 K BM3 triplet fixed. The source does not specify weights or uncertainty confidence, so use unweighted pressure residuals. The independent static-stage reconstruction and printed-equation corrections are documented in the [Sueda audit](literature-reproductions/sueda-2009-mgal2o4-cafe2o4.md).",
+    "naalsi2o6_zhao_1997_bm3_1": "Complete conditional reproduction of the preferred K0'=5 thermal BM3 fit. All 31 source-selected hydrostatic Table 1 rows are used with the source-fixed V0=403 A^3 and K0'=5. The paper does not report its EOS residual definition, numerical weights, row-wise pressure/temperature uncertainties, covariance, or confidence convention, so Peritheos uses ordinary pressure residuals. Every varied coefficient is recovered within its published uncertainty; the result is classified similar because the small alpha1 coefficient has a 46% relative shift. See the dedicated [Zhao jadeite audit](literature-reproductions/zhao-1997-jadeite.md).",
+    "mgo_li_2006_bm3_absolute_acoustic": "Direct reproduction of the source measurement-to-coefficient chain, not a pressure-volume refit: the preferred decompression density, VP, and VS rows plus the independently measured ambient anchor are fitted to the published third-order acoustic finite-strain equations. Equation 4 then maps the fitted adiabatic K0S and K0S-prime to the stored isothermal K0T and K0T-prime; paragraph 10's K0T-in-L2/M2 approximation accounts for the measured isothermal strains. The calculated Table 1 pressures are downstream BM3 outputs and are never used as observations. The source does not publish its exact weights, iterative adiabatic-foot correction, covariance, or propagated isothermal errors, so the unweighted rounded-table reconstruction is classified as numerically similar rather than strict parity.",
+    "e_feooh_gleason_2008_bm2_1": "Source-protocol reconstruction, not an assertion of an independently measured epsilon-FeOOH thermal EOS. All 49 hot Table 2 volumes are reduced to 300 K with the paper's alpha0=2.3e-5 K^-1 before the pooled fixed-V0 BM2 fit. This recovers K0=158.099 GPa; fitting the raw hot volumes as though they lay on the reference isotherm instead gives 175.624 GPa. The correction is numerically identifiable but not printed in the epsilon-specific prose, and the source weights are unavailable.",
+    "iron_zhang_2025_fit1_birch_murnaghan_3_mgd": "Exact final-input reproduction, not a reconstruction of every upstream reduction: the supplement deposits the 1,313 fit rows, but omits the calibrant observations needed to recalculate 641 static pressures and the documented interpolation procedure for most model-assigned dynamic temperatures. Experimental P-V, derived temperatures, and ab-initio rows remain explicitly separated in the bundled dataset.",
+    "iron_zhang_2025_fit2_birch_murnaghan_3_mgd": "Exact final-input reproduction, not a reconstruction of every upstream reduction: the supplement deposits the 1,313 fit rows, but omits the calibrant observations needed to recalculate 641 static pressures and the documented interpolation procedure for most model-assigned dynamic temperatures. Experimental P-V, derived temperatures, and ab-initio rows remain explicitly separated in the bundled dataset.",
+    "iron_zhang_2025_fit5_vinet_mgd": "Exact final-input reproduction, not a reconstruction of every upstream reduction: the supplement deposits the 1,313 fit rows, but omits the calibrant observations needed to recalculate 641 static pressures and the documented interpolation procedure for most model-assigned dynamic temperatures. Experimental P-V, derived temperatures, and ab-initio rows remain explicitly separated in the bundled dataset.",
+    "akimotoite_reynard_1996_bm3_ruby_2": "Direct Table 1 reproduction of the ruby-pressure fit with K0 fixed at the source-adopted 212 GPa. The source says its parameter uncertainties account for pressure and volume errors, but it does not publish the exact objective or covariance. Ruby brackets are fluorescence-line-width estimates rather than stated one-sigma errors and are absent at the two ambient anchors, so the reproducible Peritheos fit uses all 16 rows, unweighted pressure residuals, and the reported one-sigma volume errors.",
+    "akimotoite_reynard_1996_bm3_ice_vii_3": "Direct Table 1 reproduction of the authors' preferred ice-VII-pressure fit with K0 fixed at the source-adopted 212 GPa. Table 1 prints 12 finite-pressure Pi values and Figure 3f supplies two zero-pressure ambient anchors. The source does not publish its exact objective or covariance; ice-pressure brackets are maximum-gradient estimates rather than stated one-sigma errors and are absent at the two ambient anchors, so the reproducible Peritheos fit uses unweighted pressure residuals and the reported one-sigma volume errors.",
+    "cscl_campbell_1994_bm3_1": "Complete source-data reproduction: Table 1 contains a distinct 13-row CsCl block, not the RbCl rows previously attached to this material. The fit now also includes all nine 25 degC V/V0 values from Yagi (1978) after the source-stated 4.118-to-4.123 A reference correction. The numerical weights used for Campbell and Heinz's normalized-stress regression are not published, but the complete unweighted 22-point refit recovers both coefficients within combined two-sigma uncertainty. See the [dedicated Campbell-Heinz reproduction](literature-reproductions.md#campbell-heinz-1994-cscl-and-rbcl).",
+    "kcl_b2_chidester_2021_bm3_5": "Corrected source-scope reproduction: Chidester et al. fitted the 155 new high-temperature rows simultaneously with all 123 Dewaele et al. (2012) room-temperature B2 rows. The unweighted 278-row fit uses the thermodynamically integrated Gruneisen Debye-temperature law and recovers every published coefficient. See the [dedicated Chidester reproduction](literature-reproductions.md#kcl-chidester-2021).",
+    "kcl_b2_tateno_2019_vinet_4": "Corrected final-publication reproduction: the model uses the final gamma0=2.3 and q=0.8 coefficients, Equation 6's integrated-Gruneisen Debye law, and the correctly aligned official MSA Supplemental Table S1 workbook. See the [dedicated Tateno reproduction](literature-reproductions.md#kcl-tateno-2019).",
+    "kcl_walker_2002_bm3_2": "Source-protocol reproduction: the preferred bold Table 3 result is staged, not a simultaneous four-parameter fit. V0 is held at the published fictive reference, K0 and K0' are fitted to the eight 23-24 degC rows, and alpha_KT is then fitted to all 39 P-V-T rows.",
+    "ice_vi_bezacier_2014_bm2_1": "Source-scope reproduction: Figure 2 displays the ice-VI PVT data as the 300 K and 340 K isotherms. The 15 intermediate-temperature rows in Table I form a pressure-temperature ramp and are not plotted there. The best-supported reconstruction selects the 23 rows at 298.7-300.7 K and the seven rows at 340.0-340.7 K; it recovers V0, K0, and alpha0 within combined two-sigma uncertainty.",
+    "molybenum_carbide_mo2c_haines_2001_bm3_1": "Corrected source-scope reproduction: Figure 2 expresses the observations as V/V0 and reports only K0 and K0' as fitted coefficients, so the measured ambient V0 is held fixed. The 16-marker refit is statistically compatible with both published coefficients but remains only numerically similar; see the [dedicated Mo2C reproduction](literature-reproductions.md#mo2c-haines-2001).",
+    "molybenum_carbide_mo2c_haines_2001_bm3_refit": "Explicit Peritheos refit record: all 16 digitized Figure 2 markers are fitted with measured V0 fixed and the documented errors-in-variables objective. This record reproduces its stored coefficients exactly and does not replace the published Haines parameterization; see the [dedicated Mo2C reproduction](literature-reproductions.md#mo2c-haines-2001).",
+    "mgo_dewaele_2000_bm3_mgd_5": "Conditional current-study thermal reproduction: the 41 heated Table 2 rows constrain q while V0, K0, K0', theta0, gamma0, Tr, and n are held to the source's staged/adopted values. Dewaele et al.'s published thermal analysis additionally used Fei (1999) observations that are not reprinted in this article, so exact parameter parity is not required from the new current-study rows alone.",
+    "feo_fischer_2011_bm3_2": "Conditional current-study thermal reproduction: all 42 numerical B1 volumes in Fischer Supplementary Table S1 are evaluated at their reported, already 3%-corrected temperatures with Equation (1)'s integrated-Gruneisen Mie-Gruneisen-Debye model. V0, theta0, q, Tr, and n are held fixed exactly as the source specifies. Fischer's published global fit also includes Campbell, Ozawa, and Seagle rows. All identifiable source tables are now bundled, but Campbell's fcc-Fe calibration is retained only as deferred source evidence because of unresolved coefficient-refit discrepancies. It is not an executable calibration; Fischer's final combined row selection remains unresolved. The source also does not state its regression weights, residual variable, covariance, or optimizer; this result remains a current-study-only diagnostic rather than an exact global-fit reproduction. See the [dedicated Fischer reproduction](literature-reproductions/fischer-2011-feo.md).",
+    "feo_b8_2_fischer_2011_bm3_1": "Recovered combined thermal reproduction: all 21 numerical B8 volumes in Fischer Supplementary Table S1 are evaluated at their reported, already 3%-corrected temperatures with Equation (1)'s integrated-Gruneisen Mie-Gruneisen-Debye model. One-peak detections have no volume and are excluded; the three two-peak volumes whose errors are unconstrained use Figure 3's explicit +/-0.1 cm^3/mol fallback. All 8 B8 rows in Ozawa's printed Table 2 are added, and K0', theta0, q, Tr, and n are held fixed. The unweighted 29-row fit recovers every free coefficient within its published uncertainty. Fischer does not state its regression weights, residual variable, covariance, or optimizer, so this establishes numerical parameter parity rather than exact procedural identity. See the [dedicated Fischer reproduction](literature-reproductions/fischer-2011-feo.md).",
+    "palladium_baty_2024_bm3_1": "Complete-table reproduction with unresolved source-fit discrepancy: all 78 official Table S1 rows and the printed BM3 equation are reproduced, but reasonable pressure-, volume-, and errors-in-variables objectives do not jointly recover the published coefficients. See the [dedicated palladium reproduction](literature-reproductions.md#palladium-baty-2024).",
+    "palladium_frost_2023_vinet_1": "Complete-table reproduction: all 93 Pd rows from supplementary Tables I-III are fitted with the source-stated 0.1 GPa pressure errors and volume errors propagated from the tabulated lattice-parameter errors. The result is numerically similar, but K0' is just outside combined two-sigma parity and the source does not publish enough detail to recover its precise weighting convention. See the [dedicated Frost reproduction](literature-reproductions.md#what-the-frost-paper-and-supplement-resolve).",
+    "palladium_frost_2023_bm3_2": "Complete-table reproduction: the alternative BM3 is fitted to the same 93 supplementary Pd rows with the source-stated pressure and volume uncertainties. The result is numerically similar, but K0' is just outside combined two-sigma parity and the exact source weighting convention is not reported. See the [dedicated Frost reproduction](literature-reproductions.md#what-the-frost-paper-and-supplement-resolve).",
+    "neon_fcc_fei_2007_bm3_1": "Conditional partial reproduction: Fei et al. fitted Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and their new observations. The 34 bundled points combine the 13 new Figure 5 observations with all 21 Hemley Table I observations after the source-stated Mao-to-Dewaele ruby recalculation. Finger's low-pressure rows remain unavailable. V0 is held fixed and the available subset is fitted without weights.",
+    "neon_fcc_fei_2007_vinet_2": "Conditional partial reference-isotherm reproduction: Fei et al. fitted Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and their new observations. The 34 bundled points combine the 13 new Figure 5 observations with all 21 Hemley Table I observations after the source-stated Mao-to-Dewaele ruby recalculation. Finger's low-pressure rows remain unavailable. V0 and thermal coefficients are held fixed, and the available subset is fitted without weights.",
+    "phase_egg_mookherjee_2019_bm3_lp_1": "Curve-level diagnostic reproduction: Supplementary Table 1 provides all 11 static LP pressure-volume points and they recover the published BM3 coefficients within the printed parameter uncertainties. The publication fitted total energy versus volume, however, and the deposited workbook does not include those energies, row uncertainties, regression weights, objective, covariance, or fit statistic. This pressure-residual refit therefore validates the published pressure curve but cannot reconstruct the source energy-fit protocol exactly. See the dedicated phase-Egg reproduction in literature-reproductions.md.",
+    "rbcl_b2_campbell_1994_bm3_1": "Complete source-data reproduction: all 24 RbCl-B2 Table 1 rows are fitted with the paper's hypothetical zero-pressure density held fixed. The refit recovers K0 and K0' within combined two-sigma uncertainty. See the [dedicated Campbell-Heinz reproduction](literature-reproductions.md#campbell-heinz-1994-cscl-and-rbcl).",
+}
+
+# A numerical uncertainty overlap is insufficient for these records because a
+# source-faithful statistical comparison cannot be constructed from the published
+# information. Preserve the automatic result for transparency, but cap the public
+# classification at the strongest conclusion supported by the source evidence.
+QUALIFIED_STATUS_OVERRIDES = {
+    "platinum_fei_2007_vinet_300k": "similar",
+    "ca_perovskite_tetragonal_chen_2018_vinet": "similar",
+}
+
+# Record-specific conclusions for cases that remain outside both the numerical
+# and uncertainty criteria. These are deliberately phrased as diagnoses or
+# bounded hypotheses; unresolved source-method details are not presented as fact.
+INVESTIGATION_NOTES = {
+    "fes_vi_morard_2026_bm3_mgd": "Staged coefficient reproduction is classified similar, with overlapping reported parameter intervals and an equal-weight control inside all published error widths. The literal +/-3 GPa residual envelope remains an independent reporting discrepancy; it does not turn this into an unavailable or failed fit. Source error confidence and cross-fit covariance are unknown, and thermal errors are conditional on fixed cold coefficients.",
+    "feo_b8_2_fischer_2011_bm3_1": "B8 V0 is extrapolated from observations beginning above 131 GPa and is strongly correlated with K0 and gamma0. The missing Ozawa rows and undocumented source weighting therefore have much greater leverage than the three explicitly restored +/-0.1 cm^3/mol fallback errors. The current-study-only result is a bounded subset diagnostic, not evidence for replacing the published coefficients.",
+    "b4c_somayazulu_2023_bm3_1": "The reference isotherm and gamma0 are fixed, leaving q as the only free coefficient. The published curve and the refit have similar pressure residuals, but q moves from 2.1 to about 1.05. This points to weak q identifiability and sensitivity to the source's exact effective-variance objective, rather than an equation-evaluation error. The existing B4C literature reproduction documents that distinction in detail.",
+    "coo_clendenen_1966_murnaghan_1": "Decimal rounding alone is ruled out: four printed rows cannot lie on the published curve even within both displayed rounding intervals. The input is a nine-point smoothed table rather than the numerical Figure 2 observations, and the source gives no weights or exact regression objective. The free K0 and K0' estimates are strongly anticorrelated (correlation -0.971); fixing either published coefficient recovers the other closely, so the large derivative shift follows a shallow objective valley rather than a comparably large curve discrepancy. Exact parity requires the source observations and fit protocol. See the [dedicated CoO reproduction](literature-reproductions.md#coo-clendenen-1966).",
+    "cscl_campbell_1994_bm3_1": "The original extreme discrepancy was a data-assignment error: the resource contained 21 rows from Table 1's RbCl block and evaluated them with CsCl's larger reference volume. After restoring the 13-row CsCl block and adding Yagi's nine Table 1 ratios with the Campbell-Heinz reference correction, the complete 22-point refit is statistically compatible with the published fit. Only the exact normalized-stress regression weights remain unpublished.",
+    "goethite_gleason_2008_bm3_1": "The earlier audit incorrectly reduced the record to a plain BM3 and used only 27 room-temperature rows. The corrected record implements Equation 1 as a BM3 plus Mie-Gruneisen-Debye thermal pressure and uses all 65 P-V-T rows, as the paper states. Parity still fails. Official deposit row 32 is an isolated 100 degC, 6.66 GPa point at V=122.80 A^3; the published curve expects 133.11 A^3 and misses its pressure by 16.29 GPa. Excluding that verbatim source anomaly changes the refit materially but still does not recover the reported elastic coefficients. The remaining systematic misfit begins near the room-temperature 9 GPa discontinuity that the authors attribute to pressure-medium solidification. Thus neither the old fit-scope error nor row 32 alone explains the published values; unavailable source regression weights/reduction details and strongly non-hydrostatic data remain the bounded causes. A fresh Figure 3 cross-check confirms all 47 plotted alpha-FeOOH Table 1 coordinates and all 49 epsilon-FeOOH Table 2 coordinates; Figure 3a omits the 100 degC series containing row 32, so the plot supplies no alternate value for that anomaly. An independent unweighted fit of the 47 Figure 3a marker centers gives K0=193.45 GPa and K0'=0.893 with the reconstructed thermal model, or K0=203.78 GPa and K0'=0.262 as plain BM3. Fixing K0=140.3 GPa instead requires K0'=6.112 for the marker-based thermal fit, so the published pair is not recovered even conditionally. The 27 primary room-temperature rows alone give K0=189.775 GPa and K0'=1.103, showing that the low derivative is not a thermal-model artifact. Nagai et al.'s P-V observations are presented as a separate comparison, not as fit inputs; appending their 12 normalized rows experimentally also fails to recover the published pair. Equation 1 is malformed as printed: its static bracket has the opposite sign from standard BM3 under the stated strain definition, and its thermal-term grouping is incomplete. The Figure 3 curve supports the standard BM3 sign, so this is most likely a source typographical error rather than a different EOS convention. The record is retained for provenance and published-curve reproduction but is not recommended for quantitative pressure-volume or thermoelastic use. See the [dedicated goethite reproduction](literature-reproductions.md#goethite-gleason-2008).",
+    "ice_vi_bezacier_2014_bm2_1": "The original discrepancy was a fit-scope error. Figure 2 labels only the 300 K and 340 K ice-VI series as P-V data and the corresponding two-isotherm refit recovers all three published coefficients. Treating all 45 Table I rows as one regression incorrectly includes 15 measurements collected along the intervening pressure-temperature ramp; that fit lowers alpha0 from 1.46e-4 to 5.29e-5 K^-1. The equation itself is equivalent to Peritheos's constant-alpha thermal reference-state BM2 when dK/dT=0.",
+    "kcl_walker_2002_bm3_2": "The original large discrepancy was a validation-protocol error: it compared the paper's preferred staged Table 3 row with an unconstrained simultaneous four-parameter refit. Reproducing the Table 3 footnote instead gives K0=23.775 GPa and K0'=4.416 from the eight room-temperature rows, followed by alpha_KT=0.002766 GPa/K from all 39 rows. These differ from the printed 23.7, 4.4, and 0.00275 by 0.32%, 0.36%, and 0.59%, respectively. Strict uncertainty parity remains unavailable only because Walker et al. decline individual elastic-parameter errors due to covariance. The paper separately prints an italic simultaneous solution (V0=55.25 A^3, K0=14.8 GPa, K0'=6.9, alpha0=0.00018 K^-1), confirming that the two protocols must not be conflated. The corresponding unweighted Peritheos simultaneous fit also recovers that alternate row closely (V0=55.392 A^3, K0=14.189 GPa, K0'=7.157). See the [dedicated Walker reproduction](literature-reproductions.md#kcl-walker-2002).",
+    "kcl_b2_tateno_2019_vinet_4": "The original failure combined two source-control errors. The record used gamma0=0.58, q=0.9, and a variable-exponent Debye law from the accepted manuscript, while the final article reports gamma0=2.3, q=0.8, and the integrated-Gruneisen law in Equation 6. In addition, the split manuscript table had mismatched the Pt and KCl halves of runs 3 and 4. The corrected official MSA Table S1 data recover all four fitted coefficients within combined two-sigma uncertainty. See the [dedicated Tateno reproduction](literature-reproductions.md#kcl-tateno-2019).",
+    "molybenum_carbide_mo2c_haines_2001_bm3_1": "The earlier validation incorrectly varied V0 even though Figure 2 uses relative volume and the source reports only K0 and K0' as fit results. Fixing the measured reference volume gives K0=325.87 GPa and K0'=4.91; both are within combined two-sigma uncertainty of 307(5) GPa and 6.2(3), but K0' narrowly misses the numerical similarity limit. An independent normalized-stress regression gives K0=321.0 GPa and K0'=5.16, ruling out the standard finite-strain linearization as the full explanation. The two pressure-medium regimes pull in opposite directions, and omitting only the two observations above 40 GPa gives K0=309.28 GPa and K0'=6.62. The paper plots those points and provides no stated basis for excluding them, so that sensitivity result is diagnostic only. Exact parity requires the authors' numerical P-V array, weights, and row mask. See the [dedicated Mo2C reproduction](literature-reproductions.md#mo2c-haines-2001).",
+    "palladium_baty_2024_bm3_1": "The official supplementary LaTeX source confirms every bundled Table S1 value, and Equation (1) is the same standard BM3 used by Peritheos. The published curve has a 1.273 GPa pressure RMSE, versus 0.704 GPa for the all-row pressure refit. Baty et al.'s Figure 3 Frost Vinet curve also lies below 77 of the 78 Table S1 observations, with a 2.039 GPa pressure-equivalent RMSE; this confirms that the visible cross-study offset is real rather than a plotting impression. Changing to volume residuals or a deliberately generous errors-in-variables diagnostic moves K0 toward 190 GPa but does not recover all three published coefficients. Fixing the measured V0 and using only rows at or above 40 GPa gives K0=193.66 GPa and K0'=5.02, but the paper states a 0-80 GPa fit and supplies no basis for that selection. The discrepancy is therefore most consistent with undocumented weighting, constraints, row selection, or a source-side reduction inconsistency, not transcription, unit conversion, rounding, or EOS formalism. See the [dedicated palladium reproduction](literature-reproductions.md#palladium-baty-2024).",
+    "silicon_vii_anzellini_2019_vinet_1": "Si-VII is observed only at 46-94 GPa, so all three zero-pressure Vinet coefficients are extrapolated and strongly covariant. The refit drives K0 to its lower bound, a direct sign that this isolated phase subset does not identify an unconstrained zero-pressure EOS. The source's constraints or joint phase-fit protocol must be recovered.",
+    "sno2_cubic_27gpa_ono_2000_bm3_1": "Only eleven 300 K rows over 16-29 GPa constrain an ambient reference state that the phase cannot retain on decompression. K0' reaches its lower bound and K0 compensates, demonstrating extrapolation-driven non-identifiability. The source's constraints, covariance, and any use of heated rows must be reproduced before interpreting the coefficient shift.",
+    "sno2_pa_3_at_48gpa_ono_2000_bm3_1": "This alias uses the same eleven 300 K rows and the same parameterization as the cubic SnO2 record, so it inherits the identical extrapolation problem: K0' reaches zero and K0 compensates. It is not an independent failed experiment; resolution requires the same source constraints and fit scope.",
+    "wadsleyite_katsura_2009_bm3_1": "The full 85-row table is present, but the published parameterization misses those rows by much more than the refit and gamma0 shifts far outside its reported error. The pressure calibration remains unresolved, and an MGD reference-state or Debye-energy convention mismatch is also possible. A row-by-row source-equation reproduction should precede any coefficient revision.",
+}
+
+# Dataset choices that cannot be inferred uniquely from generic quantity metadata.
+PRESSURE_COLUMNS = {
+    # Source paragraph 7 supplies printed pressures; graph x-values remain
+    # independent digitization diagnostics, as declared by dataset provenance.
+    "casio3_perovskite_tetragonal_shim_2002_figure2a_digitized": "pressure_gpa",
+    "platinum_dewaele_2004_table1_compression#platinum_fei_2007_vinet_300k": "ruby_pressure_revised_gpa",
+    "iron_zhang_2025_tables_s1_s3_s4_pvt": "pressure_gpa_fit",
+    "akimotoite_reynard_1996_table1_compression#akimotoite_reynard_1996_bm3_ruby_2": (
+        "ruby_pressure_gpa"
+    ),
+    "akimotoite_reynard_1996_table1_compression#akimotoite_reynard_1996_bm3_ice_vii_3": (
+        "ice_vii_pressure_gpa"
+    ),
+    "neon_hemley_1989_table1_compression": "pressure_gpa",
+    "neon_hemley_1989_table1_fei_recalculated": "pressure_gpa_dewaele_2004",
+    "aluminum_dewaele_2004_table1_compression": "ruby_pressure_revised_gpa",
+    "aluminum_dewaele_2004_table1_compression#aluminum_dewaele_2004_mao_ruby_vinet": "ruby_pressure_classical_gpa",
+    "copper_dewaele_2004_table1_compression": "ruby_pressure_revised_gpa",
+    "copper_dewaele_2004_table1_compression#copper_dewaele_2004_mao_ruby_vinet": "ruby_pressure_classical_gpa",
+    "gold_dewaele_2004_table1_compression": "ruby_pressure_revised_gpa",
+    "gold_dewaele_2004_table1_compression#gold_dewaele_2004_mao_ruby_vinet": "ruby_pressure_classical_gpa",
+    "platinum_dewaele_2004_table1_compression#platinum_dewaele_2004_mao_ruby_vinet": "ruby_pressure_classical_gpa",
+    "platinum_dewaele_2004_table1_compression#platinum_dewaele_2004_revised_ruby_vinet": "ruby_pressure_revised_gpa",
+    "tantalum_dewaele_2004_table1_compression#tantalum_dewaele_2004_mao_ruby_vinet": "ruby_pressure_classical_gpa",
+    "tantalum_dewaele_2004_table1_compression#tantalum_dewaele_2004_revised_ruby_vinet": "ruby_pressure_revised_gpa",
+    "tungsten_dewaele_2004_table1_compression": "ruby_pressure_revised_gpa",
+    "tungsten_dewaele_2004_table1_compression#tungsten_dewaele_2004_mao_ruby_vinet": "ruby_pressure_classical_gpa",
+    "silver_dewaele_2008_table2_compression": "ruby_pressure_dewaele_gpa",
+    "diamond_dewaele_2008_table1_pvt": "pressure_h05_gpa",
+    "gold_takemura_2008_table3_compression": "ruby_pressure_dorogokupets_gpa",
+    "gold_fratanduono_2021_table_s3_compression": "isotherm_298k_pressure_gpa",
+    "nickel_dewaele_2008_table2_compression": "ruby_pressure_dewaele_gpa",
+    "mgsio3_post_perovskite_sakai_2016_table_s1_pvt": "pressure_bm3_gpa",
+    "rhodium_rodrigo_ramon_2024_table2_compression": "pressure_gpa",
+    "chromium_anzellini_2022_table2_compression": "pressure_w_gpa",
+    "ringwoodite_meng_1994_table1_pvt": "observed_pressure_gpa",
+    "bridgmanite_tange_2012_table1_pvt#BM3": "pressure_bm3_gpa",
+    "bridgmanite_tange_2012_table1_pvt#Vinet": "pressure_vinet_gpa",
+    "mgfe_perovskite_knittle_1987_table2_compression": ("pressure_after_heating_gpa"),
+    "mgsio3_post_perovskite_ono_2006_table2_compression#mgsio3_post_perovskite_ono_2006_anderson_bm2_3": (
+        "pressure_anderson_1989_gpa"
+    ),
+    "mgsio3_post_perovskite_ono_2006_table2_compression#mgsio3_post_perovskite_ono_2006_jamieson_bm2_4": (
+        "pressure_jamieson_1982_gpa"
+    ),
+    "mgsio3_post_perovskite_ono_2006_table2_compression#mgsio3_post_perovskite_ono_2006_dewaele_bm2_5": (
+        "pressure_dewaele_2004_gpa"
+    ),
+    "mg09al02si09o3_bridgmanite_kubo_2000_table1_compression": ("pressure_ruby_gpa"),
+    "mgo_oganov_2003_table3_pv#mgo_oganov_2003_paw_small_core_static_bm3": (
+        "static_pressure_gpa"
+    ),
+    "mgo_oganov_2003_table3_pv#mgo_oganov_2003_pressure_corrected_static_bm3": (
+        "pressure_corrected_gpa"
+    ),
+}
+
+VOLUME_COLUMNS = {
+    **{
+        f"fischer_2014_table_s2_pvt#fesi_b2_fischer_2014_{model}_refit": "b2_volume_a3"
+        for model in ("bm3", "vinet")
+    },
+    **{
+        f"fischer_2014_table_s{table}_pvt#{material}_fischer_2014_{model}_{index}": f"{phase}_volume_a3"
+        for material, phase, table in (
+            ("fesi_b20", "b20", 2),
+            ("fe084si016_d03", "d03", 1),
+            ("fe084si016_hcp", "hcp", 1),
+        )
+        for model, index in (("bm3", 1), ("vinet", 2))
+    },
+    "fischer_2012_table_s2_pvt#fe073si027_d03_fischer_2014_vinet_1": "d03_volume_a3",
+    "ca_perovskite_tetragonal_chen_2018_table1_compression": "i4mcm_volume_a3_conventional_cell",
+    "coesite_i_ii_cernok_2014_table1_pv": "volume_a3_z16_equivalent_cell",
+    "coesite_ii_iii_bykova_2018_table2_pv": "volume_a3_z16_equivalent_cell",
+    "coesite_iv_bykova_2018_table10_calc_pv": "volume_a3_conventional_cell",
+    "coesite_v_bykova_2018_table10_calc_pv": "volume_a3_conventional_cell",
+    "alumina_dewaele_2013_table1_compression": "a_a",
+    "alpha_quartz_angel_1997_table1_compression": "unit_cell_volume_a3",
+    "cao_richet_1988_table1_compression": "lattice_a_angstrom",
+    "bridgmanite_tange_2012_table1_pvt": "unit_cell_volume_a3",
+    "chromium_anzellini_2022_table2_compression": "chromium_unit_cell_volume_a3",
+    "iridium_anzellini_2025_tables_s1_s3_pvt": "iridium_lattice_a_angstrom",
+    "kcl_tateno_2019_table_s1_pvt": "kcl_unit_cell_volume_a3",
+    "neon_hemley_1989_table1_compression": "volume_a3_conventional_cell",
+    "mgsio3_post_perovskite_sakai_2016_table_s1_pvt": "mgsio3_unit_cell_volume_a3",
+    "nis_campbell_1993_table1_compression": "a_a",
+    "rhodium_rodrigo_ramon_2024_table2_compression": "rhodium_unit_cell_volume_a3",
+    "ringwoodite_meng_1994_table1_pvt": "observed_volume_a3",
+    "diamond_dewaele_2008_table1_pvt": "lattice_a_angstrom",
+    "feo_fischer_2011_table_s1_pvt#feo_fischer_2011_bm3_2": "b1_feo_molar_volume_cm3_mol",
+    "feo_fischer_2011_table_s1_pvt#feo_b8_2_fischer_2011_bm3_1": "b8_feo_molar_volume_cm3_mol",
+    "feo_ozawa_2010_table2_pvt#feo_fischer_2011_bm3_2": "feo_volume_a3_per_formula_unit",
+    "feo_ozawa_2010_table2_pvt#feo_b8_2_fischer_2011_bm3_1": "feo_volume_a3_per_formula_unit",
+    "silicon_anzellini_2019_tables1_4_6_7_compression": "silicon_lattice_a_angstrom",
+    "silicon_carbide_b3_miozzi_2018_data_set_s1_eos": "sic_unit_cell_volume_a3",
+    "titanium_alpha_dewaele_2015_table4_compression": "lattice_a_angstrom",
+    "titanium_omega_dewaele_2015_table4_compression": "lattice_a_angstrom",
+    "bridgmanite_wolf_2015_table2_pvt": "bridgmanite_unit_cell_volume_a3",
+    "bridgmanite_katsura_2009_corrected_table1_pvt": "bridgmanite_v_v0",
+    "mg087fe013sio3_bridgmanite_wolf_2015_table1_pvt": "bridgmanite_unit_cell_volume_a3",
+}
+
+# Fischer Figure 3 prescribes +/-0.1 cm^3/mol errors for B8 volumes whose
+# two-peak lattice fits could not constrain an uncertainty. The raw supplement
+# column remains blank for those rows; this explicit derived column preserves
+# that distinction while making the source's plotting uncertainty executable.
+VOLUME_SIGMA_COLUMNS = {
+    "feo_fischer_2011_table_s1_pvt#feo_b8_2_fischer_2011_bm3_1": (
+        "b8_feo_molar_volume_fit_uncertainty_cm3_mol"
+    ),
+}
+
+PHASE_FILTERS = {
+    **{
+        f"fesi_b2_fischer_2014_{model}_refit": {"phase": "B2"}
+        for model in ("bm3", "vinet")
+    },
+    **{
+        f"{material}_fischer_2014_{model}_{index}": {"phase": phase}
+        for material, phase in (
+            ("fesi_b20", "B20"),
+            ("fe084si016_d03", "D03"),
+            ("fe084si016_hcp", "hcp"),
+        )
+        for model, index in (("bm3", 1), ("vinet", 2))
+    },
+    "fe073si027_d03_fischer_2014_vinet_1": {"phase": "D03"},
+    "mgal2o4_cafe2o4_irifune_2002_bm2_2": {"fit_included": "1"},
+    **{
+        f"mg090fe010o_marquardt_2009b_ls_bm3_s1_{i:02d}": {"spin_region": "low_spin"}
+        for i in range(1, 13)
+    },
+    "mg0991fe0008mn0001co3_redfern_1993_bm2_1": {"fit_included_bm2": "1"},
+    "mg0991fe0008mn0001co3_redfern_1993_bm3_2": {"fit_included_bm3": "1"},
+    "fesio3_liquid_sun_2019_2500k_bm4_1": {
+        "phase_state": "liquid",
+        "used_in_published_eos_fit": "yes",
+    },
+    "cao_richet_1988_bm3_1": {"phase": "B1", "used_in_eos_fit": "yes"},
+    "cao_b2_richet_1988_bm3_1": {"phase": "B2", "used_in_eos_fit": "yes"},
+    "phase_d_ant_a_shieh_2000_bm2_1": {"sample": "1"},
+    "phase_d_ant_b_shieh_2000_bm2_1": {"sample": "2"},
+    "phase_egg_schulze_2018_bm3_1": {"used_in_published_fit": "1"},
+    "mg075fe025o_mao_2011_high_spin_bm3_1": {"used_in_high_spin_fit": "1"},
+    "mg075fe025o_mao_2011_low_spin_bm3_1": {"used_in_low_spin_fit": "1"},
+    "ca0988mg0918fe0078mn0016c2o6_dolomite_iii_mao_2011_bm3_high_spin_1": {
+        "high_spin_fit_included": "1"
+    },
+    "ca0988mg0918fe0078mn0016c2o6_dolomite_iii_mao_2011_bm3_low_spin_2": {
+        "low_spin_fit_included": "1"
+    },
+    "mg080fe020o_speziale_2007_high_spin_bm3_1": {"fit_included": "1"},
+    "mg061fe039o_zhuravlev_2010_high_spin_bm2_5": {
+        "compression_path": "compression",
+        "used_in_zhuravlev_2010_hs_fit": "1",
+    },
+    "forsterite_finkelstein_2014_bm3_1": {
+        "phase": "forsterite_I",
+        "used_in_forsterite_i_eos_fit": "yes",
+    },
+    "silicon_anzellini_2019_vinet_1": {"phase": "I"},
+    "silicon_v_anzellini_2019_vinet_1": {"phase": "V"},
+    "silicon_vii_anzellini_2019_vinet_1": {"phase": "VII"},
+    "silicon_x_anzellini_2019_vinet_1": {"phase": "X"},
+    "sno2_hazen_1981_bm3_1": {"compound": "SnO2"},
+    "geo2_rutile_hazen_1981_bm3_1": {"compound": "GeO2"},
+    "mg09al02si09o3_bridgmanite_kubo_2000_bm3_1": {"used_in_published_fit": "1"},
+    "mg09al02si09o3_bridgmanite_kubo_2000_bm3_2": {"used_in_published_fit": "1"},
+    "mggeo3_post_perovskite_kubo_2006_bm3_1": {"fit_included": "1"},
+    "mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2": {"fit_included": "1"},
+    "mg083fe017o_matsui_2012_bm3_mgd_1": {"fit_included": "1"},
+    "mg075fe025o_matsui_2012_bm3_mgd_1": {"fit_included": "1"},
+    "mg05fe05al05si05o3_bridgmanite_koemets_2023_bm2_4": {"used_in_bm2_fit": "1"},
+}
+
+
+@dataclass
+class Series:
+    dataset_id: str
+    pressure: np.ndarray
+    volume: np.ndarray
+    temperature: np.ndarray | None
+    pressure_sigma: np.ndarray | None
+    volume_sigma: np.ndarray | None
+    temperature_sigma: np.ndarray | None
+    pressure_column: str
+    volume_column: str
+    temperature_column: str | None
+    selection: str
+
+
+SOURCE_PROTOCOL_UNWEIGHTED_RECORDS = {
+    "ca_perovskite_sun_2016_bm3_3",
+    "ca_perovskite_tetragonal_sun_2022_bm3_1",
+}
+
+
+def _number(value: Any) -> float:
+    if value is None or value == "":
+        return math.nan
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return math.nan
+
+
+def _load_rows(dataset: dict[str, Any]) -> list[dict[str, Any]]:
+    names = [column["name"] for column in dataset["columns"]]
+    if "rows" in dataset:
+        return [dict(zip(names, row)) for row in dataset["rows"]]
+    path = DATA_ROOT / dataset["resource"]["path"]
+    with path.open(newline="", encoding="utf-8") as stream:
+        reader = csv.reader(stream)
+        next(reader)
+        return [dict(zip(names, row)) for row in reader]
+
+
+def shen_cu_reference_volume_a3() -> float:
+    """Return the executable Cu record's conventional-cell reference volume."""
+    return float(get_eos_record(SHEN_CU_RECORD).eos.V0)
+
+
+def shen_cu_pressure_gpa(volume_a3: Any) -> np.ndarray:
+    """Evaluate the shared published 298 K Cu record at same-run volumes."""
+    return np.asarray(get_eos_record(SHEN_CU_RECORD).eos.pressure(volume_a3))
+
+
+def _shen_series(record: dict[str, Any], dataset: dict[str, Any]) -> Series:
+    phase, experiments, pressure_mask = SHEN_SELECTIONS[record["identifier"]]
+    grouped: dict[tuple[str, str], list[dict[str, Any]]] = {}
+    for row in _load_rows(dataset):
+        grouped.setdefault((row["experiment"], row["run_number"]), []).append(row)
+
+    pressures: list[float] = []
+    volumes: list[float] = []
+    for (experiment, _run_number), rows in grouped.items():
+        if experiment not in experiments:
+            continue
+        cu_rows = [row for row in rows if row["phase"] == "Cu"]
+        if len(cu_rows) != 1:
+            raise ValueError(
+                f"expected one Cu volume per selected run, found {len(cu_rows)}"
+            )
+        pressure = float(shen_cu_pressure_gpa(float(cu_rows[0]["unit_cell_volume_a3"])))
+        if pressure_mask == "below_30_gpa" and pressure >= 30.0:
+            continue
+        if pressure_mask == "above_35_gpa" and pressure <= 35.0:
+            continue
+        for row in rows:
+            if row["phase"] == phase:
+                pressures.append(pressure)
+                volumes.append(float(row["unit_cell_volume_a3"]))
+
+    if not pressures:
+        raise ValueError(f"no Shen-Smith observations selected for {phase}")
+    experiment_text = " and ".join(sorted(experiments))
+    selection = f"{phase}; {experiment_text}"
+    if pressure_mask == "below_30_gpa":
+        selection += "; Cu pressure below 30 GPa (coexistence excluded)"
+    elif pressure_mask == "above_35_gpa":
+        selection += "; Cu pressure above 35 GPa (coexistence excluded)"
+    return Series(
+        dataset_id=dataset["identifier"],
+        pressure=np.asarray(pressures),
+        volume=np.asarray(volumes),
+        temperature=None,
+        pressure_sigma=None,
+        volume_sigma=None,
+        temperature_sigma=None,
+        pressure_column="Fratanduono-2020 298 K Cu pressure reconstructed per run",
+        volume_column="unit_cell_volume_a3",
+        temperature_column=None,
+        selection=selection,
+    )
+
+
+def _shen_smith_outcome(
+    document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
+) -> dict[str, Any]:
+    series = _shen_series(record, dataset)
+    initial, fixed = _static_parameters(record)
+    result = fit_rt_eos(
+        Vinet,
+        volume=series.volume,
+        pressure=series.pressure,
+        initial=initial,
+        fixed=fixed,
+        bounds={name: _bounds(name, value) for name, value in initial.items()},
+        # Shen and Smith state only "least-squares fitting" and publish no
+        # pressure errors, weights, or covariance. The workbook's phase-volume
+        # standard errors remain bundled but are not repurposed as an EIV model.
+        absolute_sigma=False,
+        max_nfev=5000,
+    )
+    status, comparisons = _compare(record, result, False, 1.0)
+    residuals = np.asarray(result.residuals, dtype=float)
+    return {
+        "status": status,
+        "dataset_identifiers": [dataset["identifier"]],
+        "observations": int(series.pressure.size),
+        "selection": series.selection,
+        "observed_pressure_range_gpa": [
+            float(np.min(series.pressure)),
+            float(np.max(series.pressure)),
+        ],
+        "observed_volume_range": [
+            float(np.min(series.volume)),
+            float(np.max(series.volume)),
+        ],
+        "observed_temperature_range_k": None,
+        "columns": {
+            "pressure": series.pressure_column,
+            "volume": series.volume_column,
+            "temperature": None,
+        },
+        "fit_kind": "fixed_v0_vinet_with_reconstructed_cu_pressure",
+        "objective": "unweighted_pressure_residuals",
+        "absolute_sigma": False,
+        "free_parameters": list(result.free_parameters),
+        "parameters": comparisons,
+        "rmse_gpa": float(np.sqrt(np.mean(residuals**2))),
+        "reduced_chi_square": float(result.reduced_chi_square),
+        "degrees_of_freedom": int(result.degrees_of_freedom),
+        "solver_success": bool(result.success),
+        "solver_message": str(result.message),
+        "pressure_reconstruction": {
+            "reference": "Fratanduono et al. (2020)",
+            "doi": "10.1103/PhysRevLett.124.015701",
+            "source_locations": [
+                "main article Table I, 298 K isotherm row",
+                "Supplemental Material Eq. (2), Section S4",
+            ],
+            "model": "vinet_3",
+            "reference_eos_record": SHEN_CU_RECORD,
+            "density0_g_cm3": 8.939,
+            "reference_unit_cell_volume_a3": shen_cu_reference_volume_a3(),
+            "parameters": {
+                key: get_eos_record(SHEN_CU_RECORD).eos.parameter_values()[name]
+                for key, name in (
+                    ("K0_gpa", "K0"),
+                    ("eta", "eta"),
+                    ("beta", "beta"),
+                    ("psi", "psi"),
+                )
+            },
+            "pairing": (
+                "Each phase volume uses the single Cu volume with the same "
+                "experiment and run number; both source-labeled Pt first/last "
+                "measurements are retained when the run is selected."
+            ),
+        },
+        "qualification": (
+            "Direct reconstruction from source observations: each Table S1 phase "
+            "volume is paired with its simultaneous Cu volume, pressure is evaluated "
+            "from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 "
+            "and K0_prime are fitted with Shen and Smith's fixed V0 and stated run "
+            "selection. The source publishes no pressure weights, residual covariance, "
+            "or weighting protocol, so the reproduction uses unweighted pressure "
+            "residuals and does not infer any of them."
+        ),
+    }
+
+
+def _column_map(dataset: dict[str, Any]) -> dict[str, dict[str, Any]]:
+    return {column["name"]: column for column in dataset["columns"]}
+
+
+def _value_columns(dataset: dict[str, Any]) -> list[dict[str, Any]]:
+    return [column for column in dataset["columns"] if column["role"] == "value"]
+
+
+def _pressure_column(dataset: dict[str, Any], model_type: str, record_id: str) -> str:
+    key = f"{dataset['identifier']}#{record_id}"
+    if key in PRESSURE_COLUMNS:
+        return PRESSURE_COLUMNS[key]
+    key = f"{dataset['identifier']}#{model_type}"
+    if key in PRESSURE_COLUMNS:
+        return PRESSURE_COLUMNS[key]
+    if dataset["identifier"] in PRESSURE_COLUMNS:
+        return PRESSURE_COLUMNS[dataset["identifier"]]
+    candidates = [
+        column
+        for column in _value_columns(dataset)
+        if "pressure" in column["quantity"]
+        and "residual" not in column["quantity"]
+        and "calculated" not in column["quantity"]
+        and "before" not in column["quantity"]
+        and "standard" not in column["quantity"]
+        and "spatial" not in column["quantity"]
+    ]
+    exact = [column for column in candidates if column["quantity"] == "pressure"]
+    if exact:
+        candidates = exact
+    if len(candidates) != 1:
+        raise ValueError(
+            "ambiguous pressure columns: "
+            + ", ".join(column["name"] for column in candidates)
+        )
+    return candidates[0]["name"]
+
+
+def _temperature_column(dataset: dict[str, Any]) -> str | None:
+    candidates = [
+        column
+        for column in _value_columns(dataset)
+        if column["quantity"] in {"temperature", "measured_temperature"}
+    ]
+    if not candidates:
+        return None
+    exact = [column for column in candidates if column["quantity"] == "temperature"]
+    return (exact or candidates)[0]["name"]
+
+
+def _volume_column(dataset: dict[str, Any], record_id: str) -> str:
+    key = f"{dataset['identifier']}#{record_id}"
+    if key in VOLUME_COLUMNS:
+        return VOLUME_COLUMNS[key]
+    if dataset["identifier"] in VOLUME_COLUMNS:
+        return VOLUME_COLUMNS[dataset["identifier"]]
+    candidates = []
+    for column in _value_columns(dataset):
+        quantity = column["quantity"]
+        if any(
+            token in quantity
+            for token in (
+                "volume",
+                "density",
+                "lattice_parameter",
+            )
+        ) and not any(
+            token in quantity
+            for token in (
+                "pressure_standard",
+                "calibrant",
+                "residual",
+                "calculated",
+                "axial",
+            )
+        ):
+            candidates.append(column)
+    priorities = (
+        "conventional_unit_cell_volume",
+        "unit_cell_volume",
+        "cell_volume",
+        "volume",
+        "atomic_volume",
+        "molar_volume",
+        "specific_volume",
+        "volume_ratio",
+        "relative_volume",
+        "density",
+        "lattice_parameter_ratio",
+        "lattice_parameter",
+    )
+    for priority in priorities:
+        selected = [column for column in candidates if column["quantity"] == priority]
+        if len(selected) == 1:
+            return selected[0]["name"]
+        selected = [
+            column
+            for column in candidates
+            if column["quantity"].endswith("_" + priority)
+        ]
+        if len(selected) == 1:
+            return selected[0]["name"]
+    if len(candidates) == 1:
+        return candidates[0]["name"]
+    raise ValueError(
+        "ambiguous volume columns: "
+        + ", ".join(column["name"] for column in candidates)
+    )
+
+
+def _sigma_column(dataset: dict[str, Any], value_name: str) -> str | None:
+    columns = dataset["columns"]
+    explicit = [column for column in columns if column.get("of") == value_name]
+    if explicit:
+        return explicit[0]["name"]
+    value = _column_map(dataset)[value_name]
+    quantity = value["quantity"]
+    candidates = [
+        column
+        for column in columns
+        if column["quantity"] == quantity
+        and column["role"] in {"standard_deviation", "standard_error", "uncertainty"}
+    ]
+    return candidates[0]["name"] if len(candidates) == 1 else None
+
+
+def _pressure_factor(unit: str) -> float:
+    return {"GPa": 1.0, "kbar": 0.1, "Mbar": 100.0}[unit]
+
+
+def _temperature_values(values: np.ndarray, unit: str) -> np.ndarray:
+    if unit == "K":
+        return values
+    if unit in {"degC", "C", "celsius"}:
+        return values + 273.15
+    raise ValueError(f"unsupported temperature unit {unit!r}")
+
+
+def _formula_atom_count(formula: str) -> float:
+    tokens = re.findall(r"([A-Z][a-z]?)([0-9]*\.?[0-9]*)", formula)
+    if not tokens:
+        return 1.0
+    return sum(float(count) if count else 1.0 for _, count in tokens)
+
+
+def _volume_values(
+    values: np.ndarray,
+    column: dict[str, Any],
+    document: dict[str, Any],
+    record: dict[str, Any],
+    rows: list[dict[str, Any]],
+) -> tuple[np.ndarray, float]:
+    quantity = column["quantity"]
+    name = column["name"]
+    unit = column["unit"]
+    v0 = float(record["eos"]["parameters"]["V0"])
+    formula_units = float(document.get("formula_units_per_cell") or 1.0)
+
+    if "/atom" in unit:
+        factor = formula_units * _formula_atom_count(str(document["formula"]))
+        return values * factor, factor
+    if "/formula_unit" in unit or quantity == "formula_unit_volume":
+        return values * formula_units, formula_units
+    if quantity in {"volume_ratio", "relative_volume", "normalized_volume"} or (
+        "ratio" in quantity and "volume" in quantity
+    ):
+        if record["identifier"] == "kcl_campbell_1991_bm2_1":
+            # The source normalizes B2 measurements to the ambient B1 volume,
+            # not to the extrapolated B2 V0 stored by this record.
+            return values * 62.36, 62.36
+        if record["identifier"] == "nacl_b2_heinz_1984_bm2_1":
+            # Heinz and Jeanloz tabulate V/V01 with V01 the B1 reference volume;
+            # the record stores the B2 extrapolated V0 = 0.929 * V01.
+            b1_v0 = v0 / 0.929
+            return values * b1_v0, b1_v0
+        return values * v0, v0
+    if quantity == "lattice_parameter_ratio":
+        return values**3 * v0, 3.0 * v0
+    if "density" in quantity:
+        if "sro_b2" in record["identifier"]:
+            return v0 * 6.14 / values, math.nan
+        volume_basis = record.get("volume_basis", {})
+        molar_mass = volume_basis.get("molar_mass_g_mol")
+        basis_formula_units = volume_basis.get("formula_units")
+        if molar_mass is not None and basis_formula_units is not None:
+            factor = float(molar_mass) * float(basis_formula_units) / 0.602214076
+            return factor / values, math.nan
+        raise ValueError("density-to-cell-volume conversion is not specified")
+    if "molar_volume" in quantity:
+        factor = formula_units / 0.602214076
+        return values * factor, factor
+    if "atomic_volume" in quantity:
+        factor = formula_units * _formula_atom_count(str(document["formula"]))
+        return values * factor, factor
+    if "specific_volume" in quantity:
+        factor = formula_units
+        return values * factor, factor
+    if "volume" in quantity or "volume" in name:
+        return values, 1.0
+
+    # Lattice-only source tables.  The material symmetry and available a/b/c
+    # columns determine the conventional-cell volume.
+    by_name = {
+        key: np.array([_number(row.get(key)) for row in rows]) for key in rows[0]
+    }
+    lower = str(document.get("symmetry", "")).lower()
+    a = values
+    b_name = next((key for key in by_name if "lattice_b" in key or key == "b_a"), None)
+    c_name = next((key for key in by_name if "lattice_c" in key or key == "c_a"), None)
+    if "cubic" in lower or (b_name is None and c_name is None):
+        return a**3, math.nan
+    if "hexagonal" in lower or "trigonal" in lower:
+        if c_name is not None and not np.any(np.isfinite(by_name[c_name])):
+            c_name = b_name
+        if c_name is None:
+            raise ValueError("hexagonal lattice requires c")
+        return (math.sqrt(3.0) / 2.0) * a**2 * by_name[c_name], math.nan
+    if b_name is not None and c_name is not None:
+        return a * by_name[b_name] * by_name[c_name], math.nan
+    raise ValueError("cannot derive volume from lattice columns")
+
+
+def _select_rows(
+    rows: list[dict[str, Any]], record_id: str
+) -> tuple[list[dict[str, Any]], str]:
+    filters = PHASE_FILTERS.get(record_id, {})
+    selected = [
+        row
+        for row in rows
+        if all(str(row.get(name, "")) == expected for name, expected in filters.items())
+    ]
+    detail = ", ".join(f"{key}={value}" for key, value in filters.items()) or "all rows"
+    if record_id == "fe073si027_d03_fischer_2014_vinet_1":
+        selected = [row for row in selected if _number(row.get("temperature_k")) > 300]
+        detail = (
+            "66 D03 observations above 300 K; source-staged gamma0 fit with the "
+            "published 300 K coefficients fixed. The independent Fischer script "
+            "also refits the 32-row static stage."
+        )
+    if record_id == "feo_fischer_2011_bm3_2":
+        detail = (
+            "all 52 Table S1 rows; finite B1 volumes retain 42 phase-specific "
+            "observations at their reported temperatures"
+        )
+    elif record_id == "feo_b8_2_fischer_2011_bm3_1":
+        detail = (
+            "all 52 Table S1 rows; finite B8 volumes retain 21 phase-specific "
+            "observations, excluding one-peak detections without volume"
+        )
+    return selected, detail
+
+
+def _series(
+    document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
+) -> Series:
+    rows, selection = _select_rows(_load_rows(dataset), record["identifier"])
+    if record["reference"].get("doi") == "10.1029/2007GL030712":
+        from scripts.reproduce_fei_2007_ferropericlase import selected_rows
+
+        rows, selection = selected_rows(rows, record)
+    if not rows:
+        raise ValueError("row selection is empty")
+    model_type = record["eos"]["type"]
+    if dataset["identifier"] == "silicon_anzellini_2019_tables1_4_6_7_compression":
+        pressure_name = "pressure_gold_gpa|pressure_tungsten_gpa|pressure_ruby_gpa"
+    else:
+        pressure_name = _pressure_column(dataset, model_type, record["identifier"])
+    volume_name = _volume_column(dataset, record["identifier"])
+    temperature_name = _temperature_column(dataset)
+    columns = _column_map(dataset)
+
+    if dataset["identifier"] == "silicon_anzellini_2019_tables1_4_6_7_compression":
+        pressure_name = "pressure_gold_gpa|pressure_tungsten_gpa|pressure_ruby_gpa"
+        pressure = np.array(
+            [
+                next(
+                    (
+                        value
+                        for name in (
+                            "pressure_gold_gpa",
+                            "pressure_tungsten_gpa",
+                            "pressure_ruby_gpa",
+                        )
+                        if np.isfinite(value := _number(row.get(name)))
+                    ),
+                    math.nan,
+                )
+                for row in rows
+            ]
+        )
+        pressure_unit = "GPa"
+    else:
+        pressure = np.array([_number(row.get(pressure_name)) for row in rows])
+        pressure_unit = columns[pressure_name]["unit"]
+        if record["identifier"] == "akimotoite_reynard_1996_bm3_ice_vii_3":
+            # Table 1 leaves Pi blank for the two ambient measurements, while
+            # Figure 3f plots both as zero-pressure anchors on the ice-VII scale.
+            ruby_pressure = np.array(
+                [_number(row.get("ruby_pressure_gpa")) for row in rows]
+            )
+            ambient = ~np.isfinite(pressure) & (ruby_pressure == 0.0)
+            pressure[ambient] = 0.0
+    pressure *= _pressure_factor(pressure_unit)
+    raw_volume = np.array([_number(row.get(volume_name)) for row in rows])
+    volume, volume_factor = _volume_values(
+        raw_volume, columns[volume_name], document, record, rows
+    )
+    temperature = None
+    if temperature_name is not None:
+        temperature = np.array([_number(row.get(temperature_name)) for row in rows])
+        temperature = _temperature_values(
+            temperature, columns[temperature_name]["unit"]
+        )
+
+    def uncertainties(name: str, factor: float = 1.0) -> np.ndarray | None:
+        sigma_name = None
+        if name == volume_name:
+            sigma_name = VOLUME_SIGMA_COLUMNS.get(
+                f"{dataset['identifier']}#{record['identifier']}"
+            )
+        sigma_name = sigma_name or _sigma_column(dataset, name)
+        if sigma_name is None:
+            return None
+        result = np.array([_number(row.get(sigma_name)) for row in rows]) * factor
+        return result
+
+    pressure_sigma = (
+        None
+        if "|" in pressure_name
+        else uncertainties(pressure_name, _pressure_factor(pressure_unit))
+    )
+    volume_sigma = uncertainties(volume_name, volume_factor)
+    if dataset["identifier"] in CUBIC_LATTICE_SIGMA_DATASETS:
+        lattice_sigma = uncertainties(volume_name)
+        if lattice_sigma is not None:
+            volume_sigma = 3.0 * raw_volume**2 * lattice_sigma
+    temperature_sigma = (
+        uncertainties(temperature_name) if temperature_name is not None else None
+    )
+
+    finite = np.isfinite(pressure) & np.isfinite(volume) & (volume > 0.0)
+    if temperature is not None:
+        finite &= np.isfinite(temperature) & (temperature > 0.0)
+    pressure = pressure[finite]
+    volume = volume[finite]
+    temperature = None if temperature is None else temperature[finite]
+    pressure_sigma = _usable_sigma(pressure_sigma, finite)
+    volume_sigma = _usable_sigma(volume_sigma, finite)
+    temperature_sigma = _usable_sigma(temperature_sigma, finite)
+    if pressure.size < 3:
+        raise ValueError(f"only {pressure.size} usable observations")
+    return Series(
+        dataset_id=dataset["identifier"],
+        pressure=pressure,
+        volume=volume,
+        temperature=temperature,
+        pressure_sigma=pressure_sigma,
+        volume_sigma=volume_sigma,
+        temperature_sigma=temperature_sigma,
+        pressure_column=pressure_name,
+        volume_column=volume_name,
+        temperature_column=temperature_name,
+        selection=selection,
+    )
+
+
+def _usable_sigma(values: np.ndarray | None, mask: np.ndarray) -> np.ndarray | None:
+    if values is None:
+        return None
+    values = values[mask]
+    if np.any(~np.isfinite(values)) or np.any(values <= 0.0):
+        return None
+    return values
+
+
+def _bounds(name: str, value: float) -> tuple[float, float]:
+    if name.endswith("V0"):
+        return (max(value * 0.25, 1.0e-9), value * 2.0)
+    if name.endswith("K0"):
+        return (max(value * 0.05, 1.0e-6), value * 5.0)
+    if name.endswith("K0_prime"):
+        return (0.0, 20.0)
+    if name.endswith("K0_double_prime"):
+        return (-2.0, 2.0)
+    if name in {"gamma0", "q", "theta0"}:
+        return (1.0e-9, max(value * 10.0, 10.0))
+    if name.startswith("alpha"):
+        scale = max(abs(value) * 20.0, 1.0e-8)
+        return (-scale, scale)
+    if name == "dK_dT":
+        return (-1.0, 1.0)
+    scale = max(abs(value) * 20.0, 1.0)
+    return (-scale, scale)
+
+
+def _static_parameters(
+    record: dict[str, Any],
+) -> tuple[dict[str, float], dict[str, float]]:
+    values = {
+        name: float(value)
+        for name, value in record["eos"]["parameters"].items()
+        if name in {"V0", "K0", "K0_prime", "K0_double_prime"}
+    }
+    fixed_names = set(record.get("fixed_parameters", ()))
+    fixed_names.update(record["eos"].get("fixed_parameters", ()))
+    fixed = {name: value for name, value in values.items() if name in fixed_names}
+    initial = {name: value for name, value in values.items() if name not in fixed_names}
+    return initial, fixed
+
+
+def _thermal_parameters(
+    record: dict[str, Any],
+) -> tuple[dict[str, float], dict[str, float]]:
+    thermal = record["thermal"]
+    values = {
+        name: float(value)
+        for name, value in thermal["parameters"].items()
+        if value is not None and name not in {"phi0"}
+    }
+    fixed_names = set(thermal.get("fixed_parameters", ()))
+    # Reference temperature and atom count are definitions even in older migrated
+    # records whose original interchange metadata omitted an explicit fixed list.
+    fixed_names.update({"Tr", "n"} & values.keys())
+    fixed = {name: value for name, value in values.items() if name in fixed_names}
+    initial = {name: value for name, value in values.items() if name not in fixed_names}
+    return initial, fixed
+
+
+def _configuration(record: dict[str, Any]) -> dict[str, Any]:
+    thermal = record.get("thermal", {})
+    result = dict(thermal.get("configuration", {}))
+    for name in (
+        "debye_temperature_law",
+        "thermal_expansion_law",
+        "reference_volume_law",
+    ):
+        if name in thermal:
+            result[name] = thermal[name]
+    return result
+
+
+def _published_parameters(record: dict[str, Any], thermal: bool) -> dict[str, float]:
+    if record["eos"]["type"] == "LinearUsUpHugoniot":
+        return {
+            name: float(value)
+            for name, value in record["eos"]["parameters"].items()
+            if name in {"c0", "s"}
+        }
+    values = {
+        name: float(value)
+        for name, value in record["eos"]["parameters"].items()
+        if name in {"V0", "K0", "K0_prime", "K0_double_prime"}
+    }
+    if thermal:
+        values = {f"rt_eos.{name}": value for name, value in values.items()}
+        values.update(
+            {
+                name: float(value)
+                for name, value in record["thermal"]["parameters"].items()
+                if value is not None and name != "phi0"
+            }
+        )
+    return values
+
+
+def _published_errors(record: dict[str, Any], thermal: bool) -> dict[str, float]:
+    errors = {
+        name: float(value)
+        for name, value in record.get("parameter_errors", {}).items()
+        if value is not None
+    }
+    if thermal:
+        errors = {f"rt_eos.{name}": value for name, value in errors.items()}
+        errors.update(
+            {
+                name: float(value)
+                for name, value in record["thermal"].get("parameter_errors", {}).items()
+                if value is not None
+            }
+        )
+    return errors
+
+
+def _similar(name: str, published: float, fitted: float) -> bool:
+    difference = abs(fitted - published)
+    relative = difference / max(abs(published), 1.0e-30)
+    if name.endswith("V0"):
+        return relative <= 0.05
+    if name.endswith("K0"):
+        return relative <= 0.15
+    if name.endswith("K0_prime"):
+        return difference <= 1.0 or relative <= 0.20
+    if name in {"gamma0", "q", "theta0"}:
+        return relative <= 0.25
+    if name.startswith("alpha") or name == "dK_dT":
+        return relative <= 0.30
+    return relative <= 0.20
+
+
+def _compare(
+    record: dict[str, Any], result: Any, thermal: bool, volume_scale: float
+) -> tuple[str, list[dict[str, Any]]]:
+    published = _published_parameters(record, thermal)
+    published_errors = _published_errors(record, thermal)
+    comparisons = []
+    all_close = True
+    all_exact = True
+    for name in result.free_parameters:
+        source = published[name]
+        fitted = float(result.parameters[name])
+        fit_error = float(result.standard_errors[name])
+        if thermal and name == "rt_eos.V0":
+            fitted /= volume_scale
+            fit_error /= volume_scale
+        source_error = published_errors.get(name)
+        combined = None
+        within_uncertainty = None
+        if source_error is not None and np.isfinite(fit_error):
+            combined = math.hypot(source_error, fit_error)
+            within_uncertainty = abs(fitted - source) <= 2.0 * combined
+        similar = _similar(name, source, fitted)
+        uncertainty_parity = bool(within_uncertainty) and similar
+        all_close &= similar or bool(within_uncertainty)
+        all_exact &= uncertainty_parity
+        comparisons.append(
+            {
+                "parameter": name,
+                "published": source,
+                "published_error": source_error,
+                "refit": fitted,
+                "refit_error": fit_error if np.isfinite(fit_error) else None,
+                "difference": fitted - source,
+                "relative_difference": (
+                    abs(fitted - source) / abs(source) if source != 0.0 else None
+                ),
+                "within_combined_2sigma": within_uncertainty,
+                "similar": similar,
+            }
+        )
+    if all_exact and comparisons:
+        return "parity", comparisons
+    if all_close and comparisons:
+        return "similar", comparisons
+    return "parity_not_achieved", comparisons
+
+
+def _fit_zhao_1997_thermal_result(
+    record: dict[str, Any], series: Series, executable: ThermalEOS, volume_scale: float
+) -> SimpleNamespace:
+    """Fit Zhao's four free parameters on numerically scaled coordinates."""
+    names = ("rt_eos.K0", "alpha0", "alpha1", "dK_dT")
+    initial = np.asarray(
+        [
+            record["eos"]["parameters"]["K0"],
+            record["thermal"]["parameters"]["alpha0"],
+            record["thermal"]["parameters"]["alpha1"],
+            record["thermal"]["parameters"]["dK_dT"],
+        ],
+        dtype=float,
+    )
+    scales = np.asarray([100.0, 3.0e-5, 3.0e-9, 2.0e-2])
+    lower = np.asarray([_bounds(name, value)[0] for name, value in zip(names, initial)])
+    upper = np.asarray([_bounds(name, value)[1] for name, value in zip(names, initial)])
+    fixed_rt = {
+        name: float(value)
+        for name, value in record["eos"]["parameters"].items()
+        if name != "K0"
+    }
+    fixed_thermal = {
+        "Tr": float(record["thermal"]["parameters"]["Tr"]),
+        "thermal_expansion_law": record["thermal"]["thermal_expansion_law"],
+        "reference_volume_law": record["thermal"]["reference_volume_law"],
+    }
+
+    def residuals(scaled_parameters: np.ndarray) -> np.ndarray:
+        k0, alpha0, alpha1, d_k_dt = scaled_parameters * scales
+        model = type(executable)(
+            rt_eos=type(executable.rt_eos)(K0=float(k0), **fixed_rt),
+            alpha0=float(alpha0),
+            alpha1=float(alpha1),
+            dK_dT=float(d_k_dt),
+            **fixed_thermal,
+        )
+        return (
+            np.asarray(
+                model.pressure(series.volume * volume_scale, series.temperature),
+                dtype=float,
+            )
+            - series.pressure
+        )
+
+    optimization = least_squares(
+        residuals,
+        initial / scales,
+        bounds=(lower / scales, upper / scales),
+        max_nfev=5000,
+    )
+    fitted = optimization.x * scales
+    residual = residuals(optimization.x)
+    degrees_of_freedom = int(series.pressure.size - len(names))
+    reduced_chi_square = float(np.sum(residual**2) / degrees_of_freedom)
+    covariance_scaled = np.linalg.pinv(optimization.jac.T @ optimization.jac)
+    covariance_scaled *= reduced_chi_square
+    errors = np.sqrt(np.diag(covariance_scaled)) * scales
+    return SimpleNamespace(
+        free_parameters=names,
+        parameters=dict(zip(names, map(float, fitted))),
+        standard_errors=dict(zip(names, map(float, errors))),
+        residuals=residual,
+        reduced_chi_square=reduced_chi_square,
+        degrees_of_freedom=degrees_of_freedom,
+        success=optimization.success,
+        message=optimization.message,
+    )
+
+
+def _combined_fit_dataset(
+    document: dict[str, Any], record: dict[str, Any]
+) -> tuple[dict[str, Any], list[str]]:
+    """Combine explicitly declared P-V inputs after per-dataset transformations."""
+    datasets = {item["identifier"]: item for item in document.get("datasets", [])}
+    identifiers = list(record["fit_datasets"])
+    rows: list[list[float]] = []
+    for identifier in identifiers:
+        series = _series(document, record, datasets[identifier])
+        rows.extend(
+            [float(pressure), float(volume)]
+            for pressure, volume in zip(series.pressure, series.volume)
+        )
+    return (
+        {
+            "identifier": "+".join(identifiers),
+            "columns": [
+                {
+                    "name": "pressure_gpa",
+                    "quantity": "pressure",
+                    "unit": "GPa",
+                    "role": "value",
+                },
+                {
+                    "name": "volume_a3_conventional_cell",
+                    "quantity": "conventional_unit_cell_volume",
+                    "unit": "angstrom^3/conventional_unit_cell",
+                    "role": "value",
+                },
+            ],
+            "rows": rows,
+        },
+        identifiers,
+    )
+
+
+def _mao_1991_bridgmanite_outcome(
+    record: dict[str, Any], dataset: dict[str, Any]
+) -> dict[str, Any]:
+    """Reproduce the one-parameter Fe10 BM2 fit shared by three records."""
+    rows = _load_rows(dataset)
+    selected = [row for row in rows if str(row["fit_included"]) == "1"]
+    pressure = np.asarray([float(row["pressure_gpa"]) for row in selected])
+    volume = np.asarray([float(row["volume_a3"]) for row in selected])
+    source_v0 = 162.79
+    eta = (source_v0 / volume) ** (1.0 / 3.0)
+    unit_pressure = 1.5 * (eta**7 - eta**5)
+    fitted_k0 = float(
+        np.dot(unit_pressure, pressure) / np.dot(unit_pressure, unit_pressure)
+    )
+    residuals = fitted_k0 * unit_pressure - pressure
+    degrees_of_freedom = pressure.size - 1
+    fitted_error = float(
+        np.sqrt(
+            np.sum(residuals**2)
+            / degrees_of_freedom
+            / np.dot(unit_pressure, unit_pressure)
+        )
+    )
+    published = float(record["eos"]["parameters"]["K0"])
+    published_error = float(record["parameter_errors"]["K0"])
+    difference = fitted_k0 - published
+    within_combined = abs(difference) <= 2.0 * math.sqrt(
+        published_error**2 + fitted_error**2
+    )
+    comparison = {
+        "parameter": "K0",
+        "published": published,
+        "published_error": published_error,
+        "refit": fitted_k0,
+        "refit_error": fitted_error,
+        "difference": difference,
+        "relative_difference": abs(difference) / abs(published),
+        "within_combined_2sigma": within_combined,
+        "similar": _similar("K0", published, fitted_k0),
+    }
+    if not within_combined or not comparison["similar"]:
+        raise AssertionError("Mao et al. (1991) Fe10 refit no longer has parity")
+    return {
+        "status": "parity",
+        "dataset_identifiers": [dataset["identifier"]],
+        "observations": len(selected),
+        "related_room_temperature_observations": len(rows),
+        "selection": "fit_included=1: all nine 300 K Fe10 rows in final-article Table 2",
+        "observed_pressure_range_gpa": [
+            float(np.min(pressure)),
+            float(np.max(pressure)),
+        ],
+        "columns": {"pressure": "pressure_gpa", "volume": "volume_a3"},
+        "fit_kind": "shared_bm2_fe10_pressure_residuals",
+        "objective": "unweighted pressure residuals",
+        "absolute_sigma": False,
+        "free_parameters": ["K0"],
+        "parameters": [comparison],
+        "rmse_gpa": float(np.sqrt(np.mean(residuals**2))),
+        "degrees_of_freedom": degrees_of_freedom,
+        "solver_success": True,
+        "solver_message": "analytic one-parameter least-squares solution",
+        "qualification": (
+            "Direct final-article reproduction. Mao et al. explicitly fitted only "
+            "the Fe10 data with K0-prime fixed at 4; Table 1 supplies the fixed "
+            "Fe10 V0=162.79 A3. The paper does not state weights, and unweighted "
+            "pressure residuals recover K0=260.80 GPa from the rounded table. "
+            "MgSiO3 and Fe20 inherit this indistinguishable compression curve with "
+            "their separately measured composition-specific ambient volumes."
+        ),
+    }
+
+
+def _fit_iridium_anzellini_2025(
+    document: dict[str, Any],
+    record: dict[str, Any],
+    series: Series,
+    executable: ThermalEOS,
+    volume_scale: float,
+) -> dict[str, Any]:
+    """Reproduce the supported part of Anzellini's combined P-V-T fit.
+
+    The exact laser-heating rows support a conditional alpha0 check.  Figure 4
+    additionally exposes the otherwise unpublished Monteseguro 300 K and
+    present-study 830 K marker centers as vector paths.  Combining those
+    plot-derived rows with the exact laser-heating rows inside the source's
+    stated +/-100 K isotherm bands gives an explicitly qualified reconstruction
+    of the four-parameter fit.
+    """
+    if series.temperature is None:
+        raise ValueError("Anzellini iridium reproduction requires mean temperature")
+    rt = record["eos"]["parameters"]
+    thermal = record["thermal"]["parameters"]
+    fixed = {
+        "rt_eos.V0": float(rt["V0"]) * volume_scale,
+        "rt_eos.K0": float(rt["K0"]),
+        "rt_eos.K0_prime": float(rt["K0_prime"]),
+        "Tr": float(thermal["Tr"]),
+        "theta": float(thermal["theta"]),
+        "n": float(thermal["n"]),
+    }
+    fit_arguments = {
+        "eos_class": type(executable),
+        "rt_eos_class": type(executable.rt_eos),
+        "volume": series.volume * volume_scale,
+        "temperature": series.temperature,
+        "pressure": series.pressure,
+        "configuration": _configuration(record),
+        "pressure_sigma": None,
+        "volume_sigma": None,
+        "temperature_sigma": None,
+        "absolute_sigma": False,
+        "max_nfev": 5000,
+    }
+    conditional = fit_joint_eos(
+        **fit_arguments,
+        initial={"alpha0": float(thermal["alpha0"])},
+        fixed=fixed,
+        bounds={"alpha0": _bounds("alpha0", float(thermal["alpha0"]))},
+    )
+    status, comparisons = _compare(record, conditional, True, volume_scale)
+    residuals = np.asarray(conditional.residuals, dtype=float)
+
+    full_initial = {
+        "rt_eos.V0": float(rt["V0"]) * volume_scale,
+        "rt_eos.K0": float(rt["K0"]),
+        "rt_eos.K0_prime": float(rt["K0_prime"]),
+        "alpha0": float(thermal["alpha0"]),
+    }
+    full = fit_joint_eos(
+        **fit_arguments,
+        initial=full_initial,
+        fixed={
+            name: value
+            for name, value in fixed.items()
+            if not name.startswith("rt_eos.")
+        },
+        bounds={name: _bounds(name, value) for name, value in full_initial.items()},
+    )
+    full_parameters = {
+        name: float(value)
+        for name, value in full.parameters.items()
+        if name in full_initial
+    }
+    full_parameters["rt_eos.V0"] /= volume_scale
+    full_residuals = np.asarray(full.residuals, dtype=float)
+
+    plot_dataset_id = "iridium_anzellini_2025_figure4_300k_830k_vector_digitized"
+    plot_dataset = next(
+        item
+        for item in document.get("datasets", [])
+        if item["identifier"] == plot_dataset_id
+    )
+    plot_series = _series(document, record, plot_dataset)
+    if plot_series.temperature is None:
+        raise ValueError("Anzellini Figure 4 reconstruction requires temperature")
+
+    isotherm_centers = np.asarray(
+        [1700.0, 2000.0, 2200.0, 2600.0, 3300.0, 3800.0, 4200.0]
+    )
+    distance_to_isotherm = np.min(
+        np.abs(series.temperature[:, None] - isotherm_centers[None, :]), axis=1
+    )
+    in_source_temperature_bands = distance_to_isotherm <= 100.0
+    reconstructed_volume = np.concatenate(
+        [plot_series.volume, series.volume[in_source_temperature_bands]]
+    )
+    reconstructed_temperature = np.concatenate(
+        [plot_series.temperature, series.temperature[in_source_temperature_bands]]
+    )
+    reconstructed_pressure = np.concatenate(
+        [plot_series.pressure, series.pressure[in_source_temperature_bands]]
+    )
+    reconstructed = fit_joint_eos(
+        type(executable),
+        type(executable.rt_eos),
+        reconstructed_volume * volume_scale,
+        reconstructed_temperature,
+        reconstructed_pressure,
+        initial=full_initial,
+        fixed={
+            name: value
+            for name, value in fixed.items()
+            if not name.startswith("rt_eos.")
+        },
+        bounds={name: _bounds(name, value) for name, value in full_initial.items()},
+        absolute_sigma=False,
+        max_nfev=5000,
+    )
+    _, reconstructed_comparisons = _compare(record, reconstructed, True, volume_scale)
+    reconstructed_residuals = np.asarray(reconstructed.residuals, dtype=float)
+    source_one_sigma_matches = {
+        item["parameter"]: (
+            item["published_error"] is not None
+            and abs(item["difference"]) <= item["published_error"]
+        )
+        for item in reconstructed_comparisons
+    }
+
+    return {
+        "status": status,
+        "dataset_identifiers": [series.dataset_id],
+        "observations": int(series.pressure.size),
+        "selection": "all 122 Supplementary Tables 1-3 laser-heating rows",
+        "observed_pressure_range_gpa": [
+            float(np.min(series.pressure)),
+            float(np.max(series.pressure)),
+        ],
+        "observed_volume_range": [
+            float(np.min(series.volume)),
+            float(np.max(series.volume)),
+        ],
+        "observed_temperature_range_k": [
+            float(np.min(series.temperature)),
+            float(np.max(series.temperature)),
+        ],
+        "columns": {
+            "pressure": series.pressure_column,
+            "volume": series.volume_column,
+            "temperature": series.temperature_column,
+        },
+        "fit_kind": "conditional_holland_powell_thermal_pressure",
+        "objective": "unweighted_pressure_residuals",
+        "absolute_sigma": False,
+        "conditional_fixed_parameters": [
+            "rt_eos.V0",
+            "rt_eos.K0",
+            "rt_eos.K0_prime",
+            "Tr",
+            "theta",
+            "n",
+        ],
+        "free_parameters": list(conditional.free_parameters),
+        "parameters": comparisons,
+        "published_rmse_gpa": _published_rmse(
+            executable, volume_scale, series, float(thermal["Tr"])
+        ),
+        "rmse_gpa": float(np.sqrt(np.mean(residuals**2))),
+        "reduced_chi_square": (
+            float(conditional.reduced_chi_square)
+            if np.isfinite(conditional.reduced_chi_square)
+            else None
+        ),
+        "degrees_of_freedom": int(conditional.degrees_of_freedom),
+        "solver_success": bool(conditional.success),
+        "solver_message": str(conditional.message),
+        "hot_rows_four_parameter_diagnostic": {
+            "purpose": (
+                "Demonstrates that the laser-heating rows alone do not identify "
+                "the BM3 reference and alpha0 jointly; this is not the source's "
+                "combined fit."
+            ),
+            "free_parameters": list(full.free_parameters),
+            "parameters": full_parameters,
+            "rmse_gpa": float(np.sqrt(np.mean(full_residuals**2))),
+            "solver_success": bool(full.success),
+            "solver_message": str(full.message),
+        },
+        "plot_derived_combined_fit": {
+            "status": "reconstructed_from_vector_figure_not_source_parity",
+            "dataset_identifiers": [series.dataset_id, plot_dataset_id],
+            "observations": int(reconstructed_pressure.size),
+            "selection": (
+                "91 Figure 4 black-circle 300 K markers, 16 Figure 4 "
+                "dark-red-circle 830 K markers, and 65 exact supplementary "
+                "laser-heating rows within +/-100 K of the plotted 1700, 2000, "
+                "2200, 2600, 3300, 3800, and 4200 K isotherms"
+            ),
+            "objective": "unweighted_pressure_residuals",
+            "free_parameters": list(reconstructed.free_parameters),
+            "parameters": reconstructed_comparisons,
+            "within_published_one_sigma": source_one_sigma_matches,
+            "rmse_gpa": float(np.sqrt(np.mean(reconstructed_residuals**2))),
+            "solver_success": bool(reconstructed.success),
+            "solver_message": str(reconstructed.message),
+        },
+        "complete_combined_fit_status": "plot_derived_reconstruction_only",
+        "qualification": (
+            "The exact Equations 1-3 thermal correction and source temperature "
+            "average are reproduced. With the published BM3 reference held fixed, "
+            "all 122 laser-heating rows independently refit alpha0. A second, "
+            "explicitly plot-derived reconstruction uses the vector marker centers "
+            "for the missing 300 K and 830 K series and the source's stated "
+            "+/-100 K temperature bands. It materially approaches all four "
+            "published coefficients, but is not source parity because the original "
+            "numerical rows, exact averaging/selection algorithm, weights, and "
+            "covariance remain unpublished."
+        ),
+    }
+
+
+def _fit_li_2006_acoustic(
+    record: dict[str, Any], dataset: dict[str, Any]
+) -> dict[str, Any]:
+    """Reproduce Li et al.'s acoustic fit and isothermal BM3 conversion.
+
+    The calculated pressure column is intentionally not read here.  It is a
+    downstream evaluation of the coefficients being reproduced, rather than an
+    independent coordinate of the source regression.
+    """
+    rows = _load_rows(dataset)
+    selected = [
+        row
+        for row in rows
+        if row.get("experimental_path") in {"ambient", "decompression_after_annealing"}
+    ]
+    if len(selected) != 11 or selected[0].get("experimental_path") != "ambient":
+        raise ValueError("expected one ambient and ten decompression acoustic rows")
+
+    density = np.asarray([_number(row.get("density_g_cm3")) for row in selected])
+    p_velocity = np.asarray(
+        [_number(row.get("p_wave_velocity_km_s")) for row in selected]
+    )
+    s_velocity = np.asarray(
+        [_number(row.get("s_wave_velocity_km_s")) for row in selected]
+    )
+    if not np.all(np.isfinite(np.concatenate((density, p_velocity, s_velocity)))):
+        raise ValueError("selected acoustic fit rows contain missing values")
+
+    density_0 = float(density[0])
+    epsilon = (1.0 - (density / density_0) ** (2.0 / 3.0)) / 2.0
+    conversion = record["scientific_validation"]["isothermal_parameter_derivation"]
+    inputs = conversion["inputs"]
+    alpha_gamma_t = (
+        float(inputs["alpha_per_k"])
+        * float(inputs["gamma0"])
+        * float(inputs["temperature_k"])
+    )
+
+    def predicted_velocities(parameters: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+        k_0s, k_0s_prime, g_0, g_0_prime = parameters
+        # Paragraph 10's explicit room-temperature approximation accounts for
+        # the observed isothermal strain by using K0T in L2 and M2. The source
+        # reports it as indistinguishable from its iterative adiabatic-foot
+        # procedure, whose complete numerical algorithm is not published.
+        k_0t = k_0s / (1.0 + alpha_gamma_t)
+        l_1 = k_0s + 4.0 * g_0 / 3.0
+        l_2 = 5.0 * l_1 - 3.0 * k_0t * (k_0s_prime + 4.0 * g_0_prime / 3.0)
+        m_1 = g_0
+        m_2 = 5.0 * g_0 - 3.0 * k_0t * g_0_prime
+        strain_factor = (1.0 - 2.0 * epsilon) ** 2.5
+        return (
+            np.sqrt(strain_factor * (l_1 + l_2 * epsilon) / density),
+            np.sqrt(strain_factor * (m_1 + m_2 * epsilon) / density),
+        )
+
+    def residuals(parameters: np.ndarray) -> np.ndarray:
+        predicted_p, predicted_s = predicted_velocities(parameters)
+        return np.concatenate((predicted_p - p_velocity, predicted_s - s_velocity))
+
+    reported = record["scientific_validation"]["reported_parameterizations"][0]
+    fit = least_squares(
+        residuals,
+        np.asarray(
+            [
+                reported["K0S_gpa"],
+                reported["K0S_prime"],
+                reported["G0_gpa"],
+                reported["G0_prime"],
+            ]
+        ),
+        bounds=([1.0e-6, 0.0, 1.0e-6, 0.0], [1000.0, 20.0, 1000.0, 20.0]),
+        xtol=1.0e-14,
+        ftol=1.0e-14,
+        gtol=1.0e-14,
+        max_nfev=5000,
+    )
+    acoustic_residuals = residuals(fit.x)
+    degrees_of_freedom = acoustic_residuals.size - fit.x.size
+    residual_variance = float(
+        np.dot(acoustic_residuals, acoustic_residuals) / degrees_of_freedom
+    )
+    acoustic_covariance = (
+        np.linalg.pinv(np.asarray(fit.jac).T @ np.asarray(fit.jac)) * residual_variance
+    )
+
+    k_0s, k_0s_prime, g_0, g_0_prime = map(float, fit.x)
+    k_0t = k_0s / (1.0 + alpha_gamma_t)
+    temperature_term = (
+        float(inputs["gamma0"])
+        * float(inputs["temperature_k"])
+        * float(inputs["dK0T_dT_gpa_per_k"])
+    )
+    k_0t_prime = (
+        k_0s_prime + float(inputs["q"]) * alpha_gamma_t - temperature_term / k_0t
+    ) / (1.0 + alpha_gamma_t)
+
+    conversion_jacobian = np.zeros((2, 4))
+    conversion_jacobian[0, 0] = 1.0 / (1.0 + alpha_gamma_t)
+    conversion_jacobian[1, 0] = (
+        temperature_term * conversion_jacobian[0, 0] / k_0t**2 / (1.0 + alpha_gamma_t)
+    )
+    conversion_jacobian[1, 1] = 1.0 / (1.0 + alpha_gamma_t)
+    isothermal_covariance = (
+        conversion_jacobian @ acoustic_covariance @ conversion_jacobian.T
+    )
+    synthetic = SimpleNamespace(
+        free_parameters=("K0", "K0_prime"),
+        parameters={"K0": k_0t, "K0_prime": k_0t_prime},
+        standard_errors={
+            "K0": float(np.sqrt(isothermal_covariance[0, 0])),
+            "K0_prime": float(np.sqrt(isothermal_covariance[1, 1])),
+        },
+    )
+    status, comparisons = _compare(record, synthetic, False, 1.0)
+
+    names = (
+        ("K0S", "K0S_gpa", "K0S_standard_deviation_gpa"),
+        ("K0S_prime", "K0S_prime", "K0S_prime_standard_deviation"),
+        ("G0", "G0_gpa", "G0_standard_deviation_gpa"),
+        ("G0_prime", "G0_prime", "G0_prime_standard_deviation"),
+    )
+    acoustic_parameters = []
+    acoustic_errors = np.sqrt(np.diag(acoustic_covariance))
+    for fitted, fitted_error, (name, value_key, error_key) in zip(
+        fit.x, acoustic_errors, names
+    ):
+        source = float(reported[value_key])
+        source_error = float(reported[error_key])
+        acoustic_parameters.append(
+            {
+                "parameter": name,
+                "published": source,
+                "published_error": source_error,
+                "refit": float(fitted),
+                "refit_error": float(fitted_error),
+                "difference": float(fitted) - source,
+                "within_published_1sigma": abs(float(fitted) - source) < source_error,
+            }
+        )
+
+    predicted_p, predicted_s = predicted_velocities(fit.x)
+    # The source reports RMS for the ten high-pressure decompression rows; the
+    # independently measured ambient row anchors the intercept but is excluded
+    # from those quoted diagnostics.
+    p_wave_rmse = float(np.sqrt(np.mean((predicted_p[1:] - p_velocity[1:]) ** 2)))
+    s_wave_rmse = float(np.sqrt(np.mean((predicted_s[1:] - s_velocity[1:]) ** 2)))
+    return {
+        "status": status,
+        "dataset_identifiers": [dataset["identifier"]],
+        "observations": len(selected),
+        "selection": (
+            "Section 2 ambient density/VP/VS anchor plus all ten Table 1 "
+            "decompression-after-annealing density/VP/VS rows"
+        ),
+        "observed_density_range_g_cm3": [
+            float(np.min(density)),
+            float(np.max(density)),
+        ],
+        "columns": {
+            "density": "density_g_cm3",
+            "p_wave_velocity": "p_wave_velocity_km_s",
+            "s_wave_velocity": "s_wave_velocity_km_s",
+            "pressure": None,
+        },
+        "excluded_derived_columns": [
+            "adiabatic_bulk_modulus_gpa",
+            "shear_modulus_gpa",
+            "calculated_absolute_pressure_gpa",
+        ],
+        "fit_kind": "acoustic_finite_strain_then_isothermal_conversion",
+        "objective": "unweighted simultaneous VP and VS residuals in km/s",
+        "absolute_sigma": False,
+        "free_parameters": ["K0", "K0_prime"],
+        "parameters": comparisons,
+        "acoustic_free_parameters": ["K0S", "K0S_prime", "G0", "G0_prime"],
+        "acoustic_parameters": acoustic_parameters,
+        "reported_p_wave_rmse_km_s": float(reported["p_wave_rms_misfit_km_s"]),
+        "reported_s_wave_rmse_km_s": float(reported["s_wave_rms_misfit_km_s"]),
+        "rmse_p_wave_velocity_km_s": p_wave_rmse,
+        "rmse_s_wave_velocity_km_s": s_wave_rmse,
+        "reduced_chi_square": None,
+        "degrees_of_freedom": degrees_of_freedom,
+        "solver_success": bool(fit.success),
+        "solver_message": str(fit.message),
+        "qualification": FIT_QUALIFICATIONS[record["identifier"]],
+    }
+
+
+def _luo_2023_bounded_partial_outcome(
+    document: dict[str, Any], record: dict[str, Any]
+) -> dict[str, Any]:
+    """Fit the locally identifiable Luo subset without using derived EOS tables.
+
+    Kono et al.'s exact velocity rows and Luo et al.'s fitted velocity-density
+    coefficients are unavailable.  Li et al.'s bundled primary acoustic rows,
+    which Luo et al. also cite as sound constraints, therefore define a declared
+    proxy Poisson-ratio law.  This is a sensitivity calculation, not a rerun of
+    the source global optimization.
+    """
+    datasets = {item["identifier"]: item for item in document["datasets"]}
+    shock_id = "mgo_luo_2023_table1_shock"
+    acoustic_id = "mgo_li_2006_table1_elasticity"
+    shock_rows = _load_rows(datasets[shock_id])
+    acoustic_rows = _load_rows(datasets[acoustic_id])
+
+    density = np.asarray(
+        [_number(row["density_g_cm3"]) for row in acoustic_rows], dtype=float
+    )
+    design = np.column_stack((np.ones(density.size), density))
+
+    def velocity_fit(value_name: str, sigma_name: str) -> np.ndarray:
+        values = np.asarray([_number(row[value_name]) for row in acoustic_rows])
+        sigma = np.asarray([_number(row[sigma_name]) for row in acoustic_rows])
+        selected = np.isfinite(density) & np.isfinite(values) & (sigma > 0.0)
+        matrix = design[selected]
+        weights = 1.0 / sigma[selected] ** 2
+        return np.linalg.solve(
+            matrix.T @ (matrix * weights[:, None]),
+            matrix.T @ (values[selected] * weights),
+        )
+
+    longitudinal = velocity_fit(
+        "p_wave_velocity_km_s", "p_wave_velocity_standard_deviation_km_s"
+    )
+    shear = velocity_fit(
+        "s_wave_velocity_km_s", "s_wave_velocity_standard_deviation_km_s"
+    )
+    molar_mass = 40.304
+    atoms_per_formula_unit = 2.0
+    initial_volume = molar_mass / (10.0 * 3.590)
+
+    def model(parameters: np.ndarray) -> SoundVelocityDebyeHelmholtz:
+        return SoundVelocityDebyeHelmholtz(
+            Vinet(*parameters),
+            300.0,
+            molar_mass,
+            atoms_per_formula_unit,
+            float(longitudinal[0]),
+            float(longitudinal[1]),
+            float(shear[0]),
+            float(shear[1]),
+        )
+
+    def residuals(parameters: np.ndarray) -> np.ndarray:
+        eos = model(parameters)
+        values: list[float] = []
+        for row in shock_rows:
+            volume = molar_mass / (10.0 * _number(row["density_g_cm3"]))
+            observed_pressure = _number(row["pressure_gpa"])
+            hugoniot_temperature = eos.hugoniot_temperature_from_state(
+                volume,
+                observed_pressure,
+                initial_volume=initial_volume,
+                initial_temperature=300.0,
+                initial_pressure=0.0,
+            )
+            values.append(
+                (float(eos.pressure(volume, hugoniot_temperature)) - observed_pressure)
+                / _number(row["pressure_sigma_gpa"])
+            )
+            temperature = _number(row["temperature_k"])
+            if np.isfinite(temperature):
+                values.append(
+                    (hugoniot_temperature - temperature)
+                    / (_number(row["temperature_2sigma_k"]) / 2.0)
+                )
+            sound_velocity = _number(row["euler_sound_velocity_km_s"])
+            if np.isfinite(sound_velocity):
+                values.append(
+                    (float(eos.longitudinal_velocity(volume)) - sound_velocity)
+                    / _number(row["euler_sound_velocity_sigma_km_s"])
+                )
+        return np.asarray(values)
+
+    published = record["eos"]["parameters"]
+    cell_to_molar = Avogadro * 1.0e-25 / float(document["formula_units_per_cell"])
+    initial = np.asarray(
+        [
+            float(published["V0"]) * cell_to_molar,
+            float(published["K0"]),
+            float(published["K0_prime"]),
+        ]
+    )
+    fit = least_squares(
+        residuals,
+        initial,
+        bounds=([0.8, 1.0, 1.0], [1.5, 350.0, 10.0]),
+        x_scale="jac",
+        diff_step=1.0e-4,
+        ftol=1.0e-13,
+        xtol=1.0e-13,
+        gtol=1.0e-13,
+        max_nfev=5000,
+    )
+    dof = residuals(fit.x).size - fit.x.size
+    covariance = np.linalg.inv(fit.jac.T @ fit.jac)
+    standard_errors = np.sqrt(np.diag(covariance))
+    fitted_public = np.asarray(
+        [fit.x[0] / cell_to_molar, fit.x[1], fit.x[2]], dtype=float
+    )
+    errors_public = np.asarray(
+        [standard_errors[0] / cell_to_molar, standard_errors[1], standard_errors[2]],
+        dtype=float,
+    )
+    names = ("V0", "K0", "K0_prime")
+    comparisons = [
+        {
+            "parameter": name,
+            "published": float(published[name]),
+            "published_error": _number(record.get("parameter_errors", {}).get(name)),
+            "refit": float(value),
+            "refit_error": float(error),
+            "relative_difference": abs(float(value) - float(published[name]))
+            / abs(float(published[name])),
+            "within_combined_2sigma": None,
+            "similar": False,
+        }
+        for name, value, error in zip(names, fitted_public, errors_public)
+    ]
+    normalized = residuals(fit.x)
+    return {
+        "status": "not_refittable",
+        "dataset_identifiers": [shock_id, acoustic_id],
+        "observations": int(normalized.size),
+        "selection": (
+            "all five Luo Table I P-V states, four reported temperatures, and "
+            "three Eulerian sound velocities; all 18 Li ambient/high-pressure "
+            "rows only determine the fixed proxy velocity-density regressions"
+        ),
+        "columns": {
+            "pressure": "pressure_gpa",
+            "temperature": "temperature_k",
+            "density": "density_g_cm3",
+            "longitudinal_velocity": "euler_sound_velocity_km_s",
+        },
+        "fit_kind": "sound_velocity_quasi_debye_bounded_partial",
+        "objective": (
+            "sum of squared shock-pressure, Hugoniot-temperature, and longitudinal-"
+            "velocity residuals divided by their printed one-standard-deviation "
+            "errors; printed two-sigma temperature errors are halved"
+        ),
+        "absolute_sigma": True,
+        "fixed_parameters": [
+            "Tr",
+            "molar_mass_g_mol",
+            "n",
+            "Li proxy velocity-density coefficients",
+        ],
+        "free_parameters": list(names),
+        "parameters": comparisons,
+        "chi_square": float(np.sum(normalized**2)),
+        "reduced_chi_square": float(np.sum(normalized**2) / dof),
+        "degrees_of_freedom": int(dof),
+        "solver_success": bool(fit.success),
+        "solver_message": str(fit.message),
+        "proxy_velocity_fits": {
+            "source_dataset": acoustic_id,
+            "method": "weighted least squares in velocity using printed velocity sigmas",
+            "longitudinal_intercept_km_s": float(longitudinal[0]),
+            "longitudinal_slope_km_s_per_g_cm3": float(longitudinal[1]),
+            "shear_intercept_km_s": float(shear[0]),
+            "shear_slope_km_s_per_g_cm3": float(shear[1]),
+        },
+        "reason": (
+            "A 12-residual primary-row sensitivity fit is executable, but it is "
+            "not the source global refit: Kono's exact velocity-density regressions, "
+            "the selected upstream shock/PVT rows, temperature/density error "
+            "propagation, cross-observable normalization, and covariance are still "
+            "unavailable. Tables II-III are excluded because they are derived EOS "
+            "output."
+        ),
+        "qualification": (
+            "The large coefficient shift is evidence that substituting Li's low-"
+            "pressure velocity ratio and retaining only Luo's new states does not "
+            "identify the published global parameterization."
+        ),
+    }
+
+
+def _argon_batch_outcome(record: dict[str, Any]) -> dict[str, Any]:
+    """Keep independent equation checks separate from incomplete source refits."""
+    from scripts.reproduce_argon_errandonea_2006 import reproduce as errandonea
+    from scripts.reproduce_argon_finger1981 import reproduce as finger
+    from scripts.reproduce_grimsditch_1986_argon import reproduce as grimsditch
+
+    studies = {
+        "argon_fcc_finger_1981_murnaghan2_debye": (
+            finger,
+            19,
+            ["argon_fcc_finger_1981_table1"],
+            "All 19 measured rows retained. An unweighted refit reproduces both fitted parameters within published error bars, consistent with an unweighted original fit. The paper does not specify its weighting; covariance and uncertainty estimation are not reproduced.",
+        ),
+        "argon_fcc_errandonea_2006_bm3": (
+            errandonea,
+            8,
+            ["argon_fcc_errandonea_2006_figure5"],
+            "Eight resolved figure observations are retained. The incomplete digitization does not identify the original regression; no replacement coefficients are adopted.",
+        ),
+        "argon_fcc_grimsditch_1986_density_polynomial": (
+            grimsditch,
+            98,
+            ["argon_grimsditch_1986_table1", "argon_fcc_grimsditch_1986_table2"],
+            "Approximate internal consistency is reproduced with equal weighting on 74 derived-density rows, excluding source row 98 only in the sensitivity check. All 75 solid rows and original coefficients remain preserved. This does not reproduce the original X-ray regression, whose independent observations are unavailable.",
+        ),
+    }
+    reproduce, count, datasets, reason = studies[record["identifier"]]
+    is_finger = record["identifier"] == "argon_fcc_finger_1981_murnaghan2_debye"
+    result = reproduce()
+    outcome = {
+        "status": "similar" if is_finger else "not_refittable",
+        "reproduction_status": "parameterization_reproduced",
+        "fit_reproduction_status": (
+            "parameters_reproduced_within_reported_uncertainties"
+            if is_finger
+            else "not_reproduced"
+        ),
+        "dataset_identifiers": datasets,
+        "observations": count,
+        "reason": reason,
+        "reproduction": result,
+    }
+    if not is_finger and "grimsditch" in record["identifier"]:
+        outcome["summary_status"] = "approximate_internal_consistency_reproduced"
+    if is_finger:
+        refit = result["refits"]["equal_pressure"]
+        outcome.update(
+            {
+                "objective": "equal pressure residuals",
+                "fit_kind": "primary_table_diagnostic",
+                "free_parameters": ["K0_prime", "K0_double_prime"],
+                "published_rmse_gpa": result["published_molar_volume_rmse_gpa"],
+                "rmse_gpa": refit["pressure_rmse_gpa"],
+                "parameter_reproduction": result["parameter_reproduction"],
+            }
+        )
+    return outcome
+
+
+def _chen_reported_constants_outcome() -> dict[str, Any]:
+    """Preserve the diagnostic without claiming recovery of the author EOS."""
+    from scripts.reproduce_chen_2010_argon import reproduce
+
+    result = reproduce()
+    return {
+        "status": "not_refittable",
+        "reproduction_status": "not_reproduced",
+        "dataset_identifiers": ["argon_fcc_chen_2010_figure5_brillouin"],
+        "observations": 80,
+        "reason": "DO NOT USE. Diagnostic BM3 reconstruction of rounded local constants at 2 GPa, not a verified author equation. Pressure RMS 6.880 GPa against digitized densities; the separate Peritheos refit has 0.111 GPa RMS. Original equation convention and regression inputs are unresolved; no pressure-calibration error has been established. See literature-reproductions/chen-2010-argon.md.",
+        "documentation": "literature-reproductions/chen-2010-argon.md",
+        "reproduction": result,
+    }
+
+
+def _fit_record(
+    document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
+) -> dict[str, Any]:
+    record_id = record["identifier"]
+    if record_id == "gold_takemura_2008_vinet_6":
+        from scripts.reproduce_takemura_2008_gold import ledger_outcome
+
+        return ledger_outcome(record)
+    if record_id == "gold_fei_2007_vinet_2":
+        from scripts.reproduce_fei_2007_gold import ledger_outcome
+
+        return ledger_outcome(record)
+    if record_id == "fes_vi_morard_2026_bm3_mgd":
+        from scripts.audit_morard_2026_fes import ledger_outcome
+
+        return ledger_outcome(record)
+    if record_id == "argon_fcc_chen_2010_bm3_digitized_refit":
+        from scripts.refit_chen_2010_argon import fit, observations
+
+        result = fit(observations())
+        published = record["eos"]["parameters"]
+        reproduced = all(
+            np.isclose(value, published[key], rtol=1e-7, atol=1e-9)
+            for key, value in result["parameters"].items()
+        )
+        return {
+            "status": "similar" if reproduced else "parity_not_achieved",
+            "reproduction_status": "independent_digitized_data_refit_reproduced",
+            "original_publication_reproduction_status": "not_reproduced",
+            "dataset_identifiers": record["fit_datasets"],
+            "observations": 80,
+            "reason": "Numerically reproduced independent Peritheos errors-in-variables BM3 refit. This does not reproduce the source-author coefficients. Statistical parameter errors are unavailable because graphical halfwidth confidence and cross-row correlations are unknown.",
+            "refit": result,
+        }
+    if record_id == "argon_fcc_xiao_2025_helmholtz":
+        from scripts.reproduce_argon_xiao_2025 import reproduce
+
+        return {
+            "status": "not_refittable",
+            "reproduction_status": "parameterization_reproduced",
+            "dataset_identifiers": record["fit_datasets"],
+            "observations": 22,
+            "reason": "Published parameterization matches the official workbook; the complete global fit remains unreproduced. With equal weights on relative residuals, the best converged nine-parameter 22-volume refit lowers volume RMS from 0.0952% to 0.0322%, but gives a much too low bulk modulus and poorly constrained, bound-dependent parameters. The best converged 27-entry refit gives 0.0603% volume RMS and 0.0818% bulk-modulus RMS, but Cv = -13.88 J/mol/K at 77 K is physically unacceptable. Neither diagnostic replaces the published coefficients. Table 2 weights are published; complete legacy rows and quantitative penalties remain unavailable. Next: recover the remaining multiproperty inputs, then refit with physical constraints and assess parameter stability. [Detailed comparison and scope](literature-reproductions/argon-xiao-2025.md#review-conclusion-2026-09-27).",
+            "reproduction": reproduce(),
+        }
+    if record_id in {
+        "argon_fcc_dewaele_2021_vinet_mgd",
+        "argon_fcc_ono_2020_vinet",
+        "argon_hcp_wittlinger_1997_bm2_1",
+    }:
+        from scripts.reproduce_argon import ledger_outcome
+
+        return ledger_outcome(record)
+    if record_id.startswith("nacl_b2_sakai_2011_"):
+        from scripts.reproduce_sakai_2011_nacl_b2 import ledger_outcome
+
+        return ledger_outcome(record)
+    if record_id in {
+        "siderite_fe095mn005_litasov_2013_bm3",
+        "siderite_fe095mn005_litasov_2013_joint_thermal_refit",
+    }:
+        from scripts.reproduce_litasov_2013_siderite import ledger_outcome
+
+        return ledger_outcome(record)
+    if "_nisr_2017_" in record_id:
+        from scripts.reproduce_nisr_2017_silica import ledger_outcome
+
+        return ledger_outcome(record)
+    if "_chidester_2018_" in record_id:
+        from scripts.reproduce_chidester_2018_tho2 import ledger_outcome
+
+        return ledger_outcome(record)
+    if record_id.startswith("superhydrous_phase_b_lt_litasov_2007_"):
+        from scripts.reproduce_litasov_2007_superhydrous_phase_b import ledger_outcome
+
+        return ledger_outcome(record)
+    if record_id == "gold_hirose_2008_fei_2004_speziale_2001_bm3_refit":
+        from scripts.refit_hirose_fei_gold_speziale import ledger_outcome
+
+        return ledger_outcome(record)
+    if record_id.startswith("gold_hirose_2008_"):
+        from scripts.reproduce_hirose_2008_gold import ledger_outcome
+
+        return ledger_outcome(record)
+    if record_id in {"neon_fcc_fei_2007_bm3_1", "neon_fcc_fei_2007_vinet_2"}:
+        from scripts.reproduce_fei_2007_neon import ledger_outcome
+
+        return ledger_outcome(record)
+    if record_id in {"nacl_b2_fei_2007", "nacl_b2_fei_2007_staged_thermal_refit"}:
+        from scripts.reproduce_fei_2007_nacl_b2 import ledger_outcome
+
+        return ledger_outcome(record)
+    if record_id == "platinum_fei_2007_vinet_mgd":
+        from scripts.reproduce_fei_2007_platinum import ledger_outcome
+
+        return ledger_outcome(record)
+    if "_fei_2004_" in record_id:
+        from scripts.reproduce_fei_2004_pressure_scales import ledger_outcome
+
+        return ledger_outcome(record)
+    if record_id in MAO_1991_BRIDGMANITE_RECORDS:
+        return _mao_1991_bridgmanite_outcome(record, dataset)
+
+    if record_id == "mgo_b1_luo_2023_vinet_thermal_5":
+        return _luo_2023_bounded_partial_outcome(document, record)
+    if record_id == "rhenium_sakai_2018_yokoo_pt_vinet":
+        from scripts.reproduce_sakai_2018_rhenium import ledger_outcome
+
+        return ledger_outcome(record)
+    if record_id == "rhenium_zha_2004_bm3_log_thermal":
+        from scripts.reproduce_zha_2004_xian_2022_rhenium import ledger_outcome
+
+        return ledger_outcome(record)
+    from scripts.reproduce_iron_source_papers import (
+        belongs,
+    )
+    from scripts.reproduce_iron_source_papers import (
+        ledger_outcome as iron_source_outcome,
+    )
+
+    if belongs(record_id):
+        return iron_source_outcome(record)
+    if record_id.startswith("iron_fei_2016_"):
+        from scripts.reproduce_fei_2016_iron import ledger_outcome
+
+        return ledger_outcome(record)
+    dataset_identifiers = [dataset["identifier"]]
+    if record_id == "mgsio3_liquid_akins_2004_adiabatic_bm3":
+        audit = reproduce_akins_2004_mgsio3_liquid()
+        reconstruction = audit["bounded_unweighted_reconstruction"]
+        fitted = reconstruction["parameters"]
+        fitted_errors = reconstruction["standard_errors"]
+        published = record["eos"]["parameters"]
+        comparisons = []
+        for name, fitted_name, error_name in (
+            ("V0", "V0_a3_per_formula_unit", "V0_a3_per_formula_unit"),
+            ("K0", "K0S_gpa", "K0S_gpa"),
+        ):
+            source = float(published[name])
+            value = float(fitted[fitted_name])
+            comparisons.append(
+                {
+                    "parameter": name,
+                    "published": source,
+                    "published_error": None,
+                    "refit": value,
+                    "refit_error": float(fitted_errors[error_name]),
+                    "difference": value - source,
+                    "relative_difference": abs(value - source) / abs(source),
+                    "within_combined_2sigma": None,
+                    "similar": _similar(name, source, value),
+                }
+            )
+        if not all(item["similar"] for item in comparisons):
+            raise AssertionError(
+                "Akins bounded reconstruction lost numerical similarity"
+            )
+        return {
+            "status": "similar",
+            "dataset_identifiers": [dataset["identifier"]],
+            "observations": audit["observations"],
+            "selection": (
+                "Mosenfelder et al. (2009) Table 2 rows credited to Akins et al. "
+                "(2004), with enstatite starting material and phase_state=melt"
+            ),
+            "observed_pressure_range_gpa": [174.0, 204.3],
+            "observed_density_range_g_cm3": [5.68, 5.79],
+            "fit_kind": "mie_gruneisen_hugoniot_bounded_reconstruction",
+            "objective": "unweighted theoretical-minus-reduced Hugoniot pressure residuals",
+            "absolute_sigma": False,
+            "free_parameters": ["V0", "K0"],
+            "reconstruction_fixed_parameters": [
+                "K0_prime",
+                "gamma0",
+                "q",
+                "transition_energy",
+            ],
+            "parameters": comparisons,
+            "rmse_gpa": reconstruction["pressure_rmse_gpa"],
+            "degrees_of_freedom": reconstruction["degrees_of_freedom"],
+            "parameter_correlation": reconstruction["parameter_correlation"],
+            "jacobian_condition_number": reconstruction["jacobian_condition_number"],
+            "solver_success": reconstruction["solver_success"],
+            "solver_message": reconstruction["solver_message"],
+            "qualification": (
+                "This is numerical similarity for a source-equation validation, "
+                "not strict fit parity. Pressure and shock density are impedance-"
+                "match reductions rather than independent direct BM3 observations. "
+                "With three states, two refined coefficients, one residual degree "
+                "of freedom, and near-perfect rho0-K0S correlation, K0S-prime and "
+                "the thermal terms are not identifiable. The published candidate "
+                "therefore remains unchanged and explicitly qualified."
+            ),
+        }
+    if record_id in COMBINED_FIT_DATASET_RECORDS:
+        dataset, dataset_identifiers = _combined_fit_dataset(document, record)
+    if record_id == "mgo_li_2006_bm3_absolute_acoustic":
+        return _fit_li_2006_acoustic(record, dataset)
+    if record["eos"]["type"] == "LinearUsUpHugoniot":
+        selection = record.get("fit_provenance", {}).get("selection", {})
+        particle_column = selection.get("particle_velocity_column")
+        shock_column = selection.get("shock_velocity_column")
+        if not particle_column or not shock_column:
+            return {
+                "status": "not_refittable",
+                "dataset_identifiers": dataset_identifiers,
+                "reason": (
+                    "The published relation has no redistributable row-level "
+                    "dataset and explicit Us-up column selection."
+                ),
+            }
+        rows = _load_rows(dataset)
+        particle = np.asarray([_number(row.get(particle_column)) for row in rows])
+        shock = np.asarray([_number(row.get(shock_column)) for row in rows])
+        selected = np.isfinite(particle) & np.isfinite(shock)
+        flag_column = selection.get("flag_column")
+        if flag_column:
+            expected_flag = str(selection.get("flag_value", 1))
+            selected &= np.asarray(
+                [str(row.get(flag_column, "")) == expected_flag for row in rows]
+            )
+        shock_sigma_column = selection.get("shock_velocity_sigma_column")
+        particle_sigma_column = selection.get("particle_velocity_sigma_column")
+        shock_sigma = None
+        particle_sigma = None
+        if shock_sigma_column:
+            shock_sigma_all = np.asarray(
+                [_number(row.get(shock_sigma_column)) for row in rows]
+            )
+            shock_sigma = shock_sigma_all[selected]
+            if not np.all(np.isfinite(shock_sigma) & (shock_sigma > 0.0)):
+                raise ValueError("selected Hugoniot rows require positive Us errors")
+        if particle_sigma_column:
+            particle_sigma_all = np.asarray(
+                [_number(row.get(particle_sigma_column)) for row in rows]
+            )
+            particle_sigma = particle_sigma_all[selected]
+            if not np.all(np.isfinite(particle_sigma) & (particle_sigma > 0.0)):
+                raise ValueError("selected Hugoniot rows require positive up errors")
+        particle = particle[selected]
+        shock = shock[selected]
+        parameters = record["eos"]["parameters"]
+        absolute_sigma = shock_sigma is not None or particle_sigma is not None
+        result = fit_linear_us_up(
+            particle_velocity=particle,
+            shock_velocity=shock,
+            V0=float(parameters["V0"]),
+            rho0=float(parameters["rho0"]),
+            P0=float(parameters["P0"]),
+            shock_velocity_sigma=shock_sigma,
+            particle_velocity_sigma=particle_sigma,
+            absolute_sigma=absolute_sigma,
+        )
+        status, comparisons = _compare(record, result, False, 1.0)
+        residuals = np.asarray(result.residuals, dtype=float)
+        return {
+            "status": status,
+            "dataset_identifiers": dataset_identifiers,
+            "observations": int(particle.size),
+            "selection": (
+                f"finite {particle_column} and {shock_column}; "
+                + (
+                    f"{flag_column}={selection.get('flag_value', 1)}; "
+                    if flag_column
+                    else ""
+                )
+                + f"{int(particle.size)} rows"
+            ),
+            "observed_particle_velocity_range_km_s": [
+                float(np.min(particle)),
+                float(np.max(particle)),
+            ],
+            "observed_shock_velocity_range_km_s": [
+                float(np.min(shock)),
+                float(np.max(shock)),
+            ],
+            "columns": {
+                "particle_velocity": particle_column,
+                "shock_velocity": shock_column,
+                **(
+                    {"particle_velocity_sigma": particle_sigma_column}
+                    if particle_sigma_column
+                    else {}
+                ),
+                **(
+                    {"shock_velocity_sigma": shock_sigma_column}
+                    if shock_sigma_column
+                    else {}
+                ),
+            },
+            "fit_kind": "linear_us_up_hugoniot",
+            "objective": (
+                "errors_in_variables_velocity_residuals"
+                if particle_sigma is not None
+                else "shock_velocity_residuals"
+            ),
+            "absolute_sigma": absolute_sigma,
+            "free_parameters": list(result.free_parameters),
+            "parameters": comparisons,
+            "rmse_shock_velocity_km_s": float(np.sqrt(np.mean(residuals**2))),
+            "reduced_chi_square": float(result.reduced_chi_square),
+            "degrees_of_freedom": int(result.degrees_of_freedom),
+            "solver_success": bool(result.success),
+            "solver_message": str(result.message),
+        }
+    if record_id in INDIRECT_DATA:
+        if record_id == "gold_anderson_1989_bm3_1":
+            dataset_identifiers = list(
+                record["scientific_validation"]["primary_data_check"].get(
+                    "dataset_identifiers", dataset_identifiers
+                )
+            )
+
+        indirect_identifiers = dataset_identifiers
+        if record_id == "platinum_dorogokupets_oganov_2007_vinet_4":
+            indirect_identifiers = list(
+                record["scientific_validation"]["primary_data_check"][
+                    "dataset_identifiers"
+                ]
+            )
+        return {
+            "status": "not_refittable",
+            "reason": INDIRECT_DATA[record_id],
+            "dataset_identifiers": indirect_identifiers,
+        }
+    if dataset["identifier"] == SHEN_PREFIX:
+        return _shen_smith_outcome(document, record, dataset)
+
+    gleason_epsilon_original = None
+    chidester_high_temperature = None
+    ice_vi_all_rows = None
+    source_protocol_unweighted = False
+    if record_id == "feo_b8_2_fischer_2011_bm3_1":
+        datasets = {item["identifier"]: item for item in document["datasets"]}
+        current_study = _series(
+            document, record, datasets["feo_fischer_2011_table_s1_pvt"]
+        )
+        ozawa_dataset = datasets["feo_ozawa_2010_table2_pvt"]
+        ozawa_all = _series(document, record, ozawa_dataset)
+        ozawa_rows = _load_rows(ozawa_dataset)
+        ozawa = _masked_series(
+            ozawa_all,
+            np.asarray([row["phase"] == "B8" for row in ozawa_rows]),
+            "all eight B8 rows in Ozawa printed Table 2",
+        )
+        assert current_study.temperature is not None
+        assert ozawa.temperature is not None
+        dataset_identifiers = [
+            "feo_fischer_2011_table_s1_pvt",
+            "feo_ozawa_2010_table2_pvt",
+        ]
+        series = Series(
+            dataset_id="+".join(dataset_identifiers),
+            pressure=np.concatenate((current_study.pressure, ozawa.pressure)),
+            volume=np.concatenate((current_study.volume, ozawa.volume)),
+            temperature=np.concatenate((current_study.temperature, ozawa.temperature)),
+            pressure_sigma=None,
+            volume_sigma=None,
+            temperature_sigma=None,
+            pressure_column="pressure_gpa + pressure_gpa",
+            volume_column=(
+                "b8_feo_molar_volume_cm3_mol + feo_volume_a3_per_formula_unit"
+            ),
+            temperature_column="temperature_k + temperature_k",
+            selection=(
+                "21 numerical Fischer Table S1 B8 volumes plus all eight B8 "
+                "rows in Ozawa printed Table 2"
+            ),
+        )
+        # Fischer does not publish numerical regression weights. The complete
+        # unweighted 29-row fit recovers every free coefficient within the
+        # source-reported uncertainty and avoids inventing missing Ozawa
+        # temperature errors or a statistic for its parenthesized errors.
+        source_protocol_unweighted = True
+    elif record_id == "kcl_b2_chidester_2021_bm3_5":
+        datasets = {item["identifier"]: item for item in document["datasets"]}
+        room_temperature = _series(
+            document, record, datasets["kcl_dewaele_2012_table1_compression"]
+        )
+        chidester_high_temperature = _series(
+            document, record, datasets["kcl_chidester_2021_supplemental_pvt"]
+        )
+        assert chidester_high_temperature.temperature is not None
+        reference_temperature = float(record["thermal"]["parameters"]["Tr"])
+        dataset_identifiers = [
+            "kcl_dewaele_2012_table1_compression",
+            "kcl_chidester_2021_supplemental_pvt",
+        ]
+        series = Series(
+            dataset_id="+".join(dataset_identifiers),
+            pressure=np.concatenate(
+                (room_temperature.pressure, chidester_high_temperature.pressure)
+            ),
+            volume=np.concatenate(
+                (room_temperature.volume, chidester_high_temperature.volume)
+            ),
+            temperature=np.concatenate(
+                (
+                    np.full(room_temperature.pressure.shape, reference_temperature),
+                    chidester_high_temperature.temperature,
+                )
+            ),
+            # The paper reports an ordinary simultaneous fit and a pressure RMSE,
+            # not an effective-variance objective. Its 300 K source rows also lack
+            # row-wise sigmas, so the scientifically equivalent fit is unweighted.
+            pressure_sigma=None,
+            volume_sigma=None,
+            temperature_sigma=None,
+            pressure_column="pressure_gpa + pt_derived_pressure_gpa",
+            volume_column=("volume_a3_per_formula_unit + kcl_molar_volume_cm3_mol"),
+            temperature_column="300 K assigned + kcl_temperature_k",
+            selection=(
+                "all 123 Dewaele 300 K rows and all 155 Chidester high-temperature rows"
+            ),
+        )
+        source_protocol_unweighted = True
+    else:
+        series = _series(document, record, dataset)
+    if record_id in SOURCE_PROTOCOL_UNWEIGHTED_RECORDS:
+        series.pressure_sigma = None
+        series.volume_sigma = None
+        series.temperature_sigma = None
+        source_protocol_unweighted = True
+
+    source_objective = record.get("fit_provenance", {}).get("objective")
+    if record["reference"].get("doi") == "10.1002/2013JB010898":
+        # No numerical regression weights are published. Preserve all raw errors
+        # in the datasets, but do not mistake them for the authors' objective.
+        series.pressure_sigma = None
+        series.volume_sigma = None
+        series.temperature_sigma = None
+        source_protocol_unweighted = True
+    if source_objective == "unweighted_pressure_residuals":
+        series.pressure_sigma = None
+        series.volume_sigma = None
+        source_protocol_unweighted = True
+    if dataset["identifier"] in UNWEIGHTED_DATASETS:
+        series.pressure_sigma = None
+        series.volume_sigma = None
+    if record_id == "naalsi2o6_zhao_1997_bm3_1":
+        series.pressure_sigma = None
+        series.volume_sigma = None
+        series.temperature_sigma = None
+        series.selection = (
+            "all 31 source-selected hydrostatic Table 1 rows; nonhydrostatic "
+            "cold-compression observations were excluded by the authors before tabulation"
+        )
+        source_protocol_unweighted = True
+    if dataset["identifier"] in {
+        "iron_zhang_2025_tables_s1_s3_s4_pvt",
+        "mgal2o4_cafe2o4_irifune_2002_text_pv",
+        "mgal2o4_cafe2o4_sueda_2009_table1_pvt",
+    }:
+        source_protocol_unweighted = True
+    material = Material.from_eosmat(document, record_identifiers=[record_id])
+    executable = material.eos_records[0].eos
+    thermal = isinstance(executable, ThermalEOS)
+    static_initial, static_fixed = _static_parameters(record)
+
+    if record_id == "iridium_anzellini_2025_bm3_1":
+        assert thermal
+        return _fit_iridium_anzellini_2025(
+            document,
+            record,
+            series,
+            executable,
+            material.eos_records[0].volume_scale,
+        )
+
+    if record["reference"].get("doi") == "10.1029/2007GL030712":
+        # Independent validation choices, not Fei's unpublished weights/mask.
+        # Literal zero/missing lattice errors cannot define statistical weights.
+        source_protocol_unweighted = True
+        series.pressure_sigma = None
+        series.volume_sigma = None
+        if record["spin_path_context"]["spin"] == "high-spin":
+            static_fixed["V0"] = static_initial.pop("V0")
+
+    if record_id.startswith("b4c_somayazulu_2023_"):
+        assert series.temperature is not None
+        heated = series.temperature > 300.0
+        series = _masked_series(series, heated, "41 heated rows")
+
+    if record_id == "mgo_dewaele_2000_bm3_mgd_5":
+        assert series.temperature is not None
+        heated = series.temperature > 300.0
+        series = _masked_series(series, heated, "41 heated Table 2 rows")
+
+    if record_id == "ice_vi_bezacier_2014_bm2_1":
+        assert series.temperature is not None
+        # Figure 2 identifies the ice-VI P-V data as the 300 K and 340 K
+        # isotherms. Table I also prints 15 points measured while pressure and
+        # temperature were ramped together; including that transition path is
+        # what produced the earlier, irreproducibly small alpha0.
+        ice_vi_all_rows = series
+        endpoint_isotherms = (np.abs(series.temperature - 300.0) <= 1.5) | (
+            np.abs(series.temperature - 340.0) <= 1.0
+        )
+        series = _masked_series(
+            series,
+            endpoint_isotherms,
+            "23 rows at 298.7-300.7 K and seven rows at 340.0-340.7 K",
+        )
+
+    if record_id == "kcl_walker_2002_bm3_2":
+        return _fit_walker_staged(
+            record,
+            series,
+            executable,
+            material.eos_records[0].volume_scale,
+            material.eos_records[0].reference_temperature,
+        )
+
+    if record_id == "aragonite_martinez_1996_bm2_2":
+        outcome = _fit_aragonite_staged(record, series)
+        outcome["published_rmse_gpa"] = _published_rmse(
+            executable,
+            material.eos_records[0].volume_scale,
+            series,
+            material.eos_records[0].reference_temperature,
+        )
+        return outcome
+
+    if record_id == "e_feooh_gleason_2008_bm2_1":
+        assert not thermal and series.temperature is not None
+        gleason_epsilon_original = series
+        correction = record["fit_protocol"]["temperature_handling"]
+        reference_temperature = float(correction["reference_temperature_k"])
+        alpha0 = float(correction["alpha0_per_k"])
+        corrected_volume = series.volume * np.exp(
+            -alpha0 * (series.temperature - reference_temperature)
+        )
+        # Gleason et al. explicitly pooled all epsilon-phase measurements after
+        # finding no resolvable isotherm-to-isotherm trend. The epsilon paragraph
+        # does not print its reduction formula, but the paper's own alpha0 maps
+        # the 49 hot volumes to a fixed-V0 BM2 result of 158.099 GPa. Preserve
+        # that recovered fit-time operation without turning the published BM2
+        # record into a general thermal EOS or pretending the rows were at 300 K.
+        series = Series(
+            dataset_id=series.dataset_id,
+            pressure=series.pressure,
+            volume=corrected_volume,
+            temperature=None,
+            pressure_sigma=None,
+            volume_sigma=None,
+            temperature_sigma=None,
+            pressure_column=series.pressure_column,
+            volume_column=f"{series.volume_column} reduced to 300 K",
+            temperature_column=series.temperature_column,
+            selection=(
+                "all 49 deposited P21mn epsilon-FeOOH rows; no exclusions; "
+                "fit-time volume reduction to 300 K"
+            ),
+        )
+        source_protocol_unweighted = True
+
+    # A non-thermal record linked to a P-V-T table represents its reference
+    # isotherm; use the rows at the published reference temperature only.
+    if not thermal and series.temperature is not None:
+        delta = np.abs(
+            series.temperature - float(material.eos_records[0].reference_temperature)
+        )
+        minimum = float(np.min(delta))
+        mask = delta <= max(5.0, minimum + 1.0e-9)
+        series = _masked_series(series, mask, f"{series.selection}; reference-T rows")
+        if series.pressure.size <= len(static_initial):
+            return {
+                "status": "not_refittable",
+                "dataset_identifiers": dataset_identifiers,
+                "reason": (
+                    f"Only {series.pressure.size} observation(s) lie at the "
+                    f"reference temperature for {len(static_initial)} free "
+                    "isothermal coefficients; the other rows require a thermal "
+                    "relation that this record does not represent."
+                ),
+            }
+
+    published_rmse = _published_rmse(
+        executable,
+        material.eos_records[0].volume_scale,
+        series,
+        material.eos_records[0].reference_temperature,
+    )
+
+    eighth_power_objective = record.get("fit_provenance", {}).get("objective") == (
+        "sum((P_model_gpa - P_table_gpa)^8)"
+    )
+    weighted_volume_objective = (
+        record.get("fit_provenance", {}).get("objective") == "weighted_volume_residuals"
+    )
+    if eighth_power_objective:
+        if thermal or set(static_initial) != {"K0", "K0_prime"}:
+            raise ValueError(
+                "eighth-power pressure refit requires isothermal K0/K0_prime"
+            )
+        eos_class = MODEL_CLASSES[record["eos"]["type"]]
+        names = ("K0", "K0_prime")
+
+        def objective(parameters: np.ndarray) -> float:
+            values = {**static_fixed, **dict(zip(names, parameters))}
+            residual = np.asarray(eos_class(**values).pressure(series.volume)) - (
+                series.pressure
+            )
+            return float(np.sum(residual**8))
+
+        start = np.asarray([static_initial[name] for name in names])
+        starts = (start, start * (0.75, 0.8), start * (1.25, 1.2))
+        bounds = [_bounds(name, static_initial[name]) for name in names]
+        candidates = [
+            minimize(
+                objective,
+                candidate,
+                method="Nelder-Mead",
+                bounds=bounds,
+                options={
+                    "maxiter": 100_000,
+                    "xatol": 1.0e-13,
+                    "fatol": 1.0e-20,
+                },
+            )
+            for candidate in starts
+        ]
+        optimum = min(candidates, key=lambda candidate: float(candidate.fun))
+        values = {**static_fixed, **dict(zip(names, optimum.x))}
+        residuals = np.asarray(eos_class(**values).pressure(series.volume)) - (
+            series.pressure
+        )
+        result = SimpleNamespace(
+            free_parameters=names,
+            parameters=values,
+            standard_errors={name: math.nan for name in names},
+            residuals=residuals,
+            reduced_chi_square=math.nan,
+            degrees_of_freedom=series.pressure.size - len(names),
+            success=optimum.success,
+            message=optimum.message,
+        )
+    elif weighted_volume_objective:
+        if thermal or series.volume_sigma is None:
+            raise ValueError("weighted volume refit requires volume uncertainties")
+        eos_class = MODEL_CLASSES[record["eos"]["type"]]
+        names = tuple(static_initial)
+
+        def volume_residuals(parameters: np.ndarray) -> np.ndarray:
+            values = {**static_fixed, **dict(zip(names, parameters))}
+            predicted = np.asarray(eos_class(**values).volume(series.pressure))
+            return (predicted - series.volume) / series.volume_sigma
+
+        start = np.asarray([static_initial[name] for name in names])
+        lower, upper = zip(*(_bounds(name, static_initial[name]) for name in names))
+        optimization = least_squares(
+            volume_residuals,
+            start,
+            bounds=(lower, upper),
+            max_nfev=5000,
+        )
+        values = {**static_fixed, **dict(zip(names, optimization.x))}
+        degrees_of_freedom = series.pressure.size - len(names)
+        covariance = np.linalg.pinv(optimization.jac.T @ optimization.jac)
+        errors = np.sqrt(np.diag(covariance))
+        residuals = np.asarray(eos_class(**values).pressure(series.volume)) - (
+            series.pressure
+        )
+        result = SimpleNamespace(
+            free_parameters=names,
+            parameters=values,
+            standard_errors=dict(zip(names, errors)),
+            residuals=residuals,
+            reduced_chi_square=(
+                float(np.sum(optimization.fun**2) / degrees_of_freedom)
+            ),
+            degrees_of_freedom=degrees_of_freedom,
+            success=optimization.success,
+            message=optimization.message,
+        )
+    elif thermal:
+        rt_eos = executable.rt_eos
+        rt_class = type(rt_eos)
+        thermal_initial, thermal_fixed = _thermal_parameters(record)
+        if series.temperature is None:
+            # A room-temperature P-V series has no information about thermal
+            # coefficients. Preserve them while refitting only the reference EOS.
+            thermal_fixed.update(thermal_initial)
+            thermal_initial = {}
+        initial = {f"rt_eos.{key}": value for key, value in static_initial.items()}
+        initial.update(thermal_initial)
+        fixed = {f"rt_eos.{key}": value for key, value in static_fixed.items()}
+        fixed.update(thermal_fixed)
+        volume_scale = material.eos_records[0].volume_scale
+        if "rt_eos.V0" in initial:
+            initial["rt_eos.V0"] *= volume_scale
+        if "rt_eos.V0" in fixed:
+            fixed["rt_eos.V0"] *= volume_scale
+        if not initial:
+            raise ValueError("record has no free parameters")
+        if record_id == "naalsi2o6_zhao_1997_bm3_1":
+            assert series.temperature is not None
+            result = _fit_zhao_1997_thermal_result(
+                record, series, executable, material.eos_records[0].volume_scale
+            )
+        else:
+            result = fit_joint_eos(
+                type(executable),
+                rt_class,
+                volume=series.volume * material.eos_records[0].volume_scale,
+                temperature=(
+                    series.temperature
+                    if series.temperature is not None
+                    else np.full(
+                        series.pressure.shape,
+                        material.eos_records[0].reference_temperature,
+                    )
+                ),
+                pressure=series.pressure,
+                initial=initial,
+                fixed=fixed,
+                configuration=_configuration(record),
+                bounds={name: _bounds(name, value) for name, value in initial.items()},
+                pressure_sigma=series.pressure_sigma,
+                volume_sigma=(
+                    None
+                    if series.volume_sigma is None
+                    else series.volume_sigma * material.eos_records[0].volume_scale
+                ),
+                temperature_sigma=series.temperature_sigma,
+                absolute_sigma=not source_protocol_unweighted,
+                max_nfev=5000,
+            )
+    else:
+        eos_class = MODEL_CLASSES[record["eos"]["type"]]
+        if not static_initial:
+            raise ValueError("record has no free parameters")
+        result = fit_rt_eos(
+            eos_class,
+            volume=series.volume,
+            pressure=series.pressure,
+            initial=static_initial,
+            fixed=static_fixed,
+            bounds={
+                name: _bounds(name, value) for name, value in static_initial.items()
+            },
+            pressure_sigma=series.pressure_sigma,
+            volume_sigma=series.volume_sigma,
+            absolute_sigma=not source_protocol_unweighted,
+            max_nfev=5000,
+        )
+    status, comparisons = _compare(
+        record, result, thermal, material.eos_records[0].volume_scale
+    )
+    if record_id == "feo_b8_2_fischer_2011_bm3_1" and any(
+        not comparison["similar"] for comparison in comparisons
+    ):
+        status = "parity_not_achieved"
+    residuals = np.asarray(result.residuals, dtype=float)
+    if record_id in {
+        "feo_fischer_2011_bm3_2",
+        "feo_b8_2_fischer_2011_bm3_1",
+    }:
+        residuals = (
+            np.asarray(
+                result.model.pressure(
+                    series.volume * material.eos_records[0].volume_scale,
+                    series.temperature,
+                ),
+                dtype=float,
+            )
+            - series.pressure
+        )
+    outcome = {
+        "status": status,
+        "dataset_identifiers": dataset_identifiers,
+        "observations": int(series.pressure.size),
+        "selection": series.selection,
+        "observed_pressure_range_gpa": [
+            float(np.min(series.pressure)),
+            float(np.max(series.pressure)),
+        ],
+        "observed_volume_range": [
+            float(np.min(series.volume)),
+            float(np.max(series.volume)),
+        ],
+        "observed_temperature_range_k": (
+            None
+            if series.temperature is None
+            else [
+                float(np.min(series.temperature)),
+                float(np.max(series.temperature)),
+            ]
+        ),
+        "columns": {
+            "pressure": series.pressure_column,
+            "volume": series.volume_column,
+            "temperature": series.temperature_column,
+        },
+        "fit_kind": (
+            "reference_isotherm_pv"
+            if thermal and series.temperature is None
+            else "joint_pvt"
+            if thermal
+            else "isothermal_pv"
+        ),
+        "objective": (
+            "eighth_power_pressure_residuals"
+            if eighth_power_objective
+            else "weighted_volume_residuals"
+            if weighted_volume_objective
+            else "errors_in_variables"
+            if series.volume_sigma is not None
+            else "pressure_residuals"
+        ),
+        "absolute_sigma": not source_protocol_unweighted,
+        "free_parameters": list(result.free_parameters),
+        "parameters": comparisons,
+        "published_rmse_gpa": published_rmse,
+        "rmse_gpa": float(np.sqrt(np.mean(residuals**2))),
+        "reduced_chi_square": (
+            float(result.reduced_chi_square)
+            if np.isfinite(result.reduced_chi_square)
+            else None
+        ),
+        "degrees_of_freedom": int(result.degrees_of_freedom),
+        "solver_success": bool(result.success),
+        "solver_message": str(result.message),
+    }
+    if record["reference"].get("doi") == "10.1029/2007GL030712":
+        outcome["fit_kind"] = "independent_validation_refit"
+        outcome["validation_fixed_parameters"] = static_fixed
+        outcome["qualification"] = (
+            "Independent unweighted pressure-residual validation, not Fei's "
+            "published regression or a new source-owned EOS. K0-prime is fixed "
+            "at 4; HS V0 is held at the reported reference value as a validation "
+            "choice. LS V0 and K0 are fitted. Exact source weights and row masks "
+            "are unavailable. Printed zero/missing errors are not exact weights. "
+            "Compression and decompression remain separate. Published coefficients "
+            "are retained even where this validation disagrees."
+        )
+        if record.get("record_kind") == "refit":
+            outcome["fit_kind"] = "stored_refit_reproduction"
+            outcome["qualification"] = (
+                "Numerical reproduction of the stored Peritheos refit of Fei's "
+                "Table S1: all 19 compression rows in the approximate 40-95 GPa "
+                "interval (actual 40.95-95.48 GPa), unweighted pressure residuals, "
+                "V0 and K0 free, K0-prime=4 fixed. Comparison is against the "
+                "stored refit coefficients, not Fei's published coefficients. "
+                "Parity means reproducibility of this fit; it is not independent "
+                "predictive validation or reproduction of Fei's regression. "
+                "Formal errors exclude pressure-scale systematics."
+            )
+    if record_id == "feo_fischer_2011_bm3_2":
+        outcome["uncertainty_treatment"] = (
+            "The auditable errors-in-variables diagnostic uses the published "
+            "pressure, B1-volume, and temperature uncertainties. Fischer et al. "
+            "do not state whether or how those uncertainties entered their "
+            "least-squares objective."
+        )
+    elif record_id == "feo_b8_2_fischer_2011_bm3_1":
+        outcome["uncertainty_treatment"] = (
+            "The combined reproduction is unweighted because Fischer et al. do not "
+            "state their regression weights and Ozawa Table 2 does not provide a "
+            "complete set of row-wise pressure, volume, and temperature uncertainties. "
+            "All reported temperatures and central P-V values are retained."
+        )
+    if gleason_epsilon_original is not None:
+        original = gleason_epsilon_original
+        raw_fit = fit_rt_eos(
+            type(executable),
+            volume=original.volume,
+            pressure=original.pressure,
+            initial=static_initial,
+            fixed=static_fixed,
+            bounds={
+                name: _bounds(name, value) for name, value in static_initial.items()
+            },
+            absolute_sigma=False,
+            max_nfev=5000,
+        )
+        raw_residual = np.asarray(raw_fit.residuals, dtype=float)
+        raw_published_residual = (
+            np.asarray(executable.pressure(original.volume), dtype=float)
+            - original.pressure
+        )
+        reference_volume = float(record["eos"]["parameters"]["V0"])
+        effective_strain = 0.5 * (
+            (reference_volume / original.volume) ** (2.0 / 3.0) - 1.0
+        )
+        normalized_stress = original.pressure / (
+            3.0 * (1.0 + 2.0 * effective_strain) ** 2.5
+        )
+        slope, intercept = np.polyfit(effective_strain, normalized_stress, 1)
+        zero_stress_strain = -intercept / slope
+        g_vs_g_v0 = reference_volume / (1.0 + 2.0 * zero_stress_strain) ** 1.5
+        outcome.update(
+            {
+                "selection": (
+                    "all 49 deposited P21mn epsilon-FeOOH rows; no exclusions; "
+                    "volumes reduced from their measured 473.15-673.15 K states "
+                    "to 300 K before fitting"
+                ),
+                "observed_volume_range": [
+                    float(np.min(original.volume)),
+                    float(np.max(original.volume)),
+                ],
+                "observed_temperature_range_k": [
+                    float(np.min(original.temperature)),
+                    float(np.max(original.temperature)),
+                ],
+                "fit_kind": "source_pooled_multitemperature_pv_reduced_to_300k",
+                "objective": "unweighted_pressure_residuals_after_volume_reduction",
+                "absolute_sigma": False,
+                "temperature_reduction": {
+                    "status": "numerically_recovered_not_explicitly_printed",
+                    "reference_temperature_k": reference_temperature,
+                    "alpha0_fixed_per_k": alpha0,
+                    "law": "V_ref = V_T * exp[-alpha0 * (T - Tr)]",
+                    "hot_rows_misclassified_as_reference_temperature": 0,
+                },
+                "raw_hot_volume_control": {
+                    "purpose": (
+                        "Falsifies the former reference-temperature-row treatment; "
+                        "these values are not the source-faithful refit."
+                    ),
+                    "K0_refit_gpa": float(raw_fit.parameters["K0"]),
+                    "published_curve_rmse_gpa": float(
+                        np.sqrt(np.mean(raw_published_residual**2))
+                    ),
+                    "refit_rmse_gpa": float(np.sqrt(np.mean(raw_residual**2))),
+                },
+                "g_vs_g_volume_extrapolation": {
+                    "method": (
+                        "Unweighted linear G-versus-g intercept diagnostic on the "
+                        "raw pooled rows, using the published V0 as an arbitrary "
+                        "strain reference."
+                    ),
+                    "V0_refit_a3": float(g_vs_g_v0),
+                    "published_V0_a3": reference_volume,
+                },
+            }
+        )
+
+    if ice_vi_all_rows is not None:
+        all_rows_fit = fit_joint_eos(
+            type(executable),
+            rt_class,
+            volume=(ice_vi_all_rows.volume * material.eos_records[0].volume_scale),
+            temperature=ice_vi_all_rows.temperature,
+            pressure=ice_vi_all_rows.pressure,
+            initial=initial,
+            fixed=fixed,
+            configuration=_configuration(record),
+            bounds={name: _bounds(name, value) for name, value in initial.items()},
+            pressure_sigma=ice_vi_all_rows.pressure_sigma,
+            volume_sigma=(
+                None
+                if ice_vi_all_rows.volume_sigma is None
+                else ice_vi_all_rows.volume_sigma * material.eos_records[0].volume_scale
+            ),
+            temperature_sigma=ice_vi_all_rows.temperature_sigma,
+            absolute_sigma=True,
+            max_nfev=5000,
+        )
+        all_rows_parameters = {
+            name: float(value) for name, value in all_rows_fit.parameters.items()
+        }
+        all_rows_parameters["rt_eos.V0"] /= material.eos_records[0].volume_scale
+        outcome["all_table_rows_diagnostic"] = {
+            "purpose": (
+                "Shows the fit-scope failure caused by treating the intermediate "
+                "pressure-temperature ramp as additional isotherm data."
+            ),
+            "observations": int(ice_vi_all_rows.pressure.size),
+            "parameters": all_rows_parameters,
+            "published_rmse_gpa": _published_rmse(
+                executable,
+                material.eos_records[0].volume_scale,
+                ice_vi_all_rows,
+                material.eos_records[0].reference_temperature,
+            ),
+            "refit_rmse_gpa": float(
+                np.sqrt(np.mean(np.asarray(all_rows_fit.residuals, dtype=float) ** 2))
+            ),
+        }
+    if record_id == "goethite_gleason_2008_bm3_1":
+        assert thermal and series.temperature is not None
+        anomaly = (
+            np.isclose(series.pressure, 6.66)
+            & np.isclose(series.temperature, 373.15)
+            & np.isclose(series.volume, 122.80)
+        )
+        if int(np.count_nonzero(anomaly)) != 1:
+            raise ValueError("expected exactly one Gleason depository-row-32 anomaly")
+        clean = _masked_series(
+            series,
+            ~anomaly,
+            "all P-V-T rows except verbatim depository row 32",
+        )
+
+        def goethite_fit(selected: Series, *, use_uncertainties: bool):
+            return fit_joint_eos(
+                type(executable),
+                rt_class,
+                volume=selected.volume * volume_scale,
+                temperature=selected.temperature,
+                pressure=selected.pressure,
+                initial=initial,
+                fixed=fixed,
+                configuration=_configuration(record),
+                bounds={name: _bounds(name, value) for name, value in initial.items()},
+                pressure_sigma=(selected.pressure_sigma if use_uncertainties else None),
+                volume_sigma=(
+                    None
+                    if not use_uncertainties or selected.volume_sigma is None
+                    else selected.volume_sigma * volume_scale
+                ),
+                temperature_sigma=(
+                    selected.temperature_sigma if use_uncertainties else None
+                ),
+                absolute_sigma=use_uncertainties,
+                max_nfev=5000,
+            )
+
+        clean_eiv = goethite_fit(clean, use_uncertainties=True)
+        all_unweighted = goethite_fit(series, use_uncertainties=False)
+        clean_unweighted = goethite_fit(clean, use_uncertainties=False)
+
+        def public_parameters(fit: Any) -> dict[str, float]:
+            values = {
+                name: float(fit.parameters[name])
+                for name in ("rt_eos.V0", "rt_eos.K0", "rt_eos.K0_prime")
+            }
+            values["rt_eos.V0"] /= volume_scale
+            return values
+
+        published_pressure = np.asarray(
+            executable.pressure(series.volume * volume_scale, series.temperature),
+            dtype=float,
+        )
+        published_residual = published_pressure - series.pressure
+        anomaly_index = int(np.flatnonzero(anomaly)[0])
+        outcome["source_table_anomaly_diagnostic"] = {
+            "depository_row": 32,
+            "reported_state": {
+                "pressure_gpa": float(series.pressure[anomaly_index]),
+                "temperature_k": float(series.temperature[anomaly_index]),
+                "volume_a3": float(series.volume[anomaly_index]),
+            },
+            "published_model_pressure_gpa": float(published_pressure[anomaly_index]),
+            "published_model_volume_a3": float(
+                executable.volume(
+                    series.pressure[anomaly_index],
+                    series.temperature[anomaly_index],
+                )
+                / volume_scale
+            ),
+            "published_model_pressure_residual_gpa": float(
+                published_residual[anomaly_index]
+            ),
+            "published_curve_rmse_gpa": {
+                "all_65_rows": float(np.sqrt(np.mean(published_residual**2))),
+                "excluding_row_32": float(
+                    np.sqrt(np.mean(published_residual[~anomaly] ** 2))
+                ),
+            },
+            "refit_sensitivity": {
+                "errors_in_variables_all_65": public_parameters(result),
+                "errors_in_variables_excluding_row_32": public_parameters(clean_eiv),
+                "unweighted_pressure_all_65": public_parameters(all_unweighted),
+                "unweighted_pressure_excluding_row_32": public_parameters(
+                    clean_unweighted
+                ),
+            },
+        }
+    if record_id in FIT_QUALIFICATIONS:
+        outcome["qualification"] = FIT_QUALIFICATIONS[record_id]
+    if record_id in QUALIFIED_STATUS_OVERRIDES:
+        outcome["automatic_status"] = outcome["status"]
+        outcome["status"] = QUALIFIED_STATUS_OVERRIDES[record_id]
+    if record_id == "coo_clendenen_1966_murnaghan_1":
+        free_names = list(result.free_parameters)
+        k0_index = free_names.index("K0")
+        derivative_index = free_names.index("K0_prime")
+        published = record["eos"]["parameters"]
+        conditional_fits = {}
+        for fixed_name, free_name in (
+            ("K0", "K0_prime"),
+            ("K0_prime", "K0"),
+        ):
+            conditional = fit_rt_eos(
+                Murnaghan,
+                volume=series.volume,
+                pressure=series.pressure,
+                initial={free_name: float(published[free_name])},
+                fixed={**static_fixed, fixed_name: float(published[fixed_name])},
+                bounds={free_name: _bounds(free_name, float(published[free_name]))},
+                absolute_sigma=True,
+                max_nfev=5000,
+            )
+            conditional_fits[f"{fixed_name}_fixed"] = {
+                "fixed_value": float(published[fixed_name]),
+                "refit_parameter": free_name,
+                "refit_value": float(conditional.parameters[free_name]),
+                "pressure_rmse_gpa": float(
+                    np.sqrt(np.mean(np.asarray(conditional.residuals) ** 2))
+                ),
+            }
+
+        ratio = np.cbrt(series.volume / float(static_fixed["V0"]))
+        pressure_half_interval_gpa = 0.05
+        ratio_half_interval = 0.0005
+        published_model = Murnaghan(**published)
+        low_pressure = np.asarray(
+            published_model.pressure(
+                float(static_fixed["V0"]) * (ratio + ratio_half_interval) ** 3
+            )
+        )
+        high_pressure = np.asarray(
+            published_model.pressure(
+                float(static_fixed["V0"]) * (ratio - ratio_half_interval) ** 3
+            )
+        )
+        rounding_gaps = np.maximum.reduce(
+            (
+                low_pressure - (series.pressure + pressure_half_interval_gpa),
+                (series.pressure - pressure_half_interval_gpa) - high_pressure,
+                np.zeros_like(series.pressure),
+            )
+        )
+        published_residual_sum_squares = float(published_rmse**2 * series.pressure.size)
+        refit_residual_sum_squares = float(np.sum(residuals**2))
+        outcome["coefficient_tradeoff_diagnostic"] = {
+            "K0_K0_prime_correlation": float(
+                result.correlation[k0_index, derivative_index]
+            ),
+            "conditional_fits": conditional_fits,
+            "rounding_intervals": {
+                "lattice_ratio_half_interval": ratio_half_interval,
+                "pressure_half_interval_kbar": 0.5,
+                "rows_outside_published_curve": int(np.count_nonzero(rounding_gaps)),
+                "minimum_pressure_gaps_kbar": [
+                    float(value * 10.0) for value in rounding_gaps if value > 0.0
+                ],
+            },
+            "published_pair_delta_chi_square": float(
+                (published_residual_sum_squares - refit_residual_sum_squares)
+                / result.reduced_chi_square
+            ),
+            "confidence_region_assumption": (
+                "Homoscedastic Gaussian pressure residuals with variance estimated "
+                "from the unconstrained fit."
+            ),
+        }
+    if record_id == "palladium_baty_2024_bm3_1":
+        published = {
+            name: float(record["eos"]["parameters"][name])
+            for name in ("V0", "K0", "K0_prime")
+        }
+        fixed_v0_fit = fit_rt_eos(
+            BM3,
+            volume=series.volume,
+            pressure=series.pressure,
+            initial={"K0": published["K0"], "K0_prime": published["K0_prime"]},
+            fixed={"V0": published["V0"]},
+            bounds={
+                "K0": _bounds("K0", published["K0"]),
+                "K0_prime": _bounds("K0_prime", published["K0_prime"]),
+            },
+            absolute_sigma=True,
+            max_nfev=5000,
+        )
+        high_pressure = series.pressure >= 40.0
+        high_pressure_fit = fit_rt_eos(
+            BM3,
+            volume=series.volume[high_pressure],
+            pressure=series.pressure[high_pressure],
+            initial={"K0": published["K0"], "K0_prime": published["K0_prime"]},
+            fixed={"V0": published["V0"]},
+            bounds={
+                "K0": _bounds("K0", published["K0"]),
+                "K0_prime": _bounds("K0_prime", published["K0_prime"]),
+            },
+            absolute_sigma=True,
+            max_nfev=5000,
+        )
+
+        parameter_names = ("V0", "K0", "K0_prime")
+        parameter_start = np.asarray([published[name] for name in parameter_names])
+        parameter_bounds = [_bounds(name, published[name]) for name in parameter_names]
+        lower = np.asarray([item[0] for item in parameter_bounds])
+        upper = np.asarray([item[1] for item in parameter_bounds])
+
+        def volume_residual(parameters: np.ndarray) -> np.ndarray:
+            model = BM3(**dict(zip(parameter_names, parameters)))
+            return (
+                np.asarray(model.volume(series.pressure), dtype=float) - series.volume
+            )
+
+        volume_fit = least_squares(
+            volume_residual,
+            parameter_start,
+            bounds=(lower, upper),
+            max_nfev=5000,
+        )
+        volume_model = BM3(**dict(zip(parameter_names, volume_fit.x)))
+        volume_fit_pressure_residual = (
+            np.asarray(volume_model.pressure(series.volume), dtype=float)
+            - series.pressure
+        )
+
+        # Table S1 gives only dataset-wide upper bounds, not row-wise sigmas.
+        # Applying both maxima to every row is deliberately generous and is
+        # reported as a sensitivity test rather than the undocumented source fit.
+        pressure_sigma_upper_gpa = 0.12
+        volume_sigma_upper_a3 = 4.0 * 0.01
+
+        def upper_bound_eiv_residual(values: np.ndarray) -> np.ndarray:
+            parameters = values[:3]
+            latent_volume = values[3:]
+            model = BM3(**dict(zip(parameter_names, parameters)))
+            return np.concatenate(
+                (
+                    (
+                        np.asarray(model.pressure(latent_volume), dtype=float)
+                        - series.pressure
+                    )
+                    / pressure_sigma_upper_gpa,
+                    (latent_volume - series.volume) / volume_sigma_upper_a3,
+                )
+            )
+
+        eiv_fit = least_squares(
+            upper_bound_eiv_residual,
+            np.concatenate((parameter_start, series.volume)),
+            bounds=(
+                np.concatenate((lower, 0.5 * series.volume)),
+                np.concatenate((upper, 1.5 * series.volume)),
+            ),
+            max_nfev=5000,
+        )
+        eiv_model = BM3(**dict(zip(parameter_names, eiv_fit.x[:3])))
+        eiv_pressure_residual = (
+            np.asarray(eiv_model.pressure(series.volume), dtype=float) - series.pressure
+        )
+
+        # Figure 3 overlays the authors' Table S1 points with the room-temperature
+        # Frost et al. (2023) Vinet curve. The caption prints K0 and K0', while
+        # supplementary Table S3 supplies the corresponding atomic V0.
+        frost_parameters = {"V0": 58.678, "K0": 189.3, "K0_prime": 5.473}
+        frost_model = Vinet(**frost_parameters)
+        frost_pressure_residual = (
+            np.asarray(frost_model.pressure(series.volume), dtype=float)
+            - series.pressure
+        )
+        frost_curve_volume = np.asarray(
+            frost_model.volume(series.pressure), dtype=float
+        )
+        observation_minus_frost_atomic_volume = (
+            series.volume - frost_curve_volume
+        ) / 4.0
+        published_model = BM3(**published)
+        published_curve_volume = np.asarray(
+            published_model.volume(series.pressure), dtype=float
+        )
+        published_minus_frost_atomic_volume = (
+            published_curve_volume - frost_curve_volume
+        ) / 4.0
+
+        order = np.argsort(series.pressure)
+        sorted_volume = series.volume[order]
+        volume_increases = np.diff(sorted_volume) > 0.0
+
+        def fit_summary(fit: Any, selected_pressure: np.ndarray) -> dict[str, Any]:
+            fit_residual = np.asarray(fit.residuals, dtype=float)
+            return {
+                "observations": int(selected_pressure.size),
+                "parameters": {
+                    name: float(fit.parameters[name])
+                    for name in ("V0", "K0", "K0_prime")
+                },
+                "pressure_rmse_gpa": float(np.sqrt(np.mean(fit_residual**2))),
+            }
+
+        outcome["fit_protocol_diagnostic"] = {
+            "source_equation": "standard third-order Birch-Murnaghan, Equation (1)",
+            "source_table_rows_verified_against_official_latex": 78,
+            "published_curve": {
+                "parameters": published,
+                "pressure_rmse_gpa": float(published_rmse),
+            },
+            "unweighted_pressure_all_rows": fit_summary(result, series.pressure),
+            "unweighted_volume_all_rows": {
+                "observations": int(series.pressure.size),
+                "parameters": dict(zip(parameter_names, map(float, volume_fit.x))),
+                "volume_rmse_a3_conventional_cell": float(
+                    np.sqrt(np.mean(volume_fit.fun**2))
+                ),
+                "pressure_rmse_gpa": float(
+                    np.sqrt(np.mean(volume_fit_pressure_residual**2))
+                ),
+            },
+            "upper_bound_errors_in_variables_all_rows": {
+                "purpose": (
+                    "Sensitivity test using the maximum stated uncertainty at every "
+                    "row; the source does not provide row-wise sigmas."
+                ),
+                "pressure_sigma_gpa": pressure_sigma_upper_gpa,
+                "volume_sigma_a3_conventional_cell": volume_sigma_upper_a3,
+                "parameters": dict(zip(parameter_names, map(float, eiv_fit.x[:3]))),
+                "pressure_rmse_gpa": float(np.sqrt(np.mean(eiv_pressure_residual**2))),
+                "chi_square": float(np.sum(eiv_fit.fun**2)),
+                "degrees_of_freedom": int(series.pressure.size - 3),
+                "reduced_chi_square": float(
+                    np.sum(eiv_fit.fun**2) / (series.pressure.size - 3)
+                ),
+            },
+            "fixed_published_V0_all_rows": fit_summary(fixed_v0_fit, series.pressure),
+            "fixed_published_V0_pressure_at_least_40_gpa": fit_summary(
+                high_pressure_fit, series.pressure[high_pressure]
+            ),
+            "frost_2023_vinet_cross_check": {
+                "purpose": (
+                    "Reproduce the room-temperature Frost et al. Vinet curve "
+                    "overlaid in Baty et al. Figure 3; individual Frost observations "
+                    "are not plotted there."
+                ),
+                "parameters": frost_parameters,
+                "pressure_residual_curve_minus_observation_mean_gpa": float(
+                    np.mean(frost_pressure_residual)
+                ),
+                "pressure_residual_rmse_gpa": float(
+                    np.sqrt(np.mean(frost_pressure_residual**2))
+                ),
+                "observation_minus_curve_volume_atomic_a3": {
+                    "rows_positive": int(
+                        np.count_nonzero(observation_minus_frost_atomic_volume > 0.0)
+                    ),
+                    "mean": float(np.mean(observation_minus_frost_atomic_volume)),
+                    "rmse": float(
+                        np.sqrt(np.mean(observation_minus_frost_atomic_volume**2))
+                    ),
+                    "maximum": float(np.max(observation_minus_frost_atomic_volume)),
+                },
+                "published_baty_minus_frost_curve_volume_atomic_a3": {
+                    "mean": float(np.mean(published_minus_frost_atomic_volume)),
+                    "minimum": float(np.min(published_minus_frost_atomic_volume)),
+                    "maximum": float(np.max(published_minus_frost_atomic_volume)),
+                },
+            },
+            "table_monotonicity": {
+                "adjacent_volume_increases_after_sorting_by_pressure": int(
+                    np.count_nonzero(volume_increases)
+                ),
+                "largest_increase_a3_conventional_cell": float(
+                    np.max(np.diff(sorted_volume)[volume_increases])
+                ),
+            },
+        }
+    if chidester_high_temperature is not None:
+        high_temperature_refit_pressure = result.model.pressure(
+            chidester_high_temperature.volume * material.eos_records[0].volume_scale,
+            chidester_high_temperature.temperature,
+        )
+        outcome["source_reported_pressure_rmse_gpa"] = 1.6
+        outcome["high_temperature_published_rmse_gpa"] = _published_rmse(
+            executable,
+            material.eos_records[0].volume_scale,
+            chidester_high_temperature,
+            material.eos_records[0].reference_temperature,
+        )
+        outcome["high_temperature_refit_rmse_gpa"] = float(
+            np.sqrt(
+                np.mean(
+                    (
+                        np.asarray(high_temperature_refit_pressure, dtype=float)
+                        - chidester_high_temperature.pressure
+                    )
+                    ** 2
+                )
+            )
+        )
+    return outcome
+
+
+def _published_rmse(
+    executable: Any,
+    volume_scale: float,
+    series: Series,
+    reference_temperature: float,
+) -> float:
+    if isinstance(executable, ThermalEOS):
+        temperature = (
+            series.temperature
+            if series.temperature is not None
+            else np.full(series.pressure.shape, reference_temperature)
+        )
+        pressure = executable.pressure(series.volume * volume_scale, temperature)
+    else:
+        pressure = executable.pressure(series.volume)
+    return float(
+        np.sqrt(np.mean((np.asarray(pressure, dtype=float) - series.pressure) ** 2))
+    )
+
+
+def _fit_aragonite_staged(record: dict[str, Any], series: Series) -> dict[str, Any]:
+    """Reproduce Martinez et al.'s staged BM2-isotherm procedure."""
+    assert series.temperature is not None
+    temperatures = []
+    isotherm_v0 = []
+    isotherm_k0 = []
+    for temperature in sorted(set(series.temperature)):
+        if temperature > 973.0:
+            continue
+        mask = series.temperature == temperature
+        if np.count_nonzero(mask) < 3:
+            continue
+        fit = fit_rt_eos(
+            BM2,
+            volume=series.volume[mask],
+            pressure=series.pressure[mask],
+            initial={"V0": 227.5, "K0": 64.81},
+        )
+        temperatures.append(float(temperature))
+        isotherm_v0.append(fit.parameters["V0"])
+        isotherm_k0.append(fit.parameters["K0"])
+    delta_t = np.asarray(temperatures) - 298.0
+    v_coefficients, v_covariance = np.polyfit(
+        delta_t, np.asarray(isotherm_v0), 1, cov=True
+    )
+    k_coefficients, k_covariance = np.polyfit(
+        delta_t, np.asarray(isotherm_k0), 1, cov=True
+    )
+    v_slope, v0 = map(float, v_coefficients)
+    d_k_dt, k0 = map(float, k_coefficients)
+    alpha0 = v_slope / v0
+    alpha_gradient = np.array([1.0 / v0, -v_slope / v0**2])
+    alpha_error = float(np.sqrt(alpha_gradient @ v_covariance @ alpha_gradient))
+    parameters = {
+        "rt_eos.V0": v0,
+        "rt_eos.K0": k0,
+        "alpha0": alpha0,
+        "dK_dT": d_k_dt,
+    }
+
+    standard_errors = {
+        "rt_eos.V0": float(np.sqrt(v_covariance[1, 1])),
+        "rt_eos.K0": float(np.sqrt(k_covariance[1, 1])),
+        "alpha0": alpha_error,
+        "dK_dT": float(np.sqrt(k_covariance[0, 0])),
+    }
+    synthetic = SimpleNamespace(
+        parameters=parameters,
+        standard_errors=standard_errors,
+        free_parameters=tuple(parameters),
+    )
+    status, comparisons = _compare(record, synthetic, True, 1.0)
+    fitted_model = ThermalReferenceStateEOS(
+        BM2(V0=v0, K0=k0),
+        Tr=298.0,
+        alpha0=alpha0,
+        dK_dT=d_k_dt,
+        thermal_expansion_law="constant",
+        reference_volume_law="linear_temperature",
+    )
+    fitted_pressure = fitted_model.pressure(series.volume, series.temperature)
+    return {
+        "status": status,
+        "dataset_identifiers": [series.dataset_id],
+        "observations": int(series.pressure.size),
+        "selection": "eight staged isotherms from 298 to 973 K",
+        "columns": {
+            "pressure": series.pressure_column,
+            "volume": series.volume_column,
+            "temperature": series.temperature_column,
+        },
+        "fit_kind": "staged_bm2_isotherms",
+        "objective": "unweighted pressure residuals followed by linear regressions",
+        "absolute_sigma": False,
+        "free_parameters": list(parameters),
+        "parameters": comparisons,
+        "rmse_gpa": float(
+            np.sqrt(np.mean((np.asarray(fitted_pressure) - series.pressure) ** 2))
+        ),
+        "reduced_chi_square": None,
+        "solver_success": True,
+        "solver_message": "eight isotherm fits and two linear regressions completed",
+    }
+
+
+def _fit_walker_staged(
+    record: dict[str, Any],
+    series: Series,
+    executable: Any,
+    volume_scale: float,
+    reference_temperature: float,
+) -> dict[str, Any]:
+    """Reproduce the preferred staged Walker et al. B2-KCl fit."""
+    assert series.temperature is not None
+    published = record["eos"]["parameters"]
+    room_temperature = (
+        np.abs(series.temperature - reference_temperature) <= 1.0 + 1.0e-9
+    )
+    room = _masked_series(
+        series,
+        room_temperature,
+        "eight room-temperature rows at 23-24 degC",
+    )
+    static_fit = fit_rt_eos(
+        BM3,
+        volume=room.volume,
+        pressure=room.pressure,
+        initial={
+            "K0": float(published["K0"]),
+            "K0_prime": float(published["K0_prime"]),
+        },
+        fixed={"V0": float(published["V0"])},
+        bounds={"K0": (1.0e-6, 200.0), "K0_prime": (0.0, 20.0)},
+        absolute_sigma=False,
+        max_nfev=5000,
+    )
+    static_parameters = static_fit.parameters
+    thermal_fit = fit_joint_eos(
+        type(executable),
+        type(executable.rt_eos),
+        volume=series.volume * volume_scale,
+        temperature=series.temperature,
+        pressure=series.pressure,
+        initial={"alpha_KT": float(record["thermal"]["parameters"]["alpha_KT"])},
+        fixed={
+            "rt_eos.V0": float(static_parameters["V0"]) * volume_scale,
+            "rt_eos.K0": float(static_parameters["K0"]),
+            "rt_eos.K0_prime": float(static_parameters["K0_prime"]),
+            "Tr": reference_temperature,
+        },
+        configuration=_configuration(record),
+        bounds={"alpha_KT": (-0.1, 0.1)},
+        absolute_sigma=False,
+        max_nfev=5000,
+    )
+    parameters = {
+        "rt_eos.K0": float(static_parameters["K0"]),
+        "rt_eos.K0_prime": float(static_parameters["K0_prime"]),
+        "alpha_KT": float(thermal_fit.parameters["alpha_KT"]),
+    }
+    standard_errors = {
+        "rt_eos.K0": float(static_fit.standard_errors["K0"]),
+        "rt_eos.K0_prime": float(static_fit.standard_errors["K0_prime"]),
+        "alpha_KT": float(thermal_fit.standard_errors["alpha_KT"]),
+    }
+    combined = SimpleNamespace(
+        parameters=parameters,
+        standard_errors=standard_errors,
+        free_parameters=tuple(parameters),
+    )
+    status, comparisons = _compare(record, combined, True, volume_scale)
+
+    simultaneous = fit_joint_eos(
+        type(executable),
+        type(executable.rt_eos),
+        volume=series.volume * volume_scale,
+        temperature=series.temperature,
+        pressure=series.pressure,
+        initial={
+            "rt_eos.V0": float(published["V0"]) * volume_scale,
+            "rt_eos.K0": float(published["K0"]),
+            "rt_eos.K0_prime": float(published["K0_prime"]),
+            "alpha_KT": float(record["thermal"]["parameters"]["alpha_KT"]),
+        },
+        fixed={"Tr": reference_temperature},
+        configuration=_configuration(record),
+        bounds={
+            "rt_eos.V0": _bounds("rt_eos.V0", float(published["V0"]) * volume_scale),
+            "rt_eos.K0": _bounds("rt_eos.K0", float(published["K0"])),
+            "rt_eos.K0_prime": _bounds("rt_eos.K0_prime", float(published["K0_prime"])),
+            "alpha_KT": _bounds(
+                "alpha_KT", float(record["thermal"]["parameters"]["alpha_KT"])
+            ),
+        },
+        absolute_sigma=False,
+        max_nfev=5000,
+    )
+    simultaneous_parameters = dict(simultaneous.parameters)
+    simultaneous_parameters["rt_eos.V0"] /= volume_scale
+    residuals = np.asarray(thermal_fit.residuals, dtype=float)
+    outcome = {
+        "status": status,
+        "dataset_identifiers": [series.dataset_id],
+        "observations": int(series.pressure.size),
+        "selection": ("eight 23-24 degC rows for K0 and K0'; all 39 rows for alpha_KT"),
+        "observed_pressure_range_gpa": [
+            float(np.min(series.pressure)),
+            float(np.max(series.pressure)),
+        ],
+        "observed_volume_range": [
+            float(np.min(series.volume)),
+            float(np.max(series.volume)),
+        ],
+        "observed_temperature_range_k": [
+            float(np.min(series.temperature)),
+            float(np.max(series.temperature)),
+        ],
+        "columns": {
+            "pressure": series.pressure_column,
+            "volume": series.volume_column,
+            "temperature": series.temperature_column,
+        },
+        "fit_kind": "staged_reference_isotherm_then_thermal_pressure",
+        "objective": "unweighted pressure residuals in two source-stated stages",
+        "absolute_sigma": False,
+        "free_parameters": list(parameters),
+        "parameters": comparisons,
+        "published_rmse_gpa": _published_rmse(
+            executable, volume_scale, series, reference_temperature
+        ),
+        "rmse_gpa": float(np.sqrt(np.mean(residuals**2))),
+        "reduced_chi_square": None,
+        "degrees_of_freedom": int(thermal_fit.degrees_of_freedom),
+        "solver_success": bool(static_fit.success and thermal_fit.success),
+        "solver_message": "room-temperature BM3 and thermal-pressure stages completed",
+        "stages": [
+            {
+                "name": "reference_isotherm",
+                "observations": int(room.pressure.size),
+                "temperature_range_k": [
+                    float(np.min(room.temperature)),
+                    float(np.max(room.temperature)),
+                ],
+                "fixed_parameters": {"V0": float(static_parameters["V0"])},
+                "free_parameters": ["K0", "K0_prime"],
+                "parameters": {
+                    "K0": float(static_parameters["K0"]),
+                    "K0_prime": float(static_parameters["K0_prime"]),
+                },
+                "rmse_gpa": float(
+                    np.sqrt(np.mean(np.asarray(static_fit.residuals, dtype=float) ** 2))
+                ),
+            },
+            {
+                "name": "thermal_pressure",
+                "observations": int(series.pressure.size),
+                "fixed_parameters": {
+                    "V0": float(static_parameters["V0"]),
+                    "K0": float(static_parameters["K0"]),
+                    "K0_prime": float(static_parameters["K0_prime"]),
+                },
+                "free_parameters": ["alpha_KT"],
+                "parameters": {"alpha_KT": float(thermal_fit.parameters["alpha_KT"])},
+                "rmse_gpa": float(np.sqrt(np.mean(residuals**2))),
+            },
+        ],
+        "simultaneous_fit_diagnostic": {
+            "purpose": (
+                "Demonstrates why the original validator disagreed: this is not the "
+                "protocol used for the preferred bold Table 3 row."
+            ),
+            "published_italic_table3_alternative": {
+                "V0": 55.25,
+                "K0": 14.8,
+                "K0_prime": 6.9,
+                "alpha0": 0.00018,
+                "alpha_KT_derived": 0.002664,
+            },
+            "peritheos_four_parameter_refit": {
+                name: float(value) for name, value in simultaneous_parameters.items()
+            },
+            "rmse_gpa": float(
+                np.sqrt(np.mean(np.asarray(simultaneous.residuals, dtype=float) ** 2))
+            ),
+        },
+    }
+    outcome["qualification"] = FIT_QUALIFICATIONS[record["identifier"]]
+    return outcome
+
+
+def _masked_series(series: Series, mask: np.ndarray, selection: str) -> Series:
+    def masked(value: np.ndarray | None) -> np.ndarray | None:
+        return None if value is None else value[mask]
+
+    return Series(
+        dataset_id=series.dataset_id,
+        pressure=series.pressure[mask],
+        volume=series.volume[mask],
+        temperature=masked(series.temperature),
+        pressure_sigma=masked(series.pressure_sigma),
+        volume_sigma=masked(series.volume_sigma),
+        temperature_sigma=masked(series.temperature_sigma),
+        pressure_column=series.pressure_column,
+        volume_column=series.volume_column,
+        temperature_column=series.temperature_column,
+        selection=selection,
+    )
+
+
+def _dorfman_cocompression_outcome(
+    material_id: str, record: dict[str, Any]
+) -> dict[str, Any]:
+    summary = json.loads(DORFMAN_REFIT_JSON.read_text(encoding="utf-8"))
+    source_material = {"gold": "Au", "molybdenum": "Mo", "platinum": "Pt"}[material_id]
+    mode = "fixed" if "_k0_fixed_" in record["identifier"] else "free"
+    fit = summary["fits"][mode]
+    comparisons = []
+    for name, comparison in fit["published_parameter_comparison"][
+        source_material
+    ].items():
+        comparisons.append(
+            {
+                "parameter": name,
+                "published": comparison["published"],
+                "published_error": record["parameter_errors"].get(name),
+                "refit": comparison["refit"],
+                "refit_error": None,
+                "difference": comparison["difference"],
+                "relative_difference": abs(comparison["relative_difference"]),
+                "within_combined_2sigma": None,
+                "similar": False,
+            }
+        )
+    return {
+        "status": "parity_not_achieved",
+        "dataset_identifiers": [summary["source"]["supporting_filename"]],
+        "observations": summary["selection"]["observation_rows"],
+        "pair_count": summary["selection"]["pair_count"],
+        "fit_kind": "simultaneous_cocompression_vinet",
+        "objective": "Dorfman Equation (3)",
+        "published_objective": fit["published_objective"],
+        "refit_objective": fit["objective"],
+        "comparison_scope": "joint_system",
+        "parameters": comparisons,
+        "free_parameters": [item["parameter"] for item in comparisons],
+        "observed_pressure_range_gpa": summary["selection"][
+            "printed_pressure_range_gpa_by_material"
+        ][source_material],
+        "selection": summary["selection"]["rule"],
+        "solver_success": fit["success"],
+        "solver_message": fit["message"],
+        "qualification": (
+            "Complete reproduction of the rows available in official auxiliary "
+            "Tables S1-S6, using the source's coupled Equation (3) objective and "
+            "fixed Tange MgO anchor. The fit converges to a lower objective but "
+            "does not recover Table 2. Run AN012 is listed in article Table 1 yet "
+            "absent from the auxiliary PDF; unrounded inputs, row-selection detail, "
+            "fit code, and covariance are unavailable."
+        ),
+    }
+
+
+def _tange_2009_approximate_outcome(record: dict[str, Any]) -> dict[str, Any]:
+    """Register the qualified approximate refit and exact subset checks."""
+    report = json.loads(TANGE_2009_PARTIAL_JSON.read_text(encoding="utf-8"))
+    approximate = json.loads(TANGE_2009_APPROXIMATE_JSON.read_text(encoding="utf-8"))
+    partial = report["bundled_partial_validation"]
+    fitted = approximate["approximate_refit"]
+    published_errors = {
+        "K0_prime": float(record["parameter_errors"]["K0_prime"]),
+        **{
+            name: float(record["thermal"]["parameter_errors"][name])
+            for name in ("gamma0", "a", "b")
+        },
+    }
+    parameters = []
+    for comparison in fitted["coefficient_comparisons"]:
+        published = float(comparison["published"])
+        refit = float(comparison["fitted"])
+        parameters.append(
+            {
+                "parameter": comparison["parameter"],
+                "published": published,
+                "published_error": published_errors[comparison["parameter"]],
+                "refit": refit,
+                "refit_error": None,
+                "difference": refit - published,
+                "relative_difference": abs(refit - published) / abs(published),
+                "within_combined_2sigma": None,
+                "similar": bool(comparison["similar"]),
+            }
+        )
+    if approximate["result"] != "similar" or not all(
+        item["similar"] for item in parameters
+    ):
+        raise AssertionError("Tange approximate audit no longer supports similarity")
+    return {
+        "status": "similar",
+        "dataset_identifiers": list(record["fit_datasets"]),
+        "observations": approximate["observations"]["rows_reconstructed"],
+        "fit_kind": "approximate_coupled_vinet_mgd_global_reconstruction",
+        "objective": "source-weighted thermal, elastic, and shock residuals",
+        "free_parameters": list(approximate["published_coefficients"]),
+        "parameters": parameters,
+        "solver_success": fitted["solver_success"],
+        "solver_message": fitted["solver_message"],
+        "weighted_sum_of_squares": fitted["weighted_sum_of_squares"],
+        "external_input_inventory": approximate["external_input_inventory"],
+        "partial_validation": {
+            "scope": report["scope"],
+            "published_dependent_parameter_check": report[
+                "published_dependent_parameter_check"
+            ],
+            "published_coefficient_metrics": partial["published_coefficient_metrics"],
+            "partial_refit": partial["partial_refit"],
+            "source_inventory": report["source_inventory"],
+        },
+        "approximate_validation": {
+            "scope": approximate["scope"],
+            "result": approximate["result"],
+            "observations": approximate["observations"],
+            "parameters": parameters,
+            "zha_weight_sensitivity": approximate["zha_weight_sensitivity"],
+            "qualification": approximate["qualification"],
+        },
+        "qualification": (
+            "The 164-row approximate reconstruction recovers all four independent "
+            "Fit 3 coefficients within the numerical similarity limits, including "
+            "over the tested 1-3% Zha-weight range. It is classified as similar, not "
+            "parity, because the exact Zha rows and legacy weights are unpublished, "
+            "one Fiquet state is unresolved, the Zha block is curve-based, and the "
+            "restricted local inputs are not redistributed."
+        ),
+    }
+
+
+def _datchi_2007_diamond_outcome(
+    record: dict[str, Any],
+    refit: dict[str, Any],
+) -> dict[str, Any]:
+    """Translate the dedicated Occelli/H2005 figure audit into the common ledger."""
+    fit = refit["fits"]["H2005"]["best_supported_run2_selection"][
+        "equal_volume_weight_fit"
+    ]
+    fitted = fit["parameters"]
+    published = record["eos"]["parameters"]
+    errors = record["parameter_errors"]
+    comparisons = []
+    for name in ("K0", "K0_prime"):
+        source = float(published[name])
+        estimate = float(fitted[name])
+        difference = estimate - source
+        comparisons.append(
+            {
+                "parameter": name,
+                "published": source,
+                "published_error": float(errors[name]),
+                "refit": estimate,
+                "refit_error": None,
+                "difference": difference,
+                "relative_difference": abs(difference) / abs(source),
+                "within_combined_2sigma": None,
+                "within_published_fit_standard_deviation": (
+                    abs(difference) <= float(errors[name])
+                ),
+                "similar": _similar(name, source, estimate),
+            }
+        )
+    if not all(
+        item["within_published_fit_standard_deviation"] and item["similar"]
+        for item in comparisons
+    ):
+        raise AssertionError(
+            "dedicated Datchi diamond audit no longer supports Table II"
+        )
+    source_data = refit["source_data"]
+    return {
+        "status": "similar",
+        "dataset_identifiers": record["fit_datasets"],
+        "observations": int(
+            refit["fits"]["H2005"]["best_supported_run2_selection"]["rows"]
+        ),
+        "available_digitized_observations": int(source_data["observations"]),
+        "selection": (
+            "Occelli Figure 2 run-2 open circles only (14/24 markers); "
+            "best-supported but source-unconfirmed Table II selection hypothesis"
+        ),
+        "observed_pressure_range_gpa": [
+            13.227651913,
+            float(source_data["recalibrated_pressure_range_h2005_gpa"][1]),
+        ],
+        "fit_kind": "static_vinet_with_explicit_ruby_scale_conversion",
+        "objective": (
+            "equal volume residuals; equivalent point estimates from the published "
+            "constant 0.003 cm^3/mol volume uncertainty"
+        ),
+        "absolute_sigma": None,
+        "free_parameters": ["K0", "K0_prime"],
+        "parameters": comparisons,
+        "rmse_gpa": float(fit["rmse_gpa"]),
+        "rmse_a3_per_atom": float(fit["rmse_a3_per_atom"]),
+        "volume_chi_square_using_reported_constant_sigma": float(
+            fit["volume_chi_square_using_reported_constant_sigma"]
+        ),
+        "published_chi_square": float(
+            refit["fits"]["H2005"]["published_table_ii"]["chi_square"]
+        ),
+        "solver_success": bool(fit["success"]),
+        "solver_message": str(fit["message"]),
+        "fit_protocol_diagnostic": refit["fits"],
+        "pressure_recalibration": refit["pressure_recalibration"],
+        "qualification": (
+            "Conditional figure-level reproduction. The same run-2/equal-volume "
+            "hypothesis approaches the independently printed MXB1986 and H2005 "
+            "Table II coefficients and the H2005 chi-square, but Datchi et al. do "
+            "not publish exclusions or weights and Occelli et al. do not print "
+            "numerical rows. All 24 markers and all-marker sensitivity fits remain "
+            "visible in the diagnostic. No refit covariance or parameter errors "
+            "are inferred from the digitized points."
+        ),
+    }
+
+
+def _fu_2023_casio3_outcome(record: dict[str, Any]) -> dict[str, Any]:
+    """Translate the closed-row Fu CaSiO3 sensitivity audit into the ledger."""
+    assert record["identifier"] == "ca_perovskite_fu_2023_bm3_mgd_refit"
+    audit = json.loads(FU_2023_CASIO3_REFIT_JSON.read_text(encoding="utf-8"))
+    diagnostic = next(
+        item
+        for item in audit["sensitivity_fits"]
+        if item["objective"] == "unweighted_absolute_gpa"
+    )
+    comparisons = []
+    for name, ledger_name in (
+        ("V0", "rt_eos.V0"),
+        ("K0", "rt_eos.K0"),
+        ("mu0", "mu0"),
+        ("mu0_prime", "mu0_prime"),
+        ("gamma0", "gamma0"),
+        ("q", "q"),
+        ("eta_s0", "eta_s0"),
+    ):
+        published = float(audit["published_parameters"][name])
+        fitted = float(diagnostic["parameters"][name])
+        comparisons.append(
+            {
+                "parameter": ledger_name,
+                "published": published,
+                "published_error": None,
+                "refit": fitted,
+                "refit_error": None,
+                "difference": fitted - published,
+                "relative_difference": abs(fitted - published) / abs(published),
+                "within_combined_2sigma": None,
+                "similar": _similar(ledger_name, published, fitted),
+            }
+        )
+    if all(item["similar"] for item in comparisons):
+        raise AssertionError("Fu CaSiO3 audit no longer supports non-parity")
+    return {
+        "status": "parity_not_achieved",
+        "dataset_identifiers": [FU_2023_CASIO3_REFIT_JSON.name],
+        "observations": audit["fit_observation_count"],
+        "fit_outputs": audit["fit_output_count"],
+        "selection": (
+            "140 Sun Table 1 P-V-T rows at 1200-2200 K plus 34 cubic "
+            "Gréaux Figure 3b P-Vp-Vs-density rows"
+        ),
+        "observed_pressure_range_gpa": audit["observed_ranges"]["pressure_gpa"],
+        "observed_temperature_range_k": audit["observed_ranges"]["temperature_k"],
+        "observed_volume_range": audit["observed_ranges"]["volume_a3_per_formula_unit"],
+        "fit_kind": "joint_bm3_mgd_finite_strain_pressure_bulk_shear",
+        "objective": "unweighted absolute pressure, KS, and shear residuals in GPa",
+        "absolute_sigma": False,
+        "free_parameters": [item["parameter"] for item in comparisons],
+        "parameters": comparisons,
+        "solver_success": diagnostic["success"],
+        "solver_message": diagnostic["message"],
+        "weighting_sensitivity": audit["sensitivity_fits"],
+        "qualification": (
+            "The complete candidate observation rows were recovered from the "
+            "author-hosted Sun PDF and official Gréaux XLSX and are now bundled "
+            "as attributed numerical transcriptions. Fu et al. publish neither "
+            "an objective, row/output "
+            "weights, covariance, nor code. Four explicit weighting diagnostics, "
+            "including propagated P-V uncertainty, "
+            "all converge away from Table S3, especially for gamma0 and q; this "
+            "is therefore a completed non-parity audit, not an exact reconstruction "
+            "of an undisclosed fit protocol. Kawai-Tsuchiya and Li curves are "
+            "analytical comparisons, while Thomson is explicitly excluded."
+        ),
+    }
+
+
+def _fu_2023_casio3_registered_refit_outcome(
+    record: dict[str, Any],
+) -> dict[str, Any]:
+    """Verify that the opt-in EOS record matches the audited unweighted fit."""
+    assert record["identifier"] == FU_2023_CASIO3_REGISTERED_REFIT
+    audit = json.loads(FU_2023_CASIO3_REFIT_JSON.read_text(encoding="utf-8"))
+    diagnostic = next(
+        item
+        for item in audit["sensitivity_fits"]
+        if item["objective"] == audit["registered_refit"]["objective"]
+    )
+    stored = {
+        "rt_eos.V0": record["eos"]["parameters"]["V0"],
+        "rt_eos.K0": record["eos"]["parameters"]["K0"],
+        "gamma0": record["thermal"]["parameters"]["gamma0"],
+        "q": record["thermal"]["parameters"]["q"],
+    }
+    fitted = {
+        "rt_eos.V0": diagnostic["parameters"]["V0"],
+        "rt_eos.K0": diagnostic["parameters"]["K0"],
+        "gamma0": diagnostic["parameters"]["gamma0"],
+        "q": diagnostic["parameters"]["q"],
+    }
+    comparisons = [
+        {
+            "parameter": name,
+            "published": float(stored[name]),
+            "published_error": None,
+            "refit": float(fitted[name]),
+            "refit_error": None,
+            "difference": float(fitted[name] - stored[name]),
+            "relative_difference": 0.0,
+            "within_combined_2sigma": None,
+            "similar": math.isclose(stored[name], fitted[name], rel_tol=1e-13),
+        }
+        for name in stored
+    ]
+    if not all(item["similar"] for item in comparisons):
+        raise AssertionError("Registered Fu CaSiO3 refit is stale")
+    return {
+        "status": "parity",
+        "dataset_identifiers": [FU_2023_CASIO3_REFIT_JSON.name],
+        "observations": audit["fit_observation_count"],
+        "fit_outputs": audit["fit_output_count"],
+        "selection": record["fit_provenance"]["selection"]["predicate"],
+        "observed_pressure_range_gpa": audit["observed_ranges"]["pressure_gpa"],
+        "observed_temperature_range_k": audit["observed_ranges"]["temperature_k"],
+        "observed_volume_range": audit["observed_ranges"]["volume_a3_per_formula_unit"],
+        "fit_kind": "joint_bm3_mgd_finite_strain_pressure_bulk_shear",
+        "objective": "unweighted absolute pressure, KS, and shear residuals in GPa",
+        "absolute_sigma": False,
+        "free_parameters": record["fit_provenance"]["refined_parameters"],
+        "parameters": comparisons,
+        "solver_success": diagnostic["success"],
+        "solver_message": diagnostic["message"],
+        "qualification": (
+            "This opt-in EOS record stores the pressure-producing subset of the "
+            "audited unweighted seven-parameter joint fit. Parity here verifies "
+            "the stored coefficients against the audit artifact; it does not imply "
+            "parity with Fu Table S3 or knowledge of Fu's unpublished weights."
+        ),
+    }
+
+
+def _sokolova_2013_outcome(
+    record: dict[str, Any], reconstruction: dict[str, Any]
+) -> dict[str, Any]:
+    """Translate the shared ruby reconstruction without claiming an EOS refit."""
+    marker = next(
+        item
+        for item in reconstruction["marker_results"]
+        if item["record_identifier"] == record["identifier"]
+    )
+    fitted = reconstruction["sensitivity_fit"]["parameters"]
+    return {
+        "status": "source_reconstruction",
+        "dataset_identifiers": [marker["dataset_identifier"]],
+        "observations": marker["observations"],
+        "global_observations": reconstruction["observations"],
+        "marker_count": reconstruction["markers"],
+        "fit_kind": "coupled_eleven_marker_ruby_cross_calibration",
+        "objective": reconstruction["objective"],
+        "comparison_scope": "shared_ruby_calibration",
+        "published_ruby_parameters": reconstruction["published_parameters"],
+        "sensitivity_fit_ruby_parameters": fitted,
+        "published_rmse_gpa": marker["published_calibration_rmse_gpa"],
+        "rmse_gpa": marker["fitted_calibration_rmse_gpa"],
+        "table4_closure_rmse_gpa": marker["table4_closure_rmse_gpa"],
+        "global_published_marker_equal_rmse_gpa": reconstruction[
+            "published_calibration_marker_equal_rmse_gpa"
+        ],
+        "global_fitted_marker_equal_rmse_gpa": reconstruction[
+            "fitted_calibration_marker_equal_rmse_gpa"
+        ],
+        "global_table4_closure_marker_equal_rmse_gpa": reconstruction[
+            "table4_closure_marker_equal_rmse_gpa"
+        ],
+        "independent_eos_refit": False,
+        "qualification": reconstruction["qualification"],
+    }
+
+
+def _ricolleau_2009_outcome(
+    record: dict[str, Any], refit: dict[str, Any]
+) -> dict[str, Any]:
+    """Translate the dedicated staged KLB-1 audit into the common ledger."""
+    record_id = record["identifier"]
+    thermal_record = "thermal_fit" in refit or record["equation_kind"] == "thermal"
+    stages = [
+        refit[name] for name in ("static_fit", "fit", "thermal_fit") if name in refit
+    ]
+    fitted: dict[str, float] = {}
+    fitted_errors: dict[str, float] = {}
+    for stage in stages:
+        fitted.update(stage["parameters"])
+        fitted_errors.update(stage["standard_errors"])
+
+    published: dict[str, float] = {}
+    published_errors: dict[str, float] = {}
+    for name, value in record["eos"]["parameters"].items():
+        if name in fitted:
+            published[name] = float(value)
+            error = record.get("parameter_errors", {}).get(name)
+            if error is not None:
+                published_errors[name] = float(error)
+    if thermal_record:
+        for name, value in record["thermal"]["parameters"].items():
+            if name in fitted:
+                published[name] = float(value)
+                error = record["thermal"].get("parameter_errors", {}).get(name)
+                if error is not None:
+                    published_errors[name] = float(error)
+
+    comparisons = []
+    for name, value in published.items():
+        difference = fitted[name] - value
+        source_error = published_errors.get(name)
+        refit_error = fitted_errors.get(name)
+        combined = (
+            math.hypot(source_error, refit_error)
+            if source_error is not None and refit_error is not None
+            else None
+        )
+        comparisons.append(
+            {
+                "parameter": name,
+                "published": value,
+                "published_error": source_error,
+                "refit": fitted[name],
+                "refit_error": refit_error,
+                "difference": difference,
+                "relative_difference": abs(difference) / abs(value),
+                "within_combined_2sigma": (
+                    abs(difference) <= 2.0 * combined if combined is not None else None
+                ),
+                "similar": _similar(name, value, fitted[name]),
+            }
+        )
+    if not comparisons or not all(
+        item["similar"] or item["within_combined_2sigma"] is True
+        for item in comparisons
+    ):
+        raise AssertionError(f"dedicated Ricolleau audit diverged for {record_id}")
+    parity = all(
+        item["similar"] and item["within_combined_2sigma"] is True
+        for item in comparisons
+    )
+    status = "parity" if parity else "similar"
+    observations = max(stage["observations"] for stage in stages)
+    pressure_min = min(stage["pressure_range_gpa"][0] for stage in stages)
+    pressure_max = max(stage["pressure_range_gpa"][1] for stage in stages)
+    return {
+        "status": status,
+        "dataset_identifiers": record["fit_datasets"],
+        "observations": observations,
+        "selection": refit["stage"],
+        "observed_pressure_range_gpa": [pressure_min, pressure_max],
+        "fit_kind": "staged_source_constrained_thermal_bm2_odr",
+        "objective": (
+            "orthogonal distance regression using printed pressure and volume "
+            "sigmas; temperature held fixed"
+        ),
+        "absolute_sigma": True,
+        "free_parameters": list(published),
+        "parameters": comparisons,
+        "rmse_gpa": stages[-1]["vertical_pressure_rmse_gpa"],
+        "solver_success": True,
+        "solver_message": "dedicated Ricolleau et al. (2009) audit completed",
+        "qualification": (
+            "The complete source table is bundled. Limiting ferropericlase spin "
+            "branches reproduce the published V0 values and printed errors; exact "
+            "thermal parity remains conditional because the source does not state "
+            "row flags, weights, temperature-error treatment, or covariance scaling."
+        ),
+    }
+
+
+def _dorogokupets_2015_outcome(
+    record: dict[str, Any], refits: dict[str, Any]
+) -> dict[str, Any]:
+    branch = DOROGOKUPETS_2015_FIT_BRANCH[record["identifier"]]
+    result = refits[branch]
+    fit = result["unweighted"]
+    published = result["published"]
+    parameters = []
+    for parameter, report_name in (("K0", "K0_gpa"), ("K0_prime", "K0_prime")):
+        difference = fit[report_name] - published[parameter]
+        parameters.append(
+            {
+                "parameter": parameter,
+                "published": published[parameter],
+                "published_error": None,
+                "refit": fit[report_name],
+                "refit_error": None,
+                "difference": difference,
+                "relative_difference": abs(difference) / abs(published[parameter]),
+                "within_combined_2sigma": None,
+                "similar": _similar(parameter, published[parameter], fit[report_name]),
+            }
+        )
+    outcome = {
+        "status": "parity_not_achieved",
+        "dataset_identifiers": record["diagnostic_datasets"],
+        "observations": result["observations"],
+        "selection": "recoverable 298 K literature slice",
+        "observed_pressure_range_gpa": result["pressure_range_gpa"],
+        "fit_kind": "partial_298k_rydberg_stacey_diagnostic",
+        "objective": "unweighted pressure residuals",
+        "free_parameters": ["K0", "K0_prime"],
+        "parameters": parameters,
+        "rmse_gpa": fit["rmse_gpa"],
+        "published_rmse_gpa": fit["published_curve_rmse_gpa"],
+        "published_curve_rmse_gpa": fit["published_curve_rmse_gpa"],
+        "solver_success": fit["success"],
+        "solver_message": "dedicated Dorogokupets (2015) slice fit completed",
+        "reported_uncertainty_diagnostic": result["reported_uncertainty_diagnostic"],
+        "qualification": (
+            "This is a partial room-temperature diagnostic, not a reproduction "
+            "of the joint thermoelastic objective. The paper states no point-weighting "
+            "rule or covariance, and at least one source pressure-coordinate choice "
+            "or joint-fit constraint remains unresolved. Published coefficients are "
+            "therefore retained."
+        ),
+        "reason": (
+            "Only a partial 298 K slice of the source's joint thermoelastic "
+            "objective is recoverable, and that transparent slice does not "
+            "reproduce the published coefficient pair."
+        ),
+    }
+    if branch == "akimotoite_wang_plus_reynard_ruby":
+        outcome["alternate_pressure_coordinate"] = refits[
+            "akimotoite_wang_plus_reynard_ice_vii"
+        ]
+        outcome["qualification"] = (
+            "The same Reynard observations have ruby and preferred ice-VII "
+            "pressure assignments; Dorogokupets et al. do not identify which "
+            "original coordinate they used. Both non-independent alternatives "
+            "miss exact parity. The Wang P-V-T and Zhou KS tables are now complete, "
+            "and an unweighted Zhou regression closely reproduces Zhou's own rounded "
+            "elastic coefficients. What remains unavailable is the 2015 joint "
+            "residual construction, covariance, phase-specific fixed/free mask, and "
+            "the Ashida thermal inputs. Published coefficients are retained."
+        )
+    return outcome
+
+
+def _ye_2017_outcome(
+    record: dict[str, Any], reproduction: dict[str, Any]
+) -> dict[str, Any]:
+    """Translate the dedicated Ye co-compression fit into the ledger."""
+    fit = reproduction["records"][record["identifier"]]
+    published = float(record["eos"]["parameters"]["K0_prime"])
+    published_error = float(record["parameter_errors"]["K0_prime"])
+    refit = float(fit["K0_prime"])
+    refit_error = float(fit["K0_prime_standard_error"])
+    difference = refit - published
+    return {
+        "status": "parity",
+        "dataset_identifiers": list(record["fit_datasets"]),
+        "observations": int(fit["observations"]),
+        "selection": (
+            "All corrected Ye et al. (2017) co-compression rows in the selected "
+            f"{fit['fit']} pathway"
+        ),
+        "observed_pressure_range_gpa": fit["pressure_range_gpa"],
+        "fit_kind": "staged_cocompression_vinet_k0_prime",
+        "objective": reproduction["method"]["objective"],
+        "absolute_sigma": True,
+        "absolute_pressure_scatter_gpa": reproduction["method"][
+            "absolute_pressure_scatter_gpa"
+        ],
+        "free_parameters": ["K0_prime"],
+        "parameters": [
+            {
+                "parameter": "K0_prime",
+                "published": published,
+                "published_error": published_error,
+                "refit": refit,
+                "refit_error": refit_error,
+                "difference": difference,
+                "relative_difference": abs(difference) / abs(published),
+                "within_combined_2sigma": abs(difference)
+                <= 2.0 * math.sqrt(published_error**2 + refit_error**2),
+                "similar": _similar("K0_prime", published, refit),
+            }
+        ],
+        "rmse_gpa": fit["rmse_pressure_difference_gpa"],
+        "max_abs_residual_gpa": fit["max_abs_pressure_difference_gpa"],
+        "solver_success": fit["solver_success"],
+        "solver_message": fit["solver_message"],
+        "qualification": (
+            "The corrected Ye et al. (2017) co-compression inputs for the selected "
+            "pathway are bundled. The "
+            "source-described V0/K0-fixed co-compression pathway reproduces the "
+            "K0-prime point estimate and its 1 GPa-scatter standard error at the "
+            "precision printed by Ye et al. (2017)."
+        ),
+    }
+
+
+def _zhu_2025_thermal_outcome(
+    record: dict[str, Any], reproduction: dict[str, Any]
+) -> dict[str, Any]:
+    """Translate the independent Zhu v3 thermal refits into the common ledger."""
+    result = reproduction["thermal_records"][record["identifier"]]
+    parameters = []
+    for name in ("gamma0", "b"):
+        published = float(record["thermal"]["parameters"][name])
+        refit = float(result[name])
+        published_error = record["thermal"]["parameter_errors"].get(name)
+        parameters.append(
+            {
+                "parameter": name,
+                "published": published,
+                "published_error": published_error,
+                "refit": refit,
+                "refit_error": None,
+                "difference": refit - published,
+                "relative_difference": abs(refit - published) / abs(published),
+                "within_combined_2sigma": (
+                    None
+                    if published_error is None
+                    else abs(refit - published) <= 2.0 * float(published_error)
+                ),
+                "similar": result["parity"],
+            }
+        )
+    observations = sum(
+        reproduction["thermal_datasets"][identifier]["rows"]
+        for identifier in record["fit_datasets"]
+    )
+    return {
+        "status": "parity",
+        "dataset_identifiers": list(record["fit_datasets"]),
+        "observations": observations,
+        "selection": "All released v3 fit-input rows for this material",
+        "observed_pressure_range_gpa": record["experimental_pressure_range_gpa"],
+        "fit_kind": "iterative_robust_bisquare_gruneisen_refit",
+        "objective": (
+            "Released v3 energy-balance transformation followed by robust "
+            "bisquare nonlinear least squares"
+        ),
+        "free_parameters": ["gamma0", "b"],
+        "parameters": parameters,
+        "rmse_gpa": result.get("rmse_pressure_gpa"),
+        "max_abs_residual_gpa": result.get("max_abs_pressure_residual_gpa"),
+        "solver_success": True,
+        "solver_message": (
+            f"released v3 robust thermal refit converged in {result['iterations']} "
+            "outer iterations"
+        ),
+        "qualification": (
+            "Every released v3 fit-input row is included in an independent "
+            "translation of Zhu's iterative energy-balance and robust-bisquare "
+            "optimization. The fitted gamma0 and b reproduce the rounded "
+            "optimizer/property parameter set at its stated numerical precision. "
+            "The inconsistent standalone v3 calculators are not used as the fit "
+            "target."
+        ),
+    }
+
+
+def _sun_2019_thermal_pressure(
+    volume_a3_per_formula_unit: np.ndarray, temperature_k: np.ndarray
+) -> np.ndarray:
+    """Evaluate Sun et al. (2019) Equations (4) and (10)-(13)."""
+    volume_cm3_mol = volume_a3_per_formula_unit * 0.602214076
+    cv = 204.347 + (-830.0) / (20.291 * math.sqrt(math.pi / 2.0)) * np.exp(
+        -2.0 * (volume_cm3_mol - 29.110) ** 2 / 20.291**2
+    )
+    reduced_volume = volume_cm3_mol / 40.72 - 1.0
+    gamma = 0.311 - 0.933 * reduced_volume + 1.144 * reduced_volume**2
+    # J/cm^3 = MPa, hence the factor 1e-3 for GPa.
+    return gamma * cv / volume_cm3_mol * (temperature_k - 2500.0) * 1.0e-3
+
+
+def _sun_2019_bm4_fit(
+    record: dict[str, Any],
+    series: Series,
+    *,
+    use_source_thermal_reduction: bool,
+    weighted: bool,
+) -> tuple[SimpleNamespace, float, bool]:
+    """Run a non-source BM4 sensitivity fit inside an explicit finite audit box."""
+    if series.temperature is None:
+        raise ValueError("Sun et al. source fit requires the Table 1 temperatures")
+    pressure = np.asarray(series.pressure, dtype=float)
+    if use_source_thermal_reduction:
+        pressure = pressure - _sun_2019_thermal_pressure(
+            series.volume, series.temperature
+        )
+    published = record["eos"]["parameters"]
+    names = ("V0", "K0", "K0_prime", "K0_double_prime")
+    start = np.asarray([float(published[name]) for name in names])
+    lower = np.asarray([start[0] * 0.5, start[1] * 0.05, 0.0, start[3] * 5.0])
+    upper = np.asarray([start[0] * 1.5, start[1] * 5.0, start[2] * 5.0, 0.0])
+    sigma = series.pressure_sigma if weighted else None
+
+    def objective(values: np.ndarray) -> np.ndarray:
+        residual = np.asarray(BM4(*values).pressure(series.volume)) - pressure
+        return residual if sigma is None else residual / sigma
+
+    fit = least_squares(
+        objective,
+        start,
+        bounds=(lower, upper),
+        x_scale="jac",
+        max_nfev=5000,
+        ftol=1.0e-12,
+        xtol=1.0e-12,
+        gtol=1.0e-12,
+    )
+    raw_residuals = np.asarray(BM4(*fit.x).pressure(series.volume)) - pressure
+    singular_values = np.linalg.svd(fit.jac, compute_uv=False)
+    condition_number = float(singular_values[0] / singular_values[-1])
+    lower_k0_double_prime_hit = bool(
+        np.isclose(fit.x[3], lower[3], rtol=0.0, atol=1.0e-5)
+    )
+    result = SimpleNamespace(
+        free_parameters=names,
+        parameters=dict(zip(names, (float(value) for value in fit.x))),
+        standard_errors={name: math.nan for name in names},
+        residuals=raw_residuals,
+        reduced_chi_square=math.nan,
+        degrees_of_freedom=int(series.pressure.size - len(names)),
+        success=bool(fit.success),
+        message=str(fit.message),
+        nfev=int(fit.nfev),
+    )
+    return result, condition_number, lower_k0_double_prime_hit
+
+
+def _sun_2019_constrained_bm4_check(
+    record: dict[str, Any], series: Series
+) -> dict[str, Any]:
+    """Check K0 and K0-prime while holding the weak high-order terms published."""
+    if series.temperature is None:
+        raise ValueError("Sun et al. source check requires the Table 1 temperatures")
+    target = series.pressure - _sun_2019_thermal_pressure(
+        series.volume, series.temperature
+    )
+    published = record["eos"]["parameters"]
+    fixed_v0 = float(published["V0"])
+    fixed_k0_double_prime = float(published["K0_double_prime"])
+    start = np.asarray(
+        [float(published["K0"]), float(published["K0_prime"])], dtype=float
+    )
+
+    def objective(values: np.ndarray) -> np.ndarray:
+        return (
+            np.asarray(
+                BM4(
+                    fixed_v0,
+                    float(values[0]),
+                    float(values[1]),
+                    fixed_k0_double_prime,
+                ).pressure(series.volume)
+            )
+            - target
+        )
+
+    fit = least_squares(
+        objective,
+        start,
+        bounds=([1.0e-12, -np.inf], [np.inf, np.inf]),
+        x_scale="jac",
+        ftol=1.0e-12,
+        xtol=1.0e-12,
+        gtol=1.0e-12,
+    )
+    return {
+        "purpose": (
+            "Equation-and-unit stability check only; V0 and K0_double_prime are "
+            "held at the published values and this is not the source regression."
+        ),
+        "fixed_parameters": {
+            "V0": fixed_v0,
+            "K0_double_prime": fixed_k0_double_prime,
+        },
+        "parameters": {
+            "K0": float(fit.x[0]),
+            "K0_prime": float(fit.x[1]),
+        },
+        "rmse_gpa": float(np.sqrt(np.mean(objective(fit.x) ** 2))),
+        "jacobian_condition_number": float(np.linalg.cond(fit.jac)),
+        "solver_success": bool(fit.success),
+        "solver_message": str(fit.message),
+    }
+
+
+def _sun_2019_fesio3_outcome(
+    document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
+) -> dict[str, Any]:
+    """Audit why Table 1 cannot reproduce the source's staged BM4 fit."""
+    digitized_dataset_id = "fesio3_liquid_sun_2019_figures_s3_s4_digitized"
+    if not any(
+        item["identifier"] == digitized_dataset_id
+        for item in document.get("datasets", ())
+    ):
+        raise ValueError("Sun et al. supporting-figure digitization is unavailable")
+    series = _series(document, record, dataset)
+    if series.pressure.size != 40:
+        raise ValueError("Sun et al. Figure 1 selection must contain 40 liquid states")
+    if series.temperature is None:
+        raise ValueError("Sun et al. Table 1 temperatures are unavailable")
+
+    primary, condition_number, bound_hit = _sun_2019_bm4_fit(
+        record,
+        series,
+        use_source_thermal_reduction=True,
+        weighted=False,
+    )
+    weighted, weighted_condition, weighted_bound_hit = _sun_2019_bm4_fit(
+        record,
+        series,
+        use_source_thermal_reduction=True,
+        weighted=True,
+    )
+    reference_mask = np.isclose(series.temperature, 2500.0)
+    reference = _masked_series(
+        series,
+        reference_mask,
+        "five 2500 K Figure 1 circle states",
+    )
+    reference_fit, reference_condition, reference_bound_hit = _sun_2019_bm4_fit(
+        record,
+        reference,
+        use_source_thermal_reduction=False,
+        weighted=False,
+    )
+    constrained_check = _sun_2019_constrained_bm4_check(record, series)
+    published = record["eos"]["parameters"]
+    published_model = BM4(
+        float(published["V0"]),
+        float(published["K0"]),
+        float(published["K0_prime"]),
+        float(published["K0_double_prime"]),
+    )
+    published_residuals = (
+        np.asarray(published_model.pressure(series.volume))
+        + _sun_2019_thermal_pressure(series.volume, series.temperature)
+        - series.pressure
+    )
+
+    def diagnostic(fit: SimpleNamespace, condition: float, hit: bool) -> dict[str, Any]:
+        return {
+            "parameters": {
+                name: float(value) for name, value in fit.parameters.items()
+            },
+            "rmse_gpa": float(
+                np.sqrt(np.mean(np.asarray(fit.residuals, dtype=float) ** 2))
+            ),
+            "jacobian_condition_number": condition,
+            "k0_double_prime_lower_audit_bound_hit": hit,
+            "solver_success": fit.success,
+            "solver_message": fit.message,
+            "solver_evaluations": fit.nfev,
+        }
+
+    return {
+        "status": "not_refittable",
+        "dataset_identifiers": [dataset["identifier"], digitized_dataset_id],
+        "observations": int(series.pressure.size),
+        "selection": (
+            "phase_state=liquid and used_in_published_eos_fit=yes: 40 Figure 1 "
+            "circles; six Figure 1 squares excluded"
+        ),
+        "observed_pressure_range_gpa": [
+            float(np.min(series.pressure)),
+            float(np.max(series.pressure)),
+        ],
+        "observed_volume_range": [
+            float(np.min(series.volume)),
+            float(np.max(series.volume)),
+        ],
+        "observed_temperature_range_k": [
+            float(np.min(series.temperature)),
+            float(np.max(series.temperature)),
+        ],
+        "columns": {
+            "pressure": series.pressure_column,
+            "volume": series.volume_column,
+            "temperature": series.temperature_column,
+            "phase_state": "phase_state",
+            "fit_selection": "used_in_published_eos_fit",
+        },
+        "fit_kind": "non_source_thermal_reduction_sensitivity_only",
+        "objective": (
+            "diagnostic unweighted pressure residuals after subtracting the rounded "
+            "printed Equations (4), (10)-(13) thermal pressure; this is not the "
+            "paper's staged regression"
+        ),
+        "published_rmse_gpa": float(np.sqrt(np.mean(published_residuals**2))),
+        "source_fit_diagnostics": {
+            "source_protocol": (
+                "Equations (10) and (11) determine Cv from energy-temperature "
+                "derivatives and gamma from pressure-energy derivatives before their "
+                "volume functions enter Equation (4). Supporting Figures S3-S4 contain "
+                "only rasterized regression lines rather than embedded numerical data. "
+                "Their digitized slopes recover approximate Cv and gamma values, but "
+                "the source uncertainties and relative weighting are not published."
+            ),
+            "pvt_only_structural_nonidentifiability": (
+                "Table 1 pressure-volume-temperature rows constrain only the product "
+                "gamma(V)*Cv(V): multiplying Cv_prime and A by any nonzero scale and "
+                "dividing gamma(Vx), gamma_prime, and gamma_double_prime by the same "
+                "scale leaves every predicted pressure unchanged."
+            ),
+            "audit_bounds": {
+                "V0": [
+                    float(record["eos"]["parameters"]["V0"]) * 0.5,
+                    float(record["eos"]["parameters"]["V0"]) * 1.5,
+                ],
+                "K0": [
+                    float(record["eos"]["parameters"]["K0"]) * 0.05,
+                    float(record["eos"]["parameters"]["K0"]) * 5.0,
+                ],
+                "K0_prime": [
+                    0.0,
+                    float(record["eos"]["parameters"]["K0_prime"]) * 5.0,
+                ],
+                "K0_double_prime": [
+                    float(record["eos"]["parameters"]["K0_double_prime"]) * 5.0,
+                    0.0,
+                ],
+            },
+            "non_source_unweighted_40_state_thermal_reduction_sensitivity": diagnostic(
+                primary, condition_number, bound_hit
+            ),
+            "non_source_pressure_error_weighted_40_state_sensitivity": diagnostic(
+                weighted, weighted_condition, weighted_bound_hit
+            ),
+            "non_source_unweighted_five_state_2500k_sensitivity": diagnostic(
+                reference_fit, reference_condition, reference_bound_hit
+            ),
+            "non_source_k0_k0_prime_check_with_v0_and_k0_double_prime_fixed": (
+                constrained_check
+            ),
+            "published_rounded_model_rmse_gpa": float(
+                np.sqrt(np.mean(published_residuals**2))
+            ),
+        },
+        "reason": (
+            "Figure 1 resolves state membership exactly: the 40 circles are the "
+            "liquid states used in the source fit and the six squares are excluded. "
+            "Supporting Figures S3-S4 contain only high-resolution raster plots, but "
+            "their regression-line slopes are digitized at nine volumes and reproduce "
+            "the paper's stated Cv and gamma ranges. The digitized Cv function is "
+            "close to the published Gaussian; the gamma polynomial remains sensitive "
+            "to the unavailable source weighting. Subtracting either published or "
+            "digitized thermal coefficients and freely fitting four BM4 parameters "
+            "is nearly singular and hits the K0-double-prime audit bound. A stabilized "
+            "check with V0 and K0-double-prime fixed recovers K0=2.24587 GPa and "
+            "K0'=23.0422, but the unstable four-parameter sensitivity result must not "
+            "be reported as a refitted EOS. Exact reproduction still requires the "
+            "unrounded source values, constraints, weighting, and covariance treatment."
+        ),
+    }
+
+
+def _mosenfelder_2009_outcome(record: dict[str, Any]) -> dict[str, Any]:
+    """Run the dedicated shock-static errors-in-variables reproduction."""
+    namespace = runpy.run_path(
+        str(ROOT / "scripts/reproduce_mosenfelder_2009_mgsio3_post_perovskite.py")
+    )
+    static, shock = namespace["arrays"]()
+    result = namespace["fit_orthogonal"](static, shock)
+    names = list(namespace["PARAMETER_NAMES"])
+    published_values = np.asarray(namespace["PUBLISHED"], dtype=float)
+    fitted_values = np.asarray(result.x[:6], dtype=float)
+    # Work directly with the Jacobian SVD: forming J.T @ J squares the
+    # condition number. Match pinv(J.T @ J)'s default relative cutoff while
+    # avoiding its poorly scaled normal-equation matrix and BLAS warnings.
+    _, singular_values, right = np.linalg.svd(result.jac, full_matrices=False)
+    retained = singular_values > np.sqrt(1e-15) * singular_values[0]
+    inverse_variances = np.zeros_like(singular_values)
+    inverse_variances[retained] = 1.0 / singular_values[retained] ** 2
+    covariance = np.einsum("ki,k,kj->ij", right, inverse_variances, right)
+    fit_errors = np.sqrt(np.maximum(np.diag(covariance)[:6], 0.0))
+    published_errors = np.array([2.0, 0.07, 0.67, 0.8, 0.05, 146.0])
+    comparisons = []
+    all_parity = True
+    for name, published, fitted, fit_error, published_error in zip(
+        names, published_values, fitted_values, fit_errors, published_errors
+    ):
+        combined = math.hypot(float(published_error), float(fit_error))
+        similar_name = "theta0" if name == "theta0" else name
+        similar = _similar(similar_name, float(published), float(fitted))
+        within = abs(float(fitted - published)) <= 2.0 * combined
+        all_parity &= within and similar
+        comparisons.append(
+            {
+                "parameter": name,
+                "published": float(published),
+                "published_error": float(published_error),
+                "refit": float(fitted),
+                "refit_error": float(fit_error),
+                "difference": float(fitted - published),
+                "relative_difference": abs(float(fitted - published))
+                / abs(float(published)),
+                "within_combined_2sigma": within,
+                "similar": similar,
+            }
+        )
+    static_prediction = namespace["static_pressure"](
+        static["volume_a3"], static["temperature_k"], fitted_values
+    )
+    shock_prediction = namespace["shock_pressure"](
+        shock["shock_density_mg_m3"],
+        shock["initial_density_mg_m3"],
+        shock["transition_energy_j_kg"],
+        fitted_values,
+    )
+    return {
+        "status": "parity" if all_parity else "similar",
+        "dataset_identifiers": list(record["fit_datasets"]),
+        "observations": 54,
+        "selection": "48 Guignot Table 1 P-V-T rows and six PPv Table 2 P-density shock states",
+        "fit_kind": "joint_static_pvt_shock_hugoniot_mgd",
+        "objective": "orthogonal errors in P, V, T, and shock density; source datum-counting chi-square",
+        "free_parameters": names,
+        "parameters": comparisons,
+        "rmse_static_pressure_gpa": float(
+            np.sqrt(np.mean((static_prediction - static["pressure_gpa"]) ** 2))
+        ),
+        "rmse_shock_pressure_gpa_at_reported_density": float(
+            np.sqrt(np.mean((shock_prediction - shock["pressure_gpa"]) ** 2))
+        ),
+        "reduced_chi_square": float(2.0 * result.cost / 48),
+        "degrees_of_freedom": 48,
+        "solver_success": bool(result.success),
+        "solver_message": str(result.message),
+        "qualification": (
+            "Shock temperatures are not imputed. Rankine-Hugoniot energy closes "
+            "the six solid PPv pressure-density constraints; the three measured "
+            "pyrometric temperatures are independent diagnostics because the "
+            "source specifies shock-temperature fitting only for MgSiO3 liquid."
+        ),
+    }
+
+
+def _noguchi_2013_outcome(record: dict[str, Any]) -> dict[str, Any]:
+    """Translate the bundled-table staged audit into the ledger."""
+    artifact = json.loads(NOGUCHI_REFIT_JSON.read_text(encoding="utf-8"))
+    model = artifact["models"]["model_1_fei_mgd"]
+    fitted = {
+        **model["reference_isotherm_refit"]["parameters"],
+        **model["thermal_refit"]["parameters"],
+    }
+    refit_errors = {
+        **model["reference_isotherm_refit"]["standard_errors"],
+        **model["thermal_refit"]["standard_errors"],
+    }
+    published = {
+        **record["eos"]["parameters"],
+        **{
+            name: value
+            for name, value in record["thermal"]["parameters"].items()
+            if name in {"theta0", "gamma0", "q"}
+        },
+    }
+    published_errors = {
+        **record["parameter_errors"],
+        **record["thermal"]["parameter_errors"],
+    }
+    comparisons = []
+    for name in ("V0", "K0", "theta0", "gamma0", "q"):
+        difference = float(fitted[name]) - float(published[name])
+        combined_two_sigma = 2.0 * math.hypot(
+            float(published_errors[name]), float(refit_errors[name])
+        )
+        comparison = {
+            "parameter": name,
+            "published": float(published[name]),
+            "published_error": float(published_errors[name]),
+            "refit": float(fitted[name]),
+            "refit_error": float(refit_errors[name]),
+            "difference": difference,
+            "relative_difference": abs(difference) / abs(float(published[name])),
+            "within_combined_2sigma": abs(difference) <= combined_two_sigma,
+            "similar": _similar(name, float(published[name]), float(fitted[name])),
+        }
+        comparisons.append(comparison)
+    if not all(
+        item["within_combined_2sigma"] and item["similar"] for item in comparisons
+    ):
+        raise AssertionError("dedicated Noguchi audit no longer supports parity")
+    selection = artifact["selection"]
+    return {
+        "status": "parity",
+        "dataset_identifiers": ["ca_perovskite_noguchi_2013_table1_pvt"],
+        "source_table_sha256": artifact["source"]["pvt_sha256"],
+        "observations": (
+            selection["reference_isotherm_observations"]
+            + selection["thermal_observations"]
+        ),
+        "selection": (
+            "9 accepted external-heating rows for the 700 K BM2 stage; all 42 "
+            "high-temperature rows for the thermal stage; source orders 12, 14, "
+            "and 20 excluded only as directed by Table 1 footnote e"
+        ),
+        "observed_pressure_range_gpa": record["experimental_pressure_range_gpa"],
+        "fit_kind": "staged_bm2_then_mie_gruneisen_debye",
+        "objective": "unweighted pressure residuals",
+        "free_parameters": ["V0", "K0", "theta0", "gamma0", "q"],
+        "parameters": comparisons,
+        "published_rmse_gpa": model["published_curve"]["pressure_rmse_gpa"],
+        "rmse_gpa": model["thermal_refit"]["pressure_rmse_gpa"],
+        "solver_success": True,
+        "solver_message": "dedicated Noguchi (2013) staged refit completed",
+        "stages": [
+            {
+                "name": "700 K BM2 reference isotherm",
+                "observations": selection["reference_isotherm_observations"],
+                "free_parameters": ["V0", "K0"],
+                "rmse_gpa": model["reference_isotherm_refit"]["pressure_rmse_gpa"],
+            },
+            {
+                "name": "high-temperature MGD pressure",
+                "observations": selection["thermal_observations"],
+                "free_parameters": ["theta0", "gamma0", "q"],
+                "rmse_gpa": model["thermal_refit"]["pressure_rmse_gpa"],
+            },
+        ],
+        "alternative_model_audits": {
+            name: value
+            for name, value in artifact["models"].items()
+            if "model_1" not in name
+        },
+        "pressure_calibration_checks": artifact["pressure_calibration_checks"],
+        "qualification": artifact["protocol"]["qualification"],
+    }
+
+
+def _noguchi_1999_nio_outcome(record: dict[str, Any]) -> dict[str, Any]:
+    """Reconstruct the source's shock-to-300 K reduction before fitting BM3."""
+    states, result = fit_journal_isotherm()
+    status, comparisons = _compare(record, result, thermal=False, volume_scale=1.0)
+    return {
+        "status": status,
+        "dataset_identifiers": ["nickel_oxide_noguchi_1999_table1_shock"],
+        "observations": int(states.volume_ratio.size),
+        "selection": (
+            "all eight Table 1 final Hugoniot states; HEL precursor columns "
+            "excluded; each pressure thermally reduced to 300 K before BM3 fitting"
+        ),
+        "observed_pressure_range_gpa": [
+            float(np.min(states.hugoniot_pressure_gpa)),
+            float(np.max(states.hugoniot_pressure_gpa)),
+        ],
+        "reduced_pressure_range_gpa": [
+            float(np.min(states.isothermal_pressure_gpa)),
+            float(np.max(states.isothermal_pressure_gpa)),
+        ],
+        "calculated_shock_temperature_range_k": [
+            float(np.min(states.shock_temperature_k)),
+            float(np.max(states.shock_temperature_k)),
+        ],
+        "fit_kind": "shock_to_300k_mie_gruneisen_debye_then_bm3",
+        "objective": "unweighted_reduced_isothermal_pressure_residuals",
+        "free_parameters": list(result.free_parameters),
+        "parameters": comparisons,
+        "rmse_gpa": float(np.sqrt(np.mean(result.residuals**2))),
+        "chi_square": float(result.chi_square),
+        "reduced_chi_square": float(result.reduced_chi_square),
+        "degrees_of_freedom": int(result.degrees_of_freedom),
+        "solver_success": bool(result.success),
+        "solver_message": result.message,
+        "qualification": (
+            "The reduction uses the source's Us=5.36+1.19up relation, 300 K "
+            "Debye theta0=390 K, gamma0=1.38, gamma/V constant (q=1), and two "
+            "atoms per NiO formula unit. The seven-state predecessor reproduces "
+            "K0=184+/-5 GPa and about 1600 K at 132.9 GPa. The eight rounded "
+            "journal rows recover the final coefficients within the "
+            "residual-scaled refit errors; exact parity is unavailable because "
+            "unrounded states, row-wise uncertainties, weights, and numerical "
+            "objective are not published."
+        ),
+    }
+
+
+def _dewaele_2019_outcome(
+    document: dict[str, Any],
+    record: dict[str, Any],
+    refit: dict[str, Any],
+) -> dict[str, Any]:
+    """Translate the dedicated two-ruby-scale audit into the common ledger."""
+    z = float(document["formula_units_per_cell"])
+    fitted_atomic = refit["unweighted_pressure_residual_fit"]["parameters"]
+    fitted = {
+        "V0": float(fitted_atomic[0]) * z,
+        "K0": float(fitted_atomic[1]),
+        "K0_prime": float(fitted_atomic[2]),
+    }
+    published = {
+        name: float(record["eos"]["parameters"][name])
+        for name in ("V0", "K0", "K0_prime")
+    }
+    errors = record["parameter_errors"]
+    comparisons = []
+    for name in ("V0", "K0", "K0_prime"):
+        difference = fitted[name] - published[name]
+        published_error = float(errors[name])
+        comparisons.append(
+            {
+                "parameter": name,
+                "published": published[name],
+                "published_error": published_error,
+                "refit": fitted[name],
+                "refit_error": None,
+                "difference": difference,
+                "relative_difference": abs(difference) / abs(published[name]),
+                "within_combined_2sigma": None,
+                "within_reported_95pct": abs(difference) <= published_error,
+                "similar": _similar(name, published[name], fitted[name]),
+            }
+        )
+    if not all(
+        item["within_reported_95pct"] and item["similar"] for item in comparisons
+    ):
+        raise AssertionError(
+            f"dedicated Dewaele audit no longer supports {record['identifier']}"
+        )
+    pressure_fit = refit["unweighted_pressure_residual_fit"]
+    return {
+        "status": "similar",
+        "dataset_identifiers": record["fit_datasets"],
+        "observations": refit["rows"],
+        "selection": refit["scope"],
+        "observed_pressure_range_gpa": refit["pressure_range_gpa"],
+        "fit_kind": "static_vinet_with_explicit_ruby_scale_conversion",
+        "objective": "unweighted pressure residuals",
+        "free_parameters": ["V0", "K0", "K0_prime"],
+        "parameters": comparisons,
+        "rmse_gpa": pressure_fit["rmse_gpa"],
+        "solver_success": True,
+        "solver_message": "dedicated Dewaele (2019) refit completed",
+        "qualification": (
+            "Complete source rows for this material are bundled and the dedicated "
+            "two-ruby-scale refit recovers every coefficient within the published "
+            "95% interval. The common ledger classifies the result as similar, not "
+            "strict parity, because the dedicated audit does not infer a refit "
+            "covariance from rounded source rows."
+        ),
+    }
+
+
+@lru_cache(maxsize=1)
+def _solomatova_reproduction() -> dict[str, Any]:
+    from scripts.reproduce_solomatova_2016_ferropericlase import reproduce
+
+    return reproduce()
+
+
+def _solomatova_outcome(record: dict[str, Any]) -> dict[str, Any]:
+    """Return the coupled-fit audit result for one Table 7 reference branch."""
+
+    record_id = record["identifier"]
+    source_key = SOLOMATOVA_RECORD_SOURCES[record_id]
+    reproduction = _solomatova_reproduction()
+    source = reproduction["source_audit"][source_key]
+    dataset_identifiers = list(source.get("dataset_identifiers", ()))
+
+    if source["status"] == "not_refittable":
+        outcome: dict[str, Any] = {
+            "status": "not_refittable",
+            "dataset_identifiers": dataset_identifiers,
+            "reason": source["reason"],
+        }
+        if source_key == "mg083_lin":
+            outcome["observations"] = reproduction["lin_normalized_shape_diagnostic"][
+                "observations"
+            ]
+            outcome["diagnostic"] = reproduction["lin_normalized_shape_diagnostic"]
+        return outcome
+
+    refit = reproduction["coupled_refits"][source_key]
+    branch = "HS" if "_hs_" in record_id else "LS"
+    parameter_names = {
+        "V0": f"V0_{branch}",
+        "K0": f"K0_{branch}",
+        "K0_prime": f"K0_prime_{branch}",
+    }
+    comparisons = []
+    for public_name, refit_name in parameter_names.items():
+        published = float(record["eos"]["parameters"][public_name])
+        fitted = float(refit["parameters"][refit_name])
+        delta = fitted - published
+        if public_name == "V0":
+            similar = abs(delta) <= 0.05 * abs(published)
+        elif public_name == "K0":
+            similar = abs(delta) <= 0.15 * abs(published)
+        else:
+            similar = abs(delta) <= max(1.0, 0.20 * abs(published))
+        comparisons.append(
+            {
+                "parameter": public_name,
+                "published": published,
+                "refit": fitted,
+                "delta": delta,
+                "relative_delta": delta / published if published else None,
+                "published_sigma": record.get("parameter_errors", {}).get(public_name),
+                "refit_sigma": None,
+                "within_combined_2sigma": None,
+                "similar": similar,
+            }
+        )
+
+    qualification = (
+        "Coupled three-level spin-state reconstruction using the recovered earlier "
+        "observations and Solomatova Table 2 priors. The original MINUTI input, "
+        "row weights, residual definition, and covariance are unpublished, so this "
+        "equal-weight approximate-volume fit tests numerical similarity rather "
+        "than claiming an exact reproduction."
+    )
+    if source_key == "mg075_mao":
+        qualification += (
+            " The source observations are plot-digitized and the reconstructed "
+            "solution is retained as parity_not_achieved despite close point "
+            "estimates because exact source-level parity is not supportable."
+        )
+    return {
+        "status": source["status"],
+        "dataset_identifiers": dataset_identifiers,
+        "observations": refit["observations"],
+        "selection": refit["selection"],
+        "fit_kind": "coupled_bm3_three_level_spin_crossover",
+        "objective": refit["objective"],
+        "free_parameters": [
+            "V0_HS",
+            "K0_HS",
+            "K0_prime_HS",
+            "V0_LS",
+            "K0_LS",
+            "omega0",
+        ],
+        "parameters": comparisons,
+        "rmse_volume_a3": refit["rmse_volume_a3"],
+        "solver_success": refit["solver_success"],
+        "solver_message": "dedicated Solomatova coupled reconstruction completed",
+        "transition_pressure_50_percent_ls_gpa": refit[
+            "transition_pressure_50_percent_ls_gpa"
+        ],
+        "transition_width_20_80_gpa": refit["transition_width_20_80_gpa"],
+        "qualification": qualification,
+    }
+
+
+def _campbell_2009_outcome(material_id, record):
+    """Refit the available current-study rows without circular Fe calibration."""
+    metrics, result = fit_campbell(material_id)
+    status, comparisons = _compare(record, result, thermal=True, volume_scale=1.0)
+    # Preserve the current-study numbers, but classify the Fe/FeO source-level
+    # result by the unresolved combined-data discrepancy. The dedicated audit
+    # covers 79 reconstructed pressures and the regression/thermal alternatives.
+    if material_id in {"fe_fcc", "feo"}:
+        status = "parity_not_achieved"
+    return {
+        **metrics,
+        "status": status,
+        "parameters": comparisons,
+        "dataset_identifiers": [
+            CAMPBELL_S2 if material_id in {"fe_fcc", "feo"} else CAMPBELL_S3
+        ],
+        "fit_kind": "conditional_bm3_mgd_variable_exponent",
+        "selection": CAMPBELL_SELECTION,
+        "qualification": CAMPBELL_QUALIFICATION,
+    }
+
+
+def _argon_combined_registered_refit_outcome(record: dict[str, Any]) -> dict[str, Any]:
+    """Reproduce the analyst-selected fit without claiming source-fit parity."""
+    from scripts.fit_argon_errandonea_combined import fit, observations
+
+    rows = [row for row in observations() if row["included_in_preferred_fit"]]
+    result = fit(rows, "pressure")
+    comparisons = []
+    for name, stored in record["eos"]["parameters"].items():
+        fitted = result["parameters"][name]
+        comparisons.append(
+            {
+                "parameter": name,
+                "published": stored,
+                "published_error": None,
+                "refit": fitted,
+                "refit_error": None,
+                "difference": fitted - stored,
+                "relative_difference": (fitted - stored) / stored,
+                "within_combined_2sigma": None,
+                "similar": math.isclose(stored, fitted, rel_tol=1e-6),
+            }
+        )
+    if not result["solver_success"] or not all(p["similar"] for p in comparisons):
+        raise AssertionError("Registered combined argon refit is stale")
+    return {
+        "status": "parity",
+        "parity_basis": "registered_peritheos_refit_reproduced",
+        "dataset_identifiers": record["fit_datasets"],
+        "observations": result["count"],
+        "fit_kind": "selected_multi_source_bm3",
+        "objective": "equal pressure weights",
+        "absolute_sigma": False,
+        "parameters": comparisons,
+        "rmse_gpa": result["pressure_rmse_gpa"],
+        "solver_success": result["solver_success"],
+        "qualification": record["scientific_validation"]["note"],
+    }
+
+
+def validate_all() -> dict[str, Any]:
+    results = []
+    dewaele_refits = json.loads(DEWAELE_REFIT_JSON.read_text(encoding="utf-8"))[
+        "row_level_refits"
+    ]
+    datchi_diamond_refit = json.loads(
+        DATCHI_DIAMOND_REFIT_JSON.read_text(encoding="utf-8")
+    )
+
+    sokolova_reconstruction = json.loads(
+        SOKOLOVA_RECONSTRUCTION_JSON.read_text(encoding="utf-8")
+    )
+
+    ricolleau_refits = json.loads(RICOLLEAU_REFIT_JSON.read_text(encoding="utf-8"))[
+        "record_refits"
+    ]
+
+    mgsio3_primary_refits = json.loads(
+        MGSIO3_PRIMARY_REFIT_JSON.read_text(encoding="utf-8")
+    )["fits"]
+    dorogokupets_refits = json.loads(
+        DOROGOKUPETS_REFIT_JSON.read_text(encoding="utf-8")
+    )["fits"]
+
+    diamond_reconstruction = reproduce_diamond_composites()
+    zhu_reproduction = runpy.run_path(str(ZHU_REPRODUCTION))["reproduce"]()
+    for material_id in list_material_documents():
+        document = get_material_document(material_id)
+        datasets = {item["identifier"]: item for item in document.get("datasets", [])}
+        for record in document["eos_records"]:
+            check = record["scientific_validation"].get(
+                "primary_data_check",
+                {
+                    "status": "parameterization_only",
+                    "finding": "The catalog record preserves a validated published parameterization but does not register row-level observations for an independent refit.",
+                },
+            )
+            identifiers = list(check.get("dataset_identifiers", ()))
+            identifiers += list(check.get("digitized_dataset_identifiers", ()))
+            base = {
+                "material_identifier": material_id,
+                "record_identifier": record["identifier"],
+                "label": record["label"],
+                "model": record["eos"]["type"],
+                "primary_data_status": check["status"],
+                "primary_source": record["scientific_validation"][
+                    "primary_source_check"
+                ].get("access_url"),
+                "source_notes": record.get("notes"),
+                "primary_data_finding": check.get("finding"),
+                "experimental_pressure_range_gpa": record.get(
+                    "experimental_pressure_range_gpa"
+                ),
+                "experimental_temperature_range_k": record.get(
+                    "experimental_temperature_range_k"
+                ),
+                "fixed_parameters": list(record.get("fixed_parameters", ()))
+                + list(record["eos"].get("fixed_parameters", ()))
+                + list(record.get("thermal", {}).get("fixed_parameters", ())),
+            }
+            if material_id == "brucite":
+                from scripts.brucite_reproduce import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif record["identifier"] == "phase_e_fe0072_crichton_ross_2000_bm3":
+                from scripts.reproduce_phase_e_crichton_ross_2000 import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif record["identifier"] == "gold_sakai_2025_rydberg_stacey_1":
+                from scripts.catalog_addition_outcomes import sakai_gold_outcome
+
+                outcome = sakai_gold_outcome(record)
+            elif record["identifier"].startswith("diopside_"):
+                from scripts.catalog_addition_outcomes import diopside_outcome
+
+                outcome = diopside_outcome(record)
+            elif "_farla_2025_" in record["identifier"]:
+                from scripts.catalog_addition_outcomes import rubidium_outcome
+
+                outcome = rubidium_outcome(record)
+            elif (
+                record["identifier"]
+                == "gold_hirose_2008_fei_2004_speziale_2001_bm3_refit"
+            ):
+                from scripts.refit_hirose_fei_gold_speziale import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif record["identifier"] in {
+                "forsterite_katsura_2022_author_script_bm3_mgd",
+                "forsterite_katsura_2022_bm3_mgd",
+            }:
+                from scripts.forsterite_reproduce_katsura_2022 import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif record["identifier"] == "gold_fei_2007_vinet_2":
+                from scripts.reproduce_fei_2007_gold import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif (
+                record["identifier"]
+                == "ca_perovskite_wang_1996_unweighted_bm3_linear_thermal_refit"
+            ):
+                from scripts.register_wang_1996_thermal_refit import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif record["identifier"] in {
+                "kcl_b1_walker_2002_bm3_linear_thermal",
+                "kcl_b2_tateno_2019_holmes_vinet_mgd",
+                "kcl_b2_tateno_2019_holmes_vinet_linear_thermal",
+                "kcl_b2_tateno_2019_sokolova_vinet_linear_thermal",
+                "kcl_b2_chidester_2021_vinet_mgd",
+            }:
+                from scripts.reproduce_kcl_variants import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif record["identifier"] == "kcl_b2_ma_2024_bm3_mgd":
+                from scripts.reproduce_ma_2024_kcl import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif (
+                record["identifier"] == "argon_fcc_ross_1986_errandonea_2006_bm3_refit"
+            ):
+                outcome = _argon_combined_registered_refit_outcome(record)
+            elif record["identifier"] == "argon_fcc_chen_2010_bm3_reported_constants":
+                outcome = _chen_reported_constants_outcome()
+            elif record["identifier"] == MIOZZI_TANGE_REFIT_ID:
+                outcome = miozzi_tange_refit_outcome(record)
+            elif record["identifier"] == MIOZZI_SPEZIALE_REFIT_ID:
+                outcome = miozzi_speziale_refit_outcome(record)
+            elif record["identifier"].startswith("iron_miozzi_2020_"):
+                outcome = miozzi_2020_outcome(record)
+            elif record["identifier"] in CAMPBELL_RECORDS.values():
+                outcome = _campbell_2009_outcome(material_id, record)
+            elif record["identifier"] in SOLOMATOVA_RECORD_SOURCES:
+                outcome = _solomatova_outcome(record)
+            elif (
+                record["identifier"] in dewaele_refits
+                and check["status"] == "bundled"
+                and "fit_datasets" in record
+            ):
+                outcome = _dewaele_2019_outcome(
+                    document, record, dewaele_refits[record["identifier"]]
+                )
+            elif record["identifier"] == "nickel_oxide_noguchi_1999_bm3_1":
+                outcome = _noguchi_1999_nio_outcome(record)
+            elif record["identifier"] == "diamond_datchi_2007_vinet_1":
+                outcome = _datchi_2007_diamond_outcome(record, datchi_diamond_refit)
+            elif record["identifier"] == "ca_perovskite_fu_2023_bm3_mgd_refit":
+                outcome = _fu_2023_casio3_outcome(record)
+            elif record["identifier"] == FU_2023_CASIO3_REGISTERED_REFIT:
+                outcome = _fu_2023_casio3_registered_refit_outcome(record)
+            elif record["identifier"] in {
+                item["record_identifier"]
+                for item in sokolova_reconstruction["marker_results"]
+            }:
+                outcome = _sokolova_2013_outcome(record, sokolova_reconstruction)
+            elif (
+                record["identifier"] in ricolleau_refits
+                and check["status"] == "bundled"
+                and "fit_datasets" in record
+            ):
+                outcome = _ricolleau_2009_outcome(
+                    record, ricolleau_refits[record["identifier"]]
+                )
+            elif record["identifier"] in mgsio3_primary_refits:
+                outcome = dict(mgsio3_primary_refits[record["identifier"]])
+                outcome["dataset_identifiers"] = record["fit_datasets"]
+                outcome["fit_kind"] = "original_scale_source_constrained_bm3"
+                outcome["parameters"] = [
+                    {
+                        **p,
+                        "similar": _similar(p["parameter"], p["published"], p["refit"]),
+                    }
+                    for p in outcome["parameters"]
+                ]
+                if not all(
+                    p["within_reported_error"] and p["similar"]
+                    for p in outcome["parameters"]
+                ):
+                    raise AssertionError(
+                        "MgSiO3 dedicated refit no longer supports similar status"
+                    )
+            elif record["identifier"] in DOROGOKUPETS_2015_FIT_BRANCH:
+                outcome = _dorogokupets_2015_outcome(record, dorogokupets_refits)
+            elif record["identifier"] in {
+                "diamond_correa_2008_dewaele_anchored",
+                "diamond_benedict_2014_dewaele_anchored",
+            }:
+                source_key = (
+                    "correa_2008"
+                    if "correa" in record["identifier"]
+                    else "benedict_2014"
+                )
+                anchor_record = next(
+                    candidate
+                    for candidate in document["eos_records"]
+                    if candidate["identifier"] == "diamond_dewaele_2008_vinet_2"
+                )
+                anchor_dataset = datasets["diamond_dewaele_2008_table1_pvt"]
+                anchor = _fit_record(document, anchor_record, anchor_dataset)
+                theory = diamond_reconstruction[source_key]
+                pressure_validation = theory["source_model_pressure_validation"]
+                outcome = {
+                    "status": "source_reconstruction",
+                    "dataset_identifiers": identifiers,
+                    "observations": anchor["observations"]
+                    + pressure_validation["observations"],
+                    "reconstruction_kind": "derived_reference_isotherm_composition",
+                    "composite_coefficient_optimization_performed": False,
+                    "anchor_refit": {
+                        "record_identifier": "diamond_dewaele_2008_vinet_2",
+                        "status": anchor["status"],
+                        "observations": anchor["observations"],
+                        "parameters": anchor["parameters"],
+                        "rmse_gpa": anchor["rmse_gpa"],
+                    },
+                    "thermal_model_validation": {
+                        "dataset_identifier": theory["source_dataset"],
+                        **pressure_validation,
+                        **theory.get("source_model_caloric_validation", {}),
+                    },
+                    "complete_composite_identity": theory[
+                        "complete_composite_identity"
+                    ],
+                    "qualification": (
+                        "Exact source-equation reconstruction with no composite "
+                        "coefficient optimization: the Dewaele reference isotherm is "
+                        "independently refitted, the published theory branch is tested "
+                        "against its source checkpoints, and the complete composed "
+                        "pressure and energy-increment identities are verified."
+                    ),
+                }
+            elif (
+                record["identifier"] in zhu_reproduction["records"]
+                and check["status"] == "bundled"
+                and "fit_datasets" in record
+            ):
+                outcome = _ye_2017_outcome(record, zhu_reproduction)
+            elif (
+                record["identifier"] in zhu_reproduction["thermal_records"]
+                and check["status"] == "bundled"
+                and "fit_datasets" in record
+            ):
+                outcome = _zhu_2025_thermal_outcome(record, zhu_reproduction)
+            elif record["identifier"] == (
+                "mgsio3_post_perovskite_mosenfelder_2009_bm3_1"
+            ):
+                outcome = _mosenfelder_2009_outcome(record)
+            elif (
+                record["identifier"] == "fesio3_liquid_sun_2019_2500k_bm4_1"
+                and check["status"] == "bundled"
+            ):
+                outcome = _sun_2019_fesio3_outcome(
+                    document, record, datasets[identifiers[0]]
+                )
+            elif "_dorfman_2012_tange_mgo_k0_" in record["identifier"]:
+                outcome = _dorfman_cocompression_outcome(material_id, record)
+            elif record["identifier"] == "mgo_b1_tange_2009_vinet":
+                outcome = _tange_2009_approximate_outcome(record)
+            elif record["identifier"] == NOGUCHI_RECORD_ID:
+                outcome = _noguchi_2013_outcome(record)
+            elif record["identifier"] == "vanadium_bcc_crichton_2016_bm3_thermal":
+                crichton = json.loads(
+                    (
+                        ROOT / "docs/data/crichton-2016-vanadium-reproduction.json"
+                    ).read_text(encoding="utf-8")
+                )
+                outcome = {
+                    "status": "not_refittable",
+                    "dataset_identifiers": identifiers,
+                    "observations": 29,
+                    "reason": check["finding"],
+                    "partial_validation": crichton["nominal_temperature_proxy_fit"],
+                    "curve_validation": {
+                        "observations": len(crichton["curve_checkpoints"]),
+                        "max_abs_relative_volume_difference": crichton[
+                            "curve_max_abs_relative_volume_difference"
+                        ],
+                        "tolerance": crichton["curve_tolerance"],
+                    },
+                }
+            elif "anderson_swenson_1975" in record["identifier"]:
+                from scripts.reproduce_anderson_swenson_1975 import (
+                    reproduce as anderson,
+                )
+
+                report = anderson()
+                check_row = next(
+                    x
+                    for x in report["isotherms"]
+                    if x["record_id"] == record["identifier"]
+                )
+                outcome = {
+                    "status": "not_refittable",
+                    "reproduction_status": "parameterization_reproduced",
+                    "dataset_identifiers": identifiers,
+                    "observations": check_row["comparison_point_count"],
+                    "reason": report["diagnostic_note"],
+                    "reproduction": check_row,
+                }
+            elif record["identifier"] in {
+                "argon_fcc_finger_1981_murnaghan2_debye",
+                "argon_fcc_errandonea_2006_bm3",
+                "argon_fcc_grimsditch_1986_density_polynomial",
+            }:
+                outcome = _argon_batch_outcome(record)
+            elif record["identifier"] in {
+                "gold_yokoo_2009_bm3_300k",
+                "gold_yokoo_2009_vinet_300k",
+            }:
+                from scripts.reproduce_yokoo_2009_gold import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif record["identifier"] == "platinum_yokoo_2009_vinet_300k":
+                from scripts.reproduce_yokoo_2009_platinum import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif record["identifier"] in {
+                "platinum_matsui_2009_vinet_300k",
+                "platinum_matsui_2009_vinet_mgd_electronic",
+            }:
+                from scripts.audit_matsui_2009_platinum import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif record["identifier"] in {
+                "gold_yokoo_2009_pvt_reconstruction",
+                "platinum_yokoo_2009_pvt_reconstruction",
+            }:
+                from scripts.register_yokoo_2009_pvt import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif not identifiers:
+                outcome = {
+                    "status": "not_refittable",
+                    "dataset_identifiers": [],
+                    "reason": check["finding"],
+                }
+            elif identifiers[0] not in datasets:
+                outcome = {
+                    "status": "not_refittable",
+                    "dataset_identifiers": identifiers,
+                    "reason": (
+                        "The record cites an external repository or source dataset "
+                        "that is not bundled as a row-level material dataset."
+                    ),
+                }
+            else:
+                try:
+                    outcome = _fit_record(document, record, datasets[identifiers[0]])
+                except Exception as error:  # keep the campaign complete and inspectable
+                    outcome = {
+                        "status": "refit_failed",
+                        "dataset_identifiers": identifiers,
+                        "reason": f"{type(error).__name__}: {error}",
+                    }
+            results.append({**base, **outcome})
+
+    from scripts.forsterite_reproduce_katsura_2022 import LEDGER_PARITY_POLICY
+
+    counts = Counter(item["status"] for item in results)
+    return {
+        "format": "peritheos.primary-eos-refit-validation",
+        "format_version": 1,
+        "generated_with": "scripts/validate_primary_eos_refits.py",
+        "policy": {
+            "parity": (
+                "Every fitted parameter agrees within combined 2-sigma and also "
+                "meets the parameter-specific numerical similarity threshold. "
+                "The Sakai 2018 rhenium audit explicitly accepts numerical parity "
+                "within reported parameter error widths, with comparable refit "
+                "standard errors; its source confidence convention remains unknown. "
+                "Sakai 2011 NaCl-B2 parity is conditional fixed-V0 agreement within "
+                "printed error widths, without claiming the unspecified source "
+                "weights, marker averaging or error confidence were recovered."
+                " Fei 2007 Au parity is a staged equal-pressure-weight replay within "
+                "printed parameter widths; source weights, exact MgO reduction and "
+                "error confidence/covariance remain unresolved."
+                " For explicitly registered Peritheos refits, parity verifies the "
+                "stored coefficients under the documented selection and objective; "
+                "it does not imply reproduction of source-author coefficients."
+                " Diopside parity is conditional agreement within reported error "
+                "widths, including a graph-corroborated corrected Zhao analysis "
+                "dataset; exact original inputs and workflow remain unrecovered."
+                " Sakai 2025 Au parity concerns only the independently fitted "
+                "K0-prime central value at published precision under stated "
+                "calibrants and residuals, not uncertainty or sequential-network parity."
+                " Phase E (Crichton and Ross 2000) achieves fit parity within "
+                "reported parameter error widths, with small pressure-curve "
+                "differences relative to the observation errors. Exact author "
+                "workflow availability is a separate provenance assessment."
+                " " + LEDGER_PARITY_POLICY
+            ),
+            "similar": (
+                "Every fitted parameter either agrees within combined 2-sigma or "
+                "meets the documented parameter-specific similarity threshold."
+            ),
+            "parity_not_achieved": (
+                "At least one fitted parameter is outside both the uncertainty and "
+                "similarity criteria, or a dedicated partial-source audit cannot "
+                "reproduce the published coefficient pair."
+            ),
+            "not_refittable": (
+                "Available observations or source reduction/calibration details are "
+                "insufficient for an independent full refit. A qualified subset or "
+                "proxy calculation may still be available as a diagnostic."
+            ),
+            "source_reconstruction": (
+                "A source calculation or composition of audited source equations "
+                "is reproduced without independently fitting the complete EOS "
+                "coefficients. Component refits and remaining source-input gaps "
+                "are documented separately."
+            ),
+        },
+        "summary": {"total": len(results), **dict(sorted(counts.items()))},
+        "records": results,
+    }
+
+
+def _fmt(value: Any) -> str:
+    if value is None:
+        return "—"
+    return f"{float(value):.6g}"
+
+
+def _range_text(value: list[float] | None, unit: str) -> str:
+    if not value:
+        return "not reported"
+    return f"{_fmt(value[0])}-{_fmt(value[1])} {unit}"
+
+
+def _investigation_findings(item: dict[str, Any]) -> list[str]:
+    parameters = item.get("parameters", [])
+    findings = []
+    if item["status"] == "similar":
+        uncertainty_missing = [
+            p["parameter"] for p in parameters if p["within_combined_2sigma"] is None
+        ]
+        uncertainty_only = [
+            p["parameter"]
+            for p in parameters
+            if not p["similar"] and p["within_combined_2sigma"] is True
+        ]
+        numerical_only = [
+            p["parameter"]
+            for p in parameters
+            if p["similar"] and p["within_combined_2sigma"] is False
+        ]
+        if uncertainty_missing:
+            findings.append(
+                "Strict uncertainty parity cannot be established because a source "
+                "or refit uncertainty is unavailable for "
+                + ", ".join(f"`{name}`" for name in uncertainty_missing)
+                + ". The point estimates nevertheless meet the numerical criterion."
+            )
+        if uncertainty_only:
+            findings.append(
+                "The point estimate exceeds the numerical limit for "
+                + ", ".join(f"`{name}`" for name in uncertainty_only)
+                + ", but the source and refit two-sigma intervals overlap. This is "
+                "evidence of weak coefficient identification rather than a resolved "
+                "curve-level disagreement."
+            )
+        if numerical_only:
+            findings.append(
+                "The magnitude is similar for "
+                + ", ".join(f"`{name}`" for name in numerical_only)
+                + ", but the quoted two-sigma intervals do not overlap. Differences "
+                "in weighting, rounding, covariance, or the fitted residual variable "
+                "remain plausible."
+            )
+    if item.get("primary_data_status") == "plot_only":
+        findings.append(
+            "The observations are digitized from a plot. Marker resolution, overlap, "
+            "axis calibration, and unavailable source regression weights limit the "
+            "strength of any coefficient-level conclusion."
+        )
+    pressure_range = item.get("observed_pressure_range_gpa")
+    v0_free = any(p["parameter"].endswith("V0") for p in parameters)
+    if pressure_range and pressure_range[0] > 5.0 and v0_free:
+        findings.append(
+            f"The lowest checked pressure is {_fmt(pressure_range[0])} GPa while V0 "
+            "is free, so the ambient reference volume and correlated elastic "
+            "coefficients are extrapolated rather than directly anchored."
+        )
+    published_rmse = item.get("published_rmse_gpa")
+    refit_rmse = item.get("rmse_gpa")
+    if (
+        published_rmse is not None
+        and refit_rmse is not None
+        and published_rmse > 2.0 * max(refit_rmse, 1.0e-12)
+    ):
+        findings.append(
+            "The refit reduces pressure RMSE by more than a factor of two. That gap "
+            "is too large to attribute only to solver precision and prioritizes a "
+            "source row-selection, pressure-scale, weighting, or model-convention "
+            "difference."
+        )
+    boundary = [
+        p["parameter"]
+        for p in parameters
+        if abs(p["refit"]) <= 1.0e-8 and p["parameter"].endswith(("K0_prime", "q"))
+    ]
+    if boundary:
+        findings.append(
+            "The optimizer places "
+            + ", ".join(f"`{name}`" for name in boundary)
+            + " at its physical lower bound. This is direct evidence that the chosen "
+            "rows do not identify the unconstrained parameterization."
+        )
+    if item["record_identifier"] in INVESTIGATION_NOTES:
+        findings.append(INVESTIGATION_NOTES[item["record_identifier"]])
+    if not findings:
+        findings.append(
+            "No single failure mechanism is established by the available metadata. "
+            "The next reproducible step is to recover the publication's exact row "
+            "mask, fixed coefficients, residual definition, and covariance treatment."
+        )
+    return findings
+
+
+def render_markdown(ledger: dict[str, Any]) -> str:
+    summary = ledger["summary"]
+    lines = [
+        "# Primary EOS refit validation",
+        "",
+        "This is the record-by-record numerical reproduction ledger for the bundled ",
+        "material library. It is generated by ",
+        "`scripts/validate_primary_eos_refits.py` from the checked-in primary-data ",
+        "transcriptions. A source parameterization remains authoritative; these refits ",
+        "are independent diagnostics and never overwrite a library record.",
+        "",
+        "## Outcome",
+        "",
+        f"The campaign covers all **{summary['total']}** EOS records. "
+        f"**{summary.get('parity', 0)}** achieve uncertainty parity, "
+        f"**{summary.get('similar', 0)}** are numerically similar, "
+        f"**{summary.get('source_reconstruction', 0)}** have a source "
+        "reconstruction without an independent EOS refit, "
+        f"**[{summary.get('parity_not_achieved', 0)}](#parity-not-achieved)** do not "
+        "achieve parity, "
+        f"**{summary.get('not_refittable', 0)}** cannot be directly refitted, and "
+        f"**{summary.get('refit_failed', 0)}** attempts failed before comparison.",
+        "",
+        "`parity` normally means all free coefficients agree within two combined standard ",
+        "uncertainties and also meet the numerical similarity limits. This prevents an ",
+        "unidentifiable extrapolation with an enormous fitted error from being labeled ",
+        "parity. Where a source or refit uncertainty is unavailable, `similar` ",
+        "uses explicit limits: 5% for V0, 15% for K0, 1.0 absolute or 20% for K0', ",
+        "25% for gamma0/q/theta0, 30% for thermal-expansion or dK/dT terms, and 20% ",
+        "for other coefficients. These broad limits identify broadly reproducible ",
+        "published reductions; they are not statistical confidence statements.",
+        "For separately registered Peritheos refits, `parity_basis` instead ",
+        "identifies numerical reproduction of that explicit analysis. The Fei ",
+        "(2007) NaCl-B2 staged thermal refit is reproducible in this sense; its ",
+        "published parent remains `parity_not_achieved`, with original-author ",
+        "thermal coefficients and uncertainties unreproduced.",
+        "The Sakai (2018) rhenium audit accepts numerical `parity` because both ",
+        "coefficients agree within the reported parameter error widths and the refit ",
+        "standard errors are comparable. Its explicit `parity_basis` preserves this ",
+        "distinction: the source confidence convention is unknown, and no formal ",
+        "combined-two-sigma result is asserted.",
+        "Sakai (2011) NaCl-B2 accepts conditional fixed-V0 numerical parity ",
+        "within the printed coefficient error widths; source weights and marker ",
+        "averaging remain unspecified. Its staged-volume and weighting diagnostics ",
+        "are retained separately, without assigning an error confidence convention.",
+        "Fei (2007) Au accepts conditional staged numerical parity within printed ",
+        "parameter widths; original weights, exact MgO reduction and uncertainty ",
+        "confidence/covariance remain unresolved. No formal combined-two-sigma ",
+        "or source-exact author-fit reproduction is asserted.",
+        "Takemura and Dewaele (2008) Au accepts conditional numerical parity ",
+        "within the printed K0-prime width on both ruby coordinates, using all ",
+        "86 observed rows with V0/K0 fixed. Pressure- and volume-residual fits ",
+        "agree; original weights and uncertainty estimation are unresolved. ",
+        "No combined-two-sigma or source-exact author-fit claim is made.",
+        "Katsura (2022) forsterite accepts conditional numerical `parity` within ",
+        "printed Table 2 error widths. The full-precision author-script vector ",
+        "at theta0=760 K is the recommended thermal option; the printed-table ",
+        "alternative retains theta0=768 K. Table errors are a comparison scale ",
+        "only for the script vector. Script-specific errors and exact bootstrap ",
+        "reproduction remain unavailable. See the ",
+        "[source comparison](literature-reproductions/forsterite-katsura-2022-refit-comparison.md).",
+        "Diopside accepts conditional parameter parity within reported error widths; ",
+        "Zhao uses a separate corrected analysis dataset with the graph-corroborated ",
+        "row-15 pressure. Original observations and published coefficients remain ",
+        "unchanged; exact original author inputs and workflow are not recovered.",
+        "Sakai (2025) Au accepts conditional K0-prime central-value parity at published ",
+        "precision. Fixed coefficients, original weights/covariance and full ",
+        "sequential-calibration parity are not independently recovered.",
+        "Phase E (Crichton and Ross 2000) achieves fit parity within reported ",
+        "parameter errors on all 11 primary rows. Weighted-refit coefficient ",
+        "shifts are below 0.123 reported error widths and the largest curve ",
+        "difference is about 0.0096 GPa. Exact workflow availability remains ",
+        "a separate provenance assessment. See the ",
+        "[audit and residual plot](literature-reproductions/phase-e-crichton-ross-2000.md).",
+        "`source_reconstruction` covers source calculations and compositions of ",
+        "audited equations without an independent refit of the complete EOS. ",
+        "Component refits and remaining source-input gaps are documented separately. ",
+        "`not_refittable` means the available inputs do not support a full independent ",
+        "refit; qualified subset or proxy calculations may still provide diagnostics.",
+        "",
+        "Fits use the equation and fixed coefficients declared by each record. Published ",
+        "row-wise uncertainties are used only when complete and positive; otherwise the ",
+        "fit is unweighted. P-V-T records are joint fits except where the publication ",
+        "declares a staged protocol, which is reproduced explicitly. Isothermal records linked to a ",
+        "P-V-T table use the rows nearest the declared reference temperature. Digitized ",
+        "plot data are labeled `plot_only` and should be interpreted less strictly.",
+        "A source that fits other primary observables is reproduced in that native ",
+        "space: the Li et al. acoustic record fits density, VP, and VS before its ",
+        "published isothermal conversion, and never treats calculated pressure as ",
+        "an observation.",
+        "A record-specific qualification is shown where the checked-in rows cover ",
+        "only a subset of the source fit or source-fixed coefficients must be preserved.",
+        "For linear Hugoniot refits the reported RMSE is in shock-velocity km/s; ",
+        "equilibrium-EOS curve/refit RMSE values are in GPa.",
+        "Regenerate the ledger with `uv run python scripts/validate_primary_eos_refits.py`; ",
+        "use `--check` in continuous integration to detect stale generated files.",
+        "",
+        "## Records",
+        "",
+        "| Record | Data | n | Published → Peritheos refit | Curve/refit RMSE (GPa unless labeled) | Outcome |",
+        "|---|---|---:|---|---:|---|",
+    ]
+    for item in ledger["records"]:
+        params = []
+        for parameter in item.get("parameters", []):
+            params.append(
+                f"`{parameter['parameter']}` {_fmt(parameter['published'])} → "
+                f"{_fmt(parameter['refit'])}"
+            )
+        data = ", ".join(item["dataset_identifiers"]) or item["primary_data_status"]
+        reason = item.get("reason") or item.get("qualification")
+        outcome = item["status"]
+        if (
+            item["status"]
+            in {
+                "similar",
+                "parity_not_achieved",
+                "refit_failed",
+            }
+            or item.get("reconstruction_kind")
+            == "derived_reference_isotherm_composition"
+        ):
+            anchor = f"investigation-{item['record_identifier']}"
+            outcome = f"[{outcome}](#{anchor})"
+        if reason:
+            outcome += f" — {reason}"
+        outcome = outcome.replace("|", "\\|").replace("\n", " ")
+        record_label = f"`{item['record_identifier']}`"
+        if item.get("primary_source"):
+            record_label = f"[{record_label}]({item['primary_source']})"
+        if item.get("rmse_p_wave_velocity_km_s") is not None:
+            rmse = (
+                f"VP {_fmt(item.get('reported_p_wave_rmse_km_s'))}/"
+                f"{_fmt(item['rmse_p_wave_velocity_km_s'])}; "
+                f"VS {_fmt(item.get('reported_s_wave_rmse_km_s'))}/"
+                f"{_fmt(item['rmse_s_wave_velocity_km_s'])} km/s"
+            )
+        elif item.get("rmse_shock_velocity_km_s") is not None:
+            rmse = f"—/{_fmt(item['rmse_shock_velocity_km_s'])} km/s"
+        else:
+            rmse = (
+                f"{_fmt(item.get('published_rmse_gpa'))}/{_fmt(item.get('rmse_gpa'))}"
+            )
+        lines.append(
+            f"| {record_label} | `{data}` | "
+            f"{item.get('observations', '—')} | {'; '.join(params) or '—'} | "
+            f"{rmse} | {outcome} |"
+        )
+
+    reconstructed = [
+        item
+        for item in ledger["records"]
+        if item.get("reconstruction_kind") == "derived_reference_isotherm_composition"
+    ]
+    lines.extend(["", "## Composite reconstructions", ""])
+    for item in reconstructed:
+        anchor = item["anchor_refit"]
+        thermal = item["thermal_model_validation"]
+        identity = item["complete_composite_identity"]
+        anchor_name = f"investigation-{item['record_identifier']}"
+        lines.extend(
+            [
+                f'<a id="{anchor_name}"></a>',
+                f"### `{item['record_identifier']}`",
+                "",
+                item["qualification"],
+                "",
+                f"- Dewaele 298 K anchor: `{anchor['status']}` from "
+                f"{anchor['observations']} observations; RMSE "
+                f"{_fmt(anchor['rmse_gpa'])} GPa.",
+                f"- Theory checkpoint: {thermal['observations']} states; absolute "
+                f"pressure RMSE {_fmt(thermal['absolute_pressure_rmse_gpa'])} GPa "
+                f"and maximum absolute residual "
+                f"{_fmt(thermal['absolute_pressure_max_abs_residual_gpa'])} GPa.",
+                f"- Complete composition: maximum pressure identity error "
+                f"{_fmt(identity['max_abs_composition_pressure_error_gpa'])} GPa; "
+                f"298 K anchor error "
+                f"{_fmt(identity['max_abs_reference_isotherm_error_gpa'])} GPa.",
+            ]
+        )
+        if thermal.get("internal_energy_increment_rmse_ev_per_atom") is not None:
+            lines.append(
+                "- Caloric checkpoint: fixed-volume internal-energy-increment RMSE "
+                f"{_fmt(thermal['internal_energy_increment_rmse_ev_per_atom'])} "
+                "eV/atom."
+            )
+
+    partial = [
+        item
+        for item in ledger["records"]
+        if item.get("fit_kind") == "sound_velocity_quasi_debye_bounded_partial"
+    ]
+    lines.extend(["", "## Partial diagnostics for records without a full refit", ""])
+    if partial:
+        for item in partial:
+            parameters = "; ".join(
+                f"`{value['parameter']}` {_fmt(value['published'])} → "
+                f"{_fmt(value['refit'])}"
+                for value in item.get("parameters", [])
+            )
+            lines.extend(
+                [
+                    f"### `{item['record_identifier']}`",
+                    "",
+                    f"**Data:** `{', '.join(item['dataset_identifiers'])}`. "
+                    f"**Selection:** {item.get('selection', '—')}. ",
+                    "",
+                    f"**Objective:** {item.get('objective', '—')}. ",
+                    "",
+                    f"**Result:** {parameters}; chi-square "
+                    f"{_fmt(item.get('chi_square'))} for "
+                    f"{item.get('degrees_of_freedom', '—')} degrees of freedom.",
+                    "",
+                    f"**Boundary:** {item.get('reason', '—')}",
+                    "",
+                    f"**Interpretation:** {item.get('qualification', '—')}",
+                    "",
+                ]
+            )
+    else:
+        lines.append("No record has a partial diagnostic fit.")
+
+    unsuccessful = [
+        item
+        for item in ledger["records"]
+        if item["status"] in {"parity_not_achieved", "refit_failed"}
+    ]
+    unavailable = [
+        item for item in ledger["records"] if item["status"] == "not_refittable"
+    ]
+    lines.extend(["", "## Parity not achieved", ""])
+    if unsuccessful:
+        for item in unsuccessful:
+            mismatches = [
+                parameter
+                for parameter in item.get("parameters", [])
+                if not parameter["similar"]
+            ]
+            detail = "; ".join(
+                f"{parameter['parameter']} {_fmt(parameter['published'])} → "
+                f"{_fmt(parameter['refit'])}"
+                for parameter in mismatches
+            )
+            reason = item.get("reason") or (
+                f"outside similarity limits ({detail})" if detail else item["status"]
+            )
+            anchor = f"investigation-{item['record_identifier']}"
+            lines.append(f"- [`{item['record_identifier']}`](#{anchor}): {reason}")
+    else:
+        lines.append("No completed fit fell outside the parity/similarity criteria.")
+
+    investigated = [
+        item
+        for item in ledger["records"]
+        if item["status"] in {"similar", "parity_not_achieved", "refit_failed"}
+    ]
+    lines.extend(
+        [
+            "",
+            "## Corrections found during investigation",
+            "",
+            "The first campaign incorrectly reported both Fei neon records as large ",
+            "V0 failures. Fei et al. fixed V0 and fitted all room-temperature data ",
+            "from two earlier studies plus their own observations; freeing V0 on only ",
+            "the 13 new high-pressure points created an unconstrained extrapolation. ",
+            "The fit inputs are now identified explicitly as Hemley et al. (1989, ref. ",
+            "45), Finger et al. (1981, ref. 47), and Fei et al.'s new observations. ",
+            "For the 21 bundled Hemley rows, the printed Mao-scale pressures are ",
+            "recalculated to the Dewaele et al. (2004) ruby scale as stated in Fei's ",
+            "Figure 5 caption, then combined with the 13 digitized observations from ",
+            "this study. With V0 fixed and thermal terms held fixed for the 300 K-only ",
+            "data, the 34-point partial BM3 fit gives K0=1.4775 GPa and K0'=7.8503; ",
+            "the Vinet fit gives K0=1.1439 GPa and K0'=8.2581. Both retain parity. ",
+            "Finger's low-pressure rows are still missing, so these results are ",
+            "explicitly classified as partial reproductions rather than exact reruns ",
+            "of Fei's complete regression.",
+            "",
+            "The first campaign also applied the B2-CaO fitted V0 to a table column ",
+            "normalized to the ambient B1 volume. Reconstructing B2 volumes from the ",
+            "tabulated cubic lattice parameter removes that false failure.",
+            "",
+            "The Walker B2-KCl failure was a fit-protocol mismatch. The preferred ",
+            "bold Table 3 result is staged, while the first campaign fitted all four ",
+            "coefficients simultaneously and used the printed row uncertainties. ",
+            "Following the source's unweighted staged protocol recovers K0, K0', and ",
+            "alpha_KT within 0.6%; an unweighted simultaneous diagnostic also recovers ",
+            "the paper's separate italic Table 3 row.",
+            "",
+            "The Tateno B2-KCl failure combined a source-version error with a data-row ",
+            "alignment error. The final article replaces the accepted manuscript's ",
+            "gamma0=0.58 and q=0.9 with gamma0=2.3 and q=0.8 and uses the ",
+            "integrated-Gruneisen Debye law. The accepted-manuscript table split the ",
+            "Pt and KCl halves in different orders, so runs 3 and 4 were mismatched. ",
+            "Using the correctly aligned official MSA Supplemental Table S1 workbook ",
+            "recovers all four fitted coefficients within combined two-sigma uncertainty.",
+            "",
+            "The Chidester B2-KCl boundary solution was another fit-scope error. ",
+            "The paper fitted its 155 new high-temperature observations together ",
+            "with all 123 Dewaele et al. (2012) room-temperature B2 observations, ",
+            "whereas the first campaign fitted only the new rows and applied their ",
+            "row-wise uncertainties. The corrected unweighted 278-row simultaneous ",
+            "fit also uses the thermodynamically integrated Gruneisen ",
+            "Debye-temperature relation. It recovers all five coefficients within ",
+            "combined two-sigma uncertainty, and its 1.582 GPa high-temperature ",
+            "RMSE reproduces the paper's reported 1.6 GPa.",
+            "",
+            "The Campbell-Heinz CsCl failure was a material-assignment error. ",
+            "Table 1 prints 24 RbCl rows followed by 13 CsCl rows, but the first ",
+            "campaign had attached only the first 21 RbCl rows to CsCl. Restoring ",
+            "the correct CsCl block and adding all nine corrected Yagi Table 1 ",
+            "ratios changes the refit from K0=2.4298 GPa and K0'=17.1164 to ",
+            "K0=17.6967 GPa and K0'=5.2026, which is compatible with the ",
+            "combined Campbell + Yagi values. The complete 24-row RbCl ",
+            "dataset is now a separate material record and refits to K0=17.8808 ",
+            "GPa and K0'=5.2382, reproducing the printed 17.9(10) and 5.23(29).",
+            "",
+            "The Bezacier ice-VI failure was also a fit-scope error. Table I ",
+            "contains 45 observations, but Figure 2 identifies only the 300 K and ",
+            "340 K isotherms as the ice-VI P-V data used for the EOS comparison. ",
+            "The corrected 30-row endpoint-isotherm fit gives V0=235.3538 A^3 ",
+            "(14.1733 cm^3/mol), K0=14.0158 GPa, and alpha0=1.4815e-4 K^-1, ",
+            "recovering the published 14.17(2) cm^3/mol, 14.05(23) GPa, and ",
+            "1.46(14)e-4 K^-1 within combined two-sigma uncertainty. The 15 ",
+            "intermediate rows are retained as primary measurements but excluded ",
+            "from this reproduction because they form a correlated pressure-",
+            "temperature ramp rather than either plotted isotherm. For comparison, ",
+            "forcing all 45 rows into one simultaneous fit gives V0=233.1912 A^3, ",
+            "K0=15.5626 GPa, and alpha0=5.2866e-5 K^-1; this failed diagnostic ",
+            "is retained in the machine-readable ledger.",
+            "",
+            "## Detailed non-parity investigations",
+            "",
+            f"The following **{len(investigated)}** sections cover every completed "
+            "refit that does not meet the strict `parity` definition. `similar` means ",
+            "the difference is numerically acceptable or covered by combined ",
+            "uncertainty; `parity_not_achieved` means at least one coefficient is ",
+            "outside both tests or a dedicated partial-source reconstruction does ",
+            "not reproduce the published pair. Causes described as possible remain hypotheses until ",
+            "the missing source fit detail is recovered.",
+        ]
+    )
+    for item in investigated:
+        anchor = f"investigation-{item['record_identifier']}"
+        if item.get("rmse_p_wave_velocity_km_s") is not None:
+            diagnostic = (
+                f"Observed density range: "
+                f"{_range_text(item.get('observed_density_range_g_cm3'), 'g/cm³')}; "
+                f"source-declared pressure coverage: "
+                f"{_range_text(item.get('experimental_pressure_range_gpa'), 'GPa')}; "
+                f"fit kind: `{item.get('fit_kind', '—')}`; objective: "
+                f"`{item.get('objective', '—')}`; published/refit VP RMS: "
+                f"{_fmt(item.get('reported_p_wave_rmse_km_s'))}/"
+                f"{_fmt(item.get('rmse_p_wave_velocity_km_s'))} km/s; "
+                f"published/refit VS RMS: "
+                f"{_fmt(item.get('reported_s_wave_rmse_km_s'))}/"
+                f"{_fmt(item.get('rmse_s_wave_velocity_km_s'))} km/s; "
+                f"free stored-EOS parameters: "
+                f"`{', '.join(item.get('free_parameters', ()))}`; "
+                f"source-fixed parameters: "
+                f"`{', '.join(item.get('fixed_parameters', ())) or 'none'}`."
+            )
+        else:
+            diagnostic = (
+                f"Observed pressure range: "
+                f"{_range_text(item.get('observed_pressure_range_gpa'), 'GPa')}; "
+                f"source-declared range: "
+                f"{_range_text(item.get('experimental_pressure_range_gpa'), 'GPa')}; "
+                f"fit kind: `{item.get('fit_kind', '—')}`; objective: "
+                f"`{item.get('objective', '—')}`; published/refit pressure RMSE: "
+                f"{_fmt(item.get('published_rmse_gpa'))}/"
+                f"{_fmt(item.get('rmse_gpa'))} GPa; reduced chi-square: "
+                f"{_fmt(item.get('reduced_chi_square'))}; free parameters: "
+                f"`{', '.join(item.get('free_parameters', ()))}`; "
+                f"source-fixed parameters: "
+                f"`{', '.join(item.get('fixed_parameters', ())) or 'none'}`."
+            )
+        lines.extend(
+            [
+                "",
+                f'<a id="{anchor}"></a>',
+                "",
+                f"### `{item['record_identifier']}`",
+                "",
+                f"**Classification:** `{item['status']}`. **Model:** `{item['model']}`. "
+                f"**Data:** `{', '.join(item['dataset_identifiers'])}` with "
+                f"{item.get('observations', '—')} selected observations.",
+                "",
+                "| Parameter | Published | Refit ± 1σ | Relative difference | "
+                "Within combined 2σ | Numerical limit |",
+                "|---|---:|---:|---:|:---:|:---:|",
+            ]
+        )
+        for parameter in item.get("parameters", []):
+            relative = parameter.get("relative_difference")
+            relative_text = "—" if relative is None else f"{100.0 * relative:.2f}%"
+            within = parameter.get("within_combined_2sigma")
+            within_text = "—" if within is None else "yes" if within else "no"
+            error = parameter.get("refit_error")
+            refit_text = _fmt(parameter["refit"])
+            if error is not None:
+                refit_text += f" ± {_fmt(error)}"
+            lines.append(
+                f"| `{parameter['parameter']}` | {_fmt(parameter['published'])} | "
+                f"{refit_text} | {relative_text} | {within_text} | "
+                f"{'yes' if parameter['similar'] else 'no'} |"
+            )
+        if item.get("acoustic_parameters"):
+            lines.extend(
+                [
+                    "",
+                    "**Direct acoustic-fit stage.**",
+                    "",
+                    "| Parameter | Published ± 1σ | Refit ± 1σ | Within published 1σ |",
+                    "|---|---:|---:|:---:|",
+                ]
+            )
+            for parameter in item["acoustic_parameters"]:
+                lines.append(
+                    f"| `{parameter['parameter']}` | "
+                    f"{_fmt(parameter['published'])} ± "
+                    f"{_fmt(parameter['published_error'])} | "
+                    f"{_fmt(parameter['refit'])} ± "
+                    f"{_fmt(parameter['refit_error'])} | "
+                    f"{'yes' if parameter['within_published_1sigma'] else 'no'} |"
+                )
+        lines.extend(
+            [
+                "",
+                f"**Fit diagnostics.** {diagnostic}",
+                "",
+                f"**Source/data scope.** {item.get('primary_data_finding') or 'No additional source-scope note is registered.'}",
+            ]
+        )
+        if item.get("source_notes"):
+            lines.extend(
+                ["", f"**Registered source-fit note.** {item['source_notes']}"]
+            )
+        lines.extend(["", "**Assessment and likely origin.**"])
+        for finding in _investigation_findings(item):
+            lines.append(f"- {finding}")
+
+    lines.extend(["", "## Direct refit unavailable", ""])
+    for item in unavailable:
+        lines.append(f"- `{item['record_identifier']}`: {item['reason']}")
+    lines.extend(
+        [
+            "",
+            "The complete machine-readable diagnostics, including selected columns, ",
+            "fit objective, coefficient errors, relative differences, solver status, ",
+            "and reduced chi-square, are in ",
+            "[`docs/data/primary-eos-refits.json`](data/primary-eos-refits.json).",
+            "",
+        ]
+    )
+    from scripts.generate_paper_investigation_ledger import chen_comparison_section
+
+    lines.extend(["", chen_comparison_section()])
+    return "\n".join(line.rstrip() for line in lines)
+
+
+def check_ledger_values(
+    saved, current, *, path="ledger", calculated=False, absolute_tolerance=1e-10
+):
+    """Keep source facts exact while allowing optimizer/BLAS output roundoff.
+
+    Only explicitly calculated fields use a 1e-5 relative / 1e-10 absolute
+    tolerance (coefficient-scaled for differences). Published coefficients,
+    source strings, row counts, booleans,
+    classifications and dictionary/list structure must match exactly.
+    """
+    if isinstance(current, dict):
+        if not isinstance(saved, dict) or saved.keys() != current.keys():
+            raise ValueError(f"{path}: fields differ")
+        for key, value in current.items():
+            derived = (
+                calculated
+                or key
+                in {
+                    "refit",
+                    "refit_error",
+                    "difference",
+                    "relative_difference",
+                    "reduced_chi_square",
+                }
+                or key.startswith("rmse_")
+                or key.endswith("_rmse_gpa")
+            )
+            if key in {
+                "published",
+                "published_error",
+                "source_parameters",
+                "fixed_parameters",
+            }:
+                derived = False
+            tolerance = absolute_tolerance
+            # Subtracting nearly equal coefficients amplifies relative roundoff
+            # in the difference. Compare it on the original coefficient scale.
+            if key == "difference" and isinstance(
+                current.get("published"), (int, float)
+            ):
+                tolerance = max(tolerance, abs(current["published"]) * 1e-5)
+            elif key == "relative_difference":
+                tolerance = max(tolerance, 1e-5)
+            check_ledger_values(
+                saved[key],
+                value,
+                path=f"{path}.{key}",
+                calculated=derived,
+                absolute_tolerance=tolerance,
+            )
+    elif isinstance(current, list):
+        if not isinstance(saved, list) or len(saved) != len(current):
+            raise ValueError(f"{path}: list length differs")
+        for index, (left, right) in enumerate(zip(saved, current)):
+            check_ledger_values(
+                left,
+                right,
+                path=f"{path}[{index}]",
+                calculated=calculated,
+                absolute_tolerance=absolute_tolerance,
+            )
+    elif isinstance(current, float) and calculated:
+        if not isinstance(saved, (int, float)) or not math.isclose(
+            saved, current, rel_tol=1e-5, abs_tol=absolute_tolerance
+        ):
+            raise ValueError(
+                f"{path}: calculated value differs ({saved!r}, {current!r})"
+            )
+    elif isinstance(saved, bool) != isinstance(current, bool) or saved != current:
+        raise ValueError(
+            f"{path}: source/assessment value differs ({saved!r}, {current!r})"
+        )
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--check", action="store_true", help="fail if outputs differ")
+    parser.add_argument("--json", type=Path, default=DEFAULT_JSON)
+    parser.add_argument("--markdown", type=Path, default=DEFAULT_MARKDOWN)
+    args = parser.parse_args()
+    ledger = validate_all()
+    json_text = json.dumps(ledger, indent=2, sort_keys=True, allow_nan=False) + "\n"
+    markdown_text = render_markdown(ledger)
+    if args.check:
+        current_json = (
+            args.json.read_text(encoding="utf-8") if args.json.exists() else ""
+        )
+        current_markdown = (
+            args.markdown.read_text(encoding="utf-8") if args.markdown.exists() else ""
+        )
+        try:
+            check_ledger_values(json.loads(current_json), json.loads(json_text))
+            if current_markdown != markdown_text:
+                raise ValueError("rendered Markdown differs")
+        except (ValueError, TypeError) as error:
+            print(f"primary EOS refit documentation is stale: {error}", file=sys.stderr)
+            return 1
+        return 0
+    args.json.parent.mkdir(parents=True, exist_ok=True)
+    args.json.write_text(json_text, encoding="utf-8")
+    args.markdown.write_text(markdown_text, encoding="utf-8")
+    print(json.dumps(ledger["summary"], sort_keys=True))
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

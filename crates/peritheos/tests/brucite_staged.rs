@@ -3,7 +3,7 @@ use std::path::Path;
 use peritheos::{load_eosmat, load_eosmat_str};
 
 #[test]
-fn brucite_catalog_preserves_published_ranges_and_separate_refits() {
+fn brucite_catalog_preserves_only_the_three_retained_published_isotherms() {
     let path = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/data/brucite.eosmat");
     let material = load_eosmat(path).unwrap();
     assert_eq!(material.document["atom_sites"][2]["z"], 0.4108);
@@ -14,13 +14,35 @@ fn brucite_catalog_preserves_published_ranges_and_separate_refits() {
         serde_json::json!([0, 22.56])
     );
     assert_eq!(
-        static_record.document["scientific_validation"]["status"],
+        static_record.document["evidence"]["scientific_validation"]["status"],
         "primary_source_validated"
     );
+    assert!(material.record("brucite_fukui_2003_873k_bm3").is_none());
+    assert!(material
+        .record("brucite_fukui_2003_300k_anchored_thermal")
+        .is_none());
+    assert!(material
+        .record("brucite_peritheos_fukui_2003_thermal_refit")
+        .is_none());
+    for t in [300, 473, 673] {
+        let record = material
+            .record(&format!("brucite_fukui_2003_{t}k_bm3"))
+            .unwrap();
+        let volume = record.volume(10.0, f64::from(t)).unwrap();
+        assert!((record.pressure(volume, f64::from(t)).unwrap() - 10.0).abs() < 1e-9);
+    }
+    let restored = load_eosmat_str(&material.to_json().unwrap()).unwrap();
+    assert_eq!(restored.document, material.document);
+}
+
+#[test]
+fn brucite_archived_diagnostics_preserve_equations_without_recommendation() {
+    let path =
+        Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/data/brucite-diagnostic-archive.eosmat");
+    let material = load_eosmat(path).unwrap();
     let thermal = material
         .record("brucite_fukui_2003_300k_anchored_thermal")
         .unwrap();
-    assert_eq!(thermal.document["catalog_access"], "explicit_selection");
     assert_eq!(
         thermal.document["scientific_validation"]["status"],
         "not_reproduced"
@@ -40,6 +62,10 @@ fn brucite_catalog_preserves_published_ranges_and_separate_refits() {
     let refit = material
         .record("brucite_peritheos_fukui_2003_873k_bm3_refit")
         .unwrap();
+    assert_eq!(
+        refit.document["scientific_validation"]["status"],
+        "deferred"
+    );
     // Every original 873 K Table 4 row; new fit is not a correction to the source curve.
     let rows = [
         (36.081, 8.75),
@@ -97,7 +123,8 @@ fn brucite_staged_isotherms_execute_and_preserve_pending_assessments() {
 
 #[test]
 fn brucite_curved_expansion_preserves_moduli_and_maps_reference_alpha() {
-    let path = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/data/brucite.eosmat");
+    let path =
+        Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/data/brucite-diagnostic-archive.eosmat");
     let material = load_eosmat(path).unwrap();
     for (t, k0, kp) in [
         (300, 41.8, 6.6),
@@ -110,6 +137,7 @@ fn brucite_curved_expansion_preserves_moduli_and_maps_reference_alpha() {
         assert_eq!(r.document["eos"]["parameters"]["K0"], k0);
         assert_eq!(r.document["eos"]["parameters"]["K0_prime"], kp);
         assert_eq!(r.document["record_kind"], "refit");
+        assert_eq!(r.document["scientific_validation"]["status"], "deferred");
         let volume = r.volume(10.0, f64::from(t)).unwrap();
         assert!((r.pressure(volume, f64::from(t)).unwrap() - 10.0).abs() < 1e-9);
     }

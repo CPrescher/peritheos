@@ -8,6 +8,7 @@ import jsonschema
 import pytest
 
 from peritheos import get_material_document
+from scripts.run_eosmat_audit import historical_reconstruction_view
 
 ROOT = Path(__file__).parents[1]
 SUN = "ca_perovskite_sun_2016_bm3_3"
@@ -45,11 +46,18 @@ def test_qualification_preserves_all_scientific_payloads_and_schema(
         (ROOT / "peritheos/data/eosmat-v3.schema.json").read_text(encoding="utf-8")
     )
     jsonschema.validate(document, schema)
+    assert all("assessment" in row["reproduction"] for row in document["eos_records"])
+    # Preserve the reviewed pre-summary payload hash, including all old evidence.
+    document = historical_reconstruction_view(document)
     # Reviewed scientific payload checkpoint, including the 2026-10-08 Wang
     # source recovery, excluded-row corrections and optional 64-point thermal refit. Freezes
     # every other record field, dataset, checksum, provenance and classification.
     for row in document["eos_records"]:
         row.pop("scientific_validation")
+        if row["identifier"] == FU:
+            # Access/recommendation metadata is separate from source values.
+            row.pop("catalog_access", None)
+            row.pop("default", None)
     payload = json.dumps(document, sort_keys=True, separators=(",", ":")).encode()
     assert hashlib.sha256(payload).hexdigest() == scientific_payload_sha256
 
@@ -59,7 +67,9 @@ def test_fu_source_verification_and_independent_refit_are_distinct():
     published, refit = by_id[FU], by_id[REFIT]
     check = published["scientific_validation"]
     assert published["record_kind"] == "published"
-    assert check["status"] == "primary_source_validated"
+    assert check["status"] == "not_reproduced"
+    assert check["usage_recommendation"] == "not_recommended_for_quantitative_use"
+    assert published["catalog_access"] == "explicit_selection"
     assert check["reproduction_status"] == "not_reproduced"
     assert "NOT REPRODUCED" in check["note"]
     assert "every prediction is invalid" in check["note"]

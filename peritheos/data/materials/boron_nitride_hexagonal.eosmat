@@ -1,277 +1,267 @@
 {
- "format_version": 3,
- "name": "Boron nitride (hexagonal)",
- "formula": "BN",
- "symmetry": "HEXAGONAL",
- "lattice": {
-  "a": 2.50425,
-  "b": null,
-  "c": 6.661664,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 120.0
- },
- "formula_units_per_cell": 2,
- "space_group": "P63/mmc",
- "space_group_number": 194,
- "atom_sites": [
-  {
-   "element": "B",
-   "wyckoff": "2c",
-   "x": 0.3333333333,
-   "y": 0.6666666667,
-   "z": 0.25,
-   "occupancy": 1.0
-  },
-  {
-   "element": "N",
-   "wyckoff": "2d",
-   "x": 0.6666666667,
-   "y": 0.3333333333,
-   "z": 0.25,
-   "occupancy": 1.0
-  }
- ],
- "notes": "AA-prime stacked hexagonal boron nitride. The ambient axial ratio is scaled to the fitted 300 K V0. PhaseSmith calculates powder reflections and intensities from the ideal structure.",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Muhammad et al. (2024), helium-medium BM3",
-   "reference": {
-    "authors": [
-     "Muhammad",
-     "Mezouar",
-     "Garbarino",
-     "Poręba",
-     "Confalonieri",
-     "Ceppatelli",
-     "Serrano-Ruiz",
-     "Peruzzini",
-     "Datchi"
-    ],
-    "year": 2024,
-    "title": "Anisotropic thermo-mechanical response of layered hexagonal boron nitride and black phosphorus: application as a simultaneous pressure and temperature sensor",
-    "source": "Nanoscale",
-    "volume": "16",
-    "locator": "9096-9107",
-    "doi": "10.1039/D4NR00093E"
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 36.18,
-     "K0": 27.4,
-     "K0_prime": 11.4
-    },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": 0.06,
-    "K0": 0.9,
-    "K0_prime": 0.8
-   },
-   "fixed_parameters": [],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    9.5
-   ],
-   "temperature_ref": 300.0,
-   "notes": "Hydrostatic helium-medium powder-XRD fit over 0-9.5 GPa. This replaces older strongly discrepant non-hydrostatic compressibility estimates for h-BN.",
-   "identifier": "boron_nitride_hexagonal_muhammad_2024_bm3_1",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation 4; Table 3; Figure 5."
-   },
-   "pressure_calibration": {
-    "status": "partially_resolved",
-    "methods": [
-     {
-      "kind": "ruby_fluorescence",
-      "reference": {
-       "authors": [
-        "Shen",
-        "Wang",
-        "Dewaele",
-        "Wu",
-        "Fratanduono",
-        "Eggert",
-        "Klotz",
-        "Dziuket",
-        "Loubeyre",
-        "Fat'yanov",
-        "Asimow",
-        "Mashimo",
-        "Wentzcovitch"
-       ],
-       "year": 2020,
-       "source": "High Pressure Research",
-       "doi": "10.1080/08957959.2020.1791107"
+  "format_version": 4,
+  "identifier": "boron_nitride_hexagonal",
+  "name": "Boron nitride (hexagonal)",
+  "formula": "BN",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 2,
+  "eos_records": [
+    {
+      "identifier": "boron_nitride_hexagonal_muhammad_2024_bm3_1",
+      "label": "Muhammad et al. (2024), helium-medium BM3",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 36.18, "error": 0.06},
+        "K0": {"value": 27.4, "error": 0.9},
+        "K0_prime": {"value": 11.4, "error": 0.8}
       },
-      "source_location": "Run 3 experimental methods; IPPS-Ruby2020 pressure scale, reference 73"
-     }
-    ],
-    "recalculation": {
-     "status": "reference_model_not_supported",
-     "notes": "The IPPS-Ruby2020 pressure scale is identified exactly, but its calibration equation is not yet executable in Peritheos."
-    },
-    "audit_date": "2026-09-03",
-    "notes": "The paper reports pressures as averages of ruby measurements before and after each diffraction exposure."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1039/D4NR00093E",
-     "locations": [
-      "Equation 4",
-      "Table 3",
-      "Figure 5"
-     ],
-     "doi": "10.1039/d4nr00093e"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "boron_nitride_hexagonal.json"
-    },
-    "primary_data_check": {
-     "status": "plot_only",
-     "audit_date": "2026-09-03",
-     "digitized_dataset_identifiers": [
-      "boron_nitride_hexagonal_muhammad_2024_figure5c_digitized"
-     ],
-     "source_locations": [
-      "Figure 5; Tables 3 and 4"
-     ],
-     "finding": "The helium-medium hBN lattice-parameter and volume observations are plotted in Figure 5 but not tabulated. Thirty-six separable volume markers were digitized from panel (c). Experimental volume error bars are not drawn in panel (c); the reported 0.1 GPa maximum before/after pressure difference gives a 0.05 GPa row-wise uncertainty upper bound."
+      "experimental_pressure_range_gpa": [0.0, 9.5],
+      "determination_method": "experimental",
+      "notes": "Hydrostatic helium-medium powder-XRD fit over 0-9.5 GPa. This replaces older strongly discrepant non-hydrostatic compressibility estimates for h-BN.",
+      "reference": {
+        "authors": [
+          "Muhammad",
+          "Mezouar",
+          "Garbarino",
+          "Poręba",
+          "Confalonieri",
+          "Ceppatelli",
+          "Serrano-Ruiz",
+          "Peruzzini",
+          "Datchi"
+        ],
+        "year": 2024,
+        "title": "Anisotropic thermo-mechanical response of layered hexagonal boron nitride and black phosphorus: application as a simultaneous pressure and temperature sensor",
+        "source": "Nanoscale",
+        "volume": "16",
+        "locator": "9096-9107",
+        "doi": "10.1039/D4NR00093E"
+      },
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": [
+                "Shen",
+                "Wang",
+                "Dewaele",
+                "Wu",
+                "Fratanduono",
+                "Eggert",
+                "Klotz",
+                "Dziuket",
+                "Loubeyre",
+                "Fat'yanov",
+                "Asimow",
+                "Mashimo",
+                "Wentzcovitch"
+              ],
+              "year": 2020,
+              "source": "High Pressure Research",
+              "doi": "10.1080/08957959.2020.1791107"
+            },
+            "source_location": "Run 3 experimental methods; IPPS-Ruby2020 pressure scale, reference 73"
+          }
+        ],
+        "recalculation": {
+          "status": "reference_model_not_supported",
+          "notes": "The IPPS-Ruby2020 pressure scale is identified exactly, but its calibration equation is not yet executable in Peritheos."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "The paper reports pressures as averages of ruby measurements before and after each diffraction exposure."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/boron_nitride_hexagonal/#record-boron_nitride_hexagonal_muhammad_2024_bm3_1",
+            "report_path": "docs/reconstruction-reports/boron_nitride_hexagonal.md#record-boron_nitride_hexagonal_muhammad_2024_bm3_1",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 36.18,
+                "published_error": 0.06,
+                "refit": 36.18537459744647,
+                "refit_error": 0.03381533585709163,
+                "difference": 0.005374597446468954,
+                "relative_difference": 0.00014855161543584727,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 27.4,
+                "published_error": 0.9,
+                "refit": 28.654603098547643,
+                "refit_error": 0.8659190294253547,
+                "difference": 1.2546030985476442,
+                "relative_difference": 0.04578843425356366,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 11.4,
+                "published_error": 0.8,
+                "refit": 10.045119272001996,
+                "refit_error": 0.4088877517871809,
+                "difference": -1.3548807279980046,
+                "relative_difference": 0.11884918666649164,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 36,
+              "observed_pressure_range_gpa": [0.1825, 9.4175],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [30.826266, 35.974552],
+              "degrees_of_freedom": 33,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.056695121627116415,
+              "published_rmse_gpa": 0.10273873260883355,
+              "reduced_chi_square": 1.4026197016640831,
+              "dataset_identifiers": ["boron_nitride_hexagonal_muhammad_2024_figure5c_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1039/D4NR00093E",
+            "locations": ["Equation 4", "Table 3", "Figure 5"],
+            "doi": "10.1039/d4nr00093e"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "boron_nitride_hexagonal.json"
+          },
+          "primary_data_check": {
+            "status": "plot_only",
+            "audit_date": "2026-09-03",
+            "digitized_dataset_identifiers": ["boron_nitride_hexagonal_muhammad_2024_figure5c_digitized"],
+            "source_locations": ["Figure 5; Tables 3 and 4"],
+            "finding": "The helium-medium hBN lattice-parameter and volume observations are plotted in Figure 5 but not tabulated. Thirty-six separable volume markers were digitized from panel (c). Experimental volume error bars are not drawn in panel (c); the reported 0.1 GPa maximum before/after pressure difference gives a 0.05 GPa row-wise uncertainty upper bound."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation 4; Table 3; Figure 5."
+        }
+      }
     }
-   }
-  }
- ],
- "datasets": [
-  {
-   "identifier": "boron_nitride_hexagonal_muhammad_2024_figure5c_digitized",
-   "kind": "pressure_volume_ratio_digitized",
-   "description": "Thirty-six separable hBN volume observations digitized from Figure 5(c). The paper's maximum pressure uncertainty is retained as an upper bound; experimental volume uncertainties cannot be recovered from panel (c), while digitization uncertainty is recorded separately.",
-   "reference": {
-    "authors": [
-     "Muhammad",
-     "Mezouar",
-     "Garbarino",
-     "Poręba",
-     "Confalonieri",
-     "Ceppatelli",
-     "Serrano-Ruiz",
-     "Peruzzini",
-     "Datchi"
-    ],
-    "year": 2024,
-    "source": "Nanoscale",
-    "volume": "16",
-    "locator": "9096-9107",
-    "doi": "10.1039/D4NR00093E"
-   },
-   "source_location": "Figure 5(c), filled blue circles labeled This work",
-   "columns": [
+  ],
+  "symmetry": "HEXAGONAL",
+  "space_group": "P63/mmc",
+  "space_group_number": 194,
+  "lattice": {"a": 2.50425, "b": null, "c": 6.661664, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
+  "atom_sites": [
+    {"element": "B", "wyckoff": "2c", "x": 0.3333333333, "y": 0.6666666667, "z": 0.25, "occupancy": 1.0},
+    {"element": "N", "wyckoff": "2d", "x": 0.6666666667, "y": 0.3333333333, "z": 0.25, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "AA-prime stacked hexagonal boron nitride. The ambient axial ratio is scaled to the fitted 300 K V0. PhaseSmith calculates powder reflections and intensities from the ideal structure.",
+  "datasets": [
     {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "volume_ratio",
-     "quantity": "relative_volume",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "volume_a3_conventional_cell",
-     "quantity": "volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value"
-    },
-    {
-     "name": "pressure_uncertainty_upper_bound_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "bound",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "pressure_digitization_uncertainty_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "uncertainty",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "volume_ratio_digitization_uncertainty",
-     "quantity": "relative_volume",
-     "unit": "1",
-     "role": "uncertainty",
-     "of": "volume_ratio"
+      "identifier": "boron_nitride_hexagonal_muhammad_2024_figure5c_digitized",
+      "kind": "pressure_volume_ratio_digitized",
+      "description": "Thirty-six separable hBN volume observations digitized from Figure 5(c). The paper's maximum pressure uncertainty is retained as an upper bound; experimental volume uncertainties cannot be recovered from panel (c), while digitization uncertainty is recorded separately.",
+      "reference": {
+        "authors": [
+          "Muhammad",
+          "Mezouar",
+          "Garbarino",
+          "Poręba",
+          "Confalonieri",
+          "Ceppatelli",
+          "Serrano-Ruiz",
+          "Peruzzini",
+          "Datchi"
+        ],
+        "year": 2024,
+        "source": "Nanoscale",
+        "volume": "16",
+        "locator": "9096-9107",
+        "doi": "10.1039/D4NR00093E"
+      },
+      "source_location": "Figure 5(c), filled blue circles labeled This work",
+      "columns": [
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "volume_ratio", "quantity": "relative_volume", "unit": "1", "role": "value"},
+        {
+          "name": "volume_a3_conventional_cell",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "pressure_uncertainty_upper_bound_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "bound",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "pressure_digitization_uncertainty_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "volume_ratio_digitization_uncertainty",
+          "quantity": "relative_volume",
+          "unit": "1",
+          "role": "uncertainty",
+          "of": "volume_ratio"
+        }
+      ],
+      "resource": {
+        "path": "datasets/hexagonal-boron-nitride-muhammad-2024-figure5c-digitized.csv",
+        "sha256": "eb8c717f83f37c38f6acedd2d1c82504840f98b19ddda6de05f3892244ed649d",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["boron_nitride_hexagonal_muhammad_2024_bm3_1"],
+      "provenance": {
+        "type": "digitized_from_figure",
+        "method": "Reconstructed the source-resolution Figure 5 from PMC image tiles, calibrated the printed axes in panel (c), and digitized the centers of separable filled blue-circle markers. Volumes were converted from V/V0 using the fitted conventional-cell V0.",
+        "source_figure_sha256": "e983fb616ff4bc051ecffc88f56000e56d76d26e0f81d5bbf97abae9f41d1942",
+        "axis_calibration_pixels_source_figure": {
+          "pressure": [
+            [1208.0, 0.0],
+            [1778.0, 8.0]
+          ],
+          "volume_ratio": [
+            [29.0, 1.0],
+            [987.0, 0.84]
+          ]
+        },
+        "quality_control": {"published_bm3_rms_pressure_residual_gpa": 0.1027, "published_bm3_max_abs_pressure_residual_gpa": 0.4109},
+        "digitized_on": "2026-09-03"
+      },
+      "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11079860/"
     }
-   ],
-   "resource": {
-    "path": "datasets/hexagonal-boron-nitride-muhammad-2024-figure5c-digitized.csv",
-    "sha256": "eb8c717f83f37c38f6acedd2d1c82504840f98b19ddda6de05f3892244ed649d",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "boron_nitride_hexagonal_muhammad_2024_bm3_1"
-   ],
-   "provenance": {
-    "type": "digitized_from_figure",
-    "method": "Reconstructed the source-resolution Figure 5 from PMC image tiles, calibrated the printed axes in panel (c), and digitized the centers of separable filled blue-circle markers. Volumes were converted from V/V0 using the fitted conventional-cell V0.",
-    "source_figure_sha256": "e983fb616ff4bc051ecffc88f56000e56d76d26e0f81d5bbf97abae9f41d1942",
-    "axis_calibration_pixels_source_figure": {
-     "pressure": [
-      [
-       1208.0,
-       0.0
-      ],
-      [
-       1778.0,
-       8.0
-      ]
-     ],
-     "volume_ratio": [
-      [
-       29.0,
-       1.0
-      ],
-      [
-       987.0,
-       0.84
-      ]
-     ]
-    },
-    "quality_control": {
-     "published_bm3_rms_pressure_residual_gpa": 0.1027,
-     "published_bm3_max_abs_pressure_residual_gpa": 0.4109
-    },
-    "digitized_on": "2026-09-03"
-   },
-   "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11079860/"
-  }
- ],
- "format": "peritheos.material",
- "identifier": "boron_nitride_hexagonal",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- }
+  ]
 }

@@ -1,369 +1,327 @@
 {
- "format_version": 3,
- "name": "Seifertite",
- "formula": "SiO2",
- "symmetry": "ORTHORHOMBIC",
- "lattice": {
-  "a": 4.0878288785,
-  "b": 5.0349040973,
-  "c": 4.4845388521,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 4,
- "space_group": "Pbcn",
- "space_group_number": 60,
- "atom_sites": [
-  {
-   "element": "Si",
-   "wyckoff": "4c",
-   "x": 0.0,
-   "y": 0.1522,
-   "z": 0.25,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "8d",
-   "x": 0.7336,
-   "y": 0.6245,
-   "z": 0.9186,
-   "occupancy": 1.0
-  }
- ],
- "notes": "Pbcn seifertite structure from Dera et al., Am. Mineral. 87, 1018-1023 (2002); axial ratios scaled to the EoS V0.",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Sun et al. (2019), BM2-MGD",
-   "reference": {
-    "authors": [
-     "Sun",
-     "Shi",
-     "Mao",
-     "Zhou",
-     "Prakapenka"
-    ],
-    "year": 2019,
-    "title": "High Pressure-Temperature Study on the Thermal Equations of State of Seifertite and CaCl2-Type SiO2",
-    "source": "J. Geophys. Res. Solid Earth",
-    "volume": "124",
-    "locator": "12620-12630",
-    "doi": "10.1029/2019JB017853"
-   },
-   "eos": {
-    "type": "BM2",
-    "parameters": {
-     "V0": 92.3,
-     "K0": 290.0
+  "format_version": 4,
+  "identifier": "seifertite",
+  "name": "Seifertite",
+  "formula": "SiO2",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 4,
+  "eos_records": [
+    {
+      "identifier": "seifertite_sun_2019_bm2_1",
+      "label": "Sun et al. (2019), BM2-MGD",
+      "model": "BM2",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 92.3, "error": 0.5},
+        "K0": {"value": 290.0, "error": 10.0}
+      },
+      "thermal": {
+        "model": "MieGruneisenDebye",
+        "parameters": {
+          "Tr": {"value": 300.0, "error": null},
+          "theta0": {"value": 1600.0, "error": 200.0},
+          "gamma0": {"value": 1.6, "error": 0.2},
+          "q": {"value": 1.0, "error": null, "fixed": true},
+          "n": {"value": 3.0, "error": null, "fixed": true}
+        }
+      },
+      "experimental_pressure_range_gpa": [55.0, 147.0],
+      "experimental_temperature_range_k": [300.0, 3500.0],
+      "determination_method": "experimental",
+      "notes": "Laser-heated DAC thermal EoS; BM2 fixes K0'=4 and the thermal fit fixes q=1.",
+      "reference": {
+        "authors": ["Sun", "Shi", "Mao", "Zhou", "Prakapenka"],
+        "year": 2019,
+        "title": "High Pressure-Temperature Study on the Thermal Equations of State of Seifertite and CaCl2-Type SiO2",
+        "source": "J. Geophys. Res. Solid Earth",
+        "volume": "124",
+        "locator": "12620-12630",
+        "doi": "10.1029/2019JB017853"
+      },
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/seifertite/#record-seifertite_sun_2019_bm2_1",
+            "report_path": "docs/reconstruction-reports/seifertite.md#record-seifertite_sun_2019_bm2_1",
+            "parameters": [
+              {
+                "parameter": "rt_eos.V0",
+                "published": 92.3,
+                "published_error": 0.5,
+                "refit": 91.5098931548666,
+                "refit_error": 9.942180677319786,
+                "difference": -0.7901068451333941,
+                "relative_difference": 0.008560204172626155,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0",
+                "published": 290.0,
+                "published_error": 10.0,
+                "refit": 307.5949877577548,
+                "refit_error": 204.5861312455744,
+                "difference": 17.59498775775478,
+                "relative_difference": 0.06067237157846476,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "theta0",
+                "published": 1600.0,
+                "published_error": 200.0,
+                "refit": 2329.397304746349,
+                "refit_error": 4424.946796032946,
+                "difference": 729.3973047463492,
+                "relative_difference": 0.45587331546646825,
+                "similar": false,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.6,
+                "published_error": 0.2,
+                "refit": 1.842480689184046,
+                "refit_error": 2.512098696423555,
+                "difference": 0.24248068918404586,
+                "relative_difference": 0.15155043074002866,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "volume_angstrom3"},
+              "absolute_sigma": true,
+              "free_parameters": ["rt_eos.V0", "rt_eos.K0", "theta0", "gamma0"],
+              "fixed_parameters": ["q", "n"],
+              "observations": 20,
+              "observed_pressure_range_gpa": [111.8, 140.5],
+              "observed_temperature_range_k": [300.0, 3030.0],
+              "observed_volume_range": [70.7, 73.1],
+              "degrees_of_freedom": 16,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.13740983523478445,
+              "published_rmse_gpa": 1.139641424838796,
+              "reduced_chi_square": 0.01306121653612071,
+              "dataset_identifiers": ["seifertite_sun_2019_dataset_s2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1029/2019JB017853",
+            "locations": ["Thermal EOS formulation", "Table 1, CaCl2 and seifertite rows"],
+            "finding": "The stored BM2 records are the 300 K reference isotherms of the MGD fits.",
+            "doi": "10.1029/2019jb017853"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "seifertite.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["seifertite_sun_2019_dataset_s2_pvt"],
+            "source_locations": ["Supporting Information, Data Set S2"],
+            "finding": "All 20 seifertite P-V-T observations deposited as Data Set S2, including the published row-level pressure, temperature, and volume uncertainties."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Thermal EOS formulation; Table 1, CaCl2 and seifertite rows."
+        },
+        "audit_corrections": [
+          {
+            "path": "thermal.parameters.n",
+            "source_value": null,
+            "value": 3.0,
+            "reason": "The molar Debye energy requires the three atoms in the SiO2 formula unit; this model input was omitted in migration.",
+            "primary_reference": {"doi": "10.1029/2019JB017853", "location": "thermal EOS formulation and Table 1"}
+          }
+        ]
+      }
     },
-    "model": "birch_murnaghan_2"
-   },
-   "parameter_errors": {
-    "V0": 0.5,
-    "K0": 10.0
-   },
-   "fixed_parameters": [],
-   "experimental_pressure_range_gpa": [
-    55.0,
-    147.0
-   ],
-   "experimental_temperature_range_k": [
-    300.0,
-    3500.0
-   ],
-   "temperature_ref": 300.0,
-   "thermal": {
-    "type": "MieGruneisenDebye",
-    "parameters": {
-     "Tr": 300.0,
-     "theta0": 1600.0,
-     "gamma0": 1.6,
-     "q": 1.0,
-     "n": 3.0
-    },
-    "parameter_errors": {
-     "Tr": null,
-     "theta0": 200.0,
-     "gamma0": 0.2,
-     "q": null,
-     "n": null
-    },
-    "fixed_parameters": [
-     "q",
-     "n"
-    ],
-    "model": "mie_gruneisen_debye"
-   },
-   "notes": "Laser-heated DAC thermal EoS; BM2 fixes K0'=4 and the thermal fit fixes q=1.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Thermal EOS formulation; Table 1, CaCl2 and seifertite rows."
-   },
-   "identifier": "seifertite_sun_2019_bm2_1",
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
-    },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1029/2019JB017853",
-     "locations": [
-      "Thermal EOS formulation",
-      "Table 1, CaCl2 and seifertite rows"
-     ],
-     "finding": "The stored BM2 records are the 300 K reference isotherms of the MGD fits.",
-     "doi": "10.1029/2019jb017853"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "seifertite.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "seifertite_sun_2019_dataset_s2_pvt"
-     ],
-     "source_locations": [
-      "Supporting Information, Data Set S2"
-     ],
-     "finding": "All 20 seifertite P-V-T observations deposited as Data Set S2, including the published row-level pressure, temperature, and volume uncertainties."
+    {
+      "identifier": "seifertite_driver_2010_qmc_300k_vinet",
+      "label": "Driver et al. (2010), QMC 300 K Vinet",
+      "model": "Vinet",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 91.75597334, "error": 0.05927388},
+        "K0": {"value": 329.0, "error": 4.0},
+        "K0_prime": {"value": 4.1, "error": 0.1}
+      },
+      "experimental_pressure_range_gpa": [0.0, 220.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "theoretical",
+      "validity": {
+        "pressure_gpa": [0.0, 220.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": ["QMC plus quasiharmonic phonons; the low-pressure part is a metastable extrapolation of alpha-PbO2-type SiO2."]
+      },
+      "determination_method": "theoretical",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 60.083},
+      "reference": {
+        "authors": ["Driver", "Cohen", "Wu", "Militzer", "Lopez Rios", "Towler", "Needs", "Wilkins"],
+        "year": 2010,
+        "title": "Quantum Monte Carlo computations of phase stability, equations of state, and elasticity of high-pressure silica",
+        "source": "Proceedings of the National Academy of Sciences",
+        "volume": "107",
+        "locator": "9519-9524",
+        "doi": "10.1073/pnas.0912130107"
+      },
+      "pressure_calibration": {
+        "status": "not_applicable",
+        "methods": [
+          {"kind": "ab_initio", "source_location": "Methods"}
+        ],
+        "recalculation": {"status": "not_applicable", "notes": "Quantum Monte Carlo thermal EOS."},
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "The source describes approximately six volumes spanning +/-10% and plots the statistical envelope, but does not tabulate the individual QMC energies or pressures.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/seifertite/#record-seifertite_driver_2010_qmc_300k_vinet",
+            "report_path": "docs/reconstruction-reports/seifertite.md#record-seifertite_driver_2010_qmc_300k_vinet",
+            "fit": {
+              "fixed_parameters": [],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Full Vinet coefficient and uncertainty transcription with exact unit-cell conversion.",
+          "audit_date": "2026-09-05",
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "phase",
+            "equation",
+            "parameters",
+            "uncertainties",
+            "volume_basis",
+            "reference_state",
+            "theoretical_method"
+          ],
+          "primary_source_check": {
+            "access_url": "https://arxiv.org/pdf/1001.2066",
+            "doi": "10.1073/pnas.0912130107",
+            "locations": ["Equations of States section", "Figure 1c", "Table 1"],
+            "finding": "The source reports the QMC 300 K alpha-PbO2-type Vinet row directly."
+          },
+          "primary_data_check": {
+            "status": "parameterization_and_plot_only",
+            "audit_date": "2026-09-05",
+            "finding": "The source describes approximately six volumes spanning +/-10% and plots the statistical envelope, but does not tabulate the individual QMC energies or pressures."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Calculated states/theory determine this EOS; source: Equations of States section; Figure 1c; Table 1.",
+          "equation": "Equations of States section: Vinet fits to thermal Helmholtz-free-energy isotherms.",
+          "parameters": "Table 1, alpha-PbO2 QMC column.",
+          "volume_conversion": "154.8(1) bohr3 per SiO2 converted to A3 and multiplied by Z=4."
+        }
+      }
     }
-   },
-   "audit_corrections": [
+  ],
+  "symmetry": "ORTHORHOMBIC",
+  "space_group": "Pbcn",
+  "space_group_number": 60,
+  "lattice": {"a": 4.0878288785, "b": 5.0349040973, "c": 4.4845388521, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Si", "wyckoff": "4c", "x": 0.0, "y": 0.1522, "z": 0.25, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "8d", "x": 0.7336, "y": 0.6245, "z": 0.9186, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Pbcn seifertite structure from Dera et al., Am. Mineral. 87, 1018-1023 (2002); axial ratios scaled to the EoS V0.",
+  "datasets": [
     {
-     "path": "thermal.parameters.n",
-     "source_value": null,
-     "value": 3.0,
-     "reason": "The molar Debye energy requires the three atoms in the SiO2 formula unit; this model input was omitted in migration.",
-     "primary_reference": {
-      "doi": "10.1029/2019JB017853",
-      "location": "thermal EOS formulation and Table 1"
-     }
+      "identifier": "seifertite_sun_2019_dataset_s2_pvt",
+      "kind": "pressure_volume_temperature",
+      "description": "All 20 seifertite P-V-T observations deposited as Data Set S2, including the published row-level pressure, temperature, and volume uncertainties.",
+      "source_location": "Supporting Information, Data Set S2",
+      "source_url": "https://zenodo.org/records/3361843",
+      "license": "CC BY 4.0",
+      "columns": [
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_uncertainty_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {
+          "name": "temperature_uncertainty_k",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "uncertainty",
+          "of": "temperature_k"
+        },
+        {"name": "volume_angstrom3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+        {
+          "name": "volume_uncertainty_angstrom3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "uncertainty",
+          "of": "volume_angstrom3"
+        }
+      ],
+      "resource": {
+        "path": "datasets/seifertite-sun-2019-dataset-s2-pvt.csv",
+        "sha256": "8e73de68cdcb470b29666011761c4fed5dfefe5b3ea48826255982765cd204b2",
+        "media_type": "text/csv"
+      },
+      "notes": "Parenthesized errors are retained as generic published uncertainties because the supplement does not name their statistic. The article notes that some lower-quality diffraction patterns were excluded from the thermal-EOS fit; Data Set S2 is bundled in full.",
+      "reference": {
+        "authors": ["Sun", "Shi", "Mao", "Zhou", "Prakapenka"],
+        "year": 2019,
+        "source": "J. Geophys. Res. Solid Earth",
+        "volume": "124",
+        "locator": "12620-12630",
+        "doi": "10.1029/2019JB017853"
+      },
+      "used_by_eos_records": ["seifertite_sun_2019_bm2_1"]
     }
-   ]
-  },
-  {
-   "determination_method": "theoretical",
-   "identifier": "seifertite_driver_2010_qmc_300k_vinet",
-   "label": "Driver et al. (2010), QMC 300 K Vinet",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Driver",
-     "Cohen",
-     "Wu",
-     "Militzer",
-     "Lopez Rios",
-     "Towler",
-     "Needs",
-     "Wilkins"
-    ],
-    "year": 2010,
-    "title": "Quantum Monte Carlo computations of phase stability, equations of state, and elasticity of high-pressure silica",
-    "source": "Proceedings of the National Academy of Sciences",
-    "volume": "107",
-    "locator": "9519-9524",
-    "doi": "10.1073/pnas.0912130107"
-   },
-   "eos": {
-    "type": "Vinet",
-    "model": "vinet",
-    "parameters": {
-     "V0": 91.75597334,
-     "K0": 329.0,
-     "K0_prime": 4.1
-    }
-   },
-   "parameter_errors": {
-    "V0": 0.05927388,
-    "K0": 4.0,
-    "K0_prime": 0.1
-   },
-   "fixed_parameters": [],
-   "temperature_ref": 300.0,
-   "experimental_pressure_range_gpa": [
-    0.0,
-    220.0
-   ],
-   "pressure_range_status": "theoretical",
-   "experimental_temperature_range_k": [
-    300.0,
-    300.0
-   ],
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 4.0,
-    "molar_mass_g_mol": 60.083
-   },
-   "validity": {
-    "pressure_gpa": [
-     0.0,
-     220.0
-    ],
-    "temperature_k": [
-     300.0,
-     300.0
-    ],
-    "notes": [
-     "QMC plus quasiharmonic phonons; the low-pressure part is a metastable extrapolation of alpha-PbO2-type SiO2."
-    ]
-   },
-   "parameter_provenance": {
-    "determination_method": "Calculated states/theory determine this EOS; source: Equations of States section; Figure 1c; Table 1.",
-    "equation": "Equations of States section: Vinet fits to thermal Helmholtz-free-energy isotherms.",
-    "parameters": "Table 1, alpha-PbO2 QMC column.",
-    "volume_conversion": "154.8(1) bohr3 per SiO2 converted to A3 and multiplied by Z=4."
-   },
-   "pressure_calibration": {
-    "status": "not_applicable",
-    "methods": [
-     {
-      "kind": "ab_initio",
-      "source_location": "Methods"
-     }
-    ],
-    "recalculation": {
-     "status": "not_applicable",
-     "notes": "Quantum Monte Carlo thermal EOS."
-    },
-    "audit_date": "2026-09-05"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Full Vinet coefficient and uncertainty transcription with exact unit-cell conversion.",
-    "audit_date": "2026-09-05",
-    "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "equation",
-     "parameters",
-     "uncertainties",
-     "volume_basis",
-     "reference_state",
-     "theoretical_method"
-    ],
-    "primary_source_check": {
-     "access_url": "https://arxiv.org/pdf/1001.2066",
-     "doi": "10.1073/pnas.0912130107",
-     "locations": [
-      "Equations of States section",
-      "Figure 1c",
-      "Table 1"
-     ],
-     "finding": "The source reports the QMC 300 K alpha-PbO2-type Vinet row directly."
-    },
-    "primary_data_check": {
-     "status": "parameterization_and_plot_only",
-     "audit_date": "2026-09-05",
-     "finding": "The source describes approximately six volumes spanning +/-10% and plots the statistical envelope, but does not tabulate the individual QMC energies or pressures."
-    }
-   }
-  }
- ],
- "format": "peritheos.material",
- "identifier": "seifertite",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "datasets": [
-  {
-   "identifier": "seifertite_sun_2019_dataset_s2_pvt",
-   "kind": "pressure_volume_temperature",
-   "description": "All 20 seifertite P-V-T observations deposited as Data Set S2, including the published row-level pressure, temperature, and volume uncertainties.",
-   "source_location": "Supporting Information, Data Set S2",
-   "source_url": "https://zenodo.org/records/3361843",
-   "license": "CC BY 4.0",
-   "columns": [
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_uncertainty_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "uncertainty",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "temperature_k",
-     "quantity": "temperature",
-     "unit": "K",
-     "role": "value"
-    },
-    {
-     "name": "temperature_uncertainty_k",
-     "quantity": "temperature",
-     "unit": "K",
-     "role": "uncertainty",
-     "of": "temperature_k"
-    },
-    {
-     "name": "volume_angstrom3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "volume_uncertainty_angstrom3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "uncertainty",
-     "of": "volume_angstrom3"
-    }
-   ],
-   "resource": {
-    "path": "datasets/seifertite-sun-2019-dataset-s2-pvt.csv",
-    "sha256": "8e73de68cdcb470b29666011761c4fed5dfefe5b3ea48826255982765cd204b2",
-    "media_type": "text/csv"
-   },
-   "notes": "Parenthesized errors are retained as generic published uncertainties because the supplement does not name their statistic. The article notes that some lower-quality diffraction patterns were excluded from the thermal-EOS fit; Data Set S2 is bundled in full.",
-   "reference": {
-    "authors": [
-     "Sun",
-     "Shi",
-     "Mao",
-     "Zhou",
-     "Prakapenka"
-    ],
-    "year": 2019,
-    "source": "J. Geophys. Res. Solid Earth",
-    "volume": "124",
-    "locator": "12620-12630",
-    "doi": "10.1029/2019JB017853"
-   },
-   "used_by_eos_records": [
-    "seifertite_sun_2019_bm2_1"
-   ]
-  }
- ]
+  ]
 }

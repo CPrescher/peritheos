@@ -1,11 +1,11 @@
 import importlib.util
-import json
 from pathlib import Path
 
 import pytest
 from jsonschema import Draft202012Validator
 
 from peritheos import eosmat_schema
+from scripts.eosmat_io import read_material
 
 ROOT = Path(__file__).parents[1]
 
@@ -46,7 +46,7 @@ MATERIALS = {
 def _documents():
     for material in MATERIALS:
         path = ROOT / "peritheos/data/materials" / f"{material}.eosmat"
-        yield material, json.loads(path.read_text(encoding="utf-8"))
+        yield material, read_material(path)
 
 
 def _load_script(filename):

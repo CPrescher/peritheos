@@ -11,6 +11,8 @@ import json
 from pathlib import Path
 from typing import Any
 
+from scripts.eosmat_io import read_material, write_material
+
 ROOT = Path(__file__).resolve().parents[1]
 MATERIALS = ROOT / "peritheos" / "data" / "materials"
 DATASET = (
@@ -378,9 +380,7 @@ def base_record(
 
 
 def load_documents() -> dict[str, dict[str, Any]]:
-    return {
-        path.stem: json.loads(path.read_text()) for path in MATERIALS.glob("*.eosmat")
-    }
+    return {path.stem: read_material(path) for path in MATERIALS.glob("*.eosmat")}
 
 
 def ensure_lead_hcp(documents: dict[str, dict[str, Any]]) -> None:
@@ -935,10 +935,7 @@ def apply_records(
             document["datasets"] = datasets + [
                 dorfman_dataset(material, dor_ref, dor_refit)
             ]
-        (MATERIALS / f"{material}.eosmat").write_text(
-            json.dumps(document, indent=1, ensure_ascii=False, allow_nan=False) + "\n",
-            encoding="utf-8",
-        )
+        write_material(MATERIALS / f"{material}.eosmat", document)
     print(
         f"wrote {len(identifiers)} records across {len(records_by_material)} material documents"
     )

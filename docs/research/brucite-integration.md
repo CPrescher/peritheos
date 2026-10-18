@@ -1,4 +1,19 @@
-# Brucite G04/C12 catalog integration
+# Brucite curation disposition
+
+2026-10-17. **Published thermal-EOS parity not achieved; thermal EOS not recommended.**
+Only the individually source-checked published 300/473/673 K isotherms remain
+executable. The original 873 K and continuous reconstruction, and all seven
+Peritheos refits, are preserved in the diagnostic archive and excluded from
+catalog selection. All printed data and source coefficients are preserved.
+Further EOS development is outside this curation task.
+
+See the [current audit disposition](../literature-reproductions/brucite.md).
+The following integration history and its test counts describe earlier local
+states; its installation and recommendation statements are superseded.
+
+## Historical integration record
+
+### Brucite G04/C12 catalog integration
 
 2026-10-16. **Published-range lattice-average volume EOSs installed.** This
 supersedes the earlier restricted integration. No commit, push, publication or

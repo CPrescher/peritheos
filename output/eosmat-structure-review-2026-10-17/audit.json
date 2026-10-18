@@ -1,0 +1,1540 @@
+{
+  "scope": "Current local working files on 2026-10-17; pre-existing changes included. No production files changed by this review.",
+  "material_documents": 232,
+  "eos_records": 663,
+  "datasets": 423,
+  "external_csv_datasets": 414,
+  "record_field_names": 83,
+  "schema_record_field_names": 36,
+  "validation_field_names": 68,
+  "material_lines_median": 390.0,
+  "section_value_bytes": {
+    "eos_records": 3185791,
+    "datasets": 1105507,
+    "source": 67618,
+    "notes": 66552,
+    "atom_sites": 52801,
+    "units": 18792,
+    "lattice": 14586,
+    "cell_contents": 12999,
+    "peaks": 9695,
+    "aliases": 5190,
+    "phase": 5136,
+    "name": 5065,
+    "format": 4640,
+    "supporting_studies": 4405,
+    "identifier": 3709,
+    "phase_references": 3200,
+    "structure_provenance": 2531,
+    "formula": 2331,
+    "symmetry": 2318,
+    "space_group": 1536,
+    "sample_composition": 1262,
+    "phase_scope": 1220,
+    "family_id": 1044,
+    "recommendation_hold": 795,
+    "space_group_number": 590,
+    "curation_disposition": 498,
+    "structure_reference": 439,
+    "composition": 317,
+    "formula_units_per_cell": 259,
+    "format_version": 232,
+    "integration_status": 211,
+    "crystal_system": 10
+  },
+  "record_field_value_bytes": {
+    "scientific_validation": 1042938,
+    "pressure_calibration": 432500,
+    "parameter_provenance": 396417,
+    "notes": 221259,
+    "reference": 179127,
+    "validity": 117941,
+    "eos": 64703,
+    "fit_provenance": 57470,
+    "source_lineage": 56492,
+    "thermal": 48245,
+    "audit_corrections": 35561,
+    "label": 32398,
+    "experimental_configuration": 28718,
+    "identifier": 25041,
+    "parameter_errors": 24527,
+    "volume_basis": 21264,
+    "fit_datasets": 13379,
+    "range_provenance": 10467,
+    "sample_composition": 9816,
+    "determination_method": 8965,
+    "pressure_range_status": 8476,
+    "reproduction": 8214,
+    "derivation": 7588,
+    "experimental_pressure_range_gpa": 7201,
+    "parameter_covariance": 7075,
+    "experimental_temperature_range_k": 5183,
+    "equation_kind": 5082,
+    "record_kind": 4923,
+    "fixed_parameters": 4285,
+    "spin_crossover_context": 4139,
+    "fit_data_sources": 3814,
+    "published_fit_provenance": 3150,
+    "temperature_ref": 2791,
+    "fit_input_inventory": 2692,
+    "fit_protocol": 2512,
+    "author_input_followup": 2182,
+    "constrained_fit_family": 1995,
+    "parameter_error_confidence": 1888,
+    "validation_selection": 1872,
+    "iron_speciation": 1721,
+    "supporting_references": 1243,
+    "numerical_reproduction": 1139,
+    "migration_corrections": 1125,
+    "phase_selection": 1050,
+    "volume": 1001,
+    "temperature_ref_provenance": 907,
+    "branch_domain": 906,
+    "initial_state": 891,
+    "computational_configuration": 869,
+    "source_parameters": 770,
+    "supporting_datasets": 753,
+    "reproduction_audit": 694,
+    "default_for": 683,
+    "spin_path_context": 591,
+    "source_heat_capacity": 560,
+    "author_fit_preference": 490,
+    "uncertainties": 461,
+    "default": 458,
+    "uncertainty_provenance": 408,
+    "catalog_access": 360,
+    "diagnostic_datasets": 358,
+    "source_volume_normalization": 348,
+    "derived_from_record": 296,
+    "parameter_uncertainty_convention": 291,
+    "source_coefficient_rounding": 253,
+    "source_parameterization": 216,
+    "reference_state": 186,
+    "comparison_datasets": 170,
+    "phase_scope": 168,
+    "validation_datasets": 161,
+    "source_compressibility_coefficients": 155,
+    "parameter_error_convention": 132,
+    "aliases": 106,
+    "iron_valence": 100,
+    "implicit_parameters": 80,
+    "source_fit_domain": 68,
+    "source_quadratic_fit": 66,
+    "analysis_datasets": 43,
+    "branch_kind": 43,
+    "recommended_refit_dataset": 41,
+    "loading_path": 33,
+    "reference_pressure_gpa": 26,
+    "source_fit_pressure_range_gpa": 11
+  },
+  "size_measurement": "UTF-8 bytes in compact JSON field values, excluding parent keys and surrounding punctuation; not a storage benchmark.",
+  "formatting": [
+    {
+      "file": "akimotoite.eosmat",
+      "original_lines": 2110,
+      "formatted_lines": 1173,
+      "records": 11
+    },
+    {
+      "file": "al2o3_perovskite.eosmat",
+      "original_lines": 299,
+      "formatted_lines": 197,
+      "records": 2
+    },
+    {
+      "file": "al2o3_post_perovskite.eosmat",
+      "original_lines": 181,
+      "formatted_lines": 127,
+      "records": 1
+    },
+    {
+      "file": "al_bearing_phase_d.eosmat",
+      "original_lines": 414,
+      "formatted_lines": 269,
+      "records": 1
+    },
+    {
+      "file": "almandine.eosmat",
+      "original_lines": 241,
+      "formatted_lines": 119,
+      "records": 1
+    },
+    {
+      "file": "alpha_quartz.eosmat",
+      "original_lines": 372,
+      "formatted_lines": 192,
+      "records": 2
+    },
+    {
+      "file": "alumina.eosmat",
+      "original_lines": 539,
+      "formatted_lines": 300,
+      "records": 2
+    },
+    {
+      "file": "alumina_rh2o3_ii.eosmat",
+      "original_lines": 313,
+      "formatted_lines": 168,
+      "records": 1
+    },
+    {
+      "file": "aluminum.eosmat",
+      "original_lines": 958,
+      "formatted_lines": 637,
+      "records": 5
+    },
+    {
+      "file": "aragonite.eosmat",
+      "original_lines": 250,
+      "formatted_lines": 139,
+      "records": 1
+    },
+    {
+      "file": "argon_fcc.eosmat",
+      "original_lines": 3742,
+      "formatted_lines": 2199,
+      "records": 15
+    },
+    {
+      "file": "argon_hcp.eosmat",
+      "original_lines": 269,
+      "formatted_lines": 154,
+      "records": 1
+    },
+    {
+      "file": "b4c.eosmat",
+      "original_lines": 1121,
+      "formatted_lines": 428,
+      "records": 3
+    },
+    {
+      "file": "beryllium_hcp.eosmat",
+      "original_lines": 350,
+      "formatted_lines": 217,
+      "records": 2
+    },
+    {
+      "file": "boron_nitride.eosmat",
+      "original_lines": 461,
+      "formatted_lines": 285,
+      "records": 2
+    },
+    {
+      "file": "boron_nitride_hexagonal.eosmat",
+      "original_lines": 277,
+      "formatted_lines": 134,
+      "records": 1
+    },
+    {
+      "file": "boron_phosphide.eosmat",
+      "original_lines": 244,
+      "formatted_lines": 130,
+      "records": 1
+    },
+    {
+      "file": "breyite.eosmat",
+      "original_lines": 141,
+      "formatted_lines": 86,
+      "records": 1
+    },
+    {
+      "file": "bridgmanite.eosmat",
+      "original_lines": 4344,
+      "formatted_lines": 2577,
+      "records": 24
+    },
+    {
+      "file": "brucite.eosmat",
+      "original_lines": 1304,
+      "formatted_lines": 789,
+      "records": 3
+    },
+    {
+      "file": "ca0988mg0918fe0078mn0016c2o6_dolomite.eosmat",
+      "original_lines": 340,
+      "formatted_lines": 204,
+      "records": 1
+    },
+    {
+      "file": "ca0988mg0918fe0078mn0016c2o6_dolomite_iii.eosmat",
+      "original_lines": 538,
+      "formatted_lines": 326,
+      "records": 2
+    },
+    {
+      "file": "ca_perovskite.eosmat",
+      "original_lines": 5802,
+      "formatted_lines": 3389,
+      "records": 29
+    },
+    {
+      "file": "ca_perovskite_tetragonal.eosmat",
+      "original_lines": 1172,
+      "formatted_lines": 702,
+      "records": 6
+    },
+    {
+      "file": "cairo3_perovskite.eosmat",
+      "original_lines": 409,
+      "formatted_lines": 240,
+      "records": 1
+    },
+    {
+      "file": "cairo3_post_perovskite.eosmat",
+      "original_lines": 635,
+      "formatted_lines": 366,
+      "records": 2
+    },
+    {
+      "file": "calcite.eosmat",
+      "original_lines": 234,
+      "formatted_lines": 120,
+      "records": 1
+    },
+    {
+      "file": "calcium_carbonate_post_aragonite.eosmat",
+      "original_lines": 439,
+      "formatted_lines": 214,
+      "records": 2
+    },
+    {
+      "file": "calcium_germanate_perovskite.eosmat",
+      "original_lines": 375,
+      "formatted_lines": 216,
+      "records": 1
+    },
+    {
+      "file": "calcium_titanate_perovskite.eosmat",
+      "original_lines": 377,
+      "formatted_lines": 216,
+      "records": 1
+    },
+    {
+      "file": "cao.eosmat",
+      "original_lines": 228,
+      "formatted_lines": 124,
+      "records": 1
+    },
+    {
+      "file": "cao_b2.eosmat",
+      "original_lines": 232,
+      "formatted_lines": 124,
+      "records": 1
+    },
+    {
+      "file": "casio2o5_titanite.eosmat",
+      "original_lines": 142,
+      "formatted_lines": 86,
+      "records": 1
+    },
+    {
+      "file": "casio3_perovskite_tetragonal.eosmat",
+      "original_lines": 373,
+      "formatted_lines": 219,
+      "records": 1
+    },
+    {
+      "file": "cementite.eosmat",
+      "original_lines": 260,
+      "formatted_lines": 133,
+      "records": 1
+    },
+    {
+      "file": "cerium_dioxide.eosmat",
+      "original_lines": 257,
+      "formatted_lines": 141,
+      "records": 1
+    },
+    {
+      "file": "chromium.eosmat",
+      "original_lines": 211,
+      "formatted_lines": 116,
+      "records": 1
+    },
+    {
+      "file": "cobalt_hcp.eosmat",
+      "original_lines": 555,
+      "formatted_lines": 328,
+      "records": 3
+    },
+    {
+      "file": "coesite.eosmat",
+      "original_lines": 649,
+      "formatted_lines": 345,
+      "records": 2
+    },
+    {
+      "file": "coesite_iv.eosmat",
+      "original_lines": 278,
+      "formatted_lines": 175,
+      "records": 1
+    },
+    {
+      "file": "coesite_v.eosmat",
+      "original_lines": 120,
+      "formatted_lines": 91,
+      "records": 0
+    },
+    {
+      "file": "coo.eosmat",
+      "original_lines": 232,
+      "formatted_lines": 139,
+      "records": 1
+    },
+    {
+      "file": "copper.eosmat",
+      "original_lines": 1301,
+      "formatted_lines": 867,
+      "records": 7
+    },
+    {
+      "file": "cscl.eosmat",
+      "original_lines": 293,
+      "formatted_lines": 175,
+      "records": 1
+    },
+    {
+      "file": "cu_handbook_1972_legacy.eosmat",
+      "original_lines": 260,
+      "formatted_lines": 178,
+      "records": 1
+    },
+    {
+      "file": "delta_alooh.eosmat",
+      "original_lines": 339,
+      "formatted_lines": 181,
+      "records": 2
+    },
+    {
+      "file": "diamond.eosmat",
+      "original_lines": 1706,
+      "formatted_lines": 1062,
+      "records": 7
+    },
+    {
+      "file": "diopside.eosmat",
+      "original_lines": 1041,
+      "formatted_lines": 597,
+      "records": 2
+    },
+    {
+      "file": "e_feooh.eosmat",
+      "original_lines": 733,
+      "formatted_lines": 435,
+      "records": 2
+    },
+    {
+      "file": "e_feooh_hc_low_spin.eosmat",
+      "original_lines": 412,
+      "formatted_lines": 247,
+      "records": 1
+    },
+    {
+      "file": "fayalite.eosmat",
+      "original_lines": 335,
+      "formatted_lines": 177,
+      "records": 1
+    },
+    {
+      "file": "fe.eosmat",
+      "original_lines": 222,
+      "formatted_lines": 136,
+      "records": 1
+    },
+    {
+      "file": "fe073si027_d03.eosmat",
+      "original_lines": 507,
+      "formatted_lines": 256,
+      "records": 1
+    },
+    {
+      "file": "fe084si016_d03.eosmat",
+      "original_lines": 599,
+      "formatted_lines": 324,
+      "records": 2
+    },
+    {
+      "file": "fe084si016_hcp.eosmat",
+      "original_lines": 605,
+      "formatted_lines": 322,
+      "records": 2
+    },
+    {
+      "file": "fe088sio3_bridgmanite.eosmat",
+      "original_lines": 437,
+      "formatted_lines": 278,
+      "records": 1
+    },
+    {
+      "file": "fe093o_rhombohedral.eosmat",
+      "original_lines": 410,
+      "formatted_lines": 262,
+      "records": 1
+    },
+    {
+      "file": "fe09ni01_hcp.eosmat",
+      "original_lines": 3452,
+      "formatted_lines": 2024,
+      "records": 21
+    },
+    {
+      "file": "fe2o3.eosmat",
+      "original_lines": 297,
+      "formatted_lines": 169,
+      "records": 1
+    },
+    {
+      "file": "fe3o4.eosmat",
+      "original_lines": 246,
+      "formatted_lines": 124,
+      "records": 1
+    },
+    {
+      "file": "fe3s.eosmat",
+      "original_lines": 410,
+      "formatted_lines": 181,
+      "records": 1
+    },
+    {
+      "file": "fe_bearing_al_phase_d.eosmat",
+      "original_lines": 672,
+      "formatted_lines": 373,
+      "records": 2
+    },
+    {
+      "file": "fe_fcc.eosmat",
+      "original_lines": 578,
+      "formatted_lines": 330,
+      "records": 1
+    },
+    {
+      "file": "feh2.eosmat",
+      "original_lines": 354,
+      "formatted_lines": 162,
+      "records": 1
+    },
+    {
+      "file": "feh3.eosmat",
+      "original_lines": 275,
+      "formatted_lines": 150,
+      "records": 1
+    },
+    {
+      "file": "feo.eosmat",
+      "original_lines": 1612,
+      "formatted_lines": 934,
+      "records": 5
+    },
+    {
+      "file": "feo_b8_2.eosmat",
+      "original_lines": 492,
+      "formatted_lines": 265,
+      "records": 1
+    },
+    {
+      "file": "ferropericlase_fe27.eosmat",
+      "original_lines": 379,
+      "formatted_lines": 233,
+      "records": 1
+    },
+    {
+      "file": "fes.eosmat",
+      "original_lines": 248,
+      "formatted_lines": 147,
+      "records": 1
+    },
+    {
+      "file": "fes_vi.eosmat",
+      "original_lines": 821,
+      "formatted_lines": 406,
+      "records": 1
+    },
+    {
+      "file": "fesi_b2.eosmat",
+      "original_lines": 1074,
+      "formatted_lines": 698,
+      "records": 2
+    },
+    {
+      "file": "fesi_b20.eosmat",
+      "original_lines": 528,
+      "formatted_lines": 314,
+      "records": 2
+    },
+    {
+      "file": "fesio3_bridgmanite.eosmat",
+      "original_lines": 335,
+      "formatted_lines": 213,
+      "records": 2
+    },
+    {
+      "file": "fesio3_liquid.eosmat",
+      "original_lines": 403,
+      "formatted_lines": 218,
+      "records": 1
+    },
+    {
+      "file": "fesio3_post_perovskite.eosmat",
+      "original_lines": 270,
+      "formatted_lines": 151,
+      "records": 1
+    },
+    {
+      "file": "fesio3_post_perovskite_ii.eosmat",
+      "original_lines": 290,
+      "formatted_lines": 153,
+      "records": 1
+    },
+    {
+      "file": "forsterite.eosmat",
+      "original_lines": 1006,
+      "formatted_lines": 539,
+      "records": 3
+    },
+    {
+      "file": "geo2_rutile.eosmat",
+      "original_lines": 283,
+      "formatted_lines": 157,
+      "records": 1
+    },
+    {
+      "file": "goethite.eosmat",
+      "original_lines": 340,
+      "formatted_lines": 162,
+      "records": 1
+    },
+    {
+      "file": "gold.eosmat",
+      "original_lines": 7550,
+      "formatted_lines": 4191,
+      "records": 23
+    },
+    {
+      "file": "graphite.eosmat",
+      "original_lines": 238,
+      "formatted_lines": 129,
+      "records": 1
+    },
+    {
+      "file": "hydrous_silica_cacl2_nisr_2017.eosmat",
+      "original_lines": 545,
+      "formatted_lines": 266,
+      "records": 1
+    },
+    {
+      "file": "hydrous_stishovite_nisr_2017.eosmat",
+      "original_lines": 508,
+      "formatted_lines": 260,
+      "records": 1
+    },
+    {
+      "file": "ice_vi.eosmat",
+      "original_lines": 307,
+      "formatted_lines": 142,
+      "records": 1
+    },
+    {
+      "file": "ice_vii.eosmat",
+      "original_lines": 474,
+      "formatted_lines": 246,
+      "records": 2
+    },
+    {
+      "file": "iceviii.eosmat",
+      "original_lines": 540,
+      "formatted_lines": 171,
+      "records": 1
+    },
+    {
+      "file": "indium_nitride.eosmat",
+      "original_lines": 171,
+      "formatted_lines": 103,
+      "records": 1
+    },
+    {
+      "file": "iridium.eosmat",
+      "original_lines": 560,
+      "formatted_lines": 280,
+      "records": 1
+    },
+    {
+      "file": "iron.eosmat",
+      "original_lines": 8549,
+      "formatted_lines": 4799,
+      "records": 38
+    },
+    {
+      "file": "iron_carbide_fe7c3.eosmat",
+      "original_lines": 346,
+      "formatted_lines": 165,
+      "records": 1
+    },
+    {
+      "file": "kbr_b1.eosmat",
+      "original_lines": 215,
+      "formatted_lines": 118,
+      "records": 1
+    },
+    {
+      "file": "kbr_b2.eosmat",
+      "original_lines": 215,
+      "formatted_lines": 118,
+      "records": 1
+    },
+    {
+      "file": "kcl.eosmat",
+      "original_lines": 2938,
+      "formatted_lines": 1685,
+      "records": 10
+    },
+    {
+      "file": "kcl_b1.eosmat",
+      "original_lines": 536,
+      "formatted_lines": 308,
+      "records": 2
+    },
+    {
+      "file": "klb1_ca_perovskite.eosmat",
+      "original_lines": 392,
+      "formatted_lines": 221,
+      "records": 1
+    },
+    {
+      "file": "klb1_ferropericlase.eosmat",
+      "original_lines": 573,
+      "formatted_lines": 330,
+      "records": 2
+    },
+    {
+      "file": "klb1_mg_perovskite.eosmat",
+      "original_lines": 388,
+      "formatted_lines": 224,
+      "records": 1
+    },
+    {
+      "file": "larnite.eosmat",
+      "original_lines": 141,
+      "formatted_lines": 86,
+      "records": 1
+    },
+    {
+      "file": "lead_fcc.eosmat",
+      "original_lines": 507,
+      "formatted_lines": 330,
+      "records": 2
+    },
+    {
+      "file": "lead_hcp.eosmat",
+      "original_lines": 764,
+      "formatted_lines": 443,
+      "records": 3
+    },
+    {
+      "file": "li_bcc.eosmat",
+      "original_lines": 223,
+      "formatted_lines": 134,
+      "records": 1
+    },
+    {
+      "file": "lif_b1.eosmat",
+      "original_lines": 210,
+      "formatted_lines": 124,
+      "records": 1
+    },
+    {
+      "file": "magnesiowustite_fe56.eosmat",
+      "original_lines": 380,
+      "formatted_lines": 233,
+      "records": 1
+    },
+    {
+      "file": "magnesiowustite_fe75.eosmat",
+      "original_lines": 380,
+      "formatted_lines": 233,
+      "records": 1
+    },
+    {
+      "file": "magnesite.eosmat",
+      "original_lines": 778,
+      "formatted_lines": 493,
+      "records": 3
+    },
+    {
+      "file": "magnesium_bcc.eosmat",
+      "original_lines": 239,
+      "formatted_lines": 129,
+      "records": 1
+    },
+    {
+      "file": "magnesium_hcp.eosmat",
+      "original_lines": 239,
+      "formatted_lines": 129,
+      "records": 1
+    },
+    {
+      "file": "majorite.eosmat",
+      "original_lines": 1055,
+      "formatted_lines": 236,
+      "records": 1
+    },
+    {
+      "file": "manganese_alpha.eosmat",
+      "original_lines": 260,
+      "formatted_lines": 125,
+      "records": 1
+    },
+    {
+      "file": "mg0125fe0875o.eosmat",
+      "original_lines": 201,
+      "formatted_lines": 119,
+      "records": 1
+    },
+    {
+      "file": "mg0215fe0762vac0023o_b1.eosmat",
+      "original_lines": 759,
+      "formatted_lines": 516,
+      "records": 2
+    },
+    {
+      "file": "mg025fe075o.eosmat",
+      "original_lines": 201,
+      "formatted_lines": 119,
+      "records": 1
+    },
+    {
+      "file": "mg0375fe0625o.eosmat",
+      "original_lines": 201,
+      "formatted_lines": 119,
+      "records": 1
+    },
+    {
+      "file": "mg042fe058o.eosmat",
+      "original_lines": 397,
+      "formatted_lines": 225,
+      "records": 1
+    },
+    {
+      "file": "mg0490fe0483ti0027o.eosmat",
+      "original_lines": 549,
+      "formatted_lines": 292,
+      "records": 2
+    },
+    {
+      "file": "mg05fe05al05si05o3_bridgmanite.eosmat",
+      "original_lines": 1121,
+      "formatted_lines": 707,
+      "records": 4
+    },
+    {
+      "file": "mg05fe05o.eosmat",
+      "original_lines": 201,
+      "formatted_lines": 119,
+      "records": 1
+    },
+    {
+      "file": "mg061fe039o.eosmat",
+      "original_lines": 1381,
+      "formatted_lines": 848,
+      "records": 7
+    },
+    {
+      "file": "mg0625fe0375o.eosmat",
+      "original_lines": 201,
+      "formatted_lines": 119,
+      "records": 1
+    },
+    {
+      "file": "mg065fe035o.eosmat",
+      "original_lines": 430,
+      "formatted_lines": 246,
+      "records": 2
+    },
+    {
+      "file": "mg073fe027o.eosmat",
+      "original_lines": 412,
+      "formatted_lines": 242,
+      "records": 1
+    },
+    {
+      "file": "mg075fe025o.eosmat",
+      "original_lines": 1200,
+      "formatted_lines": 717,
+      "records": 6
+    },
+    {
+      "file": "mg075fe025sio3_bridgmanite.eosmat",
+      "original_lines": 276,
+      "formatted_lines": 172,
+      "records": 2
+    },
+    {
+      "file": "mg080fe020o.eosmat",
+      "original_lines": 1155,
+      "formatted_lines": 718,
+      "records": 4
+    },
+    {
+      "file": "mg080fe020sio3_bridgmanite.eosmat",
+      "original_lines": 374,
+      "formatted_lines": 188,
+      "records": 1
+    },
+    {
+      "file": "mg083fe017o.eosmat",
+      "original_lines": 723,
+      "formatted_lines": 380,
+      "records": 3
+    },
+    {
+      "file": "mg0875fe0125o.eosmat",
+      "original_lines": 201,
+      "formatted_lines": 119,
+      "records": 1
+    },
+    {
+      "file": "mg087fe013sio3_bridgmanite.eosmat",
+      "original_lines": 498,
+      "formatted_lines": 288,
+      "records": 1
+    },
+    {
+      "file": "mg088fe010al014si090o3_bridgmanite.eosmat",
+      "original_lines": 1086,
+      "formatted_lines": 652,
+      "records": 4
+    },
+    {
+      "file": "mg090fe009al0005ca0005sio3_bridgmanite.eosmat",
+      "original_lines": 432,
+      "formatted_lines": 284,
+      "records": 1
+    },
+    {
+      "file": "mg090fe009al0005ca0005sio3_post_perovskite.eosmat",
+      "original_lines": 633,
+      "formatted_lines": 420,
+      "records": 2
+    },
+    {
+      "file": "mg090fe010o.eosmat",
+      "original_lines": 2932,
+      "formatted_lines": 1867,
+      "records": 15
+    },
+    {
+      "file": "mg092fe008o.eosmat",
+      "original_lines": 213,
+      "formatted_lines": 123,
+      "records": 1
+    },
+    {
+      "file": "mg092fe008sio3_bridgmanite.eosmat",
+      "original_lines": 285,
+      "formatted_lines": 156,
+      "records": 1
+    },
+    {
+      "file": "mg09375al0125si09375o3_bridgmanite.eosmat",
+      "original_lines": 181,
+      "formatted_lines": 127,
+      "records": 1
+    },
+    {
+      "file": "mg09375al0125si09375o3_post_perovskite.eosmat",
+      "original_lines": 181,
+      "formatted_lines": 127,
+      "records": 1
+    },
+    {
+      "file": "mg09375fe00625o.eosmat",
+      "original_lines": 765,
+      "formatted_lines": 519,
+      "records": 6
+    },
+    {
+      "file": "mg09375fe00625sio3_bridgmanite.eosmat",
+      "original_lines": 749,
+      "formatted_lines": 467,
+      "records": 6
+    },
+    {
+      "file": "mg095al010si095o3_bridgmanite.eosmat",
+      "original_lines": 747,
+      "formatted_lines": 489,
+      "records": 2
+    },
+    {
+      "file": "mg096875fe003125o.eosmat",
+      "original_lines": 309,
+      "formatted_lines": 199,
+      "records": 2
+    },
+    {
+      "file": "mg0991fe0008mn0001co3_magnesite.eosmat",
+      "original_lines": 560,
+      "formatted_lines": 312,
+      "records": 2
+    },
+    {
+      "file": "mg09al02si09o3_bridgmanite.eosmat",
+      "original_lines": 641,
+      "formatted_lines": 378,
+      "records": 2
+    },
+    {
+      "file": "mg09fe01sio3_bridgmanite.eosmat",
+      "original_lines": 795,
+      "formatted_lines": 456,
+      "records": 2
+    },
+    {
+      "file": "mg7si2o8.eosmat",
+      "original_lines": 580,
+      "formatted_lines": 183,
+      "records": 1
+    },
+    {
+      "file": "mgal00625h00625si09375o3_bridgmanite.eosmat",
+      "original_lines": 181,
+      "formatted_lines": 127,
+      "records": 1
+    },
+    {
+      "file": "mgal00625h00625si09375o3_post_perovskite.eosmat",
+      "original_lines": 181,
+      "formatted_lines": 127,
+      "records": 1
+    },
+    {
+      "file": "mgal0125si0875o29375_bridgmanite.eosmat",
+      "original_lines": 181,
+      "formatted_lines": 127,
+      "records": 1
+    },
+    {
+      "file": "mgal0125si0875o29375_post_perovskite.eosmat",
+      "original_lines": 181,
+      "formatted_lines": 127,
+      "records": 1
+    },
+    {
+      "file": "mgal2o4_cafe2o4.eosmat",
+      "original_lines": 1243,
+      "formatted_lines": 725,
+      "records": 4
+    },
+    {
+      "file": "mgal2o4_cati2o4.eosmat",
+      "original_lines": 631,
+      "formatted_lines": 372,
+      "records": 2
+    },
+    {
+      "file": "mgfe60o.eosmat",
+      "original_lines": 526,
+      "formatted_lines": 260,
+      "records": 3
+    },
+    {
+      "file": "mgfe94o_b1.eosmat",
+      "original_lines": 407,
+      "formatted_lines": 252,
+      "records": 1
+    },
+    {
+      "file": "mgfe94o_rhombohedral.eosmat",
+      "original_lines": 367,
+      "formatted_lines": 239,
+      "records": 1
+    },
+    {
+      "file": "mggeo3_post_perovskite.eosmat",
+      "original_lines": 978,
+      "formatted_lines": 532,
+      "records": 4
+    },
+    {
+      "file": "mgo.eosmat",
+      "original_lines": 6827,
+      "formatted_lines": 4107,
+      "records": 37
+    },
+    {
+      "file": "mgo_b2.eosmat",
+      "original_lines": 149,
+      "formatted_lines": 83,
+      "records": 1
+    },
+    {
+      "file": "mgo_liquid.eosmat",
+      "original_lines": 139,
+      "formatted_lines": 83,
+      "records": 1
+    },
+    {
+      "file": "mgsio3_liquid.eosmat",
+      "original_lines": 531,
+      "formatted_lines": 298,
+      "records": 1
+    },
+    {
+      "file": "mgsio3_post_perovskite.eosmat",
+      "original_lines": 3187,
+      "formatted_lines": 1840,
+      "records": 14
+    },
+    {
+      "file": "mgsioh6_365a_phase.eosmat",
+      "original_lines": 755,
+      "formatted_lines": 383,
+      "records": 3
+    },
+    {
+      "file": "molybdenum.eosmat",
+      "original_lines": 1442,
+      "formatted_lines": 914,
+      "records": 7
+    },
+    {
+      "file": "molybenum_carbide_mo2c.eosmat",
+      "original_lines": 459,
+      "formatted_lines": 252,
+      "records": 2
+    },
+    {
+      "file": "na088al099fe013si094o4_calcium_ferrite.eosmat",
+      "original_lines": 477,
+      "formatted_lines": 259,
+      "records": 1
+    },
+    {
+      "file": "na093al102si100o4_calcium_ferrite.eosmat",
+      "original_lines": 487,
+      "formatted_lines": 264,
+      "records": 1
+    },
+    {
+      "file": "naalsi2o6.eosmat",
+      "original_lines": 475,
+      "formatted_lines": 251,
+      "records": 1
+    },
+    {
+      "file": "naalsio4_calcium_ferrite.eosmat",
+      "original_lines": 309,
+      "formatted_lines": 156,
+      "records": 1
+    },
+    {
+      "file": "nacl_b1.eosmat",
+      "original_lines": 227,
+      "formatted_lines": 137,
+      "records": 1
+    },
+    {
+      "file": "nacl_b2.eosmat",
+      "original_lines": 2986,
+      "formatted_lines": 1679,
+      "records": 14
+    },
+    {
+      "file": "namg2al5sio12_cf.eosmat",
+      "original_lines": 493,
+      "formatted_lines": 349,
+      "records": 1
+    },
+    {
+      "file": "namg2al5sio12_nal.eosmat",
+      "original_lines": 434,
+      "formatted_lines": 296,
+      "records": 1
+    },
+    {
+      "file": "neon_fcc.eosmat",
+      "original_lines": 1245,
+      "formatted_lines": 690,
+      "records": 3
+    },
+    {
+      "file": "nickel.eosmat",
+      "original_lines": 880,
+      "formatted_lines": 515,
+      "records": 4
+    },
+    {
+      "file": "nickel_oxide.eosmat",
+      "original_lines": 586,
+      "formatted_lines": 318,
+      "records": 2
+    },
+    {
+      "file": "nickel_oxide_b1.eosmat",
+      "original_lines": 467,
+      "formatted_lines": 269,
+      "records": 1
+    },
+    {
+      "file": "niobium.eosmat",
+      "original_lines": 525,
+      "formatted_lines": 301,
+      "records": 2
+    },
+    {
+      "file": "nis.eosmat",
+      "original_lines": 216,
+      "formatted_lines": 116,
+      "records": 1
+    },
+    {
+      "file": "orthoenstatite.eosmat",
+      "original_lines": 297,
+      "formatted_lines": 131,
+      "records": 1
+    },
+    {
+      "file": "osmium.eosmat",
+      "original_lines": 248,
+      "formatted_lines": 123,
+      "records": 1
+    },
+    {
+      "file": "palladium.eosmat",
+      "original_lines": 1103,
+      "formatted_lines": 684,
+      "records": 7
+    },
+    {
+      "file": "pbs_b1.eosmat",
+      "original_lines": 263,
+      "formatted_lines": 146,
+      "records": 1
+    },
+    {
+      "file": "perovskite_orthorhombic.eosmat",
+      "original_lines": 1397,
+      "formatted_lines": 294,
+      "records": 1
+    },
+    {
+      "file": "phase_d.eosmat",
+      "original_lines": 805,
+      "formatted_lines": 246,
+      "records": 2
+    },
+    {
+      "file": "phase_e_fe0072.eosmat",
+      "original_lines": 535,
+      "formatted_lines": 267,
+      "records": 1
+    },
+    {
+      "file": "phase_egg.eosmat",
+      "original_lines": 1151,
+      "formatted_lines": 544,
+      "records": 3
+    },
+    {
+      "file": "phase_h.eosmat",
+      "original_lines": 237,
+      "formatted_lines": 128,
+      "records": 1
+    },
+    {
+      "file": "platinum.eosmat",
+      "original_lines": 5320,
+      "formatted_lines": 3327,
+      "records": 21
+    },
+    {
+      "file": "praseodymium_dioxide.eosmat",
+      "original_lines": 257,
+      "formatted_lines": 141,
+      "records": 1
+    },
+    {
+      "file": "pseudowollastonite.eosmat",
+      "original_lines": 141,
+      "formatted_lines": 86,
+      "records": 1
+    },
+    {
+      "file": "pyrope.eosmat",
+      "original_lines": 241,
+      "formatted_lines": 119,
+      "records": 1
+    },
+    {
+      "file": "qandilite.eosmat",
+      "original_lines": 551,
+      "formatted_lines": 331,
+      "records": 2
+    },
+    {
+      "file": "rbbr.eosmat",
+      "original_lines": 674,
+      "formatted_lines": 372,
+      "records": 1
+    },
+    {
+      "file": "rbcl.eosmat",
+      "original_lines": 823,
+      "formatted_lines": 465,
+      "records": 2
+    },
+    {
+      "file": "rbi.eosmat",
+      "original_lines": 673,
+      "formatted_lines": 372,
+      "records": 1
+    },
+    {
+      "file": "rhenium.eosmat",
+      "original_lines": 1417,
+      "formatted_lines": 800,
+      "records": 6
+    },
+    {
+      "file": "rhodium.eosmat",
+      "original_lines": 226,
+      "formatted_lines": 118,
+      "records": 1
+    },
+    {
+      "file": "ringwoodite.eosmat",
+      "original_lines": 245,
+      "formatted_lines": 120,
+      "records": 1
+    },
+    {
+      "file": "ruthenium.eosmat",
+      "original_lines": 254,
+      "formatted_lines": 133,
+      "records": 1
+    },
+    {
+      "file": "seifertite.eosmat",
+      "original_lines": 369,
+      "formatted_lines": 198,
+      "records": 2
+    },
+    {
+      "file": "siderite_fe095mn005.eosmat",
+      "original_lines": 813,
+      "formatted_lines": 464,
+      "records": 2
+    },
+    {
+      "file": "silica_cacl2.eosmat",
+      "original_lines": 250,
+      "formatted_lines": 134,
+      "records": 1
+    },
+    {
+      "file": "silicon.eosmat",
+      "original_lines": 281,
+      "formatted_lines": 148,
+      "records": 1
+    },
+    {
+      "file": "silicon_carbide_b1.eosmat",
+      "original_lines": 218,
+      "formatted_lines": 115,
+      "records": 1
+    },
+    {
+      "file": "silicon_carbide_b3.eosmat",
+      "original_lines": 237,
+      "formatted_lines": 118,
+      "records": 1
+    },
+    {
+      "file": "silicon_v.eosmat",
+      "original_lines": 280,
+      "formatted_lines": 149,
+      "records": 1
+    },
+    {
+      "file": "silicon_vii.eosmat",
+      "original_lines": 280,
+      "formatted_lines": 149,
+      "records": 1
+    },
+    {
+      "file": "silicon_x.eosmat",
+      "original_lines": 280,
+      "formatted_lines": 149,
+      "records": 1
+    },
+    {
+      "file": "silver.eosmat",
+      "original_lines": 692,
+      "formatted_lines": 435,
+      "records": 4
+    },
+    {
+      "file": "sio2_stv_andr.eosmat",
+      "original_lines": 1436,
+      "formatted_lines": 794,
+      "records": 7
+    },
+    {
+      "file": "sno2.eosmat",
+      "original_lines": 283,
+      "formatted_lines": 157,
+      "records": 1
+    },
+    {
+      "file": "sno2_cubic_27gpa.eosmat",
+      "original_lines": 321,
+      "formatted_lines": 147,
+      "records": 1
+    },
+    {
+      "file": "sno2_pa_3_at_48gpa.eosmat",
+      "original_lines": 321,
+      "formatted_lines": 147,
+      "records": 1
+    },
+    {
+      "file": "sro.eosmat",
+      "original_lines": 208,
+      "formatted_lines": 120,
+      "records": 1
+    },
+    {
+      "file": "sro_b2.eosmat",
+      "original_lines": 207,
+      "formatted_lines": 119,
+      "records": 1
+    },
+    {
+      "file": "srsio3_6h_perovskite.eosmat",
+      "original_lines": 129,
+      "formatted_lines": 79,
+      "records": 1
+    },
+    {
+      "file": "srsio3_cubic_perovskite.eosmat",
+      "original_lines": 360,
+      "formatted_lines": 186,
+      "records": 2
+    },
+    {
+      "file": "superhydrous_phase_b_lt.eosmat",
+      "original_lines": 1655,
+      "formatted_lines": 843,
+      "records": 7
+    },
+    {
+      "file": "tantalum.eosmat",
+      "original_lines": 1352,
+      "formatted_lines": 891,
+      "records": 7
+    },
+    {
+      "file": "tho2_cotunnite.eosmat",
+      "original_lines": 407,
+      "formatted_lines": 178,
+      "records": 1
+    },
+    {
+      "file": "thorianite.eosmat",
+      "original_lines": 351,
+      "formatted_lines": 168,
+      "records": 1
+    },
+    {
+      "file": "titanium_alpha.eosmat",
+      "original_lines": 205,
+      "formatted_lines": 110,
+      "records": 1
+    },
+    {
+      "file": "titanium_omega.eosmat",
+      "original_lines": 211,
+      "formatted_lines": 111,
+      "records": 1
+    },
+    {
+      "file": "tungsten.eosmat",
+      "original_lines": 1338,
+      "formatted_lines": 865,
+      "records": 7
+    },
+    {
+      "file": "vanadium_bcc.eosmat",
+      "original_lines": 401,
+      "formatted_lines": 246,
+      "records": 1
+    },
+    {
+      "file": "wadsleyite.eosmat",
+      "original_lines": 375,
+      "formatted_lines": 166,
+      "records": 1
+    },
+    {
+      "file": "wollastonite.eosmat",
+      "original_lines": 141,
+      "formatted_lines": 86,
+      "records": 1
+    },
+    {
+      "file": "zinc_hcp.eosmat",
+      "original_lines": 368,
+      "formatted_lines": 237,
+      "records": 2
+    },
+    {
+      "file": "zinc_oxide_rocksalt.eosmat",
+      "original_lines": 268,
+      "formatted_lines": 152,
+      "records": 1
+    },
+    {
+      "file": "zinc_oxide_wurtzite.eosmat",
+      "original_lines": 272,
+      "formatted_lines": 152,
+      "records": 1
+    },
+    {
+      "file": "zircon.eosmat",
+      "original_lines": 297,
+      "formatted_lines": 149,
+      "records": 1
+    },
+    {
+      "file": "zirconium_alpha.eosmat",
+      "original_lines": 255,
+      "formatted_lines": 123,
+      "records": 1
+    },
+    {
+      "file": "zirconium_beta.eosmat",
+      "original_lines": 241,
+      "formatted_lines": 121,
+      "records": 1
+    },
+    {
+      "file": "zirconium_omega.eosmat",
+      "original_lines": 261,
+      "formatted_lines": 124,
+      "records": 1
+    }
+  ],
+  "all_documents_python_validation_passed": true,
+  "all_documents_json_schema_validation_passed": true,
+  "all_formatting_preserves_exact_json_values": true,
+  "equal_pressure_range_copies": 337,
+  "common_BM2_BM3_Vinet_records": 602,
+  "compact_v3_projection_experiment": {
+    "description": "Omitted optional crystal metadata and explicit null covariance/confidence; retains complete source validation and pressure calibration. Not a lossless archival export.",
+    "schema_and_python_passed": true,
+    "pressure_comparison_volume_ratios": [
+      1,
+      0.95,
+      0.9
+    ],
+    "absolute_pressure_difference_tolerance_gpa": 1e-12
+  }
+}

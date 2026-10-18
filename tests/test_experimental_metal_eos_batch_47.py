@@ -46,6 +46,15 @@ def test_every_batch_record_is_primary_validated_and_executable():
         if not selected:
             continue
         material = Material.from_eosmat(document, record_identifiers=selected)
+        raw_by_id = {record["identifier"]: record for record in document["eos_records"]}
+        parent_ids = {
+            raw_by_id[identifier]["pressure_scale_variant_of"]
+            for identifier in selected
+            if "pressure_scale_variant_of" in raw_by_id[identifier]
+        }
+        assert {record.identifier for record in material.eos_records} == (
+            set(selected) | parent_ids
+        )
         for record in material.eos_records:
             raw = next(
                 item
@@ -56,7 +65,8 @@ def test_every_batch_record_is_primary_validated_and_executable():
             assert record.pressure(v0, record.reference_temperature) == pytest.approx(
                 0.0, abs=1.0e-8
             )
-            found.add(record.identifier)
+            if record.identifier in selected:
+                found.add(record.identifier)
     assert found == identifiers
 
 

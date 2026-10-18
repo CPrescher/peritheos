@@ -1,1417 +1,1221 @@
 {
- "format_version": 3,
- "name": "Rhenium",
- "formula": "Re",
- "symmetry": "HEXAGONAL",
- "lattice": {
-  "a": 2.761906,
-  "b": null,
-  "c": 4.460479,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 120.0
- },
- "formula_units_per_cell": 2,
- "space_group": "P63/mmc",
- "space_group_number": 194,
- "atom_sites": [
-  {
-   "element": "Re",
-   "wyckoff": "2c",
-   "x": 0.3333333333,
-   "y": 0.6666666667,
-   "z": 0.25,
-   "occupancy": 1.0
-  }
- ],
- "notes": "Phase reference: JCPDS 5-0702. The reference cell is constrained to the fitted 300 K V0 while retaining the JCPDS axial ratio.",
- "peaks": [],
- "eos_records": [
-  {
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 2; Supplementary Data 1, Tables S8-S10; Official R-S EoS workbook."
-   },
-   "identifier": "rhenium_sakai_2025_rydberg_stacey_1",
-   "label": "Sakai et al. (2025), Re generalized Rydberg-Stacey scale",
-   "reference": {
-    "authors": [
-     "Sakai",
-     "Kadobayashi",
-     "Nakamoto",
-     "Dekura",
-     "Ishimatsu",
-     "Kawaguchi-Imada",
-     "Seto",
-     "Sekizawa",
-     "Nitta",
-     "Shimizu"
-    ],
-    "year": 2025,
-    "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
-    "source": "Communications Materials",
-    "volume": "6",
-    "locator": "68",
-    "doi": "10.1038/s43246-025-00792-5"
-   },
-   "equation_kind": "isothermal",
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 2,
-    "molar_mass_g_mol": 186.207
-   },
-   "eos": {
-    "type": "RydbergStacey",
-    "model": "rydberg_stacey",
-    "parameters": {
-     "V0": 29.468,
-     "K0": 352.6,
-     "K0_prime": 4.411,
-     "K_infinity_prime": 1.6666666666666667
-    }
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": null,
-    "K0_prime": 0.008,
-    "K_infinity_prime": null
-   },
-   "parameter_error_confidence": null,
-   "fixed_parameters": [
-    "V0",
-    "K0",
-    "K_infinity_prime"
-   ],
-   "pressure_range_status": "reported_exactly",
-   "temperature_ref": 300,
-   "notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
-      "reference": {
-       "authors": [
-        "Sakai",
-        "Kadobayashi",
-        "Nakamoto",
-        "Dekura",
-        "Ishimatsu",
-        "Kawaguchi-Imada",
-        "Seto",
-        "Sekizawa",
-        "Nitta",
-        "Shimizu"
-       ],
-       "year": 2025,
-       "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
-       "source": "Communications Materials",
-       "volume": "6",
-       "locator": "68",
-       "doi": "10.1038/s43246-025-00792-5"
-      },
-      "reference_eos_record": "copper_sakai_2025_rydberg_stacey_1",
-      "source_location": "Figure 1, Table 2, and Supplementary Table S8",
-      "scope": "Cross-calibration through the Sakai et al. Cu-anchored material network"
-     }
-    ],
-    "recalculation": {
-     "status": "ready",
-     "notes": "The exact Cu-anchored R-S pressure scale and the official simultaneous-volume workbooks are available."
-    },
-    "audit_date": "2026-09-05"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1038/s43246-025-00792-5",
-     "locations": [
-      "Equation (1)",
-      "Table 2",
-      "Supplementary Data 1, Tables S8-S10",
-      "Official R-S EoS workbook"
-     ],
-     "finding": "The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.",
-     "doi": "10.1038/s43246-025-00792-5"
-    },
-    "primary_data_check": {
-     "status": "derived_output_only",
-     "audit_date": "2026-09-05",
-     "source_locations": [
-      "Supplementary Data 1, Table S9"
-     ],
-     "finding": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance."
-    }
-   },
-   "source_lineage": [
+  "format_version": 4,
+  "identifier": "rhenium",
+  "name": "Rhenium",
+  "formula": "Re",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 2,
+  "eos_records": [
     {
-     "role": "scientific fit, equation, and coefficients",
-     "citation": "Sakai et al. (2025), Equation (1), Table 2, and Supplementary Tables S8-S10",
-     "doi": "10.1038/s43246-025-00792-5"
+      "identifier": "rhenium_sakai_2025_rydberg_stacey_1",
+      "label": "Sakai et al. (2025), Re generalized Rydberg-Stacey scale",
+      "model": "RydbergStacey",
+      "temperature_ref": 300,
+      "parameters": {
+        "V0": {"value": 29.468, "error": null, "fixed": true},
+        "K0": {"value": 352.6, "error": null, "fixed": true},
+        "K0_prime": {"value": 4.411, "error": 0.008},
+        "K_infinity_prime": {"value": 1.6666666666666667, "error": null, "fixed": true}
+      },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0, 431],
+      "pressure_range_status": "reported_exactly",
+      "determination_method": "experimental",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 186.207},
+      "notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
+      "reference": {
+        "authors": [
+          "Sakai",
+          "Kadobayashi",
+          "Nakamoto",
+          "Dekura",
+          "Ishimatsu",
+          "Kawaguchi-Imada",
+          "Seto",
+          "Sekizawa",
+          "Nitta",
+          "Shimizu"
+        ],
+        "year": 2025,
+        "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
+        "source": "Communications Materials",
+        "volume": "6",
+        "locator": "68",
+        "doi": "10.1038/s43246-025-00792-5"
+      },
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": [
+                "Sakai",
+                "Kadobayashi",
+                "Nakamoto",
+                "Dekura",
+                "Ishimatsu",
+                "Kawaguchi-Imada",
+                "Seto",
+                "Sekizawa",
+                "Nitta",
+                "Shimizu"
+              ],
+              "year": 2025,
+              "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
+              "source": "Communications Materials",
+              "volume": "6",
+              "locator": "68",
+              "doi": "10.1038/s43246-025-00792-5"
+            },
+            "reference_eos_record": "copper_sakai_2025_rydberg_stacey_1",
+            "source_location": "Figure 1, Table 2, and Supplementary Table S8",
+            "scope": "Cross-calibration through the Sakai et al. Cu-anchored material network"
+          }
+        ],
+        "recalculation": {
+          "status": "ready",
+          "notes": "The exact Cu-anchored R-S pressure scale and the official simultaneous-volume workbooks are available."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/rhenium/#record-rhenium_sakai_2025_rydberg_stacey_1",
+            "report_path": "docs/reconstruction-reports/rhenium.md#record-rhenium_sakai_2025_rydberg_stacey_1",
+            "fit": {
+              "fixed_parameters": ["V0", "K0", "K_infinity_prime"],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1038/s43246-025-00792-5",
+            "locations": ["Equation (1)", "Table 2", "Supplementary Data 1, Tables S8-S10", "Official R-S EoS workbook"],
+            "finding": "The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.",
+            "doi": "10.1038/s43246-025-00792-5"
+          },
+          "primary_data_check": {
+            "status": "derived_output_only",
+            "audit_date": "2026-09-05",
+            "source_locations": ["Supplementary Data 1, Table S9"],
+            "finding": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 2; Supplementary Data 1, Tables S8-S10; Official R-S EoS workbook."
+        },
+        "source_lineage": [
+          {
+            "role": "scientific fit, equation, and coefficients",
+            "citation": "Sakai et al. (2025), Equation (1), Table 2, and Supplementary Tables S8-S10",
+            "doi": "10.1038/s43246-025-00792-5"
+          },
+          {
+            "role": "official executable formula and curve checkpoint",
+            "citation": "Sakai et al. (2025), R-S EoS workbook and Supplementary Data 1 Table S9",
+            "doi": "10.1038/s43246-025-00792-5"
+          }
+        ]
+      }
     },
     {
-     "role": "official executable formula and curve checkpoint",
-     "citation": "Sakai et al. (2025), R-S EoS workbook and Supplementary Data 1 Table S9",
-     "doi": "10.1038/s43246-025-00792-5"
-    }
-   ],
-   "experimental_pressure_range_gpa": [
-    0,
-    431
-   ]
-  },
-  {
-   "label": "Anzellini et al. (2014), helium-medium Vinet",
-   "reference": {
-    "authors": [
-     "Anzellini",
-     "Dewaele",
-     "Occelli",
-     "Loubeyre",
-     "Mezouar"
-    ],
-    "year": 2014,
-    "title": "Equation of state of rhenium and application for ultra high pressure calibration",
-    "source": "J. Appl. Phys.",
-    "volume": "115",
-    "locator": "043511",
-    "doi": "10.1063/1.4863300"
-   },
-   "eos": {
-    "type": "Vinet",
-    "parameters": {
-     "V0": 29.4666,
-     "K0": 352.6,
-     "K0_prime": 4.56
-    },
-    "model": "vinet"
-   },
-   "parameter_errors": {
-    "V0": 0.0332,
-    "K0": 8.0,
-    "K0_prime": 0.17
-   },
-   "parameter_error_confidence": 0.95,
-   "fixed_parameters": [],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    144.0
-   ],
-   "temperature_ref": 300.0,
-   "notes": "Quasi-hydrostatic powder-XRD fit in helium to 144 GPa. The published molar V0=8.8726 cm^3/mol is converted to 14.7333 A^3/atom and multiplied by two atoms in the conventional hcp cell.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation 6; Table III, measured pressures and lattice parameters; Table IV, 300 K Vinet fit; Figure 3."
-   },
-   "identifier": "rhenium_anzellini_2014_vinet_1",
-   "pressure_calibration": {
-    "status": "partially_resolved",
-    "methods": [
-     {
-      "kind": "ruby_fluorescence",
-      "reference": {
-       "authors": [
-        "Dorogokupets",
-        "Oganov"
-       ],
-       "year": 2007,
-       "source": "Phys. Rev. B",
-       "doi": "10.1103/PhysRevB.75.024115"
+      "identifier": "rhenium_anzellini_2014_vinet_1",
+      "label": "Anzellini et al. (2014), helium-medium Vinet",
+      "model": "Vinet",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 29.4666, "error": 0.0332},
+        "K0": {"value": 352.6, "error": 8.0},
+        "K0_prime": {"value": 4.56, "error": 0.17}
       },
-      "source_location": "Section II and Table I",
-      "scope": "ruby-gauge run",
-      "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
-     },
-     {
-      "kind": "equation_of_state",
+      "parameter_error_confidence": 0.95,
+      "experimental_pressure_range_gpa": [0.0, 144.0],
+      "determination_method": "experimental",
+      "notes": "Quasi-hydrostatic powder-XRD fit in helium to 144 GPa. The published molar V0=8.8726 cm^3/mol is converted to 14.7333 A^3/atom and multiplied by two atoms in the conventional hcp cell.",
       "reference": {
-       "authors": [
-        "Dorogokupets",
-        "Oganov"
-       ],
-       "year": 2007,
-       "source": "Phys. Rev. B",
-       "doi": "10.1103/PhysRevB.75.024115"
+        "authors": ["Anzellini", "Dewaele", "Occelli", "Loubeyre", "Mezouar"],
+        "year": 2014,
+        "title": "Equation of state of rhenium and application for ultra high pressure calibration",
+        "source": "J. Appl. Phys.",
+        "volume": "115",
+        "locator": "043511",
+        "doi": "10.1063/1.4863300"
       },
-      "source_location": "Section II and Table I",
-      "scope": "W-gauge run",
-      "notes": "Dorogokupets-Oganov W EOS"
-     },
-     {
-      "kind": "equation_of_state",
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": ["Dorogokupets", "Oganov"],
+              "year": 2007,
+              "source": "Phys. Rev. B",
+              "doi": "10.1103/PhysRevB.75.024115"
+            },
+            "source_location": "Section II and Table I",
+            "scope": "ruby-gauge run",
+            "reference_calibration_record": "ruby_dorogokupets_oganov_2007"
+          },
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Dorogokupets", "Oganov"],
+              "year": 2007,
+              "source": "Phys. Rev. B",
+              "doi": "10.1103/PhysRevB.75.024115"
+            },
+            "source_location": "Section II and Table I",
+            "scope": "W-gauge run",
+            "notes": "Dorogokupets-Oganov W EOS"
+          },
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Dewaele et al."],
+              "year": 2003,
+              "source": "Phys. Rev. B",
+              "doi": "10.1103/PhysRevB.67.094112"
+            },
+            "source_location": "Section II and Table I",
+            "scope": "He-gauge run"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+        },
+        "audit_date": "2026-09-03"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/rhenium/#record-rhenium_anzellini_2014_vinet_1",
+            "report_path": "docs/reconstruction-reports/rhenium.md#record-rhenium_anzellini_2014_vinet_1",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 29.4666,
+                "published_error": 0.0332,
+                "refit": 29.47116809355935,
+                "refit_error": 0.01465445167215156,
+                "difference": 0.0045680935593495064,
+                "relative_difference": 0.00015502615026333227,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 352.6,
+                "published_error": 8.0,
+                "refit": 349.3235743292062,
+                "refit_error": 3.908645041756426,
+                "difference": -3.276425670793799,
+                "relative_difference": 0.009292188516148039,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.56,
+                "published_error": 0.17,
+                "refit": 4.650965022365095,
+                "refit_error": 0.08463980686232286,
+                "difference": 0.0909650223650953,
+                "relative_difference": 0.019948469816906865,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 59,
+              "observed_pressure_range_gpa": [0.65, 144.0],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [23.23852512, 29.45669406],
+              "degrees_of_freedom": 56,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.604047760657186,
+              "published_rmse_gpa": 0.6131883761770216,
+              "reduced_chi_square": 0.3844205023596911,
+              "dataset_identifiers": ["rhenium_anzellini_2014_table3_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1063/1.4863300",
+            "locations": [
+              "Equation 6",
+              "Table III, measured pressures and lattice parameters",
+              "Table IV, 300 K Vinet fit",
+              "Figure 3"
+            ],
+            "doi": "10.1063/1.4863300"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "rhenium.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["rhenium_anzellini_2014_table3_compression"],
+            "source_locations": ["Table III"],
+            "finding": "All 59 quasi-hydrostatic rhenium observations from the three compression runs are tabulated in Table III. The published a and c lattice parameters, pressure-gauge identity, and tungsten calibrant lattice parameter where reported are bundled; conventional-cell volumes are derived from the hexagonal lattice parameters."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation 6; Table III, measured pressures and lattice parameters; Table IV, 300 K Vinet fit; Figure 3."
+        }
+      }
+    },
+    {
+      "identifier": "rhenium_dewaele_2019_mao_vinet",
+      "label": "Dewaele (2019), Re MAO-scale Vinet",
+      "model": "Vinet",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 29.474, "error": 0.04},
+        "K0": {"value": 350.5, "error": 8.0},
+        "K0_prime": {"value": 3.98, "error": 0.17}
+      },
+      "parameter_error_confidence": 0.95,
+      "experimental_pressure_range_gpa": [0.0, 144.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [0.0, 144.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
+      },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "fit_datasets": ["rhenium_anzellini_2014_table3_compression"],
+      "parameter_covariance": null,
       "reference": {
-       "authors": [
-        "Dewaele et al."
-       ],
-       "year": 2003,
-       "source": "Phys. Rev. B",
-       "doi": "10.1103/PhysRevB.67.094112"
+        "authors": ["Dewaele"],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
       },
-      "source_location": "Section II and Table I",
-      "scope": "He-gauge run"
-     }
-    ],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {"kind": "other", "source_location": "linked_tungsten_scale"}
+        ],
+        "recalculation": {
+          "status": "ready",
+          "notes": "The bundled source pressure coordinate is converted between the Mao and Dorogokupets ruby scales by the equations in the dedicated Dewaele (2019) audit."
+        },
+        "audit_date": "2026-09-06"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/rhenium/#record-rhenium_dewaele_2019_mao_vinet",
+            "report_path": "docs/reconstruction-reports/rhenium.md#record-rhenium_dewaele_2019_mao_vinet",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 29.474,
+                "published_error": 0.04,
+                "refit": 29.476510755297845,
+                "refit_error": null,
+                "difference": 0.0025107552978447245,
+                "relative_difference": 8.518542776157714e-05,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true
+              },
+              {
+                "parameter": "K0",
+                "published": 350.5,
+                "published_error": 8.0,
+                "refit": 349.46741636658453,
+                "refit_error": null,
+                "difference": -1.03258363341547,
+                "relative_difference": 0.0029460303378472754,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.98,
+                "published_error": 0.17,
+                "refit": 4.012835983077084,
+                "refit_error": null,
+                "difference": 0.032835983077083686,
+                "relative_difference": 0.008250247004292383,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "static_vinet_with_explicit_ruby_scale_conversion",
+              "objective": "unweighted pressure residuals",
+              "selection": "complete",
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 59,
+              "observed_pressure_range_gpa": [0.6564113204013139, 134.16305399420037],
+              "solver_success": true,
+              "solver_message": "dedicated Dewaele (2019) refit completed",
+              "rmse_gpa": 0.5744922590515854,
+              "dataset_identifiers": ["rhenium_anzellini_2014_table3_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+          "audit_date": "2026-09-06",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+            "doi": "10.3390/min9110684",
+            "locations": ["Equation (1)", "Table 1"],
+            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-07",
+            "dataset_identifiers": ["rhenium_anzellini_2014_table3_compression"],
+            "source_locations": ["rhenium-anzellini-2014-table3-compression.csv", "Dewaele (2019), Equation (1) and Table 1"],
+            "finding": "All 59 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).",
+            "reproduction_resource": "docs/data/dewaele-2019-static-dac-refit.json",
+            "fit_scope": "complete",
+            "record_parameter_comparison": {
+              "absolute_parameter_difference": [0.0012553776489223623, 1.03258363341547, 0.032835983077083686],
+              "max_abs_gpa": 2.0662818451512237,
+              "parameters": [14.738255377648922, 349.46741636658453, 4.012835983077084],
+              "rmse_gpa": 0.5744922590515854,
+              "within_reported_95pct_errors": true
+            }
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
+          "V0": "Table 1",
+          "K0": "Table 1",
+          "K0_prime": "Table 1"
+        },
+        "source_lineage": [
+          {
+            "role": "scientific equation and coefficients",
+            "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
+            "doi": "10.3390/min9110684"
+          }
+        ]
+      }
     },
-    "audit_date": "2026-09-03"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1063/1.4863300",
-     "locations": [
-      "Equation 6",
-      "Table III, measured pressures and lattice parameters",
-      "Table IV, 300 K Vinet fit",
-      "Figure 3"
-     ],
-     "doi": "10.1063/1.4863300"
+    {
+      "identifier": "rhenium_dewaele_2019_dor_vinet",
+      "label": "Dewaele (2019), Re DOR-scale Vinet",
+      "model": "Vinet",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 29.468, "error": 0.04},
+        "K0": {"value": 350.5, "error": 8.0},
+        "K0_prime": {"value": 4.62, "error": 0.17}
+      },
+      "parameter_error_confidence": 0.95,
+      "experimental_pressure_range_gpa": [0.0, 144.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [0.0, 144.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": ["Published fit/data envelope, not a phase-stability or extrapolation guarantee."]
+      },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "pressure_scale_variant_of": "rhenium_dewaele_2019_mao_vinet",
+      "fit_datasets": ["rhenium_anzellini_2014_table3_compression"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Dewaele"],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      },
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {"kind": "other", "source_location": "linked_tungsten_scale"}
+        ],
+        "recalculation": {
+          "status": "ready",
+          "notes": "The bundled source pressure coordinate is converted between the Mao and Dorogokupets ruby scales by the equations in the dedicated Dewaele (2019) audit."
+        },
+        "audit_date": "2026-09-06"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/rhenium/#record-rhenium_dewaele_2019_dor_vinet",
+            "report_path": "docs/reconstruction-reports/rhenium.md#record-rhenium_dewaele_2019_dor_vinet",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 29.468,
+                "published_error": 0.04,
+                "refit": 29.471168094198738,
+                "refit_error": null,
+                "difference": 0.0031680941987382027,
+                "relative_difference": 0.00010750964431716447,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true
+              },
+              {
+                "parameter": "K0",
+                "published": 350.5,
+                "published_error": 8.0,
+                "refit": 349.3235741323694,
+                "refit_error": null,
+                "difference": -1.1764258676305985,
+                "relative_difference": 0.0033564218762641897,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.62,
+                "published_error": 0.17,
+                "refit": 4.650965026819257,
+                "refit_error": null,
+                "difference": 0.03096502681925717,
+                "relative_difference": 0.006702386757414971,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "static_vinet_with_explicit_ruby_scale_conversion",
+              "objective": "unweighted pressure residuals",
+              "selection": "complete",
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 59,
+              "observed_pressure_range_gpa": [0.65, 144.0],
+              "solver_success": true,
+              "solver_message": "dedicated Dewaele (2019) refit completed",
+              "rmse_gpa": 0.6040477606572032,
+              "dataset_identifiers": ["rhenium_anzellini_2014_table3_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+          "audit_date": "2026-09-06",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+            "doi": "10.3390/min9110684",
+            "locations": ["Equation (1)", "Table 1"],
+            "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-07",
+            "dataset_identifiers": ["rhenium_anzellini_2014_table3_compression"],
+            "source_locations": ["rhenium-anzellini-2014-table3-compression.csv", "Dewaele (2019), Equation (1) and Table 1"],
+            "finding": "All 59 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).",
+            "reproduction_resource": "docs/data/dewaele-2019-static-dac-refit.json",
+            "fit_scope": "complete",
+            "record_parameter_comparison": {
+              "absolute_parameter_difference": [0.0015840470993691014, 1.1764258676305985, 0.03096502681925717],
+              "max_abs_gpa": 2.131179541029013,
+              "parameters": [14.735584047099369, 349.3235741323694, 4.650965026819257],
+              "rmse_gpa": 0.6040477606572032,
+              "within_reported_95pct_errors": true
+            }
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
+          "V0": "Table 1",
+          "K0": "Table 1",
+          "K0_prime": "Table 1"
+        },
+        "source_lineage": [
+          {
+            "role": "scientific equation and coefficients",
+            "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
+            "doi": "10.3390/min9110684"
+          }
+        ]
+      }
     },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "rhenium.json"
+    {
+      "identifier": "rhenium_sakai_2018_yokoo_pt_vinet",
+      "label": "Sakai et al. (2018), Re Vinet on the Yokoo Pt scale",
+      "model": "Vinet",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 29.47, "fixed": true},
+        "K0": {"value": 358.0, "error": 10.0},
+        "K0_prime": {"value": 4.8, "error": 0.2}
+      },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [130.0, 310.0],
+      "pressure_range_status": "reported_qualitatively",
+      "validity": {
+        "pressure_gpa": [130.0, 310.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "Approximate Yokoo-Pt pressure coverage read from Figure 10, not exact tabulated endpoints. The text reports RP01 to 280 GPa on the lower pressure scale; the Yokoo-Pt reduction reaches about 310 GPa.",
+          "Room temperature represented as 300 K; no exact temperature or thermal coefficients are reported.",
+          "The approximately 464 GPa Micro16 result is an extrapolation beyond the Re-Pt co-compression fit."
+        ]
+      },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "notes": "Published Vinet fit of Re compression on Yokoo et al. (2009) platinum pressure scale. Figure 10 distinguishes conventional-DAC RP01 and ds-DAC Micro17 points; exact fit-row membership and weights are not specified. RP01 used silica glass and a tungsten gasket; Micro17 used glycerin and direct anvil loading. Parenthetical errors are preserved without assuming their confidence level or covariance. V0 is fixed, with no fabricated zero uncertainty. At the rounded reported V=18.65 A^3, the printed parameters give 461.56 GPa versus the reported 464 GPa; the difference is compatible with coefficient rounding. This does not independently refit the original observations. A subsequent Figure 10 vector refit of the 26 RP01 Yokoo-Pt points gives K0=357.19 GPa and K0_prime=4.83483, both within the printed errors. Selecting RP01 and unweighted pressure residuals is a documented reconstruction: adding Micro17 or changing residual coordinates changes the optimum; see the dedicated audit.",
+      "fit_datasets": ["rhenium_sakai_2018_figure10"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": [
+          "Sakai",
+          "Yagi",
+          "Irifune",
+          "Kadobayashi",
+          "Hirao",
+          "Kunimoto",
+          "Ohfuji",
+          "Kawaguchi-Imada",
+          "Ohishi",
+          "Tateno",
+          "Hirose"
+        ],
+        "year": 2018,
+        "title": "High pressure generation using double-stage diamond anvil technique: problems and equations of state of rhenium",
+        "source": "High Pressure Research",
+        "volume": "38",
+        "locator": "107-119",
+        "details": "Issue 2; published online 7 March 2018",
+        "doi": "10.1080/08957959.2018.1448082"
+      },
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Yokoo", "Kawai", "Nakamura", "Kondo", "Tange", "Tsuchiya"],
+              "year": 2009,
+              "title": "Ultrahigh-pressure scales for gold and platinum at pressures up to 550 GPa",
+              "source": "Physical Review B",
+              "doi": "10.1103/PhysRevB.80.104114"
+            },
+            "source_location": "Section 3, Figure 10 and following paragraph; reference [7]",
+            "scope": "Yokoo platinum Vinet scale applied to co-compressed Pt.",
+            "notes": "The Dewaele-Pt points in Figure 10 are a comparison, not the pressure scale of this fitted record. The named Vinet branch is verified in Yokoo Table IV (K0=276.4 GPa, K0_prime=5.48; density-derived V0=60.55 A^3). Sakai does not provide a separate unrounded Pt normalization; this resolves the published equation reference without claiming exact historical pressure replay.",
+            "reference_eos_record": "platinum_yokoo_2009_vinet_300k"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The published Yokoo 300 K Pt Vinet branch is bundled. Original paired Pt-Re volumes, pressure uncertainties and an independently stated unrounded Pt normalization are not tabulated; historical pressure recalculation remains unavailable."
+        },
+        "audit_date": "2026-10-09"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
+            "qualifications": [
+              "Numerical parity: 26 RP01 Yokoo-Pt Figure 10 points reproduce both coefficients within the quoted errors, with comparable conditional refit standard errors (10.23 GPa and 0.180). Parity is based on the reported parameter error widths, not a formal combined-two-sigma claim. Exact row selection, weights and source error confidence are unspecified. Including six Micro17 points shifts K0/K0' to about 327.1/5.373; this selection sensitivity is retained in the dedicated Sakai 2018 audit.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/rhenium/#record-rhenium_sakai_2018_yokoo_pt_vinet",
+            "report_path": "docs/reconstruction-reports/rhenium.md#record-rhenium_sakai_2018_yokoo_pt_vinet",
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 358.0,
+                "published_error": 10.0,
+                "refit": 357.1917448671756,
+                "refit_error": 10.226614920564156,
+                "difference": -0.8082551328243994,
+                "relative_difference": 0.0022576959017441326,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.8,
+                "published_error": 0.2,
+                "refit": 4.834834244655565,
+                "refit_error": 0.18014696472120184,
+                "difference": 0.03483424465556517,
+                "relative_difference": 0.0072571343032427444,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "diagnostic_vector_digitized_vinet",
+              "objective": "pressure_residuals",
+              "selection": "26 RP01 Yokoo-Pt gray diamonds only; source membership inferred, not explicitly enumerated",
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 26,
+              "observed_pressure_range_gpa": [138.5287109544056, 302.80959631080384],
+              "rmse_gpa": 3.1061686073745998,
+              "published_rmse_gpa": 3.2130888524322523,
+              "dataset_identifiers": ["rhenium_sakai_2018_figure10"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Primary PDF checked for the published Vinet fit and calibration. An independent refit of 26 RP01 Yokoo-Pt Figure 10 vector points achieves numerical parity: K0 and K0_prime agree within the quoted parameter error widths, with comparable conditional refit standard errors of 10.23 GPa and 0.180. Original weights, row selection and source error confidence remain unspecified; no formal combined-two-sigma claim is made.",
+          "audit_date": "2026-09-10",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1080/08957959.2018.1448082",
+            "doi": "10.1080/08957959.2018.1448082",
+            "source_filename": "08957959.2018.1448082.pdf",
+            "sha256": "b9cafc84c668283a96ae59c48d0c42696df38eae42765d9db483bc8f5117eb32",
+            "locations": [
+              "Section 2 (article p. 4), Re-Pt co-compression",
+              "Section 3, Figure 10 and following paragraph (article p. 10)",
+              "Section 4 (article pp. 11-12), V=18.65 A^3 and maximum pressure"
+            ],
+            "finding": "One source-owned hcp-Re Vinet parameterization; all other plotted Re and diamond EOSs are comparisons to earlier work."
+          },
+          "primary_data_check": {
+            "status": "plot_only",
+            "audit_date": "2026-09-10",
+            "dataset_identifiers": ["rhenium_sakai_2018_figure10"],
+            "source_locations": ["Figure 10", "Table 1 (anvil/sample setup only)"],
+            "finding": "All 58 Figure 10 vector markers are bundled, preserving 26 RP01 observations on each Pt scale and six Micro17 observations. An unweighted Vinet refit of the 26 RP01 Yokoo-Pt points, with V0=29.47 A^3 fixed, gives K0=357.19 GPa and K0_prime=4.83483, within the printed 358(10) and 4.8(2). Original fit-row membership, residual coordinate, weights and uncertainty confidence are unspecified; including Micro17 or changing the objective shifts the optimum. This is a qualified digitized-data reproduction, not a recovery of the original fit table. See the [Sakai (2018) audit](literature-reproductions/sakai-2018-rhenium.md).",
+            "reproduction_resource": "docs/data/sakai-2018-rhenium-reproduction.json",
+            "digitized_dataset_identifiers": [],
+            "fit_scope": "qualified_digitized_reconstruction"
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 2 (article p. 4), Re-Pt co-compression; Section 3, Figure 10 and following paragraph (article p. 10); Section 4 (article pp. 11-12), V=18.65 A^3 and maximum pressure.",
+          "V0": "Section 3, paragraph below Figure 10 (article p. 10; final p. 116): fixed conventional hcp cell volume, 29.47 A^3, Z=2.",
+          "K0": "Same paragraph: 358(10) GPa, fitted.",
+          "K0_prime": "Same paragraph: 4.8(2), fitted.",
+          "temperature_ref": "Ambient-temperature DAC experiment; 300 K is the catalog room-temperature convention, not a measured value."
+        }
+      }
     },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "rhenium_anzellini_2014_table3_compression"
-     ],
-     "source_locations": [
-      "Table III"
-     ],
-     "finding": "All 59 quasi-hydrostatic rhenium observations from the three compression runs are tabulated in Table III. The published a and c lattice parameters, pressure-gauge identity, and tungsten calibrant lattice parameter where reported are bundled; conventional-cell volumes are derived from the hexagonal lattice parameters."
+    {
+      "identifier": "rhenium_zha_2004_bm3_log_thermal",
+      "label": "Zha et al. (2004), Table III BM3 plus logarithmic thermal pressure",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 29.4087, "error": null, "fixed": true},
+        "K0": {"value": 360.0, "error": null, "fixed": true},
+        "K0_prime": {"value": 4.5, "error": null, "fixed": true}
+      },
+      "thermal": {
+        "model": "LogVolumeThermalPressure",
+        "parameters": {
+          "Tr": {"value": 300.0, "error": null, "fixed": true},
+          "alpha_KT_ref": {"value": 0.00776, "error": null},
+          "dK_dT_V": {"value": -0.00815, "error": null}
+        }
+      },
+      "experimental_pressure_range_gpa": [6.41, 8.47],
+      "experimental_temperature_range_k": [1380.3, 1914.5],
+      "pressure_range_status": "reported_exactly",
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "thermal",
+      "notes": "Published continuous Equation (6), Table III branch, not the author-preferred fixed-V0 Table IV/Table V isotherms. All eight Table IIb observations determine linear isochore slopes; their unweighted regression against ln(Va/V) reproduces both Table III coefficients to 0.05%. The model gives pressure RMS 0.4085 GPa against printed rows. No coefficient uncertainties or covariance are published. Experiments cover only 6.41-8.47 GPa and 1380.3-1914.5 K, with V>Va; application to 20% compression and 3000 K is a large source extrapolation. Table III gives Kprime=4.5; the apparent prose 4.53 is 4.5 followed by superscript citation 3. The source Va differs from the existing structural cell. Table IV fixed-V0 and free branches and all Table V outputs are bundled separately; no interpolation or substitution for Equation (6) is implied. The cited Anderson gold calibration is partially resolved: substituting the explicit Au reference volume in the related catalog model leaves discrepancies up to 0.318 GPa, which are documented separately.",
+      "fit_datasets": ["rhenium_zha_2004_table2_paired_pvt"],
+      "reference": {
+        "authors": ["Zha", "Bassett", "Shim"],
+        "year": 2004,
+        "title": "Rhenium, an in situ pressure calibrant for internally heated diamond anvil cells",
+        "source": "Review of Scientific Instruments",
+        "volume": "75",
+        "locator": "2409-2418",
+        "doi": "10.1063/1.1765752"
+      },
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Anderson", "Isaak", "Yamamoto"],
+              "year": 1989,
+              "source": "Journal of Applied Physics",
+              "doi": "10.1063/1.342969"
+            },
+            "source_location": "Table IIa caption and Section III",
+            "notes": "The cited Anderson gold EOS is known and Table IIa specifies Va=67.847 A^3. Applying the related catalog coefficients with that volume differs from the printed marker pressures by up to 0.318 GPa; exact numerical calibration provenance is unresolved. The related record is not an exact executable calibration link.",
+            "related_eos_record": "gold_anderson_1989_bm3_1"
+          }
+        ],
+        "recalculation": {
+          "status": "reference_eos_not_bundled",
+          "notes": "All paired Au volumes and temperatures are available. The exact source realization of Anderson calibration is unresolved; the related catalog model with the explicit source reference volume does not reproduce every printed pressure. Retain source pressures and treat recalculation as a separate interpretation."
+        },
+        "audit_date": "2026-09-15"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Both thermal point estimates recover within 0.05%; source errors are unavailable. The source staged isochore objective differs from direct pressure least squares. See literature-reproductions/zha-2004-rhenium.md.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/rhenium/#record-rhenium_zha_2004_bm3_log_thermal",
+            "report_path": "docs/reconstruction-reports/rhenium.md#record-rhenium_zha_2004_bm3_log_thermal",
+            "parameters": [
+              {
+                "parameter": "alpha_KT_ref",
+                "published": 0.00776,
+                "published_error": null,
+                "refit": 0.007756156527449165,
+                "refit_error": null,
+                "difference": -3.84347255083517e-06,
+                "relative_difference": 0.0004952928544890682,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "dK_dT_V",
+                "published": -0.00815,
+                "published_error": null,
+                "refit": -0.008148788969999833,
+                "refit_error": null,
+                "difference": 1.2110300001665075e-06,
+                "relative_difference": 0.0001485926380572402,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isochore_slope_linear_regression",
+              "objective": "unweighted residuals of (P-P300)/(T-300), the staged isochore construction in Section III",
+              "free_parameters": ["alpha_KT_ref", "dK_dT_V"],
+              "fixed_parameters": ["V0", "K0", "K0_prime", "Tr"],
+              "observations": 8,
+              "observed_pressure_range_gpa": [6.41, 8.47],
+              "observed_temperature_range_k": [1380.3, 1914.5],
+              "solver_success": true,
+              "rmse_gpa": 0.4083849112682927,
+              "published_rmse_gpa": 0.4084918269955869,
+              "dataset_identifiers": ["rhenium_zha_2004_table2_paired_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Primary PDF equations and tables checked visually; independent isochore-slope regression reproduces both thermal coefficients and published derived free-V0 isotherms bound the high-temperature curve comparison.",
+          "audit_date": "2026-09-15",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "doi": "10.1063/1.1765752",
+            "access_url": "https://doi.org/10.1063/1.1765752",
+            "locations": [
+              "Equations (3)-(6), p. 2410",
+              "Table IIa-IIb, p. 2412",
+              "Tables III-IV and Figure 5, p. 2414",
+              "Table V, p. 2415",
+              "Appendix and Table VII, pp. 2416-2418"
+            ],
+            "finding": "Table III is a complete continuous thermal EOS, distinct from the preferred subsequent fixed-volume isotherms. Its fitted coefficients reproduce from all eight observed isochore slopes.",
+            "zotero_item_key": "9BAJ2FCF",
+            "zotero_attachment_key": "JABFZJUC"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-15",
+            "dataset_identifiers": ["rhenium_zha_2004_table2_paired_pvt"],
+            "source_locations": ["Table IIa-IIb"],
+            "finding": "All eight primary Re observations and paired Au marker diffraction values and uncertainties are bundled. Derived Tables IV/V and the six Table VII diffraction diagnostics are retained separately."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations (3)-(6), p. 2410; Table IIa-IIb, p. 2412; Tables III-IV and Figure 5, p. 2414; Table V, p. 2415; Appendix and Table VII, pp. 2416-2418.",
+          "V0": "Table III: Va=29.4087 A^3, conventional hcp cell, Z=2; JCPDS 05-0702.",
+          "K0": "Table III: 360 GPa, fixed ambient reference.",
+          "K0_prime": "Table III: 4.5, fixed ambient reference.",
+          "alpha_KT_ref": "Table III: 0.00776 GPa/K, fitted.",
+          "dK_dT_V": "Table III: -0.00815 GPa/K, fitted.",
+          "Tr": "Equations (3)-(6): 300 K.",
+          "equation": "Equation (6): BM3 plus [alpha*KT+(dKT/dT)_V ln(Va/V)](T-300)."
+        }
+      }
     }
-   }
-  },
-  {
-   "determination_method": "experimental",
-   "identifier": "rhenium_dewaele_2019_mao_vinet",
-   "label": "Dewaele (2019), Re MAO-scale Vinet",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Dewaele"
-    ],
-    "year": 2019,
-    "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
-    "source": "Minerals",
-    "doi": "10.3390/min9110684"
-   },
-   "eos": {
-    "type": "Vinet",
-    "model": "vinet",
-    "parameters": {
-     "V0": 29.474,
-     "K0": 350.5,
-     "K0_prime": 3.98
-    }
-   },
-   "parameter_errors": {
-    "V0": 0.04,
-    "K0": 8.0,
-    "K0_prime": 0.17
-   },
-   "parameter_error_confidence": 0.95,
-   "parameter_covariance": null,
-   "fixed_parameters": [],
-   "temperature_ref": 300.0,
-   "experimental_pressure_range_gpa": [
-    0.0,
-    144.0
-   ],
-   "pressure_range_status": "reported_exactly",
-   "validity": {
-    "pressure_gpa": [
-     0.0,
-     144.0
-    ],
-    "temperature_k": [
-     300.0,
-     300.0
-    ],
-    "notes": [
-     "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
-    ]
-   },
-   "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
-   "pressure_calibration": {
-    "status": "partially_resolved",
-    "methods": [
-     {
-      "kind": "other",
-      "source_location": "linked_tungsten_scale"
-     }
-    ],
-    "recalculation": {
-     "status": "ready",
-     "notes": "The bundled source pressure coordinate is converted between the Mao and Dorogokupets ruby scales by the equations in the dedicated Dewaele (2019) audit."
-    },
-    "audit_date": "2026-09-06"
-   },
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
-    "V0": "Table 1",
-    "K0": "Table 1",
-    "K0_prime": "Table 1"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-    "audit_date": "2026-09-06",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
-     "doi": "10.3390/min9110684",
-     "locations": [
-      "Equation (1)",
-      "Table 1"
-     ],
-     "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-07",
-     "dataset_identifiers": [
-      "rhenium_anzellini_2014_table3_compression"
-     ],
-     "source_locations": [
-      "rhenium-anzellini-2014-table3-compression.csv",
-      "Dewaele (2019), Equation (1) and Table 1"
-     ],
-     "finding": "All 59 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).",
-     "reproduction_resource": "docs/data/dewaele-2019-static-dac-refit.json",
-     "fit_scope": "complete",
-     "record_parameter_comparison": {
-      "absolute_parameter_difference": [
-       0.0012553776489223623,
-       1.03258363341547,
-       0.032835983077083686
+  ],
+  "symmetry": "HEXAGONAL",
+  "space_group": "P63/mmc",
+  "space_group_number": 194,
+  "lattice": {"a": 2.761906, "b": null, "c": 4.460479, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
+  "atom_sites": [
+    {"element": "Re", "wyckoff": "2c", "x": 0.3333333333, "y": 0.6666666667, "z": 0.25, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Phase reference: JCPDS 5-0702. The reference cell is constrained to the fitted 300 K V0 while retaining the JCPDS axial ratio.",
+  "datasets": [
+    {
+      "identifier": "rhenium_sakai_2025_table_s9_rs_eos_grid",
+      "kind": "derived_pressure_volume_grid",
+      "description": "Official 26-row Table S9 Re compression grid calculated from the published Rydberg-Stacey coefficients; retained as an exact implementation checkpoint, not as independent fit input.",
+      "reference": {
+        "authors": [
+          "Sakai",
+          "Kadobayashi",
+          "Nakamoto",
+          "Dekura",
+          "Ishimatsu",
+          "Kawaguchi-Imada",
+          "Seto",
+          "Sekizawa",
+          "Nitta",
+          "Shimizu"
+        ],
+        "year": 2025,
+        "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
+        "source": "Communications Materials",
+        "volume": "6",
+        "locator": "68",
+        "doi": "10.1038/s43246-025-00792-5"
+      },
+      "source_location": "Supplementary Data 1, Table S9",
+      "source_url": "https://doi.org/10.1038/s43246-025-00792-5",
+      "columns": [
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+        {"name": "volume_ratio", "quantity": "relative_volume", "unit": "1", "role": "value"}
       ],
-      "max_abs_gpa": 2.0662818451512237,
-      "parameters": [
-       14.738255377648922,
-       349.46741636658453,
-       4.012835983077084
-      ],
-      "rmse_gpa": 0.5744922590515854,
-      "within_reported_95pct_errors": true
-     }
-    }
-   },
-   "source_lineage": [
-    {
-     "role": "scientific equation and coefficients",
-     "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
-     "doi": "10.3390/min9110684"
-    }
-   ],
-   "fit_datasets": [
-    "rhenium_anzellini_2014_table3_compression"
-   ]
-  },
-  {
-   "determination_method": "experimental",
-   "identifier": "rhenium_dewaele_2019_dor_vinet",
-   "label": "Dewaele (2019), Re DOR-scale Vinet",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Dewaele"
-    ],
-    "year": 2019,
-    "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
-    "source": "Minerals",
-    "doi": "10.3390/min9110684"
-   },
-   "eos": {
-    "type": "Vinet",
-    "model": "vinet",
-    "parameters": {
-     "V0": 29.468,
-     "K0": 350.5,
-     "K0_prime": 4.62
-    }
-   },
-   "parameter_errors": {
-    "V0": 0.04,
-    "K0": 8.0,
-    "K0_prime": 0.17
-   },
-   "parameter_error_confidence": 0.95,
-   "parameter_covariance": null,
-   "fixed_parameters": [],
-   "temperature_ref": 300.0,
-   "experimental_pressure_range_gpa": [
-    0.0,
-    144.0
-   ],
-   "pressure_range_status": "reported_exactly",
-   "validity": {
-    "pressure_gpa": [
-     0.0,
-     144.0
-    ],
-    "temperature_k": [
-     300.0,
-     300.0
-    ],
-    "notes": [
-     "Published fit/data envelope, not a phase-stability or extrapolation guarantee."
-    ]
-   },
-   "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
-   "pressure_calibration": {
-    "status": "partially_resolved",
-    "methods": [
-     {
-      "kind": "other",
-      "source_location": "linked_tungsten_scale"
-     }
-    ],
-    "recalculation": {
-     "status": "ready",
-     "notes": "The bundled source pressure coordinate is converted between the Mao and Dorogokupets ruby scales by the equations in the dedicated Dewaele (2019) audit."
-    },
-    "audit_date": "2026-09-06"
-   },
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1); Table 1.",
-    "V0": "Table 1",
-    "K0": "Table 1",
-    "K0_prime": "Table 1"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
-    "audit_date": "2026-09-06",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
-     "doi": "10.3390/min9110684",
-     "locations": [
-      "Equation (1)",
-      "Table 1"
-     ],
-     "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-07",
-     "dataset_identifiers": [
-      "rhenium_anzellini_2014_table3_compression"
-     ],
-     "source_locations": [
-      "rhenium-anzellini-2014-table3-compression.csv",
-      "Dewaele (2019), Equation (1) and Table 1"
-     ],
-     "finding": "All 59 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).",
-     "reproduction_resource": "docs/data/dewaele-2019-static-dac-refit.json",
-     "fit_scope": "complete",
-     "record_parameter_comparison": {
-      "absolute_parameter_difference": [
-       0.0015840470993691014,
-       1.1764258676305985,
-       0.03096502681925717
-      ],
-      "max_abs_gpa": 2.131179541029013,
-      "parameters": [
-       14.735584047099369,
-       349.3235741323694,
-       4.650965026819257
-      ],
-      "rmse_gpa": 0.6040477606572032,
-      "within_reported_95pct_errors": true
-     }
-    }
-   },
-   "source_lineage": [
-    {
-     "role": "scientific equation and coefficients",
-     "citation": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range, Equation (1), Table 1",
-     "doi": "10.3390/min9110684"
-    }
-   ],
-   "fit_datasets": [
-    "rhenium_anzellini_2014_table3_compression"
-   ]
-  },
-  {
-   "determination_method": "experimental",
-   "identifier": "rhenium_sakai_2018_yokoo_pt_vinet",
-   "label": "Sakai et al. (2018), Re Vinet on the Yokoo Pt scale",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Sakai",
-     "Yagi",
-     "Irifune",
-     "Kadobayashi",
-     "Hirao",
-     "Kunimoto",
-     "Ohfuji",
-     "Kawaguchi-Imada",
-     "Ohishi",
-     "Tateno",
-     "Hirose"
-    ],
-    "year": 2018,
-    "title": "High pressure generation using double-stage diamond anvil technique: problems and equations of state of rhenium",
-    "source": "High Pressure Research",
-    "volume": "38",
-    "locator": "107-119",
-    "details": "Issue 2; published online 7 March 2018",
-    "doi": "10.1080/08957959.2018.1448082"
-   },
-   "eos": {
-    "type": "Vinet",
-    "model": "vinet",
-    "parameters": {
-     "V0": 29.47,
-     "K0": 358.0,
-     "K0_prime": 4.8
-    }
-   },
-   "parameter_errors": {
-    "K0": 10.0,
-    "K0_prime": 0.2
-   },
-   "parameter_error_confidence": null,
-   "parameter_covariance": null,
-   "fixed_parameters": [
-    "V0"
-   ],
-   "temperature_ref": 300.0,
-   "experimental_pressure_range_gpa": [
-    130.0,
-    310.0
-   ],
-   "pressure_range_status": "reported_qualitatively",
-   "validity": {
-    "pressure_gpa": [
-     130.0,
-     310.0
-    ],
-    "temperature_k": [
-     300.0,
-     300.0
-    ],
-    "notes": [
-     "Approximate Yokoo-Pt pressure coverage read from Figure 10, not exact tabulated endpoints. The text reports RP01 to 280 GPa on the lower pressure scale; the Yokoo-Pt reduction reaches about 310 GPa.",
-     "Room temperature represented as 300 K; no exact temperature or thermal coefficients are reported.",
-     "The approximately 464 GPa Micro16 result is an extrapolation beyond the Re-Pt co-compression fit."
-    ]
-   },
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 2 (article p. 4), Re-Pt co-compression; Section 3, Figure 10 and following paragraph (article p. 10); Section 4 (article pp. 11-12), V=18.65 A^3 and maximum pressure.",
-    "V0": "Section 3, paragraph below Figure 10 (article p. 10; final p. 116): fixed conventional hcp cell volume, 29.47 A^3, Z=2.",
-    "K0": "Same paragraph: 358(10) GPa, fitted.",
-    "K0_prime": "Same paragraph: 4.8(2), fitted.",
-    "temperature_ref": "Ambient-temperature DAC experiment; 300 K is the catalog room-temperature convention, not a measured value."
-   },
-   "notes": "Published Vinet fit of Re compression on Yokoo et al. (2009) platinum pressure scale. Figure 10 distinguishes conventional-DAC RP01 and ds-DAC Micro17 points; exact fit-row membership and weights are not specified. RP01 used silica glass and a tungsten gasket; Micro17 used glycerin and direct anvil loading. Parenthetical errors are preserved without assuming their confidence level or covariance. V0 is fixed, with no fabricated zero uncertainty. At the rounded reported V=18.65 A^3, the printed parameters give 461.56 GPa versus the reported 464 GPa; the difference is compatible with coefficient rounding. This does not independently refit the original observations. A subsequent Figure 10 vector refit of the 26 RP01 Yokoo-Pt points gives K0=357.19 GPa and K0_prime=4.83483, both within the printed errors. Selecting RP01 and unweighted pressure residuals is a documented reconstruction: adding Micro17 or changing residual coordinates changes the optimum; see the dedicated audit.",
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
-      "reference": {
-       "authors": [
-        "Yokoo",
-        "Kawai",
-        "Nakamura",
-        "Kondo",
-        "Tange",
-        "Tsuchiya"
-       ],
-       "year": 2009,
-       "title": "Ultrahigh-pressure scales for gold and platinum at pressures up to 550 GPa",
-       "source": "Physical Review B",
-       "doi": "10.1103/PhysRevB.80.104114"
+      "resource": {
+        "path": "datasets/rhenium-sakai-2025-table-s9-rs-eos-grid.csv",
+        "sha256": "ddf159d5e99f776f368cc977463e6eb219e501bde08da6fae41f6126628738a1",
+        "media_type": "text/csv"
       },
-      "source_location": "Section 3, Figure 10 and following paragraph; reference [7]",
-      "scope": "Yokoo platinum Vinet scale applied to co-compressed Pt.",
-      "notes": "The Dewaele-Pt points in Figure 10 are a comparison, not the pressure scale of this fitted record. The named Vinet branch is verified in Yokoo Table IV (K0=276.4 GPa, K0_prime=5.48; density-derived V0=60.55 A^3). Sakai does not provide a separate unrounded Pt normalization; this resolves the published equation reference without claiming exact historical pressure replay.",
-      "reference_eos_record": "platinum_yokoo_2009_vinet_300k"
-     }
-    ],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The published Yokoo 300 K Pt Vinet branch is bundled. Original paired Pt-Re volumes, pressure uncertainties and an independently stated unrounded Pt normalization are not tabulated; historical pressure recalculation remains unavailable."
-    },
-    "audit_date": "2026-10-09"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Primary PDF checked for the published Vinet fit and calibration. An independent refit of 26 RP01 Yokoo-Pt Figure 10 vector points achieves numerical parity: K0 and K0_prime agree within the quoted parameter error widths, with comparable conditional refit standard errors of 10.23 GPa and 0.180. Original weights, row selection and source error confidence remain unspecified; no formal combined-two-sigma claim is made.",
-    "audit_date": "2026-09-10",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1080/08957959.2018.1448082",
-     "doi": "10.1080/08957959.2018.1448082",
-     "source_filename": "08957959.2018.1448082.pdf",
-     "sha256": "b9cafc84c668283a96ae59c48d0c42696df38eae42765d9db483bc8f5117eb32",
-     "locations": [
-      "Section 2 (article p. 4), Re-Pt co-compression",
-      "Section 3, Figure 10 and following paragraph (article p. 10)",
-      "Section 4 (article pp. 11-12), V=18.65 A^3 and maximum pressure"
-     ],
-     "finding": "One source-owned hcp-Re Vinet parameterization; all other plotted Re and diamond EOSs are comparisons to earlier work."
-    },
-    "primary_data_check": {
-     "status": "plot_only",
-     "audit_date": "2026-09-10",
-     "dataset_identifiers": [
-      "rhenium_sakai_2018_figure10"
-     ],
-     "source_locations": [
-      "Figure 10",
-      "Table 1 (anvil/sample setup only)"
-     ],
-     "finding": "All 58 Figure 10 vector markers are bundled, preserving 26 RP01 observations on each Pt scale and six Micro17 observations. An unweighted Vinet refit of the 26 RP01 Yokoo-Pt points, with V0=29.47 A^3 fixed, gives K0=357.19 GPa and K0_prime=4.83483, within the printed 358(10) and 4.8(2). Original fit-row membership, residual coordinate, weights and uncertainty confidence are unspecified; including Micro17 or changing the objective shifts the optimum. This is a qualified digitized-data reproduction, not a recovery of the original fit table. See the [Sakai (2018) audit](literature-reproductions/sakai-2018-rhenium.md).",
-     "reproduction_resource": "docs/data/sakai-2018-rhenium-reproduction.json",
-     "digitized_dataset_identifiers": [],
-     "fit_scope": "qualified_digitized_reconstruction"
-    }
-   },
-   "fit_datasets": [
-    "rhenium_sakai_2018_figure10"
-   ]
-  },
-  {
-   "determination_method": "experimental",
-   "identifier": "rhenium_zha_2004_bm3_log_thermal",
-   "label": "Zha et al. (2004), Table III BM3 plus logarithmic thermal pressure",
-   "reference": {
-    "authors": [
-     "Zha",
-     "Bassett",
-     "Shim"
-    ],
-    "year": 2004,
-    "title": "Rhenium, an in situ pressure calibrant for internally heated diamond anvil cells",
-    "source": "Review of Scientific Instruments",
-    "volume": "75",
-    "locator": "2409-2418",
-    "doi": "10.1063/1.1765752"
-   },
-   "record_kind": "published",
-   "equation_kind": "thermal",
-   "temperature_ref": 300.0,
-   "eos": {
-    "type": "BM3",
-    "model": "birch_murnaghan_3",
-    "parameters": {
-     "V0": 29.4087,
-     "K0": 360.0,
-     "K0_prime": 4.5
-    }
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": null,
-    "K0_prime": null
-   },
-   "fixed_parameters": [
-    "V0",
-    "K0",
-    "K0_prime"
-   ],
-   "thermal": {
-    "type": "LogVolumeThermalPressure",
-    "model": "log_volume_thermal_pressure",
-    "parameters": {
-     "Tr": 300.0,
-     "alpha_KT_ref": 0.00776,
-     "dK_dT_V": -0.00815
-    },
-    "parameter_errors": {
-     "Tr": null,
-     "alpha_KT_ref": null,
-     "dK_dT_V": null
-    },
-    "fixed_parameters": [
-     "Tr"
-    ]
-   },
-   "experimental_pressure_range_gpa": [
-    6.41,
-    8.47
-   ],
-   "experimental_temperature_range_k": [
-    1380.3,
-    1914.5
-   ],
-   "pressure_range_status": "reported_exactly",
-   "fit_datasets": [
-    "rhenium_zha_2004_table2_paired_pvt"
-   ],
-   "notes": "Published continuous Equation (6), Table III branch, not the author-preferred fixed-V0 Table IV/Table V isotherms. All eight Table IIb observations determine linear isochore slopes; their unweighted regression against ln(Va/V) reproduces both Table III coefficients to 0.05%. The model gives pressure RMS 0.4085 GPa against printed rows. No coefficient uncertainties or covariance are published. Experiments cover only 6.41-8.47 GPa and 1380.3-1914.5 K, with V>Va; application to 20% compression and 3000 K is a large source extrapolation. Table III gives Kprime=4.5; the apparent prose 4.53 is 4.5 followed by superscript citation 3. The source Va differs from the existing structural cell. Table IV fixed-V0 and free branches and all Table V outputs are bundled separately; no interpolation or substitution for Equation (6) is implied. The cited Anderson gold calibration is partially resolved: substituting the explicit Au reference volume in the related catalog model leaves discrepancies up to 0.318 GPa, which are documented separately.",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equations (3)-(6), p. 2410; Table IIa-IIb, p. 2412; Tables III-IV and Figure 5, p. 2414; Table V, p. 2415; Appendix and Table VII, pp. 2416-2418.",
-    "V0": "Table III: Va=29.4087 A^3, conventional hcp cell, Z=2; JCPDS 05-0702.",
-    "K0": "Table III: 360 GPa, fixed ambient reference.",
-    "K0_prime": "Table III: 4.5, fixed ambient reference.",
-    "alpha_KT_ref": "Table III: 0.00776 GPa/K, fitted.",
-    "dK_dT_V": "Table III: -0.00815 GPa/K, fitted.",
-    "Tr": "Equations (3)-(6): 300 K.",
-    "equation": "Equation (6): BM3 plus [alpha*KT+(dKT/dT)_V ln(Va/V)](T-300)."
-   },
-   "pressure_calibration": {
-    "status": "partially_resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
-      "reference": {
-       "authors": [
-        "Anderson",
-        "Isaak",
-        "Yamamoto"
-       ],
-       "year": 1989,
-       "source": "Journal of Applied Physics",
-       "doi": "10.1063/1.342969"
+      "provenance": {
+        "type": "transcribed_from_official_derived_table",
+        "official_workbook_sha256": "c559b29fea9c793831e4bc6deef4d62712b5e78821fc420969f709cbd1060ff9",
+        "notes": "Table S9 is formula-generated from Table 2 coefficients. It verifies transcription and equation implementation but cannot independently refit the coefficients."
       },
-      "source_location": "Table IIa caption and Section III",
-      "notes": "The cited Anderson gold EOS is known and Table IIa specifies Va=67.847 A^3. Applying the related catalog coefficients with that volume differs from the printed marker pressures by up to 0.318 GPa; exact numerical calibration provenance is unresolved. The related record is not an exact executable calibration link.",
-      "related_eos_record": "gold_anderson_1989_bm3_1"
-     }
-    ],
-    "recalculation": {
-     "status": "reference_eos_not_bundled",
-     "notes": "All paired Au volumes and temperatures are available. The exact source realization of Anderson calibration is unresolved; the related catalog model with the explicit source reference volume does not reproduce every printed pressure. Retain source pressures and treat recalculation as a separate interpretation."
+      "used_by_eos_records": ["rhenium_sakai_2025_rydberg_stacey_1"]
     },
-    "audit_date": "2026-09-15"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Primary PDF equations and tables checked visually; independent isochore-slope regression reproduces both thermal coefficients and published derived free-V0 isotherms bound the high-temperature curve comparison.",
-    "audit_date": "2026-09-15",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "doi": "10.1063/1.1765752",
-     "access_url": "https://doi.org/10.1063/1.1765752",
-     "locations": [
-      "Equations (3)-(6), p. 2410",
-      "Table IIa-IIb, p. 2412",
-      "Tables III-IV and Figure 5, p. 2414",
-      "Table V, p. 2415",
-      "Appendix and Table VII, pp. 2416-2418"
-     ],
-     "finding": "Table III is a complete continuous thermal EOS, distinct from the preferred subsequent fixed-volume isotherms. Its fitted coefficients reproduce from all eight observed isochore slopes.",
-     "zotero_item_key": "9BAJ2FCF",
-     "zotero_attachment_key": "JABFZJUC"
+    {
+      "identifier": "rhenium_anzellini_2014_table3_compression",
+      "kind": "pressure_lattice_volume",
+      "description": "All 59 rhenium compression observations from Table III, preserving the three runs and their ruby, helium, or tungsten pressure gauges. Conventional hcp-cell volumes are calculated from the published a and c lattice parameters.",
+      "reference": {
+        "authors": ["Anzellini", "Dewaele", "Occelli", "Loubeyre", "Mezouar"],
+        "year": 2014,
+        "source": "J. Appl. Phys.",
+        "volume": "115",
+        "locator": "043511",
+        "doi": "10.1063/1.4863300"
+      },
+      "source_location": "Table III",
+      "source_url": "https://doi.org/10.1063/1.4863300",
+      "columns": [
+        {"name": "run", "quantity": "experimental_run", "unit": "1", "role": "flag"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "pressure_gauge", "quantity": "pressure_gauge", "unit": "1", "role": "flag"},
+        {"name": "tungsten_lattice_a_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {"name": "rhenium_lattice_a_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {"name": "rhenium_lattice_c_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {
+          "name": "volume_a3_conventional_cell",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        }
+      ],
+      "resource": {
+        "path": "datasets/rhenium-anzellini-2014-table3-compression.csv",
+        "sha256": "6ea5f5036862f9131d489d0589ce075848a1a140234d3a3b49239064d8ffc11f",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["rhenium_anzellini_2014_vinet_1", "rhenium_dewaele_2019_mao_vinet", "rhenium_dewaele_2019_dor_vinet"],
+      "uncertainty": {
+        "lattice_parameter_error_upper_bound_angstrom": 0.003,
+        "pressure_error_range_gpa": [0.05, 2.0],
+        "scope": "Global limits reported for the dataset: pressure uncertainty rises from 0.05 GPa at 1 GPa to approximately 2 GPa at 150 GPa; no row-wise interpolation was invented.",
+        "source_location": "Table III caption"
+      },
+      "provenance": {
+        "type": "transcribed_from_table",
+        "method": "Transcribed Table III and calculated each conventional hcp-cell volume as sqrt(3)/2 times a squared times c.",
+        "source_pdf_sha256": "4975ba6e1e17c0ab7bd27938d8ca3be59fb282283c981e62e99be782518514d5",
+        "quality_control": {"published_vinet_rms_pressure_residual_gpa": 0.6132, "published_vinet_max_abs_pressure_residual_gpa": 2.4202},
+        "transcribed_on": "2026-09-03"
+      }
     },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-15",
-     "dataset_identifiers": [
-      "rhenium_zha_2004_table2_paired_pvt"
-     ],
-     "source_locations": [
-      "Table IIa-IIb"
-     ],
-     "finding": "All eight primary Re observations and paired Au marker diffraction values and uncertainties are bundled. Derived Tables IV/V and the six Table VII diffraction diagnostics are retained separately."
+    {
+      "identifier": "rhenium_sakai_2018_figure10",
+      "kind": "digitized_pressure_volume",
+      "description": "All 58 Figure 10 vector markers: 26 RP01 Yokoo-Pt gray diamonds, 26 alternate-scale RP01 Dewaele-Pt circles, and 6 Micro17 Yokoo-Pt open diamonds. The two RP01 series are alternative reductions of the same observations. The diagnostic source-fit reproduction selects the 26 RP01 Yokoo-Pt rows only.",
+      "reference": {
+        "authors": [
+          "Sakai",
+          "Yagi",
+          "Irifune",
+          "Kadobayashi",
+          "Hirao",
+          "Kunimoto",
+          "Ohfuji",
+          "Kawaguchi-Imada",
+          "Ohishi",
+          "Tateno",
+          "Hirose"
+        ],
+        "year": 2018,
+        "title": "High pressure generation using double-stage diamond anvil technique: problems and equations of state of rhenium",
+        "source": "High Pressure Research",
+        "volume": "38",
+        "locator": "107-119",
+        "details": "Issue 2; published online 7 March 2018",
+        "doi": "10.1080/08957959.2018.1448082"
+      },
+      "source_location": "Figure 10, article p. 10 (final p. 116)",
+      "source_url": "https://doi.org/10.1080/08957959.2018.1448082",
+      "columns": [
+        {"name": "series", "quantity": "series_label", "unit": "1", "role": "value"},
+        {"name": "pdf_curve_index", "quantity": "source_object_index", "unit": "1", "role": "value"},
+        {"name": "pdf_x_pt", "quantity": "source_graphic_x", "unit": "point", "role": "value"},
+        {"name": "pdf_top_pt", "quantity": "source_graphic_top", "unit": "point", "role": "value"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"}
+      ],
+      "resource": {
+        "path": "datasets/rhenium-sakai-2018-figure10.csv",
+        "sha256": "d0e39a8e2259fab3f39423de5cc73012c801444abc793fb800ff937adb3de30a",
+        "media_type": "text/csv"
+      },
+      "provenance": {
+        "type": "vector_digitized",
+        "method": "scripts/extract_sakai_2018_figure10.py recovers vector bounding-box centers and calibrates affine axes to all labeled major ticks. Fill/stroke duplicates are excluded; overlapping distinct markers are retained. Original experimental uncertainties are unavailable.",
+        "source_resource": "datasets/rhenium-sakai-2018-figure10-source.json",
+        "uncertainty": "No experimental sigma is inferred. A separate +/-0.1 PDF-point systematic coordinate sensitivity is reported; it is not a confidence interval.",
+        "license": "Numerical graphical transcription with source attribution; publisher PDF is not redistributed."
+      },
+      "used_by_eos_records": ["rhenium_sakai_2018_yokoo_pt_vinet"]
+    },
+    {
+      "identifier": "rhenium_zha_2004_table2_paired_pvt",
+      "kind": "simultaneous_xrd_compression",
+      "description": "All eight Table IIa-IIb paired Au/Re observations, including four Au d spacings and lattice estimates, mean lattice error and relative error. Values remain exactly as printed; Re P/V/T row uncertainties are not reported.",
+      "reference": {
+        "authors": ["Zha", "Bassett", "Shim"],
+        "year": 2004,
+        "title": "Rhenium, an in situ pressure calibrant for internally heated diamond anvil cells",
+        "source": "Review of Scientific Instruments",
+        "volume": "75",
+        "locator": "2409-2418",
+        "doi": "10.1063/1.1765752"
+      },
+      "source_location": "Table IIa-IIb, p. 2412",
+      "source_url": "https://doi.org/10.1063/1.1765752",
+      "columns": [
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {"name": "a_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {"name": "c_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {"name": "c_over_a", "quantity": "ratio", "unit": "1", "role": "value"},
+        {
+          "name": "volume_a3",
+          "quantity": "volume",
+          "unit": "angstrom^3",
+          "role": "value",
+          "basis": "conventional_unit_cell"
+        },
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "au_d_111_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {"name": "au_d_200_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {"name": "au_d_220_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {"name": "au_d_311_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {"name": "au_a_111_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {"name": "au_a_200_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {"name": "au_a_220_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {"name": "au_a_311_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {"name": "au_a_mean_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {
+          "name": "au_a_error_angstrom",
+          "quantity": "lattice_parameter",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "au_a_mean_angstrom"
+        },
+        {"name": "au_relative_a_error", "quantity": "ratio", "unit": "1", "role": "value"},
+        {"name": "au_volume_a3", "quantity": "calibrant_volume", "unit": "angstrom^3", "role": "value"}
+      ],
+      "resource": {
+        "path": "datasets/rhenium-zha-2004-table2-paired-pvt.csv",
+        "sha256": "f67d2d443c553705ecba1295cf83964ca22fc86a7136b72255d64cd12bdc092d",
+        "media_type": "text/csv"
+      },
+      "row_count": 8,
+      "used_by_eos_records": ["rhenium_zha_2004_bm3_log_thermal"],
+      "notes": "Gold mean-lattice errors retain the printed ± convention; no confidence level is specified in the table. Appendix A gives aggregate error estimates, not row-specific P/V/T errors. Au volumes retain their Z=4 conventional-cell basis."
+    },
+    {
+      "identifier": "rhenium_zha_2004_table4_isotherms",
+      "kind": "derived_eos_parameters",
+      "description": "Both six-temperature BM3 representations from Table IV; fixed-V0 is the author-preferred branch, parentheses are unconstrained fits to Equation (6). These are derived outputs, not independent experimental fits.",
+      "reference": {
+        "authors": ["Zha", "Bassett", "Shim"],
+        "year": 2004,
+        "title": "Rhenium, an in situ pressure calibrant for internally heated diamond anvil cells",
+        "source": "Review of Scientific Instruments",
+        "volume": "75",
+        "locator": "2409-2418",
+        "doi": "10.1063/1.1765752"
+      },
+      "source_location": "Table IV, p. 2414",
+      "columns": [
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {"name": "branch", "quantity": "fit_branch", "unit": "1", "role": "flag"},
+        {"name": "v0_a3", "quantity": "reference_volume", "unit": "angstrom^3", "role": "value"},
+        {"name": "k0_gpa", "quantity": "bulk_modulus", "unit": "GPa", "role": "value"},
+        {"name": "k0_prime", "quantity": "bulk_modulus_pressure_derivative", "unit": "1", "role": "value"}
+      ],
+      "resource": {
+        "path": "datasets/rhenium-zha-2004-table4-isotherms.csv",
+        "sha256": "df0420e4163183b1b215231bc10c754e6dd12e345813602f1501f1b75707382f",
+        "media_type": "text/csv"
+      },
+      "row_count": 12,
+      "used_by_eos_records": ["rhenium_zha_2004_bm3_log_thermal"]
+    },
+    {
+      "identifier": "rhenium_zha_2004_table5_pressure_grid",
+      "kind": "derived_pressure_grid",
+      "description": "All 147 printed Table V states, from the preferred fixed-V0 Table IV isotherms. These do not equal the continuous Table III Equation (6) thermal surface.",
+      "reference": {
+        "authors": ["Zha", "Bassett", "Shim"],
+        "year": 2004,
+        "title": "Rhenium, an in situ pressure calibrant for internally heated diamond anvil cells",
+        "source": "Review of Scientific Instruments",
+        "volume": "75",
+        "locator": "2409-2418",
+        "doi": "10.1063/1.1765752"
+      },
+      "source_location": "Table V, p. 2415",
+      "columns": [
+        {"name": "compression", "quantity": "compression", "unit": "1", "role": "value"},
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"}
+      ],
+      "resource": {
+        "path": "datasets/rhenium-zha-2004-table5-pressure-grid.csv",
+        "sha256": "878aa381e55778efe8d91ebae6ec8fcd0ea4b7e7e03008f7ffdfda9ac271c6b5",
+        "media_type": "text/csv"
+      },
+      "row_count": 147,
+      "used_by_eos_records": ["rhenium_zha_2004_bm3_log_thermal"]
+    },
+    {
+      "identifier": "rhenium_zha_2004_table7_diffraction",
+      "kind": "diffraction_diagnostics",
+      "description": "All six Re diffraction spacings at 1480.2 K and 8.47 GPa; the 100/101 pair supplies the Table IIb fit volume. Other pairs diagnose strain and are not extra independent fit observations.",
+      "reference": {
+        "authors": ["Zha", "Bassett", "Shim"],
+        "year": 2004,
+        "title": "Rhenium, an in situ pressure calibrant for internally heated diamond anvil cells",
+        "source": "Review of Scientific Instruments",
+        "volume": "75",
+        "locator": "2409-2418",
+        "doi": "10.1063/1.1765752"
+      },
+      "source_location": "Table VII and Appendix, p. 2417",
+      "columns": [
+        {"name": "hkl", "quantity": "miller_indices", "unit": "1", "role": "flag"},
+        {"name": "d_angstrom", "quantity": "d_spacing", "unit": "angstrom", "role": "value"}
+      ],
+      "resource": {
+        "path": "datasets/rhenium-zha-2004-table7-diffraction.csv",
+        "sha256": "ef9c14034ff89679fcfec1f81062078ef94cf6ef63c308022d41aa30a0409e18",
+        "media_type": "text/csv"
+      },
+      "row_count": 6,
+      "used_by_eos_records": ["rhenium_zha_2004_bm3_log_thermal"]
     }
-   }
-  }
- ],
- "datasets": [
-  {
-   "identifier": "rhenium_sakai_2025_table_s9_rs_eos_grid",
-   "kind": "derived_pressure_volume_grid",
-   "description": "Official 26-row Table S9 Re compression grid calculated from the published Rydberg-Stacey coefficients; retained as an exact implementation checkpoint, not as independent fit input.",
-   "reference": {
-    "authors": [
-     "Sakai",
-     "Kadobayashi",
-     "Nakamoto",
-     "Dekura",
-     "Ishimatsu",
-     "Kawaguchi-Imada",
-     "Seto",
-     "Sekizawa",
-     "Nitta",
-     "Shimizu"
-    ],
-    "year": 2025,
-    "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
-    "source": "Communications Materials",
-    "volume": "6",
-    "locator": "68",
-    "doi": "10.1038/s43246-025-00792-5"
-   },
-   "source_location": "Supplementary Data 1, Table S9",
-   "source_url": "https://doi.org/10.1038/s43246-025-00792-5",
-   "columns": [
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "volume_a3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "volume_ratio",
-     "quantity": "relative_volume",
-     "unit": "1",
-     "role": "value"
-    }
-   ],
-   "resource": {
-    "path": "datasets/rhenium-sakai-2025-table-s9-rs-eos-grid.csv",
-    "sha256": "ddf159d5e99f776f368cc977463e6eb219e501bde08da6fae41f6126628738a1",
-    "media_type": "text/csv"
-   },
-   "provenance": {
-    "type": "transcribed_from_official_derived_table",
-    "official_workbook_sha256": "c559b29fea9c793831e4bc6deef4d62712b5e78821fc420969f709cbd1060ff9",
-    "notes": "Table S9 is formula-generated from Table 2 coefficients. It verifies transcription and equation implementation but cannot independently refit the coefficients."
-   },
-   "used_by_eos_records": [
-    "rhenium_sakai_2025_rydberg_stacey_1"
-   ]
-  },
-  {
-   "identifier": "rhenium_anzellini_2014_table3_compression",
-   "kind": "pressure_lattice_volume",
-   "description": "All 59 rhenium compression observations from Table III, preserving the three runs and their ruby, helium, or tungsten pressure gauges. Conventional hcp-cell volumes are calculated from the published a and c lattice parameters.",
-   "reference": {
-    "authors": [
-     "Anzellini",
-     "Dewaele",
-     "Occelli",
-     "Loubeyre",
-     "Mezouar"
-    ],
-    "year": 2014,
-    "source": "J. Appl. Phys.",
-    "volume": "115",
-    "locator": "043511",
-    "doi": "10.1063/1.4863300"
-   },
-   "source_location": "Table III",
-   "source_url": "https://doi.org/10.1063/1.4863300",
-   "columns": [
-    {
-     "name": "run",
-     "quantity": "experimental_run",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_gauge",
-     "quantity": "pressure_gauge",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "tungsten_lattice_a_angstrom",
-     "quantity": "lattice_parameter",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "rhenium_lattice_a_angstrom",
-     "quantity": "lattice_parameter",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "rhenium_lattice_c_angstrom",
-     "quantity": "lattice_parameter",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "volume_a3_conventional_cell",
-     "quantity": "volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value"
-    }
-   ],
-   "resource": {
-    "path": "datasets/rhenium-anzellini-2014-table3-compression.csv",
-    "sha256": "6ea5f5036862f9131d489d0589ce075848a1a140234d3a3b49239064d8ffc11f",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "rhenium_anzellini_2014_vinet_1",
-    "rhenium_dewaele_2019_mao_vinet",
-    "rhenium_dewaele_2019_dor_vinet"
-   ],
-   "uncertainty": {
-    "lattice_parameter_error_upper_bound_angstrom": 0.003,
-    "pressure_error_range_gpa": [
-     0.05,
-     2.0
-    ],
-    "scope": "Global limits reported for the dataset: pressure uncertainty rises from 0.05 GPa at 1 GPa to approximately 2 GPa at 150 GPa; no row-wise interpolation was invented.",
-    "source_location": "Table III caption"
-   },
-   "provenance": {
-    "type": "transcribed_from_table",
-    "method": "Transcribed Table III and calculated each conventional hcp-cell volume as sqrt(3)/2 times a squared times c.",
-    "source_pdf_sha256": "4975ba6e1e17c0ab7bd27938d8ca3be59fb282283c981e62e99be782518514d5",
-    "quality_control": {
-     "published_vinet_rms_pressure_residual_gpa": 0.6132,
-     "published_vinet_max_abs_pressure_residual_gpa": 2.4202
-    },
-    "transcribed_on": "2026-09-03"
-   }
-  },
-  {
-   "identifier": "rhenium_sakai_2018_figure10",
-   "kind": "digitized_pressure_volume",
-   "description": "All 58 Figure 10 vector markers: 26 RP01 Yokoo-Pt gray diamonds, 26 alternate-scale RP01 Dewaele-Pt circles, and 6 Micro17 Yokoo-Pt open diamonds. The two RP01 series are alternative reductions of the same observations. The diagnostic source-fit reproduction selects the 26 RP01 Yokoo-Pt rows only.",
-   "reference": {
-    "authors": [
-     "Sakai",
-     "Yagi",
-     "Irifune",
-     "Kadobayashi",
-     "Hirao",
-     "Kunimoto",
-     "Ohfuji",
-     "Kawaguchi-Imada",
-     "Ohishi",
-     "Tateno",
-     "Hirose"
-    ],
-    "year": 2018,
-    "title": "High pressure generation using double-stage diamond anvil technique: problems and equations of state of rhenium",
-    "source": "High Pressure Research",
-    "volume": "38",
-    "locator": "107-119",
-    "details": "Issue 2; published online 7 March 2018",
-    "doi": "10.1080/08957959.2018.1448082"
-   },
-   "source_location": "Figure 10, article p. 10 (final p. 116)",
-   "source_url": "https://doi.org/10.1080/08957959.2018.1448082",
-   "columns": [
-    {
-     "name": "series",
-     "quantity": "series_label",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "pdf_curve_index",
-     "quantity": "source_object_index",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "pdf_x_pt",
-     "quantity": "source_graphic_x",
-     "unit": "point",
-     "role": "value"
-    },
-    {
-     "name": "pdf_top_pt",
-     "quantity": "source_graphic_top",
-     "unit": "point",
-     "role": "value"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "volume_a3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    }
-   ],
-   "resource": {
-    "path": "datasets/rhenium-sakai-2018-figure10.csv",
-    "sha256": "d0e39a8e2259fab3f39423de5cc73012c801444abc793fb800ff937adb3de30a",
-    "media_type": "text/csv"
-   },
-   "provenance": {
-    "type": "vector_digitized",
-    "method": "scripts/extract_sakai_2018_figure10.py recovers vector bounding-box centers and calibrates affine axes to all labeled major ticks. Fill/stroke duplicates are excluded; overlapping distinct markers are retained. Original experimental uncertainties are unavailable.",
-    "source_resource": "datasets/rhenium-sakai-2018-figure10-source.json",
-    "uncertainty": "No experimental sigma is inferred. A separate +/-0.1 PDF-point systematic coordinate sensitivity is reported; it is not a confidence interval.",
-    "license": "Numerical graphical transcription with source attribution; publisher PDF is not redistributed."
-   },
-   "used_by_eos_records": [
-    "rhenium_sakai_2018_yokoo_pt_vinet"
-   ]
-  },
-  {
-   "identifier": "rhenium_zha_2004_table2_paired_pvt",
-   "kind": "simultaneous_xrd_compression",
-   "description": "All eight Table IIa-IIb paired Au/Re observations, including four Au d spacings and lattice estimates, mean lattice error and relative error. Values remain exactly as printed; Re P/V/T row uncertainties are not reported.",
-   "reference": {
-    "authors": [
-     "Zha",
-     "Bassett",
-     "Shim"
-    ],
-    "year": 2004,
-    "title": "Rhenium, an in situ pressure calibrant for internally heated diamond anvil cells",
-    "source": "Review of Scientific Instruments",
-    "volume": "75",
-    "locator": "2409-2418",
-    "doi": "10.1063/1.1765752"
-   },
-   "source_location": "Table IIa-IIb, p. 2412",
-   "source_url": "https://doi.org/10.1063/1.1765752",
-   "columns": [
-    {
-     "name": "temperature_k",
-     "quantity": "temperature",
-     "unit": "K",
-     "role": "value"
-    },
-    {
-     "name": "a_angstrom",
-     "quantity": "lattice_parameter",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "c_angstrom",
-     "quantity": "lattice_parameter",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "c_over_a",
-     "quantity": "ratio",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "volume_a3",
-     "quantity": "volume",
-     "unit": "angstrom^3",
-     "role": "value",
-     "basis": "conventional_unit_cell"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "au_d_111_angstrom",
-     "quantity": "lattice_parameter",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "au_d_200_angstrom",
-     "quantity": "lattice_parameter",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "au_d_220_angstrom",
-     "quantity": "lattice_parameter",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "au_d_311_angstrom",
-     "quantity": "lattice_parameter",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "au_a_111_angstrom",
-     "quantity": "lattice_parameter",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "au_a_200_angstrom",
-     "quantity": "lattice_parameter",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "au_a_220_angstrom",
-     "quantity": "lattice_parameter",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "au_a_311_angstrom",
-     "quantity": "lattice_parameter",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "au_a_mean_angstrom",
-     "quantity": "lattice_parameter",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "au_a_error_angstrom",
-     "quantity": "lattice_parameter",
-     "unit": "angstrom",
-     "role": "uncertainty",
-     "of": "au_a_mean_angstrom"
-    },
-    {
-     "name": "au_relative_a_error",
-     "quantity": "ratio",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "au_volume_a3",
-     "quantity": "calibrant_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    }
-   ],
-   "resource": {
-    "path": "datasets/rhenium-zha-2004-table2-paired-pvt.csv",
-    "sha256": "f67d2d443c553705ecba1295cf83964ca22fc86a7136b72255d64cd12bdc092d",
-    "media_type": "text/csv"
-   },
-   "row_count": 8,
-   "used_by_eos_records": [
-    "rhenium_zha_2004_bm3_log_thermal"
-   ],
-   "notes": "Gold mean-lattice errors retain the printed ± convention; no confidence level is specified in the table. Appendix A gives aggregate error estimates, not row-specific P/V/T errors. Au volumes retain their Z=4 conventional-cell basis."
-  },
-  {
-   "identifier": "rhenium_zha_2004_table4_isotherms",
-   "kind": "derived_eos_parameters",
-   "description": "Both six-temperature BM3 representations from Table IV; fixed-V0 is the author-preferred branch, parentheses are unconstrained fits to Equation (6). These are derived outputs, not independent experimental fits.",
-   "reference": {
-    "authors": [
-     "Zha",
-     "Bassett",
-     "Shim"
-    ],
-    "year": 2004,
-    "title": "Rhenium, an in situ pressure calibrant for internally heated diamond anvil cells",
-    "source": "Review of Scientific Instruments",
-    "volume": "75",
-    "locator": "2409-2418",
-    "doi": "10.1063/1.1765752"
-   },
-   "source_location": "Table IV, p. 2414",
-   "columns": [
-    {
-     "name": "temperature_k",
-     "quantity": "temperature",
-     "unit": "K",
-     "role": "value"
-    },
-    {
-     "name": "branch",
-     "quantity": "fit_branch",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "v0_a3",
-     "quantity": "reference_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "k0_gpa",
-     "quantity": "bulk_modulus",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "k0_prime",
-     "quantity": "bulk_modulus_pressure_derivative",
-     "unit": "1",
-     "role": "value"
-    }
-   ],
-   "resource": {
-    "path": "datasets/rhenium-zha-2004-table4-isotherms.csv",
-    "sha256": "df0420e4163183b1b215231bc10c754e6dd12e345813602f1501f1b75707382f",
-    "media_type": "text/csv"
-   },
-   "row_count": 12,
-   "used_by_eos_records": [
-    "rhenium_zha_2004_bm3_log_thermal"
-   ]
-  },
-  {
-   "identifier": "rhenium_zha_2004_table5_pressure_grid",
-   "kind": "derived_pressure_grid",
-   "description": "All 147 printed Table V states, from the preferred fixed-V0 Table IV isotherms. These do not equal the continuous Table III Equation (6) thermal surface.",
-   "reference": {
-    "authors": [
-     "Zha",
-     "Bassett",
-     "Shim"
-    ],
-    "year": 2004,
-    "title": "Rhenium, an in situ pressure calibrant for internally heated diamond anvil cells",
-    "source": "Review of Scientific Instruments",
-    "volume": "75",
-    "locator": "2409-2418",
-    "doi": "10.1063/1.1765752"
-   },
-   "source_location": "Table V, p. 2415",
-   "columns": [
-    {
-     "name": "compression",
-     "quantity": "compression",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "temperature_k",
-     "quantity": "temperature",
-     "unit": "K",
-     "role": "value"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    }
-   ],
-   "resource": {
-    "path": "datasets/rhenium-zha-2004-table5-pressure-grid.csv",
-    "sha256": "878aa381e55778efe8d91ebae6ec8fcd0ea4b7e7e03008f7ffdfda9ac271c6b5",
-    "media_type": "text/csv"
-   },
-   "row_count": 147,
-   "used_by_eos_records": [
-    "rhenium_zha_2004_bm3_log_thermal"
-   ]
-  },
-  {
-   "identifier": "rhenium_zha_2004_table7_diffraction",
-   "kind": "diffraction_diagnostics",
-   "description": "All six Re diffraction spacings at 1480.2 K and 8.47 GPa; the 100/101 pair supplies the Table IIb fit volume. Other pairs diagnose strain and are not extra independent fit observations.",
-   "reference": {
-    "authors": [
-     "Zha",
-     "Bassett",
-     "Shim"
-    ],
-    "year": 2004,
-    "title": "Rhenium, an in situ pressure calibrant for internally heated diamond anvil cells",
-    "source": "Review of Scientific Instruments",
-    "volume": "75",
-    "locator": "2409-2418",
-    "doi": "10.1063/1.1765752"
-   },
-   "source_location": "Table VII and Appendix, p. 2417",
-   "columns": [
-    {
-     "name": "hkl",
-     "quantity": "miller_indices",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "d_angstrom",
-     "quantity": "d_spacing",
-     "unit": "angstrom",
-     "role": "value"
-    }
-   ],
-   "resource": {
-    "path": "datasets/rhenium-zha-2004-table7-diffraction.csv",
-    "sha256": "ef9c14034ff89679fcfec1f81062078ef94cf6ef63c308022d41aa30a0409e18",
-    "media_type": "text/csv"
-   },
-   "row_count": 6,
-   "used_by_eos_records": [
-    "rhenium_zha_2004_bm3_log_thermal"
-   ]
-  }
- ],
- "format": "peritheos.material",
- "identifier": "rhenium",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- }
+  ]
 }

@@ -1,321 +1,232 @@
 {
- "format_version": 3,
- "name": "SnO2 Pa-3 (26.6 GPa pattern)",
- "formula": "SnO2",
- "symmetry": "CUBIC",
- "lattice": {
-  "a": 4.9201,
-  "b": 4.9201,
-  "c": 4.9201,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 4,
- "space_group": "Pa-3",
- "space_group_number": 205,
- "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/Users data/sno2_cubic_27GPa.jcpds. The cubic PdF2/pyrite-type model uses Sn 4a and O 8c with u=0.346, as reported for high-pressure cubic SnO2 by Smith et al., J. Synchrotron Rad. 26, 858-867 (2019), doi:10.1107/S1600577519005579. The legacy 26.6 GPa peaks are retained.",
- "peaks": [
-  [
-   4,
-   2,
-   2,
-   1.0043,
-   15.0
+  "format_version": 4,
+  "identifier": "sno2_cubic_27gpa",
+  "name": "SnO2 Pa-3 (26.6 GPa pattern)",
+  "formula": "SnO2",
+  "phase": "high-pressure cubic Pa-3 SnO2",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 4,
+  "eos_records": [
+    {
+      "identifier": "sno2_cubic_27gpa_ono_2000_bm3_1",
+      "label": "Ono et al. (2000), cubic Pa-3 SnO2 300 K BM3",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 130.6, "error": 0.3},
+        "K0": {"value": 252.0, "error": 28.0},
+        "K0_prime": {"value": 3.5, "error": 2.2}
+      },
+      "experimental_pressure_range_gpa": [16.09, 28.85],
+      "experimental_temperature_range_k": [300.0, 1400.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [16.09, 28.85],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "This executable record is only the published 300 K reference isotherm.",
+          "The paper also reports a separate 25 GPa thermal-expansion coefficient, which is not a complete thermal EOS and is not composed here."
+        ]
+      },
+      "determination_method": "experimental",
+      "notes": "The 300 K reference isotherm for cubic Pa-3 SnO2. V0=130.6(3) A^3 means 130.6+/-0.3 A^3; the migrated +/-3.0 value was a decimal-place error. K0=252(28) GPa and K0'=3.5(2.2). V0 is a fitted extrapolation because the cubic phase transforms on decompression. Table 2 spans 16.09-28.85 GPa and 300-1400 K, but this record intentionally implements only the 300 K curve. No fitted-parameter covariance is published.",
+      "reference": {
+        "authors": ["Ono", "Ito", "Katsura", "Yoneda", "Walter", "Urakawa", "Utsumi", "Funakoshi"],
+        "year": 2000,
+        "title": "Thermoelastic properties of the high-pressure phase of SnO2 determined by in situ X-ray observations up to 30 GPa and 1400 K",
+        "source": "Phys. Chem. Miner.",
+        "volume": "27",
+        "locator": "618-622",
+        "doi": "10.1007/S002690000108"
+      },
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "The recorded parameter reconstruction did not meet the audit's agreement criterion; the parameter comparisons retain the actual reconstructed values.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/sno2_cubic_27gpa/#record-sno2_cubic_27gpa_ono_2000_bm3_1",
+            "report_path": "docs/reconstruction-reports/sno2_cubic_27gpa.md#record-sno2_cubic_27gpa_ono_2000_bm3_1",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 130.6,
+                "published_error": 0.3,
+                "refit": 128.21925727881214,
+                "refit_error": 0.6038136080550497,
+                "difference": -2.3807427211878576,
+                "relative_difference": 0.018229270453199522,
+                "similar": true,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "K0",
+                "published": 252.0,
+                "published_error": 28.0,
+                "refit": 379.58981509842204,
+                "refit_error": 56.37461080460072,
+                "difference": 127.58981509842204,
+                "relative_difference": 0.5063087900731034,
+                "similar": false,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.5,
+                "published_error": 2.2,
+                "refit": 0.0,
+                "refit_error": 2.0102320236913593,
+                "difference": -3.5,
+                "relative_difference": 1.0,
+                "similar": false,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows; reference-T rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 11,
+              "observed_pressure_range_gpa": [16.09, 26.57],
+              "observed_temperature_range_k": [300.0, 300.0],
+              "observed_volume_range": [119.08, 122.95],
+              "degrees_of_freedom": 8,
+              "solver_success": true,
+              "solver_message": "`xtol` termination condition is satisfied.",
+              "rmse_gpa": 0.47525969980934374,
+              "published_rmse_gpa": 0.6091491039928482,
+              "reduced_chi_square": 34.20124383736103,
+              "dataset_identifiers": ["sno2_ono_2000_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1007/s002690000108",
+            "locations": [
+              "page 621, Table 2, measured cubic-phase P-V-T data",
+              "page 621, third-order Birch-Murnaghan equation and 300 K fit",
+              "page 621, Table 3 and thermal-expansion discussion"
+            ],
+            "finding": "The stored record is only the 300 K reference isotherm. The paper's separate 25 GPa thermal-expansion result is documented but is not silently turned into a full thermal EOS. The notation V0=130.6(3) means an uncertainty of 0.3 A^3, not 3 A^3.",
+            "doi": "10.1007/s002690000108"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "sno2_cubic_27gpa.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["sno2_ono_2000_table2_pvt"],
+            "source_locations": ["Table 2, journal page 621"],
+            "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 621, Table 2, measured cubic-phase P-V-T data; page 621, third-order Birch-Murnaghan equation and 300 K fit; page 621, Table 3 and thermal-expansion discussion.",
+          "V0": "Ono et al. (2000), page 621, 300 K BM3 paragraph",
+          "K0": "Ono et al. (2000), page 621, 300 K BM3 paragraph",
+          "K0_prime": "Ono et al. (2000), page 621, 300 K BM3 paragraph",
+          "equation": "Ono et al. (2000), page 621, printed third-order BM equation"
+        }
+      }
+    }
   ],
-  [
-   4,
-   2,
-   0,
-   1.1002,
-   20.0
+  "symmetry": "CUBIC",
+  "space_group": "Pa-3",
+  "space_group_number": 205,
+  "lattice": {"a": 4.9201, "b": 4.9201, "c": 4.9201, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Sn", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "8c", "x": 0.346, "y": 0.346, "z": 0.346, "occupancy": 1.0}
   ],
-  [
-   3,
-   3,
-   1,
-   1.1287,
-   65.0
+  "peaks": [
+    [4, 2, 2, 1.0043, 15.0],
+    [4, 2, 0, 1.1002, 20.0],
+    [3, 3, 1, 1.1287, 65.0],
+    [4, 0, 0, 1.23, 20.0],
+    [2, 2, 2, 1.4203, 5.0],
+    [3, 1, 1, 1.4835, 100.0],
+    [2, 2, 0, 1.7395, 80.0],
+    [2, 1, 1, 2.0086, 5.0],
+    [2, 1, 0, 2.2003, 15.0],
+    [2, 0, 0, 2.46, 85.0],
+    [1, 1, 1, 2.8406, 80.0]
   ],
-  [
-   4,
-   0,
-   0,
-   1.23,
-   20.0
-  ],
-  [
-   2,
-   2,
-   2,
-   1.4203,
-   5.0
-  ],
-  [
-   3,
-   1,
-   1,
-   1.4835,
-   100.0
-  ],
-  [
-   2,
-   2,
-   0,
-   1.7395,
-   80.0
-  ],
-  [
-   2,
-   1,
-   1,
-   2.0086,
-   5.0
-  ],
-  [
-   2,
-   1,
-   0,
-   2.2003,
-   15.0
-  ],
-  [
-   2,
-   0,
-   0,
-   2.46,
-   85.0
-  ],
-  [
-   1,
-   1,
-   1,
-   2.8406,
-   80.0
+  "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/Users data/sno2_cubic_27GPa.jcpds. The cubic PdF2/pyrite-type model uses Sn 4a and O 8c with u=0.346, as reported for high-pressure cubic SnO2 by Smith et al., J. Synchrotron Rad. 26, 858-867 (2019), doi:10.1107/S1600577519005579. The legacy 26.6 GPa peaks are retained.",
+  "datasets": [
+    {
+      "identifier": "sno2_ono_2000_table2_pvt",
+      "kind": "pressure_volume_temperature",
+      "description": "All 40 cubic SnO2 P-V-T observations printed in Table 2.",
+      "reference": {
+        "authors": ["Ono", "Ito", "Katsura", "Yoneda", "Walter", "Urakawa", "Utsumi", "Funakoshi"],
+        "year": 2000,
+        "source": "Phys. Chem. Miner.",
+        "volume": "27",
+        "locator": "618-622",
+        "doi": "10.1007/S002690000108"
+      },
+      "source_location": "Table 2, journal page 621",
+      "columns": [
+        {"name": "experiment", "quantity": "experiment_identifier", "unit": "dimensionless", "role": "flag"},
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_uncertainty_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "bound",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "unit_cell_volume_a3",
+          "quantity": "unit_cell_volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "unit_cell_volume_uncertainty_a3",
+          "quantity": "unit_cell_volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "bound",
+          "of": "unit_cell_volume_a3"
+        }
+      ],
+      "resource": {
+        "path": "datasets/sno2-ono-2000-table2-pvt.csv",
+        "sha256": "f60e7d85eac706d2a99f3597a3faa808ad3c1d838386d82228691e81ca48c97c",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["sno2_cubic_27gpa_ono_2000_bm3_1"],
+      "notes": "The table contains 34 observations from experiment S145 and six from S192. Parenthetical last-digit pressure and volume uncertainties are retained as generic bounds because the paper does not label their statistical meaning. Pressure was obtained from Au using the Jamieson et al. (1982) EOS (K0=177 GPa, K0'=4.8), with a stated pressure uncertainty within +/-0.2 GPa. The paper says initial-heating data were excluded from Fig. 4 because of deviatoric stress but does not identify those rows individually, so the complete printed table is preserved.",
+      "source_url": "https://doi.org/10.1007/s002690000108"
+    }
   ]
- ],
- "eos_records": [
-  {
-   "label": "Ono et al. (2000), cubic Pa-3 SnO2 300 K BM3",
-   "reference": {
-    "authors": [
-     "Ono",
-     "Ito",
-     "Katsura",
-     "Yoneda",
-     "Walter",
-     "Urakawa",
-     "Utsumi",
-     "Funakoshi"
-    ],
-    "year": 2000,
-    "title": "Thermoelastic properties of the high-pressure phase of SnO2 determined by in situ X-ray observations up to 30 GPa and 1400 K",
-    "source": "Phys. Chem. Miner.",
-    "volume": "27",
-    "locator": "618-622",
-    "doi": "10.1007/S002690000108"
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 130.6,
-     "K0": 252.0,
-     "K0_prime": 3.5
-    },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": 0.3,
-    "K0": 28.0,
-    "K0_prime": 2.2
-   },
-   "fixed_parameters": [],
-   "experimental_pressure_range_gpa": [
-    16.09,
-    28.85
-   ],
-   "notes": "The 300 K reference isotherm for cubic Pa-3 SnO2. V0=130.6(3) A^3 means 130.6+/-0.3 A^3; the migrated +/-3.0 value was a decimal-place error. K0=252(28) GPa and K0'=3.5(2.2). V0 is a fitted extrapolation because the cubic phase transforms on decompression. Table 2 spans 16.09-28.85 GPa and 300-1400 K, but this record intentionally implements only the 300 K curve. No fitted-parameter covariance is published.",
-   "determination_method": "experimental",
-   "identifier": "sno2_cubic_27gpa_ono_2000_bm3_1",
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
-    },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1007/s002690000108",
-     "locations": [
-      "page 621, Table 2, measured cubic-phase P-V-T data",
-      "page 621, third-order Birch-Murnaghan equation and 300 K fit",
-      "page 621, Table 3 and thermal-expansion discussion"
-     ],
-     "finding": "The stored record is only the 300 K reference isotherm. The paper's separate 25 GPa thermal-expansion result is documented but is not silently turned into a full thermal EOS. The notation V0=130.6(3) means an uncertainty of 0.3 A^3, not 3 A^3.",
-     "doi": "10.1007/s002690000108"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "sno2_cubic_27gpa.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "sno2_ono_2000_table2_pvt"
-     ],
-     "source_locations": [
-      "Table 2, journal page 621"
-     ],
-     "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
-    }
-   },
-   "temperature_ref": 300.0,
-   "pressure_range_status": "reported_exactly",
-   "experimental_temperature_range_k": [
-    300.0,
-    1400.0
-   ],
-   "validity": {
-    "pressure_gpa": [
-     16.09,
-     28.85
-    ],
-    "temperature_k": [
-     300.0,
-     300.0
-    ],
-    "notes": [
-     "This executable record is only the published 300 K reference isotherm.",
-     "The paper also reports a separate 25 GPa thermal-expansion coefficient, which is not a complete thermal EOS and is not composed here."
-    ]
-   },
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 621, Table 2, measured cubic-phase P-V-T data; page 621, third-order Birch-Murnaghan equation and 300 K fit; page 621, Table 3 and thermal-expansion discussion.",
-    "V0": "Ono et al. (2000), page 621, 300 K BM3 paragraph",
-    "K0": "Ono et al. (2000), page 621, 300 K BM3 paragraph",
-    "K0_prime": "Ono et al. (2000), page 621, 300 K BM3 paragraph",
-    "equation": "Ono et al. (2000), page 621, printed third-order BM equation"
-   }
-  }
- ],
- "atom_sites": [
-  {
-   "element": "Sn",
-   "wyckoff": "4a",
-   "x": 0.0,
-   "y": 0.0,
-   "z": 0.0,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "8c",
-   "x": 0.346,
-   "y": 0.346,
-   "z": 0.346,
-   "occupancy": 1.0
-  }
- ],
- "format": "peritheos.material",
- "identifier": "sno2_cubic_27gpa",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "phase": "high-pressure cubic Pa-3 SnO2",
- "datasets": [
-  {
-   "identifier": "sno2_ono_2000_table2_pvt",
-   "kind": "pressure_volume_temperature",
-   "description": "All 40 cubic SnO2 P-V-T observations printed in Table 2.",
-   "reference": {
-    "authors": [
-     "Ono",
-     "Ito",
-     "Katsura",
-     "Yoneda",
-     "Walter",
-     "Urakawa",
-     "Utsumi",
-     "Funakoshi"
-    ],
-    "year": 2000,
-    "source": "Phys. Chem. Miner.",
-    "volume": "27",
-    "locator": "618-622",
-    "doi": "10.1007/S002690000108"
-   },
-   "source_location": "Table 2, journal page 621",
-   "columns": [
-    {
-     "name": "experiment",
-     "quantity": "experiment_identifier",
-     "unit": "dimensionless",
-     "role": "flag"
-    },
-    {
-     "name": "temperature_k",
-     "quantity": "temperature",
-     "unit": "K",
-     "role": "value"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_uncertainty_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "bound",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "unit_cell_volume_a3",
-     "quantity": "unit_cell_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value"
-    },
-    {
-     "name": "unit_cell_volume_uncertainty_a3",
-     "quantity": "unit_cell_volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "bound",
-     "of": "unit_cell_volume_a3"
-    }
-   ],
-   "resource": {
-    "path": "datasets/sno2-ono-2000-table2-pvt.csv",
-    "sha256": "f60e7d85eac706d2a99f3597a3faa808ad3c1d838386d82228691e81ca48c97c",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "sno2_cubic_27gpa_ono_2000_bm3_1"
-   ],
-   "notes": "The table contains 34 observations from experiment S145 and six from S192. Parenthetical last-digit pressure and volume uncertainties are retained as generic bounds because the paper does not label their statistical meaning. Pressure was obtained from Au using the Jamieson et al. (1982) EOS (K0=177 GPa, K0'=4.8), with a stated pressure uncertainty within +/-0.2 GPa. The paper says initial-heating data were excluded from Fig. 4 because of deviatoric stress but does not identify those rows individually, so the complete printed table is preserved.",
-   "source_url": "https://doi.org/10.1007/s002690000108"
-  }
- ]
 }

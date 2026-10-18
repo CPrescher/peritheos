@@ -1,272 +1,236 @@
 {
- "format_version": 3,
- "name": "Zinc oxide (wurtzite B4)",
- "aliases": [
-  "zincite",
-  "wurtzite ZnO"
- ],
- "formula": "ZnO",
- "symmetry": "HEXAGONAL",
- "lattice": {
-  "a": 3.2518875845,
-  "b": null,
-  "c": 5.2085483441,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 120.0
- },
- "formula_units_per_cell": 2,
- "space_group": "P63mc",
- "space_group_number": 186,
- "atom_sites": [
-  {
-   "element": "Zn",
-   "wyckoff": "2b",
-   "x": 0.3333333333,
-   "y": 0.6666666667,
-   "z": 0.0,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "2b",
-   "x": 0.3333333333,
-   "y": 0.6666666667,
-   "z": 0.3825,
-   "occupancy": 1.0
-  }
- ],
- "notes": "The wurtzite structure uses the ambient internal coordinate of Kisi and Elcombe, Acta Cryst. C 45, 1867-1870 (1989), doi:10.1107/S0108270189004269. The lattice preserves Hanna et al.'s reported c/a ratio and is normalized to their EoS V0.",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Hanna et al. (2011), wurtzite BM2",
-   "reference": {
-    "authors": [
-     "Hanna",
-     "Teklemichael",
-     "McCluskey",
-     "Bergman",
-     "Huso"
-    ],
-    "year": 2011,
-    "title": "Equations of state for ZnO and MgZnO by high pressure x-ray diffraction",
-    "source": "J. Appl. Phys.",
-    "volume": "110",
-    "locator": "073511",
-    "doi": "10.1063/1.3644969"
-   },
-   "eos": {
-    "type": "BM2",
-    "parameters": {
-     "V0": 47.7,
-     "K0": 139.0
-    },
-    "model": "birch_murnaghan_2"
-   },
-   "parameter_errors": {
-    "V0": 0.12,
-    "K0": 8.0
-   },
-   "fixed_parameters": [],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    8.3
-   ],
-   "experimental_temperature_range_k": [
-    300.0,
-    300.0
-   ],
-   "temperature_ref": 300.0,
-   "notes": "Hanna et al. report V0 = 23.85(6) A^3 per ZnO and K0 = 139(8) GPa with K0' fixed at 4; V0 and its uncertainty are doubled here for the conventional Z=2 cell. The B4-to-B1 transition begins near 8.3 GPa.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Static EOS formulation; wurtzite and rocksalt EOS table."
-   },
-   "identifier": "zinc_oxide_wurtzite_hanna_2011_bm2_1",
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "ruby_fluorescence",
-      "reference": {
-       "authors": [
-        "Mao",
-        "Xu",
-        "Bell"
-       ],
-       "year": 1986,
-       "source": "J. Geophys. Res.",
-       "doi": "10.1029/JB091iB05p04673"
+  "format_version": 4,
+  "identifier": "zinc_oxide_wurtzite",
+  "name": "Zinc oxide (wurtzite B4)",
+  "formula": "ZnO",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 2,
+  "eos_records": [
+    {
+      "identifier": "zinc_oxide_wurtzite_hanna_2011_bm2_1",
+      "label": "Hanna et al. (2011), wurtzite BM2",
+      "model": "BM2",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 47.7, "error": 0.12},
+        "K0": {"value": 139.0, "error": 8.0}
       },
-      "source_location": "Experimental methods; ruby R1 and R2 shifts using the Mao scale",
-      "reference_calibration_record": "ruby_mao_1986"
-     }
-    ],
-    "recalculation": {
-     "status": "ready",
-     "notes": "The exact ruby scale is executable and the digitized pressure-volume observations are bundled. Raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
-    },
-    "audit_date": "2026-09-03"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1063/1.3644969",
-     "locations": [
-      "Static EOS formulation",
-      "wurtzite and rocksalt EOS table"
-     ],
-     "doi": "10.1063/1.3644969"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "zinc_oxide_wurtzite.json"
-    },
-    "primary_data_check": {
-     "status": "plot_only",
-     "audit_date": "2026-09-03",
-     "digitized_dataset_identifiers": [
-      "zinc_oxide_wurtzite_hanna_2011_figure2_bulk_digitized"
-     ],
-     "source_locations": [
-      "Figure 2; Table I"
-     ],
-     "finding": "The pure-ZnO wurtzite pressure-volume observations are plotted in Figure 2. Seventeen separable bulk-sample crosses were digitized; open circles are the distinct nanocrystal series and were excluded. Table I contains fitted parameters rather than row-level measurements."
+      "experimental_pressure_range_gpa": [0.0, 8.3],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "determination_method": "experimental",
+      "notes": "Hanna et al. report V0 = 23.85(6) A^3 per ZnO and K0 = 139(8) GPa with K0' fixed at 4; V0 and its uncertainty are doubled here for the conventional Z=2 cell. The B4-to-B1 transition begins near 8.3 GPa.",
+      "reference": {
+        "authors": ["Hanna", "Teklemichael", "McCluskey", "Bergman", "Huso"],
+        "year": 2011,
+        "title": "Equations of state for ZnO and MgZnO by high pressure x-ray diffraction",
+        "source": "J. Appl. Phys.",
+        "volume": "110",
+        "locator": "073511",
+        "doi": "10.1063/1.3644969"
+      },
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": ["Mao", "Xu", "Bell"],
+              "year": 1986,
+              "source": "J. Geophys. Res.",
+              "doi": "10.1029/JB091iB05p04673"
+            },
+            "source_location": "Experimental methods; ruby R1 and R2 shifts using the Mao scale",
+            "reference_calibration_record": "ruby_mao_1986"
+          }
+        ],
+        "recalculation": {
+          "status": "ready",
+          "notes": "The exact ruby scale is executable and the digitized pressure-volume observations are bundled. Raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+        },
+        "audit_date": "2026-09-03"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/zinc_oxide_wurtzite/#record-zinc_oxide_wurtzite_hanna_2011_bm2_1",
+            "report_path": "docs/reconstruction-reports/zinc_oxide_wurtzite.md#record-zinc_oxide_wurtzite_hanna_2011_bm2_1",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 47.7,
+                "published_error": 0.12,
+                "refit": 47.584632137367684,
+                "refit_error": 0.036287335848443285,
+                "difference": -0.11536786263231846,
+                "relative_difference": 0.002418613472375649,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 139.0,
+                "published_error": 8.0,
+                "refit": 147.3072044437339,
+                "refit_error": 2.8862571449341208,
+                "difference": 8.307204443733895,
+                "relative_difference": 0.05976406074628701,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": [],
+              "observations": 17,
+              "observed_pressure_range_gpa": [0.889, 10.0],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [44.97338, 47.39011],
+              "degrees_of_freedom": 15,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.11492083355820389,
+              "published_rmse_gpa": 0.6991335908409241,
+              "reduced_chi_square": 9.140757388729764,
+              "dataset_identifiers": ["zinc_oxide_wurtzite_hanna_2011_figure2_bulk_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1063/1.3644969",
+            "locations": ["Static EOS formulation", "wurtzite and rocksalt EOS table"],
+            "doi": "10.1063/1.3644969"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "zinc_oxide_wurtzite.json"
+          },
+          "primary_data_check": {
+            "status": "plot_only",
+            "audit_date": "2026-09-03",
+            "digitized_dataset_identifiers": ["zinc_oxide_wurtzite_hanna_2011_figure2_bulk_digitized"],
+            "source_locations": ["Figure 2; Table I"],
+            "finding": "The pure-ZnO wurtzite pressure-volume observations are plotted in Figure 2. Seventeen separable bulk-sample crosses were digitized; open circles are the distinct nanocrystal series and were excluded. Table I contains fitted parameters rather than row-level measurements."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Static EOS formulation; wurtzite and rocksalt EOS table."
+        }
+      }
     }
-   }
-  }
- ],
- "datasets": [
-  {
-   "identifier": "zinc_oxide_wurtzite_hanna_2011_figure2_bulk_digitized",
-   "kind": "pressure_specific_volume_digitized",
-   "description": "Seventeen bulk-ZnO wurtzite observations digitized from Figure 2. The paper's 0.1 GPa pressure precision is retained separately from digitization uncertainty; experimental volume error bars are not plotted.",
-   "reference": {
-    "authors": [
-     "Hanna",
-     "Teklemichael",
-     "McCluskey",
-     "Bergman",
-     "Huso"
-    ],
-    "year": 2011,
-    "source": "J. Appl. Phys.",
-    "volume": "110",
-    "locator": "073511",
-    "doi": "10.1063/1.3644969"
-   },
-   "source_location": "Figure 2, crosses labeled bulk ZnO",
-   "source_url": "https://doi.org/10.1063/1.3644969",
-   "columns": [
+  ],
+  "aliases": ["zincite", "wurtzite ZnO"],
+  "symmetry": "HEXAGONAL",
+  "space_group": "P63mc",
+  "space_group_number": 186,
+  "lattice": {"a": 3.2518875845, "b": null, "c": 5.2085483441, "alpha": 90.0, "beta": 90.0, "gamma": 120.0},
+  "atom_sites": [
+    {"element": "Zn", "wyckoff": "2b", "x": 0.3333333333, "y": 0.6666666667, "z": 0.0, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "2b", "x": 0.3333333333, "y": 0.6666666667, "z": 0.3825, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "The wurtzite structure uses the ambient internal coordinate of Kisi and Elcombe, Acta Cryst. C 45, 1867-1870 (1989), doi:10.1107/S0108270189004269. The lattice preserves Hanna et al.'s reported c/a ratio and is normalized to their EoS V0.",
+  "datasets": [
     {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "specific_volume_a3_per_formula_unit",
-     "quantity": "specific_volume",
-     "unit": "angstrom^3/formula_unit",
-     "role": "value"
-    },
-    {
-     "name": "volume_a3_conventional_cell",
-     "quantity": "volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value"
-    },
-    {
-     "name": "pressure_precision_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "uncertainty",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "pressure_digitization_uncertainty_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "uncertainty",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "specific_volume_digitization_uncertainty_a3",
-     "quantity": "specific_volume",
-     "unit": "angstrom^3/formula_unit",
-     "role": "uncertainty",
-     "of": "specific_volume_a3_per_formula_unit"
-    },
-    {
-     "name": "volume_digitization_uncertainty_a3_conventional_cell",
-     "quantity": "volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "uncertainty",
-     "of": "volume_a3_conventional_cell"
+      "identifier": "zinc_oxide_wurtzite_hanna_2011_figure2_bulk_digitized",
+      "kind": "pressure_specific_volume_digitized",
+      "description": "Seventeen bulk-ZnO wurtzite observations digitized from Figure 2. The paper's 0.1 GPa pressure precision is retained separately from digitization uncertainty; experimental volume error bars are not plotted.",
+      "reference": {
+        "authors": ["Hanna", "Teklemichael", "McCluskey", "Bergman", "Huso"],
+        "year": 2011,
+        "source": "J. Appl. Phys.",
+        "volume": "110",
+        "locator": "073511",
+        "doi": "10.1063/1.3644969"
+      },
+      "source_location": "Figure 2, crosses labeled bulk ZnO",
+      "source_url": "https://doi.org/10.1063/1.3644969",
+      "columns": [
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "specific_volume_a3_per_formula_unit",
+          "quantity": "specific_volume",
+          "unit": "angstrom^3/formula_unit",
+          "role": "value"
+        },
+        {
+          "name": "volume_a3_conventional_cell",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "pressure_precision_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "pressure_digitization_uncertainty_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "specific_volume_digitization_uncertainty_a3",
+          "quantity": "specific_volume",
+          "unit": "angstrom^3/formula_unit",
+          "role": "uncertainty",
+          "of": "specific_volume_a3_per_formula_unit"
+        },
+        {
+          "name": "volume_digitization_uncertainty_a3_conventional_cell",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "uncertainty",
+          "of": "volume_a3_conventional_cell"
+        }
+      ],
+      "resource": {
+        "path": "datasets/zinc-oxide-wurtzite-hanna-2011-figure2-bulk-digitized.csv",
+        "sha256": "b7d2794790ed0c82f676c507d74a4e4f456ed494d4e86f5b7b6b3b7989fd61b0",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["zinc_oxide_wurtzite_hanna_2011_bm2_1"],
+      "provenance": {
+        "type": "digitized_from_figure",
+        "method": "Extracted the source-resolution Figure 2 raster from the author-provided PDF, calibrated the printed axes, and digitized the centers of the cross markers assigned to bulk ZnO. Open-circle nanocrystal observations were excluded.",
+        "source_pdf_sha256": "786199c6d2e93633245bf850f6e4b6a6f9316ee54a5a3736bfbd05a8716a1382",
+        "source_figure_sha256": "5a4afbc260bea3df351bc9d288a5b150505b97c8739e5e89b0e68a6ba3764292",
+        "axis_calibration_pixels_source_figure": {
+          "pressure": [
+            [117.0, 0.0],
+            [999.0, 14.0]
+          ],
+          "specific_volume": [
+            [68.0, 24.0],
+            [199.5, 23.5]
+          ]
+        },
+        "quality_control": {"published_bm2_rms_pressure_residual_gpa": 0.6991, "published_bm2_max_abs_pressure_residual_gpa": 1.929},
+        "digitized_on": "2026-09-03"
+      }
     }
-   ],
-   "resource": {
-    "path": "datasets/zinc-oxide-wurtzite-hanna-2011-figure2-bulk-digitized.csv",
-    "sha256": "b7d2794790ed0c82f676c507d74a4e4f456ed494d4e86f5b7b6b3b7989fd61b0",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "zinc_oxide_wurtzite_hanna_2011_bm2_1"
-   ],
-   "provenance": {
-    "type": "digitized_from_figure",
-    "method": "Extracted the source-resolution Figure 2 raster from the author-provided PDF, calibrated the printed axes, and digitized the centers of the cross markers assigned to bulk ZnO. Open-circle nanocrystal observations were excluded.",
-    "source_pdf_sha256": "786199c6d2e93633245bf850f6e4b6a6f9316ee54a5a3736bfbd05a8716a1382",
-    "source_figure_sha256": "5a4afbc260bea3df351bc9d288a5b150505b97c8739e5e89b0e68a6ba3764292",
-    "axis_calibration_pixels_source_figure": {
-     "pressure": [
-      [
-       117.0,
-       0.0
-      ],
-      [
-       999.0,
-       14.0
-      ]
-     ],
-     "specific_volume": [
-      [
-       68.0,
-       24.0
-      ],
-      [
-       199.5,
-       23.5
-      ]
-     ]
-    },
-    "quality_control": {
-     "published_bm2_rms_pressure_residual_gpa": 0.6991,
-     "published_bm2_max_abs_pressure_residual_gpa": 1.929
-    },
-    "digitized_on": "2026-09-03"
-   }
-  }
- ],
- "format": "peritheos.material",
- "identifier": "zinc_oxide_wurtzite",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- }
+  ]
 }

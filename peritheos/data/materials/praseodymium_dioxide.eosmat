@@ -1,257 +1,210 @@
 {
- "format_version": 3,
- "name": "Praseodymium dioxide (fluorite)",
- "formula": "PrO2",
- "symmetry": "CUBIC",
- "lattice": {
-  "a": 5.394,
-  "b": null,
-  "c": null,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 4,
- "space_group": "Fm-3m",
- "space_group_number": 225,
- "atom_sites": [
-  {
-   "element": "Pr",
-   "wyckoff": "4a",
-   "x": 0.0,
-   "y": 0.0,
-   "z": 0.0,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "8c",
-   "x": 0.25,
-   "y": 0.25,
-   "z": 0.25,
-   "occupancy": 1.0
-  }
- ],
- "notes": "The ambient fluorite cell is the value measured in the EoS study. PhaseSmith calculates powder reflections and intensities from the ideal structure.",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Gerward et al. (2005), room-temperature BM3",
-   "reference": {
-    "authors": [
-     "Gerward",
-     "Staun Olsen",
-     "Petit",
-     "Vaitheeswaran",
-     "Kanchana",
-     "Svane"
-    ],
-    "year": 2005,
-    "title": "Bulk modulus of CeO2 and PrO2—An experimental and theoretical study",
-    "source": "J. Alloys Compd.",
-    "volume": "400",
-    "locator": "56-61",
-    "doi": "10.1016/j.jallcom.2005.04.008"
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 156.939703,
-     "K0": 187.0,
-     "K0_prime": 4.8
-    },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": 0.174571,
-    "K0": 8.0,
-    "K0_prime": 0.5
-   },
-   "fixed_parameters": [
-    "V0"
-   ],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    35.0
-   ],
-   "temperature_ref": 298.0,
-   "notes": "Room-temperature powder XRD fit of the cubic fluorite phase. The equation fits K0 and K0_prime using measured a0=5.394(2) A; V0=a0^3 and its error is propagated as 3*a0^2*sigma_a.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1), pages 57-58; section 4, pages 58-59; Tables 1 and 2; Figure 3."
-   },
-   "identifier": "praseodymium_dioxide_gerward_2005_bm3_1",
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "ruby_fluorescence",
-      "reference": {
-       "authors": [
-        "Mao",
-        "Xu",
-        "Bell"
-       ],
-       "year": 1986,
-       "source": "J. Geophys. Res.",
-       "doi": "10.1029/JB091iB05p04673"
+  "format_version": 4,
+  "identifier": "praseodymium_dioxide",
+  "name": "Praseodymium dioxide (fluorite)",
+  "formula": "PrO2",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 4,
+  "eos_records": [
+    {
+      "identifier": "praseodymium_dioxide_gerward_2005_bm3_1",
+      "label": "Gerward et al. (2005), room-temperature BM3",
+      "model": "BM3",
+      "temperature_ref": 298.0,
+      "parameters": {
+        "V0": {"value": 156.939703, "error": 0.174571, "fixed": true},
+        "K0": {"value": 187.0, "error": 8.0},
+        "K0_prime": {"value": 4.8, "error": 0.5}
       },
-      "source_location": "Experimental pressure determination",
-      "reference_calibration_record": "ruby_mao_1986"
-     }
-    ],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
-    },
-    "audit_date": "2026-09-03"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://people.iith.ac.in/kanchana/publications/2005/17.pdf",
-     "locations": [
-      "Equation (1), pages 57-58",
-      "section 4, pages 58-59",
-      "Tables 1 and 2",
-      "Figure 3"
-     ],
-     "finding": "The stored records are the room-temperature experimental BM3 fits for the cubic fluorite phases, not the separate SIC-LSD calculations.",
-     "doi": "10.1016/j.jallcom.2005.04.008"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "praseodymium_dioxide.json"
-    },
-    "primary_data_check": {
-     "status": "plot_only",
-     "audit_date": "2026-09-03",
-     "digitized_dataset_identifiers": [
-      "praseodymium_dioxide_gerward_2005_figure3b_digitized"
-     ],
-     "source_locations": [
-      "Figure 3; Tables 1 and 2"
-     ],
-     "finding": "The room-temperature experimental CeO2 and PrO2 compression points are plotted in Figure 3 but not tabulated. Tables 1 and 2 contain fitted EOS summaries and theoretical results, not row-level observations."
+      "experimental_pressure_range_gpa": [0.0, 35.0],
+      "determination_method": "experimental",
+      "notes": "Room-temperature powder XRD fit of the cubic fluorite phase. The equation fits K0 and K0_prime using measured a0=5.394(2) A; V0=a0^3 and its error is propagated as 3*a0^2*sigma_a.",
+      "reference": {
+        "authors": ["Gerward", "Staun Olsen", "Petit", "Vaitheeswaran", "Kanchana", "Svane"],
+        "year": 2005,
+        "title": "Bulk modulus of CeO2 and PrO2—An experimental and theoretical study",
+        "source": "J. Alloys Compd.",
+        "volume": "400",
+        "locator": "56-61",
+        "doi": "10.1016/j.jallcom.2005.04.008"
+      },
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference": {
+              "authors": ["Mao", "Xu", "Bell"],
+              "year": 1986,
+              "source": "J. Geophys. Res.",
+              "doi": "10.1029/JB091iB05p04673"
+            },
+            "source_location": "Experimental pressure determination",
+            "reference_calibration_record": "ruby_mao_1986"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The exact ruby scale is executable in Peritheos. Recalibrating and refitting this EOS requires the original row-wise sample pressure-volume observations; raw R1 wavelengths are optional because reported source-scale pressures can be inverted."
+        },
+        "audit_date": "2026-09-03"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/praseodymium_dioxide/#record-praseodymium_dioxide_gerward_2005_bm3_1",
+            "report_path": "docs/reconstruction-reports/praseodymium_dioxide.md#record-praseodymium_dioxide_gerward_2005_bm3_1",
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 187.0,
+                "published_error": 8.0,
+                "refit": 183.319829694509,
+                "refit_error": 3.258820321674154,
+                "difference": -3.6801703054910035,
+                "relative_difference": 0.01968005510957756,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.8,
+                "published_error": 0.5,
+                "refit": 4.96543733674158,
+                "refit_error": 0.5270957046148519,
+                "difference": 0.16543733674158023,
+                "relative_difference": 0.03446611182116255,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_angstrom3"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 18,
+              "observed_pressure_range_gpa": [0.3544, 19.557],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [143.940001, 156.50861],
+              "degrees_of_freedom": 16,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.10474962508309985,
+              "published_rmse_gpa": 0.17776647256228575,
+              "reduced_chi_square": 0.30860111123578077,
+              "dataset_identifiers": ["praseodymium_dioxide_gerward_2005_figure3b_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://people.iith.ac.in/kanchana/publications/2005/17.pdf",
+            "locations": ["Equation (1), pages 57-58", "section 4, pages 58-59", "Tables 1 and 2", "Figure 3"],
+            "finding": "The stored records are the room-temperature experimental BM3 fits for the cubic fluorite phases, not the separate SIC-LSD calculations.",
+            "doi": "10.1016/j.jallcom.2005.04.008"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "praseodymium_dioxide.json"
+          },
+          "primary_data_check": {
+            "status": "plot_only",
+            "audit_date": "2026-09-03",
+            "digitized_dataset_identifiers": ["praseodymium_dioxide_gerward_2005_figure3b_digitized"],
+            "source_locations": ["Figure 3; Tables 1 and 2"],
+            "finding": "The room-temperature experimental CeO2 and PrO2 compression points are plotted in Figure 3 but not tabulated. Tables 1 and 2 contain fitted EOS summaries and theoretical results, not row-level observations."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (1), pages 57-58; section 4, pages 58-59; Tables 1 and 2; Figure 3."
+        }
+      }
     }
-   }
-  }
- ],
- "datasets": [
-  {
-   "identifier": "praseodymium_dioxide_gerward_2005_figure3b_digitized",
-   "kind": "pressure_lattice_volume_digitized",
-   "description": "Eighteen plotted room-temperature PrO2 fluorite compression observations digitized from Figure 3b; cell volumes are calculated as a^3 from the plotted cubic lattice parameter.",
-   "reference": {
-    "authors": [
-     "Gerward",
-     "Staun Olsen",
-     "Petit",
-     "Vaitheeswaran",
-     "Kanchana",
-     "Svane"
-    ],
-    "year": 2005,
-    "source": "J. Alloys Compd.",
-    "volume": "400",
-    "locator": "56-61",
-    "doi": "10.1016/j.jallcom.2005.04.008"
-   },
-   "source_location": "Figure 3b, filled-square experimental series",
-   "columns": [
+  ],
+  "symmetry": "CUBIC",
+  "space_group": "Fm-3m",
+  "space_group_number": 225,
+  "lattice": {"a": 5.394, "b": null, "c": null, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Pr", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "8c", "x": 0.25, "y": 0.25, "z": 0.25, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "The ambient fluorite cell is the value measured in the EoS study. PhaseSmith calculates powder reflections and intensities from the ideal structure.",
+  "datasets": [
     {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "lattice_parameter_angstrom",
-     "quantity": "lattice_parameter",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "volume_angstrom3",
-     "quantity": "volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value"
-    },
-    {
-     "name": "pressure_digitization_uncertainty_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "uncertainty",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "lattice_parameter_digitization_uncertainty_angstrom",
-     "quantity": "lattice_parameter",
-     "unit": "angstrom",
-     "role": "uncertainty",
-     "of": "lattice_parameter_angstrom"
+      "identifier": "praseodymium_dioxide_gerward_2005_figure3b_digitized",
+      "kind": "pressure_lattice_volume_digitized",
+      "description": "Eighteen plotted room-temperature PrO2 fluorite compression observations digitized from Figure 3b; cell volumes are calculated as a^3 from the plotted cubic lattice parameter.",
+      "reference": {
+        "authors": ["Gerward", "Staun Olsen", "Petit", "Vaitheeswaran", "Kanchana", "Svane"],
+        "year": 2005,
+        "source": "J. Alloys Compd.",
+        "volume": "400",
+        "locator": "56-61",
+        "doi": "10.1016/j.jallcom.2005.04.008"
+      },
+      "source_location": "Figure 3b, filled-square experimental series",
+      "columns": [
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "lattice_parameter_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {"name": "volume_angstrom3", "quantity": "volume", "unit": "angstrom^3/conventional_unit_cell", "role": "value"},
+        {
+          "name": "pressure_digitization_uncertainty_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "lattice_parameter_digitization_uncertainty_angstrom",
+          "quantity": "lattice_parameter",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "lattice_parameter_angstrom"
+        }
+      ],
+      "resource": {
+        "path": "datasets/praseodymium-dioxide-gerward-2005-figure3b-digitized.csv",
+        "sha256": "fab0d397b00c50a1b17b57533aacf98c3120aa221a81c793f5bd69727eebf6f6",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["praseodymium_dioxide_gerward_2005_bm3_1"],
+      "provenance": {
+        "type": "digitized_from_figure",
+        "method": "Extracted the 600 dpi one-bit figure stencil from the locally archived PDF; located filled-square centers by distance-transform maxima; applied affine axis calibration; calculated V=a^3.",
+        "source_pdf_sha256": "57e8f02dc98dcd52201957071ca2404ce46d0e4471099dde22baffbd3b7e167e",
+        "axis_calibration_pixels_600dpi": {
+          "pressure": [
+            [241.0, 0.0],
+            [1821.0, 20.0]
+          ],
+          "lattice_parameter": [
+            [1530.0, 5.42],
+            [1636.0, 5.4]
+          ]
+        },
+        "quality_control": {"published_bm3_rms_pressure_residual_gpa": 0.1778, "published_bm3_max_abs_pressure_residual_gpa": 0.3515},
+        "digitized_on": "2026-09-03"
+      }
     }
-   ],
-   "resource": {
-    "path": "datasets/praseodymium-dioxide-gerward-2005-figure3b-digitized.csv",
-    "sha256": "fab0d397b00c50a1b17b57533aacf98c3120aa221a81c793f5bd69727eebf6f6",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "praseodymium_dioxide_gerward_2005_bm3_1"
-   ],
-   "provenance": {
-    "type": "digitized_from_figure",
-    "method": "Extracted the 600 dpi one-bit figure stencil from the locally archived PDF; located filled-square centers by distance-transform maxima; applied affine axis calibration; calculated V=a^3.",
-    "source_pdf_sha256": "57e8f02dc98dcd52201957071ca2404ce46d0e4471099dde22baffbd3b7e167e",
-    "axis_calibration_pixels_600dpi": {
-     "pressure": [
-      [
-       241.0,
-       0.0
-      ],
-      [
-       1821.0,
-       20.0
-      ]
-     ],
-     "lattice_parameter": [
-      [
-       1530.0,
-       5.42
-      ],
-      [
-       1636.0,
-       5.4
-      ]
-     ]
-    },
-    "quality_control": {
-     "published_bm3_rms_pressure_residual_gpa": 0.1778,
-     "published_bm3_max_abs_pressure_residual_gpa": 0.3515
-    },
-    "digitized_on": "2026-09-03"
-   }
-  }
- ],
- "format": "peritheos.material",
- "identifier": "praseodymium_dioxide",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- }
+  ]
 }

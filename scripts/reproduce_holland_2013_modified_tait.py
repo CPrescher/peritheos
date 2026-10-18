@@ -8,6 +8,7 @@ from math import isclose
 from pathlib import Path
 
 from peritheos.eos.rt import ModifiedTait
+from scripts.eosmat_io import read_material
 
 ANGSTROM3_PER_CM3_MOL = 1.0e24 / 6.02214076e23
 ROOT = Path(__file__).parents[1]
@@ -97,10 +98,8 @@ def reproduce() -> dict[str, object]:
             "K0_prime": kp,
             "K0_double_prime": kpp_kbar_inv * 10.0,
         }
-        document = json.loads(
-            (
-                ROOT / "peritheos/data/materials" / f"{material_identifier}.eosmat"
-            ).read_text(encoding="utf-8")
+        document = read_material(
+            ROOT / "peritheos/data/materials" / f"{material_identifier}.eosmat"
         )
         stored = next(
             item

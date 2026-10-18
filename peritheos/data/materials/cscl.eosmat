@@ -1,293 +1,257 @@
 {
- "format_version": 3,
- "name": "CsCl",
- "formula": "CsCl",
- "symmetry": "CUBIC",
- "lattice": {
-  "a": 4.123,
-  "b": 4.123,
-  "c": 4.123,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 1,
- "space_group": "Pm-3m",
- "space_group_number": 221,
- "atom_sites": [
-  {
-   "element": "Cs",
-   "wyckoff": "1a",
-   "x": 0.0,
-   "y": 0.0,
-   "z": 0.0,
-   "occupancy": 1.0
-  },
-  {
-   "element": "Cl",
-   "wyckoff": "1b",
-   "x": 0.5,
-   "y": 0.5,
-   "z": 0.5,
-   "occupancy": 1.0
-  }
- ],
- "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/cscl.jcpds",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Campbell and Heinz (1994), CsCl BM3",
-   "reference": {
-    "authors": [
-     "Campbell",
-     "Heinz"
-    ],
-    "year": 1994,
-    "title": "High-pressure acoustic wave velocities and equations of state of the alkali chlorides",
-    "source": "J. Geophys. Res.",
-    "volume": "99",
-    "locator": "11765-11774",
-    "doi": "10.1029/94JB00127"
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 70.087408867,
-     "K0": 17.01,
-     "K0_prime": 5.49
-    },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": 0.29,
-    "K0_prime": 0.15
-   },
-   "fixed_parameters": [
-    "V0"
-   ],
-   "fit_datasets": [
-    "cscl_campbell_1994_table1_compression",
-    "cscl_yagi_1978_table1_compression"
-   ],
-   "fit_data_sources": [
+  "format_version": 4,
+  "identifier": "cscl",
+  "name": "CsCl",
+  "formula": "CsCl",
+  "phase": "B2 (CsCl-type), cubic Pm-3m",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 1,
+  "eos_records": [
     {
-     "source": "Campbell and Heinz (1994), this study",
-     "data": "13 room-temperature lattice-parameter observations",
-     "dataset_identifier": "cscl_campbell_1994_table1_compression",
-     "availability": "bundled_transcribed"
-    },
-    {
-     "source": "Yagi (1978)",
-     "data": "nine 25 degC V/V0 values from Table 1",
-     "dataset_identifier": "cscl_yagi_1978_table1_compression",
-     "volume_treatment": "Ratios multiplied by (4.118/4.123)^3 as specified by Campbell and Heinz",
-     "availability": "bundled_transcribed_and_corrected"
-    }
-   ],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    28.7
-   ],
-   "notes": "Room-temperature third-order Birch-Murnaghan fit to the authors' 13 Table 1 observations and nine corrected Yagi (1978) Table 1 compression ratios. The primary paper explicitly uses a0=4.123 A, giving V0=70.087408867 A^3 for the one-formula-unit Pm-3m cell; it reports no uncertainty for that fixed lattice parameter. K0=17.01(29) GPa and K0'=5.49(15). Campbell and Heinz do not state the numerical weights used for their normalized-stress regression, so exact central-value reproduction remains fit-protocol limited.",
-   "determination_method": "experimental",
-   "identifier": "cscl_campbell_1994_bm3_1",
-   "pressure_calibration": {
-    "status": "partially_resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
-      "material": "Au",
-      "reference": {
-       "authors": [
-        "Heinz",
-        "Jeanloz"
-       ],
-       "year": 1984,
-       "source": "J. Appl. Phys.",
-       "doi": "10.1063/1.333139"
+      "identifier": "cscl_campbell_1994_bm3_1",
+      "label": "Campbell and Heinz (1994), CsCl BM3",
+      "model": "BM3",
+      "temperature_ref": 298.0,
+      "parameters": {
+        "V0": {"value": 70.087408867, "error": null, "fixed": true},
+        "K0": {"value": 17.01, "error": 0.29},
+        "K0_prime": {"value": 5.49, "error": 0.15}
       },
-      "source_location": "Experimental method, page 11766",
-      "notes": "Gold was the internal pressure standard; strain-anisotropy corrections followed Meng et al. (1993)."
-     }
-    ],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "The exact measured gold lattice parameters and row-wise strain-anisotropy corrections are not published."
-    },
-    "audit_date": "2026-09-04",
-    "notes": "The pressure-standard lineage is explicit, but the reported pressures cannot be recalculated from the paper alone."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1029/94JB00127",
-     "locations": [
-      "page 11767, Table 1, separate RbCl and CsCl compression blocks",
-      "page 11767, Figures 2-3 and Eulerian finite-strain fits"
-     ],
-     "finding": "The paper fixes the CsCl reference from a0=4.123 A and the RbCl-B2 reference from the hypothetical zero-pressure density 3.3068(10) Mg m^-3. Table 1 separately prints 13 CsCl and 24 RbCl observations; the CsCl fit also uses nine corrected V/V0 values from Yagi (1978).",
-     "doi": "10.1029/94jb00127"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "cscl.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-04",
-     "dataset_identifiers": [
-      "cscl_campbell_1994_table1_compression",
-      "cscl_yagi_1978_table1_compression"
-     ],
-     "source_locations": [
-      "Campbell and Heinz (1994), Table 1 and Figure 2, page 11767",
-      "Yagi (1978), Table 1, page 565"
-     ],
-     "finding": "The complete published fit scope is bundled: 13 Campbell-Heinz observations plus nine Yagi 25 degC compression ratios corrected from a0=4.118 A to 4.123 A. Campbell and Heinz do not publish their numerical regression weights."
+      "experimental_pressure_range_gpa": [0.0, 28.7],
+      "pressure_range_status": "reported_exactly",
+      "determination_method": "experimental",
+      "notes": "Room-temperature third-order Birch-Murnaghan fit to the authors' 13 Table 1 observations and nine corrected Yagi (1978) Table 1 compression ratios. The primary paper explicitly uses a0=4.123 A, giving V0=70.087408867 A^3 for the one-formula-unit Pm-3m cell; it reports no uncertainty for that fixed lattice parameter. K0=17.01(29) GPa and K0'=5.49(15). Campbell and Heinz do not state the numerical weights used for their normalized-stress regression, so exact central-value reproduction remains fit-protocol limited.",
+      "fit_datasets": ["cscl_campbell_1994_table1_compression", "cscl_yagi_1978_table1_compression"],
+      "fit_data_sources": [
+        {
+          "source": "Campbell and Heinz (1994), this study",
+          "data": "13 room-temperature lattice-parameter observations",
+          "dataset_identifier": "cscl_campbell_1994_table1_compression",
+          "availability": "bundled_transcribed"
+        },
+        {
+          "source": "Yagi (1978)",
+          "data": "nine 25 degC V/V0 values from Table 1",
+          "dataset_identifier": "cscl_yagi_1978_table1_compression",
+          "volume_treatment": "Ratios multiplied by (4.118/4.123)^3 as specified by Campbell and Heinz",
+          "availability": "bundled_transcribed_and_corrected"
+        }
+      ],
+      "reference": {
+        "authors": ["Campbell", "Heinz"],
+        "year": 1994,
+        "title": "High-pressure acoustic wave velocities and equations of state of the alkali chlorides",
+        "source": "J. Geophys. Res.",
+        "volume": "99",
+        "locator": "11765-11774",
+        "doi": "10.1029/94JB00127"
+      },
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "Au",
+            "reference": {
+              "authors": ["Heinz", "Jeanloz"],
+              "year": 1984,
+              "source": "J. Appl. Phys.",
+              "doi": "10.1063/1.333139"
+            },
+            "source_location": "Experimental method, page 11766",
+            "notes": "Gold was the internal pressure standard; strain-anisotropy corrections followed Meng et al. (1993)."
+          }
+        ],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The exact measured gold lattice parameters and row-wise strain-anisotropy corrections are not published."
+        },
+        "audit_date": "2026-09-04",
+        "notes": "The pressure-standard lineage is explicit, but the reported pressures cannot be recalculated from the paper alone."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Complete source-data reproduction: Table 1 contains a distinct 13-row CsCl block, not the RbCl rows previously attached to this material. The fit now also includes all nine 25 degC V/V0 values from Yagi (1978) after the source-stated 4.118-to-4.123 A reference correction. The numerical weights used for Campbell and Heinz's normalized-stress regression are not published, but the complete unweighted 22-point refit recovers both coefficients within combined two-sigma uncertainty. See the [dedicated Campbell-Heinz reproduction](literature-reproductions.md#campbell-heinz-1994-cscl-and-rbcl).",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/cscl/#record-cscl_campbell_1994_bm3_1",
+            "report_path": "docs/reconstruction-reports/cscl.md#record-cscl_campbell_1994_bm3_1",
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 17.01,
+                "published_error": 0.29,
+                "refit": 17.696733485074184,
+                "refit_error": 0.5705648310620951,
+                "difference": 0.686733485074182,
+                "relative_difference": 0.04037233892264444,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.49,
+                "published_error": 0.15,
+                "refit": 5.2026008383027325,
+                "refit_error": 0.18002308649400284,
+                "difference": -0.28739916169726776,
+                "relative_difference": 0.05234957407964804,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 22,
+              "observed_pressure_range_gpa": [1.0, 28.7],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [44.01688993811201, 66.52265958111215],
+              "degrees_of_freedom": 20,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.34411360005418556,
+              "published_rmse_gpa": 0.3903051728515524,
+              "reduced_chi_square": 0.1302555867164772,
+              "dataset_identifiers": ["cscl_campbell_1994_table1_compression", "cscl_yagi_1978_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1029/94JB00127",
+            "locations": [
+              "page 11767, Table 1, separate RbCl and CsCl compression blocks",
+              "page 11767, Figures 2-3 and Eulerian finite-strain fits"
+            ],
+            "finding": "The paper fixes the CsCl reference from a0=4.123 A and the RbCl-B2 reference from the hypothetical zero-pressure density 3.3068(10) Mg m^-3. Table 1 separately prints 13 CsCl and 24 RbCl observations; the CsCl fit also uses nine corrected V/V0 values from Yagi (1978).",
+            "doi": "10.1029/94jb00127"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "cscl.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-04",
+            "dataset_identifiers": ["cscl_campbell_1994_table1_compression", "cscl_yagi_1978_table1_compression"],
+            "source_locations": ["Campbell and Heinz (1994), Table 1 and Figure 2, page 11767", "Yagi (1978), Table 1, page 565"],
+            "finding": "The complete published fit scope is bundled: 13 Campbell-Heinz observations plus nine Yagi 25 degC compression ratios corrected from a0=4.118 A to 4.123 A. Campbell and Heinz do not publish their numerical regression weights."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 11767, Table 1, separate RbCl and CsCl compression blocks; page 11767, Figures 2-3 and Eulerian finite-strain fits.",
+          "V0": "Campbell and Heinz (1994), page 11767: accepted ambient a0=4.123 A; V0=a0^3 for Pm-3m CsCl",
+          "K0": "Campbell and Heinz (1994), page 11767 and Figure 2",
+          "K0_prime": "Campbell and Heinz (1994), page 11767 and Figure 2",
+          "equation": "Campbell and Heinz (1994), page 11767: Eulerian finite-strain analysis with linear normalized stress"
+        }
+      }
     }
-   },
-   "temperature_ref": 298.0,
-   "pressure_range_status": "reported_exactly",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 11767, Table 1, separate RbCl and CsCl compression blocks; page 11767, Figures 2-3 and Eulerian finite-strain fits.",
-    "V0": "Campbell and Heinz (1994), page 11767: accepted ambient a0=4.123 A; V0=a0^3 for Pm-3m CsCl",
-    "K0": "Campbell and Heinz (1994), page 11767 and Figure 2",
-    "K0_prime": "Campbell and Heinz (1994), page 11767 and Figure 2",
-    "equation": "Campbell and Heinz (1994), page 11767: Eulerian finite-strain analysis with linear normalized stress"
-   }
-  }
- ],
- "format": "peritheos.material",
- "identifier": "cscl",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "phase": "B2 (CsCl-type), cubic Pm-3m",
- "datasets": [
-  {
-   "identifier": "cscl_campbell_1994_table1_compression",
-   "kind": "pressure_volume",
-   "description": "All 13 new room-temperature CsCl compression observations printed in the CsCl block of Table 1.",
-   "reference": {
-    "authors": [
-     "Campbell",
-     "Heinz"
-    ],
-    "year": 1994,
-    "source": "J. Geophys. Res.",
-    "volume": "99",
-    "locator": "11765-11774",
-    "doi": "10.1029/94JB00127"
-   },
-   "source_location": "Table 1, page 11767",
-   "columns": [
+  ],
+  "symmetry": "CUBIC",
+  "space_group": "Pm-3m",
+  "space_group_number": 221,
+  "lattice": {"a": 4.123, "b": 4.123, "c": 4.123, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Cs", "wyckoff": "1a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
+    {"element": "Cl", "wyckoff": "1b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/cscl.jcpds",
+  "datasets": [
     {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
+      "identifier": "cscl_campbell_1994_table1_compression",
+      "kind": "pressure_volume",
+      "description": "All 13 new room-temperature CsCl compression observations printed in the CsCl block of Table 1.",
+      "reference": {
+        "authors": ["Campbell", "Heinz"],
+        "year": 1994,
+        "source": "J. Geophys. Res.",
+        "volume": "99",
+        "locator": "11765-11774",
+        "doi": "10.1029/94JB00127"
+      },
+      "source_location": "Table 1, page 11767",
+      "columns": [
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_uncertainty_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "standard_deviation",
+          "of": "pressure_gpa"
+        },
+        {"name": "lattice_parameter_a", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_parameter_a_uncertainty",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_parameter_a"
+        }
+      ],
+      "resource": {
+        "path": "datasets/cscl-campbell-1994-table1-compression.csv",
+        "sha256": "b780fb3eb123b4082557a851f929e844413d319e166891b4e370546cea2b6a77",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["cscl_campbell_1994_bm3_1"],
+      "notes": "The source's parenthesized last-digit uncertainties are expanded explicitly. This resource contains the CsCl block of Table 1 only. The 24-row RbCl block is bundled with the separate rbcl material, and the nine earlier Yagi ratios used by the CsCl fit are bundled as a second CsCl dataset.",
+      "source_url": "https://doi.org/10.1029/94JB00127"
     },
     {
-     "name": "pressure_uncertainty_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "standard_deviation",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "lattice_parameter_a",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_parameter_a_uncertainty",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "lattice_parameter_a"
+      "identifier": "cscl_yagi_1978_table1_compression",
+      "kind": "pressure_volume",
+      "description": "Nine 25 degC CsCl compression ratios printed in Yagi Table 1 and corrected to Campbell and Heinz's accepted reference lattice parameter.",
+      "reference": {
+        "authors": ["Yagi"],
+        "year": 1978,
+        "title": "Experimental determination of thermal expansivity of several alkali halides at high pressures",
+        "source": "J. Phys. Chem. Solids",
+        "volume": "39",
+        "locator": "563-571",
+        "doi": "10.1016/0022-3697(78)90037-9"
+      },
+      "source_location": "Table 1, page 565, CsCl 25 degC column; correction described by Campbell and Heinz (1994), page 11767",
+      "columns": [
+        {"name": "pressure_kbar", "quantity": "pressure", "unit": "kbar", "role": "value"},
+        {"name": "volume_ratio_reported", "quantity": "reported_volume_ratio", "unit": "dimensionless", "role": "value"},
+        {"name": "volume_ratio_corrected", "quantity": "volume_ratio", "unit": "dimensionless", "role": "value"},
+        {
+          "name": "volume_accuracy_bound_fraction",
+          "quantity": "volume_ratio",
+          "unit": "dimensionless",
+          "role": "bound",
+          "of": "volume_ratio_corrected"
+        }
+      ],
+      "resource": {
+        "path": "datasets/cscl-yagi-1978-table1-compression.csv",
+        "sha256": "806a5ffa983dbfd65c91096464cb15e960498bb36a028e06fec57dbac91ea287",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["cscl_campbell_1994_bm3_1"],
+      "notes": "Yagi reports V/V0 at exact 10 kbar intervals and states that room-temperature volume uncertainty is below 0.15%, which is retained as an accuracy bound rather than interpreted as a one-sigma error. Campbell and Heinz state that Yagi used a0=4.118 A and correct the ratios to a0=4.123 A; volume_ratio_corrected = volume_ratio_reported*(4.118/4.123)^3.",
+      "source_url": "https://doi.org/10.1016/0022-3697(78)90037-9"
     }
-   ],
-   "resource": {
-    "path": "datasets/cscl-campbell-1994-table1-compression.csv",
-    "sha256": "b780fb3eb123b4082557a851f929e844413d319e166891b4e370546cea2b6a77",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "cscl_campbell_1994_bm3_1"
-   ],
-   "notes": "The source's parenthesized last-digit uncertainties are expanded explicitly. This resource contains the CsCl block of Table 1 only. The 24-row RbCl block is bundled with the separate rbcl material, and the nine earlier Yagi ratios used by the CsCl fit are bundled as a second CsCl dataset.",
-   "source_url": "https://doi.org/10.1029/94JB00127"
-  },
-  {
-   "identifier": "cscl_yagi_1978_table1_compression",
-   "kind": "pressure_volume",
-   "description": "Nine 25 degC CsCl compression ratios printed in Yagi Table 1 and corrected to Campbell and Heinz's accepted reference lattice parameter.",
-   "reference": {
-    "authors": [
-     "Yagi"
-    ],
-    "year": 1978,
-    "title": "Experimental determination of thermal expansivity of several alkali halides at high pressures",
-    "source": "J. Phys. Chem. Solids",
-    "volume": "39",
-    "locator": "563-571",
-    "doi": "10.1016/0022-3697(78)90037-9"
-   },
-   "source_location": "Table 1, page 565, CsCl 25 degC column; correction described by Campbell and Heinz (1994), page 11767",
-   "columns": [
-    {
-     "name": "pressure_kbar",
-     "quantity": "pressure",
-     "unit": "kbar",
-     "role": "value"
-    },
-    {
-     "name": "volume_ratio_reported",
-     "quantity": "reported_volume_ratio",
-     "unit": "dimensionless",
-     "role": "value"
-    },
-    {
-     "name": "volume_ratio_corrected",
-     "quantity": "volume_ratio",
-     "unit": "dimensionless",
-     "role": "value"
-    },
-    {
-     "name": "volume_accuracy_bound_fraction",
-     "quantity": "volume_ratio",
-     "unit": "dimensionless",
-     "role": "bound",
-     "of": "volume_ratio_corrected"
-    }
-   ],
-   "resource": {
-    "path": "datasets/cscl-yagi-1978-table1-compression.csv",
-    "sha256": "806a5ffa983dbfd65c91096464cb15e960498bb36a028e06fec57dbac91ea287",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "cscl_campbell_1994_bm3_1"
-   ],
-   "notes": "Yagi reports V/V0 at exact 10 kbar intervals and states that room-temperature volume uncertainty is below 0.15%, which is retained as an accuracy bound rather than interpreted as a one-sigma error. Campbell and Heinz state that Yagi used a0=4.118 A and correct the ratios to a0=4.123 A; volume_ratio_corrected = volume_ratio_reported*(4.118/4.123)^3.",
-   "source_url": "https://doi.org/10.1016/0022-3697(78)90037-9"
-  }
- ]
+  ]
 }

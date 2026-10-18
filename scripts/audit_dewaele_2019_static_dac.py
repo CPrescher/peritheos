@@ -20,6 +20,8 @@ from typing import NamedTuple
 import numpy as np
 from scipy.optimize import brentq, least_squares
 
+from scripts.eosmat_io import read_material
+
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "peritheos" / "data" / "datasets"
 MATERIALS = ROOT / "peritheos" / "data" / "materials"
@@ -233,7 +235,7 @@ def _load_rows(spec: SourceSpec) -> tuple[np.ndarray, np.ndarray, str]:
 
 def _published(spec: SourceSpec, scale: str):
     path = MATERIALS / spec.material_file
-    document = json.loads(path.read_text(encoding="utf-8"))
+    document = read_material(path)
     identifier = f"{spec.record_prefix}_{scale}_vinet"
     record = next(
         row for row in document["eos_records"] if row["identifier"] == identifier
@@ -367,7 +369,7 @@ def reproduce() -> dict[str, object]:
 
     identifiers = []
     for path in MATERIALS.glob("*.eosmat"):
-        document = json.loads(path.read_text(encoding="utf-8"))
+        document = read_material(path)
         identifiers.extend(
             row["identifier"]
             for row in document.get("eos_records", [])

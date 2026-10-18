@@ -1,14 +1,25 @@
 # Bundled material library
 
-This directory contains 232 curated material documents with 672 EOS records. The
+The material files use [native EOSMAT v4](../../../docs/eosmat-v4.md): model and
+annotated coefficients come first, with full scientific evidence in each
+record's `evidence` section. Units remain explicit and metadata stays inline.
+No companion representation or external metadata registry is needed to read a
+file. Scientific values, observations and qualifications are preserved.
+
+`load_eosmat(path)` reads that native layout. For established integrations,
+`get_material_document(identifier)` still returns a v3-shaped dictionary by
+default; pass `format_version=4` for native fields. Older file readers can use
+`python -m peritheos convert native.eosmat compatible.eosmat --format-version 3`.
+
+This directory contains 232 curated material documents with 663 EOS records. The
 collection began with the 120-material, 147-EOS-record Dioptas 0.10.0 database,
 tag commit
 `5a8bfd81d10bfab3499039603380aae34576d60a`. Its project source is
 <https://github.com/Dioptas/Dioptas>.
 
 Every EOS record has an explicit `determination_method` and a rationale under
-`parameter_provenance.determination_method`. The current collection classifies
-522 records as experimental, 114 as theoretical, 28 as hybrid, and seven as
+`evidence.parameter_provenance.determination_method`. The current collection classifies
+514 records as experimental, 114 as theoretical, 28 as hybrid, and seven as
 unknown. These counts include the two deferred Campbell source records and
 the deferred Morard FeS source record.
 The seven unknowns are the Holland et al. (2013) THERMOCALC modified-Tait
@@ -37,7 +48,7 @@ rather than a copyright license.
 The migration preserves supported Dioptas crystallographic and EOS data and adds
 stable identifiers plus explicit migration provenance. It does **not** make
 Dioptas the scientific authority for an EOS record. The primary-source audit
-with additions through 2026-10-16 classifies 660 of 672 bundled records as
+with dispositions through 2026-10-17 classifies 643 of 663 bundled records as
 `primary_source_validated`. The Campbell fcc-Fe and FeO records are retained
 as `deferred` source evidence because of unresolved coefficient-refit
 discrepancies; they are not exposed by the executable catalog. The Morard
@@ -67,6 +78,11 @@ as used in the paper according to personal communication with Miozzi et al.
 The separate nondefault Speziale- and Tange-calibrated n=1 Peritheos refits are selectable with
 conditional parameter errors and covariance; its validation concerns the
 independent refit only, not reproduction of Miozzi's published EOS.
+The seven Fu CaSiO3, Baty experimental Pd and Sakai Fe-Ni thermal records
+are also explicit-selection `not_reproduced` records and are not recommended
+for scientific prediction or pressure calibration. The sole wadsleyite EOS is
+held as `deferred`, with no replacement default chosen. See the
+[recommendation dispositions](../../../docs/research/eos-recommendation-dispositions-2026-10-17.md).
 The complete
 machine-readable ledger is `../primary-source-audit.json`.
 
@@ -103,31 +119,18 @@ Cotunnite's 300 K reference curve is extrapolated from high-temperature data.
 
 ## Brucite
 
-`brucite.eosmat` contains published Fukui (2003) lattice-average 300/473/673 K
-BM3 curves over their measured ranges (22.56 GPa maximum at 300 K), plus
-separate Peritheos 873 K and continuous thermal table-data refits. Thermal
-interpolation spans 5.95–15.48 GPa and 300–873 K; independent 873 K use spans
-5.21–15.48 GPa. Full conditional covariance, equal-pressure residual objective
-and fixed reference-volume assumptions are retained. Original coefficients
-are unchanged: the 873 K source curve and literal source-slope reconstruction
-remain explicit-selection `not_reproduced` records. Fig. 6(c) implies a
-normalization near 42.70 A^3, inconsistent with the printed 42.516 A^3 expansion
-reference volume. No corrected source value is asserted.
+`brucite.eosmat` contains only the source-checked published Fukui (2003)
+300/473/673 K BM3 isotherms, over their measured pressure spans (up to 22.56 GPa
+at 300 K). **Published thermal-EOS parity was not achieved; the full thermal
+EOS is not recommended.** The 873 K normalization and continuous source
+reconstruction remain unresolved. Their unchanged coefficients and all seven
+Peritheos refits are retained as historical audit evidence, outside executable
+catalog selection. Refitting does not establish a validated replacement.
 
-The separate `curved_expansion` refits use the purple ambient-data expansion
-law. Four isotherm variants preserve each published modulus exactly; a fifth
-continuous variant adopts the published temperature slopes and explicit 300 K
-anchors. The latter does not pass exactly through all tabulated moduli. Shared
-expansion covariance and weakly constrained high-temperature extrapolation are
-explicit; the original records/default are unchanged.
-
-He (2023) Table 4.3 supplies the directly inspected ambient F-free hydrogenated
-neutron reference structure. Sun (2025) XRD supports the layered average lattice
-beyond Fukui's pressure range; H rearrangement remains annotated rather than
-imposing an unsupported 0.5 GPa bulk cutoff. Ambient coordinates are not
-high-pressure atomic refinements or a dehydration model. All 102 Fukui/Xia
-observations and errors remain intact.
-See the [source audit](../../../docs/literature-reproductions/brucite.md).
+The He (2023) ambient structure, phase annotations, all 102 Fukui/Xia observations
+and errors are preserved. The retained isotherms do not define temperature
+interpolation or phase equilibrium. See the
+[source audit](../../../docs/literature-reproductions/brucite.md).
 
 ## Fe-bearing phase E
 
@@ -146,7 +149,7 @@ CC0 is limited to transcription, normalization and metadata rights.
 ## Reference titles
 
 The 2026-09-23 bibliographic review added missing `reference.title` fields to
-185 EOS records citing 115 distinct publications. All 660 records now carry
+185 EOS records citing 115 distinct publications. All 663 records now carry
 an explicit publication title; `reference.source` retains the journal or
 book name. Previously, the catalog fell back to that source name when a
 title was absent.
@@ -213,7 +216,7 @@ O6 correction and official 2014 H2 erratum; the original archive CIF is retained
 The source audit documents equation typos, calibration qualifications and held
 branches, separately from the Al-bearing Xu (2024) investigation.
 
-The current bundle contains 383 distinct datasets with 27,434 retained rows, represented by 423 material-document links to 530 EOS records.
+The current bundle contains 383 distinct datasets with 27,434 retained rows, represented by 423 material-document links to 521 EOS records.
 Chen (2010) contributes 80 Brillouin-derived density positions, 262 separately
 identified published-fit curve vertices, and 14 reported constants. These
 supporting assets do not validate the source-author Chen EOS. A separate
@@ -280,7 +283,7 @@ the preceding fit source for diamond and the nine metals; Dorogokupets (2010)
 is the earlier MgO source. Sokolova et al. (2016) supplies the Excel/VBA
 implementation, conventions, corrected equations, and the implemented MgO
 anharmonic-coefficient correction. Each `.eosmat` record stores these roles in
-`source_lineage`. Its identifier uses `_sokolova_2013` for the scientific fit
+`evidence.source_lineage`. Its identifier uses `_sokolova_2013` for the scientific fit
 year; the former workbook-year `_sokolova_2016` identifier is not retained.
 
 Only validated records are executable by default. Deferred evidence and
@@ -300,10 +303,13 @@ in the Somayazulu B4C article. The Hazen--Finger zircon record is corrected
 from BM2 to its published BM3 parameters with fixed `K0' = 6.5`. It also
 restores model-required `n`/`Z` values
 for Sokolova records, `n` for the Sun silica Debye records, and `Tr` for the
-Bezacier ice records, each with field-level `audit_corrections` provenance.
-The ten Shen--Smith (2026) Cu-anchored 300 K Vinet fits are validated directly
-against Equation (4), Tables I--II, and the phase-specific range discussion in
-the supplied version of record. Their printed `K0` and `K0'` errors are stored,
+Bezacier ice records, each with field-level `evidence.audit_corrections` provenance.
+The ten Shen--Smith (2026) Cu-anchored 300 K Vinet parameterizations are traced
+to Equation (4) and Tables I--II. Eight retain conditional coefficient parity;
+MgO and NaCl-B2 are `not_reproduced`, not recommended for quantitative use,
+and retained only for explicit diagnostic selection. The source-input audit
+accounts for all available Table S1 MgO/NaCl-B2 observations, while completeness
+of the actual author fit inputs remains unconfirmed. Their printed `K0` and `K0'` errors are stored,
 but no confidence level or covariance is inferred because the paper states
 neither.
 
@@ -311,7 +317,7 @@ The Dioptas-facing thermal type `AlphaKT` is preserved for interchange, while
 its canonical mechanism identifier is `thermal_reference_state`. Peritheos
 evaluates validated instances with `ThermalReferenceStateEOS` rather than
 making the source/application label part of the public equation name.
-The corrected Anderson Au record instead uses the format-3 extension
+The corrected Anderson Au record instead uses the thermal component
 `LogVolumeThermalPressure` / `log_volume_thermal_pressure`. Older consumers
 must preserve this unknown component rather than evaluating it as `AlphaKT`;
 the latter is a different equation.
@@ -321,12 +327,12 @@ and `o8`) are intentionally not bundled because they contain no EOS record.
 The `.eosmat` schema still permits an empty `eos_records` array for
 application-created structure-only documents.
 
-The `.eosmat` documents use the Peritheos-owned format version 3. Their
-material, structure, and record layout is an additive evolution of the Dioptas
-0.10.0 format-2 layout, so Dioptas 0.10.0 can read and preserve them. A future
-Dioptas writer must preserve the version-3 top-level fields for a lossless
-round trip and honor the variable-exponent law before numerically
-evaluating the corrected Fei records. In the shared schema, an omitted
+The `.eosmat` documents use native format version 4. Explicit v3 compatibility
+exports retain the additive Dioptas 0.10.0 format-2 layout. Dioptas 0.10.0 can
+read those exports; direct v4 loading requires an updated consumer. A writer
+must preserve the complete source document for a lossless round trip and honor
+the variable-exponent law before numerically evaluating the corrected Fei
+records. In both supported EOSMAT versions, an omitted
 `debye_temperature_law` means `integrated_gruneisen`.
 An omitted `thermal_expansion_law` means `constant`; the explicit
 `linear_temperature` value requires `alpha1` and integrates

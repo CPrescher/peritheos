@@ -5,6 +5,74 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+## [0.15.0] - 2026-10-18
+
+### Added
+
+- Make native EOSMAT v4 the human-readable library format: one model name,
+  adjacent coefficient values/errors/fixed flags, explicit units, consistent
+  thermal blocks and EOS-first ordering. Preserve v2/v3 readers, lossless
+  conversion and explicit v3 compatibility exports in Python and Rust.
+- Add standalone authoring with `create_eosmat()` and `python -m peritheos create`,
+  installed validation/formatting commands, a small complete template and
+  optional file-local shared metadata. New user files remain unaudited and do
+  not require database registration.
+- Migrate all 232 bundled material documents to native v4. Add material summaries,
+  a scientific-label glossary, scoped reconstruction assessments, published/refit
+  coefficient comparisons and direct links to readable reconstruction reports.
+  Available coefficient plots are comparisons, not independent residual tests.
+- Add direct pressure-scale EOS views with route-specific pressure evaluation,
+  volume inversion, thermal limits and provenance. Group 51 published alternatives
+  under 27 source/model entries across 19 materials. Preserve every source record
+  and expose reference variants through explicit listing/search options.
+- Include the staged Brown (1999) NaCl historical-data reconstruction and independent
+  2026 refit, with source transcriptions, uncertainty/normalization qualifications,
+  diagnostic variants, figures and reproducible scripts. It is not a correction
+  endorsed by the original author or a replacement pressure standard.
+- Include the staged ferrous-ringwoodite investigation, source observations,
+  separate static and thermal records, Brown-calibration hypotheses, diagnostics
+  and figures. The unreproduced thermal model remains outside the bundled catalog.
+- Extend Sakai (2025) Au, Fei (2007), Yokoo (2009), Dorfman (2012) and palladium
+  source investigations with their recovered inputs, conditional reproductions,
+  unresolved limitations and documented follow-ups.
+
+### Changed
+
+- Retain only the three individually source-checked Brucite 300/473/673 K
+  isotherms in executable catalog selection. Preserve the unresolved 873 K,
+  continuous thermal models and all diagnostic refits in the audit archive.
+  Published thermal-EOS parity has not been established.
+- Keep recommendation/default holds explicit for unreproduced Fu CaSiO3, Baty
+  and Frost experimental Pd, Sakai Fe-Ni, Shen–Smith MgO/NaCl-B2 and wadsleyite
+  mappings. Preserve published coefficients and observations; missing experimental
+  Pd defaults do not fall back to a separate 0 K DFT calculation.
+- Make B1/B2 explicit in NaCl names and EOS labels, with phase and space-group
+  metadata. Separate source verification, numerical parameter parity,
+  author-workflow reproduction and recommendation for quantitative use.
+
+### Fixed
+
+- Correct scientific audit sample columns, phase/medium selections, thermodynamic
+  paths, ruby re-reductions and coupled spin-fit mappings while retaining source
+  data. Compare Frost Pd published/refit pressure residuals at the same measured
+  volumes and keep adjusted-volume residuals separately labelled.
+- Preserve upstream 0.14.1 observation validation and export fixes, archive-local
+  test fixtures, UTF-8 portability and calculated-fit replay tolerances.
+- Preserve the original Brown source CSV bytes in Git archives so their recorded
+  checksums remain verifiable after a fresh checkout.
+
+### Compatibility and scientific limits
+
+- Require NumPy >=1.22.0 to avoid native OpenBLAS crashes with the old macOS
+  ARM64 NumPy 1.21 wheels. Preserve SciPy >=1.9.3 and all scientific calculations.
+  Exercise minimum dependencies on macOS as well as Linux, and include figure
+  rendering dependencies in the development/test environment.
+- Native v4 is an explicit format version; downstream v3 consumers can request
+  compatibility exports. Standalone files need no database audit metadata.
+- Research candidates retain their staged/diagnostic status. Passing software
+  checks does not establish an original-author fit reproduction or physical
+  validation. Published values are not replaced by independent refits.
+
 ## [0.14.1] - 2026-10-17
 
 ### Fixed

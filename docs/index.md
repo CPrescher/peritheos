@@ -9,7 +9,7 @@ The documentation is organized around scientific workflows:
 
 - [Getting started](getting-started.md) introduces isothermal and thermal use.
 - [Material catalog](catalog.md) covers executable lookup and typed discovery
-  across 229 executable materials, 660 primary-source-validated records, and nine
+  across 228 executable materials, 641 primary-source-validated records, and 18
   qualified explicit-selection implementations.
 - [EOS record categories](catalog.md#eos-record-categories) explains published,
   refit, derived and diagnostic records, scientific validation, and the separate
@@ -50,14 +50,19 @@ The documentation is organized around scientific workflows:
 - [Calculation uncertainty](uncertainty.md) propagates fitted or published
   parameter errors into EOS predictions.
 - [Dioptas and `.eosmat`](dioptas-integration.md) defines the shared material
-  ownership and bundled 232-material-document/672-record EOS library.
-- [`.eosmat` schema reference](eosmat-schema.md) documents every exchange
-  field, model discriminator, default, unit, and compatibility rule.
+  ownership and bundled 232-material-document/663-record EOS library.
+- [Create and read EOSMAT](eosmat-authoring.md) starts with a small editable file
+  and explains each field, including complete thermal and database-style examples.
+- [Native EOSMAT v4](eosmat-v4.md) documents the current structure, units, local
+  metadata sharing and reconstruction assessments. The [v3 compatibility
+  reference](eosmat-schema.md) retains historical layouts and advanced semantics.
 - [Advanced DAC analysis](dac-thermal-pressure.md) documents the optional
   two-volume thermal-pressure boundary-condition model.
 - [Units and reference states](units.md) explains the deliberately strict
   thermal volume convention.
 - [Validation](validation.md) describes the numerical and literature checks.
+- [EOS labels and reconstruction status](eos-labels.md) explains parity, similarity,
+  source checks and record origins without conflating them.
 - [Paper investigation ledger](paper-investigation-ledger.md) gives the final
   disposition of every primary paper reviewed, including unreproduced,
   unavailable-data, withheld, and deferred cases.

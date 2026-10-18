@@ -1,339 +1,345 @@
 {
- "format": "peritheos.material",
- "format_version": 3,
- "identifier": "delta_alooh",
- "name": "delta-AlOOH",
- "formula": "AlOOH",
- "phase": "delta-AlOOH, orthorhombic P21nm",
- "aliases": [
-  "δ-AlOOH",
-  "delta aluminum oxyhydroxide"
- ],
- "cell_contents": "Two AlOOH formula units per conventional orthorhombic P21nm cell.",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "symmetry": "ORTHORHOMBIC",
- "lattice": {
-  "a": 4.715,
-  "b": 4.228,
-  "c": 2.836,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 2,
- "space_group": "P21nm",
- "space_group_number": 31,
- "peaks": [],
- "notes": "Ambient lattice and volume are transcribed from Vanpeteghem et al. Table 1. Atomic coordinates were not added because the EOS paper cites, rather than republishes, the structural refinement.",
- "eos_records": [
-  {
-   "determination_method": "experimental",
-   "identifier": "delta_alooh_vanpeteghem_2002_bm2_1",
-   "label": "Vanpeteghem et al. (2002), K0'=4 fit",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Vanpeteghem",
-     "Ohtani",
-     "Kondo"
-    ],
-    "year": 2002,
-    "title": "Equation of state of the hydrous phase delta-AlOOH at room temperature up to 22.5 GPa",
-    "source": "Geophysical Research Letters",
-    "volume": "29",
-    "locator": "23-1-23-3",
-    "doi": "10.1029/2001GL014224"
-   },
-   "eos": {
-    "type": "BM3",
-    "model": "birch_murnaghan_3",
-    "parameters": {
-     "V0": 56.54,
-     "K0": 252.0,
-     "K0_prime": 4.0
+  "format_version": 4,
+  "identifier": "delta_alooh",
+  "name": "delta-AlOOH",
+  "formula": "AlOOH",
+  "phase": "delta-AlOOH, orthorhombic P21nm",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 2,
+  "eos_records": [
+    {
+      "identifier": "delta_alooh_vanpeteghem_2002_bm2_1",
+      "label": "Vanpeteghem et al. (2002), K0'=4 fit",
+      "model": "BM3",
+      "temperature_ref": 298.0,
+      "parameters": {
+        "V0": {"value": 56.54, "error": 0.09},
+        "K0": {"value": 252.0, "error": 3.0},
+        "K0_prime": {"value": 4.0, "error": null, "fixed": true}
+      },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 22.51],
+      "experimental_temperature_range_k": [298.0, 298.0],
+      "pressure_range_status": "reported_exactly",
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 59.987539},
+      "fit_datasets": ["delta_alooh_vanpeteghem_2002_table1_pv"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Vanpeteghem", "Ohtani", "Kondo"],
+        "year": 2002,
+        "title": "Equation of state of the hydrous phase delta-AlOOH at room temperature up to 22.5 GPa",
+        "source": "Geophysical Research Letters",
+        "volume": "29",
+        "locator": "23-1-23-3",
+        "doi": "10.1029/2001GL014224"
+      },
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Table 1 reports calibrated pressures but no row-wise calibrant observables."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/delta_alooh/#record-delta_alooh_vanpeteghem_2002_bm2_1",
+            "report_path": "docs/reconstruction-reports/delta_alooh.md#record-delta_alooh_vanpeteghem_2002_bm2_1",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 56.54,
+                "published_error": 0.09,
+                "refit": 56.4053156758705,
+                "refit_error": 0.1429435086694433,
+                "difference": -0.13468432412950193,
+                "relative_difference": 0.0023821069000619375,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 252.0,
+                "published_error": 3.0,
+                "refit": 238.76764550572506,
+                "refit_error": 13.56994918011207,
+                "difference": -13.232354494274944,
+                "relative_difference": 0.052509343231249776,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 9,
+              "observed_pressure_range_gpa": [0.0, 22.51],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [52.03, 56.54],
+              "degrees_of_freedom": 7,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.4769649834169588,
+              "published_rmse_gpa": 1.4332160943010486,
+              "reduced_chi_square": 0.3306394968925456,
+              "dataset_identifiers": ["delta_alooh_vanpeteghem_2002_table1_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Primary article text, Tables 1-2, and all nine P-V rows checked.",
+          "audit_date": "2026-09-05",
+          "verified_fields": [
+            "canonical_doi",
+            "phase",
+            "equation",
+            "parameters",
+            "published_uncertainties",
+            "fixed_parameters",
+            "volume_basis",
+            "primary_data"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1029/2001GL014224",
+            "doi": "10.1029/2001GL014224",
+            "locations": ["Abstract", "Table 1", "Table 2"],
+            "finding": "The paper publishes both a constrained and an unconstrained fit to the same nine-point dataset."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-05",
+            "dataset_identifiers": ["delta_alooh_vanpeteghem_2002_table1_pv"],
+            "source_locations": ["Table 1"],
+            "finding": "All nine pressure, lattice-parameter, cell-volume, and printed volume-uncertainty rows are transcribed."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Table 1; Table 2.",
+          "equation": "Abstract explicitly identifies a third-order Birch-Murnaghan equation.",
+          "parameters": "Abstract and Table 2: K0=252(3) GPa with K0'=4 fixed; Table 1 ambient V0=56.54(9) A3."
+        }
+      }
+    },
+    {
+      "identifier": "delta_alooh_vanpeteghem_2002_bm3_2",
+      "label": "Vanpeteghem et al. (2002), unconstrained BM3",
+      "model": "BM3",
+      "temperature_ref": 298.0,
+      "parameters": {
+        "V0": {"value": 56.54, "error": 0.09},
+        "K0": {"value": 228.0, "error": 7.0},
+        "K0_prime": {"value": 7.0, "error": 1.0}
+      },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 22.51],
+      "experimental_temperature_range_k": [298.0, 298.0],
+      "pressure_range_status": "reported_exactly",
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 2.0, "molar_mass_g_mol": 59.987539},
+      "fit_datasets": ["delta_alooh_vanpeteghem_2002_table1_pv"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Vanpeteghem", "Ohtani", "Kondo"],
+        "year": 2002,
+        "title": "Equation of state of the hydrous phase delta-AlOOH at room temperature up to 22.5 GPa",
+        "source": "Geophysical Research Letters",
+        "volume": "29",
+        "locator": "23-1-23-3",
+        "doi": "10.1029/2001GL014224"
+      },
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Table 1 reports calibrated pressures but no row-wise calibrant observables."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/delta_alooh/#record-delta_alooh_vanpeteghem_2002_bm3_2",
+            "report_path": "docs/reconstruction-reports/delta_alooh.md#record-delta_alooh_vanpeteghem_2002_bm3_2",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 56.54,
+                "published_error": 0.09,
+                "refit": 56.48926393585292,
+                "refit_error": 0.23048584195149213,
+                "difference": -0.050736064147081095,
+                "relative_difference": 0.0008973481455090396,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 228.0,
+                "published_error": 7.0,
+                "refit": 212.64615028174384,
+                "refit_error": 49.585902639167365,
+                "difference": -15.353849718256157,
+                "relative_difference": 0.06734144613270245,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 7.0,
+                "published_error": 1.0,
+                "refit": 6.676569946181614,
+                "refit_error": 5.271235512011002,
+                "difference": -0.3234300538183863,
+                "relative_difference": 0.04620429340262661,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 9,
+              "observed_pressure_range_gpa": [0.0, 22.51],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [52.03, 56.54],
+              "degrees_of_freedom": 6,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.4373833183302344,
+              "published_rmse_gpa": 1.3626960445623768,
+              "reduced_chi_square": 0.332228536496547,
+              "dataset_identifiers": ["delta_alooh_vanpeteghem_2002_table1_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Primary article text, Tables 1-2, and all nine P-V rows checked.",
+          "audit_date": "2026-09-05",
+          "verified_fields": [
+            "canonical_doi",
+            "phase",
+            "equation",
+            "parameters",
+            "published_uncertainties",
+            "fixed_parameters",
+            "volume_basis",
+            "primary_data"
+          ],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1029/2001GL014224",
+            "doi": "10.1029/2001GL014224",
+            "locations": ["Abstract", "Table 1", "Table 2"],
+            "finding": "The unconstrained 228(7)/7(1) row is a genuine published sensitivity fit, not a separate phase."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-05",
+            "dataset_identifiers": ["delta_alooh_vanpeteghem_2002_table1_pv"],
+            "source_locations": ["Table 1"],
+            "finding": "All nine pressure, lattice-parameter, cell-volume, and printed volume-uncertainty rows are transcribed."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Table 1; Table 2.",
+          "equation": "Same third-order Birch-Murnaghan convention stated in the paper.",
+          "parameters": "Table 2 present-work alternative: K0=228(7) GPa and K0'=7(1), with Table 1 V0=56.54(9) A3."
+        }
+      }
     }
-   },
-   "parameter_errors": {
-    "V0": 0.09,
-    "K0": 3.0,
-    "K0_prime": null
-   },
-   "parameter_error_confidence": null,
-   "parameter_covariance": null,
-   "fixed_parameters": [
-    "K0_prime"
-   ],
-   "temperature_ref": 298.0,
-   "experimental_pressure_range_gpa": [
-    0.0,
-    22.51
-   ],
-   "pressure_range_status": "reported_exactly",
-   "experimental_temperature_range_k": [
-    298.0,
-    298.0
-   ],
-   "fit_datasets": [
-    "delta_alooh_vanpeteghem_2002_table1_pv"
-   ],
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 2.0,
-    "molar_mass_g_mol": 59.987539
-   },
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Table 1; Table 2.",
-    "equation": "Abstract explicitly identifies a third-order Birch-Murnaghan equation.",
-    "parameters": "Abstract and Table 2: K0=252(3) GPa with K0'=4 fixed; Table 1 ambient V0=56.54(9) A3."
-   },
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "Table 1 reports calibrated pressures but no row-wise calibrant observables."
-    },
-    "audit_date": "2026-09-05"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Primary article text, Tables 1-2, and all nine P-V rows checked.",
-    "audit_date": "2026-09-05",
-    "verified_fields": [
-     "canonical_doi",
-     "phase",
-     "equation",
-     "parameters",
-     "published_uncertainties",
-     "fixed_parameters",
-     "volume_basis",
-     "primary_data"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1029/2001GL014224",
-     "doi": "10.1029/2001GL014224",
-     "locations": [
-      "Abstract",
-      "Table 1",
-      "Table 2"
-     ],
-     "finding": "The paper publishes both a constrained and an unconstrained fit to the same nine-point dataset."
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-05",
-     "dataset_identifiers": [
-      "delta_alooh_vanpeteghem_2002_table1_pv"
-     ],
-     "source_locations": [
-      "Table 1"
-     ],
-     "finding": "All nine pressure, lattice-parameter, cell-volume, and printed volume-uncertainty rows are transcribed."
+  ],
+  "aliases": ["δ-AlOOH", "delta aluminum oxyhydroxide"],
+  "cell_contents": "Two AlOOH formula units per conventional orthorhombic P21nm cell.",
+  "symmetry": "ORTHORHOMBIC",
+  "space_group": "P21nm",
+  "space_group_number": 31,
+  "lattice": {"a": 4.715, "b": 4.228, "c": 2.836, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "peaks": [],
+  "notes": "Ambient lattice and volume are transcribed from Vanpeteghem et al. Table 1. Atomic coordinates were not added because the EOS paper cites, rather than republishes, the structural refinement.",
+  "datasets": [
+    {
+      "identifier": "delta_alooh_vanpeteghem_2002_table1_pv",
+      "kind": "pressure_volume",
+      "description": "All nine room-temperature decompression measurements in Vanpeteghem et al. Table 1.",
+      "source_location": "Table 1",
+      "source_url": "https://doi.org/10.1029/2001GL014224",
+      "columns": [
+        {"name": "source_order", "quantity": "source_row_order", "unit": "1", "role": "flag"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_uncertainty_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {"name": "a_a", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {"name": "b_a", "quantity": "lattice_parameter_b", "unit": "angstrom", "role": "value"},
+        {"name": "c_a", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
+        {"name": "volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+        {
+          "name": "volume_uncertainty_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "uncertainty",
+          "of": "volume_a3"
+        },
+        {"name": "fit_included", "quantity": "fit_selection", "unit": "1", "role": "flag"}
+      ],
+      "resource": {
+        "path": "datasets/delta-alooh-vanpeteghem-2002-table1-pv.csv",
+        "sha256": "252a908bc05855868d8c933315d7d0afcd3485641f65b3597b139641dfaff826",
+        "media_type": "text/csv"
+      },
+      "uncertainty": {
+        "reported_as": "Parenthetical trailing-digit uncertainties are expanded for cell volumes; the source table does not print pressure uncertainties.",
+        "covariance": "not_reported"
+      },
+      "reference": {
+        "authors": ["Vanpeteghem", "Ohtani", "Kondo"],
+        "year": 2002,
+        "title": "Equation of state of the hydrous phase delta-AlOOH at room temperature up to 22.5 GPa",
+        "source": "Geophysical Research Letters",
+        "volume": "29",
+        "locator": "Table 1",
+        "doi": "10.1029/2001GL014224"
+      },
+      "used_by_eos_records": ["delta_alooh_vanpeteghem_2002_bm2_1", "delta_alooh_vanpeteghem_2002_bm3_2"]
     }
-   }
-  },
-  {
-   "determination_method": "experimental",
-   "identifier": "delta_alooh_vanpeteghem_2002_bm3_2",
-   "label": "Vanpeteghem et al. (2002), unconstrained BM3",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Vanpeteghem",
-     "Ohtani",
-     "Kondo"
-    ],
-    "year": 2002,
-    "title": "Equation of state of the hydrous phase delta-AlOOH at room temperature up to 22.5 GPa",
-    "source": "Geophysical Research Letters",
-    "volume": "29",
-    "locator": "23-1-23-3",
-    "doi": "10.1029/2001GL014224"
-   },
-   "eos": {
-    "type": "BM3",
-    "model": "birch_murnaghan_3",
-    "parameters": {
-     "V0": 56.54,
-     "K0": 228.0,
-     "K0_prime": 7.0
-    }
-   },
-   "parameter_errors": {
-    "V0": 0.09,
-    "K0": 7.0,
-    "K0_prime": 1.0
-   },
-   "parameter_error_confidence": null,
-   "parameter_covariance": null,
-   "fixed_parameters": [],
-   "temperature_ref": 298.0,
-   "experimental_pressure_range_gpa": [
-    0.0,
-    22.51
-   ],
-   "pressure_range_status": "reported_exactly",
-   "experimental_temperature_range_k": [
-    298.0,
-    298.0
-   ],
-   "fit_datasets": [
-    "delta_alooh_vanpeteghem_2002_table1_pv"
-   ],
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 2.0,
-    "molar_mass_g_mol": 59.987539
-   },
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Table 1; Table 2.",
-    "equation": "Same third-order Birch-Murnaghan convention stated in the paper.",
-    "parameters": "Table 2 present-work alternative: K0=228(7) GPa and K0'=7(1), with Table 1 V0=56.54(9) A3."
-   },
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "Table 1 reports calibrated pressures but no row-wise calibrant observables."
-    },
-    "audit_date": "2026-09-05"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Primary article text, Tables 1-2, and all nine P-V rows checked.",
-    "audit_date": "2026-09-05",
-    "verified_fields": [
-     "canonical_doi",
-     "phase",
-     "equation",
-     "parameters",
-     "published_uncertainties",
-     "fixed_parameters",
-     "volume_basis",
-     "primary_data"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1029/2001GL014224",
-     "doi": "10.1029/2001GL014224",
-     "locations": [
-      "Abstract",
-      "Table 1",
-      "Table 2"
-     ],
-     "finding": "The unconstrained 228(7)/7(1) row is a genuine published sensitivity fit, not a separate phase."
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-05",
-     "dataset_identifiers": [
-      "delta_alooh_vanpeteghem_2002_table1_pv"
-     ],
-     "source_locations": [
-      "Table 1"
-     ],
-     "finding": "All nine pressure, lattice-parameter, cell-volume, and printed volume-uncertainty rows are transcribed."
-    }
-   }
-  }
- ],
- "datasets": [
-  {
-   "identifier": "delta_alooh_vanpeteghem_2002_table1_pv",
-   "kind": "pressure_volume",
-   "description": "All nine room-temperature decompression measurements in Vanpeteghem et al. Table 1.",
-   "source_location": "Table 1",
-   "source_url": "https://doi.org/10.1029/2001GL014224",
-   "columns": [
-    {
-     "name": "source_order",
-     "quantity": "source_row_order",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_uncertainty_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "uncertainty",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "a_a",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "b_a",
-     "quantity": "lattice_parameter_b",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "c_a",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "volume_a3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "volume_uncertainty_a3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "uncertainty",
-     "of": "volume_a3"
-    },
-    {
-     "name": "fit_included",
-     "quantity": "fit_selection",
-     "unit": "1",
-     "role": "flag"
-    }
-   ],
-   "resource": {
-    "path": "datasets/delta-alooh-vanpeteghem-2002-table1-pv.csv",
-    "sha256": "252a908bc05855868d8c933315d7d0afcd3485641f65b3597b139641dfaff826",
-    "media_type": "text/csv"
-   },
-   "uncertainty": {
-    "reported_as": "Parenthetical trailing-digit uncertainties are expanded for cell volumes; the source table does not print pressure uncertainties.",
-    "covariance": "not_reported"
-   },
-   "reference": {
-    "authors": [
-     "Vanpeteghem",
-     "Ohtani",
-     "Kondo"
-    ],
-    "year": 2002,
-    "title": "Equation of state of the hydrous phase delta-AlOOH at room temperature up to 22.5 GPa",
-    "source": "Geophysical Research Letters",
-    "volume": "29",
-    "locator": "Table 1",
-    "doi": "10.1029/2001GL014224"
-   },
-   "used_by_eos_records": [
-    "delta_alooh_vanpeteghem_2002_bm2_1",
-    "delta_alooh_vanpeteghem_2002_bm3_2"
-   ]
-  }
- ]
+  ]
 }

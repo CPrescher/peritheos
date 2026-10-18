@@ -1,0 +1,92 @@
+{
+  "enck_dommel_1965": {
+    "doi": "10.1063/1.1714229",
+    "location": "pp.841-842, Eqs.(3),(5)-(7)",
+    "alpha_definition": "DeltaL/(L_room*DeltaT), 50 C intervals; not instantaneous dlnL/dT",
+    "temperature_unit": "Celsius",
+    "alpha_unit": "1/K",
+    "low_ascending_coefficients": [
+      3.836e-05,
+      2.979e-08,
+      1.167e-11
+    ],
+    "high_ascending_coefficients": [
+      6.594e-05,
+      -7.499e-08,
+      1.1e-10
+    ],
+    "global_ascending_coefficients": [
+      3.942e-05,
+      2.012e-08,
+      2.809e-11
+    ],
+    "junction_c": 550,
+    "measured_interval_c": [
+      50,
+      765
+    ],
+    "maximum_estimated_relative_error": 0.015,
+    "individual_measurements": 77,
+    "heating_curves": 12,
+    "samples": 3,
+    "individual_rows_published": false,
+    "low_polynomial_points": 45,
+    "low_fitting_interval_c": [
+      50,
+      600
+    ],
+    "high_polynomial_points": 32,
+    "high_fitting_interval_c": [
+      450,
+      765
+    ]
+  },
+  "fritz_1971": {
+    "brown_citation_year": 1972,
+    "verified_volume_issue_date": "March 1971",
+    "source_title": "The Hugoniot Equation of State of Sodium Chloride in the Sodium Chloride Structure",
+    "location": "NBS SP326 pp.201-208; Table1 p.202; Table2 and Eq.(1) p.203",
+    "linear_us_ascending_coefficients": [
+      3.528,
+      1.343
+    ],
+    "linear_printed_parameter_uncertainties": [
+      0.012,
+      0.009
+    ],
+    "quadratic_us_ascending_coefficients": [
+      3.403,
+      1.5422,
+      -0.07345
+    ],
+    "quadratic_intercept_constraint": "Haussuhl bulk sound speed; not a free fitted intercept",
+    "us_fit_rms_km_s": 0.05,
+    "rho_initial_g_cm3": 2.1645,
+    "molar_mass_g_mol": 58.443,
+    "avogadro": 6.02252e+23,
+    "theta_293k_k": 276,
+    "gamma_293k": 1.6044,
+    "ks_293k_gpa": 25.07,
+    "kt_293k_gpa": 23.74,
+    "cp_293k_j_g_k": 0.8627,
+    "cv_293k_j_g_k": 0.8168,
+    "quadratic_isotherm_max_gpa": 25,
+    "linear_isotherm_range_gpa": [
+      20,
+      32
+    ],
+    "raw_up_measurement": false,
+    "pressure_accuracy_statement": "approximately 1 percent conditional on accepted standard Hugoniots"
+  },
+  "boehler_kennedy_1980": {
+    "doi": "10.1016/0022-3697(80)90183-3",
+    "location": "Table1 pp.519-520",
+    "runs": 19,
+    "pressure_relative_absolute_uncertainty": 0.004,
+    "volume_change_relative_absolute_uncertainty": 0.007,
+    "temperature_absolute_uncertainty_k": 0.3,
+    "length_absolute_accuracy_mm": 0.001,
+    "uncertainty_note": "bounds/accuracy statements, not published independent Gaussian row sigmas; volume error applies to compression/change, not entire V/V0",
+    "table3_kind": "calculated integrated fitted isotherms; never fitted as observations"
+  }
+}

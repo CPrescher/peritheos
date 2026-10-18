@@ -15,12 +15,13 @@ from peritheos import (
     load_eosmat,
     search_eos_records,
 )
-from peritheos.errors import MaterialError
+from peritheos.errors import MaterialError, MaterialLookupError
 from scripts.brucite_replay_checks import check_report
 from scripts.brucite_reproduce import (
     COLUMNS,
     DATA,
     REPORT,
+    STAGED,
     TABLES,
     bm3,
     conditional_continuous_pressure,
@@ -32,21 +33,25 @@ from scripts.brucite_reproduce import (
     source,
 )
 from scripts.brucite_stage import (
+    audit_document,
     catalog_document,
     conditional_thermal_document,
     staged_document,
 )
+from scripts.eosmat_io import read_material
+from scripts.run_eosmat_audit import historical_reconstruction_view
 
 
 @pytest.fixture(scope="module")
 def candidate():
-    document = staged_document()
+    document = load_eosmat(STAGED)
     return document, Material.from_eosmat(document, require_primary_validation=False)
 
 
 def test_brucite_staged_only_schema_and_validation_gate(candidate):
     document, material = candidate
     Draft202012Validator(eosmat_schema()).validate(document)
+    assert document == staged_document()
     assert get_material("brucite").default_record().identifier == (
         "brucite_fukui_2003_300k_bm3"
     )
@@ -132,8 +137,8 @@ def test_brucite_ambient_ordered_structure_is_separate(candidate):
         hashlib.sha256(cif.read_bytes()).hexdigest()
         == structure["structure_dataset_sha256"]
     )
-    assert "0.2189(2)" in cif.read_text(encoding="utf-8")
-    assert "0.4108(4)" in cif.read_text(encoding="utf-8")
+    assert "0.2189(2)" in cif.read_text()
+    assert "0.4108(4)" in cif.read_text()
     assert structure["structure_reference"]["doi"] == "10.15083/0002012205"
     # Mg(OH)2 has 5 atoms per formula unit; no factor of 4/5/Avogadro belongs
     # in the BM3 cell-volume calculation or dimensionless expansion integral.
@@ -256,8 +261,8 @@ def test_catalog_brucite_published_ranges_and_qualified_source_records():
     document = catalog_document()
     Draft202012Validator(eosmat_schema()).validate(document)
     material = Material.from_eosmat(document)
-    assert len(material.eos_records) == 10
-    assert len(document["eos_records"]) == 12
+    assert len(material.eos_records) == 3
+    assert len(document["eos_records"]) == 3
     for temperature, pmax in [(300, 22.56), (473, 16.52), (673, 16.09)]:
         record = material.get_eos_record(f"brucite_fukui_2003_{temperature}k_bm3")
         v = record.volume(pmax, temperature, check_validity=True)
@@ -270,34 +275,30 @@ def test_catalog_brucite_published_ranges_and_qualified_source_records():
     assert static.pressure(40.909, 300, check_validity=True) == pytest.approx(
         0, abs=0.06
     )
-    for identifier in [
-        "brucite_fukui_2003_873k_bm3",
-        "brucite_fukui_2003_300k_anchored_thermal",
-    ]:
-        with pytest.raises(MaterialError, match="not_reproduced"):
-            Material.from_eosmat(document, record_identifiers=[identifier])
-        qualified = get_eos_record(identifier)
-        assert qualified.eosmat_metadata["catalog_access"] == "explicit_selection"
-        qualified.volume(15.48, 873, check_validity=True)
-    assert load_eosmat(DATA.parent / "materials/brucite.eosmat") == document
+    archive = audit_document()
+    assert len(archive["eos_records"]) == 12
     assert (
-        load_eosmat(DATA.parents[2] / "crates/peritheos/tests/data/brucite.eosmat")
-        == document
+        archive["curation_disposition"]["thermal_eos_recommendation"]
+        == "not_recommended"
     )
-    assert search_eos_records(formula="Mg(OH)2", pressure_gpa=22.56)
-    assert [
-        r.identifier
-        for r in search_eos_records(
-            formula="Mg(OH)2",
-            thermal=True,
-            validation_status="primary_source_validated",
-            pressure_gpa=10,
-            temperature_k=873,
+    for record in archive["eos_records"]:
+        if record["identifier"] in {r.identifier for r in material.eos_records}:
+            continue
+        with pytest.raises(MaterialLookupError):
+            get_eos_record(record["identifier"])
+        with pytest.raises(MaterialError):
+            Material.from_eosmat(archive, record_identifiers=[record["identifier"]])
+        assert (
+            "Not recommended" in record["scientific_validation"]["usage_recommendation"]
         )
-    ] == [
-        "brucite_peritheos_fukui_2003_curved_expansion_thermal_refit",
-        "brucite_peritheos_fukui_2003_thermal_refit",
-    ]
+    registered = read_material(DATA.parent / "materials/brucite.eosmat")
+    assert all("assessment" in r["reproduction"] for r in registered["eos_records"])
+    # The later ledger summary is additive to the archived scientific document.
+    assert historical_reconstruction_view(registered) == document
+    assert search_eos_records(formula="Mg(OH)2", pressure_gpa=22.56)
+    assert not search_eos_records(formula="Mg(OH)2", thermal=True)
+    assert not search_eos_records(formula="Mg(OH)2", temperature_k=873)
+    assert load_eosmat(STAGED.with_name("brucite-diagnostic-archive.eosmat")) == archive
 
 
 def test_brucite_figure_normalization_is_evidence_not_a_silent_correction():
@@ -313,7 +314,9 @@ def test_brucite_figure_normalization_is_evidence_not_a_silent_correction():
         abs(p["digitized_pressure_gpa"] - p["printed_BM3_pressure_gpa"]) < 0.1
         for p in audit["solid_curve"]
     )
-    original = get_eos_record("brucite_fukui_2003_873k_bm3")
+    original = Material.from_eosmat(
+        audit_document(), require_primary_validation=False
+    ).get_eos_record("brucite_fukui_2003_873k_bm3")
     assert original.eosmat_metadata["eos"]["parameters"]["K0"] == 23.9
     assert original.eosmat_metadata["eos"]["parameters"]["V0"] == pytest.approx(
         reference_volume(873)
@@ -321,7 +324,7 @@ def test_brucite_figure_normalization_is_evidence_not_a_silent_correction():
 
 
 def test_brucite_independent_refits_use_table_rows_and_retain_conditional_covariance():
-    material = Material.from_eosmat(catalog_document())
+    material = Material.from_eosmat(audit_document(), require_primary_validation=False)
     hot = material.get_eos_record("brucite_peritheos_fukui_2003_873k_bm3_refit")
     thermal = material.get_eos_record("brucite_peritheos_fukui_2003_thermal_refit")
     rows = observations("fukui_2003", "table4")
@@ -377,9 +380,9 @@ def test_brucite_independent_refits_use_table_rows_and_retain_conditional_covari
         assert np.sqrt(np.mean(np.array(residual) ** 2)) == pytest.approx(
             meta["fit_provenance"]["statistics"]["pressure_rmse_gpa"], abs=1e-12
         )
-        restored = Material.from_eosmat(material.to_eosmat()).get_eos_record(
-            record.identifier
-        )
+        restored = Material.from_eosmat(
+            material.to_eosmat(), require_primary_validation=False
+        ).get_eos_record(record.identifier)
         assert (
             restored.eosmat_metadata["parameter_covariance"]
             == meta["parameter_covariance"]
@@ -442,9 +445,11 @@ def test_brucite_replay_tolerances_preserve_sources_and_small_coefficients():
 def test_brucite_refit_requires_curve_parity_within_coefficient_tolerance(monkeypatch):
     from scripts import brucite_reproduce as audit
 
-    record = get_eos_record(
-        "brucite_peritheos_fukui_2003_thermal_refit"
-    ).eosmat_metadata
+    record = next(
+        r
+        for r in audit_document()["eos_records"]
+        if r["identifier"] == "brucite_peritheos_fukui_2003_thermal_refit"
+    )
     report = reproduce()
     # A small correlated-coefficient change may meet the scalar comparison but
     # must still be rejected when it changes the evaluated pressure curve.
@@ -452,3 +457,30 @@ def test_brucite_refit_requires_curve_parity_within_coefficient_tolerance(monkey
     monkeypatch.setattr(audit, "reproduce", lambda: report)
     with pytest.raises(ValueError, match="stale"):
         audit.ledger_outcome(record)
+
+
+def test_successful_replays_allow_solver_details_but_require_bounded_results():
+    import copy
+
+    saved = {
+        "solver_success": True,
+        "solver_message": "`ftol` termination condition is satisfied.",
+        "multistart": [{"success": True, "nfev": 26, "optimality": 4e-4}],
+        "projection": {"pressure_residual_sigma": [-0.001203]},
+    }
+    replay = copy.deepcopy(saved)
+    replay["solver_message"] = "`xtol` termination condition is satisfied."
+    replay["multistart"][0].update(nfev=29, optimality=6e-5)
+    replay["projection"]["pressure_residual_sigma"][0] += 5e-7
+    check_report(replay, saved)
+    for key, value in [("nfev", 0), ("nfev", True), ("optimality", 0.01)]:
+        invalid = copy.deepcopy(replay)
+        invalid["multistart"][0][key] = value
+        with pytest.raises(ValueError):
+            check_report(invalid, saved)
+    for key, value in [("solver_success", False), ("solver_message", "Failed")]:
+        with pytest.raises(ValueError):
+            check_report({**replay, key: value}, saved)
+    replay["projection"]["pressure_residual_sigma"][0] += 1e-4
+    with pytest.raises(ValueError, match="calculated value"):
+        check_report(replay, saved)

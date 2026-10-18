@@ -1,573 +1,537 @@
 {
- "format": "peritheos.material",
- "format_version": 3,
- "identifier": "klb1_ferropericlase",
- "family_id": "mg_fe_monoxide",
- "name": "KLB-1 ferropericlase",
- "formula": "(Mg,Fe)O",
- "phase": "B1 ferropericlase separated from KLB-1 pyrolite",
- "aliases": [
-  "KLB-1 Fp",
-  "pyrolitic ferropericlase"
- ],
- "cell_contents": "Four (Mg,Fe)O formula units per conventional B1 cell; composition changes slightly with coexisting-phase partitioning.",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "symmetry": "CUBIC",
- "formula_units_per_cell": 4,
- "space_group": "Fm-3m",
- "space_group_number": 225,
- "atom_sites": [],
- "peaks": [],
- "notes": "The source resolves separate room-temperature high-spin and low-spin compression branches. The high-temperature data show no resolvable abrupt volume contraction and are parameterized from the high-spin reference branch.",
- "eos_records": [
-  {
-   "determination_method": "experimental",
-   "identifier": "klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt",
-   "label": "Ricolleau et al. (2009), KLB-1 high-spin ferropericlase thermal BM2",
-   "record_kind": "published",
-   "equation_kind": "thermal",
-   "reference": {
-    "authors": [
-     "Ricolleau",
-     "Fei",
-     "Cottrell",
-     "Watson",
-     "Deng",
-     "Zhang",
-     "Fiquet",
-     "Auzende",
-     "Roskosz",
-     "Morard",
-     "Prakapenka"
-    ],
-    "year": 2009,
-    "title": "Density profile of pyrolite under the lower mantle conditions",
-    "source": "Geophysical Research Letters",
-    "volume": "36",
-    "locator": "L06302",
-    "doi": "10.1029/2008GL036759"
-   },
-   "sample_composition": "Pyrolitic ferropericlase; high-temperature behavior is stated to be reproduced by approximately (Mg0.80Fe0.20)O.",
-   "eos": {
-    "type": "BM2",
-    "model": "birch_murnaghan_2",
-    "parameters": {
-     "V0": 76.44,
-     "K0": 158.0
-    }
-   },
-   "parameter_errors": {
-    "V0": 0.02,
-    "K0": null
-   },
-   "parameter_error_confidence": null,
-   "parameter_covariance": null,
-   "fixed_parameters": [
-    "K0"
-   ],
-   "temperature_ref": 300.0,
-   "thermal": {
-    "type": "AlphaKT",
-    "model": "thermal_reference_state",
-    "thermal_expansion_law": "linear_temperature",
-    "reference_volume_law": "integrated_expansivity",
-    "parameters": {
-     "Tr": 300.0,
-     "alpha0": 2.2e-05,
-     "alpha1": 3.61e-08,
-     "dK_dT": -0.034
-    },
-    "parameter_errors": {
-     "Tr": null,
-     "alpha0": 2e-06,
-     "alpha1": 2.7e-09,
-     "dK_dT": 0.001
-    },
-    "fixed_parameters": [
-     "Tr"
-    ]
-   },
-   "fit_datasets": [
-    "klb1_ricolleau_2009_table_s1_ferropericlase_pvt"
-   ],
-   "fit_provenance": {
-    "software": {
-     "name": "Peritheos/SciPy ODR",
-     "version": "0.7.0"
-    },
-    "dataset": "klb1_ricolleau_2009_table_s1_ferropericlase_pvt",
-    "selection": {
-     "static_predicate": "temperature_k == 300 and pressure_gpa < 50",
-     "static_included_rows": 7,
-     "thermal_predicate": "temperature_k > 300",
-     "thermal_included_rows": 136,
-     "unassigned_crossover_rows": 3
-    },
-    "selection_qualification": "The paper places the 300 K contraction at about 50 GPa but does not print exact regression row flags. The limiting-branch reconstruction is reported as such, not attributed as an author-declared exclusion list.",
-    "objective": "Orthogonal distance regression with printed one-sigma P and ferropericlase volume uncertainties; temperatures held fixed.",
-    "weights": [
-     "pressure_sigma_gpa",
-     "ferropericlase_volume_sigma_a3"
-    ],
-    "refined_parameters": [
-     "V0",
-     "dK_dT",
-     "alpha0",
-     "alpha1"
-    ],
-    "fixed_parameters": [
-     "K0",
-     "K0_prime",
-     "Tr"
-    ],
-    "covariance_scaling": "Unscaled ODR covariance from printed observation sigmas; the paper's convention is unreported.",
-    "statistics": {
-     "static_observations": 7,
-     "heated_observations": 136,
-     "static_vertical_pressure_rmse_gpa": 1.260213389381181,
-     "thermal_vertical_pressure_rmse_gpa": 1.4791143041717107
-    },
-    "reproduction": {
-     "result": "docs/data/ricolleau-2009-klb1-eos-refit.json",
-     "qualification": "The exact author row flags, weights, temperature-error treatment, and covariance scaling are unreported."
-    }
-   },
-   "experimental_pressure_range_gpa": [
-    30.0,
-    112.0
-   ],
-   "pressure_range_status": "reported_exactly",
-   "experimental_temperature_range_k": [
-    300.0,
-    2569.0
-   ],
-   "validity": {
-    "pressure_gpa": [
-     30.0,
-     112.0
-    ],
-    "temperature_k": [
-     300.0,
-     2569.0
-    ],
-    "notes": [
-     "High-spin reference branch used for the smooth high-temperature pyrolitic ferropericlase EOS.",
-     "No record-level molar mass is encoded because the coexisting phase composition evolves and the source gives only an approximate Mg0.80Fe0.20O description."
-    ]
-   },
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental Procedure; Section 3; Table 1; Figure 1; Supporting Information readme and Table S1.",
-    "equation": "Section 3: high-temperature Birch-Murnaghan with K0'=4 fixed, represented by BM2 plus AlphaKT.",
-    "parameters": "Table 1, high-spin ferropericlase row; K0 fixed to 158 GPa from Fei et al. (2007).",
-    "thermal_law": "Table 1 alpha0, alpha1 and dK/dT with alpha(T)=alpha0+alpha1*T."
-   },
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
-      "material": "Au",
-      "reference_eos_record": "gold_fei_2007_vinet_2",
-      "reference": {
-       "authors": [
-        "Fei",
-        "Ricolleau",
-        "Frank",
-        "Mibe",
-        "Shen",
-        "Prakapenka"
-       ],
-       "year": 2007,
-       "source": "Proceedings of the National Academy of Sciences",
-       "volume": "104",
-       "locator": "9182-9186",
-       "doi": "10.1073/pnas.0609013104"
+  "format_version": 4,
+  "identifier": "klb1_ferropericlase",
+  "name": "KLB-1 ferropericlase",
+  "formula": "(Mg,Fe)O",
+  "phase": "B1 ferropericlase separated from KLB-1 pyrolite",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 4,
+  "eos_records": [
+    {
+      "identifier": "klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt",
+      "label": "Ricolleau et al. (2009), KLB-1 high-spin ferropericlase thermal BM2",
+      "model": "BM2",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 76.44, "error": 0.02},
+        "K0": {"value": 158.0, "error": null, "fixed": true}
       },
-      "source_location": "Experimental Procedure; Au pressure marker"
-     }
-    ],
-    "recalculation": {
-     "status": "ready",
-     "notes": "Official Table S1 supplies temperature plus row-wise Au volume and uncertainty for every observation, and gold_fei_2007_vinet_2 is executable. Direct re-reduction is ready but differs from the printed pressures by 0.701 GPa RMS (mean +0.669 GPa); no undocumented correction is inferred."
-    },
-    "audit_date": "2026-09-08"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-08",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759",
-     "doi": "10.1029/2008gl036759",
-     "locations": [
-      "Experimental Procedure",
-      "Section 3",
-      "Table 1",
-      "Figure 1",
-      "Supporting Information readme and Table S1"
-     ],
-     "finding": "Independent high-spin reference thermal BM2 fit."
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-08",
-     "dataset_identifiers": [
-      "klb1_ricolleau_2009_table_s1_ferropericlase_pvt"
-     ],
-     "source_locations": [
-      "Official Supporting Information readme and Table S1"
-     ],
-     "finding": "All 153 ferropericlase P-V-T observations are bundled with their printed one-sigma pressure and phase-volume uncertainties. The 17 room-temperature rows preserve both limiting spin branches and the three observed volume-collapse rows; 136 rows are heated."
-    }
-   }
-  },
-  {
-   "determination_method": "experimental",
-   "identifier": "klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2",
-   "label": "Ricolleau et al. (2009), KLB-1 low-spin ferropericlase 300 K BM2",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Ricolleau",
-     "Fei",
-     "Cottrell",
-     "Watson",
-     "Deng",
-     "Zhang",
-     "Fiquet",
-     "Auzende",
-     "Roskosz",
-     "Morard",
-     "Prakapenka"
-    ],
-    "year": 2009,
-    "title": "Density profile of pyrolite under the lower mantle conditions",
-    "source": "Geophysical Research Letters",
-    "volume": "36",
-    "locator": "L06302",
-    "doi": "10.1029/2008GL036759"
-   },
-   "sample_composition": "Low-spin branch of pyrolitic ferropericlase at room temperature.",
-   "eos": {
-    "type": "BM2",
-    "model": "birch_murnaghan_2",
-    "parameters": {
-     "V0": 74.04,
-     "K0": 170.0
-    }
-   },
-   "parameter_errors": {
-    "V0": 0.02,
-    "K0": null
-   },
-   "parameter_error_confidence": null,
-   "parameter_covariance": null,
-   "fixed_parameters": [
-    "K0"
-   ],
-   "fit_datasets": [
-    "klb1_ricolleau_2009_table_s1_ferropericlase_pvt"
-   ],
-   "fit_provenance": {
-    "software": {
-     "name": "Peritheos/SciPy ODR",
-     "version": "0.7.0"
-    },
-    "dataset": "klb1_ricolleau_2009_table_s1_ferropericlase_pvt",
-    "selection": {
-     "predicate": "temperature_k == 300 and pressure_gpa >= 70",
-     "included_rows": 7,
-     "unassigned_crossover_rows": 3
-    },
-    "selection_qualification": "The 70 GPa rule labels the gap in the measured 300 K pressure series and is not claimed as a published spin-transition cutoff. The exact author regression flags are not reported.",
-    "objective": "Orthogonal distance regression with printed one-sigma P and ferropericlase volume uncertainties.",
-    "weights": [
-     "pressure_sigma_gpa",
-     "ferropericlase_volume_sigma_a3"
-    ],
-    "refined_parameters": [
-     "V0"
-    ],
-    "fixed_parameters": [
-     "K0",
-     "K0_prime"
-    ],
-    "covariance_scaling": "Unscaled ODR covariance from printed observation sigmas.",
-    "statistics": {
-     "observations": 7,
-     "vertical_pressure_rmse_gpa": 1.5775129387527014,
-     "odr_residual_variance": 12.44665116091329
-    },
-    "reproduction": {
-     "result": "docs/data/ricolleau-2009-klb1-eos-refit.json",
-     "qualification": "The exact author regression flags are unreported."
-    }
-   },
-   "temperature_ref": 300.0,
-   "experimental_pressure_range_gpa": [
-    50.0,
-    112.0
-   ],
-   "pressure_range_status": "reported_qualitatively",
-   "experimental_temperature_range_k": [
-    300.0,
-    300.0
-   ],
-   "validity": {
-    "pressure_gpa": [
-     50.0,
-     112.0
-    ],
-    "temperature_k": [
-     300.0,
-     300.0
-    ],
-    "notes": [
-     "Room-temperature low-spin branch above the observed volume contraction near 50 GPa.",
-     "No record-level molar mass is encoded because the exact coexisting phase composition is not fixed by the source."
-    ]
-   },
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental Procedure; Section 3; Table 1; Figure 1; Supporting Information readme and Table S1.",
-    "equation": "Section 3: Birch-Murnaghan with K0'=4 fixed, represented by BM2.",
-    "parameters": "Table 1, low-spin ferropericlase row; K0 fixed to 170 GPa from Fei et al. (2007)."
-   },
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
-      "material": "Au",
-      "reference_eos_record": "gold_fei_2007_vinet_2",
-      "reference": {
-       "authors": [
-        "Fei",
-        "Ricolleau",
-        "Frank",
-        "Mibe",
-        "Shen",
-        "Prakapenka"
-       ],
-       "year": 2007,
-       "source": "Proceedings of the National Academy of Sciences",
-       "volume": "104",
-       "locator": "9182-9186",
-       "doi": "10.1073/pnas.0609013104"
+      "thermal": {
+        "model": "AlphaKT",
+        "parameters": {
+          "Tr": {"value": 300.0, "error": null, "fixed": true},
+          "alpha0": {"value": 2.2e-05, "error": 2e-06},
+          "alpha1": {"value": 3.61e-08, "error": 2.7e-09},
+          "dK_dT": {"value": -0.034, "error": 0.001}
+        },
+        "thermal_expansion_law": "linear_temperature",
+        "reference_volume_law": "integrated_expansivity"
       },
-      "source_location": "Experimental Procedure; Au pressure marker"
-     }
-    ],
-    "recalculation": {
-     "status": "ready",
-     "notes": "Official Table S1 supplies temperature plus row-wise Au volume and uncertainty for every observation, and gold_fei_2007_vinet_2 is executable. Direct re-reduction is ready but differs from the printed pressures by 0.701 GPa RMS (mean +0.669 GPa); no undocumented correction is inferred."
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [30.0, 112.0],
+      "experimental_temperature_range_k": [300.0, 2569.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [30.0, 112.0],
+        "temperature_k": [300.0, 2569.0],
+        "notes": [
+          "High-spin reference branch used for the smooth high-temperature pyrolitic ferropericlase EOS.",
+          "No record-level molar mass is encoded because the coexisting phase composition evolves and the source gives only an approximate Mg0.80Fe0.20O description."
+        ]
+      },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "thermal",
+      "sample_composition": "Pyrolitic ferropericlase; high-temperature behavior is stated to be reproduced by approximately (Mg0.80Fe0.20)O.",
+      "fit_datasets": ["klb1_ricolleau_2009_table_s1_ferropericlase_pvt"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": [
+          "Ricolleau",
+          "Fei",
+          "Cottrell",
+          "Watson",
+          "Deng",
+          "Zhang",
+          "Fiquet",
+          "Auzende",
+          "Roskosz",
+          "Morard",
+          "Prakapenka"
+        ],
+        "year": 2009,
+        "title": "Density profile of pyrolite under the lower mantle conditions",
+        "source": "Geophysical Research Letters",
+        "volume": "36",
+        "locator": "L06302",
+        "doi": "10.1029/2008GL036759"
+      },
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "Au",
+            "reference_eos_record": "gold_fei_2007_vinet_2",
+            "reference": {
+              "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
+              "year": 2007,
+              "source": "Proceedings of the National Academy of Sciences",
+              "volume": "104",
+              "locator": "9182-9186",
+              "doi": "10.1073/pnas.0609013104"
+            },
+            "source_location": "Experimental Procedure; Au pressure marker"
+          }
+        ],
+        "recalculation": {
+          "status": "ready",
+          "notes": "Official Table S1 supplies temperature plus row-wise Au volume and uncertainty for every observation, and gold_fei_2007_vinet_2 is executable. Direct re-reduction is ready but differs from the printed pressures by 0.701 GPa RMS (mean +0.669 GPa); no undocumented correction is inferred."
+        },
+        "audit_date": "2026-09-08"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "The complete source table is bundled. Limiting ferropericlase spin branches reproduce the published V0 values and printed errors; exact thermal parity remains conditional because the source does not state row flags, weights, temperature-error treatment, or covariance scaling.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/klb1_ferropericlase/#record-klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt",
+            "report_path": "docs/reconstruction-reports/klb1_ferropericlase.md#record-klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 76.44,
+                "published_error": 0.02,
+                "refit": 76.43827898867148,
+                "refit_error": 0.017711803853117408,
+                "difference": -0.0017210113285131001,
+                "relative_difference": 2.2514538572908166e-05,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "alpha0",
+                "published": 2.2e-05,
+                "published_error": 2e-06,
+                "refit": 2.7597289976043394e-05,
+                "refit_error": 1.6321859181719822e-06,
+                "difference": 5.597289976043395e-06,
+                "relative_difference": 0.25442227163833614,
+                "similar": true,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "alpha1",
+                "published": 3.61e-08,
+                "published_error": 2.7e-09,
+                "refit": 3.087478002503601e-08,
+                "refit_error": 1.9536510121458086e-09,
+                "difference": -5.2252199749639886e-09,
+                "relative_difference": 0.14474293559457033,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "dK_dT",
+                "published": -0.034,
+                "published_error": 0.001,
+                "refit": -0.03401873114665049,
+                "refit_error": 0.0007067326783047755,
+                "difference": -1.873114665048442e-05,
+                "relative_difference": 0.000550916077955424,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "staged_source_constrained_thermal_bm2_odr",
+              "objective": "orthogonal distance regression using printed pressure and volume sigmas; temperature held fixed",
+              "selection": "V0 from the seven limiting high-spin 300 K rows; thermal coefficients from all 136 heated rows with published V0 and K0 fixed",
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "alpha0", "alpha1", "dK_dT"],
+              "fixed_parameters": ["K0", "Tr"],
+              "observations": 136,
+              "observed_pressure_range_gpa": [27.56, 113.0],
+              "solver_success": true,
+              "solver_message": "dedicated Ricolleau et al. (2009) audit completed",
+              "rmse_gpa": 1.4791143041717107,
+              "dataset_identifiers": ["klb1_ricolleau_2009_table_s1_ferropericlase_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-08",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759",
+            "doi": "10.1029/2008gl036759",
+            "locations": ["Experimental Procedure", "Section 3", "Table 1", "Figure 1", "Supporting Information readme and Table S1"],
+            "finding": "Independent high-spin reference thermal BM2 fit."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-08",
+            "dataset_identifiers": ["klb1_ricolleau_2009_table_s1_ferropericlase_pvt"],
+            "source_locations": ["Official Supporting Information readme and Table S1"],
+            "finding": "All 153 ferropericlase P-V-T observations are bundled with their printed one-sigma pressure and phase-volume uncertainties. The 17 room-temperature rows preserve both limiting spin branches and the three observed volume-collapse rows; 136 rows are heated."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental Procedure; Section 3; Table 1; Figure 1; Supporting Information readme and Table S1.",
+          "equation": "Section 3: high-temperature Birch-Murnaghan with K0'=4 fixed, represented by BM2 plus AlphaKT.",
+          "parameters": "Table 1, high-spin ferropericlase row; K0 fixed to 158 GPa from Fei et al. (2007).",
+          "thermal_law": "Table 1 alpha0, alpha1 and dK/dT with alpha(T)=alpha0+alpha1*T."
+        },
+        "fit_provenance": {
+          "software": {"name": "Peritheos/SciPy ODR", "version": "0.7.0"},
+          "dataset": "klb1_ricolleau_2009_table_s1_ferropericlase_pvt",
+          "selection": {
+            "static_predicate": "temperature_k == 300 and pressure_gpa < 50",
+            "static_included_rows": 7,
+            "thermal_predicate": "temperature_k > 300",
+            "thermal_included_rows": 136,
+            "unassigned_crossover_rows": 3
+          },
+          "selection_qualification": "The paper places the 300 K contraction at about 50 GPa but does not print exact regression row flags. The limiting-branch reconstruction is reported as such, not attributed as an author-declared exclusion list.",
+          "objective": "Orthogonal distance regression with printed one-sigma P and ferropericlase volume uncertainties; temperatures held fixed.",
+          "weights": ["pressure_sigma_gpa", "ferropericlase_volume_sigma_a3"],
+          "refined_parameters": ["V0", "dK_dT", "alpha0", "alpha1"],
+          "fixed_parameters": ["K0", "K0_prime", "Tr"],
+          "covariance_scaling": "Unscaled ODR covariance from printed observation sigmas; the paper's convention is unreported.",
+          "statistics": {
+            "static_observations": 7,
+            "heated_observations": 136,
+            "static_vertical_pressure_rmse_gpa": 1.260213389381181,
+            "thermal_vertical_pressure_rmse_gpa": 1.4791143041717107
+          },
+          "reproduction": {
+            "result": "docs/data/ricolleau-2009-klb1-eos-refit.json",
+            "qualification": "The exact author row flags, weights, temperature-error treatment, and covariance scaling are unreported."
+          }
+        }
+      }
     },
-    "audit_date": "2026-09-08"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-08",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759",
-     "doi": "10.1029/2008gl036759",
-     "locations": [
-      "Experimental Procedure",
-      "Section 3",
-      "Table 1",
-      "Figure 1",
-      "Supporting Information readme and Table S1"
-     ],
-     "finding": "Independent room-temperature low-spin BM2 branch."
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-08",
-     "dataset_identifiers": [
-      "klb1_ricolleau_2009_table_s1_ferropericlase_pvt"
-     ],
-     "source_locations": [
-      "Official Supporting Information readme and Table S1"
-     ],
-     "finding": "All 17 room-temperature ferropericlase P-V observations and their printed one-sigma uncertainties are bundled within the complete 153-row P-V-T table. The crossover observations remain present and explicitly unassigned in the limiting-branch audit."
+    {
+      "identifier": "klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2",
+      "label": "Ricolleau et al. (2009), KLB-1 low-spin ferropericlase 300 K BM2",
+      "model": "BM2",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 74.04, "error": 0.02},
+        "K0": {"value": 170.0, "error": null, "fixed": true}
+      },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [50.0, 112.0],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_qualitatively",
+      "validity": {
+        "pressure_gpa": [50.0, 112.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "Room-temperature low-spin branch above the observed volume contraction near 50 GPa.",
+          "No record-level molar mass is encoded because the exact coexisting phase composition is not fixed by the source."
+        ]
+      },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "sample_composition": "Low-spin branch of pyrolitic ferropericlase at room temperature.",
+      "fit_datasets": ["klb1_ricolleau_2009_table_s1_ferropericlase_pvt"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": [
+          "Ricolleau",
+          "Fei",
+          "Cottrell",
+          "Watson",
+          "Deng",
+          "Zhang",
+          "Fiquet",
+          "Auzende",
+          "Roskosz",
+          "Morard",
+          "Prakapenka"
+        ],
+        "year": 2009,
+        "title": "Density profile of pyrolite under the lower mantle conditions",
+        "source": "Geophysical Research Letters",
+        "volume": "36",
+        "locator": "L06302",
+        "doi": "10.1029/2008GL036759"
+      },
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "Au",
+            "reference_eos_record": "gold_fei_2007_vinet_2",
+            "reference": {
+              "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
+              "year": 2007,
+              "source": "Proceedings of the National Academy of Sciences",
+              "volume": "104",
+              "locator": "9182-9186",
+              "doi": "10.1073/pnas.0609013104"
+            },
+            "source_location": "Experimental Procedure; Au pressure marker"
+          }
+        ],
+        "recalculation": {
+          "status": "ready",
+          "notes": "Official Table S1 supplies temperature plus row-wise Au volume and uncertainty for every observation, and gold_fei_2007_vinet_2 is executable. Direct re-reduction is ready but differs from the printed pressures by 0.701 GPa RMS (mean +0.669 GPa); no undocumented correction is inferred."
+        },
+        "audit_date": "2026-09-08"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "The complete source table is bundled. Limiting ferropericlase spin branches reproduce the published V0 values and printed errors; exact thermal parity remains conditional because the source does not state row flags, weights, temperature-error treatment, or covariance scaling.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/klb1_ferropericlase/#record-klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2",
+            "report_path": "docs/reconstruction-reports/klb1_ferropericlase.md#record-klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 74.04,
+                "published_error": 0.02,
+                "refit": 74.04288033963479,
+                "refit_error": 0.02537519008226588,
+                "difference": 0.0028803396347854004,
+                "relative_difference": 3.890248021049973e-05,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "staged_source_constrained_thermal_bm2_odr",
+              "objective": "orthogonal distance regression using printed pressure and volume sigmas; temperature held fixed",
+              "selection": "seven limiting low-spin 300 K rows",
+              "absolute_sigma": true,
+              "free_parameters": ["V0"],
+              "fixed_parameters": ["K0"],
+              "observations": 7,
+              "observed_pressure_range_gpa": [74.21, 98.36],
+              "solver_success": true,
+              "solver_message": "dedicated Ricolleau et al. (2009) audit completed",
+              "rmse_gpa": 1.5775129387527014,
+              "dataset_identifiers": ["klb1_ricolleau_2009_table_s1_ferropericlase_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-08",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2008GL036759",
+            "doi": "10.1029/2008gl036759",
+            "locations": ["Experimental Procedure", "Section 3", "Table 1", "Figure 1", "Supporting Information readme and Table S1"],
+            "finding": "Independent room-temperature low-spin BM2 branch."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-08",
+            "dataset_identifiers": ["klb1_ricolleau_2009_table_s1_ferropericlase_pvt"],
+            "source_locations": ["Official Supporting Information readme and Table S1"],
+            "finding": "All 17 room-temperature ferropericlase P-V observations and their printed one-sigma uncertainties are bundled within the complete 153-row P-V-T table. The crossover observations remain present and explicitly unassigned in the limiting-branch audit."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental Procedure; Section 3; Table 1; Figure 1; Supporting Information readme and Table S1.",
+          "equation": "Section 3: Birch-Murnaghan with K0'=4 fixed, represented by BM2.",
+          "parameters": "Table 1, low-spin ferropericlase row; K0 fixed to 170 GPa from Fei et al. (2007)."
+        },
+        "fit_provenance": {
+          "software": {"name": "Peritheos/SciPy ODR", "version": "0.7.0"},
+          "dataset": "klb1_ricolleau_2009_table_s1_ferropericlase_pvt",
+          "selection": {
+            "predicate": "temperature_k == 300 and pressure_gpa >= 70",
+            "included_rows": 7,
+            "unassigned_crossover_rows": 3
+          },
+          "selection_qualification": "The 70 GPa rule labels the gap in the measured 300 K pressure series and is not claimed as a published spin-transition cutoff. The exact author regression flags are not reported.",
+          "objective": "Orthogonal distance regression with printed one-sigma P and ferropericlase volume uncertainties.",
+          "weights": ["pressure_sigma_gpa", "ferropericlase_volume_sigma_a3"],
+          "refined_parameters": ["V0"],
+          "fixed_parameters": ["K0", "K0_prime"],
+          "covariance_scaling": "Unscaled ODR covariance from printed observation sigmas.",
+          "statistics": {
+            "observations": 7,
+            "vertical_pressure_rmse_gpa": 1.5775129387527014,
+            "odr_residual_variance": 12.44665116091329
+          },
+          "reproduction": {
+            "result": "docs/data/ricolleau-2009-klb1-eos-refit.json",
+            "qualification": "The exact author regression flags are unreported."
+          }
+        }
+      }
     }
-   }
-  }
- ],
- "datasets": [
-  {
-   "identifier": "klb1_ricolleau_2009_table_s1_ferropericlase_pvt",
-   "kind": "calibrated_pressure_volume_temperature",
-   "description": "Complete Ricolleau et al. (2009) Table S1 P-V-T series, projected onto the KLB-1 ferropericlase volume column and retaining every crossover observation.",
-   "reference": {
-    "authors": [
-     "Ricolleau",
-     "Fei",
-     "Cottrell",
-     "Watson",
-     "Deng",
-     "Zhang",
-     "Fiquet",
-     "Auzende",
-     "Roskosz",
-     "Morard",
-     "Prakapenka"
-    ],
-    "year": 2009,
-    "source": "Geophysical Research Letters",
-    "volume": "36",
-    "locator": "L06302",
-    "doi": "10.1029/2008GL036759"
-   },
-   "source_location": "Official Supporting Information Table S1",
-   "source_url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1029%2F2008GL036759&file=grl25568-sup-0002-ts01.txt",
-   "columns": [
+  ],
+  "aliases": ["KLB-1 Fp", "pyrolitic ferropericlase"],
+  "family_id": "mg_fe_monoxide",
+  "cell_contents": "Four (Mg,Fe)O formula units per conventional B1 cell; composition changes slightly with coexisting-phase partitioning.",
+  "symmetry": "CUBIC",
+  "space_group": "Fm-3m",
+  "space_group_number": 225,
+  "atom_sites": [],
+  "peaks": [],
+  "notes": "The source resolves separate room-temperature high-spin and low-spin compression branches. The high-temperature data show no resolvable abrupt volume contraction and are parameterized from the high-spin reference branch.",
+  "datasets": [
     {
-     "name": "source_line",
-     "quantity": "source_row",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "temperature_k",
-     "quantity": "temperature",
-     "unit": "K",
-     "role": "value"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_sigma_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "standard_deviation",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "mg_perovskite_volume_a3",
-     "quantity": "mg_perovskite_conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "mg_perovskite_volume_sigma_a3",
-     "quantity": "mg_perovskite_conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "standard_deviation",
-     "of": "mg_perovskite_volume_a3"
-    },
-    {
-     "name": "ferropericlase_volume_a3",
-     "quantity": "ferropericlase_conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "ferropericlase_volume_sigma_a3",
-     "quantity": "ferropericlase_conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "standard_deviation",
-     "of": "ferropericlase_volume_a3"
-    },
-    {
-     "name": "ca_perovskite_volume_a3",
-     "quantity": "ca_perovskite_conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "ca_perovskite_volume_sigma_a3",
-     "quantity": "ca_perovskite_conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "standard_deviation",
-     "of": "ca_perovskite_volume_a3"
-    },
-    {
-     "name": "pressure_medium_volume_a3",
-     "quantity": "pressure_medium_conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "pressure_medium_volume_sigma_a3",
-     "quantity": "pressure_medium_conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "standard_deviation",
-     "of": "pressure_medium_volume_a3"
-    },
-    {
-     "name": "pressure_medium_volume_2_a3",
-     "quantity": "secondary_pressure_medium_conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "pressure_medium_volume_2_sigma_a3",
-     "quantity": "secondary_pressure_medium_conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "standard_deviation",
-     "of": "pressure_medium_volume_2_a3"
-    },
-    {
-     "name": "gold_volume_a3",
-     "quantity": "gold_calibrant_conventional_cell_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "gold_volume_sigma_a3",
-     "quantity": "gold_calibrant_conventional_cell_volume",
-     "unit": "angstrom^3",
-     "role": "standard_deviation",
-     "of": "gold_volume_a3"
+      "identifier": "klb1_ricolleau_2009_table_s1_ferropericlase_pvt",
+      "kind": "calibrated_pressure_volume_temperature",
+      "description": "Complete Ricolleau et al. (2009) Table S1 P-V-T series, projected onto the KLB-1 ferropericlase volume column and retaining every crossover observation.",
+      "reference": {
+        "authors": [
+          "Ricolleau",
+          "Fei",
+          "Cottrell",
+          "Watson",
+          "Deng",
+          "Zhang",
+          "Fiquet",
+          "Auzende",
+          "Roskosz",
+          "Morard",
+          "Prakapenka"
+        ],
+        "year": 2009,
+        "source": "Geophysical Research Letters",
+        "volume": "36",
+        "locator": "L06302",
+        "doi": "10.1029/2008GL036759"
+      },
+      "source_location": "Official Supporting Information Table S1",
+      "source_url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1029%2F2008GL036759&file=grl25568-sup-0002-ts01.txt",
+      "columns": [
+        {"name": "source_line", "quantity": "source_row", "unit": "1", "role": "flag"},
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_sigma_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "standard_deviation",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "mg_perovskite_volume_a3",
+          "quantity": "mg_perovskite_conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "value"
+        },
+        {
+          "name": "mg_perovskite_volume_sigma_a3",
+          "quantity": "mg_perovskite_conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "standard_deviation",
+          "of": "mg_perovskite_volume_a3"
+        },
+        {
+          "name": "ferropericlase_volume_a3",
+          "quantity": "ferropericlase_conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "value"
+        },
+        {
+          "name": "ferropericlase_volume_sigma_a3",
+          "quantity": "ferropericlase_conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "standard_deviation",
+          "of": "ferropericlase_volume_a3"
+        },
+        {
+          "name": "ca_perovskite_volume_a3",
+          "quantity": "ca_perovskite_conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "value"
+        },
+        {
+          "name": "ca_perovskite_volume_sigma_a3",
+          "quantity": "ca_perovskite_conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "standard_deviation",
+          "of": "ca_perovskite_volume_a3"
+        },
+        {
+          "name": "pressure_medium_volume_a3",
+          "quantity": "pressure_medium_conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "value"
+        },
+        {
+          "name": "pressure_medium_volume_sigma_a3",
+          "quantity": "pressure_medium_conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "standard_deviation",
+          "of": "pressure_medium_volume_a3"
+        },
+        {
+          "name": "pressure_medium_volume_2_a3",
+          "quantity": "secondary_pressure_medium_conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "value"
+        },
+        {
+          "name": "pressure_medium_volume_2_sigma_a3",
+          "quantity": "secondary_pressure_medium_conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "standard_deviation",
+          "of": "pressure_medium_volume_2_a3"
+        },
+        {
+          "name": "gold_volume_a3",
+          "quantity": "gold_calibrant_conventional_cell_volume",
+          "unit": "angstrom^3",
+          "role": "value"
+        },
+        {
+          "name": "gold_volume_sigma_a3",
+          "quantity": "gold_calibrant_conventional_cell_volume",
+          "unit": "angstrom^3",
+          "role": "standard_deviation",
+          "of": "gold_volume_a3"
+        }
+      ],
+      "resource": {
+        "path": "datasets/klb1-ricolleau-2009-table-s1-pvt.csv",
+        "sha256": "9d33c2a4c8ca7b4e4bc9d83e8881d89d7a0f41f42a252150e1d2fb360d77380f",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": [
+        "klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt",
+        "klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2"
+      ],
+      "uncertainty": {
+        "reported_as": "Table S1 parenthetical one-sigma values expanded according to the printed decimal precision.",
+        "covariance": "not_reported"
+      },
+      "provenance": {
+        "type": "transcribed_from_table",
+        "method": "Lossless field extraction from the publisher's plain-text Table S1; the complete source text, labels, footnotes, and secondary medium volumes are retained in datasets/klb1-ricolleau-2009-table-s1.tsv.",
+        "transcribed_on": "2026-09-08",
+        "raw_resource_sha256": "e3f504dcb8953dbd6ef0cc0d341090a05116d32c865b748b9c95173fb94e7aa1",
+        "publisher_download_sha256": "2900b2d436207ae4a62289b8fe9464a714f1a538fb7dc08f76651b7bd5d9d4d9"
+      }
     }
-   ],
-   "resource": {
-    "path": "datasets/klb1-ricolleau-2009-table-s1-pvt.csv",
-    "sha256": "9d33c2a4c8ca7b4e4bc9d83e8881d89d7a0f41f42a252150e1d2fb360d77380f",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt",
-    "klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2"
-   ],
-   "uncertainty": {
-    "reported_as": "Table S1 parenthetical one-sigma values expanded according to the printed decimal precision.",
-    "covariance": "not_reported"
-   },
-   "provenance": {
-    "type": "transcribed_from_table",
-    "method": "Lossless field extraction from the publisher's plain-text Table S1; the complete source text, labels, footnotes, and secondary medium volumes are retained in datasets/klb1-ricolleau-2009-table-s1.tsv.",
-    "transcribed_on": "2026-09-08",
-    "raw_resource_sha256": "e3f504dcb8953dbd6ef0cc0d341090a05116d32c865b748b9c95173fb94e7aa1",
-    "publisher_download_sha256": "2900b2d436207ae4a62289b8fe9464a714f1a538fb7dc08f76651b7bd5d9d4d9"
-   }
-  }
- ]
+  ]
 }

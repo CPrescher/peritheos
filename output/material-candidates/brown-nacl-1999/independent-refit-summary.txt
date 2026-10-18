@@ -1,0 +1,25 @@
+{
+  "id": "nacl_b1_historical_data_2026_refit",
+  "q": 1.5035191435500774,
+  "rms_gpa": {
+    "BK": 0.015109978829331095,
+    "ED_polynomial": 0.008666221203436625,
+    "shock": 0.18666547229397218
+  },
+  "validation": {
+    "yamamoto": "see JSON",
+    "janaf": "see JSON",
+    "yamamoto_max_relative_ks_difference": 0.04873083290846636,
+    "janaf_max_relative_cp_difference": 0.02071775809090326,
+    "cold_kt_range_gpa": [
+      12.166354967931955,
+      118.68213163189021
+    ],
+    "cold_kprime_range": [
+      3.1849500825374504,
+      6.416609183164287
+    ],
+    "initial_pressure_error_gpa": -1.810753153322353e-16,
+    "independence": "Elastic moduli and Cp held out of fitting/model choice; gamma0 adopts Spetzler's ambient value. These sources share historical auxiliary data."
+  }
+}

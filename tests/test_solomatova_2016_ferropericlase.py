@@ -1,12 +1,12 @@
 import csv
 import hashlib
-import json
 from pathlib import Path
 
 import numpy as np
 import pytest
 
 from peritheos import Material
+from scripts.eosmat_io import read_material
 from scripts.reproduce_solomatova_2016_ferropericlase import (
     TABLE_7,
     bm3_pressure,
@@ -29,11 +29,7 @@ MATERIALS = (
 
 def _documents() -> list[dict]:
     return [
-        json.loads(
-            (ROOT / f"peritheos/data/materials/{name}.eosmat").read_text(
-                encoding="utf-8"
-            )
-        )
+        read_material(ROOT / f"peritheos/data/materials/{name}.eosmat")
         for name in MATERIALS
     ]
 
@@ -151,11 +147,7 @@ def test_solomatova_recovered_earlier_observations_are_complete_and_immutable():
 
 
 def test_zhuravlev_source_owned_high_spin_bm2_is_first_class_and_executable():
-    document = json.loads(
-        (ROOT / "peritheos/data/materials/mg061fe039o.eosmat").read_text(
-            encoding="utf-8"
-        )
-    )
+    document = read_material(ROOT / "peritheos/data/materials/mg061fe039o.eosmat")
     identifier = "mg061fe039o_zhuravlev_2010_high_spin_bm2_5"
     source = next(
         record

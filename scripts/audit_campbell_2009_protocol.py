@@ -14,6 +14,8 @@ from pathlib import Path
 import numpy as np
 from scipy.optimize import least_squares
 
+from scripts.eosmat_io import read_material
+
 if __package__:
     from .reconstruct_seagle_2008_fcc import CELL_TO_MOLAR, fcc_pressure
     from .reconstruct_seagle_2008_pressures import hcp_pressure
@@ -50,7 +52,7 @@ def calibrant_pressure(v, t, scale):
         return hcp_pressure(v, t)
     if scale != "dewaele_2006_hypothesis":
         raise ValueError("Unknown pressure scale")
-    document = json.loads((ROOT / "peritheos/data/materials/iron.eosmat").read_text())
+    document = read_material(ROOT / "peritheos/data/materials/iron.eosmat")
     record = next(
         r
         for r in document["eos_records"]

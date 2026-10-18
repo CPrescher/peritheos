@@ -118,10 +118,10 @@ pub mod thermal;
 
 pub use batch::{CaloricEosBatch, IsothermalEosBatch, ThermalEosBatch};
 pub use eosmat::{
-    load_eosmat, load_eosmat_reader, load_eosmat_str, material_from_value, save_eosmat,
-    serialize_eosmat, validate_eosmat_document, EosRecord, EosmatError, EosmatErrorKind,
-    HugoniotBoundaryStatus, HugoniotBranchDomain, HugoniotBranchKind, HugoniotDomainKind,
-    HugoniotInitialState, HugoniotLoadingPath, HugoniotModel, HugoniotRecord,
+    export_eosmat_v3, load_eosmat, load_eosmat_reader, load_eosmat_str, material_from_value,
+    save_eosmat, serialize_eosmat, validate_eosmat_document, EosRecord, EosmatError,
+    EosmatErrorKind, HugoniotBoundaryStatus, HugoniotBranchDomain, HugoniotBranchKind,
+    HugoniotDomainKind, HugoniotInitialState, HugoniotLoadingPath, HugoniotModel, HugoniotRecord,
     HugoniotRecordMetadata, HugoniotState, HugoniotVolumeBasis, IsothermalModel, LoadedEos,
     Material, ThermalModel, EOSMAT_FORMAT, EOSMAT_FORMAT_VERSION,
 };

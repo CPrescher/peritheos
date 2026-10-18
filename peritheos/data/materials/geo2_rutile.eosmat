@@ -1,283 +1,251 @@
 {
- "format_version": 3,
- "name": "GeO2",
- "formula": "GeO2",
- "symmetry": "TETRAGONAL",
- "lattice": {
-  "a": 4.3963,
-  "b": 4.3963,
-  "c": 2.8626,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 2,
- "space_group": "P42/mnm",
- "space_group_number": 136,
- "atom_sites": [
-  {
-   "element": "Ge",
-   "wyckoff": "2a",
-   "x": 0.0,
-   "y": 0.0,
-   "z": 0.0,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "4f",
-   "x": 0.306,
-   "y": 0.306,
-   "z": 0.0,
-   "occupancy": 1.0
-  }
- ],
- "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/GeO2-rutile.jcpds. Ambient rutile-type structure: Haines et al., Physics and Chemistry of Minerals 27, 575-582 (2000).",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Hazen and Finger (1981), rutile GeO2 BM3",
-   "reference": {
-    "authors": [
-     "Hazen",
-     "Finger"
-    ],
-    "year": 1981,
-    "title": "Bulk moduli and high-pressure crystal structures of rutile-type compounds",
-    "source": "J. Phys. Chem. Solids",
-    "volume": "42",
-    "locator": "143-151",
-    "doi": "10.1016/0022-3697(81)90074-3"
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 55.3318,
-     "K0": 258.0,
-     "K0_prime": 7.0
-    },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": 5.0,
-    "K0_prime": null
-   },
-   "fixed_parameters": [
-    "K0_prime"
-   ],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    3.7
-   ],
-   "notes": "20 degC BM3 representation with K0' fixed at 7: K0=258+/-5 GPa. V0=55.3318 A^3 is calculated from the Table 3 ambient a0 and c0; the paper does not publish an EOS-fit V0 error or parameter covariance.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: EOS fit discussion, journal page 144; Tables 1 and 2, journal pages 145-146; Table 3, journal page 147."
-   },
-   "identifier": "geo2_rutile_hazen_1981_bm3_1",
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
-    },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://www.researchgate.net/publication/256267527_Bulk_Moduli_and_High-Pressure_Crystal_Structures_of_Rutile-Type_Compounds",
-     "locations": [
-      "EOS fit discussion, journal page 144",
-      "Tables 1 and 2, journal pages 145-146",
-      "Table 3, journal page 147"
-     ],
-     "finding": "The author-uploaded primary article reports K0 with K0'=7 assumed. The SnO2 and GeO2 V0 values are calculated from the Table 3 ambient lattice constants; no EOS-fit covariance or V0 error is published.",
-     "doi": "10.1016/0022-3697(81)90074-3"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "geo2_rutile.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "rutile_hazen_finger_1981_table1_sno2_geo2_compression"
-     ],
-     "source_locations": [
-      "Table 1, journal page 145"
-     ],
-     "finding": "The complete SnO2 and GeO2 subsets of Hazen and Finger Table 1: four compression observations for each rutile-type compound."
+  "format_version": 4,
+  "identifier": "geo2_rutile",
+  "name": "GeO2",
+  "formula": "GeO2",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 2,
+  "eos_records": [
+    {
+      "identifier": "geo2_rutile_hazen_1981_bm3_1",
+      "label": "Hazen and Finger (1981), rutile GeO2 BM3",
+      "model": "BM3",
+      "temperature_ref": 293.15,
+      "parameters": {
+        "V0": {"value": 55.3318, "error": null},
+        "K0": {"value": 258.0, "error": 5.0},
+        "K0_prime": {"value": 7.0, "error": null, "fixed": true}
+      },
+      "experimental_pressure_range_gpa": [0.0, 3.7],
+      "determination_method": "experimental",
+      "notes": "20 degC BM3 representation with K0' fixed at 7: K0=258+/-5 GPa. V0=55.3318 A^3 is calculated from the Table 3 ambient a0 and c0; the paper does not publish an EOS-fit V0 error or parameter covariance.",
+      "reference": {
+        "authors": ["Hazen", "Finger"],
+        "year": 1981,
+        "title": "Bulk moduli and high-pressure crystal structures of rutile-type compounds",
+        "source": "J. Phys. Chem. Solids",
+        "volume": "42",
+        "locator": "143-151",
+        "doi": "10.1016/0022-3697(81)90074-3"
+      },
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/geo2_rutile/#record-geo2_rutile_hazen_1981_bm3_1",
+            "report_path": "docs/reconstruction-reports/geo2_rutile.md#record-geo2_rutile_hazen_1981_bm3_1",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 55.3318,
+                "published_error": null,
+                "refit": 55.34595816308018,
+                "refit_error": 0.19592243212918378,
+                "difference": 0.014158163080175257,
+                "relative_difference": 0.0002558775076931395,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 258.0,
+                "published_error": 5.0,
+                "refit": 254.08238644719222,
+                "refit_error": 93.59331646668893,
+                "difference": -3.9176135528077793,
+                "relative_difference": 0.015184548654293719,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "compound=GeO2",
+              "columns": {"pressure": "pressure_kbar", "temperature": null, "volume": "unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 4,
+              "observed_pressure_range_gpa": [0.0001, 3.7],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [54.565, 55.33],
+              "degrees_of_freedom": 2,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.08548238728813126,
+              "published_rmse_gpa": 0.0951394177675683,
+              "reduced_chi_square": 0.014628832164344865,
+              "dataset_identifiers": ["rutile_hazen_finger_1981_table1_sno2_geo2_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://www.researchgate.net/publication/256267527_Bulk_Moduli_and_High-Pressure_Crystal_Structures_of_Rutile-Type_Compounds",
+            "locations": [
+              "EOS fit discussion, journal page 144",
+              "Tables 1 and 2, journal pages 145-146",
+              "Table 3, journal page 147"
+            ],
+            "finding": "The author-uploaded primary article reports K0 with K0'=7 assumed. The SnO2 and GeO2 V0 values are calculated from the Table 3 ambient lattice constants; no EOS-fit covariance or V0 error is published.",
+            "doi": "10.1016/0022-3697(81)90074-3"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "geo2_rutile.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["rutile_hazen_finger_1981_table1_sno2_geo2_compression"],
+            "source_locations": ["Table 1, journal page 145"],
+            "finding": "The complete SnO2 and GeO2 subsets of Hazen and Finger Table 1: four compression observations for each rutile-type compound."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: EOS fit discussion, journal page 144; Tables 1 and 2, journal pages 145-146; Table 3, journal page 147."
+        },
+        "audit_corrections": [
+          {
+            "path": "eos.parameters.V0",
+            "source_value": 55.3268,
+            "value": 55.3318,
+            "reason": "Calculated directly from the Table 3 ambient rutile lattice constants.",
+            "primary_reference": {"doi": "10.1016/0022-3697(81)90074-3", "location": "Tables 1-3 and EOS discussion, pages 144-147"}
+          },
+          {
+            "path": "experimental_pressure_range_gpa",
+            "source_value": [0.0, 5.0],
+            "value": [0.0, 3.7],
+            "reason": "Use the highest pressure tabulated for this material.",
+            "primary_reference": {"doi": "10.1016/0022-3697(81)90074-3", "location": "Tables 1-3 and EOS discussion, pages 144-147"}
+          }
+        ]
+      }
     }
-   },
-   "temperature_ref": 293.15,
-   "audit_corrections": [
+  ],
+  "symmetry": "TETRAGONAL",
+  "space_group": "P42/mnm",
+  "space_group_number": 136,
+  "lattice": {"a": 4.3963, "b": 4.3963, "c": 2.8626, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Ge", "wyckoff": "2a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "4f", "x": 0.306, "y": 0.306, "z": 0.0, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/GeO2-rutile.jcpds. Ambient rutile-type structure: Haines et al., Physics and Chemistry of Minerals 27, 575-582 (2000).",
+  "datasets": [
     {
-     "path": "eos.parameters.V0",
-     "source_value": 55.3268,
-     "value": 55.3318,
-     "reason": "Calculated directly from the Table 3 ambient rutile lattice constants.",
-     "primary_reference": {
-      "doi": "10.1016/0022-3697(81)90074-3",
-      "location": "Tables 1-3 and EOS discussion, pages 144-147"
-     }
-    },
-    {
-     "path": "experimental_pressure_range_gpa",
-     "source_value": [
-      0.0,
-      5.0
-     ],
-     "value": [
-      0.0,
-      3.7
-     ],
-     "reason": "Use the highest pressure tabulated for this material.",
-     "primary_reference": {
-      "doi": "10.1016/0022-3697(81)90074-3",
-      "location": "Tables 1-3 and EOS discussion, pages 144-147"
-     }
+      "identifier": "rutile_hazen_finger_1981_table1_sno2_geo2_compression",
+      "kind": "pressure_volume_lattice_parameters",
+      "description": "The complete SnO2 and GeO2 subsets of Hazen and Finger Table 1: four compression observations for each rutile-type compound.",
+      "source_location": "Table 1, journal page 145",
+      "source_url": "https://doi.org/10.1016/0022-3697(81)90074-3",
+      "columns": [
+        {"name": "compound", "quantity": "compound", "unit": "1", "role": "flag"},
+        {"name": "pressure_kbar", "quantity": "pressure", "unit": "kbar", "role": "value"},
+        {
+          "name": "pressure_uncertainty_kbar",
+          "quantity": "pressure",
+          "unit": "kbar",
+          "role": "bound",
+          "of": "pressure_kbar"
+        },
+        {
+          "name": "lattice_a1_angstrom",
+          "quantity": "triclinic_check_lattice_parameter_a1",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {
+          "name": "lattice_a1_uncertainty_angstrom",
+          "quantity": "triclinic_check_lattice_parameter_a1",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_a1_angstrom"
+        },
+        {
+          "name": "lattice_a2_angstrom",
+          "quantity": "triclinic_check_lattice_parameter_a2",
+          "unit": "angstrom",
+          "role": "value"
+        },
+        {
+          "name": "lattice_a2_uncertainty_angstrom",
+          "quantity": "triclinic_check_lattice_parameter_a2",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_a2_angstrom"
+        },
+        {"name": "lattice_c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_c_uncertainty_angstrom",
+          "quantity": "lattice_parameter_c",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_c_angstrom"
+        },
+        {
+          "name": "unit_cell_volume_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "value"
+        },
+        {
+          "name": "unit_cell_volume_uncertainty_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "standard_deviation",
+          "of": "unit_cell_volume_a3"
+        },
+        {"name": "axial_ratio", "quantity": "c_over_a", "unit": "1", "role": "value"},
+        {
+          "name": "axial_ratio_uncertainty",
+          "quantity": "c_over_a",
+          "unit": "1",
+          "role": "standard_deviation",
+          "of": "axial_ratio"
+        }
+      ],
+      "resource": {
+        "path": "datasets/rutile-hazen-finger-1981-table1-sno2-geo2-compression.csv",
+        "sha256": "6b43e168e8be0ca86166d4951b59d6646e669b93d31ae75f91c79b8d7ff953d6",
+        "media_type": "text/csv"
+      },
+      "notes": "The source refined cells as triclinic to test departures from tetragonal symmetry and reports standard deviations in parentheses. The three near-90-degree cell angles are omitted from this EOS-oriented transcription; both independently refined a dimensions, c, V, and c/a are retained. Ambient 0.001 kbar rows have no printed pressure uncertainty.",
+      "reference": {
+        "authors": ["Hazen", "Finger"],
+        "year": 1981,
+        "source": "J. Phys. Chem. Solids",
+        "volume": "42",
+        "locator": "143-151",
+        "doi": "10.1016/0022-3697(81)90074-3"
+      },
+      "used_by_eos_records": ["geo2_rutile_hazen_1981_bm3_1"]
     }
-   ]
-  }
- ],
- "format": "peritheos.material",
- "identifier": "geo2_rutile",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "datasets": [
-  {
-   "identifier": "rutile_hazen_finger_1981_table1_sno2_geo2_compression",
-   "kind": "pressure_volume_lattice_parameters",
-   "description": "The complete SnO2 and GeO2 subsets of Hazen and Finger Table 1: four compression observations for each rutile-type compound.",
-   "source_location": "Table 1, journal page 145",
-   "source_url": "https://doi.org/10.1016/0022-3697(81)90074-3",
-   "columns": [
-    {
-     "name": "compound",
-     "quantity": "compound",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "pressure_kbar",
-     "quantity": "pressure",
-     "unit": "kbar",
-     "role": "value"
-    },
-    {
-     "name": "pressure_uncertainty_kbar",
-     "quantity": "pressure",
-     "unit": "kbar",
-     "role": "bound",
-     "of": "pressure_kbar"
-    },
-    {
-     "name": "lattice_a1_angstrom",
-     "quantity": "triclinic_check_lattice_parameter_a1",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_a1_uncertainty_angstrom",
-     "quantity": "triclinic_check_lattice_parameter_a1",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "lattice_a1_angstrom"
-    },
-    {
-     "name": "lattice_a2_angstrom",
-     "quantity": "triclinic_check_lattice_parameter_a2",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_a2_uncertainty_angstrom",
-     "quantity": "triclinic_check_lattice_parameter_a2",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "lattice_a2_angstrom"
-    },
-    {
-     "name": "lattice_c_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_c_uncertainty_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "standard_deviation",
-     "of": "lattice_c_angstrom"
-    },
-    {
-     "name": "unit_cell_volume_a3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "unit_cell_volume_uncertainty_a3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "standard_deviation",
-     "of": "unit_cell_volume_a3"
-    },
-    {
-     "name": "axial_ratio",
-     "quantity": "c_over_a",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "axial_ratio_uncertainty",
-     "quantity": "c_over_a",
-     "unit": "1",
-     "role": "standard_deviation",
-     "of": "axial_ratio"
-    }
-   ],
-   "resource": {
-    "path": "datasets/rutile-hazen-finger-1981-table1-sno2-geo2-compression.csv",
-    "sha256": "6b43e168e8be0ca86166d4951b59d6646e669b93d31ae75f91c79b8d7ff953d6",
-    "media_type": "text/csv"
-   },
-   "notes": "The source refined cells as triclinic to test departures from tetragonal symmetry and reports standard deviations in parentheses. The three near-90-degree cell angles are omitted from this EOS-oriented transcription; both independently refined a dimensions, c, V, and c/a are retained. Ambient 0.001 kbar rows have no printed pressure uncertainty.",
-   "reference": {
-    "authors": [
-     "Hazen",
-     "Finger"
-    ],
-    "year": 1981,
-    "source": "J. Phys. Chem. Solids",
-    "volume": "42",
-    "locator": "143-151",
-    "doi": "10.1016/0022-3697(81)90074-3"
-   },
-   "used_by_eos_records": [
-    "geo2_rutile_hazen_1981_bm3_1"
-   ]
-  }
- ]
+  ]
 }

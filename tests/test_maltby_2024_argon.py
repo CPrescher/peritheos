@@ -7,6 +7,7 @@ import numpy as np
 import pytest
 
 from peritheos.eos.experimental.maltby_2024 import Maltby2024Published, fcc_shells
+from scripts.eosmat_io import read_material
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -68,9 +69,9 @@ def test_independent_si_quadrature_and_retained_literature_mismatch():
     assert abs(model.volume(0.001, 70) * 10 - 23.97) > 0.07
     assert model.thermal_pressure_increment(2.0, 300) == 0
     # The published implementation is available without a validation claim.
-    records = json.loads(
-        (ROOT / "peritheos/data/materials/argon_fcc.eosmat").read_text(encoding="utf-8")
-    )["eos_records"]
+    records = read_material(ROOT / "peritheos/data/materials/argon_fcc.eosmat")[
+        "eos_records"
+    ]
     record = next(row for row in records if "maltby" in row["identifier"])
     assert record["scientific_validation"]["status"] == "not_reproduced"
     assert record["default"] is False

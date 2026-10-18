@@ -49,20 +49,13 @@ CITATION_OVERRIDES = {
 
 PAPER_SCOPE_NOTES = {
     "10.1007/s00269-003-0353-z": (
-        "Brucite lattice-average volume EOSs accepted over the measured pressure ranges, "
-        "including H rearrangement; no H-order-resolved equilibrium model claimed. "
-        "300/473/673 K source moduli show conditional unweighted agreement with fixed "
-        "source V0. Original 873 K normalization is inconsistent (Fig. 6 markers imply "
-        "about 42.70 A^3 versus printed expansion's 42.516 A^3); original curve and "
-        "source-slope reconstruction remain qualified explicit selection. Separate "
-        "Peritheos 873 K and thermal table-data refits reproduce their own registered "
-        "coefficients with conditional covariance, not the original author's workflow. "
-        "Additional curved-expansion refits adopt published isotherm moduli; the "
-        "continuous variant uses published slopes with explicit 300 K anchors. "
-        "The shared ambient-data fit and its conditional covariance are Peritheos "
-        "results, not a recovered author expansion law. "
-        "Sun (2025) primary XRD supports layered average-lattice scope; He (2023) "
-        "supplies the primary ambient neutron structure. See the [audit](literature-reproductions/brucite.md)."
+        "Full published thermal EOS: parity not achieved, not recommended. "
+        "Only individually source-checked 300/473/673 K isotherms remain executable. "
+        "The original 873 K normalization and continuous source reconstruction are unresolved. "
+        "All seven Peritheos refits are historical diagnostics, withheld from executable "
+        "selection; numerical replay of those fits is not publication parity or a "
+        "validated replacement. Further model development is outside this curation task. "
+        "See the [audit](literature-reproductions/brucite.md)."
     ),
     "10.1180/002646100549427": (
         "Fe-bearing phase E volume EOS successfully recovered: parity within "
@@ -178,6 +171,34 @@ PAPER_SCOPE_NOTES = {
 # Keep the historical record ledger, but do not turn refit reproducibility
 # into a claim that every published author fit was reproduced.
 PAPER_REPRODUCTION_OVERRIDES = {
+    "10.1103/fxgq-96sg": {
+        "outcome": "partial_reproduction",
+        "summary": "Eight phase fits retain conditional coefficient parity. MgO and NaCl-B2 are not_reproduced and not recommended: the published curves give 1.161 and 0.622 GPa pressure RMS, versus 0.476 and 0.293 GPa for direct fixed-V0 diagnostic refits. Table S1 accounts for all 194 published DAC-2 MgO observations and 131 NaCl-B2 observations (125 above 35 GPa). Exact author fit-input completeness remains unconfirmed: the fitting description identifies this study's data, but data availability mentions other author-held data. See the [source-input audit](literature-reproductions/shen-smith-2026-cu-refits.md).",
+    },
+    "10.1063/5.0161038": {
+        "outcome": "parity_not_achieved",
+        "summary": "Final-paper protocol recheck: both Pd refits remain numerically similar; the two-width uncertainty comparison fails with absolute-error covariance but passes with residual-scaled covariance. Author objective, ambient treatment, constraints and covariance convention remain unrecovered. Scientific status not_reproduced denotes an unrecovered original fit, not a demonstrated failed author-protocol replay. Quantitative recommendation and Pd automatic default remain on hold pending clarification. The earlier adjusted-volume RMS comparison is corrected in the dedicated Frost audit.",
+    },
+    "10.2138/am-2022-8435": {
+        "outcome": "partial_reproduction",
+        "summary": "Bridgmanite fits retained; published CaSiO3 thermal parameterization not reproduced and not recommended. Its historical _refit identifier denotes Fu's published coefficients, not the separately attributed Peritheos refit.",
+    },
+    "10.1063/5.0179469": {
+        "outcome": "partial_reproduction",
+        "summary": "Experimental Pd BM3 fit not reproduced and not recommended; separate 0 K DFT record preserved. Pd automatic default selection is on hold after the separate Frost audit.",
+    },
+    "10.1016/j.pepi.2013.12.010": {
+        "outcome": "partial_reproduction",
+        "summary": "Five Fe-Ni thermal records not recommended: about 7.1 GPa RMS on the P7 hot data versus about 1.1 GPa reported. Separate isotherms retain their source-specific qualifications; Table 8 checkpoints do not resolve the thermal-data discrepancy.",
+    },
+    "10.1029/2009gl038107": {
+        "outcome": "withheld_unreproduced",
+        "summary": "Wadsleyite default on hold and deferred pending pressure-calibration and MGD mapping review; published coefficients and all 85 source rows preserved, no replacement default selected.",
+    },
+    "10.1007/s00269-003-0353-z": {
+        "outcome": "partial_reproduction",
+        "summary": "Three individual isotherms source-checked; full published thermal EOS not reproduced and not recommended. Unresolved source curves and all independent refits withheld as diagnostic evidence",
+    },
     "10.1029/95jb03254": {
         "outcome": "partial_reproduction",
         "summary": (

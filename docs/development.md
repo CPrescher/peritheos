@@ -59,6 +59,19 @@ UV_CACHE_DIR=/tmp/peritheos-uv-cache uv run pytest -q
 
 ## Documentation
 
+After editing material documents, keep the readable layout and generated views
+current:
+
+```bash
+python -m scripts.format_eosmat
+python -m scripts.generate_material_summaries
+python -m scripts.generate_catalog_coverage
+python -m scripts.generate_validation_summary
+```
+
+Each command accepts `--check` for read-only verification. See
+[Reading and editing EOSMAT](eosmat-authoring.md) for the simple authoring template.
+
 ```bash
 uv run --group docs mkdocs build --strict
 ```

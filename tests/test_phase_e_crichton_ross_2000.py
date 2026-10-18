@@ -13,6 +13,7 @@ from jsonschema import Draft202012Validator
 
 from peritheos import Material, eosmat_schema, get_material, get_material_document
 from peritheos.errors import MaterialError
+from scripts.eosmat_io import read_material
 from scripts.reproduce_phase_e_crichton_ross_2000 import (
     CARD,
     ERRORS,
@@ -32,7 +33,7 @@ from scripts.reproduce_phase_e_crichton_ross_2000 import (
 
 
 def document():
-    return json.loads(CARD.read_text(encoding="utf-8"))
+    return read_material(CARD)
 
 
 def test_bundled_identity_published_coefficients_and_reference_state():

@@ -25,6 +25,13 @@ SOURCE_FIELDS = {
     "fit_dataset",
 }
 
+CONVERGED_LEAST_SQUARES_MESSAGES = {
+    "`gtol` termination condition is satisfied.",
+    "`ftol` termination condition is satisfied.",
+    "`xtol` termination condition is satisfied.",
+    "Both `ftol` and `xtol` termination conditions are satisfied.",
+}
+
 
 def check_report(actual, saved, path="report"):
     """Require exact evidence/structure and bounded calculated float agreement.
@@ -34,7 +41,12 @@ def check_report(actual, saved, path="report"):
     in their stated
     units; coefficients and covariance use a 1e-24 floor so small coefficients
     cannot disappear behind a unit-sized absolute tolerance. Software versions
-    describe the archived run, while optimizer descriptions still match exactly.
+    describe the archived run. Successful least-squares termination descriptions
+    may differ between supported solvers; success and every numerical check still
+    agree. Latent-coordinate corrections allow 1e-5 of one reported sigma.
+    Successful multistart evaluation counts and gradient optimality describe
+    the solver run; counts stay positive and scaled optimality stays below
+    1e-3 or twice the archived value. They are not scientific classifications.
     """
     if type(actual) is not type(saved):
         raise ValueError(f"{path}: type differs")
@@ -48,6 +60,33 @@ def check_report(actual, saved, path="report"):
                     raise ValueError(f"{child}: source evidence differs")
             elif path.endswith(".software") and key in {"python", "numpy", "scipy"}:
                 continue
+            elif (
+                key == "solver_message"
+                and actual.get("solver_success") is True
+                and saved.get("solver_success") is True
+                and value in CONVERGED_LEAST_SQUARES_MESSAGES
+                and saved[key] in CONVERGED_LEAST_SQUARES_MESSAGES
+            ):
+                continue
+            elif ".multistart[" in path and key in {"nfev", "optimality"}:
+                if (
+                    actual.get("success") is not True
+                    or saved.get("success") is not True
+                ):
+                    check_report(value, saved[key], child)
+                elif key == "nfev":
+                    if (
+                        type(value) is not int
+                        or type(saved[key]) is not int
+                        or min(value, saved[key]) < 1
+                    ):
+                        raise ValueError(f"{child}: invalid solver evaluation count")
+                elif not math.isfinite(value) or not 0 <= value <= max(
+                    1e-3, 2 * saved[key]
+                ):
+                    raise ValueError(
+                        f"{child}: solver optimality exceeded replay bound"
+                    )
             else:
                 check_report(value, saved[key], child)
     elif isinstance(actual, list):
@@ -68,6 +107,12 @@ def check_report(actual, saved, path="report"):
             )
         )
         floor = 1e-24 if coefficient else 2e-7
+        if (
+            (".projection." in path and "_sigma[" in path)
+            or ".signed_orthogonal_distance_sigma[" in path
+            or path.endswith(".maximum_parameter_difference_in_native_standard_errors")
+        ):
+            floor = 1e-5
         relative = 1e-4
         if not math.isclose(actual, saved, rel_tol=relative, abs_tol=floor):
             raise ValueError(

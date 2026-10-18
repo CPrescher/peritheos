@@ -15,9 +15,7 @@ def test_generated_catalog_coverage_is_current_and_all_records_have_ledger_entri
         cwd=ROOT,
         check=True,
     )
-    coverage = json.loads(
-        (ROOT / "docs/data/catalog-coverage.json").read_text(encoding="utf-8")
-    )
+    coverage = json.loads((ROOT / "docs/data/catalog-coverage.json").read_text())
     assert coverage["ledgers"]["missing_from_refit_ledger"] == []
     assert coverage["ledgers"]["missing_from_source_audit"] == []
     assert coverage["ledgers"]["absent_from_catalog_refit_entries"] == []

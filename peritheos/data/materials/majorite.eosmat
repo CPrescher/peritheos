@@ -1,1055 +1,297 @@
 {
- "format_version": 3,
- "name": "Majorite (MgSiO3 tetragonal garnet)",
- "aliases": [
-  "MgSiO3 majorite",
-  "tetragonal MgSiO3 garnet"
- ],
- "formula": "MgSiO3",
- "symmetry": "TETRAGONAL",
- "lattice": {
-  "a": 11.501,
-  "b": 11.501,
-  "c": 11.48,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 32,
- "space_group": "I41/a",
- "space_group_number": 88,
- "notes": "Tetragonal MgSiO3 majorite consolidated from the duplicate Dioptas/JCPDS majorite and mgsio3-maj entries. The richer mgsio3-maj diffraction list is retained. The full I41/a structure, including partial Mg-Si octahedral disorder, is from Angel et al., American Mineralogist 74, 509-512 (1989), COD 9010029. The published coordinates were shifted by +1/2 along x to restore the standard I41/a origin specified in the paper's Table 2 note. Their conventional cell contains eight Mg4Si4O12 garnet units, equivalent to 32 MgSiO3 units; this corrects the earlier Z=16 metadata. Source file(s): JCPDS/current user/jcpds/mgsio3-maj.jcpds, JCPDS/dac_user_jcpds/mgsio3-maj.jcpds, JCPDS/current user/jcpds/ver3/majorite.jcpds.",
- "peaks": [
-  [
-   9,
-   3,
-   10,
-   0.8336,
-   2.0
-  ],
-  [
-   9,
-   10,
-   3,
-   0.8343,
-   1.0
-  ],
-  [
-   0,
-   8,
-   8,
-   1.0156,
-   1.0
-  ],
-  [
-   8,
-   8,
-   0,
-   1.0166,
-   1.0
-  ],
-  [
-   2,
-   4,
-   10,
-   1.0483,
-   1.0
-  ],
-  [
-   4,
-   2,
-   10,
-   1.0483,
-   1.0
-  ],
-  [
-   2,
-   10,
-   4,
-   1.0496,
-   1.0
-  ],
-  [
-   10,
-   2,
-   4,
-   1.0496,
-   1.0
-  ],
-  [
-   4,
-   10,
-   2,
-   1.0498,
-   1.0
-  ],
-  [
-   10,
-   4,
-   2,
-   1.0498,
-   1.0
-  ],
-  [
-   4,
-   8,
-   4,
-   1.1735,
-   1.0
-  ],
-  [
-   6,
-   4,
-   6,
-   1.2251,
-   2.0
-  ],
-  [
-   4,
-   6,
-   6,
-   1.2251,
-   3.0
-  ],
-  [
-   6,
-   6,
-   4,
-   1.2256,
-   2.0
-  ],
-  [
-   6,
-   1,
-   7,
-   1.2389,
-   1.0
-  ],
-  [
-   2,
-   4,
-   8,
-   1.2531,
-   1.0
-  ],
-  [
-   4,
-   2,
-   8,
-   1.2531,
-   1.0
-  ],
-  [
-   8,
-   2,
-   4,
-   1.2544,
-   1.0
-  ],
-  [
-   2,
-   8,
-   4,
-   1.2544,
-   2.0
-  ],
-  [
-   4,
-   8,
-   2,
-   1.2548,
-   1.0
-  ],
-  [
-   8,
-   4,
-   2,
-   1.2548,
-   1.0
-  ],
-  [
-   0,
-   4,
-   8,
-   1.284,
-   3.0
-  ],
-  [
-   0,
-   8,
-   4,
-   1.2854,
-   4.0
-  ],
-  [
-   4,
-   8,
-   0,
-   1.2859,
-   2.0
-  ],
-  [
-   8,
-   4,
-   0,
-   1.2859,
-   2.0
-  ],
-  [
-   2,
-   2,
-   8,
-   1.3532,
-   1.0
-  ],
-  [
-   2,
-   8,
-   2,
-   1.3553,
-   2.0
-  ],
-  [
-   3,
-   5,
-   6,
-   1.3733,
-   1.0
-  ],
-  [
-   3,
-   6,
-   5,
-   1.3737,
-   1.0
-  ],
-  [
-   5,
-   6,
-   3,
-   1.3743,
-   1.0
-  ],
-  [
-   2,
-   8,
-   0,
-   1.3947,
-   1.0
-  ],
-  [
-   0,
-   0,
-   8,
-   1.435,
-   3.0
-  ],
-  [
-   0,
-   8,
-   0,
-   1.4376,
-   7.0
-  ],
-  [
-   3,
-   2,
-   7,
-   1.4585,
-   2.0
-  ],
-  [
-   2,
-   7,
-   3,
-   1.4602,
-   1.0
-  ],
-  [
-   3,
-   7,
-   2,
-   1.4605,
-   1.0
-  ],
-  [
-   4,
-   2,
-   6,
-   1.5351,
-   11.0
-  ],
-  [
-   2,
-   4,
-   6,
-   1.5351,
-   14.0
-  ],
-  [
-   2,
-   6,
-   4,
-   1.5361,
-   10.0
-  ],
-  [
-   6,
-   2,
-   4,
-   1.5361,
-   17.0
-  ],
-  [
-   6,
-   4,
-   2,
-   1.5367,
-   9.0
-  ],
-  [
-   4,
-   6,
-   2,
-   1.5367,
-   16.0
-  ],
-  [
-   1,
-   2,
-   7,
-   1.5625,
-   1.0
-  ],
-  [
-   0,
-   4,
-   6,
-   1.5929,
-   11.0
-  ],
-  [
-   0,
-   6,
-   4,
-   1.594,
-   11.0
-  ],
-  [
-   4,
-   6,
-   0,
-   1.5949,
-   4.0
-  ],
-  [
-   6,
-   4,
-   0,
-   1.5949,
-   7.0
-  ],
-  [
-   4,
-   4,
-   4,
-   1.659,
-   8.0
-  ],
-  [
-   3,
-   1,
-   6,
-   1.6933,
-   1.0
-  ],
-  [
-   6,
-   1,
-   3,
-   1.6951,
-   1.0
-  ],
-  [
-   3,
-   6,
-   1,
-   1.6957,
-   1.0
-  ],
-  [
-   0,
-   2,
-   6,
-   1.8155,
-   6.0
-  ],
-  [
-   0,
-   6,
-   2,
-   1.8181,
-   6.0
-  ],
-  [
-   2,
-   6,
-   0,
-   1.8185,
-   2.0
-  ],
-  [
-   6,
-   2,
-   0,
-   1.8185,
-   5.0
-  ],
-  [
-   1,
-   1,
-   6,
-   1.8625,
-   3.0
-  ],
-  [
-   3,
-   2,
-   5,
-   1.8635,
-   2.0
-  ],
-  [
-   5,
-   2,
-   3,
-   1.8649,
-   1.0
-  ],
-  [
-   3,
-   5,
-   2,
-   1.8653,
-   1.0
-  ],
-  [
-   5,
-   3,
-   2,
-   1.8653,
-   1.0
-  ],
-  [
-   1,
-   6,
-   1,
-   1.8656,
-   2.0
-  ],
-  [
-   6,
-   1,
-   1,
-   1.8656,
-   4.0
-  ],
-  [
-   2,
-   4,
-   4,
-   1.9153,
-   1.0
-  ],
-  [
-   4,
-   2,
-   4,
-   1.9153,
-   1.0
-  ],
-  [
-   1,
-   2,
-   5,
-   2.0966,
-   4.0
-  ],
-  [
-   5,
-   1,
-   2,
-   2.0993,
-   1.0
-  ],
-  [
-   1,
-   5,
-   2,
-   2.0993,
-   2.0
-  ],
-  [
-   2,
-   5,
-   1,
-   2.0997,
-   1.0
-  ],
-  [
-   5,
-   2,
-   1,
-   2.0997,
-   4.0
-  ],
-  [
-   0,
-   1,
-   5,
-   2.2516,
-   2.0
-  ],
-  [
-   3,
-   1,
-   4,
-   2.253,
-   6.0
-  ],
-  [
-   1,
-   3,
-   4,
-   2.253,
-   8.0
-  ],
-  [
-   1,
-   4,
-   3,
-   2.2541,
-   6.0
-  ],
-  [
-   4,
-   1,
-   3,
-   2.2541,
-   7.0
-  ],
-  [
-   0,
-   5,
-   1,
-   2.2554,
-   0.0
-  ],
-  [
-   3,
-   4,
-   1,
-   2.2554,
-   6.0
-  ],
-  [
-   4,
-   3,
-   1,
-   2.2554,
-   8.0
-  ],
-  [
-   2,
-   2,
-   4,
-   2.3448,
-   25.0
-  ],
-  [
-   4,
-   2,
-   2,
-   2.3469,
-   24.0
-  ],
-  [
-   2,
-   4,
-   2,
-   2.3469,
-   29.0
-  ],
-  [
-   2,
-   3,
-   3,
-   2.4502,
-   24.0
-  ],
-  [
-   3,
-   2,
-   3,
-   2.4502,
-   25.0
-  ],
-  [
-   3,
-   3,
-   2,
-   2.4512,
-   23.0
-  ],
-  [
-   0,
-   2,
-   4,
-   2.5679,
-   67.0
-  ],
-  [
-   0,
-   4,
-   2,
-   2.5708,
-   70.0
-  ],
-  [
-   2,
-   4,
-   0,
-   2.5717,
-   25.0
-  ],
-  [
-   4,
-   2,
-   0,
-   2.5717,
-   44.0
-  ],
-  [
-   0,
-   0,
-   4,
-   2.87,
-   52.0
-  ],
-  [
-   0,
-   4,
-   0,
-   2.8752,
-   100.0
-  ],
-  [
-   1,
-   2,
-   3,
-   3.0702,
-   10.0
-  ],
-  [
-   1,
-   3,
-   2,
-   3.0722,
-   3.0
-  ],
-  [
-   3,
-   1,
-   2,
-   3.0722,
-   4.0
-  ],
-  [
-   3,
-   2,
-   1,
-   3.0734,
-   1.0
-  ],
-  [
-   2,
-   3,
-   1,
-   3.0734,
-   8.0
-  ],
-  [
-   2,
-   2,
-   2,
-   3.318,
-   5.0
-  ],
-  [
-   0,
-   1,
-   3,
-   3.631,
-   3.0
-  ],
-  [
-   0,
-   3,
-   1,
-   3.6363,
-   2.0
-  ],
-  [
-   0,
-   2,
-   2,
-   4.0625,
-   8.0
-  ],
-  [
-   2,
-   2,
-   0,
-   4.0662,
-   3.0
-  ],
-  [
-   1,
-   1,
-   2,
-   4.6895,
-   9.0
-  ],
-  [
-   2,
-   1,
-   1,
-   4.6938,
-   5.0
-  ],
-  [
-   1,
-   2,
-   1,
-   4.6938,
-   12.0
-  ],
-  [
-   0,
-   1,
-   1,
-   8.125,
-   2.0
+  "format_version": 4,
+  "identifier": "majorite",
+  "name": "Majorite (MgSiO3 tetragonal garnet)",
+  "formula": "MgSiO3",
+  "phase": "tetragonal MgSiO3 garnet (majorite), I41/a",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 32,
+  "eos_records": [
+    {
+      "identifier": "majorite_yagi_1992_bm3_1",
+      "label": "Yagi et al. (1992), MgSiO3 majorite BM3",
+      "model": "BM3",
+      "temperature_ref": 298.0,
+      "parameters": {
+        "V0": {"value": 1513.1, "error": null, "fixed": true},
+        "K0": {"value": 161.2, "error": null},
+        "K0_prime": {"value": 4.0, "error": null, "fixed": true}
+      },
+      "experimental_pressure_range_gpa": [0.0, 9.72],
+      "pressure_range_status": "reported_exactly",
+      "determination_method": "experimental",
+      "notes": "Room-temperature MgSiO3 tetragonal-garnet BM3 with the measured one-bar V0=1513.1 A^3 and K0'=4 assumed. The fit gives K0=161.2 GPa. The paper prints no fit error or covariance for V0 or K0, so the migrated +/-4 GPa value is removed rather than inferred from the separate composition-regression uncertainties. The diffraction structure in this file is an independent 1518.5 A^3 cell.",
+      "reference": {
+        "authors": ["Yagi", "Uchiyama", "Akaogi", "Ito"],
+        "year": 1992,
+        "title": "Isothermal compression curve of MgSiO3 tetragonal garnet",
+        "source": "Phys. Earth Planet. Inter.",
+        "volume": "74",
+        "locator": "1-7",
+        "doi": "10.1016/0031-9201(92)90063-2"
+      },
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/majorite/#record-majorite_yagi_1992_bm3_1",
+            "report_path": "docs/reconstruction-reports/majorite.md#record-majorite_yagi_1992_bm3_1",
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 161.2,
+                "published_error": null,
+                "refit": 160.73415834708604,
+                "refit_error": 2.1212704900581403,
+                "difference": -0.4658416529139515,
+                "relative_difference": 0.002889836556538161,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 10,
+              "observed_pressure_range_gpa": [1.43, 9.72],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [1435.7, 1500.4],
+              "degrees_of_freedom": 9,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.23325575852449987,
+              "published_rmse_gpa": 0.2338798726893578,
+              "reduced_chi_square": 0.06045360987204421,
+              "dataset_identifiers": ["majorite_yagi_1992_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/0031-9201(92)90063-2",
+            "locations": [
+              "page 4, Figure 3 and Birch-Murnaghan fit paragraph",
+              "page 4, Table 1 and V0 footnote",
+              "page 5, Table 2, this-study 1 bar cell"
+            ],
+            "finding": "The source prints K0=161.2 GPa for fixed K0'=4 and V0=1513.1 A^3, but no fit uncertainty for K0 or V0. The migrated +/-4 GPa was not a fit error from this EOS and is removed.",
+            "doi": "10.1016/0031-9201(92)90063-2"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "mgsio3.json; majorite.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["majorite_yagi_1992_table1_compression"],
+            "source_locations": ["Table 1, journal page 4"],
+            "finding": "All ten MgSiO3 majorite compression observations printed in Table 1."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 4, Figure 3 and Birch-Murnaghan fit paragraph; page 4, Table 1 and V0 footnote; page 5, Table 2, this-study 1 bar cell.",
+          "V0": "Yagi et al. (1992), Table 1 footnote and Table 2 this-study row",
+          "K0": "Yagi et al. (1992), page 4, Figure 3 fit paragraph",
+          "K0_prime": "Yagi et al. (1992), page 4: fixed at 4",
+          "equation": "Yagi et al. (1992), page 3, Birch-Murnaghan fit description"
+        }
+      }
+    }
+  ],
+  "aliases": ["MgSiO3 majorite", "tetragonal MgSiO3 garnet"],
+  "family_id": "garnet",
+  "symmetry": "TETRAGONAL",
+  "space_group": "I41/a",
+  "space_group_number": 88,
+  "lattice": {"a": 11.501, "b": 11.501, "c": 11.48, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Mg", "wyckoff": "16f", "x": 0.6253, "y": 0.0112, "z": 0.2587, "occupancy": 1.0},
+    {"element": "Mg", "wyckoff": "8e", "x": 0.5, "y": 0.25, "z": 0.6258, "occupancy": 1.0},
+    {"element": "Mg", "wyckoff": "8d", "x": 0.5, "y": 0.0, "z": 0.5, "occupancy": 0.8},
+    {"element": "Si", "wyckoff": "8d", "x": 0.5, "y": 0.0, "z": 0.5, "occupancy": 0.2},
+    {"element": "Mg", "wyckoff": "8c", "x": 0.5, "y": 0.0, "z": 0.0, "occupancy": 0.2},
+    {"element": "Si", "wyckoff": "8c", "x": 0.5, "y": 0.0, "z": 0.0, "occupancy": 0.8},
+    {"element": "Si", "wyckoff": "4b", "x": 0.5, "y": 0.25, "z": 0.375, "occupancy": 1.0},
+    {"element": "Si", "wyckoff": "4a", "x": 0.5, "y": 0.25, "z": 0.875, "occupancy": 1.0},
+    {"element": "Si", "wyckoff": "16f", "x": 0.6249, "y": 0.0065, "z": 0.7544, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "16f", "x": 0.5282, "y": 0.055, "z": 0.6633, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "16f", "x": 0.538, "y": -0.0471, "z": 0.8562, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "16f", "x": 0.7195, "y": 0.1023, "z": 0.8021, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "16f", "x": 0.715, "y": -0.0894, "z": 0.7, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "16f", "x": 0.4412, "y": 0.1617, "z": 0.468, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "16f", "x": 0.396, "y": 0.208, "z": 0.7851, "occupancy": 1.0}
+  ],
+  "peaks": [
+    [9, 3, 10, 0.8336, 2.0],
+    [9, 10, 3, 0.8343, 1.0],
+    [0, 8, 8, 1.0156, 1.0],
+    [8, 8, 0, 1.0166, 1.0],
+    [2, 4, 10, 1.0483, 1.0],
+    [4, 2, 10, 1.0483, 1.0],
+    [2, 10, 4, 1.0496, 1.0],
+    [10, 2, 4, 1.0496, 1.0],
+    [4, 10, 2, 1.0498, 1.0],
+    [10, 4, 2, 1.0498, 1.0],
+    [4, 8, 4, 1.1735, 1.0],
+    [6, 4, 6, 1.2251, 2.0],
+    [4, 6, 6, 1.2251, 3.0],
+    [6, 6, 4, 1.2256, 2.0],
+    [6, 1, 7, 1.2389, 1.0],
+    [2, 4, 8, 1.2531, 1.0],
+    [4, 2, 8, 1.2531, 1.0],
+    [8, 2, 4, 1.2544, 1.0],
+    [2, 8, 4, 1.2544, 2.0],
+    [4, 8, 2, 1.2548, 1.0],
+    [8, 4, 2, 1.2548, 1.0],
+    [0, 4, 8, 1.284, 3.0],
+    [0, 8, 4, 1.2854, 4.0],
+    [4, 8, 0, 1.2859, 2.0],
+    [8, 4, 0, 1.2859, 2.0],
+    [2, 2, 8, 1.3532, 1.0],
+    [2, 8, 2, 1.3553, 2.0],
+    [3, 5, 6, 1.3733, 1.0],
+    [3, 6, 5, 1.3737, 1.0],
+    [5, 6, 3, 1.3743, 1.0],
+    [2, 8, 0, 1.3947, 1.0],
+    [0, 0, 8, 1.435, 3.0],
+    [0, 8, 0, 1.4376, 7.0],
+    [3, 2, 7, 1.4585, 2.0],
+    [2, 7, 3, 1.4602, 1.0],
+    [3, 7, 2, 1.4605, 1.0],
+    [4, 2, 6, 1.5351, 11.0],
+    [2, 4, 6, 1.5351, 14.0],
+    [2, 6, 4, 1.5361, 10.0],
+    [6, 2, 4, 1.5361, 17.0],
+    [6, 4, 2, 1.5367, 9.0],
+    [4, 6, 2, 1.5367, 16.0],
+    [1, 2, 7, 1.5625, 1.0],
+    [0, 4, 6, 1.5929, 11.0],
+    [0, 6, 4, 1.594, 11.0],
+    [4, 6, 0, 1.5949, 4.0],
+    [6, 4, 0, 1.5949, 7.0],
+    [4, 4, 4, 1.659, 8.0],
+    [3, 1, 6, 1.6933, 1.0],
+    [6, 1, 3, 1.6951, 1.0],
+    [3, 6, 1, 1.6957, 1.0],
+    [0, 2, 6, 1.8155, 6.0],
+    [0, 6, 2, 1.8181, 6.0],
+    [2, 6, 0, 1.8185, 2.0],
+    [6, 2, 0, 1.8185, 5.0],
+    [1, 1, 6, 1.8625, 3.0],
+    [3, 2, 5, 1.8635, 2.0],
+    [5, 2, 3, 1.8649, 1.0],
+    [3, 5, 2, 1.8653, 1.0],
+    [5, 3, 2, 1.8653, 1.0],
+    [1, 6, 1, 1.8656, 2.0],
+    [6, 1, 1, 1.8656, 4.0],
+    [2, 4, 4, 1.9153, 1.0],
+    [4, 2, 4, 1.9153, 1.0],
+    [1, 2, 5, 2.0966, 4.0],
+    [5, 1, 2, 2.0993, 1.0],
+    [1, 5, 2, 2.0993, 2.0],
+    [2, 5, 1, 2.0997, 1.0],
+    [5, 2, 1, 2.0997, 4.0],
+    [0, 1, 5, 2.2516, 2.0],
+    [3, 1, 4, 2.253, 6.0],
+    [1, 3, 4, 2.253, 8.0],
+    [1, 4, 3, 2.2541, 6.0],
+    [4, 1, 3, 2.2541, 7.0],
+    [0, 5, 1, 2.2554, 0.0],
+    [3, 4, 1, 2.2554, 6.0],
+    [4, 3, 1, 2.2554, 8.0],
+    [2, 2, 4, 2.3448, 25.0],
+    [4, 2, 2, 2.3469, 24.0],
+    [2, 4, 2, 2.3469, 29.0],
+    [2, 3, 3, 2.4502, 24.0],
+    [3, 2, 3, 2.4502, 25.0],
+    [3, 3, 2, 2.4512, 23.0],
+    [0, 2, 4, 2.5679, 67.0],
+    [0, 4, 2, 2.5708, 70.0],
+    [2, 4, 0, 2.5717, 25.0],
+    [4, 2, 0, 2.5717, 44.0],
+    [0, 0, 4, 2.87, 52.0],
+    [0, 4, 0, 2.8752, 100.0],
+    [1, 2, 3, 3.0702, 10.0],
+    [1, 3, 2, 3.0722, 3.0],
+    [3, 1, 2, 3.0722, 4.0],
+    [3, 2, 1, 3.0734, 1.0],
+    [2, 3, 1, 3.0734, 8.0],
+    [2, 2, 2, 3.318, 5.0],
+    [0, 1, 3, 3.631, 3.0],
+    [0, 3, 1, 3.6363, 2.0],
+    [0, 2, 2, 4.0625, 8.0],
+    [2, 2, 0, 4.0662, 3.0],
+    [1, 1, 2, 4.6895, 9.0],
+    [2, 1, 1, 4.6938, 5.0],
+    [1, 2, 1, 4.6938, 12.0],
+    [0, 1, 1, 8.125, 2.0]
+  ],
+  "notes": "Tetragonal MgSiO3 majorite consolidated from the duplicate Dioptas/JCPDS majorite and mgsio3-maj entries. The richer mgsio3-maj diffraction list is retained. The full I41/a structure, including partial Mg-Si octahedral disorder, is from Angel et al., American Mineralogist 74, 509-512 (1989), COD 9010029. The published coordinates were shifted by +1/2 along x to restore the standard I41/a origin specified in the paper's Table 2 note. Their conventional cell contains eight Mg4Si4O12 garnet units, equivalent to 32 MgSiO3 units; this corrects the earlier Z=16 metadata. Source file(s): JCPDS/current user/jcpds/mgsio3-maj.jcpds, JCPDS/dac_user_jcpds/mgsio3-maj.jcpds, JCPDS/current user/jcpds/ver3/majorite.jcpds.",
+  "datasets": [
+    {
+      "identifier": "majorite_yagi_1992_table1_compression",
+      "kind": "pressure_volume_lattice_parameters",
+      "description": "All ten MgSiO3 majorite compression observations printed in Table 1.",
+      "source_location": "Table 1, journal page 4",
+      "source_url": "https://doi.org/10.1016/0031-9201(92)90063-2",
+      "columns": [
+        {"name": "run", "quantity": "run_identifier", "unit": "1", "role": "flag"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {"name": "lattice_c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
+        {
+          "name": "unit_cell_volume_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "value"
+        },
+        {"name": "normalized_volume", "quantity": "volume_ratio", "unit": "1", "role": "value"},
+        {"name": "rwp_percent", "quantity": "weighted_profile_r_factor", "unit": "percent", "role": "value"}
+      ],
+      "resource": {
+        "path": "datasets/majorite-yagi-1992-table1-compression.csv",
+        "sha256": "d205ba916754d4ccdf0662c700648787454aef4a7cae4dd322a40854dc5512fd",
+        "media_type": "text/csv"
+      },
+      "notes": "The source states that pressure errors are smaller than the plotting symbols and that WPPD lattice-parameter errors cannot be expressed as conventional least-squares error bars; none are inferred here. V/V0 uses V0=1513.1 A^3.",
+      "reference": {
+        "authors": ["Yagi", "Uchiyama", "Akaogi", "Ito"],
+        "year": 1992,
+        "source": "Phys. Earth Planet. Inter.",
+        "volume": "74",
+        "locator": "1-7",
+        "doi": "10.1016/0031-9201(92)90063-2"
+      },
+      "used_by_eos_records": ["majorite_yagi_1992_bm3_1"]
+    }
   ]
- ],
- "eos_records": [
-  {
-   "label": "Yagi et al. (1992), MgSiO3 majorite BM3",
-   "reference": {
-    "authors": [
-     "Yagi",
-     "Uchiyama",
-     "Akaogi",
-     "Ito"
-    ],
-    "year": 1992,
-    "title": "Isothermal compression curve of MgSiO3 tetragonal garnet",
-    "source": "Phys. Earth Planet. Inter.",
-    "volume": "74",
-    "locator": "1-7",
-    "doi": "10.1016/0031-9201(92)90063-2"
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 1513.1,
-     "K0": 161.2,
-     "K0_prime": 4.0
-    },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": null,
-    "K0_prime": null
-   },
-   "fixed_parameters": [
-    "V0",
-    "K0_prime"
-   ],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    9.72
-   ],
-   "notes": "Room-temperature MgSiO3 tetragonal-garnet BM3 with the measured one-bar V0=1513.1 A^3 and K0'=4 assumed. The fit gives K0=161.2 GPa. The paper prints no fit error or covariance for V0 or K0, so the migrated +/-4 GPa value is removed rather than inferred from the separate composition-regression uncertainties. The diffraction structure in this file is an independent 1518.5 A^3 cell.",
-   "determination_method": "experimental",
-   "identifier": "majorite_yagi_1992_bm3_1",
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
-    },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1016/0031-9201(92)90063-2",
-     "locations": [
-      "page 4, Figure 3 and Birch-Murnaghan fit paragraph",
-      "page 4, Table 1 and V0 footnote",
-      "page 5, Table 2, this-study 1 bar cell"
-     ],
-     "finding": "The source prints K0=161.2 GPa for fixed K0'=4 and V0=1513.1 A^3, but no fit uncertainty for K0 or V0. The migrated +/-4 GPa was not a fit error from this EOS and is removed.",
-     "doi": "10.1016/0031-9201(92)90063-2"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "mgsio3.json; majorite.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "majorite_yagi_1992_table1_compression"
-     ],
-     "source_locations": [
-      "Table 1, journal page 4"
-     ],
-     "finding": "All ten MgSiO3 majorite compression observations printed in Table 1."
-    }
-   },
-   "temperature_ref": 298.0,
-   "pressure_range_status": "reported_exactly",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 4, Figure 3 and Birch-Murnaghan fit paragraph; page 4, Table 1 and V0 footnote; page 5, Table 2, this-study 1 bar cell.",
-    "V0": "Yagi et al. (1992), Table 1 footnote and Table 2 this-study row",
-    "K0": "Yagi et al. (1992), page 4, Figure 3 fit paragraph",
-    "K0_prime": "Yagi et al. (1992), page 4: fixed at 4",
-    "equation": "Yagi et al. (1992), page 3, Birch-Murnaghan fit description"
-   }
-  }
- ],
- "atom_sites": [
-  {
-   "element": "Mg",
-   "wyckoff": "16f",
-   "x": 0.6253,
-   "y": 0.0112,
-   "z": 0.2587,
-   "occupancy": 1.0
-  },
-  {
-   "element": "Mg",
-   "wyckoff": "8e",
-   "x": 0.5,
-   "y": 0.25,
-   "z": 0.6258,
-   "occupancy": 1.0
-  },
-  {
-   "element": "Mg",
-   "wyckoff": "8d",
-   "x": 0.5,
-   "y": 0.0,
-   "z": 0.5,
-   "occupancy": 0.8
-  },
-  {
-   "element": "Si",
-   "wyckoff": "8d",
-   "x": 0.5,
-   "y": 0.0,
-   "z": 0.5,
-   "occupancy": 0.2
-  },
-  {
-   "element": "Mg",
-   "wyckoff": "8c",
-   "x": 0.5,
-   "y": 0.0,
-   "z": 0.0,
-   "occupancy": 0.2
-  },
-  {
-   "element": "Si",
-   "wyckoff": "8c",
-   "x": 0.5,
-   "y": 0.0,
-   "z": 0.0,
-   "occupancy": 0.8
-  },
-  {
-   "element": "Si",
-   "wyckoff": "4b",
-   "x": 0.5,
-   "y": 0.25,
-   "z": 0.375,
-   "occupancy": 1.0
-  },
-  {
-   "element": "Si",
-   "wyckoff": "4a",
-   "x": 0.5,
-   "y": 0.25,
-   "z": 0.875,
-   "occupancy": 1.0
-  },
-  {
-   "element": "Si",
-   "wyckoff": "16f",
-   "x": 0.6249,
-   "y": 0.0065,
-   "z": 0.7544,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "16f",
-   "x": 0.5282,
-   "y": 0.055,
-   "z": 0.6633,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "16f",
-   "x": 0.538,
-   "y": -0.0471,
-   "z": 0.8562,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "16f",
-   "x": 0.7195,
-   "y": 0.1023,
-   "z": 0.8021,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "16f",
-   "x": 0.715,
-   "y": -0.0894,
-   "z": 0.7,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "16f",
-   "x": 0.4412,
-   "y": 0.1617,
-   "z": 0.468,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "16f",
-   "x": 0.396,
-   "y": 0.208,
-   "z": 0.7851,
-   "occupancy": 1.0
-  }
- ],
- "format": "peritheos.material",
- "identifier": "majorite",
- "family_id": "garnet",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "phase": "tetragonal MgSiO3 garnet (majorite), I41/a",
- "datasets": [
-  {
-   "identifier": "majorite_yagi_1992_table1_compression",
-   "kind": "pressure_volume_lattice_parameters",
-   "description": "All ten MgSiO3 majorite compression observations printed in Table 1.",
-   "source_location": "Table 1, journal page 4",
-   "source_url": "https://doi.org/10.1016/0031-9201(92)90063-2",
-   "columns": [
-    {
-     "name": "run",
-     "quantity": "run_identifier",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "lattice_a_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "lattice_c_angstrom",
-     "quantity": "lattice_parameter_c",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "unit_cell_volume_a3",
-     "quantity": "conventional_unit_cell_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "normalized_volume",
-     "quantity": "volume_ratio",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "rwp_percent",
-     "quantity": "weighted_profile_r_factor",
-     "unit": "percent",
-     "role": "value"
-    }
-   ],
-   "resource": {
-    "path": "datasets/majorite-yagi-1992-table1-compression.csv",
-    "sha256": "d205ba916754d4ccdf0662c700648787454aef4a7cae4dd322a40854dc5512fd",
-    "media_type": "text/csv"
-   },
-   "notes": "The source states that pressure errors are smaller than the plotting symbols and that WPPD lattice-parameter errors cannot be expressed as conventional least-squares error bars; none are inferred here. V/V0 uses V0=1513.1 A^3.",
-   "reference": {
-    "authors": [
-     "Yagi",
-     "Uchiyama",
-     "Akaogi",
-     "Ito"
-    ],
-    "year": 1992,
-    "source": "Phys. Earth Planet. Inter.",
-    "volume": "74",
-    "locator": "1-7",
-    "doi": "10.1016/0031-9201(92)90063-2"
-   },
-   "used_by_eos_records": [
-    "majorite_yagi_1992_bm3_1"
-   ]
-  }
- ]
 }

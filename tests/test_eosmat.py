@@ -94,13 +94,14 @@ def test_complete_material_library_is_bundled_and_valid():
 
     assert len(identifiers) == 232
     assert len(set(identifiers)) == 232
-    assert sum(len(document["eos_records"]) for document in documents) == 672
+    assert sum(len(document["eos_records"]) for document in documents) == 663
     assert {
         document["identifier"] for document in documents if not document["eos_records"]
     } == {"coesite_v"}
     assert all(document["format"] == EOSMAT_FORMAT for document in documents)
     assert all(
-        document["format_version"] == EOSMAT_FORMAT_VERSION for document in documents
+        document["format_version"] in (3, EOSMAT_FORMAT_VERSION)
+        for document in documents
     )
     assert all(document["identifier"] in identifiers for document in documents)
     assert all(
@@ -152,11 +153,11 @@ def test_migrated_records_have_completed_primary_source_audit():
         for record in get_material_document(identifier)["eos_records"]
     ]
 
-    assert len({record["identifier"] for record in records}) == 672
+    assert len({record["identifier"] for record in records}) == 663
     statuses = [record["scientific_validation"]["status"] for record in records]
     assert set(statuses) == {"primary_source_validated", "deferred", "not_reproduced"}
-    assert statuses.count("primary_source_validated") == 660
-    assert statuses.count("deferred") == 3
+    assert statuses.count("primary_source_validated") == 641
+    assert statuses.count("deferred") == 4
     audit_dates = {
         record["identifier"]: record["scientific_validation"]["audit_date"]
         for record in records
@@ -270,6 +271,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "2026-10-12",
         "2026-10-15",
         "2026-10-16",
+        "2026-10-17",
     }
     assert all(
         record["scientific_validation"]["primary_source_check"] for record in records
@@ -339,7 +341,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         native_identifiers - legacy_native_identifiers - overnight_identifiers
     )
     assert len(overnight_identifiers) == 148
-    assert len(batch_identifiers) == 342
+    assert len(batch_identifiers) == 333
     assert {audit_dates[identifier] for identifier in batch_identifiers} == {
         "2026-09-01",
         "2026-09-03",
@@ -391,10 +393,10 @@ def test_primary_source_audit_report_covers_every_migrated_record():
     }
 
     assert report["summary"] == {
-        "records": 672,
-        "not_reproduced": 9,
-        "primary_source_validated": 660,
-        "deferred": 3,
+        "records": 663,
+        "not_reproduced": 18,
+        "primary_source_validated": 641,
+        "deferred": 4,
     }
     assert report["audit_date"] == "2026-09-24"
     assert {entry["record"] for entry in report["records"]} == bundled_ids
@@ -637,6 +639,12 @@ def test_shen_smith_simultaneous_volume_dataset_is_complete():
     assert sum(row["phase"] == "Cu" for row in rows) == 422
     assert sum(row["phase"] == "NaCl-B1" for row in rows) == 67
     assert sum(row["phase"] == "NaCl-B2" for row in rows) == 131
+    assert {int(row["run_number"]) for row in rows if row["phase"] == "MgO"} == set(
+        range(1, 195)
+    )
+    assert {
+        row["experiment"] for row in rows if row["phase"] in {"MgO", "NaCl-B2"}
+    } == {"DAC-2"}
     assert (
         sum(
             row["phase"] == "Pt" and row["measurement_sequence"] == "first"
@@ -869,7 +877,7 @@ def test_pressure_calibration_audit_covers_every_eos_record_and_links_resolve():
         for record in get_material_document(material_identifier)["eos_records"]
     ]
 
-    assert len(records) == 672
+    assert len(records) == 663
     assert set(list_eos_record_documents()) == {
         record["identifier"] for record in records
     }
@@ -951,7 +959,7 @@ def test_every_primary_validated_migrated_record_is_executable():
             except (TypeError, ValueError) as error:
                 failures.append(f"{record['identifier']}: {error}")
 
-    assert checked == 660
+    assert checked == 641
     assert failures == []
 
 
@@ -1711,7 +1719,10 @@ def test_shen_smith_2026_table_ii_vinet_regression_and_errors(
         if record["identifier"] == record_identifier
     )
     loaded_record = Material.from_eosmat(
-        document, record_identifiers=[record_identifier]
+        document,
+        record_identifiers=[record_identifier],
+        require_primary_validation=record_identifier
+        not in {"mgo_shen_2026_vinet_3", "nacl_b2_shen_2026_vinet_2"},
     ).eos_records[0]
 
     # Equation (4) and Table II are independently reproduced at X=0.9,
@@ -2080,6 +2091,7 @@ def test_primary_errors_and_explicit_campbell_mismatch_deferrals():
         "fe_fcc_campbell_2009_bm3_mgd",
         "feo_campbell_2009_bm3_mgd",
         "fes_vi_morard_2026_bm3_mgd",
+        "wadsleyite_katsura_2009_bm3_1",
     ]
 
     executable = Material.from_eosmat(
@@ -2982,7 +2994,7 @@ def test_migration_manifest_does_not_claim_a_dioptas_data_license():
     assert "license" not in manifest["source"]
     assert not root.joinpath("DIOPTAS_LICENSE.txt").is_file()
     assert manifest["materials"] == 232
-    assert manifest["eos_records"] == 672
+    assert manifest["eos_records"] == 663
     assert manifest["scientific_validation"]["audit_date"] == "2026-09-24"
 
 

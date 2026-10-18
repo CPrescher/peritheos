@@ -1,0 +1,23 @@
+{
+  "scope": "isolated commit snapshot; historical shared-checkout review is archived separately",
+  "parent_commit": "71085bbd0f415d8f7817eb952ebadc5ef31d9228",
+  "existing_records_with_source_payload_unchanged": 660,
+  "existing_material_dataset_declarations_unchanged": 231,
+  "existing_dataset_files_byte_unchanged": 445,
+  "new_brucite_records": 3,
+  "new_brucite_printed_observations": 102,
+  "python_focused_tests_passed": 775,
+  "rust_workspace_tests_passed": 158,
+  "ruff": "passed",
+  "mypy": "passed, 56 source files",
+  "clippy": "passed, all targets and features",
+  "numerical_audit": {
+    "not_refittable": 178,
+    "parity": 246,
+    "parity_not_achieved": 60,
+    "similar": 163,
+    "source_reconstruction": 16,
+    "total": 663
+  },
+  "strict_documentation": "passed"
+}

@@ -1,1200 +1,1114 @@
 {
- "format": "peritheos.material",
- "format_version": 3,
- "identifier": "mg075fe025o",
- "family_id": "mg_fe_monoxide",
- "name": "(Mg0.75Fe0.25)O B1 ferropericlase",
- "formula": "Mg0.75Fe0.25O",
- "phase": "B1 ferropericlase",
- "aliases": [
-  "(Mg0.75,Fe0.25)O",
-  "Fe25 ferropericlase"
- ],
- "cell_contents": "Four Mg0.75Fe0.25O formula units per conventional rocksalt cell.",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "symmetry": "CUBIC",
- "lattice": {
-  "a": 4.2427,
-  "b": 4.2427,
-  "c": 4.2427,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 4,
- "space_group": "Fm-3m",
- "space_group_number": 225,
- "atom_sites": [
-  {
-   "element": "Mg",
-   "wyckoff": "4a",
-   "x": 0.0,
-   "y": 0.0,
-   "z": 0.0,
-   "occupancy": 0.75,
-   "site_multiplicity": 4
-  },
-  {
-   "element": "Fe",
-   "wyckoff": "4a",
-   "x": 0.0,
-   "y": 0.0,
-   "z": 0.0,
-   "occupancy": 0.25,
-   "site_multiplicity": 4
-  },
-  {
-   "element": "O",
-   "wyckoff": "4b",
-   "x": 0.5,
-   "y": 0.5,
-   "z": 0.5,
-   "occupancy": 1.0,
-   "site_multiplicity": 4
-  }
- ],
- "peaks": [],
- "source": {
-  "structure_reference": {
-   "authors": [
-    "Matsui",
-    "Ito",
-    "Yamazaki",
-    "Yoshino",
-    "Guo",
-    "Shan",
-    "Higo",
-    "Funakoshi"
-   ],
-   "year": 2012,
-   "title": "Static compression of (Mg0.83,Fe0.17)O and (Mg0.75,Fe0.25)O ferropericlase up to 58 GPa at 300, 700, and 1100 K",
-   "source": "American Mineralogist",
-   "volume": "97",
-   "locator": "176-183",
-   "doi": "10.2138/am.2012.3937"
-  },
-  "structure_location": "Experiments, page 177; ambient lattice parameters and B1-NaCl phase assignment"
- },
- "notes": "Matsui et al. (2012) synthesized a stoichiometric B1-NaCl powder and report its ambient lattice parameter as 4.2427(2) A. The mixed cation sites are the ideal average rocksalt representation; neither EOS study reports an atomic-position refinement. The top-level phase label is deliberately spin-neutral because the record set now includes separately bounded high-spin and low-spin reference branches; each EOS record states its own spin regime.",
- "eos_records": [
-  {
-   "determination_method": "experimental",
-   "identifier": "mg075fe025o_matsui_2012_bm3_mgd_1",
-   "label": "Matsui et al. (2012), (Mg0.75Fe0.25)O high-spin BM3-MGD",
-   "record_kind": "published",
-   "equation_kind": "thermal",
-   "default_for": "equilibrium",
-   "reference": {
-    "authors": [
-     "Matsui",
-     "Ito",
-     "Yamazaki",
-     "Yoshino",
-     "Guo",
-     "Shan",
-     "Higo",
-     "Funakoshi"
-    ],
-    "year": 2012,
-    "title": "Static compression of (Mg0.83,Fe0.17)O and (Mg0.75,Fe0.25)O ferropericlase up to 58 GPa at 300, 700, and 1100 K",
-    "source": "American Mineralogist",
-    "volume": "97",
-    "locator": "176-183",
-    "doi": "10.2138/am.2012.3937"
-   },
-   "eos": {
-    "type": "BM3",
-    "model": "birch_murnaghan_3",
-    "parameters": {
-     "V0": 76.372,
-     "K0": 160.0,
-     "K0_prime": 4.22
-    }
-   },
-   "parameter_errors": {
-    "V0": 0.016,
-    "K0_prime": 0.03
-   },
-   "parameter_error_confidence": null,
-   "parameter_covariance": null,
-   "fixed_parameters": [
-    "K0"
-   ],
-   "temperature_ref": 300.0,
-   "thermal": {
-    "type": "MieGruneisenDebye",
-    "model": "mie_gruneisen_debye",
-    "debye_temperature_law": "integrated_gruneisen",
-    "thermal_pressure_reference": "reference_temperature",
-    "parameters": {
-     "Tr": 300.0,
-     "theta0": 500.0,
-     "gamma0": 1.64,
-     "q": 0.7,
-     "n": 2.0
-    },
-    "parameter_errors": {
-     "gamma0": 0.04,
-     "q": 0.2
-    },
-    "fixed_parameters": [
-     "Tr",
-     "theta0",
-     "n"
-    ]
-   },
-   "experimental_pressure_range_gpa": [
-    0.0,
-    47.0
-   ],
-   "pressure_range_status": "reported_exactly",
-   "experimental_temperature_range_k": [
-    300.0,
-    1100.0
-   ],
-   "fit_datasets": [
-    "mg075fe025o_matsui_2012_table2_pvt"
-   ],
-   "experimental_configuration": {
-    "sample": "Stoichiometric (Mg0.75Fe0.25)O B1 powder mixed with Au at approximately 10:1 Fp:Au by weight",
-    "pressure_cell": "Kawai-type multi-anvil SPEED-Mk.II with 14 mm sintered-diamond anvils and 0.75 mm truncations",
-    "pressure_gauge": "Au T-P-V EOS of Matsui (2010)",
-    "temperature_measurement": "W97Re3-W75Re25 thermocouple",
-    "diffraction": "Energy-dispersive synchrotron powder X-ray diffraction at SPring-8 BL04B1"
-   },
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 4.0,
-    "molar_mass_g_mol": 48.189
-   },
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experiments, page 177; Equations (1)-(6), pages 178-179; Tables 2 and 3, page 179; High-spin to low-spin transition, page 180.",
-    "equation": "Equations (1)-(6), pages 178-179: 300 K BM3 plus a Mie-Gruneisen-Debye thermal-pressure increment E_D(V,T)-E_D(V,300 K).",
-    "V0": "Table 3: V0=76.372(16) A^3, fitted from the 300 K rows below 47 GPa.",
-    "K0": "Table 3 and page 179: K0T=160 GPa, fixed from the MgO literature.",
-    "K0_prime": "Table 3: K0T'=4.22(3), fitted from the 300 K rows below 47 GPa.",
-    "theta0": "Table 3 and page 179: theta0=500 K, fixed from ferropericlase literature.",
-    "gamma0": "Table 3: gamma0=1.64(4), fitted to the 700 and 1100 K rows below 47 GPa.",
-    "q": "Table 3: q=0.7(2), fitted to the 700 and 1100 K rows below 47 GPa.",
-    "fit_selection": "The 300 K BM3 fit and subsequent 700/1100 K thermal fit use measured rows below 47 GPa; all higher-pressure rows are retained but excluded because the source limits the EOS to high-spin Fe2+.",
-    "weighting": "Least-squares fitting is stated for gamma0 and q, but the source does not publish weights, covariance, or the numerical fitting program."
-   },
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
-      "material": "Au",
-      "reference": {
-       "authors": [
-        "Matsui"
-       ],
-       "year": 2010,
-       "title": "High temperature and high pressure equation of state of gold",
-       "source": "Journal of Physics: Conference Series",
-       "volume": "215",
-       "locator": "012197",
-       "doi": "10.1088/1742-6596/215/1/012197"
+  "format_version": 4,
+  "identifier": "mg075fe025o",
+  "name": "(Mg0.75Fe0.25)O B1 ferropericlase",
+  "formula": "Mg0.75Fe0.25O",
+  "phase": "B1 ferropericlase",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 4,
+  "eos_records": [
+    {
+      "identifier": "mg075fe025o_matsui_2012_bm3_mgd_1",
+      "label": "Matsui et al. (2012), (Mg0.75Fe0.25)O high-spin BM3-MGD",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 76.372, "error": 0.016},
+        "K0": {"value": 160.0, "fixed": true},
+        "K0_prime": {"value": 4.22, "error": 0.03}
       },
-      "source_location": "Experiments, page 177; Tables 1-2",
-      "scope": "all rows"
-     }
-    ],
-    "recalculation": {
-     "status": "reference_eos_not_bundled",
-     "notes": "Tables 1-2 preserve the row-wise Au V/V0 observations and their uncertainties, but the Matsui (2010) Au thermal EOS is not bundled as an executable Peritheos calibration record."
-    },
-    "audit_date": "2026-09-05"
-   },
-   "validity": {
-    "pressure_gpa": [
-     0.0,
-     47.0
-    ],
-    "temperature_k": [
-     300.0,
-     1100.0
-    ],
-    "notes": [
-     "Valid only for the high-spin B1 branch; the paper deliberately excludes observations at and above the approximately 47 GPa cutoff from fitting.",
-     "The dataset retains all measurements through 57.85 GPa to expose the onset and growth of the spin-crossover volume anomaly."
-    ]
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-05",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://www.rruff.net/odr/view/downloadfile/81129",
-     "doi": "10.2138/am.2012.3937",
-     "locations": [
-      "Experiments, page 177",
-      "Equations (1)-(6), pages 178-179",
-      "Tables 2 and 3, page 179",
-      "High-spin to low-spin transition, page 180"
-     ],
-     "finding": "The source defines a reference-subtracted 300 K BM3-MGD EOS for stoichiometric high-spin (Mg0.75Fe0.25)O, fitted only below 47 GPa."
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-05",
-     "dataset_identifiers": [
-      "mg075fe025o_matsui_2012_table2_pvt"
-     ],
-     "source_locations": [
-      "Table 2, all 39 rows"
-     ],
-     "finding": "Every printed temperature, ferropericlase conventional-cell volume, Au V/V0, observed/calculated pressure, residual, and parenthetical uncertainty is transcribed; the high-pressure rows remain explicit exclusions."
-    }
-   },
-   "notes": "The thermal term is the source's explicitly reference-subtracted increment from 300 K, not absolute Debye pressure. Parameter errors are the printed parenthetical values; the confidence convention and covariance are not reported."
-  },
-  {
-   "determination_method": "experimental",
-   "identifier": "mg075fe025o_mao_2011_high_spin_bm3_1",
-   "label": "Mao et al. (2011), 300 K high-spin reference BM3",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Mao",
-     "Lin",
-     "Liu",
-     "Prakapenka"
-    ],
-    "year": 2011,
-    "title": "Thermal equation of state of lower-mantle ferropericlase across the spin crossover",
-    "source": "Geophysical Research Letters",
-    "volume": "38",
-    "locator": "L23308",
-    "doi": "10.1029/2011GL049915"
-   },
-   "sample_composition": "Polycrystalline (Mg0.75Fe0.25)O mixed with 5 wt.% Au",
-   "iron_speciation": "High-spin Fe2+ reference branch below the room-temperature 50-75 GPa crossover interval.",
-   "eos": {
-    "type": "BM3",
-    "model": "birch_murnaghan_3",
-    "parameters": {
-     "V0": 76.34,
-     "K0": 162.0,
-     "K0_prime": 4.0
-    }
-   },
-   "parameter_errors": {
-    "V0": 0.01,
-    "K0": 1.0,
-    "K0_prime": null
-   },
-   "parameter_error_confidence": null,
-   "parameter_covariance": null,
-   "fixed_parameters": [
-    "V0",
-    "K0_prime"
-   ],
-   "temperature_ref": 300.0,
-   "experimental_pressure_range_gpa": [
-    0.0,
-    48.4
-   ],
-   "pressure_range_status": "reported_qualitatively",
-   "experimental_temperature_range_k": [
-    300.0,
-    300.0
-   ],
-   "fit_datasets": [
-    "mg075fe025o_mao_2011_figure1_300k_digitized"
-   ],
-   "experimental_configuration": {
-    "sample": "Polycrystalline (Mg0.75Fe0.25)O mechanically ground for approximately 10 h with 5 wt.% Au and pressed into 10-15 micrometre disks",
-    "pressure_medium": "dried KCl below 60 GPa; dried NaCl above 60 GPa",
-    "pressure_cell": "laser-heated diamond-anvil cell with rhenium gasket",
-    "pressure_gauge": "in situ Au thermal EOS of Fei et al. (2007)",
-    "temperature_measurement": "double-sided spectroradiometry from 670-830 nm with an estimated 50 K uncertainty",
-    "diffraction": "synchrotron X-ray diffraction at GSECARS, Advanced Photon Source"
-   },
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 4.0,
-    "molar_mass_g_mol": 48.189
-   },
-   "validity": {
-    "pressure_gpa": [
-     0.0,
-     50.0
-    ],
-    "temperature_k": [
-     300.0,
-     300.0
-    ],
-    "notes": [
-     "This is the authors' 300 K high-spin reference branch, not the continuous spin-crossover model.",
-     "The source places the 300 K mixed-spin interval at 50-75 GPa; do not extend this branch through or above that interval.",
-     "The bundled points are digitized from corrected Figure 1 because the official Table S1 attachment was discoverable but returned HTTP 403 during this audit."
-    ]
-   },
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: corrected article, Experiments paragraphs 4-5; corrected article, Results paragraphs 6-7; corrected Figure 1; Correction DOI 10.1029/2011GL050814.",
-    "equation": "Corrected article, Results paragraph 7: third-order isothermal Birch-Murnaghan EOS fitted to the 300 K P-V data with K0'=4 fixed.",
-    "V0": "Corrected article, Results paragraph 7: V0=76.34(+/-0.01) A^3, explicitly marked fixed; conventional Fm-3m cell.",
-    "K0": "Corrected article, Results paragraph 7: KT0=162(+/-1) GPa for the high-spin state.",
-    "K0_prime": "Corrected article, Results paragraph 7: fixed K0'=4.",
-    "fit_selection": "Corrected Figure 1 room-temperature observations below the source's 50 GPa crossover onset; 15 digitized points at 0.0-48.4 GPa."
-   },
-   "pressure_calibration": {
-    "status": "partially_resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
-      "material": "Au",
-      "reference": {
-       "authors": [
-        "Fei",
-        "Ricolleau",
-        "Frank",
-        "Mibe",
-        "Shen",
-        "Prakapenka"
-       ],
-       "year": 2007,
-       "title": "Toward an internally consistent pressure scale",
-       "source": "Proceedings of the National Academy of Sciences",
-       "volume": "104",
-       "locator": "9182-9186",
-       "doi": "10.1073/pnas.0609013104"
+      "thermal": {
+        "model": "MieGruneisenDebye",
+        "parameters": {
+          "Tr": {"value": 300.0, "fixed": true},
+          "theta0": {"value": 500.0, "fixed": true},
+          "gamma0": {"value": 1.64, "error": 0.04},
+          "q": {"value": 0.7, "error": 0.2},
+          "n": {"value": 2.0, "fixed": true}
+        },
+        "thermal_pressure_reference": "reference_temperature",
+        "debye_temperature_law": "integrated_gruneisen"
       },
-      "source_location": "Corrected article, Experiments paragraph 5",
-      "scope": "all observations"
-     }
-    ],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The corrected article and Figure 1 do not provide row-wise Au lattice parameters; the reduced pressure scale cannot be recalculated from the digitized sample volumes."
-    },
-    "audit_date": "2026-09-05"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Validated against the corrected primary article and a direct digitization of corrected Figure 1. LitCurate was used for discovery only.",
-    "audit_date": "2026-09-05",
-    "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "spin_branch",
-     "equation",
-     "parameters",
-     "fixed_parameters",
-     "units",
-     "reference_state",
-     "published_uncertainties",
-     "validity",
-     "pressure_calibration",
-     "primary_data"
-    ],
-    "primary_source_check": {
-     "access_url": "https://www.jsg.utexas.edu/lin/files/MaoFp-EoSGRL2011.pdf",
-     "doi": "10.1029/2011GL049915",
-     "locations": [
-      "corrected article, Experiments paragraphs 4-5",
-      "corrected article, Results paragraphs 6-7",
-      "corrected Figure 1",
-      "Correction DOI 10.1029/2011GL050814"
-     ],
-     "finding": "The corrected source defines a 300 K high-spin BM3 reference curve with V0 fixed at 76.34 A^3, K0=162(1) GPa, and K0'=4 fixed."
-    },
-    "primary_data_check": {
-     "status": "bundled_digitized",
-     "audit_date": "2026-09-05",
-     "dataset_identifiers": [
-      "mg075fe025o_mao_2011_figure1_300k_digitized"
-     ],
-     "source_locations": [
-      "corrected Figure 1, black 300 K open circles"
-     ],
-     "finding": "All 42 visible 300 K Figure 1 markers are digitized; 15 below 50 GPa select the high-spin fit and 18 above 75 GPa select the low-spin fit, while nine crossover points remain explicit exclusions."
-    },
-    "independent_refit": {
-     "selection": "15 digitized 300 K observations at or below 48.4 GPa",
-     "objective": "unweighted pressure residuals; V0=76.34 A^3 and K0'=4 fixed",
-     "free_parameters": [
-      "K0"
-     ],
-     "refit_parameters": {
-      "K0": 163.0460834465
-     },
-     "published_curve_pressure_rmse_gpa": 0.2491706696,
-     "refit_curve_pressure_rmse_gpa": 0.1470033065,
-     "result": "parity_within_figure_digitization",
-     "notes": "The fitted K0 differs from the source by 1.05 GPa, comparable to the printed 1 GPa parameter uncertainty and the finite marker/line width. Restricting the pure high-spin subset to <=45 GPa gives K0=162.70 GPa."
-    },
-    "unresolved_issues": [
-     "The source gives no fit covariance, numerical objective, or weighting details.",
-     "The official Wiley Table S1 and Text S1 attachments were listed on the publisher page but returned HTTP 403 during this audit; Figure 1 digitization is therefore used instead of claiming a table transcription.",
-     "The source prints +/-0.01 A^3 next to the fixed high-spin V0 without defining how that uncertainty was propagated."
-    ]
-   },
-   "notes": "Stored as BM3 because the corrected source explicitly calls the fit third-order Birch-Murnaghan. With fixed K0_prime=4 it is algebraically identical to the BM2 special case."
-  },
-  {
-   "determination_method": "experimental",
-   "identifier": "mg075fe025o_mao_2011_low_spin_bm3_1",
-   "label": "Mao et al. (2011), 300 K low-spin reference BM3",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Mao",
-     "Lin",
-     "Liu",
-     "Prakapenka"
-    ],
-    "year": 2011,
-    "title": "Thermal equation of state of lower-mantle ferropericlase across the spin crossover",
-    "source": "Geophysical Research Letters",
-    "volume": "38",
-    "locator": "L23308",
-    "doi": "10.1029/2011GL049915"
-   },
-   "sample_composition": "Polycrystalline (Mg0.75Fe0.25)O mixed with 5 wt.% Au",
-   "iron_speciation": "Low-spin Fe2+ reference branch above the room-temperature 50-75 GPa crossover interval.",
-   "eos": {
-    "type": "BM3",
-    "model": "birch_murnaghan_3",
-    "parameters": {
-     "V0": 74.4,
-     "K0": 166.0,
-     "K0_prime": 4.0
-    }
-   },
-   "parameter_errors": {
-    "V0": 0.6,
-    "K0": 7.0,
-    "K0_prime": null
-   },
-   "parameter_error_confidence": null,
-   "parameter_covariance": null,
-   "fixed_parameters": [
-    "K0_prime"
-   ],
-   "temperature_ref": 300.0,
-   "experimental_pressure_range_gpa": [
-    76.1,
-    129.6
-   ],
-   "pressure_range_status": "reported_qualitatively",
-   "experimental_temperature_range_k": [
-    300.0,
-    300.0
-   ],
-   "fit_datasets": [
-    "mg075fe025o_mao_2011_figure1_300k_digitized"
-   ],
-   "experimental_configuration": {
-    "sample": "Polycrystalline (Mg0.75Fe0.25)O mechanically ground for approximately 10 h with 5 wt.% Au and pressed into 10-15 micrometre disks",
-    "pressure_medium": "dried KCl below 60 GPa; dried NaCl above 60 GPa",
-    "pressure_cell": "laser-heated diamond-anvil cell with rhenium gasket",
-    "pressure_gauge": "in situ Au thermal EOS of Fei et al. (2007)",
-    "temperature_measurement": "double-sided spectroradiometry from 670-830 nm with an estimated 50 K uncertainty",
-    "diffraction": "synchrotron X-ray diffraction at GSECARS, Advanced Photon Source"
-   },
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 4.0,
-    "molar_mass_g_mol": 48.189
-   },
-   "validity": {
-    "pressure_gpa": [
-     76.1,
-     129.6
-    ],
-    "temperature_k": [
-     300.0,
-     300.0
-    ],
-    "notes": [
-     "This is the authors' 300 K low-spin reference branch, not the continuous spin-crossover model.",
-     "The fitted V0 is an ambient-pressure extrapolation for the low-spin state; it is not an observable ambient low-spin cell volume.",
-     "Do not apply this branch below the first digitized post-crossover observation at 76.1 GPa."
-    ]
-   },
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: corrected article, Experiments paragraphs 4-5; corrected article, Results paragraphs 6-7; corrected Figure 1; Correction DOI 10.1029/2011GL050814.",
-    "equation": "Corrected article, Results paragraph 7: third-order isothermal Birch-Murnaghan EOS fitted to the 300 K P-V data with K0'=4 fixed.",
-    "V0": "Corrected article, Results paragraph 7: V0=74.4(+/-0.6) A^3 for the low-spin branch; conventional Fm-3m cell and ambient-pressure extrapolation.",
-    "K0": "Corrected article, Results paragraph 7: KT0=166(+/-7) GPa for the low-spin state.",
-    "K0_prime": "Corrected article, Results paragraph 7: fixed K0'=4.",
-    "fit_selection": "Corrected Figure 1 room-temperature observations above the source's 75 GPa crossover completion; 18 digitized points at 76.1-129.6 GPa."
-   },
-   "pressure_calibration": {
-    "status": "partially_resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
-      "material": "Au",
-      "reference": {
-       "authors": [
-        "Fei",
-        "Ricolleau",
-        "Frank",
-        "Mibe",
-        "Shen",
-        "Prakapenka"
-       ],
-       "year": 2007,
-       "title": "Toward an internally consistent pressure scale",
-       "source": "Proceedings of the National Academy of Sciences",
-       "volume": "104",
-       "locator": "9182-9186",
-       "doi": "10.1073/pnas.0609013104"
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 47.0],
+      "experimental_temperature_range_k": [300.0, 1100.0],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [0.0, 47.0],
+        "temperature_k": [300.0, 1100.0],
+        "notes": [
+          "Valid only for the high-spin B1 branch; the paper deliberately excludes observations at and above the approximately 47 GPa cutoff from fitting.",
+          "The dataset retains all measurements through 57.85 GPa to expose the onset and growth of the spin-crossover volume anomaly."
+        ]
       },
-      "source_location": "Corrected article, Experiments paragraph 5",
-      "scope": "all observations"
-     }
-    ],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "The corrected article and Figure 1 do not provide row-wise Au lattice parameters; the reduced pressure scale cannot be recalculated from the digitized sample volumes."
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "thermal",
+      "default_for": "equilibrium",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 48.189},
+      "experimental_configuration": {
+        "sample": "Stoichiometric (Mg0.75Fe0.25)O B1 powder mixed with Au at approximately 10:1 Fp:Au by weight",
+        "pressure_cell": "Kawai-type multi-anvil SPEED-Mk.II with 14 mm sintered-diamond anvils and 0.75 mm truncations",
+        "pressure_gauge": "Au T-P-V EOS of Matsui (2010)",
+        "temperature_measurement": "W97Re3-W75Re25 thermocouple",
+        "diffraction": "Energy-dispersive synchrotron powder X-ray diffraction at SPring-8 BL04B1"
+      },
+      "notes": "The thermal term is the source's explicitly reference-subtracted increment from 300 K, not absolute Debye pressure. Parameter errors are the printed parenthetical values; the confidence convention and covariance are not reported.",
+      "fit_datasets": ["mg075fe025o_matsui_2012_table2_pvt"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Matsui", "Ito", "Yamazaki", "Yoshino", "Guo", "Shan", "Higo", "Funakoshi"],
+        "year": 2012,
+        "title": "Static compression of (Mg0.83,Fe0.17)O and (Mg0.75,Fe0.25)O ferropericlase up to 58 GPa at 300, 700, and 1100 K",
+        "source": "American Mineralogist",
+        "volume": "97",
+        "locator": "176-183",
+        "doi": "10.2138/am.2012.3937"
+      },
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "Au",
+            "reference": {
+              "authors": ["Matsui"],
+              "year": 2010,
+              "title": "High temperature and high pressure equation of state of gold",
+              "source": "Journal of Physics: Conference Series",
+              "volume": "215",
+              "locator": "012197",
+              "doi": "10.1088/1742-6596/215/1/012197"
+            },
+            "source_location": "Experiments, page 177; Tables 1-2",
+            "scope": "all rows"
+          }
+        ],
+        "recalculation": {
+          "status": "reference_eos_not_bundled",
+          "notes": "Tables 1-2 preserve the row-wise Au V/V0 observations and their uncertainties, but the Matsui (2010) Au thermal EOS is not bundled as an executable Peritheos calibration record."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg075fe025o/#record-mg075fe025o_matsui_2012_bm3_mgd_1",
+            "report_path": "docs/reconstruction-reports/mg075fe025o.md#record-mg075fe025o_matsui_2012_bm3_mgd_1",
+            "parameters": [
+              {
+                "parameter": "rt_eos.V0",
+                "published": 76.372,
+                "published_error": 0.016,
+                "refit": 76.40503582384734,
+                "refit_error": 0.18384579982614763,
+                "difference": 0.03303582384734227,
+                "relative_difference": 0.00043256460283012455,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0_prime",
+                "published": 4.22,
+                "published_error": 0.03,
+                "refit": 4.185225919968749,
+                "refit_error": 0.2637882770525304,
+                "difference": -0.0347740800312506,
+                "relative_difference": 0.0082403033249409,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.64,
+                "published_error": 0.04,
+                "refit": 1.608143663069842,
+                "refit_error": 0.35503142776374286,
+                "difference": -0.03185633693015788,
+                "relative_difference": 0.01942459568912066,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "q",
+                "published": 0.7,
+                "published_error": 0.2,
+                "refit": 0.6430431368213168,
+                "refit_error": 1.6984949199180004,
+                "difference": -0.056956863178683204,
+                "relative_difference": 0.08136694739811887,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "errors_in_variables",
+              "selection": "fit_included=1",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["rt_eos.V0", "rt_eos.K0_prime", "gamma0", "q"],
+              "fixed_parameters": ["K0", "Tr", "theta0", "n"],
+              "observations": 30,
+              "observed_pressure_range_gpa": [0.0, 46.21],
+              "observed_temperature_range_k": [300.0, 1100.0],
+              "observed_volume_range": [63.411, 76.368],
+              "degrees_of_freedom": 26,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.13709017400991078,
+              "published_rmse_gpa": 0.14260978521533488,
+              "reduced_chi_square": 0.021797284416068916,
+              "dataset_identifiers": ["mg075fe025o_matsui_2012_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-05",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://www.rruff.net/odr/view/downloadfile/81129",
+            "doi": "10.2138/am.2012.3937",
+            "locations": [
+              "Experiments, page 177",
+              "Equations (1)-(6), pages 178-179",
+              "Tables 2 and 3, page 179",
+              "High-spin to low-spin transition, page 180"
+            ],
+            "finding": "The source defines a reference-subtracted 300 K BM3-MGD EOS for stoichiometric high-spin (Mg0.75Fe0.25)O, fitted only below 47 GPa."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-05",
+            "dataset_identifiers": ["mg075fe025o_matsui_2012_table2_pvt"],
+            "source_locations": ["Table 2, all 39 rows"],
+            "finding": "Every printed temperature, ferropericlase conventional-cell volume, Au V/V0, observed/calculated pressure, residual, and parenthetical uncertainty is transcribed; the high-pressure rows remain explicit exclusions."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experiments, page 177; Equations (1)-(6), pages 178-179; Tables 2 and 3, page 179; High-spin to low-spin transition, page 180.",
+          "equation": "Equations (1)-(6), pages 178-179: 300 K BM3 plus a Mie-Gruneisen-Debye thermal-pressure increment E_D(V,T)-E_D(V,300 K).",
+          "V0": "Table 3: V0=76.372(16) A^3, fitted from the 300 K rows below 47 GPa.",
+          "K0": "Table 3 and page 179: K0T=160 GPa, fixed from the MgO literature.",
+          "K0_prime": "Table 3: K0T'=4.22(3), fitted from the 300 K rows below 47 GPa.",
+          "theta0": "Table 3 and page 179: theta0=500 K, fixed from ferropericlase literature.",
+          "gamma0": "Table 3: gamma0=1.64(4), fitted to the 700 and 1100 K rows below 47 GPa.",
+          "q": "Table 3: q=0.7(2), fitted to the 700 and 1100 K rows below 47 GPa.",
+          "fit_selection": "The 300 K BM3 fit and subsequent 700/1100 K thermal fit use measured rows below 47 GPa; all higher-pressure rows are retained but excluded because the source limits the EOS to high-spin Fe2+.",
+          "weighting": "Least-squares fitting is stated for gamma0 and q, but the source does not publish weights, covariance, or the numerical fitting program."
+        }
+      }
     },
-    "audit_date": "2026-09-05"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Validated against the corrected primary article and a direct digitization of corrected Figure 1. LitCurate was used for discovery only.",
-    "audit_date": "2026-09-05",
-    "verified_fields": [
-     "canonical_doi",
-     "composition",
-     "phase",
-     "spin_branch",
-     "equation",
-     "parameters",
-     "fixed_parameters",
-     "units",
-     "reference_state",
-     "published_uncertainties",
-     "validity",
-     "pressure_calibration",
-     "primary_data"
-    ],
-    "primary_source_check": {
-     "access_url": "https://www.jsg.utexas.edu/lin/files/MaoFp-EoSGRL2011.pdf",
-     "doi": "10.1029/2011GL049915",
-     "locations": [
-      "corrected article, Experiments paragraphs 4-5",
-      "corrected article, Results paragraphs 6-7",
-      "corrected Figure 1",
-      "Correction DOI 10.1029/2011GL050814"
-     ],
-     "finding": "The corrected source defines a 300 K low-spin BM3 reference curve with V0=74.4(6) A^3, K0=166(7) GPa, and K0'=4 fixed."
+    {
+      "identifier": "mg075fe025o_mao_2011_high_spin_bm3_1",
+      "label": "Mao et al. (2011), 300 K high-spin reference BM3",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 76.34, "error": 0.01, "fixed": true},
+        "K0": {"value": 162.0, "error": 1.0},
+        "K0_prime": {"value": 4.0, "error": null, "fixed": true}
+      },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [0.0, 48.4],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_qualitatively",
+      "validity": {
+        "pressure_gpa": [0.0, 50.0],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "This is the authors' 300 K high-spin reference branch, not the continuous spin-crossover model.",
+          "The source places the 300 K mixed-spin interval at 50-75 GPa; do not extend this branch through or above that interval.",
+          "The bundled points are digitized from corrected Figure 1 because the official Table S1 attachment was discoverable but returned HTTP 403 during this audit."
+        ]
+      },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 48.189},
+      "sample_composition": "Polycrystalline (Mg0.75Fe0.25)O mixed with 5 wt.% Au",
+      "experimental_configuration": {
+        "sample": "Polycrystalline (Mg0.75Fe0.25)O mechanically ground for approximately 10 h with 5 wt.% Au and pressed into 10-15 micrometre disks",
+        "pressure_medium": "dried KCl below 60 GPa; dried NaCl above 60 GPa",
+        "pressure_cell": "laser-heated diamond-anvil cell with rhenium gasket",
+        "pressure_gauge": "in situ Au thermal EOS of Fei et al. (2007)",
+        "temperature_measurement": "double-sided spectroradiometry from 670-830 nm with an estimated 50 K uncertainty",
+        "diffraction": "synchrotron X-ray diffraction at GSECARS, Advanced Photon Source"
+      },
+      "notes": "Stored as BM3 because the corrected source explicitly calls the fit third-order Birch-Murnaghan. With fixed K0_prime=4 it is algebraically identical to the BM2 special case.",
+      "iron_speciation": "High-spin Fe2+ reference branch below the room-temperature 50-75 GPa crossover interval.",
+      "fit_datasets": ["mg075fe025o_mao_2011_figure1_300k_digitized"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Mao", "Lin", "Liu", "Prakapenka"],
+        "year": 2011,
+        "title": "Thermal equation of state of lower-mantle ferropericlase across the spin crossover",
+        "source": "Geophysical Research Letters",
+        "volume": "38",
+        "locator": "L23308",
+        "doi": "10.1029/2011GL049915"
+      },
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "Au",
+            "reference": {
+              "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
+              "year": 2007,
+              "title": "Toward an internally consistent pressure scale",
+              "source": "Proceedings of the National Academy of Sciences",
+              "volume": "104",
+              "locator": "9182-9186",
+              "doi": "10.1073/pnas.0609013104"
+            },
+            "source_location": "Corrected article, Experiments paragraph 5",
+            "scope": "all observations"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The corrected article and Figure 1 do not provide row-wise Au lattice parameters; the reduced pressure scale cannot be recalculated from the digitized sample volumes."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg075fe025o/#record-mg075fe025o_mao_2011_high_spin_bm3_1",
+            "report_path": "docs/reconstruction-reports/mg075fe025o.md#record-mg075fe025o_mao_2011_high_spin_bm3_1",
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 162.0,
+                "published_error": 1.0,
+                "refit": 163.04608344465686,
+                "refit_error": 0.20428211801495158,
+                "difference": 1.0460834446568583,
+                "relative_difference": 0.006457305213931224,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "used_in_high_spin_fit=1; reference-T rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 15,
+              "observed_pressure_range_gpa": [0.0, 48.4],
+              "observed_temperature_range_k": [300.0, 300.0],
+              "observed_volume_range": [62.56, 76.37],
+              "degrees_of_freedom": 14,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.14700330649375848,
+              "published_rmse_gpa": 0.24917066963263618,
+              "reduced_chi_square": 0.02315354155724774,
+              "dataset_identifiers": ["mg075fe025o_mao_2011_figure1_300k_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Validated against the corrected primary article and a direct digitization of corrected Figure 1. LitCurate was used for discovery only.",
+          "audit_date": "2026-09-05",
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "phase",
+            "spin_branch",
+            "equation",
+            "parameters",
+            "fixed_parameters",
+            "units",
+            "reference_state",
+            "published_uncertainties",
+            "validity",
+            "pressure_calibration",
+            "primary_data"
+          ],
+          "primary_source_check": {
+            "access_url": "https://www.jsg.utexas.edu/lin/files/MaoFp-EoSGRL2011.pdf",
+            "doi": "10.1029/2011GL049915",
+            "locations": [
+              "corrected article, Experiments paragraphs 4-5",
+              "corrected article, Results paragraphs 6-7",
+              "corrected Figure 1",
+              "Correction DOI 10.1029/2011GL050814"
+            ],
+            "finding": "The corrected source defines a 300 K high-spin BM3 reference curve with V0 fixed at 76.34 A^3, K0=162(1) GPa, and K0'=4 fixed."
+          },
+          "primary_data_check": {
+            "status": "bundled_digitized",
+            "audit_date": "2026-09-05",
+            "dataset_identifiers": ["mg075fe025o_mao_2011_figure1_300k_digitized"],
+            "source_locations": ["corrected Figure 1, black 300 K open circles"],
+            "finding": "All 42 visible 300 K Figure 1 markers are digitized; 15 below 50 GPa select the high-spin fit and 18 above 75 GPa select the low-spin fit, while nine crossover points remain explicit exclusions."
+          },
+          "independent_refit": {
+            "selection": "15 digitized 300 K observations at or below 48.4 GPa",
+            "objective": "unweighted pressure residuals; V0=76.34 A^3 and K0'=4 fixed",
+            "free_parameters": ["K0"],
+            "refit_parameters": {"K0": 163.0460834465},
+            "published_curve_pressure_rmse_gpa": 0.2491706696,
+            "refit_curve_pressure_rmse_gpa": 0.1470033065,
+            "result": "parity_within_figure_digitization",
+            "notes": "The fitted K0 differs from the source by 1.05 GPa, comparable to the printed 1 GPa parameter uncertainty and the finite marker/line width. Restricting the pure high-spin subset to <=45 GPa gives K0=162.70 GPa."
+          },
+          "unresolved_issues": [
+            "The source gives no fit covariance, numerical objective, or weighting details.",
+            "The official Wiley Table S1 and Text S1 attachments were listed on the publisher page but returned HTTP 403 during this audit; Figure 1 digitization is therefore used instead of claiming a table transcription.",
+            "The source prints +/-0.01 A^3 next to the fixed high-spin V0 without defining how that uncertainty was propagated."
+          ]
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: corrected article, Experiments paragraphs 4-5; corrected article, Results paragraphs 6-7; corrected Figure 1; Correction DOI 10.1029/2011GL050814.",
+          "equation": "Corrected article, Results paragraph 7: third-order isothermal Birch-Murnaghan EOS fitted to the 300 K P-V data with K0'=4 fixed.",
+          "V0": "Corrected article, Results paragraph 7: V0=76.34(+/-0.01) A^3, explicitly marked fixed; conventional Fm-3m cell.",
+          "K0": "Corrected article, Results paragraph 7: KT0=162(+/-1) GPa for the high-spin state.",
+          "K0_prime": "Corrected article, Results paragraph 7: fixed K0'=4.",
+          "fit_selection": "Corrected Figure 1 room-temperature observations below the source's 50 GPa crossover onset; 15 digitized points at 0.0-48.4 GPa."
+        }
+      }
     },
-    "primary_data_check": {
-     "status": "bundled_digitized",
-     "audit_date": "2026-09-05",
-     "dataset_identifiers": [
-      "mg075fe025o_mao_2011_figure1_300k_digitized"
-     ],
-     "source_locations": [
-      "corrected Figure 1, black 300 K open circles"
-     ],
-     "finding": "All 42 visible 300 K Figure 1 markers are digitized; 15 below 50 GPa select the high-spin fit and 18 above 75 GPa select the low-spin fit, while nine crossover points remain explicit exclusions."
+    {
+      "identifier": "mg075fe025o_mao_2011_low_spin_bm3_1",
+      "label": "Mao et al. (2011), 300 K low-spin reference BM3",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 74.4, "error": 0.6},
+        "K0": {"value": 166.0, "error": 7.0},
+        "K0_prime": {"value": 4.0, "error": null, "fixed": true}
+      },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [76.1, 129.6],
+      "experimental_temperature_range_k": [300.0, 300.0],
+      "pressure_range_status": "reported_qualitatively",
+      "validity": {
+        "pressure_gpa": [76.1, 129.6],
+        "temperature_k": [300.0, 300.0],
+        "notes": [
+          "This is the authors' 300 K low-spin reference branch, not the continuous spin-crossover model.",
+          "The fitted V0 is an ambient-pressure extrapolation for the low-spin state; it is not an observable ambient low-spin cell volume.",
+          "Do not apply this branch below the first digitized post-crossover observation at 76.1 GPa."
+        ]
+      },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4.0, "molar_mass_g_mol": 48.189},
+      "sample_composition": "Polycrystalline (Mg0.75Fe0.25)O mixed with 5 wt.% Au",
+      "experimental_configuration": {
+        "sample": "Polycrystalline (Mg0.75Fe0.25)O mechanically ground for approximately 10 h with 5 wt.% Au and pressed into 10-15 micrometre disks",
+        "pressure_medium": "dried KCl below 60 GPa; dried NaCl above 60 GPa",
+        "pressure_cell": "laser-heated diamond-anvil cell with rhenium gasket",
+        "pressure_gauge": "in situ Au thermal EOS of Fei et al. (2007)",
+        "temperature_measurement": "double-sided spectroradiometry from 670-830 nm with an estimated 50 K uncertainty",
+        "diffraction": "synchrotron X-ray diffraction at GSECARS, Advanced Photon Source"
+      },
+      "notes": "Stored as BM3 because the corrected source explicitly calls the fit third-order Birch-Murnaghan. With fixed K0_prime=4 it is algebraically identical to the BM2 special case.",
+      "iron_speciation": "Low-spin Fe2+ reference branch above the room-temperature 50-75 GPa crossover interval.",
+      "fit_datasets": ["mg075fe025o_mao_2011_figure1_300k_digitized"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Mao", "Lin", "Liu", "Prakapenka"],
+        "year": 2011,
+        "title": "Thermal equation of state of lower-mantle ferropericlase across the spin crossover",
+        "source": "Geophysical Research Letters",
+        "volume": "38",
+        "locator": "L23308",
+        "doi": "10.1029/2011GL049915"
+      },
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "material": "Au",
+            "reference": {
+              "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
+              "year": 2007,
+              "title": "Toward an internally consistent pressure scale",
+              "source": "Proceedings of the National Academy of Sciences",
+              "volume": "104",
+              "locator": "9182-9186",
+              "doi": "10.1073/pnas.0609013104"
+            },
+            "source_location": "Corrected article, Experiments paragraph 5",
+            "scope": "all observations"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The corrected article and Figure 1 do not provide row-wise Au lattice parameters; the reduced pressure scale cannot be recalculated from the digitized sample volumes."
+        },
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg075fe025o/#record-mg075fe025o_mao_2011_low_spin_bm3_1",
+            "report_path": "docs/reconstruction-reports/mg075fe025o.md#record-mg075fe025o_mao_2011_low_spin_bm3_1",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 74.4,
+                "published_error": 0.6,
+                "refit": 74.47146125145545,
+                "refit_error": 0.2505953853343565,
+                "difference": 0.07146125145544602,
+                "relative_difference": 0.0009605006916054571,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 166.0,
+                "published_error": 7.0,
+                "refit": 165.661876074916,
+                "refit_error": 2.8145952408916743,
+                "difference": -0.33812392508400535,
+                "relative_difference": 0.0020368911149638877,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "used_in_low_spin_fit=1; reference-T rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 18,
+              "observed_pressure_range_gpa": [76.1, 129.6],
+              "observed_temperature_range_k": [300.0, 300.0],
+              "observed_volume_range": [51.42, 57.01],
+              "degrees_of_freedom": 16,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.39706923036938496,
+              "published_rmse_gpa": 0.4942818332299435,
+              "reduced_chi_square": 0.1773719704194027,
+              "dataset_identifiers": ["mg075fe025o_mao_2011_figure1_300k_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Validated against the corrected primary article and a direct digitization of corrected Figure 1. LitCurate was used for discovery only.",
+          "audit_date": "2026-09-05",
+          "verified_fields": [
+            "canonical_doi",
+            "composition",
+            "phase",
+            "spin_branch",
+            "equation",
+            "parameters",
+            "fixed_parameters",
+            "units",
+            "reference_state",
+            "published_uncertainties",
+            "validity",
+            "pressure_calibration",
+            "primary_data"
+          ],
+          "primary_source_check": {
+            "access_url": "https://www.jsg.utexas.edu/lin/files/MaoFp-EoSGRL2011.pdf",
+            "doi": "10.1029/2011GL049915",
+            "locations": [
+              "corrected article, Experiments paragraphs 4-5",
+              "corrected article, Results paragraphs 6-7",
+              "corrected Figure 1",
+              "Correction DOI 10.1029/2011GL050814"
+            ],
+            "finding": "The corrected source defines a 300 K low-spin BM3 reference curve with V0=74.4(6) A^3, K0=166(7) GPa, and K0'=4 fixed."
+          },
+          "primary_data_check": {
+            "status": "bundled_digitized",
+            "audit_date": "2026-09-05",
+            "dataset_identifiers": ["mg075fe025o_mao_2011_figure1_300k_digitized"],
+            "source_locations": ["corrected Figure 1, black 300 K open circles"],
+            "finding": "All 42 visible 300 K Figure 1 markers are digitized; 15 below 50 GPa select the high-spin fit and 18 above 75 GPa select the low-spin fit, while nine crossover points remain explicit exclusions."
+          },
+          "independent_refit": {
+            "selection": "18 digitized 300 K observations at or above 76.1 GPa",
+            "objective": "unweighted pressure residuals; K0'=4 fixed",
+            "free_parameters": ["V0", "K0"],
+            "refit_parameters": {"V0": 74.47146131, "K0": 165.6618754184},
+            "published_curve_pressure_rmse_gpa": 0.4942818332,
+            "refit_curve_pressure_rmse_gpa": 0.3970692304,
+            "result": "parity_within_figure_digitization",
+            "notes": "Both free coefficients are recovered well inside the printed uncertainties from the digitized primary figure."
+          },
+          "unresolved_issues": [
+            "The source gives no fit covariance, numerical objective, or weighting details.",
+            "The official Wiley Table S1 and Text S1 attachments were listed on the publisher page but returned HTTP 403 during this audit; Figure 1 digitization is therefore used instead of claiming a table transcription."
+          ]
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: corrected article, Experiments paragraphs 4-5; corrected article, Results paragraphs 6-7; corrected Figure 1; Correction DOI 10.1029/2011GL050814.",
+          "equation": "Corrected article, Results paragraph 7: third-order isothermal Birch-Murnaghan EOS fitted to the 300 K P-V data with K0'=4 fixed.",
+          "V0": "Corrected article, Results paragraph 7: V0=74.4(+/-0.6) A^3 for the low-spin branch; conventional Fm-3m cell and ambient-pressure extrapolation.",
+          "K0": "Corrected article, Results paragraph 7: KT0=166(+/-7) GPa for the low-spin state.",
+          "K0_prime": "Corrected article, Results paragraph 7: fixed K0'=4.",
+          "fit_selection": "Corrected Figure 1 room-temperature observations above the source's 75 GPa crossover completion; 18 digitized points at 76.1-129.6 GPa."
+        }
+      }
     },
-    "independent_refit": {
-     "selection": "18 digitized 300 K observations at or above 76.1 GPa",
-     "objective": "unweighted pressure residuals; K0'=4 fixed",
-     "free_parameters": [
-      "V0",
-      "K0"
-     ],
-     "refit_parameters": {
-      "V0": 74.47146131,
-      "K0": 165.6618754184
-     },
-     "published_curve_pressure_rmse_gpa": 0.4942818332,
-     "refit_curve_pressure_rmse_gpa": 0.3970692304,
-     "result": "parity_within_figure_digitization",
-     "notes": "Both free coefficients are recovered well inside the printed uncertainties from the digitized primary figure."
+    {
+      "identifier": "mg075fe025o_leonov_2017_hs_bm3_1",
+      "label": "Leonov et al. (2017), Mg0.75Fe0.25O high-spin DFT+DMFT BM3",
+      "model": "BM3",
+      "temperature_ref": 1160,
+      "parameters": {
+        "V0": {"value": 79.3084575799, "error": null},
+        "K0": {"value": 151, "error": null},
+        "K0_prime": {"value": 4.1, "error": null, "fixed": true}
+      },
+      "validity": {
+        "pressure_gpa": [0, 52],
+        "temperature_k": [1160, 1160],
+        "notes": ["High-spin paramagnetic B1 branch; upper bound is the source transition midpoint."]
+      },
+      "determination_method": "theoretical",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 48.189},
+      "reference": {
+        "authors": ["Leonov", "Ponomareva", "Nazarov", "Abrikosov"],
+        "year": 2017,
+        "title": "Pressure-induced spin-state transition of iron in magnesiowüstite (Fe,Mg)O",
+        "source": "Physical Review B",
+        "volume": "96",
+        "locator": "075136",
+        "doi": "10.1103/PhysRevB.96.075136"
+      },
+      "pressure_calibration": {
+        "status": "not_applicable",
+        "methods": [
+          {"kind": "ab_initio", "source_location": "Methods and Table I", "scope": "DFT+DMFT"}
+        ],
+        "recalculation": {"status": "not_applicable", "notes": "No experimental scale."},
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "Independent checkpoints only; no grid deposited.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg075fe025o/#record-mg075fe025o_leonov_2017_hs_bm3_1",
+            "report_path": "docs/reconstruction-reports/mg075fe025o.md#record-mg075fe025o_leonov_2017_hs_bm3_1",
+            "fit": {
+              "fixed_parameters": ["K0_prime"],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Validated against author-repository primary PDF.",
+          "audit_date": "2026-09-05",
+          "verified_fields": ["equation", "parameters", "units", "theoretical_method", "numerical_reproduction"],
+          "primary_source_check": {
+            "access_url": "https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf",
+            "doi": "10.1103/PhysRevB.96.075136",
+            "locations": ["Methods", "Table I"],
+            "finding": "Complete HS BM3; LS V0 absent so paired LitCurate row rejected."
+          },
+          "primary_data_check": {
+            "status": "parameterization_and_plot_only",
+            "audit_date": "2026-09-05",
+            "source_locations": ["Table I", "Figure 2"],
+            "finding": "Independent checkpoints only; no grid deposited."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Calculated states/theory determine this EOS; source: Methods; Table I.",
+          "equation": "Third-order Birch-Murnaghan fit to DFT+DMFT total energies.",
+          "V0": "Table I: 133.8 bohr^3/formula unit; converted to conventional Z=4 cell.",
+          "K0": "Table I HS: 151 GPa.",
+          "K0_prime": "Fixed 4.1."
+        }
+      }
     },
-    "unresolved_issues": [
-     "The source gives no fit covariance, numerical objective, or weighting details.",
-     "The official Wiley Table S1 and Text S1 attachments were listed on the publisher page but returned HTTP 403 during this audit; Figure 1 digitization is therefore used instead of claiming a table transcription."
-    ]
-   },
-   "notes": "Stored as BM3 because the corrected source explicitly calls the fit third-order Birch-Murnaghan. With fixed K0_prime=4 it is algebraically identical to the BM2 special case."
-  },
-  {
-   "determination_method": "theoretical",
-   "identifier": "mg075fe025o_leonov_2017_hs_bm3_1",
-   "label": "Leonov et al. (2017), Mg0.75Fe0.25O high-spin DFT+DMFT BM3",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Leonov",
-     "Ponomareva",
-     "Nazarov",
-     "Abrikosov"
-    ],
-    "year": 2017,
-    "title": "Pressure-induced spin-state transition of iron in magnesiowüstite (Fe,Mg)O",
-    "source": "Physical Review B",
-    "volume": "96",
-    "locator": "075136",
-    "doi": "10.1103/PhysRevB.96.075136"
-   },
-   "eos": {
-    "type": "BM3",
-    "model": "birch_murnaghan_3",
-    "parameters": {
-     "V0": 79.3084575799,
-     "K0": 151,
-     "K0_prime": 4.1
+    {
+      "identifier": "mg075fe025o_solomatova_2016_hs_bm3_reference_1",
+      "label": "Solomatova et al. (2016), Mao-data high-spin BM3 reference branch",
+      "model": "BM3",
+      "temperature_ref": 300,
+      "parameters": {
+        "V0": {"value": 76.34, "error": 0},
+        "K0": {"value": 160, "error": 1},
+        "K0_prime": {"value": 4.28, "error": 0.06}
+      },
+      "validity": {
+        "pressure_gpa": [0, 140],
+        "temperature_k": [300, 300],
+        "notes": ["HS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve."]
+      },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 48.189},
+      "spin_crossover_context": {
+        "branch": "high_spin_reference",
+        "transition_pressure_gpa": 62.6,
+        "transition_width_20_80_gpa": 15.9,
+        "mixer_implemented": false
+      },
+      "reference": {
+        "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
+        "year": 2016,
+        "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
+        "source": "American Mineralogist",
+        "volume": "101",
+        "locator": "1084-1093",
+        "doi": "10.2138/am-2016-5510"
+      },
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {"status": "missing_calibrant_observations", "notes": "Row-wise calibrants not reprinted."},
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "Coupled three-level spin-state reconstruction using the recovered earlier observations and Solomatova Table 2 priors. The original MINUTI input, row weights, residual definition, and covariance are unpublished, so this equal-weight approximate-volume fit tests numerical similarity rather than claiming an exact reproduction. The source observations are plot-digitized and the reconstructed solution is retained as parity_not_achieved despite close point estimates because exact source-level parity is not supportable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg075fe025o/#record-mg075fe025o_solomatova_2016_hs_bm3_reference_1",
+            "report_path": "docs/reconstruction-reports/mg075fe025o.md#record-mg075fe025o_solomatova_2016_hs_bm3_reference_1",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 76.34,
+                "published_sigma": 0,
+                "refit": 76.34,
+                "refit_sigma": null,
+                "delta": 0.0,
+                "relative_delta": 0.0,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 160.0,
+                "published_sigma": 1,
+                "refit": 160.9539976776683,
+                "refit_sigma": null,
+                "delta": 0.9539976776682977,
+                "relative_delta": 0.00596248548542686,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.28,
+                "published_sigma": 0.06,
+                "refit": 4.156222322721853,
+                "refit_sigma": null,
+                "delta": -0.12377767727814692,
+                "relative_delta": -0.028920018055641802,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "coupled_bm3_three_level_spin_crossover",
+              "objective": "equal-weight approximate volume residuals plus Table 2 priors",
+              "selection": "all observation rows",
+              "free_parameters": ["V0_HS", "K0_HS", "K0_prime_HS", "V0_LS", "K0_LS", "omega0"],
+              "fixed_parameters": [],
+              "observations": 42,
+              "solver_success": true,
+              "solver_message": "dedicated Solomatova coupled reconstruction completed",
+              "rmse_volume_a3": 0.07050722838979592,
+              "dataset_identifiers": ["mg075fe025o_mao_2011_figure1_300k_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+            "doi": "10.2138/am-2016-5510",
+            "locations": ["Table 7"],
+            "finding": "Mao-data paired HS/LS BM3 branches from coupled MINUTI fit."
+          },
+          "primary_data_check": {
+            "status": "digitized_earlier_primary_figure",
+            "audit_date": "2026-09-08",
+            "digitized_dataset_identifiers": ["mg075fe025o_mao_2011_figure1_300k_digitized"],
+            "source_locations": ["Mao et al. (2011), Figure 1", "Solomatova et al. (2016), Tables 2 and 7"],
+            "finding": "All 42 plotted 300 K Mao observations are bundled as a digitized source dataset. The coupled reconstruction is executable but does not reproduce the published branch coefficients closely enough for parity; it is retained as a parity-not-achieved audit result."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
+          "equation": "Table 7 paired BM3 reference branches.",
+          "V0": "Table 7: 76.34 A^3.",
+          "K0": "Table 7: 160 GPa.",
+          "K0_prime": "Table 7 HS value.",
+          "original_dataset": "Mao et al. (2011), DOI 10.1029/2011GL049915."
+        }
+      }
+    },
+    {
+      "identifier": "mg075fe025o_solomatova_2016_ls_bm3_reference_2",
+      "label": "Solomatova et al. (2016), Mao-data low-spin BM3 reference branch",
+      "model": "BM3",
+      "temperature_ref": 300,
+      "parameters": {
+        "V0": {"value": 73.74, "error": 0.19},
+        "K0": {"value": 174, "error": 2},
+        "K0_prime": {"value": 4, "error": null, "fixed": true}
+      },
+      "validity": {
+        "pressure_gpa": [0, 140],
+        "temperature_k": [300, 300],
+        "notes": ["LS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve."]
+      },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 48.189},
+      "spin_crossover_context": {
+        "branch": "low_spin_reference",
+        "transition_pressure_gpa": 62.6,
+        "transition_width_20_80_gpa": 15.9,
+        "mixer_implemented": false
+      },
+      "reference": {
+        "authors": ["Solomatova", "Jackson", "Sturhahn", "Wicks", "Zhao", "Toellner", "Kalkan", "Steinhardt"],
+        "year": 2016,
+        "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
+        "source": "American Mineralogist",
+        "volume": "101",
+        "locator": "1084-1093",
+        "doi": "10.2138/am-2016-5510"
+      },
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {"status": "missing_calibrant_observations", "notes": "Row-wise calibrants not reprinted."},
+        "audit_date": "2026-09-05"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "Coupled three-level spin-state reconstruction using the recovered earlier observations and Solomatova Table 2 priors. The original MINUTI input, row weights, residual definition, and covariance are unpublished, so this equal-weight approximate-volume fit tests numerical similarity rather than claiming an exact reproduction. The source observations are plot-digitized and the reconstructed solution is retained as parity_not_achieved despite close point estimates because exact source-level parity is not supportable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg075fe025o/#record-mg075fe025o_solomatova_2016_ls_bm3_reference_2",
+            "report_path": "docs/reconstruction-reports/mg075fe025o.md#record-mg075fe025o_solomatova_2016_ls_bm3_reference_2",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 73.74,
+                "published_sigma": 0.19,
+                "refit": 73.88420741747102,
+                "refit_sigma": null,
+                "delta": 0.14420741747102284,
+                "relative_delta": 0.001955619981977527,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 174.0,
+                "published_sigma": 2,
+                "refit": 171.98135643907105,
+                "refit_sigma": null,
+                "delta": -2.0186435609289504,
+                "relative_delta": -0.011601399775453738,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.0,
+                "published_sigma": null,
+                "refit": 4.0,
+                "refit_sigma": null,
+                "delta": 0.0,
+                "relative_delta": 0.0,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "coupled_bm3_three_level_spin_crossover",
+              "objective": "equal-weight approximate volume residuals plus Table 2 priors",
+              "selection": "all observation rows",
+              "free_parameters": ["V0_HS", "K0_HS", "K0_prime_HS", "V0_LS", "K0_LS", "omega0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 42,
+              "solver_success": true,
+              "solver_message": "dedicated Solomatova coupled reconstruction completed",
+              "rmse_volume_a3": 0.07050722838979592,
+              "dataset_identifiers": ["mg075fe025o_mao_2011_figure1_300k_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
+            "doi": "10.2138/am-2016-5510",
+            "locations": ["Table 7"],
+            "finding": "Mao-data paired HS/LS BM3 branches from coupled MINUTI fit."
+          },
+          "primary_data_check": {
+            "status": "digitized_earlier_primary_figure",
+            "audit_date": "2026-09-08",
+            "digitized_dataset_identifiers": ["mg075fe025o_mao_2011_figure1_300k_digitized"],
+            "source_locations": ["Mao et al. (2011), Figure 1", "Solomatova et al. (2016), Tables 2 and 7"],
+            "finding": "All 42 plotted 300 K Mao observations are bundled as a digitized source dataset. The coupled reconstruction is executable but does not reproduce the published branch coefficients closely enough for parity; it is retained as a parity-not-achieved audit result."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
+          "equation": "Table 7 paired BM3 reference branches.",
+          "V0": "Table 7: 73.74 A^3.",
+          "K0": "Table 7: 174 GPa.",
+          "K0_prime": "Fixed to 4.",
+          "original_dataset": "Mao et al. (2011), DOI 10.1029/2011GL049915."
+        }
+      }
     }
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": null,
-    "K0_prime": null
-   },
-   "fixed_parameters": [
-    "K0_prime"
-   ],
-   "temperature_ref": 1160,
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 4,
-    "molar_mass_g_mol": 48.189
-   },
-   "validity": {
-    "pressure_gpa": [
-     0,
-     52
-    ],
-    "temperature_k": [
-     1160,
-     1160
-    ],
-    "notes": [
-     "High-spin paramagnetic B1 branch; upper bound is the source transition midpoint."
-    ]
-   },
-   "parameter_provenance": {
-    "determination_method": "Calculated states/theory determine this EOS; source: Methods; Table I.",
-    "equation": "Third-order Birch-Murnaghan fit to DFT+DMFT total energies.",
-    "V0": "Table I: 133.8 bohr^3/formula unit; converted to conventional Z=4 cell.",
-    "K0": "Table I HS: 151 GPa.",
-    "K0_prime": "Fixed 4.1."
-   },
-   "pressure_calibration": {
-    "status": "not_applicable",
-    "methods": [
-     {
-      "kind": "ab_initio",
-      "source_location": "Methods and Table I",
-      "scope": "DFT+DMFT"
-     }
-    ],
-    "recalculation": {
-     "status": "not_applicable",
-     "notes": "No experimental scale."
+  ],
+  "aliases": ["(Mg0.75,Fe0.25)O", "Fe25 ferropericlase"],
+  "family_id": "mg_fe_monoxide",
+  "cell_contents": "Four Mg0.75Fe0.25O formula units per conventional rocksalt cell.",
+  "symmetry": "CUBIC",
+  "space_group": "Fm-3m",
+  "space_group_number": 225,
+  "lattice": {"a": 4.2427, "b": 4.2427, "c": 4.2427, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Mg", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 0.75, "site_multiplicity": 4},
+    {"element": "Fe", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 0.25, "site_multiplicity": 4},
+    {"element": "O", "wyckoff": "4b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1.0, "site_multiplicity": 4}
+  ],
+  "peaks": [],
+  "notes": "Matsui et al. (2012) synthesized a stoichiometric B1-NaCl powder and report its ambient lattice parameter as 4.2427(2) A. The mixed cation sites are the ideal average rocksalt representation; neither EOS study reports an atomic-position refinement. The top-level phase label is deliberately spin-neutral because the record set now includes separately bounded high-spin and low-spin reference branches; each EOS record states its own spin regime.",
+  "datasets": [
+    {
+      "identifier": "mg075fe025o_matsui_2012_table2_pvt",
+      "kind": "calibrated_pressure_volume_temperature",
+      "description": "Complete 39-row Table 2 T-P-V dataset for (Mg0.75Fe0.25)O, including the excluded spin-crossover-region observations.",
+      "reference": {
+        "authors": ["Matsui", "Ito", "Yamazaki", "Yoshino", "Guo", "Shan", "Higo", "Funakoshi"],
+        "year": 2012,
+        "source": "American Mineralogist",
+        "volume": "97",
+        "locator": "176-183",
+        "doi": "10.2138/am.2012.3937"
+      },
+      "source_location": "Table 2, page 179",
+      "source_url": "https://www.rruff.net/odr/view/downloadfile/81129",
+      "columns": [
+        {"name": "source_row", "quantity": "source_row", "unit": "1", "role": "flag"},
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {
+          "name": "cell_volume_a3",
+          "quantity": "ferropericlase_conventional_cell_volume",
+          "unit": "angstrom^3",
+          "role": "value"
+        },
+        {
+          "name": "cell_volume_sigma_a3",
+          "quantity": "ferropericlase_conventional_cell_volume",
+          "unit": "angstrom^3",
+          "role": "standard_deviation",
+          "of": "cell_volume_a3"
+        },
+        {"name": "au_v_over_v0", "quantity": "gold_volume_ratio", "unit": "1", "role": "value"},
+        {
+          "name": "au_v_over_v0_sigma",
+          "quantity": "gold_volume_ratio",
+          "unit": "1",
+          "role": "standard_deviation",
+          "of": "au_v_over_v0"
+        },
+        {"name": "pressure_gpa", "quantity": "pressure_from_matsui_2010_gold_eos", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_sigma_gpa",
+          "quantity": "pressure_from_matsui_2010_gold_eos",
+          "unit": "GPa",
+          "role": "standard_deviation",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "published_calculated_pressure_gpa",
+          "quantity": "pressure_calculated_from_published_ferropericlase_eos",
+          "unit": "GPa",
+          "role": "value"
+        },
+        {
+          "name": "published_observed_minus_calculated_gpa",
+          "quantity": "observed_minus_calculated_pressure",
+          "unit": "GPa",
+          "role": "value"
+        },
+        {"name": "fit_included", "quantity": "published_fit_selection", "unit": "1", "role": "flag"},
+        {"name": "exclusion_reason", "quantity": "fit_exclusion_reason", "unit": "1", "role": "flag"}
+      ],
+      "resource": {
+        "path": "datasets/mg075fe025o-matsui-2012-table2-pvt.csv",
+        "sha256": "c9202d12b55f1e9892c10d6fea43fa7625a74f9288bc2d9cbb8d28ce512533cd",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["mg075fe025o_matsui_2012_bm3_mgd_1"],
+      "uncertainty": {
+        "reported_as": "Parenthetical values in Tables 1-2 are expanded into standard-deviation columns; blank ambient Au/pressure uncertainty cells mean no value is printed.",
+        "covariance": "not_reported"
+      },
+      "provenance": {
+        "type": "transcribed_from_table",
+        "method": "Complete manual transcription of archival PDF Table 2 with printed decimal precision retained.",
+        "transcribed_on": "2026-09-05"
+      },
+      "notes": "fit_included=1 encodes the source's strict below-47-GPa high-spin fit selection. Higher-pressure measurements are preserved and labelled either as above-cutoff or spin-crossover observations."
     },
-    "audit_date": "2026-09-05"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Validated against author-repository primary PDF.",
-    "audit_date": "2026-09-05",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "theoretical_method",
-     "numerical_reproduction"
-    ],
-    "primary_source_check": {
-     "access_url": "https://www.diva-portal.org/smash/get/diva2:1142320/FULLTEXT01.pdf",
-     "doi": "10.1103/PhysRevB.96.075136",
-     "locations": [
-      "Methods",
-      "Table I"
-     ],
-     "finding": "Complete HS BM3; LS V0 absent so paired LitCurate row rejected."
-    },
-    "primary_data_check": {
-     "status": "parameterization_and_plot_only",
-     "audit_date": "2026-09-05",
-     "source_locations": [
-      "Table I",
-      "Figure 2"
-     ],
-     "finding": "Independent checkpoints only; no grid deposited."
+    {
+      "identifier": "mg075fe025o_mao_2011_figure1_300k_digitized",
+      "kind": "pressure_volume",
+      "description": "All 42 visible 300 K open-circle observations digitized from corrected Figure 1, with source-defined high-spin, mixed-spin, and low-spin regimes and branch-fit flags.",
+      "reference": {
+        "authors": ["Mao", "Lin", "Liu", "Prakapenka"],
+        "year": 2011,
+        "title": "Thermal equation of state of lower-mantle ferropericlase across the spin crossover",
+        "source": "Geophysical Research Letters",
+        "volume": "38",
+        "locator": "L23308, corrected Figure 1",
+        "doi": "10.1029/2011GL049915"
+      },
+      "source_location": "Corrected primary article Figure 1, black 300 K open circles",
+      "source_url": "https://www.jsg.utexas.edu/lin/files/MaoFp-EoSGRL2011.pdf",
+      "columns": [
+        {"name": "source_order", "quantity": "digitized_marker_order", "unit": "1", "role": "flag"},
+        {"name": "pressure_gpa", "quantity": "pressure_from_fei_2007_gold_eos", "unit": "GPa", "role": "value"},
+        {
+          "name": "cell_volume_a3",
+          "quantity": "ferropericlase_conventional_cell_volume",
+          "unit": "angstrom^3",
+          "role": "value"
+        },
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {"name": "spin_regime", "quantity": "source_defined_spin_regime", "unit": "1", "role": "flag"},
+        {
+          "name": "used_in_high_spin_fit",
+          "quantity": "reconstructed_published_fit_selection",
+          "unit": "1",
+          "role": "flag"
+        },
+        {
+          "name": "used_in_low_spin_fit",
+          "quantity": "reconstructed_published_fit_selection",
+          "unit": "1",
+          "role": "flag"
+        },
+        {
+          "name": "digitization_pressure_uncertainty_gpa",
+          "quantity": "digitization_resolution",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "digitization_volume_uncertainty_a3",
+          "quantity": "digitization_resolution",
+          "unit": "angstrom^3",
+          "role": "uncertainty",
+          "of": "cell_volume_a3"
+        }
+      ],
+      "resource": {
+        "path": "datasets/mg075fe025o-mao-2011-figure1-300k-digitized.csv",
+        "sha256": "dd8a928c47ceb80c7c595e92fedbe00b223bfcd5eeb76daf17fd4e7100455eac",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["mg075fe025o_mao_2011_high_spin_bm3_1", "mg075fe025o_mao_2011_low_spin_bm3_1"],
+      "uncertainty": {
+        "reported_as": "The primary figure prints no row-wise error bars for P or V. The tabulated 0.10 GPa and 0.03 A^3 values are digitization-resolution estimates from the rendered axis calibration, not experimental standard deviations.",
+        "covariance": "not_reported"
+      },
+      "provenance": {
+        "type": "digitized_from_primary_figure",
+        "method": "Corrected PDF Figure 1 rendered at 500 dpi. Major tick centers were fit linearly (0-140 GPa and 50-80 A^3); centers of all black 300 K open circles were extracted and rounded to 0.1 GPa and 0.01 A^3.",
+        "digitized_on": "2026-09-05"
+      },
+      "notes": "The source places the 300 K crossover at 50-75 GPa. Rows below 50 GPa select the high-spin diagnostic fit; rows above 75 GPa select the low-spin diagnostic fit; the nine intervening observations are preserved as mixed-spin exclusions."
     }
-   }
-  },
-  {
-   "determination_method": "experimental",
-   "identifier": "mg075fe025o_solomatova_2016_hs_bm3_reference_1",
-   "label": "Solomatova et al. (2016), Mao-data high-spin BM3 reference branch",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Solomatova",
-     "Jackson",
-     "Sturhahn",
-     "Wicks",
-     "Zhao",
-     "Toellner",
-     "Kalkan",
-     "Steinhardt"
-    ],
-    "year": 2016,
-    "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
-    "source": "American Mineralogist",
-    "volume": "101",
-    "locator": "1084-1093",
-    "doi": "10.2138/am-2016-5510"
-   },
-   "eos": {
-    "type": "BM3",
-    "model": "birch_murnaghan_3",
-    "parameters": {
-     "V0": 76.34,
-     "K0": 160,
-     "K0_prime": 4.28
-    }
-   },
-   "parameter_errors": {
-    "V0": 0,
-    "K0": 1,
-    "K0_prime": 0.06
-   },
-   "fixed_parameters": [],
-   "temperature_ref": 300,
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 4,
-    "molar_mass_g_mol": 48.189
-   },
-   "spin_crossover_context": {
-    "branch": "high_spin_reference",
-    "transition_pressure_gpa": 62.6,
-    "transition_width_20_80_gpa": 15.9,
-    "mixer_implemented": false
-   },
-   "validity": {
-    "pressure_gpa": [
-     0,
-     140
-    ],
-    "temperature_k": [
-     300,
-     300
-    ],
-    "notes": [
-     "HS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve."
-    ]
-   },
-   "parameter_provenance": {
-    "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
-    "equation": "Table 7 paired BM3 reference branches.",
-    "V0": "Table 7: 76.34 A^3.",
-    "K0": "Table 7: 160 GPa.",
-    "K0_prime": "Table 7 HS value.",
-    "original_dataset": "Mao et al. (2011), DOI 10.1029/2011GL049915."
-   },
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "Row-wise calibrants not reprinted."
+  ],
+  "source": {
+    "structure_reference": {
+      "authors": ["Matsui", "Ito", "Yamazaki", "Yoshino", "Guo", "Shan", "Higo", "Funakoshi"],
+      "year": 2012,
+      "title": "Static compression of (Mg0.83,Fe0.17)O and (Mg0.75,Fe0.25)O ferropericlase up to 58 GPa at 300, 700, and 1100 K",
+      "source": "American Mineralogist",
+      "volume": "97",
+      "locator": "176-183",
+      "doi": "10.2138/am.2012.3937"
     },
-    "audit_date": "2026-09-05"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
-     "doi": "10.2138/am-2016-5510",
-     "locations": [
-      "Table 7"
-     ],
-     "finding": "Mao-data paired HS/LS BM3 branches from coupled MINUTI fit."
-    },
-    "primary_data_check": {
-     "status": "digitized_earlier_primary_figure",
-     "audit_date": "2026-09-08",
-     "digitized_dataset_identifiers": [
-      "mg075fe025o_mao_2011_figure1_300k_digitized"
-     ],
-     "source_locations": [
-      "Mao et al. (2011), Figure 1",
-      "Solomatova et al. (2016), Tables 2 and 7"
-     ],
-     "finding": "All 42 plotted 300 K Mao observations are bundled as a digitized source dataset. The coupled reconstruction is executable but does not reproduce the published branch coefficients closely enough for parity; it is retained as a parity-not-achieved audit result."
-    }
-   }
-  },
-  {
-   "determination_method": "experimental",
-   "identifier": "mg075fe025o_solomatova_2016_ls_bm3_reference_2",
-   "label": "Solomatova et al. (2016), Mao-data low-spin BM3 reference branch",
-   "record_kind": "published",
-   "equation_kind": "isothermal",
-   "reference": {
-    "authors": [
-     "Solomatova",
-     "Jackson",
-     "Sturhahn",
-     "Wicks",
-     "Zhao",
-     "Toellner",
-     "Kalkan",
-     "Steinhardt"
-    ],
-    "year": 2016,
-    "title": "Equation of state and spin crossover of (Mg,Fe)O at high pressure, with implications for explaining topographic relief at the core-mantle boundary",
-    "source": "American Mineralogist",
-    "volume": "101",
-    "locator": "1084-1093",
-    "doi": "10.2138/am-2016-5510"
-   },
-   "eos": {
-    "type": "BM3",
-    "model": "birch_murnaghan_3",
-    "parameters": {
-     "V0": 73.74,
-     "K0": 174,
-     "K0_prime": 4
-    }
-   },
-   "parameter_errors": {
-    "V0": 0.19,
-    "K0": 2,
-    "K0_prime": null
-   },
-   "fixed_parameters": [
-    "K0_prime"
-   ],
-   "temperature_ref": 300,
-   "volume_basis": {
-    "kind": "formula_units",
-    "formula_units": 4,
-    "molar_mass_g_mol": 48.189
-   },
-   "spin_crossover_context": {
-    "branch": "low_spin_reference",
-    "transition_pressure_gpa": 62.6,
-    "transition_width_20_80_gpa": 15.9,
-    "mixer_implemented": false
-   },
-   "validity": {
-    "pressure_gpa": [
-     0,
-     140
-    ],
-    "temperature_k": [
-     300,
-     300
-    ],
-    "notes": [
-     "LS BM3 reference branch from coupled MINUTI crossover fit; not the physical mixed-spin curve."
-    ]
-   },
-   "parameter_provenance": {
-    "determination_method": "Solomatova (2016), Table 7 and MINUTI analysis: coupled HS/LS reference branches inferred from measured compression trajectories, including the cited experimental datasets. Model decomposition does not make these ab-initio fits.",
-    "equation": "Table 7 paired BM3 reference branches.",
-    "V0": "Table 7: 73.74 A^3.",
-    "K0": "Table 7: 174 GPa.",
-    "K0_prime": "Fixed to 4.",
-    "original_dataset": "Mao et al. (2011), DOI 10.1029/2011GL049915."
-   },
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "missing_calibrant_observations",
-     "notes": "Row-wise calibrants not reprinted."
-    },
-    "audit_date": "2026-09-05"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://web.gps.caltech.edu/~jackson/pdf/Solomatova2016_AmMin.pdf",
-     "doi": "10.2138/am-2016-5510",
-     "locations": [
-      "Table 7"
-     ],
-     "finding": "Mao-data paired HS/LS BM3 branches from coupled MINUTI fit."
-    },
-    "primary_data_check": {
-     "status": "digitized_earlier_primary_figure",
-     "audit_date": "2026-09-08",
-     "digitized_dataset_identifiers": [
-      "mg075fe025o_mao_2011_figure1_300k_digitized"
-     ],
-     "source_locations": [
-      "Mao et al. (2011), Figure 1",
-      "Solomatova et al. (2016), Tables 2 and 7"
-     ],
-     "finding": "All 42 plotted 300 K Mao observations are bundled as a digitized source dataset. The coupled reconstruction is executable but does not reproduce the published branch coefficients closely enough for parity; it is retained as a parity-not-achieved audit result."
-    }
-   }
+    "structure_location": "Experiments, page 177; ambient lattice parameters and B1-NaCl phase assignment"
   }
- ],
- "datasets": [
-  {
-   "identifier": "mg075fe025o_matsui_2012_table2_pvt",
-   "kind": "calibrated_pressure_volume_temperature",
-   "description": "Complete 39-row Table 2 T-P-V dataset for (Mg0.75Fe0.25)O, including the excluded spin-crossover-region observations.",
-   "reference": {
-    "authors": [
-     "Matsui",
-     "Ito",
-     "Yamazaki",
-     "Yoshino",
-     "Guo",
-     "Shan",
-     "Higo",
-     "Funakoshi"
-    ],
-    "year": 2012,
-    "source": "American Mineralogist",
-    "volume": "97",
-    "locator": "176-183",
-    "doi": "10.2138/am.2012.3937"
-   },
-   "source_location": "Table 2, page 179",
-   "source_url": "https://www.rruff.net/odr/view/downloadfile/81129",
-   "columns": [
-    {
-     "name": "source_row",
-     "quantity": "source_row",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "temperature_k",
-     "quantity": "temperature",
-     "unit": "K",
-     "role": "value"
-    },
-    {
-     "name": "cell_volume_a3",
-     "quantity": "ferropericlase_conventional_cell_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "cell_volume_sigma_a3",
-     "quantity": "ferropericlase_conventional_cell_volume",
-     "unit": "angstrom^3",
-     "role": "standard_deviation",
-     "of": "cell_volume_a3"
-    },
-    {
-     "name": "au_v_over_v0",
-     "quantity": "gold_volume_ratio",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "au_v_over_v0_sigma",
-     "quantity": "gold_volume_ratio",
-     "unit": "1",
-     "role": "standard_deviation",
-     "of": "au_v_over_v0"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure_from_matsui_2010_gold_eos",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_sigma_gpa",
-     "quantity": "pressure_from_matsui_2010_gold_eos",
-     "unit": "GPa",
-     "role": "standard_deviation",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "published_calculated_pressure_gpa",
-     "quantity": "pressure_calculated_from_published_ferropericlase_eos",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "published_observed_minus_calculated_gpa",
-     "quantity": "observed_minus_calculated_pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "fit_included",
-     "quantity": "published_fit_selection",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "exclusion_reason",
-     "quantity": "fit_exclusion_reason",
-     "unit": "1",
-     "role": "flag"
-    }
-   ],
-   "resource": {
-    "path": "datasets/mg075fe025o-matsui-2012-table2-pvt.csv",
-    "sha256": "c9202d12b55f1e9892c10d6fea43fa7625a74f9288bc2d9cbb8d28ce512533cd",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "mg075fe025o_matsui_2012_bm3_mgd_1"
-   ],
-   "uncertainty": {
-    "reported_as": "Parenthetical values in Tables 1-2 are expanded into standard-deviation columns; blank ambient Au/pressure uncertainty cells mean no value is printed.",
-    "covariance": "not_reported"
-   },
-   "provenance": {
-    "type": "transcribed_from_table",
-    "method": "Complete manual transcription of archival PDF Table 2 with printed decimal precision retained.",
-    "transcribed_on": "2026-09-05"
-   },
-   "notes": "fit_included=1 encodes the source's strict below-47-GPa high-spin fit selection. Higher-pressure measurements are preserved and labelled either as above-cutoff or spin-crossover observations."
-  },
-  {
-   "identifier": "mg075fe025o_mao_2011_figure1_300k_digitized",
-   "kind": "pressure_volume",
-   "description": "All 42 visible 300 K open-circle observations digitized from corrected Figure 1, with source-defined high-spin, mixed-spin, and low-spin regimes and branch-fit flags.",
-   "reference": {
-    "authors": [
-     "Mao",
-     "Lin",
-     "Liu",
-     "Prakapenka"
-    ],
-    "year": 2011,
-    "title": "Thermal equation of state of lower-mantle ferropericlase across the spin crossover",
-    "source": "Geophysical Research Letters",
-    "volume": "38",
-    "locator": "L23308, corrected Figure 1",
-    "doi": "10.1029/2011GL049915"
-   },
-   "source_location": "Corrected primary article Figure 1, black 300 K open circles",
-   "source_url": "https://www.jsg.utexas.edu/lin/files/MaoFp-EoSGRL2011.pdf",
-   "columns": [
-    {
-     "name": "source_order",
-     "quantity": "digitized_marker_order",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure_from_fei_2007_gold_eos",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "cell_volume_a3",
-     "quantity": "ferropericlase_conventional_cell_volume",
-     "unit": "angstrom^3",
-     "role": "value"
-    },
-    {
-     "name": "temperature_k",
-     "quantity": "temperature",
-     "unit": "K",
-     "role": "value"
-    },
-    {
-     "name": "spin_regime",
-     "quantity": "source_defined_spin_regime",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "used_in_high_spin_fit",
-     "quantity": "reconstructed_published_fit_selection",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "used_in_low_spin_fit",
-     "quantity": "reconstructed_published_fit_selection",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "digitization_pressure_uncertainty_gpa",
-     "quantity": "digitization_resolution",
-     "unit": "GPa",
-     "role": "uncertainty",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "digitization_volume_uncertainty_a3",
-     "quantity": "digitization_resolution",
-     "unit": "angstrom^3",
-     "role": "uncertainty",
-     "of": "cell_volume_a3"
-    }
-   ],
-   "resource": {
-    "path": "datasets/mg075fe025o-mao-2011-figure1-300k-digitized.csv",
-    "sha256": "dd8a928c47ceb80c7c595e92fedbe00b223bfcd5eeb76daf17fd4e7100455eac",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "mg075fe025o_mao_2011_high_spin_bm3_1",
-    "mg075fe025o_mao_2011_low_spin_bm3_1"
-   ],
-   "uncertainty": {
-    "reported_as": "The primary figure prints no row-wise error bars for P or V. The tabulated 0.10 GPa and 0.03 A^3 values are digitization-resolution estimates from the rendered axis calibration, not experimental standard deviations.",
-    "covariance": "not_reported"
-   },
-   "provenance": {
-    "type": "digitized_from_primary_figure",
-    "method": "Corrected PDF Figure 1 rendered at 500 dpi. Major tick centers were fit linearly (0-140 GPa and 50-80 A^3); centers of all black 300 K open circles were extracted and rounded to 0.1 GPa and 0.01 A^3.",
-    "digitized_on": "2026-09-05"
-   },
-   "notes": "The source places the 300 K crossover at 50-75 GPa. Rows below 50 GPa select the high-spin diagnostic fit; rows above 75 GPa select the low-spin diagnostic fit; the nine intervening observations are preserved as mixed-spin exclusions."
-  }
- ]
 }

@@ -1,0 +1,813 @@
+{
+  "format_version": 4,
+  "identifier": "forsterite",
+  "name": "Forsterite",
+  "formula": "Mg2SiO4",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 4,
+  "eos_records": [
+    {
+      "identifier": "forsterite_finkelstein_2014_bm3_1",
+      "label": "Finkelstein et al. (2014), room-temperature BM3",
+      "model": "BM3",
+      "temperature_ref": 298.0,
+      "parameters": {
+        "V0": {"value": 290.1, "error": 0.1, "fixed": true},
+        "K0": {"value": 130.0, "error": 0.9},
+        "K0_prime": {"value": 4.12, "error": 0.07}
+      },
+      "experimental_pressure_range_gpa": [0.0, 48.0],
+      "determination_method": "experimental",
+      "notes": "Fit to single-crystal compression data through 48 GPa in helium. The measured V0=290.1(1) A^3 was fixed while K0 and K0_prime were refined.",
+      "reference": {
+        "authors": ["Finkelstein", "Dera", "Jahn", "Oganov", "Holl", "Meng", "Duffy"],
+        "year": 2014,
+        "title": "Phase transitions and equation of state of forsterite to 90 GPa from single-crystal X-ray diffraction and molecular modeling",
+        "source": "American Mineralogist",
+        "volume": "99",
+        "locator": "35-43",
+        "doi": "10.2138/am.2014.4526"
+      },
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Fei", "Ricolleau", "Frank", "Mibe", "Shen", "Prakapenka"],
+              "year": 2007,
+              "source": "Proc. Natl. Acad. Sci. USA",
+              "doi": "10.1073/pnas.0609013104"
+            },
+            "source_location": "Experimental methods; Au foil pressure standard",
+            "reference_eos_record": "gold_fei_2007_vinet_2"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "The exact reference EOS is executable in the bundled library, but recalculation also requires the row-wise calibrant volume and temperature observations."
+        },
+        "audit_date": "2026-09-03"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/forsterite/#record-forsterite_finkelstein_2014_bm3_1",
+            "report_path": "docs/reconstruction-reports/forsterite.md#record-forsterite_finkelstein_2014_bm3_1",
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 130.0,
+                "published_error": 0.9,
+                "refit": 130.09172243150562,
+                "refit_error": 6.4589727076486,
+                "difference": 0.09172243150561599,
+                "relative_difference": 0.0007055571654278153,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.12,
+                "published_error": 0.07,
+                "refit": 4.114352835421328,
+                "refit_error": 0.47403545557767013,
+                "difference": -0.0056471645786722036,
+                "relative_difference": 0.0013706710142408261,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "phase=forsterite_I, used_in_forsterite_i_eos_fit=yes",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 14,
+              "observed_pressure_range_gpa": [0.0, 48.0],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [230.6, 290.1],
+              "degrees_of_freedom": 12,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.12802711386736998,
+              "published_rmse_gpa": 0.13231209345082623,
+              "reduced_chi_square": 0.019747225742570304,
+              "dataset_identifiers": ["forsterite_finkelstein_2014_table2_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.2138/am.2014.4526",
+            "locations": ["Primary abstract", "BM3 fit"],
+            "doi": "10.2138/am.2014.4526"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "forsterite.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["forsterite_finkelstein_2014_table2_compression"],
+            "source_locations": ["Table 2, journal page 39"],
+            "finding": "All 25 forsterite-I, -II, and -III unit-cell observations printed in Table 2; the 14 forsterite-I rows used for the reported EOS are identified explicitly."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Primary abstract; BM3 fit."
+        }
+      }
+    },
+    {
+      "identifier": "forsterite_katsura_2022_author_script_bm3_mgd",
+      "label": "Katsura (2022), author script full-precision BM3-MGD (recommended thermal option)",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 289.58, "error": null, "fixed": true},
+        "K0": {"value": 127.4, "error": null, "fixed": true},
+        "K0_prime": {"value": 4.21116896988574, "error": null}
+      },
+      "thermal": {
+        "model": "MieGruneisenDebye",
+        "parameters": {
+          "Tr": {"value": 300.0, "error": null, "fixed": true},
+          "theta0": {"value": 760.0, "error": null, "fixed": true},
+          "gamma0": {"value": 0.997258584556838, "error": null},
+          "q": {"value": 2.43854091371459, "error": null},
+          "n": {"value": 7.0, "error": null, "fixed": true}
+        },
+        "thermal_pressure_reference": "reference_temperature",
+        "debye_temperature_law": "integrated_gruneisen"
+      },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [-0.04769169043700805, 13.692764824786556],
+      "experimental_temperature_range_k": [304.03104831760197, 1958.0929053394116],
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "default": false,
+      "notes": "Recommended thermal option, following the full-precision coefficient vector actually embedded in the deposited author geotherm code. The final Table 2 variant is preserved separately as forsterite_katsura_2022_bm3_mgd; the Finkelstein static default remains unchanged. Script-specific parameter uncertainties are unavailable; the rounded Table 2 bootstrap errors are not silently assigned to this vector. Mg2SiO4 olivine, Pbnm, Z=4; n=7 per formula unit. Peritheos evaluates the same MGD equations with exact Debye quadrature and current constants; author polynomial approximation differences are audited. Missing bootstrap inputs and the outlying datum remain unresolved. See docs/literature-reproductions/forsterite-katsura-2009-2022.md.",
+      "fit_datasets": ["forsterite_katsura_2022_olivine_pvt"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Katsura"],
+        "year": 2022,
+        "title": "A Revised Adiabatic Temperature Profile for the Mantle",
+        "source": "Journal of Geophysical Research: Solid Earth",
+        "volume": "127",
+        "locator": "e2021JB023562",
+        "doi": "10.1029/2021JB023562"
+      },
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Tange", "Nishihara", "Tsuchiya"],
+              "year": 2009,
+              "doi": "10.1029/2008JB005813",
+              "source": "Journal of Geophysical Research: Solid Earth"
+            },
+            "source_location": "Katsura (2022) Section 2.2; deposited workbook Olivine X/Y and AB/AC (corrected Tange Vinet and BM3 pressures)",
+            "scope": "Two MgO EOS pressure assignments are retained; AD is the mean of V/W/Z/AA and AE is their sample standard deviation.",
+            "notes": "This mixed-scale reduction is not identified with the single bundled Fit3 Vinet record. Zenodo description cites the 2012 MgO DOI, conflicting with the article and workbook 2009 labels; see audit."
+          }
+        ],
+        "recalculation": {
+          "status": "reference_eos_not_bundled",
+          "notes": "MgO ratios and brackets are recovered, but exact two-branch combined reduction is not a single bundled calibration. Retain author-saved pressures; no calibration re-evaluation is claimed."
+        },
+        "audit_date": "2026-10-15"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
+            "qualifications": [
+              "Katsura 2022 forsterite accepts conditional numerical parity within printed Table 2 parameter error widths. The full-precision theta0=760 K author-script vector is recommended; the theta0=768 K table alternative is retained. Table errors are a comparison scale only for the script vector; script-specific errors, covariance and exact bootstrap reproduction remain unavailable. Original 2009 combined-fit reproduction is a separate unresolved audit.",
+              "Recommended thermal option: full-precision author-script coefficients, theta0=760 K. Conditional numerical parity within reported error widths; exact bootstrap reproduction unverified. See [the source comparison](literature-reproductions/forsterite-katsura-2022-refit-comparison.md).",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/forsterite/#record-forsterite_katsura_2022_author_script_bm3_mgd",
+            "report_path": "docs/reconstruction-reports/forsterite.md#record-forsterite_katsura_2022_author_script_bm3_mgd",
+            "parameters": [
+              {
+                "parameter": "K0_prime",
+                "published": 4.21116896988574,
+                "published_error": null,
+                "refit": 4.249220999557795,
+                "refit_error": null,
+                "difference": 0.038052029672054566,
+                "relative_difference": 0.009035977882665443,
+                "comparison_error_width": 0.4,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 0.997258584556838,
+                "published_error": null,
+                "refit": 0.9992725760819935,
+                "refit_error": null,
+                "difference": 0.0020139915251554674,
+                "relative_difference": 0.0020195278901012875,
+                "comparison_error_width": 0.02,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "q",
+                "published": 2.43854091371459,
+                "published_error": null,
+                "refit": 2.4677172154907185,
+                "refit_error": null,
+                "difference": 0.02917630177612862,
+                "relative_difference": 0.011964655426545553,
+                "comparison_error_width": 0.5,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "reconstructed_input_conditional_bm3_mgd",
+              "objective": "unweighted_pressure_residuals",
+              "selection": "All 51 deposited observations; AD pressure, AN volume ratio, U temperature; M375006 retained.",
+              "free_parameters": ["K0_prime", "gamma0", "q"],
+              "fixed_parameters": ["V0", "K0", "Tr", "theta0", "n", "Z"],
+              "observations": 51,
+              "solver_success": true,
+              "rmse_gpa": 0.21282064917509597,
+              "published_rmse_gpa": 0.21300125575966772,
+              "dataset_identifiers": ["forsterite_katsura_2022_olivine_pvt"],
+              "reproduction_report": "docs/data/forsterite-katsura-2022-reproduction.json"
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-10-15",
+          "note": "Author-owned Geotherm calculation v2.m supplies the recommended full-precision olivine coefficient vector; both deposited scripts use theta0=760 K. Exact Debye evaluation is compared with a literal translation of the geotherm script. The reconstructed-input fit achieves conditional numerical parameter parity within printed Table 2 error widths. Exact bootstrap fitting and uncertainty reproduction remain unverified.",
+          "reproduction_status": "parity",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.5281/zenodo.5903286",
+            "doi": "10.1029/2021JB023562",
+            "locations": [
+              "Geotherm calculation v2.m: V00_lat_phase, KT0_phase, Theta0_phase, KT0P_phase, gamma0_phase, q_phase, n_phase, Z_phase; first/olivine entries",
+              "Section 2.2; Equations (7)-(11), pp. 4-5",
+              "Table 2, p. 5",
+              "Zenodo 5644426, Olivine worksheet, rows 4-54",
+              "Zenodo 5903286, author EOS fitting and geotherm scripts"
+            ]
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-10-15",
+            "dataset_identifiers": ["forsterite_katsura_2022_olivine_pvt"],
+            "source_locations": ["Zenodo 5644426, Olivine worksheet, A1:AO54"],
+            "finding": "All 51 rows and all 41 source columns recovered, including raw MgO ratios/brackets, original and corrected temperatures, both pressure assignments, author-saved error/spread columns, and sample volume ratios. Full workbook and formula/cached-value evidence retained. The original 2009 Table 1 has now been recovered separately: 52 rows, 50 matched to this workbook plus two ambient references. M375006 is absent from the printed table. The original author-specific fitting export remains unavailable."
+          },
+          "unresolved_issues": [
+            "Author scripts use theta0=760 K; printed Table 2 instead uses 768 K. Script coefficients are recommended for thermal evaluation; the table alternative is preserved separately.",
+            "The separate Olivine_PVT2021.xlsx read by the fitting script and the bootstrap seed/realizations are not deposited. Ordinary least-squares diagnostics do not reproduce that workflow.",
+            "Zenodo metadata names the 2012 MgO DOI while the article/workbook name two Tange (2009) branches. The original saved pressure assignments are retained.",
+            "The 51-point observation residual diagnostics remain qualified by missing temperature errors and coefficient covariance. Run M375006 is retained as a conspicuous mismatch; see the source-script reproduction report."
+          ],
+          "numerical_reproduction": {
+            "report": "docs/data/forsterite-katsura-2022-reproduction.json",
+            "status": "parity",
+            "parity_basis": "within_reported_parameter_errors",
+            "scope": "Three free author-script coefficients recovered from all 51 reconstructed observations; source coefficients remain recommended and unchanged.",
+            "uncertainty_reference_record": "forsterite_katsura_2022_bm3_mgd",
+            "qualification": "Conditional numerical parity uses printed Table 2 bootstrap error widths as a comparison scale. Those errors accompany the rounded theta0=768 K parameterization and are not assigned to the theta0=760 K script vector. No formal combined-two-sigma or exact bootstrap reproduction is claimed.",
+            "author_polynomial_max_difference_gpa": 5.7492956194948874e-05,
+            "experimental_pressure_rmse_gpa": 0.21300820571795537,
+            "original_author_workflow_parity": false
+          },
+          "source_table_comparison": {
+            "dataset_identifier": "forsterite_katsura_2009_table1_original",
+            "matched_workbook_rows": 50,
+            "workbook_only_run_ids": ["M375006"],
+            "paper_only_ambient_rows": 2,
+            "disposition": "All 51 workbook rows retained in the main fit; table-matched 50-row fit is a separately labeled sensitivity check."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "The experimental 2009 Mg-endmember olivine data are reprocessed for thermocouple EMF and two MgO pressure scales in the 2022 publication; fixed K0 and theta0 are adopted from Isaak et al. (1989).",
+          "V0": "Deposited author EOS Fitting v2.m and Geotherm calculation v2.m: V00_Phase/V00_lat_phase[olivine] = 289.58 A^3 per conventional cell, Z=4. No uncertainty supplied.",
+          "K0": "Deposited Geotherm calculation v2.m, KT0_phase[olivine]=127.4 GPa.",
+          "K0_prime": "Deposited Geotherm calculation v2.m, KT0P_phase[olivine]=4.21116896988574; not the temporary initial guess in EOS Fitting v2.m. No script-specific uncertainty supplied.",
+          "thermal.theta0": "Both deposited scripts fix 760 K. Recommended thermal evaluation follows the executable source; printed Table 2 retains 768 K in the separate table record.",
+          "thermal.gamma0": "Deposited Geotherm calculation v2.m, gamma0_phase[olivine]=0.997258584556838. No script-specific uncertainty supplied.",
+          "thermal.q": "Deposited Geotherm calculation v2.m, q_phase[olivine]=2.43854091371459. No script-specific uncertainty supplied.",
+          "thermal.n": "Equation (10) atoms per Mg2SiO4 formula unit; author scripts n_Phase=7 and Z_Phase=4.",
+          "thermal.Tr": "Section 2.2 and Equations (7)-(8): 300 K reference isotherm."
+        }
+      }
+    },
+    {
+      "identifier": "forsterite_katsura_2022_bm3_mgd",
+      "label": "Katsura (2022), corrected forsterite BM3-MGD, final Table 2",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 289.58, "error": null, "fixed": true},
+        "K0": {"value": 127.4, "error": null, "fixed": true},
+        "K0_prime": {"value": 4.2, "error": 0.4}
+      },
+      "thermal": {
+        "model": "MieGruneisenDebye",
+        "parameters": {
+          "Tr": {"value": 300.0, "error": null, "fixed": true},
+          "theta0": {"value": 768.0, "error": null, "fixed": true},
+          "gamma0": {"value": 1.0, "error": 0.02},
+          "q": {"value": 2.4, "error": 0.5},
+          "n": {"value": 7.0, "error": null, "fixed": true}
+        },
+        "thermal_pressure_reference": "reference_temperature",
+        "debye_temperature_law": "integrated_gruneisen"
+      },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [-0.04769169043700805, 13.692764824786556],
+      "experimental_temperature_range_k": [304.03104831760197, 1958.0929053394116],
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "default": false,
+      "notes": "Mg2SiO4 olivine, Pbnm, Z=4; reuses the existing composition/phase structure. Its ambient diffraction cell is from a different sample and differs from the EOS V0. Final Table 2 coefficients preserved; no independent refit is installed. The negative lower pressure is the saved near-ambient noise, not a tensile stability claim. Marginal data envelopes are not phase-stability rectangles. No 2022 geotherm or olivine Cp reproduction is claimed: the paper uses a separate empirical ambient Cp in Equation (12). See docs/literature-reproductions/forsterite-katsura-2009-2022.md.",
+      "fit_datasets": ["forsterite_katsura_2022_olivine_pvt"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Katsura"],
+        "year": 2022,
+        "title": "A Revised Adiabatic Temperature Profile for the Mantle",
+        "source": "Journal of Geophysical Research: Solid Earth",
+        "volume": "127",
+        "locator": "e2021JB023562",
+        "doi": "10.1029/2021JB023562"
+      },
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Tange", "Nishihara", "Tsuchiya"],
+              "year": 2009,
+              "doi": "10.1029/2008JB005813",
+              "source": "Journal of Geophysical Research: Solid Earth"
+            },
+            "source_location": "Katsura (2022) Section 2.2; deposited workbook Olivine X/Y and AB/AC (corrected Tange Vinet and BM3 pressures)",
+            "scope": "Two MgO EOS pressure assignments are retained; AD is the mean of V/W/Z/AA and AE is their sample standard deviation.",
+            "notes": "This mixed-scale reduction is not identified with the single bundled Fit3 Vinet record. Zenodo description cites the 2012 MgO DOI, conflicting with the article and workbook 2009 labels; see audit."
+          }
+        ],
+        "recalculation": {
+          "status": "reference_eos_not_bundled",
+          "notes": "MgO ratios and brackets are recovered, but exact two-branch combined reduction is not a single bundled calibration. Retain author-saved pressures; no calibration re-evaluation is claimed."
+        },
+        "audit_date": "2026-10-15"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
+            "qualifications": [
+              "Katsura 2022 forsterite accepts conditional numerical parity within printed Table 2 parameter error widths. The full-precision theta0=760 K author-script vector is recommended; the theta0=768 K table alternative is retained. Table errors are a comparison scale only for the script vector; script-specific errors, covariance and exact bootstrap reproduction remain unavailable. Original 2009 combined-fit reproduction is a separate unresolved audit.",
+              "Printed Table 2 alternative, theta0=768 K. Conditional numerical parity within reported error widths; exact bootstrap reproduction unverified. See [the source comparison](literature-reproductions/forsterite-katsura-2022-refit-comparison.md).",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/forsterite/#record-forsterite_katsura_2022_bm3_mgd",
+            "report_path": "docs/reconstruction-reports/forsterite.md#record-forsterite_katsura_2022_bm3_mgd",
+            "parameters": [
+              {
+                "parameter": "K0_prime",
+                "published": 4.2,
+                "published_error": 0.4,
+                "refit": 4.254577305953309,
+                "refit_error": null,
+                "difference": 0.05457730595330901,
+                "relative_difference": 0.012994596655549763,
+                "comparison_error_width": 0.4,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.0,
+                "published_error": 0.02,
+                "refit": 1.0005027491131544,
+                "refit_error": null,
+                "difference": 0.0005027491131543993,
+                "relative_difference": 0.0005027491131543993,
+                "comparison_error_width": 0.02,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "q",
+                "published": 2.4,
+                "published_error": 0.5,
+                "refit": 2.4703460700134214,
+                "refit_error": null,
+                "difference": 0.07034607001342152,
+                "relative_difference": 0.029310862505592304,
+                "comparison_error_width": 0.5,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "reconstructed_input_conditional_bm3_mgd",
+              "objective": "unweighted_pressure_residuals",
+              "selection": "All 51 deposited observations; AD pressure, AN volume ratio, U temperature; M375006 retained.",
+              "free_parameters": ["K0_prime", "gamma0", "q"],
+              "fixed_parameters": ["V0", "K0", "Tr", "theta0", "n", "Z"],
+              "observations": 51,
+              "solver_success": true,
+              "rmse_gpa": 0.21239522341551,
+              "published_rmse_gpa": 0.21249940044126006,
+              "dataset_identifiers": ["forsterite_katsura_2022_olivine_pvt"],
+              "reproduction_report": "docs/data/forsterite-katsura-2022-reproduction.json"
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-10-15",
+          "note": "Equations (7)-(11), final Table 2 and author-owned Zenodo workbook/code checked. The reconstructed-input ordinary fit recovers the three free Table 2 coefficients within printed error widths, achieving conditional numerical parity. The full-precision author-script record remains the recommended thermal option. Exact bootstrap reproduction and the original 2009 combined fit remain unverified.",
+          "reproduction_status": "parity",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://epub.uni-bayreuth.de/id/eprint/6715/",
+            "doi": "10.1029/2021JB023562",
+            "locations": [
+              "Section 2.2; Equations (7)-(11), pp. 4-5",
+              "Table 2, p. 5",
+              "Zenodo 5644426, Olivine worksheet, rows 4-54",
+              "Zenodo 5903286, author EOS fitting and geotherm scripts"
+            ]
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-10-15",
+            "dataset_identifiers": ["forsterite_katsura_2022_olivine_pvt"],
+            "source_locations": ["Zenodo 5644426, Olivine worksheet, A1:AO54"],
+            "finding": "All 51 rows and all 41 source columns recovered, including raw MgO ratios/brackets, original and corrected temperatures, both pressure assignments, author-saved error/spread columns, and sample volume ratios. Full workbook and formula/cached-value evidence retained. The original 2009 Table 1 has now been recovered separately: 52 rows, 50 matched to this workbook plus two ambient references. M375006 is absent from the printed table. The original author-specific fitting export remains unavailable."
+          },
+          "unresolved_issues": [
+            "Final table theta0=768 K versus deposited code 760 K; final table is authoritative for this record.",
+            "The separate Olivine_PVT2021.xlsx read by the fitting script and the bootstrap seed/realizations are not deposited. Ordinary least-squares diagnostics do not reproduce that workflow.",
+            "Zenodo metadata names the 2012 MgO DOI while the article/workbook name two Tange (2009) branches. The original saved pressure assignments are retained.",
+            "Published-curve pressure RMSE is 0.2124994 GPa over 51 recovered states. Run M375006 (workbook row 14) has a +0.9783662 GPa calculated-minus-observed residual, 6.38 times the incomplete pressure/volume spread projection. This datum is retained unchanged. Temperature errors and coefficient covariance are missing; exact observation/fit parity is not claimed."
+          ],
+          "numerical_reproduction": {
+            "report": "docs/data/forsterite-katsura-2022-reproduction.json",
+            "status": "parity",
+            "parity_basis": "within_reported_parameter_errors",
+            "scope": "Three free printed Table 2 coefficients recovered within reported error widths using all 51 reconstructed observations and theta0=768 K. The author-script record remains recommended.",
+            "author_polynomial_max_difference_gpa": 6.11e-05,
+            "experimental_pressure_rmse_gpa": 0.2124994,
+            "original_author_workflow_parity": false
+          },
+          "source_table_comparison": {
+            "dataset_identifier": "forsterite_katsura_2009_table1_original",
+            "matched_workbook_rows": 50,
+            "workbook_only_run_ids": ["M375006"],
+            "paper_only_ambient_rows": 2,
+            "disposition": "All 51 workbook rows retained in the main fit; table-matched 50-row fit is a separately labeled sensitivity check."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "The experimental 2009 Mg-endmember olivine data are reprocessed for thermocouple EMF and two MgO pressure scales in the 2022 publication; fixed K0 and theta0 are adopted from Isaak et al. (1989).",
+          "V0": "Deposited author EOS Fitting v2.m and Geotherm calculation v2.m: V00_Phase/V00_lat_phase[olivine] = 289.58 A^3 per conventional cell, Z=4. No uncertainty supplied.",
+          "K0": "Final Table 2, olivine row: 127.4 GPa, fixed, attributed to Isaak et al. (1989).",
+          "K0_prime": "Final Table 2: 4.2(4); bootstrap mean and standard deviation (1000 resampled and perturbed datasets), not an ordinary unweighted least-squares optimum.",
+          "thermal.theta0": "Final Table 2: 768 K fixed; deposited scripts instead use 760 K. Final table retained; both paths compared in the dedicated audit.",
+          "thermal.gamma0": "Final Table 2: 1.00(2), bootstrap result.",
+          "thermal.q": "Final Table 2: 2.4(5), bootstrap result.",
+          "thermal.n": "Equation (10) atoms per Mg2SiO4 formula unit; author scripts n_Phase=7 and Z_Phase=4.",
+          "thermal.Tr": "Section 2.2 and Equations (7)-(8): 300 K reference isotherm."
+        }
+      }
+    }
+  ],
+  "family_id": "olivine",
+  "symmetry": "ORTHORHOMBIC",
+  "space_group": "Pbnm",
+  "space_group_number": 62,
+  "lattice": {"a": 4.7543, "b": 10.201, "c": 5.9819, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Mg", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
+    {"element": "Mg", "wyckoff": "4c", "x": 0.9915, "y": 0.2774, "z": 0.25, "occupancy": 1.0},
+    {"element": "Si", "wyckoff": "4c", "x": 0.4262, "y": 0.094, "z": 0.25, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "4c", "x": 0.7657, "y": 0.0913, "z": 0.25, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "4c", "x": 0.2215, "y": 0.4474, "z": 0.25, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "8d", "x": 0.2777, "y": 0.1628, "z": 0.0331, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Ambient lattice and BM3 EoS: Finkelstein et al., American Mineralogist 99, 35-43 (2014), doi:10.2138/am.2014.4526. Ambient fractional coordinates: Smyth and Hazen, American Mineralogist 58, 588-593 (1973), COD 9000319. Phase-line intensities were calculated from the cited ambient structure using independent-atom X-ray form factors.",
+  "datasets": [
+    {
+      "identifier": "forsterite_finkelstein_2014_table2_compression",
+      "kind": "multiphase_pressure_volume_lattice_parameters",
+      "description": "All 25 forsterite-I, -II, and -III unit-cell observations printed in Table 2; the 14 forsterite-I rows used for the reported EOS are identified explicitly.",
+      "source_location": "Table 2, journal page 39",
+      "source_url": "https://doi.org/10.2138/am.2014.4526",
+      "columns": [
+        {"name": "phase", "quantity": "crystal_phase", "unit": "1", "role": "flag"},
+        {"name": "gold_lattice_a_angstrom", "quantity": "gold_lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {"name": "pressure_gpa", "quantity": "pressure_from_gold", "unit": "GPa", "role": "value"},
+        {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_a_standard_deviation_angstrom",
+          "quantity": "lattice_parameter_a",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_a_angstrom"
+        },
+        {"name": "lattice_b_angstrom", "quantity": "lattice_parameter_b", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_b_standard_deviation_angstrom",
+          "quantity": "lattice_parameter_b",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_b_angstrom"
+        },
+        {"name": "lattice_c_angstrom", "quantity": "lattice_parameter_c", "unit": "angstrom", "role": "value"},
+        {
+          "name": "lattice_c_standard_deviation_angstrom",
+          "quantity": "lattice_parameter_c",
+          "unit": "angstrom",
+          "role": "standard_deviation",
+          "of": "lattice_c_angstrom"
+        },
+        {"name": "alpha_deg", "quantity": "alpha_angle", "unit": "degree", "role": "value"},
+        {
+          "name": "alpha_standard_deviation_deg",
+          "quantity": "alpha_angle",
+          "unit": "degree",
+          "role": "standard_deviation",
+          "of": "alpha_deg"
+        },
+        {"name": "beta_deg", "quantity": "beta_angle", "unit": "degree", "role": "value"},
+        {
+          "name": "beta_standard_deviation_deg",
+          "quantity": "beta_angle",
+          "unit": "degree",
+          "role": "standard_deviation",
+          "of": "beta_deg"
+        },
+        {"name": "gamma_deg", "quantity": "gamma_angle", "unit": "degree", "role": "value"},
+        {
+          "name": "gamma_standard_deviation_deg",
+          "quantity": "gamma_angle",
+          "unit": "degree",
+          "role": "standard_deviation",
+          "of": "gamma_deg"
+        },
+        {
+          "name": "unit_cell_volume_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "value"
+        },
+        {
+          "name": "unit_cell_volume_standard_deviation_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "standard_deviation",
+          "of": "unit_cell_volume_a3"
+        },
+        {"name": "used_in_forsterite_i_eos_fit", "quantity": "used_in_source_fit", "unit": "1", "role": "flag"}
+      ],
+      "resource": {
+        "path": "datasets/forsterite-finkelstein-2014-table2-compression.csv",
+        "sha256": "67c2f735959e5118f28bf939e206611f9d019ed57b2b047ff9598b072afae110",
+        "media_type": "text/csv"
+      },
+      "notes": "Table 2 states that parenthesized last-digit uncertainties are one standard deviation. The paper fits only the forsterite-I data through 48 GPa; the one triclinic forsterite-II and ten orthorhombic forsterite-III observations are retained as additional primary data but marked outside that fit.",
+      "reference": {
+        "authors": ["Finkelstein", "Dera", "Jahn", "Oganov", "Holl", "Meng", "Duffy"],
+        "year": 2014,
+        "source": "American Mineralogist",
+        "volume": "99",
+        "locator": "35-43",
+        "doi": "10.2138/am.2014.4526"
+      },
+      "used_by_eos_records": ["forsterite_finkelstein_2014_bm3_1"]
+    },
+    {
+      "identifier": "forsterite_katsura_2022_olivine_pvt",
+      "kind": "pressure_volume_temperature_with_paired_calibrant",
+      "description": "All 51 source Olivine rows from the author-deposited corrected workbook, with MgO readings and both pressure branches retained.",
+      "reference": {
+        "authors": ["Katsura"],
+        "year": 2022,
+        "title": "A Revised Adiabatic Temperature Profile for the Mantle",
+        "source": "Journal of Geophysical Research: Solid Earth",
+        "volume": "127",
+        "locator": "e2021JB023562",
+        "doi": "10.1029/2021JB023562"
+      },
+      "source_location": "Zenodo 5644426: Olivine rows 4-54; original column mapping retained in source metadata",
+      "source_url": "https://doi.org/10.5281/zenodo.5644426",
+      "license": "Source workbook: Katsura, CC BY 4.0. Contributor transcription/normalization/metadata rights only: CC0; see forsterite-katsura-2022.LICENSE.md.",
+      "columns": [
+        {"name": "source_row", "quantity": "source_row", "unit": "1", "role": "flag"},
+        {"name": "run_id", "quantity": "run_id", "unit": "1", "role": "flag"},
+        {"name": "temperature_uncorrected_k", "quantity": "temperature_uncorrected_k", "unit": "K", "role": "value"},
+        {"name": "pressure_matsui_gpa", "quantity": "pressure_matsui_gpa", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_matsui_sigma_gpa",
+          "quantity": "pressure_matsui_sigma_gpa",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_matsui_gpa"
+        },
+        {"name": "mgo_volume_ratio", "quantity": "mgo_volume_ratio", "unit": "1", "role": "value"},
+        {"name": "mgo_volume_ratio_lower", "quantity": "mgo_volume_ratio_lower", "unit": "1", "role": "value"},
+        {"name": "mgo_volume_ratio_upper", "quantity": "mgo_volume_ratio_upper", "unit": "1", "role": "value"},
+        {
+          "name": "temperature_corrected_upper_k",
+          "quantity": "temperature_corrected_upper_k",
+          "unit": "K",
+          "role": "value"
+        },
+        {
+          "name": "temperature_corrected_lower_k",
+          "quantity": "temperature_corrected_lower_k",
+          "unit": "K",
+          "role": "value"
+        },
+        {"name": "temperature_corrected_k", "quantity": "temperature_corrected_k", "unit": "K", "role": "value"},
+        {"name": "pressure_tange_vinet_gpa", "quantity": "pressure_tange_vinet_gpa", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_tange_vinet_sigma_gpa",
+          "quantity": "pressure_tange_vinet_sigma_gpa",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_tange_vinet_gpa"
+        },
+        {"name": "pressure_tange_bm3_gpa", "quantity": "pressure_tange_bm3_gpa", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_tange_bm3_sigma_gpa",
+          "quantity": "pressure_tange_bm3_sigma_gpa",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_tange_bm3_gpa"
+        },
+        {"name": "pressure_mean_gpa", "quantity": "pressure_mean_gpa", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_spread_gpa",
+          "quantity": "pressure_spread_gpa",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_mean_gpa"
+        },
+        {"name": "forsterite_volume_ratio", "quantity": "forsterite_volume_ratio", "unit": "1", "role": "value"},
+        {
+          "name": "forsterite_volume_ratio_sigma",
+          "quantity": "forsterite_volume_ratio_sigma",
+          "unit": "1",
+          "role": "uncertainty",
+          "of": "forsterite_volume_ratio"
+        }
+      ],
+      "resource": {
+        "path": "datasets/forsterite-katsura-2022-olivine-pvt.csv",
+        "sha256": "d23733bee32fdc59d601cc7d9e7f153c71fff6b0bcc0ac6818d4bca4dde3933b",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["forsterite_katsura_2022_author_script_bm3_mgd", "forsterite_katsura_2022_bm3_mgd"],
+      "uncertainty": {
+        "notes": "Sigma columns retained as deposited; AE is STDEV of four branch/bracket pressures, not an independently measured pressure sigma. No missing temperature error is invented."
+      },
+      "notes": "Coordinates: F:H MgO V/V0 and brackets; AN:AO forsterite V/V0 and sigma; U corrected temperature; AD mean pressure; AE branch/bracket spread. All other saved workbook columns, labels, formulas and cached values survive in the companion workbook CSV/cells JSON and archived original file. Candidate six-column author fitting input is reconstructed in forsterite-katsura-2022-candidate-fitting-input.csv with sigmaT explicitly missing; its provenance describes the AD/AE pressure choice and remaining selection uncertainty."
+    },
+    {
+      "identifier": "forsterite_katsura_2009_table1_original",
+      "kind": "original_pressure_temperature_lattice_parameters",
+      "description": "All 52 original Table 1 rows, with all printed lattice/volume/pressure errors. 50 match the later workbook; two ambient reference rows do not, and M375006 exists only in the workbook.",
+      "reference": {
+        "authors": [
+          "Katsura",
+          "Shatskiy",
+          "Manthilake",
+          "Zhai",
+          "Fukui",
+          "Yamazaki",
+          "Matsuzaki",
+          "Yoneda",
+          "Ito",
+          "Kuwata",
+          "Ueda",
+          "Nozawa",
+          "Funakoshi"
+        ],
+        "year": 2009,
+        "title": "Thermal expansion of forsterite at high pressures determined by in situ X-ray diffraction: The adiabatic geotherm in the upper mantle",
+        "source": "Physics of the Earth and Planetary Interiors",
+        "volume": "174",
+        "locator": "86-92",
+        "doi": "10.1016/j.pepi.2008.08.002"
+      },
+      "source_location": "Table 1, journal p.89 / PDF p.4, user-supplied final published article",
+      "source_url": "https://doi.org/10.1016/j.pepi.2008.08.002",
+      "license": "Article copyright Elsevier; source numerical-data terms unspecified. Contributor factual transcription/normalization/metadata rights only CC0; see forsterite-katsura-2022.LICENSE.md.",
+      "columns": [
+        {"name": "table_row", "quantity": "table_row", "unit": "1", "role": "flag"},
+        {"name": "run_label", "quantity": "run_label", "unit": "1", "role": "flag"},
+        {"name": "workbook_run_id", "quantity": "workbook_run_id", "unit": "1", "role": "flag"},
+        {"name": "temperature_k", "quantity": "temperature_k", "unit": "K", "role": "value"},
+        {"name": "pressure_gpa", "quantity": "pressure_gpa", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_gpa_reported_uncertainty",
+          "quantity": "pressure_gpa_reported_uncertainty",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {"name": "pressure_gpa_source_token", "quantity": "pressure_gpa_source_token", "unit": "1", "role": "flag"},
+        {"name": "a_angstrom", "quantity": "a_angstrom", "unit": "angstrom", "role": "value"},
+        {
+          "name": "a_angstrom_reported_uncertainty",
+          "quantity": "a_angstrom_reported_uncertainty",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "a_angstrom"
+        },
+        {"name": "a_angstrom_source_token", "quantity": "a_angstrom_source_token", "unit": "1", "role": "flag"},
+        {"name": "b_angstrom", "quantity": "b_angstrom", "unit": "angstrom", "role": "value"},
+        {
+          "name": "b_angstrom_reported_uncertainty",
+          "quantity": "b_angstrom_reported_uncertainty",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "b_angstrom"
+        },
+        {"name": "b_angstrom_source_token", "quantity": "b_angstrom_source_token", "unit": "1", "role": "flag"},
+        {"name": "c_angstrom", "quantity": "c_angstrom", "unit": "angstrom", "role": "value"},
+        {
+          "name": "c_angstrom_reported_uncertainty",
+          "quantity": "c_angstrom_reported_uncertainty",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "c_angstrom"
+        },
+        {"name": "c_angstrom_source_token", "quantity": "c_angstrom_source_token", "unit": "1", "role": "flag"},
+        {"name": "volume_a3", "quantity": "volume_a3", "unit": "angstrom^3", "role": "value"},
+        {
+          "name": "volume_a3_reported_uncertainty",
+          "quantity": "volume_a3_reported_uncertainty",
+          "unit": "angstrom^3",
+          "role": "uncertainty",
+          "of": "volume_a3"
+        },
+        {"name": "volume_a3_source_token", "quantity": "volume_a3_source_token", "unit": "1", "role": "flag"}
+      ],
+      "resource": {
+        "path": "datasets/forsterite-katsura-2009-table1.csv",
+        "sha256": "38ade0172e6b3dfd1aad6bd932c81ada2639e90a915ff406dfb09665816f9779",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": [],
+      "notes": "Primary observations for source comparison; not substituted into the 2022 corrected fit. Original pressure scale is Matsui et al. (2000). Parenthetical errors are retained without assigning a confidence level. Missing temperature errors remain missing. The table provides no run-specific measurement labels; matching identifiers are an explicit later-workbook join using uncorrected T, run and pressure within 0.02 GPa."
+    }
+  ]
+}

@@ -1,309 +1,241 @@
 {
- "format_version": 3,
- "name": "NaAlSiO4 (calcium-ferrite type)",
- "formula": "NaAlSiO4",
- "symmetry": "ORTHORHOMBIC",
- "lattice": {
-  "a": 10.187,
-  "b": 8.684,
-  "c": 2.7464,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 4,
- "space_group": "Pbnm",
- "space_group_number": 62,
- "atom_sites": [
-  {
-   "element": "Na",
-   "wyckoff": "4c",
-   "x": 0.661,
-   "y": 0.764,
-   "z": 0.75,
-   "occupancy": 1.0
-  },
-  {
-   "element": "Al",
-   "wyckoff": "4c",
-   "x": 0.89,
-   "y": 0.577,
-   "z": 0.25,
-   "occupancy": 0.5
-  },
-  {
-   "element": "Si",
-   "wyckoff": "4c",
-   "x": 0.89,
-   "y": 0.577,
-   "z": 0.25,
-   "occupancy": 0.5
-  },
-  {
-   "element": "Al",
-   "wyckoff": "4c",
-   "x": 0.398,
-   "y": 0.556,
-   "z": 0.25,
-   "occupancy": 0.5
-  },
-  {
-   "element": "Si",
-   "wyckoff": "4c",
-   "x": 0.398,
-   "y": 0.556,
-   "z": 0.25,
-   "occupancy": 0.5
-  },
-  {
-   "element": "O",
-   "wyckoff": "4c",
-   "x": 0.365,
-   "y": 0.697,
-   "z": 0.75,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "4c",
-   "x": 0.018,
-   "y": 0.612,
-   "z": 0.75,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "4c",
-   "x": 0.201,
-   "y": 0.461,
-   "z": 0.25,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "4c",
-   "x": 0.43,
-   "y": 0.438,
-   "z": 0.75,
-   "occupancy": 1.0
-  }
- ],
- "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/NaAlSiO4 CaF phase - Copy.jcpds, JCPDS/dac_user_jcpds/NaAlSiO4 CaF phase.jcpds. Calcium-ferrite structure: Yamada, Matsui, and Ito, Mineralogical Magazine 47, 177-181 (1983), doi:10.1180/minmag.1983.047.343.07; corrected O4 coordinate documented by Finger and Hazen, Acta Crystallographica B47, 561-580 (1991), doi:10.1107/S0108768191004214.",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Dubrovinsky et al. (2002)",
-   "reference": {
-    "authors": [
-     "Dubrovinsky",
-     "Dubrovinskaia",
-     "Prokopenko",
-     "Le Bihan"
-    ],
-    "year": 2002,
-    "title": "Equation of State and Crystal Structure of NaAlSiO4 with Calcium-Ferrite Type Structure in the Conditions of the Lower Mantle",
-    "source": "High Pressure Res.",
-    "volume": "22",
-    "locator": "495-499",
-    "doi": "10.1080/08957950212807"
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 242.9573,
-     "K0": 220.0,
-     "K0_prime": 4.1
-    },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": 0.1328,
-    "K0": 1.0,
-    "K0_prime": 0.1
-   },
-   "fixed_parameters": [],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    40.0
-   ],
-   "notes": "Dubrovinsky et al. report molar V0 = 36.58(2) cm^3/mol, K0 = 220(1) GPa, and K0' = 4.1(1). V0 and its uncertainty were converted to the Z=4 cell.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental section, journal page 496; Figure 2 and EOS discussion, journal page 498."
-   },
-   "identifier": "naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1",
-   "pressure_calibration": {
-    "status": "resolved",
-    "methods": [
-     {
-      "kind": "equation_of_state",
-      "reference": {
-       "authors": [
-        "Holmes",
-        "Moriarty",
-        "Gathers",
-        "Nellis"
-       ],
-       "year": 1989,
-       "source": "J. Appl. Phys.",
-       "volume": "66",
-       "locator": "2962-2967",
-       "doi": "10.1063/1.344177"
+  "format_version": 4,
+  "identifier": "naalsio4_calcium_ferrite",
+  "name": "NaAlSiO4 (calcium-ferrite type)",
+  "formula": "NaAlSiO4",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 4,
+  "eos_records": [
+    {
+      "identifier": "naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1",
+      "label": "Dubrovinsky et al. (2002)",
+      "model": "BM3",
+      "parameters": {
+        "V0": {"value": 242.9573, "error": 0.1328},
+        "K0": {"value": 220.0, "error": 1.0},
+        "K0_prime": {"value": 4.1, "error": 0.1}
       },
-      "source_location": "Experimental section; platinum powder pressure standard",
-      "scope": "all observations",
-      "reference_eos_record": "platinum_holmes_1989_vinet_1"
-     }
-    ],
-    "recalculation": {
-     "status": "ready",
-     "notes": "The Holmes platinum EOS is executable. Figure 2 supplies approximate source-scale pressures that can be inverted for approximate recalibration; raw platinum volumes were not tabulated."
-    },
-    "audit_date": "2026-09-03"
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1080/08957950212807",
-     "locations": [
-      "Experimental section, journal page 496",
-      "Figure 2 and EOS discussion, journal page 498"
-     ],
-     "finding": "The paper states that 23 observations were collected but publishes them only in Figure 2. Nineteen distinct marker centers are visually separable and bundled; four measurements overlap too closely to recover independently. The molar V0 was converted to the Z=4 conventional cell for the EOS record.",
-     "doi": "10.1080/08957950212807"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "naalsio4_calcium_ferrite.json"
-    },
-    "primary_data_check": {
-     "status": "plot_only",
-     "audit_date": "2026-09-03",
-     "digitized_dataset_identifiers": [
-      "naalsio4_dubrovinsky_2002_figure2_digitized"
-     ],
-     "source_locations": [
-      "Figure 2, journal page 498"
-     ],
-     "finding": "The compression series is published only in Figure 2. Nineteen distinct marker centers are separable and bundled with digitization uncertainty; the paper states that 23 total observations were collected, so four overlapping observations cannot be recovered independently from the plot. No experimental error bars are plotted."
+      "experimental_pressure_range_gpa": [0.0, 40.0],
+      "determination_method": "experimental",
+      "notes": "Dubrovinsky et al. report molar V0 = 36.58(2) cm^3/mol, K0 = 220(1) GPa, and K0' = 4.1(1). V0 and its uncertainty were converted to the Z=4 cell.",
+      "reference": {
+        "authors": ["Dubrovinsky", "Dubrovinskaia", "Prokopenko", "Le Bihan"],
+        "year": 2002,
+        "title": "Equation of State and Crystal Structure of NaAlSiO4 with Calcium-Ferrite Type Structure in the Conditions of the Lower Mantle",
+        "source": "High Pressure Res.",
+        "volume": "22",
+        "locator": "495-499",
+        "doi": "10.1080/08957950212807"
+      },
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference": {
+              "authors": ["Holmes", "Moriarty", "Gathers", "Nellis"],
+              "year": 1989,
+              "source": "J. Appl. Phys.",
+              "volume": "66",
+              "locator": "2962-2967",
+              "doi": "10.1063/1.344177"
+            },
+            "source_location": "Experimental section; platinum powder pressure standard",
+            "scope": "all observations",
+            "reference_eos_record": "platinum_holmes_1989_vinet_1"
+          }
+        ],
+        "recalculation": {
+          "status": "ready",
+          "notes": "The Holmes platinum EOS is executable. Figure 2 supplies approximate source-scale pressures that can be inverted for approximate recalibration; raw platinum volumes were not tabulated."
+        },
+        "audit_date": "2026-09-03"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/naalsio4_calcium_ferrite/#record-naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1",
+            "report_path": "docs/reconstruction-reports/naalsio4_calcium_ferrite.md#record-naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 242.9573,
+                "published_error": 0.1328,
+                "refit": 243.05965757736956,
+                "refit_error": 0.5521723264052207,
+                "difference": 0.10235757736955975,
+                "relative_difference": 0.0004212986288930596,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 220.0,
+                "published_error": 1.0,
+                "refit": 216.8169956953024,
+                "refit_error": 16.226317294844577,
+                "difference": -3.18300430469759,
+                "relative_difference": 0.014468201384989046,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.1,
+                "published_error": 0.1,
+                "refit": 4.1944712997044755,
+                "refit_error": 0.8463720606331082,
+                "difference": 0.09447129970447588,
+                "relative_difference": 0.023041780415725827,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 19,
+              "observed_pressure_range_gpa": [3.947, 41.176],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [211.088, 238.783],
+              "degrees_of_freedom": 16,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.03457844312136649,
+              "published_rmse_gpa": 0.13851451745098325,
+              "reduced_chi_square": 0.025913810563498813,
+              "dataset_identifiers": ["naalsio4_dubrovinsky_2002_figure2_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1080/08957950212807",
+            "locations": ["Experimental section, journal page 496", "Figure 2 and EOS discussion, journal page 498"],
+            "finding": "The paper states that 23 observations were collected but publishes them only in Figure 2. Nineteen distinct marker centers are visually separable and bundled; four measurements overlap too closely to recover independently. The molar V0 was converted to the Z=4 conventional cell for the EOS record.",
+            "doi": "10.1080/08957950212807"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "naalsio4_calcium_ferrite.json"
+          },
+          "primary_data_check": {
+            "status": "plot_only",
+            "audit_date": "2026-09-03",
+            "digitized_dataset_identifiers": ["naalsio4_dubrovinsky_2002_figure2_digitized"],
+            "source_locations": ["Figure 2, journal page 498"],
+            "finding": "The compression series is published only in Figure 2. Nineteen distinct marker centers are separable and bundled with digitization uncertainty; the paper states that 23 total observations were collected, so four overlapping observations cannot be recovered independently from the plot. No experimental error bars are plotted."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Experimental section, journal page 496; Figure 2 and EOS discussion, journal page 498."
+        }
+      }
     }
-   }
-  }
- ],
- "datasets": [
-  {
-   "identifier": "naalsio4_dubrovinsky_2002_figure2_digitized",
-   "kind": "pressure_volume_digitized",
-   "description": "Nineteen distinct calcium-ferrite-type NaAlSiO4 pressure-volume marker centers digitized from Figure 2. Four of the 23 reported measurements overlap too closely in the figure to recover as separate observations.",
-   "reference": {
-    "authors": [
-     "Dubrovinsky",
-     "Dubrovinskaia",
-     "Prokopenko",
-     "Le Bihan"
-    ],
-    "year": 2002,
-    "source": "High Pressure Res.",
-    "volume": "22",
-    "locator": "495-499",
-    "doi": "10.1080/08957950212807"
-   },
-   "source_location": "Figure 2, journal page 498",
-   "source_url": "https://doi.org/10.1080/08957950212807",
-   "columns": [
+  ],
+  "family_id": "naalsio4_calcium_ferrite",
+  "symmetry": "ORTHORHOMBIC",
+  "space_group": "Pbnm",
+  "space_group_number": 62,
+  "lattice": {"a": 10.187, "b": 8.684, "c": 2.7464, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Na", "wyckoff": "4c", "x": 0.661, "y": 0.764, "z": 0.75, "occupancy": 1.0},
+    {"element": "Al", "wyckoff": "4c", "x": 0.89, "y": 0.577, "z": 0.25, "occupancy": 0.5},
+    {"element": "Si", "wyckoff": "4c", "x": 0.89, "y": 0.577, "z": 0.25, "occupancy": 0.5},
+    {"element": "Al", "wyckoff": "4c", "x": 0.398, "y": 0.556, "z": 0.25, "occupancy": 0.5},
+    {"element": "Si", "wyckoff": "4c", "x": 0.398, "y": 0.556, "z": 0.25, "occupancy": 0.5},
+    {"element": "O", "wyckoff": "4c", "x": 0.365, "y": 0.697, "z": 0.75, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "4c", "x": 0.018, "y": 0.612, "z": 0.75, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "4c", "x": 0.201, "y": 0.461, "z": 0.25, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "4c", "x": 0.43, "y": 0.438, "z": 0.75, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/NaAlSiO4 CaF phase - Copy.jcpds, JCPDS/dac_user_jcpds/NaAlSiO4 CaF phase.jcpds. Calcium-ferrite structure: Yamada, Matsui, and Ito, Mineralogical Magazine 47, 177-181 (1983), doi:10.1180/minmag.1983.047.343.07; corrected O4 coordinate documented by Finger and Hazen, Acta Crystallographica B47, 561-580 (1991), doi:10.1107/S0108768191004214.",
+  "datasets": [
     {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "volume_a3_conventional_cell",
-     "quantity": "volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "value"
-    },
-    {
-     "name": "pressure_digitization_uncertainty_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "uncertainty",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "volume_digitization_uncertainty_a3",
-     "quantity": "volume",
-     "unit": "angstrom^3/conventional_unit_cell",
-     "role": "uncertainty",
-     "of": "volume_a3_conventional_cell"
+      "identifier": "naalsio4_dubrovinsky_2002_figure2_digitized",
+      "kind": "pressure_volume_digitized",
+      "description": "Nineteen distinct calcium-ferrite-type NaAlSiO4 pressure-volume marker centers digitized from Figure 2. Four of the 23 reported measurements overlap too closely in the figure to recover as separate observations.",
+      "reference": {
+        "authors": ["Dubrovinsky", "Dubrovinskaia", "Prokopenko", "Le Bihan"],
+        "year": 2002,
+        "source": "High Pressure Res.",
+        "volume": "22",
+        "locator": "495-499",
+        "doi": "10.1080/08957950212807"
+      },
+      "source_location": "Figure 2, journal page 498",
+      "source_url": "https://doi.org/10.1080/08957950212807",
+      "columns": [
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "volume_a3_conventional_cell",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "pressure_digitization_uncertainty_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "volume_digitization_uncertainty_a3",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "uncertainty",
+          "of": "volume_a3_conventional_cell"
+        }
+      ],
+      "resource": {
+        "path": "datasets/naalsio4-dubrovinsky-2002-figure2-digitized.csv",
+        "sha256": "41e50d79a084509b9a1ba779ec8b15633dcbfe4eac00c3365d2d8e182a1b0557",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1"],
+      "uncertainty": {
+        "published_error_bars": "none plotted",
+        "scope": "The paper does not publish row-wise pressure or volume errors for Figure 2. Digitization uncertainty is therefore kept distinct from the EOS-parameter fit uncertainties."
+      },
+      "provenance": {
+        "type": "digitized_from_figure",
+        "method": "Rendered the supplied primary PDF at 400 dpi, calibrated the linear pressure and conventional-cell-volume axes from major ticks, and digitized distinct filled-circle marker centers without sampling the BM3 curve.",
+        "source_pdf_sha256": "6d3edbc5523f393e0c0036f5470c441fc800df40b4985568ce276a69d754484f",
+        "source_figure_sha256": "d6a43eaddaa85b57327c002c2bb24de8dff1824b0c36ba96e90233cbd77de166",
+        "axis_calibration_pixels_source_figure": {
+          "pressure": [
+            [930.0, 0.0],
+            [1984.0, 40.0]
+          ],
+          "volume": [
+            [391.5, 240.0],
+            [1118.5, 210.0]
+          ]
+        },
+        "quality_control": {"published_bm3_rms_pressure_residual_gpa": 0.1829, "published_bm3_max_abs_pressure_residual_gpa": 0.4526},
+        "digitized_on": "2026-09-04"
+      }
     }
-   ],
-   "resource": {
-    "path": "datasets/naalsio4-dubrovinsky-2002-figure2-digitized.csv",
-    "sha256": "41e50d79a084509b9a1ba779ec8b15633dcbfe4eac00c3365d2d8e182a1b0557",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "naalsio4_calcium_ferrite_dubrovinsky_2002_bm3_1"
-   ],
-   "uncertainty": {
-    "published_error_bars": "none plotted",
-    "scope": "The paper does not publish row-wise pressure or volume errors for Figure 2. Digitization uncertainty is therefore kept distinct from the EOS-parameter fit uncertainties."
-   },
-   "provenance": {
-    "type": "digitized_from_figure",
-    "method": "Rendered the supplied primary PDF at 400 dpi, calibrated the linear pressure and conventional-cell-volume axes from major ticks, and digitized distinct filled-circle marker centers without sampling the BM3 curve.",
-    "source_pdf_sha256": "6d3edbc5523f393e0c0036f5470c441fc800df40b4985568ce276a69d754484f",
-    "source_figure_sha256": "d6a43eaddaa85b57327c002c2bb24de8dff1824b0c36ba96e90233cbd77de166",
-    "axis_calibration_pixels_source_figure": {
-     "pressure": [
-      [
-       930.0,
-       0.0
-      ],
-      [
-       1984.0,
-       40.0
-      ]
-     ],
-     "volume": [
-      [
-       391.5,
-       240.0
-      ],
-      [
-       1118.5,
-       210.0
-      ]
-     ]
-    },
-    "quality_control": {
-     "published_bm3_rms_pressure_residual_gpa": 0.1829,
-     "published_bm3_max_abs_pressure_residual_gpa": 0.4526
-    },
-    "digitized_on": "2026-09-04"
-   }
-  }
- ],
- "format": "peritheos.material",
- "identifier": "naalsio4_calcium_ferrite",
- "family_id": "naalsio4_calcium_ferrite",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- }
+  ]
 }

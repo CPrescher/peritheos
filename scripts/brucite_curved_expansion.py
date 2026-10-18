@@ -15,6 +15,7 @@ import numpy as np
 
 from scripts.brucite_reproduce import (
     ROOT,
+    STAGED,
     bm3,
     comparison_volume,
     conditional_continuous_pressure,
@@ -27,6 +28,7 @@ from scripts.brucite_reproduce import (
 )
 from scripts.brucite_v0_audit import REPORT as AMBIENT_REPORT
 from scripts.brucite_v0_audit import ambient_linear_alpha_fits
+from scripts.eosmat_io import read_material
 
 REPORT = ROOT / "docs/data/brucite-curved-expansion.json"
 PREFIX = "brucite_peritheos_fukui_2003_curved_expansion"
@@ -355,7 +357,7 @@ def write_comparison_plot(report):
     """Compare the continuous model with both original-source conventions.
 
     Residual statistics include every printed Table 4 row, including points
-    outside the continuous catalog record's common pressure interval.
+    outside the archived continuous diagnostic's common pressure interval.
     """
     import matplotlib
 
@@ -365,9 +367,7 @@ def write_comparison_plot(report):
     from matplotlib.ticker import MaxNLocator
 
     rows = observations("fukui_2003", "table4")
-    card = json.loads(
-        (ROOT / "peritheos/data/materials/brucite.eosmat").read_text(encoding="utf-8")
-    )
+    card = read_material(STAGED.with_name("brucite-diagnostic-archive.eosmat"))
     record = next(
         r
         for r in card["eos_records"]
@@ -566,7 +566,7 @@ def write_comparison_plot(report):
         0.075,
         0.063,
         "ΔV = calculated − observed volume at observed pressure; bars show reported P and V errors, excluding model uncertainty.\n"
-        f"Purple dotted portions lie outside the continuous catalog interval ({pressure_min:g}–{pressure_max:g} GPa).\n"
+        f"Purple dotted portions lie outside the archived continuous diagnostic interval ({pressure_min:g}–{pressure_max:g} GPa).\n"
         "Both continuous curves use published slopes anchored at the 300 K moduli; original fitted intercepts were not reported.\n"
         "Curved expansion was fitted only to ambient data (299.3–592.9 K); higher-temperature reference volumes are extrapolated.",
         fontsize=9,

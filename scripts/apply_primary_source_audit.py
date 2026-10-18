@@ -16,10 +16,13 @@ access. External software catalogs are not treated as scientific authority.
 
 from __future__ import annotations
 
+import copy
 import json
 from collections import Counter
 from pathlib import Path
 from typing import Any
+
+from scripts.eosmat_io import read_material, write_material
 
 AUDIT_DATE = "2026-09-01"
 CATALOG_AUDIT_DATE = "2026-09-03"
@@ -1043,7 +1046,7 @@ def curate_migrated_catalog() -> None:
     majorite_path = MATERIALS / "majorite.eosmat"
     duplicate_path = MATERIALS / "mgsio3.eosmat"
     source_path = duplicate_path if duplicate_path.exists() else majorite_path
-    document = json.loads(source_path.read_text(encoding="utf-8"))
+    document = read_material(source_path)
     document.update(
         {
             "name": "Majorite (MgSiO3 tetragonal garnet)",
@@ -1071,15 +1074,12 @@ def curate_migrated_catalog() -> None:
     migration = record.get("scientific_validation", {}).get("migration_source")
     if migration is not None:
         migration["file"] = "mgsio3.json; majorite.json"
-    majorite_path.write_text(
-        json.dumps(document, indent=1, ensure_ascii=False, allow_nan=False) + "\n",
-        encoding="utf-8",
-    )
+    write_material(majorite_path, document)
     if duplicate_path.exists():
         duplicate_path.unlink()
 
     phase_d_path = MATERIALS / "phase_d.eosmat"
-    phase_d = json.loads(phase_d_path.read_text(encoding="utf-8"))
+    phase_d = read_material(phase_d_path)
     migrated = phase_d["eos_records"][0]
     migration = migrated.get("scientific_validation", {}).get("migration_source")
 
@@ -1157,10 +1157,7 @@ def curate_migrated_catalog() -> None:
         "Shieh et al. (2000), Table 2. Phase D is compositionally variable; the "
         "paper's antigorite starting material contained about 3.7 wt% Fe."
     )
-    phase_d_path.write_text(
-        json.dumps(phase_d, indent=1, ensure_ascii=False, allow_nan=False) + "\n",
-        encoding="utf-8",
-    )
+    write_material(phase_d_path, phase_d)
 
 
 def set_primary_parameter(component: dict[str, Any], name: str, value: float) -> None:
@@ -3343,6 +3340,21 @@ def deferred_reason(record: dict[str, Any], doi: str | None) -> str:
 
 
 def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
+    from scripts.apply_eos_recommendation_holds import NOT_RECOMMENDED, WADSLEYITE
+
+    previous_validation = record.get("scientific_validation", {})
+    if (
+        record["identifier"] in set(NOT_RECOMMENDED) | {WADSLEYITE}
+        and previous_validation.get("recommendation_date") == "2026-10-17"
+    ) or (
+        previous_validation.get("status") == "not_reproduced"
+        and previous_validation.get("usage_recommendation")
+        == "not_recommended_for_quantitative_use"
+        and previous_validation.get("recommendation_audit")
+    ):
+        # A generic transcription re-audit must not undo a reviewed source
+        # discrepancy or reactivate a held default without new source evidence.
+        return copy.deepcopy(record)
     result = dict(record)
     # ``audit_corrections`` is generated entirely by this script. Rebuild it
     # from the current rules so moved or withdrawn corrections cannot remain
@@ -3671,11 +3683,11 @@ def main() -> None:
     expected_records = sum(
         record["identifier"] not in REMOVED_UNSUPPORTED_RECORDS
         for path in MATERIALS.glob("*.eosmat")
-        for record in json.loads(path.read_text(encoding="utf-8"))["eos_records"]
+        for record in read_material(path)["eos_records"]
     )
     entries: list[dict[str, Any]] = []
     for path in sorted(MATERIALS.glob("*.eosmat")):
-        document = json.loads(path.read_text(encoding="utf-8"))
+        document = read_material(path)
         primary_phase_labels = {
             "cscl": "B2 (CsCl-type), cubic Pm-3m",
             "fe3o4": "magnetite, cubic inverse-spinel Fd-3m",
@@ -3782,12 +3794,16 @@ def main() -> None:
                 entry["usage_recommendation"] = check["usage_recommendation"]
             if "reproduction_status" in check:
                 entry["reproduction_status"] = check["reproduction_status"]
+            for field in (
+                "recommendation_date",
+                "recommendation_audit",
+                "recommendation_reason",
+            ):
+                if field in check:
+                    entry[field] = check[field]
             entries.append(entry)
         document["eos_records"] = records
-        path.write_text(
-            json.dumps(document, indent=1, ensure_ascii=False, allow_nan=False) + "\n",
-            encoding="utf-8",
-        )
+        write_material(path, document)
 
     counts = Counter(entry["status"] for entry in entries)
     if len(entries) != expected_records:
@@ -3859,7 +3875,7 @@ def aggregate_existing_audits() -> None:
     entries: list[dict[str, Any]] = []
     pressure_calibrations: list[dict[str, Any]] = []
     for path in sorted(MATERIALS.glob("*.eosmat")):
-        document = json.loads(path.read_text(encoding="utf-8"))
+        document = read_material(path)
         for record in document["eos_records"]:
             check = record.get("scientific_validation")
             if not isinstance(check, dict) or "status" not in check:
@@ -3884,6 +3900,13 @@ def aggregate_existing_audits() -> None:
                 entry["usage_recommendation"] = check["usage_recommendation"]
             if "reproduction_status" in check:
                 entry["reproduction_status"] = check["reproduction_status"]
+            for field in (
+                "recommendation_date",
+                "recommendation_audit",
+                "recommendation_reason",
+            ):
+                if field in check:
+                    entry[field] = check[field]
             entries.append(entry)
             pressure_calibrations.append(record["pressure_calibration"])
 

@@ -245,15 +245,35 @@ def list_materials(
     return tuple(item for item in materials if item.formula.casefold() == formula_key)
 
 
-def list_eos_records(*, formula: str | None = None) -> tuple[EOSRecord, ...]:
-    """List all bundled executable records in identifier order."""
+def list_eos_records(
+    *, formula: str | None = None, include_reference_variants: bool = False
+) -> tuple[EOSRecord, ...]:
+    """List source EOS choices; optionally include published scale variants.
+
+    Reference variants remain executable by their original identifiers.
+    """
+    if not isinstance(include_reference_variants, bool):
+        raise MaterialError("include_reference_variants must be a boolean")
     records = tuple(
-        _catalog_index().records[key] for key in sorted(_catalog_index().records)
+        record
+        for key in sorted(_catalog_index().records)
+        if not (record := _catalog_index().records[key]).is_reference_variant
+        or include_reference_variants
     )
     if formula is None:
         return records
     formula_key = formula.strip().casefold()
     return tuple(item for item in records if item.material.casefold() == formula_key)
+
+
+def list_reference_variants(source_eos_record: str) -> tuple[EOSRecord, ...]:
+    """List the original published pressure-scale alternatives of a source EOS."""
+    source = get_eos_record(source_eos_record)
+    return tuple(
+        record
+        for record in list_eos_records(include_reference_variants=True)
+        if record.pressure_scale_variant_of == source.identifier
+    )
 
 
 # Re-export discovery here for users who naturally look for it beside lookup.
@@ -280,6 +300,7 @@ __all__ = [
     "get_material_family",
     "group_materials",
     "list_eos_records",
+    "list_reference_variants",
     "list_material_families",
     "list_materials",
     "search_eos_records",

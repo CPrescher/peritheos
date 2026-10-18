@@ -1,207 +1,193 @@
 {
- "format_version": 3,
- "name": "SrO (B2)",
- "aliases": [
-  "cesium-chloride-type SrO"
- ],
- "formula": "SrO",
- "symmetry": "CUBIC",
- "lattice": {
-  "a": 3.0374,
-  "b": 3.0374,
-  "c": 3.0374,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 1,
- "space_group": "Pm-3m",
- "space_group_number": 221,
- "atom_sites": [
-  {
-   "element": "Sr",
-   "wyckoff": "1a",
-   "x": 0.0,
-   "y": 0.0,
-   "z": 0.0,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "1b",
-   "x": 0.5,
-   "y": 0.5,
-   "z": 0.5,
-   "occupancy": 1.0
-  }
- ],
- "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/current user/jcpds/SrO-b2.jcpds",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Sato and Jeanloz (1981), B2 SrO BM2",
-   "reference": {
-    "authors": [
-     "Sato",
-     "Jeanloz"
-    ],
-    "year": 1981,
-    "title": "Phase transition in SrO",
-    "source": "J. Geophys. Res.",
-    "volume": "86",
-    "locator": "11773-11778",
-    "doi": "10.1029/JB086iB12p11773"
-   },
-   "eos": {
-    "type": "BM2",
-    "parameters": {
-     "V0": 28.0224,
-     "K0": 160.0
-    },
-    "model": "birch_murnaghan_2"
-   },
-   "parameter_errors": {
-    "V0": 0.9127817589576549,
-    "K0": 19.0
-   },
-   "fixed_parameters": [],
-   "experimental_pressure_range_gpa": [
-    32.0,
-    59.0
-   ],
-   "notes": "Room-temperature second-order finite-strain EOS for B2 SrO. The published rho0=6.14+/-0.20 Mg/m^3 converts to V0=28.0224+/-0.9128 A^3 for one SrO per Pm-3m cell; K0=160+/-19 GPa and K0'=4 fixed. B2 reflections were measured from 32 to 59 GPa, with B1-B2 coexistence at 32 and 37 GPa and a transition pressure of 36+/-4 GPa. No covariance is published.",
-   "determination_method": "experimental",
-   "identifier": "sro_b2_sato_1981_bm2_1",
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
-    },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1029/JB086iB12p11773",
-     "locations": [
-      "page 11774, Table 1, B2-SrO density observations",
-      "pages 11775-11776, equations (1)-(7), finite-strain derivation",
-      "page 11776, second-order fit and Figure 3"
-     ],
-     "finding": "The source reports rho0=6.14(20) Mg/m^3 and K0=160(19) GPa with K0'=4. Peritheos converts rho0 and its uncertainty to the one-formula-unit B2 conventional-cell volume; no covariance is published.",
-     "doi": "10.1029/jb086ib12p11773"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "sro_b2.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "sro_b2_sato_1981_table1_compression"
-     ],
-     "source_locations": [
-      "Table 1, page 11774"
-     ],
-     "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+  "format_version": 4,
+  "identifier": "sro_b2",
+  "name": "SrO (B2)",
+  "formula": "SrO",
+  "phase": "B2 (CsCl-type), cubic Pm-3m",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 1,
+  "eos_records": [
+    {
+      "identifier": "sro_b2_sato_1981_bm2_1",
+      "label": "Sato and Jeanloz (1981), B2 SrO BM2",
+      "model": "BM2",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 28.0224, "error": 0.9127817589576549},
+        "K0": {"value": 160.0, "error": 19.0}
+      },
+      "experimental_pressure_range_gpa": [32.0, 59.0],
+      "pressure_range_status": "reported_exactly",
+      "determination_method": "experimental",
+      "notes": "Room-temperature second-order finite-strain EOS for B2 SrO. The published rho0=6.14+/-0.20 Mg/m^3 converts to V0=28.0224+/-0.9128 A^3 for one SrO per Pm-3m cell; K0=160+/-19 GPa and K0'=4 fixed. B2 reflections were measured from 32 to 59 GPa, with B1-B2 coexistence at 32 and 37 GPa and a transition pressure of 36+/-4 GPa. No covariance is published.",
+      "reference": {
+        "authors": ["Sato", "Jeanloz"],
+        "year": 1981,
+        "title": "Phase transition in SrO",
+        "source": "J. Geophys. Res.",
+        "volume": "86",
+        "locator": "11773-11778",
+        "doi": "10.1029/JB086iB12p11773"
+      },
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/sro_b2/#record-sro_b2_sato_1981_bm2_1",
+            "report_path": "docs/reconstruction-reports/sro_b2.md#record-sro_b2_sato_1981_bm2_1",
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 28.0224,
+                "published_error": 0.9127817589576549,
+                "refit": 27.961466689322425,
+                "refit_error": 0.8797588331305788,
+                "difference": -0.06093331067757646,
+                "relative_difference": 0.0021744501069707253,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 160.0,
+                "published_error": 19.0,
+                "refit": 162.70585070949238,
+                "refit_error": 36.64903930857559,
+                "difference": 2.705850709492381,
+                "relative_difference": 0.016911566934327382,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "density_mg_m3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": [],
+              "observations": 13,
+              "observed_pressure_range_gpa": [32.0, 59.0],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [22.152380069524913, 24.178967959527824],
+              "degrees_of_freedom": 11,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 2.800067278116326,
+              "published_rmse_gpa": 2.803143227793565,
+              "reduced_chi_square": 1.0450277086826225,
+              "dataset_identifiers": ["sro_b2_sato_1981_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1029/JB086iB12p11773",
+            "locations": [
+              "page 11774, Table 1, B2-SrO density observations",
+              "pages 11775-11776, equations (1)-(7), finite-strain derivation",
+              "page 11776, second-order fit and Figure 3"
+            ],
+            "finding": "The source reports rho0=6.14(20) Mg/m^3 and K0=160(19) GPa with K0'=4. Peritheos converts rho0 and its uncertainty to the one-formula-unit B2 conventional-cell volume; no covariance is published.",
+            "doi": "10.1029/jb086ib12p11773"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "sro_b2.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["sro_b2_sato_1981_table1_compression"],
+            "source_locations": ["Table 1, page 11774"],
+            "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 11774, Table 1, B2-SrO density observations; pages 11775-11776, equations (1)-(7), finite-strain derivation; page 11776, second-order fit and Figure 3.",
+          "V0": "Sato and Jeanloz (1981), page 11776: rho0=6.14+/-0.20 Mg/m^3, converted to the Z=1 Pm-3m conventional-cell volume",
+          "K0": "Sato and Jeanloz (1981), page 11776, second-order fit",
+          "equation": "Sato and Jeanloz (1981), equations (1)-(7) and page 11776: second-order Eulerian finite strain with K0'=4"
+        }
+      }
     }
-   },
-   "temperature_ref": 300.0,
-   "pressure_range_status": "reported_exactly",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 11774, Table 1, B2-SrO density observations; pages 11775-11776, equations (1)-(7), finite-strain derivation; page 11776, second-order fit and Figure 3.",
-    "V0": "Sato and Jeanloz (1981), page 11776: rho0=6.14+/-0.20 Mg/m^3, converted to the Z=1 Pm-3m conventional-cell volume",
-    "K0": "Sato and Jeanloz (1981), page 11776, second-order fit",
-    "equation": "Sato and Jeanloz (1981), equations (1)-(7) and page 11776: second-order Eulerian finite strain with K0'=4"
-   }
-  }
- ],
- "format": "peritheos.material",
- "identifier": "sro_b2",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "phase": "B2 (CsCl-type), cubic Pm-3m",
- "datasets": [
-  {
-   "identifier": "sro_b2_sato_1981_table1_compression",
-   "kind": "pressure_volume",
-   "description": "All 13 B2-SrO density observations, including the two B1/B2 coexistence measurements.",
-   "reference": {
-    "authors": [
-     "Sato",
-     "Jeanloz"
-    ],
-    "year": 1981,
-    "source": "J. Geophys. Res.",
-    "volume": "86",
-    "locator": "11773-11778",
-    "doi": "10.1029/JB086iB12p11773"
-   },
-   "source_location": "Table 1, page 11774",
-   "columns": [
+  ],
+  "aliases": ["cesium-chloride-type SrO"],
+  "symmetry": "CUBIC",
+  "space_group": "Pm-3m",
+  "space_group_number": 221,
+  "lattice": {"a": 3.0374, "b": 3.0374, "c": 3.0374, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Sr", "wyckoff": "1a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "1b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/current user/jcpds/SrO-b2.jcpds",
+  "datasets": [
     {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "pressure_uncertainty_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "bound",
-     "of": "pressure_gpa"
-    },
-    {
-     "name": "density_mg_m3",
-     "quantity": "density",
-     "unit": "Mg/m^3",
-     "role": "value"
-    },
-    {
-     "name": "density_uncertainty_mg_m3",
-     "quantity": "density",
-     "unit": "Mg/m^3",
-     "role": "bound",
-     "of": "density_mg_m3"
-    },
-    {
-     "name": "run",
-     "quantity": "observation_identifier",
-     "unit": "1",
-     "role": "flag"
+      "identifier": "sro_b2_sato_1981_table1_compression",
+      "kind": "pressure_volume",
+      "description": "All 13 B2-SrO density observations, including the two B1/B2 coexistence measurements.",
+      "reference": {
+        "authors": ["Sato", "Jeanloz"],
+        "year": 1981,
+        "source": "J. Geophys. Res.",
+        "volume": "86",
+        "locator": "11773-11778",
+        "doi": "10.1029/JB086iB12p11773"
+      },
+      "source_location": "Table 1, page 11774",
+      "columns": [
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_uncertainty_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "bound",
+          "of": "pressure_gpa"
+        },
+        {"name": "density_mg_m3", "quantity": "density", "unit": "Mg/m^3", "role": "value"},
+        {
+          "name": "density_uncertainty_mg_m3",
+          "quantity": "density",
+          "unit": "Mg/m^3",
+          "role": "bound",
+          "of": "density_mg_m3"
+        },
+        {"name": "run", "quantity": "observation_identifier", "unit": "1", "role": "flag"}
+      ],
+      "resource": {
+        "path": "datasets/sro-b2-sato-1981-table1-compression.csv",
+        "sha256": "c943aede33e9884d2481d4a1351173c333f783b265bd343a34690282458df38f",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["sro_b2_sato_1981_bm2_1"],
+      "notes": "The source's row-wise pressure and density uncertainties are retained.",
+      "source_url": "https://doi.org/10.1029/JB086iB12p11773"
     }
-   ],
-   "resource": {
-    "path": "datasets/sro-b2-sato-1981-table1-compression.csv",
-    "sha256": "c943aede33e9884d2481d4a1351173c333f783b265bd343a34690282458df38f",
-    "media_type": "text/csv"
-   },
-   "used_by_eos_records": [
-    "sro_b2_sato_1981_bm2_1"
-   ],
-   "notes": "The source's row-wise pressure and density uncertainties are retained.",
-   "source_url": "https://doi.org/10.1029/JB086iB12p11773"
-  }
- ]
+  ]
 }

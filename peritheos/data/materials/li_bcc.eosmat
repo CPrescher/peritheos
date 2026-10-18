@@ -1,223 +1,203 @@
 {
- "format_version": 3,
- "name": "Li",
- "formula": "Li",
- "symmetry": "CUBIC",
- "lattice": {
-  "a": 3.51,
-  "b": 3.51,
-  "c": 3.51,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 2,
- "space_group": "Im-3m",
- "space_group_number": 229,
- "atom_sites": [
-  {
-   "element": "Li",
-   "wyckoff": "2a",
-   "x": 0.0,
-   "y": 0.0,
-   "z": 0.0,
-   "occupancy": 1.0
-  }
- ],
- "notes": "Ambient bcc lithium crystallography. The bundled literature EOS is the primary paper's empirical bcc-fcc combined fit, not a single-phase bcc curve; its volume convention is documented at record level.",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Hanfland et al. (1999), combined bcc-fcc Li Vinet",
-   "reference": {
-    "authors": [
-     "Hanfland",
-     "Loa",
-     "Syassen",
-     "Schwarz",
-     "Takemura"
-    ],
-    "year": 1999,
-    "title": "Equation of state of lithium to 21 GPa",
-    "source": "Solid State Commun.",
-    "volume": "112",
-    "locator": "123-127",
-    "doi": "10.1016/S0038-1098(99)00322-1"
-   },
-   "eos": {
-    "type": "Vinet",
-    "parameters": {
-     "V0": 43.245,
-     "K0": 11.32,
-     "K0_prime": 3.62
-    },
-    "model": "vinet"
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": 0.1,
-    "K0_prime": 0.04
-   },
-   "fixed_parameters": [
-    "V0"
-   ],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    21.1
-   ],
-   "notes": "Empirical 298 K Vinet fit jointly spanning bcc and fcc lithium, exactly as defined by the primary paper. It is not a phase-specific bcc EOS: the bcc-fcc transition occurs near 7.5 GPa with a 0.16(3)% volume discontinuity. Public volumes use twice the paper's atomic volume so they remain compatible with this file's two-atom bcc conventional-cell convention, including for fcc observations. V0 was fixed; no V0 error or parameter covariance is published.",
-   "determination_method": "experimental",
-   "identifier": "li_hanfland_1999_vinet_1",
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
-    },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://doi.org/10.1016/S0038-1098(99)00322-1",
-     "locations": [
-      "page 125, Table 1, bcc and fcc P-V observations",
-      "page 125, Table 2, experimental Vinet parameters",
-      "pages 125-126, combined bcc-fcc fit description and Figure 3"
-     ],
-     "finding": "This is explicitly one empirical Vinet curve fitted across the small bcc-fcc volume discontinuity. Its bcc two-atom-cell volume convention is retained, and it is not described as a phase-specific bcc EOS.",
-     "doi": "10.1016/s0038-1098(99)00322-1"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "li_bcc.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "lithium_hanfland_1999_table1_compression"
-     ],
-     "source_locations": [
-      "Table 1, journal page 125"
-     ],
-     "finding": "All 26 bcc and fcc lithium P-V observations printed in Table 1, including both measurements at the 7.50 GPa coexistence point."
+  "format_version": 4,
+  "identifier": "li_bcc",
+  "name": "Li",
+  "formula": "Li",
+  "phase": "bcc structure; EOS fit spans bcc and fcc Li",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 2,
+  "eos_records": [
+    {
+      "identifier": "li_hanfland_1999_vinet_1",
+      "label": "Hanfland et al. (1999), combined bcc-fcc Li Vinet",
+      "model": "Vinet",
+      "temperature_ref": 298.0,
+      "parameters": {
+        "V0": {"value": 43.245, "error": null, "fixed": true},
+        "K0": {"value": 11.32, "error": 0.1},
+        "K0_prime": {"value": 3.62, "error": 0.04}
+      },
+      "experimental_pressure_range_gpa": [0.0, 21.1],
+      "pressure_range_status": "reported_exactly",
+      "determination_method": "experimental",
+      "notes": "Empirical 298 K Vinet fit jointly spanning bcc and fcc lithium, exactly as defined by the primary paper. It is not a phase-specific bcc EOS: the bcc-fcc transition occurs near 7.5 GPa with a 0.16(3)% volume discontinuity. Public volumes use twice the paper's atomic volume so they remain compatible with this file's two-atom bcc conventional-cell convention, including for fcc observations. V0 was fixed; no V0 error or parameter covariance is published.",
+      "reference": {
+        "authors": ["Hanfland", "Loa", "Syassen", "Schwarz", "Takemura"],
+        "year": 1999,
+        "title": "Equation of state of lithium to 21 GPa",
+        "source": "Solid State Commun.",
+        "volume": "112",
+        "locator": "123-127",
+        "doi": "10.1016/S0038-1098(99)00322-1"
+      },
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/li_bcc/#record-li_hanfland_1999_vinet_1",
+            "report_path": "docs/reconstruction-reports/li_bcc.md#record-li_hanfland_1999_vinet_1",
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 11.32,
+                "published_error": 0.1,
+                "refit": 11.315656612703812,
+                "refit_error": 0.03922452274513274,
+                "difference": -0.004343387296188439,
+                "relative_difference": 0.0003836914572604628,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.62,
+                "published_error": 0.04,
+                "refit": 3.616768766094577,
+                "refit_error": 0.013883557520548553,
+                "difference": -0.0032312339054230144,
+                "relative_difference": 0.0008926060512218271,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "atomic_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 26,
+              "observed_pressure_range_gpa": [0.0, 21.1],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [22.8742, 43.245],
+              "degrees_of_freedom": 24,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.033805294729050986,
+              "published_rmse_gpa": 0.03620400826033935,
+              "reduced_chi_square": 0.0012380311143611693,
+              "dataset_identifiers": ["lithium_hanfland_1999_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.1016/S0038-1098(99)00322-1",
+            "locations": [
+              "page 125, Table 1, bcc and fcc P-V observations",
+              "page 125, Table 2, experimental Vinet parameters",
+              "pages 125-126, combined bcc-fcc fit description and Figure 3"
+            ],
+            "finding": "This is explicitly one empirical Vinet curve fitted across the small bcc-fcc volume discontinuity. Its bcc two-atom-cell volume convention is retained, and it is not described as a phase-specific bcc EOS.",
+            "doi": "10.1016/s0038-1098(99)00322-1"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "li_bcc.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["lithium_hanfland_1999_table1_compression"],
+            "source_locations": ["Table 1, journal page 125"],
+            "finding": "All 26 bcc and fcc lithium P-V observations printed in Table 1, including both measurements at the 7.50 GPa coexistence point."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 125, Table 1, bcc and fcc P-V observations; page 125, Table 2, experimental Vinet parameters; pages 125-126, combined bcc-fcc fit description and Figure 3.",
+          "V0": "Hanfland et al. (1999), Table 2: fixed atomic V0=21.6225 A^3, multiplied by two for the bcc conventional-cell convention",
+          "K0": "Hanfland et al. (1999), Table 2, this-work Vinet row",
+          "K0_prime": "Hanfland et al. (1999), Table 2, this-work Vinet row",
+          "equation": "Hanfland et al. (1999), page 125, combined bcc-fcc Vinet fit description and Figure 3"
+        },
+        "audit_corrections": [
+          {
+            "path": "identifier",
+            "source_value": "li_bcc_hanfland_1999_bm3_1",
+            "value": "li_hanfland_1999_vinet_1",
+            "reason": "The cited study's combined bcc/fcc fit is Vinet, not a bcc BM3.",
+            "primary_reference": {"doi": "10.1016/S0038-1098(99)00322-1", "location": "page 125, Tables 1-2 and Figure 3"}
+          },
+          {
+            "path": "eos.type",
+            "source_value": "BM3",
+            "value": "Vinet",
+            "reason": "Correct the migrated equation family to the primary Vinet fit.",
+            "primary_reference": {"doi": "10.1016/S0038-1098(99)00322-1", "location": "page 125, Tables 1-2 and Figure 3"}
+          }
+        ]
+      }
     }
-   },
-   "temperature_ref": 298.0,
-   "pressure_range_status": "reported_exactly",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: page 125, Table 1, bcc and fcc P-V observations; page 125, Table 2, experimental Vinet parameters; pages 125-126, combined bcc-fcc fit description and Figure 3.",
-    "V0": "Hanfland et al. (1999), Table 2: fixed atomic V0=21.6225 A^3, multiplied by two for the bcc conventional-cell convention",
-    "K0": "Hanfland et al. (1999), Table 2, this-work Vinet row",
-    "K0_prime": "Hanfland et al. (1999), Table 2, this-work Vinet row",
-    "equation": "Hanfland et al. (1999), page 125, combined bcc-fcc Vinet fit description and Figure 3"
-   },
-   "audit_corrections": [
+  ],
+  "cell_contents": "2 Li atoms per bcc conventional cell; fcc observations in the combined EOS are expressed as equivalent two-atom volumes",
+  "symmetry": "CUBIC",
+  "space_group": "Im-3m",
+  "space_group_number": 229,
+  "lattice": {"a": 3.51, "b": 3.51, "c": 3.51, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Li", "wyckoff": "2a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Ambient bcc lithium crystallography. The bundled literature EOS is the primary paper's empirical bcc-fcc combined fit, not a single-phase bcc curve; its volume convention is documented at record level.",
+  "datasets": [
     {
-     "path": "identifier",
-     "source_value": "li_bcc_hanfland_1999_bm3_1",
-     "value": "li_hanfland_1999_vinet_1",
-     "reason": "The cited study's combined bcc/fcc fit is Vinet, not a bcc BM3.",
-     "primary_reference": {
-      "doi": "10.1016/S0038-1098(99)00322-1",
-      "location": "page 125, Tables 1-2 and Figure 3"
-     }
-    },
-    {
-     "path": "eos.type",
-     "source_value": "BM3",
-     "value": "Vinet",
-     "reason": "Correct the migrated equation family to the primary Vinet fit.",
-     "primary_reference": {
-      "doi": "10.1016/S0038-1098(99)00322-1",
-      "location": "page 125, Tables 1-2 and Figure 3"
-     }
+      "identifier": "lithium_hanfland_1999_table1_compression",
+      "kind": "multiphase_pressure_atomic_volume",
+      "description": "All 26 bcc and fcc lithium P-V observations printed in Table 1, including both measurements at the 7.50 GPa coexistence point.",
+      "source_location": "Table 1, journal page 125",
+      "source_url": "https://doi.org/10.1016/S0038-1098(99)00322-1",
+      "columns": [
+        {"name": "phase", "quantity": "crystal_phase", "unit": "1", "role": "flag"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "atomic_volume_a3", "quantity": "atomic_volume", "unit": "angstrom^3/atom", "role": "value"},
+        {
+          "name": "atomic_volume_uncertainty_a3",
+          "quantity": "atomic_volume",
+          "unit": "angstrom^3/atom",
+          "role": "bound",
+          "of": "atomic_volume_a3"
+        }
+      ],
+      "resource": {
+        "path": "datasets/lithium-hanfland-1999-table1-compression.csv",
+        "sha256": "1805945ea22438524e960d3d892f45a6c60cc4895056e6491b82302daa5cdfe1",
+        "media_type": "text/csv"
+      },
+      "notes": "The stored EOS is the source's single empirical Vinet fit across both phases. The 0 GPa volume comes from the cited ambient reference and has no printed uncertainty. The source estimates a common average pressure error of 0.04 GPa; parenthesized volume uncertainties are retained without assigning a confidence level.",
+      "reference": {
+        "authors": ["Hanfland", "Loa", "Syassen", "Schwarz", "Takemura"],
+        "year": 1999,
+        "source": "Solid State Commun.",
+        "volume": "112",
+        "locator": "123-127",
+        "doi": "10.1016/S0038-1098(99)00322-1"
+      },
+      "used_by_eos_records": ["li_hanfland_1999_vinet_1"]
     }
-   ]
-  }
- ],
- "format": "peritheos.material",
- "identifier": "li_bcc",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "phase": "bcc structure; EOS fit spans bcc and fcc Li",
- "cell_contents": "2 Li atoms per bcc conventional cell; fcc observations in the combined EOS are expressed as equivalent two-atom volumes",
- "datasets": [
-  {
-   "identifier": "lithium_hanfland_1999_table1_compression",
-   "kind": "multiphase_pressure_atomic_volume",
-   "description": "All 26 bcc and fcc lithium P-V observations printed in Table 1, including both measurements at the 7.50 GPa coexistence point.",
-   "source_location": "Table 1, journal page 125",
-   "source_url": "https://doi.org/10.1016/S0038-1098(99)00322-1",
-   "columns": [
-    {
-     "name": "phase",
-     "quantity": "crystal_phase",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "pressure_gpa",
-     "quantity": "pressure",
-     "unit": "GPa",
-     "role": "value"
-    },
-    {
-     "name": "atomic_volume_a3",
-     "quantity": "atomic_volume",
-     "unit": "angstrom^3/atom",
-     "role": "value"
-    },
-    {
-     "name": "atomic_volume_uncertainty_a3",
-     "quantity": "atomic_volume",
-     "unit": "angstrom^3/atom",
-     "role": "bound",
-     "of": "atomic_volume_a3"
-    }
-   ],
-   "resource": {
-    "path": "datasets/lithium-hanfland-1999-table1-compression.csv",
-    "sha256": "1805945ea22438524e960d3d892f45a6c60cc4895056e6491b82302daa5cdfe1",
-    "media_type": "text/csv"
-   },
-   "notes": "The stored EOS is the source's single empirical Vinet fit across both phases. The 0 GPa volume comes from the cited ambient reference and has no printed uncertainty. The source estimates a common average pressure error of 0.04 GPa; parenthesized volume uncertainties are retained without assigning a confidence level.",
-   "reference": {
-    "authors": [
-     "Hanfland",
-     "Loa",
-     "Syassen",
-     "Schwarz",
-     "Takemura"
-    ],
-    "year": 1999,
-    "source": "Solid State Commun.",
-    "volume": "112",
-    "locator": "123-127",
-    "doi": "10.1016/S0038-1098(99)00322-1"
-   },
-   "used_by_eos_records": [
-    "li_hanfland_1999_vinet_1"
-   ]
-  }
- ]
+  ]
 }

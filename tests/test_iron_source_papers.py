@@ -75,7 +75,11 @@ def test_all_source_equations_native_and_roundtrip():
     records = list(source_records())
     assert len(records) == 43
     for document, r in records:
-        material = Material.from_eosmat(document)
+        material = Material.from_eosmat(
+            document,
+            record_identifiers=[r["identifier"]],
+            require_primary_validation=False,
+        )
         selected = material.get_eos_record(r["identifier"])
         v = (
             np.array([19.0, 18.0, 16.0])
@@ -86,9 +90,9 @@ def test_all_source_equations_native_and_roundtrip():
         expected = pressure(r, v, t)
         actual = selected.pressure(v, t) if r.get("thermal") else selected.pressure(v)
         assert actual == pytest.approx(expected, rel=2e-10)
-        restored = Material.from_eosmat(material.to_eosmat()).get_eos_record(
-            r["identifier"]
-        )
+        restored = Material.from_eosmat(
+            material.to_eosmat(), require_primary_validation=False
+        ).get_eos_record(r["identifier"])
         assert (
             restored.pressure(v, t) if r.get("thermal") else restored.pressure(v)
         ) == pytest.approx(actual)

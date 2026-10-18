@@ -26,6 +26,8 @@ from pathlib import Path
 from typing import Any, Iterable, Mapping
 from xml.etree import ElementTree
 
+from scripts.eosmat_io import read_material
+
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_MATERIALS = ROOT / "peritheos" / "data" / "materials"
 DEFAULT_BACKLOG = ROOT / "docs" / "material-eos-candidates.md"
@@ -381,7 +383,7 @@ def load_records(path: Path) -> list[dict[str, Any]]:
 def bundled_dois(materials_directory: Path) -> set[str]:
     dois = set()
     for path in sorted(materials_directory.glob("*.eosmat")):
-        document = json.loads(path.read_text(encoding="utf-8"))
+        document = read_material(path)
         for record in document.get("eos_records", []):
             reference = record.get("reference")
             if isinstance(reference, Mapping):

@@ -1,228 +1,189 @@
 {
- "format_version": 3,
- "name": "CaO",
- "formula": "CaO",
- "symmetry": "CUBIC",
- "lattice": {
-  "a": 4.81059,
-  "b": 4.81059,
-  "c": 4.81059,
-  "alpha": 90.0,
-  "beta": 90.0,
-  "gamma": 90.0
- },
- "formula_units_per_cell": 4,
- "space_group": "Fm-3m",
- "space_group_number": 225,
- "atom_sites": [
-  {
-   "element": "Ca",
-   "wyckoff": "4a",
-   "x": 0.0,
-   "y": 0.0,
-   "z": 0.0,
-   "occupancy": 1.0
-  },
-  {
-   "element": "O",
-   "wyckoff": "4b",
-   "x": 0.5,
-   "y": 0.5,
-   "z": 0.5,
-   "occupancy": 1.0
-  }
- ],
- "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/current user/jcpds/cao.jcpds, JCPDS/current user/jcpds/ver3/cao.jcpds, JCPDS/current user/jcpds/ver2/cao.jcpds",
- "peaks": [],
- "eos_records": [
-  {
-   "label": "Richet et al. (1988), CaO B1 BM3",
-   "reference": {
-    "authors": [
-     "Richet",
-     "Mao",
-     "Bell"
-    ],
-    "year": 1988,
-    "title": "Static compression and equation of state of CaO to 1.35 Mbar",
-    "source": "J. Geophys. Res.",
-    "volume": "93",
-    "locator": "15279-15288",
-    "doi": "10.1029/JB093iB12p15279"
-   },
-   "eos": {
-    "type": "BM3",
-    "parameters": {
-     "V0": 111.3225,
-     "K0": 111.0,
-     "K0_prime": 4.2
-    },
-    "model": "birch_murnaghan_3"
-   },
-   "parameter_errors": {
-    "V0": null,
-    "K0": 1.0,
-    "K0_prime": 0.2
-   },
-   "fixed_parameters": [
-    "V0"
-   ],
-   "experimental_pressure_range_gpa": [
-    0.0,
-    60.0
-   ],
-   "notes": "Room-temperature B1-CaO BM3 fit: molar V0=16.76 cm^3/mol (converted to the four-formula-unit cell), K0=1.112 Mbar, and K0'=4.2+/-0.2. The abstract gives K0=1.11+/-0.01 Mbar; the stored 1 GPa error reflects that precision. V0 is fixed and no independent V0 error is reported.",
-   "determination_method": "experimental",
-   "parameter_provenance": {
-    "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (5); Tables 1-4; pages 15283-15285."
-   },
-   "identifier": "cao_richet_1988_bm3_1",
-   "pressure_calibration": {
-    "status": "unresolved",
-    "methods": [],
-    "recalculation": {
-     "status": "not_possible",
-     "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
-    },
-    "audit_date": "2026-09-03",
-    "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
-   },
-   "scientific_validation": {
-    "status": "primary_source_validated",
-    "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-    "audit_date": "2026-09-01",
-    "verified_fields": [
-     "equation",
-     "parameters",
-     "units",
-     "reference_state",
-     "phase",
-     "published_uncertainties",
-     "validity"
-    ],
-    "primary_source_check": {
-     "access_url": "https://www.researchgate.net/publication/248791203_Static_compression_and_equation_of_state_of_CaO_to_135_Mbar",
-     "locations": [
-      "Equation (5)",
-      "Tables 1-4",
-      "pages 15283-15285"
-     ],
-     "finding": "The author-uploaded primary article reports separate BM3 fits for B1 and B2 CaO; Mbar and molar-volume values are converted explicitly.",
-     "doi": "10.1029/jb093ib12p15279"
-    },
-    "migration_source": {
-     "project": "Dioptas",
-     "version": "0.10.0",
-     "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
-     "file": "cao.json"
-    },
-    "primary_data_check": {
-     "status": "bundled",
-     "audit_date": "2026-09-03",
-     "dataset_identifiers": [
-      "cao_richet_1988_table1_compression"
-     ],
-     "source_locations": [
-      "Table 1, journal page 15280"
-     ],
-     "finding": "All 19 B1- and B2-CaO observations printed in Table 1, including the one row explicitly excluded from the source EOS fits."
+  "format_version": 4,
+  "identifier": "cao",
+  "name": "CaO",
+  "formula": "CaO",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 4,
+  "eos_records": [
+    {
+      "identifier": "cao_richet_1988_bm3_1",
+      "label": "Richet et al. (1988), CaO B1 BM3",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 111.3225, "error": null, "fixed": true},
+        "K0": {"value": 111.0, "error": 1.0},
+        "K0_prime": {"value": 4.2, "error": 0.2}
+      },
+      "experimental_pressure_range_gpa": [0.0, 60.0],
+      "determination_method": "experimental",
+      "notes": "Room-temperature B1-CaO BM3 fit: molar V0=16.76 cm^3/mol (converted to the four-formula-unit cell), K0=1.112 Mbar, and K0'=4.2+/-0.2. The abstract gives K0=1.11+/-0.01 Mbar; the stored 1 GPa error reflects that precision. V0 is fixed and no independent V0 error is reported.",
+      "reference": {
+        "authors": ["Richet", "Mao", "Bell"],
+        "year": 1988,
+        "title": "Static compression and equation of state of CaO to 1.35 Mbar",
+        "source": "J. Geophys. Res.",
+        "volume": "93",
+        "locator": "15279-15288",
+        "doi": "10.1029/JB093iB12p15279"
+      },
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+        },
+        "audit_date": "2026-09-03",
+        "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/cao/#record-cao_richet_1988_bm3_1",
+            "report_path": "docs/reconstruction-reports/cao.md#record-cao_richet_1988_bm3_1",
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 111.0,
+                "published_error": 1.0,
+                "refit": 116.09683227045029,
+                "refit_error": 9.072609568358477,
+                "difference": 5.096832270450292,
+                "relative_difference": 0.04591740784189453,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.2,
+                "published_error": 0.2,
+                "refit": 3.7567676767920246,
+                "refit_error": 0.5006884765831827,
+                "difference": -0.44323232320797556,
+                "relative_difference": 0.10553150552570846,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "phase=B1, used_in_eos_fit=yes",
+              "columns": {"pressure": "pressure_kbar", "temperature": null, "volume": "lattice_a_angstrom"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 7,
+              "observed_pressure_range_gpa": [8.0, 60.0],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [82.77354849194101, 104.32746685497601],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.7248458085764702,
+              "published_rmse_gpa": 1.2153238719348995,
+              "reduced_chi_square": 0.23342660766023168,
+              "dataset_identifiers": ["cao_richet_1988_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+          "audit_date": "2026-09-01",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
+          "primary_source_check": {
+            "access_url": "https://www.researchgate.net/publication/248791203_Static_compression_and_equation_of_state_of_CaO_to_135_Mbar",
+            "locations": ["Equation (5)", "Tables 1-4", "pages 15283-15285"],
+            "finding": "The author-uploaded primary article reports separate BM3 fits for B1 and B2 CaO; Mbar and molar-volume values are converted explicitly.",
+            "doi": "10.1029/jb093ib12p15279"
+          },
+          "migration_source": {
+            "project": "Dioptas",
+            "version": "0.10.0",
+            "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+            "file": "cao.json"
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "audit_date": "2026-09-03",
+            "dataset_identifiers": ["cao_richet_1988_table1_compression"],
+            "source_locations": ["Table 1, journal page 15280"],
+            "finding": "All 19 B1- and B2-CaO observations printed in Table 1, including the one row explicitly excluded from the source EOS fits."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (5); Tables 1-4; pages 15283-15285."
+        },
+        "audit_corrections": [
+          {
+            "path": "eos.parameters.V0",
+            "source_value": 111.3256,
+            "value": 111.3225,
+            "reason": "Converted from the primary Table 4 molar V0=16.76 cm^3/mol using Z=4.",
+            "primary_reference": {"doi": "10.1029/jb093ib12p15279", "location": "Equation (5), Table 4, and abstract"}
+          }
+        ]
+      }
     }
-   },
-   "temperature_ref": 300.0,
-   "audit_corrections": [
+  ],
+  "symmetry": "CUBIC",
+  "space_group": "Fm-3m",
+  "space_group_number": 225,
+  "lattice": {"a": 4.81059, "b": 4.81059, "c": 4.81059, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Ca", "wyckoff": "4a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "4b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/current user/jcpds/cao.jcpds, JCPDS/current user/jcpds/ver3/cao.jcpds, JCPDS/current user/jcpds/ver2/cao.jcpds",
+  "datasets": [
     {
-     "path": "eos.parameters.V0",
-     "source_value": 111.3256,
-     "value": 111.3225,
-     "reason": "Converted from the primary Table 4 molar V0=16.76 cm^3/mol using Z=4.",
-     "primary_reference": {
-      "doi": "10.1029/jb093ib12p15279",
-      "location": "Equation (5), Table 4, and abstract"
-     }
+      "identifier": "cao_richet_1988_table1_compression",
+      "kind": "multiphase_pressure_volume_lattice_parameters",
+      "description": "All 19 B1- and B2-CaO observations printed in Table 1, including the one row explicitly excluded from the source EOS fits.",
+      "source_location": "Table 1, journal page 15280",
+      "source_url": "https://doi.org/10.1029/JB093iB12p15279",
+      "columns": [
+        {"name": "run", "quantity": "run_identifier", "unit": "1", "role": "flag"},
+        {"name": "pressure_kbar", "quantity": "pressure", "unit": "kbar", "role": "value"},
+        {
+          "name": "pressure_gradient_standard_deviation_kbar",
+          "quantity": "spatial_pressure_gradient",
+          "unit": "kbar",
+          "role": "standard_deviation",
+          "of": "pressure_kbar"
+        },
+        {"name": "phase", "quantity": "crystal_phase", "unit": "1", "role": "flag"},
+        {"name": "lattice_a_angstrom", "quantity": "lattice_parameter_a", "unit": "angstrom", "role": "value"},
+        {"name": "normalized_volume", "quantity": "volume_ratio", "unit": "1", "role": "value"},
+        {"name": "used_in_eos_fit", "quantity": "used_in_source_fit", "unit": "1", "role": "flag"}
+      ],
+      "resource": {
+        "path": "datasets/cao-richet-1988-table1-compression.csv",
+        "sha256": "2e8e090cdcb2eaba218a3a2f411109a52ef466559320bf51ee152383abe82ad1",
+        "media_type": "text/csv"
+      },
+      "notes": "V/V0 uses V0=16.76 cm^3/mol. The parenthesized pressure quantities measure the spatial pressure gradient; the analysis instead assigns a common 2% pressure error. The source estimates volume errors below 0.5% for series C and 0.8% for series D. Run C14 is marked as not used in the EOS fits.",
+      "reference": {
+        "authors": ["Richet", "Mao", "Bell"],
+        "year": 1988,
+        "source": "J. Geophys. Res.",
+        "volume": "93",
+        "locator": "15279-15288",
+        "doi": "10.1029/JB093iB12p15279"
+      },
+      "used_by_eos_records": ["cao_richet_1988_bm3_1"]
     }
-   ]
-  }
- ],
- "format": "peritheos.material",
- "identifier": "cao",
- "units": {
-  "pressure": "GPa",
-  "temperature": "K",
-  "volume": "angstrom^3/conventional_unit_cell"
- },
- "datasets": [
-  {
-   "identifier": "cao_richet_1988_table1_compression",
-   "kind": "multiphase_pressure_volume_lattice_parameters",
-   "description": "All 19 B1- and B2-CaO observations printed in Table 1, including the one row explicitly excluded from the source EOS fits.",
-   "source_location": "Table 1, journal page 15280",
-   "source_url": "https://doi.org/10.1029/JB093iB12p15279",
-   "columns": [
-    {
-     "name": "run",
-     "quantity": "run_identifier",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "pressure_kbar",
-     "quantity": "pressure",
-     "unit": "kbar",
-     "role": "value"
-    },
-    {
-     "name": "pressure_gradient_standard_deviation_kbar",
-     "quantity": "spatial_pressure_gradient",
-     "unit": "kbar",
-     "role": "standard_deviation",
-     "of": "pressure_kbar"
-    },
-    {
-     "name": "phase",
-     "quantity": "crystal_phase",
-     "unit": "1",
-     "role": "flag"
-    },
-    {
-     "name": "lattice_a_angstrom",
-     "quantity": "lattice_parameter_a",
-     "unit": "angstrom",
-     "role": "value"
-    },
-    {
-     "name": "normalized_volume",
-     "quantity": "volume_ratio",
-     "unit": "1",
-     "role": "value"
-    },
-    {
-     "name": "used_in_eos_fit",
-     "quantity": "used_in_source_fit",
-     "unit": "1",
-     "role": "flag"
-    }
-   ],
-   "resource": {
-    "path": "datasets/cao-richet-1988-table1-compression.csv",
-    "sha256": "2e8e090cdcb2eaba218a3a2f411109a52ef466559320bf51ee152383abe82ad1",
-    "media_type": "text/csv"
-   },
-   "notes": "V/V0 uses V0=16.76 cm^3/mol. The parenthesized pressure quantities measure the spatial pressure gradient; the analysis instead assigns a common 2% pressure error. The source estimates volume errors below 0.5% for series C and 0.8% for series D. Run C14 is marked as not used in the EOS fits.",
-   "reference": {
-    "authors": [
-     "Richet",
-     "Mao",
-     "Bell"
-    ],
-    "year": 1988,
-    "source": "J. Geophys. Res.",
-    "volume": "93",
-    "locator": "15279-15288",
-    "doi": "10.1029/JB093iB12p15279"
-   },
-   "used_by_eos_records": [
-    "cao_richet_1988_bm3_1"
-   ]
-  }
- ]
+  ]
 }
