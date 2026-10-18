@@ -4,7 +4,7 @@
   "generated_with": "scripts/validate_primary_eos_refits.py",
   "policy": {
     "not_refittable": "Available observations or source reduction/calibration details are insufficient for an independent full refit. A qualified subset or proxy calculation may still be available as a diagnostic.",
-    "parity": "Every fitted parameter agrees within combined 2-sigma and also meets the parameter-specific numerical similarity threshold. The Sakai 2018 rhenium audit explicitly accepts numerical parity within reported parameter error widths, with comparable refit standard errors; its source confidence convention remains unknown. Sakai 2011 NaCl-B2 parity is conditional fixed-V0 agreement within printed error widths, without claiming the unspecified source weights, marker averaging or error confidence were recovered. Fei 2007 Au parity is a staged equal-pressure-weight replay within printed parameter widths; source weights, exact MgO reduction and error confidence/covariance remain unresolved. For explicitly registered Peritheos refits, parity verifies the stored coefficients under the documented selection and objective; it does not imply reproduction of source-author coefficients. Diopside parity is conditional agreement within reported error widths, including a graph-corroborated corrected Zhao analysis dataset; exact original inputs and workflow remain unrecovered. Phase E (Crichton and Ross 2000) achieves fit parity within reported parameter error widths, with small pressure-curve differences relative to the observation errors. Exact author workflow availability is a separate provenance assessment. Katsura 2022 forsterite accepts conditional numerical parity within printed Table 2 parameter error widths. The full-precision theta0=760 K author-script vector is recommended; the theta0=768 K table alternative is retained. Table errors are a comparison scale only for the script vector; script-specific errors, covariance and exact bootstrap reproduction remain unavailable.",
+    "parity": "Every fitted parameter agrees within combined 2-sigma and also meets the parameter-specific numerical similarity threshold. The Sakai 2018 rhenium audit explicitly accepts numerical parity within reported parameter error widths, with comparable refit standard errors; its source confidence convention remains unknown. Sakai 2011 NaCl-B2 parity is conditional fixed-V0 agreement within printed error widths, without claiming the unspecified source weights, marker averaging or error confidence were recovered. Fei 2007 Au parity is a staged equal-pressure-weight replay within printed parameter widths; source weights, exact MgO reduction and error confidence/covariance remain unresolved. For explicitly registered Peritheos refits, parity verifies the stored coefficients under the documented selection and objective; it does not imply reproduction of source-author coefficients. Diopside parity is conditional agreement within reported error widths, including a graph-corroborated corrected Zhao analysis dataset; exact original inputs and workflow remain unrecovered. Sakai 2025 Au parity concerns only the independently fitted K0-prime central value at published precision under stated calibrants and residuals, not uncertainty or sequential-network parity. Phase E (Crichton and Ross 2000) achieves fit parity within reported parameter error widths, with small pressure-curve differences relative to the observation errors. Exact author workflow availability is a separate provenance assessment. Katsura 2022 forsterite accepts conditional numerical parity within printed Table 2 parameter error widths. The full-precision theta0=760 K author-script vector is recommended; the theta0=768 K table alternative is retained. Table errors are a comparison scale only for the script vector; script-specific errors, covariance and exact bootstrap reproduction remain unavailable.",
     "parity_not_achieved": "At least one fitted parameter is outside both the uncertainty and similarity criteria, or a dedicated partial-source audit cannot reproduce the published coefficient pair.",
     "similar": "Every fitted parameter either agrees within combined 2-sigma or meets the documented parameter-specific similarity threshold.",
     "source_reconstruction": "A source calculation or composition of audited source equations is reproduced without independently fitting the complete EOS coefficients. Component refits and remaining source-input gaps are documented separately."
@@ -12125,6 +12125,12 @@
       "primary_data_finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1103/fxgq-96sg",
+      "published_mean_residual_gpa": -0.0026674980123465217,
+      "published_residual_range_gpa": [
+        -0.41368963249473545,
+        0.41006813510259654
+      ],
+      "published_rmse_gpa": 0.21510416076590483,
       "qualification": "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.",
       "record_identifier": "fe_shen_2026_vinet_1",
       "reduced_chi_square": 0.04856734230968539,
@@ -17983,6 +17989,12 @@
       "primary_data_finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1103/fxgq-96sg",
+      "published_mean_residual_gpa": 0.03872355300584405,
+      "published_residual_range_gpa": [
+        -0.9754087658469643,
+        0.6744173612271211
+      ],
+      "published_rmse_gpa": 0.33493091795847985,
       "qualification": "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.",
       "record_identifier": "gold_shen_2026_vinet_3",
       "reduced_chi_square": 0.1130477996926558,
@@ -20366,6 +20378,12 @@
       "primary_data_finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1103/fxgq-96sg",
+      "published_mean_residual_gpa": 0.11125216066534081,
+      "published_residual_range_gpa": [
+        -1.288266847065671,
+        2.246788435125403
+      ],
+      "published_rmse_gpa": 0.7370080313201411,
       "qualification": "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.",
       "record_identifier": "iron_shen_2026_vinet_2",
       "reduced_chi_square": 0.5318610918712517,
@@ -33598,6 +33616,8 @@
     },
     {
       "absolute_sigma": false,
+      "author_workflow_reproduced": false,
+      "coefficient_comparison_status": "similar",
       "columns": {
         "pressure": "Fratanduono-2020 298 K Cu pressure reconstructed per run",
         "temperature": null,
@@ -33607,6 +33627,7 @@
         "shen_smith_2026_table_s1_simultaneous_volumes"
       ],
       "degrees_of_freedom": 192,
+      "excluded_phase_observations": 0,
       "experimental_pressure_range_gpa": [
         0.0,
         140.0
@@ -33677,18 +33698,31 @@
           "Supplemental Material Eq. (2), Section S4"
         ]
       },
-      "primary_data_finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit.",
+      "primary_data_finding": "Published Table S1 transcription is bundled with simultaneous Cu readings and volume errors: all 194 MgO and 131 NaCl-B2 measurements are in DAC-2. This accounts for the available published volume table, not necessarily every author-held fit input. The previous workbook-to-CSV audit is preserved; a new workbook download on 2026-10-17 required authentication.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1103/fxgq-96sg",
-      "qualification": "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.",
+      "published_mean_residual_gpa": 0.8209162118648623,
+      "published_residual_range_gpa": [
+        -0.4406814957535232,
+        2.8031722954617493
+      ],
+      "published_rmse_gpa": 1.1612409415497145,
+      "qualification": "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them. The paper identifies Table II as direct fits to this study's Cu-referenced P-V data, with earlier literature included for comparison. Its data-availability statement also mentions other author-held data, so completeness of the actual author fit inputs is unconfirmed. No additional experimental fit rows are identified by the published fitting description. See the [source-input audit](literature-reproductions/shen-smith-2026-cu-refits.md). Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 MgO Vinet curve gives 1.161241 GPa pressure RMS and residuals up to +2.8032 GPa on all 194 DAC-2 Table S1 observations. A direct unweighted refit gives K0=161.827434 GPa, K0_prime=3.953583 and RMS 0.475879 GPa, versus published 161.9 GPa and 4.08. The source-fit discrepancy is unresolved.",
+      "recommendation_audit": "docs/literature-reproductions/shen-smith-2026-cu-refits.md",
+      "recommendation_date": "2026-10-17",
+      "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 MgO Vinet curve gives 1.161241 GPa pressure RMS and residuals up to +2.8032 GPa on all 194 DAC-2 Table S1 observations. A direct unweighted refit gives K0=161.827434 GPa, K0_prime=3.953583 and RMS 0.475879 GPa, versus published 161.9 GPa and 4.08. The source-fit discrepancy is unresolved.",
       "record_identifier": "mgo_shen_2026_vinet_3",
       "reduced_chi_square": 0.22881936506915648,
+      "reproduction_status": "not_reproduced",
       "rmse_gpa": 0.4758785586078347,
       "selection": "MgO; DAC-2",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K0 +/- 0.7 GPa and K0' +/- 0.03. Measurements extend to 140 GPa.",
-      "status": "similar"
+      "source_fit_input_completeness": "unconfirmed",
+      "source_notes": "Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K0 +/- 0.7 GPa and K0' +/- 0.03. Measurements extend to 140 GPa. Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 MgO Vinet curve gives 1.161241 GPa pressure RMS and residuals up to +2.8032 GPa on all 194 DAC-2 Table S1 observations. A direct unweighted refit gives K0=161.827434 GPa, K0_prime=3.953583 and RMS 0.475879 GPa, versus published 161.9 GPa and 4.08. The source-fit discrepancy is unresolved.",
+      "source_phase_observations": 194,
+      "status": "parity_not_achieved",
+      "usage_recommendation": "not_recommended_for_quantitative_use"
     },
     {
       "absolute_sigma": true,
@@ -36198,6 +36232,12 @@
       "primary_data_finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1103/fxgq-96sg",
+      "published_mean_residual_gpa": 0.026411300791849463,
+      "published_residual_range_gpa": [
+        -1.1697943440206444,
+        1.2301971819513469
+      ],
+      "published_rmse_gpa": 0.41841029127093016,
       "qualification": "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.",
       "record_identifier": "molybdenum_shen_2026_vinet_1",
       "reduced_chi_square": 0.17604426863539666,
@@ -37065,7 +37105,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Shen and Smith (2026), Cu-referenced Vinet",
+      "label": "Shen and Smith (2026), NaCl-B1 Cu-referenced Vinet",
       "material_identifier": "nacl_b1",
       "model": "Vinet",
       "objective": "unweighted_pressure_residuals",
@@ -37125,6 +37165,12 @@
       "primary_data_finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1103/fxgq-96sg",
+      "published_mean_residual_gpa": 0.05005205578426866,
+      "published_residual_range_gpa": [
+        -0.30561184574447964,
+        0.39511764777474667
+      ],
+      "published_rmse_gpa": 0.2124712610232223,
       "qualification": "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.",
       "record_identifier": "nacl_b1_shen_2026_vinet_1",
       "reduced_chi_square": 0.04649232785963884,
@@ -37175,7 +37221,7 @@
         "V0",
         "K0"
       ],
-      "label": "Heinz and Jeanloz (1984), B2",
+      "label": "Heinz and Jeanloz (1984), NaCl-B2 BM2",
       "material_identifier": "nacl_b2",
       "model": "BM2",
       "objective": "errors_in_variables",
@@ -37228,6 +37274,8 @@
     },
     {
       "absolute_sigma": false,
+      "author_workflow_reproduced": false,
+      "coefficient_comparison_status": "similar",
       "columns": {
         "pressure": "Fratanduono-2020 298 K Cu pressure reconstructed per run",
         "temperature": null,
@@ -37237,6 +37285,7 @@
         "shen_smith_2026_table_s1_simultaneous_volumes"
       ],
       "degrees_of_freedom": 123,
+      "excluded_phase_observations": 6,
       "experimental_pressure_range_gpa": [
         33.0,
         140.0
@@ -37250,7 +37299,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Shen and Smith (2026), Cu-referenced Vinet",
+      "label": "Shen and Smith (2026), NaCl-B2 Cu-referenced Vinet",
       "material_identifier": "nacl_b2",
       "model": "Vinet",
       "objective": "unweighted_pressure_residuals",
@@ -37307,18 +37356,31 @@
           "Supplemental Material Eq. (2), Section S4"
         ]
       },
-      "primary_data_finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit.",
+      "primary_data_finding": "Published Table S1 transcription is bundled with simultaneous Cu readings and volume errors: all 194 MgO and 131 NaCl-B2 measurements are in DAC-2. This accounts for the available published volume table, not necessarily every author-held fit input. The previous workbook-to-CSV audit is preserved; a new workbook download on 2026-10-17 required authentication.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1103/fxgq-96sg",
-      "qualification": "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.",
+      "published_mean_residual_gpa": -0.5476095010975502,
+      "published_residual_range_gpa": [
+        -1.3377115925327274,
+        -0.009560851745376908
+      ],
+      "published_rmse_gpa": 0.6223809764451977,
+      "qualification": "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them. The paper identifies Table II as direct fits to this study's Cu-referenced P-V data, with earlier literature included for comparison. Its data-availability statement also mentions other author-held data, so completeness of the actual author fit inputs is unconfirmed. No additional experimental fit rows are identified by the published fitting description. See the [source-input audit](literature-reproductions/shen-smith-2026-cu-refits.md). Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 NaCl-B2 Vinet curve gives 0.622381 GPa pressure RMS and mean residual -0.547610 GPa on 125 DAC-2 Table S1 observations above 35 GPa; all 125 residuals are negative. A direct unweighted refit gives K0=25.447259 GPa, K0_prime=5.582768 and RMS 0.293229 GPa, versus published 24.92 GPa and 5.63. The source-fit discrepancy is unresolved; including the above-33-GPa transition rows does not restore agreement.",
+      "recommendation_audit": "docs/literature-reproductions/shen-smith-2026-cu-refits.md",
+      "recommendation_date": "2026-10-17",
+      "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 NaCl-B2 Vinet curve gives 0.622381 GPa pressure RMS and mean residual -0.547610 GPa on 125 DAC-2 Table S1 observations above 35 GPa; all 125 residuals are negative. A direct unweighted refit gives K0=25.447259 GPa, K0_prime=5.582768 and RMS 0.293229 GPa, versus published 24.92 GPa and 5.63. The source-fit discrepancy is unresolved; including the above-33-GPa transition rows does not restore agreement.",
       "record_identifier": "nacl_b2_shen_2026_vinet_2",
       "reduced_chi_square": 0.08738118968379947,
+      "reproduction_status": "not_reproduced",
       "rmse_gpa": 0.2932287343506067,
       "selection": "NaCl-B2; DAC-2; Cu pressure above 35 GPa (coexistence excluded)",
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
-      "source_notes": "Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K0 +/- 0.11 GPa and K0' +/- 0.02. The B2 phase data are above 33 GPa.",
-      "status": "similar"
+      "source_fit_input_completeness": "unconfirmed",
+      "source_notes": "Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K0 +/- 0.11 GPa and K0' +/- 0.02. The B2 phase data are above 33 GPa. Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 NaCl-B2 Vinet curve gives 0.622381 GPa pressure RMS and mean residual -0.547610 GPa on 125 DAC-2 Table S1 observations above 35 GPa; all 125 residuals are negative. A direct unweighted refit gives K0=25.447259 GPa, K0_prime=5.582768 and RMS 0.293229 GPa, versus published 24.92 GPa and 5.63. The source-fit discrepancy is unresolved; including the above-33-GPa transition rows does not restore agreement.",
+      "source_phase_observations": 131,
+      "status": "parity_not_achieved",
+      "usage_recommendation": "not_recommended_for_quantitative_use"
     },
     {
       "dataset_identifiers": [],
@@ -37330,7 +37392,7 @@
       "fixed_parameters": [
         "V0"
       ],
-      "label": "Sakai et al. (2014), yokoo_pt_bm3",
+      "label": "Sakai et al. (2014), NaCl-B2 BM3, Yokoo et al. (2009) Pt scale",
       "material_identifier": "nacl_b2",
       "model": "BM3",
       "primary_data_finding": "Original Sakai (2011a) paired NaCl/Pt calibration observations are not attached to this 2014 paper. Table 2 NaCl values are downstream measurements, not independent P5 calibration constraints.",
@@ -37362,7 +37424,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2011), BM3, Matsui et al. (2009) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 BM3, Matsui et al. (2009) Pt scale",
       "material_identifier": "nacl_b2",
       "model": "BM3",
       "objective": "unweighted_pressure_residuals",
@@ -37426,7 +37488,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2011), Vinet, Matsui et al. (2009) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 Vinet, Matsui et al. (2009) Pt scale",
       "material_identifier": "nacl_b2",
       "model": "Vinet",
       "objective": "unweighted_pressure_residuals",
@@ -37490,7 +37552,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2011), BM3, Fei et al. (2007) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 BM3, Fei et al. (2007) Pt scale",
       "material_identifier": "nacl_b2",
       "model": "BM3",
       "objective": "unweighted_pressure_residuals",
@@ -37554,7 +37616,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2011), Vinet, Fei et al. (2007) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 Vinet, Fei et al. (2007) Pt scale",
       "material_identifier": "nacl_b2",
       "model": "Vinet",
       "objective": "unweighted_pressure_residuals",
@@ -37618,7 +37680,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2011), BM3, Dorogokupets and Oganov (2007) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 BM3, Dorogokupets and Oganov (2007) Pt scale",
       "material_identifier": "nacl_b2",
       "model": "BM3",
       "objective": "unweighted_pressure_residuals",
@@ -37682,7 +37744,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2011), Vinet, Dorogokupets and Oganov (2007) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 Vinet, Dorogokupets and Oganov (2007) Pt scale",
       "material_identifier": "nacl_b2",
       "model": "Vinet",
       "objective": "unweighted_pressure_residuals",
@@ -37746,7 +37808,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2011), BM3, Holmes et al. (1989) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 BM3, Holmes et al. (1989) Pt scale",
       "material_identifier": "nacl_b2",
       "model": "BM3",
       "objective": "unweighted_pressure_residuals",
@@ -37810,7 +37872,7 @@
         "K0",
         "K0_prime"
       ],
-      "label": "Sakai et al. (2011), Vinet, Holmes et al. (1989) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 Vinet, Holmes et al. (1989) Pt scale",
       "material_identifier": "nacl_b2",
       "model": "Vinet",
       "objective": "unweighted_pressure_residuals",
@@ -41136,6 +41198,7 @@
     },
     {
       "absolute_sigma": true,
+      "adjusted_volume_pressure_rmse_gpa": 0.2763588084645954,
       "columns": {
         "pressure": "pressure_gpa",
         "temperature": null,
@@ -41151,6 +41214,7 @@
       ],
       "experimental_temperature_range_k": null,
       "fit_kind": "isothermal_pv",
+      "fit_reproduction_status": "not_reproduced",
       "fixed_parameters": [],
       "free_parameters": [
         "V0",
@@ -41206,22 +41270,30 @@
           "within_combined_2sigma": false
         }
       ],
+      "pressure_rmse_coordinates": "measured volumes for both curves",
       "primary_data_finding": "All 93 hydrogen-free Pd-in-neon observations are bundled: 26 BX18 rows, 20 BX32 rows, and 47 high-pressure rows. Cell volumes and uncertainties are propagated exactly from the tabulated cubic lattice parameters.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1063/5.0161038",
       "published_rmse_gpa": 0.7719918204007176,
-      "qualification": "Complete-table reproduction: all 93 Pd rows from supplementary Tables I-III are fitted with the source-stated 0.1 GPa pressure errors and volume errors propagated from the tabulated lattice-parameter errors. The result is numerically similar, but K0' is just outside combined two-sigma parity and the source does not publish enough detail to recover its precise weighting convention. See the [dedicated Frost reproduction](literature-reproductions.md#what-the-frost-paper-and-supplement-resolve).",
+      "qualification": "All 93 verified source rows are independently fitted using sigma(P)=0.1 GPa and sigma(V)=3a^2 sigma(a). The final paper specifies uncertainty-aware Marquardt-Levenberg but not its exact objective, ambient-point inclusion, constraints or covariance convention. Numerical classification remains similar: the combined-two-width coefficient test fails with absolute-error covariance but passes with residual-scaled covariance. Original author-fit reproduction is unresolved; scientific status not_reproduced and recommendation/default hold pending protocol clarification. This does not establish a failed replay of the authors' protocol. Measured-volume pressure RMS is 0.771992 GPa published and 0.825323 GPa refitted; the earlier 0.276359 GPa used adjusted volumes. See the [Frost audit](literature-reproductions/palladium-frost-2023-audit.md). The original author regression remains unrecovered. The final paper specifies uncertainty-aware Marquardt-Levenberg fitting but not the exact objective, ambient-point inclusion, constraints or covariance convention. Independent refits have similar central coefficients; the combined-two-width comparison fails with absolute-error covariance and passes with residual-scaled covariance. This is not a demonstrated failed replay of the author protocol. Quantitative recommendation and the default remain on hold pending clarification.",
+      "recommendation_audit": "docs/literature-reproductions/palladium-frost-2023-audit.md",
+      "recommendation_date": "2026-10-17",
+      "recommendation_reason": "The original author regression remains unrecovered. The final paper specifies uncertainty-aware Marquardt-Levenberg fitting but not the exact objective, ambient-point inclusion, constraints or covariance convention. Independent refits have similar central coefficients; the combined-two-width comparison fails with absolute-error covariance and passes with residual-scaled covariance. This is not a demonstrated failed replay of the author protocol. Quantitative recommendation and the default remain on hold pending clarification.",
       "record_identifier": "palladium_frost_2023_vinet_1",
       "reduced_chi_square": 19.049086216259077,
-      "rmse_gpa": 0.2763588084645954,
+      "reproduction_status": "not_reproduced",
+      "rmse_gpa": 0.8253227533623266,
       "selection": "all rows",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "Room-temperature Vinet fit to three hydrogen-free fcc-Pd DAC loadings compressed in neon to 182 GPa. The fit used nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted conventional-cell V0=58.678(73) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3). This is the black curve reproduced in Baty et al. Figure 3.",
-      "status": "similar"
+      "source_equation_status": "reproduced",
+      "source_notes": "Room-temperature Vinet fit to three hydrogen-free fcc-Pd DAC loadings compressed in neon to 182 GPa. The fit used nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted conventional-cell V0=58.678(73) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3). This is the black curve reproduced in Baty et al. Figure 3. Full final-paper protocol rechecked on 2026-10-17: author objective and covariance convention remain unresolved. Conditional uncertainty agreement depends on covariance scaling. Quantitative recommendation remains on hold pending protocol clarification. Published coefficients and observations are preserved.",
+      "status": "similar",
+      "usage_recommendation": "not_recommended_for_quantitative_use"
     },
     {
       "absolute_sigma": true,
+      "adjusted_volume_pressure_rmse_gpa": 0.29308201997086736,
       "columns": {
         "pressure": "pressure_gpa",
         "temperature": null,
@@ -41237,6 +41309,7 @@
       ],
       "experimental_temperature_range_k": null,
       "fit_kind": "isothermal_pv",
+      "fit_reproduction_status": "not_reproduced",
       "fixed_parameters": [],
       "free_parameters": [
         "V0",
@@ -41292,19 +41365,26 @@
           "within_combined_2sigma": false
         }
       ],
+      "pressure_rmse_coordinates": "measured volumes for both curves",
       "primary_data_finding": "All 93 hydrogen-free Pd-in-neon observations are bundled: 26 BX18 rows, 20 BX32 rows, and 47 high-pressure rows. Cell volumes and uncertainties are propagated exactly from the tabulated cubic lattice parameters.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1063/5.0161038",
       "published_rmse_gpa": 0.8454188587538582,
-      "qualification": "Complete-table reproduction: the alternative BM3 is fitted to the same 93 supplementary Pd rows with the source-stated pressure and volume uncertainties. The result is numerically similar, but K0' is just outside combined two-sigma parity and the exact source weighting convention is not reported. See the [dedicated Frost reproduction](literature-reproductions.md#what-the-frost-paper-and-supplement-resolve).",
+      "qualification": "Independent refit of all 93 verified rows under explicit orthogonal/effective-variance interpretations of the final paper's uncertainty-aware Marquardt-Levenberg prose. Numerical classification remains similar: absolute-error covariance fails the combined-two-width test, whereas residual-scaled covariance passes. The original objective, ambient treatment, constraints and covariance convention are unrecovered; not_reproduced means original fit not recovered, with quantitative recommendation/default on hold pending clarification. Measured-volume pressure RMS is 0.845419 GPa published and 0.915380 GPa refitted; the earlier 0.293082 GPa used adjusted volumes. See the [Frost audit](literature-reproductions/palladium-frost-2023-audit.md). The original author regression remains unrecovered. The final paper specifies uncertainty-aware Marquardt-Levenberg fitting but not the exact objective, ambient-point inclusion, constraints or covariance convention. Independent refits have similar central coefficients; the combined-two-width comparison fails with absolute-error covariance and passes with residual-scaled covariance. This is not a demonstrated failed replay of the author protocol. Quantitative recommendation and the default remain on hold pending clarification.",
+      "recommendation_audit": "docs/literature-reproductions/palladium-frost-2023-audit.md",
+      "recommendation_date": "2026-10-17",
+      "recommendation_reason": "The original author regression remains unrecovered. The final paper specifies uncertainty-aware Marquardt-Levenberg fitting but not the exact objective, ambient-point inclusion, constraints or covariance convention. Independent refits have similar central coefficients; the combined-two-width comparison fails with absolute-error covariance and passes with residual-scaled covariance. This is not a demonstrated failed replay of the author protocol. Quantitative recommendation and the default remain on hold pending clarification.",
       "record_identifier": "palladium_frost_2023_bm3_2",
       "reduced_chi_square": 22.07960671974955,
-      "rmse_gpa": 0.29308201997086736,
+      "reproduction_status": "not_reproduced",
+      "rmse_gpa": 0.9153804754371527,
       "selection": "all rows",
       "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
       "solver_success": true,
-      "source_notes": "Alternative room-temperature BM3 fit to the same three hydrogen-free fcc-Pd DAC loadings in neon as the preferred Vinet record. All three coefficients were fitted using nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted V0=58.588(76) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3).",
-      "status": "similar"
+      "source_equation_status": "reproduced",
+      "source_notes": "Alternative room-temperature BM3 fit to the same three hydrogen-free fcc-Pd DAC loadings in neon as the preferred Vinet record. All three coefficients were fitted using nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted V0=58.588(76) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3). Full final-paper protocol rechecked on 2026-10-17: author objective and covariance convention remain unresolved. Conditional uncertainty agreement depends on covariance scaling. Quantitative recommendation remains on hold pending protocol clarification. Published coefficients and observations are preserved.",
+      "status": "similar",
+      "usage_recommendation": "not_recommended_for_quantitative_use"
     },
     {
       "absolute_sigma": true,
@@ -42353,6 +42433,12 @@
       "primary_data_finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1103/fxgq-96sg",
+      "published_mean_residual_gpa": 0.06992809299806456,
+      "published_residual_range_gpa": [
+        -0.764822362852442,
+        1.1210646833015971
+      ],
+      "published_rmse_gpa": 0.39956771179936884,
       "qualification": "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.",
       "record_identifier": "platinum_shen_2026_vinet_2",
       "reduced_chi_square": 0.14297881716153457,
@@ -50117,6 +50203,12 @@
       "primary_data_finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1103/fxgq-96sg",
+      "published_mean_residual_gpa": 0.02086792852956052,
+      "published_residual_range_gpa": [
+        -1.477126775075277,
+        0.5831795434635012
+      ],
+      "published_rmse_gpa": 0.36650223042473723,
       "qualification": "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.",
       "record_identifier": "tantalum_shen_2026_vinet_2",
       "reduced_chi_square": 0.13522194443797128,
@@ -51068,6 +51160,12 @@
       "primary_data_finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit.",
       "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1103/fxgq-96sg",
+      "published_mean_residual_gpa": -0.2170297484070902,
+      "published_residual_range_gpa": [
+        -1.8854299581479381,
+        2.3726063686514323
+      ],
+      "published_rmse_gpa": 1.180681893379939,
       "qualification": "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.",
       "record_identifier": "tungsten_shen_2026_vinet_3",
       "reduced_chi_square": 1.3441008950550573,
@@ -52161,10 +52259,10 @@
     }
   ],
   "summary": {
-    "not_refittable": 178,
-    "parity": 246,
-    "parity_not_achieved": 60,
-    "similar": 163,
+    "not_refittable": 177,
+    "parity": 247,
+    "parity_not_achieved": 62,
+    "similar": 161,
     "source_reconstruction": 16,
     "total": 663
   }

@@ -19,7 +19,7 @@ agreement, source verification, author-workflow reproduction and recommendation 
 | [Li et al. (2006), acoustic absolute-pressure BM3](#record-mgo_li_2006_bm3_absolute_acoustic) | Numerically similar, with qualifications | Graph and table |
 | [Jacobsen et al. (2008), KCl medium, Mao-1978 ruby-scale BM3](#record-mgo_jacobsen_2008_bm3_kcl_mao1978) | Coefficient parity achieved | Graph and table |
 | [Jacobsen et al. (2008), helium medium, Mao-1986-scale BM3](#record-mgo_jacobsen_2008_bm3_helium_mao1986) | Coefficient parity achieved | Graph and table |
-| [Shen and Smith (2026), Cu-referenced Vinet](#record-mgo_shen_2026_vinet_3) | Numerically similar, with qualifications | Graph and table |
+| [Shen and Smith (2026), Cu-referenced Vinet](#record-mgo_shen_2026_vinet_3) | Parity not achieved for this comparison | Graph and table |
 | [Luo et al. (2023), cold Vinet plus second-order thermal pressure](#record-mgo_b1_luo_2023_vinet_thermal_5) | Complete independent refit unavailable | Graph and table |
 | [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-mgo_sokolova_2013_holzapfel_4) | Source calculation reconstructed | No numeric coefficient pair recorded |
 | [Dewaele et al. (2000), BM3-MGD](#record-mgo_dewaele_2000_bm3_mgd_5) | Coefficient parity achieved | Graph and table |
@@ -572,19 +572,22 @@ Observation curves and residual plots are provided by the supporting reports whe
 
 Record: `mgo_shen_2026_vinet_3` · Model: `Vinet`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Parity not achieved for this comparison.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0\_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them. The paper identifies Table II as direct fits to this study's Cu-referenced P-V data, with earlier literature included for comparison. Its data-availability statement also mentions other author-held data, so completeness of the actual author fit inputs is unconfirmed. No additional experimental fit rows are identified by the published fitting description. See the \[source-input audit\](literature-reproductions/shen-smith-2026-cu-refits.md). Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 MgO Vinet curve gives 1.161241 GPa pressure RMS and residuals up to +2.8032 GPa on all 194 DAC-2 Table S1 observations. A direct unweighted refit gives K0=161.827434 GPa, K0\_prime=3.953583 and RMS 0.475879 GPa, versus published 161.9 GPa and 4.08. The source-fit discrepancy is unresolved.
 
 [Stored EOS coefficients and source](../material-summaries/mgo.md#record-mgo_shen_2026_vinet_3)
 
 ### What this result establishes
 
-**Separate source-review status:** primary\_source\_validated.
-**Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
+**Separate source-review status:** not\_reproduced.
+**Usage recommendation:** not\_recommended\_for\_quantitative\_use
 
-- Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0\_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.
+- Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 MgO Vinet curve gives 1.161241 GPa pressure RMS and residuals up to +2.8032 GPa on all 194 DAC-2 Table S1 observations. A direct unweighted refit gives K0=161.827434 GPa, K0\_prime=3.953583 and RMS 0.475879 GPa, versus published 161.9 GPa and 4.08. The source-fit discrepancy is unresolved.
+- Usage recommendation: not\_recommended\_for\_quantitative\_use
+- Exact author-used P-V fit table and row mask, pressure-reduction implementation, residual coordinate, weights and covariance are unavailable.
+- The article describes Table II as direct fits to this study's Cu-referenced data, with literature parameters for comparison, but its data-availability statement mentions additional author-held data. No extra fit observations are explicitly identified; completeness of the actual author inputs is unconfirmed.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
@@ -631,6 +634,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
 - **Rmse gpa:** 0.4758785586078347
+- **Published rmse gpa:** 1.1612409415497145
 - **Reduced chi square:** 0.22881936506915648
 - **Pressure reconstruction:**
     - **Density0 g cm3:** 8.939
@@ -652,6 +656,7 @@ Values and reported errors are copied without rounding or conversion from the na
 ### Detailed evidence and existing plots
 
 - [Earlier detailed record investigation](../primary-eos-refits.md#investigation-mgo_shen_2026_vinet_3).
+- [Supporting source report: shen-smith-2026-cu-refits](../literature-reproductions/shen-smith-2026-cu-refits.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 

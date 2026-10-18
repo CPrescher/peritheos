@@ -119,7 +119,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Forsterite](forsterite.md) | Mg2SiO4 | 3 | 3 |
 | [GeO2](geo2_rutile.md) | GeO2 | 1 | 1 |
 | [Goethite](goethite.md) | FeOOH | 1 | 1 |
-| [Gold](gold.md) | Au | 23 | 24 |
+| [Gold](gold.md) | Au | 23 | 29 |
 | [Graphite](graphite.md) | C | 1 | 1 |
 | [Hydrous silica CaCl2 type (Nisr 2017)](hydrous_silica_cacl2_nisr_2017.md) | Si0.954O2H0.184 | 1 | 2 |
 | [Hydrous stishovite (Nisr 2017)](hydrous_stishovite_nisr_2017.md) | Si0.954O2H0.184 | 1 | 2 |
@@ -168,8 +168,8 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Na0.93Al1.02Si1.00O4 (calcium-ferrite type)](na093al102si100o4_calcium_ferrite.md) | Na0.93Al1.02Si1.00O4 | 1 | 1 |
 | [NaAlSi2O6](naalsi2o6.md) | NaAlSi2O6 | 1 | 1 |
 | [NaAlSiO4 (calcium-ferrite type)](naalsio4_calcium_ferrite.md) | NaAlSiO4 | 1 | 1 |
-| [NaCl](nacl_b2.md) | NaCl | 14 | 7 |
 | [NaCl (B1)](nacl_b1.md) | NaCl | 1 | 1 |
+| [NaCl (B2)](nacl_b2.md) | NaCl | 14 | 7 |
 | [NaMg2Al5SiO12 calcium-ferrite phase](namg2al5sio12_cf.md) | NaMg2Al5SiO12 | 1 | 1 |
 | [NaMg2Al5SiO12 NAL phase](namg2al5sio12_nal.md) | NaMg2Al5SiO12 | 1 | 1 |
 | [Natural Fe-bearing dolomite](ca0988mg0918fe0078mn0016c2o6_dolomite.md) | Ca0.988Mg0.918Fe0.078Mn0.016C2O6 | 1 | 1 |

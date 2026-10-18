@@ -56,8 +56,11 @@ from peritheos.materials import DEFERRED_EOS_RECORDS
 
 `get_material(identifier)` returns a material phase and
 `list_materials(formula=...)` lists or filters all bundled materials.
-`get_eos_record(identifier)` and `list_eos_records(formula=...)` expose all
-records. These canonical objects are constructed from the bundled `.eosmat`
+`get_eos_record(identifier)` explicitly retrieves any executable record.
+`list_eos_records(formula=...)` lists source choices; pass
+`include_reference_variants=True` to include published pressure-scale alternatives,
+or use `list_reference_variants(source_identifier)` to inspect one source's
+alternatives. These canonical objects are constructed from the bundled `.eosmat`
 documents. The pre-0.7 convenience constants remain in an isolated
 compatibility layer and are excluded from canonical listing and search. Each
 `Material` owns its `eos_records`, supports `get_eos_record(identifier)`, and
@@ -74,6 +77,12 @@ It stays in the common
 `Material.equilibrium_records` return convenient filtered views. Hugoniot
 records expose `shock_velocity()`, `particle_velocity()`, `density()`, and
 `specific_internal_energy_change()` in addition to `pressure()` and `volume()`.
+
+For an equilibrium source record, `record.on_pressure_scale(target_node)` returns
+a `PressureScaledEOS` view. Its `pressure()` and `volume()` methods transform
+through the same audited calibration route in opposite directions, preserving
+the source volume convention. `recalculate()` returns the full intermediate-state
+provenance. See [direct pressure-scale views](pressure-scale-normalization.md#one-source-eos-selectable-output-scale).
 
 `search_materials()` and `search_eos_records()` accept typed filters for free
 text, name, alias, formula, phase, model family, DOI, author/reference,
@@ -150,7 +159,9 @@ use GPa, kelvin and conventional-cell Å³. The reference temperature is require
 from peritheos import create_eosmat, save_eosmat
 
 document = create_eosmat(
-    "my_material", "X", "BM3",
+    "my_material",
+    "X",
+    "BM3",
     {"V0": 10.0, "K0": 160.0, "K0_prime": 4.0},
     temperature_ref=300,
 )

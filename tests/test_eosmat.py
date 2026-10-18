@@ -100,7 +100,8 @@ def test_complete_material_library_is_bundled_and_valid():
     } == {"coesite_v"}
     assert all(document["format"] == EOSMAT_FORMAT for document in documents)
     assert all(
-        document["format_version"] in (3, EOSMAT_FORMAT_VERSION) for document in documents
+        document["format_version"] in (3, EOSMAT_FORMAT_VERSION)
+        for document in documents
     )
     assert all(document["identifier"] in identifiers for document in documents)
     assert all(
@@ -155,7 +156,7 @@ def test_migrated_records_have_completed_primary_source_audit():
     assert len({record["identifier"] for record in records}) == 663
     statuses = [record["scientific_validation"]["status"] for record in records]
     assert set(statuses) == {"primary_source_validated", "deferred", "not_reproduced"}
-    assert statuses.count("primary_source_validated") == 645
+    assert statuses.count("primary_source_validated") == 641
     assert statuses.count("deferred") == 4
     audit_dates = {
         record["identifier"]: record["scientific_validation"]["audit_date"]
@@ -270,6 +271,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "2026-10-12",
         "2026-10-15",
         "2026-10-16",
+        "2026-10-17",
     }
     assert all(
         record["scientific_validation"]["primary_source_check"] for record in records
@@ -392,8 +394,8 @@ def test_primary_source_audit_report_covers_every_migrated_record():
 
     assert report["summary"] == {
         "records": 663,
-        "not_reproduced": 14,
-        "primary_source_validated": 645,
+        "not_reproduced": 18,
+        "primary_source_validated": 641,
         "deferred": 4,
     }
     assert report["audit_date"] == "2026-09-24"
@@ -637,6 +639,12 @@ def test_shen_smith_simultaneous_volume_dataset_is_complete():
     assert sum(row["phase"] == "Cu" for row in rows) == 422
     assert sum(row["phase"] == "NaCl-B1" for row in rows) == 67
     assert sum(row["phase"] == "NaCl-B2" for row in rows) == 131
+    assert {int(row["run_number"]) for row in rows if row["phase"] == "MgO"} == set(
+        range(1, 195)
+    )
+    assert {
+        row["experiment"] for row in rows if row["phase"] in {"MgO", "NaCl-B2"}
+    } == {"DAC-2"}
     assert (
         sum(
             row["phase"] == "Pt" and row["measurement_sequence"] == "first"
@@ -951,7 +959,7 @@ def test_every_primary_validated_migrated_record_is_executable():
             except (TypeError, ValueError) as error:
                 failures.append(f"{record['identifier']}: {error}")
 
-    assert checked == 645
+    assert checked == 641
     assert failures == []
 
 
@@ -1711,7 +1719,10 @@ def test_shen_smith_2026_table_ii_vinet_regression_and_errors(
         if record["identifier"] == record_identifier
     )
     loaded_record = Material.from_eosmat(
-        document, record_identifiers=[record_identifier]
+        document,
+        record_identifiers=[record_identifier],
+        require_primary_validation=record_identifier
+        not in {"mgo_shen_2026_vinet_3", "nacl_b2_shen_2026_vinet_2"},
     ).eos_records[0]
 
     # Equation (4) and Table II are independently reproduced at X=0.9,

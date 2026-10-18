@@ -35,8 +35,8 @@ The lattice parameter is calculated from the fitted 300 K atomic reference volum
 | Record | Model | Reference temperature (K) | Source status | Availability |
 | --- | --- | --- | --- | --- |
 | [Dewaele et al. (2008), Vinet](#record-nickel_dewaele_2008_vinet_1) | Vinet | 300.0 | primary source validated | Executable |
-| [Dewaele (2019), Ni MAO-scale Vinet](#record-nickel_dewaele_2019_mao_vinet) | Vinet | 300.0 | primary source validated | Executable |
-| [Dewaele (2019), Ni DOR-scale Vinet](#record-nickel_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Executable |
+| [Dewaele (2019), Ni MAO-scale Vinet](#record-nickel_dewaele_2019_mao_vinet) | Vinet | 300.0 | primary source validated | Pressure-scale reference variant |
+| [Dewaele (2019), Ni DOR-scale Vinet](#record-nickel_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Pressure-scale reference variant |
 | [Campbell et al. (2009), fcc Ni, 295 K BM3-Debye](#record-nickel_campbell_2009_bm3_mgd) | BM3 + MieGruneisenDebye | 295.0 | primary source validated | Executable |
 
 ### Reference coefficients
@@ -216,7 +216,9 @@ Parameter covariance is not supplied.
 
 Identifier: `nickel_dewaele_2019_mao_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [nickel\_dewaele\_2008\_vinet\_1](#record-nickel_dewaele_2008_vinet_1); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -365,7 +367,9 @@ Parameter covariance is not supplied.
 
 Identifier: `nickel_dewaele_2019_dor_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [nickel\_dewaele\_2008\_vinet\_1](#record-nickel_dewaele_2008_vinet_1); it is not an independent EOS choice.
 
 
 - **Record kind:** published

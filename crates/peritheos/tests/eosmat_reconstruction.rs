@@ -11,7 +11,7 @@ fn sample() -> Value {
                 "report_url":"https://example.org/report/#record-example_bm3",
                 "report_path":"docs/report.md#record-example_bm3",
             "parameters":[{"parameter":"K0","published":160,"published_error":null,
-                "refit":180.12345678901235,"refit_error":2.5,"similar":false}],
+                "refit":180.123_456_789_012_35,"refit_error":2.5,"similar":false}],
             "fit":{"fixed_parameters":["V0","K0_prime"]}
         }}}}]})
 }
@@ -36,12 +36,18 @@ fn failed_reconstruction_values_survive_exports_without_changing_the_eos() {
     for volume in [9., 8., 7.] {
         let expected = original.eos_records[0].pressure(volume, 300.).unwrap();
         assert_eq!(
-            native.eos_records[0].pressure(volume, 300.).unwrap(),
-            expected
+            native.eos_records[0]
+                .pressure(volume, 300.)
+                .unwrap()
+                .to_bits(),
+            expected.to_bits()
         );
         assert_eq!(
-            restored.eos_records[0].pressure(volume, 300.).unwrap(),
-            expected
+            restored.eos_records[0]
+                .pressure(volume, 300.)
+                .unwrap()
+                .to_bits(),
+            expected.to_bits()
         );
     }
 }

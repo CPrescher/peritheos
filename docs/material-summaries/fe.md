@@ -137,6 +137,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
 - **Rmse gpa:** 0.21506885344816878
+- **Published rmse gpa:** 0.21510416076590483
 - **Reduced chi square:** 0.04856734230968539
 - **Pressure reconstruction:**
     - **Density0 g cm3:** 8.939

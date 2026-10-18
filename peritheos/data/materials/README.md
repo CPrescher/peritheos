@@ -48,7 +48,7 @@ rather than a copyright license.
 The migration preserves supported Dioptas crystallographic and EOS data and adds
 stable identifiers plus explicit migration provenance. It does **not** make
 Dioptas the scientific authority for an EOS record. The primary-source audit
-with dispositions through 2026-10-17 classifies 645 of 663 bundled records as
+with dispositions through 2026-10-17 classifies 643 of 663 bundled records as
 `primary_source_validated`. The Campbell fcc-Fe and FeO records are retained
 as `deferred` source evidence because of unresolved coefficient-refit
 discrepancies; they are not exposed by the executable catalog. The Morard
@@ -216,16 +216,13 @@ O6 correction and official 2014 H2 erratum; the original archive CIF is retained
 The source audit documents equation typos, calibration qualifications and held
 branches, separately from the Al-bearing Xu (2024) investigation.
 
-The current bundle contains 378 distinct datasets with 26,934 retained rows, represented by 418 material-document links to 521 EOS records.
+The current bundle contains 383 distinct datasets with 27,434 retained rows, represented by 423 material-document links to 521 EOS records.
 Chen (2010) contributes 80 Brillouin-derived density positions, 262 separately
 identified published-fit curve vertices, and 14 reported constants. These
 supporting assets do not validate the source-author Chen EOS. A separate
 Peritheos BM3 refit uses the digitized density observations with documented
 weighting and measured-range limits; curve vertices and constants are not
 independent measured observations.
-The three Sakai gold source-table aliases reuse the existing Dewaele (2004),
-Takemura (2008), and Hirose (2008) CSVs. Their declarations and rows are counted
-here, but they add no independent measurements or recalibrated pressures.
 This inventory includes source-reported derived grids and diagnostics; dataset
 metadata distinguishes them from independent observations. For Zha et al.
 (2004), eight paired Au/Re observations constrain the continuous thermal EOS,
@@ -307,9 +304,12 @@ from BM2 to its published BM3 parameters with fixed `K0' = 6.5`. It also
 restores model-required `n`/`Z` values
 for Sokolova records, `n` for the Sun silica Debye records, and `Tr` for the
 Bezacier ice records, each with field-level `evidence.audit_corrections` provenance.
-The ten Shen--Smith (2026) Cu-anchored 300 K Vinet fits are validated directly
-against Equation (4), Tables I--II, and the phase-specific range discussion in
-the supplied version of record. Their printed `K0` and `K0'` errors are stored,
+The ten Shen--Smith (2026) Cu-anchored 300 K Vinet parameterizations are traced
+to Equation (4) and Tables I--II. Eight retain conditional coefficient parity;
+MgO and NaCl-B2 are `not_reproduced`, not recommended for quantitative use,
+and retained only for explicit diagnostic selection. The source-input audit
+accounts for all available Table S1 MgO/NaCl-B2 observations, while completeness
+of the actual author fit inputs remains unconfirmed. Their printed `K0` and `K0'` errors are stored,
 but no confidence level or covariance is inferred because the paper states
 neither.
 

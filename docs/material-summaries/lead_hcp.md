@@ -36,7 +36,7 @@ Phase-specific card created for the hcp-Pb compression fits of Dewaele (2019).
 | Record | Model | Reference temperature (K) | Source status | Availability |
 | --- | --- | --- | --- | --- |
 | [Dewaele (2019), Pb MAO-scale Vinet](#record-lead_hcp_dewaele_2019_mao_vinet) | Vinet | 300.0 | primary source validated | Executable |
-| [Dewaele (2019), Pb DOR-scale Vinet](#record-lead_hcp_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Executable |
+| [Dewaele (2019), Pb DOR-scale Vinet](#record-lead_hcp_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Pressure-scale reference variant |
 | [Kuznetsov et al. (2002), 296 K hcp BM3 slice](#record-lead_hcp_kuznetsov_2002_bm3_3) | BM3 | 296.0 | primary source validated | Executable |
 
 ### Reference coefficients
@@ -214,7 +214,9 @@ Parameter covariance is not supplied.
 
 Identifier: `lead_hcp_dewaele_2019_dor_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [lead\_hcp\_dewaele\_2019\_mao\_vinet](#record-lead_hcp_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
 
 - **Record kind:** published

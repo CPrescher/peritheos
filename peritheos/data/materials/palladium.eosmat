@@ -5,6 +5,14 @@
   "formula": "Pd",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
+  "recommendation_hold": {
+    "status": "on_hold",
+    "scope": "equilibrium_default",
+    "date": "2026-10-17",
+    "records": ["palladium_frost_2023_vinet_1", "palladium_frost_2023_bm3_2"],
+    "reason": "Frost experimental fit reproduction remains unresolved. No replacement equilibrium default has been audited and selected. The separate Baty 0 K DFT record must not be selected automatically as a replacement room-temperature EOS.",
+    "audit": "docs/literature-reproductions/palladium-frost-2023-audit.md"
+  },
   "eos_records": [
     {
       "identifier": "palladium_baty_2024_bm3_dft_2",
@@ -18,6 +26,7 @@
       },
       "pressure_range_status": "theoretical",
       "determination_method": "theoretical",
+      "default": false,
       "notes": "Static 0 K DFT cold curve for fcc Pd, fitted to calculated P(V) values and reported as V0=14.6167 A^3/atom, K0=195.0(2.5) GPa, and K0'=5.1(1). The stored conventional-cell volume is four times the atomic value. This is the green curve in Figure 3 and the 'This work' column in supplementary Table S3; it is distinct from the authors' experimental 300 K BM3 fit.",
       "reference": {
         "authors": ["Baty", "Burakovsky", "Luscher", "Anzellini", "Errandonea"],
@@ -449,7 +458,9 @@
       "experimental_pressure_range_gpa": [0.0, 182.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
-      "notes": "Room-temperature Vinet fit to three hydrogen-free fcc-Pd DAC loadings compressed in neon to 182 GPa. The fit used nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted conventional-cell V0=58.678(73) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3). This is the black curve reproduced in Baty et al. Figure 3.",
+      "default": false,
+      "catalog_access": "explicit_selection",
+      "notes": "Room-temperature Vinet fit to three hydrogen-free fcc-Pd DAC loadings compressed in neon to 182 GPa. The fit used nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted conventional-cell V0=58.678(73) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3). This is the black curve reproduced in Baty et al. Figure 3. Full final-paper protocol rechecked on 2026-10-17: author objective and covariance convention remain unresolved. Conditional uncertainty agreement depends on covariance scaling. Quantitative recommendation remains on hold pending protocol clarification. Published coefficients and observations are preserved.",
       "reference": {
         "authors": ["Frost", "Smith", "McBride", "Smith", "Glenzer"],
         "year": 2023,
@@ -498,7 +509,9 @@
             "source_status": "similar",
             "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
             "qualifications": [
-              "Complete-table reproduction: all 93 Pd rows from supplementary Tables I-III are fitted with the source-stated 0.1 GPa pressure errors and volume errors propagated from the tabulated lattice-parameter errors. The result is numerically similar, but K0' is just outside combined two-sigma parity and the source does not publish enough detail to recover its precise weighting convention. See the [dedicated Frost reproduction](literature-reproductions.md#what-the-frost-paper-and-supplement-resolve).",
+              "All 93 verified source rows are independently fitted using sigma(P)=0.1 GPa and sigma(V)=3a^2 sigma(a). The final paper specifies uncertainty-aware Marquardt-Levenberg but not its exact objective, ambient-point inclusion, constraints or covariance convention. Numerical classification remains similar: the combined-two-width coefficient test fails with absolute-error covariance but passes with residual-scaled covariance. Original author-fit reproduction is unresolved; scientific status not_reproduced and recommendation/default hold pending protocol clarification. This does not establish a failed replay of the authors' protocol. Measured-volume pressure RMS is 0.771992 GPa published and 0.825323 GPa refitted; the earlier 0.276359 GPa used adjusted volumes. See the [Frost audit](literature-reproductions/palladium-frost-2023-audit.md). The original author regression remains unrecovered. The final paper specifies uncertainty-aware Marquardt-Levenberg fitting but not the exact objective, ambient-point inclusion, constraints or covariance convention. Independent refits have similar central coefficients; the combined-two-width comparison fails with absolute-error covariance and passes with residual-scaled covariance. This is not a demonstrated failed replay of the author protocol. Quantitative recommendation and the default remain on hold pending clarification.",
+              "The original author regression remains unrecovered. The final paper specifies uncertainty-aware Marquardt-Levenberg fitting but not the exact objective, ambient-point inclusion, constraints or covariance convention. Independent refits have similar central coefficients; the combined-two-width comparison fails with absolute-error covariance and passes with residual-scaled covariance. This is not a demonstrated failed replay of the author protocol. Quantitative recommendation and the default remain on hold pending clarification.",
+              "Usage recommendation: not_recommended_for_quantitative_use",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/palladium/#record-palladium_frost_2023_vinet_1",
@@ -553,7 +566,7 @@
               "degrees_of_freedom": 90,
               "solver_success": true,
               "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
-              "rmse_gpa": 0.2763588084645954,
+              "rmse_gpa": 0.8253227533623266,
               "published_rmse_gpa": 0.7719918204007176,
               "reduced_chi_square": 19.049086216259077,
               "dataset_identifiers": ["palladium_frost_2023_tables_i_iii_compression"]
@@ -562,8 +575,8 @@
           }
         },
         "scientific_validation": {
-          "status": "primary_source_validated",
-          "note": "Equation, parameters, uncertainties, fitting method, range, phase, and pressure standards were checked against the complete primary article.",
+          "status": "not_reproduced",
+          "note": "Equation, published coefficients, units and all observations are source-checked against the final article and supplement. The original fit protocol is not fully recovered; uncertainty agreement depends on the assumed covariance convention. The record remains not_reproduced pending protocol clarification, rather than a demonstrated failure of the authors' full protocol.",
           "audit_date": "2026-09-04",
           "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
           "primary_source_check": {
@@ -586,7 +599,15 @@
             "dataset_identifiers": ["palladium_frost_2023_tables_i_iii_compression"],
             "source_locations": ["Supplementary Section II.A", "Supplementary Tables I-III"],
             "finding": "All 93 hydrogen-free Pd-in-neon observations are bundled: 26 BX18 rows, 20 BX32 rows, and 47 high-pressure rows. Cell volumes and uncertainties are propagated exactly from the tabulated cubic lattice parameters."
-          }
+          },
+          "reproduction_status": "not_reproduced",
+          "source_equation_status": "reproduced",
+          "fit_reproduction_status": "not_reproduced",
+          "usage_recommendation": "not_recommended_for_quantitative_use",
+          "recommendation_date": "2026-10-17",
+          "recommendation_audit": "docs/literature-reproductions/palladium-frost-2023-audit.md",
+          "recommendation_reason": "The original author regression remains unrecovered. The final paper specifies uncertainty-aware Marquardt-Levenberg fitting but not the exact objective, ambient-point inclusion, constraints or covariance convention. Independent refits have similar central coefficients; the combined-two-width comparison fails with absolute-error covariance and passes with residual-scaled covariance. This is not a demonstrated failed replay of the author protocol. Quantitative recommendation and the default remain on hold pending clarification.",
+          "fit_audit_date": "2026-10-17"
         },
         "parameter_provenance": {
           "determination_method": "Measurements or their experimental reduction determine this EOS; source: Abstract; Methods, page 035901-2; Table I; Figure 1 and caption; Results and discussion; Data availability; Supplementary Section II.A and Tables I-III."
@@ -606,7 +627,9 @@
       "experimental_pressure_range_gpa": [0.0, 182.0],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
-      "notes": "Alternative room-temperature BM3 fit to the same three hydrogen-free fcc-Pd DAC loadings in neon as the preferred Vinet record. All three coefficients were fitted using nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted V0=58.588(76) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3).",
+      "default": false,
+      "catalog_access": "explicit_selection",
+      "notes": "Alternative room-temperature BM3 fit to the same three hydrogen-free fcc-Pd DAC loadings in neon as the preferred Vinet record. All three coefficients were fitted using nonlinear Marquardt-Levenberg least squares accounting for 0.1 GPa pressure uncertainties and volume uncertainties from Le Bail refinement. The fitted V0=58.588(76) A^3 is an extrapolated coefficient and is lower than the separately reported ambient a=3.8909(1) A (V=58.9047 A^3). Full final-paper protocol rechecked on 2026-10-17: author objective and covariance convention remain unresolved. Conditional uncertainty agreement depends on covariance scaling. Quantitative recommendation remains on hold pending protocol clarification. Published coefficients and observations are preserved.",
       "reference": {
         "authors": ["Frost", "Smith", "McBride", "Smith", "Glenzer"],
         "year": 2023,
@@ -655,7 +678,9 @@
             "source_status": "similar",
             "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
             "qualifications": [
-              "Complete-table reproduction: the alternative BM3 is fitted to the same 93 supplementary Pd rows with the source-stated pressure and volume uncertainties. The result is numerically similar, but K0' is just outside combined two-sigma parity and the exact source weighting convention is not reported. See the [dedicated Frost reproduction](literature-reproductions.md#what-the-frost-paper-and-supplement-resolve).",
+              "Independent refit of all 93 verified rows under explicit orthogonal/effective-variance interpretations of the final paper's uncertainty-aware Marquardt-Levenberg prose. Numerical classification remains similar: absolute-error covariance fails the combined-two-width test, whereas residual-scaled covariance passes. The original objective, ambient treatment, constraints and covariance convention are unrecovered; not_reproduced means original fit not recovered, with quantitative recommendation/default on hold pending clarification. Measured-volume pressure RMS is 0.845419 GPa published and 0.915380 GPa refitted; the earlier 0.293082 GPa used adjusted volumes. See the [Frost audit](literature-reproductions/palladium-frost-2023-audit.md). The original author regression remains unrecovered. The final paper specifies uncertainty-aware Marquardt-Levenberg fitting but not the exact objective, ambient-point inclusion, constraints or covariance convention. Independent refits have similar central coefficients; the combined-two-width comparison fails with absolute-error covariance and passes with residual-scaled covariance. This is not a demonstrated failed replay of the author protocol. Quantitative recommendation and the default remain on hold pending clarification.",
+              "The original author regression remains unrecovered. The final paper specifies uncertainty-aware Marquardt-Levenberg fitting but not the exact objective, ambient-point inclusion, constraints or covariance convention. Independent refits have similar central coefficients; the combined-two-width comparison fails with absolute-error covariance and passes with residual-scaled covariance. This is not a demonstrated failed replay of the author protocol. Quantitative recommendation and the default remain on hold pending clarification.",
+              "Usage recommendation: not_recommended_for_quantitative_use",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/palladium/#record-palladium_frost_2023_bm3_2",
@@ -710,7 +735,7 @@
               "degrees_of_freedom": 90,
               "solver_success": true,
               "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
-              "rmse_gpa": 0.29308201997086736,
+              "rmse_gpa": 0.9153804754371527,
               "published_rmse_gpa": 0.8454188587538582,
               "reduced_chi_square": 22.07960671974955,
               "dataset_identifiers": ["palladium_frost_2023_tables_i_iii_compression"]
@@ -719,8 +744,8 @@
           }
         },
         "scientific_validation": {
-          "status": "primary_source_validated",
-          "note": "Equation, parameters, uncertainties, fitting method, range, phase, and pressure standards were checked against the complete primary article.",
+          "status": "not_reproduced",
+          "note": "Equation, published coefficients, units and all observations are source-checked against the final article and supplement. The original fit protocol is not fully recovered; uncertainty agreement depends on the assumed covariance convention. The record remains not_reproduced pending protocol clarification, rather than a demonstrated failure of the authors' full protocol.",
           "audit_date": "2026-09-04",
           "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
           "primary_source_check": {
@@ -742,7 +767,15 @@
             "dataset_identifiers": ["palladium_frost_2023_tables_i_iii_compression"],
             "source_locations": ["Supplementary Section II.A", "Supplementary Tables I-III"],
             "finding": "All 93 hydrogen-free Pd-in-neon observations are bundled: 26 BX18 rows, 20 BX32 rows, and 47 high-pressure rows. Cell volumes and uncertainties are propagated exactly from the tabulated cubic lattice parameters."
-          }
+          },
+          "reproduction_status": "not_reproduced",
+          "source_equation_status": "reproduced",
+          "fit_reproduction_status": "not_reproduced",
+          "usage_recommendation": "not_recommended_for_quantitative_use",
+          "recommendation_date": "2026-10-17",
+          "recommendation_audit": "docs/literature-reproductions/palladium-frost-2023-audit.md",
+          "recommendation_reason": "The original author regression remains unrecovered. The final paper specifies uncertainty-aware Marquardt-Levenberg fitting but not the exact objective, ambient-point inclusion, constraints or covariance convention. Independent refits have similar central coefficients; the combined-two-width comparison fails with absolute-error covariance and passes with residual-scaled covariance. This is not a demonstrated failed replay of the author protocol. Quantitative recommendation and the default remain on hold pending clarification.",
+          "fit_audit_date": "2026-10-17"
         },
         "parameter_provenance": {
           "determination_method": "Measurements or their experimental reduction determine this EOS; source: Methods, page 035901-2; Table I; Figure 1 and caption; Results and discussion; Data availability; Supplementary Section II.A and Tables I-III."

@@ -94,7 +94,7 @@ New links become live only after the corresponding documentation is published.
 | [Forsterite](forsterite.md) | 3 | 3 |
 | [GeO2](geo2_rutile.md) | 1 | 1 |
 | [Goethite](goethite.md) | 1 | 1 |
-| [Gold](gold.md) | 23 | 17 |
+| [Gold](gold.md) | 23 | 18 |
 | [Graphite](graphite.md) | 1 | 1 |
 | [Hydrous silica CaCl2 type (Nisr 2017)](hydrous_silica_cacl2_nisr_2017.md) | 1 | 1 |
 | [Hydrous stishovite (Nisr 2017)](hydrous_stishovite_nisr_2017.md) | 1 | 1 |
@@ -182,7 +182,7 @@ New links become live only after the corresponding documentation is published.
 | [NaAlSi2O6](naalsi2o6.md) | 1 | 1 |
 | [NaAlSiO4 (calcium-ferrite type)](naalsio4_calcium_ferrite.md) | 1 | 1 |
 | [NaCl (B1)](nacl_b1.md) | 1 | 1 |
-| [NaCl](nacl_b2.md) | 14 | 12 |
+| [NaCl (B2)](nacl_b2.md) | 14 | 12 |
 | [NaMg2Al5SiO12 calcium-ferrite phase](namg2al5sio12_cf.md) | 1 | 1 |
 | [NaMg2Al5SiO12 NAL phase](namg2al5sio12_nal.md) | 1 | 1 |
 | [Neon (fcc)](neon_fcc.md) | 3 | 3 |

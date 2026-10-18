@@ -39,8 +39,8 @@ High-pressure CsCl-type B2 KCl, stored separately from the rock-salt B1 phase. T
 | [Dewaele et al. (2012), B2 P-V-T pressure calibration](#record-kcl_b2_dewaele_2012_vinet_3) | Vinet + LinearThermalPressure | 300.0 | primary source validated | Executable |
 | [Tateno et al. (2019), B2 Vinet + MGD on Sokolova Pt](#record-kcl_b2_tateno_2019_vinet_4) | Vinet + MieGruneisenDebye | 300.0 | primary source validated | Executable |
 | [Chidester et al. (2021), B2 BM3 + MGD on Dorogokupets-Oganov Pt](#record-kcl_b2_chidester_2021_bm3_5) | BM3 + MieGruneisenDebye | 300.0 | primary source validated | Executable |
-| [Tateno et al. (2019), B2 Vinet + MGD on Holmes Pt](#record-kcl_b2_tateno_2019_holmes_vinet_mgd) | Vinet + MieGruneisenDebye | 300.0 | primary source validated | Executable |
-| [Tateno et al. (2019), B2 Vinet + linear thermal pressure on Holmes Pt](#record-kcl_b2_tateno_2019_holmes_vinet_linear_thermal) | Vinet + LinearThermalPressure | 300.0 | primary source validated | Executable |
+| [Tateno et al. (2019), B2 Vinet + MGD on Holmes Pt](#record-kcl_b2_tateno_2019_holmes_vinet_mgd) | Vinet + MieGruneisenDebye | 300.0 | primary source validated | Pressure-scale reference variant |
+| [Tateno et al. (2019), B2 Vinet + linear thermal pressure on Holmes Pt](#record-kcl_b2_tateno_2019_holmes_vinet_linear_thermal) | Vinet + LinearThermalPressure | 300.0 | primary source validated | Pressure-scale reference variant |
 | [Tateno et al. (2019), B2 Vinet + linear thermal pressure on Sokolova Pt](#record-kcl_b2_tateno_2019_sokolova_vinet_linear_thermal) | Vinet + LinearThermalPressure | 300.0 | primary source validated | Executable |
 | [Chidester et al. (2021), B2 Vinet + MGD on Dorogokupets-Oganov Pt](#record-kcl_b2_chidester_2021_vinet_mgd) | Vinet + MieGruneisenDebye | 300.0 | primary source validated | Executable |
 | [Ma, Sumita and Murakami (2024), B2 primary BM3 + MGD](#record-kcl_b2_ma_2024_bm3_mgd) | BM3 + MieGruneisenDebye | 300.0 | primary source validated | Executable |
@@ -910,7 +910,9 @@ Parameter covariance is not supplied.
 
 Identifier: `kcl_b2_tateno_2019_holmes_vinet_mgd`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [kcl\_b2\_tateno\_2019\_vinet\_4](#record-kcl_b2_tateno_2019_vinet_4); it is not an independent EOS choice.
 
 
 - **Origin of the parameterization:** experimental
@@ -1078,7 +1080,9 @@ Parameter covariance is not supplied.
 
 Identifier: `kcl_b2_tateno_2019_holmes_vinet_linear_thermal`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [kcl\_b2\_tateno\_2019\_sokolova\_vinet\_linear\_thermal](#record-kcl_b2_tateno_2019_sokolova_vinet_linear_thermal); it is not an independent EOS choice.
 
 
 - **Origin of the parameterization:** experimental

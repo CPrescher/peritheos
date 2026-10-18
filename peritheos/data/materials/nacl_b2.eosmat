@@ -1,8 +1,9 @@
 {
   "format_version": 4,
   "identifier": "nacl_b2",
-  "name": "NaCl",
+  "name": "NaCl (B2)",
   "formula": "NaCl",
+  "phase": "B2 (CsCl-type), cubic Pm-3m",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 1,
   "eos_records": [
@@ -136,7 +137,7 @@
     },
     {
       "identifier": "nacl_b2_heinz_1984_bm2_1",
-      "label": "Heinz and Jeanloz (1984), B2",
+      "label": "Heinz and Jeanloz (1984), NaCl-B2 BM2",
       "model": "BM2",
       "parameters": {
         "V0": {"value": 41.67, "error": 3.18},
@@ -259,7 +260,7 @@
     },
     {
       "identifier": "nacl_b2_shen_2026_vinet_2",
-      "label": "Shen and Smith (2026), Cu-referenced Vinet",
+      "label": "Shen and Smith (2026), NaCl-B2 Cu-referenced Vinet",
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -269,7 +270,9 @@
       },
       "experimental_pressure_range_gpa": [33.0, 140.0],
       "determination_method": "experimental",
-      "notes": "Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K0 +/- 0.11 GPa and K0' +/- 0.02. The B2 phase data are above 33 GPa.",
+      "default": false,
+      "catalog_access": "explicit_selection",
+      "notes": "Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K0 +/- 0.11 GPa and K0' +/- 0.02. The B2 phase data are above 33 GPa. Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 NaCl-B2 Vinet curve gives 0.622381 GPa pressure RMS and mean residual -0.547610 GPa on 125 DAC-2 Table S1 observations above 35 GPa; all 125 residuals are negative. A direct unweighted refit gives K0=25.447259 GPa, K0_prime=5.582768 and RMS 0.293229 GPa, versus published 24.92 GPa and 5.63. The source-fit discrepancy is unresolved; including the above-33-GPa transition rows does not restore agreement.",
       "reference": {
         "authors": ["Shen", "Smith"],
         "year": 2026,
@@ -304,12 +307,15 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "similar",
+            "status": "not_reproduced",
             "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "source_status": "parity_not_achieved",
+            "basis": "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them. The paper identifies Table II as direct fits to this study's Cu-referenced P-V data, with earlier literature included for comparison. Its data-availability statement also mentions other author-held data, so completeness of the actual author fit inputs is unconfirmed. No additional experimental fit rows are identified by the published fitting description. See the [source-input audit](literature-reproductions/shen-smith-2026-cu-refits.md). Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 NaCl-B2 Vinet curve gives 0.622381 GPa pressure RMS and mean residual -0.547610 GPa on 125 DAC-2 Table S1 observations above 35 GPa; all 125 residuals are negative. A direct unweighted refit gives K0=25.447259 GPa, K0_prime=5.582768 and RMS 0.293229 GPa, versus published 24.92 GPa and 5.63. The source-fit discrepancy is unresolved; including the above-33-GPa transition rows does not restore agreement.",
             "qualifications": [
-              "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.",
+              "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 NaCl-B2 Vinet curve gives 0.622381 GPa pressure RMS and mean residual -0.547610 GPa on 125 DAC-2 Table S1 observations above 35 GPa; all 125 residuals are negative. A direct unweighted refit gives K0=25.447259 GPa, K0_prime=5.582768 and RMS 0.293229 GPa, versus published 24.92 GPa and 5.63. The source-fit discrepancy is unresolved; including the above-33-GPa transition rows does not restore agreement.",
+              "Usage recommendation: not_recommended_for_quantitative_use",
+              "Exact author-used P-V fit table and row mask, pressure-reduction implementation, residual coordinate, weights and covariance are unavailable.",
+              "The article describes Table II as direct fits to this study's Cu-referenced data, with literature parameters for comparison, but its data-availability statement mentions additional author-held data. No extra fit observations are explicitly identified; completeness of the actual author inputs is unconfirmed.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/nacl_b2/#record-nacl_b2_shen_2026_vinet_2",
@@ -358,6 +364,7 @@
               "solver_success": true,
               "solver_message": "`ftol` termination condition is satisfied.",
               "rmse_gpa": 0.2932287343506067,
+              "published_rmse_gpa": 0.6223809764451977,
               "reduced_chi_square": 0.08738118968379947,
               "pressure_reconstruction": {
                 "density0_g_cm3": 8.939,
@@ -376,9 +383,9 @@
           }
         },
         "scientific_validation": {
-          "status": "primary_source_validated",
-          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-          "audit_date": "2026-09-01",
+          "status": "not_reproduced",
+          "note": "Equation and printed coefficients remain source-checked, but the Table II fit is not reproduced from the available published inputs. The published fixed-V0 NaCl-B2 Vinet curve gives 0.622381 GPa pressure RMS and mean residual -0.547610 GPa on 125 DAC-2 Table S1 observations above 35 GPa; all 125 residuals are negative. A direct unweighted refit gives K0=25.447259 GPa, K0_prime=5.582768 and RMS 0.293229 GPa, versus published 24.92 GPa and 5.63. The source-fit discrepancy is unresolved; including the above-33-GPa transition rows does not restore agreement.",
+          "audit_date": "2026-10-17",
           "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
           "primary_source_check": {
             "access_url": "https://doi.org/10.1103/fxgq-96sg",
@@ -402,11 +409,20 @@
           },
           "primary_data_check": {
             "status": "bundled",
-            "audit_date": "2026-09-03",
+            "audit_date": "2026-10-17",
             "dataset_identifiers": ["shen_smith_2026_table_s1_simultaneous_volumes"],
             "source_locations": ["Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets"],
-            "finding": "The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit."
-          }
+            "finding": "Published Table S1 transcription is bundled with simultaneous Cu readings and volume errors: all 194 MgO and 131 NaCl-B2 measurements are in DAC-2. This accounts for the available published volume table, not necessarily every author-held fit input. The previous workbook-to-CSV audit is preserved; a new workbook download on 2026-10-17 required authentication."
+          },
+          "reproduction_status": "not_reproduced",
+          "usage_recommendation": "not_recommended_for_quantitative_use",
+          "recommendation_date": "2026-10-17",
+          "recommendation_audit": "docs/literature-reproductions/shen-smith-2026-cu-refits.md",
+          "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 NaCl-B2 Vinet curve gives 0.622381 GPa pressure RMS and mean residual -0.547610 GPa on 125 DAC-2 Table S1 observations above 35 GPa; all 125 residuals are negative. A direct unweighted refit gives K0=25.447259 GPa, K0_prime=5.582768 and RMS 0.293229 GPa, versus published 24.92 GPa and 5.63. The source-fit discrepancy is unresolved; including the above-33-GPa transition rows does not restore agreement.",
+          "unresolved": [
+            "Exact author-used P-V fit table and row mask, pressure-reduction implementation, residual coordinate, weights and covariance are unavailable.",
+            "The article describes Table II as direct fits to this study's Cu-referenced data, with literature parameters for comparison, but its data-availability statement mentions additional author-held data. No extra fit observations are explicitly identified; completeness of the actual author inputs is unconfirmed."
+          ]
         },
         "parameter_provenance": {
           "determination_method": "Measurements or their experimental reduction determine this EOS; source: Equation (4), page 8; Table I and footnotes, page 4; Table II, pages 9-12; Section III.E, pages 8 and 12-14; Experimental methods, page 2; Supplemental Table S1, official Excel workbook; Fratanduono et al. (2020), Table I and Supplemental Eq. (2)."
@@ -415,7 +431,7 @@
     },
     {
       "identifier": "nacl_b2_sakai_2014_yokoo_pt_bm3",
-      "label": "Sakai et al. (2014), yokoo_pt_bm3",
+      "label": "Sakai et al. (2014), NaCl-B2 BM3, Yokoo et al. (2009) Pt scale",
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -436,6 +452,7 @@
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 1, "molar_mass_g_mol": 58.44277},
       "notes": "New Yokoo-Pt calibration of Sakai (2011a) NaCl-B2 observations. V0=38.34(4.69) A³ from g-G analysis, then fixed. The unusually large printed V0 uncertainty is retained verbatim. Exact new calibration pressure extrema and original paired NaCl/Pt rows are not given in this article; the validity envelope is approximate.",
+      "pressure_scale_variant_of": "nacl_b2_sakai_2011_matsui_pt_bm3",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -514,7 +531,7 @@
     },
     {
       "identifier": "nacl_b2_sakai_2011_matsui_pt_bm3",
-      "label": "Sakai et al. (2011), BM3, Matsui et al. (2009) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 BM3, Matsui et al. (2009) Pt scale",
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -674,7 +691,7 @@
     },
     {
       "identifier": "nacl_b2_sakai_2011_matsui_pt_vinet",
-      "label": "Sakai et al. (2011), Vinet, Matsui et al. (2009) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 Vinet, Matsui et al. (2009) Pt scale",
       "model": "Vinet",
       "temperature_ref": 300,
       "parameters": {
@@ -834,7 +851,7 @@
     },
     {
       "identifier": "nacl_b2_sakai_2011_fei_pt_bm3",
-      "label": "Sakai et al. (2011), BM3, Fei et al. (2007) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 BM3, Fei et al. (2007) Pt scale",
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -862,6 +879,7 @@
         "pressure": "Table I: exact envelope of the 27 new measurements on this Pt scale; joint fit additionally uses lower-pressure Sata (2002) data.",
         "temperature": "Section III.C explicitly defines P300K; 1500–2000 K is annealing temperature, not the fitted isotherm."
       },
+      "pressure_scale_variant_of": "nacl_b2_sakai_2011_matsui_pt_bm3",
       "fit_datasets": ["nacl_b2_sakai_2011_table1", "nacl_b2_sata_2002_table1_sakai_input"],
       "parameter_covariance": null,
       "reference": {
@@ -994,7 +1012,7 @@
     },
     {
       "identifier": "nacl_b2_sakai_2011_fei_pt_vinet",
-      "label": "Sakai et al. (2011), Vinet, Fei et al. (2007) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 Vinet, Fei et al. (2007) Pt scale",
       "model": "Vinet",
       "temperature_ref": 300,
       "parameters": {
@@ -1022,6 +1040,7 @@
         "pressure": "Table I: exact envelope of the 27 new measurements on this Pt scale; joint fit additionally uses lower-pressure Sata (2002) data.",
         "temperature": "Section III.C explicitly defines P300K; 1500–2000 K is annealing temperature, not the fitted isotherm."
       },
+      "pressure_scale_variant_of": "nacl_b2_sakai_2011_matsui_pt_vinet",
       "fit_datasets": ["nacl_b2_sakai_2011_table1", "nacl_b2_sata_2002_table1_sakai_input"],
       "parameter_covariance": null,
       "reference": {
@@ -1154,7 +1173,7 @@
     },
     {
       "identifier": "nacl_b2_sakai_2011_do_pt_bm3",
-      "label": "Sakai et al. (2011), BM3, Dorogokupets and Oganov (2007) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 BM3, Dorogokupets and Oganov (2007) Pt scale",
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -1182,6 +1201,7 @@
         "pressure": "Table I: exact envelope of the 27 new measurements on this Pt scale; joint fit additionally uses lower-pressure Sata (2002) data.",
         "temperature": "Section III.C explicitly defines P300K; 1500–2000 K is annealing temperature, not the fitted isotherm."
       },
+      "pressure_scale_variant_of": "nacl_b2_sakai_2011_matsui_pt_bm3",
       "fit_datasets": ["nacl_b2_sakai_2011_table1", "nacl_b2_sata_2002_table1_sakai_input"],
       "parameter_covariance": null,
       "reference": {
@@ -1314,7 +1334,7 @@
     },
     {
       "identifier": "nacl_b2_sakai_2011_do_pt_vinet",
-      "label": "Sakai et al. (2011), Vinet, Dorogokupets and Oganov (2007) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 Vinet, Dorogokupets and Oganov (2007) Pt scale",
       "model": "Vinet",
       "temperature_ref": 300,
       "parameters": {
@@ -1342,6 +1362,7 @@
         "pressure": "Table I: exact envelope of the 27 new measurements on this Pt scale; joint fit additionally uses lower-pressure Sata (2002) data.",
         "temperature": "Section III.C explicitly defines P300K; 1500–2000 K is annealing temperature, not the fitted isotherm."
       },
+      "pressure_scale_variant_of": "nacl_b2_sakai_2011_matsui_pt_vinet",
       "fit_datasets": ["nacl_b2_sakai_2011_table1", "nacl_b2_sata_2002_table1_sakai_input"],
       "parameter_covariance": null,
       "reference": {
@@ -1474,7 +1495,7 @@
     },
     {
       "identifier": "nacl_b2_sakai_2011_holmes_pt_bm3",
-      "label": "Sakai et al. (2011), BM3, Holmes et al. (1989) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 BM3, Holmes et al. (1989) Pt scale",
       "model": "BM3",
       "temperature_ref": 300,
       "parameters": {
@@ -1502,6 +1523,7 @@
         "pressure": "Table I: exact envelope of the 27 new measurements on this Pt scale; joint fit additionally uses lower-pressure Sata (2002) data.",
         "temperature": "Section III.C explicitly defines P300K; 1500–2000 K is annealing temperature, not the fitted isotherm."
       },
+      "pressure_scale_variant_of": "nacl_b2_sakai_2011_matsui_pt_bm3",
       "fit_datasets": ["nacl_b2_sakai_2011_table1", "nacl_b2_sata_2002_table1_sakai_input"],
       "parameter_covariance": null,
       "reference": {
@@ -1633,7 +1655,7 @@
     },
     {
       "identifier": "nacl_b2_sakai_2011_holmes_pt_vinet",
-      "label": "Sakai et al. (2011), Vinet, Holmes et al. (1989) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 Vinet, Holmes et al. (1989) Pt scale",
       "model": "Vinet",
       "temperature_ref": 300,
       "parameters": {
@@ -1661,6 +1683,7 @@
         "pressure": "Table I: exact envelope of the 27 new measurements on this Pt scale; joint fit additionally uses lower-pressure Sata (2002) data.",
         "temperature": "Section III.C explicitly defines P300K; 1500–2000 K is annealing temperature, not the fitted isotherm."
       },
+      "pressure_scale_variant_of": "nacl_b2_sakai_2011_matsui_pt_vinet",
       "fit_datasets": ["nacl_b2_sakai_2011_table1", "nacl_b2_sata_2002_table1_sakai_input"],
       "parameter_covariance": null,
       "reference": {
@@ -2252,7 +2275,7 @@
     {"element": "Cl", "wyckoff": "1b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1.0}
   ],
   "peaks": [],
-  "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/current user/jcpds/nacl-b2.jcpds, JCPDS/current user/jcpds/certified data base/nacl-b2.jcpds, JCPDS/current user/jcpds/ver3/naclb2.jcpds",
+  "notes": "CsCl-type B2 phase, cubic Pm-3m. Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/current user/jcpds/nacl-b2.jcpds, JCPDS/current user/jcpds/certified data base/nacl-b2.jcpds, JCPDS/current user/jcpds/ver3/naclb2.jcpds",
   "datasets": [
     {
       "identifier": "nacl_b2_sakai_2025_table_s9_rs_eos_grid",

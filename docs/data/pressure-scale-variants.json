@@ -1,0 +1,532 @@
+{
+  "policy": "One source per study/model/data selection; published pressure-scale alternatives remain explicit reference variants. No coefficients or calibration routes are inferred by grouping.",
+  "source_groups": 27,
+  "reference_variants": 51,
+  "materials": 19,
+  "groups": [
+    {
+      "material": "aluminum",
+      "source_eos_record": "aluminum_dewaele_2004_vinet_1",
+      "reference_variants": [
+        "aluminum_dewaele_2004_mao_ruby_vinet"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Dewaele",
+          "Loubeyre",
+          "Mezouar"
+        ],
+        "year": 2004,
+        "title": "Equations of state of six metals above 94 GPa",
+        "source": "Phys. Rev. B",
+        "volume": "70",
+        "locator": "094112",
+        "doi": "10.1103/PhysRevB.70.094112"
+      }
+    },
+    {
+      "material": "aluminum",
+      "source_eos_record": "aluminum_dewaele_2019_mao_vinet",
+      "reference_variants": [
+        "aluminum_dewaele_2019_dor_vinet"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Dewaele"
+        ],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      }
+    },
+    {
+      "material": "beryllium_hcp",
+      "source_eos_record": "beryllium_hcp_dewaele_2019_mao_vinet",
+      "reference_variants": [
+        "beryllium_hcp_dewaele_2019_dor_vinet"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Dewaele"
+        ],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      }
+    },
+    {
+      "material": "cobalt_hcp",
+      "source_eos_record": "cobalt_hcp_dewaele_2019_mao_vinet",
+      "reference_variants": [
+        "cobalt_hcp_dewaele_2019_dor_vinet"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Dewaele"
+        ],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      }
+    },
+    {
+      "material": "copper",
+      "source_eos_record": "copper_dewaele_2004_vinet_1",
+      "reference_variants": [
+        "copper_dewaele_2004_mao_ruby_vinet"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Dewaele",
+          "Loubeyre",
+          "Mezouar"
+        ],
+        "year": 2004,
+        "title": "Equations of state of six metals above 94 GPa",
+        "source": "Phys. Rev. B",
+        "volume": "70",
+        "locator": "094112",
+        "doi": "10.1103/PhysRevB.70.094112"
+      }
+    },
+    {
+      "material": "copper",
+      "source_eos_record": "copper_dewaele_2019_mao_vinet",
+      "reference_variants": [
+        "copper_dewaele_2019_dor_vinet"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Dewaele"
+        ],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      }
+    },
+    {
+      "material": "fe09ni01_hcp",
+      "source_eos_record": "fe09ni01_hcp_sakai_2014_p1_bm3",
+      "reference_variants": [
+        "fe09ni01_hcp_sakai_2014_p2_bm3",
+        "fe09ni01_hcp_sakai_2014_p3_bm3",
+        "fe09ni01_hcp_sakai_2014_p4_bm3",
+        "fe09ni01_hcp_sakai_2014_p5_bm3",
+        "fe09ni01_hcp_sakai_2014_p6_bm3"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Sakai",
+          "Takahashi",
+          "Nishitani",
+          "Mashino",
+          "Ohtani",
+          "Hirao"
+        ],
+        "year": 2014,
+        "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+        "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+        "doi": "10.1016/j.pepi.2013.12.010"
+      }
+    },
+    {
+      "material": "fe09ni01_hcp",
+      "source_eos_record": "fe09ni01_hcp_sakai_2014_p1_vinet",
+      "reference_variants": [
+        "fe09ni01_hcp_sakai_2014_p2_vinet",
+        "fe09ni01_hcp_sakai_2014_p3_vinet",
+        "fe09ni01_hcp_sakai_2014_p4_vinet",
+        "fe09ni01_hcp_sakai_2014_p5_vinet",
+        "fe09ni01_hcp_sakai_2014_p6_vinet"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Sakai",
+          "Takahashi",
+          "Nishitani",
+          "Mashino",
+          "Ohtani",
+          "Hirao"
+        ],
+        "year": 2014,
+        "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+        "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+        "doi": "10.1016/j.pepi.2013.12.010"
+      }
+    },
+    {
+      "material": "gold",
+      "source_eos_record": "gold_dewaele_2019_mao_vinet",
+      "reference_variants": [
+        "gold_dewaele_2019_dor_vinet"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Dewaele"
+        ],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      }
+    },
+    {
+      "material": "iron",
+      "source_eos_record": "iron_dewaele_2019_mao_vinet",
+      "reference_variants": [
+        "iron_dewaele_2019_dor_vinet"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Dewaele"
+        ],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      }
+    },
+    {
+      "material": "iron",
+      "source_eos_record": "iron_sakai_2014_p1_bm3",
+      "reference_variants": [
+        "iron_sakai_2014_p2_bm3",
+        "iron_sakai_2014_p3_bm3",
+        "iron_sakai_2014_p4_bm3",
+        "iron_sakai_2014_p5_bm3",
+        "iron_sakai_2014_p6_bm3"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Sakai",
+          "Takahashi",
+          "Nishitani",
+          "Mashino",
+          "Ohtani",
+          "Hirao"
+        ],
+        "year": 2014,
+        "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+        "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+        "doi": "10.1016/j.pepi.2013.12.010"
+      }
+    },
+    {
+      "material": "iron",
+      "source_eos_record": "iron_sakai_2014_p1_vinet",
+      "reference_variants": [
+        "iron_sakai_2014_p2_vinet",
+        "iron_sakai_2014_p3_vinet",
+        "iron_sakai_2014_p4_vinet",
+        "iron_sakai_2014_p5_vinet",
+        "iron_sakai_2014_p6_vinet"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Sakai",
+          "Takahashi",
+          "Nishitani",
+          "Mashino",
+          "Ohtani",
+          "Hirao"
+        ],
+        "year": 2014,
+        "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
+        "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
+        "doi": "10.1016/j.pepi.2013.12.010"
+      }
+    },
+    {
+      "material": "kcl",
+      "source_eos_record": "kcl_b2_tateno_2019_sokolova_vinet_linear_thermal",
+      "reference_variants": [
+        "kcl_b2_tateno_2019_holmes_vinet_linear_thermal"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Tateno",
+          "Komabayashi",
+          "Hirose",
+          "Hirao",
+          "Ohishi"
+        ],
+        "year": 2019,
+        "title": "Static compression of B2 KCl to 230 GPa and its P-V-T equation of state",
+        "source": "American Mineralogist",
+        "volume": "104",
+        "locator": "718-723",
+        "doi": "10.2138/am-2019-6779"
+      }
+    },
+    {
+      "material": "kcl",
+      "source_eos_record": "kcl_b2_tateno_2019_vinet_4",
+      "reference_variants": [
+        "kcl_b2_tateno_2019_holmes_vinet_mgd"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Tateno",
+          "Komabayashi",
+          "Hirose",
+          "Hirao",
+          "Ohishi"
+        ],
+        "year": 2019,
+        "title": "Static compression of B2 KCl to 230 GPa and its P-V-T equation of state",
+        "source": "American Mineralogist",
+        "volume": "104",
+        "locator": "718-723",
+        "doi": "10.2138/am-2019-6779"
+      }
+    },
+    {
+      "material": "lead_hcp",
+      "source_eos_record": "lead_hcp_dewaele_2019_mao_vinet",
+      "reference_variants": [
+        "lead_hcp_dewaele_2019_dor_vinet"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Dewaele"
+        ],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      }
+    },
+    {
+      "material": "mgsio3_post_perovskite",
+      "source_eos_record": "mgsio3_post_perovskite_ono_2006_anderson_bm2_3",
+      "reference_variants": [
+        "mgsio3_post_perovskite_ono_2006_dewaele_bm2_5",
+        "mgsio3_post_perovskite_ono_2006_jamieson_bm2_4"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Ono",
+          "Kikegawa",
+          "Ohishi"
+        ],
+        "year": 2006,
+        "title": "Equation of state of CaIrO3-type MgSiO3 up to 144 GPa",
+        "source": "American Mineralogist",
+        "volume": "91",
+        "locator": "475-478",
+        "doi": "10.2138/am.2006.2118"
+      }
+    },
+    {
+      "material": "molybdenum",
+      "source_eos_record": "molybdenum_dewaele_2019_mao_vinet",
+      "reference_variants": [
+        "molybdenum_dewaele_2019_dor_vinet"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Dewaele"
+        ],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      }
+    },
+    {
+      "material": "nacl_b2",
+      "source_eos_record": "nacl_b2_sakai_2011_matsui_pt_bm3",
+      "reference_variants": [
+        "nacl_b2_sakai_2011_do_pt_bm3",
+        "nacl_b2_sakai_2011_fei_pt_bm3",
+        "nacl_b2_sakai_2011_holmes_pt_bm3",
+        "nacl_b2_sakai_2014_yokoo_pt_bm3"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Sakai",
+          "Ohtani",
+          "Hirao",
+          "Ohishi"
+        ],
+        "year": 2011,
+        "title": "Equation of state of the NaCl-B2 phase up to 304 GPa",
+        "source": "Journal of Applied Physics",
+        "volume": "109",
+        "locator": "084912",
+        "doi": "10.1063/1.3573393"
+      }
+    },
+    {
+      "material": "nacl_b2",
+      "source_eos_record": "nacl_b2_sakai_2011_matsui_pt_vinet",
+      "reference_variants": [
+        "nacl_b2_sakai_2011_do_pt_vinet",
+        "nacl_b2_sakai_2011_fei_pt_vinet",
+        "nacl_b2_sakai_2011_holmes_pt_vinet"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Sakai",
+          "Ohtani",
+          "Hirao",
+          "Ohishi"
+        ],
+        "year": 2011,
+        "title": "Equation of state of the NaCl-B2 phase up to 304 GPa",
+        "source": "Journal of Applied Physics",
+        "volume": "109",
+        "locator": "084912",
+        "doi": "10.1063/1.3573393"
+      }
+    },
+    {
+      "material": "nickel",
+      "source_eos_record": "nickel_dewaele_2008_vinet_1",
+      "reference_variants": [
+        "nickel_dewaele_2019_dor_vinet",
+        "nickel_dewaele_2019_mao_vinet"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Dewaele",
+          "Torrent",
+          "Loubeyre",
+          "Mezouar"
+        ],
+        "year": 2008,
+        "title": "Compression curves of transition metals in the Mbar range: Experiments and projector augmented-wave calculations",
+        "source": "Phys. Rev. B",
+        "volume": "78",
+        "locator": "104102",
+        "doi": "10.1103/PhysRevB.78.104102"
+      }
+    },
+    {
+      "material": "platinum",
+      "source_eos_record": "platinum_dewaele_2019_mao_vinet",
+      "reference_variants": [
+        "platinum_dewaele_2019_dor_vinet"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Dewaele"
+        ],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      }
+    },
+    {
+      "material": "rhenium",
+      "source_eos_record": "rhenium_dewaele_2019_mao_vinet",
+      "reference_variants": [
+        "rhenium_dewaele_2019_dor_vinet"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Dewaele"
+        ],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      }
+    },
+    {
+      "material": "silver",
+      "source_eos_record": "silver_dewaele_2008_vinet_1",
+      "reference_variants": [
+        "silver_dewaele_2019_dor_vinet",
+        "silver_dewaele_2019_mao_vinet"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Dewaele",
+          "Torrent",
+          "Loubeyre",
+          "Mezouar"
+        ],
+        "year": 2008,
+        "title": "Compression curves of transition metals in the Mbar range: Experiments and projector augmented-wave calculations",
+        "source": "Phys. Rev. B",
+        "volume": "78",
+        "locator": "104102",
+        "doi": "10.1103/PhysRevB.78.104102"
+      }
+    },
+    {
+      "material": "tantalum",
+      "source_eos_record": "tantalum_dewaele_2019_mao_vinet",
+      "reference_variants": [
+        "tantalum_dewaele_2019_dor_vinet"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Dewaele"
+        ],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      }
+    },
+    {
+      "material": "tungsten",
+      "source_eos_record": "tungsten_dewaele_2004_vinet_2",
+      "reference_variants": [
+        "tungsten_dewaele_2004_mao_ruby_vinet"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Dewaele",
+          "Loubeyre",
+          "Mezouar"
+        ],
+        "year": 2004,
+        "title": "Equations of state of six metals above 94 GPa",
+        "source": "Phys. Rev. B",
+        "volume": "70",
+        "locator": "094112",
+        "doi": "10.1103/PhysRevB.70.094112"
+      }
+    },
+    {
+      "material": "tungsten",
+      "source_eos_record": "tungsten_dewaele_2019_mao_vinet",
+      "reference_variants": [
+        "tungsten_dewaele_2019_dor_vinet"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Dewaele"
+        ],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      }
+    },
+    {
+      "material": "zinc_hcp",
+      "source_eos_record": "zinc_hcp_dewaele_2019_mao_vinet",
+      "reference_variants": [
+        "zinc_hcp_dewaele_2019_dor_vinet"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Dewaele"
+        ],
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
+      }
+    }
+  ]
+}

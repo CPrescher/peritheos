@@ -36,7 +36,7 @@ Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac\
 | --- | --- | --- | --- | --- |
 | [Fujihisa and Takemura (1996), hcp Vinet](#record-cobalt_hcp_fujihisa_1996_vinet_1) | Vinet | 300.0 | primary source validated | Executable |
 | [Dewaele (2019), Co MAO-scale Vinet](#record-cobalt_hcp_dewaele_2019_mao_vinet) | Vinet | 300.0 | primary source validated | Executable |
-| [Dewaele (2019), Co DOR-scale Vinet](#record-cobalt_hcp_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Executable |
+| [Dewaele (2019), Co DOR-scale Vinet](#record-cobalt_hcp_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Pressure-scale reference variant |
 
 ### Reference coefficients
 
@@ -362,7 +362,9 @@ Parameter covariance is not supplied.
 
 Identifier: `cobalt_hcp_dewaele_2019_dor_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [cobalt\_hcp\_dewaele\_2019\_mao\_vinet](#record-cobalt_hcp_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
 
 - **Record kind:** published

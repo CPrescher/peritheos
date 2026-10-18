@@ -38,8 +38,8 @@ FCC phase reference: JCPDS 04-0836. The reference cell is calculated from the fi
 | [Dewaele et al. (2004), revised-ruby-scale Vinet](#record-copper_dewaele_2004_vinet_1) | Vinet | 298.0 | primary source validated | Executable |
 | [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-copper_sokolova_2013_holzapfel_2) | Holzapfel + Sokolova2016 | 298.15 | primary source validated | Executable |
 | [Dewaele (2019), Cu MAO-scale Vinet](#record-copper_dewaele_2019_mao_vinet) | Vinet | 300.0 | primary source validated | Executable |
-| [Dewaele (2019), Cu DOR-scale Vinet](#record-copper_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Executable |
-| [Dewaele et al. (2004), Cu mao ruby Vinet](#record-copper_dewaele_2004_mao_ruby_vinet) | Vinet | 298.0 | primary source validated | Executable |
+| [Dewaele (2019), Cu DOR-scale Vinet](#record-copper_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Pressure-scale reference variant |
+| [Dewaele et al. (2004), Cu mao ruby Vinet](#record-copper_dewaele_2004_mao_ruby_vinet) | Vinet | 298.0 | primary source validated | Pressure-scale reference variant |
 | [Fratanduono et al. (2020), Cu 298 K third-order Vinet](#record-copper_fratanduono_2020_vinet3_298k) | Vinet3 | 298.0 | primary source validated | Executable |
 
 ### Reference coefficients
@@ -652,7 +652,9 @@ Parameter covariance is not supplied.
 
 Identifier: `copper_dewaele_2019_dor_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [copper\_dewaele\_2019\_mao\_vinet](#record-copper_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -801,7 +803,9 @@ Parameter covariance is not supplied.
 
 Identifier: `copper_dewaele_2004_mao_ruby_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [copper\_dewaele\_2004\_vinet\_1](#record-copper_dewaele_2004_vinet_1); it is not an independent EOS choice.
 
 
 - **Record kind:** published

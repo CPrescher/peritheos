@@ -77,6 +77,7 @@ from peritheos.uncertainty import EOSUncertainty, PredictionUncertainty
 
 if TYPE_CHECKING:
     from peritheos.datasets import Dataset
+    from peritheos.pressure_calibrations import PressureScaledEOS
 
 
 def _validated_aliases(
@@ -400,6 +401,32 @@ class EOSRecord:
     def determination_method(self) -> str:
         """How the parameters were determined; absent legacy metadata is unknown."""
         return str(self.eosmat_metadata.get("determination_method", "unknown"))
+
+    @property
+    def pressure_scale_variant_of(self) -> str | None:
+        """Source EOS whose published pressure-scale alternative this represents."""
+        return self.eosmat_metadata.get("pressure_scale_variant_of")
+
+    @property
+    def is_reference_variant(self) -> bool:
+        """Whether this is a published pressure-scale reference variant."""
+        return self.pressure_scale_variant_of is not None
+
+    def on_pressure_scale(
+        self, target_node: str, *, standard_temperature_k: float | None = None
+    ) -> PressureScaledEOS:
+        """Evaluate this source EOS on another reachable pressure coordinate.
+
+        The returned view transforms pressures directly and inverts the same
+        route for volumes. It does not select a published alternative or refit
+        the transformed curve. External records need explicit, executable
+        calibration provenance into the bundled graph.
+        """
+        from peritheos.pressure_calibrations import PressureScaledEOS
+
+        return PressureScaledEOS._from_record(
+            self, target_node, standard_temperature_k=standard_temperature_k
+        )
 
     @property
     def reference_volume(self) -> float:
@@ -1191,7 +1218,14 @@ class Material:
         )
 
     def default_equilibrium_record(self) -> EOSRecord | None:
-        """Return the preferred equilibrium record, falling back to the first."""
+        """Return the preferred equilibrium record unless its selection is on hold."""
+        hold = self.eosmat_metadata.get("recommendation_hold", {})
+        if (
+            isinstance(hold, Mapping)
+            and hold.get("status") == "on_hold"
+            and hold.get("scope") == "equilibrium_default"
+        ):
+            return None
         records = self.equilibrium_records
         return next((record for record in records if record.is_default), None) or (
             records[0] if records else None
@@ -1209,11 +1243,21 @@ class Material:
         return self.default_equilibrium_record() or self.default_hugoniot_record()
 
     @property
+    def source_records(self) -> tuple[EOSRecord, ...]:
+        """Normal EOS choices, excluding published pressure-scale alternatives."""
+        return tuple(r for r in self.eos_records if not r.is_reference_variant)
+
+    @property
+    def reference_variants(self) -> tuple[EOSRecord, ...]:
+        """Published pressure-scale alternatives, retaining original coefficients."""
+        return tuple(r for r in self.eos_records if r.is_reference_variant)
+
+    @property
     def equilibrium_records(self) -> tuple[EOSRecord, ...]:
         """Return the equilibrium isothermal and thermal EOS records."""
         return tuple(
             record
-            for record in self.eos_records
+            for record in self.source_records
             if not isinstance(record, HugoniotRecord)
         )
 
@@ -2104,11 +2148,24 @@ def _material_from_eosmat(
                 f"Unknown EOS record identifiers {sorted(missing)}; available: "
                 f"{sorted(available)}"
             )
+        # Keep the source dependency so a selected reference variant remains a
+        # valid, self-contained material document when exported again.
+        explicitly_selected = selected
+        selected = selected | frozenset(
+            record["pressure_scale_variant_of"]
+            for record in records_data
+            if str(record.get("identifier")) in selected
+            and "pressure_scale_variant_of" in record
+        )
         records_data = [
             record
             for record in records_data
             if str(record.get("identifier")) in selected
         ]
+        # Preserve first-record selection for callers loading one reference fit.
+        records_data.sort(
+            key=lambda record: str(record.get("identifier")) not in explicitly_selected
+        )
         if not records_data:
             raise MaterialError(
                 "record_identifiers must select at least one EOS record"
@@ -4378,11 +4435,15 @@ def get_eos_record(identifier: str) -> EOSRecord:
     return catalog_get_eos_record(identifier)
 
 
-def list_eos_records(*, formula: str | None = None) -> tuple[EOSRecord, ...]:
+def list_eos_records(
+    *, formula: str | None = None, include_reference_variants: bool = False
+) -> tuple[EOSRecord, ...]:
     """List all bundled EOS records, optionally filtered by formula."""
     from peritheos.catalog import list_eos_records as catalog_list_eos_records
 
-    return catalog_list_eos_records(formula=formula)
+    return catalog_list_eos_records(
+        formula=formula, include_reference_variants=include_reference_variants
+    )
 
 
 # Keep discovery beside the historical material lookup imports as well as at

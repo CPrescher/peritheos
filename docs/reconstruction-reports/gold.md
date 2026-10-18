@@ -12,7 +12,7 @@ agreement, source verification, author-workflow reproduction and recommendation 
 
 | EOS record | Recorded outcome | Coefficient comparison |
 | --- | --- | --- |
-| [Sakai et al. (2025), Au generalized Rydberg-Stacey scale](#record-gold_sakai_2025_rydberg_stacey_1) | Complete independent refit unavailable | No numeric coefficient pair recorded |
+| [Sakai et al. (2025), Au generalized Rydberg-Stacey scale](#record-gold_sakai_2025_rydberg_stacey_1) | Coefficient parity achieved | Graph and table |
 | [Dewaele et al. (2004), revised-ruby Vinet](#record-gold_dewaele_2004_vinet_5) | Coefficient parity achieved | Graph and table |
 | [Takemura and Dewaele (2008), Dorogokupets-ruby Vinet](#record-gold_takemura_2008_vinet_6) | Coefficient parity achieved | Graph and table |
 | [Anderson et al. (1989), Au logarithmic-volume thermal EOS](#record-gold_anderson_1989_bm3_1) | Complete independent refit unavailable | No numeric coefficient pair recorded |
@@ -42,10 +42,10 @@ agreement, source verification, author-workflow reproduction and recommendation 
 
 Record: `gold_sakai_2025_rydberg_stacey_1` · Model: `RydbergStacey`
 
-**Outcome: Complete independent refit unavailable.**
+**Outcome: Coefficient parity achieved.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
+**Comparison basis:** Conditional agreement of the fitted central value at published precision; this does not establish uncertainty or calibration-network parity.
 
 [Stored EOS coefficients and source](../material-summaries/gold.md#record-gold_sakai_2025_rydberg_stacey_1)
 
@@ -54,19 +54,43 @@ Record: `gold_sakai_2025_rydberg_stacey_1` · Model: `RydbergStacey`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
+- Conditional Au K0-prime central-value parity at published three-decimal precision under equal pressure residuals and published upstream calibrants. V0, K0 and K-infinity-prime are fixed, not independently recovered. Original weights, uncertainty/covariance and the full sequential calibration are not reproduced. Calculated Table S9 is a checkpoint, never fit observations.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
-- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
 
 ### Data and reconstruction method
 
-- **Dataset identifiers:** None declared
+- **Dataset identifiers:** gold\_sakai\_2025\_table\_s4\_au\_w\_volumes; gold\_sakai\_2025\_dewaele\_2018\_au\_re\_input; gold\_sakai\_2025\_dewaele\_2004\_au\_input; gold\_sakai\_2025\_takemura\_2008\_au\_input; gold\_sakai\_2025\_hirose\_2008\_au\_mgo\_input
+- **Observations:** 210
+- **Fit kind:** conditional\_au\_published\_calibrants
+- **Objective:** equal\_pressure\_residuals
 - **Fixed parameters:** V0; K0; K\_infinity\_prime
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
-### Why no coefficient graph is shown
+### Source versus reconstruction
 
-No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
+![Source/target and reconstructed central values for gold_sakai_2025_rydberg_stacey_1](figures/gold_sakai_2025_rydberg_stacey_1.svg)
+
+This is a **coefficient comparison**, not an observation or residual plot.
+Each panel uses its coefficient's audit units and includes zero. Markers show
+stored central values only. Error widths are retained in the table below;
+no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
+
+| Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0\_prime | 5.78 | 0.004 | 5.780096584423864 | Not specified | See protocol |
+
+Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+
+
+<details markdown="1">
+<summary>Recorded diagnostics, covariance and additional protocol</summary>
+
+- **Solver success:** True
+- **Rmse gpa:** 3.1415999152476832
+- **Reproduction report:** docs/data/sakai-2025-gold-reconstruction.json
+
+</details>
 
 ### Detailed evidence and existing plots
 
@@ -345,6 +369,7 @@ Values and reported errors are copied without rounding or conversion from the na
 ### Detailed evidence and existing plots
 
 - [Supporting source report: fei-2007-gold](../literature-reproductions/fei-2007-gold.md).
+- [Supporting source report: speziale-2001-mgo](../literature-reproductions/speziale-2001-mgo.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
@@ -419,6 +444,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
 - **Rmse gpa:** 0.33474789368557756
+- **Published rmse gpa:** 0.33493091795847985
 - **Reduced chi square:** 0.1130477996926558
 - **Pressure reconstruction:**
     - **Density0 g cm3:** 8.939
@@ -1160,6 +1186,7 @@ Values and reported errors are copied without rounding or conversion from the na
 ### Detailed evidence and existing plots
 
 - [Earlier detailed record investigation](../primary-eos-refits.md#investigation-gold_hirose_2008_bm3_fit2).
+- [Supporting source report: speziale-2001-mgo](../literature-reproductions/speziale-2001-mgo.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
@@ -1230,6 +1257,7 @@ Values and reported errors are copied without rounding or conversion from the na
 ### Detailed evidence and existing plots
 
 - [Earlier detailed record investigation](../primary-eos-refits.md#investigation-gold_hirose_2008_bm3_fit1).
+- [Supporting source report: speziale-2001-mgo](../literature-reproductions/speziale-2001-mgo.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
@@ -1363,6 +1391,7 @@ Values and reported errors are copied without rounding or conversion from the na
 
 ### Detailed evidence and existing plots
 
+- [Supporting source report: speziale-2001-mgo](../literature-reproductions/speziale-2001-mgo.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 

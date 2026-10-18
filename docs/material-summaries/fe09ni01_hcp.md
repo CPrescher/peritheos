@@ -41,16 +41,16 @@ Sakai et al. (2014) Fe0.9Ni0.1 hcp alloy. Mixed Fe/Ni occupancy on the hcp 2c si
 | [Sakai et al. (2014), p1\_v0\_mao\_vinet](#record-fe09ni01_hcp_sakai_2014_p1_v0_mao_vinet) | Vinet | 300 | primary source validated | Executable |
 | [Sakai et al. (2014), p1\_v0\_dewaele\_bm3](#record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_bm3) | BM3 | 300 | primary source validated | Executable |
 | [Sakai et al. (2014), p1\_v0\_dewaele\_vinet](#record-fe09ni01_hcp_sakai_2014_p1_v0_dewaele_vinet) | Vinet | 300 | primary source validated | Executable |
-| [Sakai et al. (2014), p2\_bm3](#record-fe09ni01_hcp_sakai_2014_p2_bm3) | BM3 | 300 | primary source validated | Executable |
-| [Sakai et al. (2014), p2\_vinet](#record-fe09ni01_hcp_sakai_2014_p2_vinet) | Vinet | 300 | primary source validated | Executable |
-| [Sakai et al. (2014), p3\_bm3](#record-fe09ni01_hcp_sakai_2014_p3_bm3) | BM3 | 300 | primary source validated | Executable |
-| [Sakai et al. (2014), p3\_vinet](#record-fe09ni01_hcp_sakai_2014_p3_vinet) | Vinet | 300 | primary source validated | Executable |
-| [Sakai et al. (2014), p4\_bm3](#record-fe09ni01_hcp_sakai_2014_p4_bm3) | BM3 | 300 | primary source validated | Executable |
-| [Sakai et al. (2014), p4\_vinet](#record-fe09ni01_hcp_sakai_2014_p4_vinet) | Vinet | 300 | primary source validated | Executable |
-| [Sakai et al. (2014), p5\_bm3](#record-fe09ni01_hcp_sakai_2014_p5_bm3) | BM3 | 300 | primary source validated | Executable |
-| [Sakai et al. (2014), p5\_vinet](#record-fe09ni01_hcp_sakai_2014_p5_vinet) | Vinet | 300 | primary source validated | Executable |
-| [Sakai et al. (2014), p6\_bm3](#record-fe09ni01_hcp_sakai_2014_p6_bm3) | BM3 | 300 | primary source validated | Executable |
-| [Sakai et al. (2014), p6\_vinet](#record-fe09ni01_hcp_sakai_2014_p6_vinet) | Vinet | 300 | primary source validated | Executable |
+| [Sakai et al. (2014), p2\_bm3](#record-fe09ni01_hcp_sakai_2014_p2_bm3) | BM3 | 300 | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), p2\_vinet](#record-fe09ni01_hcp_sakai_2014_p2_vinet) | Vinet | 300 | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), p3\_bm3](#record-fe09ni01_hcp_sakai_2014_p3_bm3) | BM3 | 300 | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), p3\_vinet](#record-fe09ni01_hcp_sakai_2014_p3_vinet) | Vinet | 300 | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), p4\_bm3](#record-fe09ni01_hcp_sakai_2014_p4_bm3) | BM3 | 300 | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), p4\_vinet](#record-fe09ni01_hcp_sakai_2014_p4_vinet) | Vinet | 300 | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), p5\_bm3](#record-fe09ni01_hcp_sakai_2014_p5_bm3) | BM3 | 300 | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), p5\_vinet](#record-fe09ni01_hcp_sakai_2014_p5_vinet) | Vinet | 300 | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), p6\_bm3](#record-fe09ni01_hcp_sakai_2014_p6_bm3) | BM3 | 300 | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), p6\_vinet](#record-fe09ni01_hcp_sakai_2014_p6_vinet) | Vinet | 300 | primary source validated | Pressure-scale reference variant |
 | [Sakai et al. (2014), Fe0.9Ni0.1 type1 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type1_thermal) | BM3 + Dewaele2006 | 300 | not reproduced | Explicit diagnostic selection; not recommended |
 | [Sakai et al. (2014), Fe0.9Ni0.1 type2 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type2_thermal) | BM3 + Dewaele2006 | 300 | not reproduced | Explicit diagnostic selection; not recommended |
 | [Sakai et al. (2014), Fe0.9Ni0.1 type4\_1 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type4_1_thermal) | BM3 + Dewaele2006 | 300 | not reproduced | Explicit diagnostic selection; not recommended |
@@ -1018,7 +1018,9 @@ Parameter covariance is not supplied.
 
 Identifier: `fe09ni01_hcp_sakai_2014_p2_bm3`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_bm3](#record-fe09ni01_hcp_sakai_2014_p1_bm3); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -1156,7 +1158,9 @@ Parameter covariance is not supplied.
 
 Identifier: `fe09ni01_hcp_sakai_2014_p2_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_vinet](#record-fe09ni01_hcp_sakai_2014_p1_vinet); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -1294,7 +1298,9 @@ Parameter covariance is not supplied.
 
 Identifier: `fe09ni01_hcp_sakai_2014_p3_bm3`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_bm3](#record-fe09ni01_hcp_sakai_2014_p1_bm3); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -1432,7 +1438,9 @@ Parameter covariance is not supplied.
 
 Identifier: `fe09ni01_hcp_sakai_2014_p3_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_vinet](#record-fe09ni01_hcp_sakai_2014_p1_vinet); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -1570,7 +1578,9 @@ Parameter covariance is not supplied.
 
 Identifier: `fe09ni01_hcp_sakai_2014_p4_bm3`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_bm3](#record-fe09ni01_hcp_sakai_2014_p1_bm3); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -1723,7 +1733,9 @@ Parameter covariance is not supplied.
 
 Identifier: `fe09ni01_hcp_sakai_2014_p4_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_vinet](#record-fe09ni01_hcp_sakai_2014_p1_vinet); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -1876,7 +1888,9 @@ Parameter covariance is not supplied.
 
 Identifier: `fe09ni01_hcp_sakai_2014_p5_bm3`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_bm3](#record-fe09ni01_hcp_sakai_2014_p1_bm3); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -2029,7 +2043,9 @@ Parameter covariance is not supplied.
 
 Identifier: `fe09ni01_hcp_sakai_2014_p5_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_vinet](#record-fe09ni01_hcp_sakai_2014_p1_vinet); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -2183,7 +2199,9 @@ Parameter covariance is not supplied.
 
 Identifier: `fe09ni01_hcp_sakai_2014_p6_bm3`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_bm3](#record-fe09ni01_hcp_sakai_2014_p1_bm3); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -2336,7 +2354,9 @@ Parameter covariance is not supplied.
 
 Identifier: `fe09ni01_hcp_sakai_2014_p6_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [fe09ni01\_hcp\_sakai\_2014\_p1\_vinet](#record-fe09ni01_hcp_sakai_2014_p1_vinet); it is not an independent EOS choice.
 
 
 - **Record kind:** published

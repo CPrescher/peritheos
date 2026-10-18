@@ -13,6 +13,7 @@ and recommendation for use are distinct assessments.
 | --- | --- |
 | Identifier | nacl\_b1 |
 | Formula | NaCl |
+| Phase | B1 (rock-salt), cubic Fm-3m |
 | Formula units per cell | 4 |
 | Crystal system | CUBIC |
 | Space group | Fm-3m |
@@ -34,13 +35,13 @@ Rock-salt B1 phase reference: JCPDS 5-0628.
 
 | Record | Model | Reference temperature (K) | Source status | Availability |
 | --- | --- | --- | --- | --- |
-| [Shen and Smith (2026), Cu-referenced Vinet](#record-nacl_b1_shen_2026_vinet_1) | Vinet | 300.0 | primary source validated | Executable |
+| [Shen and Smith (2026), NaCl-B1 Cu-referenced Vinet](#record-nacl_b1_shen_2026_vinet_1) | Vinet | 300.0 | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Shen and Smith (2026), Cu-referenced Vinet](#record-nacl_b1_shen_2026_vinet_1) | 179.41 (fixed) | 23.5 ± 0.3 | 5.23 ± 0.06 |
+| [Shen and Smith (2026), NaCl-B1 Cu-referenced Vinet](#record-nacl_b1_shen_2026_vinet_1) | 179.41 (fixed) | 23.5 ± 0.3 | 5.23 ± 0.06 |
 
 Errors are shown only when supplied, with their source meaning; a bare
 central value does not imply zero uncertainty. A dash means this parameter
@@ -53,7 +54,7 @@ a joint phase-stability domain or authorize extrapolation.
 
 <a id="record-nacl_b1_shen_2026_vinet_1"></a>
 
-## Shen and Smith (2026), Cu-referenced Vinet
+## Shen and Smith (2026), NaCl-B1 Cu-referenced Vinet
 
 Identifier: `nacl_b1_shen_2026_vinet_1`.
 
@@ -136,6 +137,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
 - **Rmse gpa:** 0.21166411541792335
+- **Published rmse gpa:** 0.2124712610232223
 - **Reduced chi square:** 0.04649232785963884
 - **Pressure reconstruction:**
     - **Density0 g cm3:** 8.939

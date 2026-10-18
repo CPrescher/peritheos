@@ -41,7 +41,7 @@ def test_canonical_catalog_objects_execute_directly_from_normal_api():
 
 
 def test_every_historical_record_has_an_explicit_audited_disposition():
-    canonical = set(identifiers(search_eos_records()))
+    canonical = set(identifiers(search_eos_records(include_reference_variants=True)))
 
     assert set(LEGACY_RECORD_AUDIT) == set(_EOS_RECORD_CATALOG)
     assert Counter(entry.relationship for entry in LEGACY_RECORD_AUDIT.values()) == {
@@ -180,8 +180,10 @@ def test_search_rejects_ambiguous_or_invalid_range_options(options, message):
 
 
 def test_validation_status_filter_and_ordering_are_deterministic():
-    records = search_eos_records(validation_status=("primary_source_validated",))
-    assert len(records) == 645
+    records = search_eos_records(
+        validation_status=("primary_source_validated",), include_reference_variants=True
+    )
+    assert len(records) == 641
     assert identifiers(records) == tuple(sorted(identifiers(records)))
     assert search_eos_records(validation_status="deferred") == ()
 

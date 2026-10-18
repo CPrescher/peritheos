@@ -27,3 +27,13 @@ peritheos/data/datasets/*.LICENSE.md text eol=lf
 # Diopside source excerpts and correction notes are fingerprinted byte for byte.
 peritheos/data/datasets/diopside-*-original.txt text eol=lf
 peritheos/data/datasets/diopside-zhao-1998-corrected-pvt.README.md text eol=lf
+
+# These newly recovered/source-derived CSVs are fingerprinted as supplied.
+peritheos/data/datasets/brown-nacl-1999-*.csv -text whitespace=cr-at-eol
+peritheos/data/datasets/ferrous-ringwoodite-*.csv -text whitespace=cr-at-eol
+output/material-candidates/brown-nacl-1999/*.csv -text whitespace=cr-at-eol
+output/material-candidates/ferrous-ringwoodite/*.csv -text whitespace=cr-at-eol
+output/palladium-baty-2024-refit-2026-10-17/*.csv -text whitespace=cr-at-eol
+output/palladium-frost-2023-own-data-2026-10-17/*.csv -text whitespace=cr-at-eol
+# Preserve generated research-figure bytes, including Matplotlib path spacing.
+output/**/*.svg -text whitespace=-blank-at-eol,-blank-at-eof

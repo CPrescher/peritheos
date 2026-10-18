@@ -40,7 +40,7 @@ Platinum (JCPDS 4-0802, EOS from Holmes)
 | [Dorogokupets and Oganov (2007), Vinet four-oscillator thermal scale](#record-platinum_dorogokupets_oganov_2007_vinet_4) | Vinet + DorogokupetsOganov2007 | 298.15 | primary source validated | Executable |
 | [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-platinum_sokolova_2013_holzapfel_3) | Holzapfel + Sokolova2016 | 298.15 | primary source validated | Executable |
 | [Dewaele (2019), Pt MAO-scale Vinet](#record-platinum_dewaele_2019_mao_vinet) | Vinet | 300.0 | primary source validated | Executable |
-| [Dewaele (2019), Pt DOR-scale Vinet](#record-platinum_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Executable |
+| [Dewaele (2019), Pt DOR-scale Vinet](#record-platinum_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Pressure-scale reference variant |
 | [Dewaele et al. (2004), Pt mao ruby Vinet](#record-platinum_dewaele_2004_mao_ruby_vinet) | Vinet | 298.0 | primary source validated | Executable |
 | [Dewaele et al. (2004), Pt revised ruby Vinet](#record-platinum_dewaele_2004_revised_ruby_vinet) | Vinet | 298.0 | primary source validated | Executable |
 | [Dorfman et al. (2012), Pt K0-fixed Vinet](#record-platinum_dorfman_2012_tange_mgo_k0_fixed_vinet) | Vinet | 300.0 | primary source validated | Executable |
@@ -431,6 +431,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
 - **Rmse gpa:** 0.3771470648774993
+- **Published rmse gpa:** 0.39956771179936884
 - **Reduced chi square:** 0.14297881716153457
 - **Pressure reconstruction:**
     - **Density0 g cm3:** 8.939
@@ -993,7 +994,9 @@ Parameter covariance is not supplied.
 
 Identifier: `platinum_dewaele_2019_dor_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [platinum\_dewaele\_2019\_mao\_vinet](#record-platinum_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
 
 - **Record kind:** published

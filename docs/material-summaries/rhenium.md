@@ -37,7 +37,7 @@ Phase reference: JCPDS 5-0702. The reference cell is constrained to the fitted 3
 | [Sakai et al. (2025), Re generalized Rydberg-Stacey scale](#record-rhenium_sakai_2025_rydberg_stacey_1) | RydbergStacey | 300 | primary source validated | Executable |
 | [Anzellini et al. (2014), helium-medium Vinet](#record-rhenium_anzellini_2014_vinet_1) | Vinet | 300.0 | primary source validated | Executable |
 | [Dewaele (2019), Re MAO-scale Vinet](#record-rhenium_dewaele_2019_mao_vinet) | Vinet | 300.0 | primary source validated | Executable |
-| [Dewaele (2019), Re DOR-scale Vinet](#record-rhenium_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Executable |
+| [Dewaele (2019), Re DOR-scale Vinet](#record-rhenium_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Pressure-scale reference variant |
 | [Sakai et al. (2018), Re Vinet on the Yokoo Pt scale](#record-rhenium_sakai_2018_yokoo_pt_vinet) | Vinet | 300.0 | primary source validated | Executable |
 | [Zha et al. (2004), Table III BM3 plus logarithmic thermal pressure](#record-rhenium_zha_2004_bm3_log_thermal) | BM3 + LogVolumeThermalPressure | 300.0 | primary source validated | Executable |
 
@@ -512,7 +512,9 @@ Parameter covariance is not supplied.
 
 Identifier: `rhenium_dewaele_2019_dor_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [rhenium\_dewaele\_2019\_mao\_vinet](#record-rhenium_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
 
 - **Record kind:** published

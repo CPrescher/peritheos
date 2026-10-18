@@ -3,12 +3,13 @@
   "identifier": "nacl_b1",
   "name": "NaCl (B1)",
   "formula": "NaCl",
+  "phase": "B1 (rock-salt), cubic Fm-3m",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
   "eos_records": [
     {
       "identifier": "nacl_b1_shen_2026_vinet_1",
-      "label": "Shen and Smith (2026), Cu-referenced Vinet",
+      "label": "Shen and Smith (2026), NaCl-B1 Cu-referenced Vinet",
       "model": "Vinet",
       "temperature_ref": 300.0,
       "parameters": {
@@ -107,6 +108,7 @@
               "solver_success": true,
               "solver_message": "`ftol` termination condition is satisfied.",
               "rmse_gpa": 0.21166411541792335,
+              "published_rmse_gpa": 0.2124712610232223,
               "reduced_chi_square": 0.04649232785963884,
               "pressure_reconstruction": {
                 "density0_g_cm3": 8.939,

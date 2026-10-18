@@ -75,8 +75,20 @@ include = [
     {path = "docs/**/*", format = "sdist"},
     {path = "scripts/**/*", format = "sdist"},
     {path = "mkdocs.yml", format = "sdist"},
+    {path = "output/material-candidates/brown-nacl-1999/**/*", format = "sdist"},
+    {path = "output/material-candidates/ferrous-ringwoodite/**/*", format = "sdist"},
+    {path = "output/material-candidates/brucite/*.eosmat", format = "sdist"},
 ]
-exclude = ["**/__pycache__/**", "**/*.pyc"]
+exclude = [
+    "**/__pycache__/**",
+    "**/*.pyc",
+    # Locally retrieved full texts and private correspondence are preserved in
+    # the review archive, not distributed as library or research fixtures.
+    "output/**/sources/**",
+    "output/**/email-to-*",
+    "output/**/zotero-*",
+    "docs/data/fei-2007-gold-follow-up-sources/ye-2017-intercomparison.pdf",
+]
 
 [tool.ruff]
 target-version = "py39"

@@ -18,6 +18,8 @@ experimental observations.
 
 | Paper / material | Recommendation | What additional data would enable | Outreach status | Last reviewed |
 |---|---|---|---|---|
+| [Shen and Smith (2026), MgO and NaCl-B2](#shen-and-smith-2026-mgo-and-nacl-b2) | Exact author-used inputs needed to resolve both fit holds | Establish whether additional observations or unpublished processing entered Table II; replay Cu reduction and regression | Not contacted | 2026-10-17 |
+| [Frost et al. (2023), Pd](#frost-et-al-2023-palladium) | Recover original regression inputs/settings to resolve the recommendation hold | Reconcile both published fits with all 93 verified observations and the stated coordinate errors | Not contacted | 2026-10-17 |
 | [Morard et al. (2026), FeS](#morard-et-al-2026-fes) | Reconcile GUI regression controls with supplied author-used files | Resolve the remaining ±3 GPa discrepancy after exact author-input replay | User supplied author communication, supplement, EOS and selected input | 2026-10-03 |
 | [Miozzi et al. (2020), hcp iron](#miozzi-et-al-2020-hcp-iron) | Author clarification would resolve a substantial source-fit discrepancy | Replay the actual pressure reduction and EosFit-7c objective; verify thermal normalization | Not contacted | 2026-10-02 |
 | [Chen et al. (2010), fcc argon](literature-reproductions/chen-2010-argon.md) | Original coefficients and data needed to resolve source inconsistency | Reconcile the 2 GPa elastic constants with Figure 5 and the extrapolated density; reproduce integration and fit | Not contacted; user requested no outreach | 2026-09-24 |
@@ -45,6 +47,57 @@ The diopside parameter comparisons have conditional parity within reported
 error widths; rubidium fits are similar and do not reproduce every coefficient
 at publication rounding. Running EosFit independently is not recovery of the
 original author workflow or original saved projects.
+
+### Shen and Smith (2026): MgO and NaCl-B2
+
+Paper: [Simultaneous x-ray diffraction measurements of nine pressure calibrants to 140 GPa](https://doi.org/10.1103/fxgq-96sg).
+Records: `mgo_shen_2026_vinet_3`, `nacl_b2_shen_2026_vinet_2`.
+Evidence: [source-input and fixed-volume fit audit](literature-reproductions/shen-smith-2026-cu-refits.md).
+
+The bundled Table S1 transcription accounts for all 194 DAC-2 MgO steps
+and 131 NaCl-B2 observations, with simultaneous Cu volumes/errors. Both
+materials were absent from DAC-1. The described Table II fit uses this
+study's direct Cu-referenced P-V data and presents literature for comparison;
+no additional experimental fit series is identified. Nevertheless, the data
+availability statement mentions other author-held data, so completeness of
+the actual author inputs cannot be claimed. The exact NaCl coexistence mask
+also remains ambiguous.
+
+Both records are `not_reproduced`, not recommended for quantitative use and
+available only by explicit diagnostic selection. Minimum useful author inputs:
+the exact unrounded MgO/NaCl-B2 fit tables with run IDs and exclusions, any
+additional historical or unpublished experimental rows used, Cu pressure
+reduction code/constants, fitting coordinate/weights and confirmation that
+Table II reports that fit. Also request the EOS-fitting software name/version
+(EosFit or otherwise), original saved input/project files and commands, or the
+actual fitting script. Neither the article nor the inspected figures/stress
+supplement identifies the EOS regression software. Covariance and uncertainty conventions would
+additionally permit a justified statistical comparison. No outreach has been
+made or authorized.
+
+### Frost et al. (2023): Palladium
+
+Paper: [The equations of state of statically compressed palladium and rhodium](https://doi.org/10.1063/5.0161038).
+Records: `palladium_frost_2023_vinet_1`, `palladium_frost_2023_bm3_2`.
+Evidence: [source replay and acceptance decision](literature-reproductions/palladium-frost-2023-audit.md).
+
+All 93 official supplementary Pd observations and their printed lattice
+errors are already recovered and verified. Independent orthogonal and
+effective-variance interpretations of the stated uncertainty-aware fit give
+different central coefficients. The combined-two-width screen fails with
+absolute-error covariance but passes with residual-scaled covariance. Source
+error confidence and covariance treatment are unspecified; both fits remain
+numerically similar. Both records are `not_reproduced` and not recommended,
+and automatic Pd equilibrium default selection is on hold.
+
+Minimum useful author inputs are the original unrounded fit table, row/run
+manifest and ambient-point treatment, exact residual objective and error
+transformation, fixed parameters or priors, uncertainty confidence/rescaling,
+and saved fit project or script. These would distinguish an undocumented
+workflow detail from a source-side inconsistency. Paired W/Au volumes and
+their calibration settings are additionally useful for independent pressure
+reduction, but are a separate verification layer. No outreach has been made
+or authorized by this audit.
 
 ### Morard et al. (2026): FeS
 

@@ -377,6 +377,7 @@
               "solver_success": true,
               "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
               "rmse_gpa": 1.1558877160431738,
+              "published_rmse_gpa": 1.180681893379939,
               "reduced_chi_square": 1.3441008950550573,
               "pressure_reconstruction": {
                 "density0_g_cm3": 8.939,
@@ -796,6 +797,7 @@
       "record_kind": "published",
       "equation_kind": "isothermal",
       "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "pressure_scale_variant_of": "tungsten_dewaele_2019_mao_vinet",
       "fit_datasets": ["tungsten_dewaele_2004_table1_compression"],
       "parameter_covariance": null,
       "reference": {
@@ -952,6 +954,7 @@
       "record_kind": "published",
       "equation_kind": "isothermal",
       "notes": "Static 298 K synchrotron X-ray compression fit to all available Table I observations for this metal. V0 was fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical and revised records are alternative pressure reductions of the same diffraction observations, not independent experiments.",
+      "pressure_scale_variant_of": "tungsten_dewaele_2004_vinet_2",
       "parameter_covariance": null,
       "reference": {
         "authors": ["Dewaele", "Loubeyre", "Mezouar"],

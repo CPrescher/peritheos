@@ -48,6 +48,15 @@ parameterization. A scientific correction creates an auditable data change;
 saved project reproducibility must not depend on silently resolving an old
 identifier to altered parameters.
 
+Published fits differing only by pressure scale may be grouped using the
+optional `pressure_scale_variant_of` field. Original identifiers and numerical
+results remain stable. Normal `list_eos_records()` / search discovery excludes
+these reference variants; pass `include_reference_variants=True` for the full
+executable collection or use `list_reference_variants(source_identifier)`.
+`Material.eos_records` retains all loaded records, while `source_records` and
+`equilibrium_records` present normal choices. This discovery change does not
+replace a saved reference identifier with a dynamically converted curve.
+
 The bundled `.eosmat` identifiers are canonical for the executable catalog.
 Historical pressure-scale identifiers and module-level convenience constants
 remain supported as explicit compatibility lookups, preserving their prior

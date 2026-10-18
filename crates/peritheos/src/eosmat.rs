@@ -1004,6 +1004,20 @@ impl HugoniotRecord<'_> {
 }
 
 impl EosRecord {
+    /// Source EOS whose published pressure-scale alternative this preserves.
+    #[must_use]
+    pub fn pressure_scale_variant_of(&self) -> Option<&str> {
+        self.document
+            .get("pressure_scale_variant_of")
+            .and_then(Value::as_str)
+    }
+
+    /// Whether this is a reference variant rather than a normal source choice.
+    #[must_use]
+    pub fn is_reference_variant(&self) -> bool {
+        self.pressure_scale_variant_of().is_some()
+    }
+
     /// How the parameters were determined; absent legacy metadata is `unknown`.
     #[must_use]
     pub fn determination_method(&self) -> &str {
@@ -1227,12 +1241,18 @@ impl Material {
             .find(|record| record.identifier == identifier)
     }
 
-    /// Return the preferred equilibrium record, or its first record as fallback.
+    /// Return the preferred equilibrium record, unless default selection is on hold.
     #[must_use]
     pub fn default_equilibrium_record(&self) -> Option<&EosRecord> {
+        let hold = &self.document["recommendation_hold"];
+        if hold["status"].as_str() == Some("on_hold")
+            && hold["scope"].as_str() == Some("equilibrium_default")
+        {
+            return None;
+        }
         self.eos_records
             .iter()
-            .filter(|record| !record.eos.is_hugoniot())
+            .filter(|record| !record.eos.is_hugoniot() && !record.is_reference_variant())
             .find(|record| record.is_default)
             .or_else(|| self.equilibrium_records().next())
     }
@@ -1254,9 +1274,22 @@ impl Material {
 
     /// Iterate over equilibrium isothermal and thermal EOS records.
     pub fn equilibrium_records(&self) -> impl Iterator<Item = &EosRecord> {
+        self.source_records()
+            .filter(|record| !record.eos.is_hugoniot())
+    }
+
+    /// Normal source EOS choices, excluding published pressure-scale variants.
+    pub fn source_records(&self) -> impl Iterator<Item = &EosRecord> {
         self.eos_records
             .iter()
-            .filter(|record| !record.eos.is_hugoniot())
+            .filter(|record| !record.is_reference_variant())
+    }
+
+    /// Published pressure-scale reference variants, with original coefficients.
+    pub fn reference_variants(&self) -> impl Iterator<Item = &EosRecord> {
+        self.eos_records
+            .iter()
+            .filter(|record| record.is_reference_variant())
     }
 
     /// Iterate over phase-specific shock Hugoniot records.
@@ -1488,11 +1521,11 @@ pub fn material_from_value(document: Value) -> Result<Material, EosmatError> {
         let normalized = native_v4::expand(&document)?;
         validate_document_structure(&normalized)?;
         let mut material = construct_material(normalized)?;
-        for (record, source) in material
-            .eos_records
-            .iter_mut()
-            .zip(document["eos_records"].as_array().unwrap())
-        {
+        for (record, source) in material.eos_records.iter_mut().zip(
+            document["eos_records"]
+                .as_array()
+                .ok_or_else(|| invalid_document("eos_records must be an array"))?,
+        ) {
             record.document = source.clone();
         }
         material.document = document;
@@ -2536,6 +2569,74 @@ fn validate_document_structure(document: &Value) -> Result<(), EosmatError> {
             return Err(invalid_document(format!(
                 "a material may have at most one default {category} EOS record"
             )));
+        }
+    }
+    for record in records {
+        let Some(parent_value) = record.get("pressure_scale_variant_of") else {
+            continue;
+        };
+        let parent_id = parent_value
+            .as_str()
+            .filter(|id| !id.is_empty())
+            .ok_or_else(|| {
+                invalid_document("pressure_scale_variant_of must be a non-empty string")
+            })?;
+        let parent = records
+            .iter()
+            .find(|candidate| candidate["identifier"].as_str() == Some(parent_id))
+            .filter(|_| record["identifier"].as_str() != Some(parent_id))
+            .ok_or_else(|| {
+                invalid_document(
+                    "pressure_scale_variant_of must identify another EOS in the material",
+                )
+            })?;
+        if parent.get("pressure_scale_variant_of").is_some() {
+            return Err(invalid_document(
+                "pressure-scale reference variants cannot form chains",
+            ));
+        }
+        if record["default"].as_bool() == Some(true) || record.get("default_for").is_some() {
+            return Err(invalid_document(
+                "a pressure-scale reference variant cannot be a default",
+            ));
+        }
+        if [record, parent].iter().any(|r| {
+            r.get("record_kind")
+                .and_then(Value::as_str)
+                .unwrap_or("published")
+                != "published"
+        }) {
+            return Err(invalid_document(
+                "pressure-scale reference variants must be published fits",
+            ));
+        }
+        if record["eos"]["type"] != parent["eos"]["type"]
+            || record["thermal"]["type"] != parent["thermal"]["type"]
+            || record["temperature_ref"] != parent["temperature_ref"]
+        {
+            return Err(invalid_document(
+                "pressure-scale reference variants must share the source model and temperature",
+            ));
+        }
+        let fixed_parameters = |value: &Value| {
+            let mut parameters: Vec<String> = value
+                .as_array()
+                .into_iter()
+                .flatten()
+                .filter_map(Value::as_str)
+                .map(str::to_owned)
+                .collect();
+            parameters.sort_unstable();
+            parameters
+        };
+        if fixed_parameters(&record["fixed_parameters"])
+            != fixed_parameters(&parent["fixed_parameters"])
+            || fixed_parameters(&record["thermal"]["fixed_parameters"])
+                != fixed_parameters(&parent["thermal"]["fixed_parameters"])
+        {
+            return Err(invalid_document(
+                "pressure-scale reference variants must share the source fit constraints",
+            ));
         }
     }
     for (dataset_identifier, record_identifier) in dataset_record_links {

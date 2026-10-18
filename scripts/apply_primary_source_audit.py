@@ -3342,10 +3342,15 @@ def deferred_reason(record: dict[str, Any], doi: str | None) -> str:
 def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
     from scripts.apply_eos_recommendation_holds import NOT_RECOMMENDED, WADSLEYITE
 
+    previous_validation = record.get("scientific_validation", {})
     if (
         record["identifier"] in set(NOT_RECOMMENDED) | {WADSLEYITE}
-        and record.get("scientific_validation", {}).get("recommendation_date")
-        == "2026-10-17"
+        and previous_validation.get("recommendation_date") == "2026-10-17"
+    ) or (
+        previous_validation.get("status") == "not_reproduced"
+        and previous_validation.get("usage_recommendation")
+        == "not_recommended_for_quantitative_use"
+        and previous_validation.get("recommendation_audit")
     ):
         # A generic transcription re-audit must not undo a reviewed source
         # discrepancy or reactivate a held default without new source evidence.

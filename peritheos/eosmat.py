@@ -1202,6 +1202,45 @@ def validate_eosmat_document(document: Mapping[str, Any]) -> None:
             raise EosmatError(
                 f"A material may have at most one default {category} EOS record"
             )
+    records_by_id = {
+        record.get("identifier"): record for record in document.get("eos_records", [])
+    }
+    for record in records_by_id.values():
+        if "pressure_scale_variant_of" not in record:
+            continue
+        parent_id = record["pressure_scale_variant_of"]
+        if not isinstance(parent_id, str) or not parent_id:
+            raise EosmatError("pressure_scale_variant_of must be a non-empty string")
+        parent = records_by_id.get(parent_id)
+        if parent is None or parent is record:
+            raise EosmatError(
+                "pressure_scale_variant_of must identify another EOS in the material"
+            )
+        if "pressure_scale_variant_of" in parent:
+            raise EosmatError("pressure-scale reference variants cannot form chains")
+        if record.get("default") is True or record.get("default_for") is not None:
+            raise EosmatError("A pressure-scale reference variant cannot be a default")
+        if any(
+            r.get("record_kind", "published") != "published" for r in (record, parent)
+        ):
+            raise EosmatError(
+                "Pressure-scale reference variants must be published fits"
+            )
+        if (
+            record["eos"]["type"] != parent["eos"]["type"]
+            or record.get("thermal", {}).get("type")
+            != parent.get("thermal", {}).get("type")
+            or record.get("temperature_ref") != parent.get("temperature_ref")
+        ):
+            raise EosmatError(
+                "Pressure-scale reference variants must share the source model and temperature"
+            )
+        if set(record["fixed_parameters"]) != set(parent["fixed_parameters"]) or set(
+            record.get("thermal", {}).get("fixed_parameters", [])
+        ) != set(parent.get("thermal", {}).get("fixed_parameters", [])):
+            raise EosmatError(
+                "Pressure-scale reference variants must share the source fit constraints"
+            )
     for dataset_identifier, record_identifier in dataset_record_links:
         if record_identifier not in record_identifiers:
             raise EosmatError(

@@ -21,7 +21,7 @@ and recommendation for use are distinct assessments.
 | Temperature unit | K |
 | Volume unit | Å³ per conventional unit cell |
 | Stored EOS records | 23 |
-| Observation datasets | 24 |
+| Observation datasets | 29 |
 
 Gold pressure calibrant with multiple literature EoS records; Fei et al. (2007) is the default.
 
@@ -43,7 +43,7 @@ Gold pressure calibrant with multiple literature EoS records; Fei et al. (2007) 
 | [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-gold_sokolova_2013_holzapfel_4) | Holzapfel + Sokolova2016 | 298.15 | primary source validated | Executable |
 | [Fratanduono et al. (2021), ramp-derived 298 K Vinet](#record-gold_fratanduono_2021_vinet_7) | Vinet | 298.0 | primary source validated | Executable |
 | [Dewaele (2019), Au MAO-scale Vinet](#record-gold_dewaele_2019_mao_vinet) | Vinet | 300.0 | primary source validated | Executable |
-| [Dewaele (2019), Au DOR-scale Vinet](#record-gold_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Executable |
+| [Dewaele (2019), Au DOR-scale Vinet](#record-gold_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Pressure-scale reference variant |
 | [Dewaele et al. (2004), Au mao ruby Vinet](#record-gold_dewaele_2004_mao_ruby_vinet) | Vinet | 298.0 | primary source validated | Executable |
 | [Dorfman et al. (2012), Au K0-fixed Vinet](#record-gold_dorfman_2012_tange_mgo_k0_fixed_vinet) | Vinet | 300.0 | primary source validated | Executable |
 | [Dorfman et al. (2012), Au K0-free Vinet](#record-gold_dorfman_2012_tange_mgo_k0_free_vinet) | Vinet | 300.0 | primary source validated | Executable |
@@ -138,26 +138,43 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** not refittable.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
+**Comparison basis:** Conditional agreement of the fitted central value at published precision; this does not establish uncertainty or calibration-network parity.
 
 [Open reconstruction report](../reconstruction-reports/gold.md#record-gold_sakai_2025_rydberg_stacey_1)
 
-Original audit code: `not_refittable`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
+- Conditional Au K0-prime central-value parity at published three-decimal precision under equal pressure residuals and published upstream calibrants. V0, K0 and K-infinity-prime are fixed, not independently recovered. Original weights, uncertainty/covariance and the full sequential calibration are not reproduced. Calculated Table S9 is a checkpoint, never fit observations.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
-- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
-
 
 <details markdown="1">
-<summary>Reconstruction protocol and available diagnostics</summary>
+<summary>Source and reconstructed coefficients</summary>
 
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0\_prime | 5.78 | 0.004 | 5.780096584423864 | Not specified | See protocol |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** conditional\_au\_published\_calibrants
+- **Objective:** equal\_pressure\_residuals
 - **Fixed parameters:** V0; K0; K\_infinity\_prime
-- **Dataset identifiers:** None declared
+- **Observations:** 210
+- **Solver success:** True
+- **Rmse gpa:** 3.1415999152476832
+- **Dataset identifiers:** gold\_sakai\_2025\_table\_s4\_au\_w\_volumes; gold\_sakai\_2025\_dewaele\_2018\_au\_re\_input; gold\_sakai\_2025\_dewaele\_2004\_au\_input; gold\_sakai\_2025\_takemura\_2008\_au\_input; gold\_sakai\_2025\_hirose\_2008\_au\_mgo\_input
+- **Reproduction report:** docs/data/sakai-2025-gold-reconstruction.json
 
 </details>
 
@@ -181,10 +198,36 @@ Parameter covariance is not supplied.
     - **Finding:** The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.
     - **DOI:** 10.1038/s43246-025-00792-5
 - **Primary data check:**
-    - **Status:** derived\_output\_only
-    - **Audit date:** 2026-09-05
-    - **Source locations:** Supplementary Data 1, Table S9
-    - **Finding:** The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
+    - **Status:** bundled
+    - **Audit date:** 2026-10-12
+    - **Source locations:** Supplementary Data 1, Tables S1-S4, S7, S8 and S14; Dewaele2018 Supplement Tables 4-5; Dewaele2004 Table I; Takemura-Dewaele2008 Table III; Hirose2008 Table 1
+    - **Dataset identifiers:** gold\_sakai\_2025\_calibration\_paired\_volumes; gold\_sakai\_2025\_table\_s4\_au\_w\_volumes; gold\_sakai\_2025\_dewaele\_2018\_au\_re\_input; gold\_sakai\_2025\_table\_s8\_lineage; gold\_sakai\_2025\_table\_s14\_cu\_anchor; gold\_sakai\_2025\_dewaele\_2004\_au\_input; gold\_sakai\_2025\_takemura\_2008\_au\_input; gold\_sakai\_2025\_hirose\_2008\_au\_mgo\_input; gold\_sakai\_2025\_table\_s9\_rs\_eos\_grid
+    - **Finding:** All five Table S8 Au input families are retained: 247 numerical rows, of which 235 are RT and 210 enter the documented conditional Au replay. All 19 S4 Au-W and 307 upstream paired-volume rows are recovered, including literal source tokens and missing errors. Table S8 is a lineage index, not numerical upstream observations. Table S9 remains calculated output. Published calibrants and rounding-limited ruby conversions reproduce K0\_prime=5.7800966 using explicitly assumed equal pressure residuals; equal volume residuals give 5.7877715. Conditional numerical parity is achieved for the independently refitted Au K0\_prime central value at published precision under equal pressure residuals and published upstream calibrants. V0, K0 and K\_infinity\_prime are fixed at the paper values, not independently recovered. Uncertainty parity, original weights/covariance and full sequential calibration remain unverified.
+    - **Source manifest:** datasets/sakai-2025-au-source.json
+    - **Reconstruction report:** docs/data/sakai-2025-gold-reconstruction.json
+    - **Reconstruction assessment:**
+        - **Status:** conditional\_numerical\_parity\_achieved
+        - **Conditional numerical parity achieved:** True
+        - **Scope:** Au K0\_prime central value at published precision
+        - **Criterion:** Successful independently refitted K0\_prime rounds to Table 2 at three decimal places
+        - **Fitted parameter:** K0\_prime
+        - **Published value:** 5.78
+        - **Reconstructed value:** 5.780096584423864
+        - **Difference:** 9.658442386406563e-05
+        - **Published decimal places:** 3
+        - **Rows:** 210
+        - **Assumed residual:** equal\_pressure\_residuals
+        - **Fixed parameters from paper:**
+            - **V0:** 67.716
+            - **K0:** 167.0
+            - **K infinity prime:** 1.6666666666666667
+        - **Calibrants:** published rounded Sakai Table 2 W, MgO, Re; reconstructed IPPS-Ruby2020
+        - **Uncertainty parity achieved:** False
+        - **Full sequential calibration reproduced:** False
+        - **Author fit parity:** False
+        - **Author fit parity scope:** exact original fitting procedure and uncertainty
+        - **Original weights recovered:** False
+        - **Original covariance recovered:** False
 
 </details>
 
@@ -699,7 +742,13 @@ Automatic selection for equilibrium calculations.
     - **Volume:** 104
     - **Locator:** 9182-9186
     - **DOI:** 10.1073/pnas.0609013104
-- **Reported pressure coverage (GPa):** \[0.0, 89.0\]
+- **Reported pressure coverage (GPa):** \[0.0, 117.9\]
+- **Coverage provenance:** reported\_exactly
+- **Reported temperature coverage (K):** \[298.0, 2330.0\]
+- **Validity:**
+    - **Pressure gpa:** \[0.0, 117.9\]
+    - **Temperature k:** \[298.0, 2330.0\]
+    - **Notes:** Marginal envelope of the recovered source measurements, not a validated rectangular P-T domain, an extrapolation limit or a guarantee of phase stability. Conditional replay uses 37 cold and 28 hot rows; the original author selection is not recovered.; Cold anchor: Dewaele (2004) Table I, 37 revised-ruby rows at 298 K spanning 0-93.6 GPa. Fei (2007) defines the EOS reference at 300 K; evaluating these rows at that reference does not relabel their measured temperature.; Hot coverage: Fei (2004) Table 1, 26 reported-MgO rows at 8.64-25.56 GPa and 1273-2173 K, plus Hirose (2006) Table 1 Run 2 points at 106.5 GPa/1340 K and 117.9 GPa/2330 K. The marginal bounds do not fill the pressure gap or provide continuous temperature coverage.; Additional cold evidence: Fei (2007) reports new room-temperature measurements to 89 GPa, recovered only as six digitized Figure 1 markers; Hirose (2006) supplies one 102.8 GPa/300 K MgO-referenced row. These enter cold sensitivities only. The 111 calculated Figure 1 vertices are equation comparisons, never measured coverage.; Fei (2007) supplies no explicit recommended numerical extrapolation range for this Au EOS. Its discussion of core pressures and the numerical PVT verification grid do not extend the measured envelope or establish accuracy outside the observed states.
 - **Reported error confidence level:** Not specified
 
 | Component | Parameter | Value | Reported error | Fixed |
@@ -838,11 +887,11 @@ Parameter covariance is not supplied.
         - **Source:** J. Geophys. Res.
     - **Source location:** Fei 2007 Au thermal-refit paragraph; Fei 2004 Table 1 and Hirose 2006 Table 1
     - **Scope:** Hot Au observations
-    - **Notes:** Reported MgO pressures retained. Exact author thermal-pressure reduction implementation is unresolved; the independent variable-q implementation is a sensitivity.
+    - **Notes:** Reported MgO pressures retained. The published Speziale VariableQMieGruneisenDebye model is executable and its Debye-temperature integration is author-confirmed; it does not reproduce the reported Fei/Hirose hot pressures. The exact later reducer is not recovered. Recalculation with the published model is a separate diagnostic, not historical-pressure replay.
 - **Recalculation:**
-    - **Status:** reference\_model\_not\_supported
-    - **Notes:** Cold revised-ruby scale is executable. Exact author MgO thermal reduction is not recovered; paired lattice data support a qualified independent diagnostic.
-- **Audit date:** 2026-10-09
+    - **Status:** not\_possible
+    - **Notes:** Exact historical hot-pressure replay is not possible with the available evidence: the later Fei/Hirose MgO reducer is not recovered, and its reported hot pressures are not reproduced by the executable, author-confirmed published Speziale model. The cold revised-ruby scale remains executable; paired lattice observations support separate diagnostic recalculation. See docs/literature-reproductions/speziale-2001-mgo.md and docs/data/speziale-2001-author-confirmation.json.
+- **Audit date:** 2026-10-12
 
 </details>
 
@@ -941,6 +990,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
 - **Rmse gpa:** 0.33474789368557756
+- **Published rmse gpa:** 0.33493091795847985
 - **Reduced chi square:** 0.1130477996926558
 - **Pressure reconstruction:**
     - **Density0 g cm3:** 8.939
@@ -1484,7 +1534,9 @@ Parameter covariance is not supplied.
 
 Identifier: `gold_dewaele_2019_dor_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [gold\_dewaele\_2019\_mao\_vinet](#record-gold_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -2587,9 +2639,9 @@ Parameter covariance is not supplied.
     - **Source location:** Section 3 and Table 1 footnote a
     - **Scope:** Speziale et al. MgO scale; Table 1 retains paired MgO lattice parameters and source pressures
 - **Recalculation:**
-    - **Status:** reference\_eos\_not\_bundled
-    - **Notes:** The published Speziale variable-q thermal EOS is now bundled and the 300 K anchor remains executable. The exact Hirose thermal pressure reducer is not recovered and is not identified with the published model; this historical-reference limitation remains.
-- **Audit date:** 2026-09-10
+    - **Status:** not\_possible
+    - **Notes:** Exact historical thermal-pressure replay is not possible with the available evidence: the later Hirose MgO reducer is not recovered. The published Speziale VariableQMieGruneisenDebye model is executable and its Debye-temperature integration is author-confirmed; this does not establish the reducer used by Hirose or reproduce the later Fei/Hirose hot-pressure targets. Preserve reported pressures and paired lattice observations; published-model recalculation is a separate diagnostic and thermal ancestry remains evidence only. See docs/literature-reproductions/speziale-2001-mgo.md and docs/data/speziale-2001-author-confirmation.json.
+- **Audit date:** 2026-10-12
 
 </details>
 
@@ -2760,9 +2812,9 @@ Parameter covariance is not supplied.
     - **Source location:** Section 3 and Table 1 footnote a
     - **Scope:** Speziale et al. MgO scale; Table 1 retains paired MgO lattice parameters and source pressures
 - **Recalculation:**
-    - **Status:** reference\_eos\_not\_bundled
-    - **Notes:** The published Speziale variable-q thermal EOS is now bundled and the 300 K anchor remains executable. The exact Hirose thermal pressure reducer is not recovered and is not identified with the published model; this historical-reference limitation remains.
-- **Audit date:** 2026-09-10
+    - **Status:** not\_possible
+    - **Notes:** Exact historical thermal-pressure replay is not possible with the available evidence: the later Hirose MgO reducer is not recovered. The published Speziale VariableQMieGruneisenDebye model is executable and its Debye-temperature integration is author-confirmed; this does not establish the reducer used by Hirose or reproduce the later Fei/Hirose hot-pressure targets. Preserve reported pressures and paired lattice observations; published-model recalculation is a separate diagnostic and thermal ancestry remains evidence only. See docs/literature-reproductions/speziale-2001-mgo.md and docs/data/speziale-2001-author-confirmation.json.
+- **Audit date:** 2026-10-12
 
 </details>
 
@@ -2916,8 +2968,8 @@ Parameter covariance is not supplied.
     - **Reference eos record:** mgo\_speziale\_2001\_bm3\_2
 - **Recalculation:**
     - **Status:** ready
-    - **Notes:** The published Speziale variable-q thermal EOS is now bundled and the 300 K anchor remains executable. The exact Hirose thermal pressure reducer is not recovered and is not identified with the published model; this historical-reference limitation remains.
-- **Audit date:** 2026-09-10
+    - **Notes:** The 300 K Speziale BM3 anchor is executable and reproduces the paired room-temperature MgO pressures within their printed uncertainty widths. This readiness applies to the 300 K calibration only. The bundled, author-confirmed VariableQMieGruneisenDebye model does not establish the unrecovered later Hirose thermal reducer; thermal ancestry remains evidence only.
+- **Audit date:** 2026-10-12
 
 </details>
 
@@ -3076,9 +3128,9 @@ Parameter covariance is not supplied.
     - **Source location:** Fei Tables 1-3, Sections 3.1-3.2
     - **Scope:** Au calibrated against simultaneous MgO; Pt calibrated against the revised Au scale, hence indirectly MgO.
 - **Recalculation:**
-    - **Status:** reference\_eos\_not\_bundled
-    - **Notes:** The published Speziale variable-q thermal EOS is now bundled. The exact later author pressure reducer is not recovered and its printed pressures are not reproduced by that model; this historical-reference limitation remains. Preserve source pressures and paired lattice measurements.
-- **Audit date:** 2026-09-10
+    - **Status:** not\_possible
+    - **Notes:** Exact historical thermal-pressure replay is not possible with the available evidence: the later Fei MgO reducer is not recovered, and its printed hot pressures are not reproduced by the executable, author-confirmed published Speziale VariableQMieGruneisenDebye model. Preserve source pressures and paired lattice measurements; published-model recalculation is a separate diagnostic. See docs/literature-reproductions/speziale-2001-mgo.md and docs/data/speziale-2001-author-confirmation.json.
+- **Audit date:** 2026-10-12
 
 </details>
 
@@ -3725,6 +3777,163 @@ Parameter covariance is not supplied.
 
 ## Observation datasets
 
+### gold\_sakai\_2025\_calibration\_paired\_volumes
+
+- **Description:** 326 measured paired rows: 307 Au ancestors and 19 direct Au-W inputs. S4 rows are also exposed separately; these two resources overlap and must not be summed.
+- **Kind:** simultaneous\_volume\_calibration\_network
+- **Reference:**
+    - **Authors:** Sakai; Kadobayashi; Nakamoto; Dekura; Ishimatsu; Kawaguchi-Imada; Seto; Sekizawa; Nitta; Shimizu
+    - **Year:** 2025
+    - **Title:** The equations of state of nine materials up to 0.43 TPa for extreme pressure science
+    - **Source:** Communications Materials
+    - **Volume:** 6
+    - **Locator:** 68
+    - **DOI:** 10.1038/s43246-025-00792-5
+- **Source location:** Tables S1, S2, S3, S4, S7
+- **Associated EOS records:** gold\_sakai\_2025\_rydberg\_stacey\_1
+- **Uncertainty:**
+    - **Notes:** Preserve source err. cells as generic reported uncertainty; no standard-deviation or confidence convention is inferred. Missing errors remain blank. Derived stress and c/a values are not additional independent observations.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/sakai-2025-au-calibration-paired-volumes.csv)
+— SHA-256 `2edda47994f2e8a176d40859b75a1a52c380e90b74f329b72a2b6d5e1a42dc36`.
+
+### gold\_sakai\_2025\_table\_s4\_au\_w\_volumes
+
+- **Description:** All 19 Au-W observations at room temperature. All Au errors are blank in the source; W errors are retained. No pressures are observed or imputed.
+- **Kind:** simultaneous\_xrd\_compression
+- **Reference:**
+    - **Authors:** Sakai; Kadobayashi; Nakamoto; Dekura; Ishimatsu; Kawaguchi-Imada; Seto; Sekizawa; Nitta; Shimizu
+    - **Year:** 2025
+    - **Title:** The equations of state of nine materials up to 0.43 TPa for extreme pressure science
+    - **Source:** Communications Materials
+    - **Volume:** 6
+    - **Locator:** 68
+    - **DOI:** 10.1038/s43246-025-00792-5
+- **Source location:** Table S4
+- **Associated EOS records:** gold\_sakai\_2025\_rydberg\_stacey\_1
+- **Uncertainty:**
+    - **Notes:** Preserve source err. cells as generic reported uncertainty; no standard-deviation or confidence convention is inferred. Missing errors remain blank. Derived stress and c/a values are not additional independent observations.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/gold-sakai-2025-table-s4-au-w-volumes.csv)
+— SHA-256 `18b5c9c2be46eccf657aaf5616f746497460b15fbfc5da5a94de3c13390b4622`.
+
+### gold\_sakai\_2025\_dewaele\_2018\_au\_re\_input
+
+- **Description:** All 84 Au-Re observations in runs 1-3. Preserve Au111, Au200, Re a/c, membrane and reported Re pressure, and paired Al values where present. Cell volumes are a111^3 for Au and sqrt(3)\*a\_Re^2\*c\_Re/2 for Re. Source prints no row volume errors. All 25 rows excluded below 200 GPa by Sakai remain archived.
+- **Kind:** simultaneous\_xrd\_compression
+- **Reference:**
+    - **Authors:** Dewaele; Loubeyre; Occelli; Marie; Mezouar
+    - **Year:** 2018
+    - **Title:** Toroidal diamond anvil cell for detailed measurements under extreme static pressures
+    - **Source:** Nature Communications
+    - **Volume:** 9
+    - **Locator:** 2913
+    - **DOI:** 10.1038/s41467-018-05294-2
+- **Source location:** Dewaele et al. (2018), supplementary Tables 4-5, pp. 9-10
+- **Associated EOS records:** gold\_sakai\_2025\_rydberg\_stacey\_1
+- **Uncertainty:**
+    - **Notes:** Preserve source err. cells as generic reported uncertainty; no standard-deviation or confidence convention is inferred. Missing errors remain blank. Derived stress and c/a values are not additional independent observations.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/gold-dewaele-2018-tables-4-5-au-re.csv)
+— SHA-256 `5346dee968a9202685bf3aa3fe4702254d901d7f6171f28894b15980b2b0a31c`.
+
+### gold\_sakai\_2025\_table\_s8\_lineage
+
+- **Description:** All 35 lineage rows. This sheet indexes references and pressure calibrants; it does not supply their numerical observations. Downstream Mo/NaCl/Fe rows are context, not Au input.
+- **Kind:** calibration\_lineage\_index
+- **Reference:**
+    - **Authors:** Sakai; Kadobayashi; Nakamoto; Dekura; Ishimatsu; Kawaguchi-Imada; Seto; Sekizawa; Nitta; Shimizu
+    - **Year:** 2025
+    - **Title:** The equations of state of nine materials up to 0.43 TPa for extreme pressure science
+    - **Source:** Communications Materials
+    - **Volume:** 6
+    - **Locator:** 68
+    - **DOI:** 10.1038/s43246-025-00792-5
+- **Source location:** Table S8
+- **Associated EOS records:** gold\_sakai\_2025\_rydberg\_stacey\_1
+- **Uncertainty:**
+    - **Notes:** Preserve source err. cells as generic reported uncertainty; no standard-deviation or confidence convention is inferred. Missing errors remain blank. Derived stress and c/a values are not additional independent observations.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/sakai-2025-table-s8-calibration-lineage.csv)
+— SHA-256 `810504e57349dd7e38ca00d8e77a97b8c7cc06a61c8d8057615b8366ba11e8e6`.
+
+### gold\_sakai\_2025\_table\_s14\_cu\_anchor
+
+- **Description:** All 36 calculated Cu curve nodes used to test scale conversion. These are external-scale calculations, not measured Cu or Au observations. Observed Cu A/B cells are preserved separately in the raw cell archive.
+- **Kind:** calculated\_scale\_conversion\_input
+- **Reference:**
+    - **Authors:** Sakai; Kadobayashi; Nakamoto; Dekura; Ishimatsu; Kawaguchi-Imada; Seto; Sekizawa; Nitta; Shimizu
+    - **Year:** 2025
+    - **Title:** The equations of state of nine materials up to 0.43 TPa for extreme pressure science
+    - **Source:** Communications Materials
+    - **Volume:** 6
+    - **Locator:** 68
+    - **DOI:** 10.1038/s43246-025-00792-5
+- **Source location:** Table S14, columns E-G
+- **Associated EOS records:** gold\_sakai\_2025\_rydberg\_stacey\_1
+- **Uncertainty:**
+    - **Notes:** Preserve source err. cells as generic reported uncertainty; no standard-deviation or confidence convention is inferred. Missing errors remain blank. Derived stress and c/a values are not additional independent observations.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/sakai-2025-table-s14-cu-anchor-calculated.csv)
+— SHA-256 `8fe53fd7360840834745acd45b19e050be4c4bb34f156530c3b3618324f3f3c5`.
+
+### gold\_sakai\_2025\_dewaele\_2004\_au\_input
+
+- **Description:** Sakai Table S8 Au input: reuses all source rows of gold\_dewaele\_2004\_table1\_compression. Original source coordinates/errors are preserved; computed IPPS-Ruby2020 or MgO pressures are separate in the recovery report.
+- **Kind:** pressure\_volume
+- **Reference:**
+    - **Authors:** Dewaele; Loubeyre; Mezouar
+    - **Year:** 2004
+    - **Source:** Phys. Rev. B
+    - **Volume:** 70
+    - **Locator:** 094112
+    - **DOI:** 10.1103/PhysRevB.70.094112
+- **Source location:** Table I, journal page 094112-4
+- **Associated EOS records:** gold\_sakai\_2025\_rydberg\_stacey\_1
+- **Notes:** Resource alias, not new measurements. Hirose: retain all 21 rows but only nine 300 K rows enter the diagnostic Au isotherm. Ruby conversions use inferred shifts from rounded reported pressures, not recovered spectra.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/gold-dewaele-2004-table1-compression.csv)
+— SHA-256 `c3a52a211b94cef2cd46198577e18efe4fc66befd7d38aa4f20063d290e97438`.
+
+### gold\_sakai\_2025\_takemura\_2008\_au\_input
+
+- **Description:** Sakai Table S8 Au input: reuses all source rows of gold\_takemura\_2008\_table3\_compression. Original source coordinates/errors are preserved; computed IPPS-Ruby2020 or MgO pressures are separate in the recovery report.
+- **Kind:** pressure\_lattice\_parameter
+- **Reference:**
+    - **Authors:** Takemura; Dewaele
+    - **Year:** 2008
+    - **Source:** Phys. Rev. B
+    - **Volume:** 78
+    - **Locator:** 104119
+    - **DOI:** 10.1103/PhysRevB.78.104119
+- **Source location:** Table III, all runs; P, P-prime, and am(111) columns
+- **Associated EOS records:** gold\_sakai\_2025\_rydberg\_stacey\_1
+- **Notes:** Resource alias, not new measurements. Hirose: retain all 21 rows but only nine 300 K rows enter the diagnostic Au isotherm. Ruby conversions use inferred shifts from rounded reported pressures, not recovered spectra.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/gold-takemura-2008-table3-compression.csv)
+— SHA-256 `04e2015f65f5203d89966ebf4b08eb3000d9a3fb7bfc7e3fd032e253e72b3858`.
+
+### gold\_sakai\_2025\_hirose\_2008\_au\_mgo\_input
+
+- **Description:** Sakai Table S8 Au input: reuses all source rows of gold\_hirose\_2008\_table1. Original source coordinates/errors are preserved; computed IPPS-Ruby2020 or MgO pressures are separate in the recovery report.
+- **Kind:** simultaneous\_xrd\_compression
+- **Reference:**
+    - **Authors:** Hirose; Sata; Komabayashi; Ohishi
+    - **Year:** 2008
+    - **Title:** Simultaneous volume measurements of Au and MgO to 140 GPa and thermal equation of state of Au based on the MgO pressure scale
+    - **Source:** Physics of the Earth and Planetary Interiors
+    - **Volume:** 167
+    - **Locator:** 149-154
+    - **DOI:** 10.1016/j.pepi.2008.03.002
+- **Source location:** Table 1, page 150
+- **Associated EOS records:** gold\_sakai\_2025\_rydberg\_stacey\_1
+- **Uncertainty:**
+    - **Notes:** Parenthetical errors are retained; their confidence convention is unspecified. Run 3 lattice errors are absent. Run 3 pressure errors include temperature only; the authors estimate an additional MgO volume contribution up to 0.5 GPa. Temperature spatial variation was below ±10%; this is not a row-wise standard deviation.
+- **Notes:** Resource alias, not new measurements. Hirose: retain all 21 rows but only nine 300 K rows enter the diagnostic Au isotherm. Ruby conversions use inferred shifts from rounded reported pressures, not recovered spectra.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/gold-hirose-2008-table1.csv)
+— SHA-256 `f1586c78f200d06bdfa35ce7d4c00da270706d44202f142b1b5ca56f832102b9`.
+
 ### gold\_sakai\_2025\_table\_s9\_rs\_eos\_grid
 
 - **Description:** Official 26-row Table S9 Au compression grid calculated from the published Rydberg-Stacey coefficients; retained as an exact implementation checkpoint, not as independent fit input.
@@ -4120,60 +4329,3 @@ Parameter covariance is not supplied.
 
 [Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/gold-hirose-2008-fei-2004-speziale-2001-recalculated-pvt.csv)
 — SHA-256 `0cbe94de992f1563bf638c621a5516a3e283144a74920f4834fa0d9062ba4cd7`.
-
-### gold\_sakai\_2025\_dewaele\_2004\_au\_input
-
-- **Description:** Source-table alias for the Sakai et al. (2025) gold observation view; reuses gold\_dewaele\_2004\_table1\_compression in its original reported coordinates.
-- **Kind:** pressure\_volume
-- **Reference:**
-    - **Authors:** Dewaele; Loubeyre; Mezouar
-    - **Year:** 2004
-    - **Source:** Phys. Rev. B
-    - **Volume:** 70
-    - **Locator:** 094112
-    - **DOI:** 10.1103/PhysRevB.70.094112
-- **Source location:** Table I, journal page 094112-4
-- **Associated EOS records:** gold\_sakai\_2025\_rydberg\_stacey\_1
-- **Notes:** Reuses the existing CSV and all source rows. This is not a new measurement series, pressure recalibration, or reproduction of the Sakai fitting workflow. The observation view specifies the displayed coordinates separately from the target EOS pressure scale. Original source-table notes: Table I groups Cu/W/Al in the first two runs and Au/Pt/Ta in the last three runs. Blank metal cells are omitted rather than imputed. P\_R is the classical Mao et al. (1986) reduction (A=1904 GPa, B=7.665); P'\_R is the Dewaele et al. revision (A=1904 GPa, B=9.5). The paper states a common 0.01 angstrom^3/atom volume uncertainty and a pressure uncertainty increasing from 0.05 GPa at 1 GPa to 2 GPa at 150 GPa, but prints neither row-wise pressure errors nor raw R1 wavelengths.
-
-[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/gold-dewaele-2004-table1-compression.csv)
-— SHA-256 `c3a52a211b94cef2cd46198577e18efe4fc66befd7d38aa4f20063d290e97438`.
-
-### gold\_sakai\_2025\_takemura\_2008\_au\_input
-
-- **Description:** Source-table alias for the Sakai et al. (2025) gold observation view; reuses gold\_takemura\_2008\_table3\_compression in its original reported coordinates.
-- **Kind:** pressure\_lattice\_parameter
-- **Reference:**
-    - **Authors:** Takemura; Dewaele
-    - **Year:** 2008
-    - **Source:** Phys. Rev. B
-    - **Volume:** 78
-    - **Locator:** 104119
-    - **DOI:** 10.1103/PhysRevB.78.104119
-- **Source location:** Table III, all runs; P, P-prime, and am(111) columns
-- **Associated EOS records:** gold\_sakai\_2025\_rydberg\_stacey\_1
-- **Notes:** Reuses the existing CSV and all source rows. This is not a new measurement series, pressure recalibration, or reproduction of the Sakai fitting workflow. The observation view specifies the displayed coordinates separately from the target EOS pressure scale. Original source-table notes: The record's EOS was fitted to P-prime versus volume derived from am(111); fcc atomic volume is am(111)^3/4. Other reflection-specific lattice parameters and estimated uniaxial stresses remain available in the printed source table but are not required to reproduce this hydrostatic fit. Pointwise uncertainties are not tabulated.
-
-[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/gold-takemura-2008-table3-compression.csv)
-— SHA-256 `04e2015f65f5203d89966ebf4b08eb3000d9a3fb7bfc7e3fd032e253e72b3858`.
-
-### gold\_sakai\_2025\_hirose\_2008\_au\_mgo\_input
-
-- **Description:** Source-table alias for the Sakai et al. (2025) gold observation view; reuses gold\_hirose\_2008\_table1 in its original reported coordinates.
-- **Kind:** simultaneous\_xrd\_compression
-- **Reference:**
-    - **Authors:** Hirose; Sata; Komabayashi; Ohishi
-    - **Year:** 2008
-    - **Title:** Simultaneous volume measurements of Au and MgO to 140 GPa and thermal equation of state of Au based on the MgO pressure scale
-    - **Source:** Physics of the Earth and Planetary Interiors
-    - **Volume:** 167
-    - **Locator:** 149-154
-    - **DOI:** 10.1016/j.pepi.2008.03.002
-- **Source location:** Table 1, page 150
-- **Associated EOS records:** gold\_sakai\_2025\_rydberg\_stacey\_1
-- **Uncertainty:**
-    - **Notes:** Parenthetical errors are retained; their confidence convention is unspecified. Run 3 lattice errors are absent. Run 3 pressure errors include temperature only; the authors estimate an additional MgO volume contribution up to 0.5 GPa. Temperature spatial variation was below ±10%; this is not a row-wise standard deviation.
-- **Notes:** Reuses the existing CSV and all source rows. This is not a new measurement series, pressure recalibration, or reproduction of the Sakai fitting workflow. The observation view specifies the displayed coordinates separately from the target EOS pressure scale.
-
-[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/gold-hirose-2008-table1.csv)
-— SHA-256 `f1586c78f200d06bdfa35ce7d4c00da270706d44202f142b1b5ca56f832102b9`.

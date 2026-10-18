@@ -11,8 +11,8 @@
   "summary": {
     "records": 663,
     "deferred": 4,
-    "not_reproduced": 14,
-    "primary_source_validated": 645
+    "not_reproduced": 18,
+    "primary_source_validated": 641
   },
   "records": [
     {
@@ -8862,8 +8862,8 @@
       "record": "mgo_shen_2026_vinet_3",
       "label": "Shen and Smith (2026), Cu-referenced Vinet",
       "doi": "10.1103/fxgq-96sg",
-      "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "status": "not_reproduced",
+      "note": "Equation and printed coefficients remain source-checked, but the Table II fit is not reproduced from the available published inputs. The published fixed-V0 MgO Vinet curve gives 1.161241 GPa pressure RMS and residuals up to +2.8032 GPa on all 194 DAC-2 Table S1 observations. A direct unweighted refit gives K0=161.827434 GPa, K0_prime=3.953583 and RMS 0.475879 GPa, versus published 161.9 GPa and 4.08. The source-fit discrepancy is unresolved.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1103/fxgq-96sg",
         "locations": [
@@ -8877,7 +8877,12 @@
         ],
         "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
         "doi": "10.1103/fxgq-96sg"
-      }
+      },
+      "usage_recommendation": "not_recommended_for_quantitative_use",
+      "reproduction_status": "not_reproduced",
+      "recommendation_date": "2026-10-17",
+      "recommendation_audit": "docs/literature-reproductions/shen-smith-2026-cu-refits.md",
+      "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 MgO Vinet curve gives 1.161241 GPa pressure RMS and residuals up to +2.8032 GPa on all 194 DAC-2 Table S1 observations. A direct unweighted refit gives K0=161.827434 GPa, K0_prime=3.953583 and RMS 0.475879 GPa, versus published 161.9 GPa and 4.08. The source-fit discrepancy is unresolved."
     },
     {
       "material": "mgo",
@@ -10078,7 +10083,7 @@
       "material": "nacl_b1",
       "file": "nacl_b1.eosmat",
       "record": "nacl_b1_shen_2026_vinet_1",
-      "label": "Shen and Smith (2026), Cu-referenced Vinet",
+      "label": "Shen and Smith (2026), NaCl-B1 Cu-referenced Vinet",
       "doi": "10.1103/fxgq-96sg",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -10121,7 +10126,7 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_heinz_1984_bm2_1",
-      "label": "Heinz and Jeanloz (1984), B2",
+      "label": "Heinz and Jeanloz (1984), NaCl-B2 BM2",
       "doi": "10.1103/physrevb.30.6045",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -10140,10 +10145,10 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_shen_2026_vinet_2",
-      "label": "Shen and Smith (2026), Cu-referenced Vinet",
+      "label": "Shen and Smith (2026), NaCl-B2 Cu-referenced Vinet",
       "doi": "10.1103/fxgq-96sg",
-      "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "status": "not_reproduced",
+      "note": "Equation and printed coefficients remain source-checked, but the Table II fit is not reproduced from the available published inputs. The published fixed-V0 NaCl-B2 Vinet curve gives 0.622381 GPa pressure RMS and mean residual -0.547610 GPa on 125 DAC-2 Table S1 observations above 35 GPa; all 125 residuals are negative. A direct unweighted refit gives K0=25.447259 GPa, K0_prime=5.582768 and RMS 0.293229 GPa, versus published 24.92 GPa and 5.63. The source-fit discrepancy is unresolved; including the above-33-GPa transition rows does not restore agreement.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1103/fxgq-96sg",
         "locations": [
@@ -10157,13 +10162,18 @@
         ],
         "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
         "doi": "10.1103/fxgq-96sg"
-      }
+      },
+      "usage_recommendation": "not_recommended_for_quantitative_use",
+      "reproduction_status": "not_reproduced",
+      "recommendation_date": "2026-10-17",
+      "recommendation_audit": "docs/literature-reproductions/shen-smith-2026-cu-refits.md",
+      "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 NaCl-B2 Vinet curve gives 0.622381 GPa pressure RMS and mean residual -0.547610 GPa on 125 DAC-2 Table S1 observations above 35 GPa; all 125 residuals are negative. A direct unweighted refit gives K0=25.447259 GPa, K0_prime=5.582768 and RMS 0.293229 GPa, versus published 24.92 GPa and 5.63. The source-fit discrepancy is unresolved; including the above-33-GPa transition rows does not restore agreement."
     },
     {
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_sakai_2014_yokoo_pt_bm3",
-      "label": "Sakai et al. (2014), yokoo_pt_bm3",
+      "label": "Sakai et al. (2014), NaCl-B2 BM3, Yokoo et al. (2009) Pt scale",
       "doi": "10.1016/j.pepi.2013.12.010",
       "status": "primary_source_validated",
       "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
@@ -10180,7 +10190,7 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_sakai_2011_matsui_pt_bm3",
-      "label": "Sakai et al. (2011), BM3, Matsui et al. (2009) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 BM3, Matsui et al. (2009) Pt scale",
       "doi": "10.1063/1.3573393",
       "status": "primary_source_validated",
       "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
@@ -10213,7 +10223,7 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_sakai_2011_matsui_pt_vinet",
-      "label": "Sakai et al. (2011), Vinet, Matsui et al. (2009) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 Vinet, Matsui et al. (2009) Pt scale",
       "doi": "10.1063/1.3573393",
       "status": "primary_source_validated",
       "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
@@ -10246,7 +10256,7 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_sakai_2011_fei_pt_bm3",
-      "label": "Sakai et al. (2011), BM3, Fei et al. (2007) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 BM3, Fei et al. (2007) Pt scale",
       "doi": "10.1063/1.3573393",
       "status": "primary_source_validated",
       "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
@@ -10279,7 +10289,7 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_sakai_2011_fei_pt_vinet",
-      "label": "Sakai et al. (2011), Vinet, Fei et al. (2007) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 Vinet, Fei et al. (2007) Pt scale",
       "doi": "10.1063/1.3573393",
       "status": "primary_source_validated",
       "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
@@ -10312,7 +10322,7 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_sakai_2011_do_pt_bm3",
-      "label": "Sakai et al. (2011), BM3, Dorogokupets and Oganov (2007) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 BM3, Dorogokupets and Oganov (2007) Pt scale",
       "doi": "10.1063/1.3573393",
       "status": "primary_source_validated",
       "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
@@ -10345,7 +10355,7 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_sakai_2011_do_pt_vinet",
-      "label": "Sakai et al. (2011), Vinet, Dorogokupets and Oganov (2007) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 Vinet, Dorogokupets and Oganov (2007) Pt scale",
       "doi": "10.1063/1.3573393",
       "status": "primary_source_validated",
       "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
@@ -10378,7 +10388,7 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_sakai_2011_holmes_pt_bm3",
-      "label": "Sakai et al. (2011), BM3, Holmes et al. (1989) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 BM3, Holmes et al. (1989) Pt scale",
       "doi": "10.1063/1.3573393",
       "status": "primary_source_validated",
       "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
@@ -10411,7 +10421,7 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_sakai_2011_holmes_pt_vinet",
-      "label": "Sakai et al. (2011), Vinet, Holmes et al. (1989) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 Vinet, Holmes et al. (1989) Pt scale",
       "doi": "10.1063/1.3573393",
       "status": "primary_source_validated",
       "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
@@ -10889,8 +10899,8 @@
       "record": "palladium_frost_2023_vinet_1",
       "label": "Frost et al. (2023), Vinet",
       "doi": "10.1063/5.0161038",
-      "status": "primary_source_validated",
-      "note": "Equation, parameters, uncertainties, fitting method, range, phase, and pressure standards were checked against the complete primary article.",
+      "status": "not_reproduced",
+      "note": "Equation, published coefficients, units and all observations are source-checked against the final article and supplement. The original fit protocol is not fully recovered; uncertainty agreement depends on the assumed covariance convention. The record remains not_reproduced pending protocol clarification, rather than a demonstrated failure of the authors' full protocol.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1063/5.0161038",
         "locations": [
@@ -10904,7 +10914,15 @@
         ],
         "finding": "The paper reports three hydrogen-free Pd-in-neon runs to 182 GPa and fits both Vinet and BM3 forms using pressure and volume uncertainties. Supplementary Tables I-III provide all 93 sample observations; Runs 1 and 2 use tungsten pressure markers and Run 3 uses gold.",
         "doi": "10.1063/5.0161038"
-      }
+      },
+      "reproduction_status": "not_reproduced",
+      "source_equation_status": "reproduced",
+      "fit_reproduction_status": "not_reproduced",
+      "recommendation_date": "2026-10-17",
+      "recommendation_audit": "docs/literature-reproductions/palladium-frost-2023-audit.md",
+      "recommendation_reason": "The original author regression remains unrecovered. The final paper specifies uncertainty-aware Marquardt-Levenberg fitting but not the exact objective, ambient-point inclusion, constraints or covariance convention. Independent refits have similar central coefficients; the combined-two-width comparison fails with absolute-error covariance and passes with residual-scaled covariance. This is not a demonstrated failed replay of the author protocol. Quantitative recommendation and the default remain on hold pending clarification.",
+      "usage_recommendation": "not_recommended_for_quantitative_use",
+      "fit_audit_date": "2026-10-17"
     },
     {
       "material": "palladium",
@@ -10912,8 +10930,8 @@
       "record": "palladium_frost_2023_bm3_2",
       "label": "Frost et al. (2023), BM3",
       "doi": "10.1063/5.0161038",
-      "status": "primary_source_validated",
-      "note": "Equation, parameters, uncertainties, fitting method, range, phase, and pressure standards were checked against the complete primary article.",
+      "status": "not_reproduced",
+      "note": "Equation, published coefficients, units and all observations are source-checked against the final article and supplement. The original fit protocol is not fully recovered; uncertainty agreement depends on the assumed covariance convention. The record remains not_reproduced pending protocol clarification, rather than a demonstrated failure of the authors' full protocol.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1063/5.0161038",
         "locations": [
@@ -10926,7 +10944,15 @@
         ],
         "finding": "Table I reports the alternative BM3 coefficients for the same three hydrogen-free Pd-in-neon runs to 182 GPa used in the Vinet fit, and supplementary Tables I-III provide all 93 sample observations.",
         "doi": "10.1063/5.0161038"
-      }
+      },
+      "reproduction_status": "not_reproduced",
+      "source_equation_status": "reproduced",
+      "fit_reproduction_status": "not_reproduced",
+      "recommendation_date": "2026-10-17",
+      "recommendation_audit": "docs/literature-reproductions/palladium-frost-2023-audit.md",
+      "recommendation_reason": "The original author regression remains unrecovered. The final paper specifies uncertainty-aware Marquardt-Levenberg fitting but not the exact objective, ambient-point inclusion, constraints or covariance convention. Independent refits have similar central coefficients; the combined-two-width comparison fails with absolute-error covariance and passes with residual-scaled covariance. This is not a demonstrated failed replay of the author protocol. Quantitative recommendation and the default remain on hold pending clarification.",
+      "usage_recommendation": "not_recommended_for_quantitative_use",
+      "fit_audit_date": "2026-10-17"
     },
     {
       "material": "palladium",

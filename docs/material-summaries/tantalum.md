@@ -38,7 +38,7 @@ Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/curr
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-tantalum_shen_2026_vinet_2) | Vinet | 300.0 | primary source validated | Executable |
 | [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-tantalum_sokolova_2013_holzapfel_3) | Holzapfel + Sokolova2016 | 298.15 | primary source validated | Executable |
 | [Dewaele (2019), Ta MAO-scale Vinet](#record-tantalum_dewaele_2019_mao_vinet) | Vinet | 300.0 | primary source validated | Executable |
-| [Dewaele (2019), Ta DOR-scale Vinet](#record-tantalum_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Executable |
+| [Dewaele (2019), Ta DOR-scale Vinet](#record-tantalum_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Pressure-scale reference variant |
 | [Dewaele et al. (2004), Ta mao ruby Vinet](#record-tantalum_dewaele_2004_mao_ruby_vinet) | Vinet | 298.0 | primary source validated | Executable |
 | [Dewaele et al. (2004), Ta revised ruby Vinet](#record-tantalum_dewaele_2004_revised_ruby_vinet) | Vinet | 298.0 | primary source validated | Executable |
 
@@ -308,6 +308,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
 - **Rmse gpa:** 0.3658634529593317
+- **Published rmse gpa:** 0.36650223042473723
 - **Reduced chi square:** 0.13522194443797128
 - **Pressure reconstruction:**
     - **Density0 g cm3:** 8.939
@@ -698,7 +699,9 @@ Parameter covariance is not supplied.
 
 Identifier: `tantalum_dewaele_2019_dor_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [tantalum\_dewaele\_2019\_mao\_vinet](#record-tantalum_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
 
 - **Record kind:** published

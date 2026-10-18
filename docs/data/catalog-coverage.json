@@ -1,12 +1,14 @@
 {
   "format": "peritheos.catalog-coverage",
   "format_version": 1,
-  "material_files_sha256": "7f84f6800966f722e933875f52c3540f038844600955115915af65d2f5c0a1e9",
+  "material_files_sha256": "ea578fab358581db9ffec7758f139369f8abb79548bf985a65a0c0124f42a75a",
   "summary": {
     "stored_materials": 232,
     "stored_records": 663,
     "executable_materials": 228,
     "executable_records": 659,
+    "source_records": 608,
+    "pressure_scale_reference_variants": 51,
     "materials_with_thermal_eos": 62,
     "executable_equation_kinds": {
       "hugoniot": 3,
@@ -15,8 +17,8 @@
     },
     "stored_validation": {
       "deferred": 4,
-      "not_reproduced": 14,
-      "primary_source_validated": 645
+      "not_reproduced": 18,
+      "primary_source_validated": 641
     },
     "executable_calibration_status": {
       "not_applicable": 163,
@@ -27,20 +29,20 @@
     "executable_recalculation_status": {
       "missing_calibrant_observations": 192,
       "not_applicable": 160,
-      "not_possible": 118,
+      "not_possible": 122,
       "ready": 124,
-      "reference_eos_not_bundled": 57,
-      "reference_model_not_supported": 8
+      "reference_eos_not_bundled": 54,
+      "reference_model_not_supported": 7
     },
     "records_with_covariance": 17,
     "records_with_known_parameter_error_confidence": 74
   },
   "ledgers": {
     "refit_outcomes": {
-      "not_refittable": 178,
-      "parity": 246,
-      "parity_not_achieved": 60,
-      "similar": 163,
+      "not_refittable": 177,
+      "parity": 247,
+      "parity_not_achieved": 62,
+      "similar": 161,
       "source_reconstruction": 16
     },
     "missing_from_refit_ledger": [],
@@ -1330,7 +1332,7 @@
         "not_reproduced": 1,
         "primary_source_validated": 22
       },
-      "datasets": 24
+      "datasets": 29
     },
     {
       "identifier": "graphite",
@@ -2529,7 +2531,8 @@
       "thermal_records": 6,
       "hugoniot_records": 1,
       "validation": {
-        "primary_source_validated": 37
+        "not_reproduced": 1,
+        "primary_source_validated": 36
       },
       "datasets": 18
     },
@@ -2727,7 +2730,7 @@
     },
     {
       "identifier": "nacl_b2",
-      "name": "NaCl",
+      "name": "NaCl (B2)",
       "formula": "NaCl",
       "family_id": null,
       "input_file": "peritheos/data/materials/nacl_b2.eosmat",
@@ -2737,7 +2740,8 @@
       "thermal_records": 2,
       "hugoniot_records": 0,
       "validation": {
-        "primary_source_validated": 14
+        "not_reproduced": 1,
+        "primary_source_validated": 13
       },
       "datasets": 7
     },
@@ -2913,8 +2917,8 @@
       "thermal_records": 0,
       "hugoniot_records": 0,
       "validation": {
-        "not_reproduced": 1,
-        "primary_source_validated": 6
+        "not_reproduced": 3,
+        "primary_source_validated": 4
       },
       "datasets": 3
     },
@@ -7797,7 +7801,7 @@
       "material_identifier": "mgo",
       "executable": true,
       "equation_kind": "isothermal",
-      "scientific_validation": "primary_source_validated",
+      "scientific_validation": "not_reproduced",
       "refit_ledger_present": true,
       "source_audit_present": true
     },
@@ -8391,7 +8395,7 @@
       "material_identifier": "nacl_b2",
       "executable": true,
       "equation_kind": "isothermal",
-      "scientific_validation": "primary_source_validated",
+      "scientific_validation": "not_reproduced",
       "refit_ledger_present": true,
       "source_audit_present": true
     },
@@ -8688,7 +8692,7 @@
       "material_identifier": "palladium",
       "executable": true,
       "equation_kind": "isothermal",
-      "scientific_validation": "primary_source_validated",
+      "scientific_validation": "not_reproduced",
       "refit_ledger_present": true,
       "source_audit_present": true
     },
@@ -8697,7 +8701,7 @@
       "material_identifier": "palladium",
       "executable": true,
       "equation_kind": "isothermal",
-      "scientific_validation": "primary_source_validated",
+      "scientific_validation": "not_reproduced",
       "refit_ledger_present": true,
       "source_audit_present": true
     },

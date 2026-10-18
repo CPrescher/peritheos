@@ -36,8 +36,8 @@ The lattice parameter is calculated from the fitted 300 K atomic reference volum
 | --- | --- | --- | --- | --- |
 | [Dewaele et al. (2008), Vinet](#record-silver_dewaele_2008_vinet_1) | Vinet | 300.0 | primary source validated | Executable |
 | [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-silver_sokolova_2013_holzapfel_2) | Holzapfel + Sokolova2016 | 298.15 | primary source validated | Executable |
-| [Dewaele (2019), Ag MAO-scale Vinet](#record-silver_dewaele_2019_mao_vinet) | Vinet | 300.0 | primary source validated | Executable |
-| [Dewaele (2019), Ag DOR-scale Vinet](#record-silver_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Executable |
+| [Dewaele (2019), Ag MAO-scale Vinet](#record-silver_dewaele_2019_mao_vinet) | Vinet | 300.0 | primary source validated | Pressure-scale reference variant |
+| [Dewaele (2019), Ag DOR-scale Vinet](#record-silver_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Pressure-scale reference variant |
 
 ### Reference coefficients
 
@@ -369,7 +369,9 @@ Parameter covariance is not supplied.
 
 Identifier: `silver_dewaele_2019_mao_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [silver\_dewaele\_2008\_vinet\_1](#record-silver_dewaele_2008_vinet_1); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -518,7 +520,9 @@ Parameter covariance is not supplied.
 
 Identifier: `silver_dewaele_2019_dor_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [silver\_dewaele\_2008\_vinet\_1](#record-silver_dewaele_2008_vinet_1); it is not an independent EOS choice.
 
 
 - **Record kind:** published

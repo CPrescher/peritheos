@@ -1032,6 +1032,7 @@
       "determination_method": "experimental",
       "default": false,
       "notes": "Nondefault final-publication Table 1 alternative. Holmes Pt pressures are reconstructed from correctly paired official Pt volumes using Holmes (1989) Equation 11 plus Equation 12, not from the Sokolova pressure column. The derived coordinate is a conditional diagnostic: Tateno does not deposit Holmes pressures or specify rounding/reduction details, and Holmes limits its approximate thermal term to below 2000 K while these data reach 2560 K. No exact pressure-coordinate, source-weight, or covariance parity is claimed.",
+      "pressure_scale_variant_of": "kcl_b2_tateno_2019_vinet_4",
       "fit_datasets": ["kcl_tateno_2019_official_table_s1"],
       "reference": {
         "authors": ["Tateno", "Komabayashi", "Hirose", "Hirao", "Ohishi"],
@@ -1219,6 +1220,7 @@
       "determination_method": "experimental",
       "default": false,
       "notes": "Nondefault final-publication Table 1 alternative. Holmes Pt pressures are reconstructed from correctly paired official Pt volumes using Holmes (1989) Equation 11 plus Equation 12, not from the Sokolova pressure column. The derived coordinate is a conditional diagnostic: Tateno does not deposit Holmes pressures or specify rounding/reduction details, and Holmes limits its approximate thermal term to below 2000 K while these data reach 2560 K. No exact pressure-coordinate, source-weight, or covariance parity is claimed.",
+      "pressure_scale_variant_of": "kcl_b2_tateno_2019_sokolova_vinet_linear_thermal",
       "fit_datasets": ["kcl_tateno_2019_official_table_s1"],
       "reference": {
         "authors": ["Tateno", "Komabayashi", "Hirose", "Hirao", "Ohishi"],

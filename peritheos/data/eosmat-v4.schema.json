@@ -1532,6 +1532,10 @@
           "$ref": "#/$defs/identifier",
           "description": "EOS record whose equation choices or published fixed parameters form the basis of this derived record."
         },
+        "pressure_scale_variant_of": {
+          "$ref": "#/$defs/identifier",
+          "description": "Source EOS in this material whose published pressure-scale alternative this record preserves. Excluded from normal discovery, retained for explicit reference lookup. This is not a calibration-graph edge or a claim of exact curve equivalence."
+        },
         "derivation": {
           "$ref": "#/$defs/derivation"
         },

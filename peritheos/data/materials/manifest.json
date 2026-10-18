@@ -14,8 +14,8 @@
     "report": "../primary-source-audit.json",
     "counts": {
       "deferred": 4,
-      "not_reproduced": 14,
-      "primary_source_validated": 645
+      "not_reproduced": 18,
+      "primary_source_validated": 641
     },
     "policy": "Primary-source-validated records and explicitly marked nondefault not-reproduced implementations are executable. Their scientific status is retained; deferred records remain available for lossless interchange."
   },
@@ -30,10 +30,10 @@
     "recalculation_counts": {
       "missing_calibrant_observations": 192,
       "not_applicable": 160,
-      "not_possible": 119,
+      "not_possible": 123,
       "ready": 125,
-      "reference_eos_not_bundled": 59,
-      "reference_model_not_supported": 8
+      "reference_eos_not_bundled": 56,
+      "reference_model_not_supported": 7
     },
     "resolvable_reference_eos_uses": 116,
     "resolvable_reference_calibration_uses": 121,

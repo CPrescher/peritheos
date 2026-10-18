@@ -51,8 +51,11 @@ fn native_annotations_and_evidence_survive_read_save_and_legacy_export() {
     );
     let old = material_from_value(legacy).unwrap();
     assert_eq!(
-        old.eos_records[0].pressure(9., 300.).unwrap(),
-        material.eos_records[0].pressure(9., 300.).unwrap()
+        old.eos_records[0].pressure(9., 300.).unwrap().to_bits(),
+        material.eos_records[0]
+            .pressure(9., 300.)
+            .unwrap()
+            .to_bits()
     );
     let restored = load_eosmat_str(&material.to_json().unwrap()).unwrap();
     assert_eq!(restored.document, document);
@@ -68,8 +71,8 @@ fn native_thermal_law_and_cell_normalization_use_the_existing_full_evaluator() {
     let new = material_from_value(document.clone()).unwrap();
     let old = material_from_value(export_eosmat_v3(&document).unwrap()).unwrap();
     assert_eq!(
-        new.eos_records[0].pressure(9., 1000.).unwrap(),
-        old.eos_records[0].pressure(9., 1000.).unwrap()
+        new.eos_records[0].pressure(9., 1000.).unwrap().to_bits(),
+        old.eos_records[0].pressure(9., 1000.).unwrap().to_bits()
     );
     assert_eq!(new.document, document);
 }

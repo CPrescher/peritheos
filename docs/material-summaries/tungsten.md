@@ -39,8 +39,8 @@ Tungsten pressure calibrant; the static-DAC Dewaele et al. (2004) Vinet fit is t
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-tungsten_shen_2026_vinet_3) | Vinet | 300.0 | primary source validated | Executable |
 | [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-tungsten_sokolova_2013_holzapfel_4) | Holzapfel + Sokolova2016 | 298.15 | primary source validated | Executable |
 | [Dewaele (2019), W MAO-scale Vinet](#record-tungsten_dewaele_2019_mao_vinet) | Vinet | 300.0 | primary source validated | Executable |
-| [Dewaele (2019), W DOR-scale Vinet](#record-tungsten_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Executable |
-| [Dewaele et al. (2004), W mao ruby Vinet](#record-tungsten_dewaele_2004_mao_ruby_vinet) | Vinet | 298.0 | primary source validated | Executable |
+| [Dewaele (2019), W DOR-scale Vinet](#record-tungsten_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Pressure-scale reference variant |
+| [Dewaele et al. (2004), W mao ruby Vinet](#record-tungsten_dewaele_2004_mao_ruby_vinet) | Vinet | 298.0 | primary source validated | Pressure-scale reference variant |
 
 ### Reference coefficients
 
@@ -431,6 +431,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
 - **Rmse gpa:** 1.1558877160431738
+- **Published rmse gpa:** 1.180681893379939
 - **Reduced chi square:** 1.3441008950550573
 - **Pressure reconstruction:**
     - **Density0 g cm3:** 8.939
@@ -821,7 +822,9 @@ Parameter covariance is not supplied.
 
 Identifier: `tungsten_dewaele_2019_dor_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [tungsten\_dewaele\_2019\_mao\_vinet](#record-tungsten_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -970,7 +973,9 @@ Parameter covariance is not supplied.
 
 Identifier: `tungsten_dewaele_2004_mao_ruby_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [tungsten\_dewaele\_2004\_vinet\_2](#record-tungsten_dewaele_2004_vinet_2); it is not an independent EOS choice.
 
 
 - **Record kind:** published

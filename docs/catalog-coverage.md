@@ -17,7 +17,9 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 | Stored material documents | 232 |
 | Stored EOS records | 663 |
 | Executable materials | 228 |
-| Executable EOS records, including qualified explicit-selection records | 659 |
+| Executable EOS records, including references and qualified explicit-selection records | 659 |
+| Source EOS choices in normal discovery | 608 |
+| Published pressure-scale reference variants | 51 |
 | Materials with an executable thermal EOS | 62 |
 | Executable records with parameter covariance | 17 |
 | Executable records with known parameter-error confidence | 74 |
@@ -27,8 +29,8 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 | Status | Records |
 |---|---:|
 | `deferred` | 4 |
-| `not_reproduced` | 14 |
-| `primary_source_validated` | 645 |
+| `not_reproduced` | 18 |
+| `primary_source_validated` | 641 |
 
 ## Executable equation kinds
 
@@ -53,10 +55,10 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 |---|---:|
 | `missing_calibrant_observations` | 192 |
 | `not_applicable` | 160 |
-| `not_possible` | 118 |
+| `not_possible` | 122 |
 | `ready` | 124 |
-| `reference_eos_not_bundled` | 57 |
-| `reference_model_not_supported` | 8 |
+| `reference_eos_not_bundled` | 54 |
+| `reference_model_not_supported` | 7 |
 
 Readiness values are the recorded assessments. A missing reference can mean a
 genuinely absent scale or a stale/unresolved link to an existing scale. `ready`
@@ -70,10 +72,10 @@ of records missing from that ledger. No scientific classifications are changed h
 
 | Outcome | Records |
 |---|---:|
-| `not_refittable` | 178 |
-| `parity` | 246 |
-| `parity_not_achieved` | 60 |
-| `similar` | 163 |
+| `not_refittable` | 177 |
+| `parity` | 247 |
+| `parity_not_achieved` | 62 |
+| `similar` | 161 |
 | `source_reconstruction` | 16 |
 
 **Catalog records absent from the refit ledger:** none.
@@ -172,7 +174,7 @@ Multiple temperature slices do not imply a continuous thermal EOS.
 | `forsterite` | Mg2SiO4 | 3 | 3 | 1 | 2 | 0 | 0 | 0 | 3 |
 | `geo2_rutile` | GeO2 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `goethite` | FeOOH | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 1 |
-| `gold` | Au | 23 | 23 | 14 | 9 | 0 | 1 | 0 | 24 |
+| `gold` | Au | 23 | 23 | 14 | 9 | 0 | 1 | 0 | 29 |
 | `graphite` | C | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `hydrous_silica_cacl2_nisr_2017` | Si0.954O2H0.184 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 2 |
 | `hydrous_stishovite_nisr_2017` | Si0.954O2H0.184 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 2 |
@@ -247,7 +249,7 @@ Multiple temperature slices do not imply a continuous thermal EOS.
 | `mgfe94o_b1` | Mg0.058Fe0.942O | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `mgfe94o_rhombohedral` | Mg0.058Fe0.942O | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `mggeo3_post_perovskite` | MgGeO3 | 4 | 4 | 4 | 0 | 0 | 0 | 0 | 2 |
-| `mgo` | MgO | 37 | 37 | 30 | 6 | 1 | 0 | 0 | 18 |
+| `mgo` | MgO | 37 | 37 | 30 | 6 | 1 | 1 | 0 | 18 |
 | `mgo_b2` | MgO | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 |
 | `mgo_liquid` | MgO | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 |
 | `mgsio3_liquid` | MgSiO3 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 2 |
@@ -260,7 +262,7 @@ Multiple temperature slices do not imply a continuous thermal EOS.
 | `naalsi2o6` | NaAlSi2O6 | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 1 |
 | `naalsio4_calcium_ferrite` | NaAlSiO4 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `nacl_b1` | NaCl | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
-| `nacl_b2` | NaCl | 14 | 14 | 12 | 2 | 0 | 0 | 0 | 7 |
+| `nacl_b2` | NaCl | 14 | 14 | 12 | 2 | 0 | 1 | 0 | 7 |
 | `namg2al5sio12_cf` | NaMg2Al5SiO12 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `namg2al5sio12_nal` | NaMg2Al5SiO12 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `neon_fcc` | Ne | 3 | 3 | 1 | 2 | 0 | 0 | 0 | 5 |
@@ -271,7 +273,7 @@ Multiple temperature slices do not imply a continuous thermal EOS.
 | `nis` | NiS | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `orthoenstatite` | MgSiO3 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `osmium` | Os | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
-| `palladium` | Pd | 7 | 7 | 7 | 0 | 0 | 1 | 0 | 3 |
+| `palladium` | Pd | 7 | 7 | 7 | 0 | 0 | 3 | 0 | 3 |
 | `pbs_b1` | PbS | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `perovskite_orthorhombic` | Mg0.88Fe0.12SiO3 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `phase_d` | Mg1.11Si1.89H2.22O6 | 2 | 2 | 2 | 0 | 0 | 0 | 0 | 1 |

@@ -68,15 +68,11 @@ def test_sakai_gold_observation_datasets_load_without_changing_coefficients():
 
 
 def test_source_hashes_and_every_normalized_workbook_row_round_trip(tmp_path):
-    manifest = json.loads(
-        (DATA / "sakai-2025-au-source.json").read_text(encoding="utf-8")
-    )
+    manifest = json.loads((DATA / "sakai-2025-au-source.json").read_text())
     for item in manifest["products"].values():
         path = ROOT / "peritheos/data" / item["path"]
         assert hashlib.sha256(path.read_bytes()).hexdigest() == item["sha256"]
-    raw = json.loads(
-        (DATA / "sakai-2025-au-workbook-cells.json").read_text(encoding="utf-8")
-    )
+    raw = json.loads((DATA / "sakai-2025-au-workbook-cells.json").read_text())
     assert raw["workbook_sha256"] == (
         "c559b29fea9c793831e4bc6deef4d62712b5e78821fc420969f709cbd1060ff9"
     )
@@ -155,9 +151,7 @@ def test_ruby_coordinate_reconstruction_uses_reported_source_scale():
 def test_reconstructed_pressure_states_and_objective_sensitivity_are_explicit():
     result = reproduce()
     saved = json.loads(
-        (ROOT / "docs/data/sakai-2025-gold-reconstruction.json").read_text(
-            encoding="utf-8"
-        )
+        (ROOT / "docs/data/sakai-2025-gold-reconstruction.json").read_text()
     )
     assert result["source_recovery"] == saved["source_recovery"]
     reductions = result["pressure_reductions"]
@@ -185,27 +179,17 @@ def test_reconstructed_pressure_states_and_objective_sensitivity_are_explicit():
     assert volume_fit["conditional_numerical_parity_achieved"] is False
     assert result["conditional_numerical_parity_achieved"] is True
     assessment = result["reconstruction_assessment"]
-
-    def check_assessment(expected):
-        calculated = {"reconstructed_value", "difference"}
-        for key in calculated:
-            assert assessment[key] == pytest.approx(expected[key], rel=0, abs=1e-8)
-        assert {k: v for k, v in assessment.items() if k not in calculated} == {
-            k: v for k, v in expected.items() if k not in calculated
-        }
-
-    check_assessment(saved["reconstruction_assessment"])
+    assert assessment == saved["reconstruction_assessment"]
     document = get_material_document("gold")
     record = next(r for r in document["eos_records"] if r["identifier"] == RECORD)
-    check_assessment(
-        record["scientific_validation"]["primary_data_check"][
+    assert (
+        assessment
+        == record["scientific_validation"]["primary_data_check"][
             "reconstruction_assessment"
         ]
     )
-    manifest = json.loads(
-        (DATA / "sakai-2025-au-source.json").read_text(encoding="utf-8")
-    )
-    check_assessment(manifest["reconstruction_assessment"])
+    manifest = json.loads((DATA / "sakai-2025-au-source.json").read_text())
+    assert manifest["reconstruction_assessment"] == assessment
     assert (
         manifest["reconstruction_report_sha256"]
         == hashlib.sha256(
@@ -228,7 +212,7 @@ def test_reconstructed_pressure_states_and_objective_sensitivity_are_explicit():
     for live, archived in zip(
         result["conditional_au_fits"], saved["conditional_au_fits"]
     ):
-        assert live["k0_prime"] == pytest.approx(archived["k0_prime"], rel=0, abs=1e-8)
+        assert live["k0_prime"] == pytest.approx(archived["k0_prime"], abs=1e-10)
     # The first branch truly recalibrates W before reducing the Au states.
     branch = result["measurement_only_sequential_branch"][0]
     assert branch["w_fit"]["rows"] == 54

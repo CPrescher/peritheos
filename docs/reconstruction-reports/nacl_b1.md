@@ -12,11 +12,11 @@ agreement, source verification, author-workflow reproduction and recommendation 
 
 | EOS record | Recorded outcome | Coefficient comparison |
 | --- | --- | --- |
-| [Shen and Smith (2026), Cu-referenced Vinet](#record-nacl_b1_shen_2026_vinet_1) | Coefficient parity achieved | Graph and table |
+| [Shen and Smith (2026), NaCl-B1 Cu-referenced Vinet](#record-nacl_b1_shen_2026_vinet_1) | Coefficient parity achieved | Graph and table |
 
 <a id="record-nacl_b1_shen_2026_vinet_1"></a>
 
-## Shen and Smith (2026), Cu-referenced Vinet
+## Shen and Smith (2026), NaCl-B1 Cu-referenced Vinet
 
 Record: `nacl_b1_shen_2026_vinet_1` · Model: `Vinet`
 
@@ -79,6 +79,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
 - **Rmse gpa:** 0.21166411541792335
+- **Published rmse gpa:** 0.2124712610232223
 - **Reduced chi square:** 0.04649232785963884
 - **Pressure reconstruction:**
     - **Density0 g cm3:** 8.939

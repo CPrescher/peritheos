@@ -4,8 +4,7 @@ use peritheos::{load_eosmat, load_eosmat_str};
 
 #[test]
 fn brucite_catalog_preserves_only_the_three_retained_published_isotherms() {
-    let path =
-        Path::new(env!("CARGO_MANIFEST_DIR")).join("../../peritheos/data/materials/brucite.eosmat");
+    let path = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/data/brucite.eosmat");
     let material = load_eosmat(path).unwrap();
     assert_eq!(material.document["atom_sites"][2]["z"], 0.4108);
     assert_eq!(material.document["formula_units_per_cell"], 1);
@@ -15,7 +14,7 @@ fn brucite_catalog_preserves_only_the_three_retained_published_isotherms() {
         serde_json::json!([0, 22.56])
     );
     assert_eq!(
-        static_record.document["scientific_validation"]["status"],
+        static_record.document["evidence"]["scientific_validation"]["status"],
         "primary_source_validated"
     );
     assert!(material.record("brucite_fukui_2003_873k_bm3").is_none());
@@ -38,12 +37,8 @@ fn brucite_catalog_preserves_only_the_three_retained_published_isotherms() {
 
 #[test]
 fn brucite_archived_diagnostics_preserve_equations_without_recommendation() {
-    let path = Path::new(env!("CARGO_MANIFEST_DIR"))
-        .join("../../output/material-candidates/brucite/brucite-diagnostic-archive.eosmat");
-    if !path.is_file() {
-        // Historical diagnostics are not part of the executable material bundle.
-        return;
-    }
+    let path =
+        Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/data/brucite-diagnostic-archive.eosmat");
     let material = load_eosmat(path).unwrap();
     let thermal = material
         .record("brucite_fukui_2003_300k_anchored_thermal")
@@ -100,12 +95,7 @@ fn brucite_archived_diagnostics_preserve_equations_without_recommendation() {
 
 #[test]
 fn brucite_staged_isotherms_execute_and_preserve_pending_assessments() {
-    let path = Path::new(env!("CARGO_MANIFEST_DIR"))
-        .join("../../output/material-candidates/brucite/brucite.eosmat");
-    if !path.is_file() {
-        // The staged review artifact is deliberately absent from crate packages.
-        return;
-    }
+    let path = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/data/brucite-staged.eosmat");
     let material = load_eosmat(path).unwrap();
     assert_eq!(material.document["formula_units_per_cell"], 1);
     assert_eq!(material.document["space_group_number"], 164);
@@ -133,11 +123,8 @@ fn brucite_staged_isotherms_execute_and_preserve_pending_assessments() {
 
 #[test]
 fn brucite_curved_expansion_preserves_moduli_and_maps_reference_alpha() {
-    let path = Path::new(env!("CARGO_MANIFEST_DIR"))
-        .join("../../output/material-candidates/brucite/brucite-diagnostic-archive.eosmat");
-    if !path.is_file() {
-        return;
-    }
+    let path =
+        Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/data/brucite-diagnostic-archive.eosmat");
     let material = load_eosmat(path).unwrap();
     for (t, k0, kp) in [
         (300, 41.8, 6.6),

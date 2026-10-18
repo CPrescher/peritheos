@@ -38,7 +38,7 @@ iron
 | [(hcp phase -- 19.2 GPa modified to P=0) (JCPDS 34-529 ) EOS from Mao et al 90](#record-iron_mao_1990_bm3_1) | BM3 | Not specified | primary source validated | Executable |
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-iron_shen_2026_vinet_2) | Vinet | 300.0 | primary source validated | Executable |
 | [Dewaele (2019), Fe MAO-scale Vinet](#record-iron_dewaele_2019_mao_vinet) | Vinet | 300.0 | primary source validated | Executable |
-| [Dewaele (2019), Fe DOR-scale Vinet](#record-iron_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Executable |
+| [Dewaele (2019), Fe DOR-scale Vinet](#record-iron_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Pressure-scale reference variant |
 | [Zhang et al. (2025), hcp-Fe Fit #1 BM3+MGD](#record-iron_zhang_2025_fit1_birch_murnaghan_3_mgd) | BM3 + MieGruneisenDebye | 300.0 | primary source validated | Executable |
 | [Zhang et al. (2025), hcp-Fe Fit #2 BM3+MGD](#record-iron_zhang_2025_fit2_birch_murnaghan_3_mgd) | BM3 + MieGruneisenDebye | 300.0 | primary source validated | Executable |
 | [Zhang et al. (2025), hcp-Fe Fit #5 Vinet+MGD](#record-iron_zhang_2025_fit5_vinet_mgd) | Vinet + MieGruneisenDebye | 300.0 | primary source validated | Executable |
@@ -52,16 +52,16 @@ iron
 | [Sakai et al. (2014), p1\_v0\_mao\_vinet](#record-iron_sakai_2014_p1_v0_mao_vinet) | Vinet | 300 | primary source validated | Executable |
 | [Sakai et al. (2014), p1\_v0\_dewaele\_bm3](#record-iron_sakai_2014_p1_v0_dewaele_bm3) | BM3 | 300 | primary source validated | Executable |
 | [Sakai et al. (2014), p1\_v0\_dewaele\_vinet](#record-iron_sakai_2014_p1_v0_dewaele_vinet) | Vinet | 300 | primary source validated | Executable |
-| [Sakai et al. (2014), p2\_bm3](#record-iron_sakai_2014_p2_bm3) | BM3 | 300 | primary source validated | Executable |
-| [Sakai et al. (2014), p2\_vinet](#record-iron_sakai_2014_p2_vinet) | Vinet | 300 | primary source validated | Executable |
-| [Sakai et al. (2014), p3\_bm3](#record-iron_sakai_2014_p3_bm3) | BM3 | 300 | primary source validated | Executable |
-| [Sakai et al. (2014), p3\_vinet](#record-iron_sakai_2014_p3_vinet) | Vinet | 300 | primary source validated | Executable |
-| [Sakai et al. (2014), p4\_bm3](#record-iron_sakai_2014_p4_bm3) | BM3 | 300 | primary source validated | Executable |
-| [Sakai et al. (2014), p4\_vinet](#record-iron_sakai_2014_p4_vinet) | Vinet | 300 | primary source validated | Executable |
-| [Sakai et al. (2014), p5\_bm3](#record-iron_sakai_2014_p5_bm3) | BM3 | 300 | primary source validated | Executable |
-| [Sakai et al. (2014), p5\_vinet](#record-iron_sakai_2014_p5_vinet) | Vinet | 300 | primary source validated | Executable |
-| [Sakai et al. (2014), p6\_bm3](#record-iron_sakai_2014_p6_bm3) | BM3 | 300 | primary source validated | Executable |
-| [Sakai et al. (2014), p6\_vinet](#record-iron_sakai_2014_p6_vinet) | Vinet | 300 | primary source validated | Executable |
+| [Sakai et al. (2014), p2\_bm3](#record-iron_sakai_2014_p2_bm3) | BM3 | 300 | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), p2\_vinet](#record-iron_sakai_2014_p2_vinet) | Vinet | 300 | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), p3\_bm3](#record-iron_sakai_2014_p3_bm3) | BM3 | 300 | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), p3\_vinet](#record-iron_sakai_2014_p3_vinet) | Vinet | 300 | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), p4\_bm3](#record-iron_sakai_2014_p4_bm3) | BM3 | 300 | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), p4\_vinet](#record-iron_sakai_2014_p4_vinet) | Vinet | 300 | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), p5\_bm3](#record-iron_sakai_2014_p5_bm3) | BM3 | 300 | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), p5\_vinet](#record-iron_sakai_2014_p5_vinet) | Vinet | 300 | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), p6\_bm3](#record-iron_sakai_2014_p6_bm3) | BM3 | 300 | primary source validated | Pressure-scale reference variant |
+| [Sakai et al. (2014), p6\_vinet](#record-iron_sakai_2014_p6_vinet) | Vinet | 300 | primary source validated | Pressure-scale reference variant |
 | [Yamazaki et al. (2012), bm3\_thermal](#record-iron_yamazaki_2012_bm3_thermal) | BM3 + Dewaele2006 | 300 | primary source validated | Executable |
 | [Yamazaki et al. (2012), vinet\_thermal](#record-iron_yamazaki_2012_vinet_thermal) | Vinet + Dewaele2006 | 300 | primary source validated | Executable |
 | [Dubrovinsky et al. (2000), bm3\_thermal](#record-iron_dubrovinsky_2000_bm3_thermal) | BM3 + AlphaKT | 300 | primary source validated | Executable |
@@ -487,6 +487,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
 - **Rmse gpa:** 0.7273663608984583
+- **Published rmse gpa:** 0.7370080313201411
 - **Reduced chi square:** 0.5318610918712517
 - **Pressure reconstruction:**
     - **Density0 g cm3:** 8.939
@@ -718,7 +719,9 @@ Parameter covariance is not supplied.
 
 Identifier: `iron_dewaele_2019_dor_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [iron\_dewaele\_2019\_mao\_vinet](#record-iron_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -2990,7 +2993,9 @@ Parameter covariance is not supplied.
 
 Identifier: `iron_sakai_2014_p2_bm3`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_bm3](#record-iron_sakai_2014_p1_bm3); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -3128,7 +3133,9 @@ Parameter covariance is not supplied.
 
 Identifier: `iron_sakai_2014_p2_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_vinet](#record-iron_sakai_2014_p1_vinet); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -3266,7 +3273,9 @@ Parameter covariance is not supplied.
 
 Identifier: `iron_sakai_2014_p3_bm3`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_bm3](#record-iron_sakai_2014_p1_bm3); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -3404,7 +3413,9 @@ Parameter covariance is not supplied.
 
 Identifier: `iron_sakai_2014_p3_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_vinet](#record-iron_sakai_2014_p1_vinet); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -3542,7 +3553,9 @@ Parameter covariance is not supplied.
 
 Identifier: `iron_sakai_2014_p4_bm3`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_bm3](#record-iron_sakai_2014_p1_bm3); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -3695,7 +3708,9 @@ Parameter covariance is not supplied.
 
 Identifier: `iron_sakai_2014_p4_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_vinet](#record-iron_sakai_2014_p1_vinet); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -3849,7 +3864,9 @@ Parameter covariance is not supplied.
 
 Identifier: `iron_sakai_2014_p5_bm3`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_bm3](#record-iron_sakai_2014_p1_bm3); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -4003,7 +4020,9 @@ Parameter covariance is not supplied.
 
 Identifier: `iron_sakai_2014_p5_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_vinet](#record-iron_sakai_2014_p1_vinet); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -4157,7 +4176,9 @@ Parameter covariance is not supplied.
 
 Identifier: `iron_sakai_2014_p6_bm3`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_bm3](#record-iron_sakai_2014_p1_bm3); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -4310,7 +4331,9 @@ Parameter covariance is not supplied.
 
 Identifier: `iron_sakai_2014_p6_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [iron\_sakai\_2014\_p1\_vinet](#record-iron_sakai_2014_p1_vinet); it is not an independent EOS choice.
 
 
 - **Record kind:** published

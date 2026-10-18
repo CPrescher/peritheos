@@ -38,7 +38,7 @@ Ambient bcc phase reference: JCPDS 42-1120.
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-molybdenum_shen_2026_vinet_1) | Vinet | 300.0 | primary source validated | Executable |
 | [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-molybdenum_sokolova_2013_holzapfel_2) | Holzapfel + Sokolova2016 | 298.15 | primary source validated | Executable |
 | [Dewaele (2019), Mo MAO-scale Vinet](#record-molybdenum_dewaele_2019_mao_vinet) | Vinet | 300.0 | primary source validated | Executable |
-| [Dewaele (2019), Mo DOR-scale Vinet](#record-molybdenum_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Executable |
+| [Dewaele (2019), Mo DOR-scale Vinet](#record-molybdenum_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Pressure-scale reference variant |
 | [Dorfman et al. (2012), Mo K0-fixed Vinet](#record-molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet) | Vinet | 300.0 | primary source validated | Executable |
 | [Dorfman et al. (2012), Mo K0-free Vinet](#record-molybdenum_dorfman_2012_tange_mgo_k0_free_vinet) | Vinet | 300.0 | primary source validated | Executable |
 
@@ -274,6 +274,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
 - **Rmse gpa:** 0.4180910660710567
+- **Published rmse gpa:** 0.41841029127093016
 - **Reduced chi square:** 0.17604426863539666
 - **Pressure reconstruction:**
     - **Density0 g cm3:** 8.939
@@ -664,7 +665,9 @@ Parameter covariance is not supplied.
 
 Identifier: `molybdenum_dewaele_2019_dor_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [molybdenum\_dewaele\_2019\_mao\_vinet](#record-molybdenum_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
 
 - **Record kind:** published

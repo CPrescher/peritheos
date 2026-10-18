@@ -43,7 +43,7 @@ MgO pressure calibrant; the quasi-hydrostatic Speziale et al. (2001) BM3 plus au
 | [Li et al. (2006), acoustic absolute-pressure BM3](#record-mgo_li_2006_bm3_absolute_acoustic) | BM3 | 300.0 | primary source validated | Executable |
 | [Jacobsen et al. (2008), KCl medium, Mao-1978 ruby-scale BM3](#record-mgo_jacobsen_2008_bm3_kcl_mao1978) | BM3 | 300.0 | primary source validated | Executable |
 | [Jacobsen et al. (2008), helium medium, Mao-1986-scale BM3](#record-mgo_jacobsen_2008_bm3_helium_mao1986) | BM3 | 300.0 | primary source validated | Executable |
-| [Shen and Smith (2026), Cu-referenced Vinet](#record-mgo_shen_2026_vinet_3) | Vinet | 300.0 | primary source validated | Executable |
+| [Shen and Smith (2026), Cu-referenced Vinet](#record-mgo_shen_2026_vinet_3) | Vinet | 300.0 | not reproduced | Explicit diagnostic selection; not recommended |
 | [Luo et al. (2023), cold Vinet plus second-order thermal pressure](#record-mgo_b1_luo_2023_vinet_thermal_5) | Vinet + SecondOrderTaylorThermalPressure | 300.0 | primary source validated | Executable |
 | [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-mgo_sokolova_2013_holzapfel_4) | Holzapfel + Sokolova2016 | 298.15 | primary source validated | Executable |
 | [Dewaele et al. (2000), BM3-MGD](#record-mgo_dewaele_2000_bm3_mgd_5) | BM3 + MieGruneisenDebye | 300.0 | primary source validated | Executable |
@@ -1369,8 +1369,11 @@ Parameter covariance is not supplied.
 
 Identifier: `mgo_shen_2026_vinet_3`.
 
-Availability: **Executable**.
+Availability: **Explicit diagnostic selection; not recommended**.
 
+**Usage qualification:** not\_recommended\_for\_quantitative\_use
+
+- **Reproduction status:** not\_reproduced
 
 - **Origin of the parameterization:** experimental
 - **Reference:**
@@ -1398,18 +1401,21 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** not reproduced.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0\_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them. The paper identifies Table II as direct fits to this study's Cu-referenced P-V data, with earlier literature included for comparison. Its data-availability statement also mentions other author-held data, so completeness of the actual author fit inputs is unconfirmed. No additional experimental fit rows are identified by the published fitting description. See the \[source-input audit\](literature-reproductions/shen-smith-2026-cu-refits.md). Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 MgO Vinet curve gives 1.161241 GPa pressure RMS and residuals up to +2.8032 GPa on all 194 DAC-2 Table S1 observations. A direct unweighted refit gives K0=161.827434 GPa, K0\_prime=3.953583 and RMS 0.475879 GPa, versus published 161.9 GPa and 4.08. The source-fit discrepancy is unresolved.
 
 [Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_shen_2026_vinet_3)
 
-Original audit code: `similar`.
+Original audit code: `parity_not_achieved`.
 
 **Limitations and qualifications:**
 
-- Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0\_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.
+- Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 MgO Vinet curve gives 1.161241 GPa pressure RMS and residuals up to +2.8032 GPa on all 194 DAC-2 Table S1 observations. A direct unweighted refit gives K0=161.827434 GPa, K0\_prime=3.953583 and RMS 0.475879 GPa, versus published 161.9 GPa and 4.08. The source-fit discrepancy is unresolved.
+- Usage recommendation: not\_recommended\_for\_quantitative\_use
+- Exact author-used P-V fit table and row mask, pressure-reduction implementation, residual coordinate, weights and covariance are unavailable.
+- The article describes Table II as direct fits to this study's Cu-referenced data, with literature parameters for comparison, but its data-availability statement mentions additional author-held data. No extra fit observations are explicitly identified; completeness of the actual author inputs is unconfirmed.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -1446,6 +1452,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
 - **Rmse gpa:** 0.4758785586078347
+- **Published rmse gpa:** 1.1612409415497145
 - **Reduced chi square:** 0.22881936506915648
 - **Pressure reconstruction:**
     - **Density0 g cm3:** 8.939
@@ -1467,7 +1474,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 
 Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
-Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K0 +/- 0.7 GPa and K0' +/- 0.03. Measurements extend to 140 GPa.
+Table II Cu-referenced fit using DAC-2 data; V0 fixed. Reported uncertainties: K0 +/- 0.7 GPa and K0' +/- 0.03. Measurements extend to 140 GPa. Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 MgO Vinet curve gives 1.161241 GPa pressure RMS and residuals up to +2.8032 GPa on all 194 DAC-2 Table S1 observations. A direct unweighted refit gives K0=161.827434 GPa, K0\_prime=3.953583 and RMS 0.475879 GPa, versus published 161.9 GPa and 4.08. The source-fit discrepancy is unresolved.
 
 Parameter covariance is not supplied.
 
@@ -1475,9 +1482,9 @@ Parameter covariance is not supplied.
 <details markdown="1">
 <summary>Scientific validation and usage qualifications</summary>
 
-- **Status:** primary\_source\_validated
-- **Note:** Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.
-- **Audit date:** 2026-09-01
+- **Status:** not\_reproduced
+- **Note:** Equation and printed coefficients remain source-checked, but the Table II fit is not reproduced from the available published inputs. The published fixed-V0 MgO Vinet curve gives 1.161241 GPa pressure RMS and residuals up to +2.8032 GPa on all 194 DAC-2 Table S1 observations. A direct unweighted refit gives K0=161.827434 GPa, K0\_prime=3.953583 and RMS 0.475879 GPa, versus published 161.9 GPa and 4.08. The source-fit discrepancy is unresolved.
+- **Audit date:** 2026-10-17
 - **Verified fields:** equation; parameters; units; reference\_state; phase; published\_uncertainties; validity; primary\_data
 - **Primary source check:**
     - **Access URL:** https://doi.org/10.1103/fxgq-96sg
@@ -1491,10 +1498,16 @@ Parameter covariance is not supplied.
     - **File:** mgo.json
 - **Primary data check:**
     - **Status:** bundled
-    - **Audit date:** 2026-09-03
+    - **Audit date:** 2026-10-17
     - **Dataset identifiers:** shen\_smith\_2026\_table\_s1\_simultaneous\_volumes
     - **Source locations:** Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets
-    - **Finding:** The material record already links the source dataset resource(s) listed here; this audit makes that primary-data coverage explicit.
+    - **Finding:** Published Table S1 transcription is bundled with simultaneous Cu readings and volume errors: all 194 MgO and 131 NaCl-B2 measurements are in DAC-2. This accounts for the available published volume table, not necessarily every author-held fit input. The previous workbook-to-CSV audit is preserved; a new workbook download on 2026-10-17 required authentication.
+- **Reproduction status:** not\_reproduced
+- **Usage recommendation:** not\_recommended\_for\_quantitative\_use
+- **Recommendation date:** 2026-10-17
+- **Recommendation audit:** docs/literature-reproductions/shen-smith-2026-cu-refits.md
+- **Recommendation reason:** Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 MgO Vinet curve gives 1.161241 GPa pressure RMS and residuals up to +2.8032 GPa on all 194 DAC-2 Table S1 observations. A direct unweighted refit gives K0=161.827434 GPa, K0\_prime=3.953583 and RMS 0.475879 GPa, versus published 161.9 GPa and 4.08. The source-fit discrepancy is unresolved.
+- **Unresolved:** Exact author-used P-V fit table and row mask, pressure-reduction implementation, residual coordinate, weights and covariance are unavailable.; The article describes Table II as direct fits to this study's Cu-referenced data, with literature parameters for comparison, but its data-availability statement mentions additional author-held data. No extra fit observations are explicitly identified; completeness of the actual author inputs is unconfirmed.
 
 </details>
 

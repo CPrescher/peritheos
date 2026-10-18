@@ -1,0 +1,517 @@
+{
+  "audit_date": "2026-10-16",
+  "material": "ferrous_ringwoodite",
+  "stage_card": "output/material-candidates/ferrous-ringwoodite/ferrous_ringwoodite.eosmat",
+  "catalog_installed": false,
+  "acceptance": "Source-validated derived static reconstruction is ready at 296.15 K/0-4 GPa. The 2011 thermal candidate remains qualified: integrated constant-q equations now have direct support from the cited formalism and visually verified same-author equations, but complete author inputs, reduction and workflow remain unrecovered.",
+  "source_rights": "Unspecified for numerical data; retain article/publisher copyright terms. No CC0 claim on third-party source material.",
+  "contributor_rights": "CC0-1.0 only to the extent contributors hold rights in transcription, normalization, metadata and arrangement; see ferrous-ringwoodite.LICENSE.md.",
+  "datasets": {
+    "ferrous-ringwoodite-armentrout-2011-figure-s1-temperatures.csv": {
+      "sha256": "ac2159ce41923927218a630e8465767acde9d0b8188dd4645139b70e4ea96e0b",
+      "bytes": 190
+    },
+    "ferrous-ringwoodite-armentrout-2011-figure1-checkpoints.csv": {
+      "sha256": "348585a167240ba5ceb0f93b2da63b393a51f4bb0406d7eab8b273d84e7f1690",
+      "bytes": 502
+    },
+    "ferrous-ringwoodite-armentrout-2011-table-s1-raw.csv": {
+      "sha256": "4ccbb4b88b98d35920112a4c03f3081c65241cebcdba4f35924991f28b415eec",
+      "bytes": 1334
+    },
+    "ferrous-ringwoodite-armentrout-2011-table-s1.csv": {
+      "sha256": "220a7ab79b6de9c92b9cd21f6ebc9150ebedbb52e40dd96781e4a2501d58816f",
+      "bytes": 3316
+    },
+    "ferrous-ringwoodite-finger-1979-table2.csv": {
+      "sha256": "4c25f6e674342aabd492f7ed51495cbeaad6404e38831da6af72031bc190a909",
+      "bytes": 506
+    },
+    "ferrous-ringwoodite-liu-2008-table1.csv": {
+      "sha256": "1e8434e86f11a3ea0867ffc301a394e24942b9a931bb43411db8356413cc3a52",
+      "bytes": 1808
+    },
+    "ferrous-ringwoodite-suzuki-1979-table2-calculated.csv": {
+      "sha256": "ca41f289824ac174012b5e8190d9d6c80c2b3ae1cc77783fcf5c5d23bc0c8f5b",
+      "bytes": 447
+    },
+    "ferrous-ringwoodite-armentrout-2012-figure9-checkpoints.csv": {
+      "sha256": "36d8ca74b11871ad838b0526734a8f2bdd84f571d1c90236222dd113a9f60696",
+      "bytes": 171
+    },
+    "ferrous-ringwoodite-stixrude-2005-table-a1.csv": {
+      "sha256": "7d9cd4824d0c915eb4c0066f23c5fed149b7dc96d9a0520083c2736d499d3530",
+      "bytes": 280
+    },
+    "ferrous-ringwoodite-brown-1999-table1.csv": {
+      "sha256": "0cda6c61044b8e66196aff77f058e069dde57467803bff992b19b4895fb2ba40",
+      "bytes": 790
+    },
+    "ferrous-ringwoodite-brown-1999-table2.csv": {
+      "sha256": "9897ebed560ee303edc4afd2f9c1a5f12f938144f85d4c2575d7c569e86f005c",
+      "bytes": 4313
+    }
+  },
+  "local_source_files": {
+    "armentrout-2011-figure-s1.pdf": {
+      "sha256": "c57666eba7c3d956005c6115fb4f735a24eeea775a2889e7e9004144addafee9",
+      "bytes": 146214,
+      "redistribution": "Local audit evidence only; not included in CC0 transcription dedication."
+    },
+    "armentrout-2011-figure-s1.png": {
+      "sha256": "c7edac72553a171fb387149e4ed768b51d9138a1b4713ac90ef0ee7ce3418961",
+      "bytes": 386668,
+      "redistribution": "Local audit evidence only; not included in CC0 transcription dedication."
+    },
+    "armentrout-2011-figure-s2.pdf": {
+      "sha256": "f44cee4867752daf25bf43c45b9d456fc3fbe8272ae10b3f8321930f1cf87ab7",
+      "bytes": 134950,
+      "redistribution": "Local audit evidence only; not included in CC0 transcription dedication."
+    },
+    "armentrout-2011-figure-s2.png": {
+      "sha256": "1391156f0050856689041886a8b74562a8fb623419afebdad4c092534daeac5f",
+      "bytes": 333633,
+      "redistribution": "Local audit evidence only; not included in CC0 transcription dedication."
+    },
+    "armentrout-2011-figure1.png": {
+      "sha256": "22c1cfaad153d3db6355650d44ecdba99af1192f1c5e7e5d068d844c802dfdbf",
+      "bytes": 81287,
+      "redistribution": "Local audit evidence only; not included in CC0 transcription dedication."
+    },
+    "armentrout-2011-table-s1.pdf": {
+      "sha256": "f4341548719bcb651006218e04ae69121618cdcb56d8ff0ea0371c6c4c83deb3",
+      "bytes": 86142,
+      "redistribution": "Local audit evidence only; not included in CC0 transcription dedication."
+    },
+    "armentrout-2011-table-s1.png": {
+      "sha256": "c2d14977e482aa800f256ebca1bd2dd3425a41166aee2f65e47c7bd48dbbbffc",
+      "bytes": 378463,
+      "redistribution": "Local audit evidence only; not included in CC0 transcription dedication."
+    },
+    "finger-1979-3.png": {
+      "sha256": "1b89f80f49e8c5c57315c158134aac9334e9d1880f55b8e16d7c56376ee8e28c",
+      "bytes": 202254,
+      "redistribution": "Local audit evidence only; not included in CC0 transcription dedication."
+    },
+    "finger-1979-4.png": {
+      "sha256": "a5e2ea2a4761fe0ae469b0cb9e94f0e6a0e338aaea5dba776138929c3b6acceb",
+      "bytes": 200065,
+      "redistribution": "Local audit evidence only; not included in CC0 transcription dedication."
+    },
+    "finger-1979-alt.pdf": {
+      "sha256": "88ceb1574ffe6800545ff0516bc1a962dc57dd6dc9e0352dd0a7c4cc97f9dd63",
+      "bytes": 570146,
+      "redistribution": "Local audit evidence only; not included in CC0 transcription dedication."
+    },
+    "liu-2008-table1.png": {
+      "sha256": "0acbdfcb9f9a095333f3ee538d876350e51cbe82e7e6435b5d9d6a775b913aa4",
+      "bytes": 505031,
+      "redistribution": "Local audit evidence only; not included in CC0 transcription dedication."
+    },
+    "liu-2008a.pdf": {
+      "sha256": "f9177cdc9c518196982f388b41f343f1da32aa0b96a7f8ce75613152ceb3b8ac",
+      "bytes": 244522,
+      "redistribution": "Local audit evidence only; not included in CC0 transcription dedication."
+    },
+    "suzuki-1979-page4.png": {
+      "sha256": "b62d5bf8a874245bcf37261a21fa1a8328d44fb00b93e212e05d9346764a7e44",
+      "bytes": 184683,
+      "redistribution": "Local audit evidence only; not included in CC0 transcription dedication."
+    },
+    "suzuki-1979.pdf": {
+      "sha256": "6195fd3c4608f59ac327822e1d2cd4e9c35713d9a3318746c0e6306f096163ae",
+      "bytes": 649862,
+      "redistribution": "Local audit evidence only; not included in CC0 transcription dedication."
+    },
+    "usgs-1992-assessment.pdf": {
+      "sha256": "f276f9568855b51c14b53c126cea991050f99457b75ab9d7c859fe5c5d03884b",
+      "bytes": 9768018,
+      "redistribution": "Local audit evidence only; not included in CC0 transcription dedication."
+    },
+    "armentrout-2012-equations-1.png": {
+      "sha256": "930501775afe101822ba3481531009c5161c7c9df763b213be25e2ba115bedf6",
+      "bytes": 280314,
+      "redistribution": "Local audit evidence only; not included in CC0 transcription dedication."
+    },
+    "stixrude-2005-appendix-method.png": {
+      "sha256": "570d3a5d23b6a8a411e26d215eea8f6e4316af8b495513c948bb889a6045b6bb",
+      "bytes": 653019,
+      "redistribution": "Local audit evidence only; not included in CC0 transcription dedication."
+    },
+    "armentrout-2012-equations-2.png": {
+      "sha256": "076d3fc6ae590113f53e7ec681f5baf43c88da0e016fd904ed2c9965ee3911cc",
+      "bytes": 271979,
+      "redistribution": "Local audit evidence only; not included in CC0 transcription dedication."
+    },
+    "dorogokupets-2007.pdf": {
+      "sha256": "686b1891516ea9e5dc58622f0706ce8f87d1cab34086508228ac5459e4cdf318",
+      "bytes": 527407,
+      "redistribution": "Local audit evidence only; not included in CC0 transcription dedication."
+    },
+    "dorogokupets-2007-equations.png": {
+      "sha256": "a667ff7e1a3b4ccd18138f34fee3334ad0227930e555ba5637f187ceef6d265a",
+      "bytes": 260577,
+      "redistribution": "Local audit evidence only; not included in CC0 transcription dedication."
+    },
+    "stixrude-2005.pdf": {
+      "sha256": "e9cf987e8a2fb389eb7c8f40ae74abac46fed7f6c849185b4996843a2ede0366",
+      "bytes": 449075,
+      "redistribution": "Local audit evidence only; not included in CC0 transcription dedication."
+    },
+    "armentrout-2012-figure9-native-000.png": {
+      "sha256": "28f3bd79fd3232581e72adfef8bf96e70049da3568df9669a93be2934dcea764",
+      "bytes": 191678,
+      "redistribution": "Local audit evidence only; not included in CC0 transcription dedication."
+    },
+    "armentrout-2012-figure9.png": {
+      "sha256": "a455232303157d7e6729283784df2cd085733ba665f4f140ece8db2aa3ab1f2f",
+      "bytes": 178477,
+      "redistribution": "Local audit evidence only; not included in CC0 transcription dedication."
+    },
+    "armentrout-2012-dissertation.pdf": {
+      "sha256": "096c99a3edae66ae3d0ed0df97d97f496cadf8fc20526749f29bc7da3eb1c429",
+      "bytes": 6887775,
+      "redistribution": "Local audit evidence only; not included in CC0 transcription dedication."
+    },
+    "dorogokupets-2007-equations-15-17.png": {
+      "sha256": "a47184f800e40ac3054482906b78e28645f5c8c2e28e4d8617e62334269b0e56",
+      "bytes": 342960,
+      "redistribution": "Local audit evidence only; not included in CC0 transcription dedication."
+    },
+    "stixrude-2005-table-a1.png": {
+      "sha256": "11e21ce07acfb1addd47af3826973e1b5ae2d531216ce68dabd9bcf5a362ff45",
+      "bytes": 676706,
+      "redistribution": "Local audit evidence only; not included in CC0 transcription dedication."
+    },
+    "brown-1999.pdf": {
+      "sha256": "170763818aed3409107702a1b129fac930e053dfb821335c5e71afdc73c8244a",
+      "bytes": 342644,
+      "redistribution": "Local source/audit evidence only; third-party works retain their terms, not included in contributor CC0 dedication or proposed package data."
+    },
+    "brown-1999.txt": {
+      "sha256": "d0c483b9de4ca706e761c49f618da497d756bb82e97ce4b6cd71eb2bc438767f",
+      "bytes": 61679,
+      "redistribution": "Local source/audit evidence only; third-party works retain their terms, not included in contributor CC0 dedication or proposed package data."
+    },
+    "brown-1999-table1.png": {
+      "sha256": "ea0915feca211d174c366e21c6e81bcc13285d5eed40c2b0f8957a117c8e1e1f",
+      "bytes": 549296,
+      "redistribution": "Local source/audit evidence only; third-party works retain their terms, not included in contributor CC0 dedication or proposed package data."
+    },
+    "brown-1999-table2.png": {
+      "sha256": "01276d0e2000d699a1d639c190b6e070986703735bcdaf9e99abc5586126997b",
+      "bytes": 403696,
+      "redistribution": "Local source/audit evidence only; third-party works retain their terms, not included in contributor CC0 dedication or proposed package data."
+    },
+    "brown-2020-supplement.zip": {
+      "sha256": "19aa58c8779b112dccfbc11cde5e163aa8f5dd0adb6dfaa23dfb6a5331f31059",
+      "bytes": 152314,
+      "redistribution": "Local source/audit evidence only; third-party works retain their terms, not included in contributor CC0 dedication or proposed package data."
+    },
+    "brown-2020-table1-crosscheck.json": {
+      "sha256": "7835b0ed75c0e8996817018673877f210a88c35dbde30c8d1789f61fd1f0e129",
+      "bytes": 1967,
+      "redistribution": "Local source/audit evidence only; third-party works retain their terms, not included in contributor CC0 dedication or proposed package data."
+    },
+    "pdindexer-crystallography-eos-reference.cs": {
+      "sha256": "8b3781a73f86c51bb9f3963f253bb28a4b00d6739c8a693691801cb7fef3cbfc",
+      "bytes": 292318,
+      "redistribution": "Local source/audit evidence only; third-party works retain their terms, not included in contributor CC0 dedication or proposed package data."
+    },
+    "pdindexer-eos-reference.cs": {
+      "sha256": "7a0416026ca494dcbef0165a0dbb816ecb614246fafee048f34349ff362e90cf",
+      "bytes": 16714,
+      "redistribution": "Local source/audit evidence only; third-party works retain their terms, not included in contributor CC0 dedication or proposed package data."
+    },
+    "brown-1999-equations.png": {
+      "sha256": "d23e0e435e134bf8a79dea12ed0d3f5bdc73ada2aeb75dc58c96638585090325",
+      "bytes": 853021,
+      "redistribution": "Local audit evidence only; not included in contributor CC0 dedication."
+    }
+  },
+  "sources": [
+    {
+      "citation": "Armentrout and Kavner 2011, GRL 38 L08309",
+      "doi": "10.1029/2011GL046949",
+      "url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011GL046949",
+      "access": "Full text inspected. All three official PDF supplements and Figure1 downloaded through browser links. readme.txt was read in the browser: it enumerates exactly the three PDF files and adds no numerical input table beyond TableS1. Main article PDF download did not complete.",
+      "locations": [
+        "Abstract and paragraph 5: coefficients and fixed/adopted parameters",
+        "Paragraphs 3-4: synthesis, NaCl Brown calibration, uncertainty description and temperature gradient assumption",
+        "Table S1: 18 original rows and exclusions",
+        "Figure S1: high-temperature diffraction patterns and indexed phases",
+        "Figure S2: K0-Kprime tradeoff",
+        "Figure 1: independent digitized curve checkpoints",
+        "FigureS1: all9 cycle2 temperatures independently confirm arithmetic means of upstream/downstreamTableS1 readings"
+      ],
+      "official_supplement_url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1029%2F2011GL046949&file=grl27957-sup-0004-ts01.pdf",
+      "numerical_issue": "The Density (cm3/mol) column does not equal the molar volumes from a^3/Z, and is not physical Fe2SiO4 mass density. All values retained as unresolved source fields.",
+      "readme_url": "https://agupubs.onlinelibrary.wiley.com/action/downloadSupplement?doi=10.1029%2F2011GL046949&file=grl27957-sup-0001-readme.txt"
+    },
+    {
+      "citation": "Armentrout 2012 UCLA dissertation, High pressure and temperature equations of state: A tool for insight into deep Earth systems",
+      "url": "https://escholarship.org/uc/item/387964f3",
+      "access": "Complete official university PDF downloaded via the page Download PDF link. Equations pp9-10 and ringwoodite Figure9 p31 rendered and visually inspected. This PDF includes a repository cover page: printed p9=PDF page18; printed p31=PDF page40.",
+      "locations": [
+        "Os chapter pp9-10, Eqs1-5: BM3 at300 K, gamma power law, integrated theta and Bernoulli Debye series",
+        "Ringwoodite chapter pp23-28: same preferred parameters; Suzuki absent from combined thermal-input list",
+        "Ringwoodite Figure9 p31 (PDF page40): author acknowledges strong systematic pressure residuals above about1500 K",
+        "Appendix TableA2 p57 (PDF page66 with repository cover): same18 official TableS1 rows"
+      ],
+      "scope_caution": "The explicit implementation is in the preceding Os chapter. Its application to ringwoodite remains an inference; original code and Bernoulli truncation are missing. The printed integral prefactor is inverse to the normalized Debye definition; the independent Bernoulli series has the correct limit.",
+      "download_url": "https://escholarship.org/content/qt387964f3/qt387964f3.pdf"
+    },
+    {
+      "citation": "Liu et al 2008, High Pressure Research 28,405-413",
+      "doi": "10.1080/08957950802296287",
+      "url": "https://www.mattwhitaker.net/docs/liu2008a.pdf",
+      "access": "Coauthor-hosted final article PDF recovered; every Table1 cell automatically compared to raw PDF text and visually checked.",
+      "locations": [
+        "Table1 p408: all29 rows and ten columns",
+        "Eqs7-12 pp408-409: elasticity-based sample pressures, not a NaCl reduction",
+        "p407: W3%Re-W25%Re thermocouples and characteristic diffraction lines",
+        "p408: adopted V0=42.053 cm3/mol, alpha(T) expression, q=1 and gamma approximately1.29-1.30"
+      ],
+      "limitations": "No rowwise pressure/density/temperature uncertainty or paired NaCl lattice readings printed in Table1. Pressure values are model-derived, not independent gauge readings. Source density printed to0.001 g/cm3; convert using explicitly chosen M=203.77 g/mol, never label derived V as original measured cell volume."
+    },
+    {
+      "citation": "Suzuki, Ohtani and Kumazawa 1979, J Phys Earth 27,53-61",
+      "doi": "10.4294/jpe1952.27.53",
+      "url": "https://www.jstage.jst.go.jp/article/jpe1952/27/1/27_1_53/_pdf",
+      "access": "Official full PDF recovered and relevant page rendered/visually checked.",
+      "locations": [
+        "Table1 p56: Fe solutionII, Tr=8C, Q0=6.63+/-0.33 million J/mol, fixed theta636K and k2, a-1=(0.315+/-0.043)*0.01, residual7.8e-4, elasticity BV8.61 million J/mol and derived gamma1.30",
+        "Table2 p56: ten Fe solutionII calculated expansion/alpha values, 95% confidence halfwidths and explicit extrapolations",
+        "p57: Fe calculation refits Mao et al1969 data",
+        "p58: original Fe expansion data only to400C and theta/k not independently constrained"
+      ],
+      "scope_caution": "This is a Mg-ringwoodite experimental paper with a separately labeled Fe2SiO4 reanalysis of Mao1969. Fe table rows are calculated, not new measurements. 2011 includes Suzuki in combined thermal-data list; 2012 ringwoodite chapter omits it."
+    },
+    {
+      "citation": "Finger, Hazen and Yagi 1979, Am Mineral64,1002-1009",
+      "url": "https://hazen.carnegiescience.edu/sites/default/files/043-FH-SiSpinels.pdf",
+      "access": "Author-hosted scanned final article PDF recovered and relevant pages rendered/visually checked.",
+      "locations": [
+        "Table1 p1004: pure Fe2SiO4 u=0.2409(1) at23C/0.001kbar",
+        "p1004: complete cation ordering assumed following occupancy refinement",
+        "Table2 p1005: all three Fe triclinic cell refinements and esds",
+        "p1005: K0=1.96(6) Mbar with Kprime fixed4"
+      ],
+      "scope_caution": "Separate structural specimen and source; three compression points are independent contextual checks and were not listed among the 2011 combined fit inputs."
+    },
+    {
+      "citation": "Nestola et al2010, PEPI183,421-425",
+      "doi": "10.1016/j.pepi.2010.09.007",
+      "url": "https://research.unipd.it/handle/11577/2473721",
+      "access": "Primary author repository abstract inspected: ten pressure states to10.2GPa, V0=559.44(6) A3, K0=187.3(1.7) GPa, Kprime=5.5(4). Repository has no attached article file. ScienceDirect full article was blocked by a CAPTCHA; not solved. Follow-up: Trieste repository handle11368/2335420 explicitly has no attached files; ResearchGate records have no full text. ScienceDirect remains CAPTCHA-blocked.",
+      "missing": "All10 original P-V rows, their errors/calibrant readings, source normalization and exact subset used in2011."
+    },
+    {
+      "citation": "Plymate and Stout1994, Phys Chem Miner21,413-420",
+      "doi": "10.1007/BF00203300",
+      "url": "https://link.springer.com/article/10.1007/BF00203300",
+      "access": "Publisher and author-repository abstracts inspected. Publisher exposes subscription preview; author repository links to publisher, with no recovered full table. Thirteen spectra at400C to24GPa; source Murnaghan K0=177.3+/-17.4 GPa, Kprime5.4+/-2.5 at400C; these coefficients are not imported into the 2011 candidate. Follow-up: Bearworks index.32.html apparent PDF search snippet was a misleading text association; inspecting PDF link labels showed the three actual downloads belong to other articles. No Plymate PDF recovered.",
+      "missing": "Original13 P-V rows, errors, calibrant readings and distinction between new observations and authors combined Yagi1987/Suzuki1979 surface."
+    },
+    {
+      "citation": "Sato1977, Equation of state of mantle minerals determined through high-pressure X-ray study, pp307-323",
+      "doi": "10.1016/B978-0-12-468750-9.50028-0",
+      "access": "Citation identified from primary2011 bibliography and upstream references; original chapter/table not recovered through focused searches.",
+      "missing": "Original Fe-endmember compression points, uncertainties, pressure scale, original normalization and exact2011 subset."
+    },
+    {
+      "citation": "Wilburn and Bassett1976, High Temp High Press8,343-348",
+      "access": "Original publisher issue and article-specific Full Text(IP) link located. Link redirects to journals.oldcitypublishing.com/pdf.php?id=4765 and returns explicit institutional Access Denied. Original article/table remains missing.",
+      "missing": "Hydrostatic Fe-endmember compression rows to75kbar, uncertainties, calibrant readings, baseline and exact2011 subset.",
+      "url": "https://www.oldcitypublishing.com/journals/hthp-electronic-archive-home/hthp-electronic-archive-issue-contents/hthp-volume-8-number-3-1976/",
+      "download_url": "https://www.oldcitypublishing.com/pdf/4765"
+    },
+    {
+      "citation": "Mao et al1969, JGR74,1061-1069",
+      "doi": "10.1029/JB074i004p01061",
+      "access": "Official Wiley abstract read in browser, confirming original expansion range8-396C and mean alpha(23+/-1)e-6/K. Publisher ePDF shows explicit institutional/purchase access denial; PDF not recovered.",
+      "missing": "Original Fe-only expansion observations to400C, errors and calibration. Do not reverse-engineer observations from Suzuki fitted values."
+    },
+    {
+      "citation": "Stixrude and Lithgow-Bertelloni2005, GJI162,610-632",
+      "doi": "10.1111/j.1365-246X.2005.02642.x",
+      "url": "https://academic.oup.com/gji/article/162/2/610/2051140",
+      "access": "Full final article recovered from coauthor Carolina Lithgow-Bertelloni public ResearchGate upload. TableA1 p631 and Appendix p630 rendered and visually inspected; PDF text/style independently confirms Fe-endmember685(100)K is italicized, denoting systematics.",
+      "author_copy_url": "https://www.researchgate.net/publication/227721942_Thermodynamics_of_mantle_minerals_-_I_Physical_properties",
+      "locations": [
+        "TableA1 p631: all9 Fe-ringwoodite parameters and errors recovered; table references1,16,21,22",
+        "Appendix p630: Debye entropy fitting and elastic-Debye scaling systematics; theta685 is marked as systematics, not a direct Fe Debye measurement"
+      ],
+      "scope_caution": "The2005 uncertainty100K belongs to the upstream systematics estimate. The2011 fit holds685K fixed; no100K fit error is inserted into its thermal parameter_errors. Source2005K0/gamma/q are separate and never substituted into2011."
+    },
+    {
+      "citation": "Brown1999, The NaCl pressure standard, JAP86,5801-5808",
+      "doi": "10.1063/1.371596",
+      "access": "User supplied full original PDF2026-10-16; tables/equations rendered and inspected. All126 TableI numeric cells and571 populated TableII pressures checked against PDF text, including all blank cells.",
+      "missing": "Original author calculator and exact2011 temperature/uncertainty reduction remain unrecovered. TableI+normalized Debye has an unresolved mostly constant offset fromTableII.",
+      "url": "https://doi.org/10.1063/1.371596",
+      "locations": [
+        "Eqs1-4,p5802: static+thermal split, gamma/V Debye energy and theta identity",
+        "TableI,p5804: all21x6 entries; SPLINE prescription",
+        "TableII,p5805:63 rows,571 calculated pressures,300-1200K; leading blanks retained"
+      ],
+      "scope_caution": "Both primary representations retained without correction. All18 pairedNaCl readings replayed;14 included in residual statistics. Two marker temperatures require explicitly flagged extension above1200K. Calibration replay partially reduces hot residuals, does not close them.",
+      "replay_report": "output/material-candidates/ferrous-ringwoodite/ferrous-ringwoodite-brown-replay.json"
+    },
+    {
+      "citation": "Wang et al2025, Thermoelastic Properties of Iron-Rich Ringwoodite and the Deep Mantle Aerotherm of Mars",
+      "doi": "10.1029/2024GL109666",
+      "url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2024GL109666",
+      "access": "Primary full text inspected, section3: possible hydration proposed for low expansivity of the2011 Fe endmember.",
+      "scope_caution": "Different Fe-rich composition; not a source for Fe2SiO4 coefficients or atomic sites. Hydration explanation is a hypothesis, not a measured correction to2011 sample identity."
+    },
+    {
+      "citation": "Dorogokupets and Dewaele2007, High Pressure Research27,431-446",
+      "doi": "10.1080/08957950701659700",
+      "url": "https://www.researchgate.net/publication/232885659_Equations_of_state_of_MgO_Au_Pt_NaCl-B1_and_NaCl-B2_Internally_consistent_high-temperature_pressure_scales",
+      "access": "Author-uploaded final PDF recovered; pp433-434 rendered/visually inspected.",
+      "locations": [
+        "Eq3b: BM3 static pressure",
+        "Eqs7,9: Debye internal energy and gamma*E/V thermal pressure",
+        "Eqs14-17: generalized gamma, integrated theta, q definition and gamma_infinity=0 constant-q limit",
+        "Eqs19-20: additional anharmonic/electronic terms in the expanded model"
+      ],
+      "scope_caution": "Use classical constant-q limit only. The2011 ringwoodite parameter list supplies no gamma_infinity, anharmonic/electronic coefficients. The cited expanded model is not imported wholesale. Printed Eq5 inverse Debye prefactor conflicts with normalized Debye/high-temperature limit; same-author dissertation Eq4 supports correct normalization."
+    },
+    {
+      "citation": "USGS Open-File Report92-267, volumetric assessment and Table7.08",
+      "url": "https://pubs.usgs.gov/of/1992/0267/report.pdf",
+      "access": "Official complete PDF and text recovered. Table7.08 identifies source ranges/counts, not original observation coordinates.",
+      "finding": "Secondary inventory lists8 Sato1977 states at298K/0.001-78kbar;9 Wilburn-Bassett1978 states at298K/0.001-154kbar;8 Mao1969 expansion observations281-669K. Its1978 source is the AmMineral63,591-596 overview, not the1976 paper cited in2011.",
+      "scope_caution": "Search aid only; do not equate1978/1976 datasets, infer2011 row count or treat inventory entries as recovered measurements."
+    },
+    {
+      "citation": "Brown and Journaux2020, Local Basis Function Representations of Thermodynamic Surfaces: Water at High Pressure and Temperature as an Example, Minerals10,92",
+      "doi": "10.3390/min10020092",
+      "url": "https://www.mdpi.com/2075-163X/10/2/92",
+      "access": "Publisher supplementary ZIP downloaded; NaCldata.mat independently republishes and exactly matches all84 V/P0/K/Kprime cells fromBrown1999 TableI.",
+      "scope_caution": "Literal source-table corroboration only. No2020 refit substituted. Gamma/theta and original1999 calculator are not in this MAT file.",
+      "evidence": "output/material-candidates/ferrous-ringwoodite/sources/brown-2020-table1-crosscheck.json"
+    }
+  ],
+  "figure1_digitization": {
+    "source_file": "armentrout-2011-figure1.png",
+    "source_size_pixels": [
+      370,
+      230
+    ],
+    "axis_mapping": "P=30*(pixel_x-48)/(367-48) GPa; V/V0=1-(pixel_y-67)*0.1/(194-67). Tabulated pressure is rounded to intended15,20,25GPa cross sections.",
+    "curve_selection": "Visually identify black300K curve and successive red1000/1500/2000K curves; center pixel clusters at x208,261,314. Avoid data-symbol overlaps. Raw pixel coordinates retained.",
+    "tolerance": "0.002 in V/V0 allows roughly two raster pixels plus axis/cross-section rounding. Not a statistical uncertainty; neither higher precision nor unique theta-law discrimination is claimed.",
+    "kind": "plot_only_calculated_curve_checkpoints; never raw author observations"
+  },
+  "uncertainties": {
+    "new_lattice": "2011 paragraph4: standard deviation of average lattice parameter values; parenthetic last-digit widths split without changing them.",
+    "new_pressure": "Parenthetic widths preserved; statistical confidence convention unspecified. Typical0.25-0.5GPa and200K systematic estimates are prose, not per-row independent errors.",
+    "new_temperature": "Upstream/downstream readings remain separate. FigureS1 independently confirms the rounded arithmetic mean for all9 cycle2 measurements, including2515K. The same first-cycle averaging remains an inference. NaCl midpoint formula follows primary prose. No rowwise T SD/covariance invented.",
+    "liu": "No rowwise errors printed in Table1; missing remains missing.",
+    "suzuki": "95% confidence of fitted solution; not measurement error bars. Extrapolated rows retain flags.",
+    "finger": "Table2 estimated standard deviations of least quoted units."
+  },
+  "fit_assessment": {
+    "source_equation_validation": "Primary-citation-supported constant-q reconstruction: DD2007 Eqs14-17 and same-author dissertation Os Eqs1-5 independently support integrated theta and300K subtraction; direct ringwoodite equation/code declaration still missing.",
+    "conditional_coefficient_agreement": "Recovered subset sensitivity tests only, with fixed202GPa/4/685K/q2/n7/300K. Calculated Suzuki entries are never relabeled measurements.",
+    "exact_author_workflow": "Not reproduced: full input tables, mask, normalization, objective/weights, fitting order, numerical settings and covariance remain missing. Cycle2 mean sample temperatures are independently confirmed by9 primaryFigureS1 labels.",
+    "static_1979": "Primary source explicitly BM2, K0=196(6)GPa/Kprime4. Reconstruct with measured558.7(2)A3 fixed ambient cell and23C reference. Two compressed states agree within combined reported coordinate errors. Conditional two-row K0=196.2176GPa; no original objective/intercept/covariance recovery claim.",
+    "published_residual_validation": "Two independent digitized dissertationFigure9 hot-row residuals agree within0.10GPa. Author explicitly acknowledges the hot-data trend. Original combined fit remains unreproduced."
+  },
+  "upstream_suzuki_1979_table1_fe_solution_ii": {
+    "location": "Table1 p56, Fe2SiO4 solutionII only",
+    "reference_temperature_c": 8,
+    "Q0_j_mol": 6630000.0,
+    "Q0_reported_error_j_mol": 330000.0,
+    "theta_k": 636,
+    "theta_fixed": true,
+    "k": 2.0,
+    "k_fixed": true,
+    "a_minus_1": 0.00315,
+    "a_minus_1_reported_error": 0.00043,
+    "residual_s": 0.00078,
+    "BV_j_mol": 8610000.0,
+    "gamma_derived": 1.3,
+    "adopted_BV_and_theta_source": "Mizutani1971, Table1 footnote4",
+    "uncertainty_scope": "Table1 printed +/- widths; no confidence convention inferred. Table2 halfwidths explicitly95% confidence of fitted solution.",
+    "use": "Upstream model metadata only; never substituted into the2011 preferred EOS."
+  },
+  "upstream_stixrude_2005": {
+    "resource": "ferrous-ringwoodite-stixrude-2005-table-a1.csv",
+    "location": "TableA1 p631, Fe-ringwoodite row only",
+    "theta0_k": 685,
+    "theta0_reported_error_k": 100,
+    "theta0_from_systematics": true,
+    "table_reference_numbers": [
+      1,
+      16,
+      21,
+      22
+    ],
+    "references": [
+      "Smyth-McCormick1995",
+      "Sinogeikin et al1998",
+      "Sinogeikin et al2001",
+      "Mao et al1969"
+    ],
+    "convention": "Printed error widths retained; confidence level not established. Italic entries are systematics. No2005 parameter/error replaces2011 fitted/fixed constraints."
+  },
+  "figure9_digitization": {
+    "resource": "ferrous-ringwoodite-armentrout-2012-figure9-checkpoints.csv",
+    "kind": "digitized_published_residual_symbols_not_raw_observations",
+    "source_image": "armentrout-2012-figure9-native-000.png",
+    "source_image_size_pixels": [
+      1949,
+      1412
+    ],
+    "pressure_ticks_pixels": {
+      "0": 254,
+      "25": 1775
+    },
+    "residual_ticks_pixels": {
+      "0": 635.5,
+      "-2": 918
+    },
+    "method": "Two isolated hot triangle centers from horizontal error-bar intersections, matched to original TableS1 by pressure/temperature. 0.10GPa tolerance includes graphical/rounding mismatch, not an original measurement uncertainty. Never included in regressions."
+  },
+  "brown_calibration_replay": {
+    "script": "scripts/ferrous_ringwoodite_brown_replay.py",
+    "output": "output/material-candidates/ferrous-ringwoodite/ferrous-ringwoodite-brown-replay.json",
+    "raw_pressures_preserved": true,
+    "all_rows": 18,
+    "accepted_rows": 14,
+    "table2_temperature_extensions": [
+      "Fay025heat",
+      "Fay028heat"
+    ],
+    "source_model_coefficients_changed": false,
+    "conclusion": "Midpoint-temperature Brown pressure replay improves residual RMS0.9831 to0.7477GPa(TableII) but hot residuals remain-1.9401/-1.0868GPa. DirectTableI gives-2.0493/-1.1981GPa. Original reduction is not reproduced.",
+    "table_disagreement": "TableI+normalizedDebye differs fromTableII by about0.12GPa locally. New diagnostics identify an E_ZP/3 signature (RMS0.01097GPa over571cells); exact historical cause remains unresolved. No source table repair.",
+    "temperature_diagnostic": "HalfT hypothesis evaluated against13 explicit alternatives; it fits closely but extra300K thermal-energy subtraction is comparably close. See brown_hypotheses_followup. No source pressure corrected.",
+    "uncertainty": "Lattice-only SD propagated by dP/da. No rowwiseT error, full pressure error or covariance reconstruction."
+  },
+  "brown_hypotheses_followup": {
+    "script": "scripts/ferrous_ringwoodite_brown_hypotheses.py",
+    "report": "output/material-candidates/ferrous-ringwoodite/ferrous-ringwoodite-brown-hypotheses.json",
+    "objective": "Unweighted pressure differences, GPa;14 accepted TableS1 rows or571 calculatedBrown cells. Fits diagnose reductions, not a new physical EOS or historical author fit.",
+    "nacl_temperature_inference": "Tsample/2 atn2 givesRMS0.10548GPa versus stated midpoint0.45597. ExtraE300 subtraction gives0.11379; half-temperature is supported but not uniquely established.",
+    "wrong_n_test": "Brown within-volume temperature slopes implyn2.0007386. Wrongn alone cannot explain an almost temperature-independent offset. Correctperformula n2 is equivalent to cellbasis n8 with4times the molar volume.",
+    "brown_offset_signature": "Adding E_ZP/3, withE_ZP=9nRtheta/8, givesRMS0.01097GPa over571 cells. Equivalent to changing DebyeD3 linear coefficient-3/8 to-1/4. Jointfit n1.999366, fraction0.337725. Signature only: no historical code or physical correction established.",
+    "ringwoodite_n_test": "All9 digitized published thermal-curve checkpoints agree at n7 with fixed source coefficients. None agree atn1,2,4 within0.002V/V0. Curves remain calculated graphical checks, not measurements.",
+    "historical_temperature_convention_confirmed": false,
+    "brown_offset_cause_confirmed": false,
+    "source_values_and_material_coefficients_unchanged": true,
+    "source_searches": [
+      {
+        "url": "https://earthweb.ess.washington.edu/brown/resources/",
+        "result": "Publications/Papers listings and five public tool/example archives checked; no1999 solidNaCl Debye calculator identified."
+      },
+      {
+        "url": "https://github.com/jmichaelb",
+        "result": "BrownHighPLab,PublicationArchive,LocalBasisFunction public recursive trees inspected; NaCl code identified as aqueous-solution models rather than1999 solid standard."
+      }
+    ]
+  }
+}

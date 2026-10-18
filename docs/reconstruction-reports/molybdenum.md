@@ -128,6 +128,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
 - **Rmse gpa:** 0.4180910660710567
+- **Published rmse gpa:** 0.41841029127093016
 - **Reduced chi square:** 0.17604426863539666
 - **Pressure reconstruction:**
     - **Density0 g cm3:** 8.939

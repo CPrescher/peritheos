@@ -2364,43 +2364,43 @@ conversion error.
 
 ### Frost direct refits
 
-Peritheos fits all 93 rows with the source-stated `sigma(P)=0.1 GPa` and the
-propagated volume errors. Both models are **similar**, but not strict
-uncertainty parity because `K0'` is just outside the combined two-sigma
-interval:
+**Updated 17 October 2026:** both published Frost Pd records are
+`not_reproduced` and not recommended for quantitative use or pressure
+calibration. Their numerical screening category remains `similar`, which does
+not establish strict coefficient reproduction. Automatic Pd equilibrium
+default selection is on hold; the separate Baty 0 K DFT record remains
+selectable and does not become an implicit room-temperature replacement.
+See the [complete source replay and acceptance decision](literature-reproductions/palladium-frost-2023-audit.md).
 
-| Model | Published | Peritheos errors-in-variables refit | Published/refit pressure RMSE |
+The final typeset article was additionally recovered from the local library
+and read in full during the protocol recheck. It confirms uncertainty-aware
+Marquardt-Levenberg fitting, but does not specify the exact objective,
+constraints, ambient-point treatment or parameter-covariance convention.
+The official supplement was recovered again and every printed coordinate,
+lattice uncertainty, loading and marker agrees with all 93 bundled rows.
+The accepted manuscript reports uncertainty-aware Marquardt-Levenberg fitting
+with 0.1 GPa pressure errors; the exact objective and covariance convention
+remain unspecified. Independent native orthogonal fitting and SciPy ODR
+agree. A first-order effective-variance replay gives nearly identical
+coefficients, but neither interpretation recovers the published central values.
+
+| Model | Published (cell V0, K0, K0') | Orthogonal replay | Measured-volume pressure RMS, published/replay (GPa) |
 |---|---|---|---:|
-| Vinet | `V0=58.678(73) A^3`, `K0=189.3(3.0) GPa`, `K0'=5.473(63)` | `V0=58.7665(145) A^3`, `K0=184.191(613) GPa`, `K0'=5.60371(1381)` | `0.772 / 0.276 GPa` |
-| BM3 | `V0=58.588(76) A^3`, `K0=197.5(3.3) GPa`, `K0'=4.996(66)` | `V0=58.6846(141) A^3`, `K0=191.477(622) GPa`, `K0'=5.14738(1393)` | `0.845 / 0.293 GPa` |
+| Vinet | (58.678, 189.3, 5.473) | (58.766518, 184.190605, 5.603712) | 0.771992 / 0.825323 |
+| BM3 | (58.588, 197.5, 4.996) | (58.684581, 191.476721, 5.147382) | 0.845419 / 0.915380 |
 
-This difference is not a Peritheos optimizer or EOS-formalism issue. An
-independent SciPy orthogonal-distance regression gives the same coefficients
-as the library to the displayed precision for both Vinet and BM3. An
-unweighted pressure-residual fit instead gives Vinet
-`(58.5924, 193.437, 5.38154)` and BM3 `(58.4774, 202.948, 4.88068)`, placing
-the published coefficients between two ordinary objective conventions rather
-than reproducing either. Adding the separate ambient point moves the fit away
-from the publication, confirming that its omission is not the cause.
-
-The stated point uncertainties also do not describe the complete scatter. The
-standard errors-in-variables fits have reduced chi-square values of 19.0
-(Vinet) and 22.1 (BM3). Separate Vinet fits range from
-`(V0, K0, K0')=(58.730, 190.83, 5.103)` for BX18 through
-`(59.032, 169.07, 6.129)` for BX32 to `(57.860, 226.12, 4.813)` for the Au
-high-pressure loading. Those individual triplets are strongly correlated
-because the runs cover different pressure intervals, but their spread exposes
-run-level/systematic variation that is far larger than the printed point
-errors.
-
-The remaining mismatch is therefore best attributed to an undocumented detail
-of the source regression: weighting/error transformation, treatment of
-run-level scatter, or use of higher-precision pre-publication values. As a
-sensitivity check, scaling the propagated volume errors to roughly 40--45% of
-their tabulated values moves both refits close to the published triplets, but
-the source gives no justification for that scaling and Peritheos does not adopt
-it. Table rounding alone is too small to explain the result. These records are
-accordingly classified as `similar`, not `parity` and not a failed EOS record.
+The earlier 0.276359/0.293082 GPa refit values used adjusted latent volumes,
+whereas the published values used measured volumes. That was not a fair RMS
+comparison; these values are now explicitly separated. The orthogonal replay
+minimizes the joint coordinate objective, not unweighted pressure RMS.
+Its reduced chi square is 19.049 for Vinet and 22.080 for BM3, so the quoted
+coordinate errors alone do not describe the scatter. K0' is outside the
+conditional combined-two-error-width check with absolute-error covariance
+(marginally for Vinet). With residual-scaled covariance, all three coefficients
+pass that same screen for both models. The paper does not settle that choice.
+Thus the author protocol has not been exactly replayed and shown to fail;
+it remains unrecovered, and the recommendation/default hold is pending
+clarification. No diagnostic refit is installed as a replacement.
 
 ### Fedotenko direct refits
 

@@ -171,13 +171,21 @@ PAPER_SCOPE_NOTES = {
 # Keep the historical record ledger, but do not turn refit reproducibility
 # into a claim that every published author fit was reproduced.
 PAPER_REPRODUCTION_OVERRIDES = {
+    "10.1103/fxgq-96sg": {
+        "outcome": "partial_reproduction",
+        "summary": "Eight phase fits retain conditional coefficient parity. MgO and NaCl-B2 are not_reproduced and not recommended: the published curves give 1.161 and 0.622 GPa pressure RMS, versus 0.476 and 0.293 GPa for direct fixed-V0 diagnostic refits. Table S1 accounts for all 194 published DAC-2 MgO observations and 131 NaCl-B2 observations (125 above 35 GPa). Exact author fit-input completeness remains unconfirmed: the fitting description identifies this study's data, but data availability mentions other author-held data. See the [source-input audit](literature-reproductions/shen-smith-2026-cu-refits.md).",
+    },
+    "10.1063/5.0161038": {
+        "outcome": "parity_not_achieved",
+        "summary": "Final-paper protocol recheck: both Pd refits remain numerically similar; the two-width uncertainty comparison fails with absolute-error covariance but passes with residual-scaled covariance. Author objective, ambient treatment, constraints and covariance convention remain unrecovered. Scientific status not_reproduced denotes an unrecovered original fit, not a demonstrated failed author-protocol replay. Quantitative recommendation and Pd automatic default remain on hold pending clarification. The earlier adjusted-volume RMS comparison is corrected in the dedicated Frost audit.",
+    },
     "10.2138/am-2022-8435": {
         "outcome": "partial_reproduction",
         "summary": "Bridgmanite fits retained; published CaSiO3 thermal parameterization not reproduced and not recommended. Its historical _refit identifier denotes Fu's published coefficients, not the separately attributed Peritheos refit.",
     },
     "10.1063/5.0179469": {
         "outcome": "partial_reproduction",
-        "summary": "Experimental Pd BM3 fit not reproduced and not recommended; separate 0 K DFT record and current material default preserved.",
+        "summary": "Experimental Pd BM3 fit not reproduced and not recommended; separate 0 K DFT record preserved. Pd automatic default selection is on hold after the separate Frost audit.",
     },
     "10.1016/j.pepi.2013.12.010": {
         "outcome": "partial_reproduction",

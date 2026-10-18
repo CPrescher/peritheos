@@ -310,8 +310,8 @@ FIT_QUALIFICATIONS = {
     "feo_fischer_2011_bm3_2": "Conditional current-study thermal reproduction: all 42 numerical B1 volumes in Fischer Supplementary Table S1 are evaluated at their reported, already 3%-corrected temperatures with Equation (1)'s integrated-Gruneisen Mie-Gruneisen-Debye model. V0, theta0, q, Tr, and n are held fixed exactly as the source specifies. Fischer's published global fit also includes Campbell, Ozawa, and Seagle rows. All identifiable source tables are now bundled, but Campbell's fcc-Fe calibration is retained only as deferred source evidence because of unresolved coefficient-refit discrepancies. It is not an executable calibration; Fischer's final combined row selection remains unresolved. The source also does not state its regression weights, residual variable, covariance, or optimizer; this result remains a current-study-only diagnostic rather than an exact global-fit reproduction. See the [dedicated Fischer reproduction](literature-reproductions/fischer-2011-feo.md).",
     "feo_b8_2_fischer_2011_bm3_1": "Recovered combined thermal reproduction: all 21 numerical B8 volumes in Fischer Supplementary Table S1 are evaluated at their reported, already 3%-corrected temperatures with Equation (1)'s integrated-Gruneisen Mie-Gruneisen-Debye model. One-peak detections have no volume and are excluded; the three two-peak volumes whose errors are unconstrained use Figure 3's explicit +/-0.1 cm^3/mol fallback. All 8 B8 rows in Ozawa's printed Table 2 are added, and K0', theta0, q, Tr, and n are held fixed. The unweighted 29-row fit recovers every free coefficient within its published uncertainty. Fischer does not state its regression weights, residual variable, covariance, or optimizer, so this establishes numerical parameter parity rather than exact procedural identity. See the [dedicated Fischer reproduction](literature-reproductions/fischer-2011-feo.md).",
     "palladium_baty_2024_bm3_1": "Complete-table reproduction with unresolved source-fit discrepancy: all 78 official Table S1 rows and the printed BM3 equation are reproduced, but reasonable pressure-, volume-, and errors-in-variables objectives do not jointly recover the published coefficients. See the [dedicated palladium reproduction](literature-reproductions.md#palladium-baty-2024).",
-    "palladium_frost_2023_vinet_1": "Complete-table reproduction: all 93 Pd rows from supplementary Tables I-III are fitted with the source-stated 0.1 GPa pressure errors and volume errors propagated from the tabulated lattice-parameter errors. The result is numerically similar, but K0' is just outside combined two-sigma parity and the source does not publish enough detail to recover its precise weighting convention. See the [dedicated Frost reproduction](literature-reproductions.md#what-the-frost-paper-and-supplement-resolve).",
-    "palladium_frost_2023_bm3_2": "Complete-table reproduction: the alternative BM3 is fitted to the same 93 supplementary Pd rows with the source-stated pressure and volume uncertainties. The result is numerically similar, but K0' is just outside combined two-sigma parity and the exact source weighting convention is not reported. See the [dedicated Frost reproduction](literature-reproductions.md#what-the-frost-paper-and-supplement-resolve).",
+    "palladium_frost_2023_vinet_1": "All 93 verified source rows are independently fitted using sigma(P)=0.1 GPa and sigma(V)=3a^2 sigma(a). The final paper specifies uncertainty-aware Marquardt-Levenberg but not its exact objective, ambient-point inclusion, constraints or covariance convention. Numerical classification remains similar: the combined-two-width coefficient test fails with absolute-error covariance but passes with residual-scaled covariance. Original author-fit reproduction is unresolved; scientific status not_reproduced and recommendation/default hold pending protocol clarification. This does not establish a failed replay of the authors' protocol. Measured-volume pressure RMS is 0.771992 GPa published and 0.825323 GPa refitted; the earlier 0.276359 GPa used adjusted volumes. See the [Frost audit](literature-reproductions/palladium-frost-2023-audit.md).",
+    "palladium_frost_2023_bm3_2": "Independent refit of all 93 verified rows under explicit orthogonal/effective-variance interpretations of the final paper's uncertainty-aware Marquardt-Levenberg prose. Numerical classification remains similar: absolute-error covariance fails the combined-two-width test, whereas residual-scaled covariance passes. The original objective, ambient treatment, constraints and covariance convention are unrecovered; not_reproduced means original fit not recovered, with quantitative recommendation/default on hold pending clarification. Measured-volume pressure RMS is 0.845419 GPa published and 0.915380 GPa refitted; the earlier 0.293082 GPa used adjusted volumes. See the [Frost audit](literature-reproductions/palladium-frost-2023-audit.md).",
     "neon_fcc_fei_2007_bm3_1": "Conditional partial reproduction: Fei et al. fitted Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and their new observations. The 34 bundled points combine the 13 new Figure 5 observations with all 21 Hemley Table I observations after the source-stated Mao-to-Dewaele ruby recalculation. Finger's low-pressure rows remain unavailable. V0 is held fixed and the available subset is fitted without weights.",
     "neon_fcc_fei_2007_vinet_2": "Conditional partial reference-isotherm reproduction: Fei et al. fitted Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and their new observations. The 34 bundled points combine the 13 new Figure 5 observations with all 21 Hemley Table I observations after the source-stated Mao-to-Dewaele ruby recalculation. Finger's low-pressure rows remain unavailable. V0 and thermal coefficients are held fixed, and the available subset is fitted without weights.",
     "phase_egg_mookherjee_2019_bm3_lp_1": "Curve-level diagnostic reproduction: Supplementary Table 1 provides all 11 static LP pressure-volume points and they recover the published BM3 coefficients within the printed parameter uncertainties. The publication fitted total energy versus volume, however, and the deposited workbook does not include those energies, row uncertainties, regression weights, objective, covariance, or fit statistic. This pressure-residual refit therefore validates the published pressure curve but cannot reconstruct the source energy-fit protocol exactly. See the dedicated phase-Egg reproduction in literature-reproductions.md.",
@@ -666,7 +666,11 @@ def _shen_smith_outcome(
     )
     status, comparisons = _compare(record, result, False, 1.0)
     residuals = np.asarray(result.residuals, dtype=float)
-    return {
+    published_residuals = (
+        np.asarray(get_eos_record(record["identifier"]).eos.pressure(series.volume))
+        - series.pressure
+    )
+    outcome = {
         "status": status,
         "dataset_identifiers": [dataset["identifier"]],
         "observations": int(series.pressure.size),
@@ -691,6 +695,12 @@ def _shen_smith_outcome(
         "free_parameters": list(result.free_parameters),
         "parameters": comparisons,
         "rmse_gpa": float(np.sqrt(np.mean(residuals**2))),
+        "published_rmse_gpa": float(np.sqrt(np.mean(published_residuals**2))),
+        "published_mean_residual_gpa": float(np.mean(published_residuals)),
+        "published_residual_range_gpa": [
+            float(np.min(published_residuals)),
+            float(np.max(published_residuals)),
+        ],
         "reduced_chi_square": float(result.reduced_chi_square),
         "degrees_of_freedom": int(result.degrees_of_freedom),
         "solver_success": bool(result.success),
@@ -731,6 +741,31 @@ def _shen_smith_outcome(
             "residuals and does not infer any of them."
         ),
     }
+    validation = record["scientific_validation"]
+    if validation["status"] == "not_reproduced":
+        # A broad coefficient-similarity screen must not override a reviewed
+        # source-curve discrepancy or imply recovery of unavailable fit inputs.
+        outcome.update(
+            status="parity_not_achieved",
+            coefficient_comparison_status=status,
+            reproduction_status="not_reproduced",
+            author_workflow_reproduced=False,
+            source_fit_input_completeness="unconfirmed",
+        )
+        phase = SHEN_SELECTIONS[record["identifier"]][0]
+        phase_rows = [row for row in _load_rows(dataset) if row["phase"] == phase]
+        outcome["source_phase_observations"] = len(phase_rows)
+        outcome["excluded_phase_observations"] = len(phase_rows) - len(series.pressure)
+        outcome["qualification"] += (
+            " The paper identifies Table II as direct fits to this study's "
+            "Cu-referenced P-V data, with earlier literature included for "
+            "comparison. Its data-availability statement also mentions other "
+            "author-held data, so completeness of the actual author fit inputs "
+            "is unconfirmed. No additional experimental fit rows are identified "
+            "by the published fitting description. See the "
+            "[source-input audit](literature-reproductions/shen-smith-2026-cu-refits.md)."
+        )
+    return outcome
 
 
 def _column_map(dataset: dict[str, Any]) -> dict[str, dict[str, Any]]:
@@ -2891,6 +2926,12 @@ def _fit_record(
     ):
         status = "parity_not_achieved"
     residuals = np.asarray(result.residuals, dtype=float)
+    frost_adjusted_volume_rmse = None
+    if record_id in {"palladium_frost_2023_vinet_1", "palladium_frost_2023_bm3_2"}:
+        # EIV result.residuals uses fitted latent volumes. A comparison against
+        # the published curve at measured coordinates must use the same inputs.
+        frost_adjusted_volume_rmse = float(np.sqrt(np.mean(residuals**2)))
+        residuals = np.asarray(result.model.pressure(series.volume)) - series.pressure
     if record_id in {
         "feo_fischer_2011_bm3_2",
         "feo_b8_2_fischer_2011_bm3_1",
@@ -3210,6 +3251,12 @@ def _fit_record(
         }
     if record_id in FIT_QUALIFICATIONS:
         outcome["qualification"] = FIT_QUALIFICATIONS[record_id]
+    if frost_adjusted_volume_rmse is not None:
+        outcome["adjusted_volume_pressure_rmse_gpa"] = frost_adjusted_volume_rmse
+        outcome["pressure_rmse_coordinates"] = "measured volumes for both curves"
+        outcome["reproduction_status"] = "not_reproduced"
+        outcome["source_equation_status"] = "reproduced"
+        outcome["fit_reproduction_status"] = "not_reproduced"
     if record_id in QUALIFIED_STATUS_OVERRIDES:
         outcome["automatic_status"] = outcome["status"]
         outcome["status"] = QUALIFIED_STATUS_OVERRIDES[record_id]
@@ -5321,6 +5368,10 @@ def validate_all() -> dict[str, Any]:
                 from scripts.reproduce_phase_e_crichton_ross_2000 import ledger_outcome
 
                 outcome = ledger_outcome(record)
+            elif record["identifier"] == "gold_sakai_2025_rydberg_stacey_1":
+                from scripts.catalog_addition_outcomes import sakai_gold_outcome
+
+                outcome = sakai_gold_outcome(record)
             elif record["identifier"].startswith("diopside_"):
                 from scripts.catalog_addition_outcomes import diopside_outcome
 
@@ -5638,6 +5689,9 @@ def validate_all() -> dict[str, Any]:
                 " Diopside parity is conditional agreement within reported error "
                 "widths, including a graph-corroborated corrected Zhao analysis "
                 "dataset; exact original inputs and workflow remain unrecovered."
+                " Sakai 2025 Au parity concerns only the independently fitted "
+                "K0-prime central value at published precision under stated "
+                "calibrants and residuals, not uncertainty or sequential-network parity."
                 " Phase E (Crichton and Ross 2000) achieves fit parity within "
                 "reported parameter error widths, with small pressure-curve "
                 "differences relative to the observation errors. Exact author "
@@ -5837,6 +5891,9 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         "Zhao uses a separate corrected analysis dataset with the graph-corroborated ",
         "row-15 pressure. Original observations and published coefficients remain ",
         "unchanged; exact original author inputs and workflow are not recovered.",
+        "Sakai (2025) Au accepts conditional K0-prime central-value parity at published ",
+        "precision. Fixed coefficients, original weights/covariance and full ",
+        "sequential-calibration parity are not independently recovered.",
         "Phase E (Crichton and Ross 2000) achieves fit parity within reported ",
         "parameter errors on all 11 primary rows. Weighted-refit coefficient ",
         "shifts are below 0.123 reported error widths and the largest curve ",

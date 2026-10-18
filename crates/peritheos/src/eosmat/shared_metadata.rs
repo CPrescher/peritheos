@@ -129,6 +129,11 @@ fn assessment(evidence: &Value) -> Result<(), EosmatError> {
     if fields.get("fit").is_some_and(|value| !value.is_object()) {
         return Err(invalid_document("assessment.fit must be an object"));
     }
+    assessment_parameters(&fields)?;
+    Ok(())
+}
+
+fn assessment_parameters(fields: &Map<String, Value>) -> Result<(), EosmatError> {
     if let Some(value) = fields.get("parameters") {
         let rows = value
             .as_array()

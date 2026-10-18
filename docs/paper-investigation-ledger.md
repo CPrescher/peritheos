@@ -39,11 +39,11 @@ refits, or acceptance-gate holds.
 | Paper-level outcome | Papers |
 |---|---:|
 | Original unreproduced; independent refit available | 4 |
-| Reproduced | 176 |
-| Partly reproduced | 12 |
+| Reproduced | 174 |
+| Partly reproduced | 14 |
 | Mixed: reproduced and discrepant records | 9 |
-| Coefficient parity not achieved | 7 |
-| Direct refit unavailable | 60 |
+| Coefficient parity not achieved | 8 |
+| Direct refit unavailable | 59 |
 | Source reconstruction | 3 |
 | Withheld: could not reproduce | 7 |
 | Deferred: incomplete source/model mapping | 91 |
@@ -910,7 +910,7 @@ Evidence: [literature-reproductions/tranche-c-zero-yield-audits.md](literature-r
 
 ## Papers with coefficient discrepancies
 
-These **22 papers** account for all 60 records
+These **23 papers** account for all 62 records
 classified as `parity_not_achieved`. Papers with other successful records
 are marked as mixed in the complete register.
 
@@ -941,7 +941,6 @@ are marked as mixed in the complete register.
 |  | `platinum_fei_2007_vinet_mgd` | gamma0 2.72 -> 2.6124; q 0.5 -> -1.66064 |
 | [Fei et al. (2007)](https://doi.org/10.1029/2007gl030712) | `mg080fe020o_fei_2007_ls_b1_bm3` | K0 170 -> 144.186 |
 | [Fu et al. (2023)](https://doi.org/10.2138/am-2022-8435) | `ca_perovskite_fu_2023_bm3_mgd_refit` | gamma0 1.42 -> 2.44196; q 2.65 -> 1.83946 |
-| [Fukui (2003)](https://doi.org/10.1007/s00269-003-0353-z) | `brucite_fukui_2003_873k_bm3` | K0 23.9 -> 25.4761 |
 | [Gleason et al. (2008)](https://doi.org/10.2138/am.2008.2942) | `goethite_gleason_2008_bm3_1` | rt_eos.K0 140.3 -> 183.338; rt_eos.K0_prime 4.6 -> 0 |
 | [Katsura et al. (2009)](https://doi.org/10.1029/2009gl038107) | `wadsleyite_katsura_2009_bm3_1` | gamma0 1.64 -> 1.12567 |
 | [Miozzi et al. (2020)](https://doi.org/10.3390/min10020100) | `iron_miozzi_2020_bm3` | K0 129 -> 163.357; K0_prime 6.2 -> 5.49869 |
@@ -972,6 +971,8 @@ are marked as mixed in the complete register.
 |  | `iron_sakai_2014_p1_v0_mao_vinet` | K0 160.1 -> 163.404 |
 |  | `iron_sakai_2014_p4_bm3` | K0 195.1 -> 198.589 |
 |  | `iron_sakai_2014_p6_bm3` | K0 171.7 -> 175.551 |
+| [Shen and Smith (2026)](https://doi.org/10.1103/fxgq-96sg) | `mgo_shen_2026_vinet_3` | published coefficients were not recovered |
+|  | `nacl_b2_shen_2026_vinet_2` | published coefficients were not recovered |
 | [Solomatova et al. (2016)](https://doi.org/10.2138/am-2016-5510) | `mg075fe025o_solomatova_2016_hs_bm3_reference_1` | published coefficients were not recovered |
 |  | `mg075fe025o_solomatova_2016_ls_bm3_reference_2` | published coefficients were not recovered |
 | [Somayazulu et al. (2023)](https://doi.org/10.1098/rsta.2022.0331) | `b4c_somayazulu_2023_bm3_1` | q 2.1 -> 1.04991 |
@@ -984,7 +985,7 @@ for every row above are in the
 
 ## Papers with unavailable direct refits
 
-These **67 papers** contain 178 records for which a
+These **67 papers** contain 177 records for which a
 source-faithful coefficient refit could not be performed. A paper can also
 have other records that were reproduced.
 
@@ -1095,7 +1096,7 @@ the primary-source and refit ledgers.
 | [Anzellini et al. (2022)](https://doi.org/10.1038/s41598-022-10523-2) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Anzellini et al. (2025)](https://doi.org/10.1038/s43246-025-00963-4) | Reproduced | 1 | 1 parity | 1 bundled |
 | [B8 Fe0.94O, Fischer et al. (2011)](https://doi.org/10.1016/j.epsl.2011.02.025) | Reproduced | 2 | 2 parity | 2 bundled |
-| [Baty et al. (2024)](https://doi.org/10.1063/5.0179469) | Partly reproduced | 2 | Experimental Pd BM3 fit not reproduced and not recommended; separate 0 K DFT record and current material default preserved. | 1 bundled; 1 theoretical parameterization only |
+| [Baty et al. (2024)](https://doi.org/10.1063/5.0179469) | Partly reproduced | 2 | Experimental Pd BM3 fit not reproduced and not recommended; separate 0 K DFT record preserved. Pd automatic default selection is on hold after the separate Frost audit. | 1 bundled; 1 theoretical parameterization only |
 | [Bejina et al. (2021)](https://doi.org/10.5194/ejm-33-519-2021) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Belmonte (2017)](https://doi.org/10.3390/min7100183) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Benedict et al. (2014)](https://doi.org/10.1103/physrevb.89.224109) | Coefficient parity not achieved | 1 | 1 parity not achieved | 1 bundled |
@@ -1180,7 +1181,7 @@ the primary-source and refit ledgers.
 | [Frank et al. (2004)](https://doi.org/10.1016/j.gca.2003.12.007) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Fratanduono et al. (2020)](https://doi.org/10.1103/physrevlett.124.015701) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 parameterization only |
 | [Fratanduono et al. (2021)](https://doi.org/10.1126/science.abh0364) | Reproduced | 1 | 1 parity | 1 bundled |
-| [Frost et al. (2023)](https://doi.org/10.1063/5.0161038) | Reproduced | 2 | 2 similar | 2 bundled |
+| [Frost et al. (2023)](https://doi.org/10.1063/5.0161038) | Coefficient parity not achieved | 2 | Final-paper protocol recheck: both Pd refits remain numerically similar; the two-width uncertainty comparison fails with absolute-error covariance but passes with residual-scaled covariance. Author objective, ambient treatment, constraints and covariance convention remain unrecovered. Scientific status not_reproduced denotes an unrecovered original fit, not a demonstrated failed author-protocol replay. Quantitative recommendation and Pd automatic default remain on hold pending clarification. The earlier adjusted-volume RMS comparison is corrected in the dedicated Frost audit. | 2 bundled |
 | [Fu et al. (2023)](https://doi.org/10.2138/am-2022-8435) | Partly reproduced | 4 | Bridgmanite fits retained; published CaSiO3 thermal parameterization not reproduced and not recommended. Its historical _refit identifier denotes Fu's published coefficients, not the separately attributed Peritheos refit. | 4 bundled |
 | [Fu et al. (2024)](https://doi.org/10.2138/am-2023-8969) | Reproduced | 2 | 1 parity; 1 similar | 2 bundled |
 | [Fuchizaki (2019), updated MgO melting curve](https://doi.org/10.7566/JPSJ.88.065003) | Direct refit unavailable | 0 | no production record | investigation evidence only |
@@ -1352,7 +1353,7 @@ the primary-source and refit ledgers.
 | [Schouwink et al. (2011)](https://doi.org/10.2138/am.2011.3775) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Schulze et al. (2018)](https://doi.org/10.2138/am-2018-6562) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Scott et al. (2001)](https://doi.org/10.1029/2000gl012606) | Reproduced | 1 | 1 parity | 1 plot only/digitized |
-| [Shen and Smith (2026)](https://doi.org/10.1103/fxgq-96sg) | Reproduced | 10 | 8 parity; 2 similar | 10 bundled |
+| [Shen and Smith (2026)](https://doi.org/10.1103/fxgq-96sg) | Partly reproduced | 10 | Eight phase fits retain conditional coefficient parity. MgO and NaCl-B2 are not_reproduced and not recommended: the published curves give 1.161 and 0.622 GPa pressure RMS, versus 0.476 and 0.293 GPa for direct fixed-V0 diagnostic refits. Table S1 accounts for all 194 published DAC-2 MgO observations and 131 NaCl-B2 observations (125 above 35 GPa). Exact author fit-input completeness remains unconfirmed: the fitting description identifies this study's data, but data availability mentions other author-held data. See the [source-input audit](literature-reproductions/shen-smith-2026-cu-refits.md). | 10 bundled |
 | [Sherman (1993)](https://doi.org/10.1029/93jb02175) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 parameterization only |
 | [Sherman et al. (1993), stishovite and modified-fluorite SiO2](https://doi.org/10.1029/93JB00783) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Shi et al. (2022)](https://doi.org/10.1029/2021jb023805) | Reproduced | 2 | 1 parity; 1 similar | 2 bundled |

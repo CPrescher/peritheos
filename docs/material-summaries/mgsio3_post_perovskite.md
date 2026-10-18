@@ -38,8 +38,8 @@ Cmcm structure and fractional coordinates at 121 GPa and 300 K: Murakami et al.,
 | [Mosenfelder et al. (2009), shock-static BM3-MGD](#record-mgsio3_post_perovskite_mosenfelder_2009_bm3_1) | BM3 + MieGruneisenDebye | 300.0 | primary source validated | Executable |
 | [Sakai et al. (2016), experimental multi-megabar BM3](#record-mgsio3_post_perovskite_sakai_2016_bm3_2) | BM3 | 300.0 | primary source validated | Executable |
 | [Ono et al. (2006), Anderson-gold-scale constrained BM3 (BM2)](#record-mgsio3_post_perovskite_ono_2006_anderson_bm2_3) | BM2 | 300.0 | primary source validated | Executable |
-| [Ono et al. (2006), Jamieson-gold-scale constrained BM3 (BM2)](#record-mgsio3_post_perovskite_ono_2006_jamieson_bm2_4) | BM2 | 300.0 | primary source validated | Executable |
-| [Ono et al. (2006), Dewaele-gold-scale constrained BM3 (BM2)](#record-mgsio3_post_perovskite_ono_2006_dewaele_bm2_5) | BM2 | 300.0 | primary source validated | Executable |
+| [Ono et al. (2006), Jamieson-gold-scale constrained BM3 (BM2)](#record-mgsio3_post_perovskite_ono_2006_jamieson_bm2_4) | BM2 | 300.0 | primary source validated | Pressure-scale reference variant |
+| [Ono et al. (2006), Dewaele-gold-scale constrained BM3 (BM2)](#record-mgsio3_post_perovskite_ono_2006_dewaele_bm2_5) | BM2 | 300.0 | primary source validated | Pressure-scale reference variant |
 | [Akber-Knutson et al. (2005), pure-MgSiO3 post-perovskite static GGA BM3](#record-mgsio3_post_perovskite_akber_knutson_2005_gga_bm3) | BM3 | 0 | primary source validated | Executable |
 | [Zhang and Wentzcovitch (2022), PHQ-LDA 300 K BM3](#record-mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_lda_300k_bm3) | BM3 | 300.0 | primary source validated | Executable |
 | [Zhang and Wentzcovitch (2022), PHQ-PBE 300 K BM3](#record-mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_pbe_300k_bm3) | BM3 | 300.0 | primary source validated | Executable |
@@ -581,7 +581,9 @@ Parameter covariance is not supplied.
 
 Identifier: `mgsio3_post_perovskite_ono_2006_jamieson_bm2_4`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [mgsio3\_post\_perovskite\_ono\_2006\_anderson\_bm2\_3](#record-mgsio3_post_perovskite_ono_2006_anderson_bm2_3); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -763,7 +765,9 @@ Parameter covariance is not supplied.
 
 Identifier: `mgsio3_post_perovskite_ono_2006_dewaele_bm2_5`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [mgsio3\_post\_perovskite\_ono\_2006\_anderson\_bm2\_3](#record-mgsio3_post_perovskite_ono_2006_anderson_bm2_3); it is not an independent EOS choice.
 
 
 - **Record kind:** published

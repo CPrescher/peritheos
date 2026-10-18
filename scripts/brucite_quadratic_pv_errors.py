@@ -11,8 +11,17 @@ import argparse
 import hashlib
 import json
 
+# Retain the archived ODRPACK cross-check without changing its numerical method.
+# SciPy 1.17+ warns on import; migration is required before SciPy 1.19 removes it.
+import warnings
+
 import numpy as np
-from scipy import odr
+
+with warnings.catch_warnings():
+    warnings.filterwarnings(
+        "ignore", message=r"`scipy\.odr` is deprecated.*", category=DeprecationWarning
+    )
+    from scipy import odr
 from scipy.optimize import least_squares
 
 from scripts.brucite_joint_pv_errors import REPORT as LINEAR_REPORT

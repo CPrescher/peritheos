@@ -35,6 +35,15 @@ equation family is the reusable mathematical model. Do not add a new equation
 class when a publication can be represented exactly by an existing model and
 an explicit configuration choice.
 
+When a study publishes fits of the same observations on several pressure scales,
+retain one source per equation family and data/constraint selection. Preserve
+the other published fits with `pressure_scale_variant_of` pointing to that
+source, rather than presenting them as independent EOS choices. Select output
+pressure scales through an audited calibration route; the reference-variant
+link itself does not authorize conversion. Different samples, temperatures,
+pressure media, data subsets, and fitting constraints remain separate choices.
+Document the source selection and unresolved calibration variants.
+
 ## Acceptance requirements
 
 A bundled, executable EOS record must satisfy all of the following:

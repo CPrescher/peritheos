@@ -379,6 +379,7 @@
               "solver_success": true,
               "solver_message": "`ftol` termination condition is satisfied.",
               "rmse_gpa": 0.7273663608984583,
+              "published_rmse_gpa": 0.7370080313201411,
               "reduced_chi_square": 0.5318610918712517,
               "pressure_reconstruction": {
                 "density0_g_cm3": 8.939,
@@ -606,6 +607,7 @@
       "record_kind": "published",
       "equation_kind": "isothermal",
       "notes": "Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.",
+      "pressure_scale_variant_of": "iron_dewaele_2019_mao_vinet",
       "parameter_covariance": null,
       "reference": {
         "authors": ["Dewaele"],
@@ -3030,6 +3032,7 @@
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
       "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "pressure_scale_variant_of": "iron_sakai_2014_p1_bm3",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -3138,6 +3141,7 @@
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
       "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "pressure_scale_variant_of": "iron_sakai_2014_p1_vinet",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -3246,6 +3250,7 @@
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
       "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "pressure_scale_variant_of": "iron_sakai_2014_p1_bm3",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -3357,6 +3362,7 @@
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
       "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "pressure_scale_variant_of": "iron_sakai_2014_p1_vinet",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -3465,6 +3471,7 @@
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
       "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "pressure_scale_variant_of": "iron_sakai_2014_p1_bm3",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -3598,6 +3605,7 @@
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
       "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "pressure_scale_variant_of": "iron_sakai_2014_p1_vinet",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -3735,6 +3743,7 @@
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
       "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "pressure_scale_variant_of": "iron_sakai_2014_p1_bm3",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -3872,6 +3881,7 @@
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
       "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "pressure_scale_variant_of": "iron_sakai_2014_p1_vinet",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -4006,6 +4016,7 @@
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
       "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "pressure_scale_variant_of": "iron_sakai_2014_p1_bm3",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,
@@ -4139,6 +4150,7 @@
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
       "notes": "Table 3 source fit. V0 from a preliminary g-G plot is held during the K0/K0_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.",
+      "pressure_scale_variant_of": "iron_sakai_2014_p1_vinet",
       "reference": {
         "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
         "year": 2014,

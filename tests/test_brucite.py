@@ -16,6 +16,7 @@ from peritheos import (
     search_eos_records,
 )
 from peritheos.errors import MaterialError, MaterialLookupError
+from scripts.brucite_replay_checks import check_report
 from scripts.brucite_reproduce import (
     COLUMNS,
     DATA,
@@ -31,8 +32,12 @@ from scripts.brucite_reproduce import (
     reproduce,
     source,
 )
-from scripts.brucite_replay_checks import check_report
-from scripts.brucite_stage import audit_document, catalog_document, conditional_thermal_document, staged_document
+from scripts.brucite_stage import (
+    audit_document,
+    catalog_document,
+    conditional_thermal_document,
+    staged_document,
+)
 from scripts.eosmat_io import read_material
 from scripts.run_eosmat_audit import historical_reconstruction_view
 
@@ -441,7 +446,8 @@ def test_brucite_refit_requires_curve_parity_within_coefficient_tolerance(monkey
     from scripts import brucite_reproduce as audit
 
     record = next(
-        r for r in audit_document()["eos_records"]
+        r
+        for r in audit_document()["eos_records"]
         if r["identifier"] == "brucite_peritheos_fukui_2003_thermal_refit"
     )
     report = reproduce()
