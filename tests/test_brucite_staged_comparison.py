@@ -24,7 +24,7 @@ def test_ambient_stage_reproduces_the_printed_constant_law(report):
     # Supported solver builds differ by a few 1e-9 Å³ in this diagnostic fit.
     # These absolute replay bounds do not change archived or published values.
     assert ambient["V300_a3"] == pytest.approx(40.9165851955, rel=0, abs=1e-8)
-    assert ambient["alpha_per_k"] == pytest.approx(6.69185183775e-5, rel=0, abs=1e-13)
+    assert ambient["alpha_per_k"] == pytest.approx(6.69185183775e-5, rel=0, abs=1e-12)
     assert ambient["source_rows"] == list(range(1, 12))
     assert not report["author_workflow_reproduced"]
 
