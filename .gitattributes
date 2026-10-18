@@ -29,7 +29,7 @@ peritheos/data/datasets/diopside-*-original.txt text eol=lf
 peritheos/data/datasets/diopside-zhao-1998-corrected-pvt.README.md text eol=lf
 
 # These newly recovered/source-derived CSVs are fingerprinted as supplied.
-peritheos/data/datasets/brown-nacl-1999-*.csv -text whitespace=cr-at-eol
+peritheos/data/datasets/brown-nacl-1999-*.csv -text -eol whitespace=cr-at-eol
 peritheos/data/datasets/ferrous-ringwoodite-*.csv -text whitespace=cr-at-eol
 output/material-candidates/brown-nacl-1999/*.csv -text whitespace=cr-at-eol
 output/material-candidates/ferrous-ringwoodite/*.csv -text whitespace=cr-at-eol

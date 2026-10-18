@@ -58,6 +58,8 @@ All notable changes to Peritheos are documented here. The project follows
   volumes and keep adjusted-volume residuals separately labelled.
 - Preserve upstream 0.14.1 observation validation and export fixes, archive-local
   test fixtures, UTF-8 portability and calculated-fit replay tolerances.
+- Preserve the original Brown source CSV bytes in Git archives so their recorded
+  checksums remain verifiable after a fresh checkout.
 
 ### Compatibility and scientific limits
 

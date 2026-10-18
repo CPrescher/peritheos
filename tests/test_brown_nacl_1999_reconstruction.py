@@ -1,5 +1,9 @@
 """Scientific checks for the isolated Brown NaCl reconstruction."""
 
+import hashlib
+import json
+from pathlib import Path
+
 import numpy as np
 import pytest
 from scipy import interpolate
@@ -21,6 +25,19 @@ from scripts.brown_nacl_1999_reconstruct import (
     length_integral,
     read,
 )
+
+
+def test_recovered_resource_bytes_match_the_source_manifest():
+    root = Path(__file__).resolve().parents[1]
+    manifest = json.loads(
+        (
+            root / "output/material-candidates/brown-nacl-1999/recovery-manifest.json"
+        ).read_text(encoding="utf-8")
+    )
+    for name, resource in manifest["datasets"].items():
+        # Source fingerprints include the supplied CSV line endings.
+        payload = (root / "peritheos/data/datasets" / name).read_bytes()
+        assert hashlib.sha256(payload).hexdigest() == resource["sha256"], name
 
 
 @pytest.fixture(scope="module")
