@@ -68,11 +68,15 @@ def test_sakai_gold_observation_datasets_load_without_changing_coefficients():
 
 
 def test_source_hashes_and_every_normalized_workbook_row_round_trip(tmp_path):
-    manifest = json.loads((DATA / "sakai-2025-au-source.json").read_text())
+    manifest = json.loads(
+        (DATA / "sakai-2025-au-source.json").read_text(encoding="utf-8")
+    )
     for item in manifest["products"].values():
         path = ROOT / "peritheos/data" / item["path"]
         assert hashlib.sha256(path.read_bytes()).hexdigest() == item["sha256"]
-    raw = json.loads((DATA / "sakai-2025-au-workbook-cells.json").read_text())
+    raw = json.loads(
+        (DATA / "sakai-2025-au-workbook-cells.json").read_text(encoding="utf-8")
+    )
     assert raw["workbook_sha256"] == (
         "c559b29fea9c793831e4bc6deef4d62712b5e78821fc420969f709cbd1060ff9"
     )
@@ -151,7 +155,9 @@ def test_ruby_coordinate_reconstruction_uses_reported_source_scale():
 def test_reconstructed_pressure_states_and_objective_sensitivity_are_explicit():
     result = reproduce()
     saved = json.loads(
-        (ROOT / "docs/data/sakai-2025-gold-reconstruction.json").read_text()
+        (ROOT / "docs/data/sakai-2025-gold-reconstruction.json").read_text(
+            encoding="utf-8"
+        )
     )
     assert result["source_recovery"] == saved["source_recovery"]
     reductions = result["pressure_reductions"]
@@ -188,7 +194,9 @@ def test_reconstructed_pressure_states_and_objective_sensitivity_are_explicit():
             "reconstruction_assessment"
         ]
     )
-    manifest = json.loads((DATA / "sakai-2025-au-source.json").read_text())
+    manifest = json.loads(
+        (DATA / "sakai-2025-au-source.json").read_text(encoding="utf-8")
+    )
     assert manifest["reconstruction_assessment"] == assessment
     assert (
         manifest["reconstruction_report_sha256"]

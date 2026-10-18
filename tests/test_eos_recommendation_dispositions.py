@@ -167,7 +167,9 @@ def test_gong_does_not_fit_a_reference_isentrope_to_hugoniot_states():
 def test_dewaele_iron_uses_existing_complete_recalibrated_hcp_audit(suffix):
     identifier = f"iron_dewaele_2019_{suffix}_vinet"
     doc, raw = source(identifier)
-    refit = json.loads(DEWAELE_REFIT_JSON.read_text())["row_level_refits"][identifier]
+    refit = json.loads(DEWAELE_REFIT_JSON.read_text(encoding="utf-8"))[
+        "row_level_refits"
+    ][identifier]
     outcome = _dewaele_2019_outcome(doc, raw, refit)
     assert outcome["observations"] == 53
     assert outcome["status"] == "similar"

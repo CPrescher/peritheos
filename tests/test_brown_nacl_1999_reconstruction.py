@@ -2,6 +2,7 @@
 
 import numpy as np
 import pytest
+from scipy import interpolate
 from scipy.integrate import quad
 
 from scripts.brown_nacl_1999_reconstruct import (
@@ -24,9 +25,21 @@ from scripts.brown_nacl_1999_reconstruct import (
 
 @pytest.fixture(scope="module")
 def model():
+    if not hasattr(interpolate, "make_smoothing_spline"):
+        pytest.skip(
+            "Optional natural-smoothing research diagnostic requires SciPy >=1.10"
+        )
     return Model(
         Settings(smoothing=1e-7, spline_kind="natural_smoothing", join_width=0.025)
     )
+
+
+def test_optional_smoothing_requirement_does_not_change_the_requested_method(
+    monkeypatch,
+):
+    monkeypatch.delattr(interpolate, "make_smoothing_spline", raising=False)
+    with pytest.raises(RuntimeError, match="requires SciPy >=1.10"):
+        Model(Settings(spline_kind="natural_smoothing"))
 
 
 @pytest.mark.parametrize("T,theta", [(100, 300), (300, 375), (1200, 375), (5000, 450)])

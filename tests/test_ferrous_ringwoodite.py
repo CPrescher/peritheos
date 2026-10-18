@@ -130,7 +130,7 @@ def test_all_resources_and_primary_transcriptions_preserve_source_values():
     assert rows[1]["pressure_reported_uncertainty_gpa"] == "0.30"
     assert rows[1]["assumed_mean_sample_temperature_k"] == "1148.00"
     assert rows[1]["assumed_nacl_temperature_k"] == "724.00"
-    assert NORMALIZED.read_text() == normalized_csv()
+    assert NORMALIZED.read_text(encoding="utf-8") == normalized_csv()
     liu = read_csv(DATA / f"{PREFIX}liu-2008-table1.csv")
     assert len(liu) == 29
     assert liu[0]["pressure_gpa"] == "3.73"
@@ -247,7 +247,9 @@ def test_independent_quadrature_native_parity_and_public_cell_scaling(result):
 
 
 def test_manifest_license_and_calibrant_scope():
-    manifest = json.loads((DATA / "ferrous-ringwoodite-source.json").read_text())
+    manifest = json.loads(
+        (DATA / "ferrous-ringwoodite-source.json").read_text(encoding="utf-8")
+    )
     for filename, resource in manifest["datasets"].items():
         assert (
             hashlib.sha256((DATA / filename).read_bytes()).hexdigest()

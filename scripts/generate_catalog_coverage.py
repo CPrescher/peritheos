@@ -25,8 +25,12 @@ def collect_coverage() -> dict:
     executable = {
         r.identifier: r for r in list_eos_records(include_reference_variants=True)
     }
-    refits = json.loads((DOCS / "data/primary-eos-refits.json").read_text())
-    audits = json.loads((ROOT / "peritheos/data/primary-source-audit.json").read_text())
+    refits = json.loads(
+        (DOCS / "data/primary-eos-refits.json").read_text(encoding="utf-8")
+    )
+    audits = json.loads(
+        (ROOT / "peritheos/data/primary-source-audit.json").read_text(encoding="utf-8")
+    )
     refit_ids = {r["record_identifier"] for r in refits["records"]}
     audit_ids = {r["record"] for r in audits["records"]}
     fingerprint = hashlib.sha256()

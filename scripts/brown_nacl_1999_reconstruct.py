@@ -15,7 +15,7 @@ from pathlib import Path
 
 import numpy as np
 from scipy.integrate import cumulative_trapezoid, solve_ivp
-from scipy.interpolate import BSpline, CubicSpline, make_smoothing_spline
+from scipy.interpolate import BSpline, CubicSpline
 from scipy.optimize import brentq
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -190,6 +190,13 @@ class Model:
         knots = np.r_[[xmin] * 4, interior, [xmax] * 4]
         n = len(knots) - 4
         if s.spline_kind == "natural_smoothing":
+            try:
+                from scipy.interpolate import make_smoothing_spline
+            except ImportError as error:
+                raise RuntimeError(
+                    "The natural_smoothing research diagnostic requires SciPy >=1.10; "
+                    "the finite_basis reconstruction and saved refit support SciPy >=1.9.3."
+                ) from error
             unique, ix = np.unique(x, return_inverse=True)
             grouped = np.bincount(ix, minlength=len(unique)).astype(float)
             sample = make_smoothing_spline(
@@ -587,7 +594,7 @@ def main():
     }
     correspondence = OUT / "sources/brown-author-reply-2026-10-16.json"
     if correspondence.exists():
-        evidence = json.loads(correspondence.read_text())
+        evidence = json.loads(correspondence.read_text(encoding="utf-8"))
         report["author_correspondence"] = {
             "source": str(correspondence.relative_to(ROOT)),
             "source_type": evidence["source_type"],

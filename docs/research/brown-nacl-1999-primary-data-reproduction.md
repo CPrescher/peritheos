@@ -547,6 +547,14 @@ complete experimental uncertainty.
 
 ## Reproducibility boundary and deliverables
 
+The optional `natural_smoothing` diagnostic requires SciPy 1.10 or newer,
+which [introduced `make_smoothing_spline`](https://docs.scipy.org/doc/scipy/release/1.10.0-notes.html).
+The finite-basis reconstruction, independent saved refit and base Peritheos
+library retain the declared SciPy 1.9.3 minimum. On an older installation,
+requesting natural smoothing raises an explicit error; the calculation never
+substitutes a different fitting method. Use the locked development environment
+to replay every research variant.
+
 What is established:
 
 * Recovery of the published BK measurement table and Fritz experimental
