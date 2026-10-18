@@ -8,6 +8,7 @@ from jsonschema import Draft202012Validator
 
 from peritheos import Material, eosmat_schema, get_material
 from peritheos.errors import MaterialError
+from scripts import brucite_curved_expansion
 from scripts.brucite_curved_expansion import PREFIX, REPORT, ledger_outcome, reproduce
 from scripts.brucite_replay_checks import check_report
 from scripts.brucite_reproduce import bm3, observations, source
@@ -26,6 +27,26 @@ def report():
     saved = json.loads(REPORT.read_text(encoding="utf-8"))
     check_report(reproduce(), saved)
     return saved
+
+
+def test_comparison_plot_uses_archived_diagnostic_without_catalog_promotion(
+    report, tmp_path, monkeypatch
+):
+    monkeypatch.setattr(brucite_curved_expansion, "ROOT", tmp_path)
+    (tmp_path / "docs/data").mkdir(parents=True)
+    comparison = brucite_curved_expansion.write_comparison_plot(report)
+    assert len(comparison) == 4
+    for actual, expected in zip(comparison, report["isotherms"]):
+        assert actual["new_continuous"]["pressure_rmse_gpa"] == pytest.approx(
+            expected["continuous_variant"]["pressure_rmse_gpa"], abs=1e-12
+        )
+    for extension in ("png", "pdf"):
+        assert (
+            tmp_path / f"docs/data/brucite-continuous-comparison.{extension}"
+        ).stat().st_size > 0
+    assert report["continuous_variant"]["identifier"] not in {
+        record.identifier for record in get_material("brucite").eos_records
+    }
 
 
 @pytest.mark.parametrize("index,temperature", [(0, 300), (1, 473), (2, 673), (3, 873)])
