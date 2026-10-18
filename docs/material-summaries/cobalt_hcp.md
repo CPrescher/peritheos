@@ -89,6 +89,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 199.0 | 6.0 | 202.7072716900071 | 16.42416297027183 | Free |
+| K0\_prime | 3.6 | 0.2 | 3.643827879405484 | 0.8314273882369375 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_ratio
+- **Absolute sigma:** True
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 8
+- **Observed pressure range gpa:** \[24.0204, 79.046\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[17.4857730975, 20.327386761\]
+- **Degrees of freedom:** 6
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.10721362874914021
+- **Published rmse gpa:** 1.3905285846088389
+- **Reduced chi square:** 0.11816657360477413
+- **Dataset identifiers:** cobalt\_hcp\_fujihisa\_1996\_figure3\_digitized
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Room-temperature hcp-cobalt Vinet fit to 79 GPa: K0=199+/-6 GPa and K0'=3.6+/-0.2. Volumes were normalized to the ambient hcp volume, retained here as the fixed conventional-cell V0.
 
 Parameter covariance is not supplied.
@@ -186,6 +242,54 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 22.154 | 0.024 | 22.154211831423616 | Not specified | Free |
+| K0 | 197.0 | 3.2 | 197.02818238040842 | Not specified | Free |
+| K0\_prime | 3.85 | 0.2 | 3.849071457165032 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** static\_vinet\_with\_explicit\_ruby\_scale\_conversion
+- **Objective:** unweighted pressure residuals
+- **Selection:** complete
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 25
+- **Observed pressure range gpa:** \[0.0, 63.4\]
+- **Solver success:** True
+- **Solver message:** dedicated Dewaele (2019) refit completed
+- **Rmse gpa:** 0.2542280308833028
+- **Dataset identifiers:** cobalt\_dewaele\_2008\_table2\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
 
@@ -285,6 +389,54 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 22.154 | 0.024 | 22.153725569761363 | Not specified | Free |
+| K0 | 194.85 | 3.2 | 194.84630408858632 | Not specified | Free |
+| K0\_prime | 4.36 | 0.2 | 4.358418631337993 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** static\_vinet\_with\_explicit\_ruby\_scale\_conversion
+- **Objective:** unweighted pressure residuals
+- **Selection:** complete
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 25
+- **Observed pressure range gpa:** \[0.0, 66.09908878096965\]
+- **Solver success:** True
+- **Solver message:** dedicated Dewaele (2019) refit completed
+- **Rmse gpa:** 0.26584864078177023
+- **Dataset identifiers:** cobalt\_dewaele\_2008\_table2\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
 

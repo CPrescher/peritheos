@@ -39,6 +39,63 @@
         "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Corrected source-scope reproduction: Figure 2 expresses the observations as V/V0 and reports only K0 and K0' as fitted coefficients, so the measured ambient V0 is held fixed. The 16-marker refit is statistically compatible with both published coefficients but remains only numerically similar; see the [dedicated Mo2C reproduction](literature-reproductions.md#mo2c-haines-2001).",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 307.0,
+                "published_error": 5.0,
+                "refit": 325.87419826054304,
+                "refit_error": 9.50029103042738,
+                "difference": 18.87419826054304,
+                "relative_difference": 0.06147947316137798,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 6.2,
+                "published_error": 0.3,
+                "refit": 4.9092021387052664,
+                "refit_error": 0.6513930636044009,
+                "difference": -1.2907978612947337,
+                "relative_difference": 0.20819320343463446,
+                "similar": false,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_ratio"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 16,
+              "observed_pressure_range_gpa": [0.0, 45.499],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [133.452032091, 148.911567213],
+              "degrees_of_freedom": 14,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.37453767113271197,
+              "published_rmse_gpa": 0.7040384578944161,
+              "reduced_chi_square": 0.9733212560820694,
+              "dataset_identifiers": ["molybdenum_carbide_haines_2001_figure2_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -146,6 +203,63 @@
         "notes": "The refit uses the pressures printed graphically by the source; no replacement pressure scale is inferred."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "independent_refit",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This comparison concerns the stored independent Peritheos refit, not recovery of the original publication's coefficients or author workflow.",
+              "Explicit Peritheos refit record: all 16 digitized Figure 2 markers are fitted with measured V0 fixed and the documented errors-in-variables objective. This record reproduces its stored coefficients exactly and does not replace the published Haines parameterization; see the [dedicated Mo2C reproduction](literature-reproductions.md#mo2c-haines-2001)."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 325.87419826054304,
+                "published_error": 9.50029103042738,
+                "refit": 325.87441324143583,
+                "refit_error": 9.500289924692877,
+                "difference": 0.00021498089279248234,
+                "relative_difference": 6.597051682520772e-07,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.9092021387052664,
+                "published_error": 0.6513930636044009,
+                "refit": 4.909186606761885,
+                "refit_error": 0.6513920513055321,
+                "difference": -1.553194338121955e-05,
+                "relative_difference": 3.163842706488326e-06,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_ratio"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 16,
+              "observed_pressure_range_gpa": [0.0, 45.499],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [133.452032091, 148.911567213],
+              "degrees_of_freedom": 14,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.37453844418422366,
+              "published_rmse_gpa": 0.6175533237710905,
+              "reduced_chi_square": 0.9733212561069121,
+              "dataset_identifiers": ["molybdenum_carbide_haines_2001_figure2_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Primary observations and source protocol were validated; the stored coefficients are an explicitly identified Peritheos refit.",

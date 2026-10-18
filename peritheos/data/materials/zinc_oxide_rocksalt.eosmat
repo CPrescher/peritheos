@@ -50,6 +50,62 @@
         "audit_date": "2026-09-03"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 78.44,
+                "published_error": 0.4,
+                "refit": 77.91467996193494,
+                "refit_error": 0.1153396106978765,
+                "difference": -0.5253200380650611,
+                "relative_difference": 0.006697093805010978,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 172.0,
+                "published_error": 21.0,
+                "refit": 205.8449604879571,
+                "refit_error": 8.212686062275395,
+                "difference": 33.84496048795711,
+                "relative_difference": 0.1967730260927739,
+                "similar": false,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": [],
+              "observations": 20,
+              "observed_pressure_range_gpa": [2.857, 11.086],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [74.20066, 76.91803],
+              "degrees_of_freedom": 18,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.07466856648367305,
+              "published_rmse_gpa": 0.802756702268262,
+              "reduced_chi_square": 7.057255829895715,
+              "dataset_identifiers": ["zinc_oxide_rocksalt_hanna_2011_figure4_bulk_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

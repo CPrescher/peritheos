@@ -100,6 +100,61 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 438.6702 | Not specified | 438.6702184996092 | 0.08425558150456118 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3\_conventional\_cell
+- **Absolute sigma:** True
+- **Free parameters:** V0
+- **Fixed parameters:** K0; K0\_prime
+- **Observations:** 3
+- **Observed pressure range gpa:** \[39.0, 48.0\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[357.8274, 368.5011\]
+- **Degrees of freedom:** 2
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.0808114094403155
+- **Published rmse gpa:** 0.08081141041630165
+- **Reduced chi square:** 0.009795725843595468
+- **Dataset identifiers:** coesite\_iv\_bykova\_2018\_table10\_calc\_pv
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Parameter covariance is not supplied.
 
 

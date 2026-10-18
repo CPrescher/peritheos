@@ -80,6 +80,23 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": ["K_infinity_prime"],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -146,6 +163,62 @@
         "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 41.67,
+                "published_error": 3.18,
+                "refit": 40.730520967484175,
+                "refit_error": 2.648330249843898,
+                "difference": -0.9394790325158269,
+                "relative_difference": 0.02254569312492985,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 36.2,
+                "published_error": 4.2,
+                "refit": 39.739618233652365,
+                "refit_error": 10.425254054858431,
+                "difference": 3.5396182336523623,
+                "relative_difference": 0.09777950921691608,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_ratio_v_v01"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": [],
+              "observations": 14,
+              "observed_pressure_range_gpa": [24.5, 68.9],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [23.073248654467168, 29.84182023681378],
+              "degrees_of_freedom": 12,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 2.914150266127027,
+              "published_rmse_gpa": 3.081094198976813,
+              "reduced_chi_square": 1.3678745567703112,
+              "dataset_identifiers": ["nacl_b2_heinz_1984_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -225,6 +298,77 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 24.92,
+                "published_error": 0.11,
+                "refit": 25.44725924830186,
+                "refit_error": 0.09134842945874447,
+                "difference": 0.5272592483018599,
+                "relative_difference": 0.021158075774552962,
+                "similar": true,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.63,
+                "published_error": 0.02,
+                "refit": 5.582768070038436,
+                "refit_error": 0.012651643673731651,
+                "difference": -0.04723192996156378,
+                "relative_difference": 0.008389330366174738,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "fixed_v0_vinet_with_reconstructed_cu_pressure",
+              "objective": "unweighted_pressure_residuals",
+              "selection": "NaCl-B2; DAC-2; Cu pressure above 35 GPa (coexistence excluded)",
+              "columns": {
+                "pressure": "Fratanduono-2020 298 K Cu pressure reconstructed per run",
+                "temperature": null,
+                "volume": "unit_cell_volume_a3"
+              },
+              "absolute_sigma": false,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 125,
+              "observed_pressure_range_gpa": [35.714233962346135, 109.513016319132],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [20.37353, 26.63517],
+              "degrees_of_freedom": 123,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.2932287343506067,
+              "reduced_chi_square": 0.08738118968379947,
+              "pressure_reconstruction": {
+                "density0_g_cm3": 8.939,
+                "doi": "10.1103/PhysRevLett.124.015701",
+                "model": "vinet_3",
+                "pairing": "Each phase volume uses the single Cu volume with the same experiment and run number; both source-labeled Pt first/last measurements are retained when the run is selected.",
+                "parameters": {"K0_gpa": 133.6, "beta": 2.06, "eta": 6.29, "psi": 1.65},
+                "reference": "Fratanduono et al. (2020)",
+                "reference_eos_record": "copper_fratanduono_2020_vinet3_298k",
+                "reference_unit_cell_volume_a3": 47.218085048721,
+                "source_locations": ["main article Table I, 298 K isotherm row", "Supplemental Material Eq. (2), Section S4"]
+              },
+              "dataset_identifiers": ["shen_smith_2026_table_s1_simultaneous_volumes"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -316,6 +460,23 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "Original Sakai (2011a) paired NaCl/Pt calibration observations are not attached to this 2014 paper. Table 2 NaCl values are downstream measurements, not independent P5 calibration constraints.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": ["V0"],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-10",
@@ -409,6 +570,57 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Conditional fixed-V0 comparison under the documented diagnostic protocol; original source weighting and workflow are not established.",
+            "basis_code": "conditional_fixed_V0_diagnostic_only",
+            "qualifications": [
+              "Conditional diagnostic, not exact source-regression recovery: source weights and Pt peak-combination rule are unspecified. Sata pressures reconstructed from equal-weight cubic Pt lattice parameters. Staged V0 and selection/objective sensitivity documented in sakai-2011-nacl-b2 reproduction; published parameters unchanged.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 47,
+                "published_error": 0.46,
+                "refit": 47.14269653390601,
+                "refit_error": null,
+                "difference": 0.14269653390601178,
+                "relative_difference": 0.0030360964660853572,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.1,
+                "published_error": 0.02,
+                "refit": 4.097571435798029,
+                "refit_error": null,
+                "difference": -0.0024285642019705733,
+                "relative_difference": 0.0005923327321879448,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "primary_table_fixed_V0_bm3_or_vinet",
+              "objective": "unweighted_pressure_residuals",
+              "selection": "27 Sakai rows plus 27 Sata rows after explicit exclusions 8 and 11; annealed-only selection retained as sensitivity",
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 54,
+              "rmse_gpa": 1.6993824533388564,
+              "published_rmse_gpa": 1.7230450703272333,
+              "dataset_identifiers": ["nacl_b2_sakai_2011_table1", "nacl_b2_sata_2002_table1_sakai_input"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-19",
@@ -516,6 +728,57 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Conditional fixed-V0 comparison under the documented diagnostic protocol; original source weighting and workflow are not established.",
+            "basis_code": "conditional_fixed_V0_diagnostic_only",
+            "qualifications": [
+              "Conditional diagnostic, not exact source-regression recovery: source weights and Pt peak-combination rule are unspecified. Sata pressures reconstructed from equal-weight cubic Pt lattice parameters. Staged V0 and selection/objective sensitivity documented in sakai-2011-nacl-b2 reproduction; published parameters unchanged.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 40.4,
+                "published_error": 0.54,
+                "refit": 40.569075115357755,
+                "refit_error": null,
+                "difference": 0.16907511535775654,
+                "relative_difference": 0.004185027607865261,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.04,
+                "published_error": 0.04,
+                "refit": 5.030917242895907,
+                "refit_error": null,
+                "difference": -0.009082757104093453,
+                "relative_difference": 0.0018021343460502882,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "primary_table_fixed_V0_bm3_or_vinet",
+              "objective": "unweighted_pressure_residuals",
+              "selection": "27 Sakai rows plus 27 Sata rows after explicit exclusions 8 and 11; annealed-only selection retained as sensitivity",
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 54,
+              "rmse_gpa": 1.8395355775985864,
+              "published_rmse_gpa": 1.8460788926566665,
+              "dataset_identifiers": ["nacl_b2_sakai_2011_table1", "nacl_b2_sata_2002_table1_sakai_input"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-19",
@@ -623,6 +886,57 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Conditional fixed-V0 comparison under the documented diagnostic protocol; original source weighting and workflow are not established.",
+            "basis_code": "conditional_fixed_V0_diagnostic_only",
+            "qualifications": [
+              "Conditional diagnostic, not exact source-regression recovery: source weights and Pt peak-combination rule are unspecified. Sata pressures reconstructed from equal-weight cubic Pt lattice parameters. Staged V0 and selection/objective sensitivity documented in sakai-2011-nacl-b2 reproduction; published parameters unchanged.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 47.8,
+                "published_error": 0.45,
+                "refit": 47.956343900334645,
+                "refit_error": null,
+                "difference": 0.1563439003346474,
+                "relative_difference": 0.0032707928940302806,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.06,
+                "published_error": 0.02,
+                "refit": 4.056035057095808,
+                "refit_error": null,
+                "difference": -0.003964942904191915,
+                "relative_difference": 0.0009765869222147575,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "primary_table_fixed_V0_bm3_or_vinet",
+              "objective": "unweighted_pressure_residuals",
+              "selection": "27 Sakai rows plus 27 Sata rows after explicit exclusions 8 and 11; annealed-only selection retained as sensitivity",
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 54,
+              "rmse_gpa": 1.669898938809278,
+              "published_rmse_gpa": 1.6803982142212028,
+              "dataset_identifiers": ["nacl_b2_sakai_2011_table1", "nacl_b2_sata_2002_table1_sakai_input"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-19",
@@ -730,6 +1044,57 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Conditional fixed-V0 comparison under the documented diagnostic protocol; original source weighting and workflow are not established.",
+            "basis_code": "conditional_fixed_V0_diagnostic_only",
+            "qualifications": [
+              "Conditional diagnostic, not exact source-regression recovery: source weights and Pt peak-combination rule are unspecified. Sata pressures reconstructed from equal-weight cubic Pt lattice parameters. Staged V0 and selection/objective sensitivity documented in sakai-2011-nacl-b2 reproduction; published parameters unchanged.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 41.36,
+                "published_error": 0.53,
+                "refit": 41.542728987872216,
+                "refit_error": null,
+                "difference": 0.18272898787221692,
+                "relative_difference": 0.0044180122793089196,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.96,
+                "published_error": 0.04,
+                "refit": 4.9512824151430905,
+                "refit_error": null,
+                "difference": -0.008717584856909433,
+                "relative_difference": 0.0017575775921188372,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "primary_table_fixed_V0_bm3_or_vinet",
+              "objective": "unweighted_pressure_residuals",
+              "selection": "27 Sakai rows plus 27 Sata rows after explicit exclusions 8 and 11; annealed-only selection retained as sensitivity",
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 54,
+              "rmse_gpa": 1.7942403376763154,
+              "published_rmse_gpa": 1.806433366215317,
+              "dataset_identifiers": ["nacl_b2_sakai_2011_table1", "nacl_b2_sata_2002_table1_sakai_input"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-19",
@@ -837,6 +1202,57 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Conditional fixed-V0 comparison under the documented diagnostic protocol; original source weighting and workflow are not established.",
+            "basis_code": "conditional_fixed_V0_diagnostic_only",
+            "qualifications": [
+              "Conditional diagnostic, not exact source-regression recovery: source weights and Pt peak-combination rule are unspecified. Sata pressures reconstructed from equal-weight cubic Pt lattice parameters. Staged V0 and selection/objective sensitivity documented in sakai-2011-nacl-b2 reproduction; published parameters unchanged.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 47.24,
+                "published_error": 0.47,
+                "refit": 47.41982661181846,
+                "refit_error": null,
+                "difference": 0.17982661181845572,
+                "relative_difference": 0.0038066598606785714,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.14,
+                "published_error": 0.02,
+                "refit": 4.134367448142497,
+                "refit_error": null,
+                "difference": -0.00563255185750311,
+                "relative_difference": 0.0013605197723437464,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "primary_table_fixed_V0_bm3_or_vinet",
+              "objective": "unweighted_pressure_residuals",
+              "selection": "27 Sakai rows plus 27 Sata rows after explicit exclusions 8 and 11; annealed-only selection retained as sensitivity",
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 54,
+              "rmse_gpa": 1.751572038560592,
+              "published_rmse_gpa": 1.758957818379996,
+              "dataset_identifiers": ["nacl_b2_sakai_2011_table1", "nacl_b2_sata_2002_table1_sakai_input"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-19",
@@ -944,6 +1360,57 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Conditional fixed-V0 comparison under the documented diagnostic protocol; original source weighting and workflow are not established.",
+            "basis_code": "conditional_fixed_V0_diagnostic_only",
+            "qualifications": [
+              "Conditional diagnostic, not exact source-regression recovery: source weights and Pt peak-combination rule are unspecified. Sata pressures reconstructed from equal-weight cubic Pt lattice parameters. Staged V0 and selection/objective sensitivity documented in sakai-2011-nacl-b2 reproduction; published parameters unchanged.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 40.37,
+                "published_error": 0.55,
+                "refit": 40.571822361844646,
+                "refit_error": null,
+                "difference": 0.2018223618446484,
+                "relative_difference": 0.0049993153788617396,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.11,
+                "published_error": 0.04,
+                "refit": 5.100330569110553,
+                "refit_error": null,
+                "difference": -0.009669430889447383,
+                "relative_difference": 0.0018922565341384311,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "primary_table_fixed_V0_bm3_or_vinet",
+              "objective": "unweighted_pressure_residuals",
+              "selection": "27 Sakai rows plus 27 Sata rows after explicit exclusions 8 and 11; annealed-only selection retained as sensitivity",
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 54,
+              "rmse_gpa": 1.9102536236213106,
+              "published_rmse_gpa": 1.927095895583068,
+              "dataset_identifiers": ["nacl_b2_sakai_2011_table1", "nacl_b2_sata_2002_table1_sakai_input"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-19",
@@ -1050,6 +1517,57 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Conditional fixed-V0 comparison under the documented diagnostic protocol; original source weighting and workflow are not established.",
+            "basis_code": "conditional_fixed_V0_diagnostic_only",
+            "qualifications": [
+              "Conditional diagnostic, not exact source-regression recovery: source weights and Pt peak-combination rule are unspecified. Sata pressures reconstructed from equal-weight cubic Pt lattice parameters. Staged V0 and selection/objective sensitivity documented in sakai-2011-nacl-b2 reproduction; published parameters unchanged.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 43.42,
+                "published_error": 0.5,
+                "refit": 43.61799899381413,
+                "refit_error": null,
+                "difference": 0.19799899381413155,
+                "relative_difference": 0.004560087374807268,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.36,
+                "published_error": 0.02,
+                "refit": 4.3505817564940275,
+                "refit_error": null,
+                "difference": -0.009418243505972868,
+                "relative_difference": 0.002160147593113043,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "primary_table_fixed_V0_bm3_or_vinet",
+              "objective": "unweighted_pressure_residuals",
+              "selection": "27 Sakai rows plus 27 Sata rows after explicit exclusions 8 and 11; annealed-only selection retained as sensitivity",
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 54,
+              "rmse_gpa": 1.9041763407754038,
+              "published_rmse_gpa": 1.9070710376559392,
+              "dataset_identifiers": ["nacl_b2_sakai_2011_table1", "nacl_b2_sata_2002_table1_sakai_input"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-19",
@@ -1156,6 +1674,57 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Conditional fixed-V0 comparison under the documented diagnostic protocol; original source weighting and workflow are not established.",
+            "basis_code": "conditional_fixed_V0_diagnostic_only",
+            "qualifications": [
+              "Conditional diagnostic, not exact source-regression recovery: source weights and Pt peak-combination rule are unspecified. Sata pressures reconstructed from equal-weight cubic Pt lattice parameters. Staged V0 and selection/objective sensitivity documented in sakai-2011-nacl-b2 reproduction; published parameters unchanged.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 36.07,
+                "published_error": 0.54,
+                "refit": 36.270653210568085,
+                "refit_error": null,
+                "difference": 0.20065321056808472,
+                "relative_difference": 0.0055628835754944475,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.49,
+                "published_error": 0.04,
+                "refit": 5.47382474752777,
+                "refit_error": null,
+                "difference": -0.016175252472230284,
+                "relative_difference": 0.002946311925725006,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "primary_table_fixed_V0_bm3_or_vinet",
+              "objective": "unweighted_pressure_residuals",
+              "selection": "27 Sakai rows plus 27 Sata rows after explicit exclusions 8 and 11; annealed-only selection retained as sensitivity",
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 54,
+              "rmse_gpa": 2.1397727210913047,
+              "published_rmse_gpa": 2.1441274596796984,
+              "dataset_identifiers": ["nacl_b2_sakai_2011_table1", "nacl_b2_sata_2002_table1_sakai_input"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-19",
@@ -1263,6 +1832,58 @@
         "audit_date": "2026-10-09"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "Twelve Figure 3 cold markers set K0/K0-prime, then twelve Figure 4 hot markers set q with the cold fit frozen. The duplicated Figure 4 cold markers and calculated curves are excluded. The staged hot fit does not recover published q; source errors, measured Pt volumes, original weights and covariance are unavailable. Conditional fit errors do not propagate cold-stage uncertainty. Cold and hot residual summaries remain separate.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 26.86,
+                "published_error": 2.9,
+                "refit": 26.88910688628862,
+                "refit_error": 2.129618146414732,
+                "relative_difference": 0.0010836517605591924,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.25,
+                "published_error": 0.26,
+                "refit": 5.246912395711911,
+                "refit_error": 0.2700688894059465,
+                "relative_difference": 0.0005881151024930935,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "q",
+                "published": 0.5,
+                "published_error": 0.3,
+                "refit": 0.9933854990920269,
+                "refit_error": 0.4388146078612062,
+                "relative_difference": 0.9867709981840538,
+                "similar": false,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "diagnostic_staged_figure_pvt",
+              "free_parameters": ["K0", "K0_prime", "q"],
+              "fixed_parameters": ["V0", "gamma0", "theta0", "n", "Tr"],
+              "observations": 24,
+              "solver_success": true,
+              "dataset_identifiers": ["nacl_b2_fei_2007_figure3_digitized", "nacl_b2_fei_2007_figure4_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-10-09",
@@ -1386,6 +2007,62 @@
         "audit_date": "2026-10-09"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "independent_refit",
+            "source_status": "parity",
+            "basis": "Reproduction of the registered Peritheos refit's stored coefficients under its declared protocol.",
+            "basis_code": "registered_peritheos_refit_reproduced",
+            "qualifications": [
+              "This comparison concerns the stored independent Peritheos refit, not recovery of the original publication's coefficients or author workflow.",
+              "Independent Peritheos staged refit of digitized Fei (2007) NaCl-B2 study markers: 12 Figure 3 rows at 300 K determine K0/K0-prime with V0 fixed; then all 12 Figure 4 rows at 1000 K determine q with the cold fit frozen. The printed variable-exponent Debye law, V0, gamma0 and theta0 are inherited from the published record. Equal pressure weights are an analyst choice. Duplicate Figure 4 cold markers, other-paper comparisons and calculated curve vertices are excluded. This is a conditional figure-data refit, not reproduction of the authors' fit or independent validation of pressure accuracy. Original unrounded measurements, P/V/T errors, measured Pt cells, source weights and calibration covariance remain unavailable. Conditional stage errors are archived in fit statistics only; catalog parameter errors and covariance are unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty are not propagated. Coverage consists of separate 300 and 1000 K series, not a validated P-T rectangle.",
+              "Original publication reproduction status: not_reproduced"
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 26.88910688628862,
+                "published_error": null,
+                "refit": 26.88910688628862,
+                "refit_error": 2.129618146414732,
+                "relative_difference": 0.0,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.246912395711911,
+                "published_error": null,
+                "refit": 5.246912395711911,
+                "refit_error": 0.2700688894059465,
+                "relative_difference": 0.0,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "q",
+                "published": 0.9933854990920269,
+                "published_error": null,
+                "refit": 0.9933854990920269,
+                "refit_error": 0.4388146078612062,
+                "relative_difference": 0.0,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "stored_staged_thermal_refit_reproduction",
+              "objective": "At each stage minimize sum((P_model(V,T)-P_digitized)^2) in GPa^2 with equal pressure-residual weights; cold K0/K0_prime first, then hot q with the cold fit frozen.",
+              "free_parameters": ["K0", "K0_prime", "q"],
+              "fixed_parameters": ["V0", "gamma0", "theta0", "n", "Tr"],
+              "observations": 24,
+              "solver_success": true,
+              "dataset_identifiers": ["nacl_b2_fei_2007_figure3_digitized", "nacl_b2_fei_2007_figure4_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-10-16",

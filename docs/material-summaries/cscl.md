@@ -87,6 +87,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Complete source-data reproduction: Table 1 contains a distinct 13-row CsCl block, not the RbCl rows previously attached to this material. The fit now also includes all nine 25 degC V/V0 values from Yagi (1978) after the source-stated 4.118-to-4.123 A reference correction. The numerical weights used for Campbell and Heinz's normalized-stress regression are not published, but the complete unweighted 22-point refit recovers both coefficients within combined two-sigma uncertainty. See the \[dedicated Campbell-Heinz reproduction\](literature-reproductions.md#campbell-heinz-1994-cscl-and-rbcl).
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 17.01 | 0.29 | 17.696733485074184 | 0.5705648310620951 | Free |
+| K0\_prime | 5.49 | 0.15 | 5.2026008383027325 | 0.18002308649400284 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3\_conventional\_cell
+- **Absolute sigma:** True
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 22
+- **Observed pressure range gpa:** \[1.0, 28.7\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[44.01688993811201, 66.52265958111215\]
+- **Degrees of freedom:** 20
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.34411360005418556
+- **Published rmse gpa:** 0.3903051728515524
+- **Reduced chi square:** 0.1302555867164772
+- **Dataset identifiers:** cscl\_campbell\_1994\_table1\_compression; cscl\_yagi\_1978\_table1\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Room-temperature third-order Birch-Murnaghan fit to the authors' 13 Table 1 observations and nine corrected Yagi (1978) Table 1 compression ratios. The primary paper explicitly uses a0=4.123 A, giving V0=70.087408867 A^3 for the one-formula-unit Pm-3m cell; it reports no uncertainty for that fixed lattice parameter. K0=17.01(29) GPa and K0'=5.49(15). Campbell and Heinz do not state the numerical weights used for their normalized-stress regression, so exact central-value reproduction remains fit-protocol limited.
 
 Parameter covariance is not supplied.

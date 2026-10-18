@@ -99,6 +99,54 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 623.38 | 0.39 | 623.3136511689688 | 0.18823779100714583 | Free |
+| K0 | 138.7 | 3.0 | 138.4342806122216 | 1.4952624685883737 | Free |
+| K0\_prime | 4.9 | 0.3 | 4.9487496801675 | 0.158131776207648 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** independent\_nonlinear\_pressure\_least\_squares
+- **Objective:** unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 20
+- **Observed pressure range gpa:** \[0.0, 24.3\]
+- **Observed temperature range k:** \[300.0, 300.0\]
+- **Solver success:** True
+- **Rmse gpa:** 0.07312160499987383
+- **Published rmse gpa:** 0.07514057887346923
+- **Dataset identifiers:** superhydrous\_phase\_b\_lt\_litasov\_2007\_table2
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Published experimental fit to nominally pure Mg superhydrous phase B. 300 K subset: 17 in-situ plus three ambient observations. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported.
 
 Parameter covariance is not supplied.
@@ -192,6 +240,54 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 623.34 | 0.04 | 623.3045744919759 | 0.1698748530533363 | Free |
+| K0 | 134.7 | 1.8 | 134.17297395805127 | 1.3398123800210247 | Free |
+| K0\_prime | 6.0 | 0.3 | 6.042880934079354 | 0.15276815848196748 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** independent\_nonlinear\_pressure\_least\_squares
+- **Objective:** unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 20
+- **Observed pressure range gpa:** \[0.0, 25.1\]
+- **Observed temperature range k:** \[300.0, 300.0\]
+- **Solver success:** True
+- **Rmse gpa:** 0.06397977143078648
+- **Published rmse gpa:** 0.07552462214798593
+- **Dataset identifiers:** superhydrous\_phase\_b\_lt\_litasov\_2007\_table2
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published experimental fit to nominally pure Mg superhydrous phase B. 300 K subset: 17 in-situ plus three ambient observations. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported. Table 4 RT values 134.7(1.8),6.0(0.3) supersede prose 132.7(1.5),6.2(0.6), which conflates RT and HTBM fits.
 
@@ -291,6 +387,57 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 623.47 | 0.37 | 623.4622455180263 | 0.2575824161972996 | Free |
+| K0 | 135.8 | 2.6 | 135.781767022147 | 1.8576732611740419 | Free |
+| K0\_prime | 5.3 | 0.2 | 5.251179243570913 | 0.1935188739453234 | Free |
+| alpha0 | 3.21e-05 | 1.4e-06 | 3.200583361010583e-05 | 1.1271048909251933e-06 | Free |
+| alpha1 | 1.19e-08 | 3.7e-09 | 1.1515771971921886e-08 | 2.5662916001040617e-09 | Free |
+| dK\_dT | -0.026 | 0.003 | -0.02563806087001639 | 0.0026413691487219004 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** independent\_nonlinear\_pressure\_least\_squares
+- **Objective:** unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3
+- **Free parameters:** V0; K0; K0\_prime; alpha0; alpha1; dK\_dT
+- **Fixed parameters:** Tr
+- **Observations:** 69
+- **Observed pressure range gpa:** \[0.0, 26.6\]
+- **Observed temperature range k:** \[300.0, 1373.0\]
+- **Solver success:** True
+- **Rmse gpa:** 0.10813474664224723
+- **Published rmse gpa:** 0.12637114188299595
+- **Dataset identifiers:** superhydrous\_phase\_b\_lt\_litasov\_2007\_table2
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -401,6 +548,57 @@ meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
 
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 623.34 | 0.04 | 623.4132846844781 | 0.32053807668176815 | Free |
+| K0 | 132.7 | 1.5 | 131.88958651317557 | 2.3053574330701823 | Free |
+| K0\_prime | 6.2 | 0.2 | 6.321468991688166 | 0.25752601139591985 | Free |
+| alpha0 | 3.38e-05 | 1.5e-06 | 3.4301504516603735e-05 | 1.2279635579527844e-06 | Free |
+| alpha1 | 1.26e-08 | 3.7e-09 | 1.3796464886515867e-08 | 3.2022085346294376e-09 | Free |
+| dK\_dT | -0.027 | 0.003 | -0.028476152419237243 | 0.0030487576398255853 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** independent\_nonlinear\_pressure\_least\_squares
+- **Objective:** unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3
+- **Free parameters:** V0; K0; K0\_prime; alpha0; alpha1; dK\_dT
+- **Fixed parameters:** Tr
+- **Observations:** 69
+- **Observed pressure range gpa:** \[0.0, 28.1\]
+- **Observed temperature range k:** \[300.0, 1373.0\]
+- **Solver success:** True
+- **Rmse gpa:** 0.13036669472985118
+- **Published rmse gpa:** 0.13411117660373725
+- **Dataset identifiers:** superhydrous\_phase\_b\_lt\_litasov\_2007\_table2
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 
@@ -506,6 +704,56 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 623.5 | 0.36 | 623.4219252201992 | 0.2574001592778335 | Free |
+| K0 | 135.3 | 2.3 | 135.74064618734764 | 1.8281533804001846 | Free |
+| K0\_prime | 5.3 | 0.2 | 5.243358562078898 | 0.19049273951553658 | Free |
+| alpha0 | 3.78e-05 | 1.9e-06 | 3.765818152298365e-05 | 1.8495010952658433e-06 | Free |
+| dK\_dT\_V | -0.002 | 0.002 | -0.0023183141091294244 | 0.00214140639296662 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** independent\_nonlinear\_pressure\_least\_squares
+- **Objective:** unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3
+- **Free parameters:** V0; K0; K0\_prime; alpha0; dK\_dT\_V
+- **Fixed parameters:** Tr
+- **Observations:** 69
+- **Observed pressure range gpa:** \[0.0, 26.6\]
+- **Observed temperature range k:** \[300.0, 1373.0\]
+- **Solver success:** True
+- **Rmse gpa:** 0.1097657364937112
+- **Published rmse gpa:** 0.11554793085237937
+- **Dataset identifiers:** superhydrous\_phase\_b\_lt\_litasov\_2007\_table2
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Published experimental fit to nominally pure Mg superhydrous phase B. All 66 in-situ plus three ambient Table 2 observations are retained for diagnostic refitting. Marginal P/T extrema are coverage, not a phase-stability rectangle; nine heating cycles include three outside the stability field. No temperature-dependent Kprime. Weights and covariance of original least squares are not reported. Equation (6) final five-parameter model omits the unresolved quadratic term.
 
 Parameter covariance is not supplied.
@@ -608,6 +856,57 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 623.53 | 0.35 | 623.4388972064203 | 0.24944769436570002 | Free |
+| K0 | 135.5 | 2.3 | 135.97491671356167 | 1.7681851781412292 | Free |
+| K0\_prime | 5.3 | 0.2 | 5.244516100967703 | 0.18277000501213322 | Free |
+| gamma0 | 1.18 | 0.06 | 1.185292049457412 | 0.06378945142973545 | Free |
+| q | 1.74 | 0.45 | 1.75834067005706 | 0.43826222534954634 | Free |
+| theta0 | 552.0 | 130.0 | 553.0327419309925 | 129.02514723448633 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** independent\_nonlinear\_pressure\_least\_squares
+- **Objective:** unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3
+- **Free parameters:** V0; K0; K0\_prime; gamma0; q; theta0
+- **Fixed parameters:** Tr; n
+- **Observations:** 69
+- **Observed pressure range gpa:** \[0.0, 26.6\]
+- **Observed temperature range k:** \[300.0, 1373.0\]
+- **Solver success:** True
+- **Rmse gpa:** 0.10555102599548966
+- **Published rmse gpa:** 0.10662679200955953
+- **Dataset identifiers:** superhydrous\_phase\_b\_lt\_litasov\_2007\_table2
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -716,6 +1015,56 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 623.53 | 0.35 | 623.4578471395107 | 0.2628146780234006 | Free |
+| K0 | 135.5 | 2.3 | 136.4007508677185 | 1.8566318232260446 | Free |
+| K0\_prime | 5.3 | 0.2 | 5.230646346561506 | 0.1910796105824656 | Free |
+| gamma0 | 1.33 | 0.05 | 1.3032844333315172 | 0.05985831782617076 | Free |
+| q | 2.03 | 0.35 | 2.0956167406141364 | 0.45011556388002655 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** independent\_nonlinear\_pressure\_least\_squares
+- **Objective:** unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3
+- **Free parameters:** V0; K0; K0\_prime; gamma0; q
+- **Fixed parameters:** Tr; n; theta0
+- **Observations:** 69
+- **Observed pressure range gpa:** \[0.0, 26.6\]
+- **Observed temperature range k:** \[300.0, 1373.0\]
+- **Solver success:** True
+- **Rmse gpa:** 0.11240879143243881
+- **Published rmse gpa:** 0.1230806599723373
+- **Dataset identifiers:** superhydrous\_phase\_b\_lt\_litasov\_2007\_table2
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

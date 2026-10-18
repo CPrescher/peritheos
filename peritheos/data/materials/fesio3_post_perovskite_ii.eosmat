@@ -56,6 +56,23 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "The energy-volume observations remain plot-only after source exhaustion. Table III independently prints V100=34.49 A3/FeSiO3, K100=580 GPa, and K100'=3.44; the Table I lattice product gives 34.4492 A3/FeSiO3.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": [],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Retained after source-exhaustion review: the final Table III parameterization passes independent 100 GPa EOS and structure checks, but no authoritative E(V) rows were deposited and the record remains not refittable.",

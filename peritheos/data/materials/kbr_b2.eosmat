@@ -51,6 +51,62 @@
         "audit_date": "2026-09-03"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 14.9,
+                "published_error": null,
+                "refit": 14.942861141271464,
+                "refit_error": 0.08225663005644733,
+                "difference": 0.04286114127146412,
+                "relative_difference": 0.0028765866625143706,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.81,
+                "published_error": null,
+                "refit": 5.7987453504885265,
+                "refit_error": 0.015325678710515864,
+                "difference": -0.011254649511473147,
+                "relative_difference": 0.0019371169555031235,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_per_formula_unit"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 121,
+              "observed_pressure_range_gpa": [2.2, 165.0],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [24.414, 56.978],
+              "degrees_of_freedom": 119,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.4965932121853696,
+              "published_rmse_gpa": 0.5024288385451425,
+              "reduced_chi_square": 0.2507494371850303,
+              "dataset_identifiers": ["kbr_b2_dewaele_2012_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

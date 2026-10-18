@@ -62,6 +62,62 @@
         "notes": "The Ne cross-check resolves to a library EOS; the primary ruby wavelength model is not executable."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 301.88,
+                "published_error": 0.02,
+                "refit": 301.54909681558917,
+                "refit_error": 0.8294701872016501,
+                "difference": -0.330903184410829,
+                "relative_difference": 0.0010961414615437558,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 207.0,
+                "published_error": 3.0,
+                "refit": 218.39138175241462,
+                "refit_error": 11.085104070739309,
+                "difference": 11.391381752414617,
+                "relative_difference": 0.05503082972180974,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": [],
+              "observations": 10,
+              "observed_pressure_range_gpa": [1e-05, 25.3],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [273.8, 301.88],
+              "degrees_of_freedom": 8,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.3415974696917147,
+              "published_rmse_gpa": 0.6339258036877141,
+              "reduced_chi_square": 0.15012917900636616,
+              "dataset_identifiers": ["hematite_schouwink_2011_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

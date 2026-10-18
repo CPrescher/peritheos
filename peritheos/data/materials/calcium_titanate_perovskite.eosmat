@@ -81,6 +81,73 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 223.764,
+                "published_error": 0.017,
+                "refit": 223.76881110488034,
+                "refit_error": 1.0472425512985832,
+                "difference": 0.0048111048803320955,
+                "relative_difference": 2.1500799415152104e-05,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 170.9,
+                "published_error": 1.4,
+                "refit": 170.04634055926186,
+                "refit_error": 74.6727352369813,
+                "difference": -0.8536594407381415,
+                "relative_difference": 0.0049950815724876625,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 6.6,
+                "published_error": 0.3,
+                "refit": 6.790871614610208,
+                "refit_error": 17.161377728736007,
+                "difference": 0.19087161461020852,
+                "relative_difference": 0.028919941607607354,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 11,
+              "observed_pressure_range_gpa": [0.001, 9.7],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [213.207, 223.769],
+              "degrees_of_freedom": 8,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.01806320466500881,
+              "published_rmse_gpa": 0.018945998606839338,
+              "reduced_chi_square": 0.00044877237021156806,
+              "dataset_identifiers": ["calcium_titanate_perovskite_ross_1999_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated directly against the final publisher article and its Table 1. The publisher page exposes no supplementary file. The article gives parameter errors but no confidence level or parameter covariance matrix, so the printed errors are preserved and covariance remains null.",

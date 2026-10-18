@@ -96,6 +96,38 @@
         "audit_date": "2026-09-06"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "Figure 1 resolves state membership exactly: the 40 circles are the liquid states used in the source fit and the six squares are excluded. Supporting Figures S3-S4 contain only high-resolution raster plots, but their regression-line slopes are digitized at nine volumes and reproduce the paper's stated Cv and gamma ranges. The digitized Cv function is close to the published Gaussian; the gamma polynomial remains sensitive to the unavailable source weighting. Subtracting either published or digitized thermal coefficients and freely fitting four BM4 parameters is nearly singular and hits the K0-double-prime audit bound. A stabilized check with V0 and K0-double-prime fixed recovers K0=2.24587 GPa and K0'=23.0422, but the unstable four-parameter sensitivity result must not be reported as a refitted EOS. Exact reproduction still requires the unrounded source values, constraints, weighting, and covariance treatment.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fit_kind": "non_source_thermal_reduction_sensitivity_only",
+              "objective": "diagnostic unweighted pressure residuals after subtracting the rounded printed Equations (4), (10)-(13) thermal pressure; this is not the paper's staged regression",
+              "selection": "phase_state=liquid and used_in_published_eos_fit=yes: 40 Figure 1 circles; six Figure 1 squares excluded",
+              "columns": {
+                "fit_selection": "used_in_published_eos_fit",
+                "phase_state": "phase_state",
+                "pressure": "pressure_gpa",
+                "temperature": "temperature_k",
+                "volume": "volume_cm3_mol"
+              },
+              "fixed_parameters": [],
+              "observations": 40,
+              "observed_pressure_range_gpa": [0.32, 296.11],
+              "observed_temperature_range_k": [2500.0, 6000.0],
+              "observed_volume_range": [27.046860326127614, 87.90229605991475],
+              "published_rmse_gpa": 0.6409268655910171,
+              "dataset_identifiers": ["fesio3_liquid_sun_2019_table1_pvt", "fesio3_liquid_sun_2019_figures_s3_s4_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against the final open-access publication; LitCurate was used only as a discovery lead.",

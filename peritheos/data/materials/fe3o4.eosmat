@@ -41,6 +41,51 @@
         "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 183.0,
+                "published_error": 10.0,
+                "refit": 183.3545636138488,
+                "refit_error": 3.2041147970713055,
+                "difference": 0.3545636138487964,
+                "relative_difference": 0.001937506086605445,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_kbar", "temperature": null, "volume": "magnetite_molar_volume_cm3_mol"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 13,
+              "observed_pressure_range_gpa": [0.0, 32.0],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [516.2283852030055, 591.6832804153851],
+              "degrees_of_freedom": 12,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 1.2664209166186853,
+              "published_rmse_gpa": 1.2670669106978538,
+              "reduced_chi_square": 1.7374737662200872,
+              "dataset_identifiers": ["magnetite_mao_1974_table3_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

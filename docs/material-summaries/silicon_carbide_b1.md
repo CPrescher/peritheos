@@ -85,6 +85,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 66.3 | 0.1 | 65.77707217884615 | 0.07490638285244797 | Free |
+| K0 | 323.0 | 3.0 | 340.649762165055 | 3.532854939007289 | Free |
+| K0\_prime | 3.1 | 0.43 | 3.062845954108703 | 0.02636963961419028 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows; reference-T rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** sic\_unit\_cell\_volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 67
+- **Observed pressure range gpa:** \[65.37, 202.09\]
+- **Observed temperature range k:** \[300.0, 300.0\]
+- **Observed volume range:** \[45.97, 56.727\]
+- **Degrees of freedom:** 64
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.058842648800634605
+- **Published rmse gpa:** 1.6219704296948159
+- **Reduced chi square:** 188.17516260644527
+- **Dataset identifiers:** silicon\_carbide\_b1\_miozzi\_2018\_data\_set\_s1\_eos
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Table 1 room-temperature Birch-Murnaghan fit. The B1 phase was measured between 65 and 205 GPa; V0 is extrapolated to zero pressure.
 
 Parameter covariance is not supplied.

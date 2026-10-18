@@ -87,6 +87,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 52.38 | 0.3 | 52.78495915220451 | 0.6462890098893177 | Free |
+| K0 | 106.9 | 6.0 | 98.43773315716382 | 11.11999308031147 | Free |
+| K0\_prime | 3.68 | 0.2 | 3.795768321825853 | 0.33710940806633577 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** lattice\_a\_angstrom
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 41
+- **Observed pressure range gpa:** \[0.0, 115.0\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[32.40423188207663, 52.29762586996044\]
+- **Degrees of freedom:** 38
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 2.246916203882861
+- **Published rmse gpa:** 2.922134313143882
+- **Reduced chi square:** 5.447208671529632
+- **Dataset identifiers:** titanium\_omega\_dewaele\_2015\_table4\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Metastably extrapolated omega-phase reference volume; the measurements extend to 121 GPa.
 
 Parameter covariance is not supplied.

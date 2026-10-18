@@ -95,6 +95,60 @@ meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
 
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Conditional reproduction, not an exact recovery of the unpublished regression protocol. Campbell specifies least squares but no residual variable, weights, covariance, or final row mask. The main diagnostic uses equal pressure-residual weights and simultaneous fitting of the three Table 1 free parameters. Fe/FeO main fits use current-study Table S2 only: Seagle contributes 81 recoverable V-T pairs but no individual pressures or NaCl observations. Separate sensitivities reconstruct 65 hcp-calibrated pressures using benchmark-checked Seagle (2006), compare its conflicting reference volumes, and optionally retain 16 unresolved rows as nominal-isobar estimates. A separate protocol audit adds 14 conditional fcc pressures from Funamori/Boehler/Basinski, leaving only two missing-iron-volume rows without individual pressures. The exact historical fcc reduction and combined regression remain unresolved. These are derived pressures, not original row-level pressure data. The published Fe/FeO records are deferred from the executable catalog because the combined-data mismatch remains unresolved. No refitted coefficients replace the source records. See literature-reproductions/campbell-2009-buffers.md.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| rt\_eos.K0 | 190.0 | 3.0 | 209.23491285108383 | 7.959268104780271 | Free |
+| rt\_eos.K0\_prime | 5.4 | 0.2 | 4.316125512272684 | 0.3790702536078477 | Free |
+| gamma0 | 1.8 | 0.04 | 1.6663367005990992 | 0.05890351252433249 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** conditional\_bm3\_mgd\_variable\_exponent
+- **Objective:** pressure\_residuals
+- **Selection:** All Table S2 rows for FeO; only its 15 explicitly fcc rows for Fe. For Ni/NiO, retain all 92 heated/MAP Table S3 rows (T&gt;295 K); exclude its nine 293-295 K quenched DAC rows from the main diagnostic. This exclusion follows the Section 2.2 stress warning but is an audit choice: the authors do not publish a regression row mask. All 101 rows are retained in the dataset and tested in a sensitivity refit.
+- **Weighting:** unweighted
+- **Free parameters:** rt\_eos.K0; rt\_eos.K0\_prime; gamma0
+- **Fixed parameters:** V0; Tr; theta0; n; q
+- **Observations:** 92
+- **Observed pressure range gpa:** \[2.336174779961698, 65.9\]
+- **Observed temperature range k:** \[298.0, 2457.07\]
+- **Degrees of freedom:** 89
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 1.2411290539942956
+- **Published rmse gpa:** 1.308570029842643
+- **Reduced chi square:** 1.592324968960981
+- **Covariance:** \[\[63.34994876377254, -2.9579974380690417, -0.3997238519706632\], \[-2.957997438069198, 0.14369425717031795, 0.01706708438955018\], \[-0.3997238519706057, 0.01706708438954651, 0.0034696237877041946\]\]
+- **Covariance convention:** Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors.
+- **Dataset identifiers:** ni\_nio\_campbell\_2009\_table\_s3\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 

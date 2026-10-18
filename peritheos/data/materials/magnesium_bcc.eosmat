@@ -40,6 +40,62 @@
         "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 26.3,
+                "published_error": 0.6,
+                "refit": 26.333361535152594,
+                "refit_error": 1.3400709680279181,
+                "difference": 0.03336153515259355,
+                "relative_difference": 0.0012684994354598307,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.1,
+                "published_error": 0.06,
+                "refit": 5.09596369550958,
+                "refit_error": 0.1560463715103447,
+                "difference": -0.004036304490419695,
+                "relative_difference": 0.0007914322530234697,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "atomic_volume_angstrom3"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 57,
+              "observed_pressure_range_gpa": [46.3207, 211.392],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [17.997626, 27.824602],
+              "degrees_of_freedom": 55,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.19751266321752653,
+              "published_rmse_gpa": 1.9575720116975464,
+              "reduced_chi_square": 0.1251837946072484,
+              "dataset_identifiers": ["magnesium_stinton_2014_figure1_bcc_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

@@ -49,6 +49,84 @@
         "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.V0",
+                "published": 92.3,
+                "published_error": 0.5,
+                "refit": 91.5098931548666,
+                "refit_error": 9.942180677319786,
+                "difference": -0.7901068451333941,
+                "relative_difference": 0.008560204172626155,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0",
+                "published": 290.0,
+                "published_error": 10.0,
+                "refit": 307.5949877577548,
+                "refit_error": 204.5861312455744,
+                "difference": 17.59498775775478,
+                "relative_difference": 0.06067237157846476,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "theta0",
+                "published": 1600.0,
+                "published_error": 200.0,
+                "refit": 2329.397304746349,
+                "refit_error": 4424.946796032946,
+                "difference": 729.3973047463492,
+                "relative_difference": 0.45587331546646825,
+                "similar": false,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.6,
+                "published_error": 0.2,
+                "refit": 1.842480689184046,
+                "refit_error": 2.512098696423555,
+                "difference": 0.24248068918404586,
+                "relative_difference": 0.15155043074002866,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "volume_angstrom3"},
+              "absolute_sigma": true,
+              "free_parameters": ["rt_eos.V0", "rt_eos.K0", "theta0", "gamma0"],
+              "fixed_parameters": ["q", "n"],
+              "observations": 20,
+              "observed_pressure_range_gpa": [111.8, 140.5],
+              "observed_temperature_range_k": [300.0, 3030.0],
+              "observed_volume_range": [70.7, 73.1],
+              "degrees_of_freedom": 16,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.13740983523478445,
+              "published_rmse_gpa": 1.139641424838796,
+              "reduced_chi_square": 0.01306121653612071,
+              "dataset_identifiers": ["seifertite_sun_2019_dataset_s2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -128,6 +206,23 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "The source describes approximately six volumes spanning +/-10% and plots the statistical envelope, but does not tabulate the individual QMC energies or pressures.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": [],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Full Vinet coefficient and uncertainty transcription with exact unit-cell conversion.",

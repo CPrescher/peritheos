@@ -70,6 +70,63 @@
         "notes": "The pressure-standard lineage is explicit, but the reported pressures cannot be recalculated from the paper alone."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Complete source-data reproduction: Table 1 contains a distinct 13-row CsCl block, not the RbCl rows previously attached to this material. The fit now also includes all nine 25 degC V/V0 values from Yagi (1978) after the source-stated 4.118-to-4.123 A reference correction. The numerical weights used for Campbell and Heinz's normalized-stress regression are not published, but the complete unweighted 22-point refit recovers both coefficients within combined two-sigma uncertainty. See the [dedicated Campbell-Heinz reproduction](literature-reproductions.md#campbell-heinz-1994-cscl-and-rbcl).",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 17.01,
+                "published_error": 0.29,
+                "refit": 17.696733485074184,
+                "refit_error": 0.5705648310620951,
+                "difference": 0.686733485074182,
+                "relative_difference": 0.04037233892264444,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.49,
+                "published_error": 0.15,
+                "refit": 5.2026008383027325,
+                "refit_error": 0.18002308649400284,
+                "difference": -0.28739916169726776,
+                "relative_difference": 0.05234957407964804,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 22,
+              "observed_pressure_range_gpa": [1.0, 28.7],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [44.01688993811201, 66.52265958111215],
+              "degrees_of_freedom": 20,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.34411360005418556,
+              "published_rmse_gpa": 0.3903051728515524,
+              "reduced_chi_square": 0.1302555867164772,
+              "dataset_identifiers": ["cscl_campbell_1994_table1_compression", "cscl_yagi_1978_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

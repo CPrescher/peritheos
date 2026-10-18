@@ -90,6 +90,60 @@ meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
 
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| rt\_eos.V0 | 227.5 | 0.8 | 227.0509188911685 | 0.46287683892679543 | Free |
+| rt\_eos.K0 | 64.81 | 3.48 | 65.7594847830113 | 1.6574642736217322 | Free |
+| alpha0 | 6.5e-05 | 1e-06 | 6.616277302577296e-05 | 5.239895204479933e-06 | Free |
+| dK\_dT | -0.018 | 0.002 | -0.01666478438939185 | 0.004169185507704645 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** staged\_bm2\_isotherms
+- **Objective:** unweighted pressure residuals followed by linear regressions
+- **Selection:** eight staged isotherms from 298 to 973 K
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** volume\_a3
+- **Absolute sigma:** False
+- **Free parameters:** rt\_eos.V0; rt\_eos.K0; alpha0; dK\_dT
+- **Fixed parameters:** Tr
+- **Observations:** 64
+- **Solver success:** True
+- **Solver message:** eight isotherm fits and two linear regressions completed
+- **Rmse gpa:** 0.20549596467076306
+- **Published rmse gpa:** 0.2591892383500495
+- **Reduced chi square:** Not specified
+- **Dataset identifiers:** aragonite\_martinez\_1996\_table3\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 

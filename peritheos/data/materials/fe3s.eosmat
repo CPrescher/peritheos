@@ -64,6 +64,62 @@
         "notes": "NaCl pressures were generally lower than Au pressures; above the NaCl B1-B2 transition near 29 GPa, pressure was calculated from Au alone."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 377.0,
+                "published_error": 0.2,
+                "refit": 379.84128501491625,
+                "refit_error": 0.8104313644832207,
+                "difference": 2.8412850149162523,
+                "relative_difference": 0.007536565026303056,
+                "similar": true,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "K0",
+                "published": 150.0,
+                "published_error": 2.0,
+                "refit": 143.48300548781444,
+                "refit_error": 2.8767283791412592,
+                "difference": -6.516994512185562,
+                "relative_difference": 0.04344663008123708,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 13,
+              "observed_pressure_range_gpa": [1.073, 42.087],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [311.302, 376.058],
+              "degrees_of_freedom": 11,
+              "solver_success": true,
+              "solver_message": "`xtol` termination condition is satisfied.",
+              "rmse_gpa": 0.2127926367561062,
+              "published_rmse_gpa": 0.9920756427622142,
+              "reduced_chi_square": 0.92995379995829,
+              "dataset_identifiers": ["fe3s_fei_2000_figure2_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

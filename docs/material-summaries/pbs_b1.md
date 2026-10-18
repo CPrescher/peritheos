@@ -85,6 +85,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 207.8955 | 0.0421 | 207.85942731743904 | 0.25440721215867207 | Free |
+| K0 | 51.0 | 1.2 | 50.649184638346746 | 6.056565737390464 | Free |
+| K0\_prime | 4.3 | 0.9 | 4.710109525067084 | 5.018108451266553 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_ratio
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 33
+- **Observed pressure range gpa:** \[0.0, 2.4826\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[198.65412923399998, 207.8955\]
+- **Degrees of freedom:** 30
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.010685312566060876
+- **Published rmse gpa:** 0.026376274012495766
+- **Reduced chi square:** 0.044813066222468924
+- **Dataset identifiers:** lead\_sulfide\_knorr\_2003\_figure2\_digitized
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Room-temperature B1-PbS Birch-Murnaghan fit: K0=51.0+/-1.2 GPa and K0'=4.3+/-0.9. V0=207.8955+/-0.0421 A^3 is calculated from the reported cubic a=5.9240(4) A. The B1/B16 coexistence interval ends near 6 GPa.
 
 Parameter covariance is not supplied.

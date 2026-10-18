@@ -98,6 +98,64 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Phase-specific source inclusion flags are applied. This diagnostic does not replay the MINUTI volume objective and Gaussian parameter priors; a different conditional coefficient estimate alone does not establish a source-EOS failure.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 78.88 | 0.056 | 78.83719608651616 | 0.12773947199246283 | Free |
+| K0 | 155.3 | 2.2 | 159.74023853240206 | 9.472157638240265 | Free |
+| K0\_prime | 3.79 | 0.11 | 3.338436432393742 | 0.8656985220111578 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** used\_in\_b1\_fit=1; reference-T rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** atomic\_volume\_angstrom3
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 14
+- **Observed pressure range gpa:** \[1.5, 23.3\]
+- **Observed temperature range k:** \[300.0, 300.0\]
+- **Observed volume range:** \[70.056, 78.008\]
+- **Degrees of freedom:** 11
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.09566063199171472
+- **Published rmse gpa:** 0.2405614708793054
+- **Reduced chi square:** 0.8096311802812604
+- **Dataset identifiers:** mgfe94o\_dobrosavljevic\_2019\_table\_s1\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Published B1 parameterization on the Dewaele-2008 ruby scale. V0 is stored on the conventional eight-atom cell basis. K0-prime was constrained by a finite prior and is therefore listed as free, not fixed. No numerical covariance matrix is available.
 
 Parameter covariance is not supplied.

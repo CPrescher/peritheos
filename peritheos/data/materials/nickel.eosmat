@@ -51,6 +51,73 @@
         "audit_date": "2026-09-03"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 43.816,
+                "published_error": 0.072,
+                "refit": 43.859263314438294,
+                "refit_error": 0.05651611678809481,
+                "difference": 0.0432633144382919,
+                "relative_difference": 0.000987386215955174,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 177.5,
+                "published_error": 2.4,
+                "refit": 171.91104099081932,
+                "refit_error": 3.120778150112471,
+                "difference": -5.588959009180684,
+                "relative_difference": 0.03148709300946864,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.83,
+                "published_error": 0.09,
+                "refit": 5.332305248001798,
+                "refit_error": 0.0792067839078175,
+                "difference": 0.5023052480017975,
+                "relative_difference": 0.10399694575606575,
+                "similar": true,
+                "within_combined_2sigma": false
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "ruby_pressure_dewaele_gpa", "temperature": null, "volume": "atomic_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 42,
+              "observed_pressure_range_gpa": [0.0, 156.6],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [30.5116, 43.7692],
+              "degrees_of_freedom": 39,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.6038814013928853,
+              "published_rmse_gpa": 3.3381367238639177,
+              "reduced_chi_square": 0.39272449671348386,
+              "dataset_identifiers": ["nickel_dewaele_2008_table2_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -127,6 +194,70 @@
         "audit_date": "2026-09-06"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 43.816,
+                "published_error": 0.072,
+                "refit": 43.82740979561661,
+                "refit_error": null,
+                "difference": 0.01140979561660771,
+                "relative_difference": 0.0002604024926193105,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true
+              },
+              {
+                "parameter": "K0",
+                "published": 177.5,
+                "published_error": 2.4,
+                "refit": 176.04926688327072,
+                "refit_error": null,
+                "difference": -1.4507331167292818,
+                "relative_difference": 0.008173144319601588,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.83,
+                "published_error": 0.09,
+                "refit": 4.867459199246375,
+                "refit_error": null,
+                "difference": 0.037459199246375086,
+                "relative_difference": 0.007755527794280556,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "static_vinet_with_explicit_ruby_scale_conversion",
+              "objective": "unweighted pressure residuals",
+              "selection": "complete",
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 42,
+              "observed_pressure_range_gpa": [0.0, 147.4],
+              "solver_success": true,
+              "solver_message": "dedicated Dewaele (2019) refit completed",
+              "rmse_gpa": 0.6016140965087852,
+              "dataset_identifiers": ["nickel_dewaele_2008_table2_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
@@ -217,6 +348,70 @@
         "audit_date": "2026-09-06"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 43.808,
+                "published_error": 0.072,
+                "refit": 43.81855566285343,
+                "refit_error": null,
+                "difference": 0.01055566285342735,
+                "relative_difference": 0.00024095285914507283,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true
+              },
+              {
+                "parameter": "K0",
+                "published": 176.0,
+                "published_error": 2.4,
+                "refit": 174.5194065328531,
+                "refit_error": null,
+                "difference": -1.480593467146889,
+                "relative_difference": 0.008412462881516414,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.322,
+                "published_error": 0.09,
+                "refit": 5.365945691302105,
+                "refit_error": null,
+                "difference": 0.04394569130210524,
+                "relative_difference": 0.008257364017682307,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "static_vinet_with_explicit_ruby_scale_conversion",
+              "objective": "unweighted pressure residuals",
+              "selection": "complete",
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 42,
+              "observed_pressure_range_gpa": [0.0, 158.7461178680547],
+              "solver_success": true,
+              "solver_message": "dedicated Dewaele (2019) refit completed",
+              "rmse_gpa": 0.6562943317035914,
+              "dataset_identifiers": ["nickel_dewaele_2008_table2_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
@@ -338,6 +533,78 @@
         "notes": "MAP detector angle calibrated with NaCl a=5.6402 A (JCPDS 05-0628); DAC geometry with CeO2. MAP cooling cycles minimize deviatoric stress. The article writes DAC T_sample=295+0.97*(T_meas-295) and T_NaCl=(3*T_meas+295)/4. The workbook uses a 293 K baseline for some Ni-NiO DAC runs and 295 K for others; preserve its stored values. Equation (4) prints sigma_TNaCl=(T_meas-295)/2, while the hot DAC workbook rows use (T_meas-T_ambient)/4; preserve the workbook uncertainties. The workbook pressure-threshold footnote is approximate: honor the explicit NaCl phase column, including B2 rows below 26 GPa."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Conditional reproduction, not an exact recovery of the unpublished regression protocol. Campbell specifies least squares but no residual variable, weights, covariance, or final row mask. The main diagnostic uses equal pressure-residual weights and simultaneous fitting of the three Table 1 free parameters. Fe/FeO main fits use current-study Table S2 only: Seagle contributes 81 recoverable V-T pairs but no individual pressures or NaCl observations. Separate sensitivities reconstruct 65 hcp-calibrated pressures using benchmark-checked Seagle (2006), compare its conflicting reference volumes, and optionally retain 16 unresolved rows as nominal-isobar estimates. A separate protocol audit adds 14 conditional fcc pressures from Funamori/Boehler/Basinski, leaving only two missing-iron-volume rows without individual pressures. The exact historical fcc reduction and combined regression remain unresolved. These are derived pressures, not original row-level pressure data. The published Fe/FeO records are deferred from the executable catalog because the combined-data mismatch remains unresolved. No refitted coefficients replace the source records. See literature-reproductions/campbell-2009-buffers.md.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.K0",
+                "published": 179.0,
+                "published_error": 3.0,
+                "refit": 184.94162448810252,
+                "refit_error": 9.301918918127576,
+                "difference": 5.941624488102519,
+                "relative_difference": 0.033193432894427485,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0_prime",
+                "published": 4.3,
+                "published_error": 0.2,
+                "refit": 4.369947088583044,
+                "refit_error": 0.4759938192780661,
+                "difference": 0.06994708858304399,
+                "relative_difference": 0.016266764786754418,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 2.5,
+                "published_error": 0.06,
+                "refit": 2.2346872736363412,
+                "refit_error": 0.08731643222377894,
+                "difference": -0.26531272636365877,
+                "relative_difference": 0.10612509054546351,
+                "similar": true,
+                "within_combined_2sigma": false
+              }
+            ],
+            "fit": {
+              "fit_kind": "conditional_bm3_mgd_variable_exponent",
+              "objective": "pressure_residuals",
+              "selection": "All Table S2 rows for FeO; only its 15 explicitly fcc rows for Fe. For Ni/NiO, retain all 92 heated/MAP Table S3 rows (T>295 K); exclude its nine 293-295 K quenched DAC rows from the main diagnostic. This exclusion follows the Section 2.2 stress warning but is an audit choice: the authors do not publish a regression row mask. All 101 rows are retained in the dataset and tested in a sensitivity refit.",
+              "weighting": "unweighted",
+              "free_parameters": ["rt_eos.K0", "rt_eos.K0_prime", "gamma0"],
+              "fixed_parameters": ["V0", "Tr", "theta0", "n", "q"],
+              "observations": 92,
+              "observed_pressure_range_gpa": [2.336174779961698, 65.9],
+              "observed_temperature_range_k": [298.0, 2457.07],
+              "degrees_of_freedom": 89,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 1.6636675144162243,
+              "published_rmse_gpa": 1.8570845659080417,
+              "reduced_chi_square": 2.8610858771257854,
+              "covariance": [
+                [86.52569555941969, -4.3388441574979275, -0.6750521773119051],
+                [-4.338844157498334, 0.22657011599092028, 0.030712411253829057],
+                [-0.675052177311737, 0.03071241125381744, 0.007624159336289782]
+              ],
+              "covariance_convention": "Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors.",
+              "dataset_identifiers": ["ni_nio_campbell_2009_table_s3_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-19",

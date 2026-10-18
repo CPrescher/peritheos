@@ -101,6 +101,33 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** The source construction is not a regression: recovered V0 is held fixed, K0-prime=4 is assumed, and the only compressed observation determines K0 algebraically. The article has no supplement, and the audit found no associated repository series; the complete reported endpoint evidence is bundled, but it leaves zero independent residual degrees of freedom.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- Usage recommendation: not\_recommended\_for\_quantitative\_use
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** V0
+- **Dataset identifiers:** mgal2o4\_cafe2o4\_funamori\_1998\_text\_pv
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 This record describes only the CaFe2O4-type run-2 product. It is distinct from the higher-pressure CaTi2O4-type MgAl2O4 phase in runs 3 and 4. It remains a production published record because the equation, coefficients, construction states, and provenance are complete, but it must not be presented as a multi-point fit.
 
 Parameter covariance is not supplied.
@@ -222,6 +249,62 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Three compressed states only; fixed averaged V0 and implicit K0-prime=4. This unweighted pressure diagnostic differs from the stated normalized-volume objective with unspecified weights. The dedicated reproduction also checks that objective; neither supplies source covariance. The refit error is a residual-scaled diagnostic, not a published uncertainty.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 213.0 | 3.0 | 213.86541623235252 | 5.668615221179417 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** fit\_included=1
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3
+- **Absolute sigma:** False
+- **Free parameters:** K0
+- **Fixed parameters:** V0
+- **Observations:** 3
+- **Observed pressure range gpa:** \[27.4, 34.7\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[213.1, 216.1\]
+- **Degrees of freedom:** 2
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 1.1816176575311506
+- **Published rmse gpa:** 1.18848285916044
+- **Reduced chi square:** 2.094330432884105
+- **Dataset identifiers:** mgal2o4\_cafe2o4\_irifune\_2002\_text\_pv
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Only three compressed points: do not infer a free K0-prime, covariance, thermal coefficients or a new default. The existing Funamori structural cell and default are retained independently of this EOS reference volume.
 
@@ -347,6 +430,64 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Staged thermal diagnostic on all 46 Table 1 rows, with the published 300 K BM3 triplet fixed. The source does not specify weights or uncertainty confidence, so use unweighted pressure residuals. The independent static-stage reconstruction and printed-equation corrections are documented in the \[Sueda audit\](literature-reproductions/sueda-2009-mgal2o4-cafe2o4.md).
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| alpha0 | 1.96e-05 | 1.3e-06 | 2.0545677882192407e-05 | 9.45880606019199e-07 | Free |
+| alpha1 | 1.64e-08 | 2.4e-09 | 1.536111873108692e-08 | 8.882639906998163e-10 | Free |
+| dK\_dT | -0.03 | 0.002 | -0.03025104522652718 | 2.59081185197411e-10 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** joint\_pvt
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** volume\_a3
+- **Absolute sigma:** False
+- **Free parameters:** alpha0; alpha1; dK\_dT
+- **Fixed parameters:** V0; K0; K0\_prime; Tr
+- **Observations:** 46
+- **Observed pressure range gpa:** \[0.0001, 41.5\]
+- **Observed temperature range k:** \[298.0, 2400.0\]
+- **Observed volume range:** \[206.9, 243.8\]
+- **Degrees of freedom:** 43
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.29290011794332116
+- **Published rmse gpa:** 0.30738576344813623
+- **Reduced chi square:** 0.091775861353389
+- **Dataset identifiers:** mgal2o4\_cafe2o4\_sueda\_2009\_table1\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -508,6 +649,64 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Staged thermal diagnostic on all 46 Table 1 rows, with the published 300 K BM3 triplet fixed. The source does not specify weights or uncertainty confidence, so use unweighted pressure residuals. The independent static-stage reconstruction and printed-equation corrections are documented in the \[Sueda audit\](literature-reproductions/sueda-2009-mgal2o4-cafe2o4.md).
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| theta0 | 1546.0 | 104.0 | 1535.20247243221 | 98.97639964934156 | Free |
+| gamma0 | 1.73 | 0.07 | 1.7719489187241777 | 0.06540471148893529 | Free |
+| q | 2.03 | 0.37 | 2.3835091190509887 | 0.34696267152816135 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** joint\_pvt
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** volume\_a3
+- **Absolute sigma:** False
+- **Free parameters:** theta0; gamma0; q
+- **Fixed parameters:** V0; K0; K0\_prime; Tr; n
+- **Observations:** 46
+- **Observed pressure range gpa:** \[0.0001, 41.5\]
+- **Observed temperature range k:** \[298.0, 2400.0\]
+- **Observed volume range:** \[206.9, 243.8\]
+- **Degrees of freedom:** 43
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.28386243261309824
+- **Published rmse gpa:** 0.28815743095604834
+- **Reduced chi square:** 0.08619959325244615
+- **Dataset identifiers:** mgal2o4\_cafe2o4\_sueda\_2009\_table1\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

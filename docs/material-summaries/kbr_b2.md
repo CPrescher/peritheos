@@ -86,6 +86,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 14.9 | Not specified | 14.942861141271464 | 0.08225663005644733 | Free |
+| K0\_prime | 5.81 | Not specified | 5.7987453504885265 | 0.015325678710515864 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3\_per\_formula\_unit
+- **Absolute sigma:** True
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 121
+- **Observed pressure range gpa:** \[2.2, 165.0\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[24.414, 56.978\]
+- **Degrees of freedom:** 119
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.4965932121853696
+- **Published rmse gpa:** 0.5024288385451425
+- **Reduced chi square:** 0.2507494371850303
+- **Dataset identifiers:** kbr\_b2\_dewaele\_2012\_table1\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Table III experimental B2 fit in helium. V0 is a fictive zero-pressure value fixed from the lowest-pressure 2-6 GPa measurements; no coefficient standard errors are tabulated.
 
 Parameter covariance is not supplied.

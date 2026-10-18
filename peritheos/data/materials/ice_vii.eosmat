@@ -48,6 +48,73 @@
         "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.V0",
+                "published": 41.480265898,
+                "published_error": 0.0332107813,
+                "refit": 41.55358402869297,
+                "refit_error": 0.013208758333520476,
+                "difference": 0.073318130692968,
+                "relative_difference": 0.0017675424471303373,
+                "similar": true,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "rt_eos.K0",
+                "published": 20.15,
+                "published_error": 0.17,
+                "refit": 19.932688058963176,
+                "refit_error": 0.04103511520857246,
+                "difference": -0.21731194103682228,
+                "relative_difference": 0.010784711713986218,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "alpha0",
+                "published": 0.0001158,
+                "published_error": 5.4e-06,
+                "refit": 9.223772350344142e-05,
+                "refit_error": 1.332752771369834e-06,
+                "difference": -2.3562276496558575e-05,
+                "relative_difference": 0.2034738902984333,
+                "similar": true,
+                "within_combined_2sigma": false
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["rt_eos.V0", "rt_eos.K0", "alpha0"],
+              "fixed_parameters": ["dK_dT", "Tr"],
+              "observations": 92,
+              "observed_pressure_range_gpa": [2.14, 10.11],
+              "observed_temperature_range_k": [300.5, 451.2],
+              "observed_volume_range": [31.538, 38.223],
+              "degrees_of_freedom": 89,
+              "solver_success": true,
+              "solver_message": "`xtol` termination condition is satisfied.",
+              "rmse_gpa": 0.11902454437975105,
+              "published_rmse_gpa": 0.14774331647132496,
+              "reduced_chi_square": 21.096497578090744,
+              "dataset_identifiers": ["ice_vii_bezacier_2014_table1_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -132,6 +199,73 @@
         "audit_date": "2026-09-03"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 41.1813688659,
+                "published_error": 0.3321078134,
+                "refit": 41.07505008213134,
+                "refit_error": 0.35871983396319973,
+                "difference": -0.106318783768657,
+                "relative_difference": 0.0025817204890606167,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 21.1,
+                "published_error": 1.3,
+                "refit": 21.861609206257885,
+                "refit_error": 1.3672099756013576,
+                "difference": 0.7616092062578836,
+                "relative_difference": 0.03609522304539733,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.4,
+                "published_error": 0.1,
+                "refit": 4.313073806814339,
+                "refit_error": 0.09232363037943034,
+                "difference": -0.0869261931856613,
+                "relative_difference": 0.019755952996741204,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows; reference-T rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "ice_molar_volume_cm3_mol"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 21,
+              "observed_pressure_range_gpa": [6.82, 60.52],
+              "observed_temperature_range_k": [300.0, 300.0],
+              "observed_volume_range": [21.4541647478861, 33.94141853303343],
+              "degrees_of_freedom": 18,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.6874730280428482,
+              "published_rmse_gpa": 0.7818213443077109,
+              "reduced_chi_square": 62.34723584187763,
+              "dataset_identifiers": ["ice_vii_frank_2004_table1_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

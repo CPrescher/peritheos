@@ -97,6 +97,65 @@ meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
 
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- Complete conditional reproduction of the preferred K0'=5 thermal BM3 fit. All 31 source-selected hydrostatic Table 1 rows are used with the source-fixed V0=403 A^3 and K0'=5. The paper does not report its EOS residual definition, numerical weights, row-wise pressure/temperature uncertainties, covariance, or confidence convention, so Peritheos uses ordinary pressure residuals. Every varied coefficient is recovered within its published uncertainty; the result is classified similar because the small alpha1 coefficient has a 46% relative shift. See the dedicated \[Zhao jadeite audit\](literature-reproductions/zhao-1997-jadeite.md).
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| rt\_eos.K0 | 124.5 | 4.0 | 123.76531127225114 | 1.3079217383697208 | Free |
+| alpha0 | 2.56e-05 | 2.2e-06 | 2.6907805461388988e-05 | 2.2631463855223843e-06 | Free |
+| alpha1 | 2.6e-09 | 1.8e-09 | 1.4119785809547507e-09 | 3.3359683548023392e-09 | Free |
+| dK\_dT | -0.0165 | 0.0049 | -0.015274475228462205 | 0.002798352278049637 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** joint\_pvt
+- **Objective:** pressure\_residuals
+- **Selection:** all 31 source-selected hydrostatic Table 1 rows; nonhydrostatic cold-compression observations were excluded by the authors before tabulation
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** unit\_cell\_volume\_a3
+- **Absolute sigma:** False
+- **Free parameters:** rt\_eos.K0; alpha0; alpha1; dK\_dT
+- **Fixed parameters:** V0; K0\_prime; Tr
+- **Observations:** 31
+- **Observed pressure range gpa:** \[0.0, 8.16\]
+- **Observed temperature range k:** \[300.0, 1280.0\]
+- **Observed volume range:** \[385.41, 406.7\]
+- **Degrees of freedom:** 27
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.10057798930809785
+- **Published rmse gpa:** 0.1100101303257055
+- **Reduced chi square:** 0.011614588515965007
+- **Dataset identifiers:** jadeite\_zhao\_1997\_table1\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 

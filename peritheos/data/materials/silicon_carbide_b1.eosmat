@@ -39,6 +39,73 @@
         "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 66.3,
+                "published_error": 0.1,
+                "refit": 65.77707217884615,
+                "refit_error": 0.07490638285244797,
+                "difference": -0.5229278211538428,
+                "relative_difference": 0.007887297453300798,
+                "similar": true,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "K0",
+                "published": 323.0,
+                "published_error": 3.0,
+                "refit": 340.649762165055,
+                "refit_error": 3.532854939007289,
+                "difference": 17.649762165054995,
+                "relative_difference": 0.05464322651719813,
+                "similar": true,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.1,
+                "published_error": 0.43,
+                "refit": 3.062845954108703,
+                "refit_error": 0.02636963961419028,
+                "difference": -0.037154045891297116,
+                "relative_difference": 0.011985176093966812,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows; reference-T rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "sic_unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 67,
+              "observed_pressure_range_gpa": [65.37, 202.09],
+              "observed_temperature_range_k": [300.0, 300.0],
+              "observed_volume_range": [45.97, 56.727],
+              "degrees_of_freedom": 64,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.058842648800634605,
+              "published_rmse_gpa": 1.6219704296948159,
+              "reduced_chi_square": 188.17516260644527,
+              "dataset_identifiers": ["silicon_carbide_b1_miozzi_2018_data_set_s1_eos"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

@@ -86,6 +86,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 30.9 | 0.4 | 30.396336961730412 | 2.388305987903056 | Free |
+| K0\_prime | 4.56 | 0.06 | 4.653697629281512 | 0.37249895419551704 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** atomic\_volume\_angstrom3
+- **Absolute sigma:** True
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 39
+- **Observed pressure range gpa:** \[0.5706, 52.5327\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[26.973132, 46.028636\]
+- **Degrees of freedom:** 37
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.19525811794241407
+- **Published rmse gpa:** 0.3367501337450758
+- **Reduced chi square:** 0.026814144318529846
+- **Dataset identifiers:** magnesium\_stinton\_2014\_figure1\_hcp\_digitized
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Room-temperature hcp fit; V0 is the two-atom hexagonal cell volume.
 
 Parameter covariance is not supplied.

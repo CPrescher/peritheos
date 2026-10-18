@@ -87,6 +87,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 168.0 | 4.0 | 166.1726317999564 | 0.41775349958426705 | Free |
+| K0\_prime | 3.4 | 0.3 | 3.533481315869524 | 0.02788348319255274 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_ratio
+- **Absolute sigma:** True
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 43
+- **Observed pressure range gpa:** \[0.11, 134.0\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[23.974465329999997, 35.83404035\]
+- **Degrees of freedom:** 41
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 1.6974999302349352
+- **Published rmse gpa:** 1.3567892071381271
+- **Reduced chi square:** 7.6347616513898515
+- **Dataset identifiers:** niobium\_takemura\_2006\_table1\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Adopted 300 K BM3 fit to the quasihydrostatic helium data through 71.5 GPa: K0=168+/-4 GPa and K0'=3.4+/-0.3. V0 is fixed from a=3.3007(3) A at atmospheric pressure; the parameter errors span the alternative fit using data through 134 GPa.
 
 Parameter covariance is not supplied.
@@ -193,6 +249,44 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** source reconstruction.
+**Scope:** source equation.
+
+**Comparison basis:** All eleven machine-readable comparison series enter one shared Equation (20) objective against the mean Table 2 Holzapfel and Table 3 Vinet isotherm. Table 4 is retained as a post-calibration closure test. The calculation cannot recover the eleven EOS parameter sets independently because the source omits complete thermochemical/ultrasonic rows, weights, and covariance.
+
+Original audit code: `source_reconstruction`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fit kind:** coupled\_eleven\_marker\_ruby\_cross\_calibration
+- **Objective:** minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight
+- **Fixed parameters:** n; Z; n
+- **Observations:** 43
+- **Rmse gpa:** 2.985195422138322
+- **Published rmse gpa:** 3.1276690001706005
+- **Comparison scope:** shared\_ruby\_calibration
+- **Dataset identifiers:** niobium\_takemura\_2006\_table1\_compression
+- **Published ruby parameters:**
+    - **A gpa:** 1870.0
+    - **M:** 6.0
+- **Sensitivity fit ruby parameters:**
+    - **A gpa:** 1869.3837840502665
+    - **M:** 6.10334763359135
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The \*\_sokolova\_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source\_lineage as the implementation and correction source.
 

@@ -102,6 +102,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 223.764 | 0.017 | 223.76881110488034 | 1.0472425512985832 | Free |
+| K0 | 170.9 | 1.4 | 170.04634055926186 | 74.6727352369813 | Free |
+| K0\_prime | 6.6 | 0.3 | 6.790871614610208 | 17.161377728736007 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** unit\_cell\_volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 11
+- **Observed pressure range gpa:** \[0.001, 9.7\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[213.207, 223.769\]
+- **Degrees of freedom:** 8
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.01806320466500881
+- **Published rmse gpa:** 0.018945998606839338
+- **Reduced chi square:** 0.00044877237021156806
+- **Dataset identifiers:** calcium\_titanate\_perovskite\_ross\_1999\_table1\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention. V0, K0, and K0\_prime were all fitted; none was fixed. V0 is one conventional orthorhombic Pbnm cell containing four CaTiO3 formula units. The paper reports no parameter covariance and does not state a confidence convention for the printed coefficient errors. The ambient pressure row has no printed pressure uncertainty; no zero uncertainty is invented in the dataset.
 
 Parameter covariance is not supplied.

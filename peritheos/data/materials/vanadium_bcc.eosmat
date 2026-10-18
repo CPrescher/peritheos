@@ -83,6 +83,28 @@
         "audit_date": "2026-09-19"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "Only a temperature-binned subset is plotted. The exact 62 P-V-T observations, their errors, and simultaneous NaCl/Au lattice readings were not recovered. A 29-point nominal-temperature proxy fit is diagnostic only; the 24 digitized curve checkpoints independently test the published parameterization.",
+            "qualifications": [
+              "Full final typeset article and any inaccessible supplement could not be verified.",
+              "Exact NaCl/Au calibration versions are unspecified in the accessible methods.",
+              "The Conclusion expansion percentages disagree with the explicit coefficients; the latter match the independent plotted isotherms.",
+              "Original row-wise temperatures and covariance are absent.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": ["Tr"],
+              "observations": 29,
+              "dataset_identifiers": ["vanadium_crichton_2016_figure2_points"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-19",

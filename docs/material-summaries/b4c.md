@@ -99,6 +99,61 @@ meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
 
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** The recorded parameter reconstruction did not meet the audit's agreement criterion; the parameter comparisons retain the actual reconstructed values.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| q | 2.1 | Not specified | 1.049907085876978 | 0.519450728953149 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** joint\_pvt
+- **Objective:** errors\_in\_variables
+- **Selection:** 41 heated rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** q
+- **Fixed parameters:** V0; K0; K0\_prime; Tr; theta0; gamma0; n
+- **Observations:** 41
+- **Observed pressure range gpa:** \[9.0, 49.4\]
+- **Observed temperature range k:** \[1027.0, 2500.0\]
+- **Observed volume range:** \[282.0, 320.0\]
+- **Degrees of freedom:** 40
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 1.1759335107150188
+- **Published rmse gpa:** 1.3869131808668502
+- **Reduced chi square:** 0.7670211979012587
+- **Dataset identifiers:** b4c\_somayazulu\_2023\_table4\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 
@@ -222,6 +277,62 @@ meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
 
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| alpha0 | 1.94e-05 | 1.6e-06 | 1.780734391266201e-05 | 2.1050303188941096e-06 | Free |
+| dK\_dT | -0.008 | 0.003 | -0.012319391073918846 | 0.004109187809509253 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** joint\_pvt
+- **Objective:** errors\_in\_variables
+- **Selection:** 41 heated rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** alpha0; dK\_dT
+- **Fixed parameters:** V0; K0; K0\_prime; Tr; alpha1
+- **Observations:** 41
+- **Observed pressure range gpa:** \[9.0, 49.4\]
+- **Observed temperature range k:** \[1027.0, 2500.0\]
+- **Observed volume range:** \[282.0, 320.0\]
+- **Degrees of freedom:** 39
+- **Solver success:** True
+- **Solver message:** \`xtol\` termination condition is satisfied.
+- **Rmse gpa:** 1.3648520258233532
+- **Published rmse gpa:** 2.136498259147437
+- **Reduced chi square:** 1.0387873919166093
+- **Dataset identifiers:** b4c\_somayazulu\_2023\_table4\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 
@@ -323,6 +434,62 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** independent refit.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This comparison concerns the stored independent Peritheos refit, not recovery of the original publication's coefficients or author workflow.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| alpha0 | 1.8112e-05 | 2.1554e-06 | 1.7806906808863976e-05 | 2.105023377647503e-06 | Free |
+| dK\_dT | -0.01311 | 0.00419 | -0.01231848485201816 | 0.004109227420153722 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** joint\_pvt
+- **Objective:** errors\_in\_variables
+- **Selection:** 41 heated rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** alpha0; dK\_dT
+- **Fixed parameters:** V0; K0; K0\_prime; Tr; alpha1
+- **Observations:** 41
+- **Observed pressure range gpa:** \[9.0, 49.4\]
+- **Observed temperature range k:** \[1027.0, 2500.0\]
+- **Observed volume range:** \[282.0, 320.0\]
+- **Degrees of freedom:** 39
+- **Solver success:** True
+- **Solver message:** \`xtol\` termination condition is satisfied.
+- **Rmse gpa:** 1.3648574391553514
+- **Published rmse gpa:** 1.4739481878671772
+- **Reduced chi square:** 1.0387873862338832
+- **Dataset identifiers:** b4c\_somayazulu\_2023\_table4\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

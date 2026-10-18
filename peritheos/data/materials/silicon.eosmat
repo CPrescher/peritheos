@@ -74,6 +74,66 @@
         "audit_date": "2026-09-03"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 160.248,
+                "published_error": null,
+                "refit": 160.21186069359948,
+                "refit_error": 0.09505219982877938,
+                "difference": -0.036139306400514215,
+                "relative_difference": 0.00022552110728691913,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 97.89,
+                "published_error": null,
+                "refit": 96.43184854524975,
+                "refit_error": 0.7768789566851051,
+                "difference": -1.4581514547502508,
+                "relative_difference": 0.014895816270816742,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "phase=I",
+              "columns": {
+                "pressure": "pressure_gold_gpa|pressure_tungsten_gpa|pressure_ruby_gpa",
+                "temperature": null,
+                "volume": "silicon_lattice_a_angstrom"
+              },
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 44,
+              "observed_pressure_range_gpa": [0.0, 13.2],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [143.630847053, 160.191477991],
+              "degrees_of_freedom": 42,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.1821641827595541,
+              "published_rmse_gpa": 0.25228931871931043,
+              "reduced_chi_square": 0.03476396993190652,
+              "dataset_identifiers": ["silicon_anzellini_2019_tables1_4_6_7_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

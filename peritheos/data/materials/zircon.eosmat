@@ -37,6 +37,62 @@
         "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 260.79,
+                "published_error": 0.04,
+                "refit": 260.805751771442,
+                "refit_error": 0.606462093717834,
+                "difference": 0.015751771441955498,
+                "relative_difference": 6.040021259233673e-05,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 227.0,
+                "published_error": 2.0,
+                "refit": 225.3444326522901,
+                "refit_error": 43.88337493371333,
+                "difference": -1.6555673477099049,
+                "relative_difference": 0.007293248227796938,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_kbar", "temperature": null, "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 11,
+              "observed_pressure_range_gpa": [0.00010132500000000001, 4.8100000000000005],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [255.59, 260.8],
+              "degrees_of_freedom": 9,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.08403981539762538,
+              "published_rmse_gpa": 0.08495072256877143,
+              "reduced_chi_square": 0.008641189386062237,
+              "dataset_identifiers": ["zircon_hazen_1979_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

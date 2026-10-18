@@ -100,6 +100,32 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** None declared
+- **Dataset identifiers:** None declared
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 No direct coefficient refit is possible because numerical E(V) rows are not published; the source-stated high-compression endpoint provides the independent equation-convention check.
 
 Parameter covariance is not supplied.

@@ -87,6 +87,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 83.0 | 0.5 | 82.92493146639345 | 0.46638660935677917 | Free |
+| K0\_prime | 3.91 | 0.02 | 3.9084480937961903 | 0.022738304211143447 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** atomic\_volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 71
+- **Observed pressure range gpa:** \[35.3, 240.4\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[21.36, 35.146\]
+- **Degrees of freedom:** 69
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.44882464074024575
+- **Published rmse gpa:** 1.099617811853243
+- **Reduced chi square:** 1.1280206508675192
+- **Dataset identifiers:** zirconium\_beta\_mchardy\_2026\_table\_s8\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 The beta-phase fit used the selected constrained value V0 = 22.6 A^3/atom. The paper cautions that this far-extrapolated reference volume has no direct physical significance; it is doubled here for the conventional bcc cell.
 
 Parameter covariance is not supplied.

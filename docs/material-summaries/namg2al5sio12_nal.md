@@ -98,6 +98,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 178.34189581447112 | Not specified | 178.2328857093995 | 0.005881375392549615 | Free |
+| K0 | 217.7 | Not specified | 217.61858686056965 | 0.18874323307669333 | Free |
+| K0\_prime | 4.08 | Not specified | 4.0856132536505045 | 0.008552205469489078 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3\_conventional\_cell
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 6
+- **Observed pressure range gpa:** \[0.0, 50.0\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[151.25007456, 178.235777307\]
+- **Degrees of freedom:** 3
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.005517062972859495
+- **Published rmse gpa:** 0.1959975125525443
+- **Reduced chi square:** 6.0875967692994504e-05
+- **Dataset identifiers:** namg2al5sio12\_nal\_kawai\_2012\_figure2c\_vector\_digitized
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Published static-theory parameterization. All three printed coefficients are treated as fitted; no statistical errors are reported. There is no pressure calibration.
 
 Parameter covariance is not supplied.

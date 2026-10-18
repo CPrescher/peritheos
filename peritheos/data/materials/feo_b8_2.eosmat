@@ -68,6 +68,78 @@
         "notes": "NaCl was a secondary pressure standard. Published pressure errors propagate the temperature error and hcp-Fe lattice-parameter error."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Recovered combined thermal reproduction: all 21 numerical B8 volumes in Fischer Supplementary Table S1 are evaluated at their reported, already 3%-corrected temperatures with Equation (1)'s integrated-Gruneisen Mie-Gruneisen-Debye model. One-peak detections have no volume and are excluded; the three two-peak volumes whose errors are unconstrained use Figure 3's explicit +/-0.1 cm^3/mol fallback. All 8 B8 rows in Ozawa's printed Table 2 are added, and K0', theta0, q, Tr, and n are held fixed. The unweighted 29-row fit recovers every free coefficient within its published uncertainty. Fischer does not state its regression weights, residual variable, covariance, or optimizer, so this establishes numerical parameter parity rather than exact procedural identity. See the [dedicated Fischer reproduction](literature-reproductions/fischer-2011-feo.md).",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.V0",
+                "published": 39.843,
+                "published_error": 0.0598,
+                "refit": 39.87450402914566,
+                "refit_error": 0.9227500249824091,
+                "difference": 0.03150402914565831,
+                "relative_difference": 0.0007907042427944258,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0",
+                "published": 137.8,
+                "published_error": 0.9,
+                "refit": 137.8628927154254,
+                "refit_error": 13.419067626962399,
+                "difference": 0.06289271542539154,
+                "relative_difference": 0.00045640577231779056,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.73,
+                "published_error": 0.12,
+                "refit": 1.6661584108233458,
+                "refit_error": 0.16772849402876094,
+                "difference": -0.06384158917665417,
+                "relative_difference": 0.036902652703268306,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "pressure_residuals",
+              "selection": "21 numerical Fischer Table S1 B8 volumes plus all eight B8 rows in Ozawa printed Table 2",
+              "columns": {
+                "pressure": "pressure_gpa + pressure_gpa",
+                "temperature": "temperature_k + temperature_k",
+                "volume": "b8_feo_molar_volume_cm3_mol + feo_volume_a3_per_formula_unit"
+              },
+              "absolute_sigma": false,
+              "free_parameters": ["rt_eos.V0", "rt_eos.K0", "gamma0"],
+              "fixed_parameters": ["K0_prime", "Tr", "theta0", "q", "n"],
+              "observations": 29,
+              "observed_pressure_range_gpa": [131.343680431, 199.5],
+              "observed_temperature_range_k": [300.0, 3000.0],
+              "observed_volume_range": [24.4, 26.844846548522057],
+              "degrees_of_freedom": 26,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 2.531779963298538,
+              "published_rmse_gpa": 2.544868741352714,
+              "reduced_chi_square": 7.149514757470708,
+              "dataset_identifiers": ["feo_fischer_2011_table_s1_pvt", "feo_ozawa_2010_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

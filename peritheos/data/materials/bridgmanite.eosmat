@@ -55,6 +55,95 @@
         "audit_date": "2026-09-03"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.K0",
+                "published": 256.7,
+                "published_error": 1.5,
+                "refit": 255.63610330719632,
+                "refit_error": 1.2227734355407835,
+                "difference": -1.0638966928036666,
+                "relative_difference": 0.004144513801338787,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0_prime",
+                "published": 4.09,
+                "published_error": 0.06,
+                "refit": 4.12967726760114,
+                "refit_error": 0.04673558073372059,
+                "difference": 0.03967726760114054,
+                "relative_difference": 0.009701043423261746,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "theta0",
+                "published": 950.0,
+                "published_error": null,
+                "refit": 1086.2748429366031,
+                "refit_error": 142.3372117417155,
+                "difference": 136.27484293660314,
+                "relative_difference": 0.14344720309116119,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.54,
+                "published_error": null,
+                "refit": 1.656240872686995,
+                "refit_error": 0.09333637945441978,
+                "difference": 0.11624087268699501,
+                "relative_difference": 0.07548108616038637,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "q",
+                "published": 1.5,
+                "published_error": null,
+                "refit": 1.664036179285288,
+                "refit_error": 0.2576471653327304,
+                "difference": 0.16403617928528802,
+                "relative_difference": 0.10935745285685868,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_bm3_gpa", "temperature": "temperature_k", "volume": "unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["rt_eos.K0", "rt_eos.K0_prime", "theta0", "gamma0", "q"],
+              "fixed_parameters": ["V0"],
+              "observations": 42,
+              "observed_pressure_range_gpa": [27.855, 108.3],
+              "observed_temperature_range_k": [300.0, 2430.0],
+              "observed_volume_range": [128.1, 150.26],
+              "degrees_of_freedom": 37,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.14546196922271423,
+              "published_rmse_gpa": 0.29288359405650327,
+              "reduced_chi_square": 0.8343143632916399,
+              "dataset_identifiers": ["bridgmanite_tange_2012_table1_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -133,6 +222,95 @@
         "audit_date": "2026-09-03"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.K0",
+                "published": 258.4,
+                "published_error": 1.7,
+                "refit": 257.2985406658008,
+                "refit_error": 1.3091539261690839,
+                "difference": -1.1014593341992054,
+                "relative_difference": 0.0042626135224427455,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0_prime",
+                "published": 4.1,
+                "published_error": 0.07,
+                "refit": 4.143447741632316,
+                "refit_error": 0.054324666204031966,
+                "difference": 0.04344774163231602,
+                "relative_difference": 0.01059701015422342,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "theta0",
+                "published": 940.0,
+                "published_error": null,
+                "refit": 1056.9221699968332,
+                "refit_error": 134.7340535372431,
+                "difference": 116.92216999683319,
+                "relative_difference": 0.1243852872306736,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.55,
+                "published_error": null,
+                "refit": 1.6411659546684216,
+                "refit_error": 0.08636308988288818,
+                "difference": 0.09116595466842159,
+                "relative_difference": 0.058816744947368764,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "q",
+                "published": 1.1,
+                "published_error": null,
+                "refit": 1.2063128272580372,
+                "refit_error": 0.2419367925321258,
+                "difference": 0.10631282725803715,
+                "relative_difference": 0.09664802478003376,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_vinet_gpa", "temperature": "temperature_k", "volume": "unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["rt_eos.K0", "rt_eos.K0_prime", "theta0", "gamma0", "q"],
+              "fixed_parameters": ["V0"],
+              "observations": 42,
+              "observed_pressure_range_gpa": [27.966, 108.5],
+              "observed_temperature_range_k": [300.0, 2430.0],
+              "observed_volume_range": [128.1, 150.26],
+              "degrees_of_freedom": 37,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.14848743433412506,
+              "published_rmse_gpa": 0.2993188690148455,
+              "reduced_chi_square": 0.9008642312013324,
+              "dataset_identifiers": ["bridgmanite_tange_2012_table1_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -195,6 +373,62 @@
         "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 162.51,
+                "published_error": 0.02,
+                "refit": 162.52993303517428,
+                "refit_error": 0.014010927229666304,
+                "difference": 0.019933035174290126,
+                "relative_difference": 0.00012265728370124994,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 253.0,
+                "published_error": 1.0,
+                "refit": 250.70955473325915,
+                "refit_error": 1.0065564576926984,
+                "difference": -2.2904452667408464,
+                "relative_difference": 0.009053143346801764,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": [],
+              "observations": 12,
+              "observed_pressure_range_gpa": [0.01, 10.04],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [156.56, 162.57],
+              "degrees_of_freedom": 10,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.025969754420952482,
+              "published_rmse_gpa": 0.06029576675571027,
+              "reduced_chi_square": 1.703161700524592,
+              "dataset_identifiers": ["bridgmanite_vanpeteghem_2006_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -284,6 +518,62 @@
         "notes": "Table 1 reports only reduced pressures. Its footnote states that points with pressure error greater than 0.5 GPa were rejected; it does not give retained-row pressure uncertainties."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 162.4007,
+                "published_error": null,
+                "refit": 162.3833955128058,
+                "refit_error": 0.9678803105396369,
+                "difference": -0.017304487194195417,
+                "relative_difference": 0.00010655426481656432,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 260.51,
+                "published_error": null,
+                "refit": 260.5052137003601,
+                "refit_error": 11.54296789060183,
+                "difference": -0.004786299639874869,
+                "relative_difference": 1.8372805803519518e-05,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows; reference-T rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "molar_volume_cm3_mol"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 10,
+              "observed_pressure_range_gpa": [36.2, 82.5],
+              "observed_temperature_range_k": [300.0, 300.0],
+              "observed_volume_range": [131.82023330852866, 145.2905262214429],
+              "degrees_of_freedom": 8,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.007035690135033842,
+              "published_rmse_gpa": 0.06179618857537843,
+              "reduced_chi_square": 9.326487189620008e-05,
+              "dataset_identifiers": ["bridgmanite_saxena_1999_table1_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Checked directly against the final American Mineralogist article and the author-uploaded journal PDF. LitCurate was used only for discovery. The publisher and author records expose no separate supplement.",
@@ -473,6 +763,62 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 256.0,
+                "published_error": 2.0,
+                "refit": 263.72699210482887,
+                "refit_error": 2.1036410524110387,
+                "difference": 7.726992104828867,
+                "relative_difference": 0.03018356290948776,
+                "similar": true,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.8,
+                "published_error": 0.2,
+                "refit": 3.2980699633457764,
+                "refit_error": 0.17354107840256552,
+                "difference": -0.5019300366542234,
+                "relative_difference": 0.13208685175111143,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows; reference-T rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "bridgmanite_v_v0"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 7,
+              "observed_pressure_range_gpa": [18.9, 48.2],
+              "observed_temperature_range_k": [300.0, 305.0],
+              "observed_volume_range": [140.59345149893778, 152.3988845365594],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.20777312724021518,
+              "published_rmse_gpa": 0.2985707120224261,
+              "reduced_chi_square": 4.508706240542179,
+              "dataset_identifiers": ["bridgmanite_katsura_2009_corrected_table1_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against the primary article and its formal corrigendum. LitCurate was discovery-only.",
@@ -642,6 +988,51 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0_prime",
+                "published": 4.1,
+                "published_error": 0.2,
+                "refit": 4.191064992452868,
+                "refit_error": 0.04852180550600162,
+                "difference": 0.09106499245286859,
+                "relative_difference": 0.02221097376899234,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows; reference-T rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "bridgmanite_v_v0"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0_prime"],
+              "fixed_parameters": ["V0", "K0"],
+              "observations": 7,
+              "observed_pressure_range_gpa": [18.9, 48.2],
+              "observed_temperature_range_k": [300.0, 305.0],
+              "observed_volume_range": [140.59345149893778, 152.3988845365594],
+              "degrees_of_freedom": 6,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.41244693877264843,
+              "published_rmse_gpa": 0.4189783268347747,
+              "reduced_chi_square": 8.00984344072586,
+              "dataset_identifiers": ["bridgmanite_katsura_2009_corrected_table1_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against the primary article and formal corrigendum; this is a source-generated same-data sensitivity fit, not a LitCurate reconstruction.",
@@ -778,6 +1169,95 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.V0",
+                "published": 162.12,
+                "published_error": 0.13,
+                "refit": 161.88477479078992,
+                "refit_error": 0.21420963994351946,
+                "difference": -0.2352252092100855,
+                "relative_difference": 0.0014509326992973445,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0",
+                "published": 262.3,
+                "published_error": 3.2,
+                "refit": 268.2177787729877,
+                "refit_error": 5.419993377852128,
+                "difference": 5.917778772987674,
+                "relative_difference": 0.022561108551230172,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0_prime",
+                "published": 4.044,
+                "published_error": 0.075,
+                "refit": 3.927017300036262,
+                "refit_error": 0.11940820073575169,
+                "difference": -0.11698269996373778,
+                "relative_difference": 0.028927472790241788,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.675,
+                "published_error": 0.045,
+                "refit": 1.6865775004026424,
+                "refit_error": 0.059762565727720214,
+                "difference": 0.011577500402642382,
+                "relative_difference": 0.0069119405388909745,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "q",
+                "published": 1.39,
+                "published_error": 0.16,
+                "refit": 1.4713155780043,
+                "refit_error": 0.2139118547284508,
+                "difference": 0.0813155780043,
+                "relative_difference": 0.05850041583043166,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "bridgmanite_unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["rt_eos.V0", "rt_eos.K0", "rt_eos.K0_prime", "gamma0", "q"],
+              "fixed_parameters": ["Tr", "theta0", "n"],
+              "observations": 42,
+              "observed_pressure_range_gpa": [27.96, 108.51],
+              "observed_temperature_range_k": [300.0, 2430.0],
+              "observed_volume_range": [128.1, 150.26],
+              "degrees_of_freedom": 37,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.18256917829299024,
+              "published_rmse_gpa": 0.3027410708205382,
+              "reduced_chi_square": 0.5826646312273345,
+              "dataset_identifiers": ["bridgmanite_wolf_2015_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against the final Wolf et al. article, its complete article tables, the corresponding author's machine-readable table mirror, and the author's PVT-tool implementation; LitCurate was discovery-only.",
@@ -926,6 +1406,62 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 254.5,
+                "published_error": 0.4,
+                "refit": 254.26813669744593,
+                "refit_error": 2.93452853420738,
+                "difference": -0.23186330255407483,
+                "relative_difference": 0.0009110542340042233,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.73,
+                "published_error": 0.02,
+                "refit": 3.74772534340329,
+                "refit_error": 0.15275230295639503,
+                "difference": 0.01772534340329024,
+                "relative_difference": 0.004752102789085855,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 14,
+              "observed_pressure_range_gpa": [0.0001, 78.8],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [131.776574, 162.453274],
+              "degrees_of_freedom": 12,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.007864808530279974,
+              "published_rmse_gpa": 0.06587481778903671,
+              "reduced_chi_square": 0.002412093370982601,
+              "dataset_identifiers": ["bridgmanite_criniti_2021_table1_density"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Checked against the open-access final article and the authors' Figshare measurement workbook; LitCurate was used only to identify the candidate set.",
@@ -1043,6 +1579,73 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 162.27,
+                "published_error": 0.01,
+                "refit": 162.2068809474657,
+                "refit_error": 0.5263134925283031,
+                "difference": -0.0631190525343186,
+                "relative_difference": 0.000388975488595049,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 253.0,
+                "published_error": 9.0,
+                "refit": 254.61118516251946,
+                "refit_error": 11.71402405767663,
+                "difference": 1.6111851625194618,
+                "relative_difference": 0.006368320800472181,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.9,
+                "published_error": 0.2,
+                "refit": 3.893302709983108,
+                "refit_error": 0.21519736763701536,
+                "difference": -0.006697290016891788,
+                "relative_difference": 0.0017172538504850738,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows; reference-T rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 25,
+              "observed_pressure_range_gpa": [29.5, 90.57],
+              "observed_temperature_range_k": [298.0, 298.0],
+              "observed_volume_range": [129.292, 147.178],
+              "degrees_of_freedom": 22,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.6384057327070228,
+              "published_rmse_gpa": 0.7070408617293515,
+              "reduced_chi_square": 5.50071179561345,
+              "dataset_identifiers": ["bridgmanite_fiquet_2000_table1_298k_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Checked directly against the publisher primary article and exact Table 1 room-temperature rows.",
@@ -1142,6 +1745,23 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "The coefficients and six calculation pressures are stated; row-wise calculated P-V values are not tabulated.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": ["K0_prime"],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against the official full-text article, Table 1(c), and Section 3.2.",
@@ -1230,6 +1850,23 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "The E(V) rows, weights, residuals, and covariance are not tabulated.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": [],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against the author-deposited published article.",
@@ -1314,6 +1951,23 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "Five F(V) states per temperature are described and the curves are plotted, but numerical free-energy rows, weights, residuals, and covariance are not deposited.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": [],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Exact Table I coefficient transcription and executable BM3 round trip.",
@@ -1388,6 +2042,23 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "Five F(V) states per temperature are described and the curves are plotted, but numerical free-energy rows, weights, residuals, and covariance are not deposited.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": [],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Exact Table I coefficient transcription and executable BM3 round trip.",
@@ -1505,6 +2176,48 @@
         "notes": "The final article explicitly states that only gold pressures were used for its perovskite EOS; that main pressure axis is linked to an executable record. Ruby and neon served as checks. The overall status remains partial because row-wise ruby and neon readings are not printed and the rounded Anderson reference volume does not exactly regenerate the tabulated pressures."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Direct final-article reproduction. Mao et al. explicitly fitted only the Fe10 data with K0-prime fixed at 4; Table 1 supplies the fixed Fe10 V0=162.79 A3. The paper does not state weights, and unweighted pressure residuals recover K0=260.80 GPa from the rounded table. MgSiO3 and Fe20 inherit this indistinguishable compression curve with their separately measured composition-specific ambient volumes.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 261.0,
+                "published_error": 4.0,
+                "refit": 260.7999230336436,
+                "refit_error": 1.7340729995198663,
+                "difference": -0.2000769663563915,
+                "relative_difference": 0.0007665784151585881,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "shared_bm2_fe10_pressure_residuals",
+              "objective": "unweighted pressure residuals",
+              "selection": "fit_included=1: all nine 300 K Fe10 rows in final-article Table 2",
+              "columns": {"pressure": "pressure_gpa", "volume": "volume_a3"},
+              "absolute_sigma": false,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 9,
+              "observed_pressure_range_gpa": [1.4, 26.0],
+              "degrees_of_freedom": 8,
+              "solver_success": true,
+              "solver_message": "analytic one-parameter least-squares solution",
+              "rmse_gpa": 0.28526073698634036,
+              "dataset_identifiers": ["mao_1991_tables2_3_bridgmanite_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -1596,6 +2309,23 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "The official tc-ds62 mpv block provides V0, K0, K0', and K0'' without model-family conversion.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": [],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Complete four-coefficient modified-Tait row recovered from the article's official THERMOCALC artifact and executed numerically.",
@@ -1664,6 +2394,23 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "Figure 1 plots E(V), but the individual energy grid is not tabulated.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": [],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -1722,6 +2469,23 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "Figure 1 plots E(V), but the individual energy grid is not tabulated.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": [],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -1780,6 +2544,23 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "Figure 1 plots E(V), but the individual energy grid is not tabulated.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": [],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -1848,6 +2629,23 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "Complete coefficients are printed, but the underlying energy-volume grid is not tabulated.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": [],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -1918,6 +2716,23 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "Calculations were performed every 10 GPa through 120 GPa, but their numerical volume grid is plotted rather than tabulated.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": ["K0_prime"],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -1987,6 +2802,23 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "Pressure-dependent calculations are plotted, but the numerical P-V grid is not tabulated.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": [],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -2066,6 +2898,23 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "The calculated 0-150 GPa volume series is plotted in Figure 1 but not tabulated; Table I provides the complete fitted coefficients.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": [],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -2146,6 +2995,57 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "Only a partial 298 K slice of the source's joint thermoelastic objective is recoverable, and that transparent slice does not reproduce the published coefficient pair.",
+            "qualifications": [
+              "This is a partial room-temperature diagnostic, not a reproduction of the joint thermoelastic objective. The paper states no point-weighting rule or covariance, and at least one source pressure-coordinate choice or joint-fit constraint remains unresolved. Published coefficients are therefore retained.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 252.0,
+                "published_error": null,
+                "refit": 256.4434912812934,
+                "refit_error": null,
+                "difference": 4.443491281293404,
+                "relative_difference": 0.01763290190989446,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.38,
+                "published_error": null,
+                "refit": 3.850175971321591,
+                "refit_error": null,
+                "difference": -0.529824028678409,
+                "relative_difference": 0.12096439010922581,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "partial_298k_rydberg_stacey_diagnostic",
+              "objective": "unweighted pressure residuals",
+              "selection": "recoverable 298 K literature slice",
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0", "K_infinity_prime"],
+              "observations": 19,
+              "observed_pressure_range_gpa": [18.953355640520773, 95.41648812348971],
+              "solver_success": true,
+              "solver_message": "dedicated Dorogokupets (2015) slice fit completed",
+              "rmse_gpa": 0.3017704120453951,
+              "published_rmse_gpa": 1.5784185420909207,
+              "dataset_identifiers": ["dorogokupets_2015_bridgmanite_298k_reconstruction"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against the final primary article; LitCurate was used only to enumerate candidates.",
@@ -2239,6 +3139,23 @@
         "audit_date": "2026-09-06"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "The complete fit coefficients are printed; the simulated 300 K volumes are plotted but not tabulated, so no pseudo-observations were digitized.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": [],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against the open final primary PDF; LitCurate was discovery-only.",

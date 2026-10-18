@@ -41,6 +41,51 @@
         "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 161.2,
+                "published_error": null,
+                "refit": 160.73415834708604,
+                "refit_error": 2.1212704900581403,
+                "difference": -0.4658416529139515,
+                "relative_difference": 0.002889836556538161,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 10,
+              "observed_pressure_range_gpa": [1.43, 9.72],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [1435.7, 1500.4],
+              "degrees_of_freedom": 9,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.23325575852449987,
+              "published_rmse_gpa": 0.2338798726893578,
+              "reduced_chi_square": 0.06045360987204421,
+              "dataset_identifiers": ["majorite_yagi_1992_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

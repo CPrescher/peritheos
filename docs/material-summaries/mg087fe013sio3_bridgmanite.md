@@ -104,6 +104,65 @@ meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
 
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| rt\_eos.V0 | 163.16 | 0.19 | 162.60249726814212 | 0.9892223853928208 | Free |
+| rt\_eos.K0 | 243.8 | 4.3 | 254.1786085606223 | 20.258233450273092 | Free |
+| rt\_eos.K0\_prime | 4.16 | 0.11 | 3.9857458076163974 | 0.38012192157554864 | Free |
+| gamma0 | 1.4 | 0.11 | 1.39320084076452 | 0.16372684916820773 | Free |
+| q | 0.56 | 0.37 | 0.5535850391932572 | 0.5406059438791783 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** joint\_pvt
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** bridgmanite\_unit\_cell\_volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** rt\_eos.V0; rt\_eos.K0; rt\_eos.K0\_prime; gamma0; q
+- **Fixed parameters:** Tr; theta0; n
+- **Observations:** 153
+- **Observed pressure range gpa:** \[33.15, 132.7\]
+- **Observed temperature range k:** \[300.0, 2455.0\]
+- **Observed volume range:** \[122.42, 146.59\]
+- **Degrees of freedom:** 148
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 1.0712048891019135
+- **Published rmse gpa:** 1.9496990046194926
+- **Reduced chi square:** 0.613916105009841
+- **Dataset identifiers:** mg087fe013sio3\_bridgmanite\_wolf\_2015\_table1\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 

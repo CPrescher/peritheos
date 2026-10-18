@@ -97,7 +97,7 @@ fn assessment(evidence: &Value) -> Result<(), EosmatError> {
             "evidence.reproduction.assessment.basis is required",
         ));
     }
-    for key in ["basis", "report"] {
+    for key in ["basis", "report", "source_status", "basis_code"] {
         if let Some(value) = fields.get(key) {
             if value.as_str().is_none_or(|s| s.trim().is_empty()) {
                 return Err(invalid_document(format!(
@@ -117,6 +117,52 @@ fn assessment(evidence: &Value) -> Result<(), EosmatError> {
             return Err(invalid_document(
                 "assessment.qualifications must contain nonempty strings",
             ));
+        }
+    }
+    if fields.get("fit").is_some_and(|value| !value.is_object()) {
+        return Err(invalid_document("assessment.fit must be an object"));
+    }
+    if let Some(value) = fields.get("parameters") {
+        let rows = value
+            .as_array()
+            .ok_or_else(|| invalid_document("assessment.parameters must be an array"))?;
+        let mut names = std::collections::BTreeSet::new();
+        for row in rows {
+            let row = object(row, "assessment.parameters entry")?;
+            let name = row.get("parameter").and_then(Value::as_str).unwrap_or("");
+            if name.trim().is_empty() || !names.insert(name.to_owned()) {
+                return Err(invalid_document(
+                    "assessment.parameters requires unique parameter names",
+                ));
+            }
+            for key in ["published", "refit"] {
+                if !row.contains_key(key) {
+                    return Err(invalid_document(format!(
+                        "assessment.parameters requires {key}"
+                    )));
+                }
+            }
+            for key in [
+                "published",
+                "refit",
+                "published_error",
+                "refit_error",
+                "published_sigma",
+                "refit_sigma",
+            ] {
+                if let Some(value) = row.get(key).filter(|v| !v.is_null()) {
+                    let number = value.as_f64().ok_or_else(|| {
+                        invalid_document(format!(
+                            "assessment.parameters.{key} must be numeric or null"
+                        ))
+                    })?;
+                    if (key.ends_with("_error") || key.ends_with("_sigma")) && number < 0.0 {
+                        return Err(invalid_document(format!(
+                            "assessment.parameters.{key} must be nonnegative"
+                        )));
+                    }
+                }
+            }
         }
     }
     Ok(())

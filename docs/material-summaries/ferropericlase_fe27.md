@@ -102,6 +102,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 76.336 | 0.002 | 76.3372719637499 | 0.4057749645489165 | Free |
+| K0 | 158.4 | 0.4 | 158.13064123124323 | 72.36350216099802 | Free |
+| K0\_prime | 5.49 | 0.11 | 5.561134592304525 | 16.59016335694912 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** lattice\_a\_angstrom
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 10
+- **Observed pressure range gpa:** \[0.0001, 9.292\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[72.54353934219797, 76.33509985604168\]
+- **Degrees of freedom:** 7
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.0054450996350423955
+- **Published rmse gpa:** 0.005738353912981327
+- **Reduced chi square:** 4.235825871307182e-05
+- **Dataset identifiers:** ferropericlase\_fe27\_jacobsen\_2002\_table5\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 The EOS volume is one conventional Fm-3m rocksalt cell with four oxygen-normalized formula units. All three coefficients were fitted. The source reports standard deviations but no parameter covariance matrix or explicit confidence convention beyond that designation.
 
 Parameter covariance is not supplied.

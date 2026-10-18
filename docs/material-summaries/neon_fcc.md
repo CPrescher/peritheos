@@ -96,6 +96,56 @@ meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
 
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Conditional equal-pressure-weight joint PVT agreement within published parameter widths; source confidence and covariance are unspecified.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Fei original new observations, paired Pt/Au volumes, full source selection, weights, covariance and unrounded inputs not recovered. Cold unweighted fits can agree with individual published error widths without reproducing the original regression or joint uncertainty region. Only prior-table source errors permit source-error-weighted comparisons. Hot source errors and temperature errors are absent; no source-error-weighted hot fit is possible. Effective error weights use slopes of the published model, ignore shared calibration correlations and retain each table's original pressure/volume errors. Finger 293 K pressures are preserved on the original Piermarini scale; Fei explicitly recalibrates Hemley only. Assigning Finger to 300 K is a documented diagnostic choice. Curve agreement validates an equation/normalization at plotted conditions; it establishes neither exact original-regression recovery nor absolute pressure accuracy. Dewaele (2008) note29 discusses a 0 K reinterpretation and contains a self-referential citation typo. Fei Eq.3 and the Figure5 cold curve remain the authority for the retained 300 K subtraction. Published q error is 0.3; source confidence level and covariance are unspecified. No thermal diagnostic replaces published q=0.6.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 1.43 | 0.14 | 1.5182220582605885 | 0.1195033052004044 | Free |
+| K0\_prime | 8.02 | 0.31 | 7.713752591624531 | 0.38055629711750694 | Free |
+| q | 0.6 | 0.3 | 0.6181752608698434 | 0.12877065447628067 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** diagnostic\_joint\_pvt
+- **Free parameters:** K0; K0\_prime; q
+- **Fixed parameters:**
+    - **V0:** 88.967
+    - **Gamma0:** 2.05
+    - **Theta0:** 75.1
+- **Observations:** 54
+- **Observed pressure range gpa:** \[4.83, 115.715945233\]
+- **Observed temperature range k:** \[300.0, 1000.0\]
+- **Solver success:** True
+- **Rmse gpa:** 0.9968994754037073
+- **Published rmse gpa:** 1.0064452317540593
+- **Dataset identifiers:** neon\_fei\_2007\_figure5\_digitized; neon\_hemley\_1989\_table1\_fei\_recalculated; neon\_finger\_1981\_table1; neon\_fei\_2007\_figure5\_1000k\_digitized
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 
@@ -247,6 +297,56 @@ meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
 
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Conditional equal-pressure-weight joint PVT agreement within published parameter widths; source confidence and covariance are unspecified.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Fei original new observations, paired Pt/Au volumes, full source selection, weights, covariance and unrounded inputs not recovered. Cold unweighted fits can agree with individual published error widths without reproducing the original regression or joint uncertainty region. Only prior-table source errors permit source-error-weighted comparisons. Hot source errors and temperature errors are absent; no source-error-weighted hot fit is possible. Effective error weights use slopes of the published model, ignore shared calibration correlations and retain each table's original pressure/volume errors. Finger 293 K pressures are preserved on the original Piermarini scale; Fei explicitly recalibrates Hemley only. Assigning Finger to 300 K is a documented diagnostic choice. Curve agreement validates an equation/normalization at plotted conditions; it establishes neither exact original-regression recovery nor absolute pressure accuracy. Dewaele (2008) note29 discusses a 0 K reinterpretation and contains a self-referential citation typo. Fei Eq.3 and the Figure5 cold curve remain the authority for the retained 300 K subtraction. Published q error is 0.3; source confidence level and covariance are unspecified. No thermal diagnostic replaces published q=0.6.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 1.16 | 0.14 | 1.1904095828283714 | 0.044824837066523536 | Free |
+| K0\_prime | 8.23 | 0.31 | 8.176482612977884 | 0.07713244213469729 | Free |
+| q | 0.6 | 0.3 | 0.6222960580475505 | 0.13340786728850254 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** diagnostic\_joint\_pvt
+- **Free parameters:** K0; K0\_prime; q
+- **Fixed parameters:**
+    - **V0:** 88.967
+    - **Gamma0:** 2.05
+    - **Theta0:** 75.1
+- **Observations:** 54
+- **Observed pressure range gpa:** \[4.83, 115.715945233\]
+- **Observed temperature range k:** \[300.0, 1000.0\]
+- **Solver success:** True
+- **Rmse gpa:** 1.0229458085559253
+- **Published rmse gpa:** 1.0278664292160768
+- **Dataset identifiers:** neon\_fei\_2007\_figure5\_digitized; neon\_hemley\_1989\_table1\_fei\_recalculated; neon\_finger\_1981\_table1; neon\_fei\_2007\_figure5\_1000k\_digitized
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 
@@ -387,6 +487,62 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 1.7277462566083195 | 0.22322191999036312 | 1.7277485613618908 | 0.2232218905071419 | Free |
+| K0\_prime | 6.972110967032526 | 0.5439133435530098 | 6.972105349252884 | 0.5439118223351491 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3\_conventional\_cell
+- **Absolute sigma:** True
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 21
+- **Observed pressure range gpa:** \[10.0, 110.4\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[25.076571983, 45.384685263\]
+- **Degrees of freedom:** 19
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.027066792396926876
+- **Published rmse gpa:** 0.9156108479099396
+- **Reduced chi square:** 0.311633157391931
+- **Dataset identifiers:** neon\_hemley\_1989\_table1\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Peritheos errors-in-variables BM3 refit of the 21 raw 300 K observations in Hemley et al. Table I, using the tabulated Mao-ruby pressures and lattice-parameter uncertainties. V0 is fixed to the paper's low-temperature 13.394 cm^3/mol value converted to the four-atom fcc cell. This direct table-only reference is intentionally distinct from Hemley et al.'s published thermally reduced 0 K fit, which also included the earlier Finger et al. low-pressure data and reported K0=1.097 GPa and K0'=9.23(3).
 

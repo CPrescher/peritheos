@@ -78,6 +78,57 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
+            "qualifications": [
+              "Conditional comparison against individual reported errors using every printed same-temperature row and the source expansion reference volume fixed. Unweighted pressure residuals, not author weights. At 873 K the K0 difference exceeds one reported error and the figure implies inconsistent volume normalization. Lattice-average fit includes H rearrangement; no phase-pure or original-workflow claim.",
+              "Usage recommendation: Source-checked isotherm at its stated temperature only. This does not validate the full published thermal EOS or an interpolation between temperatures.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 41.8,
+                "published_error": 1.3,
+                "refit": 42.0177360402393,
+                "refit_error": null,
+                "difference": 0.21773604023930204,
+                "relative_difference": 0.005208996177973733,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 6.6,
+                "published_error": 0.3,
+                "refit": 6.603483849128478,
+                "refit_error": null,
+                "difference": 0.0034838491284787665,
+                "relative_difference": 0.0005278559285573889,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "unweighted_pressure_residuals_fixed_source_V0",
+              "fixed_parameters": [],
+              "observations": 13,
+              "solver_success": true,
+              "rmse_gpa": 0.2167608081755301,
+              "published_rmse_gpa": 0.22790990500597397,
+              "dataset_identifiers": ["brucite_fukui_2003_table1", "brucite_fukui_2003_table4"],
+              "reproduction_report": "docs/data/brucite-reproduction.json"
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-10-16",
@@ -255,6 +306,57 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
+            "qualifications": [
+              "Conditional comparison against individual reported errors using every printed same-temperature row and the source expansion reference volume fixed. Unweighted pressure residuals, not author weights. At 873 K the K0 difference exceeds one reported error and the figure implies inconsistent volume normalization. Lattice-average fit includes H rearrangement; no phase-pure or original-workflow claim.",
+              "Usage recommendation: Source-checked isotherm at its stated temperature only. This does not validate the full published thermal EOS or an interpolation between temperatures.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 32.6,
+                "published_error": 2.5,
+                "refit": 33.69147968162089,
+                "refit_error": null,
+                "difference": 1.0914796816208892,
+                "relative_difference": 0.03348097182886163,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 8.3,
+                "published_error": 1.1,
+                "refit": 8.085231223634171,
+                "refit_error": null,
+                "difference": -0.2147687763658297,
+                "relative_difference": 0.02587575618865418,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "unweighted_pressure_residuals_fixed_source_V0",
+              "fixed_parameters": ["V0"],
+              "observations": 8,
+              "solver_success": true,
+              "rmse_gpa": 0.2625605629411442,
+              "published_rmse_gpa": 0.33630739972845325,
+              "dataset_identifiers": ["brucite_fukui_2003_table1", "brucite_fukui_2003_table4"],
+              "reproduction_report": "docs/data/brucite-reproduction.json"
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-10-16",
@@ -427,6 +529,57 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
+            "qualifications": [
+              "Conditional comparison against individual reported errors using every printed same-temperature row and the source expansion reference volume fixed. Unweighted pressure residuals, not author weights. At 873 K the K0 difference exceeds one reported error and the figure implies inconsistent volume normalization. Lattice-average fit includes H rearrangement; no phase-pure or original-workflow claim.",
+              "Usage recommendation: Source-checked isotherm at its stated temperature only. This does not validate the full published thermal EOS or an interpolation between temperatures.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 28.8,
+                "published_error": 2.1,
+                "refit": 29.03221567160922,
+                "refit_error": null,
+                "difference": 0.23221567160921808,
+                "relative_difference": 0.00806304415309785,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 9.0,
+                "published_error": 1.1,
+                "refit": 8.844925607540013,
+                "refit_error": null,
+                "difference": -0.1550743924599871,
+                "relative_difference": 0.017230488051109678,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "unweighted_pressure_residuals_fixed_source_V0",
+              "fixed_parameters": ["V0"],
+              "observations": 8,
+              "solver_success": true,
+              "rmse_gpa": 0.22807386078098604,
+              "published_rmse_gpa": 0.23027507836968086,
+              "dataset_identifiers": ["brucite_fukui_2003_table1", "brucite_fukui_2003_table4"],
+              "reproduction_report": "docs/data/brucite-reproduction.json"
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-10-16",

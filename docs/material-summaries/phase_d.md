@@ -88,6 +88,61 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 134.0 | 5.0 | 139.4652126595 | 4.502631252020866 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** sample=1
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** K0
+- **Fixed parameters:** V0
+- **Observations:** 6
+- **Observed pressure range gpa:** \[0.0001, 24.6\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[77.62, 88.12\]
+- **Degrees of freedom:** 5
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.7467023175219354
+- **Published rmse gpa:** 1.2605738400213593
+- **Reduced chi square:** 0.8874661576042226
+- **Dataset identifiers:** phase\_d\_shieh\_2000\_table2\_pv
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Reference-volume variant for the AntA antigorite-derived phase-D run. Table 2 reports V0=88.12+/-0.32 A^3. The paper fits the combined antigorite-derived data with a second-order Birch-Murnaghan curve and reports K0=134+/-5 GPa, but it does not define one shared absolute V0 because AntA and AntB have different ambient volumes. The two Peritheos records preserve those measured reference volumes explicitly. No parameter covariance or confidence convention is reported.
 
 Parameter covariance is not supplied.
@@ -174,6 +229,61 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 134.0 | 5.0 | 134.71378933177388 | 4.584414287476834 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** sample=2
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** K0
+- **Fixed parameters:** V0
+- **Observations:** 5
+- **Observed pressure range gpa:** \[0.0001, 22.0\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[77.878, 87.191\]
+- **Degrees of freedom:** 4
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 1.6822610591377454
+- **Published rmse gpa:** 1.8398513712137285
+- **Reduced chi square:** 3.8603412973846303
+- **Dataset identifiers:** phase\_d\_shieh\_2000\_table2\_pv
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Reference-volume variant for the AntB antigorite-derived phase-D run. Table 2 reports V0=87.191+/-0.097 A^3. The paper fits the combined antigorite-derived data with a second-order Birch-Murnaghan curve and reports K0=134+/-5 GPa, but it does not define one shared absolute V0 because AntA and AntB have different ambient volumes. The two Peritheos records preserve those measured reference volumes explicitly. No parameter covariance or confidence convention is reported.
 

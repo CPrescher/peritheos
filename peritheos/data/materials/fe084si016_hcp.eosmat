@@ -82,6 +82,85 @@
         "notes": "KBr is the principal pressure standard. Room-temperature compression uses neon medium and ruby as an additional standard; source tables do not include ruby wavelengths or per-row marker attribution. Zero uncertainties at the reference row do not define infinite fitting weight."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Complete single-phase source rows with published fixed choices. Unweighted pressure residuals and residual-scaled refit errors are diagnostics: source weights, coefficient confidence and covariance are unspecified. Parity denotes the ledger's numerical/combined-error criterion, not recovery of the authors' regression covariance. The Fe-16Si entry checks the 66-row thermal stage; the independent script also refits its 32-row static stage. See the [Fischer audit](literature-reproductions/fischer-2014-fesi.md).",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.V0",
+                "published": 23.921725801706437,
+                "published_error": 0.17933821925477544,
+                "refit": 23.877799732461103,
+                "refit_error": 0.29640929957744455,
+                "difference": -0.04392606924533382,
+                "relative_difference": 0.0018362416495134473,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0",
+                "published": 129.1,
+                "published_error": 1.4,
+                "refit": 131.1223222591529,
+                "refit_error": 14.641112194006409,
+                "difference": 2.022322259152901,
+                "relative_difference": 0.01566477350234625,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0_prime",
+                "published": 5.29,
+                "published_error": 0.08,
+                "refit": 5.254359871574407,
+                "refit_error": 0.2693800928158629,
+                "difference": -0.03564012842559272,
+                "relative_difference": 0.0067372643526640305,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.14,
+                "published_error": 0.14,
+                "refit": 1.1846549216904039,
+                "refit_error": 0.15009376867056062,
+                "difference": 0.04465492169040397,
+                "relative_difference": 0.039170983938950854,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "pressure_residuals",
+              "selection": "phase=hcp",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "hcp_volume_a3"},
+              "absolute_sigma": false,
+              "free_parameters": ["rt_eos.V0", "rt_eos.K0", "rt_eos.K0_prime", "gamma0"],
+              "fixed_parameters": ["Tr", "theta0", "q", "n"],
+              "observations": 76,
+              "observed_pressure_range_gpa": [46.46991151576709, 197.0644255148494],
+              "observed_temperature_range_k": [1128.7150000000001, 2566.255],
+              "observed_volume_range": [15.242475553688518, 19.650928459386936],
+              "degrees_of_freedom": 72,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 1.353860642273373,
+              "published_rmse_gpa": 1.3644500996350781,
+              "reduced_chi_square": 1.9347685630689186,
+              "dataset_identifiers": ["fischer_2014_table_s1_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-19",
@@ -203,6 +282,85 @@
         "notes": "KBr is the principal pressure standard. Room-temperature compression uses neon medium and ruby as an additional standard; source tables do not include ruby wavelengths or per-row marker attribution. Zero uncertainties at the reference row do not define infinite fitting weight."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Complete single-phase source rows with published fixed choices. Unweighted pressure residuals and residual-scaled refit errors are diagnostics: source weights, coefficient confidence and covariance are unspecified. Parity denotes the ledger's numerical/combined-error criterion, not recovery of the authors' regression covariance. The Fe-16Si entry checks the 66-row thermal stage; the independent script also refits its 32-row static stage. See the [Fischer audit](literature-reproductions/fischer-2014-fesi.md).",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.V0",
+                "published": 24.187412052454253,
+                "published_error": 0.08302695335869234,
+                "refit": 24.22943692257538,
+                "refit_error": 0.33293807509812645,
+                "difference": 0.042024870121128544,
+                "relative_difference": 0.001737468648154293,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0",
+                "published": 111.4,
+                "published_error": 1.2,
+                "refit": 109.52134882742749,
+                "refit_error": 13.511642518280398,
+                "difference": -1.8786511725725177,
+                "relative_difference": 0.016864014116449888,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0_prime",
+                "published": 6.08,
+                "published_error": 0.08,
+                "refit": 6.124474609084446,
+                "refit_error": 0.27279937825655115,
+                "difference": 0.044474609084446115,
+                "relative_difference": 0.007314902809941795,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.15,
+                "published_error": 0.15,
+                "refit": 1.19757940302062,
+                "refit_error": 0.15251652052914422,
+                "difference": 0.047579403020620026,
+                "relative_difference": 0.04137339393097394,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "pressure_residuals",
+              "selection": "phase=hcp",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "hcp_volume_a3"},
+              "absolute_sigma": false,
+              "free_parameters": ["rt_eos.V0", "rt_eos.K0", "rt_eos.K0_prime", "gamma0"],
+              "fixed_parameters": ["Tr", "theta0", "q", "n"],
+              "observations": 76,
+              "observed_pressure_range_gpa": [46.46991151576709, 197.0644255148494],
+              "observed_temperature_range_k": [1128.7150000000001, 2566.255],
+              "observed_volume_range": [15.242475553688518, 19.650928459386936],
+              "degrees_of_freedom": 72,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 1.355083352265737,
+              "published_rmse_gpa": 1.3839029983369042,
+              "reduced_chi_square": 1.938264830009289,
+              "dataset_identifiers": ["fischer_2014_table_s1_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-19",

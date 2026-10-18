@@ -101,6 +101,65 @@ meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
 
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Complete single-phase source rows with published fixed choices. Unweighted pressure residuals and residual-scaled refit errors are diagnostics: source weights, coefficient confidence and covariance are unspecified. Parity denotes the ledger's numerical/combined-error criterion, not recovery of the authors' regression covariance. The Fe-16Si entry checks the 66-row thermal stage; the independent script also refits its 32-row static stage. See the \[Fischer audit\](literature-reproductions/fischer-2014-fesi.md).
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| rt\_eos.V0 | 23.921725801706437 | 0.17933821925477544 | 23.877799732461103 | 0.29640929957744455 | Free |
+| rt\_eos.K0 | 129.1 | 1.4 | 131.1223222591529 | 14.641112194006409 | Free |
+| rt\_eos.K0\_prime | 5.29 | 0.08 | 5.254359871574407 | 0.2693800928158629 | Free |
+| gamma0 | 1.14 | 0.14 | 1.1846549216904039 | 0.15009376867056062 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** joint\_pvt
+- **Objective:** pressure\_residuals
+- **Selection:** phase=hcp
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** hcp\_volume\_a3
+- **Absolute sigma:** False
+- **Free parameters:** rt\_eos.V0; rt\_eos.K0; rt\_eos.K0\_prime; gamma0
+- **Fixed parameters:** Tr; theta0; q; n
+- **Observations:** 76
+- **Observed pressure range gpa:** \[46.46991151576709, 197.0644255148494\]
+- **Observed temperature range k:** \[1128.7150000000001, 2566.255\]
+- **Observed volume range:** \[15.242475553688518, 19.650928459386936\]
+- **Degrees of freedom:** 72
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 1.353860642273373
+- **Published rmse gpa:** 1.3644500996350781
+- **Reduced chi square:** 1.9347685630689186
+- **Dataset identifiers:** fischer\_2014\_table\_s1\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 
@@ -220,6 +279,65 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Complete single-phase source rows with published fixed choices. Unweighted pressure residuals and residual-scaled refit errors are diagnostics: source weights, coefficient confidence and covariance are unspecified. Parity denotes the ledger's numerical/combined-error criterion, not recovery of the authors' regression covariance. The Fe-16Si entry checks the 66-row thermal stage; the independent script also refits its 32-row static stage. See the \[Fischer audit\](literature-reproductions/fischer-2014-fesi.md).
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| rt\_eos.V0 | 24.187412052454253 | 0.08302695335869234 | 24.22943692257538 | 0.33293807509812645 | Free |
+| rt\_eos.K0 | 111.4 | 1.2 | 109.52134882742749 | 13.511642518280398 | Free |
+| rt\_eos.K0\_prime | 6.08 | 0.08 | 6.124474609084446 | 0.27279937825655115 | Free |
+| gamma0 | 1.15 | 0.15 | 1.19757940302062 | 0.15251652052914422 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** joint\_pvt
+- **Objective:** pressure\_residuals
+- **Selection:** phase=hcp
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** hcp\_volume\_a3
+- **Absolute sigma:** False
+- **Free parameters:** rt\_eos.V0; rt\_eos.K0; rt\_eos.K0\_prime; gamma0
+- **Fixed parameters:** Tr; theta0; q; n
+- **Observations:** 76
+- **Observed pressure range gpa:** \[46.46991151576709, 197.0644255148494\]
+- **Observed temperature range k:** \[1128.7150000000001, 2566.255\]
+- **Observed volume range:** \[15.242475553688518, 19.650928459386936\]
+- **Degrees of freedom:** 72
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 1.355083352265737
+- **Published rmse gpa:** 1.3839029983369042
+- **Reduced chi square:** 1.938264830009289
+- **Dataset identifiers:** fischer\_2014\_table\_s1\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

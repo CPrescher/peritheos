@@ -85,6 +85,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 160.248 | Not specified | 160.21186069359948 | 0.09505219982877938 | Free |
+| K0 | 97.89 | Not specified | 96.43184854524975 | 0.7768789566851051 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** phase=I
+- **Columns:**
+    - **Pressure:** pressure\_gold\_gpa\|pressure\_tungsten\_gpa\|pressure\_ruby\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** silicon\_lattice\_a\_angstrom
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0
+- **Fixed parameters:** K0\_prime
+- **Observations:** 44
+- **Observed pressure range gpa:** \[0.0, 13.2\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[143.630847053, 160.191477991\]
+- **Degrees of freedom:** 42
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.1821641827595541
+- **Published rmse gpa:** 0.25228931871931043
+- **Reduced chi square:** 0.03476396993190652
+- **Dataset identifiers:** silicon\_anzellini\_2019\_tables1\_4\_6\_7\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Figure 1 constrained Vinet fit with K0' fixed to the ultrasonic value; published V0=20.031 A^3/atom is multiplied by eight atoms in the conventional diamond cell. Si-I was observed to 13.9 GPa under quasi-hydrostatic compression. The publication does not quote individual statistical uncertainties for this constrained fit.
 
 Parameter covariance is not supplied.

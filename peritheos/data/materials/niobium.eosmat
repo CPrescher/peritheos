@@ -50,6 +50,62 @@
         "audit_date": "2026-09-03"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 168.0,
+                "published_error": 4.0,
+                "refit": 166.1726317999564,
+                "refit_error": 0.41775349958426705,
+                "difference": -1.827368200043594,
+                "relative_difference": 0.010877191666926155,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.4,
+                "published_error": 0.3,
+                "refit": 3.533481315869524,
+                "refit_error": 0.02788348319255274,
+                "difference": 0.13348131586952405,
+                "relative_difference": 0.039259210549860014,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_ratio"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 43,
+              "observed_pressure_range_gpa": [0.11, 134.0],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [23.974465329999997, 35.83404035],
+              "degrees_of_freedom": 41,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 1.6974999302349352,
+              "published_rmse_gpa": 1.3567892071381271,
+              "reduced_chi_square": 7.6347616513898515,
+              "dataset_identifiers": ["niobium_takemura_2006_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -163,6 +219,31 @@
         "audit_date": "2026-09-03"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "source_reconstruction",
+            "scope": "source_equation",
+            "source_status": "source_reconstruction",
+            "basis": "All eleven machine-readable comparison series enter one shared Equation (20) objective against the mean Table 2 Holzapfel and Table 3 Vinet isotherm. Table 4 is retained as a post-calibration closure test. The calculation cannot recover the eleven EOS parameter sets independently because the source omits complete thermochemical/ultrasonic rows, weights, and covariance.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fit_kind": "coupled_eleven_marker_ruby_cross_calibration",
+              "objective": "minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight",
+              "fixed_parameters": ["n", "Z", "n"],
+              "observations": 43,
+              "rmse_gpa": 2.985195422138322,
+              "published_rmse_gpa": 3.1276690001706005,
+              "comparison_scope": "shared_ruby_calibration",
+              "dataset_identifiers": ["niobium_takemura_2006_table1_compression"],
+              "published_ruby_parameters": {"A_gpa": 1870.0, "m": 6.0},
+              "sensitivity_fit_ruby_parameters": {"A_gpa": 1869.3837840502665, "m": 6.10334763359135}
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

@@ -85,6 +85,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 24.08 | 0.02 | 24.085179052717415 | 0.016542511242217676 | Free |
+| K0 | 185.0 | 1.0 | 182.35159684264062 | 1.6847446135235946 | Free |
+| K0\_prime | 4.74 | 0.03 | 4.832573080577852 | 0.04038727265394633 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_w\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** chromium\_unit\_cell\_volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 119
+- **Observed pressure range gpa:** \[0.0, 131.39\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[17.38, 24.03\]
+- **Degrees of freedom:** 116
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.469487477476859
+- **Published rmse gpa:** 0.49489983178602076
+- **Reduced chi square:** 0.2261189697362286
+- **Dataset identifiers:** chromium\_anzellini\_2022\_table2\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Table 3 experimental helium-medium BM3 fit. The bcc phase remains observed to 131 GPa at room temperature.
 
 Parameter covariance is not supplied.

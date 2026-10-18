@@ -9,6 +9,7 @@ from __future__ import annotations
 
 import copy
 import json
+import math
 import re
 from collections import Counter
 from collections.abc import Mapping
@@ -48,7 +49,7 @@ def validate_assessment(evidence: Any) -> None:
         raise EosmatError(f"{where}.status must be one of {', '.join(STATUSES)}")
     if assessment.get("scope") not in SCOPES:
         raise EosmatError(f"{where}.scope must be one of {', '.join(SCOPES)}")
-    for key in ("basis", "report"):
+    for key in ("basis", "report", "source_status", "basis_code"):
         if key in assessment and (
             not isinstance(assessment[key], str) or not assessment[key].strip()
         ):
@@ -62,6 +63,44 @@ def validate_assessment(evidence: Any) -> None:
         raise EosmatError(
             f"{where}.qualifications must be an array of nonempty strings"
         )
+    if "fit" in assessment and not isinstance(assessment["fit"], Mapping):
+        raise EosmatError(f"{where}.fit must be an object")
+    if "parameters" in assessment:
+        rows = assessment["parameters"]
+        if not isinstance(rows, list):
+            raise EosmatError(f"{where}.parameters must be an array")
+        names: set[str] = set()
+        for row in rows:
+            if not isinstance(row, Mapping):
+                raise EosmatError(f"{where}.parameters entries must be objects")
+            name = row.get("parameter")
+            if not isinstance(name, str) or not name.strip() or name in names:
+                raise EosmatError(f"{where}.parameters requires unique parameter names")
+            names.add(name)
+            for key in ("published", "refit"):
+                if key not in row:
+                    raise EosmatError(f"{where}.parameters requires {key}")
+            for key in (
+                "published",
+                "refit",
+                "published_error",
+                "refit_error",
+                "published_sigma",
+                "refit_sigma",
+            ):
+                if key not in row or row[key] is None:
+                    continue
+                value = row[key]
+                if (
+                    isinstance(value, bool)
+                    or not isinstance(value, (int, float))
+                    or (isinstance(value, float) and not math.isfinite(value))
+                ):
+                    raise EosmatError(
+                        f"{where}.parameters.{key} must be numeric or null"
+                    )
+                if key.endswith(("_error", "_sigma")) and value < 0:
+                    raise EosmatError(f"{where}.parameters.{key} must be nonnegative")
 
 
 def expand_metadata(document: Mapping[str, Any]) -> dict[str, Any]:

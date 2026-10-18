@@ -101,6 +101,32 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** The eight energy-volume observations remain plot-only after source exhaustion. Table III independently prints V100=34.27 A3/FeSiO3, K100=597 GPa, and K100'=3.34; the stored curve is within 0.0108 A3/FeSiO3, 0.110 GPa, and 0.00114, respectively.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** None declared
+- **Dataset identifiers:** None declared
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Retain as a directly published Vinet parameterization. Keep not\_refittable: no numerical E(V) grid was deposited, and the approximate raster-marker diagnostic must not be treated as primary observations.
 
 Parameter covariance is not supplied.
@@ -232,6 +258,32 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** The official tc-ds62 fpv block provides all four coefficients.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** None declared
+- **Dataset identifiers:** None declared
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 

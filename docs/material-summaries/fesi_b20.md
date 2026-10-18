@@ -95,6 +95,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Complete single-phase source rows with published fixed choices. Unweighted pressure residuals and residual-scaled refit errors are diagnostics: source weights, coefficient confidence and covariance are unspecified. Parity denotes the ledger's numerical/combined-error criterion, not recovery of the authors' regression covariance. The Fe-16Si entry checks the 66-row thermal stage; the independent script also refits its 32-row static stage. See the \[Fischer audit\](literature-reproductions/fischer-2014-fesi.md).
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 192.2 | 1.6 | 189.4339205712655 | 3.106730852112399 | Free |
+| K0\_prime | 5.03 | 0.17 | 5.227244084756725 | 0.3042395617690335 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** phase=B20; reference-T rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** b20\_volume\_a3
+- **Absolute sigma:** False
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 27
+- **Observed pressure range gpa:** \[0.0, 36.27929763454465\]
+- **Observed temperature range k:** \[300.0, 300.0\]
+- **Observed volume range:** \[78.94994927804828, 90.36777863256577\]
+- **Degrees of freedom:** 25
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.36984812122368
+- **Published rmse gpa:** 0.38424590346006554
+- **Reduced chi square:** 0.14773064339450076
+- **Dataset identifiers:** fischer\_2014\_table\_s2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. BM3 is the source-preferred default; Vinet is a separately preserved published alternative. Room-temperature compression can retain metastable phases because of slow kinetics.
 
 Parameter covariance is not supplied.
@@ -207,6 +264,63 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Complete single-phase source rows with published fixed choices. Unweighted pressure residuals and residual-scaled refit errors are diagnostics: source weights, coefficient confidence and covariance are unspecified. Parity denotes the ledger's numerical/combined-error criterion, not recovery of the authors' regression covariance. The Fe-16Si entry checks the 66-row thermal stage; the independent script also refits its 32-row static stage. See the \[Fischer audit\](literature-reproductions/fischer-2014-fesi.md).
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 193.1 | 1.6 | 188.7502422082164 | 3.0878840956767983 | Free |
+| K0\_prime | 5.03 | 0.17 | 5.382263406705534 | 0.2994749024245567 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** phase=B20; reference-T rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** b20\_volume\_a3
+- **Absolute sigma:** False
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 27
+- **Observed pressure range gpa:** \[0.0, 36.27929763454465\]
+- **Observed temperature range k:** \[300.0, 300.0\]
+- **Observed volume range:** \[78.94994927804828, 90.36777863256577\]
+- **Degrees of freedom:** 25
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.37224776957712835
+- **Published rmse gpa:** 0.39292178311666426
+- **Reduced chi square:** 0.1496538741115586
+- **Dataset identifiers:** fischer\_2014\_table\_s2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Diagnostic refits use unweighted pressure residuals; the source does not publish the numerical objective/weights or covariance. Published coefficients remain unchanged. BM3 is the source-preferred default; Vinet is a separately preserved published alternative. Room-temperature compression can retain metastable phases because of slow kinetics.
 

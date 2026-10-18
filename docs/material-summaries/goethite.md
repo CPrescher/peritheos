@@ -93,6 +93,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** The recorded parameter reconstruction did not meet the audit's agreement criterion; the parameter comparisons retain the actual reconstructed values.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- Usage recommendation: not\_recommended\_for\_quantitative\_use
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| rt\_eos.K0 | 140.3 | 3.7 | 183.33783907350212 | 4.974275177321595 | Free |
+| rt\_eos.K0\_prime | 4.6 | 0.4 | 0.0 | 0.41271534924862147 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** joint\_pvt
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_celsius
+    - **Volume:** cell\_volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** rt\_eos.K0; rt\_eos.K0\_prime
+- **Fixed parameters:** V0; Tr; theta0; gamma0; q; n
+- **Observations:** 65
+- **Observed pressure range gpa:** \[0.0, 29.41\]
+- **Observed temperature range k:** \[296.15, 583.15\]
+- **Observed volume range:** \[119.5, 138.75\]
+- **Degrees of freedom:** 63
+- **Solver success:** True
+- **Solver message:** \`xtol\` termination condition is satisfied.
+- **Rmse gpa:** 2.1363449088924615
+- **Published rmse gpa:** 2.540000975127211
+- **Reduced chi square:** 4.948021225228743
+- **Dataset identifiers:** goethite\_gleason\_2008\_deposit\_table1\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 USAGE WARNING: retained for provenance and reproduction of the published curve, but not recommended for quantitative pressure-volume or thermoelastic use. Neither the complete 65-row primary table nor an independent fit of the 47 plotted Figure 3a marker centers reproduces K0 = 140.3 GPa and K0' = 4.6; the marker fit gives K0 = 193.45 GPa and K0' = 0.893 with the reconstructed thermal model. Equation 1 is malformed as printed, although the Figure 3 curve supports the standard BM3 sign used here. Gleason et al. report a thermal EOS, not a standalone 300 K BM3: a BM3 reference with V0 = 138.75 +/- 0.02 A^3, K0 = 140.3 +/- 3.7 GPa, and K0' = 4.6 +/- 0.4 is combined with Mie-Gruneisen-Debye thermal pressure. Equation 1 references E(300 K); Table 1 gives gamma0 = 0.91 +/- 0.07 and theta0 = 740 +/- 5 K, and the text assumes dln(gamma)/dln(V) = q = 1. The Debye atom count n = 4 follows FeOOH stoichiometry. The measured zero-pressure V0 is held fixed because the authors say all P-V-T rows determine K0 and K0', specifically. Thermal quantities are also held fixed in the numerical refit because gamma0 and theta0 are thermodynamically derived after the elastic fit and q is assumed, rather than being reported as simultaneous regression coefficients. The deposited table spans 23-310 degC even though the abstract states 23-250 degC.
 
 Parameter covariance is not supplied.

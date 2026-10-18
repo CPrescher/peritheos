@@ -87,6 +87,61 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 183.0 | 10.0 | 183.3545636138488 | 3.2041147970713055 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_kbar
+    - **Temperature:** Not specified
+    - **Volume:** magnetite\_molar\_volume\_cm3\_mol
+- **Absolute sigma:** True
+- **Free parameters:** K0
+- **Fixed parameters:** V0; K0\_prime
+- **Observations:** 13
+- **Observed pressure range gpa:** \[0.0, 32.0\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[516.2283852030055, 591.6832804153851\]
+- **Degrees of freedom:** 12
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 1.2664209166186853
+- **Published rmse gpa:** 1.2670669106978538
+- **Reduced chi square:** 1.7374737662200872
+- **Dataset identifiers:** magnetite\_mao\_1974\_table3\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Room-temperature (23+/-3 degC) magnetite BM3. V0 and its propagated error come from the paper's a0=8.394(3) A sample, not the independent structural lattice in this file. K0'=4+/-0.4 was assumed, and the authors formed the +/-10 GPa K0 uncertainty by adding fit, NaCl pressure-scale, and assumed-K0' contributions; it is not a covariance-derived one-sigma error. The low-pressure spinel reflections persist to 32 GPa, but a high-pressure phase begins to coexist above about 25 GPa.
 
 Parameter covariance is not supplied.

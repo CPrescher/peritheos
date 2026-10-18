@@ -89,6 +89,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Complete source-data reproduction: all 24 RbCl-B2 Table 1 rows are fitted with the paper's hypothetical zero-pressure density held fixed. The refit recovers K0 and K0' within combined two-sigma uncertainty. See the \[dedicated Campbell-Heinz reproduction\](literature-reproductions.md#campbell-heinz-1994-cscl-and-rbcl).
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 17.9 | 1.0 | 17.88084365996729 | 1.0581791574892083 | Free |
+| K0\_prime | 5.23 | 0.29 | 5.238151959171043 | 0.3525905442063895 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** lattice\_parameter\_a
+- **Absolute sigma:** True
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 24
+- **Observed pressure range gpa:** \[1.11, 32.3\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[36.929363769900995, 58.406555796399005\]
+- **Degrees of freedom:** 22
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.27906464867282704
+- **Published rmse gpa:** 0.28986542659100895
+- **Reduced chi square:** 0.19972537696575704
+- **Dataset identifiers:** rbcl\_campbell\_1994\_table1\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Room-temperature third-order Birch-Murnaghan fit to all 24 RbCl-B2 compression observations in Table 1. Campbell and Heinz fixed the non-quenchable phase's hypothetical zero-pressure density at rho02=3.3068(10) Mg/m^3 and report K0=17.9(10) GPa and K0'=5.23(29). Peritheos converts that density to the one-formula-unit reference volume using M(RbCl)=120.9208 g/mol; its uncertainty is propagated from the reported density error.
 
 Parameter covariance is not supplied.
@@ -195,6 +252,53 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 19.89 | 0.08 | 19.921940727841257 | Not specified | See protocol |
+| K0\_prime | 5.0 | 0.02 | 4.995184896218001 | Not specified | See protocol |
+| gamma0 | 1.96 | 0.04 | 1.9639111476753601 | Not specified | See protocol |
+| q | 1.05 | 0.09 | 1.0592376167051918 | Not specified | See protocol |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** iterated\_effective\_variance\_bm3\_mgd
+- **Objective:** iterated frozen diagonal effective P/V/T variance
+- **Fixed parameters:** V0; Tr; theta0; n
+- **Observations:** 122
+- **Solver success:** True
+- **Rmse gpa:** 0.15516257838688707
+- **Published rmse gpa:** 0.15442869781174814
+- **Dataset identifiers:** rbcl\_farla\_2025\_observations
+- **Reproduction report:** docs/data/rubidium-halides-farla-2025-follow-up.json
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

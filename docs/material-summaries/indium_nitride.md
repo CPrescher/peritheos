@@ -84,6 +84,32 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** This is a first-principles study. The calculated E(V) points are plotted but not tabulated; Table 1 contains only the fitted theoretical parameters.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** V0
+- **Dataset identifiers:** None declared
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Ab initio 0 K static Murnaghan energy-volume fit for wurtzite InN. The theoretical conventional-cell V0=59.92519880888224 A^3 is calculated from Table 1 a0=3.483 A and c0=5.7039 A; K0=166 GPa and K0'=3.8 are from the same pseudopotential row. These are not experimental EOS parameters. The paper estimates finite-cutoff sensitivity from 40/70-Ryd calculations, but does not publish statistical coefficient errors or covariance, so none are inferred.
 
 Parameter covariance is not supplied.

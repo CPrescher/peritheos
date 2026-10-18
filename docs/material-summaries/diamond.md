@@ -98,6 +98,54 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- Conditional figure-level reproduction. The same run-2/equal-volume hypothesis approaches the independently printed MXB1986 and H2005 Table II coefficients and the H2005 chi-square, but Datchi et al. do not publish exclusions or weights and Occelli et al. do not print numerical rows. All 24 markers and all-marker sensitivity fits remain visible in the diagnostic. No refit covariance or parameter errors are inferred from the digitized points.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 443.0 | 3.0 | 444.3462890944917 | Not specified | Free |
+| K0\_prime | 3.97 | 0.05 | 3.960700438665756 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** static\_vinet\_with\_explicit\_ruby\_scale\_conversion
+- **Objective:** equal volume residuals; equivalent point estimates from the published constant 0.003 cm^3/mol volume uncertainty
+- **Selection:** Occelli Figure 2 run-2 open circles only (14/24 markers); best-supported but source-unconfirmed Table II selection hypothesis
+- **Absolute sigma:** Not specified
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 14
+- **Observed pressure range gpa:** \[13.227651913, 154.97533874678942\]
+- **Solver success:** True
+- **Solver message:** \`gtol\` termination condition is satisfied.
+- **Rmse gpa:** 0.2775872734356574
+- **Dataset identifiers:** diamond\_occelli\_2003\_figure2\_digitized
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Reanalysis of Occelli et al. diamond data; V0=5.6733 A^3/atom multiplied by 8 atoms per conventional cell. Occelli report run 2 to 139 GPa on MXB1986, corresponding to 152.92 GPa on H2005. The center of the final plotted marker digitizes to 140.80/154.98 GPa and is retained as figure evidence rather than substituted for the source-reported experimental limit. Replaces the dummy record and removes the unsupported K0=800 record.
 
 Parameter covariance is not supplied.
@@ -201,6 +249,62 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 45.3544 | 0.0128 | 45.35739773988821 | 0.005958461183877768 | Free |
+| K0\_prime | 4.18 | 0.15 | 4.094736716425615 | 0.0654791063011287 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** all rows; reference-T rows
+- **Columns:**
+    - **Pressure:** pressure\_h05\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** lattice\_a\_angstrom
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0\_prime
+- **Fixed parameters:** K0
+- **Observations:** 23
+- **Observed pressure range gpa:** \[0.0, 57.6\]
+- **Observed temperature range k:** \[298.0, 298.0\]
+- **Observed volume range:** \[40.83196326287499, 45.36941878829601\]
+- **Degrees of freedom:** 21
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.2312840795693689
+- **Published rmse gpa:** 0.24196655068724385
+- **Reduced chi square:** 0.05858683264913113
+- **Dataset identifiers:** diamond\_dewaele\_2008\_table1\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Independent single-crystal XRD fit in neon to 80 GPa; K0 was fixed to the isothermal ultrasonic value. Published atomic V0=5.6693 A^3 is multiplied by eight atoms in the conventional diamond cell.
 
@@ -309,6 +413,44 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** source reconstruction.
+**Scope:** source equation.
+
+**Comparison basis:** All eleven machine-readable comparison series enter one shared Equation (20) objective against the mean Table 2 Holzapfel and Table 3 Vinet isotherm. Table 4 is retained as a post-calibration closure test. The calculation cannot recover the eleven EOS parameter sets independently because the source omits complete thermochemical/ultrasonic rows, weights, and covariance.
+
+Original audit code: `source_reconstruction`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fit kind:** coupled\_eleven\_marker\_ruby\_cross\_calibration
+- **Objective:** minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight
+- **Fixed parameters:** n; Z; n
+- **Observations:** 12
+- **Rmse gpa:** 0.34050399388283104
+- **Published rmse gpa:** 0.3292803038925985
+- **Comparison scope:** shared\_ruby\_calibration
+- **Dataset identifiers:** diamond\_dewaele\_2008\_table1\_pvt
+- **Published ruby parameters:**
+    - **A gpa:** 1870.0
+    - **M:** 6.0
+- **Sensitivity fit ruby parameters:**
+    - **A gpa:** 1869.3837840502665
+    - **M:** 6.10334763359135
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The \*\_sokolova\_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source\_lineage as the implementation and correction source.
 
@@ -428,6 +570,74 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** The recorded parameter reconstruction did not meet the audit's agreement criterion; the parameter comparisons retain the actual reconstructed values.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| rt\_eos.V0 | 46.28 | Not specified | 46.67568341560049 | 0.7247320237314758 | Free |
+| rt\_eos.K0 | 368.2 | Not specified | 348.6296511470743 | 31.750486487424126 | Free |
+| rt\_eos.K0\_prime | 4.038 | Not specified | 4.112767509943601 | 0.1424364145584015 | Free |
+| Vp | 0.3354934617396 | Not specified | 0.4531579639616889 | 0.18839276010015268 | Free |
+| theta\_a0 | 1887.8 | Not specified | 8800.192275922882 | 0.0021508652211605734 | Free |
+| a\_a | -5.247303452269356 | Not specified | 0.34052997825744297 | 5.594051377296249 | Free |
+| b\_a | 0.913 | Not specified | -1.69049108424988 | 1.4573942664613533 | Free |
+| theta\_b0 | 1887.8 | Not specified | 2882.0765942252824 | 0.0046442298091012415 | Free |
+| a\_b | 2.7897056328520624 | Not specified | 2.436799666969396 | 5.666031630082069 | Free |
+| b\_b | 0.429 | Not specified | 0.24330607028691742 | 1.0605496759066428 | Free |
+| theta\_0\_0 | 1887.8 | Not specified | 37756.0 | 0.00015922406457022603 | Free |
+| a\_0 | 2.175306177997739 | Not specified | 1.5076531531149437 | 0.6482705375044794 | Free |
+| b\_0 | 0.202 | Not specified | 0.3707658731740606 | 0.1443761186444315 | Free |
+| anharmonic\_a | 3.8e-05 | Not specified | 3.8e-05 | 0.0 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** joint\_pvt
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** volume\_a3\_per\_atom
+- **Absolute sigma:** True
+- **Free parameters:** rt\_eos.V0; rt\_eos.K0; rt\_eos.K0\_prime; Vp; theta\_a0; a\_a; b\_a; theta\_b0; a\_b; b\_b; theta\_0\_0; a\_0; b\_0; anharmonic\_a
+- **Fixed parameters:** None declared
+- **Observations:** 57
+- **Observed pressure range gpa:** \[169.148156, 740.079232\]
+- **Observed temperature range k:** \[488.002376, 9887.43671\]
+- **Observed volume range:** \[25.68, 35.44\]
+- **Degrees of freedom:** 43
+- **Solver success:** True
+- **Solver message:** \`xtol\` termination condition is satisfied.
+- **Rmse gpa:** 1.0849336136496166
+- **Published rmse gpa:** 1.7908921936844253
+- **Reduced chi square:** 1.5603166028727558
+- **Dataset identifiers:** diamond\_correa\_2008\_figure8\_dft\_md\_vector\_digitized
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Complete diamond free-energy branch from equations 2-18; the double-Debye weights conserve the logarithmic phonon moment theta\_0 (equation 13). Table I volumes are per atom; the public API uses A^3 per eight-atom conventional diamond cell and converts internally to J bar^-1 mol^-1 of atoms. The Vinet term is a motionless-ion DFT-GGA cold curve. The authors state that its theoretical V0 is about 3% too large after zero-point and thermal effects and may need an application-specific density shift; Peritheos preserves the published value. The constant anharmonic coefficient changes caloric properties but contributes no pressure. Electronic excitations are neglected for insulating diamond as in the source. Factor-of-two source ambiguity: Correa equation 18 defines F\_anh=-a\*T^2 with a=3.8e-5 K^-1, whereas Benedict 2014 says it carries over the same correction but writes F\_anh=-alpha\*T^2/2 and tabulates alpha=3.79e-5 K^-1. This record follows Correa literally; in Benedict's normalization the equivalent coefficient would be alpha=2\*a. The source reports no coefficient uncertainties or covariance.
 
 Parameter covariance is not supplied.
@@ -536,6 +746,76 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** The recorded parameter reconstruction did not meet the audit's agreement criterion; the parameter comparisons retain the actual reconstructed values.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| rt\_eos.V0 | 45.6272 | Not specified | 45.43830640995942 | 0.16427642472030632 | Free |
+| rt\_eos.K0 | 432.4 | Not specified | 434.7686402071058 | 5.161777205753291 | Free |
+| rt\_eos.K0\_prime | 3.793 | Not specified | 3.8153628918557647 | 0.03265526034489446 | Free |
+| Vp | 0.3354934617396 | Not specified | 0.30427335355480856 | 0.24629048467406486 | Free |
+| theta\_a0 | 1887.8 | Not specified | 2162.5684216252175 | 3.7279485700375514e-07 | Free |
+| a\_a | -5.247303452269356 | Not specified | -4.759027255600479 | 0.017461243041600946 | Free |
+| b\_a | 0.913 | Not specified | -0.006774897358384057 | 0.1665931912876218 | Free |
+| theta\_b0 | 1887.8 | Not specified | 1887.9776140426209 | 2.880109814737486e-05 | Free |
+| a\_b | 2.7897056328520624 | Not specified | 1.656209330531414 | 2.0953990760522867 | Free |
+| b\_b | 0.429 | Not specified | 0.5605710451121859 | 1.11806921712187 | Free |
+| theta\_1\_0 | 1887.8 | Not specified | 1770.9397043826275 | 4.341827958631915e-05 | Free |
+| a\_1 | 1.4048160508290741 | Not specified | 1.415784740358922 | 3.4888735844594683 | Free |
+| b\_1 | 0.499 | Not specified | 0.44506407104242596 | 1.014718409154025 | Free |
+| alpha0 | 3.79e-05 | Not specified | 6.099236905331258e-05 | 0.00011799979328728626 | Free |
+| Ve | 0.348380842966 | Not specified | 0.17547488477721068 | 3.125993114650048e-07 | Free |
+| kappa | 0.0 | Not specified | 1.0 | 1.275694309879621 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** joint\_pvt
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** volume\_a3\_per\_atom
+- **Absolute sigma:** True
+- **Free parameters:** rt\_eos.V0; rt\_eos.K0; rt\_eos.K0\_prime; Vp; theta\_a0; a\_a; b\_a; theta\_b0; a\_b; b\_b; theta\_1\_0; a\_1; b\_1; alpha0; Ve; kappa
+- **Fixed parameters:** None declared
+- **Observations:** 96
+- **Observed pressure range gpa:** \[40.476915, 871.127814\]
+- **Observed temperature range k:** \[2000.0, 9000.0\]
+- **Observed volume range:** \[24.54661864, 43.12243824\]
+- **Degrees of freedom:** 80
+- **Solver success:** True
+- **Solver message:** \`xtol\` termination condition is satisfied.
+- **Rmse gpa:** 0.9415488724060389
+- **Published rmse gpa:** 3.177925436805747
+- **Reduced chi square:** 1.0638171349549002
+- **Dataset identifiers:** diamond\_benedict\_2014\_supplement\_solid\_dft\_md
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Complete equations 3-7 Helmholtz model, not a Vinet curve combined with a generic Mie-Gruneisen-Debye correction. Table I volumes are per atom; the public API uses A^3 per eight-atom conventional diamond cell and converts internally to J bar^-1 mol^-1 of atoms. The Vinet curve is the motionless-ion 0 K cold curve, so V0=5.7034 A^3/atom is not a 300 K zero-total-pressure reference volume. Factor-of-two source ambiguity: Benedict writes F\_anh=-alpha\*T^2/2 and tabulates alpha=3.79e-5 K^-1, while the Correa 2008 correction it claims to retain is F\_anh=-a\*T^2 with a=3.8e-5 K^-1. This record follows Benedict literally; matching Correa's anharmonic energy would require alpha approximately 2\*a. The source reports no coefficient uncertainties or covariance.
 
 Parameter covariance is not supplied.
@@ -643,6 +923,34 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** source reconstruction.
+**Scope:** source equation.
+
+**Comparison basis:** Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.
+
+Original audit code: `source_reconstruction`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** None declared
+- **Observations:** 80
+- **Reconstruction kind:** derived\_reference\_isotherm\_composition
+- **Dataset identifiers:** diamond\_dewaele\_2008\_table1\_pvt; diamond\_correa\_2008\_figure8\_dft\_md\_vector\_digitized
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Derived reference-isotherm composition: P(V,T)=P\_Dewaele(V,298 K)+P\_Correa(V,T)-P\_Correa(V,298 K). The record is exactly the experimental Dewaele Vinet isotherm at 298 K and retains Correa's simulated logarithmic-moment double-Debye thermal increment. Its Helmholtz energy uses an arbitrary additive reference constant; pressure, volume, thermal increments, heat capacities, and same-phase energy differences are unaffected. The source records remain available independently.
 
@@ -776,6 +1084,34 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** source reconstruction.
+**Scope:** source equation.
+
+**Comparison basis:** Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.
+
+Original audit code: `source_reconstruction`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** None declared
+- **Observations:** 119
+- **Reconstruction kind:** derived\_reference\_isotherm\_composition
+- **Dataset identifiers:** diamond\_dewaele\_2008\_table1\_pvt; diamond\_benedict\_2014\_supplement\_solid\_dft\_md
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Derived reference-isotherm composition: P(V,T)=P\_Dewaele(V,298 K)+P\_Benedict(V,T)-P\_Benedict(V,298 K). The record is exactly the experimental Dewaele Vinet isotherm at 298 K and retains Benedict's simulated first-moment double-Debye thermal increment. Its Helmholtz energy uses an arbitrary additive reference constant; pressure, volume, thermal increments, heat capacities, and same-phase energy differences are unaffected. The source records remain available independently.
 

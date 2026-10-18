@@ -85,6 +85,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 27.122 | 0.006 | 27.151664203505387 | 0.009266264538954514 | Free |
+| K0 | 323.4 | 1.1 | 317.5251541961934 | 1.7597691265798159 | Free |
+| K0\_prime | 4.15 | 0.019 | 4.2455697881397 | 0.031328057562000654 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** unit\_cell\_volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 116
+- **Observed pressure range gpa:** \[0.0, 151.0\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[20.769, 27.141\]
+- **Degrees of freedom:** 113
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.4440818789779476
+- **Published rmse gpa:** 0.466705225532293
+- **Reduced chi square:** 0.20244434484463544
+- **Dataset identifiers:** ruthenium\_anzellini\_2019\_table1\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Experimental helium-medium BM3 fit to 151 GPa; the paper reports V0=27.122(6) A^3, K0=323.4(1.1) GPa, and K0'=4.150(19).
 
 Parameter covariance is not supplied.

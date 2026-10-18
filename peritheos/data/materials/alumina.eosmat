@@ -52,6 +52,73 @@
         "audit_date": "2026-09-03"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 255.45,
+                "published_error": 0.52,
+                "refit": 255.38611857923496,
+                "refit_error": 0.26047429631887364,
+                "difference": -0.06388142076502845,
+                "relative_difference": 0.00025007406836965535,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 254.1,
+                "published_error": 7.6,
+                "refit": 253.88378504976112,
+                "refit_error": 3.850341736411413,
+                "difference": -0.2162149502388786,
+                "relative_difference": 0.0008509049596177828,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.0,
+                "published_error": 0.15,
+                "refit": 4.014881596821605,
+                "refit_error": 0.07730707256336111,
+                "difference": 0.014881596821605392,
+                "relative_difference": 0.003720399205401348,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "a_a"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 53,
+              "observed_pressure_range_gpa": [0.56, 165.0],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [182.02811563595682, 254.67256738120184],
+              "degrees_of_freedom": 50,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.8012203256389328,
+              "published_rmse_gpa": 0.8050847963563869,
+              "reduced_chi_square": 0.6804712508299748,
+              "dataset_identifiers": ["alumina_dewaele_2013_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -180,6 +247,73 @@
         "notes": "The tabulated reduced pressures are sufficient to reproduce the published Al2O3 fit; calibrant-level pressure recalculation is not possible."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.K0",
+                "published": 246.0,
+                "published_error": 2.0,
+                "refit": 246.3082843723331,
+                "refit_error": 1.3330685974032892,
+                "difference": 0.30828437233310524,
+                "relative_difference": 0.001253188505419127,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.32,
+                "published_error": 0.07,
+                "refit": 1.3593137833873294,
+                "refit_error": 0.06725423003798052,
+                "difference": 0.03931378338732938,
+                "relative_difference": 0.02978316923282529,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "q",
+                "published": 0.8,
+                "published_error": 0.4,
+                "refit": 0.8008671555208751,
+                "refit_error": 0.3526999039312283,
+                "difference": 0.0008671555208750181,
+                "relative_difference": 0.0010839444010937727,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["rt_eos.K0", "gamma0", "q"],
+              "fixed_parameters": ["V0", "K0_prime", "Tr", "theta0", "n"],
+              "observations": 75,
+              "observed_pressure_range_gpa": [0.0, 97.7],
+              "observed_temperature_range_k": [300.0, 2980.0],
+              "observed_volume_range": [203.2, 255.1],
+              "degrees_of_freedom": 72,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 1.1913871994289138,
+              "published_rmse_gpa": 1.2330494551575306,
+              "reduced_chi_square": 1.4785452697531987,
+              "dataset_identifiers": ["alumina_shi_2022_table_s1_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the primary article and the checksummed official Zenodo supporting-information deposit; no external software catalog was used as scientific authority.",

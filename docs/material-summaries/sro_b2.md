@@ -87,6 +87,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 28.0224 | 0.9127817589576549 | 27.961466689322425 | 0.8797588331305788 | Free |
+| K0 | 160.0 | 19.0 | 162.70585070949238 | 36.64903930857559 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** density\_mg\_m3
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0
+- **Fixed parameters:** None declared
+- **Observations:** 13
+- **Observed pressure range gpa:** \[32.0, 59.0\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[22.152380069524913, 24.178967959527824\]
+- **Degrees of freedom:** 11
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 2.800067278116326
+- **Published rmse gpa:** 2.803143227793565
+- **Reduced chi square:** 1.0450277086826225
+- **Dataset identifiers:** sro\_b2\_sato\_1981\_table1\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Room-temperature second-order finite-strain EOS for B2 SrO. The published rho0=6.14+/-0.20 Mg/m^3 converts to V0=28.0224+/-0.9128 A^3 for one SrO per Pm-3m cell; K0=160+/-19 GPa and K0'=4 fixed. B2 reflections were measured from 32 to 59 GPa, with B1-B2 coexistence at 32 and 37 GPa and a transition pressure of 36+/-4 GPa. No covariance is published.
 
 Parameter covariance is not supplied.

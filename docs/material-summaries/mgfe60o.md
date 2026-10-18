@@ -92,6 +92,61 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 149.0 | 4.0 | 153.21653387830995 | 0.8282308408401619 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_kbar
+    - **Temperature:** Not specified
+    - **Volume:** volume\_ratio
+- **Absolute sigma:** True
+- **Free parameters:** K0
+- **Fixed parameters:** V0
+- **Observations:** 14
+- **Observed pressure range gpa:** \[0.0, 49.400000000000006\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[63.37162811058101, 78.430232810125\]
+- **Degrees of freedom:** 13
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.6012132100186621
+- **Published rmse gpa:** 1.0402420232743879
+- **Reduced chi square:** 0.3892617334317858
+- **Dataset identifiers:** mgfe60o\_richet\_1989\_table2\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Fit-specific room-temperature BM2 for MW60, the sample containing 60 mol% FeO. It is distinct from the paper's later global linear-composition model. V0 and its error are propagated from the primary a0=4.2805(4) A measurement; K0=149+/-4 GPa and K0'=4 fixed. Table 2 spans 0-49.4 GPa. No covariance or confidence convention for the K0 error is reported.
 
 Parameter covariance is not supplied.
@@ -189,6 +244,32 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Lin et al. report the 84-102 GPa spectroscopic interval and an approximately 1.6% volume drop at 95 GPa, but no P-V series for this composition; those constraints are not observations.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** None declared
+- **Dataset identifiers:** None declared
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Parameter covariance is not supplied.
 
 
@@ -278,6 +359,32 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Lin et al. report the 84-102 GPa spectroscopic interval and an approximately 1.6% volume drop at 95 GPa, but no P-V series for this composition; those constraints are not observations.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** K0\_prime
+- **Dataset identifiers:** None declared
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 

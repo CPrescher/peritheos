@@ -85,6 +85,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 35.12 | 0.02 | 35.289557787941845 | 0.2150381422338965 | Free |
+| K0 | 33.8 | 3.0 | 31.350635504713292 | 4.714053277201576 | Free |
+| K0\_prime | 8.9 | 1.0 | 9.140728272853567 | 0.9628978195027382 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_ratio
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 10
+- **Observed pressure range gpa:** \[0.0, 13.1351\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[29.851999999999997, 35.12\]
+- **Degrees of freedom:** 7
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.15305430860689825
+- **Published rmse gpa:** 0.34294152687069585
+- **Reduced chi square:** 1.7262608481249881
+- **Dataset identifiers:** graphite\_hanfland\_1989\_figure2\_digitized
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Hydrostatic powder-XRD fit for hexagonal graphite. Valid only below the observed room-temperature transformation near 14 GPa.
 
 Parameter covariance is not supplied.

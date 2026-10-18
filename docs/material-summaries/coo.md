@@ -85,6 +85,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** The recorded parameter reconstruction did not meet the audit's agreement criterion; the parameter comparisons retain the actual reconstructed values.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 190.5 | Not specified | 176.79695499205747 | 7.06190824769182 | Free |
+| K0\_prime | 3.9 | Not specified | 5.148099543130668 | 0.7086487501575688 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_kbar
+    - **Temperature:** Not specified
+    - **Volume:** normalized\_lattice\_parameter
+- **Absolute sigma:** True
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 9
+- **Observed pressure range gpa:** \[0.0, 30.8\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[68.30156745356082, 77.199941512\]
+- **Degrees of freedom:** 7
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.4226818292717665
+- **Published rmse gpa:** 0.5191962939336036
+- **Reduced chi square:** 0.22970562273839157
+- **Dataset identifiers:** coo\_clendenen\_1966\_table3\_smoothed\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Room-temperature empirical Murnaghan fit from Equation (4) and Table VI. The authors fitted B0 and B0' over the entire measured range and explicitly caution that they need not equal the true one-atmosphere bulk modulus and derivative; calculated pressures are insensitive to their exact individual values when the pair is properly balanced. Table III gives the smoothed CoO compression data through 308 kbar (30.8 GPa). No parameter errors, covariance, confidence convention, or exact measurement temperature are printed.
 
 Parameter covariance is not supplied.

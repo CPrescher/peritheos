@@ -86,6 +86,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 307.84 | 0.05 | 307.83148863498826 | 0.1875870524877686 | Free |
+| K0 | 130.4 | 1.4 | 130.41522962996078 | 5.250152975765392 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows; reference-T rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** unit\_cell\_volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0
+- **Fixed parameters:** K0\_prime
+- **Observations:** 11
+- **Observed pressure range gpa:** \[-0.02, 4.96\]
+- **Observed temperature range k:** \[301.0, 302.0\]
+- **Observed volume range:** \[297.26, 307.84\]
+- **Degrees of freedom:** 9
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.049073666524717646
+- **Published rmse gpa:** 0.05878307470903604
+- **Reduced chi square:** 0.073409331943693
+- **Dataset identifiers:** fayalite\_bejina\_2021\_table1\_pvt\_elastic
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 The room-temperature fit fixed K0'=5.3.
 
 Parameter covariance is not supplied.

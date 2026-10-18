@@ -91,6 +91,79 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "The complete source table is bundled. Limiting ferropericlase spin branches reproduce the published V0 values and printed errors; exact thermal parity remains conditional because the source does not state row flags, weights, temperature-error treatment, or covariance scaling.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 76.44,
+                "published_error": 0.02,
+                "refit": 76.43827898867148,
+                "refit_error": 0.017711803853117408,
+                "difference": -0.0017210113285131001,
+                "relative_difference": 2.2514538572908166e-05,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "alpha0",
+                "published": 2.2e-05,
+                "published_error": 2e-06,
+                "refit": 2.7597289976043394e-05,
+                "refit_error": 1.6321859181719822e-06,
+                "difference": 5.597289976043395e-06,
+                "relative_difference": 0.25442227163833614,
+                "similar": true,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "alpha1",
+                "published": 3.61e-08,
+                "published_error": 2.7e-09,
+                "refit": 3.087478002503601e-08,
+                "refit_error": 1.9536510121458086e-09,
+                "difference": -5.2252199749639886e-09,
+                "relative_difference": 0.14474293559457033,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "dK_dT",
+                "published": -0.034,
+                "published_error": 0.001,
+                "refit": -0.03401873114665049,
+                "refit_error": 0.0007067326783047755,
+                "difference": -1.873114665048442e-05,
+                "relative_difference": 0.000550916077955424,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "staged_source_constrained_thermal_bm2_odr",
+              "objective": "orthogonal distance regression using printed pressure and volume sigmas; temperature held fixed",
+              "selection": "V0 from the seven limiting high-spin 300 K rows; thermal coefficients from all 136 heated rows with published V0 and K0 fixed",
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "alpha0", "alpha1", "dK_dT"],
+              "fixed_parameters": ["K0", "Tr"],
+              "observations": 136,
+              "observed_pressure_range_gpa": [27.56, 113.0],
+              "solver_success": true,
+              "solver_message": "dedicated Ricolleau et al. (2009) audit completed",
+              "rmse_gpa": 1.4791143041717107,
+              "dataset_identifiers": ["klb1_ricolleau_2009_table_s1_ferropericlase_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -218,6 +291,46 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "The complete source table is bundled. Limiting ferropericlase spin branches reproduce the published V0 values and printed errors; exact thermal parity remains conditional because the source does not state row flags, weights, temperature-error treatment, or covariance scaling.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 74.04,
+                "published_error": 0.02,
+                "refit": 74.04288033963479,
+                "refit_error": 0.02537519008226588,
+                "difference": 0.0028803396347854004,
+                "relative_difference": 3.890248021049973e-05,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "staged_source_constrained_thermal_bm2_odr",
+              "objective": "orthogonal distance regression using printed pressure and volume sigmas; temperature held fixed",
+              "selection": "seven limiting low-spin 300 K rows",
+              "absolute_sigma": true,
+              "free_parameters": ["V0"],
+              "fixed_parameters": ["K0"],
+              "observations": 7,
+              "observed_pressure_range_gpa": [74.21, 98.36],
+              "solver_success": true,
+              "solver_message": "dedicated Ricolleau et al. (2009) audit completed",
+              "rmse_gpa": 1.5775129387527014,
+              "dataset_identifiers": ["klb1_ricolleau_2009_table_s1_ferropericlase_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

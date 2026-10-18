@@ -85,6 +85,77 @@
         "notes": "MAP detector angle calibrated with NaCl a=5.6402 A (JCPDS 05-0628); DAC geometry with CeO2. MAP cooling cycles minimize deviatoric stress. The article writes DAC T_sample=295+0.97*(T_meas-295) and T_NaCl=(3*T_meas+295)/4. The workbook uses a 293 K baseline for some Ni-NiO DAC runs and 295 K for others; preserve its stored values. Equation (4) prints sigma_TNaCl=(T_meas-295)/2, while the hot DAC workbook rows use (T_meas-T_ambient)/4; preserve the workbook uncertainties. The workbook pressure-threshold footnote is approximate: honor the explicit NaCl phase column, including B2 rows below 26 GPa."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "Conditional reproduction, not an exact recovery of the unpublished regression protocol. Campbell specifies least squares but no residual variable, weights, covariance, or final row mask. The main diagnostic uses equal pressure-residual weights and simultaneous fitting of the three Table 1 free parameters. Fe/FeO main fits use current-study Table S2 only: Seagle contributes 81 recoverable V-T pairs but no individual pressures or NaCl observations. Separate sensitivities reconstruct 65 hcp-calibrated pressures using benchmark-checked Seagle (2006), compare its conflicting reference volumes, and optionally retain 16 unresolved rows as nominal-isobar estimates. A separate protocol audit adds 14 conditional fcc pressures from Funamori/Boehler/Basinski, leaving only two missing-iron-volume rows without individual pressures. The exact historical fcc reduction and combined regression remain unresolved. These are derived pressures, not original row-level pressure data. The published Fe/FeO records are deferred from the executable catalog because the combined-data mismatch remains unresolved. No refitted coefficients replace the source records. See literature-reproductions/campbell-2009-buffers.md.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.K0",
+                "published": 190.0,
+                "published_error": 3.0,
+                "refit": 209.23491285108383,
+                "refit_error": 7.959268104780271,
+                "difference": 19.234912851083834,
+                "relative_difference": 0.10123638342675702,
+                "similar": true,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "rt_eos.K0_prime",
+                "published": 5.4,
+                "published_error": 0.2,
+                "refit": 4.316125512272684,
+                "refit_error": 0.3790702536078477,
+                "difference": -1.083874487727316,
+                "relative_difference": 0.20071749772728076,
+                "similar": false,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.8,
+                "published_error": 0.04,
+                "refit": 1.6663367005990992,
+                "refit_error": 0.05890351252433249,
+                "difference": -0.13366329940090083,
+                "relative_difference": 0.07425738855605601,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "conditional_bm3_mgd_variable_exponent",
+              "objective": "pressure_residuals",
+              "selection": "All Table S2 rows for FeO; only its 15 explicitly fcc rows for Fe. For Ni/NiO, retain all 92 heated/MAP Table S3 rows (T>295 K); exclude its nine 293-295 K quenched DAC rows from the main diagnostic. This exclusion follows the Section 2.2 stress warning but is an audit choice: the authors do not publish a regression row mask. All 101 rows are retained in the dataset and tested in a sensitivity refit.",
+              "weighting": "unweighted",
+              "free_parameters": ["rt_eos.K0", "rt_eos.K0_prime", "gamma0"],
+              "fixed_parameters": ["V0", "Tr", "theta0", "n", "q"],
+              "observations": 92,
+              "observed_pressure_range_gpa": [2.336174779961698, 65.9],
+              "observed_temperature_range_k": [298.0, 2457.07],
+              "degrees_of_freedom": 89,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 1.2411290539942956,
+              "published_rmse_gpa": 1.308570029842643,
+              "reduced_chi_square": 1.592324968960981,
+              "covariance": [
+                [63.34994876377254, -2.9579974380690417, -0.3997238519706632],
+                [-2.957997438069198, 0.14369425717031795, 0.01706708438955018],
+                [-0.3997238519706057, 0.01706708438954651, 0.0034696237877041946]
+              ],
+              "covariance_convention": "Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors.",
+              "dataset_identifiers": ["ni_nio_campbell_2009_table_s3_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-19",

@@ -61,6 +61,56 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 195.3,
+                "published_error": 1.6,
+                "refit": 200.0343783266108,
+                "refit_error": null,
+                "relative_difference": 0.024241568492630795,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.37,
+                "published_error": 0.05,
+                "refit": 4.2243284230188465,
+                "refit_error": null,
+                "relative_difference": 0.03333445697509236,
+                "similar": false,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+              "weighting": "unweighted; published coefficient constraints retained",
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "tied_parameters": {},
+              "observations": 45,
+              "solver_success": true,
+              "rmse_gpa": 1.606401520793189,
+              "published_rmse_gpa": 2.210908056547755,
+              "published_pressure_rmse_gpa": 2.210908056547755,
+              "refitted_pressure_rmse_gpa": 1.606401520793189,
+              "rmse_shock_velocity_km_s": null,
+              "parameter_covariance": null,
+              "dataset_identifiers": ["sakai_2014_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-10",
@@ -142,6 +192,56 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 189.6,
+                "published_error": 1.7,
+                "refit": 192.27435509720192,
+                "refit_error": null,
+                "relative_difference": 0.01410524840296374,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.81,
+                "published_error": 0.06,
+                "refit": 4.706556611960647,
+                "refit_error": null,
+                "relative_difference": 0.02150590187928338,
+                "similar": false,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+              "weighting": "unweighted; published coefficient constraints retained",
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "tied_parameters": {},
+              "observations": 45,
+              "solver_success": true,
+              "rmse_gpa": 1.7062383521313806,
+              "published_rmse_gpa": 1.972609141767631,
+              "published_pressure_rmse_gpa": 1.972609141767631,
+              "refitted_pressure_rmse_gpa": 1.7062383521313806,
+              "rmse_shock_velocity_km_s": null,
+              "parameter_covariance": null,
+              "dataset_identifiers": ["sakai_2014_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-10",
@@ -223,6 +323,56 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 179.8,
+                "published_error": 1.6,
+                "refit": 187.0329689879698,
+                "refit_error": null,
+                "relative_difference": 0.04022785866501556,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.59,
+                "published_error": 0.05,
+                "refit": 4.353887510008359,
+                "refit_error": null,
+                "relative_difference": 0.05144062962780838,
+                "similar": false,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+              "weighting": "unweighted; published coefficient constraints retained",
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "tied_parameters": {},
+              "observations": 45,
+              "solver_success": true,
+              "rmse_gpa": 1.6199964199966193,
+              "published_rmse_gpa": 2.7538171899931974,
+              "published_pressure_rmse_gpa": 2.7538171899931974,
+              "refitted_pressure_rmse_gpa": 1.6199964199966193,
+              "rmse_shock_velocity_km_s": null,
+              "parameter_covariance": null,
+              "dataset_identifiers": ["sakai_2014_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-10",
@@ -304,6 +454,56 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 173.9,
+                "published_error": 1.6,
+                "refit": 178.82057566405422,
+                "refit_error": null,
+                "relative_difference": 0.028295432225728646,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.07,
+                "published_error": 0.06,
+                "refit": 4.885879076106027,
+                "refit_error": null,
+                "relative_difference": 0.036315764081651464,
+                "similar": false,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+              "weighting": "unweighted; published coefficient constraints retained",
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "tied_parameters": {},
+              "observations": 45,
+              "solver_success": true,
+              "rmse_gpa": 1.653409509846668,
+              "published_rmse_gpa": 2.2197830754151466,
+              "published_pressure_rmse_gpa": 2.2197830754151466,
+              "refitted_pressure_rmse_gpa": 1.653409509846668,
+              "rmse_shock_velocity_km_s": null,
+              "parameter_covariance": null,
+              "dataset_identifiers": ["sakai_2014_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-10",
@@ -385,6 +585,56 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 22.468,
+                "published_error": null,
+                "refit": 22.59086269559718,
+                "refit_error": null,
+                "relative_difference": 0.005468341445486078,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.73,
+                "published_error": 0.06,
+                "refit": 4.537970473756033,
+                "refit_error": null,
+                "relative_difference": 0.04059820850823832,
+                "similar": false,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+              "weighting": "unweighted; published coefficient constraints retained",
+              "free_parameters": ["V0", "K0_prime"],
+              "fixed_parameters": ["K0"],
+              "tied_parameters": {},
+              "observations": 45,
+              "solver_success": true,
+              "rmse_gpa": 1.7349314547623915,
+              "published_rmse_gpa": 3.1922874500456198,
+              "published_pressure_rmse_gpa": 3.1922874500456198,
+              "refitted_pressure_rmse_gpa": 1.7349314547623915,
+              "rmse_shock_velocity_km_s": null,
+              "parameter_covariance": null,
+              "dataset_identifiers": ["sakai_2014_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-10",
@@ -466,6 +716,56 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 22.468,
+                "published_error": null,
+                "refit": 22.5562203902947,
+                "refit_error": null,
+                "relative_difference": 0.003926490577474684,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.23,
+                "published_error": 0.06,
+                "refit": 5.079133042342121,
+                "refit_error": null,
+                "relative_difference": 0.02884645461909748,
+                "similar": false,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+              "weighting": "unweighted; published coefficient constraints retained",
+              "free_parameters": ["V0", "K0_prime"],
+              "fixed_parameters": ["K0"],
+              "tied_parameters": {},
+              "observations": 45,
+              "solver_success": true,
+              "rmse_gpa": 1.66732485758244,
+              "published_rmse_gpa": 2.612050295823673,
+              "published_pressure_rmse_gpa": 2.612050295823673,
+              "refitted_pressure_rmse_gpa": 1.66732485758244,
+              "rmse_shock_velocity_km_s": null,
+              "parameter_covariance": null,
+              "dataset_identifiers": ["sakai_2014_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-10",
@@ -547,6 +847,31 @@
         "recalculation": {"status": "not_possible", "notes": "Primary published pressures retained. NaCl-B2 calibrated to Fei (2007) Pt"}
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "Table 2 does not tabulate P2 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "weighting": "unweighted; published coefficient constraints retained",
+              "free_parameters": [],
+              "fixed_parameters": ["V0"],
+              "tied_parameters": {},
+              "observations": 0,
+              "rmse_gpa": null,
+              "published_rmse_gpa": null,
+              "rmse_shock_velocity_km_s": null,
+              "parameter_covariance": null,
+              "dataset_identifiers": ["sakai_2014_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-10",
@@ -628,6 +953,31 @@
         "recalculation": {"status": "not_possible", "notes": "Primary published pressures retained. NaCl-B2 calibrated to Fei (2007) Pt"}
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "Table 2 does not tabulate P2 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "weighting": "unweighted; published coefficient constraints retained",
+              "free_parameters": [],
+              "fixed_parameters": ["V0"],
+              "tied_parameters": {},
+              "observations": 0,
+              "rmse_gpa": null,
+              "published_rmse_gpa": null,
+              "rmse_shock_velocity_km_s": null,
+              "parameter_covariance": null,
+              "dataset_identifiers": ["sakai_2014_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-10",
@@ -712,6 +1062,31 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "Table 2 does not tabulate P3 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "weighting": "unweighted; published coefficient constraints retained",
+              "free_parameters": [],
+              "fixed_parameters": ["V0"],
+              "tied_parameters": {},
+              "observations": 0,
+              "rmse_gpa": null,
+              "published_rmse_gpa": null,
+              "rmse_shock_velocity_km_s": null,
+              "parameter_covariance": null,
+              "dataset_identifiers": ["sakai_2014_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-10",
@@ -796,6 +1171,31 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "Table 2 does not tabulate P3 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "weighting": "unweighted; published coefficient constraints retained",
+              "free_parameters": [],
+              "fixed_parameters": ["V0"],
+              "tied_parameters": {},
+              "observations": 0,
+              "rmse_gpa": null,
+              "published_rmse_gpa": null,
+              "rmse_shock_velocity_km_s": null,
+              "parameter_covariance": null,
+              "dataset_identifiers": ["sakai_2014_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-10",
@@ -877,6 +1277,56 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 213.0,
+                "published_error": 1.8,
+                "refit": 218.4138156274682,
+                "refit_error": null,
+                "relative_difference": 0.025416974776846058,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.41,
+                "published_error": 0.05,
+                "refit": 4.255462850825763,
+                "refit_error": null,
+                "relative_difference": 0.03504243745447548,
+                "similar": false,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+              "weighting": "unweighted; published coefficient constraints retained",
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "tied_parameters": {},
+              "observations": 45,
+              "solver_success": true,
+              "rmse_gpa": 1.667656628629867,
+              "published_rmse_gpa": 2.3447890411123287,
+              "published_pressure_rmse_gpa": 2.3447890411123287,
+              "refitted_pressure_rmse_gpa": 1.667656628629867,
+              "rmse_shock_velocity_km_s": null,
+              "parameter_covariance": null,
+              "dataset_identifiers": ["sakai_2014_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-10",
@@ -958,6 +1408,56 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 207.0,
+                "published_error": 1.8,
+                "refit": 210.03586660274584,
+                "refit_error": null,
+                "relative_difference": 0.014666022235487155,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.85,
+                "published_error": 0.06,
+                "refit": 4.739384266532654,
+                "refit_error": null,
+                "relative_difference": 0.02280736772522591,
+                "similar": false,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+              "weighting": "unweighted; published coefficient constraints retained",
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "tied_parameters": {},
+              "observations": 45,
+              "solver_success": true,
+              "rmse_gpa": 1.7788197892068633,
+              "published_rmse_gpa": 2.117292921135934,
+              "published_pressure_rmse_gpa": 2.117292921135934,
+              "refitted_pressure_rmse_gpa": 1.7788197892068633,
+              "rmse_shock_velocity_km_s": null,
+              "parameter_covariance": null,
+              "dataset_identifiers": ["sakai_2014_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-10",
@@ -1042,6 +1542,56 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 211.5,
+                "published_error": 1.8,
+                "refit": 214.9151214647974,
+                "refit_error": null,
+                "relative_difference": 0.016147146405661505,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.42,
+                "published_error": 0.05,
+                "refit": 4.3135447483778515,
+                "refit_error": null,
+                "relative_difference": 0.024084898557047152,
+                "similar": false,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+              "weighting": "unweighted; published coefficient constraints retained",
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "tied_parameters": {},
+              "observations": 45,
+              "solver_success": true,
+              "rmse_gpa": 1.8347163432871763,
+              "published_rmse_gpa": 2.2515693718530896,
+              "published_pressure_rmse_gpa": 2.2515693718530896,
+              "refitted_pressure_rmse_gpa": 1.8347163432871763,
+              "rmse_shock_velocity_km_s": null,
+              "parameter_covariance": null,
+              "dataset_identifiers": ["sakai_2014_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-10",
@@ -1126,6 +1676,57 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 205.4,
+                "published_error": 1.9,
+                "refit": 206.2987950920161,
+                "refit_error": null,
+                "relative_difference": 0.004375828101344143,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.86,
+                "published_error": 0.06,
+                "refit": 4.816594627576633,
+                "refit_error": null,
+                "relative_difference": 0.008931146589170292,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+              "weighting": "unweighted; published coefficient constraints retained",
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "tied_parameters": {},
+              "observations": 45,
+              "solver_success": true,
+              "rmse_gpa": 1.9794522014797378,
+              "published_rmse_gpa": 2.085638180438255,
+              "published_pressure_rmse_gpa": 2.085638180438255,
+              "refitted_pressure_rmse_gpa": 1.9794522014797378,
+              "rmse_shock_velocity_km_s": null,
+              "parameter_covariance": null,
+              "dataset_identifiers": ["sakai_2014_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-10",
@@ -1207,6 +1808,56 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 191.2,
+                "published_error": 1.8,
+                "refit": 196.58930346809018,
+                "refit_error": null,
+                "relative_difference": 0.02818673361971857,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.82,
+                "published_error": 0.06,
+                "refit": 4.638208630235569,
+                "refit_error": null,
+                "relative_difference": 0.0377160518183467,
+                "similar": false,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+              "weighting": "unweighted; published coefficient constraints retained",
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "tied_parameters": {},
+              "observations": 45,
+              "solver_success": true,
+              "rmse_gpa": 1.7786202823007078,
+              "published_rmse_gpa": 2.489597189653668,
+              "published_pressure_rmse_gpa": 2.489597189653668,
+              "refitted_pressure_rmse_gpa": 1.7786202823007078,
+              "rmse_shock_velocity_km_s": null,
+              "parameter_covariance": null,
+              "dataset_identifiers": ["sakai_2014_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-10",
@@ -1288,6 +1939,56 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 185.1,
+                "published_error": 1.7,
+                "refit": 187.47744968957844,
+                "refit_error": null,
+                "relative_difference": 0.012844136626571804,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.31,
+                "published_error": 0.06,
+                "refit": 5.211820018794027,
+                "refit_error": null,
+                "relative_difference": 0.018489638645192562,
+                "similar": false,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+              "weighting": "unweighted; published coefficient constraints retained",
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "tied_parameters": {},
+              "observations": 45,
+              "solver_success": true,
+              "rmse_gpa": 1.9135004369802666,
+              "published_rmse_gpa": 2.200673940141978,
+              "published_pressure_rmse_gpa": 2.200673940141978,
+              "refitted_pressure_rmse_gpa": 1.9135004369802666,
+              "rmse_shock_velocity_km_s": null,
+              "parameter_covariance": null,
+              "dataset_identifiers": ["sakai_2014_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-10",
@@ -1390,6 +2091,70 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+            "qualifications": [
+              "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.",
+              "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.",
+              "Usage recommendation: not_recommended_for_quantitative_use",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "gamma0",
+                "published": 2.169,
+                "published_error": 0.207,
+                "refit": 5.218611619598649,
+                "refit_error": null,
+                "relative_difference": 1.4059989025351078,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "theta0",
+                "published": 1162,
+                "published_error": 204,
+                "refit": 2214.815336047005,
+                "refit_error": null,
+                "relative_difference": 0.9060372943605896,
+                "similar": false,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+              "weighting": "unweighted; published coefficient constraints retained",
+              "free_parameters": ["gamma0", "theta0"],
+              "fixed_parameters": [
+                "V0",
+                "K0",
+                "K0_prime",
+                "Tr",
+                "beta",
+                "anharmonic_a",
+                "anharmonic_m",
+                "electronic_e",
+                "electronic_g",
+                "n"
+              ],
+              "tied_parameters": {"gamma_inf": "gamma0"},
+              "observations": 32,
+              "solver_success": true,
+              "rmse_gpa": 1.0512363614149685,
+              "published_rmse_gpa": 7.135102114330177,
+              "published_pressure_rmse_gpa": 7.135102114330177,
+              "refitted_pressure_rmse_gpa": 1.0512363614149685,
+              "rmse_shock_velocity_km_s": null,
+              "parameter_covariance": null,
+              "dataset_identifiers": ["sakai_2014_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "not_reproduced",
           "audit_date": "2026-09-10",
@@ -1511,6 +2276,80 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+            "qualifications": [
+              "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.",
+              "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.",
+              "Usage recommendation: not_recommended_for_quantitative_use",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "gamma0",
+                "published": 2.609,
+                "published_error": 0.35,
+                "refit": 7.999999999999999,
+                "refit_error": null,
+                "relative_difference": 2.06630893062476,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "beta",
+                "published": 1.309,
+                "published_error": 0.679,
+                "refit": 2.2108417548372907,
+                "refit_error": null,
+                "relative_difference": 0.6889547401354399,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "theta0",
+                "published": 600,
+                "published_error": 474,
+                "refit": 1636.9776211198046,
+                "refit_error": null,
+                "relative_difference": 1.7282960351996743,
+                "similar": false,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+              "weighting": "unweighted; published coefficient constraints retained",
+              "free_parameters": ["gamma0", "beta", "theta0"],
+              "fixed_parameters": [
+                "V0",
+                "K0",
+                "K0_prime",
+                "Tr",
+                "gamma_inf",
+                "anharmonic_a",
+                "anharmonic_m",
+                "electronic_e",
+                "electronic_g",
+                "n"
+              ],
+              "tied_parameters": {},
+              "observations": 32,
+              "solver_success": true,
+              "rmse_gpa": 1.0453242461778438,
+              "published_rmse_gpa": 7.085117575780836,
+              "published_pressure_rmse_gpa": 7.085117575780836,
+              "refitted_pressure_rmse_gpa": 1.0453242461778438,
+              "rmse_shock_velocity_km_s": null,
+              "parameter_covariance": null,
+              "dataset_identifiers": ["sakai_2014_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "not_reproduced",
           "audit_date": "2026-09-10",
@@ -1632,6 +2471,80 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+            "qualifications": [
+              "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.",
+              "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.",
+              "Usage recommendation: not_recommended_for_quantitative_use",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "gamma0",
+                "published": 2.882,
+                "published_error": 0.394,
+                "refit": 7.999999999999996,
+                "refit_error": null,
+                "relative_difference": 1.775850104094377,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "gamma_inf",
+                "published": 1.087,
+                "published_error": 0.487,
+                "refit": 2.194773957257107,
+                "refit_error": null,
+                "relative_difference": 1.0191112762254895,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "theta0",
+                "published": 577,
+                "published_error": 471,
+                "refit": 1664.4773035616872,
+                "refit_error": null,
+                "relative_difference": 1.8847093649249345,
+                "similar": false,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+              "weighting": "unweighted; published coefficient constraints retained",
+              "free_parameters": ["gamma0", "gamma_inf", "theta0"],
+              "fixed_parameters": [
+                "V0",
+                "K0",
+                "K0_prime",
+                "Tr",
+                "beta",
+                "anharmonic_a",
+                "anharmonic_m",
+                "electronic_e",
+                "electronic_g",
+                "n"
+              ],
+              "tied_parameters": {},
+              "observations": 32,
+              "solver_success": true,
+              "rmse_gpa": 1.047994946666771,
+              "published_rmse_gpa": 7.088296341328164,
+              "published_pressure_rmse_gpa": 7.088296341328164,
+              "refitted_pressure_rmse_gpa": 1.047994946666771,
+              "rmse_shock_velocity_km_s": null,
+              "parameter_covariance": null,
+              "dataset_identifiers": ["sakai_2014_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "not_reproduced",
           "audit_date": "2026-09-10",
@@ -1753,6 +2666,71 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+            "qualifications": [
+              "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.",
+              "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.",
+              "Usage recommendation: not_recommended_for_quantitative_use",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "gamma0",
+                "published": 2.883,
+                "published_error": 0.374,
+                "refit": 2.2626134930835686,
+                "refit_error": null,
+                "relative_difference": 0.21518782758114166,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "gamma_inf",
+                "published": 0.968,
+                "published_error": 0.242,
+                "refit": 8.521054711807216e-22,
+                "refit_error": null,
+                "relative_difference": 1.0,
+                "similar": false,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+              "weighting": "unweighted; published coefficient constraints retained",
+              "free_parameters": ["gamma0", "gamma_inf"],
+              "fixed_parameters": [
+                "V0",
+                "K0",
+                "K0_prime",
+                "Tr",
+                "theta0",
+                "beta",
+                "anharmonic_a",
+                "anharmonic_m",
+                "electronic_e",
+                "electronic_g",
+                "n"
+              ],
+              "tied_parameters": {},
+              "observations": 32,
+              "solver_success": true,
+              "rmse_gpa": 2.2581979489171067,
+              "published_rmse_gpa": 7.096364413848751,
+              "published_pressure_rmse_gpa": 7.096364413848751,
+              "refitted_pressure_rmse_gpa": 2.2581979489171067,
+              "rmse_shock_velocity_km_s": null,
+              "parameter_covariance": null,
+              "dataset_identifiers": ["sakai_2014_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "not_reproduced",
           "audit_date": "2026-09-10",
@@ -1874,6 +2852,62 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.",
+            "qualifications": [
+              "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.",
+              "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.",
+              "Usage recommendation: not_recommended_for_quantitative_use",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "beta",
+                "published": 1.161,
+                "published_error": 0.237,
+                "refit": 9.999999999999998,
+                "refit_error": null,
+                "relative_difference": 7.613264427217914,
+                "similar": false,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "objective": "Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.",
+              "weighting": "unweighted; published coefficient constraints retained",
+              "free_parameters": ["beta"],
+              "fixed_parameters": [
+                "V0",
+                "K0",
+                "K0_prime",
+                "Tr",
+                "theta0",
+                "gamma0",
+                "gamma_inf",
+                "anharmonic_a",
+                "anharmonic_m",
+                "electronic_e",
+                "electronic_g",
+                "n"
+              ],
+              "tied_parameters": {},
+              "observations": 32,
+              "solver_success": true,
+              "rmse_gpa": 4.6165012578403015,
+              "published_rmse_gpa": 7.214289792430111,
+              "published_pressure_rmse_gpa": 7.214289792430111,
+              "refitted_pressure_rmse_gpa": 4.6165012578403015,
+              "rmse_shock_velocity_km_s": null,
+              "parameter_covariance": null,
+              "dataset_identifiers": ["sakai_2014_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "not_reproduced",
           "audit_date": "2026-09-10",

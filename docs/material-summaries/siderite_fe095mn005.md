@@ -92,6 +92,54 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- Point estimates fall within the published errors, but source weighting and covariance are unspecified. All 27 printed 300 K rows are retained; the source RMS range is not recovered. The conflicting thermal coefficient is withheld. See literature-reproductions/litasov-2013-siderite.md.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 120.0 | 1.0 | 120.2242130752825 | 1.322686992288662 | Free |
+| K0\_prime | 3.57 | 0.09 | 3.5722139862709232 | 0.13418562510556464 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** fixed\_V0\_linearized\_bm3
+- **Objective:** unweighted\_pressure\_residuals
+- **Absolute sigma:** False
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 27
+- **Observed pressure range gpa:** \[0, 33.01\]
+- **Observed temperature range k:** \[300, 300\]
+- **Solver success:** True
+- **Rmse gpa:** 0.22730866010656467
+- **Published rmse gpa:** 0.22958469054073105
+- **Dataset identifiers:** siderite\_fe095mn005\_litasov\_2013\_table2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Source-reported 300 K isotherm, preserved without substituting refit coefficients. Natural high-spin R-3c Fe0.95Mn0.05CO3, not pure FeCO3. Pressure is retained on the printed Au scale; its exact realization is unresolved. The high-temperature candidate is withheld because Table 1 and the abstract disagree on a0. All printed cold rows give pressure RMSE 0.230 GPa with published coefficients; the manuscript 0.11-0.17 GPa RMS range is not recovered. Source objective, weights, parameter covariance and confidence convention are not specified. No extension across the cited spin transition near 45 GPa or a numerical decomposition boundary is claimed.
 
 Parameter covariance is not supplied.
@@ -202,6 +250,57 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** independent refit.
+
+**Comparison basis:** Reproduction of the stored independent Peritheos refit under its declared protocol.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This comparison concerns the stored independent Peritheos refit, not recovery of the original publication's coefficients or author workflow.
+- Reproduces the separately labelled Peritheos refit, not either published thermal coefficient set. All 111 printed states enter an unweighted joint pressure-residual fit; V0 and Tr are fixed. The ledger's published column contains the stored refit values for this comparison. Formal covariance excludes fixed V0 uncertainty and calibration systematics. Both source thermal variants remain non-executable evidence.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| rt\_eos.K0 | 121.90288040577286 | 0.8855927629328301 | 121.90287687707195 | 0.8855930573905902 | Free |
+| rt\_eos.K0\_prime | 3.427642322450656 | 0.08617420289324854 | 3.427643358874071 | 0.08617420444691092 | Free |
+| alpha0 | 3.587839262956832e-05 | 1.442174904027276e-06 | 3.5878359568313225e-05 | 1.4421765164866188e-06 | Free |
+| alpha1 | 1.0132344225608927e-09 | 1.9588122131294773e-09 | 1.0133103185840319e-09 | 1.958811150464104e-09 | Free |
+| dK\_dT | -0.014597911024728977 | 0.0011884239133985548 | -0.014597941803188182 | 0.0011884224642203412 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** joint\_thermal\_reference\_state\_refit
+- **Objective:** unweighted\_pressure\_residuals
+- **Absolute sigma:** False
+- **Free parameters:** rt\_eos.K0; rt\_eos.K0\_prime; alpha0; alpha1; dK\_dT
+- **Fixed parameters:** V0; Tr
+- **Observations:** 111
+- **Observed pressure range gpa:** \[0, 33.01\]
+- **Observed temperature range k:** \[300, 1673\]
+- **Solver success:** True
+- **Rmse gpa:** 0.22121166605654996
+- **Published rmse gpa:** 0.22121166605746373
+- **Dataset identifiers:** siderite\_fe095mn005\_litasov\_2013\_table2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

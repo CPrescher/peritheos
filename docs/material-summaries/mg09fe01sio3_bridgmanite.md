@@ -100,6 +100,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 162.6 | 0.3 | 163.25629591878337 | 0.10250806127775225 | Free |
+| K0 | 284.0 | 4.0 | 275.7450528735945 | 1.4296057507089817 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3\_conventional\_cell
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0
+- **Fixed parameters:** K0\_prime
+- **Observations:** 97
+- **Observed pressure range gpa:** \[0.0001, 125.6\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[125.06, 163.27\]
+- **Degrees of freedom:** 95
+- **Solver success:** True
+- **Solver message:** \`xtol\` termination condition is satisfied.
+- **Rmse gpa:** 0.5772851282651091
+- **Published rmse gpa:** 0.9284356116597271
+- **Reduced chi square:** 0.37841562979146587
+- **Dataset identifiers:** mg09fe01sio3\_bridgmanite\_mao\_2015\_table\_s1\_pv
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Published 300 K post-transition low-spin branch. Peritheos stores it as BM3 because the source explicitly calls the fit third-order Birch-Murnaghan; K0\_prime=4 is retained as fixed, making this parameterization algebraically reduce to the second-order special case without changing the source's family label. The article's conventional-cell wording, Pbnm structure, Z=4 topology, complete Table S1 curve, and coefficient-parity refit establish the volume basis. Do not apply this EOS to the high-spin or 18-25 GPa mixed-spin observations.
 
 Parameter covariance is not supplied.
@@ -235,6 +291,57 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Direct final-article reproduction. Mao et al. explicitly fitted only the Fe10 data with K0-prime fixed at 4; Table 1 supplies the fixed Fe10 V0=162.79 A3. The paper does not state weights, and unweighted pressure residuals recover K0=260.80 GPa from the rounded table. MgSiO3 and Fe20 inherit this indistinguishable compression curve with their separately measured composition-specific ambient volumes.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 261.0 | 4.0 | 260.7999230336436 | 1.7340729995198663 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** shared\_bm2\_fe10\_pressure\_residuals
+- **Objective:** unweighted pressure residuals
+- **Selection:** fit\_included=1: all nine 300 K Fe10 rows in final-article Table 2
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Volume:** volume\_a3
+- **Absolute sigma:** False
+- **Free parameters:** K0
+- **Fixed parameters:** V0; K0\_prime
+- **Observations:** 9
+- **Observed pressure range gpa:** \[1.4, 26.0\]
+- **Degrees of freedom:** 8
+- **Solver success:** True
+- **Solver message:** analytic one-parameter least-squares solution
+- **Rmse gpa:** 0.28526073698634036
+- **Dataset identifiers:** mao\_1991\_tables2\_3\_bridgmanite\_pv
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 BM2 is represented as BM3 with V0 and K0\_prime fixed, which is algebraically identical. The final article fits K0 only to Fe10 data and applies the indistinguishable compression curve to all three composition-specific ambient volumes.
 

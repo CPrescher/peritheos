@@ -85,6 +85,76 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0\_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 23.5 | 0.3 | 23.474248786791218 | 0.27216361080427626 | Free |
+| K0\_prime | 5.23 | 0.06 | 5.230899182734111 | 0.06419770303779525 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** fixed\_v0\_vinet\_with\_reconstructed\_cu\_pressure
+- **Objective:** unweighted\_pressure\_residuals
+- **Selection:** NaCl-B1; DAC-2; Cu pressure below 30 GPa (coexistence excluded)
+- **Columns:**
+    - **Pressure:** Fratanduono-2020 298 K Cu pressure reconstructed per run
+    - **Temperature:** Not specified
+    - **Volume:** unit\_cell\_volume\_a3
+- **Absolute sigma:** False
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 55
+- **Observed pressure range gpa:** \[2.786190605963631, 29.97672608654248\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[115.96851, 162.26096\]
+- **Degrees of freedom:** 53
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.21166411541792335
+- **Reduced chi square:** 0.04649232785963884
+- **Pressure reconstruction:**
+    - **Density0 g cm3:** 8.939
+    - **DOI:** 10.1103/PhysRevLett.124.015701
+    - **Model:** vinet\_3
+    - **Pairing:** Each phase volume uses the single Cu volume with the same experiment and run number; both source-labeled Pt first/last measurements are retained when the run is selected.
+    - **Parameters:**
+        - **K0 gpa:** 133.6
+        - **Beta:** 2.06
+        - **Eta:** 6.29
+        - **Psi:** 1.65
+    - **Reference:** Fratanduono et al. (2020)
+    - **Reference eos record:** copper\_fratanduono\_2020\_vinet3\_298k
+    - **Reference unit cell volume a3:** 47.218085048721
+    - **Source locations:** main article Table I, 298 K isotherm row; Supplemental Material Eq. (2), Section S4
+- **Dataset identifiers:** shen\_smith\_2026\_table\_s1\_simultaneous\_volumes
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Table II Cu-referenced fit using DAC-2 data; V0 fixed to the JCPDS 5-0628 value. Reported uncertainties: K0 +/- 0.3 GPa and K0' +/- 0.06. The B1 phase data extend to 31 GPa; coexistence-region data near 30-35 GPa were excluded.
 
 Parameter covariance is not supplied.

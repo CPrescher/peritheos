@@ -78,6 +78,51 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 438.6702,
+                "published_error": null,
+                "refit": 438.6702184996092,
+                "refit_error": 0.08425558150456118,
+                "difference": 1.8499609154787322e-05,
+                "relative_difference": 4.2172021611651126e-08,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0"],
+              "fixed_parameters": ["K0", "K0_prime"],
+              "observations": 3,
+              "observed_pressure_range_gpa": [39.0, 48.0],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [357.8274, 368.5011],
+              "degrees_of_freedom": 2,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.0808114094403155,
+              "published_rmse_gpa": 0.08081141041630165,
+              "reduced_chi_square": 0.009795725843595468,
+              "dataset_identifiers": ["coesite_iv_bykova_2018_table10_calc_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

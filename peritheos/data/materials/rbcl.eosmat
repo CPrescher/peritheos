@@ -54,6 +54,63 @@
         "notes": "The pressure-standard lineage is explicit, but the reported pressures cannot be recalculated from the paper alone."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Complete source-data reproduction: all 24 RbCl-B2 Table 1 rows are fitted with the paper's hypothetical zero-pressure density held fixed. The refit recovers K0 and K0' within combined two-sigma uncertainty. See the [dedicated Campbell-Heinz reproduction](literature-reproductions.md#campbell-heinz-1994-cscl-and-rbcl).",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 17.9,
+                "published_error": 1.0,
+                "refit": 17.88084365996729,
+                "refit_error": 1.0581791574892083,
+                "difference": -0.019156340032708385,
+                "relative_difference": 0.0010701865940060552,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.23,
+                "published_error": 0.29,
+                "refit": 5.238151959171043,
+                "refit_error": 0.3525905442063895,
+                "difference": 0.008151959171042833,
+                "relative_difference": 0.0015586920021114401,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "lattice_parameter_a"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 24,
+              "observed_pressure_range_gpa": [1.11, 32.3],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [36.929363769900995, 58.406555796399005],
+              "degrees_of_freedom": 22,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.27906464867282704,
+              "published_rmse_gpa": 0.28986542659100895,
+              "reduced_chi_square": 0.19972537696575704,
+              "dataset_identifiers": ["rbcl_campbell_1994_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -224,6 +281,80 @@
         "notes": "Above about 1100 K the paper observes Mo/Pt apparent pressures lower than CsCl (up to ~1/~3 GPa); it prefers CsCl. It also questions CsCl behavior for BT815 at 17-19 GPa and high T. No correction is inferred here."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 19.89,
+                "published_error": 0.08,
+                "refit": 19.921940727841257,
+                "refit_error": null,
+                "difference": 0.03194072784125623,
+                "relative_difference": 0.0016058686697464168,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.0,
+                "published_error": 0.02,
+                "refit": 4.995184896218001,
+                "refit_error": null,
+                "difference": -0.004815103781998786,
+                "relative_difference": 0.0009630207563997573,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.96,
+                "published_error": 0.04,
+                "refit": 1.9639111476753601,
+                "refit_error": null,
+                "difference": 0.00391114767536016,
+                "relative_difference": 0.0019954835078368166,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "q",
+                "published": 1.05,
+                "published_error": 0.09,
+                "refit": 1.0592376167051918,
+                "refit_error": null,
+                "difference": 0.009237616705191742,
+                "relative_difference": 0.008797730195420706,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "iterated_effective_variance_bm3_mgd",
+              "objective": "iterated frozen diagonal effective P/V/T variance",
+              "fixed_parameters": ["V0", "Tr", "theta0", "n"],
+              "observations": 122,
+              "solver_success": true,
+              "rmse_gpa": 0.15516257838688707,
+              "published_rmse_gpa": 0.15442869781174814,
+              "dataset_identifiers": ["rbcl_farla_2025_observations"],
+              "reproduction_report": "docs/data/rubidium-halides-farla-2025-follow-up.json"
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-10-15",

@@ -101,6 +101,64 @@ meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
 
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** independent refit.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This comparison concerns the stored independent Peritheos refit, not recovery of the original publication's coefficients or author workflow.
+- Stored Peritheos refit reproduction using all 114 single-phase B2 rows and physical n=2 per FeSi formula. Parity compares against independently fitted Peritheos coefficients, not Fischer's published B2 parameters, which remain withheld. Unweighted pressure residuals; V0, K0-prime and theta0 are conditional fixed assumptions. Full covariance, weighting/reference sensitivities and pressure-block holdouts are in the \[Fischer audit\](literature-reproductions/fischer-2014-fesi.md). No validated core extrapolation.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| rt\_eos.K0 | 230.94775255642202 | 2.4268584467205403 | 230.947742824848 | 2.4268582974067376 | Free |
+| gamma0 | 2.6091220070326373 | 0.18115449264527692 | 2.6091212431622255 | 0.18115435168338812 | Free |
+| q | 1.7288261456502085 | 0.5662595175349323 | 1.7288234707444152 | 0.5662591910517519 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** joint\_pvt
+- **Objective:** pressure\_residuals
+- **Selection:** phase=B2
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** b2\_volume\_a3
+- **Absolute sigma:** False
+- **Free parameters:** rt\_eos.K0; gamma0; q
+- **Fixed parameters:** V0; K0\_prime; Tr; theta0; n
+- **Observations:** 114
+- **Observed pressure range gpa:** \[42.74768265572292, 146.9148894617161\]
+- **Observed temperature range k:** \[1162.665, 3146.8\]
+- **Observed volume range:** \[15.76544785701499, 19.474686763554654\]
+- **Degrees of freedom:** 111
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 2.4074742243352265
+- **Published rmse gpa:** 2.4074742243354827
+- **Reduced chi square:** 5.952578955455757
+- **Dataset identifiers:** fischer\_2014\_table\_s2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 
@@ -217,6 +275,64 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** independent refit.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This comparison concerns the stored independent Peritheos refit, not recovery of the original publication's coefficients or author workflow.
+- Stored Peritheos refit reproduction using all 114 single-phase B2 rows and physical n=2 per FeSi formula. Parity compares against independently fitted Peritheos coefficients, not Fischer's published B2 parameters, which remain withheld. Unweighted pressure residuals; V0, K0-prime and theta0 are conditional fixed assumptions. Full covariance, weighting/reference sensitivities and pressure-block holdouts are in the \[Fischer audit\](literature-reproductions/fischer-2014-fesi.md). No validated core extrapolation.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| rt\_eos.K0 | 236.43671934531218 | 2.4678083126749724 | 236.43672143491597 | 2.4678080246501195 | Free |
+| gamma0 | 2.35511814564806 | 0.162344731624064 | 2.3551183247655927 | 0.1623447381773548 | Free |
+| q | 1.416844024820081 | 0.5627379282018637 | 1.4168446596666489 | 0.5627378887661615 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** joint\_pvt
+- **Objective:** pressure\_residuals
+- **Selection:** phase=B2
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** b2\_volume\_a3
+- **Absolute sigma:** False
+- **Free parameters:** rt\_eos.K0; gamma0; q
+- **Fixed parameters:** V0; K0\_prime; Tr; theta0; n
+- **Observations:** 114
+- **Observed pressure range gpa:** \[42.74768265572292, 146.9148894617161\]
+- **Observed temperature range k:** \[1162.665, 3146.8\]
+- **Observed volume range:** \[15.76544785701499, 19.474686763554654\]
+- **Degrees of freedom:** 111
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 2.3591245828471794
+- **Published rmse gpa:** 2.3591245828471874
+- **Reduced chi square:** 5.7158868729991195
+- **Dataset identifiers:** fischer\_2014\_table\_s2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

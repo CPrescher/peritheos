@@ -86,6 +86,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 832.5 | 0.2 | 832.4088377998215 | 1.879511895641962 | Free |
+| K0 | 105.8 | 0.5 | 112.89904524727332 | 16.783282887185266 | Free |
+| K0\_prime | 8.5 | 0.3 | 7.908098188895854 | 4.491692037627952 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_ratio
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 15
+- **Observed pressure range gpa:** \[1.4603, 7.7863\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[787.4276175, 822.2510925\]
+- **Degrees of freedom:** 12
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.008734229980244273
+- **Published rmse gpa:** 0.22560459022894558
+- **Reduced chi square:** 0.04849242739560928
+- **Dataset identifiers:** orthoenstatite\_angel\_jackson\_2002\_figure2b\_digitized
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Combined room-pressure/high-pressure fit reported after reanalysis of the static compression data.
 
 Parameter covariance is not supplied.

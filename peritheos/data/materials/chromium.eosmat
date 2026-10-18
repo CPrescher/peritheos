@@ -49,6 +49,73 @@
         "audit_date": "2026-09-03"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 24.08,
+                "published_error": 0.02,
+                "refit": 24.085179052717415,
+                "refit_error": 0.016542511242217676,
+                "difference": 0.005179052717416255,
+                "relative_difference": 0.00021507694009203717,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 185.0,
+                "published_error": 1.0,
+                "refit": 182.35159684264062,
+                "refit_error": 1.6847446135235946,
+                "difference": -2.6484031573593825,
+                "relative_difference": 0.01431569274248315,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.74,
+                "published_error": 0.03,
+                "refit": 4.832573080577852,
+                "refit_error": 0.04038727265394633,
+                "difference": 0.09257308057785174,
+                "relative_difference": 0.01953018577591809,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_w_gpa", "temperature": null, "volume": "chromium_unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 119,
+              "observed_pressure_range_gpa": [0.0, 131.39],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [17.38, 24.03],
+              "degrees_of_freedom": 116,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.469487477476859,
+              "published_rmse_gpa": 0.49489983178602076,
+              "reduced_chi_square": 0.2261189697362286,
+              "dataset_identifiers": ["chromium_anzellini_2022_table2_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

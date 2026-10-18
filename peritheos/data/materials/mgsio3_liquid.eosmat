@@ -62,6 +62,58 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This is numerical similarity for a source-equation validation, not strict fit parity. Pressure and shock density are impedance-match reductions rather than independent direct BM3 observations. With three states, two refined coefficients, one residual degree of freedom, and near-perfect rho0-K0S correlation, K0S-prime and the thermal terms are not identifiable. The published candidate therefore remains unchanged and explicitly qualified.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 45.29797155879917,
+                "published_error": null,
+                "refit": 45.185995019007876,
+                "refit_error": 16.23987881216223,
+                "difference": -0.11197653979129285,
+                "relative_difference": 0.0024719989866641458,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 125.0,
+                "published_error": null,
+                "refit": 125.46292307750784,
+                "refit_error": 129.29534947040386,
+                "difference": 0.46292307750783834,
+                "relative_difference": 0.0037033846200627066,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "mie_gruneisen_hugoniot_bounded_reconstruction",
+              "objective": "unweighted theoretical-minus-reduced Hugoniot pressure residuals",
+              "selection": "Mosenfelder et al. (2009) Table 2 rows credited to Akins et al. (2004), with enstatite starting material and phase_state=melt",
+              "absolute_sigma": false,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": [],
+              "observations": 3,
+              "observed_pressure_range_gpa": [174.0, 204.3],
+              "degrees_of_freedom": 1,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 6.7945426904420545,
+              "dataset_identifiers": ["mgsio3_liquid_akins_2004_mosenfelder_2009_rereduced_melt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against the final Wiley article, the official Caltech author thesis containing the underlying state table and derivation, and the later official author-team re-reduction; LitCurate was discovery-only.",

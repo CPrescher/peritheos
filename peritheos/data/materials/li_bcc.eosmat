@@ -41,6 +41,62 @@
         "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 11.32,
+                "published_error": 0.1,
+                "refit": 11.315656612703812,
+                "refit_error": 0.03922452274513274,
+                "difference": -0.004343387296188439,
+                "relative_difference": 0.0003836914572604628,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.62,
+                "published_error": 0.04,
+                "refit": 3.616768766094577,
+                "refit_error": 0.013883557520548553,
+                "difference": -0.0032312339054230144,
+                "relative_difference": 0.0008926060512218271,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "atomic_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 26,
+              "observed_pressure_range_gpa": [0.0, 21.1],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [22.8742, 43.245],
+              "degrees_of_freedom": 24,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.033805294729050986,
+              "published_rmse_gpa": 0.03620400826033935,
+              "reduced_chi_square": 0.0012380311143611693,
+              "dataset_identifiers": ["lithium_hanfland_1999_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

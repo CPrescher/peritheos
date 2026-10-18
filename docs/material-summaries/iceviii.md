@@ -86,6 +86,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 165.39 | Not specified | 164.20388092233128 | 0.9913120787739277 | Free |
+| K0 | 20.4 | Not specified | 21.270881822937042 | 1.7708080007452651 | Free |
+| K0\_prime | 4.7 | Not specified | 4.613800292647819 | 0.37288871105817895 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** molar\_volume\_cm3\_mol
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 8
+- **Observed pressure range gpa:** \[2.7, 9.9\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[126.97145923238101, 148.54518279310363\]
+- **Degrees of freedom:** 5
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.03116448674282915
+- **Published rmse gpa:** 0.13812058093248714
+- **Reduced chi square:** 0.0015539603743103584
+- **Dataset identifiers:** ice\_viii\_besson\_1994\_table2\_structure
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Besson et al. give the 300 K D2O ice-VIII molar V0=12.45 cm^3/mol, converted here to the Z=8 tetragonal cell. Their BM3 fit gives K0=20.4 GPa and K0'=4.7 for 0-10 GPa. They state that no pressure/volume error can be quoted because the result depends on the adopted 300 K EOS, and that it must not be used above 10 GPa.
 
 Parameter covariance is not supplied.

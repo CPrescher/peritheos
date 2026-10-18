@@ -80,6 +80,63 @@
         "notes": "The pressure standards and their cited sources are explicit, but the mixed room-temperature row mapping and calibrant observations are unavailable."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "The recorded parameter reconstruction did not meet the audit's agreement criterion; the parameter comparisons retain the actual reconstructed values.",
+            "qualifications": [
+              "Usage recommendation: not_recommended_for_quantitative_use",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.K0",
+                "published": 140.3,
+                "published_error": 3.7,
+                "refit": 183.33783907350212,
+                "refit_error": 4.974275177321595,
+                "difference": 43.03783907350211,
+                "relative_difference": 0.30675580237706424,
+                "similar": false,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "rt_eos.K0_prime",
+                "published": 4.6,
+                "published_error": 0.4,
+                "refit": 0.0,
+                "refit_error": 0.41271534924862147,
+                "difference": -4.6,
+                "relative_difference": 1.0,
+                "similar": false,
+                "within_combined_2sigma": false
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_celsius", "volume": "cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["rt_eos.K0", "rt_eos.K0_prime"],
+              "fixed_parameters": ["V0", "Tr", "theta0", "gamma0", "q", "n"],
+              "observations": 65,
+              "observed_pressure_range_gpa": [0.0, 29.41],
+              "observed_temperature_range_k": [296.15, 583.15],
+              "observed_volume_range": [119.5, 138.75],
+              "degrees_of_freedom": 63,
+              "solver_success": true,
+              "solver_message": "`xtol` termination condition is satisfied.",
+              "rmse_gpa": 2.1363449088924615,
+              "published_rmse_gpa": 2.540000975127211,
+              "reduced_chi_square": 4.948021225228743,
+              "dataset_identifiers": ["goethite_gleason_2008_deposit_table1_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication and official deposit; bibliographic validation does not imply fit reproducibility. The EOS is retained for provenance but is not recommended for quantitative use because table and figure-marker refits fail to reproduce the published coefficients.",

@@ -50,6 +50,62 @@
         "audit_date": "2026-09-03"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 187.0,
+                "published_error": 8.0,
+                "refit": 183.319829694509,
+                "refit_error": 3.258820321674154,
+                "difference": -3.6801703054910035,
+                "relative_difference": 0.01968005510957756,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.8,
+                "published_error": 0.5,
+                "refit": 4.96543733674158,
+                "refit_error": 0.5270957046148519,
+                "difference": 0.16543733674158023,
+                "relative_difference": 0.03446611182116255,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_angstrom3"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 18,
+              "observed_pressure_range_gpa": [0.3544, 19.557],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [143.940001, 156.50861],
+              "degrees_of_freedom": 16,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.10474962508309985,
+              "published_rmse_gpa": 0.17776647256228575,
+              "reduced_chi_square": 0.30860111123578077,
+              "dataset_identifiers": ["praseodymium_dioxide_gerward_2005_figure3b_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

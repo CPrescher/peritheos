@@ -51,6 +51,62 @@
         "audit_date": "2026-10-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 249.44,
+                "published_error": null,
+                "refit": 249.37909805826908,
+                "refit_error": 0.2885215905029003,
+                "difference": -0.06090194173091845,
+                "relative_difference": 0.00024415467339207204,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 17.1,
+                "published_error": null,
+                "refit": 17.325289887618375,
+                "refit_error": 0.31899418465200324,
+                "difference": 0.22528988761837354,
+                "relative_difference": 0.013174847229144651,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_per_formula_unit"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 30,
+              "observed_pressure_range_gpa": [0.16, 2.56],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [223.424, 246.816],
+              "degrees_of_freedom": 28,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.053477743798609416,
+              "published_rmse_gpa": 0.055444925019129614,
+              "reduced_chi_square": 0.0030641454447746866,
+              "dataset_identifiers": ["kcl_b1_dewaele_2012_table2_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -139,6 +195,55 @@
         "notes": "Primary-source ancestry and Birch coefficients are verified. B1 ambient/36 Celsius anchor handling and exact author reduction remain unverified."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Fixed Figure 1 V0=37.50 cm3/mol=249.0808601 conventional-cell A3 (Z=4); Tables 1/3 retain the conflicting 249.53 A3, K0 prime=5, Tr=296.15 K. Complete unweighted joint pressure fit per Walker page 808; exact author Solver inputs and constraints are unavailable. K0 rounds to 17.7 GPa; alpha_KT differs by 1.17%, within its printed error width; strict coefficient/uncertainty parity is not established. Individual elastic errors and covariance are not published. The printed BE1 signs are inconsistent with its positive strain definition; the compression-positive BM3 convention used by the existing B2 audit is retained explicitly.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 17.7,
+                "published_error": null,
+                "refit": 17.683421849750918,
+                "refit_error": null,
+                "difference": -0.016578150249081602,
+                "relative_difference": -0.0009366186581402035,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "alpha_KT",
+                "published": 0.00195,
+                "published_error": 5e-05,
+                "refit": 0.001927145871094727,
+                "refit_error": null,
+                "difference": -2.2854128905272844e-05,
+                "relative_difference": -0.011720066105268125,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "independent_primary_equation_pressure_fit",
+              "objective": "equal pressure weights",
+              "selection": "23 measured Table 1 KCl states; exclude six NaCl-only checks and one derived V0 anchor",
+              "free_parameters": ["K0", "alpha_KT"],
+              "fixed_parameters": ["V0", "K0_prime", "Tr"],
+              "observations": 23,
+              "solver_success": true,
+              "rmse_gpa": 0.05382736372911785,
+              "published_rmse_gpa": 0.05443362976268607,
+              "dataset_identifiers": ["kcl_b1_walker_2002_table1_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-10-08",

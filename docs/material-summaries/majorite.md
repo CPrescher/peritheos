@@ -88,6 +88,61 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 161.2 | Not specified | 160.73415834708604 | 2.1212704900581403 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** unit\_cell\_volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** K0
+- **Fixed parameters:** V0; K0\_prime
+- **Observations:** 10
+- **Observed pressure range gpa:** \[1.43, 9.72\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[1435.7, 1500.4\]
+- **Degrees of freedom:** 9
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.23325575852449987
+- **Published rmse gpa:** 0.2338798726893578
+- **Reduced chi square:** 0.06045360987204421
+- **Dataset identifiers:** majorite\_yagi\_1992\_table1\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Room-temperature MgSiO3 tetragonal-garnet BM3 with the measured one-bar V0=1513.1 A^3 and K0'=4 assumed. The fit gives K0=161.2 GPa. The paper prints no fit error or covariance for V0 or K0, so the migrated +/-4 GPa value is removed rather than inferred from the separate composition-regression uncertainties. The diffraction structure in this file is an independent 1518.5 A^3 cell.
 
 Parameter covariance is not supplied.

@@ -61,6 +61,80 @@
         "audit_date": "2026-09-03"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.V0",
+                "published": 227.5,
+                "published_error": 0.8,
+                "refit": 227.0509188911685,
+                "refit_error": 0.46287683892679543,
+                "difference": -0.449081108831507,
+                "relative_difference": 0.001973982895962668,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0",
+                "published": 64.81,
+                "published_error": 3.48,
+                "refit": 65.7594847830113,
+                "refit_error": 1.6574642736217322,
+                "difference": 0.9494847830113002,
+                "relative_difference": 0.014650282101701901,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "alpha0",
+                "published": 6.5e-05,
+                "published_error": 1e-06,
+                "refit": 6.616277302577296e-05,
+                "refit_error": 5.239895204479933e-06,
+                "difference": 1.1627730257729641e-06,
+                "relative_difference": 0.017888815781122527,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "dK_dT",
+                "published": -0.018,
+                "published_error": 0.002,
+                "refit": -0.01666478438939185,
+                "refit_error": 0.004169185507704645,
+                "difference": 0.001335215610608148,
+                "relative_difference": 0.07417864503378602,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "staged_bm2_isotherms",
+              "objective": "unweighted pressure residuals followed by linear regressions",
+              "selection": "eight staged isotherms from 298 to 973 K",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "volume_a3"},
+              "absolute_sigma": false,
+              "free_parameters": ["rt_eos.V0", "rt_eos.K0", "alpha0", "dK_dT"],
+              "fixed_parameters": ["Tr"],
+              "observations": 64,
+              "solver_success": true,
+              "solver_message": "eight isotherm fits and two linear regressions completed",
+              "rmse_gpa": 0.20549596467076306,
+              "published_rmse_gpa": 0.2591892383500495,
+              "reduced_chi_square": null,
+              "dataset_identifiers": ["aragonite_martinez_1996_table3_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

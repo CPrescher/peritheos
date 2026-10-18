@@ -67,6 +67,73 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 58.62,
+                "published_error": 0.05,
+                "refit": 58.612018832577284,
+                "refit_error": 0.06210522074790147,
+                "difference": -0.007981167422713042,
+                "relative_difference": 0.00013615092839838012,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 223.0,
+                "published_error": 2.0,
+                "refit": 223.41826498267838,
+                "refit_error": 2.5871453534956586,
+                "difference": 0.4182649826783802,
+                "relative_difference": 0.0018756277250151579,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.07,
+                "published_error": 0.03,
+                "refit": 4.066535392676584,
+                "refit_error": 0.037065851740301234,
+                "difference": -0.0034646073234165797,
+                "relative_difference": 0.0008512548706183243,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "12 hydrogen-centered rows at 30-140 GPa; HOC/transition rows excluded by the source fit protocol",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 12,
+              "observed_pressure_range_gpa": [30.01, 139.99],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [42.4, 52.64],
+              "degrees_of_freedom": 9,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.09518132012614243,
+              "published_rmse_gpa": 0.10819370267206042,
+              "reduced_chi_square": 0.012079311601273606,
+              "dataset_identifiers": ["epsilon_feooh_thompson_2017_supplement_table_s1"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "The final publisher article and its official five-page Supporting Information S1 were audited directly. Only the reproducible high-pressure volumetric BM3 fit is executable; elastic-tensor-derived moduli and velocity/density summaries are retained as benchmarks, not encoded as EOS regressions.",

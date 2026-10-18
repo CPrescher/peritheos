@@ -77,6 +77,73 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 178.34189581447112,
+                "published_error": null,
+                "refit": 178.2328857093995,
+                "refit_error": 0.005881375392549615,
+                "difference": -0.10901010507160436,
+                "relative_difference": 0.0006112422690908672,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 217.7,
+                "published_error": null,
+                "refit": 217.61858686056965,
+                "refit_error": 0.18874323307669333,
+                "difference": -0.08141313943033879,
+                "relative_difference": 0.0003739694048247074,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.08,
+                "published_error": null,
+                "refit": 4.0856132536505045,
+                "refit_error": 0.008552205469489078,
+                "difference": 0.005613253650504468,
+                "relative_difference": 0.0013757974633589382,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 6,
+              "observed_pressure_range_gpa": [0.0, 50.0],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [151.25007456, 178.235777307],
+              "degrees_of_freedom": 3,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.005517062972859495,
+              "published_rmse_gpa": 0.1959975125525443,
+              "reduced_chi_square": 6.0875967692994504e-05,
+              "dataset_identifiers": ["namg2al5sio12_nal_kawai_2012_figure2c_vector_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against the final typeset MSA article. The conventional-cell conversion and BM3 convention reproduce the vector-digitized Figure 2c curve.",

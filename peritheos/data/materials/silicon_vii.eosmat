@@ -75,6 +75,77 @@
         "audit_date": "2026-09-03"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "The recorded parameter reconstruction did not meet the audit's agreement criterion; the parameter comparisons retain the actual reconstructed values.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 28.6,
+                "published_error": 0.2,
+                "refit": 41.61388882865503,
+                "refit_error": 15.579440094875807,
+                "difference": 13.013888828655027,
+                "relative_difference": 0.4550310779250009,
+                "similar": false,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 96.9,
+                "published_error": 0.9,
+                "refit": 4.845000000000001,
+                "refit_error": 13.575661949382226,
+                "difference": -92.055,
+                "relative_difference": 0.9500000000000001,
+                "similar": false,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.01,
+                "published_error": 0.04,
+                "refit": 9.109685061321683,
+                "refit_error": 2.8032984672439807,
+                "difference": 5.099685061321683,
+                "relative_difference": 1.2717419105540357,
+                "similar": false,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "phase=VII",
+              "columns": {
+                "pressure": "pressure_gold_gpa|pressure_tungsten_gpa|pressure_ruby_gpa",
+                "temperature": null,
+                "volume": "silicon_lattice_a_angstrom"
+              },
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 25,
+              "observed_pressure_range_gpa": [47.7, 93.7],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [18.994759460133043, 21.64265740715537],
+              "degrees_of_freedom": 22,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.3781328178079222,
+              "published_rmse_gpa": 3.559994893107983,
+              "reduced_chi_square": 0.16248230443563555,
+              "dataset_identifiers": ["silicon_anzellini_2019_tables1_4_6_7_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

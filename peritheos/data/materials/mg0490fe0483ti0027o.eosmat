@@ -72,6 +72,66 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Coupled three-level spin-state reconstruction using the recovered earlier observations and Solomatova Table 2 priors. The original MINUTI input, row weights, residual definition, and covariance are unpublished, so this equal-weight approximate-volume fit tests numerical similarity rather than claiming an exact reproduction.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 77.29,
+                "published_sigma": 0,
+                "refit": 77.29,
+                "refit_sigma": null,
+                "delta": 0.0,
+                "relative_delta": 0.0,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 160.0,
+                "published_sigma": 2,
+                "refit": 160.6956294715661,
+                "refit_sigma": null,
+                "delta": 0.6956294715660931,
+                "relative_delta": 0.004347684197288082,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.12,
+                "published_sigma": 0.14,
+                "refit": 4.09756223680357,
+                "refit_sigma": null,
+                "delta": -0.022437763196430538,
+                "relative_delta": -0.005446059028259839,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "coupled_bm3_three_level_spin_crossover",
+              "objective": "equal-weight approximate volume residuals plus Table 2 priors",
+              "selection": "all observation rows",
+              "free_parameters": ["V0_HS", "K0_HS", "K0_prime_HS", "V0_LS", "K0_LS", "omega0"],
+              "fixed_parameters": [],
+              "observations": 45,
+              "solver_success": true,
+              "solver_message": "dedicated Solomatova coupled reconstruction completed",
+              "rmse_volume_a3": 0.11975873596515488,
+              "dataset_identifiers": ["mg0490fe0483ti0027o_solomatova_2016_table1_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -170,6 +230,66 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Coupled three-level spin-state reconstruction using the recovered earlier observations and Solomatova Table 2 priors. The original MINUTI input, row weights, residual definition, and covariance are unpublished, so this equal-weight approximate-volume fit tests numerical similarity rather than claiming an exact reproduction.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 73.64,
+                "published_sigma": 0.94,
+                "refit": 73.67318579275207,
+                "refit_sigma": null,
+                "delta": 0.03318579275206446,
+                "relative_delta": 0.0004506490053240692,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 173.0,
+                "published_sigma": 13,
+                "refit": 170.82409048766706,
+                "refit_sigma": null,
+                "delta": -2.175909512332936,
+                "relative_delta": -0.012577511631982289,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.0,
+                "published_sigma": null,
+                "refit": 4.0,
+                "refit_sigma": null,
+                "delta": 0.0,
+                "relative_delta": 0.0,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "coupled_bm3_three_level_spin_crossover",
+              "objective": "equal-weight approximate volume residuals plus Table 2 priors",
+              "selection": "all observation rows",
+              "free_parameters": ["V0_HS", "K0_HS", "K0_prime_HS", "V0_LS", "K0_LS", "omega0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 45,
+              "solver_success": true,
+              "solver_message": "dedicated Solomatova coupled reconstruction completed",
+              "rmse_volume_a3": 0.11975873596515488,
+              "dataset_identifiers": ["mg0490fe0483ti0027o_solomatova_2016_table1_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

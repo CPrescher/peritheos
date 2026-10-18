@@ -126,6 +126,52 @@ meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
 
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- 95 selected rows; run 5 is independent validation. Equal-pressure weights are a diagnostic assumption: the publication supplies no objective, weights, coordinate uncertainties or covariance. Both 296 K (Methods) and 300 K (fit prose) evaluated. Missing pressures and duplicate rows retained in bundle.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 152.0 | Not specified | 152.3842901654245 | Not specified | Free |
+| K0\_prime | 7.423 | Not specified | 7.4143791697887975 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** primary\_table\_diagnostic
+- **Objective:** equal pressure residuals
+- **Selection:** Runs 2-3 with measured pressure, plus runs 1 and 4 at P&lt;=5 GPa
+- **Free parameters:** V0; K0\_prime
+- **Fixed parameters:** K0; Tr; theta0; gamma0; gamma\_inf; beta; anharmonic\_a; anharmonic\_m; electronic\_e; electronic\_g; n
+- **Observations:** 95
+- **Solver success:** True
+- **Rmse gpa:** 0.27875374509339046
+- **Published rmse gpa:** 0.34144299130983014
+- **Dataset identifiers:** argon\_fcc\_dewaele\_2021\_supplement
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 
@@ -240,6 +286,53 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- All 19 rows. Effective-error weights combine printed 1-sigma P,V errors using a fixed derivative at published coefficients. Source weighting and covariance are unspecified; no strict parameter parity claimed.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 184.5 | 38.5 | 211.74492423778685 | Not specified | Free |
+| K0 | 1.07 | 1.33 | 0.4584437466877124 | Not specified | Free |
+| K0\_prime | 8.02 | 0.95 | 8.664677487846673 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** primary\_table\_diagnostic
+- **Objective:** fixed effective P,V errors
+- **Selection:** All 19 Table 1 observations
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 19
+- **Solver success:** True
+- **Rmse gpa:** 0.8531818076185209
+- **Published rmse gpa:** 0.8474923941002821
+- **Dataset identifiers:** argon\_fcc\_ono\_2020\_table1
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Conventional fcc cell, Z=4. V0 is an extrapolated fit parameter, not a measured ambient solid volume. Source one-sigma errors retained; covariance and exact fit weights are unavailable. Only the experimental 300 K Vinet curve is represented. The separate AIMD thermal extension is not included.
 
 Parameter covariance is not supplied.
@@ -338,6 +431,33 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Published parameterization matches the official workbook; the complete global fit remains unreproduced. With equal weights on relative residuals, the best converged nine-parameter 22-volume refit lowers volume RMS from 0.0952% to 0.0322%, but gives a much too low bulk modulus and poorly constrained, bound-dependent parameters. The best converged 27-entry refit gives 0.0603% volume RMS and 0.0818% bulk-modulus RMS, but Cv = -13.88 J/mol/K at 77 K is physically unacceptable. Neither diagnostic replaces the published coefficients. Table 2 weights are published; complete legacy rows and quantitative penalties remain unavailable. Next: recover the remaining multiproperty inputs, then refit with physical constraints and assess parameter stability. \[Detailed comparison and scope\](literature-reproductions/argon-xiao-2025.md#review-conclusion-2026-09-27).
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** V0; Tr
+- **Observations:** 22
+- **Dataset identifiers:** argon\_fcc\_xiao\_2025\_table5
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 0 K cold curve includes zero-point energy; Debye thermal term excludes it. Marginal model/fit envelope 0-760 K and up to 6.3 GPa is not a rectangular solid-stability region; use solid branch below melting. New data cover 7.96-50.02 K only. Volume uncertainties estimated k=1: 0.1% sublimation, 0.5% melting/compressed; coefficient covariance/errors not published. Gas reference entropy 130.37 J/mol/K belongs to coupled fluid equilibrium model and does not enter solid pressure. No fluid fugacity/phase-equilibrium solver supplied. The complete global refit has not been reproduced from available files; workbook reference calculations are theory, not observations. The author workbook gas constant R=8.31451 J/mol/K is retained explicitly for published numerical parity. Record temperature\_ref=70 K selects the evaluation/reporting temperature; it is not the cold-curve reference temperature, which is 0 K.
 
 Parameter covariance is not supplied.
@@ -435,6 +555,33 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Eight resolved figure observations are retained. The incomplete digitization does not identify the original regression; no replacement coefficients are adopted.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** None declared
+- **Observations:** 8
+- **Dataset identifiers:** argon\_fcc\_errandonea\_2006\_figure5
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Fcc-specific BM3 fit, including fcc reflections in fcc+hcp coexistence from 49.6 to 114 GPa; not a combined-phase fit. Hcp atomic volumes are stated equal within accuracy, but no independent hcp EOS or hcp volume table is supplied. Uncertainty confidence and covariance are unspecified. Annealing above 2000 K is sample preparation, not the EOS temperature. Figure 5 inset caption says fcc(220), while main text says non-overlapping fcc(200); retain this inconsistency. Exact fit selection and weights unavailable. Supporting phase asset: datasets/argon-errandonea-2006-phase-observations.csv.
 
@@ -535,6 +682,34 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Approximate internal consistency is reproduced with equal weighting on 74 derived-density rows, excluding source row 98 only in the sensitivity check. All 75 solid rows and original coefficients remain preserved. This does not reproduce the original X-ray regression, whose independent observations are unavailable.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- Original diffraction fit rows were not recovered. An equal-weight sensitivity fit to 74 derived Table I solid densities recovers the published coefficients within 2.4%; source row 98 is excluded only in this diagnostic and retained in the source dataset and all-row fit.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** V0; rho0
+- **Observations:** 98
+- **Dataset identifiers:** argon\_grimsditch\_1986\_table1; argon\_fcc\_grimsditch\_1986\_table2
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published cubic fit to earlier X-ray densities, not an independent Brillouin EOS. No zero-pressure reference is implied. Figure 9 triangles are Eq.(6) values, with open triangles extrapolated, not measured observations. The source uses B\_T=rho\*dP/drho and approximates B\_S=B\_T except near melting. Tables II-III are elastic bounds dependent on Eq.(6). Do not convert longitudinal modulus C=rho\*v^2 into solid bulk modulus. Coefficient error/covariance, precise room temperature and low-pressure diffraction fit cutoff are unspecified. Ref.17 Hazen et al.(1980), Carnegie Yearb.79,348; ref.18 Zou et al.(1982), Yearb.81,392; ref.19 Xu et al.(1984), High Temp.High Pressures16,495. Theory pair-potential curves are separate and are not this fit.
 
@@ -640,6 +815,38 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** All 19 measured rows retained. An unweighted refit reproduces both fitted parameters within published error bars, consistent with an unweighted original fit. The paper does not specify its weighting; covariance and uncertainty estimation are not reproduced.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fit kind:** primary\_table\_diagnostic
+- **Objective:** equal pressure residuals
+- **Free parameters:** K0\_prime; K0\_double\_prime
+- **Fixed parameters:** V0; K0; P0; Tr; theta0; gamma0; gamma\_inf; beta; anharmonic\_a; anharmonic\_m; electronic\_e; electronic\_g; n
+- **Observations:** 19
+- **Rmse gpa:** 0.09412675921023864
+- **Published rmse gpa:** 0.09535520774523343
+- **Dataset identifiers:** argon\_fcc\_finger\_1981\_table1
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -758,6 +965,33 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Observed-volume residuals use nearest nominal T within 1.1 K; actual T preserved. The source used isobaric reductions to common T, not reconstructed here. Table11 corrections applied literally in the diagnostic only; small-holder discrepancy is unresolved, so no original-fit reproduction or coefficient uncertainties are claimed.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** V0
+- **Observations:** 62
+- **Dataset identifiers:** argon\_anderson\_1972\_appendix\_a
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Isothermal series, not a continuous thermal EOS. Do not interpolate temperature or extrapolate above 2 GPa. Pressure range is the usable thesis observations within 1.1 K of this nominal isotherm, with holder-dependent lower limits; exact common-temperature reductions are unavailable. Paper Table 1 prints 4 K for actual 4.2 K measurements. Phase assigned as low-pressure fcc solid Ar, not measured by diffraction in this experiment. Absolute molar normalization tied to Peterson et al. (1966); coefficients have no individual uncertainties. Overall volume accuracy approximately 0.001 of the T=0 P=0 volume, not point sigma.
 
 Parameter covariance is not supplied.
@@ -854,6 +1088,33 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Observed-volume residuals use nearest nominal T within 1.1 K; actual T preserved. The source used isobaric reductions to common T, not reconstructed here. Table11 corrections applied literally in the diagnostic only; small-holder discrepancy is unresolved, so no original-fit reproduction or coefficient uncertainties are claimed.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** V0
+- **Observations:** 76
+- **Dataset identifiers:** argon\_anderson\_1972\_appendix\_a
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Isothermal series, not a continuous thermal EOS. Do not interpolate temperature or extrapolate above 2 GPa. Pressure range is the usable thesis observations within 1.1 K of this nominal isotherm, with holder-dependent lower limits; exact common-temperature reductions are unavailable. Paper Table 1 prints 4 K for actual 4.2 K measurements. Phase assigned as low-pressure fcc solid Ar, not measured by diffraction in this experiment. Absolute molar normalization tied to Peterson et al. (1966); coefficients have no individual uncertainties. Overall volume accuracy approximately 0.001 of the T=0 P=0 volume, not point sigma.
 
@@ -952,6 +1213,33 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Observed-volume residuals use nearest nominal T within 1.1 K; actual T preserved. The source used isobaric reductions to common T, not reconstructed here. Table11 corrections applied literally in the diagnostic only; small-holder discrepancy is unresolved, so no original-fit reproduction or coefficient uncertainties are claimed.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** V0
+- **Observations:** 69
+- **Dataset identifiers:** argon\_anderson\_1972\_appendix\_a
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Isothermal series, not a continuous thermal EOS. Do not interpolate temperature or extrapolate above 2 GPa. Pressure range is the usable thesis observations within 1.1 K of this nominal isotherm, with holder-dependent lower limits; exact common-temperature reductions are unavailable. Paper Table 1 prints 4 K for actual 4.2 K measurements. Phase assigned as low-pressure fcc solid Ar, not measured by diffraction in this experiment. Absolute molar normalization tied to Peterson et al. (1966); coefficients have no individual uncertainties. Overall volume accuracy approximately 0.001 of the T=0 P=0 volume, not point sigma.
 
 Parameter covariance is not supplied.
@@ -1049,6 +1337,33 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Observed-volume residuals use nearest nominal T within 1.1 K; actual T preserved. The source used isobaric reductions to common T, not reconstructed here. Table11 corrections applied literally in the diagnostic only; small-holder discrepancy is unresolved, so no original-fit reproduction or coefficient uncertainties are claimed.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** V0
+- **Observations:** 80
+- **Dataset identifiers:** argon\_anderson\_1972\_appendix\_a
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Isothermal series, not a continuous thermal EOS. Do not interpolate temperature or extrapolate above 2 GPa. Pressure range is the usable thesis observations within 1.1 K of this nominal isotherm, with holder-dependent lower limits; exact common-temperature reductions are unavailable. Paper Table 1 prints 4 K for actual 4.2 K measurements. Phase assigned as low-pressure fcc solid Ar, not measured by diffraction in this experiment. Absolute molar normalization tied to Peterson et al. (1966); coefficients have no individual uncertainties. Overall volume accuracy approximately 0.001 of the T=0 P=0 volume, not point sigma.
 
 Parameter covariance is not supplied.
@@ -1145,6 +1460,33 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Observed-volume residuals use nearest nominal T within 1.1 K; actual T preserved. The source used isobaric reductions to common T, not reconstructed here. Table11 corrections applied literally in the diagnostic only; small-holder discrepancy is unresolved, so no original-fit reproduction or coefficient uncertainties are claimed.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** V0
+- **Observations:** 81
+- **Dataset identifiers:** argon\_anderson\_1972\_appendix\_a
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Isothermal series, not a continuous thermal EOS. Do not interpolate temperature or extrapolate above 2 GPa. Pressure range is the usable thesis observations within 1.1 K of this nominal isotherm, with holder-dependent lower limits; exact common-temperature reductions are unavailable. Paper Table 1 prints 4 K for actual 4.2 K measurements. Phase assigned as low-pressure fcc solid Ar, not measured by diffraction in this experiment. Absolute molar normalization tied to Peterson et al. (1966); coefficients have no individual uncertainties. Overall volume accuracy approximately 0.001 of the T=0 P=0 volume, not point sigma.
 
@@ -1247,6 +1589,35 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** DO NOT USE. Diagnostic BM3 reconstruction of rounded local constants at 2 GPa, not a verified author equation. Pressure RMS 6.880 GPa against digitized densities; the separate Peritheos refit has 0.111 GPa RMS. Original equation convention and regression inputs are unresolved; no pressure-calibration error has been established. See literature-reproductions/chen-2010-argon.md.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- Usage recommendation: DO NOT USE for scientific predictions or pressure calibration. This is a diagnostic standard-BM3 reconstruction of Chen's rounded constants at 2 GPa, not a verified author equation. It misses the digitized density observations by 6.880 GPa RMS. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established.
+- DO NOT USE for scientific predictions or pressure calibration. This is a diagnostic standard-BM3 reconstruction of Chen's rounded constants at 2 GPa, not a verified author equation. It misses the digitized density observations by 6.880 GPa RMS. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** V0; K0; K0\_prime
+- **Observations:** 80
+- **Dataset identifiers:** argon\_fcc\_chen\_2010\_figure5\_brillouin
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 DO NOT USE for scientific predictions or pressure calibration. This is a diagnostic standard-BM3 reconstruction of Chen's rounded constants at 2 GPa, not a verified author equation. It misses the digitized density observations by 6.880 GPa RMS. The cause is unresolved; no error in the author's pressure calibration or adiabatic correction has been established. See docs/literature-reproductions/chen-2010-argon.md for the curve comparison, reference-state conventions and independent refit.
 
@@ -1353,6 +1724,36 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** independent refit.
+
+**Comparison basis:** Numerically reproduced independent Peritheos errors-in-variables BM3 refit. This does not reproduce the source-author coefficients. Statistical parameter errors are unavailable because graphical halfwidth confidence and cross-row correlations are unknown.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- This comparison concerns the stored independent Peritheos refit, not recovery of the original publication's coefficients or author workflow.
+- Usage recommendation: Reproducible BM3 approximation to80 digitized Brillouin-integrated density positions at nominal290 K, qualified only over1.23–26.06 GPa. This does not validate the original EOS or independently establish elastic properties. Zero-pressure density1.6895 g/cm3 disagrees with Chen's1.52±0.05 extrapolation and1.564 comparison estimate; no statistical parameter uncertainties are claimed.
+- Reproducible BM3 approximation to80 digitized Brillouin-integrated density positions at nominal290 K, qualified only over1.23–26.06 GPa. This does not validate the original EOS or independently establish elastic properties. Zero-pressure density1.6895 g/cm3 disagrees with Chen's1.52±0.05 extrapolation and1.564 comparison estimate; no statistical parameter uncertainties are claimed.
+- Original publication reproduction status: not\_reproduced
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** None declared
+- **Observations:** 80
+- **Dataset identifiers:** argon\_fcc\_chen\_2010\_figure5\_brillouin
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Independent Peritheos refit; source publication EOS remains not\_reproduced. Nominal error-in-variables weighting does not resolve unknown covariance or confidence levels. Parameter errors unavailable. Unadjusted residuals and weighting/deletion/systematic-coordinate sensitivities are reported. Do not extrapolate from fitted range or interpret near-coincident PDF positions as statistically independent. Comparison and source discrepancy: docs/literature-reproductions/chen-2010-argon.md.
 
 Parameter covariance is not supplied.
@@ -1452,6 +1853,33 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Published coefficients are available, but the Table 8 calculation is not reproduced. No complete row-level global fitting dataset and weighting recipe is registered; the separate diagnostic refit is not an original-fit reproduction.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- Unvalidated: our implementation of the published equations has not reproduced the Table 8 sample (23.89043 versus 23.97 cm³/mol at 70 K and 1 MPa). This is an unresolved reproduction discrepancy, not evidence that all predictions are invalid. The article does not specify the lattice cutoff; this record explicitly assumes squared cutoff 64 and geometric fcc shells.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** shell\_cutoff\_squared
+- **Dataset identifiers:** None declared
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Unvalidated: our implementation of the published equations has not reproduced the Table 8 sample (23.89043 versus 23.97 cm³/mol at 70 K and 1 MPa). This is an unresolved reproduction discrepancy, not evidence that all predictions are invalid. The article does not specify the lattice cutoff; this record explicitly assumes squared cutoff 64 and geometric fcc shells. Published coefficients are fixed. No parameter uncertainty, DAC confinement or fluid-reference free-energy offsets are provided. The diagnostic refit is not used.
 
 Parameter covariance is not supplied.
@@ -1536,6 +1964,51 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** independent refit.
+
+**Comparison basis:** Reproduction of the registered Peritheos refit's stored coefficients under its declared protocol.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This comparison concerns the stored independent Peritheos refit, not recovery of the original publication's coefficients or author workflow.
+- Selected-data refit is reproducible; this is not reproduction of the original Errandonea fit or validation as a pressure standard. Source table and digitized points checked; weighting, temperature pooling, and partial recovery remain limitations.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 138.83326594378107 | Not specified | 138.83326250893583 | Not specified | See protocol |
+| K0 | 7.3276753422964385 | Not specified | 7.3276762855873425 | Not specified | See protocol |
+| K0\_prime | 5.018612278319878 | Not specified | 5.01861218191841 | Not specified | See protocol |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** selected\_multi\_source\_bm3
+- **Objective:** equal pressure weights
+- **Absolute sigma:** False
+- **Fixed parameters:** None declared
+- **Observations:** 49
+- **Solver success:** True
+- **Rmse gpa:** 1.2028193647740388
+- **Dataset identifiers:** argon\_fcc\_ross\_errandonea\_selected49
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Provisional combined-data refit; not a default EOS or a reproduction of published coefficients. 41 Ross Table I observations at 298 K and 8 resolved Errandonea Fig.5 fcc markers at 300 K. Ross row17 (24.7 GPa) excluded as a suspected source error, retained in source archive. Cryogenic diamond excluded. Equal pressure weights; volume errors and covariance omitted. Strong objective sensitivity; parameter uncertainties not established. Fcc reflections retained through fcc/hcp coexistence. No independent hcp fit and no thermal EOS. Reference DOI identifies an input study, not authorship of these refitted coefficients.
 

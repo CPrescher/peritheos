@@ -62,6 +62,62 @@
         "audit_date": "2026-09-03"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 395.0,
+                "published_error": 2.0,
+                "refit": 395.16184460219006,
+                "refit_error": 2.2606899728837178,
+                "difference": 0.16184460219005814,
+                "relative_difference": 0.000409733170101413,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.62,
+                "published_error": 0.05,
+                "refit": 3.6171261603911873,
+                "refit_error": 0.05542308451761129,
+                "difference": -0.0028738396088128226,
+                "relative_difference": 0.0007938783449759179,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows; reference-T rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "atomic_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 38,
+              "observed_pressure_range_gpa": [0.0, 162.5],
+              "observed_temperature_range_k": [295.0, 295.0],
+              "observed_volume_range": [36.424, 47.256],
+              "degrees_of_freedom": 36,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.5848254609210809,
+              "published_rmse_gpa": 0.5849199630636431,
+              "reduced_chi_square": 0.3610219763938633,
+              "dataset_identifiers": ["cubic_boron_nitride_datchi_2007_table4_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -191,6 +247,51 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "q",
+                "published": 4.0,
+                "published_error": 1.5,
+                "refit": 6.241100607705336,
+                "refit_error": 1.9742155371367653,
+                "difference": 2.241100607705336,
+                "relative_difference": 0.560275151926334,
+                "similar": false,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "atomic_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["q"],
+              "fixed_parameters": ["V0", "K0", "K0_prime", "Tr", "theta0", "gamma0", "n"],
+              "observations": 66,
+              "observed_pressure_range_gpa": [0.0, 162.5],
+              "observed_temperature_range_k": [295.0, 948.0],
+              "observed_volume_range": [36.424, 47.616],
+              "degrees_of_freedom": 65,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.5921916786848203,
+              "published_rmse_gpa": 0.588949793133316,
+              "reduced_chi_square": 0.35608623021590763,
+              "dataset_identifiers": ["cubic_boron_nitride_datchi_2007_table4_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "The author-posted primary manuscript was checked for the equation baseline, fixed/fitted coefficients, uncertainties, phase and volume basis, calibration, complete Table IV observations, and numerical reproduction.",

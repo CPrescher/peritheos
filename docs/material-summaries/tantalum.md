@@ -97,6 +97,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 194.7 | 4.8 | 194.24122398116802 | 5.108396767072329 | Free |
+| K0\_prime | 3.4 | 0.1 | 3.452302465796887 | 0.1084585716380249 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** molar\_volume\_cm3\_mol
+- **Absolute sigma:** True
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 20
+- **Observed pressure range gpa:** \[8.23, 174.23\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[23.544451325644538, 35.26553238519785\]
+- **Degrees of freedom:** 18
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 2.1708518068084026
+- **Published rmse gpa:** 2.4398997214990144
+- **Reduced chi square:** 5.236219519025895
+- **Dataset identifiers:** tantalum\_cynn\_1999\_table2\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Ambient-temperature BM3 fit to bcc tantalum through 174.23 GPa: K0=194.7+/-4.8 GPa and K0'=3.4+/-0.1. The paper fixes V0=10.865 cm^3/mol, converted here to the conventional two-atom cell.
 
 Parameter covariance is not supplied.
@@ -198,6 +254,76 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0\_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 195.2 | 0.4 | 195.309129518258 | 0.41555346070703497 | Free |
+| K0\_prime | 3.62 | 0.02 | 3.6136340348829097 | 0.016088971213572723 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** fixed\_v0\_vinet\_with\_reconstructed\_cu\_pressure
+- **Objective:** unweighted\_pressure\_residuals
+- **Selection:** Ta; DAC-1
+- **Columns:**
+    - **Pressure:** Fratanduono-2020 298 K Cu pressure reconstructed per run
+    - **Temperature:** Not specified
+    - **Volume:** unit\_cell\_volume\_a3
+- **Absolute sigma:** False
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 198
+- **Observed pressure range gpa:** \[3.908992349216304, 115.7327128590269\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[25.91081, 35.50047\]
+- **Degrees of freedom:** 196
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.3658634529593317
+- **Reduced chi square:** 0.13522194443797128
+- **Pressure reconstruction:**
+    - **Density0 g cm3:** 8.939
+    - **DOI:** 10.1103/PhysRevLett.124.015701
+    - **Model:** vinet\_3
+    - **Pairing:** Each phase volume uses the single Cu volume with the same experiment and run number; both source-labeled Pt first/last measurements are retained when the run is selected.
+    - **Parameters:**
+        - **K0 gpa:** 133.6
+        - **Beta:** 2.06
+        - **Eta:** 6.29
+        - **Psi:** 1.65
+    - **Reference:** Fratanduono et al. (2020)
+    - **Reference eos record:** copper\_fratanduono\_2020\_vinet3\_298k
+    - **Reference unit cell volume a3:** 47.218085048721
+    - **Source locations:** main article Table I, 298 K isotherm row; Supplemental Material Eq. (2), Section S4
+- **Dataset identifiers:** shen\_smith\_2026\_table\_s1\_simultaneous\_volumes
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table II Cu-referenced fit using DAC-1 data; DAC-2 was excluded and V0 was fixed. Reported uncertainties: K0 +/- 0.4 GPa and K0' +/- 0.02.
 
@@ -307,6 +433,44 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** source reconstruction.
+**Scope:** source equation.
+
+**Comparison basis:** All eleven machine-readable comparison series enter one shared Equation (20) objective against the mean Table 2 Holzapfel and Table 3 Vinet isotherm. Table 4 is retained as a post-calibration closure test. The calculation cannot recover the eleven EOS parameter sets independently because the source omits complete thermochemical/ultrasonic rows, weights, and covariance.
+
+Original audit code: `source_reconstruction`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fit kind:** coupled\_eleven\_marker\_ruby\_cross\_calibration
+- **Objective:** minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight
+- **Fixed parameters:** n; Z; n
+- **Observations:** 36
+- **Rmse gpa:** 0.7550617475585212
+- **Published rmse gpa:** 0.8534291506013459
+- **Comparison scope:** shared\_ruby\_calibration
+- **Dataset identifiers:** tantalum\_dewaele\_2004\_table1\_compression
+- **Published ruby parameters:**
+    - **A gpa:** 1870.0
+    - **M:** 6.0
+- **Sensitivity fit ruby parameters:**
+    - **A gpa:** 1869.3837840502665
+    - **M:** 6.10334763359135
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The \*\_sokolova\_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source\_lineage as the implementation and correction source.
 
 Parameter covariance is not supplied.
@@ -411,6 +575,54 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 36.04 | 0.036 | 36.04027661785378 | Not specified | Free |
+| K0 | 197.9 | 3.7 | 197.84261258361153 | Not specified | Free |
+| K0\_prime | 3.17 | 0.1 | 3.173433631573756 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** static\_vinet\_with\_explicit\_ruby\_scale\_conversion
+- **Objective:** unweighted pressure residuals
+- **Selection:** complete
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 36
+- **Observed pressure range gpa:** \[0.0, 90.0\]
+- **Solver success:** True
+- **Solver message:** dedicated Dewaele (2019) refit completed
+- **Rmse gpa:** 0.277096382870501
+- **Dataset identifiers:** tantalum\_dewaele\_2004\_table1\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
 
 Parameter covariance is not supplied.
@@ -509,6 +721,54 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 36.038 | 0.036 | 36.037785772083126 | Not specified | Free |
+| K0 | 196.1 | 3.7 | 196.05643021650252 | Not specified | Free |
+| K0\_prime | 3.64 | 0.1 | 3.641722700941851 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** static\_vinet\_with\_explicit\_ruby\_scale\_conversion
+- **Objective:** unweighted pressure residuals
+- **Selection:** complete
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 36
+- **Observed pressure range gpa:** \[0.0, 95.1057151267236\]
+- **Solver success:** True
+- **Solver message:** dedicated Dewaele (2019) refit completed
+- **Rmse gpa:** 0.30010528167353434
+- **Dataset identifiers:** tantalum\_dewaele\_2004\_table1\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
 
@@ -609,6 +869,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 198.2 | 3.1 | 195.2783594833166 | 3.293521550602385 | Free |
+| K0\_prime | 3.07 | 0.14 | 3.2440605373663085 | 0.15057839189613254 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** ruby\_pressure\_classical\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** atomic\_volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 36
+- **Observed pressure range gpa:** \[0.0, 90.0\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[26.898, 36.068\]
+- **Degrees of freedom:** 34
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.2647181542363489
+- **Published rmse gpa:** 0.3876670544288043
+- **Reduced chi square:** 0.07986616569706756
+- **Dataset identifiers:** tantalum\_dewaele\_2004\_table1\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Static 298 K synchrotron X-ray compression fit to all available Table I observations for this metal. V0 was fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical and revised records are alternative pressure reductions of the same diffraction observations, not independent experiments.
 
 Parameter covariance is not supplied.
@@ -700,6 +1016,61 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0\_prime | 3.52 | 0.03 | 3.570781892222159 | 0.03549088733475809 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** ruby\_pressure\_revised\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** atomic\_volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** K0\_prime
+- **Fixed parameters:** V0; K0
+- **Observations:** 36
+- **Observed pressure range gpa:** \[0.0, 93.6\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[26.898, 36.068\]
+- **Degrees of freedom:** 35
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.28219438453655926
+- **Published rmse gpa:** 0.3945855941992014
+- **Reduced chi square:** 0.08906842546512672
+- **Dataset identifiers:** tantalum\_dewaele\_2004\_table1\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Static 298 K synchrotron X-ray compression fit to all available Table I observations for this metal. V0 was fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical and revised records are alternative pressure reductions of the same diffraction observations, not independent experiments.
 

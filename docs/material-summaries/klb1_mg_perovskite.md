@@ -100,6 +100,56 @@ meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
 
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- The complete source table is bundled. Limiting ferropericlase spin branches reproduce the published V0 values and printed errors; exact thermal parity remains conditional because the source does not state row flags, weights, temperature-error treatment, or covariance scaling.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 245.0 | 1.0 | 245.19171711850413 | 0.22423728893259712 | Free |
+| alpha0 | 3.19e-05 | 1.7e-06 | 3.459117081073104e-05 | 1.3225176625324402e-06 | Free |
+| alpha1 | 8.8e-09 | 1.6e-09 | 6.564235547017396e-09 | 1.2050653705993899e-09 | Free |
+| dK\_dT | -0.036 | 0.001 | -0.036371009636110355 | 0.0009805019747781865 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** staged\_source\_constrained\_thermal\_bm2\_odr
+- **Objective:** orthogonal distance regression using printed pressure and volume sigmas; temperature held fixed
+- **Selection:** all 153 Table S1 P-V-T rows
+- **Absolute sigma:** True
+- **Free parameters:** K0; alpha0; alpha1; dK\_dT
+- **Fixed parameters:** V0; Tr
+- **Observations:** 153
+- **Observed pressure range gpa:** \[27.56, 113.0\]
+- **Solver success:** True
+- **Solver message:** dedicated Ricolleau et al. (2009) audit completed
+- **Rmse gpa:** 1.3064340234776401
+- **Dataset identifiers:** klb1\_ricolleau\_2009\_table\_s1\_mg\_perovskite\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 

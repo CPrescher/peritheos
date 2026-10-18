@@ -102,6 +102,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 172.1 | 0.4 | 171.28418830329534 | 0.31124211455285067 | Free |
+| K0 | 229.0 | 4.0 | 236.21992008331335 | 3.7638034680956434 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3\_conventional\_cell
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0
+- **Fixed parameters:** None declared
+- **Observations:** 44
+- **Observed pressure range gpa:** \[26.8, 103.6\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[131.838315, 155.858292\]
+- **Degrees of freedom:** 42
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.005335239546325782
+- **Published rmse gpa:** 0.9635059089773417
+- **Reduced chi square:** 0.24752735805239015
+- **Dataset identifiers:** mg05fe05al05si05o3\_bridgmanite\_zhu\_2020\_zenodo\_latticeparameters
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Authors' preferred room-temperature BM2, chosen for denser coverage and because stepwise laser annealing promotes the thermodynamically stable cation ordering. This mixed-spin curve is the equilibrium default, but not a pure low-spin branch.
 
 Parameter covariance is not supplied.
@@ -220,6 +276,62 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 172.0 | 0.7 | 171.28418824544406 | 0.3112421285583978 | Free |
+| K0 | 230.0 | 6.0 | 236.21992080658242 | 3.7638036000632082 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3\_conventional\_cell
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0
+- **Fixed parameters:** None declared
+- **Observations:** 44
+- **Observed pressure range gpa:** \[26.8, 103.6\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[131.838315, 155.858292\]
+- **Degrees of freedom:** 42
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.005335237826584185
+- **Published rmse gpa:** 0.9591587899297476
+- **Reduced chi square:** 0.24752735805237686
+- **Dataset identifiers:** mg05fe05al05si05o3\_bridgmanite\_zhu\_2020\_zenodo\_latticeparameters
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Non-default fit retained because the authors explicitly report it. It tests the effect of selecting observations collected after each current pressure-step anneal; it is not a separate thermodynamic or fully low-spin branch.
 
@@ -340,6 +452,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 170.7 | 0.3 | 171.28418756588735 | 0.3112421182129479 | Free |
+| K0 | 240.0 | 3.0 | 236.21992916274397 | 3.763803717773989 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3\_conventional\_cell
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0
+- **Fixed parameters:** None declared
+- **Observations:** 44
+- **Observed pressure range gpa:** \[26.8, 103.6\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[131.838315, 155.858292\]
+- **Degrees of freedom:** 42
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.005335219152781051
+- **Published rmse gpa:** 1.078003543844502
+- **Reduced chi square:** 0.24752735805235754
+- **Dataset identifiers:** mg05fe05al05si05o3\_bridgmanite\_zhu\_2020\_zenodo\_latticeparameters
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Non-default, metastable cold-compression comparison retained because both its complete observations and explicitly reported BM2 are available. It is the authors' high-spin original-ordering reference, not a license to infer a separate equilibrium branch outside its measured envelope.
 
 Parameter covariance is not supplied.
@@ -458,6 +626,62 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 171.2 | 0.2 | 171.30694531122452 | 0.22168893936449124 | Free |
+| K0 | 221.0 | 3.0 | 220.00830646002888 | 3.0285115729808005 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** used\_in\_bm2\_fit=1; reference-T rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** volume\_a3\_conventional\_cell
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0
+- **Fixed parameters:** None declared
+- **Observations:** 16
+- **Observed pressure range gpa:** \[10.8, 60.0\]
+- **Observed temperature range k:** \[293.0, 293.0\]
+- **Observed volume range:** \[142.2, 163.87\]
+- **Degrees of freedom:** 14
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.6443734730246198
+- **Published rmse gpa:** 0.6776309819297365
+- **Reduced chi square:** 1.3740327191068384
+- **Dataset identifiers:** mg05fe05al05si05o3\_bridgmanite\_koemets\_2023\_table\_s3\_pv
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Accepted LitCurate record litcurate\_1a8c16a1075ca2d2. Pnma is an alternative setting of the material card's Pbnm space group 62. The low-pressure R3c and FeMg0.5Si0.5O3 P21/n candidates require distinct phase cards and were not added in this batch.
 

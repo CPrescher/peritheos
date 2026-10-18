@@ -39,6 +39,73 @@
         "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 162.77,
+                "published_error": 0.39,
+                "refit": 165.72923759090324,
+                "refit_error": 6.6848643575656705,
+                "difference": 2.9592375909032285,
+                "relative_difference": 0.01818048529153547,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 266.0,
+                "published_error": 6.0,
+                "refit": 194.7470166451314,
+                "refit_error": 121.94739377340618,
+                "difference": -71.2529833548686,
+                "relative_difference": 0.2678683584769496,
+                "similar": false,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.9,
+                "published_error": 0.4,
+                "refit": 5.490806405819618,
+                "refit_error": 3.244614633488159,
+                "difference": 1.590806405819618,
+                "relative_difference": 0.4078990784152867,
+                "similar": false,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_after_heating_gpa", "temperature": null, "volume": "normalized_volume"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 5,
+              "observed_pressure_range_gpa": [20.8, 111.9],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [126.96060000000001, 152.02718000000002],
+              "degrees_of_freedom": 2,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 1.4557004036304708,
+              "published_rmse_gpa": 2.8805025946118414,
+              "reduced_chi_square": 1.294773969300724,
+              "dataset_identifiers": ["mgfe_perovskite_knittle_1987_table2_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

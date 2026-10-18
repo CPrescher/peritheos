@@ -84,6 +84,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 242.9573 | 0.1328 | 243.05965757736956 | 0.5521723264052207 | Free |
+| K0 | 220.0 | 1.0 | 216.8169956953024 | 16.226317294844577 | Free |
+| K0\_prime | 4.1 | 0.1 | 4.1944712997044755 | 0.8463720606331082 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3\_conventional\_cell
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 19
+- **Observed pressure range gpa:** \[3.947, 41.176\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[211.088, 238.783\]
+- **Degrees of freedom:** 16
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.03457844312136649
+- **Published rmse gpa:** 0.13851451745098325
+- **Reduced chi square:** 0.025913810563498813
+- **Dataset identifiers:** naalsio4\_dubrovinsky\_2002\_figure2\_digitized
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Dubrovinsky et al. report molar V0 = 36.58(2) cm^3/mol, K0 = 220(1) GPa, and K0' = 4.1(1). V0 and its uncertainty were converted to the Z=4 cell.
 
 Parameter covariance is not supplied.

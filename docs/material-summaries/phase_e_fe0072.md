@@ -97,6 +97,51 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Fit parity within reported uncertainty on all 11 primary P-V rows. The largest weighted-refit coefficient shift is 0.123 reported error widths; maximum curve difference is 0.0096 GPa. Published coefficients are retained. Effective P/V variance assumes no covariance and omits the unreported ambient-pressure variance term while retaining its volume esd. Exact original workflow availability is a separate provenance note, not a failed-fit classification. See the \[audit and residual plot\](literature-reproductions/phase-e-crichton-ross-2000.md).
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 105.627 | 0.007 | 105.62752391342688 | Not specified | See protocol |
+| K0 | 92.9 | 0.7 | 92.81450983679824 | Not specified | See protocol |
+| K0\_prime | 7.3 | 0.2 | 7.277216896213657 | Not specified | See protocol |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** iterated\_effective\_variance\_pv
+- **Fixed parameters:** None declared
+- **Observations:** 11
+- **Solver success:** True
+- **Rmse gpa:** 0.010738316186002777
+- **Published rmse gpa:** 0.012356921019492
+- **Dataset identifiers:** phase\_e\_crichton\_ross\_2000\_table1
+- **Reproduction report:** docs/data/phase-e-crichton-ross-2000-reproduction.json
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Only the physical volume BM3 is executable. Axial BM3-on-edge-cubes fits are supporting data, not volume EOS records. Published parameters remain unchanged. Independent refits are diagnostic outputs in the material-specific reproduction report, not replacement published coefficients. Room temperature is represented nominally as 298 K.
 
 Parameter covariance is not supplied.

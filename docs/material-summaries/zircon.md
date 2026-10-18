@@ -83,6 +83,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 260.79 | 0.04 | 260.805751771442 | 0.606462093717834 | Free |
+| K0 | 227.0 | 2.0 | 225.3444326522901 | 43.88337493371333 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_kbar
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0
+- **Fixed parameters:** K0\_prime
+- **Observations:** 11
+- **Observed pressure range gpa:** \[0.00010132500000000001, 4.8100000000000005\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[255.59, 260.8\]
+- **Degrees of freedom:** 9
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.08403981539762538
+- **Published rmse gpa:** 0.08495072256877143
+- **Reduced chi square:** 0.008641189386062237
+- **Dataset identifiers:** zircon\_hazen\_1979\_table1\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Hazen and Finger report V0=260.79(4) A^3 and K0=227(2) GPa for Murnaghan and Birch-Murnaghan fits with K0'=6.5 assumed. The paper's fitted range is 0-48.1 kbar.
 
 Parameter covariance is not supplied.

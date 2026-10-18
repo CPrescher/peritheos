@@ -50,6 +50,62 @@
         "audit_date": "2026-09-03"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 130.0,
+                "published_error": 0.9,
+                "refit": 130.09172243150562,
+                "refit_error": 6.4589727076486,
+                "difference": 0.09172243150561599,
+                "relative_difference": 0.0007055571654278153,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.12,
+                "published_error": 0.07,
+                "refit": 4.114352835421328,
+                "refit_error": 0.47403545557767013,
+                "difference": -0.0056471645786722036,
+                "relative_difference": 0.0013706710142408261,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "phase=forsterite_I, used_in_forsterite_i_eos_fit=yes",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 14,
+              "observed_pressure_range_gpa": [0.0, 48.0],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [230.6, 290.1],
+              "degrees_of_freedom": 12,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.12802711386736998,
+              "published_rmse_gpa": 0.13231209345082623,
+              "reduced_chi_square": 0.019747225742570304,
+              "dataset_identifiers": ["forsterite_finkelstein_2014_table2_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -142,6 +198,75 @@
         "audit_date": "2026-10-15"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
+            "qualifications": [
+              "Katsura 2022 forsterite accepts conditional numerical parity within printed Table 2 parameter error widths. The full-precision theta0=760 K author-script vector is recommended; the theta0=768 K table alternative is retained. Table errors are a comparison scale only for the script vector; script-specific errors, covariance and exact bootstrap reproduction remain unavailable. Original 2009 combined-fit reproduction is a separate unresolved audit.",
+              "Recommended thermal option: full-precision author-script coefficients, theta0=760 K. Conditional numerical parity within reported error widths; exact bootstrap reproduction unverified. See [the source comparison](literature-reproductions/forsterite-katsura-2022-refit-comparison.md).",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0_prime",
+                "published": 4.21116896988574,
+                "published_error": null,
+                "refit": 4.249220999557795,
+                "refit_error": null,
+                "difference": 0.038052029672054566,
+                "relative_difference": 0.009035977882665443,
+                "comparison_error_width": 0.4,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 0.997258584556838,
+                "published_error": null,
+                "refit": 0.9992725760819935,
+                "refit_error": null,
+                "difference": 0.0020139915251554674,
+                "relative_difference": 0.0020195278901012875,
+                "comparison_error_width": 0.02,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "q",
+                "published": 2.43854091371459,
+                "published_error": null,
+                "refit": 2.4677172154907185,
+                "refit_error": null,
+                "difference": 0.02917630177612862,
+                "relative_difference": 0.011964655426545553,
+                "comparison_error_width": 0.5,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "reconstructed_input_conditional_bm3_mgd",
+              "objective": "unweighted_pressure_residuals",
+              "selection": "All 51 deposited observations; AD pressure, AN volume ratio, U temperature; M375006 retained.",
+              "free_parameters": ["K0_prime", "gamma0", "q"],
+              "fixed_parameters": ["V0", "K0", "Tr", "theta0", "n", "Z"],
+              "observations": 51,
+              "solver_success": true,
+              "rmse_gpa": 0.21282064917509597,
+              "published_rmse_gpa": 0.21300125575966772,
+              "dataset_identifiers": ["forsterite_katsura_2022_olivine_pvt"],
+              "reproduction_report": "docs/data/forsterite-katsura-2022-reproduction.json"
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-10-15",
@@ -267,6 +392,75 @@
         "audit_date": "2026-10-15"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
+            "qualifications": [
+              "Katsura 2022 forsterite accepts conditional numerical parity within printed Table 2 parameter error widths. The full-precision theta0=760 K author-script vector is recommended; the theta0=768 K table alternative is retained. Table errors are a comparison scale only for the script vector; script-specific errors, covariance and exact bootstrap reproduction remain unavailable. Original 2009 combined-fit reproduction is a separate unresolved audit.",
+              "Printed Table 2 alternative, theta0=768 K. Conditional numerical parity within reported error widths; exact bootstrap reproduction unverified. See [the source comparison](literature-reproductions/forsterite-katsura-2022-refit-comparison.md).",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0_prime",
+                "published": 4.2,
+                "published_error": 0.4,
+                "refit": 4.254577305953309,
+                "refit_error": null,
+                "difference": 0.05457730595330901,
+                "relative_difference": 0.012994596655549763,
+                "comparison_error_width": 0.4,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.0,
+                "published_error": 0.02,
+                "refit": 1.0005027491131544,
+                "refit_error": null,
+                "difference": 0.0005027491131543993,
+                "relative_difference": 0.0005027491131543993,
+                "comparison_error_width": 0.02,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "q",
+                "published": 2.4,
+                "published_error": 0.5,
+                "refit": 2.4703460700134214,
+                "refit_error": null,
+                "difference": 0.07034607001342152,
+                "relative_difference": 0.029310862505592304,
+                "comparison_error_width": 0.5,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "reconstructed_input_conditional_bm3_mgd",
+              "objective": "unweighted_pressure_residuals",
+              "selection": "All 51 deposited observations; AD pressure, AN volume ratio, U temperature; M375006 retained.",
+              "free_parameters": ["K0_prime", "gamma0", "q"],
+              "fixed_parameters": ["V0", "K0", "Tr", "theta0", "n", "Z"],
+              "observations": 51,
+              "solver_success": true,
+              "rmse_gpa": 0.21239522341551,
+              "published_rmse_gpa": 0.21249940044126006,
+              "dataset_identifiers": ["forsterite_katsura_2022_olivine_pvt"],
+              "reproduction_report": "docs/data/forsterite-katsura-2022-reproduction.json"
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-10-15",

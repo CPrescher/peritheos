@@ -103,6 +103,62 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 163.234,
+                "published_error": 0.008,
+                "refit": 163.22181424110786,
+                "refit_error": 0.007801082355490618,
+                "difference": -0.01218575889214435,
+                "relative_difference": 7.465208775221063e-05,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 251.5,
+                "published_error": 1.3,
+                "refit": 252.60200092087078,
+                "refit_error": 0.9339807953417907,
+                "difference": 1.102000920870779,
+                "relative_difference": 0.004381713403064728,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": [],
+              "observations": 42,
+              "observed_pressure_range_gpa": [0.37, 39.97],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [143.907, 163.008],
+              "degrees_of_freedom": 40,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.6032074259770701,
+              "published_rmse_gpa": 0.59861763693516,
+              "reduced_chi_square": 1.9629295114364282,
+              "dataset_identifiers": ["mg095al010si095o3_bridgmanite_daniel_2004_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against the final publisher article, both official Wiley auxiliary text files, and the cited same-batch Jackson et al. characterization. The complete rounded table supports coefficient-level BM2 parity under pressure-uncertainty weighting.",
@@ -287,6 +343,73 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 163.23,
+                "published_error": 0.01,
+                "refit": 163.21925058651183,
+                "refit_error": 0.008946823798465156,
+                "difference": -0.010749413488156279,
+                "relative_difference": 6.585439862866066e-05,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 251.5,
+                "published_error": 2.7,
+                "refit": 253.5763389512289,
+                "refit_error": 1.939004771311074,
+                "difference": 2.076338951228905,
+                "relative_difference": 0.008255820879637794,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.0,
+                "published_error": 0.3,
+                "refit": 3.89176571368196,
+                "refit_error": 0.18854459422689462,
+                "difference": -0.10823428631803989,
+                "relative_difference": 0.02705857157950997,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 42,
+              "observed_pressure_range_gpa": [0.37, 39.97],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [143.907, 163.008],
+              "degrees_of_freedom": 39,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.5789386685714858,
+              "published_rmse_gpa": 0.5990070580862642,
+              "reduced_chi_square": 2.004921376047665,
+              "dataset_identifiers": ["mg095al010si095o3_bridgmanite_daniel_2004_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against the final publisher article, both official Wiley auxiliary text files, and the cited same-batch Jackson et al. characterization. The complete rounded table supports coefficient-level BM3 parity under pressure-uncertainty weighting.",

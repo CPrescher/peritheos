@@ -58,6 +58,67 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 623.38,
+                "published_error": 0.39,
+                "refit": 623.3136511689688,
+                "refit_error": 0.18823779100714583,
+                "difference": -0.06634883103117772,
+                "relative_difference": 0.00010643400659497854,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 138.7,
+                "published_error": 3.0,
+                "refit": 138.4342806122216,
+                "refit_error": 1.4952624685883737,
+                "difference": -0.26571938777837545,
+                "relative_difference": 0.0019157850596854757,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.9,
+                "published_error": 0.3,
+                "refit": 4.9487496801675,
+                "refit_error": 0.158131776207648,
+                "difference": 0.04874968016750003,
+                "relative_difference": 0.009948914319897965,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "independent_nonlinear_pressure_least_squares",
+              "objective": "unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3",
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 20,
+              "observed_pressure_range_gpa": [0.0, 24.3],
+              "observed_temperature_range_k": [300.0, 300.0],
+              "solver_success": true,
+              "rmse_gpa": 0.07312160499987383,
+              "published_rmse_gpa": 0.07514057887346923,
+              "dataset_identifiers": ["superhydrous_phase_b_lt_litasov_2007_table2"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-19",
@@ -144,6 +205,67 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 623.34,
+                "published_error": 0.04,
+                "refit": 623.3045744919759,
+                "refit_error": 0.1698748530533363,
+                "difference": -0.0354255080241046,
+                "relative_difference": 5.683175798778291e-05,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 134.7,
+                "published_error": 1.8,
+                "refit": 134.17297395805127,
+                "refit_error": 1.3398123800210247,
+                "difference": -0.5270260419487158,
+                "relative_difference": 0.003912591254259212,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 6.0,
+                "published_error": 0.3,
+                "refit": 6.042880934079354,
+                "refit_error": 0.15276815848196748,
+                "difference": 0.04288093407935367,
+                "relative_difference": 0.007146822346558945,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "independent_nonlinear_pressure_least_squares",
+              "objective": "unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3",
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 20,
+              "observed_pressure_range_gpa": [0.0, 25.1],
+              "observed_temperature_range_k": [300.0, 300.0],
+              "solver_success": true,
+              "rmse_gpa": 0.06397977143078648,
+              "published_rmse_gpa": 0.07552462214798593,
+              "dataset_identifiers": ["superhydrous_phase_b_lt_litasov_2007_table2"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-19",
@@ -243,6 +365,100 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 623.47,
+                "published_error": 0.37,
+                "refit": 623.4622455180263,
+                "refit_error": 0.2575824161972996,
+                "difference": -0.007754481973734073,
+                "relative_difference": 1.2437618447935062e-05,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 135.8,
+                "published_error": 2.6,
+                "refit": 135.781767022147,
+                "refit_error": 1.8576732611740419,
+                "difference": -0.018232977853017474,
+                "relative_difference": 0.0001342634598896721,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.3,
+                "published_error": 0.2,
+                "refit": 5.251179243570913,
+                "refit_error": 0.1935188739453234,
+                "difference": -0.048820756429086565,
+                "relative_difference": 0.009211463477186144,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "alpha0",
+                "published": 3.21e-05,
+                "published_error": 1.4e-06,
+                "refit": 3.200583361010583e-05,
+                "refit_error": 1.1271048909251933e-06,
+                "difference": -9.416638989416846e-08,
+                "relative_difference": 0.002933532395456961,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "alpha1",
+                "published": 1.19e-08,
+                "published_error": 3.7e-09,
+                "refit": 1.1515771971921886e-08,
+                "refit_error": 2.5662916001040617e-09,
+                "difference": -3.8422802807811506e-10,
+                "relative_difference": 0.03228806958639622,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "dK_dT",
+                "published": -0.026,
+                "published_error": 0.003,
+                "refit": -0.02563806087001639,
+                "refit_error": 0.0026413691487219004,
+                "difference": 0.0003619391299836093,
+                "relative_difference": 0.013920735768600359,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "independent_nonlinear_pressure_least_squares",
+              "objective": "unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3",
+              "free_parameters": ["V0", "K0", "K0_prime", "alpha0", "alpha1", "dK_dT"],
+              "fixed_parameters": ["Tr"],
+              "observations": 69,
+              "observed_pressure_range_gpa": [0.0, 26.6],
+              "observed_temperature_range_k": [300.0, 1373.0],
+              "solver_success": true,
+              "rmse_gpa": 0.10813474664224723,
+              "published_rmse_gpa": 0.12637114188299595,
+              "dataset_identifiers": ["superhydrous_phase_b_lt_litasov_2007_table2"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-19",
@@ -341,6 +557,100 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 623.34,
+                "published_error": 0.04,
+                "refit": 623.4132846844781,
+                "refit_error": 0.32053807668176815,
+                "difference": 0.07328468447803971,
+                "relative_difference": 0.00011756775512246881,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 132.7,
+                "published_error": 1.5,
+                "refit": 131.88958651317557,
+                "refit_error": 2.3053574330701823,
+                "difference": -0.8104134868244159,
+                "relative_difference": 0.006107109923318884,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 6.2,
+                "published_error": 0.2,
+                "refit": 6.321468991688166,
+                "refit_error": 0.25752601139591985,
+                "difference": 0.1214689916881655,
+                "relative_difference": 0.019591772852929918,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "alpha0",
+                "published": 3.38e-05,
+                "published_error": 1.5e-06,
+                "refit": 3.4301504516603735e-05,
+                "refit_error": 1.2279635579527844e-06,
+                "difference": 5.015045166037338e-07,
+                "relative_difference": 0.014837411733838278,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "alpha1",
+                "published": 1.26e-08,
+                "published_error": 3.7e-09,
+                "refit": 1.3796464886515867e-08,
+                "refit_error": 3.2022085346294376e-09,
+                "difference": 1.1964648865158663e-09,
+                "relative_difference": 0.0949575306758624,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "dK_dT",
+                "published": -0.027,
+                "published_error": 0.003,
+                "refit": -0.028476152419237243,
+                "refit_error": 0.0030487576398255853,
+                "difference": -0.0014761524192372436,
+                "relative_difference": 0.05467231182360161,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "independent_nonlinear_pressure_least_squares",
+              "objective": "unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3",
+              "free_parameters": ["V0", "K0", "K0_prime", "alpha0", "alpha1", "dK_dT"],
+              "fixed_parameters": ["Tr"],
+              "observations": 69,
+              "observed_pressure_range_gpa": [0.0, 28.1],
+              "observed_temperature_range_k": [300.0, 1373.0],
+              "solver_success": true,
+              "rmse_gpa": 0.13036669472985118,
+              "published_rmse_gpa": 0.13411117660373725,
+              "dataset_identifiers": ["superhydrous_phase_b_lt_litasov_2007_table2"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-19",
@@ -436,6 +746,89 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 623.5,
+                "published_error": 0.36,
+                "refit": 623.4219252201992,
+                "refit_error": 0.2574001592778335,
+                "difference": -0.07807477980077238,
+                "relative_difference": 0.00012522017610388513,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 135.3,
+                "published_error": 2.3,
+                "refit": 135.74064618734764,
+                "refit_error": 1.8281533804001846,
+                "difference": 0.4406461873476246,
+                "relative_difference": 0.003256808480026789,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.3,
+                "published_error": 0.2,
+                "refit": 5.243358562078898,
+                "refit_error": 0.19049273951553658,
+                "difference": -0.05664143792110199,
+                "relative_difference": 0.01068706375869849,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "alpha0",
+                "published": 3.78e-05,
+                "published_error": 1.9e-06,
+                "refit": 3.765818152298365e-05,
+                "refit_error": 1.8495010952658433e-06,
+                "difference": -1.4181847701635035e-07,
+                "relative_difference": 0.00375181156127911,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "dK_dT_V",
+                "published": -0.002,
+                "published_error": 0.002,
+                "refit": -0.0023183141091294244,
+                "refit_error": 0.00214140639296662,
+                "difference": -0.00031831410912942434,
+                "relative_difference": 0.15915705456471216,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "independent_nonlinear_pressure_least_squares",
+              "objective": "unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3",
+              "free_parameters": ["V0", "K0", "K0_prime", "alpha0", "dK_dT_V"],
+              "fixed_parameters": ["Tr"],
+              "observations": 69,
+              "observed_pressure_range_gpa": [0.0, 26.6],
+              "observed_temperature_range_k": [300.0, 1373.0],
+              "solver_success": true,
+              "rmse_gpa": 0.1097657364937112,
+              "published_rmse_gpa": 0.11554793085237937,
+              "dataset_identifiers": ["superhydrous_phase_b_lt_litasov_2007_table2"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-19",
@@ -540,6 +933,100 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 623.53,
+                "published_error": 0.35,
+                "refit": 623.4388972064203,
+                "refit_error": 0.24944769436570002,
+                "difference": -0.09110279357969375,
+                "relative_difference": 0.00014610811601638055,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 135.5,
+                "published_error": 2.3,
+                "refit": 135.97491671356167,
+                "refit_error": 1.7681851781412292,
+                "difference": 0.47491671356166876,
+                "relative_difference": 0.0035049203952890683,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.3,
+                "published_error": 0.2,
+                "refit": 5.244516100967703,
+                "refit_error": 0.18277000501213322,
+                "difference": -0.055483899032297224,
+                "relative_difference": 0.010468660194773062,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.18,
+                "published_error": 0.06,
+                "refit": 1.185292049457412,
+                "refit_error": 0.06378945142973545,
+                "difference": 0.005292049457412018,
+                "relative_difference": 0.0044847876757728965,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "q",
+                "published": 1.74,
+                "published_error": 0.45,
+                "refit": 1.75834067005706,
+                "refit_error": 0.43826222534954634,
+                "difference": 0.018340670057060082,
+                "relative_difference": 0.010540614975321886,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "theta0",
+                "published": 552.0,
+                "published_error": 130.0,
+                "refit": 553.0327419309925,
+                "refit_error": 129.02514723448633,
+                "difference": 1.032741930992529,
+                "relative_difference": 0.0018709092952763206,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "independent_nonlinear_pressure_least_squares",
+              "objective": "unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3",
+              "free_parameters": ["V0", "K0", "K0_prime", "gamma0", "q", "theta0"],
+              "fixed_parameters": ["Tr", "n"],
+              "observations": 69,
+              "observed_pressure_range_gpa": [0.0, 26.6],
+              "observed_temperature_range_k": [300.0, 1373.0],
+              "solver_success": true,
+              "rmse_gpa": 0.10555102599548966,
+              "published_rmse_gpa": 0.10662679200955953,
+              "dataset_identifiers": ["superhydrous_phase_b_lt_litasov_2007_table2"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-19",
@@ -646,6 +1133,89 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 623.53,
+                "published_error": 0.35,
+                "refit": 623.4578471395107,
+                "refit_error": 0.2628146780234006,
+                "difference": -0.07215286048926828,
+                "relative_difference": 0.00011571674256133351,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 135.5,
+                "published_error": 2.3,
+                "refit": 136.4007508677185,
+                "refit_error": 1.8566318232260446,
+                "difference": 0.9007508677185001,
+                "relative_difference": 0.006647607879841329,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.3,
+                "published_error": 0.2,
+                "refit": 5.230646346561506,
+                "refit_error": 0.1910796105824656,
+                "difference": -0.06935365343849398,
+                "relative_difference": 0.01308559498839509,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.33,
+                "published_error": 0.05,
+                "refit": 1.3032844333315172,
+                "refit_error": 0.05985831782617076,
+                "difference": -0.02671556666848285,
+                "relative_difference": 0.020086892231941992,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "q",
+                "published": 2.03,
+                "published_error": 0.35,
+                "refit": 2.0956167406141364,
+                "refit_error": 0.45011556388002655,
+                "difference": 0.06561674061413658,
+                "relative_difference": 0.03232351754390965,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "independent_nonlinear_pressure_least_squares",
+              "objective": "unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3",
+              "free_parameters": ["V0", "K0", "K0_prime", "gamma0", "q"],
+              "fixed_parameters": ["Tr", "n", "theta0"],
+              "observations": 69,
+              "observed_pressure_range_gpa": [0.0, 26.6],
+              "observed_temperature_range_k": [300.0, 1373.0],
+              "solver_success": true,
+              "rmse_gpa": 0.11240879143243881,
+              "published_rmse_gpa": 0.1230806599723373,
+              "dataset_identifiers": ["superhydrous_phase_b_lt_litasov_2007_table2"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-19",

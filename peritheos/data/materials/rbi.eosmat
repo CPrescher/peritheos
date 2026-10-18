@@ -146,6 +146,80 @@
         "notes": "Above about 1100 K the paper observes Mo/Pt apparent pressures lower than CsCl (up to ~1/~3 GPa); it prefers CsCl. It also questions CsCl behavior for BT815 at 17-19 GPa and high T. No correction is inferred here."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 13.69,
+                "published_error": 0.04,
+                "refit": 13.755110367011111,
+                "refit_error": null,
+                "difference": 0.06511036701111195,
+                "relative_difference": 0.004756053105267491,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": false
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.95,
+                "published_error": 0.01,
+                "refit": 4.933891030363035,
+                "refit_error": null,
+                "difference": -0.016108969636965398,
+                "relative_difference": 0.00325433730039705,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": false
+              },
+              {
+                "parameter": "gamma0",
+                "published": 2.21,
+                "published_error": 0.07,
+                "refit": 2.1925146881765416,
+                "refit_error": null,
+                "difference": -0.01748531182345836,
+                "relative_difference": 0.007911905802469846,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "q",
+                "published": 1.42,
+                "published_error": 0.1,
+                "refit": 1.4179206722481745,
+                "refit_error": null,
+                "difference": -0.0020793277518253994,
+                "relative_difference": 0.001464315318186901,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "iterated_effective_variance_bm3_mgd",
+              "objective": "iterated frozen diagonal effective P/V/T variance",
+              "fixed_parameters": ["V0", "Tr", "theta0", "n"],
+              "observations": 121,
+              "solver_success": true,
+              "rmse_gpa": 0.12894046047990115,
+              "published_rmse_gpa": 0.12780834540828995,
+              "dataset_identifiers": ["rbi_farla_2025_observations"],
+              "reproduction_report": "docs/data/rubidium-halides-farla-2025-follow-up.json"
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-10-15",

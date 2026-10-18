@@ -74,6 +74,63 @@
         "audit_date": "2026-09-19"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Published objective, weights, covariance, confidence levels and fit staging are unspecified. Each diagnostic jointly varies the source-free parameters once. Effective-error weights propagate P,V,T errors at published coefficients and add the stated Ar 3% accuracy in quadrature as a sensitivity assumption; cross-row scale correlation is not known. No strict statistical parity claimed.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 164.39336765021082,
+                "published_error": 0.3985293761217232,
+                "refit": 164.48163575583166,
+                "refit_error": null,
+                "relative_difference": 0.0005369322794618716,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 190.0,
+                "published_error": 3.0,
+                "refit": 191.0397624784711,
+                "refit_error": null,
+                "relative_difference": 0.005472434097216263,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "alpha_KT",
+                "published": 0.0037,
+                "published_error": 0.0004,
+                "refit": 0.003524437225708338,
+                "refit_error": null,
+                "relative_difference": 0.047449398457206006,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "source_constrained_bm3_linear_thermal_diagnostic",
+              "objective": "joint pressure residuals divided by fixed propagated coordinate errors including Ar 3% accuracy",
+              "selection": "All high-T rows; no 300 K observations exist.",
+              "free_parameters": ["V0", "K0", "alpha_KT"],
+              "fixed_parameters": ["K0_prime", "Tr"],
+              "observations": 59,
+              "solver_success": true,
+              "rmse_gpa": 0.9595744940835326,
+              "published_rmse_gpa": 0.9677019947550033,
+              "dataset_identifiers": ["tho2_cotunnite_chidester_2018_table_s2"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-19",

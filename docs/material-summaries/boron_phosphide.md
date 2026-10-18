@@ -86,6 +86,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 179.0 | 1.0 | 178.52347290207555 | 9.488687605806906 | Free |
+| K0\_prime | 3.3 | 0.1 | 3.2667006883095255 | 0.6145790923645787 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_ratio
+- **Absolute sigma:** True
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 17
+- **Observed pressure range gpa:** \[0.315, 55.178\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[74.893897533, 93.17627404800001\]
+- **Degrees of freedom:** 15
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.07610099505125718
+- **Published rmse gpa:** 0.25942209222935625
+- **Reduced chi square:** 0.020726733157439624
+- **Dataset identifiers:** boron\_phosphide\_le\_godec\_2014\_figure2\_digitized
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Single-crystal XRD in neon. The Vinet fit fixed the conventional zinc-blende V0 to 93.2061 A^3; no uncertainty was reported for that fixed value. No phase transition or amorphization was observed to 55 GPa.
 
 Parameter covariance is not supplied.

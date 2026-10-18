@@ -41,6 +41,62 @@
         "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 175.4,
+                "published_error": 3.5,
+                "refit": 161.34142422435633,
+                "refit_error": 8.597975012312647,
+                "difference": -14.058575775643675,
+                "relative_difference": 0.08015151525452494,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.1,
+                "published_error": 0.3,
+                "refit": 6.044124284317963,
+                "refit_error": 0.6355732779493145,
+                "difference": 0.9441242843179634,
+                "relative_difference": 0.18512240868979676,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_ratio"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 21,
+              "observed_pressure_range_gpa": [0.0, 72.7536],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [123.42564485999999, 155.26],
+              "degrees_of_freedom": 19,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 1.5518138830669295,
+              "published_rmse_gpa": 1.6574243208273791,
+              "reduced_chi_square": 2.6616133095402374,
+              "dataset_identifiers": ["cementite_scott_2001_figure3_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

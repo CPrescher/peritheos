@@ -75,6 +75,73 @@
         "notes": "The exact ruby formula is documented but not executable; the KCl EOS component is executable."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 27.122,
+                "published_error": 0.006,
+                "refit": 27.151664203505387,
+                "refit_error": 0.009266264538954514,
+                "difference": 0.02966420350538712,
+                "relative_difference": 0.0010937321549069803,
+                "similar": true,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "K0",
+                "published": 323.4,
+                "published_error": 1.1,
+                "refit": 317.5251541961934,
+                "refit_error": 1.7597691265798159,
+                "difference": -5.874845803806579,
+                "relative_difference": 0.018165880654936857,
+                "similar": true,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.15,
+                "published_error": 0.019,
+                "refit": 4.2455697881397,
+                "refit_error": 0.031328057562000654,
+                "difference": 0.09556978813969952,
+                "relative_difference": 0.023028864611975786,
+                "similar": true,
+                "within_combined_2sigma": false
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 116,
+              "observed_pressure_range_gpa": [0.0, 151.0],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [20.769, 27.141],
+              "degrees_of_freedom": 113,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.4440818789779476,
+              "published_rmse_gpa": 0.466705225532293,
+              "reduced_chi_square": 0.20244434484463544,
+              "dataset_identifiers": ["ruthenium_anzellini_2019_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

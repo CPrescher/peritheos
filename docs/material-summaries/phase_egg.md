@@ -96,6 +96,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 214.08 | 0.17 | 214.08105948439913 | 0.07471862387156843 | Free |
+| K0 | 153.0 | 8.0 | 152.8459200508773 | 3.452004107426867 | Free |
+| K0\_prime | 8.6 | 1.2 | 8.597514757812375 | 0.5103663766300438 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** used\_in\_published\_fit=1
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3\_conventional\_cell
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 15
+- **Observed pressure range gpa:** \[1.09, 23.33\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[193.75, 212.69\]
+- **Degrees of freedom:** 12
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.21173304498974524
+- **Published rmse gpa:** 0.2269903600333908
+- **Reduced chi square:** 5.486063468893597
+- **Dataset identifiers:** phase\_egg\_schulze\_2018\_table1\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Standard third-order Birch-Murnaghan pressure-volume EOS in the Eulerian finite-strain convention at room temperature. V0, K0, and K0\_prime were all fitted in EosFit7c; none was fixed or adopted. Parenthesized coefficient errors are stored as printed, but the article gives no confidence level or covariance matrix. Table 2 also prints a BM3 re-fit to Vanpeteghem et al. (2003): V0=211.41(11) A^3, K0=155(5) GPa, K0\_prime=6.7(5). That comparison reduction belongs to the older powder dataset and is not a second parameterization of the 2018 single-crystal observations. The fitted V0 is a zero-pressure extrapolation because the only ambient observation was intentionally omitted. The experimental pressure envelope is not a phase-stability guarantee.
 
 Parameter covariance is not supplied.
@@ -212,6 +269,64 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Curve-level diagnostic reproduction: Supplementary Table 1 provides all 11 static LP pressure-volume points and they recover the published BM3 coefficients within the printed parameter uncertainties. The publication fitted total energy versus volume, however, and the deposited workbook does not include those energies, row uncertainties, regression weights, objective, covariance, or fit statistic. This pressure-residual refit therefore validates the published pressure curve but cannot reconstruct the source energy-fit protocol exactly. See the dedicated phase-Egg reproduction in literature-reproductions.md.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 210.21 | 0.14 | 210.2176007194148 | 0.014434224595616635 | Free |
+| K0 | 164.4 | 1.8 | 164.83396027958415 | 0.3021723046783939 | Free |
+| K0\_prime | 7.14 | 0.24 | 7.081372126606693 | 0.027581570310362798 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 11
+- **Observed pressure range gpa:** \[-6.4, 43.7\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[180.0, 220.0\]
+- **Degrees of freedom:** 8
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.02339254239900827
+- **Published rmse gpa:** 0.03011320576939226
+- **Reduced chi square:** 0.0007524151798479245
+- **Dataset identifiers:** phase\_egg\_mookherjee\_2019\_supplement\_lp\_pv
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Published LP parameterization. All V0, K0, and K0' values were fitted; none was fixed or adopted. The source's separate HP proton-configuration parameters are scientifically distinct and are represented by a companion record rather than merged into this LP branch. The official supplement continues the LP calculation grid beyond the approximately 15 GPa proton-transfer boundary to 43.7 GPa; those rows document the source fit/curve but do not expand the recommended LP branch. The source reports no E0 value needed by pressure evaluation and no parameter covariance, confidence convention, row uncertainties, fit objective, weights, software-fit details, or fit statistic.
 
 Parameter covariance is not supplied.
@@ -322,6 +437,63 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 207.74 | 0.01 | 207.71787916507864 | 0.009621196164558728 | Free |
+| K0 | 222.8 | 0.2 | 223.5098675480139 | 0.20351257604669015 | Free |
+| K0\_prime | 4.44 | 0.02 | 4.424316057689833 | 0.015177342005826796 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 5
+- **Observed pressure range gpa:** \[-11.3, 44.0\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[180.0, 220.0\]
+- **Degrees of freedom:** 2
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.011231481308555374
+- **Published rmse gpa:** 0.039665757737281995
+- **Reduced chi square:** 0.0003153654309610718
+- **Dataset identifiers:** phase\_egg\_mookherjee\_2019\_supplement\_hp\_pv
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 The five supplementary HP pressure points closely reproduce the printed rounded BM3 curve, but the authors fitted total energy versus volume. The unpublished energies, weights, objective, covariance, and confidence convention prevent an exact regression reconstruction.
 

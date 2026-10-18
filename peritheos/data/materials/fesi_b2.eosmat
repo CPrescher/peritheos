@@ -89,6 +89,74 @@
         "notes": "KBr is the principal pressure standard for the selected heated B2 observations. Published source pressures are retained; no recalculation is performed."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "independent_refit",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This comparison concerns the stored independent Peritheos refit, not recovery of the original publication's coefficients or author workflow.",
+              "Stored Peritheos refit reproduction using all 114 single-phase B2 rows and physical n=2 per FeSi formula. Parity compares against independently fitted Peritheos coefficients, not Fischer's published B2 parameters, which remain withheld. Unweighted pressure residuals; V0, K0-prime and theta0 are conditional fixed assumptions. Full covariance, weighting/reference sensitivities and pressure-block holdouts are in the [Fischer audit](literature-reproductions/fischer-2014-fesi.md). No validated core extrapolation."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.K0",
+                "published": 230.94775255642202,
+                "published_error": 2.4268584467205403,
+                "refit": 230.947742824848,
+                "refit_error": 2.4268582974067376,
+                "difference": -9.731574010629629e-06,
+                "relative_difference": 4.213755666772355e-08,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 2.6091220070326373,
+                "published_error": 0.18115449264527692,
+                "refit": 2.6091212431622255,
+                "refit_error": 0.18115435168338812,
+                "difference": -7.638704118129169e-07,
+                "relative_difference": 2.9276914216888964e-07,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "q",
+                "published": 1.7288261456502085,
+                "published_error": 0.5662595175349323,
+                "refit": 1.7288234707444152,
+                "refit_error": 0.5662591910517519,
+                "difference": -2.6749057933095344e-06,
+                "relative_difference": 1.5472381650634437e-06,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "pressure_residuals",
+              "selection": "phase=B2",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "b2_volume_a3"},
+              "absolute_sigma": false,
+              "free_parameters": ["rt_eos.K0", "gamma0", "q"],
+              "fixed_parameters": ["V0", "K0_prime", "Tr", "theta0", "n"],
+              "observations": 114,
+              "observed_pressure_range_gpa": [42.74768265572292, 146.9148894617161],
+              "observed_temperature_range_k": [1162.665, 3146.8],
+              "observed_volume_range": [15.76544785701499, 19.474686763554654],
+              "degrees_of_freedom": 111,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 2.4074742243352265,
+              "published_rmse_gpa": 2.4074742243354827,
+              "reduced_chi_square": 5.952578955455757,
+              "dataset_identifiers": ["fischer_2014_table_s2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-19",
@@ -406,6 +474,74 @@
         "notes": "KBr is the principal pressure standard for the selected heated B2 observations. Published source pressures are retained; no recalculation is performed."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "independent_refit",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This comparison concerns the stored independent Peritheos refit, not recovery of the original publication's coefficients or author workflow.",
+              "Stored Peritheos refit reproduction using all 114 single-phase B2 rows and physical n=2 per FeSi formula. Parity compares against independently fitted Peritheos coefficients, not Fischer's published B2 parameters, which remain withheld. Unweighted pressure residuals; V0, K0-prime and theta0 are conditional fixed assumptions. Full covariance, weighting/reference sensitivities and pressure-block holdouts are in the [Fischer audit](literature-reproductions/fischer-2014-fesi.md). No validated core extrapolation."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.K0",
+                "published": 236.43671934531218,
+                "published_error": 2.4678083126749724,
+                "refit": 236.43672143491597,
+                "refit_error": 2.4678080246501195,
+                "difference": 2.089603782451377e-06,
+                "relative_difference": 8.837898733485398e-09,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 2.35511814564806,
+                "published_error": 0.162344731624064,
+                "refit": 2.3551183247655927,
+                "refit_error": 0.1623447381773548,
+                "difference": 1.791175328058614e-07,
+                "relative_difference": 7.605458483551936e-08,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "q",
+                "published": 1.416844024820081,
+                "published_error": 0.5627379282018637,
+                "refit": 1.4168446596666489,
+                "refit_error": 0.5627378887661615,
+                "difference": 6.348465677596948e-07,
+                "relative_difference": 4.480708932236287e-07,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "pressure_residuals",
+              "selection": "phase=B2",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "b2_volume_a3"},
+              "absolute_sigma": false,
+              "free_parameters": ["rt_eos.K0", "gamma0", "q"],
+              "fixed_parameters": ["V0", "K0_prime", "Tr", "theta0", "n"],
+              "observations": 114,
+              "observed_pressure_range_gpa": [42.74768265572292, 146.9148894617161],
+              "observed_temperature_range_k": [1162.665, 3146.8],
+              "observed_volume_range": [15.76544785701499, 19.474686763554654],
+              "degrees_of_freedom": 111,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 2.3591245828471794,
+              "published_rmse_gpa": 2.3591245828471874,
+              "reduced_chi_square": 5.7158868729991195,
+              "dataset_identifiers": ["fischer_2014_table_s2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-19",

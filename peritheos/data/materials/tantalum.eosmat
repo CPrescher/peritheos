@@ -63,6 +63,62 @@
         "notes": "The two pressure regimes used different calibrations; the exact Heinz-Jeanloz Au thermal model is not bundled."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 194.7,
+                "published_error": 4.8,
+                "refit": 194.24122398116802,
+                "refit_error": 5.108396767072329,
+                "difference": -0.45877601883196917,
+                "relative_difference": 0.002356322644231994,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.4,
+                "published_error": 0.1,
+                "refit": 3.452302465796887,
+                "refit_error": 0.1084585716380249,
+                "difference": 0.05230246579688691,
+                "relative_difference": 0.015383078175554975,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "molar_volume_cm3_mol"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 20,
+              "observed_pressure_range_gpa": [8.23, 174.23],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [23.544451325644538, 35.26553238519785],
+              "degrees_of_freedom": 18,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 2.1708518068084026,
+              "published_rmse_gpa": 2.4398997214990144,
+              "reduced_chi_square": 5.236219519025895,
+              "dataset_identifiers": ["tantalum_cynn_1999_table2_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -161,6 +217,77 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 195.2,
+                "published_error": 0.4,
+                "refit": 195.309129518258,
+                "refit_error": 0.41555346070703497,
+                "difference": 0.10912951825801542,
+                "relative_difference": 0.000559065155010325,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.62,
+                "published_error": 0.02,
+                "refit": 3.6136340348829097,
+                "refit_error": 0.016088971213572723,
+                "difference": -0.006365965117090422,
+                "relative_difference": 0.0017585538997487353,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "fixed_v0_vinet_with_reconstructed_cu_pressure",
+              "objective": "unweighted_pressure_residuals",
+              "selection": "Ta; DAC-1",
+              "columns": {
+                "pressure": "Fratanduono-2020 298 K Cu pressure reconstructed per run",
+                "temperature": null,
+                "volume": "unit_cell_volume_a3"
+              },
+              "absolute_sigma": false,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 198,
+              "observed_pressure_range_gpa": [3.908992349216304, 115.7327128590269],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [25.91081, 35.50047],
+              "degrees_of_freedom": 196,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.3658634529593317,
+              "reduced_chi_square": 0.13522194443797128,
+              "pressure_reconstruction": {
+                "density0_g_cm3": 8.939,
+                "doi": "10.1103/PhysRevLett.124.015701",
+                "model": "vinet_3",
+                "pairing": "Each phase volume uses the single Cu volume with the same experiment and run number; both source-labeled Pt first/last measurements are retained when the run is selected.",
+                "parameters": {"K0_gpa": 133.6, "beta": 2.06, "eta": 6.29, "psi": 1.65},
+                "reference": "Fratanduono et al. (2020)",
+                "reference_eos_record": "copper_fratanduono_2020_vinet3_298k",
+                "reference_unit_cell_volume_a3": 47.218085048721,
+                "source_locations": ["main article Table I, 298 K isotherm row", "Supplemental Material Eq. (2), Section S4"]
+              },
+              "dataset_identifiers": ["shen_smith_2026_table_s1_simultaneous_volumes"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -266,6 +393,31 @@
         "audit_date": "2026-09-03"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "source_reconstruction",
+            "scope": "source_equation",
+            "source_status": "source_reconstruction",
+            "basis": "All eleven machine-readable comparison series enter one shared Equation (20) objective against the mean Table 2 Holzapfel and Table 3 Vinet isotherm. Table 4 is retained as a post-calibration closure test. The calculation cannot recover the eleven EOS parameter sets independently because the source omits complete thermochemical/ultrasonic rows, weights, and covariance.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fit_kind": "coupled_eleven_marker_ruby_cross_calibration",
+              "objective": "minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight",
+              "fixed_parameters": ["n", "Z", "n"],
+              "observations": 36,
+              "rmse_gpa": 0.7550617475585212,
+              "published_rmse_gpa": 0.8534291506013459,
+              "comparison_scope": "shared_ruby_calibration",
+              "dataset_identifiers": ["tantalum_dewaele_2004_table1_compression"],
+              "published_ruby_parameters": {"A_gpa": 1870.0, "m": 6.0},
+              "sensitivity_fit_ruby_parameters": {"A_gpa": 1869.3837840502665, "m": 6.10334763359135}
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -405,6 +557,70 @@
         "audit_date": "2026-09-06"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 36.04,
+                "published_error": 0.036,
+                "refit": 36.04027661785378,
+                "refit_error": null,
+                "difference": 0.00027661785377830483,
+                "relative_difference": 7.675301159220446e-06,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true
+              },
+              {
+                "parameter": "K0",
+                "published": 197.9,
+                "published_error": 3.7,
+                "refit": 197.84261258361153,
+                "refit_error": null,
+                "difference": -0.05738741638847955,
+                "relative_difference": 0.00028998189180636457,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.17,
+                "published_error": 0.1,
+                "refit": 3.173433631573756,
+                "refit_error": null,
+                "difference": 0.0034336315737562018,
+                "relative_difference": 0.00108316453430795,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "static_vinet_with_explicit_ruby_scale_conversion",
+              "objective": "unweighted pressure residuals",
+              "selection": "complete",
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 36,
+              "observed_pressure_range_gpa": [0.0, 90.0],
+              "solver_success": true,
+              "solver_message": "dedicated Dewaele (2019) refit completed",
+              "rmse_gpa": 0.277096382870501,
+              "dataset_identifiers": ["tantalum_dewaele_2004_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
@@ -495,6 +711,70 @@
         "audit_date": "2026-09-06"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 36.038,
+                "published_error": 0.036,
+                "refit": 36.037785772083126,
+                "refit_error": null,
+                "difference": -0.00021422791687086828,
+                "relative_difference": 5.9445007178774715e-06,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true
+              },
+              {
+                "parameter": "K0",
+                "published": 196.1,
+                "published_error": 3.7,
+                "refit": 196.05643021650252,
+                "refit_error": null,
+                "difference": -0.043569783497474646,
+                "relative_difference": 0.00022218145587697422,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.64,
+                "published_error": 0.1,
+                "refit": 3.641722700941851,
+                "refit_error": null,
+                "difference": 0.0017227009418507855,
+                "relative_difference": 0.00047326948951944653,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "static_vinet_with_explicit_ruby_scale_conversion",
+              "objective": "unweighted pressure residuals",
+              "selection": "complete",
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 36,
+              "observed_pressure_range_gpa": [0.0, 95.1057151267236],
+              "solver_success": true,
+              "solver_message": "dedicated Dewaele (2019) refit completed",
+              "rmse_gpa": 0.30010528167353434,
+              "dataset_identifiers": ["tantalum_dewaele_2004_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
@@ -585,6 +865,62 @@
         "audit_date": "2026-09-07"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 198.2,
+                "published_error": 3.1,
+                "refit": 195.2783594833166,
+                "refit_error": 3.293521550602385,
+                "difference": -2.9216405166833965,
+                "relative_difference": 0.014740870417171528,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.07,
+                "published_error": 0.14,
+                "refit": 3.2440605373663085,
+                "refit_error": 0.15057839189613254,
+                "difference": 0.17406053736630867,
+                "relative_difference": 0.05669724344179436,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "ruby_pressure_classical_gpa", "temperature": null, "volume": "atomic_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 36,
+              "observed_pressure_range_gpa": [0.0, 90.0],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [26.898, 36.068],
+              "degrees_of_freedom": 34,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.2647181542363489,
+              "published_rmse_gpa": 0.3876670544288043,
+              "reduced_chi_square": 0.07986616569706756,
+              "dataset_identifiers": ["tantalum_dewaele_2004_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -666,6 +1002,51 @@
         "audit_date": "2026-09-07"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0_prime",
+                "published": 3.52,
+                "published_error": 0.03,
+                "refit": 3.570781892222159,
+                "refit_error": 0.03549088733475809,
+                "difference": 0.05078189222215901,
+                "relative_difference": 0.014426673926749718,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "ruby_pressure_revised_gpa", "temperature": null, "volume": "atomic_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0_prime"],
+              "fixed_parameters": ["V0", "K0"],
+              "observations": 36,
+              "observed_pressure_range_gpa": [0.0, 93.6],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [26.898, 36.068],
+              "degrees_of_freedom": 35,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.28219438453655926,
+              "published_rmse_gpa": 0.3945855941992014,
+              "reduced_chi_square": 0.08906842546512672,
+              "dataset_identifiers": ["tantalum_dewaele_2004_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

@@ -84,6 +84,62 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 162.6,
+                "published_error": 0.3,
+                "refit": 163.25629591878337,
+                "refit_error": 0.10250806127775225,
+                "difference": 0.6562959187833712,
+                "relative_difference": 0.004036260263120365,
+                "similar": true,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "K0",
+                "published": 284.0,
+                "published_error": 4.0,
+                "refit": 275.7450528735945,
+                "refit_error": 1.4296057507089817,
+                "difference": -8.254947126405511,
+                "relative_difference": 0.029066715233822222,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 97,
+              "observed_pressure_range_gpa": [0.0001, 125.6],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [125.06, 163.27],
+              "degrees_of_freedom": 95,
+              "solver_success": true,
+              "solver_message": "`xtol` termination condition is satisfied.",
+              "rmse_gpa": 0.5772851282651091,
+              "published_rmse_gpa": 0.9284356116597271,
+              "reduced_chi_square": 0.37841562979146587,
+              "dataset_identifiers": ["mg09fe01sio3_bridgmanite_mao_2015_table_s1_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against the final publisher article, official Wiley Supporting Information S1, and the cited same-batch Lin et al. (2012) characterization. LitCurate was used for discovery only.",
@@ -274,6 +330,48 @@
         "notes": "The final article explicitly states that only gold pressures were used for its perovskite EOS; that main pressure axis is linked to an executable record. Ruby and neon served as checks. The overall status remains partial because row-wise ruby and neon readings are not printed and the rounded Anderson reference volume does not exactly regenerate the tabulated pressures."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Direct final-article reproduction. Mao et al. explicitly fitted only the Fe10 data with K0-prime fixed at 4; Table 1 supplies the fixed Fe10 V0=162.79 A3. The paper does not state weights, and unweighted pressure residuals recover K0=260.80 GPa from the rounded table. MgSiO3 and Fe20 inherit this indistinguishable compression curve with their separately measured composition-specific ambient volumes.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 261.0,
+                "published_error": 4.0,
+                "refit": 260.7999230336436,
+                "refit_error": 1.7340729995198663,
+                "difference": -0.2000769663563915,
+                "relative_difference": 0.0007665784151585881,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "shared_bm2_fe10_pressure_residuals",
+              "objective": "unweighted pressure residuals",
+              "selection": "fit_included=1: all nine 300 K Fe10 rows in final-article Table 2",
+              "columns": {"pressure": "pressure_gpa", "volume": "volume_a3"},
+              "absolute_sigma": false,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 9,
+              "observed_pressure_range_gpa": [1.4, 26.0],
+              "degrees_of_freedom": 8,
+              "solver_success": true,
+              "solver_message": "analytic one-parameter least-squares solution",
+              "rmse_gpa": 0.28526073698634036,
+              "dataset_identifiers": ["mao_1991_tables2_3_bridgmanite_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

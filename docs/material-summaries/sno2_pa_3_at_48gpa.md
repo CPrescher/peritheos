@@ -92,6 +92,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** The recorded parameter reconstruction did not meet the audit's agreement criterion; the parameter comparisons retain the actual reconstructed values.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 130.6 | 0.3 | 128.21925727881214 | 0.6038136080550497 | Free |
+| K0 | 252.0 | 28.0 | 379.58981509842204 | 56.37461080460072 | Free |
+| K0\_prime | 3.5 | 2.2 | 0.0 | 2.0102320236913593 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows; reference-T rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** unit\_cell\_volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 11
+- **Observed pressure range gpa:** \[16.09, 26.57\]
+- **Observed temperature range k:** \[300.0, 300.0\]
+- **Observed volume range:** \[119.08, 122.95\]
+- **Degrees of freedom:** 8
+- **Solver success:** True
+- **Solver message:** \`xtol\` termination condition is satisfied.
+- **Rmse gpa:** 0.47525969980934374
+- **Published rmse gpa:** 0.6091491039928482
+- **Reduced chi square:** 34.20124383736103
+- **Dataset identifiers:** sno2\_ono\_2000\_table2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 The 300 K reference isotherm for cubic Pa-3 SnO2. V0=130.6(3) A^3 means 130.6+/-0.3 A^3; the migrated +/-3.0 value was a decimal-place error. K0=252(28) GPa and K0'=3.5(2.2). V0 is a fitted extrapolation because the cubic phase transforms on decompression. Table 2 spans 16.09-28.85 GPa and 300-1400 K, but this record intentionally implements only the 300 K curve. No fitted-parameter covariance is published.
 
 Parameter covariance is not supplied.

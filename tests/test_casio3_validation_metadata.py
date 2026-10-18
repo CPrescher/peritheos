@@ -8,6 +8,7 @@ import jsonschema
 import pytest
 
 from peritheos import get_material_document
+from scripts.run_eosmat_audit import historical_reconstruction_view
 
 ROOT = Path(__file__).parents[1]
 SUN = "ca_perovskite_sun_2016_bm3_3"
@@ -45,6 +46,9 @@ def test_qualification_preserves_all_scientific_payloads_and_schema(
         (ROOT / "peritheos/data/eosmat-v3.schema.json").read_text(encoding="utf-8")
     )
     jsonschema.validate(document, schema)
+    assert all("assessment" in row["reproduction"] for row in document["eos_records"])
+    # Preserve the reviewed pre-summary payload hash, including all old evidence.
+    document = historical_reconstruction_view(document)
     # Reviewed scientific payload checkpoint, including the 2026-10-08 Wang
     # source recovery, excluded-row corrections and optional 64-point thermal refit. Freezes
     # every other record field, dataset, checksum, provenance and classification.

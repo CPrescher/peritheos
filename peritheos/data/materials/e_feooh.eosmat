@@ -68,6 +68,56 @@
         "notes": "The sample was mixed with gold 7:1 by weight in non-dried 4:1 methanol-ethanol. Ruby and NaCl were also used for ambient-temperature compression, but none of the deposited epsilon-FeOOH rows are ambient-temperature observations."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Source-protocol reconstruction, not an assertion of an independently measured epsilon-FeOOH thermal EOS. All 49 hot Table 2 volumes are reduced to 300 K with the paper's alpha0=2.3e-5 K^-1 before the pooled fixed-V0 BM2 fit. This recovers K0=158.099 GPa; fitting the raw hot volumes as though they lay on the reference isotherm instead gives 175.624 GPa. The correction is numerically identifiable but not printed in the epsilon-specific prose, and the source weights are unavailable.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 158.0,
+                "published_error": 5.0,
+                "refit": 158.0986983485346,
+                "refit_error": 1.6723069894662843,
+                "difference": 0.09869834853461157,
+                "relative_difference": 0.0006246730919912125,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "source_pooled_multitemperature_pv_reduced_to_300k",
+              "objective": "unweighted_pressure_residuals_after_volume_reduction",
+              "selection": "all 49 deposited P21mn epsilon-FeOOH rows; no exclusions; volumes reduced from their measured 473.15-673.15 K states to 300 K before fitting",
+              "columns": {
+                "pressure": "pressure_gpa",
+                "temperature": "temperature_celsius",
+                "volume": "cell_volume_a3 reduced to 300 K"
+              },
+              "absolute_sigma": false,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0"],
+              "observations": 49,
+              "observed_pressure_range_gpa": [3.81, 21.01],
+              "observed_temperature_range_k": [473.15, 673.15],
+              "observed_volume_range": [60.4, 65.03],
+              "degrees_of_freedom": 48,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.9456977490356161,
+              "published_rmse_gpa": 0.9457320622338763,
+              "reduced_chi_square": 0.9129764040420943,
+              "dataset_identifiers": ["epsilon_feooh_gleason_2008_deposit_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "The official OSTI manuscript and MSA depository were audited directly. The source's pooled multitemperature protocol is now reproduced without relabeling hot rows as reference-temperature observations; the epsilon-specific temperature-reduction formula is a numerical reconstruction and is qualified as such.",
@@ -246,6 +296,95 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.K0",
+                "published": 135.0,
+                "published_error": 3.0,
+                "refit": 132.2948372496863,
+                "refit_error": 6.436715796348928e-11,
+                "difference": -2.70516275031369,
+                "relative_difference": 0.02003824259491622,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0_prime",
+                "published": 6.1,
+                "published_error": 0.9,
+                "refit": 6.861798756973407,
+                "refit_error": 0.0061887390074661375,
+                "difference": 0.7617987569734073,
+                "relative_difference": 0.12488504212678808,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "alpha0",
+                "published": 2.6e-05,
+                "published_error": 7e-06,
+                "refit": 3.0412845500814004e-05,
+                "refit_error": 5.089818923191499e-05,
+                "difference": 4.412845500814006e-06,
+                "relative_difference": 0.16972482695438487,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "alpha1",
+                "published": 1e-07,
+                "published_error": 3e-08,
+                "refit": 1.1170942997601218e-07,
+                "refit_error": 2.4282015212479566e-07,
+                "difference": 1.1709429976012186e-08,
+                "relative_difference": 0.11709429976012187,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "dK_dT",
+                "published": -0.05,
+                "published_error": 0.02,
+                "refit": -0.0609132438044162,
+                "refit_error": 0.1620030288469084,
+                "difference": -0.010913243804416196,
+                "relative_difference": 0.21826487608832393,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["rt_eos.K0", "rt_eos.K0_prime", "alpha0", "alpha1", "dK_dT"],
+              "fixed_parameters": ["V0", "Tr"],
+              "observations": 33,
+              "observed_pressure_range_gpa": [0.0001, 11.07],
+              "observed_temperature_range_k": [300.0, 700.0],
+              "observed_volume_range": [62.19, 66.278],
+              "degrees_of_freedom": 28,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.09143599681900522,
+              "published_rmse_gpa": 0.10201978513163779,
+              "reduced_chi_square": 0.010105674904282585,
+              "dataset_identifiers": ["epsilon_feooh_suzuki_2016_table1_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "The final J-STAGE article, its displayed equations, both tables, and all 33 printed P-V-T observations were audited directly. The reference-temperature form of the linear expansivity required an explicit Peritheos configuration distinct from alpha0+alpha1*T.",

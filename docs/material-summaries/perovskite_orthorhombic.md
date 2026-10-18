@@ -85,6 +85,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 162.77 | 0.39 | 165.72923759090324 | 6.6848643575656705 | Free |
+| K0 | 266.0 | 6.0 | 194.7470166451314 | 121.94739377340618 | Free |
+| K0\_prime | 3.9 | 0.4 | 5.490806405819618 | 3.244614633488159 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_after\_heating\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** normalized\_volume
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 5
+- **Observed pressure range gpa:** \[20.8, 111.9\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[126.96060000000001, 152.02718000000002\]
+- **Degrees of freedom:** 2
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 1.4557004036304708
+- **Published rmse gpa:** 2.8805025946118414
+- **Reduced chi square:** 1.294773969300724
+- **Dataset identifiers:** mgfe\_perovskite\_knittle\_1987\_table2\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Room-temperature unconstrained Eulerian finite-strain BM3 fit for orthorhombic (Mg0.88Fe0.12)SiO3 perovskite from 25 to 127 GPa: V0=162.77+/-0.39 A^3 (from the reported ambient lattice parameters), K0=266+/-6 GPa, and K0'=3.9+/-0.4.
 
 Parameter covariance is not supplied.

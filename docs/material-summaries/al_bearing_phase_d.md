@@ -98,6 +98,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 143.0 | 5.0 | 143.35496116131347 | 37.80399068122436 | Free |
+| K0\_prime | 5.8 | 0.7 | 5.814150030677102 | 5.862130212795976 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows; reference-T rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 8
+- **Observed pressure range gpa:** \[0.0, 20.53\]
+- **Observed temperature range k:** \[300.0, 300.0\]
+- **Observed volume range:** \[78.01, 86.71\]
+- **Degrees of freedom:** 6
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.11035459600622245
+- **Published rmse gpa:** 0.12191812508696777
+- **Reduced chi square:** 0.01629223470546935
+- **Dataset identifiers:** al\_bearing\_phase\_d\_xu\_2020\_earthchem\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Published room-temperature BM3. V0 was fixed to the in situ 300 K zero-pressure observation; K0 and K0' were fitted. Parenthetical parameter errors have no stated confidence convention, and no covariance matrix or scalar fit statistic is published. The broader experiment used Au and NaCl pressure standards, while the article's Table 1 explicitly labels this represented BM3 as the Tsuchiya (2003) gold-scale fit. The article also publishes high-temperature BM3 and pressure-scale-free elastic parameterizations, but the narrative and Table 1 disagree on their fit interval, fixed/free choices, alpha(T) form, and coefficients; none is silently approximated as a Peritheos thermal EOS.
 
 Parameter covariance is not supplied.

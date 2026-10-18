@@ -91,6 +91,84 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.V0",
+                "published": 75.849,
+                "published_error": 0.011,
+                "refit": 75.81792398973612,
+                "refit_error": 0.20549027792030766,
+                "difference": -0.031076010263888065,
+                "relative_difference": 0.00040970889878426956,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0_prime",
+                "published": 4.08,
+                "published_error": 0.02,
+                "refit": 4.132394873642603,
+                "refit_error": 0.2684528087408027,
+                "difference": 0.0523948736426032,
+                "relative_difference": 0.012841880794755687,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.53,
+                "published_error": 0.04,
+                "refit": 1.5774242742930678,
+                "refit_error": 0.4114402303137616,
+                "difference": 0.047424274293067725,
+                "relative_difference": 0.0309962577078874,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "q",
+                "published": 0.7,
+                "published_error": 0.2,
+                "refit": 0.9288051997567589,
+                "refit_error": 1.9007015786956152,
+                "difference": 0.22880519975675895,
+                "relative_difference": 0.32686457108108424,
+                "similar": false,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "errors_in_variables",
+              "selection": "fit_included=1",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["rt_eos.V0", "rt_eos.K0_prime", "gamma0", "q"],
+              "fixed_parameters": ["K0", "Tr", "theta0", "n"],
+              "observations": 23,
+              "observed_pressure_range_gpa": [0.0, 46.39],
+              "observed_temperature_range_k": [300.0, 1100.0],
+              "observed_volume_range": [62.442, 75.855],
+              "degrees_of_freedom": 19,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.11499064762558688,
+              "published_rmse_gpa": 0.12330274873545173,
+              "reduced_chi_square": 0.016072145120072365,
+              "dataset_identifiers": ["mg083fe017o_matsui_2012_table1_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -170,6 +248,24 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "The primary figure supplies 43 V/V0,HS observations but not the absolute V0,HS normalization, so all six absolute Table 7 coefficients are not independently identifiable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": [],
+              "observations": 43,
+              "dataset_identifiers": ["mg083fe017o_lin_2005_figure2_300k_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -240,6 +336,24 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "The primary figure supplies 43 V/V0,HS observations but not the absolute V0,HS normalization, so all six absolute Table 7 coefficients are not independently identifiable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": ["K0_prime"],
+              "observations": 43,
+              "dataset_identifiers": ["mg083fe017o_lin_2005_figure2_300k_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

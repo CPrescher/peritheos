@@ -87,6 +87,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- Corrected source-scope reproduction: Figure 2 expresses the observations as V/V0 and reports only K0 and K0' as fitted coefficients, so the measured ambient V0 is held fixed. The 16-marker refit is statistically compatible with both published coefficients but remains only numerically similar; see the \[dedicated Mo2C reproduction\](literature-reproductions.md#mo2c-haines-2001).
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 307.0 | 5.0 | 325.87419826054304 | 9.50029103042738 | Free |
+| K0\_prime | 6.2 | 0.3 | 4.9092021387052664 | 0.6513930636044009 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_ratio
+- **Absolute sigma:** True
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 16
+- **Observed pressure range gpa:** \[0.0, 45.499\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[133.452032091, 148.911567213\]
+- **Degrees of freedom:** 14
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.37453767113271197
+- **Published rmse gpa:** 0.7040384578944161
+- **Reduced chi square:** 0.9733212560820694
+- **Dataset identifiers:** molybdenum\_carbide\_haines\_2001\_figure2\_digitized
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Room-temperature BM3 fit to relative-volume X-ray diffraction data through 46 GPa: K0=307+/-5 GPa and K0'=6.2+/-0.3. Because the source fits and plots V/V0 and does not report V0 as a fitted coefficient, the refit fixes V0 at the value calculated from this sample's measured ambient hexagonal subcell a=3.0128(4) A and c=4.7357(9) A, converted to the equivalent four-formula-unit orthorhombic conventional-cell volume; its error is propagated from the reported lattice-parameter errors. The dedicated literature reproduction documents the remaining high-pressure sensitivity.
 
 Parameter covariance is not supplied.
@@ -172,6 +229,63 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** independent refit.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This comparison concerns the stored independent Peritheos refit, not recovery of the original publication's coefficients or author workflow.
+- Explicit Peritheos refit record: all 16 digitized Figure 2 markers are fitted with measured V0 fixed and the documented errors-in-variables objective. This record reproduces its stored coefficients exactly and does not replace the published Haines parameterization; see the \[dedicated Mo2C reproduction\](literature-reproductions.md#mo2c-haines-2001).
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 325.87419826054304 | 9.50029103042738 | 325.87441324143583 | 9.500289924692877 | Free |
+| K0\_prime | 4.9092021387052664 | 0.6513930636044009 | 4.909186606761885 | 0.6513920513055321 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_ratio
+- **Absolute sigma:** True
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 16
+- **Observed pressure range gpa:** \[0.0, 45.499\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[133.452032091, 148.911567213\]
+- **Degrees of freedom:** 14
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.37453844418422366
+- **Published rmse gpa:** 0.6175533237710905
+- **Reduced chi square:** 0.9733212561069121
+- **Dataset identifiers:** molybdenum\_carbide\_haines\_2001\_figure2\_digitized
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Opt-in Peritheos refit of all 16 digitized Figure 2 markers, not a parameter set published by Haines et al. V0 is fixed to the measured ambient reference used for the source's V/V0 representation; K0 and K0' are refined with errors in both digitized pressure and relative volume and absolute\_sigma=True. The unchanged record molybenum\_carbide\_mo2c\_haines\_2001\_bm3\_1 remains the authoritative literature parameterization. The diagnostic fit that omits the two observations above 40 GPa is documented but is not stored as an EOS record.
 

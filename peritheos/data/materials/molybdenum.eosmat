@@ -81,6 +81,23 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": ["V0", "K0", "K_infinity_prime"],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -161,6 +178,77 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 260.6,
+                "published_error": 0.5,
+                "refit": 260.686918487191,
+                "refit_error": 0.4823717097515377,
+                "difference": 0.08691848719098516,
+                "relative_difference": 0.00033353218415573736,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.06,
+                "published_error": 0.02,
+                "refit": 4.05353058458462,
+                "refit_error": 0.019482785245388795,
+                "difference": -0.006469415415379487,
+                "relative_difference": 0.0015934520727535683,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "fixed_v0_vinet_with_reconstructed_cu_pressure",
+              "objective": "unweighted_pressure_residuals",
+              "selection": "Mo; DAC-1 and DAC-2",
+              "columns": {
+                "pressure": "Fratanduono-2020 298 K Cu pressure reconstructed per run",
+                "temperature": null,
+                "volume": "unit_cell_volume_a3"
+              },
+              "absolute_sigma": false,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 283,
+              "observed_pressure_range_gpa": [2.786190605963631, 110.25016209196069],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [24.11538, 30.82583],
+              "degrees_of_freedom": 281,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.4180910660710567,
+              "reduced_chi_square": 0.17604426863539666,
+              "pressure_reconstruction": {
+                "density0_g_cm3": 8.939,
+                "doi": "10.1103/PhysRevLett.124.015701",
+                "model": "vinet_3",
+                "pairing": "Each phase volume uses the single Cu volume with the same experiment and run number; both source-labeled Pt first/last measurements are retained when the run is selected.",
+                "parameters": {"K0_gpa": 133.6, "beta": 2.06, "eta": 6.29, "psi": 1.65},
+                "reference": "Fratanduono et al. (2020)",
+                "reference_eos_record": "copper_fratanduono_2020_vinet3_298k",
+                "reference_unit_cell_volume_a3": 47.218085048721,
+                "source_locations": ["main article Table I, 298 K isotherm row", "Supplemental Material Eq. (2), Section S4"]
+              },
+              "dataset_identifiers": ["shen_smith_2026_table_s1_simultaneous_volumes"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -266,6 +354,31 @@
         "audit_date": "2026-09-03"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "source_reconstruction",
+            "scope": "source_equation",
+            "source_status": "source_reconstruction",
+            "basis": "All eleven machine-readable comparison series enter one shared Equation (20) objective against the mean Table 2 Holzapfel and Table 3 Vinet isotherm. Table 4 is retained as a post-calibration closure test. The calculation cannot recover the eleven EOS parameter sets independently because the source omits complete thermochemical/ultrasonic rows, weights, and covariance.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fit_kind": "coupled_eleven_marker_ruby_cross_calibration",
+              "objective": "minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight",
+              "fixed_parameters": ["n", "Z", "n"],
+              "observations": 28,
+              "rmse_gpa": 0.6855394756440152,
+              "published_rmse_gpa": 0.6467929629438924,
+              "comparison_scope": "shared_ruby_calibration",
+              "dataset_identifiers": ["molybdenum_dewaele_2008_table2_compression"],
+              "published_ruby_parameters": {"A_gpa": 1870.0, "m": 6.0},
+              "sensitivity_fit_ruby_parameters": {"A_gpa": 1869.3837840502665, "m": 6.10334763359135}
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -405,6 +518,70 @@
         "audit_date": "2026-09-06"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 31.138,
+                "published_error": 0.042,
+                "refit": 31.13830887138314,
+                "refit_error": null,
+                "difference": 0.0003088713831367329,
+                "relative_difference": 9.919435517269346e-06,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true
+              },
+              {
+                "parameter": "K0",
+                "published": 270.3,
+                "published_error": 3.9,
+                "refit": 270.3053393111082,
+                "refit_error": null,
+                "difference": 0.005339311108173206,
+                "relative_difference": 1.97532782396345e-05,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.34,
+                "published_error": 0.12,
+                "refit": 3.334844589411021,
+                "refit_error": null,
+                "difference": -0.005155410588979059,
+                "relative_difference": 0.0015435361044847484,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "static_vinet_with_explicit_ruby_scale_conversion",
+              "objective": "unweighted pressure residuals",
+              "selection": "complete",
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 29,
+              "observed_pressure_range_gpa": [0.0, 116.0],
+              "solver_success": true,
+              "solver_message": "dedicated Dewaele (2019) refit completed",
+              "rmse_gpa": 0.3336121252385827,
+              "dataset_identifiers": ["molybdenum_dewaele_2008_table2_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
@@ -495,6 +672,70 @@
         "audit_date": "2026-09-06"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 31.134,
+                "published_error": 0.042,
+                "refit": 31.133143723774438,
+                "refit_error": null,
+                "difference": -0.0008562762255621692,
+                "relative_difference": 2.75029300945002e-05,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true
+              },
+              {
+                "parameter": "K0",
+                "published": 269.3,
+                "published_error": 3.9,
+                "refit": 269.3322683347472,
+                "refit_error": null,
+                "difference": 0.0322683347471866,
+                "relative_difference": 0.00011982300314588414,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.87,
+                "published_error": 0.12,
+                "refit": 3.8727828290140347,
+                "refit_error": null,
+                "difference": 0.0027828290140345935,
+                "relative_difference": 0.000719077264608422,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_95pct": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "static_vinet_with_explicit_ruby_scale_conversion",
+              "objective": "unweighted pressure residuals",
+              "selection": "complete",
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 29,
+              "observed_pressure_range_gpa": [0.0, 123.81722045064414],
+              "solver_success": true,
+              "solver_message": "dedicated Dewaele (2019) refit completed",
+              "rmse_gpa": 0.34109811765746545,
+              "dataset_identifiers": ["molybdenum_dewaele_2008_table2_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
@@ -597,6 +838,44 @@
         "audit_date": "2026-09-07"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "Complete reproduction of the rows available in official auxiliary Tables S1-S6, using the source's coupled Equation (3) objective and fixed Tange MgO anchor. The fit converges to a lower objective but does not recover Table 2. Run AN012 is listed in article Table 1 yet absent from the auxiliary PDF; unrounded inputs, row-selection detail, fit code, and covariance are unavailable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0_prime",
+                "published": 4.19,
+                "published_error": 0.02,
+                "refit": 4.13809805589023,
+                "refit_error": null,
+                "difference": -0.05190194410977078,
+                "relative_difference": 0.012387098832880854,
+                "similar": false,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "simultaneous_cocompression_vinet",
+              "objective": "Dorfman Equation (3)",
+              "selection": "Use every nonblank paired volume printed in Tables S1-S6; include the three MgO values marked as determined from the (200) peak alone.",
+              "free_parameters": ["K0_prime"],
+              "fixed_parameters": ["V0", "K0"],
+              "observations": 165,
+              "observed_pressure_range_gpa": [43.1, 214.6],
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "comparison_scope": "joint_system",
+              "dataset_identifiers": ["jgrb17272-sup-0002-txts01.pdf"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Equation, coefficients, simultaneous-fit objective, fixed MgO anchor, auxiliary paired-volume rows, correction, and fit reproducibility were checked directly. The available source rows do not reproduce the published coefficients.",
@@ -737,6 +1016,55 @@
         "audit_date": "2026-09-07"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "Complete reproduction of the rows available in official auxiliary Tables S1-S6, using the source's coupled Equation (3) objective and fixed Tange MgO anchor. The fit converges to a lower objective but does not recover Table 2. Run AN012 is listed in article Table 1 yet absent from the auxiliary PDF; unrounded inputs, row-selection detail, fit code, and covariance are unavailable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 271.0,
+                "published_error": 3.0,
+                "refit": 255.46017518702442,
+                "refit_error": null,
+                "difference": -15.539824812975581,
+                "relative_difference": 0.057342526985149744,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.89,
+                "published_error": 0.09,
+                "refit": 4.295099208339555,
+                "refit_error": null,
+                "difference": 0.4050992083395548,
+                "relative_difference": 0.10413861396903723,
+                "similar": false,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "simultaneous_cocompression_vinet",
+              "objective": "Dorfman Equation (3)",
+              "selection": "Use every nonblank paired volume printed in Tables S1-S6; include the three MgO values marked as determined from the (200) peak alone.",
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 165,
+              "observed_pressure_range_gpa": [43.1, 214.6],
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "comparison_scope": "joint_system",
+              "dataset_identifiers": ["jgrb17272-sup-0002-txts01.pdf"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Equation, coefficients, simultaneous-fit objective, fixed MgO anchor, auxiliary paired-volume rows, correction, and fit reproducibility were checked directly. The available source rows do not reproduce the published coefficients.",

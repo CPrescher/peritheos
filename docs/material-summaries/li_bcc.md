@@ -88,6 +88,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 11.32 | 0.1 | 11.315656612703812 | 0.03922452274513274 | Free |
+| K0\_prime | 3.62 | 0.04 | 3.616768766094577 | 0.013883557520548553 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** atomic\_volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 26
+- **Observed pressure range gpa:** \[0.0, 21.1\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[22.8742, 43.245\]
+- **Degrees of freedom:** 24
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.033805294729050986
+- **Published rmse gpa:** 0.03620400826033935
+- **Reduced chi square:** 0.0012380311143611693
+- **Dataset identifiers:** lithium\_hanfland\_1999\_table1\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Empirical 298 K Vinet fit jointly spanning bcc and fcc lithium, exactly as defined by the primary paper. It is not a phase-specific bcc EOS: the bcc-fcc transition occurs near 7.5 GPa with a 0.16(3)% volume discontinuity. Public volumes use twice the paper's atomic volume so they remain compatible with this file's two-atom bcc conventional-cell convention, including for fcc observations. V0 was fixed; no V0 error or parameter covariance is published.
 
 Parameter covariance is not supplied.

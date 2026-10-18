@@ -50,6 +50,62 @@
         "audit_date": "2026-09-03"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 307.84,
+                "published_error": 0.05,
+                "refit": 307.83148863498826,
+                "refit_error": 0.1875870524877686,
+                "difference": -0.008511365011713679,
+                "relative_difference": 2.7648664928903584e-05,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 130.4,
+                "published_error": 1.4,
+                "refit": 130.41522962996078,
+                "refit_error": 5.250152975765392,
+                "difference": 0.015229629960771263,
+                "relative_difference": 0.0001167916408034606,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows; reference-T rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 11,
+              "observed_pressure_range_gpa": [-0.02, 4.96],
+              "observed_temperature_range_k": [301.0, 302.0],
+              "observed_volume_range": [297.26, 307.84],
+              "degrees_of_freedom": 9,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.049073666524717646,
+              "published_rmse_gpa": 0.05878307470903604,
+              "reduced_chi_square": 0.073409331943693,
+              "dataset_identifiers": ["fayalite_bejina_2021_table1_pvt_elastic"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

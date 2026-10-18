@@ -51,6 +51,58 @@
         "audit_date": "2026-09-03"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "The reduction uses the source's Us=5.36+1.19up relation, 300 K Debye theta0=390 K, gamma0=1.38, gamma/V constant (q=1), and two atoms per NiO formula unit. The seven-state predecessor reproduces K0=184+/-5 GPa and about 1600 K at 132.9 GPa. The eight rounded journal rows recover the final coefficients within the residual-scaled refit errors; exact parity is unavailable because unrounded states, row-wise uncertainties, weights, and numerical objective are not published.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 191.0,
+                "published_error": null,
+                "refit": 182.43511253506455,
+                "refit_error": 11.494590806763085,
+                "difference": -8.564887464935452,
+                "relative_difference": 0.04484234274835316,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.9,
+                "published_error": null,
+                "refit": 4.124651942331509,
+                "refit_error": 0.35671288331062556,
+                "difference": 0.22465194233150898,
+                "relative_difference": 0.057603062136284355,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "shock_to_300k_mie_gruneisen_debye_then_bm3",
+              "objective": "unweighted_reduced_isothermal_pressure_residuals",
+              "selection": "all eight Table 1 final Hugoniot states; HEL precursor columns excluded; each pressure thermally reduced to 300 K before BM3 fitting",
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 8,
+              "observed_pressure_range_gpa": [17.7, 147.6],
+              "degrees_of_freedom": 6,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 2.084318952516954,
+              "reduced_chi_square": 5.792513994428496,
+              "dataset_identifiers": ["nickel_oxide_noguchi_1999_table1_shock"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -232,6 +284,58 @@
         "audit_date": "2026-09-04"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "c0",
+                "published": 5.3549770536,
+                "published_error": 0.0531157378,
+                "refit": 5.354977053622233,
+                "refit_error": 0.05311573780318259,
+                "difference": 2.2232882201933535e-11,
+                "relative_difference": 4.151816521228041e-12,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "s",
+                "published": 1.2137281492,
+                "published_error": 0.02956091343,
+                "refit": 1.2137281492244212,
+                "refit_error": 0.029560913431890334,
+                "difference": 2.4421131783469718e-11,
+                "relative_difference": 2.012075916634736e-11,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "linear_us_up_hugoniot",
+              "objective": "shock_velocity_residuals",
+              "selection": "finite final_particle_velocity_km_s and final_shock_velocity_km_s; 8 rows",
+              "columns": {"particle_velocity": "final_particle_velocity_km_s", "shock_velocity": "final_shock_velocity_km_s"},
+              "absolute_sigma": false,
+              "free_parameters": ["c0", "s"],
+              "fixed_parameters": ["V0", "rho0", "P0"],
+              "observations": 8,
+              "degrees_of_freedom": 6,
+              "solver_success": true,
+              "solver_message": "`gtol` termination condition is satisfied.",
+              "rmse_shock_velocity_km_s": 0.05563671460959945,
+              "reduced_chi_square": 0.004127258683400022,
+              "dataset_identifiers": ["nickel_oxide_noguchi_1999_table1_shock"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "The eight final-state observations, initial density, phase interpretation, and locally derived OLS relation were checked against the primary Table 1 data. The coefficients are not quoted by the paper.",

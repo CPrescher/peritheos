@@ -87,6 +87,62 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 179.2,
+                "published_error": 0.7,
+                "refit": 178.66529189179212,
+                "refit_error": 0.6144318174627531,
+                "difference": -0.534708108207866,
+                "relative_difference": 0.002983862210981395,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 207.0,
+                "published_error": 5.0,
+                "refit": 210.58067184685015,
+                "refit_error": 4.293351645284262,
+                "difference": 3.5806718468501515,
+                "relative_difference": 0.01729793162729542,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "fit_included=1",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 22,
+              "observed_pressure_range_gpa": [47.3, 196.3],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [120.928305, 152.481768],
+              "degrees_of_freedom": 20,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.8120293208021537,
+              "published_rmse_gpa": 1.394506952622881,
+              "reduced_chi_square": 1.1509768661620852,
+              "dataset_identifiers": ["mggeo3_post_perovskite_kubo_2006_table_s1_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -203,6 +259,62 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 175.9,
+                "published_error": 0.6,
+                "refit": 175.4561792818427,
+                "refit_error": 0.5221786996568926,
+                "difference": -0.44382071815729773,
+                "relative_difference": 0.0025231422294331876,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 245.0,
+                "published_error": 5.0,
+                "refit": 248.67933059047525,
+                "refit_error": 4.4205463150013795,
+                "difference": 3.679330590475246,
+                "relative_difference": 0.015017675879490799,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "fit_included=1",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": [],
+              "observations": 22,
+              "observed_pressure_range_gpa": [47.3, 196.3],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [120.928305, 152.481768],
+              "degrees_of_freedom": 20,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.749396935194924,
+              "published_rmse_gpa": 1.3561285588251957,
+              "reduced_chi_square": 1.0358363125552295,
+              "dataset_identifiers": ["mggeo3_post_perovskite_kubo_2006_table_s1_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -298,6 +410,62 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 183.1,
+                "published_error": 0.8,
+                "refit": 183.93533087455035,
+                "refit_error": 0.4732927919053868,
+                "difference": 0.8353308745503512,
+                "relative_difference": 0.004562156605954949,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 192.0,
+                "published_error": 5.0,
+                "refit": 186.78503770450254,
+                "refit_error": 2.9501265433037833,
+                "difference": -5.2149622954974575,
+                "relative_difference": 0.027161261955715926,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 9,
+              "observed_pressure_range_gpa": [6.25, 78.55],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [142.63, 177.45],
+              "degrees_of_freedom": 7,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.57064955442719,
+              "published_rmse_gpa": 0.8717267563770555,
+              "reduced_chi_square": 19.322769809486257,
+              "dataset_identifiers": ["mggeo3_post_perovskite_hirose_2005_table3_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -396,6 +564,73 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 182.2,
+                "published_error": 1.1,
+                "refit": 180.6161469157237,
+                "refit_error": 0.6872522006206908,
+                "difference": -1.583853084276285,
+                "relative_difference": 0.008692936796247448,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 210.0,
+                "published_error": 20.0,
+                "refit": 241.59451164195318,
+                "refit_error": 11.10663739985238,
+                "difference": 31.594511641953176,
+                "relative_difference": 0.15045005543787227,
+                "similar": false,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.5,
+                "published_error": 0.5,
+                "refit": 2.913612561673377,
+                "refit_error": 0.1851831458386655,
+                "difference": -0.5863874383266232,
+                "relative_difference": 0.16753926809332093,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 9,
+              "observed_pressure_range_gpa": [6.25, 78.55],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [142.63, 177.45],
+              "degrees_of_freedom": 6,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.44684007349046917,
+              "published_rmse_gpa": 0.8967730311392457,
+              "reduced_chi_square": 18.544072562225214,
+              "dataset_identifiers": ["mggeo3_post_perovskite_hirose_2005_table3_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

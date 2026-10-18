@@ -39,6 +39,62 @@
         "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 367.789,
+                "published_error": 0.004,
+                "refit": 367.84830031662693,
+                "refit_error": 2.4950202029924027,
+                "difference": 0.05930031662694546,
+                "relative_difference": 0.0001612346117663809,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 73.46,
+                "published_error": 0.27,
+                "refit": 72.5376735297565,
+                "refit_error": 44.457452586842514,
+                "difference": -0.9223264702434903,
+                "relative_difference": 0.012555492380118301,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": [],
+              "observations": 14,
+              "observed_pressure_range_gpa": [0.0, 1.425],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [361.001, 367.787],
+              "degrees_of_freedom": 12,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.009279720006517665,
+              "published_rmse_gpa": 0.011292043488631614,
+              "reduced_chi_square": 0.00010047351594240502,
+              "dataset_identifiers": ["calcite_redfern_1999_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

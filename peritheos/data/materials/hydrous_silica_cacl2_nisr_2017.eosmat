@@ -65,6 +65,60 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Coefficient parity within published 1-sigma widths, not recovery of an unpublished weighting protocol. Pressure errors, gold volumes and source covariance are absent. Printed zero volume errors are retained, never treated as infinite weights. Volume-objective sensitivity fits are in the paper-specific reproduction.",
+              "Original least-squares dependent variable and weights are unspecified; diagnostic objective is explicit.",
+              "Pressure marker variant and row-wise marker observations unavailable.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 47.23,
+                "published_error": 0.36,
+                "refit": 47.26776659985669,
+                "refit_error": 0.09096853257033174,
+                "difference": 0.03776659985669539,
+                "relative_difference": 0.0007996315870568579,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 286.0,
+                "published_error": 18.0,
+                "refit": 284.2176104350147,
+                "refit_error": 4.983794925908353,
+                "difference": -1.7823895649852943,
+                "relative_difference": 0.006232131346102428,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "diagnostic_unweighted_pressure",
+              "objective": "unweighted pressure residuals; source dependent variable and weights unspecified",
+              "selection": "All Table S4 rows, including its ambient row when present; Table S3 coexistence rows excluded.",
+              "absolute_sigma": false,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": [],
+              "observations": 8,
+              "observed_pressure_range_gpa": [42.225, 62.934],
+              "degrees_of_freedom": 6,
+              "solver_success": true,
+              "rmse_gpa": 0.18052922464767193,
+              "published_rmse_gpa": 0.19094366489555822,
+              "dataset_identifiers": ["nisr_2017_silica_tables_s1_s4"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-19",

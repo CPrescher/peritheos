@@ -89,6 +89,55 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- The reduction uses the source's Us=5.36+1.19up relation, 300 K Debye theta0=390 K, gamma0=1.38, gamma/V constant (q=1), and two atoms per NiO formula unit. The seven-state predecessor reproduces K0=184+/-5 GPa and about 1600 K at 132.9 GPa. The eight rounded journal rows recover the final coefficients within the residual-scaled refit errors; exact parity is unavailable because unrounded states, row-wise uncertainties, weights, and numerical objective are not published.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 191.0 | Not specified | 182.43511253506455 | 11.494590806763085 | Free |
+| K0\_prime | 3.9 | Not specified | 4.124651942331509 | 0.35671288331062556 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** shock\_to\_300k\_mie\_gruneisen\_debye\_then\_bm3
+- **Objective:** unweighted\_reduced\_isothermal\_pressure\_residuals
+- **Selection:** all eight Table 1 final Hugoniot states; HEL precursor columns excluded; each pressure thermally reduced to 300 K before BM3 fitting
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 8
+- **Observed pressure range gpa:** \[17.7, 147.6\]
+- **Degrees of freedom:** 6
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 2.084318952516954
+- **Reduced chi square:** 5.792513994428496
+- **Dataset identifiers:** nickel\_oxide\_noguchi\_1999\_table1\_shock
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 The reference volume and uncertainty are calculated from the reported pseudo-cubic a0 = 4.177(1) A for the Z=3 rhombohedral hexagonal cell. The paper reports the BM3 isothermal parameters K0 = 191 GPa and K0' = 3.9 without parameter uncertainties; its quoted K0'' = -0.03 GPa^-1 is the value implied by that third-order fit, not an independent BM4 coefficient. The primary reduction uses a 300 K Debye Mie-Gruneisen correction with theta0=390 K, gamma0=1.38, gamma/V constant (the q=1 integrated-Gruneisen law), two atoms per NiO formula unit, and the source Us=5.36+1.19up relation. The shock table must never be fitted directly as an isotherm.
 
 Parameter covariance is not supplied.
@@ -252,6 +301,57 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| c0 | 5.3549770536 | 0.0531157378 | 5.354977053622233 | 0.05311573780318259 | Free |
+| s | 1.2137281492 | 0.02956091343 | 1.2137281492244212 | 0.029560913431890334 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** linear\_us\_up\_hugoniot
+- **Objective:** shock\_velocity\_residuals
+- **Selection:** finite final\_particle\_velocity\_km\_s and final\_shock\_velocity\_km\_s; 8 rows
+- **Columns:**
+    - **Particle velocity:** final\_particle\_velocity\_km\_s
+    - **Shock velocity:** final\_shock\_velocity\_km\_s
+- **Absolute sigma:** False
+- **Free parameters:** c0; s
+- **Fixed parameters:** V0; rho0; P0
+- **Observations:** 8
+- **Degrees of freedom:** 6
+- **Solver success:** True
+- **Solver message:** \`gtol\` termination condition is satisfied.
+- **Rmse shock velocity km s:** 0.05563671460959945
+- **Reduced chi square:** 0.004127258683400022
+- **Dataset identifiers:** nickel\_oxide\_noguchi\_1999\_table1\_shock
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Derived constrained principal Hugoniot for the untransformed rhombohedral B1 branch only. This is not the paper's separate 300 K Mie-Gruneisen-reduced isotherm and not a general P(V,T) EOS. Row-wise Us and up errors are unavailable, so the OLS covariance reflects residual scatter rather than a complete experimental error model. V0 is deterministically derived from rho0 and is not assigned an independent error.
 

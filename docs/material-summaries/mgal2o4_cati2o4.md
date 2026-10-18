@@ -97,6 +97,33 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** The source construction is not a regression: recovered V0 is held fixed, K0-prime=4 is assumed, and the only compressed observation determines K0 algebraically. The article has no supplement, and the audit found no associated repository series; the complete reported endpoint evidence is bundled, but it leaves zero independent residual degrees of freedom.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- Usage recommendation: not\_recommended\_for\_quantitative\_use
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** V0
+- **Dataset identifiers:** mgal2o4\_cati2o4\_funamori\_1998\_text\_pv
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 This record describes the CaTi2O4-type product established by runs 3 and 4. It is distinct from the lower-pressure CaFe2O4-type run-2 phase. It remains a production published record because the equation, coefficients, construction states, and provenance are complete, but it must not be presented as a multi-point fit.
 
 Parameter covariance is not supplied.
@@ -220,6 +247,63 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- All 14 Table 3 rows, including two recovered ambient cells. Source weights and selection are unspecified; zero-rounded volume errors preclude using those errors as weights. The unweighted diagnostic recovers the printed coefficients; the dedicated Ono reproduction documents the sensitivity to excluding ambient cells.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 238.9 | 0.9 | 238.88074707412352 | 0.9517179436935822 | Free |
+| K0 | 219.0 | 6.0 | 219.0469702625556 | 6.2198911256599025 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** all rows; reference-T rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0
+- **Fixed parameters:** None declared
+- **Observations:** 14
+- **Observed pressure range gpa:** \[0.0, 91.2\]
+- **Observed temperature range k:** \[300.0, 300.0\]
+- **Observed volume range:** \[186.4, 240.7\]
+- **Degrees of freedom:** 12
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 1.3260637609793657
+- **Published rmse gpa:** 1.3262475763534347
+- **Reduced chi square:** 2.0515192812131975
+- **Dataset identifiers:** mgal2o4\_cati2o4\_ono\_2006\_table3
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 The structural lattice remains independently sourced to Funamori (1998); it is not the fitted Ono reference volume. No epsilon-phase EOS or cited theoretical/comparison fit is reassigned to this paper. See docs/literature-reproductions/ono-2006-mgal2o4-cati2o4.md.
 

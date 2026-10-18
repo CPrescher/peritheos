@@ -74,6 +74,74 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Phase-specific source inclusion flags are applied. This diagnostic does not replay the MINUTI volume objective and Gaussian parameter priors; a different conditional coefficient estimate alone does not establish a source-EOS failure.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 78.88,
+                "published_error": 0.056,
+                "refit": 78.83719608651616,
+                "refit_error": 0.12773947199246283,
+                "difference": -0.042803913483837164,
+                "relative_difference": 0.0005426459620161912,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 155.3,
+                "published_error": 2.2,
+                "refit": 159.74023853240206,
+                "refit_error": 9.472157638240265,
+                "difference": 4.440238532402049,
+                "relative_difference": 0.02859136208887346,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.79,
+                "published_error": 0.11,
+                "refit": 3.338436432393742,
+                "refit_error": 0.8656985220111578,
+                "difference": -0.45156356760625815,
+                "relative_difference": 0.11914606005442167,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "used_in_b1_fit=1; reference-T rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "atomic_volume_angstrom3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 14,
+              "observed_pressure_range_gpa": [1.5, 23.3],
+              "observed_temperature_range_k": [300.0, 300.0],
+              "observed_volume_range": [70.056, 78.008],
+              "degrees_of_freedom": 11,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.09566063199171472,
+              "published_rmse_gpa": 0.2405614708793054,
+              "reduced_chi_square": 0.8096311802812604,
+              "dataset_identifiers": ["mgfe94o_dobrosavljevic_2019_table_s1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "The open publisher article and official supplement were audited directly. The complete source-scale P-V table and the versioned MINUTI equation, weighting, prior, and selection protocol support an independent Peritheos refit.",

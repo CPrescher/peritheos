@@ -85,6 +85,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 55.3318 | Not specified | 55.34595816308018 | 0.19592243212918378 | Free |
+| K0 | 258.0 | 5.0 | 254.08238644719222 | 93.59331646668893 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** compound=GeO2
+- **Columns:**
+    - **Pressure:** pressure\_kbar
+    - **Temperature:** Not specified
+    - **Volume:** unit\_cell\_volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0
+- **Fixed parameters:** K0\_prime
+- **Observations:** 4
+- **Observed pressure range gpa:** \[0.0001, 3.7\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[54.565, 55.33\]
+- **Degrees of freedom:** 2
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.08548238728813126
+- **Published rmse gpa:** 0.0951394177675683
+- **Reduced chi square:** 0.014628832164344865
+- **Dataset identifiers:** rutile\_hazen\_finger\_1981\_table1\_sno2\_geo2\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 20 degC BM3 representation with K0' fixed at 7: K0=258+/-5 GPa. V0=55.3318 A^3 is calculated from the Table 3 ambient a0 and c0; the paper does not publish an EOS-fit V0 error or parameter covariance.
 
 Parameter covariance is not supplied.

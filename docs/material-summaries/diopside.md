@@ -98,6 +98,51 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Conditional parameter parity within reported error widths on all 14 printed rows using effective P/V variance. Source confidence and exact author weights/covariance are not recovered; no combined-two-sigma or original-author workflow parity is asserted.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 438.66 | 0.02 | 438.6553948430803 | Not specified | See protocol |
+| K0 | 118.0 | 1.0 | 117.8641776706991 | Not specified | See protocol |
+| K0\_prime | 3.8 | 0.3 | 3.7962907042955125 | Not specified | See protocol |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** effective\_variance\_pv
+- **Fixed parameters:** None declared
+- **Observations:** 14
+- **Solver success:** True
+- **Rmse gpa:** 0.03658693276345292
+- **Published rmse gpa:** 0.03739721229323705
+- **Dataset identifiers:** diopside\_thompson\_2008\_table1
+- **Reproduction report:** docs/data/diopside-reproduction.json
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Independent static diffraction EOS, not combined with Zhao thermal coefficients. The source also reports a fixed-Kprime=4 alternative (K0=117.1(2) GPa, V0=438.66(2) A^3), retained in the audit rather than conflated with this free-Kprime record. Source P is Mao (1978) ruby scale. Room temperature is represented nominally as 300 K.
 
 Parameter covariance is not supplied.
@@ -218,6 +263,53 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Conditional parameter parity within reported error widths using the separate corrected analysis dataset: row 15 pressure is the rounded Figure 2 reading 4.58 GPa, not the printed 6.95 GPa. Its +/-0.05 GPa graphical bound is not a statistical error. All 32 rows, including the repeated ambient row, are retained; V0 and Tr are fixed. Original source tables and published coefficients are preserved. Exact original fit inputs, selection, weighting and covariance remain unrecovered.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 109.1 | 4.0 | 107.72466440881215 | Not specified | See protocol |
+| K0\_prime | 4.84 | 0.6 | 5.122488565130115 | Not specified | See protocol |
+| alpha0 | 2.32e-05 | 5e-07 | 2.2972456391882284e-05 | Not specified | See protocol |
+| alpha1 | 1.88e-08 | 7e-10 | 1.902591653883834e-08 | Not specified | See protocol |
+| dK\_dT | -0.0205 | 0.0004 | -0.020207621644568515 | Not specified | See protocol |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** graph\_corroborated\_corrected\_pvt
+- **Fixed parameters:** Tr
+- **Observations:** 32
+- **Solver success:** True
+- **Rmse gpa:** 0.057920259389445686
+- **Published rmse gpa:** 0.06455854469786602
+- **Dataset identifiers:** diopside\_zhao\_1998\_table1\_corrected\_pvt
+- **Reproduction report:** docs/data/diopside-plot-check.json
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

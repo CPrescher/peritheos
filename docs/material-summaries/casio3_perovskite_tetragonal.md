@@ -98,6 +98,61 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 255.0 | 5.0 | 254.98119457543956 | 0.9815733034619097 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** K0
+- **Fixed parameters:** V0; K0\_prime
+- **Observations:** 6
+- **Observed pressure range gpa:** \[19.7, 45.8\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[39.70123, 42.737191\]
+- **Degrees of freedom:** 5
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 1.623254953852628
+- **Published rmse gpa:** 2.0239026923473156
+- **Reduced chi square:** 20.524681296199326
+- **Dataset identifiers:** casio3\_perovskite\_tetragonal\_shim\_2002\_figure2a\_digitized
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 The stored volume basis is the source's P4/mmm pseudocell (Z=1), while the phase identity remains generically tetragonal because P4/mmm and I4/mmm refinements gave nearly identical residuals. Figure 2a supporting observations are now bundled as an explicitly digitized dataset; the 19.7 GPa cubic refinement is flagged separately.
 
 Parameter covariance is not supplied.

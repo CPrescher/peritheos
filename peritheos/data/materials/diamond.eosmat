@@ -77,6 +77,59 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Conditional figure-level reproduction. The same run-2/equal-volume hypothesis approaches the independently printed MXB1986 and H2005 Table II coefficients and the H2005 chi-square, but Datchi et al. do not publish exclusions or weights and Occelli et al. do not print numerical rows. All 24 markers and all-marker sensitivity fits remain visible in the diagnostic. No refit covariance or parameter errors are inferred from the digitized points.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 443.0,
+                "published_error": 3.0,
+                "refit": 444.3462890944917,
+                "refit_error": null,
+                "difference": 1.3462890944916808,
+                "relative_difference": 0.0030390273013356224,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_published_fit_standard_deviation": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.97,
+                "published_error": 0.05,
+                "refit": 3.960700438665756,
+                "refit_error": null,
+                "difference": -0.009299561334244366,
+                "relative_difference": 0.002342458774368858,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_published_fit_standard_deviation": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "static_vinet_with_explicit_ruby_scale_conversion",
+              "objective": "equal volume residuals; equivalent point estimates from the published constant 0.003 cm^3/mol volume uncertainty",
+              "selection": "Occelli Figure 2 run-2 open circles only (14/24 markers); best-supported but source-unconfirmed Table II selection hypothesis",
+              "absolute_sigma": null,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 14,
+              "observed_pressure_range_gpa": [13.227651913, 154.97533874678942],
+              "solver_success": true,
+              "solver_message": "`gtol` termination condition is satisfied.",
+              "rmse_gpa": 0.2775872734356574,
+              "dataset_identifiers": ["diamond_occelli_2003_figure2_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -166,6 +219,62 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 45.3544,
+                "published_error": 0.0128,
+                "refit": 45.35739773988821,
+                "refit_error": 0.005958461183877768,
+                "difference": 0.0029977398882152784,
+                "relative_difference": 6.60959000276771e-05,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.18,
+                "published_error": 0.15,
+                "refit": 4.094736716425615,
+                "refit_error": 0.0654791063011287,
+                "difference": -0.08526328357438473,
+                "relative_difference": 0.02039791473071405,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows; reference-T rows",
+              "columns": {"pressure": "pressure_h05_gpa", "temperature": "temperature_k", "volume": "lattice_a_angstrom"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0_prime"],
+              "fixed_parameters": ["K0"],
+              "observations": 23,
+              "observed_pressure_range_gpa": [0.0, 57.6],
+              "observed_temperature_range_k": [298.0, 298.0],
+              "observed_volume_range": [40.83196326287499, 45.36941878829601],
+              "degrees_of_freedom": 21,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.2312840795693689,
+              "published_rmse_gpa": 0.24196655068724385,
+              "reduced_chi_square": 0.05858683264913113,
+              "dataset_identifiers": ["diamond_dewaele_2008_table1_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -263,6 +372,31 @@
         "audit_date": "2026-09-03"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "source_reconstruction",
+            "scope": "source_equation",
+            "source_status": "source_reconstruction",
+            "basis": "All eleven machine-readable comparison series enter one shared Equation (20) objective against the mean Table 2 Holzapfel and Table 3 Vinet isotherm. Table 4 is retained as a post-calibration closure test. The calculation cannot recover the eleven EOS parameter sets independently because the source omits complete thermochemical/ultrasonic rows, weights, and covariance.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fit_kind": "coupled_eleven_marker_ruby_cross_calibration",
+              "objective": "minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight",
+              "fixed_parameters": ["n", "Z", "n"],
+              "observations": 12,
+              "rmse_gpa": 0.34050399388283104,
+              "published_rmse_gpa": 0.3292803038925985,
+              "comparison_scope": "shared_ruby_calibration",
+              "dataset_identifiers": ["diamond_dewaele_2008_table1_pvt"],
+              "published_ruby_parameters": {"A_gpa": 1870.0, "m": 6.0},
+              "sensitivity_fit_ruby_parameters": {"A_gpa": 1869.3837840502665, "m": 6.10334763359135}
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -446,6 +580,209 @@
         "audit_date": "2026-09-03"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "The recorded parameter reconstruction did not meet the audit's agreement criterion; the parameter comparisons retain the actual reconstructed values.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.V0",
+                "published": 46.28,
+                "published_error": null,
+                "refit": 46.67568341560049,
+                "refit_error": 0.7247320237314758,
+                "difference": 0.39568341560048736,
+                "relative_difference": 0.008549771296466883,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "rt_eos.K0",
+                "published": 368.2,
+                "published_error": null,
+                "refit": 348.6296511470743,
+                "refit_error": 31.750486487424126,
+                "difference": -19.57034885292569,
+                "relative_difference": 0.053151409160580365,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "rt_eos.K0_prime",
+                "published": 4.038,
+                "published_error": null,
+                "refit": 4.112767509943601,
+                "refit_error": 0.1424364145584015,
+                "difference": 0.07476750994360071,
+                "relative_difference": 0.018515975716592546,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "Vp",
+                "published": 0.3354934617396,
+                "published_error": null,
+                "refit": 0.4531579639616889,
+                "refit_error": 0.18839276010015268,
+                "difference": 0.11766450222208891,
+                "relative_difference": 0.3507207014168776,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "theta_a0",
+                "published": 1887.8,
+                "published_error": null,
+                "refit": 8800.192275922882,
+                "refit_error": 0.0021508652211605734,
+                "difference": 6912.392275922882,
+                "relative_difference": 3.6616126051079996,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "a_a",
+                "published": -5.247303452269356,
+                "published_error": null,
+                "refit": 0.34052997825744297,
+                "refit_error": 5.594051377296249,
+                "difference": 5.587833430526799,
+                "relative_difference": 1.0648961855084196,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "b_a",
+                "published": 0.913,
+                "published_error": null,
+                "refit": -1.69049108424988,
+                "refit_error": 1.4573942664613533,
+                "difference": -2.60349108424988,
+                "relative_difference": 2.851578405531084,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "theta_b0",
+                "published": 1887.8,
+                "published_error": null,
+                "refit": 2882.0765942252824,
+                "refit_error": 0.0046442298091012415,
+                "difference": 994.2765942252825,
+                "relative_difference": 0.5266853449651883,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "a_b",
+                "published": 2.7897056328520624,
+                "published_error": null,
+                "refit": 2.436799666969396,
+                "refit_error": 5.666031630082069,
+                "difference": -0.35290596588266654,
+                "relative_difference": 0.12650294057078426,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "b_b",
+                "published": 0.429,
+                "published_error": null,
+                "refit": 0.24330607028691742,
+                "refit_error": 1.0605496759066428,
+                "difference": -0.18569392971308257,
+                "relative_difference": 0.4328529830141785,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "theta_0_0",
+                "published": 1887.8,
+                "published_error": null,
+                "refit": 37756.0,
+                "refit_error": 0.00015922406457022603,
+                "difference": 35868.2,
+                "relative_difference": 19.0,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "a_0",
+                "published": 2.175306177997739,
+                "published_error": null,
+                "refit": 1.5076531531149437,
+                "refit_error": 0.6482705375044794,
+                "difference": -0.6676530248827954,
+                "relative_difference": 0.30692370188427304,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "b_0",
+                "published": 0.202,
+                "published_error": null,
+                "refit": 0.3707658731740606,
+                "refit_error": 0.1443761186444315,
+                "difference": 0.1687658731740606,
+                "relative_difference": 0.8354746196735673,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "anharmonic_a",
+                "published": 3.8e-05,
+                "published_error": null,
+                "refit": 3.8e-05,
+                "refit_error": 0.0,
+                "difference": 0.0,
+                "relative_difference": 0.0,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "volume_a3_per_atom"},
+              "absolute_sigma": true,
+              "free_parameters": [
+                "rt_eos.V0",
+                "rt_eos.K0",
+                "rt_eos.K0_prime",
+                "Vp",
+                "theta_a0",
+                "a_a",
+                "b_a",
+                "theta_b0",
+                "a_b",
+                "b_b",
+                "theta_0_0",
+                "a_0",
+                "b_0",
+                "anharmonic_a"
+              ],
+              "fixed_parameters": [],
+              "observations": 57,
+              "observed_pressure_range_gpa": [169.148156, 740.079232],
+              "observed_temperature_range_k": [488.002376, 9887.43671],
+              "observed_volume_range": [25.68, 35.44],
+              "degrees_of_freedom": 43,
+              "solver_success": true,
+              "solver_message": "`xtol` termination condition is satisfied.",
+              "rmse_gpa": 1.0849336136496166,
+              "published_rmse_gpa": 1.7908921936844253,
+              "reduced_chi_square": 1.5603166028727558,
+              "dataset_identifiers": ["diamond_correa_2008_figure8_dft_md_vector_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -542,6 +879,233 @@
         "audit_date": "2026-09-03"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "The recorded parameter reconstruction did not meet the audit's agreement criterion; the parameter comparisons retain the actual reconstructed values.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.V0",
+                "published": 45.6272,
+                "published_error": null,
+                "refit": 45.43830640995942,
+                "refit_error": 0.16427642472030632,
+                "difference": -0.18889359004058548,
+                "relative_difference": 0.004139933856133742,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "rt_eos.K0",
+                "published": 432.4,
+                "published_error": null,
+                "refit": 434.7686402071058,
+                "refit_error": 5.161777205753291,
+                "difference": 2.368640207105841,
+                "relative_difference": 0.005477891320781316,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "rt_eos.K0_prime",
+                "published": 3.793,
+                "published_error": null,
+                "refit": 3.8153628918557647,
+                "refit_error": 0.03265526034489446,
+                "difference": 0.022362891855764566,
+                "relative_difference": 0.005895832284672968,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "Vp",
+                "published": 0.3354934617396,
+                "published_error": null,
+                "refit": 0.30427335355480856,
+                "refit_error": 0.24629048467406486,
+                "difference": -0.03122010818479143,
+                "relative_difference": 0.09305727754844756,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "theta_a0",
+                "published": 1887.8,
+                "published_error": null,
+                "refit": 2162.5684216252175,
+                "refit_error": 3.7279485700375514e-07,
+                "difference": 274.76842162521757,
+                "relative_difference": 0.14554954000700157,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "a_a",
+                "published": -5.247303452269356,
+                "published_error": null,
+                "refit": -4.759027255600479,
+                "refit_error": 0.017461243041600946,
+                "difference": 0.48827619666887667,
+                "relative_difference": 0.09305278437017146,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "b_a",
+                "published": 0.913,
+                "published_error": null,
+                "refit": -0.006774897358384057,
+                "refit_error": 0.1665931912876218,
+                "difference": -0.9197748973583841,
+                "relative_difference": 1.0074204790343746,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "theta_b0",
+                "published": 1887.8,
+                "published_error": null,
+                "refit": 1887.9776140426209,
+                "refit_error": 2.880109814737486e-05,
+                "difference": 0.17761404262091673,
+                "relative_difference": 9.40852010917029e-05,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "a_b",
+                "published": 2.7897056328520624,
+                "published_error": null,
+                "refit": 1.656209330531414,
+                "refit_error": 2.0953990760522867,
+                "difference": -1.1334963023206484,
+                "relative_difference": 0.4063139454472892,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "b_b",
+                "published": 0.429,
+                "published_error": null,
+                "refit": 0.5605710451121859,
+                "refit_error": 1.11806921712187,
+                "difference": 0.13157104511218592,
+                "relative_difference": 0.30669241284891824,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "theta_1_0",
+                "published": 1887.8,
+                "published_error": null,
+                "refit": 1770.9397043826275,
+                "refit_error": 4.341827958631915e-05,
+                "difference": -116.86029561737246,
+                "relative_difference": 0.061902900528325276,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "a_1",
+                "published": 1.4048160508290741,
+                "published_error": null,
+                "refit": 1.415784740358922,
+                "refit_error": 3.4888735844594683,
+                "difference": 0.010968689529847975,
+                "relative_difference": 0.0078079187117591885,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "b_1",
+                "published": 0.499,
+                "published_error": null,
+                "refit": 0.44506407104242596,
+                "refit_error": 1.014718409154025,
+                "difference": -0.05393592895757404,
+                "relative_difference": 0.10808803398311431,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "alpha0",
+                "published": 3.79e-05,
+                "published_error": null,
+                "refit": 6.099236905331258e-05,
+                "refit_error": 0.00011799979328728626,
+                "difference": 2.3092369053312584e-05,
+                "relative_difference": 0.6092973364990127,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "Ve",
+                "published": 0.348380842966,
+                "published_error": null,
+                "refit": 0.17547488477721068,
+                "refit_error": 3.125993114650048e-07,
+                "difference": -0.17290595818878934,
+                "relative_difference": 0.4963130484349393,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "kappa",
+                "published": 0.0,
+                "published_error": null,
+                "refit": 1.0,
+                "refit_error": 1.275694309879621,
+                "difference": 1.0,
+                "relative_difference": null,
+                "similar": false,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "volume_a3_per_atom"},
+              "absolute_sigma": true,
+              "free_parameters": [
+                "rt_eos.V0",
+                "rt_eos.K0",
+                "rt_eos.K0_prime",
+                "Vp",
+                "theta_a0",
+                "a_a",
+                "b_a",
+                "theta_b0",
+                "a_b",
+                "b_b",
+                "theta_1_0",
+                "a_1",
+                "b_1",
+                "alpha0",
+                "Ve",
+                "kappa"
+              ],
+              "fixed_parameters": [],
+              "observations": 96,
+              "observed_pressure_range_gpa": [40.476915, 871.127814],
+              "observed_temperature_range_k": [2000.0, 9000.0],
+              "observed_volume_range": [24.54661864, 43.12243824],
+              "degrees_of_freedom": 80,
+              "solver_success": true,
+              "solver_message": "`xtol` termination condition is satisfied.",
+              "rmse_gpa": 0.9415488724060389,
+              "published_rmse_gpa": 3.177925436805747,
+              "reduced_chi_square": 1.0638171349549002,
+              "dataset_identifiers": ["diamond_benedict_2014_supplement_solid_dft_md"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -656,6 +1220,25 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "source_reconstruction",
+            "scope": "source_equation",
+            "source_status": "source_reconstruction",
+            "basis": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": [],
+              "observations": 80,
+              "reconstruction_kind": "derived_reference_isotherm_composition",
+              "dataset_identifiers": ["diamond_dewaele_2008_table1_pvt", "diamond_correa_2008_figure8_dft_md_vector_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Exact source-equation reconstruction of separately audited reference-isotherm and simulated thermal components; no composite coefficients were fitted.",
@@ -794,6 +1377,25 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "source_reconstruction",
+            "scope": "source_equation",
+            "source_status": "source_reconstruction",
+            "basis": "Exact source-equation reconstruction with no composite coefficient optimization: the Dewaele reference isotherm is independently refitted, the published theory branch is tested against its source checkpoints, and the complete composed pressure and energy-increment identities are verified.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": [],
+              "observations": 119,
+              "reconstruction_kind": "derived_reference_isotherm_composition",
+              "dataset_identifiers": ["diamond_dewaele_2008_table1_pvt", "diamond_benedict_2014_supplement_solid_dft_md"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Exact source-equation reconstruction of separately audited reference-isotherm and simulated thermal components; no composite coefficients were fitted.",

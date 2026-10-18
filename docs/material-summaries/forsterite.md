@@ -89,6 +89,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 130.0 | 0.9 | 130.09172243150562 | 6.4589727076486 | Free |
+| K0\_prime | 4.12 | 0.07 | 4.114352835421328 | 0.47403545557767013 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** phase=forsterite\_I, used\_in\_forsterite\_i\_eos\_fit=yes
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** unit\_cell\_volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 14
+- **Observed pressure range gpa:** \[0.0, 48.0\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[230.6, 290.1\]
+- **Degrees of freedom:** 12
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.12802711386736998
+- **Published rmse gpa:** 0.13231209345082623
+- **Reduced chi square:** 0.019747225742570304
+- **Dataset identifiers:** forsterite\_finkelstein\_2014\_table2\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Fit to single-crystal compression data through 48 GPa in helium. The measured V0=290.1(1) A^3 was fixed while K0 and K0\_prime were refined.
 
 Parameter covariance is not supplied.
@@ -188,6 +244,55 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Katsura 2022 forsterite accepts conditional numerical parity within printed Table 2 parameter error widths. The full-precision theta0=760 K author-script vector is recommended; the theta0=768 K table alternative is retained. Table errors are a comparison scale only for the script vector; script-specific errors, covariance and exact bootstrap reproduction remain unavailable. Original 2009 combined-fit reproduction is a separate unresolved audit.
+- Recommended thermal option: full-precision author-script coefficients, theta0=760 K. Conditional numerical parity within reported error widths; exact bootstrap reproduction unverified. See \[the source comparison\](literature-reproductions/forsterite-katsura-2022-refit-comparison.md).
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0\_prime | 4.21116896988574 | Not specified | 4.249220999557795 | Not specified | Free |
+| gamma0 | 0.997258584556838 | Not specified | 0.9992725760819935 | Not specified | Free |
+| q | 2.43854091371459 | Not specified | 2.4677172154907185 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** reconstructed\_input\_conditional\_bm3\_mgd
+- **Objective:** unweighted\_pressure\_residuals
+- **Selection:** All 51 deposited observations; AD pressure, AN volume ratio, U temperature; M375006 retained.
+- **Free parameters:** K0\_prime; gamma0; q
+- **Fixed parameters:** V0; K0; Tr; theta0; n; Z
+- **Observations:** 51
+- **Solver success:** True
+- **Rmse gpa:** 0.21282064917509597
+- **Published rmse gpa:** 0.21300125575966772
+- **Dataset identifiers:** forsterite\_katsura\_2022\_olivine\_pvt
+- **Reproduction report:** docs/data/forsterite-katsura-2022-reproduction.json
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -319,6 +424,55 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Katsura 2022 forsterite accepts conditional numerical parity within printed Table 2 parameter error widths. The full-precision theta0=760 K author-script vector is recommended; the theta0=768 K table alternative is retained. Table errors are a comparison scale only for the script vector; script-specific errors, covariance and exact bootstrap reproduction remain unavailable. Original 2009 combined-fit reproduction is a separate unresolved audit.
+- Printed Table 2 alternative, theta0=768 K. Conditional numerical parity within reported error widths; exact bootstrap reproduction unverified. See \[the source comparison\](literature-reproductions/forsterite-katsura-2022-refit-comparison.md).
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0\_prime | 4.2 | 0.4 | 4.254577305953309 | Not specified | Free |
+| gamma0 | 1.0 | 0.02 | 1.0005027491131544 | Not specified | Free |
+| q | 2.4 | 0.5 | 2.4703460700134214 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** reconstructed\_input\_conditional\_bm3\_mgd
+- **Objective:** unweighted\_pressure\_residuals
+- **Selection:** All 51 deposited observations; AD pressure, AN volume ratio, U temperature; M375006 retained.
+- **Free parameters:** K0\_prime; gamma0; q
+- **Fixed parameters:** V0; K0; Tr; theta0; n; Z
+- **Observations:** 51
+- **Solver success:** True
+- **Rmse gpa:** 0.21239522341551
+- **Published rmse gpa:** 0.21249940044126006
+- **Dataset identifiers:** forsterite\_katsura\_2022\_olivine\_pvt
+- **Reproduction report:** docs/data/forsterite-katsura-2022-reproduction.json
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

@@ -87,6 +87,53 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** NOT REPRODUCED: the available digitization does not establish a source-faithful reproduction of the published fit. Original observations, regression settings and covariance are unavailable; the shared fitted V0 normalization limits independent coefficient recovery. The numerical fits below are diagnostics only. Broad error-bar overlap is not successful reproduction. Comparison uses atomic volume: hcp cell/2 and fcc cell/4. Different phases are compared, not identified. Nine digitized points have large volume errors and share the fitted 78 A^3 normalization; unknown covariance limits coefficient inference. No replacement EOS is promoted from this diagnostic. Original article could not be reopened without institutional access on 2026-09-24; source transcription relies on the existing primary-source audit.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- Usage recommendation: NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. Historical hcp compression only; prefer the separate Dewaele (2021) fcc thermal EOS for fcc argon. Do not extrapolate this BM2 fit beyond 8.5 GPa as a pressure standard.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 78.0 | 3.0 | 72.78172096898437 | Not specified | Free |
+| K0 | 6.5 | 1.3 | 8.060302736427957 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** digitized\_bm2\_errors\_in\_variables
+- **Objective:** P and V residuals with digitization uncertainty combined with plotted volume error
+- **Selection:** All nine experimental markers; fitted ambient marker excluded
+- **Free parameters:** V0; K0
+- **Fixed parameters:** None declared
+- **Observations:** 9
+- **Solver success:** True
+- **Rmse gpa:** 0.4510113341777895
+- **Published rmse gpa:** 0.7722620448085159
+- **Reduced chi square:** 0.20254793447243688
+- **Dataset identifiers:** argon\_hcp\_wittlinger\_1997\_figure3\_digitized
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 NOT REPRODUCED: the published fit could not be independently reproduced from the available evidence. Digitized-data refits are diagnostic only; broad error-bar overlap does not establish reproduction. The publication reports V0=78(3) A^3 and K0=6.5(1.3) GPa; K0\_prime is fixed at 4 by BM2. V0 is a fitted reference volume because ambient hcp argon could not be measured directly. Historical hcp-only fit over 1.2-8.5 GPa; not recommended as a general argon pressure standard or for high-pressure extrapolation. The published curve has 0.772 GPa RMS residual on the nine digitized observations. An errors-in-variables diagnostic has about 0.451 GPa RMS at the original observations, versus 0.012 GPa at adjusted coordinates; these metrics must not be compared as equivalent improvements.
 
 Parameter covariance is not supplied.

@@ -89,6 +89,24 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "The source construction is not a regression: recovered V0 is held fixed, K0-prime=4 is assumed, and the only compressed observation determines K0 algebraically. The article has no supplement, and the audit found no associated repository series; the complete reported endpoint evidence is bundled, but it leaves zero independent residual degrees of freedom.",
+            "qualifications": [
+              "Usage recommendation: not_recommended_for_quantitative_use",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": ["V0"],
+              "dataset_identifiers": ["mgal2o4_cati2o4_funamori_1998_text_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against the free-access publisher PDF; LitCurate was used only for discovery and enumeration. Retained as the source-reported historical endpoint curve, but later multi-point CaTi2O4-type EOS measurements are preferred for quantitative use.",
@@ -213,6 +231,63 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "All 14 Table 3 rows, including two recovered ambient cells. Source weights and selection are unspecified; zero-rounded volume errors preclude using those errors as weights. The unweighted diagnostic recovers the printed coefficients; the dedicated Ono reproduction documents the sensitivity to excluding ambient cells.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 238.9,
+                "published_error": 0.9,
+                "refit": 238.88074707412352,
+                "refit_error": 0.9517179436935822,
+                "difference": -0.019252925876486415,
+                "relative_difference": 8.058989483669492e-05,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 219.0,
+                "published_error": 6.0,
+                "refit": 219.0469702625556,
+                "refit_error": 6.2198911256599025,
+                "difference": 0.04697026255558967,
+                "relative_difference": 0.00021447608472871996,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows; reference-T rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": [],
+              "observations": 14,
+              "observed_pressure_range_gpa": [0.0, 91.2],
+              "observed_temperature_range_k": [300.0, 300.0],
+              "observed_volume_range": [186.4, 240.7],
+              "degrees_of_freedom": 12,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 1.3260637609793657,
+              "published_rmse_gpa": 1.3262475763534347,
+              "reduced_chi_square": 2.0515192812131975,
+              "dataset_identifiers": ["mgal2o4_cati2o4_ono_2006_table3"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-08",

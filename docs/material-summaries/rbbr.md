@@ -102,6 +102,53 @@ meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
 
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 16.28 | 0.04 | 16.31593787701798 | Not specified | See protocol |
+| K0\_prime | 5.28 | 0.02 | 5.255871185051541 | Not specified | See protocol |
+| gamma0 | 2.18 | 0.14 | 2.166479029403295 | Not specified | See protocol |
+| q | 1.52 | 0.24 | 1.4741843779781867 | Not specified | See protocol |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** iterated\_effective\_variance\_bm3\_mgd
+- **Objective:** iterated frozen diagonal effective P/V/T variance
+- **Fixed parameters:** V0; Tr; theta0; n
+- **Observations:** 123
+- **Solver success:** True
+- **Rmse gpa:** 0.1567603609069775
+- **Published rmse gpa:** 0.15948654363882814
+- **Dataset identifiers:** rbbr\_farla\_2025\_observations
+- **Reproduction report:** docs/data/rubidium-halides-farla-2025-follow-up.json
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 

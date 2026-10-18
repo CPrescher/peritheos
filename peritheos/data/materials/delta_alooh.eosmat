@@ -46,6 +46,62 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 56.54,
+                "published_error": 0.09,
+                "refit": 56.4053156758705,
+                "refit_error": 0.1429435086694433,
+                "difference": -0.13468432412950193,
+                "relative_difference": 0.0023821069000619375,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 252.0,
+                "published_error": 3.0,
+                "refit": 238.76764550572506,
+                "refit_error": 13.56994918011207,
+                "difference": -13.232354494274944,
+                "relative_difference": 0.052509343231249776,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 9,
+              "observed_pressure_range_gpa": [0.0, 22.51],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [52.03, 56.54],
+              "degrees_of_freedom": 7,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.4769649834169588,
+              "published_rmse_gpa": 1.4332160943010486,
+              "reduced_chi_square": 0.3306394968925456,
+              "dataset_identifiers": ["delta_alooh_vanpeteghem_2002_table1_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Primary article text, Tables 1-2, and all nine P-V rows checked.",
@@ -120,6 +176,73 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 56.54,
+                "published_error": 0.09,
+                "refit": 56.48926393585292,
+                "refit_error": 0.23048584195149213,
+                "difference": -0.050736064147081095,
+                "relative_difference": 0.0008973481455090396,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 228.0,
+                "published_error": 7.0,
+                "refit": 212.64615028174384,
+                "refit_error": 49.585902639167365,
+                "difference": -15.353849718256157,
+                "relative_difference": 0.06734144613270245,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 7.0,
+                "published_error": 1.0,
+                "refit": 6.676569946181614,
+                "refit_error": 5.271235512011002,
+                "difference": -0.3234300538183863,
+                "relative_difference": 0.04620429340262661,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 9,
+              "observed_pressure_range_gpa": [0.0, 22.51],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [52.03, 56.54],
+              "degrees_of_freedom": 6,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.4373833183302344,
+              "published_rmse_gpa": 1.3626960445623768,
+              "reduced_chi_square": 0.332228536496547,
+              "dataset_identifiers": ["delta_alooh_vanpeteghem_2002_table1_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Primary article text, Tables 1-2, and all nine P-V rows checked.",

@@ -48,6 +48,74 @@
         "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Source-scope reproduction: Figure 2 displays the ice-VI PVT data as the 300 K and 340 K isotherms. The 15 intermediate-temperature rows in Table I form a pressure-temperature ramp and are not plotted there. The best-supported reconstruction selects the 23 rows at 298.7-300.7 K and the seven rows at 340.0-340.7 K; it recovers V0, K0, and alpha0 within combined two-sigma uncertainty.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.V0",
+                "published": 235.2983858185,
+                "published_error": 0.3321078134,
+                "refit": 235.3537684335085,
+                "refit_error": 0.3884730523499238,
+                "difference": 0.05538261500848307,
+                "relative_difference": 0.00023537184420467321,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0",
+                "published": 14.05,
+                "published_error": 0.23,
+                "refit": 14.015825053757764,
+                "refit_error": 0.272882340924503,
+                "difference": -0.034174946242236715,
+                "relative_difference": 0.0024323805154616877,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "alpha0",
+                "published": 0.000146,
+                "published_error": 1.4e-05,
+                "refit": 0.00014815262758176244,
+                "refit_error": 1.833756244128889e-05,
+                "difference": 2.1526275817624393e-06,
+                "relative_difference": 0.014744024532619446,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "errors_in_variables",
+              "selection": "23 rows at 298.7-300.7 K and seven rows at 340.0-340.7 K",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["rt_eos.V0", "rt_eos.K0", "alpha0"],
+              "fixed_parameters": ["dK_dT", "Tr"],
+              "observations": 30,
+              "observed_pressure_range_gpa": [1.26, 2.81],
+              "observed_temperature_range_k": [298.7, 340.7],
+              "observed_volume_range": [202.779, 217.944],
+              "degrees_of_freedom": 27,
+              "solver_success": true,
+              "solver_message": "`xtol` termination condition is satisfied.",
+              "rmse_gpa": 0.010204620341662998,
+              "published_rmse_gpa": 0.010440591210967413,
+              "reduced_chi_square": 0.13962648236191608,
+              "dataset_identifiers": ["ice_vi_bezacier_2014_table1_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

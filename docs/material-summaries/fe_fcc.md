@@ -93,6 +93,63 @@ meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
 
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Conditional reproduction, not an exact recovery of the unpublished regression protocol. Campbell specifies least squares but no residual variable, weights, covariance, or final row mask. The main diagnostic uses equal pressure-residual weights and simultaneous fitting of the three Table 1 free parameters. Fe/FeO main fits use current-study Table S2 only: Seagle contributes 81 recoverable V-T pairs but no individual pressures or NaCl observations. Separate sensitivities reconstruct 65 hcp-calibrated pressures using benchmark-checked Seagle (2006), compare its conflicting reference volumes, and optionally retain 16 unresolved rows as nominal-isobar estimates. A separate protocol audit adds 14 conditional fcc pressures from Funamori/Boehler/Basinski, leaving only two missing-iron-volume rows without individual pressures. The exact historical fcc reduction and combined regression remain unresolved. These are derived pressures, not original row-level pressure data. The published Fe/FeO records are deferred from the executable catalog because the combined-data mismatch remains unresolved. No refitted coefficients replace the source records. See literature-reproductions/campbell-2009-buffers.md.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- substantial combined-data coefficient-refit discrepancy
+- exact Seagle pressure reduction used by Campbell
+- author regression inputs, row selection and fitting procedure
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| rt\_eos.K0 | 133.0 | 3.0 | 116.55375717411255 | 12.762229701390426 | Free |
+| gamma0 | 1.95 | 0.04 | 2.0395821784885335 | 0.06518243718745687 | Free |
+| q | 1.6 | 0.6 | 1.5805202346997658 | 1.792203227105933 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** conditional\_bm3\_mgd\_variable\_exponent
+- **Objective:** pressure\_residuals
+- **Selection:** All Table S2 rows for FeO; only its 15 explicitly fcc rows for Fe. For Ni/NiO, retain all 92 heated/MAP Table S3 rows (T&gt;295 K); exclude its nine 293-295 K quenched DAC rows from the main diagnostic. This exclusion follows the Section 2.2 stress warning but is an audit choice: the authors do not publish a regression row mask. All 101 rows are retained in the dataset and tested in a sensitivity refit.
+- **Weighting:** unweighted
+- **Free parameters:** rt\_eos.K0; gamma0; q
+- **Fixed parameters:** V0; K0\_prime; Tr; theta0; n
+- **Observations:** 15
+- **Observed pressure range gpa:** \[3.9954833425198, 19.9741252379723\]
+- **Observed temperature range k:** \[873.0, 1812.08\]
+- **Degrees of freedom:** 12
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.44814451258934346
+- **Published rmse gpa:** 0.7961176429072436
+- **Reduced chi square:** 0.2510418802049253
+- **Covariance:** \[\[162.87450695105198, -0.22600771727261582, 21.7196834245582\], \[-0.22600771727265578, 0.004248750117696759, -0.0028956965481152213\], \[21.719683424557893, -0.002895696548109457, 3.21199240724892\]\]
+- **Covariance convention:** Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors.
+- **Dataset identifiers:** feo\_campbell\_2009\_table\_s2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 

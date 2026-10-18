@@ -82,6 +82,74 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Correct cubic sample volumes and source medium/phase fit mask. This diagnostic does not replay the ambient V0 prior or neon K0-prime prior, or the unpublished MINUTI P-V covariance treatment. Its coefficient comparison is conditional, not author-workflow parity. See literature-reproductions/finkelstein-2017-mw78.md for the prior-constrained source audit.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 78.87,
+                "published_error": 0.06,
+                "refit": 78.85314164125613,
+                "refit_error": 0.0705865614187149,
+                "difference": -0.016858358743874646,
+                "relative_difference": 0.0002137486844665227,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 148.0,
+                "published_error": 3.0,
+                "refit": 147.72606441163126,
+                "refit_error": 2.8733997810428007,
+                "difference": -0.27393558836874377,
+                "relative_difference": 0.001850916137626647,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.09,
+                "published_error": 0.12,
+                "refit": 4.088739860047382,
+                "refit_error": 0.1398876454257973,
+                "difference": -0.001260139952617756,
+                "relative_difference": 0.00030810267790165184,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "used_in_helium_cubic_fit=1",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "cubic_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 17,
+              "observed_pressure_range_gpa": [1.823, 55.542],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [62.4, 77.87],
+              "degrees_of_freedom": 14,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.03229434866087353,
+              "published_rmse_gpa": 0.2779224098597078,
+              "reduced_chi_square": 0.7368277272336742,
+              "dataset_identifiers": ["magnesiowustite_mw78_finkelstein_2017_table2_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against the final article and official American Mineralogist deposit AM-17-85966. LitCurate was used only for discovery.",
@@ -275,6 +343,74 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Correct cubic sample volumes and source medium/phase fit mask. This diagnostic does not replay the ambient V0 prior or neon K0-prime prior, or the unpublished MINUTI P-V covariance treatment. Its coefficient comparison is conditional, not author-workflow parity. See literature-reproductions/finkelstein-2017-mw78.md for the prior-constrained source audit.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 78.742,
+                "published_error": 0.014,
+                "refit": 78.75104668295108,
+                "refit_error": 0.623035262644541,
+                "difference": 0.009046682951080243,
+                "relative_difference": 0.00011489018504838894,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 163.0,
+                "published_error": 1.0,
+                "refit": 161.75412858859644,
+                "refit_error": 59.877002312442706,
+                "difference": -1.2458714114035558,
+                "relative_difference": 0.007643382892046355,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.02,
+                "published_error": 0.1,
+                "refit": 4.164434928652056,
+                "refit_error": 6.765151208001336,
+                "difference": 0.1444349286520561,
+                "relative_difference": 0.03592908672936719,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "used_in_neon_cubic_fit=1",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "cubic_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 5,
+              "observed_pressure_range_gpa": [1.314, 19.244],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [71.5, 78.12],
+              "degrees_of_freedom": 2,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.10073571217432044,
+              "published_rmse_gpa": 0.11825128942282512,
+              "reduced_chi_square": 0.02751642144773445,
+              "dataset_identifiers": ["magnesiowustite_mw78_finkelstein_2017_table2_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against the final article and official American Mineralogist deposit AM-17-85966. LitCurate was used only for discovery.",

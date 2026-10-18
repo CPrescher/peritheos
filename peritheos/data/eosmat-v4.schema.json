@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://peritheos.readthedocs.io/schemas/eosmat-v4.schema.json",
-  "title": "EOSMAT v4 \u2014 native material and scientific evidence",
-  "description": "Native simplified EOSMAT: one model identifier, parameter annotations beside values, and optional detailed evidence. GPa, kelvin and conventional-cell \u00c5\u00b3 are fixed by this version; missing review metadata is unreviewed.",
+  "title": "EOSMAT v4 — native material and scientific evidence",
+  "description": "Native simplified EOSMAT: one model identifier, parameter annotations beside values, and optional detailed evidence. GPa, kelvin and conventional-cell Å³ are fixed by this version; missing review metadata is unreviewed.",
   "type": "object",
   "required": [
     "format_version",
@@ -2734,63 +2734,98 @@
       "additionalProperties": false
     },
     "reconstruction_assessment": {
-      "type": "object",
-      "required": [
-        "status",
-        "scope"
-      ],
-      "properties": {
-        "status": {
-          "enum": [
-            "parity",
-            "similar",
-            "not_reproduced",
-            "not_refittable",
-            "source_reconstruction",
-            "not_assessed"
-          ]
-        },
-        "scope": {
-          "enum": [
-            "parameter_agreement",
-            "author_workflow",
-            "independent_refit",
-            "source_equation"
-          ]
-        },
-        "basis": {
-          "type": "string",
-          "pattern": "\\S"
-        },
-        "report": {
-          "type": "string",
-          "pattern": "\\S"
-        },
-        "qualifications": {
-          "type": "array",
-          "items": {
-            "type": "string",
-            "pattern": "\\S"
-          }
-        }
-      },
-      "allOf": [
+      "anyOf": [
         {
-          "if": {
-            "properties": {
-              "status": {
-                "const": "not_assessed"
+          "type": "object",
+          "required": [
+            "status",
+            "scope"
+          ],
+          "properties": {
+            "status": {
+              "enum": [
+                "parity",
+                "similar",
+                "not_reproduced",
+                "not_refittable",
+                "source_reconstruction",
+                "not_assessed"
+              ]
+            },
+            "scope": {
+              "enum": [
+                "parameter_agreement",
+                "author_workflow",
+                "independent_refit",
+                "source_equation"
+              ]
+            },
+            "basis": {
+              "type": "string",
+              "pattern": "\\S"
+            },
+            "report": {
+              "type": "string",
+              "pattern": "\\S"
+            },
+            "qualifications": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "pattern": "\\S"
               }
+            },
+            "parameters": {
+              "type": "array",
+              "description": "Exact source-versus-reconstructed coefficient comparisons from the named audit. Published denotes the comparison target, including a stored independent refit. Fixed/adopted coefficients are described separately in fit.fixed_parameters.",
+              "items": {
+                "anyOf": [
+                  {
+                    "$ref": "#/$defs/reconstruction_parameter"
+                  },
+                  {
+                    "$ref": "#/$defs/shared_reference"
+                  }
+                ]
+              }
+            },
+            "fit": {
+              "type": "object",
+              "description": "Recorded objective, selection, weights, fixed/free coefficients and statistics; missing information is not inferred.",
+              "additionalProperties": true
+            },
+            "source_status": {
+              "type": "string",
+              "pattern": "\\S",
+              "description": "Original audit outcome code, preserved independently of the native display status."
+            },
+            "basis_code": {
+              "type": "string",
+              "pattern": "\\S"
             }
           },
-          "else": {
-            "required": [
-              "basis"
-            ]
-          }
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "not_assessed"
+                  }
+                }
+              },
+              "else": {
+                "required": [
+                  "basis"
+                ]
+              }
+            }
+          ],
+          "additionalProperties": true
+        },
+        {
+          "$ref": "#/$defs/shared_reference"
         }
-      ],
-      "additionalProperties": true
+      ]
     },
     "inline_reference": {
       "oneOf": [
@@ -2840,6 +2875,61 @@
           "additionalProperties": true
         }
       ]
+    },
+    "reconstruction_parameter": {
+      "type": "object",
+      "required": [
+        "parameter",
+        "published",
+        "refit"
+      ],
+      "properties": {
+        "parameter": {
+          "type": "string",
+          "pattern": "\\S"
+        },
+        "published": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "refit": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "published_error": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "refit_error": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "published_sigma": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "refit_sigma": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        }
+      },
+      "additionalProperties": true
     }
   },
   "not": {

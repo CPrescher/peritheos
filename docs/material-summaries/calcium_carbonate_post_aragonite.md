@@ -89,6 +89,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 146.7 | 1.9 | 144.5929609338873 | 2.586747610266589 | Free |
+| K0\_prime | 3.4 | 0.1 | 3.4716122358570867 | 0.11888904427946788 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows; reference-T rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** unit\_cell\_volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 9
+- **Observed pressure range gpa:** \[49.9, 67.5\]
+- **Observed temperature range k:** \[298.0, 298.0\]
+- **Observed volume range:** \[73.36, 77.55\]
+- **Degrees of freedom:** 7
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.06174187449610127
+- **Published rmse gpa:** 0.23539926066074293
+- **Reduced chi square:** 0.6275147397495696
+- **Dataset identifiers:** calcium\_carbonate\_post\_aragonite\_lv\_2020\_supplementary\_table\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Room-temperature BM3 fit with V0 fixed at 97.76 A^3.
 
 Parameter covariance is not supplied.
@@ -186,6 +242,64 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| rt\_eos.K0 | 151.0 | 4.0 | 145.86922539169947 | 2.4239535716869662 | Free |
+| rt\_eos.K0\_prime | 3.2 | 0.2 | 3.4221699921801916 | 0.10972862838417025 | Free |
+| gamma0 | 1.6 | 0.5 | 1.9709866972164265 | 0.3541053047096985 | Free |
+| q | 1.3 | 0.9 | 1.9929012405528448 | 0.694145219843853 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** joint\_pvt
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** unit\_cell\_volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** rt\_eos.K0; rt\_eos.K0\_prime; gamma0; q
+- **Fixed parameters:** V0; Tr; theta0; n
+- **Observations:** 131
+- **Observed pressure range gpa:** \[49.9, 75.0\]
+- **Observed temperature range k:** \[298.0, 2160.0\]
+- **Observed volume range:** \[73.36, 78.49\]
+- **Degrees of freedom:** 127
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.5272073115307907
+- **Published rmse gpa:** 0.6064708499687894
+- **Reduced chi square:** 0.9552103532874094
+- **Dataset identifiers:** calcium\_carbonate\_post\_aragonite\_lv\_2020\_supplementary\_table\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Joint high-pressure/high-temperature BM3-MGD fit. V0 and the Debye temperature were fixed; n is the five-atom formula-unit count used by the thermal model.
 

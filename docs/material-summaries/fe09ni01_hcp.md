@@ -137,6 +137,55 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 195.3 | 1.6 | 200.0343783266108 | Not specified | Free |
+| K0\_prime | 4.37 | 0.05 | 4.2243284230188465 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
+- **Weighting:** unweighted; published coefficient constraints retained
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Tied parameters:**
+- **Observations:** 45
+- **Solver success:** True
+- **Rmse gpa:** 1.606401520793189
+- **Published rmse gpa:** 2.210908056547755
+- **Published pressure rmse gpa:** 2.210908056547755
+- **Refitted pressure rmse gpa:** 1.606401520793189
+- **Rmse shock velocity km s:** Not specified
+- **Parameter covariance:** Not specified
+- **Dataset identifiers:** sakai\_2014\_table2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
 Parameter covariance is not supplied.
@@ -238,6 +287,55 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 189.6 | 1.7 | 192.27435509720192 | Not specified | Free |
+| K0\_prime | 4.81 | 0.06 | 4.706556611960647 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
+- **Weighting:** unweighted; published coefficient constraints retained
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Tied parameters:**
+- **Observations:** 45
+- **Solver success:** True
+- **Rmse gpa:** 1.7062383521313806
+- **Published rmse gpa:** 1.972609141767631
+- **Published pressure rmse gpa:** 1.972609141767631
+- **Refitted pressure rmse gpa:** 1.7062383521313806
+- **Rmse shock velocity km s:** Not specified
+- **Parameter covariance:** Not specified
+- **Dataset identifiers:** sakai\_2014\_table2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -341,6 +439,55 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 179.8 | 1.6 | 187.0329689879698 | Not specified | Free |
+| K0\_prime | 4.59 | 0.05 | 4.353887510008359 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
+- **Weighting:** unweighted; published coefficient constraints retained
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Tied parameters:**
+- **Observations:** 45
+- **Solver success:** True
+- **Rmse gpa:** 1.6199964199966193
+- **Published rmse gpa:** 2.7538171899931974
+- **Published pressure rmse gpa:** 2.7538171899931974
+- **Refitted pressure rmse gpa:** 1.6199964199966193
+- **Rmse shock velocity km s:** Not specified
+- **Parameter covariance:** Not specified
+- **Dataset identifiers:** sakai\_2014\_table2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
 Parameter covariance is not supplied.
@@ -442,6 +589,55 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 173.9 | 1.6 | 178.82057566405422 | Not specified | Free |
+| K0\_prime | 5.07 | 0.06 | 4.885879076106027 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
+- **Weighting:** unweighted; published coefficient constraints retained
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Tied parameters:**
+- **Observations:** 45
+- **Solver success:** True
+- **Rmse gpa:** 1.653409509846668
+- **Published rmse gpa:** 2.2197830754151466
+- **Published pressure rmse gpa:** 2.2197830754151466
+- **Refitted pressure rmse gpa:** 1.653409509846668
+- **Rmse shock velocity km s:** Not specified
+- **Parameter covariance:** Not specified
+- **Dataset identifiers:** sakai\_2014\_table2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -545,6 +741,55 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 22.468 | Not specified | 22.59086269559718 | Not specified | Free |
+| K0\_prime | 4.73 | 0.06 | 4.537970473756033 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
+- **Weighting:** unweighted; published coefficient constraints retained
+- **Free parameters:** V0; K0\_prime
+- **Fixed parameters:** K0
+- **Tied parameters:**
+- **Observations:** 45
+- **Solver success:** True
+- **Rmse gpa:** 1.7349314547623915
+- **Published rmse gpa:** 3.1922874500456198
+- **Published pressure rmse gpa:** 3.1922874500456198
+- **Refitted pressure rmse gpa:** 1.7349314547623915
+- **Rmse shock velocity km s:** Not specified
+- **Parameter covariance:** Not specified
+- **Dataset identifiers:** sakai\_2014\_table2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
 Parameter covariance is not supplied.
@@ -646,6 +891,55 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 22.468 | Not specified | 22.5562203902947 | Not specified | Free |
+| K0\_prime | 5.23 | 0.06 | 5.079133042342121 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
+- **Weighting:** unweighted; published coefficient constraints retained
+- **Free parameters:** V0; K0\_prime
+- **Fixed parameters:** K0
+- **Tied parameters:**
+- **Observations:** 45
+- **Solver success:** True
+- **Rmse gpa:** 1.66732485758244
+- **Published rmse gpa:** 2.612050295823673
+- **Published pressure rmse gpa:** 2.612050295823673
+- **Refitted pressure rmse gpa:** 1.66732485758244
+- **Rmse shock velocity km s:** Not specified
+- **Parameter covariance:** Not specified
+- **Dataset identifiers:** sakai\_2014\_table2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -749,6 +1043,40 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Table 2 does not tabulate P2 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Weighting:** unweighted; published coefficient constraints retained
+- **Free parameters:** None declared
+- **Fixed parameters:** V0
+- **Tied parameters:**
+- **Observations:** 0
+- **Rmse gpa:** Not specified
+- **Published rmse gpa:** Not specified
+- **Rmse shock velocity km s:** Not specified
+- **Parameter covariance:** Not specified
+- **Dataset identifiers:** sakai\_2014\_table2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
 Parameter covariance is not supplied.
@@ -850,6 +1178,40 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Table 2 does not tabulate P2 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Weighting:** unweighted; published coefficient constraints retained
+- **Free parameters:** None declared
+- **Fixed parameters:** V0
+- **Tied parameters:**
+- **Observations:** 0
+- **Rmse gpa:** Not specified
+- **Published rmse gpa:** Not specified
+- **Rmse shock velocity km s:** Not specified
+- **Parameter covariance:** Not specified
+- **Dataset identifiers:** sakai\_2014\_table2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -953,6 +1315,40 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Table 2 does not tabulate P3 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Weighting:** unweighted; published coefficient constraints retained
+- **Free parameters:** None declared
+- **Fixed parameters:** V0
+- **Tied parameters:**
+- **Observations:** 0
+- **Rmse gpa:** Not specified
+- **Published rmse gpa:** Not specified
+- **Rmse shock velocity km s:** Not specified
+- **Parameter covariance:** Not specified
+- **Dataset identifiers:** sakai\_2014\_table2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
 Parameter covariance is not supplied.
@@ -1054,6 +1450,40 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Table 2 does not tabulate P3 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Weighting:** unweighted; published coefficient constraints retained
+- **Free parameters:** None declared
+- **Fixed parameters:** V0
+- **Tied parameters:**
+- **Observations:** 0
+- **Rmse gpa:** Not specified
+- **Published rmse gpa:** Not specified
+- **Rmse shock velocity km s:** Not specified
+- **Parameter covariance:** Not specified
+- **Dataset identifiers:** sakai\_2014\_table2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -1157,6 +1587,55 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 213.0 | 1.8 | 218.4138156274682 | Not specified | Free |
+| K0\_prime | 4.41 | 0.05 | 4.255462850825763 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
+- **Weighting:** unweighted; published coefficient constraints retained
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Tied parameters:**
+- **Observations:** 45
+- **Solver success:** True
+- **Rmse gpa:** 1.667656628629867
+- **Published rmse gpa:** 2.3447890411123287
+- **Published pressure rmse gpa:** 2.3447890411123287
+- **Refitted pressure rmse gpa:** 1.667656628629867
+- **Rmse shock velocity km s:** Not specified
+- **Parameter covariance:** Not specified
+- **Dataset identifiers:** sakai\_2014\_table2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
 Parameter covariance is not supplied.
@@ -1258,6 +1737,55 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 207.0 | 1.8 | 210.03586660274584 | Not specified | Free |
+| K0\_prime | 4.85 | 0.06 | 4.739384266532654 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
+- **Weighting:** unweighted; published coefficient constraints retained
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Tied parameters:**
+- **Observations:** 45
+- **Solver success:** True
+- **Rmse gpa:** 1.7788197892068633
+- **Published rmse gpa:** 2.117292921135934
+- **Published pressure rmse gpa:** 2.117292921135934
+- **Refitted pressure rmse gpa:** 1.7788197892068633
+- **Rmse shock velocity km s:** Not specified
+- **Parameter covariance:** Not specified
+- **Dataset identifiers:** sakai\_2014\_table2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -1361,6 +1889,55 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 211.5 | 1.8 | 214.9151214647974 | Not specified | Free |
+| K0\_prime | 4.42 | 0.05 | 4.3135447483778515 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
+- **Weighting:** unweighted; published coefficient constraints retained
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Tied parameters:**
+- **Observations:** 45
+- **Solver success:** True
+- **Rmse gpa:** 1.8347163432871763
+- **Published rmse gpa:** 2.2515693718530896
+- **Published pressure rmse gpa:** 2.2515693718530896
+- **Refitted pressure rmse gpa:** 1.8347163432871763
+- **Rmse shock velocity km s:** Not specified
+- **Parameter covariance:** Not specified
+- **Dataset identifiers:** sakai\_2014\_table2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
 Parameter covariance is not supplied.
@@ -1462,6 +2039,56 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 205.4 | 1.9 | 206.2987950920161 | Not specified | Free |
+| K0\_prime | 4.86 | 0.06 | 4.816594627576633 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
+- **Weighting:** unweighted; published coefficient constraints retained
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Tied parameters:**
+- **Observations:** 45
+- **Solver success:** True
+- **Rmse gpa:** 1.9794522014797378
+- **Published rmse gpa:** 2.085638180438255
+- **Published pressure rmse gpa:** 2.085638180438255
+- **Refitted pressure rmse gpa:** 1.9794522014797378
+- **Rmse shock velocity km s:** Not specified
+- **Parameter covariance:** Not specified
+- **Dataset identifiers:** sakai\_2014\_table2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -1565,6 +2192,55 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 191.2 | 1.8 | 196.58930346809018 | Not specified | Free |
+| K0\_prime | 4.82 | 0.06 | 4.638208630235569 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
+- **Weighting:** unweighted; published coefficient constraints retained
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Tied parameters:**
+- **Observations:** 45
+- **Solver success:** True
+- **Rmse gpa:** 1.7786202823007078
+- **Published rmse gpa:** 2.489597189653668
+- **Published pressure rmse gpa:** 2.489597189653668
+- **Refitted pressure rmse gpa:** 1.7786202823007078
+- **Rmse shock velocity km s:** Not specified
+- **Parameter covariance:** Not specified
+- **Dataset identifiers:** sakai\_2014\_table2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
 Parameter covariance is not supplied.
@@ -1666,6 +2342,55 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 185.1 | 1.7 | 187.47744968957844 | Not specified | Free |
+| K0\_prime | 5.31 | 0.06 | 5.211820018794027 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
+- **Weighting:** unweighted; published coefficient constraints retained
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Tied parameters:**
+- **Observations:** 45
+- **Solver success:** True
+- **Rmse gpa:** 1.9135004369802666
+- **Published rmse gpa:** 2.200673940141978
+- **Published pressure rmse gpa:** 2.200673940141978
+- **Refitted pressure rmse gpa:** 1.9135004369802666
+- **Rmse shock velocity km s:** Not specified
+- **Parameter covariance:** Not specified
+- **Dataset identifiers:** sakai\_2014\_table2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Table 4 source fit. V0 from a preliminary g-G plot is held during the K0/K0\_prime fit; alternate Mao/Dewaele V0 choices are explicitly fixed. Printed ± confidence and covariance are not specified. Low-pressure NaCl-B1 rows use Brown (1999); other scale variants retain distinct NaCl-B2 reductions.
 
@@ -1781,6 +2506,59 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.
+- Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.
+- Usage recommendation: not\_recommended\_for\_quantitative\_use
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| gamma0 | 2.169 | 0.207 | 5.218611619598649 | Not specified | Free |
+| theta0 | 1162 | 204 | 2214.815336047005 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
+- **Weighting:** unweighted; published coefficient constraints retained
+- **Free parameters:** gamma0; theta0
+- **Fixed parameters:** V0; K0; K0\_prime; Tr; beta; anharmonic\_a; anharmonic\_m; electronic\_e; electronic\_g; n
+- **Tied parameters:**
+    - **Gamma inf:** gamma0
+- **Observations:** 32
+- **Solver success:** True
+- **Rmse gpa:** 1.0512363614149685
+- **Published rmse gpa:** 7.135102114330177
+- **Published pressure rmse gpa:** 7.135102114330177
+- **Refitted pressure rmse gpa:** 1.0512363614149685
+- **Rmse shock velocity km s:** Not specified
+- **Parameter covariance:** Not specified
+- **Dataset identifiers:** sakai\_2014\_table2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -1923,6 +2701,59 @@ meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
 
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.
+- Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.
+- Usage recommendation: not\_recommended\_for\_quantitative\_use
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| gamma0 | 2.609 | 0.35 | 7.999999999999999 | Not specified | Free |
+| beta | 1.309 | 0.679 | 2.2108417548372907 | Not specified | Free |
+| theta0 | 600 | 474 | 1636.9776211198046 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
+- **Weighting:** unweighted; published coefficient constraints retained
+- **Free parameters:** gamma0; beta; theta0
+- **Fixed parameters:** V0; K0; K0\_prime; Tr; gamma\_inf; anharmonic\_a; anharmonic\_m; electronic\_e; electronic\_g; n
+- **Tied parameters:**
+- **Observations:** 32
+- **Solver success:** True
+- **Rmse gpa:** 1.0453242461778438
+- **Published rmse gpa:** 7.085117575780836
+- **Published pressure rmse gpa:** 7.085117575780836
+- **Refitted pressure rmse gpa:** 1.0453242461778438
+- **Rmse shock velocity km s:** Not specified
+- **Parameter covariance:** Not specified
+- **Dataset identifiers:** sakai\_2014\_table2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 
@@ -2061,6 +2892,59 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.
+- Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.
+- Usage recommendation: not\_recommended\_for\_quantitative\_use
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| gamma0 | 2.882 | 0.394 | 7.999999999999996 | Not specified | Free |
+| gamma\_inf | 1.087 | 0.487 | 2.194773957257107 | Not specified | Free |
+| theta0 | 577 | 471 | 1664.4773035616872 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
+- **Weighting:** unweighted; published coefficient constraints retained
+- **Free parameters:** gamma0; gamma\_inf; theta0
+- **Fixed parameters:** V0; K0; K0\_prime; Tr; beta; anharmonic\_a; anharmonic\_m; electronic\_e; electronic\_g; n
+- **Tied parameters:**
+- **Observations:** 32
+- **Solver success:** True
+- **Rmse gpa:** 1.047994946666771
+- **Published rmse gpa:** 7.088296341328164
+- **Published pressure rmse gpa:** 7.088296341328164
+- **Refitted pressure rmse gpa:** 1.047994946666771
+- **Rmse shock velocity km s:** Not specified
+- **Parameter covariance:** Not specified
+- **Dataset identifiers:** sakai\_2014\_table2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -2203,6 +3087,58 @@ meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
 
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.
+- Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.
+- Usage recommendation: not\_recommended\_for\_quantitative\_use
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| gamma0 | 2.883 | 0.374 | 2.2626134930835686 | Not specified | Free |
+| gamma\_inf | 0.968 | 0.242 | 8.521054711807216e-22 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
+- **Weighting:** unweighted; published coefficient constraints retained
+- **Free parameters:** gamma0; gamma\_inf
+- **Fixed parameters:** V0; K0; K0\_prime; Tr; theta0; beta; anharmonic\_a; anharmonic\_m; electronic\_e; electronic\_g; n
+- **Tied parameters:**
+- **Observations:** 32
+- **Solver success:** True
+- **Rmse gpa:** 2.2581979489171067
+- **Published rmse gpa:** 7.096364413848751
+- **Published pressure rmse gpa:** 7.096364413848751
+- **Refitted pressure rmse gpa:** 2.2581979489171067
+- **Rmse shock velocity km s:** Not specified
+- **Parameter covariance:** Not specified
+- **Dataset identifiers:** sakai\_2014\_table2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 
@@ -2341,6 +3277,57 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.
+- Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The 32 P7 hot observations give about 7.1 GPa pressure RMS with the published coefficients, versus about 1.1 GPa reported in Table 7; passing Table 8 checkpoints does not resolve that discrepancy.
+- Usage recommendation: not\_recommended\_for\_quantitative\_use
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| beta | 1.161 | 0.237 | 9.999999999999998 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
+- **Weighting:** unweighted; published coefficient constraints retained
+- **Free parameters:** beta
+- **Fixed parameters:** V0; K0; K0\_prime; Tr; theta0; gamma0; gamma\_inf; anharmonic\_a; anharmonic\_m; electronic\_e; electronic\_g; n
+- **Tied parameters:**
+- **Observations:** 32
+- **Solver success:** True
+- **Rmse gpa:** 4.6165012578403015
+- **Published rmse gpa:** 7.214289792430111
+- **Published pressure rmse gpa:** 7.214289792430111
+- **Refitted pressure rmse gpa:** 4.6165012578403015
+- **Rmse shock velocity km s:** Not specified
+- **Parameter covariance:** Not specified
+- **Dataset identifiers:** sakai\_2014\_table2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

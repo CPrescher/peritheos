@@ -103,6 +103,51 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 255.0,
+                "published_error": 10.0,
+                "refit": 253.83836310805117,
+                "refit_error": 0.9756877093608995,
+                "difference": -1.161636891948831,
+                "relative_difference": 0.0045554387919562,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 12,
+              "observed_pressure_range_gpa": [0.0, 105.78],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [125.931, 163.3],
+              "degrees_of_freedom": 11,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 1.1522056877570392,
+              "published_rmse_gpa": 1.2241948028561207,
+              "reduced_chi_square": 1.4482668511632786,
+              "dataset_identifiers": ["mg090fe009al0005ca0005sio3_shieh_2006_figure2_pv_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against the open-access primary article; LitCurate was used only for discovery.",

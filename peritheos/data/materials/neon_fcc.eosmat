@@ -152,6 +152,69 @@
         "audit_date": "2026-10-09"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Conditional equal-pressure-weight joint PVT agreement within published parameter widths; source confidence and covariance are unspecified.",
+            "basis_code": "Conditional equal-pressure-weight joint PVT agreement within published parameter widths; source confidence and covariance are unspecified.",
+            "qualifications": [
+              "Fei original new observations, paired Pt/Au volumes, full source selection, weights, covariance and unrounded inputs not recovered. Cold unweighted fits can agree with individual published error widths without reproducing the original regression or joint uncertainty region. Only prior-table source errors permit source-error-weighted comparisons. Hot source errors and temperature errors are absent; no source-error-weighted hot fit is possible. Effective error weights use slopes of the published model, ignore shared calibration correlations and retain each table's original pressure/volume errors. Finger 293 K pressures are preserved on the original Piermarini scale; Fei explicitly recalibrates Hemley only. Assigning Finger to 300 K is a documented diagnostic choice. Curve agreement validates an equation/normalization at plotted conditions; it establishes neither exact original-regression recovery nor absolute pressure accuracy. Dewaele (2008) note29 discusses a 0 K reinterpretation and contains a self-referential citation typo. Fei Eq.3 and the Figure5 cold curve remain the authority for the retained 300 K subtraction. Published q error is 0.3; source confidence level and covariance are unspecified. No thermal diagnostic replaces published q=0.6.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 1.43,
+                "published_error": 0.14,
+                "refit": 1.5182220582605885,
+                "refit_error": 0.1195033052004044,
+                "similar": true,
+                "within_combined_2sigma": true,
+                "within_published_error_width": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 8.02,
+                "published_error": 0.31,
+                "refit": 7.713752591624531,
+                "refit_error": 0.38055629711750694,
+                "similar": true,
+                "within_combined_2sigma": true,
+                "within_published_error_width": true
+              },
+              {
+                "parameter": "q",
+                "published": 0.6,
+                "published_error": 0.3,
+                "refit": 0.6181752608698434,
+                "refit_error": 0.12877065447628067,
+                "similar": true,
+                "within_combined_2sigma": true,
+                "within_published_error_width": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "diagnostic_joint_pvt",
+              "free_parameters": ["K0", "K0_prime", "q"],
+              "fixed_parameters": {"V0": 88.967, "gamma0": 2.05, "theta0": 75.1},
+              "observations": 54,
+              "observed_pressure_range_gpa": [4.83, 115.715945233],
+              "observed_temperature_range_k": [300.0, 1000.0],
+              "solver_success": true,
+              "rmse_gpa": 0.9968994754037073,
+              "published_rmse_gpa": 1.0064452317540593,
+              "dataset_identifiers": [
+                "neon_fei_2007_figure5_digitized",
+                "neon_hemley_1989_table1_fei_recalculated",
+                "neon_finger_1981_table1",
+                "neon_fei_2007_figure5_1000k_digitized"
+              ]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -341,6 +404,69 @@
         "audit_date": "2026-10-09"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Conditional equal-pressure-weight joint PVT agreement within published parameter widths; source confidence and covariance are unspecified.",
+            "basis_code": "Conditional equal-pressure-weight joint PVT agreement within published parameter widths; source confidence and covariance are unspecified.",
+            "qualifications": [
+              "Fei original new observations, paired Pt/Au volumes, full source selection, weights, covariance and unrounded inputs not recovered. Cold unweighted fits can agree with individual published error widths without reproducing the original regression or joint uncertainty region. Only prior-table source errors permit source-error-weighted comparisons. Hot source errors and temperature errors are absent; no source-error-weighted hot fit is possible. Effective error weights use slopes of the published model, ignore shared calibration correlations and retain each table's original pressure/volume errors. Finger 293 K pressures are preserved on the original Piermarini scale; Fei explicitly recalibrates Hemley only. Assigning Finger to 300 K is a documented diagnostic choice. Curve agreement validates an equation/normalization at plotted conditions; it establishes neither exact original-regression recovery nor absolute pressure accuracy. Dewaele (2008) note29 discusses a 0 K reinterpretation and contains a self-referential citation typo. Fei Eq.3 and the Figure5 cold curve remain the authority for the retained 300 K subtraction. Published q error is 0.3; source confidence level and covariance are unspecified. No thermal diagnostic replaces published q=0.6.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 1.16,
+                "published_error": 0.14,
+                "refit": 1.1904095828283714,
+                "refit_error": 0.044824837066523536,
+                "similar": true,
+                "within_combined_2sigma": true,
+                "within_published_error_width": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 8.23,
+                "published_error": 0.31,
+                "refit": 8.176482612977884,
+                "refit_error": 0.07713244213469729,
+                "similar": true,
+                "within_combined_2sigma": true,
+                "within_published_error_width": true
+              },
+              {
+                "parameter": "q",
+                "published": 0.6,
+                "published_error": 0.3,
+                "refit": 0.6222960580475505,
+                "refit_error": 0.13340786728850254,
+                "similar": true,
+                "within_combined_2sigma": true,
+                "within_published_error_width": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "diagnostic_joint_pvt",
+              "free_parameters": ["K0", "K0_prime", "q"],
+              "fixed_parameters": {"V0": 88.967, "gamma0": 2.05, "theta0": 75.1},
+              "observations": 54,
+              "observed_pressure_range_gpa": [4.83, 115.715945233],
+              "observed_temperature_range_k": [300.0, 1000.0],
+              "solver_success": true,
+              "rmse_gpa": 1.0229458085559253,
+              "published_rmse_gpa": 1.0278664292160768,
+              "dataset_identifiers": [
+                "neon_fei_2007_figure5_digitized",
+                "neon_hemley_1989_table1_fei_recalculated",
+                "neon_finger_1981_table1",
+                "neon_fei_2007_figure5_1000k_digitized"
+              ]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -428,6 +554,62 @@
         "audit_date": "2026-09-04"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 1.7277462566083195,
+                "published_error": 0.22322191999036312,
+                "refit": 1.7277485613618908,
+                "refit_error": 0.2232218905071419,
+                "difference": 2.30475357132498e-06,
+                "relative_difference": 1.3339653103050932e-06,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 6.972110967032526,
+                "published_error": 0.5439133435530098,
+                "refit": 6.972105349252884,
+                "refit_error": 0.5439118223351491,
+                "difference": -5.617779641475806e-06,
+                "relative_difference": 8.057501763869443e-07,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 21,
+              "observed_pressure_range_gpa": [10.0, 110.4],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [25.076571983, 45.384685263],
+              "degrees_of_freedom": 19,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.027066792396926876,
+              "published_rmse_gpa": 0.9156108479099396,
+              "reduced_chi_square": 0.311633157391931,
+              "dataset_identifiers": ["neon_hemley_1989_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Primary observations and source protocol were validated; the stored coefficients are an explicitly identified Peritheos refit.",

@@ -98,6 +98,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Source-protocol reconstruction, not an assertion of an independently measured epsilon-FeOOH thermal EOS. All 49 hot Table 2 volumes are reduced to 300 K with the paper's alpha0=2.3e-5 K^-1 before the pooled fixed-V0 BM2 fit. This recovers K0=158.099 GPa; fitting the raw hot volumes as though they lay on the reference isotherm instead gives 175.624 GPa. The correction is numerically identifiable but not printed in the epsilon-specific prose, and the source weights are unavailable.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 158.0 | 5.0 | 158.0986983485346 | 1.6723069894662843 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** source\_pooled\_multitemperature\_pv\_reduced\_to\_300k
+- **Objective:** unweighted\_pressure\_residuals\_after\_volume\_reduction
+- **Selection:** all 49 deposited P21mn epsilon-FeOOH rows; no exclusions; volumes reduced from their measured 473.15-673.15 K states to 300 K before fitting
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_celsius
+    - **Volume:** cell\_volume\_a3 reduced to 300 K
+- **Absolute sigma:** False
+- **Free parameters:** K0
+- **Fixed parameters:** V0
+- **Observations:** 49
+- **Observed pressure range gpa:** \[3.81, 21.01\]
+- **Observed temperature range k:** \[473.15, 673.15\]
+- **Observed volume range:** \[60.4, 65.03\]
+- **Degrees of freedom:** 48
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.9456977490356161
+- **Published rmse gpa:** 0.9457320622338763
+- **Reduced chi square:** 0.9129764040420943
+- **Dataset identifiers:** epsilon\_feooh\_gleason\_2008\_deposit\_table2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Published 300 K BM2 reference curve recovered from 49 elevated-temperature observations. The source explicitly reports the pooled fit, fixed K0-prime, G-versus-g V0 extrapolation, and absence of a resolvable epsilon thermal-expansion trend, but it does not print an epsilon temperature-correction equation or fit weights. A forensic reconstruction using the paper's alpha0 reproduces K0 to rounding; that correction is retained as fit provenance, not promoted to a general temperature-dependent epsilon-FeOOH model.
 
 Parameter covariance is not supplied.
@@ -237,6 +293,65 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| rt\_eos.K0 | 135.0 | 3.0 | 132.2948372496863 | 6.436715796348928e-11 | Free |
+| rt\_eos.K0\_prime | 6.1 | 0.9 | 6.861798756973407 | 0.0061887390074661375 | Free |
+| alpha0 | 2.6e-05 | 7e-06 | 3.0412845500814004e-05 | 5.089818923191499e-05 | Free |
+| alpha1 | 1e-07 | 3e-08 | 1.1170942997601218e-07 | 2.4282015212479566e-07 | Free |
+| dK\_dT | -0.05 | 0.02 | -0.0609132438044162 | 0.1620030288469084 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** joint\_pvt
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** cell\_volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** rt\_eos.K0; rt\_eos.K0\_prime; alpha0; alpha1; dK\_dT
+- **Fixed parameters:** V0; Tr
+- **Observations:** 33
+- **Observed pressure range gpa:** \[0.0001, 11.07\]
+- **Observed temperature range k:** \[300.0, 700.0\]
+- **Observed volume range:** \[62.19, 66.278\]
+- **Degrees of freedom:** 28
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.09143599681900522
+- **Published rmse gpa:** 0.10201978513163779
+- **Reduced chi square:** 0.010105674904282585
+- **Dataset identifiers:** epsilon\_feooh\_suzuki\_2016\_table1\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

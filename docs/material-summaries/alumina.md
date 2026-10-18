@@ -91,6 +91,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 255.45 | 0.52 | 255.38611857923496 | 0.26047429631887364 | Free |
+| K0 | 254.1 | 7.6 | 253.88378504976112 | 3.850341736411413 | Free |
+| K0\_prime | 4.0 | 0.15 | 4.014881596821605 | 0.07730707256336111 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** a\_a
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 53
+- **Observed pressure range gpa:** \[0.56, 165.0\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[182.02811563595682, 254.67256738120184\]
+- **Degrees of freedom:** 50
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.8012203256389328
+- **Published rmse gpa:** 0.8050847963563869
+- **Reduced chi square:** 0.6804712508299748
+- **Dataset identifiers:** alumina\_dewaele\_2013\_table1\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Quasihydrostatic 300 K Vinet fit to corundum data from 0.56 to 165 GPa. V0=255.45+/-0.52 A^3, K0=254.1+/-7.6 GPa, and K0'=4.00+/-0.15 were all fitted; errors are 95% confidence intervals.
 
 Parameter covariance is not supplied.
@@ -189,6 +246,63 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| rt\_eos.K0 | 246.0 | 2.0 | 246.3082843723331 | 1.3330685974032892 | Free |
+| gamma0 | 1.32 | 0.07 | 1.3593137833873294 | 0.06725423003798052 | Free |
+| q | 0.8 | 0.4 | 0.8008671555208751 | 0.3526999039312283 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** joint\_pvt
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** rt\_eos.K0; gamma0; q
+- **Fixed parameters:** V0; K0\_prime; Tr; theta0; n
+- **Observations:** 75
+- **Observed pressure range gpa:** \[0.0, 97.7\]
+- **Observed temperature range k:** \[300.0, 2980.0\]
+- **Observed volume range:** \[203.2, 255.1\]
+- **Degrees of freedom:** 72
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 1.1913871994289138
+- **Published rmse gpa:** 1.2330494551575306
+- **Reduced chi square:** 1.4785452697531987
+- **Dataset identifiers:** alumina\_shi\_2022\_table\_s1\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

@@ -99,6 +99,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 83.68 | 0.02 | 83.62535545259563 | 0.012907316467177887 | Free |
+| K0 | 166.3 | 1.5 | 174.6988984410997 | 0.8491089771380721 | Free |
+| K0\_prime | 4.46 | 0.12 | 3.6980391143710443 | 0.048974857483092646 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 26
+- **Observed pressure range gpa:** \[0.35, 52.41\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[67.91, 83.525\]
+- **Degrees of freedom:** 23
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.16855900862279588
+- **Published rmse gpa:** 1.0247802405619364
+- **Reduced chi square:** 9.796863463894667
+- **Dataset identifiers:** fe\_bearing\_al\_phase\_d\_criniti\_2023\_table1\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Canonical room-temperature record. The first BM3 row of Table 2 freely fits V0, K0, and K0'; neither of the two ambient-volume-fixed alternatives is stored as another executable record. The BM3 choice is justified by the abstract's reported coefficients, Figure 3's exclusive display of BM3 curves, and Table 3's BM comparison across phase-D studies. Parenthetical errors are retained as generic published uncertainties because the source does not state a confidence convention.
 
 Parameter covariance is not supplied.
@@ -215,6 +272,63 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 83.68 | 0.02 | 83.63125363840734 | 0.013090788072897458 | Free |
+| K0 | 165.5 | 1.5 | 173.77261703800738 | 0.901089583153732 | Free |
+| K0\_prime | 4.62 | 0.12 | 3.818752730619727 | 0.05867264795575632 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 26
+- **Observed pressure range gpa:** \[0.35, 52.41\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[67.91, 83.525\]
+- **Degrees of freedom:** 23
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.16568738946171954
+- **Published rmse gpa:** 0.9627659688083019
+- **Reduced chi square:** 9.440549160495328
+- **Dataset identifiers:** fe\_bearing\_al\_phase\_d\_criniti\_2023\_table1\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published non-default alternative. The first Vinet row of Table 2 freely fits V0, K0, and K0'; the two ambient-volume-fixed variants are documented but not multiplied into additional executable records. Parenthetical errors are retained as generic published uncertainties because their confidence convention is not stated.
 

@@ -87,6 +87,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 748.0 | 1.0 | 745.1135701757014 | 2.2768709979303035 | Free |
+| K0 | 168.0 | 4.0 | 188.419106297367 | 8.086973545704451 | Free |
+| K0\_prime | 6.1 | 0.1 | 5.228073491488005 | 0.18927563125718905 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** unit\_cell\_volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 27
+- **Observed pressure range gpa:** \[3.92, 158.0\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[529.64, 732.3\]
+- **Degrees of freedom:** 24
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 2.0496307327449954
+- **Published rmse gpa:** 3.5876930836693948
+- **Reduced chi square:** 5.258308020252146
+- **Dataset identifiers:** iron\_carbide\_fe7c3\_prescher\_2015\_table\_s4\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Single-crystal X-ray compression fit for orthorhombic Fe7C3 from 4 to 158 GPa. The structure was additionally observed after high-pressure, high-temperature synthesis to 205 GPa, outside the fitted EoS interval.
 
 Parameter covariance is not supplied.

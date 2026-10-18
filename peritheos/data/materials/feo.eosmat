@@ -82,6 +82,74 @@
         "notes": "NaCl was a secondary pressure standard. Published pressure errors propagate the temperature error and hcp-Fe lattice-parameter error."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Conditional current-study thermal reproduction: all 42 numerical B1 volumes in Fischer Supplementary Table S1 are evaluated at their reported, already 3%-corrected temperatures with Equation (1)'s integrated-Gruneisen Mie-Gruneisen-Debye model. V0, theta0, q, Tr, and n are held fixed exactly as the source specifies. Fischer's published global fit also includes Campbell, Ozawa, and Seagle rows. All identifiable source tables are now bundled, but Campbell's fcc-Fe calibration is retained only as deferred source evidence because of unresolved coefficient-refit discrepancies. It is not an executable calibration; Fischer's final combined row selection remains unresolved. The source also does not state its regression weights, residual variable, covariance, or optimizer; this result remains a current-study-only diagnostic rather than an exact global-fit reproduction. See the [dedicated Fischer reproduction](literature-reproductions/fischer-2011-feo.md).",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.K0",
+                "published": 149.4,
+                "published_error": 1.0,
+                "refit": 144.50797247416534,
+                "refit_error": 2.7189032811967384,
+                "difference": -4.8920275258346635,
+                "relative_difference": 0.03274449481817044,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0_prime",
+                "published": 3.6,
+                "published_error": 0.04,
+                "refit": 3.715623572064788,
+                "refit_error": 0.07444449208676378,
+                "difference": 0.1156235720647878,
+                "relative_difference": 0.0321176589068855,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.41,
+                "published_error": 0.05,
+                "refit": 1.6301956053980495,
+                "refit_error": 0.12081598701442424,
+                "difference": 0.2201956053980496,
+                "relative_difference": 0.15616709602698556,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "errors_in_variables",
+              "selection": "all 52 Table S1 rows; finite B1 volumes retain 42 phase-specific observations at their reported temperatures",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "b1_feo_molar_volume_cm3_mol"},
+              "absolute_sigma": true,
+              "free_parameters": ["rt_eos.K0", "rt_eos.K0_prime", "gamma0"],
+              "fixed_parameters": ["V0", "Tr", "theta0", "q", "n"],
+              "observations": 42,
+              "observed_pressure_range_gpa": [95.2153318933, 155.982534269],
+              "observed_temperature_range_k": [1143.9, 3024.73],
+              "observed_volume_range": [52.35477716465731, 59.60807743690136],
+              "degrees_of_freedom": 39,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 3.3023324480369616,
+              "published_rmse_gpa": 3.319807086654516,
+              "reduced_chi_square": 4.525491264672904,
+              "dataset_identifiers": ["feo_fischer_2011_table_s1_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -210,6 +278,62 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 79.41,
+                "published_error": 0.04,
+                "refit": 79.43764935328304,
+                "refit_error": 0.4348013830455283,
+                "difference": 0.027649353283038636,
+                "relative_difference": 0.0003481847787814965,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 146.0,
+                "published_error": 2.0,
+                "refit": 144.54631340959483,
+                "refit_error": 11.507025908735983,
+                "difference": -1.4536865904051695,
+                "relative_difference": 0.009956757468528558,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "fe093o_b1_fit_included=1",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "fe093o_b1_derived_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 7,
+              "observed_pressure_range_gpa": [0.0, 22.8],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [70.21498, 79.396112],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.08706907560791009,
+              "published_rmse_gpa": 0.11999826697901608,
+              "reduced_chi_square": 0.011099816093970271,
+              "dataset_identifiers": ["jacobsen_2005_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Checked directly against the final IUCr article and its complete printed Table 1.",
@@ -315,6 +439,23 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "Independent equation checkpoints verify transcription without claiming a refit.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": ["K0_prime"],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against author-repository primary PDF.",
@@ -403,6 +544,23 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "The official tc-ds62 fper block provides all four coefficients.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": [],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Complete four-coefficient modified-Tait endmember.",
@@ -516,6 +674,80 @@
         "notes": "MAP detector angle calibrated with NaCl a=5.6402 A (JCPDS 05-0628); DAC geometry with CeO2. MAP cooling cycles minimize deviatoric stress. The article writes DAC T_sample=295+0.97*(T_meas-295) and T_NaCl=(3*T_meas+295)/4. The workbook uses a 293 K baseline for some Ni-NiO DAC runs and 295 K for others; preserve its stored values. Equation (4) prints sigma_TNaCl=(T_meas-295)/2, while the hot DAC workbook rows use (T_meas-T_ambient)/4; preserve the workbook uncertainties. The workbook pressure-threshold footnote is approximate: honor the explicit NaCl phase column, including B2 rows below 26 GPa."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "Conditional reproduction, not an exact recovery of the unpublished regression protocol. Campbell specifies least squares but no residual variable, weights, covariance, or final row mask. The main diagnostic uses equal pressure-residual weights and simultaneous fitting of the three Table 1 free parameters. Fe/FeO main fits use current-study Table S2 only: Seagle contributes 81 recoverable V-T pairs but no individual pressures or NaCl observations. Separate sensitivities reconstruct 65 hcp-calibrated pressures using benchmark-checked Seagle (2006), compare its conflicting reference volumes, and optionally retain 16 unresolved rows as nominal-isobar estimates. A separate protocol audit adds 14 conditional fcc pressures from Funamori/Boehler/Basinski, leaving only two missing-iron-volume rows without individual pressures. The exact historical fcc reduction and combined regression remain unresolved. These are derived pressures, not original row-level pressure data. The published Fe/FeO records are deferred from the executable catalog because the combined-data mismatch remains unresolved. No refitted coefficients replace the source records. See literature-reproductions/campbell-2009-buffers.md.",
+            "qualifications": [
+              "substantial combined-data coefficient-refit discrepancy",
+              "exact Seagle pressure reduction used by Campbell",
+              "author regression inputs, row selection and fitting procedure",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.K0",
+                "published": 146.9,
+                "published_error": 1.3,
+                "refit": 152.01202845372052,
+                "refit_error": 3.9076006196699993,
+                "difference": 5.112028453720512,
+                "relative_difference": 0.03479937681225672,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.42,
+                "published_error": 0.04,
+                "refit": 1.3501486472636206,
+                "refit_error": 0.0458050170730508,
+                "difference": -0.06985135273637932,
+                "relative_difference": 0.04919109347632347,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "q",
+                "published": 1.3,
+                "published_error": 0.3,
+                "refit": 0.7508042230603151,
+                "refit_error": 0.7228255480427921,
+                "difference": -0.5491957769396849,
+                "relative_difference": 0.42245828995360374,
+                "similar": false,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "conditional_bm3_mgd_variable_exponent",
+              "objective": "pressure_residuals",
+              "selection": "All Table S2 rows for FeO; only its 15 explicitly fcc rows for Fe. For Ni/NiO, retain all 92 heated/MAP Table S3 rows (T>295 K); exclude its nine 293-295 K quenched DAC rows from the main diagnostic. This exclusion follows the Section 2.2 stress warning but is an audit choice: the authors do not publish a regression row mask. All 101 rows are retained in the dataset and tested in a sensitivity refit.",
+              "weighting": "unweighted",
+              "free_parameters": ["rt_eos.K0", "gamma0", "q"],
+              "fixed_parameters": ["V0", "K0_prime", "Tr", "theta0", "n"],
+              "observations": 25,
+              "observed_pressure_range_gpa": [3.9954833425198, 57.5614962915957],
+              "observed_temperature_range_k": [873.0, 2096.29],
+              "degrees_of_freedom": 22,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.5149850342799355,
+              "published_rmse_gpa": 1.316064100606689,
+              "reduced_chi_square": 0.3013745290139844,
+              "covariance": [
+                [15.269342602845363, -0.004944426585140988, 2.6918758626538852],
+                [-0.004944426585125659, 0.002098099589062475, 0.007860913931569853],
+                [2.691875862653968, 0.007860913931567126, 0.5224767729033628]
+              ],
+              "covariance_convention": "Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors.",
+              "dataset_identifiers": ["feo_campbell_2009_table_s2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "deferred",
           "audit_date": "2026-09-20",

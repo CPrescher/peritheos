@@ -102,6 +102,86 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Classified similar: staged reproduced-cold coefficients are compatible within reported uncertainty intervals, and the equal-weight control puts all four central estimates inside published error widths. Exact GUI output and the complete +/-3 GPa residual envelope are separate unresolved findings. Published coefficients are preserved; this is not an automatic replacement EOS or a formal independent uncertainty-parity claim.",
+              "Fit reproduction is classified similar: the reproduced-cold staged coefficients are compatible with reported parameter uncertainties. The supplied Table S1 and recovered author inputs are bundled separately. The selected author input contains 146 thermal plus 21 literature cold rows. The 11 unsuitable quenched rows are excluded on the basis of user-reported author personal communication and are not database datasets. FeS6.eos confirms full BM3-MGD with q=1 and Tref=298 K, but differs from the printed parameters and was saved in March 2024. Actual EosFit replay gives thermal RMS 1.632 GPa, maximum 5.058 GPa and 14 rows beyond +/-3 GPa. Conditional cold refits closely recover the saved cold coefficients. Candidate-input refits converge. The user confirms the supplied files are the complete author-used inputs; the selected rows are confirmed by author communication. Exact GUI regression controls and agreement with printed coefficients and residuals remain unresolved. Published coefficients stay unchanged and deferred. Selected-data, cold-then-thermal EosFit fits at Tr=300 K give gamma0=2.29252(3829) for fixed published cold coefficients and 2.46418(3953) for fixed weighted-reproduced cold coefficients; both exceed the +/-3 GPa residual bound. Both reproduced-cold staged fits have cold coefficients within published error widths; equal-weight gamma0 is also within the published width, and weighted gamma0 error intervals overlap the published interval. Parameter agreement is compatible within reported uncertainties; exact source-output and residual-envelope reproduction are separate. See docs/literature-reproductions/fes-eosfit-direct.md.",
+              "Usage recommendation: Retain as source evidence; do not use for pressure calibration or prediction until the final source model and residual mismatch are resolved.",
+              "printed publication coefficients versus the supplied author-used saved model",
+              "published +/-3 GPa residual bound versus 5.058 GPa with supplied author files",
+              "GUI versus console regression controls, weighting and selected groups",
+              "individual provenance and pressure calibration of all 21 literature cold rows",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "eos.V0",
+                "published": 102.28920653790895,
+                "published_error": 2.988970320912924,
+                "refit": 102.09525557486305,
+                "refit_error": 3.4794935613560787,
+                "relative_difference": 0.0018961038961039756,
+                "reported_intervals_overlap": true,
+                "similar": true,
+                "uncertainty_qualification": "Source confidence and cross-fit covariance are unknown; thermal esd is conditional on the fixed cold curve. No formal independent combined-sigma parity is asserted.",
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "eos.K0",
+                "published": 115.5,
+                "published_error": 27.91,
+                "refit": 115.4389,
+                "refit_error": 34.78351,
+                "relative_difference": 0.0005290043290042957,
+                "reported_intervals_overlap": true,
+                "similar": true,
+                "uncertainty_qualification": "Source confidence and cross-fit covariance are unknown; thermal esd is conditional on the fixed cold curve. No formal independent combined-sigma parity is asserted.",
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "eos.K0_prime",
+                "published": 4.99,
+                "published_error": 0.51,
+                "refit": 4.9917,
+                "refit_error": 0.67891,
+                "relative_difference": 0.00034068136272536885,
+                "reported_intervals_overlap": true,
+                "similar": true,
+                "uncertainty_qualification": "Source confidence and cross-fit covariance are unknown; thermal esd is conditional on the fixed cold curve. No formal independent combined-sigma parity is asserted.",
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "thermal.gamma0",
+                "published": 2.42,
+                "published_error": 0.03,
+                "refit": 2.46418,
+                "refit_error": 0.03953,
+                "relative_difference": 0.018256198347107393,
+                "reported_intervals_overlap": true,
+                "similar": true,
+                "uncertainty_qualification": "Source confidence and cross-fit covariance are unknown; thermal esd is conditional on the fixed cold curve. No formal independent combined-sigma parity is asserted.",
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "cold_then_fixed_cold_thermal",
+              "objective": "EosFit pressure residuals with supplied P/V/T uncertainty weights",
+              "free_parameters": ["eos.V0", "eos.K0", "eos.K0_prime", "thermal.gamma0"],
+              "fixed_parameters": ["theta0", "q", "n", "Tr=300 K"],
+              "observations": 167,
+              "rmse_gpa": 1.6336098214363033,
+              "published_rmse_gpa": 1.916099083712202,
+              "reduced_chi_square": 0.6274,
+              "dataset_identifiers": ["fes_morard_2026_author_without_additional_cold_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "deferred",
           "reproduction_status": "similar",

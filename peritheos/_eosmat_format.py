@@ -131,12 +131,37 @@ _THERMAL_KEYS = (
     "reference_volume_law",
     "bulk_modulus_law",
 )
+_ASSESSMENT_KEYS = (
+    "status",
+    "scope",
+    "source_status",
+    "basis",
+    "basis_code",
+    "qualifications",
+    "parameters",
+    "fit",
+    "report",
+)
+_COMPARISON_KEYS = (
+    "parameter",
+    "published",
+    "published_error",
+    "published_sigma",
+    "refit",
+    "refit_error",
+    "refit_sigma",
+    "difference",
+    "delta",
+    "relative_difference",
+    "relative_delta",
+)
 
 
 def format_eosmat(document: Mapping[str, Any]) -> str:
     """Format a validated document; retain array order and extension metadata.
 
-    Material/record fields and native thermal-component fields are reordered.
+    Material/record fields, native thermal components and recognized reconstruction
+    assessment/comparison fields are reordered.
     Parameter maps, covariance metadata, arrays and arbitrary nested extensions
     retain their order. Historical v2/v3 layout is unchanged. Short scalar groups
     fit on one line; long strings remain intact even above 120 columns.
@@ -207,6 +232,14 @@ def format_eosmat(document: Mapping[str, Any]) -> str:
                 priority = first + tuple(key for key in priority if key not in first)
             if context == "thermal":
                 priority = _THERMAL_KEYS
+            if context == "evidence":
+                priority = ("reproduction",)
+            if context == "reproduction":
+                priority = ("assessment",)
+            if context == "assessment":
+                priority = _ASSESSMENT_KEYS
+            if context == "comparison":
+                priority = _COMPARISON_KEYS
             keys = [key for key in priority if key in value]
             tail = _V4_RECORD_TAIL if context == "record" and native else ()
             keys.extend(key for key in value if key not in priority and key not in tail)
@@ -216,11 +249,25 @@ def format_eosmat(document: Mapping[str, Any]) -> str:
                 child = key if context == "material" and key == "eos_records" else ""
                 if context == "record" and native and key == "thermal":
                     child = "thermal"
+                if context == "record" and native and key == "evidence":
+                    child = "evidence"
+                if context == "evidence" and key == "reproduction":
+                    child = "reproduction"
+                if context == "reproduction" and key == "assessment":
+                    child = "assessment"
+                if context == "assessment" and key == "parameters":
+                    child = "comparisons"
                 lines.append(
                     inner + encode(key) + ": " + render(value[key], depth + 1, child)
                 )
             return "{\n" + ",\n".join(lines) + "\n" + indent + "}"
-        child = "record" if context == "eos_records" else ""
+        child = (
+            "record"
+            if context == "eos_records"
+            else "comparison"
+            if context == "comparisons"
+            else ""
+        )
         return (
             "[\n"
             + ",\n".join(inner + render(item, depth + 1, child) for item in value)

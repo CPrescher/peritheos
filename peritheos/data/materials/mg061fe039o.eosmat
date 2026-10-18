@@ -58,6 +58,66 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Coupled three-level spin-state reconstruction using the recovered earlier observations and Solomatova Table 2 priors. The original MINUTI input, row weights, residual definition, and covariance are unpublished, so this equal-weight approximate-volume fit tests numerical similarity rather than claiming an exact reproduction.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 77.49,
+                "published_sigma": 0.03,
+                "refit": 77.4915781521927,
+                "refit_sigma": null,
+                "delta": 0.0015781521927067388,
+                "relative_delta": 2.0365881955177946e-05,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 161.0,
+                "published_sigma": 3,
+                "refit": 160.2555876526297,
+                "refit_sigma": null,
+                "delta": -0.7444123473702859,
+                "relative_delta": -0.004623679176212956,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.25,
+                "published_sigma": 0.24,
+                "refit": 4.063494833000203,
+                "refit_sigma": null,
+                "delta": -0.18650516699979658,
+                "relative_delta": -0.043883568705834486,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "coupled_bm3_three_level_spin_crossover",
+              "objective": "equal-weight approximate volume residuals plus Table 2 priors",
+              "selection": "compression_path=1",
+              "free_parameters": ["V0_HS", "K0_HS", "K0_prime_HS", "V0_LS", "K0_LS", "omega0"],
+              "fixed_parameters": [],
+              "observations": 38,
+              "solver_success": true,
+              "solver_message": "dedicated Solomatova coupled reconstruction completed",
+              "rmse_volume_a3": 0.13681193441273581,
+              "dataset_identifiers": ["mg061fe039o_fei_2007_table_s2_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -139,6 +199,66 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Coupled three-level spin-state reconstruction using the recovered earlier observations and Solomatova Table 2 priors. The original MINUTI input, row weights, residual definition, and covariance are unpublished, so this equal-weight approximate-volume fit tests numerical similarity rather than claiming an exact reproduction.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 74.83,
+                "published_sigma": 0.38,
+                "refit": 73.90710430010351,
+                "refit_sigma": null,
+                "delta": -0.9228956998964861,
+                "relative_delta": -0.012333231322951839,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 162.0,
+                "published_sigma": 4,
+                "refit": 172.38356654401977,
+                "refit_sigma": null,
+                "delta": 10.383566544019772,
+                "relative_delta": 0.06409608977789982,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.0,
+                "published_sigma": null,
+                "refit": 4.0,
+                "refit_sigma": null,
+                "delta": 0.0,
+                "relative_delta": 0.0,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "coupled_bm3_three_level_spin_crossover",
+              "objective": "equal-weight approximate volume residuals plus Table 2 priors",
+              "selection": "compression_path=1",
+              "free_parameters": ["V0_HS", "K0_HS", "K0_prime_HS", "V0_LS", "K0_LS", "omega0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 38,
+              "solver_success": true,
+              "solver_message": "dedicated Solomatova coupled reconstruction completed",
+              "rmse_volume_a3": 0.13681193441273581,
+              "dataset_identifiers": ["mg061fe039o_fei_2007_table_s2_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -220,6 +340,66 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Coupled three-level spin-state reconstruction using the recovered earlier observations and Solomatova Table 2 priors. The original MINUTI input, row weights, residual definition, and covariance are unpublished, so this equal-weight approximate-volume fit tests numerical similarity rather than claiming an exact reproduction.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 77.41,
+                "published_sigma": 0.07,
+                "refit": 77.32448225206413,
+                "refit_sigma": null,
+                "delta": -0.0855177479358673,
+                "relative_delta": -0.0011047377333143948,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 160.0,
+                "published_sigma": 1,
+                "refit": 160.40439948422758,
+                "refit_sigma": null,
+                "delta": 0.4043994842275822,
+                "relative_delta": 0.002527496776422389,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.07,
+                "published_sigma": 0.05,
+                "refit": 4.139158005827329,
+                "refit_sigma": null,
+                "delta": 0.06915800582732867,
+                "relative_delta": 0.016992139023913676,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "coupled_bm3_three_level_spin_crossover",
+              "objective": "equal-weight approximate volume residuals plus Table 2 priors",
+              "selection": "used_in_solomatova_2016_fit=1",
+              "free_parameters": ["V0_HS", "K0_HS", "K0_prime_HS", "V0_LS", "K0_LS", "omega0"],
+              "fixed_parameters": [],
+              "observations": 54,
+              "solver_success": true,
+              "solver_message": "dedicated Solomatova coupled reconstruction completed",
+              "rmse_volume_a3": 0.19753949408156116,
+              "dataset_identifiers": ["mg061fe039o_zhuravlev_2010_table5_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -301,6 +481,66 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Coupled three-level spin-state reconstruction using the recovered earlier observations and Solomatova Table 2 priors. The original MINUTI input, row weights, residual definition, and covariance are unpublished, so this equal-weight approximate-volume fit tests numerical similarity rather than claiming an exact reproduction.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 73.56,
+                "published_sigma": 0.19,
+                "refit": 73.53140264506077,
+                "refit_sigma": null,
+                "delta": -0.028597354939236652,
+                "relative_delta": -0.00038876230205596316,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 170.0,
+                "published_sigma": 2,
+                "refit": 171.3166944022198,
+                "refit_sigma": null,
+                "delta": 1.3166944022198095,
+                "relative_delta": 0.007745261189528291,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.0,
+                "published_sigma": null,
+                "refit": 4.0,
+                "refit_sigma": null,
+                "delta": 0.0,
+                "relative_delta": 0.0,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "coupled_bm3_three_level_spin_crossover",
+              "objective": "equal-weight approximate volume residuals plus Table 2 priors",
+              "selection": "used_in_solomatova_2016_fit=1",
+              "free_parameters": ["V0_HS", "K0_HS", "K0_prime_HS", "V0_LS", "K0_LS", "omega0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 54,
+              "solver_success": true,
+              "solver_message": "dedicated Solomatova coupled reconstruction completed",
+              "rmse_volume_a3": 0.19753949408156116,
+              "dataset_identifiers": ["mg061fe039o_zhuravlev_2010_table5_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -394,6 +634,62 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 77.4,
+                "published_error": 0.2,
+                "refit": 77.25108627601836,
+                "refit_error": 0.10690896122536361,
+                "difference": -0.14891372398165004,
+                "relative_difference": 0.0019239499222435403,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 161.0,
+                "published_error": 3.0,
+                "refit": 162.46055948379933,
+                "refit_error": 1.6097007529085465,
+                "difference": 1.4605594837993294,
+                "relative_difference": 0.00907179803602068,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "compression_path=compression, used_in_zhuravlev_2010_hs_fit=1",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": [],
+              "observations": 43,
+              "observed_pressure_range_gpa": [15.5, 70.9],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [59.461, 70.722],
+              "degrees_of_freedom": 41,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.42447018802619474,
+              "published_rmse_gpa": 0.964976661377963,
+              "reduced_chi_square": 3.381459033269873,
+              "dataset_identifiers": ["mg061fe039o_zhuravlev_2010_table5_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated directly against the primary article and its complete Table 5 pressure-volume series.",
@@ -530,6 +826,54 @@
         "notes": "The row nacl_phase is inferred from its lattice branch: a>4 A is B1, a<4 A is B2. Table S1 has B1 at 29.30 GPa, so a universal 26 GPa cutoff would mislabel observations."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Independent unweighted pressure-residual validation, not Fei's published regression or a new source-owned EOS. K0-prime is fixed at 4; HS V0 is held at the reported reference value as a validation choice. LS V0 and K0 are fitted. Exact source weights and row masks are unavailable. Printed zero/missing errors are not exact weights. Compression and decompression remain separate. Published coefficients are retained even where this validation disagrees.",
+              "Usage recommendation: consult_source_audit_before_quantitative_use",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 156.0,
+                "published_error": 2.0,
+                "refit": 155.83273248067616,
+                "refit_error": 1.3806094377988103,
+                "difference": -0.16726751932384332,
+                "relative_difference": 0.0010722276879733545,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "independent_validation_refit",
+              "objective": "pressure_residuals",
+              "selection": "Validation only: compression rows with -0.1 <= P <= 55 GPa, using the published approximate 0-55 GPa branch interval. Exact source row masks and least-squares weights are not published.",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": false,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["K0_prime"],
+              "validation_fixed_parameters": {"K0_prime": 4.0, "V0": 77.48},
+              "observations": 13,
+              "observed_pressure_range_gpa": [-0.1, 51.44],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [62.3157935581, 77.4940292961],
+              "degrees_of_freedom": 12,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.9364900522442662,
+              "published_rmse_gpa": 0.9370626385443614,
+              "reduced_chi_square": 0.9500980861151742,
+              "dataset_identifiers": ["mg061fe039o_fei_2007_table_s2_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-08",
@@ -671,6 +1015,65 @@
         "notes": "The row nacl_phase is inferred from its lattice branch: a>4 A is B1, a<4 A is B2. Table S1 has B1 at 29.30 GPa, so a universal 26 GPa cutoff would mislabel observations."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Independent unweighted pressure-residual validation, not Fei's published regression or a new source-owned EOS. K0-prime is fixed at 4; HS V0 is held at the reported reference value as a validation choice. LS V0 and K0 are fitted. Exact source weights and row masks are unavailable. Printed zero/missing errors are not exact weights. Compression and decompression remain separate. Published coefficients are retained even where this validation disagrees.",
+              "Usage recommendation: consult_source_audit_before_quantitative_use",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 73.6,
+                "published_error": 0.1,
+                "refit": 73.59345159236615,
+                "refit_error": 0.3389615298146553,
+                "difference": -0.006548407633843567,
+                "relative_difference": 8.897292980765717e-05,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 170.0,
+                "published_error": 3.0,
+                "refit": 176.65344049426835,
+                "refit_error": 4.176091177795574,
+                "difference": 6.653440494268352,
+                "relative_difference": 0.03913788526040207,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "independent_validation_refit",
+              "objective": "pressure_residuals",
+              "selection": "Validation only: compression rows with 60 <= P <= 148 GPa, using the published approximate 60-148 GPa branch interval. Exact source row masks and least-squares weights are not published.",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": false,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": ["K0_prime"],
+              "validation_fixed_parameters": {"K0_prime": 4.0},
+              "observations": 24,
+              "observed_pressure_range_gpa": [65.84, 147.77],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [50.0557409639, 58.2125791852],
+              "degrees_of_freedom": 22,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.9664278984827623,
+              "published_rmse_gpa": 4.047495658376884,
+              "reduced_chi_square": 1.0188904177808817,
+              "dataset_identifiers": ["mg061fe039o_fei_2007_table_s2_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-08",

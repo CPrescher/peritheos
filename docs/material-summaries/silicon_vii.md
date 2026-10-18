@@ -86,6 +86,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** The recorded parameter reconstruction did not meet the audit's agreement criterion; the parameter comparisons retain the actual reconstructed values.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 28.6 | 0.2 | 41.61388882865503 | 15.579440094875807 | Free |
+| K0 | 96.9 | 0.9 | 4.845000000000001 | 13.575661949382226 | Free |
+| K0\_prime | 4.01 | 0.04 | 9.109685061321683 | 2.8032984672439807 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** phase=VII
+- **Columns:**
+    - **Pressure:** pressure\_gold\_gpa\|pressure\_tungsten\_gpa\|pressure\_ruby\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** silicon\_lattice\_a\_angstrom
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 25
+- **Observed pressure range gpa:** \[47.7, 93.7\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[18.994759460133043, 21.64265740715537\]
+- **Degrees of freedom:** 22
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.3781328178079222
+- **Published rmse gpa:** 3.559994893107983
+- **Reduced chi square:** 0.16248230443563555
+- **Dataset identifiers:** silicon\_anzellini\_2019\_tables1\_4\_6\_7\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Table 8 room-temperature fit. Published V0=14.3 A^3/atom is multiplied by two atoms in the hcp cell; V0 is extrapolated because Si-VII was observed only at high pressure.
 
 Parameter covariance is not supplied.

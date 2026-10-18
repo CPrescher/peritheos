@@ -99,6 +99,46 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Figure 1 resolves state membership exactly: the 40 circles are the liquid states used in the source fit and the six squares are excluded. Supporting Figures S3-S4 contain only high-resolution raster plots, but their regression-line slopes are digitized at nine volumes and reproduce the paper's stated Cv and gamma ranges. The digitized Cv function is close to the published Gaussian; the gamma polynomial remains sensitive to the unavailable source weighting. Subtracting either published or digitized thermal coefficients and freely fitting four BM4 parameters is nearly singular and hits the K0-double-prime audit bound. A stabilized check with V0 and K0-double-prime fixed recovers K0=2.24587 GPa and K0'=23.0422, but the unstable four-parameter sensitivity result must not be reported as a refitted EOS. Exact reproduction still requires the unrounded source values, constraints, weighting, and covariance treatment.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fit kind:** non\_source\_thermal\_reduction\_sensitivity\_only
+- **Objective:** diagnostic unweighted pressure residuals after subtracting the rounded printed Equations (4), (10)-(13) thermal pressure; this is not the paper's staged regression
+- **Selection:** phase\_state=liquid and used\_in\_published\_eos\_fit=yes: 40 Figure 1 circles; six Figure 1 squares excluded
+- **Columns:**
+    - **Fit selection:** used\_in\_published\_eos\_fit
+    - **Phase state:** phase\_state
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** volume\_cm3\_mol
+- **Fixed parameters:** None declared
+- **Observations:** 40
+- **Observed pressure range gpa:** \[0.32, 296.11\]
+- **Observed temperature range k:** \[2500.0, 6000.0\]
+- **Observed volume range:** \[27.046860326127614, 87.90229605991475\]
+- **Published rmse gpa:** 0.6409268655910171
+- **Dataset identifiers:** fesio3\_liquid\_sun\_2019\_table1\_pvt; fesio3\_liquid\_sun\_2019\_figures\_s3\_s4\_digitized
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 The full source EOS adds a specialized thermal term built from a Gaussian heat-capacity function and a volume-dependent Gruneisen parameter. That thermal form is not currently represented by the eosmat schema, so this record deliberately stores only the explicitly defined, directly executable 2500 K BM4 reference isotherm. The exact 40-state liquid selection is bundled. The paper derives Cv from energy-temperature slopes and gamma from pressure-energy slopes before fitting their volume functions; the supporting information supplies those observations only as raster plots, whose regression-line slopes are now digitized in a separate dataset. The digitization closely recovers the published Cv function but cannot recover the authors' unknown relative weighting for the gamma function. Consequently, subtracting either rounded published or digitized thermal coefficients from Table 1 and freely fitting four BM4 coefficients remains an ill-conditioned sensitivity experiment, not a reproduction of the source regression.
 
 Parameter covariance is not supplied.

@@ -74,6 +74,73 @@
         "notes": "The paper reports pressures as averages of ruby measurements before and after each diffraction exposure."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 36.18,
+                "published_error": 0.06,
+                "refit": 36.18537459744647,
+                "refit_error": 0.03381533585709163,
+                "difference": 0.005374597446468954,
+                "relative_difference": 0.00014855161543584727,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 27.4,
+                "published_error": 0.9,
+                "refit": 28.654603098547643,
+                "refit_error": 0.8659190294253547,
+                "difference": 1.2546030985476442,
+                "relative_difference": 0.04578843425356366,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 11.4,
+                "published_error": 0.8,
+                "refit": 10.045119272001996,
+                "refit_error": 0.4088877517871809,
+                "difference": -1.3548807279980046,
+                "relative_difference": 0.11884918666649164,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 36,
+              "observed_pressure_range_gpa": [0.1825, 9.4175],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [30.826266, 35.974552],
+              "degrees_of_freedom": 33,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.056695121627116415,
+              "published_rmse_gpa": 0.10273873260883355,
+              "reduced_chi_square": 1.4026197016640831,
+              "dataset_identifiers": ["boron_nitride_hexagonal_muhammad_2024_figure5c_digitized"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

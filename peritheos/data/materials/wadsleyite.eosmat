@@ -71,6 +71,77 @@
         "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "Current wadsleyite default on hold and not recommended pending source/model mapping review. This does not establish an error in the publication; no replacement default is selected.",
+            "qualifications": [
+              "Usage recommendation: on_hold_not_recommended_pending_source_mapping_review",
+              "Pressure calibration and MGD reference-state/Debye convention mapping remain unresolved.",
+              "Direct replay of all 85 source rows gives 1.89443 GPa pressure RMS and 3.46380 GPa maximum residual.",
+              "Current wadsleyite default on hold and not recommended pending source/model mapping review. This does not establish an error in the publication; no replacement default is selected.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.K0_prime",
+                "published": 4.1,
+                "published_error": 0.1,
+                "refit": 3.888761512406301,
+                "refit_error": 0.014542856299232937,
+                "difference": -0.21123848759369857,
+                "relative_difference": 0.051521582339926486,
+                "similar": true,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.64,
+                "published_error": 0.02,
+                "refit": 1.1256734922260556,
+                "refit_error": 0.007530848061539662,
+                "difference": -0.5143265077739443,
+                "relative_difference": 0.3136137242524051,
+                "similar": false,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "q",
+                "published": 1.5,
+                "published_error": 0.1,
+                "refit": 1.3501388010178152,
+                "refit_error": 0.12641294516741897,
+                "difference": -0.14986119898218475,
+                "relative_difference": 0.09990746598812317,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "normalized_volume"},
+              "absolute_sigma": true,
+              "free_parameters": ["rt_eos.K0_prime", "gamma0", "q"],
+              "fixed_parameters": ["V0", "K0", "Tr", "theta0", "n"],
+              "observations": 85,
+              "observed_pressure_range_gpa": [11.07, 20.07],
+              "observed_temperature_range_k": [304.0, 2100.0],
+              "observed_volume_range": [492.826048, 517.0580980000001],
+              "degrees_of_freedom": 82,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.07093795439857531,
+              "published_rmse_gpa": 1.894431691290464,
+              "reduced_chi_square": 11.012035125978011,
+              "dataset_identifiers": ["wadsleyite_katsura_2009_table1_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "deferred",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

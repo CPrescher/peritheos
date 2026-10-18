@@ -96,6 +96,64 @@ meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
 
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| rt\_eos.V0 | 165.2 | 0.7 | 167.19400527415326 | 1.8127107951351986 | Free |
+| rt\_eos.K0 | 256.0 | 6.0 | 239.41531321837596 | 14.703300185409736 | Free |
+| theta0 | 600.0 | 200.0 | 766.2592031228312 | 572.846246963602 | Free |
+| gamma0 | 1.47 | 0.05 | 1.550212367349021 | 0.16220313626055743 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** joint\_pvt
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** rt\_eos.V0; rt\_eos.K0; theta0; gamma0
+- **Fixed parameters:** K0\_prime; Tr; q; n
+- **Observations:** 75
+- **Observed pressure range gpa:** \[96.5, 156.7\]
+- **Observed temperature range k:** \[300.0, 3670.0\]
+- **Observed volume range:** \[123.3, 132.4\]
+- **Degrees of freedom:** 71
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.8659771664003755
+- **Published rmse gpa:** 1.1433652954894855
+- **Reduced chi square:** 0.15196005581308814
+- **Dataset identifiers:** alumina\_rh2o3\_ii\_shi\_2022\_table\_s2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 

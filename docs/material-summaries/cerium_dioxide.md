@@ -85,6 +85,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 220.0 | 9.0 | 226.12463701024387 | 3.535841487132809 | Free |
+| K0\_prime | 4.4 | 0.4 | 3.301697859777839 | 0.5165141614948036 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_angstrom3
+- **Absolute sigma:** True
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 21
+- **Observed pressure range gpa:** \[0.8481, 19.8101\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[146.756548, 157.777816\]
+- **Degrees of freedom:** 19
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.1960352228258812
+- **Published rmse gpa:** 0.2189251532336543
+- **Reduced chi square:** 1.0618762899424357
+- **Dataset identifiers:** cerium\_dioxide\_gerward\_2005\_figure3a\_digitized
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Room-temperature powder XRD fit of the cubic fluorite phase. The equation fits K0 and K0\_prime using measured a0=5.411(1) A; V0=a0^3 and its error is propagated as 3\*a0^2\*sigma\_a.
 
 Parameter covariance is not supplied.

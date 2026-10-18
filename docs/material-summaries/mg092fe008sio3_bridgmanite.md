@@ -101,6 +101,32 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** The tabulated P-density observations are Hugoniot states, whereas this BM3 is a shock-reduced reference isentrope. Directly fitting the Hugoniot states to this isentrope is not a source-EOS reproduction. The thermal reduction inputs are not recoverable from this table; retain the shock observations without an invalid isentropic regression.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** None declared
+- **Dataset identifiers:** mg092fe008sio3\_gong\_2004\_table1\_shock
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Accepted LitCurate source row 447. This equilibrium BM3 is the source's shock-reduced reference isentrope, not the directly measured principal Hugoniot and not an independently fitted 298 K isotherm. The AIP proceedings DOI 10.1063/1.1780510 repeats this same data set and is not represented as a second record.
 
 Parameter covariance is not supplied.

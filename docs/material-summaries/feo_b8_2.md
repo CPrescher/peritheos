@@ -93,6 +93,64 @@ meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
 
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Recovered combined thermal reproduction: all 21 numerical B8 volumes in Fischer Supplementary Table S1 are evaluated at their reported, already 3%-corrected temperatures with Equation (1)'s integrated-Gruneisen Mie-Gruneisen-Debye model. One-peak detections have no volume and are excluded; the three two-peak volumes whose errors are unconstrained use Figure 3's explicit +/-0.1 cm^3/mol fallback. All 8 B8 rows in Ozawa's printed Table 2 are added, and K0', theta0, q, Tr, and n are held fixed. The unweighted 29-row fit recovers every free coefficient within its published uncertainty. Fischer does not state its regression weights, residual variable, covariance, or optimizer, so this establishes numerical parameter parity rather than exact procedural identity. See the \[dedicated Fischer reproduction\](literature-reproductions/fischer-2011-feo.md).
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| rt\_eos.V0 | 39.843 | 0.0598 | 39.87450402914566 | 0.9227500249824091 | Free |
+| rt\_eos.K0 | 137.8 | 0.9 | 137.8628927154254 | 13.419067626962399 | Free |
+| gamma0 | 1.73 | 0.12 | 1.6661584108233458 | 0.16772849402876094 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** joint\_pvt
+- **Objective:** pressure\_residuals
+- **Selection:** 21 numerical Fischer Table S1 B8 volumes plus all eight B8 rows in Ozawa printed Table 2
+- **Columns:**
+    - **Pressure:** pressure\_gpa + pressure\_gpa
+    - **Temperature:** temperature\_k + temperature\_k
+    - **Volume:** b8\_feo\_molar\_volume\_cm3\_mol + feo\_volume\_a3\_per\_formula\_unit
+- **Absolute sigma:** False
+- **Free parameters:** rt\_eos.V0; rt\_eos.K0; gamma0
+- **Fixed parameters:** K0\_prime; Tr; theta0; q; n
+- **Observations:** 29
+- **Observed pressure range gpa:** \[131.343680431, 199.5\]
+- **Observed temperature range k:** \[300.0, 3000.0\]
+- **Observed volume range:** \[24.4, 26.844846548522057\]
+- **Degrees of freedom:** 26
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 2.531779963298538
+- **Published rmse gpa:** 2.544868741352714
+- **Reduced chi square:** 7.149514757470708
+- **Dataset identifiers:** feo\_fischer\_2011\_table\_s1\_pvt; feo\_ozawa\_2010\_table2\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 

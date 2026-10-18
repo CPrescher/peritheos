@@ -92,6 +92,54 @@
         "notes": "The row nacl_phase is inferred from its lattice branch: a>4 A is B1, a<4 A is B2. Table S1 has B1 at 29.30 GPa, so a universal 26 GPa cutoff would mislabel observations."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Independent unweighted pressure-residual validation, not Fei's published regression or a new source-owned EOS. K0-prime is fixed at 4; HS V0 is held at the reported reference value as a validation choice. LS V0 and K0 are fitted. Exact source weights and row masks are unavailable. Printed zero/missing errors are not exact weights. Compression and decompression remain separate. Published coefficients are retained even where this validation disagrees.",
+              "Usage recommendation: consult_source_audit_before_quantitative_use",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 153.0,
+                "published_error": null,
+                "refit": 153.17737026377804,
+                "refit_error": 1.4284155273762704,
+                "difference": 0.17737026377804455,
+                "relative_difference": 0.0011592827697911407,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "independent_validation_refit",
+              "objective": "pressure_residuals",
+              "selection": "Validation uses all seven compression rows through 42.75 GPa. As agreed with the user, assume the Figure 3 caption's approximate 42 GPa upper limit includes the tabulated 42.75 GPa B1 point. This is an explicit rounded-endpoint interpretation, not confirmation of the authors' exact row mask or weights. Rows at and above 44 GPa remain excluded because of the cubic-rhombohedral transition.",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": false,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["K0_prime"],
+              "validation_fixed_parameters": {"K0_prime": 4.0, "V0": 79.36},
+              "observations": 7,
+              "observed_pressure_range_gpa": [9.37, 42.75],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [65.4605720236, 75.2262680963],
+              "degrees_of_freedom": 6,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.4872550028647513,
+              "published_rmse_gpa": 0.48788067826156556,
+              "reduced_chi_square": 0.2769870107861836,
+              "dataset_identifiers": ["mg042fe058o_fei_2007_table_s3_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-09-08",

@@ -135,6 +135,32 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** V0; K0; K\_infinity\_prime
+- **Dataset identifiers:** None declared
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0\_prime to the internally consistent compression network, and fixes K\_infinity\_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.
 
 Parameter covariance is not supplied.
@@ -231,6 +257,61 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0\_prime | 6.0 | 0.02 | 5.999042092841824 | 0.037467230325280015 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** ruby\_pressure\_revised\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** atomic\_volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** K0\_prime
+- **Fixed parameters:** V0; K0
+- **Observations:** 37
+- **Observed pressure range gpa:** \[0.0, 93.6\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[52.12, 67.864\]
+- **Degrees of freedom:** 36
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.2914160655214606
+- **Published rmse gpa:** 0.32104169331744814
+- **Reduced chi square:** 0.09586575721211826
+- **Dataset identifiers:** gold\_dewaele\_2004\_table1\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Static 298 K Vinet fit to all available Table I observations for this metal on the revised P'\_R scale. Source-fixed parameters: V0, K0. Published atomic V0 is converted to the material card's conventional-cell basis.
 
 Parameter covariance is not supplied.
@@ -318,6 +399,63 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Conditional numerical parameter parity: all 86 observed Table III rows, with published V0/K0 fixed, recover K0-prime within the printed 0.1 width on both ruby coordinates under equal-pressure and equal-volume residual objectives. Original residual direction, weights, unrounded reductions, pointwise uncertainties, confidence convention and covariance are not recovered; no combined-two-sigma or exact author-fit claim. See the \[dedicated audit\](literature-reproductions/takemura-2008-gold.md).
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0\_prime | 5.9 | 0.1 | 5.928709512073656 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** equal\_pressure\_residuals
+- **Selection:** all 86 observed rows; no exclusions
+- **Columns:**
+    - **Pressure:** ruby\_pressure\_dorogokupets\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** lattice\_111\_angstrom
+- **Absolute sigma:** False
+- **Free parameters:** K0\_prime
+- **Fixed parameters:** V0; K0
+- **Observations:** 86
+- **Observed pressure range gpa:** \[0.0, 130.8\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[49.42682244009901, 67.95227543794302\]
+- **Degrees of freedom:** 85
+- **Solver success:** True
+- **Solver message:** dedicated equal-pressure refit; volume/scale sensitivities archived
+- **Rmse gpa:** 0.777872851511799
+- **Published rmse gpa:** 0.7999477645481032
+- **Reduced chi square:** Not specified
+- **Dataset identifiers:** gold\_takemura\_2008\_table3\_compression
+- **Reproduction report:** docs/data/takemura-2008-gold-reproduction.json
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Vinet fit for the Dorogokupets-Oganov ruby calibration. The published atomic V0=16.962 A^3 is multiplied by four atoms in the conventional fcc cell.
 
@@ -420,6 +558,32 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Tables I-IV contain heterogeneous literature properties, separately regressed coefficients, and derived thermodynamic diagnostics, while Table V is output from Equation (29). The source performs staged smoothing, one-dimensional regressions, numerical integrations, and qualitative K0' trials; it does not define a global observation matrix, objective, weights, integration protocol, or covariance that could be reproduced as a direct EOS coefficient refit.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** V0; K0; K0\_prime; Tr
+- **Dataset identifiers:** gold\_anderson\_1989\_table1\_thermodynamic\_inputs; gold\_anderson\_1989\_table2\_temperature\_derivatives; gold\_anderson\_1989\_table3\_bulk\_moduli; gold\_anderson\_1989\_table4\_anharmonic\_diagnostics; gold\_anderson\_1989\_table5\_pressure\_grid
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Anderson et al. Equation (29): the adopted 300 K BM3 curve KT0=166.65 GPa and K0'=5.4823 is combined with \[0.00714-0.0115\*ln(V0/V)\]\*(T-300) GPa. This is a staged literature synthesis, not a global P-V-T regression: Tables I-IV combine heat-capacity, expansivity, and ultrasonic data from distinct sources; low-temperature expansivities were graphically smoothed; several derived curves were fit separately; K0'=5.2-5.5 was selected by a thermodynamic-consistency diagnostic; and the final static K0 and K0' were adopted from Heinz and Jeanloz. V0=67.79 A^3 is converted from the paper's ambient density 19.30 g/cm^3 and atomic mass 196.967 g/mol for the four-atom fcc cell. Table I prints Cp=1.1288 in units of 0.1 J g^-1 K^-1 at 300 K, but Equation (4) and Table IV gamma=2.974 independently imply about 1.288; both the printed and reconstructed values are preserved in the supporting dataset. Table V covers V/V0=0.66-1 and 300-3000 K. The stored 0.001 GPa/K dK\_dT\_V error is the explicit propagated contribution reported for the near-identical K0'=5.5 calculation; the paper notes an additional unquantified contribution from K0' uncertainty. No global objective, complete covariance matrix, row weights, digitized low-temperature smoothing curve, or exact numerical-integration protocol is published.
 
@@ -547,6 +711,51 @@ meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
 
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Conditional numerical parity: staged equal-pressure-weight replay of 37 revised-ruby cold observations followed by 28 reported-MgO hot observations reproduces K0-prime and q within printed parameter error widths. V0/K0/gamma0/theta0 are adopted and fixed. Source weights, exact MgO reduction and uncertainty confidence/covariance remain unresolved; no formal combined-two-sigma or source-exact author-fit claim.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0\_prime | 6.0 | 0.02 | 5.995326273385395 | 0.01117901202935827 | Free |
+| q | 0.6 | 0.3 | 0.6191486316881784 | 0.12507788930311625 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** staged\_vinet\_mgd\_conditional\_replay
+- **Objective:** equal\_pressure\_residuals
+- **Free parameters:** K0\_prime; q
+- **Fixed parameters:** V0; K0; gamma0; theta0
+- **Observations:** 65
+- **Rmse gpa:** 0.7107262512275505
+- **Published rmse gpa:** 0.7122682138770043
+- **Dataset identifiers:** gold\_dewaele\_2004\_table1\_compression; gold\_fei\_2004\_table1; gold\_hirose\_2006\_table1
+- **Reproduction report:** docs/data/fei-2007-gold-reproduction.json
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 
@@ -671,6 +880,76 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Direct reconstruction from source observations: each Table S1 phase volume is paired with its simultaneous Cu volume, pressure is evaluated from Fratanduono et al.'s analytic third-order 298 K Vinet fit, and K0 and K0\_prime are fitted with Shen and Smith's fixed V0 and stated run selection. The source publishes no pressure weights, residual covariance, or weighting protocol, so the reproduction uses unweighted pressure residuals and does not infer any of them.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 167.5 | 0.3 | 167.64150182431797 | 0.2915530235970454 | Free |
+| K0\_prime | 5.85 | 0.01 | 5.843889939885668 | 0.013201109484799772 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** fixed\_v0\_vinet\_with\_reconstructed\_cu\_pressure
+- **Objective:** unweighted\_pressure\_residuals
+- **Selection:** Au; DAC-1
+- **Columns:**
+    - **Pressure:** Fratanduono-2020 298 K Cu pressure reconstructed per run
+    - **Temperature:** Not specified
+    - **Volume:** unit\_cell\_volume\_a3
+- **Absolute sigma:** False
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 228
+- **Observed pressure range gpa:** \[3.908992349216304, 137.37695008018062\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[48.81535, 66.28583\]
+- **Degrees of freedom:** 226
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.33474789368557756
+- **Reduced chi square:** 0.1130477996926558
+- **Pressure reconstruction:**
+    - **Density0 g cm3:** 8.939
+    - **DOI:** 10.1103/PhysRevLett.124.015701
+    - **Model:** vinet\_3
+    - **Pairing:** Each phase volume uses the single Cu volume with the same experiment and run number; both source-labeled Pt first/last measurements are retained when the run is selected.
+    - **Parameters:**
+        - **K0 gpa:** 133.6
+        - **Beta:** 2.06
+        - **Eta:** 6.29
+        - **Psi:** 1.65
+    - **Reference:** Fratanduono et al. (2020)
+    - **Reference eos record:** copper\_fratanduono\_2020\_vinet3\_298k
+    - **Reference unit cell volume a3:** 47.218085048721
+    - **Source locations:** main article Table I, 298 K isotherm row; Supplemental Material Eq. (2), Section S4
+- **Dataset identifiers:** shen\_smith\_2026\_table\_s1\_simultaneous\_volumes
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Table II Cu-referenced fit using DAC-1 data; V0 fixed. Reported uncertainties: K0 +/- 0.3 GPa and K0' +/- 0.01. Measurements were made at 298.5 +/- 0.5 K to 140 GPa.
 
 Parameter covariance is not supplied.
@@ -779,6 +1058,44 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** source reconstruction.
+**Scope:** source equation.
+
+**Comparison basis:** All eleven machine-readable comparison series enter one shared Equation (20) objective against the mean Table 2 Holzapfel and Table 3 Vinet isotherm. Table 4 is retained as a post-calibration closure test. The calculation cannot recover the eleven EOS parameter sets independently because the source omits complete thermochemical/ultrasonic rows, weights, and covariance.
+
+Original audit code: `source_reconstruction`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fit kind:** coupled\_eleven\_marker\_ruby\_cross\_calibration
+- **Objective:** minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight
+- **Fixed parameters:** n; Z; n
+- **Observations:** 36
+- **Rmse gpa:** 1.7825124933162952
+- **Published rmse gpa:** 1.6701588200282793
+- **Comparison scope:** shared\_ruby\_calibration
+- **Dataset identifiers:** gold\_dewaele\_2004\_table1\_compression
+- **Published ruby parameters:**
+    - **A gpa:** 1870.0
+    - **M:** 6.0
+- **Sensitivity fit ruby parameters:**
+    - **A gpa:** 1869.3837840502665
+    - **M:** 6.10334763359135
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 This record uses the self-consistent Sokolova et al. (2013) pressure-scale fit: Table 1 supplies reference volume/composition inputs and Table 4 supplies the final Holzapfel and thermal coefficients. The fit jointly considers shock-wave, ultrasonic, X-ray diffraction, dilatometric, and thermochemical measurements; it is not derived from one experimental dataset. Sokolova et al. (2016) republishes the parameters and supplies the executable Excel/VBA implementation, reference-temperature convention, and corrected equations, rather than a new fit dataset. The publications do not provide individual parameter errors, parameter covariance, or a complete machine-readable list of fit points and weights. A source-constrained reconstruction nevertheless combines 392 room-temperature comparison observations for all eleven markers in one shared Equation (20) objective against the pointwise mean of the precursor Table 2 Holzapfel and Table 3 Vinet isotherms, with Table 4 retained as a post-calibration closure test. This tests the coupled cross-calibration and is not an independent refit of the eleven EOS coefficient sets. The \*\_sokolova\_2013 identifier names the scientific fit year; the 2016 workbook remains explicit in source\_lineage as the implementation and correction source.
 
 Parameter covariance is not supplied.
@@ -882,6 +1199,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 170.9 | 0.24 | 170.2984392496678 | 0.5864841090463982 | Free |
+| K0\_prime | 5.88 | 0.005 | 5.892083792353126 | 0.011029134970246695 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** isotherm\_298k\_pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** atomic\_volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 119
+- **Observed pressure range gpa:** \[0.0, 1137.6\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[30.48, 67.716\]
+- **Degrees of freedom:** 117
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 2.4252190979988573
+- **Published rmse gpa:** 2.4401358758487475
+- **Reduced chi square:** 5.982229342927423
+- **Dataset identifiers:** gold\_fratanduono\_2021\_table\_s3\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Quasi-absolute 298 K reference isotherm reduced from shockless ramp compression. Table 1 reports atomic V0=16.929 A^3, converted here to the four-atom fcc conventional cell. This is the Au pressure basis used by the Eremets et al. (2023) diamond-edge scale.
 
 Parameter covariance is not supplied.
@@ -977,6 +1350,54 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 67.932 | 0.08 | 67.93265557205157 | Not specified | Free |
+| K0 | 166.4 | 2.0 | 166.36665153722387 | Not specified | Free |
+| K0\_prime | 5.47 | 0.06 | 5.466130301059161 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** static\_vinet\_with\_explicit\_ruby\_scale\_conversion
+- **Objective:** unweighted pressure residuals
+- **Selection:** complete
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 86
+- **Observed pressure range gpa:** \[0.0, 122.29180492688037\]
+- **Solver success:** True
+- **Solver message:** dedicated Dewaele (2019) refit completed
+- **Rmse gpa:** 0.7258715907845411
+- **Dataset identifiers:** gold\_takemura\_2008\_table3\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
 
@@ -1077,6 +1498,54 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 67.944 | 0.08 | 67.94312505523439 | Not specified | Free |
+| K0 | 163.4 | 2.0 | 163.3770385791797 | Not specified | Free |
+| K0\_prime | 6.04 | 0.06 | 6.0298208014166335 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** static\_vinet\_with\_explicit\_ruby\_scale\_conversion
+- **Objective:** unweighted pressure residuals
+- **Selection:** complete
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 86
+- **Observed pressure range gpa:** \[0.0, 130.8\]
+- **Solver success:** True
+- **Solver message:** dedicated Dewaele (2019) refit completed
+- **Rmse gpa:** 0.7730222728820225
+- **Dataset identifiers:** gold\_takemura\_2008\_table3\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
 
 Parameter covariance is not supplied.
@@ -1176,6 +1645,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 172.5 | 1.4 | 172.37746528206796 | 3.186572182097841 | Free |
+| K0\_prime | 5.4 | 0.08 | 5.411095520590663 | 0.17730037584544642 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** ruby\_pressure\_classical\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** atomic\_volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 37
+- **Observed pressure range gpa:** \[0.0, 90.0\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[52.12, 67.864\]
+- **Degrees of freedom:** 35
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.2033594087067835
+- **Published rmse gpa:** 0.22679437079140033
+- **Reduced chi square:** 0.0484740711293025
+- **Dataset identifiers:** gold\_dewaele\_2004\_table1\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Static 298 K synchrotron X-ray compression fit to all available Table I observations for this metal. V0 was fixed from the authors' 0-5 GPa determination; Table II reports the remaining bold coefficients as fixed. The classical and revised records are alternative pressure reductions of the same diffraction observations, not independent experiments.
 
 Parameter covariance is not supplied.
@@ -1267,6 +1792,51 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Complete reproduction of the rows available in official auxiliary Tables S1-S6, using the source's coupled Equation (3) objective and fixed Tange MgO anchor. The fit converges to a lower objective but does not recover Table 2. Run AN012 is listed in article Table 1 yet absent from the auxiliary PDF; unrounded inputs, row-selection detail, fit code, and covariance are unavailable.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0\_prime | 5.88 | 0.02 | 5.860266508021561 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** simultaneous\_cocompression\_vinet
+- **Objective:** Dorfman Equation (3)
+- **Selection:** Use every nonblank paired volume printed in Tables S1-S6; include the three MgO values marked as determined from the (200) peak alone.
+- **Free parameters:** K0\_prime
+- **Fixed parameters:** V0; K0
+- **Observations:** 165
+- **Observed pressure range gpa:** \[34.4, 242.6\]
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Comparison scope:** joint\_system
+- **Dataset identifiers:** jgrb17272-sup-0002-txts01.pdf
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO Fit 3 Vinet EOS as the fixed 300 K anchor. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments. The coefficients remain the printed Table 2 values: the independent source-row refit is a diagnostic and does not overwrite them.
 
@@ -1382,6 +1952,52 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Complete reproduction of the rows available in official auxiliary Tables S1-S6, using the source's coupled Equation (3) objective and fixed Tange MgO anchor. The fit converges to a lower objective but does not recover Table 2. Run AN012 is listed in article Table 1 yet absent from the auxiliary PDF; unrounded inputs, row-selection detail, fit code, and covariance are unavailable.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 167.0 | 3.0 | 178.7131955926287 | Not specified | Free |
+| K0\_prime | 5.84 | 0.02 | 5.468332069803775 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** simultaneous\_cocompression\_vinet
+- **Objective:** Dorfman Equation (3)
+- **Selection:** Use every nonblank paired volume printed in Tables S1-S6; include the three MgO values marked as determined from the (200) peak alone.
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 165
+- **Observed pressure range gpa:** \[34.4, 242.6\]
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Comparison scope:** joint\_system
+- **Dataset identifiers:** jgrb17272-sup-0002-txts01.pdf
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published simultaneous co-compression pressure-standard fit using the Tange et al. (2009) MgO Fit 3 Vinet EOS as the fixed 300 K anchor. Fixed- and free-K0 solutions are correlated alternatives, not independent experiments. The coefficients remain the printed Table 2 values: the independent source-row refit is a diagnostic and does not overwrite them.
 
@@ -1510,6 +2126,53 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- The corrected Ye et al. (2017) co-compression inputs for the selected pathway are bundled. The source-described V0/K0-fixed co-compression pathway reproduces the K0-prime point estimate and its 1 GPa-scatter standard error at the precision printed by Ye et al. (2017).
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0\_prime | 5.897 | 0.022 | 5.896768070200478 | 0.02222069212640481 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** staged\_cocompression\_vinet\_k0\_prime
+- **Objective:** unweighted pressure differences between co-compressed phases
+- **Selection:** All corrected Ye et al. (2017) co-compression rows in the selected Au\_from\_MgO pathway
+- **Absolute sigma:** True
+- **Free parameters:** K0\_prime
+- **Fixed parameters:** V0; K0
+- **Observations:** 28
+- **Observed pressure range gpa:** \[19.03783589777603, 120.2715154156598\]
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.5712382190658275
+- **Dataset identifiers:** ye\_2017\_data\_s1\_au\_mgo\_300k
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Parameter covariance is not supplied.
 
 
@@ -1621,6 +2284,53 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Every released v3 fit-input row is included in an independent translation of Zhu's iterative energy-balance and robust-bisquare optimization. The fitted gamma0 and b reproduce the rounded optimizer/property parameter set at its stated numerical precision. The inconsistent standalone v3 calculators are not used as the fit target.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| gamma0 | 2.93 | 0.18 | 2.9359999606410345 | Not specified | Free |
+| b | 2.7 | 0.7 | 2.6255991244983807 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** iterative\_robust\_bisquare\_gruneisen\_refit
+- **Objective:** Released v3 energy-balance transformation followed by robust bisquare nonlinear least squares
+- **Selection:** All released v3 fit-input rows for this material
+- **Free parameters:** gamma0; b
+- **Fixed parameters:** V0; K0; K0\_prime; Tr; theta0; a; n; beta0; m
+- **Observations:** 22
+- **Observed pressure range gpa:** \[0.0, 197.039\]
+- **Solver success:** True
+- **Solver message:** released v3 robust thermal refit converged in 7 outer iterations
+- **Rmse gpa:** 2.4861289701518188
+- **Dataset identifiers:** zhu\_2025\_au\_shock; zhu\_2025\_au\_zero\_pressure\_thermal\_expansion
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 This Zhu record is the broader temperature-dependent P-V-T model. The separately identified Ye record remains the source of the fitted 300 K co-compression isotherm.
 
@@ -1751,6 +2461,51 @@ meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
 
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- Complete published PVT selection recovered. Original residual coordinate, weights, covariance and unrounded observations remain unspecified. Weighted sensitivity treats printed pressure errors as relative weights only, not established sigma; it omits Au-volume and temperature uncertainty and correlated calibration errors. Ambient expansivity coefficients are source-fixed, not refitted from unavailable Touloukian data.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| beta1 | 1.03e-06 | 4.4e-07 | 9.924306426760731e-07 | 4.4515812720505623e-07 | See protocol |
+| beta2 | 3.95e-10 | 3.88e-10 | 4.317111941012275e-10 | 3.914573391230663e-10 | See protocol |
+| beta3 | 1.61e-13 | 9.7e-14 | 1.5138015223907164e-13 | 9.764421605205168e-14 | See protocol |
+| kprime\_log\_coefficient | 0.000361 | 2.2e-05 | 0.0003594895172822541 | 2.2723108298574738e-05 | See protocol |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** diagnostic\_unweighted\_pressure
+- **Fixed parameters:** V0; K0; K0\_prime; Tr; alpha0; alpha1; dK\_dT
+- **Observations:** 38
+- **Solver success:** True
+- **Rmse gpa:** 0.445141799111663
+- **Published rmse gpa:** 0.4479194129604852
+- **Dataset identifiers:** gold\_hirose\_2008\_table1; gold\_fei\_2004\_table1
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 
@@ -1877,6 +2632,51 @@ meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
 
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- Published row selection and fixed reference coefficients retained. Unweighted pressure residuals are diagnostic because the source does not specify its objective, weights, or covariance. Published coefficients remain unchanged.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| dK\_dT | -0.028 | 0.003 | -0.028332495756161705 | Not specified | Free |
+| alpha0 | 3.179e-05 | 1.39e-06 | 3.176726251212547e-05 | Not specified | Free |
+| alpha1 | 1.477e-08 | 3.1e-09 | 1.499812911963746e-08 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** diagnostic\_unweighted\_pressure
+- **Free parameters:** dK\_dT; alpha0; alpha1
+- **Fixed parameters:** V0; K0; K0\_prime; Tr
+- **Observations:** 12
+- **Solver success:** True
+- **Rmse gpa:** 0.38847700498905835
+- **Published rmse gpa:** 0.4595254485710879
+- **Dataset identifiers:** gold\_hirose\_2008\_table1
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 
@@ -1994,6 +2794,49 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- Published row selection and fixed reference coefficients retained. Unweighted pressure residuals are diagnostic because the source does not specify its objective, weights, or covariance. Published coefficients remain unchanged.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0\_prime | 5.58 | 0.02 | 5.583345175577682 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** diagnostic\_unweighted\_pressure
+- **Free parameters:** K0\_prime
+- **Fixed parameters:** V0; K0
+- **Observations:** 9
+- **Solver success:** True
+- **Rmse gpa:** 0.6697309596138137
+- **Published rmse gpa:** 0.6706550807731002
+- **Dataset identifiers:** gold\_hirose\_2008\_table1
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Hirose et al. primary Table 2 parameters; fcc conventional cell contains four Au atoms. The 140 GPa row is retained despite reported peak-overlap problems.
 
 Parameter covariance is not supplied.
@@ -2104,6 +2947,47 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Unweighted pressure residuals, printed volumes and pressures; residual-scaled linearized standard errors are diagnostic only. No source weights, covariance, confidence or calibration-error correlations. Pt V0 and theta0 fixed for this diagnostic; source does not enumerate its full fitted/fixed list. Au q fit excludes upstream shock observations and is not the source joint compromise.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| q | 0.7 | 0.3 | 0.36269762382732457 | 0.10660429662399096 | See protocol |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** diagnostic\_unweighted\_pressure
+- **Fixed parameters:** V0; K0; K0\_prime; Tr; theta0; gamma0; n
+- **Observations:** 26
+- **Solver success:** True
+- **Rmse gpa:** 0.3252921712897166
+- **Published rmse gpa:** 0.38380272463080667
+- **Dataset identifiers:** gold\_fei\_2004\_table1
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -2221,6 +3105,34 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Table II publishes separate 300 K BM3/Vinet fits. Table III is derived full thermal model output, not independent observations. Corrected upstream electronic pressure nodes are recovered. Complete Au shock/ambient selections, numerical electronic energy/DOS, original objective/weights and exact cold/phonon normalization remain unavailable. See \[Au audit\](literature-reproductions/yokoo-2009-gold.md).
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fit kind:** published\_reference\_isotherm\_from\_joint\_shock\_thermodynamic\_model
+- **Fixed parameters:** V0
+- **Observations:** 0
+- **Dataset identifiers:** gold\_yokoo\_2009\_table3\_isochores; tsuchiya\_kawamura\_2002\_table1\_electronic\_pressure
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Published Table II fitted 300 K BM3 branch: K0=167.5 GPa, K0\_prime=5.79. V0=67.72 A^3 per four-atom fcc cell is derived from printed ambient density 19.32 Mg/m^3 using Au molar mass 196.96657 g/mol, rounded at the density precision (unrounded conversion 67.7164978079 A^3). This reference-isotherm fit is distinct from the full cold-BM3 + phonon + first-principles electronic model and its Table III outputs. No uncertainty/covariance is reported for this 300 K fit; the 0 K BM3 derivative error 0.10 must not be transferred. The upstream electronic pressure nodes and Au-only erratum are now recovered. Full thermal model remains withheld pending exact cold Vc/unrounded phonon normalization and verification of the adopted electronic implementation; electronic energy/heat capacity for the original shock fit remain unavailable. Original joint fit is not independently refittable.
 
 Parameter covariance is not supplied.
@@ -2335,6 +3247,34 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Table II publishes separate 300 K BM3/Vinet fits. Table III is derived full thermal model output, not independent observations. Corrected upstream electronic pressure nodes are recovered. Complete Au shock/ambient selections, numerical electronic energy/DOS, original objective/weights and exact cold/phonon normalization remain unavailable. See \[Au audit\](literature-reproductions/yokoo-2009-gold.md).
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fit kind:** published\_reference\_isotherm\_from\_joint\_shock\_thermodynamic\_model
+- **Fixed parameters:** V0
+- **Observations:** 0
+- **Dataset identifiers:** gold\_yokoo\_2009\_table3\_isochores; tsuchiya\_kawamura\_2002\_table1\_electronic\_pressure
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published Table II fitted 300 K Vinet branch: K0=167.5 GPa, K0\_prime=5.94. V0=67.72 A^3 per four-atom fcc cell is derived from printed ambient density 19.32 Mg/m^3 using Au molar mass 196.96657 g/mol, rounded at the density precision (unrounded conversion 67.7164978079 A^3). This reference-isotherm fit is distinct from the full cold-BM3 + phonon + first-principles electronic model and its Table III outputs. No uncertainty/covariance is reported for this 300 K fit; the 0 K BM3 derivative error 0.10 must not be transferred. The upstream electronic pressure nodes and Au-only erratum are now recovered. Full thermal model remains withheld pending exact cold Vc/unrounded phonon normalization and verification of the adopted electronic implementation; electronic energy/heat capacity for the original shock fit remain unavailable. Original joint fit is not independently refittable.
 
@@ -2451,6 +3391,35 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** source reconstruction.
+**Scope:** source equation.
+
+**Comparison basis:** Numerically checked diagnostic reconstruction of published table outputs. The published analytical PVT parameterization remains unreproduced: Au uses altered phonon coefficients and Pt adds an empirical pressure correction. This source-output status does not validate the published Yokoo pressure standard. The separate pressure-convention audit rules out cold-reference offsets and tests last-digit rounding; no caloric or original-fit inputs are required for PVT evaluation.
+
+Original audit code: `source_reconstruction`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** K0; Tr; theta0; n
+- **Observations:** 0
+- **Rmse gpa:** 0.008922681886743658
+- **Reconstruction kind:** derived\_table\_output\_pressure\_reconstruction
+- **Dataset identifiers:** gold\_yokoo\_2009\_table3\_isochores; tsuchiya\_kawamura\_2002\_table1\_electronic\_pressure
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">
@@ -2585,6 +3554,53 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** independent refit.
+
+**Comparison basis:** Reproduction of the registered Peritheos refit's stored coefficients under its declared protocol.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This comparison concerns the stored independent Peritheos refit, not recovery of the original publication's coefficients or author workflow.
+- Independent Peritheos staged refit of Hirose (2008) and Fei (2004) Au-MgO measurements. All 47 pressure targets are recalculated with the published, author-confirmed Speziale (2001) variable-q Debye EOS. Nine 300 K Hirose rows determine K0-prime with V0=67.85 A^3 and K0=167 GPa fixed; K0-prime is then fixed while 26 Fei and 12 hot Hirose rows determine beta1,beta2,beta3 and the logarithmic Kprime coefficient. Ambient expansivity remains source-fixed. Equal pressure-residual weights are an analyst choice. This is not a Hirose/Fei author fit or a Fei EOS refit. Stage-conditional curvature widths/covariance are archived only; catalog parameter errors remain unset because predictor, calibrant, fixed-anchor and inter-stage uncertainty/covariance are not propagated. Numerical reproducibility does not establish absolute pressure accuracy or independent predictive validity.
+- Original publication reproduction status: not\_reproduced
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| rt\_eos.K0\_prime | 5.581150323572888 | Not specified | 5.581150323572888 | Not specified | See protocol |
+| beta1 | 1.0917527108795146e-06 | Not specified | 1.0917527108795146e-06 | Not specified | See protocol |
+| beta2 | 3.9664802649941097e-10 | Not specified | 3.9664802649941097e-10 | Not specified | See protocol |
+| beta3 | 1.6537830789802096e-13 | Not specified | 1.6537830789802096e-13 | Not specified | See protocol |
+| kprime\_log\_coefficient | 0.0003583216931587801 | Not specified | 0.0003583216931587801 | Not specified | See protocol |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** staged\_cold\_then\_thermal\_bm3\_reference\_state
+- **Objective:** sum of squared pressure residuals with equal weights at each stage
+- **Fixed parameters:** V0; K0; Tr; alpha0; alpha1; dK\_dT
+- **Observations:** 47
+- **Solver success:** True
+- **Rmse gpa:** 0.3964628457007681
+- **Dataset identifiers:** gold\_hirose\_2008\_fei\_2004\_speziale\_2001\_recalculated\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 
 <details markdown="1">

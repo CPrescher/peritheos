@@ -99,6 +99,32 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Supplementary Table S2 bundles only four selected crystallographic states, while Figure 3A plots substantially more compression and decompression markers for the published BM2 fit. The source gives no complete row list, inclusion/exclusion flags, regression objective, numerical weights, or row-wise Ne calibrant volumes. The four exact rows are checkpoint data, not a defensible reconstruction of the source fit input.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** None declared
+- **Dataset identifiers:** fe088sio3\_bridgmanite\_ismailova\_2016\_table\_s2\_selected\_crystallography
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Published 300 K BM2 for vacancy-rich Fe0.88SiO3 bridgmanite. Figure 3A contains about fifteen compression/decompression markers, whereas supplementary Table S2 explicitly lists only four selected crystallographic states. The four rows are bundled as exact checkpoints, not asserted as the complete fit input. No source exclusion rule, residual objective, numerical weighting convention, covariance, or parameter-error confidence convention is reported.
 
 Parameter covariance is not supplied.

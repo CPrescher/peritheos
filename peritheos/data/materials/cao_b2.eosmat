@@ -39,6 +39,73 @@
         "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 24.576,
+                "published_error": 0.3321,
+                "refit": 24.15583853142704,
+                "refit_error": 2.8086140516587275,
+                "difference": -0.4201614685729602,
+                "relative_difference": 0.017096413923053395,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 130.0,
+                "published_error": 20.0,
+                "refit": 149.10271366343918,
+                "refit_error": 122.64144835951885,
+                "difference": 19.102713663439175,
+                "relative_difference": 0.14694395125722443,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.5,
+                "published_error": 0.5,
+                "refit": 3.2882327136041134,
+                "refit_error": 1.364040628347104,
+                "difference": -0.2117672863958866,
+                "relative_difference": 0.060504938970253316,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "phase=B2, used_in_eos_fit=yes",
+              "columns": {"pressure": "pressure_kbar", "temperature": null, "volume": "lattice_a_angstrom"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 11,
+              "observed_pressure_range_gpa": [56.6, 134.9],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [15.412223218455999, 18.761723501248],
+              "degrees_of_freedom": 8,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 1.4741427179478377,
+              "published_rmse_gpa": 1.5177418939619385,
+              "reduced_chi_square": 0.1146443429873032,
+              "dataset_identifiers": ["cao_richet_1988_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

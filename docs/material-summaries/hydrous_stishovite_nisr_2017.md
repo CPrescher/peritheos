@@ -89,6 +89,56 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Coefficient parity within published 1-sigma widths, not recovery of an unpublished weighting protocol. Pressure errors, gold volumes and source covariance are absent. Printed zero volume errors are retained, never treated as infinite weights. Volume-objective sensitivity fits are in the paper-specific reproduction.
+- Original least-squares dependent variable and weights are unspecified; diagnostic objective is explicit.
+- Pressure marker variant and row-wise marker observations unavailable.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 257.0 | 9.0 | 256.91672674984903 | 8.220730001966343 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** diagnostic\_unweighted\_pressure
+- **Objective:** unweighted pressure residuals; source dependent variable and weights unspecified
+- **Selection:** All Table S2 rows, including its ambient row when present; Table S3 coexistence rows excluded.
+- **Absolute sigma:** False
+- **Free parameters:** K0
+- **Fixed parameters:** V0; K0\_prime
+- **Observations:** 7
+- **Observed pressure range gpa:** \[0.0, 22.747\]
+- **Degrees of freedom:** 6
+- **Solver success:** True
+- **Rmse gpa:** 0.8534500073171926
+- **Published rmse gpa:** 0.8534573050120292
+- **Dataset identifiers:** nisr\_2017\_silica\_tables\_s1\_s4
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Al-free sample; water inferred from volume calibration, not directly measured by SIMS/IR/TGA on this specimen. Raman confirms structural OH qualitatively. Preserve Table 1 Si0.954O2H0.184: its mass-equivalent H2O is about 2.81 wt%, within the reported 3.2(5) wt% range but not exactly its central value. H retention at high pressure is inferred, not measured. No atomic coordinates were refined (Section 2). The 28-42 GPa interval is two-phase coexistence, excluded from both hydrous EOS fits. CaCl2-type Pnnm denotes the Si-O framework refinement model; hydrogen ordering and a possible delta-AlOOH-related subgroup are unresolved (Section 3.2). Table 3 fixed V0=47.191 is retained, not replaced by Table 2 47.198. The cell axes imply 47.198696 A^3.
 
 Parameter covariance is not supplied.

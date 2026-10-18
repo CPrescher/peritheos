@@ -79,6 +79,73 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 244.2,
+                "published_error": 0.2,
+                "refit": 244.28633550522827,
+                "refit_error": 0.9391725790742369,
+                "difference": 0.08633550522827704,
+                "relative_difference": 0.000353544247454042,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 211.0,
+                "published_error": 6.0,
+                "refit": 205.21533705752483,
+                "refit_error": 22.90440376666817,
+                "difference": -5.784662942475165,
+                "relative_difference": 0.027415464182346756,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 2.6,
+                "published_error": 0.3,
+                "refit": 2.933149724806815,
+                "refit_error": 1.1172876778709533,
+                "difference": 0.3331497248068147,
+                "relative_difference": 0.12813450954108258,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 10,
+              "observed_pressure_range_gpa": [0.0001, 44.0],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [206.6, 244.0],
+              "degrees_of_freedom": 7,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.22874104603148265,
+              "published_rmse_gpa": 0.3887326932802064,
+              "reduced_chi_square": 0.1028320444349107,
+              "dataset_identifiers": ["na088al099fe013si094o4_qin_2023_table_s4_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against the final article and official MSA deposit AM-23-128432. The published BM3 coefficients reproduce the complete printed compression table to 0.3887 GPa pressure RMSE; the missing row-wise pressure uncertainties and exact EosFit7c weight configuration prevent coefficient-level refit parity and are not inferred.",

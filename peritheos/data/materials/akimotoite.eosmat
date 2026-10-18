@@ -61,6 +61,23 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "Complete BM4 coefficients are tabulated, but the underlying free-energy-volume grid is shown only graphically and is not deposited.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": [],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against the primary article; LitCurate was used only for discovery.",
@@ -151,6 +168,23 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "The fitted coefficients and curve are published, but the numerical free-energy-volume grid is unavailable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": [],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against Sections 2 and 3.2, Table 3, and Figure 3 of the primary article.",
@@ -231,6 +265,23 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "The fitted coefficients and plotted curve are published, but the numerical free-energy-volume grid is unavailable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": [],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against the primary article; LitCurate was discovery-only.",
@@ -311,6 +362,23 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "The fitted coefficients and plotted curve are published, but the numerical free-energy-volume grid is unavailable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": [],
+              "dataset_identifiers": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against the primary article; LitCurate was discovery-only.",
@@ -383,6 +451,63 @@
         "notes": "Ruby fluorescence is explicit, but the exact ruby scale is unresolved and is not inferred from publication year."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Direct Table 1 reproduction of the ruby-pressure fit with K0 fixed at the source-adopted 212 GPa. The source says its parameter uncertainties account for pressure and volume errors, but it does not publish the exact objective or covariance. Ruby brackets are fluorescence-line-width estimates rather than stated one-sigma errors and are absent at the two ambient anchors, so the reproducible Peritheos fit uses all 16 rows, unweighted pressure residuals, and the reported one-sigma volume errors.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 262.3,
+                "published_error": 0.4,
+                "refit": 262.4214204039353,
+                "refit_error": 0.4489783454543883,
+                "difference": 0.12142040393530351,
+                "relative_difference": 0.00046290661050439765,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 7.5,
+                "published_error": 1.0,
+                "refit": 6.9155114755402725,
+                "refit_error": 1.0539104640910595,
+                "difference": -0.5844885244597275,
+                "relative_difference": 0.077931803261297,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "ruby_pressure_gpa", "temperature": null, "volume": "unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0_prime"],
+              "fixed_parameters": ["K0"],
+              "observations": 16,
+              "observed_pressure_range_gpa": [0.0, 27.8],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [239.13, 262.45],
+              "degrees_of_freedom": 14,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.37775121285160607,
+              "published_rmse_gpa": 0.6335359430776666,
+              "reduced_chi_square": 0.2579036675887712,
+              "dataset_identifiers": ["akimotoite_reynard_1996_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Checked directly against the final American Mineralogist article; LitCurate was used only as a discovery lead.",
@@ -491,6 +616,63 @@
         "notes": "The calibration publication and row-wise calibrant volumes are resolved; only an executable bundled representation of that historical ice-VII EOS is absent."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "Direct Table 1 reproduction of the authors' preferred ice-VII-pressure fit with K0 fixed at the source-adopted 212 GPa. Table 1 prints 12 finite-pressure Pi values and Figure 3f supplies two zero-pressure ambient anchors. The source does not publish its exact objective or covariance; ice-pressure brackets are maximum-gradient estimates rather than stated one-sigma errors and are absent at the two ambient anchors, so the reproducible Peritheos fit uses unweighted pressure residuals and the reported one-sigma volume errors.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 262.3,
+                "published_error": 0.4,
+                "refit": 262.5800918920929,
+                "refit_error": 0.5173624514301168,
+                "difference": 0.2800918920929121,
+                "relative_difference": 0.0010678303167857876,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.6,
+                "published_error": 1.0,
+                "refit": 5.055863026030038,
+                "refit_error": 1.02741367446667,
+                "difference": -0.5441369739699615,
+                "relative_difference": 0.09716731678035027,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "ice_vii_pressure_gpa", "temperature": null, "volume": "unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0_prime"],
+              "fixed_parameters": ["K0"],
+              "observations": 14,
+              "observed_pressure_range_gpa": [0.0, 25.2],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [239.13, 262.45],
+              "degrees_of_freedom": 12,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.35695092387892463,
+              "published_rmse_gpa": 0.7487276925948315,
+              "reduced_chi_square": 0.2845940744839172,
+              "dataset_identifiers": ["akimotoite_reynard_1996_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Checked directly against the final American Mineralogist article; LitCurate was used only as a discovery lead.",
@@ -580,6 +762,73 @@
         "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 262.43,
+                "published_error": 0.02,
+                "refit": 262.4259132876488,
+                "refit_error": 0.015020694953473327,
+                "difference": -0.004086712351181632,
+                "relative_difference": 1.557258069268617e-05,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 205.0,
+                "published_error": 1.0,
+                "refit": 205.00895738531347,
+                "refit_error": 0.8758535920577113,
+                "difference": 0.008957385313465238,
+                "relative_difference": 4.369456250470848e-05,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.9,
+                "published_error": 0.2,
+                "refit": 4.923631578425784,
+                "refit_error": 0.1080137074338277,
+                "difference": 0.023631578425783673,
+                "relative_difference": 0.00482277110730279,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 54,
+              "observed_pressure_range_gpa": [0.0001, 24.86],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [238.38, 262.42],
+              "degrees_of_freedom": 51,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.0738523546772139,
+              "published_rmse_gpa": 0.1569853972850426,
+              "reduced_chi_square": 2.010177381814707,
+              "dataset_identifiers": ["akimotoite_siersch_2021_table2_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -664,6 +913,57 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_reproduced",
+            "scope": "parameter_agreement",
+            "source_status": "parity_not_achieved",
+            "basis": "Only a partial 298 K slice of the source's joint thermoelastic objective is recoverable, and that transparent slice does not reproduce the published coefficient pair.",
+            "qualifications": [
+              "The same Reynard observations have ruby and preferred ice-VII pressure assignments; Dorogokupets et al. do not identify which original coordinate they used. Both non-independent alternatives miss exact parity. The Wang P-V-T and Zhou KS tables are now complete, and an unweighted Zhou regression closely reproduces Zhou's own rounded elastic coefficients. What remains unavailable is the 2015 joint residual construction, covariance, phase-specific fixed/free mask, and the Ashida thermal inputs. Published coefficients are retained.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 215.3,
+                "published_error": null,
+                "refit": 254.92768974032103,
+                "refit_error": null,
+                "difference": 39.62768974032102,
+                "relative_difference": 0.18405801087004653,
+                "similar": false,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.91,
+                "published_error": null,
+                "refit": 2.296140025430574,
+                "refit_error": null,
+                "difference": -2.613859974569426,
+                "relative_difference": 0.5323543736393943,
+                "similar": false,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "partial_298k_rydberg_stacey_diagnostic",
+              "objective": "unweighted pressure residuals",
+              "selection": "recoverable 298 K literature slice",
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0", "K_infinity_prime"],
+              "observations": 39,
+              "observed_pressure_range_gpa": [-0.05, 27.8],
+              "solver_success": true,
+              "solver_message": "dedicated Dorogokupets (2015) slice fit completed",
+              "rmse_gpa": 0.8443919169328162,
+              "published_rmse_gpa": 1.3720558660562725,
+              "dataset_identifiers": ["dorogokupets_2015_akimotoite_298k_reconstruction"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against the final primary article; LitCurate was discovery-only.",
@@ -771,6 +1071,61 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 264.2,
+                "published_error": 0.2,
+                "refit": 264.32402461766293,
+                "refit_error": null,
+                "difference": 0.12402461766293982,
+                "relative_difference": 0.0004694345861579857,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.8,
+                "published_error": 0.5,
+                "refit": 4.457703040602613,
+                "refit_error": null,
+                "difference": -0.3422969593973866,
+                "relative_difference": 0.0713118665411222,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "original_scale_source_constrained_bm3",
+              "objective": "unweighted pressure residuals",
+              "selection": "All 298 K rows in Table 1, run T0133 (Au)",
+              "free_parameters": ["V0", "K0_prime"],
+              "fixed_parameters": ["K0"],
+              "fixed_values": {"K0": 210},
+              "observations": 13,
+              "observed_pressure_range_gpa": [0.0, 16.2],
+              "observed_temperature_range_k": [298.0, 298.0],
+              "solver_success": true,
+              "rmse_gpa": 0.23949576218615048,
+              "published_rmse_gpa": 0.24798686381479146,
+              "dataset_identifiers": ["akimotoite_wang_2004_tables1_2_pvt"],
+              "stages": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Parameters, fixed values, volume basis and fit observations checked against the user-supplied primary PDF.",
@@ -867,6 +1222,61 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 263.9,
+                "published_error": 0.2,
+                "refit": 263.92988199814727,
+                "refit_error": null,
+                "difference": 0.02988199814728887,
+                "relative_difference": 0.00011323227793591842,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.6,
+                "published_error": 0.8,
+                "refit": 5.568904317198652,
+                "refit_error": null,
+                "difference": -0.031095682801347557,
+                "relative_difference": 0.0055528005002406355,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "original_scale_source_constrained_bm3",
+              "objective": "unweighted pressure residuals",
+              "selection": "All 298 K rows in Table 2, run T0150 (NaCl)",
+              "free_parameters": ["V0", "K0_prime"],
+              "fixed_parameters": ["K0"],
+              "fixed_values": {"K0": 210},
+              "observations": 10,
+              "observed_pressure_range_gpa": [-0.05, 17.044],
+              "observed_temperature_range_k": [298.0, 298.0],
+              "solver_success": true,
+              "rmse_gpa": 0.3471859235046197,
+              "published_rmse_gpa": 0.3479117607818186,
+              "dataset_identifiers": ["akimotoite_wang_2004_tables1_2_pvt"],
+              "stages": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Parameters, fixed values, volume basis and fit observations checked against the user-supplied primary PDF.",
@@ -963,6 +1373,61 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 262.45,
+                "published_error": 0.26,
+                "refit": 262.40916545730124,
+                "refit_error": null,
+                "difference": -0.040834542698746645,
+                "relative_difference": 0.00015558979881404706,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0",
+                "published": 207,
+                "published_error": 3,
+                "refit": 206.7705205901484,
+                "refit_error": null,
+                "difference": -0.2294794098515922,
+                "relative_difference": 0.0011085961828579333,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "original_scale_source_constrained_bm3",
+              "objective": "unweighted pressure residuals",
+              "selection": "All 17 akimotoite 300 K density rows, including three ambient density-only rows; V=6*M/(N_A*rho), M=100.387 g/mol",
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": ["K0_prime"],
+              "fixed_values": {"K0_prime": 4.6},
+              "observations": 17,
+              "observed_pressure_range_gpa": [0.0, 25.02],
+              "observed_temperature_range_k": [300.0, 300.0],
+              "solver_success": true,
+              "rmse_gpa": 0.4974197054778039,
+              "published_rmse_gpa": 0.5012548583091279,
+              "dataset_identifiers": ["akimotoite_zhou_2014_table1_elasticity"],
+              "stages": []
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Parameters, fixed values, volume basis and fit observations checked against the user-supplied primary PDF.",

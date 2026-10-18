@@ -85,6 +85,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 36.18 | 0.06 | 36.18537459744647 | 0.03381533585709163 | Free |
+| K0 | 27.4 | 0.9 | 28.654603098547643 | 0.8659190294253547 | Free |
+| K0\_prime | 11.4 | 0.8 | 10.045119272001996 | 0.4088877517871809 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3\_conventional\_cell
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 36
+- **Observed pressure range gpa:** \[0.1825, 9.4175\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[30.826266, 35.974552\]
+- **Degrees of freedom:** 33
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.056695121627116415
+- **Published rmse gpa:** 0.10273873260883355
+- **Reduced chi square:** 1.4026197016640831
+- **Dataset identifiers:** boron\_nitride\_hexagonal\_muhammad\_2024\_figure5c\_digitized
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Hydrostatic helium-medium powder-XRD fit over 0-9.5 GPa. This replaces older strongly discrepant non-hydrostatic compressibility estimates for h-BN.
 
 Parameter covariance is not supplied.

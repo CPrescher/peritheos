@@ -101,6 +101,32 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** The energy-volume observations remain plot-only after source exhaustion. Table III independently prints V100=33.98 A3/FeSiO3, K100=579 GPa, and K100'=3.47; the Table I lattice product gives 33.9343 A3/FeSiO3.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** None declared
+- **Dataset identifiers:** None declared
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Retain as a directly published Vinet parameterization. Keep not\_refittable: no numerical E(V) grid was deposited, and the approximate raster-marker diagnostic must not be treated as primary observations.
 
 Parameter covariance is not supplied.

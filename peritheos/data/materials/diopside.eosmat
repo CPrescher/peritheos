@@ -73,6 +73,68 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
+            "qualifications": [
+              "Conditional parameter parity within reported error widths on all 14 printed rows using effective P/V variance. Source confidence and exact author weights/covariance are not recovered; no combined-two-sigma or original-author workflow parity is asserted.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 438.66,
+                "published_error": 0.02,
+                "refit": 438.6553948430803,
+                "refit_error": null,
+                "difference": -0.004605156919751607,
+                "relative_difference": 1.0498237632224518e-05,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0",
+                "published": 118.0,
+                "published_error": 1.0,
+                "refit": 117.8641776706991,
+                "refit_error": null,
+                "difference": -0.13582232930089333,
+                "relative_difference": 0.0011510366889906215,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.8,
+                "published_error": 0.3,
+                "refit": 3.7962907042955125,
+                "refit_error": null,
+                "difference": -0.003709295704487303,
+                "relative_difference": 0.0009761304485492903,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "effective_variance_pv",
+              "fixed_parameters": [],
+              "observations": 14,
+              "solver_success": true,
+              "rmse_gpa": 0.03658693276345292,
+              "published_rmse_gpa": 0.03739721229323705,
+              "dataset_identifiers": ["diopside_thompson_2008_table1"],
+              "reproduction_report": "docs/data/diopside-reproduction.json"
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-10-15",
@@ -231,6 +293,92 @@
         }
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
+            "qualifications": [
+              "Conditional parameter parity within reported error widths using the separate corrected analysis dataset: row 15 pressure is the rounded Figure 2 reading 4.58 GPa, not the printed 6.95 GPa. Its +/-0.05 GPa graphical bound is not a statistical error. All 32 rows, including the repeated ambient row, are retained; V0 and Tr are fixed. Original source tables and published coefficients are preserved. Exact original fit inputs, selection, weighting and covariance remain unrecovered.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 109.1,
+                "published_error": 4.0,
+                "refit": 107.72466440881215,
+                "refit_error": null,
+                "difference": -1.3753355911878486,
+                "relative_difference": 0.012606192403188348,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.84,
+                "published_error": 0.6,
+                "refit": 5.122488565130115,
+                "refit_error": null,
+                "difference": 0.282488565130115,
+                "relative_difference": 0.0583654060186188,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "alpha0",
+                "published": 2.32e-05,
+                "published_error": 5e-07,
+                "refit": 2.2972456391882284e-05,
+                "refit_error": null,
+                "difference": -2.2754360811771783e-07,
+                "relative_difference": 0.009807914143005077,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "alpha1",
+                "published": 1.88e-08,
+                "published_error": 7e-10,
+                "refit": 1.902591653883834e-08,
+                "refit_error": null,
+                "difference": 2.2591653883833968e-10,
+                "relative_difference": 0.01201683717225211,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              },
+              {
+                "parameter": "dK_dT",
+                "published": -0.0205,
+                "published_error": 0.0004,
+                "refit": -0.020207621644568515,
+                "refit_error": null,
+                "difference": 0.0002923783554314857,
+                "relative_difference": 0.014262358801535887,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "graph_corroborated_corrected_pvt",
+              "fixed_parameters": ["Tr"],
+              "observations": 32,
+              "solver_success": true,
+              "rmse_gpa": 0.057920259389445686,
+              "published_rmse_gpa": 0.06455854469786602,
+              "dataset_identifiers": ["diopside_zhao_1998_table1_corrected_pvt"],
+              "reproduction_report": "docs/data/diopside-plot-check.json"
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "audit_date": "2026-10-15",

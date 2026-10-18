@@ -100,6 +100,95 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.V0",
+                "published": 163.16,
+                "published_error": 0.19,
+                "refit": 162.60249726814212,
+                "refit_error": 0.9892223853928208,
+                "difference": -0.5575027318578805,
+                "relative_difference": 0.003416908138378772,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0",
+                "published": 243.8,
+                "published_error": 4.3,
+                "refit": 254.1786085606223,
+                "refit_error": 20.258233450273092,
+                "difference": 10.378608560622297,
+                "relative_difference": 0.0425701745718716,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0_prime",
+                "published": 4.16,
+                "published_error": 0.11,
+                "refit": 3.9857458076163974,
+                "refit_error": 0.38012192157554864,
+                "difference": -0.17425419238360274,
+                "relative_difference": 0.04188802701528912,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.4,
+                "published_error": 0.11,
+                "refit": 1.39320084076452,
+                "refit_error": 0.16372684916820773,
+                "difference": -0.006799159235479912,
+                "relative_difference": 0.00485654231105708,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "q",
+                "published": 0.56,
+                "published_error": 0.37,
+                "refit": 0.5535850391932572,
+                "refit_error": 0.5406059438791783,
+                "difference": -0.006414960806742864,
+                "relative_difference": 0.011455287154897971,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "bridgmanite_unit_cell_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["rt_eos.V0", "rt_eos.K0", "rt_eos.K0_prime", "gamma0", "q"],
+              "fixed_parameters": ["Tr", "theta0", "n"],
+              "observations": 153,
+              "observed_pressure_range_gpa": [33.15, 132.7],
+              "observed_temperature_range_k": [300.0, 2455.0],
+              "observed_volume_range": [122.42, 146.59],
+              "degrees_of_freedom": 148,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 1.0712048891019135,
+              "published_rmse_gpa": 1.9496990046194926,
+              "reduced_chi_square": 0.613916105009841,
+              "dataset_identifiers": ["mg087fe013sio3_bridgmanite_wolf_2015_table1_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against the final article, its complete article tables, the corresponding author's machine-readable table mirror, and the author's PVT-tool implementation; LitCurate was discovery-only.",

@@ -102,6 +102,56 @@ meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
 
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- The complete source table is bundled. Limiting ferropericlase spin branches reproduce the published V0 values and printed errors; exact thermal parity remains conditional because the source does not state row flags, weights, temperature-error treatment, or covariance scaling.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 76.44 | 0.02 | 76.43827898867148 | 0.017711803853117408 | Free |
+| alpha0 | 2.2e-05 | 2e-06 | 2.7597289976043394e-05 | 1.6321859181719822e-06 | Free |
+| alpha1 | 3.61e-08 | 2.7e-09 | 3.087478002503601e-08 | 1.9536510121458086e-09 | Free |
+| dK\_dT | -0.034 | 0.001 | -0.03401873114665049 | 0.0007067326783047755 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** staged\_source\_constrained\_thermal\_bm2\_odr
+- **Objective:** orthogonal distance regression using printed pressure and volume sigmas; temperature held fixed
+- **Selection:** V0 from the seven limiting high-spin 300 K rows; thermal coefficients from all 136 heated rows with published V0 and K0 fixed
+- **Absolute sigma:** True
+- **Free parameters:** V0; alpha0; alpha1; dK\_dT
+- **Fixed parameters:** K0; Tr
+- **Observations:** 136
+- **Observed pressure range gpa:** \[27.56, 113.0\]
+- **Solver success:** True
+- **Solver message:** dedicated Ricolleau et al. (2009) audit completed
+- **Rmse gpa:** 1.4791143041717107
+- **Dataset identifiers:** klb1\_ricolleau\_2009\_table\_s1\_ferropericlase\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 
@@ -208,6 +258,53 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- The complete source table is bundled. Limiting ferropericlase spin branches reproduce the published V0 values and printed errors; exact thermal parity remains conditional because the source does not state row flags, weights, temperature-error treatment, or covariance scaling.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 74.04 | 0.02 | 74.04288033963479 | 0.02537519008226588 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** staged\_source\_constrained\_thermal\_bm2\_odr
+- **Objective:** orthogonal distance regression using printed pressure and volume sigmas; temperature held fixed
+- **Selection:** seven limiting low-spin 300 K rows
+- **Absolute sigma:** True
+- **Free parameters:** V0
+- **Fixed parameters:** K0
+- **Observations:** 7
+- **Observed pressure range gpa:** \[74.21, 98.36\]
+- **Solver success:** True
+- **Solver message:** dedicated Ricolleau et al. (2009) audit completed
+- **Rmse gpa:** 1.5775129387527014
+- **Dataset identifiers:** klb1\_ricolleau\_2009\_table\_s1\_ferropericlase\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Parameter covariance is not supplied.
 

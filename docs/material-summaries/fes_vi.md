@@ -98,6 +98,59 @@ meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
 
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- Classified similar: staged reproduced-cold coefficients are compatible within reported uncertainty intervals, and the equal-weight control puts all four central estimates inside published error widths. Exact GUI output and the complete +/-3 GPa residual envelope are separate unresolved findings. Published coefficients are preserved; this is not an automatic replacement EOS or a formal independent uncertainty-parity claim.
+- Fit reproduction is classified similar: the reproduced-cold staged coefficients are compatible with reported parameter uncertainties. The supplied Table S1 and recovered author inputs are bundled separately. The selected author input contains 146 thermal plus 21 literature cold rows. The 11 unsuitable quenched rows are excluded on the basis of user-reported author personal communication and are not database datasets. FeS6.eos confirms full BM3-MGD with q=1 and Tref=298 K, but differs from the printed parameters and was saved in March 2024. Actual EosFit replay gives thermal RMS 1.632 GPa, maximum 5.058 GPa and 14 rows beyond +/-3 GPa. Conditional cold refits closely recover the saved cold coefficients. Candidate-input refits converge. The user confirms the supplied files are the complete author-used inputs; the selected rows are confirmed by author communication. Exact GUI regression controls and agreement with printed coefficients and residuals remain unresolved. Published coefficients stay unchanged and deferred. Selected-data, cold-then-thermal EosFit fits at Tr=300 K give gamma0=2.29252(3829) for fixed published cold coefficients and 2.46418(3953) for fixed weighted-reproduced cold coefficients; both exceed the +/-3 GPa residual bound. Both reproduced-cold staged fits have cold coefficients within published error widths; equal-weight gamma0 is also within the published width, and weighted gamma0 error intervals overlap the published interval. Parameter agreement is compatible within reported uncertainties; exact source-output and residual-envelope reproduction are separate. See docs/literature-reproductions/fes-eosfit-direct.md.
+- Usage recommendation: Retain as source evidence; do not use for pressure calibration or prediction until the final source model and residual mismatch are resolved.
+- printed publication coefficients versus the supplied author-used saved model
+- published +/-3 GPa residual bound versus 5.058 GPa with supplied author files
+- GUI versus console regression controls, weighting and selected groups
+- individual provenance and pressure calibration of all 21 literature cold rows
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| eos.V0 | 102.28920653790895 | 2.988970320912924 | 102.09525557486305 | 3.4794935613560787 | Free |
+| eos.K0 | 115.5 | 27.91 | 115.4389 | 34.78351 | Free |
+| eos.K0\_prime | 4.99 | 0.51 | 4.9917 | 0.67891 | Free |
+| thermal.gamma0 | 2.42 | 0.03 | 2.46418 | 0.03953 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** cold\_then\_fixed\_cold\_thermal
+- **Objective:** EosFit pressure residuals with supplied P/V/T uncertainty weights
+- **Free parameters:** eos.V0; eos.K0; eos.K0\_prime; thermal.gamma0
+- **Fixed parameters:** theta0; q; n; Tr=300 K
+- **Observations:** 167
+- **Rmse gpa:** 1.6336098214363033
+- **Published rmse gpa:** 1.916099083712202
+- **Reduced chi square:** 0.6274
+- **Dataset identifiers:** fes\_morard\_2026\_author\_without\_additional\_cold\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 

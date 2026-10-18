@@ -58,6 +58,66 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Coupled three-level spin-state reconstruction using the recovered earlier observations and Solomatova Table 2 priors. The original MINUTI input, row weights, residual definition, and covariance are unpublished, so this equal-weight approximate-volume fit tests numerical similarity rather than claiming an exact reproduction.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 75.55,
+                "published_sigma": 0.04,
+                "refit": 75.34347270530013,
+                "refit_sigma": null,
+                "delta": -0.20652729469986753,
+                "relative_delta": -0.002733650492387393,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 159.0,
+                "published_sigma": 2,
+                "refit": 161.47123361971015,
+                "refit_sigma": null,
+                "delta": 2.471233619710148,
+                "relative_delta": 0.015542349809497785,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.96,
+                "published_sigma": 0.14,
+                "refit": 4.062691485701653,
+                "refit_sigma": null,
+                "delta": 0.1026914857016532,
+                "relative_delta": 0.025932193359003337,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "coupled_bm3_three_level_spin_crossover",
+              "objective": "equal-weight approximate volume residuals plus Table 2 priors",
+              "selection": "used_in_solomatova_2016_fit=1",
+              "free_parameters": ["V0_HS", "K0_HS", "K0_prime_HS", "V0_LS", "K0_LS", "omega0"],
+              "fixed_parameters": [],
+              "observations": 29,
+              "solver_success": true,
+              "solver_message": "dedicated Solomatova coupled reconstruction completed",
+              "rmse_volume_a3": 0.15387023329995295,
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -139,6 +199,66 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Coupled three-level spin-state reconstruction using the recovered earlier observations and Solomatova Table 2 priors. The original MINUTI input, row weights, residual definition, and covariance are unpublished, so this equal-weight approximate-volume fit tests numerical similarity rather than claiming an exact reproduction.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 74.59,
+                "published_sigma": 0.91,
+                "refit": 73.66660581589477,
+                "refit_sigma": null,
+                "delta": -0.9233941841052342,
+                "relative_delta": -0.012379597588218718,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 159.0,
+                "published_sigma": 12,
+                "refit": 170.2499732076181,
+                "refit_sigma": null,
+                "delta": 11.249973207618098,
+                "relative_delta": 0.07075454847558552,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.0,
+                "published_sigma": null,
+                "refit": 4.0,
+                "refit_sigma": null,
+                "delta": 0.0,
+                "relative_delta": 0.0,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "coupled_bm3_three_level_spin_crossover",
+              "objective": "equal-weight approximate volume residuals plus Table 2 priors",
+              "selection": "used_in_solomatova_2016_fit=1",
+              "free_parameters": ["V0_HS", "K0_HS", "K0_prime_HS", "V0_LS", "K0_LS", "omega0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 29,
+              "solver_success": true,
+              "solver_message": "dedicated Solomatova coupled reconstruction completed",
+              "rmse_volume_a3": 0.15387023329995295,
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -232,6 +352,23 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "EPSL Table 2 supplies the P-V observations, but the published HS fit also uses a room-pressure Brillouin constraint whose weighting is unspecified. Only the 14 rows below 45 GPa belong to this fit. The separate script scripts/reproduce_marquardt_2009_epsl.py performs a P-V-only validation; it cannot reproduce the complete source objective.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": ["V0"],
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Published high-spin isothermal BM3 fit to XRD below 45 GPa with a room-pressure Brillouin constraint on K0. Table 2 alone does not reproduce the full constrained fit; its mixed-spin and low-spin rows are not HS fit inputs.",
@@ -355,6 +492,52 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 144.0,
+                "published_error": null,
+                "refit": 144.05016999289649,
+                "refit_error": 1.5789605046373902,
+                "difference": 0.05016999289648538,
+                "relative_difference": 0.00034840272844781513,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "spin_region=low_spin",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 6,
+              "observed_pressure_range_gpa": [63.9, 77.4],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [56.26, 58.51],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.315422303696759,
+              "published_rmse_gpa": 1.2831719717741563,
+              "reduced_chi_square": 0.4456888108063467,
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
@@ -472,6 +655,52 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 153.0,
+                "published_error": null,
+                "refit": 153.13067129713863,
+                "refit_error": 1.7057793624477458,
+                "difference": 0.13067129713863324,
+                "relative_difference": 0.0008540607656119819,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "spin_region=low_spin",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 6,
+              "observed_pressure_range_gpa": [63.9, 77.4],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [56.26, 58.51],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.3387918149481032,
+              "published_rmse_gpa": 1.4379533452433428,
+              "reduced_chi_square": 0.5327517448336939,
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
@@ -589,6 +818,52 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 163.0,
+                "published_error": null,
+                "refit": 163.27062329404384,
+                "refit_error": 1.8511752471916292,
+                "difference": 0.270623294043844,
+                "relative_difference": 0.0016602656076309449,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "spin_region=low_spin",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 6,
+              "observed_pressure_range_gpa": [63.9, 77.4],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [56.26, 58.51],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.3630727561610341,
+              "published_rmse_gpa": 1.6161681138842996,
+              "reduced_chi_square": 0.6353857659233374,
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
@@ -706,6 +981,52 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 175.0,
+                "published_error": null,
+                "refit": 174.34165134965681,
+                "refit_error": 2.0144860589893296,
+                "difference": -0.6583486503431857,
+                "relative_difference": 0.0037619922876753467,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "spin_region=low_spin",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 6,
+              "observed_pressure_range_gpa": [63.9, 77.4],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [56.26, 58.51],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.3874613858317298,
+              "published_rmse_gpa": 1.7179655250363797,
+              "reduced_chi_square": 0.7528288308709483,
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
@@ -823,6 +1144,52 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 156.0,
+                "published_error": null,
+                "refit": 154.6936470295564,
+                "refit_error": 1.6426616382586294,
+                "difference": -1.306352970443612,
+                "relative_difference": 0.008374057502843667,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "spin_region=low_spin",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 6,
+              "observed_pressure_range_gpa": [63.9, 77.4],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [56.26, 58.51],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.267167846038256,
+              "published_rmse_gpa": 1.0321610486696218,
+              "reduced_chi_square": 0.2981026528356882,
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
@@ -940,6 +1307,52 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 164.0,
+                "published_error": null,
+                "refit": 163.98719137086155,
+                "refit_error": 1.7703993044473074,
+                "difference": -0.012808629138447714,
+                "relative_difference": 7.810139718565679e-05,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "spin_region=low_spin",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 6,
+              "observed_pressure_range_gpa": [63.9, 77.4],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [56.26, 58.51],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.29295056320964075,
+              "published_rmse_gpa": 1.152395203577993,
+              "reduced_chi_square": 0.3733074048405004,
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
@@ -1057,6 +1470,52 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 175.0,
+                "published_error": null,
+                "refit": 174.34953250932278,
+                "refit_error": 1.9167193949147268,
+                "difference": -0.6504674906772152,
+                "relative_difference": 0.003716957089584087,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "spin_region=low_spin",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 6,
+              "observed_pressure_range_gpa": [63.9, 77.4],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [56.26, 58.51],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.32015216330334406,
+              "published_rmse_gpa": 1.276002506863264,
+              "reduced_chi_square": 0.46471151105284714,
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
@@ -1174,6 +1633,52 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 186.0,
+                "published_error": null,
+                "refit": 185.64667955119717,
+                "refit_error": 2.0809303630821696,
+                "difference": -0.3533204488028332,
+                "relative_difference": 0.0018995723053915764,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "spin_region=low_spin",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 6,
+              "observed_pressure_range_gpa": [63.9, 77.4],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [56.26, 58.51],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.34776862004931813,
+              "published_rmse_gpa": 1.465219048351091,
+              "reduced_chi_square": 0.5719827642349108,
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
@@ -1291,6 +1796,52 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 167.0,
+                "published_error": null,
+                "refit": 167.03596583296786,
+                "refit_error": 1.708544045583997,
+                "difference": 0.03596583296786093,
+                "relative_difference": 0.00021536426926862834,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "spin_region=low_spin",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 6,
+              "observed_pressure_range_gpa": [63.9, 77.4],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [56.26, 58.51],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.20955008251941537,
+              "published_rmse_gpa": 0.7160328495544448,
+              "reduced_chi_square": 0.16452768052798022,
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
@@ -1408,6 +1959,52 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 177.0,
+                "published_error": null,
+                "refit": 176.50148199324164,
+                "refit_error": 1.8367690473848035,
+                "difference": -0.4985180067583599,
+                "relative_difference": 0.0028164859138890387,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "spin_region=low_spin",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 6,
+              "observed_pressure_range_gpa": [63.9, 77.4],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [56.26, 58.51],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.23629886605941916,
+              "published_rmse_gpa": 0.8228740729169969,
+              "reduced_chi_square": 0.22201503013098103,
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
@@ -1525,6 +2122,52 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 187.0,
+                "published_error": null,
+                "refit": 187.04275144048634,
+                "refit_error": 1.9835558475022992,
+                "difference": 0.04275144048634161,
+                "relative_difference": 0.00022861732880396582,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "spin_region=low_spin",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 6,
+              "observed_pressure_range_gpa": [63.9, 77.4],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [56.26, 58.51],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.266036563136773,
+              "published_rmse_gpa": 1.0167839863494872,
+              "reduced_chi_square": 0.2967768505543612,
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",
@@ -1642,6 +2285,52 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 199.0,
+                "published_error": null,
+                "refit": 198.52121311114507,
+                "refit_error": 2.1481941719694717,
+                "difference": -0.47878688885492693,
+                "relative_difference": 0.002405964265602648,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "spin_region=low_spin",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "observations": 6,
+              "observed_pressure_range_gpa": [63.9, 77.4],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [56.26, 58.51],
+              "degrees_of_freedom": 5,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.29717076738997106,
+              "published_rmse_gpa": 1.1577417383961768,
+              "reduced_chi_square": 0.38907522705329806,
+              "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "One of 12 alternative constrained LS fits, not an independently preferred EOS. The six XRD observations above 63 GPa constrain K0 with V0 and K0 prime fixed. The ensemble range reflects assumed parameters, not statistical parameter errors.",

@@ -85,6 +85,98 @@ def details(label: str, value: Any) -> list[str]:
     ]
 
 
+def reconstruction(record: Mapping[str, Any]) -> list[str]:
+    """Show the scoped result and its actual coefficient comparison together."""
+    assessment = record.get("reproduction", {}).get("assessment")
+    if not assessment:
+        return []
+    lines = [
+        "",
+        "### Reconstruction",
+        "",
+        f"**Outcome:** {text(assessment['status'].replace('_', ' '))}.",
+        f"**Scope:** {text(assessment['scope'].replace('_', ' '))}.",
+        "",
+        f"**Comparison basis:** {text(assessment.get('basis', 'Not assessed'))}",
+        "",
+    ]
+    if assessment.get("source_status"):
+        lines.extend([f"Original audit code: `{assessment['source_status']}`.", ""])
+    if assessment.get("qualifications"):
+        lines.extend(["**Limitations and qualifications:**", ""])
+        lines.extend(f"- {text(value)}" for value in assessment["qualifications"])
+        lines.append("")
+    rows = assessment.get("parameters", [])
+    if rows:
+        lines.extend(
+            [
+                '<details markdown="1">',
+                "<summary>Source and reconstructed coefficients</summary>",
+                "",
+                "These reconstructed values describe the named audit, including failed or",
+                "partial reconstructions. They do not replace the EOS parameters above.",
+                "For an independent-refit assessment, the source column is the stored",
+                "Peritheos refit. Parameter names and volume/temperature conventions follow",
+                "the named audit; reported errors retain their original meaning.",
+                "",
+                "| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |",
+                "| --- | --- | --- | --- | --- | --- |",
+            ]
+        )
+        fixed = assessment.get("fit", {}).get("fixed_parameters", [])
+        free = assessment.get("fit", {}).get("free_parameters", [])
+        # Older protocols can describe constraints as prose. Only explicit
+        # lists/maps identify names; substring matches must not label a fit role.
+        if not isinstance(fixed, (list, Mapping)):
+            fixed = []
+        if not isinstance(free, (list, Mapping)):
+            free = []
+        for row in rows:
+            lines.append(
+                "| "
+                + " | ".join(
+                    text(value)
+                    for value in (
+                        row["parameter"],
+                        row["published"],
+                        row.get("published_error", row.get("published_sigma")),
+                        row["refit"],
+                        row.get("refit_error", row.get("refit_sigma")),
+                        "Fixed/adopted"
+                        if row["parameter"] in fixed
+                        else "Free"
+                        if row["parameter"] in free
+                        else "See protocol",
+                    )
+                )
+                + " |"
+            )
+        lines.extend(
+            [
+                "",
+                "Fixed/adopted coefficients are constraints, not independently reconstructed values.",
+                "",
+            ]
+        )
+        if assessment.get("fit"):
+            lines.extend(metadata(assessment["fit"]))
+        lines.extend(["", "</details>", ""])
+    elif assessment.get("fit"):
+        lines.extend(
+            details(
+                "Reconstruction protocol and available diagnostics", assessment["fit"]
+            )
+        )
+    if assessment.get("report"):
+        lines.extend(
+            [
+                f"Full comparison report: `{assessment['report']}` (this record's identifier).",
+                "",
+            ]
+        )
+    return lines
+
+
 def availability(record: Mapping[str, Any], executable: set[str]) -> str:
     if record["identifier"] not in executable:
         return "Document only"
@@ -357,6 +449,7 @@ def render_material(
             )
         )
         lines.extend(parameters(record))
+        lines.extend(reconstruction(record))
         for name in ("eos", "thermal"):
             if name in record:
                 configuration = {

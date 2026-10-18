@@ -85,6 +85,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 111.0 | 1.0 | 116.09683227045029 | 9.072609568358477 | Free |
+| K0\_prime | 4.2 | 0.2 | 3.7567676767920246 | 0.5006884765831827 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** phase=B1, used\_in\_eos\_fit=yes
+- **Columns:**
+    - **Pressure:** pressure\_kbar
+    - **Temperature:** Not specified
+    - **Volume:** lattice\_a\_angstrom
+- **Absolute sigma:** True
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 7
+- **Observed pressure range gpa:** \[8.0, 60.0\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[82.77354849194101, 104.32746685497601\]
+- **Degrees of freedom:** 5
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.7248458085764702
+- **Published rmse gpa:** 1.2153238719348995
+- **Reduced chi square:** 0.23342660766023168
+- **Dataset identifiers:** cao\_richet\_1988\_table1\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Room-temperature B1-CaO BM3 fit: molar V0=16.76 cm^3/mol (converted to the four-formula-unit cell), K0=1.112 Mbar, and K0'=4.2+/-0.2. The abstract gives K0=1.11+/-0.01 Mbar; the stored 1 GPa error reflects that precision. V0 is fixed and no independent V0 error is reported.
 
 Parameter covariance is not supplied.

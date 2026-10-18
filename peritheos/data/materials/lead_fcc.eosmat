@@ -100,6 +100,23 @@
         "notes": "Named methods are preserved only where the cited primary sources or Fortes Figure 4 identify them; no single calibration is assigned to the compiled fit."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "The published pressure surface is executable and three exact Kuznetsov fcc transition P-V-T anchors are bundled, but the compiled coefficient fit cannot be independently reproduced. The full 295-788 K Kuznetsov table was supplied privately to Fortes, while the exhaustive source-row selection, pressure-scale treatment, residual coordinate, weights, and covariance procedure are not published. See the [dedicated Fortes audit](literature-reproductions/fortes-2019-fcc-pb.md).",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": ["V0", "K0"],
+              "dataset_identifiers": ["lead_fcc_kuznetsov_2002_table1_transition_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -233,6 +250,23 @@
         "audit_date": "2026-09-08"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "not_refittable",
+            "scope": "parameter_agreement",
+            "source_status": "not_refittable",
+            "basis": "The three bundled Table 1 rows are rounded fcc states at the phase transition, not the complete P-V-T observations used to fit the source's nine-coefficient thermal BM3 surface. The full numerical dataset, row selection, residual coordinate, weights, and covariance procedure are not published. See the [dedicated Fortes/Kuznetsov audit](literature-reproductions/fortes-2019-fcc-pb.md).",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "fit": {
+              "fixed_parameters": [],
+              "dataset_identifiers": ["lead_fcc_kuznetsov_2002_table1_transition_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

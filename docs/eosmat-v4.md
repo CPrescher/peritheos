@@ -167,8 +167,11 @@ semantic validator as well to check resolution, cycles and expanded model data.
 See [EOS labels and reconstruction status](eos-labels.md) for the complete
 label definitions, default comparison criteria and scope qualifications.
 
-Legacy `reproduction` metadata remains unchanged. New v4 records may place a
-standard `assessment` inside `evidence.reproduction`:
+All bundled EOS records now carry a standard `assessment` first inside
+`evidence.reproduction`. Its outcome, scope, comparison basis and limitations
+are copied from the existing numerical reconstruction ledger and record evidence;
+no new fit or scientific classification is performed. Historical reproduction
+fields remain intact alongside it. Standalone user files may omit assessments:
 
 ```json
 "evidence": {
@@ -190,6 +193,60 @@ Optional `qualifications` is an array of nonempty strings and `report` is a
 nonempty report identifier/path. Unknown additional assessment fields are retained.
 Python, Rust and JSON Schema validate this standard block. Historical free-form
 reproduction findings are not rewritten or used to invent an assessment.
+
+`source_status` preserves the original ledger code. In particular,
+`parity_not_achieved` maps to native `not_reproduced` **for the stated comparison
+scope**, without changing the record's separate scientific-validation status.
+Stored independent Peritheos refits use `scope: independent_refit`; reproducing
+their coefficients does not reproduce the original publication. Source-calculation
+reconstructions use `source_equation`. Parameter agreement never automatically
+becomes an `author_workflow` claim.
+
+### Actual reconstructed coefficients
+
+When available, `assessment.parameters` stores the original coefficient
+comparison rows verbatim, including unsuccessful and partial reconstructions:
+
+```json
+"parameters": [
+  {
+    "parameter": "K0",
+    "published": 215.3,
+    "published_error": null,
+    "refit": 254.92768974032103,
+    "refit_error": null,
+    "difference": 39.62768974032102,
+    "relative_difference": 0.18405801087004653,
+    "similar": false,
+    "within_combined_2sigma": null
+  }
+]
+```
+
+This row is from the partial 298 K reconstruction of
+`akimotoite_dorogokupets_2015_298k_rydberg_stacey`; it is not a replacement EOS.
+The main record's `parameters` remain the published source parameterization.
+`published` denotes the comparison target; for an independent-refit assessment
+it denotes the stored Peritheos refit. `refit` is the actual reconstructed value.
+Error fields retain the audit's convention, including historical `*_sigma`
+spellings; missing or null is unknown, never zero. Ordered comparisons and all
+additional flags remain intact. Parameter names, component prefixes and units
+follow the named audit, without an inferred conversion.
+
+`assessment.fit` records the available objective, selected observations, weights,
+free/fixed parameters, covariance and fit statistics. Fixed/adopted coefficients
+are listed separately and must not be called independently reconstructed.
+Missing tables or fit details remain missing. `report` identifies the full ledger;
+look up its `record_identifier` using the EOS record's identifier. Dedicated audit
+links and detailed historical evidence remain available in the same record.
+
+Repository maintainers can run
+`python -m scripts.standardize_reconstruction_metadata --check` to detect drift.
+Without `--check`, the tool adds missing assessments from the existing ledger.
+It refuses to replace a differing assessment: review existing findings explicitly.
+Update the ledger and affected assessment together when a scientific audit changes.
+This repository tool does not add assessments to arbitrary user files or infer
+parity from successful parsing, source verification or recommended/default status.
 
 A numerical parameter match is not automatically an author-workflow reproduction,
 a reproduced independent refit does not establish source-author parity, and a

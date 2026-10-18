@@ -88,6 +88,64 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Source-scope reproduction: Figure 2 displays the ice-VI PVT data as the 300 K and 340 K isotherms. The 15 intermediate-temperature rows in Table I form a pressure-temperature ramp and are not plotted there. The best-supported reconstruction selects the 23 rows at 298.7-300.7 K and the seven rows at 340.0-340.7 K; it recovers V0, K0, and alpha0 within combined two-sigma uncertainty.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| rt\_eos.V0 | 235.2983858185 | 0.3321078134 | 235.3537684335085 | 0.3884730523499238 | Free |
+| rt\_eos.K0 | 14.05 | 0.23 | 14.015825053757764 | 0.272882340924503 | Free |
+| alpha0 | 0.000146 | 1.4e-05 | 0.00014815262758176244 | 1.833756244128889e-05 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** joint\_pvt
+- **Objective:** errors\_in\_variables
+- **Selection:** 23 rows at 298.7-300.7 K and seven rows at 340.0-340.7 K
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** temperature\_k
+    - **Volume:** unit\_cell\_volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** rt\_eos.V0; rt\_eos.K0; alpha0
+- **Fixed parameters:** dK\_dT; Tr
+- **Observations:** 30
+- **Observed pressure range gpa:** \[1.26, 2.81\]
+- **Observed temperature range k:** \[298.7, 340.7\]
+- **Observed volume range:** \[202.779, 217.944\]
+- **Degrees of freedom:** 27
+- **Solver success:** True
+- **Solver message:** \`xtol\` termination condition is satisfied.
+- **Rmse gpa:** 0.010204620341662998
+- **Published rmse gpa:** 0.010440591210967413
+- **Reduced chi square:** 0.13962648236191608
+- **Dataset identifiers:** ice\_vi\_bezacier\_2014\_table1\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 PVT fit for pure H2O ice VI. The best-supported refit reconstruction uses the 300 K and 340 K isotherms displayed in Figure 2 (30 rows: 23 at 298.7-300.7 K and seven at 340.0-340.7 K). The 15 intermediate-temperature Table I observations are retained in the linked primary dataset but form a correlated pressure-temperature ramp and are not plotted in Figure 2. Published molar V0=14.17(2) cm^3/mol is converted to the Z=10 unit cell. The second-order Birch-Murnaghan form fixes K0'=4; dK/dT was fixed to zero because no temperature dependence was detectable. The numeric domains give the extrema of all ice-VI measurements tabulated in the paper.
 
 Parameter covariance is not supplied.

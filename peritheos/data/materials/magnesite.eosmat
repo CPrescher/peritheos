@@ -51,6 +51,73 @@
         "audit_date": "2026-09-03"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 279.41,
+                "published_error": 0.08,
+                "refit": 279.37704869613833,
+                "refit_error": 1.4721499659779278,
+                "difference": -0.03295130386169376,
+                "relative_difference": 0.00011793172707381181,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 117.0,
+                "published_error": 3.0,
+                "refit": 117.48414966843251,
+                "refit_error": 48.33234130237619,
+                "difference": 0.48414966843250795,
+                "relative_difference": 0.004138031354124,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 2.3,
+                "published_error": 0.7,
+                "refit": 2.4551582863872063,
+                "refit_error": 13.012617295708921,
+                "difference": 0.15515828638720652,
+                "relative_difference": 0.06746012451617675,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 19,
+              "observed_pressure_range_gpa": [0.0, 6.88],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [264.3, 279.28],
+              "degrees_of_freedom": 16,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.09527656356397574,
+              "published_rmse_gpa": 0.0972131635252727,
+              "reduced_chi_square": 0.010782540161738907,
+              "dataset_identifiers": ["magnesite_ross_1997_table1_pv"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -151,6 +218,73 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 287.49,
+                "published_error": null,
+                "refit": 287.49000195561416,
+                "refit_error": 2.279964013858719e-05,
+                "difference": 1.9556141523935366e-06,
+                "relative_difference": 6.8023727865092235e-09,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0",
+                "published": 99.0,
+                "published_error": 0.5,
+                "refit": 98.9999407843886,
+                "refit_error": 7.843909917808862e-05,
+                "difference": -5.9215611400986745e-05,
+                "relative_difference": 5.98137488898856e-07,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.28,
+                "published_error": 0.01,
+                "refit": 4.280003401198884,
+                "refit_error": 1.7725938705363647e-06,
+                "difference": 3.4011988834237172e-06,
+                "relative_difference": 7.946726363139526e-07,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 9,
+              "observed_pressure_range_gpa": [-2.41596, 207.419],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [160.0, 295.0],
+              "degrees_of_freedom": 6,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 1.3718185808392503e-05,
+              "published_rmse_gpa": 3.994635008310426e-05,
+              "reduced_chi_square": 2.8228293281037224e-10,
+              "dataset_identifiers": ["magnesite_vocadlo_1999_table1_energy_volume"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "The complete five-page primary article was audited directly. Its equation, coefficients, 30-atom cell basis, calculated E-V table, and pressure reproduction support an executable static BM3 record despite the explicitly documented Table 1 unit-label error.",
@@ -278,6 +412,95 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.K0",
+                "published": 105.0,
+                "published_error": 2.0,
+                "refit": 105.639749756634,
+                "refit_error": 1.423674941797126,
+                "difference": 0.6397497566340036,
+                "relative_difference": 0.006092854825085748,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0_prime",
+                "published": 4.49,
+                "published_error": 0.05,
+                "refit": 4.477101496490224,
+                "refit_error": 0.09263344080732626,
+                "difference": -0.01289850350977595,
+                "relative_difference": 0.0028727179309077835,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "theta0",
+                "published": 850.0,
+                "published_error": 200.0,
+                "refit": 657.5651788419018,
+                "refit_error": 246.67470860439738,
+                "difference": -192.4348211580982,
+                "relative_difference": 0.22639390724482142,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.7,
+                "published_error": 0.2,
+                "refit": 1.9735760197133156,
+                "refit_error": 0.21354012202449588,
+                "difference": 0.2735760197133157,
+                "relative_difference": 0.16092707041959747,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "q",
+                "published": 0.9,
+                "published_error": 0.3,
+                "refit": 1.3229206799499658,
+                "refit_error": 0.37029015111932445,
+                "difference": 0.42292067994996574,
+                "relative_difference": 0.46991186661107304,
+                "similar": false,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_pvt",
+              "objective": "pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "temperature_k", "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["rt_eos.K0", "rt_eos.K0_prime", "theta0", "gamma0", "q"],
+              "fixed_parameters": ["V0", "Tr", "n"],
+              "observations": 74,
+              "observed_pressure_range_gpa": [0.0, 119.0],
+              "observed_temperature_range_k": [300.0, 2200.0],
+              "observed_volume_range": [187.26, 280.71],
+              "degrees_of_freedom": 69,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.6996660457849787,
+              "published_rmse_gpa": 1.0304556631424304,
+              "reduced_chi_square": 0.5250059506696335,
+              "dataset_identifiers": ["magnesite_yu_2024_table_s1_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "The primary article, its complete official Table S1 data deposit, the exact thermal equations, conventional-cell basis, phase and composition scope, Pt pressure scale, and an independent Peritheos refit were audited directly.",

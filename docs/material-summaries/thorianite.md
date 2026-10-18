@@ -91,6 +91,52 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- Published objective, weights, covariance, confidence levels and fit staging are unspecified. Each diagnostic jointly varies the source-free parameters once. Effective-error weights propagate P,V,T errors at published coefficients and add the stated Ar 3% accuracy in quadrature as a sensitivity assumption; cross-row scale correlation is not known. No strict statistical parity claimed.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 204.0 | 2.0 | 203.12770813359694 | Not specified | Free |
+| alpha\_KT | 0.0035 | 0.0003 | 0.0036613931510300997 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** source\_constrained\_bm3\_linear\_thermal\_diagnostic
+- **Objective:** joint pressure residuals divided by fixed propagated coordinate errors including Ar 3% accuracy
+- **Selection:** All high-T rows plus 300 K rows below 15 GPa; measured ambient V0 fixed.
+- **Free parameters:** K0; alpha\_KT
+- **Fixed parameters:** V0; K0\_prime; Tr
+- **Observations:** 29
+- **Solver success:** True
+- **Rmse gpa:** 0.9168047800085756
+- **Published rmse gpa:** 0.9100714261490399
+- **Dataset identifiers:** thorianite\_chidester\_2018\_table\_s1
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Only T=300 K rows with P&lt;15 GPa plus all high-T rows; 29 of 41 observations (ambient included). 12 anomalous room-temperature rows excluded, but preserved. Marginal envelopes are not a rectangular phase-stability guarantee; phase coexistence and kinetic inhibition occur. Published errors have unspecified confidence; fixed V0 measurement error is retained for thorianite. Published parameters are unchanged; diagnostic refits are not additional catalog EOSs. See docs/literature-reproductions/chidester-2018-tho2.md.
 
 Parameter covariance is not supplied.

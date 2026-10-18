@@ -90,6 +90,73 @@
         "notes": "The exact Shen et al. (2020) scale is identified, but IPPS-Ruby2020 is not currently an executable Peritheos calibration record."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 83.68,
+                "published_error": 0.02,
+                "refit": 83.62535545259563,
+                "refit_error": 0.012907316467177887,
+                "difference": -0.054644547404379296,
+                "relative_difference": 0.0006530180139146665,
+                "similar": true,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "K0",
+                "published": 166.3,
+                "published_error": 1.5,
+                "refit": 174.6988984410997,
+                "refit_error": 0.8491089771380721,
+                "difference": 8.398898441099675,
+                "relative_difference": 0.05050450054780321,
+                "similar": true,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.46,
+                "published_error": 0.12,
+                "refit": 3.6980391143710443,
+                "refit_error": 0.048974857483092646,
+                "difference": -0.7619608856289557,
+                "relative_difference": 0.17084324789886898,
+                "similar": true,
+                "within_combined_2sigma": false
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 26,
+              "observed_pressure_range_gpa": [0.35, 52.41],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [67.91, 83.525],
+              "degrees_of_freedom": 23,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.16855900862279588,
+              "published_rmse_gpa": 1.0247802405619364,
+              "reduced_chi_square": 9.796863463894667,
+              "dataset_identifiers": ["fe_bearing_al_phase_d_criniti_2023_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against the final article, official online material, and author-provided CIF; LitCurate was used only for discovery.",
@@ -247,6 +314,73 @@
         "notes": "The exact Shen et al. (2020) scale is identified, but IPPS-Ruby2020 is not currently an executable Peritheos calibration record."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 83.68,
+                "published_error": 0.02,
+                "refit": 83.63125363840734,
+                "refit_error": 0.013090788072897458,
+                "difference": -0.04874636159266288,
+                "relative_difference": 0.0005825330018243652,
+                "similar": true,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "K0",
+                "published": 165.5,
+                "published_error": 1.5,
+                "refit": 173.77261703800738,
+                "refit_error": 0.901089583153732,
+                "difference": 8.272617038007382,
+                "relative_difference": 0.04998560143811107,
+                "similar": true,
+                "within_combined_2sigma": false
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 4.62,
+                "published_error": 0.12,
+                "refit": 3.818752730619727,
+                "refit_error": 0.05867264795575632,
+                "difference": -0.8012472693802732,
+                "relative_difference": 0.17343014488750502,
+                "similar": true,
+                "within_combined_2sigma": false
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 26,
+              "observed_pressure_range_gpa": [0.35, 52.41],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [67.91, 83.525],
+              "degrees_of_freedom": 23,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.16568738946171954,
+              "published_rmse_gpa": 0.9627659688083019,
+              "reduced_chi_square": 9.440549160495328,
+              "dataset_identifiers": ["fe_bearing_al_phase_d_criniti_2023_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against the final article, official online material, and author-provided CIF; LitCurate was used only for discovery.",

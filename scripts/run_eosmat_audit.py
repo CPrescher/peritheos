@@ -8,13 +8,16 @@ Only its material-file access uses a temporary v3 compatibility export.
 from __future__ import annotations
 
 import argparse
+import copy
 import importlib
 import json
 import sys
 import tempfile
 from pathlib import Path
 from types import ModuleType
+from unittest.mock import patch
 
+import peritheos
 from scripts.eosmat_io import read_material, write_material
 
 AUDITS = {
@@ -22,6 +25,27 @@ AUDITS = {
     "refit_miozzi_2020_speziale": "IRON_PATH",
     "refit_miozzi_2020_tange": "IRON_PATH",
 }
+
+
+def historical_reconstruction_view(document: dict) -> dict:
+    """Exclude the later ledger summary from a historical full-record fingerprint.
+
+    This projection is used only by the explicit historical-audit runner. It
+    retains original evidence, coefficients and datasets. Ordinary library and
+    compatibility exports always include the new assessment.
+    """
+    result = copy.deepcopy(document)
+    for record in result.get("eos_records", []):
+        reproduction = record.get("reproduction", {})
+        assessment = reproduction.get("assessment", {})
+        if (
+            assessment.get("report") == "docs/data/primary-eos-refits.json"
+            and "source_status" in assessment
+        ):
+            del reproduction["assessment"]
+            if not reproduction:
+                del record["reproduction"]
+    return result
 
 
 def run_audit(
@@ -32,6 +56,11 @@ def run_audit(
     original = path.read_bytes()
     document = read_material(path)
     argv = sys.argv
+    get_document = peritheos.get_material_document
+
+    def historical_document(*args, **kwargs):
+        return historical_reconstruction_view(get_document(*args, **kwargs))
+
     with tempfile.TemporaryDirectory(prefix="peritheos-eosmat-audit-") as directory:
         temporary = Path(directory) / path.name
         temporary.write_text(
@@ -40,7 +69,15 @@ def run_audit(
         try:
             setattr(module, material_attribute, temporary)
             sys.argv = [module.__name__, *arguments]
-            module.main()
+            # The archived calibration hash predates the additive ledger summary.
+            # Some scripts import this lookup locally, others at module scope.
+            with (
+                patch.object(peritheos, "get_material_document", historical_document),
+                patch.object(
+                    module, "get_material_document", historical_document, create=True
+                ),
+            ):
+                module.main()
             updated = read_material(temporary)
         finally:
             setattr(module, material_attribute, path)

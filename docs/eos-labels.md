@@ -89,6 +89,15 @@ Historical records may express these findings through `parity_basis`,
 reports. Those fields are preserved. The standard assessment is optional and
 explicit; the reader does not manufacture one from a plot or source-check flag.
 
+Bundled files also provide the standardized assessment, copied from existing
+ledger findings without changing their classifications. Read `status`, `scope`,
+`basis` and `qualifications` together. `source_status` preserves the ledger's
+original code, including `parity_not_achieved`. The `parameters` comparison table
+retains actual reconstructed coefficients and reported errors even when parity
+failed. The main EOS coefficients remain unchanged. Fixed constraints and the
+available protocol are in `fit`; they do not become independently recovered
+coefficients. See [reconstructed coefficients in EOSMAT](eosmat-v4.md#actual-reconstructed-coefficients).
+
 ## Source-validation status
 
 Source review is a separate axis from reconstruction:

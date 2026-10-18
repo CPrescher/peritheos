@@ -96,6 +96,37 @@ meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
 
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Only a temperature-binned subset is plotted. The exact 62 P-V-T observations, their errors, and simultaneous NaCl/Au lattice readings were not recovered. A 29-point nominal-temperature proxy fit is diagnostic only; the 24 digitized curve checkpoints independently test the published parameterization.
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- Full final typeset article and any inaccessible supplement could not be verified.
+- Exact NaCl/Au calibration versions are unspecified in the accessible methods.
+- The Conclusion expansion percentages disagree with the explicit coefficients; the latter match the independent plotted isotherms.
+- Original row-wise temperatures and covariance are absent.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** Tr
+- **Observations:** 29
+- **Dataset identifiers:** vanadium\_crichton\_2016\_figure2\_points
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+
 <details markdown="1">
 <summary>Thermal equation choices</summary>
 

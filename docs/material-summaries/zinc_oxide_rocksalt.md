@@ -86,6 +86,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 78.44 | 0.4 | 77.91467996193494 | 0.1153396106978765 | Free |
+| K0 | 172.0 | 21.0 | 205.8449604879571 | 8.212686062275395 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3\_conventional\_cell
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0
+- **Fixed parameters:** None declared
+- **Observations:** 20
+- **Observed pressure range gpa:** \[2.857, 11.086\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[74.20066, 76.91803\]
+- **Degrees of freedom:** 18
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.07466856648367305
+- **Published rmse gpa:** 0.802756702268262
+- **Reduced chi square:** 7.057255829895715
+- **Dataset identifiers:** zinc\_oxide\_rocksalt\_hanna\_2011\_figure4\_bulk\_digitized
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Hanna et al. report V0 = 19.61(10) A^3 per ZnO and K0 = 172(21) GPa with K0' fixed at 4; values are converted to the conventional Z=4 cell. B1 data were collected above the 8.3-10 GPa coexistence interval, but the exact fitted pressure interval is not tabulated.
 
 Parameter covariance is not supplied.

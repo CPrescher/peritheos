@@ -84,6 +84,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 67.8895 | 0.7174 | 68.23067383724711 | 0.7908604006203899 | Free |
+| K0 | 127.2 | 8.1 | 123.32341841052214 | 9.02322502345689 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3\_conventional\_cell
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0
+- **Fixed parameters:** K0\_prime
+- **Observations:** 14
+- **Observed pressure range gpa:** \[23.4493, 88.5167\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[49.575765, 59.640628\]
+- **Degrees of freedom:** 12
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.32265048460667456
+- **Published rmse gpa:** 1.3807934503364472
+- **Reduced chi square:** 0.24432585496725934
+- **Dataset identifiers:** feh2\_pepin\_2014\_figure3\_digitized
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Experimental Vinet fit: molar V0 = 10.221(108) cm^3/mol and K0 = 127.2(81) GPa, with K0' fixed at 5. V0 and its uncertainty were converted to the Z=4 tetragonal cell.
 
 Parameter covariance is not supplied.

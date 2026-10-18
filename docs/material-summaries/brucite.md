@@ -103,6 +103,51 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Conditional comparison against individual reported errors using every printed same-temperature row and the source expansion reference volume fixed. Unweighted pressure residuals, not author weights. At 873 K the K0 difference exceeds one reported error and the figure implies inconsistent volume normalization. Lattice-average fit includes H rearrangement; no phase-pure or original-workflow claim.
+- Usage recommendation: Source-checked isotherm at its stated temperature only. This does not validate the full published thermal EOS or an interpolation between temperatures.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 41.8 | 1.3 | 42.0177360402393 | Not specified | See protocol |
+| K0\_prime | 6.6 | 0.3 | 6.603483849128478 | Not specified | See protocol |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** unweighted\_pressure\_residuals\_fixed\_source\_V0
+- **Fixed parameters:** None declared
+- **Observations:** 13
+- **Solver success:** True
+- **Rmse gpa:** 0.2167608081755301
+- **Published rmse gpa:** 0.22790990500597397
+- **Dataset identifiers:** brucite\_fukui\_2003\_table1; brucite\_fukui\_2003\_table4
+- **Reproduction report:** docs/data/brucite-reproduction.json
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only. Published coefficients unchanged. Original workflow and calibration re-reduction remain unavailable.
 
 Parameter covariance is not supplied.
@@ -221,6 +266,51 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Conditional comparison against individual reported errors using every printed same-temperature row and the source expansion reference volume fixed. Unweighted pressure residuals, not author weights. At 873 K the K0 difference exceeds one reported error and the figure implies inconsistent volume normalization. Lattice-average fit includes H rearrangement; no phase-pure or original-workflow claim.
+- Usage recommendation: Source-checked isotherm at its stated temperature only. This does not validate the full published thermal EOS or an interpolation between temperatures.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 32.6 | 2.5 | 33.69147968162089 | Not specified | See protocol |
+| K0\_prime | 8.3 | 1.1 | 8.085231223634171 | Not specified | See protocol |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** unweighted\_pressure\_residuals\_fixed\_source\_V0
+- **Fixed parameters:** V0
+- **Observations:** 8
+- **Solver success:** True
+- **Rmse gpa:** 0.2625605629411442
+- **Published rmse gpa:** 0.33630739972845325
+- **Dataset identifiers:** brucite\_fukui\_2003\_table1; brucite\_fukui\_2003\_table4
+- **Reproduction report:** docs/data/brucite-reproduction.json
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only. Published coefficients unchanged. Original workflow and calibration re-reduction remain unavailable.
 
 Parameter covariance is not supplied.
@@ -338,6 +428,51 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Conditional comparison against individual reported errors using every printed same-temperature row and the source expansion reference volume fixed. Unweighted pressure residuals, not author weights. At 873 K the K0 difference exceeds one reported error and the figure implies inconsistent volume normalization. Lattice-average fit includes H rearrangement; no phase-pure or original-workflow claim.
+- Usage recommendation: Source-checked isotherm at its stated temperature only. This does not validate the full published thermal EOS or an interpolation between temperatures.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 28.8 | 2.1 | 29.03221567160922 | Not specified | See protocol |
+| K0\_prime | 9.0 | 1.1 | 8.844925607540013 | Not specified | See protocol |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** unweighted\_pressure\_residuals\_fixed\_source\_V0
+- **Fixed parameters:** V0
+- **Observations:** 8
+- **Solver success:** True
+- **Rmse gpa:** 0.22807386078098604
+- **Published rmse gpa:** 0.23027507836968086
+- **Dataset identifiers:** brucite\_fukui\_2003\_table1; brucite\_fukui\_2003\_table4
+- **Reproduction report:** docs/data/brucite-reproduction.json
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only. Published coefficients unchanged. Original workflow and calibration re-reduction remain unavailable.
 

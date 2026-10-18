@@ -100,6 +100,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 229.463 | 0.008 | 229.46308783803153 | 0.007974591023761456 | Free |
+| K0 | 198.0 | 3.0 | 199.94388569289163 | 2.6764487509049695 | Free |
+| K0\_prime | 1.2 | 0.8 | 0.875977821521902 | 0.7639623163547105 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 11
+- **Observed pressure range gpa:** \[0.0001, 7.79\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[220.801, 229.463\]
+- **Degrees of freedom:** 8
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.03622805921461332
+- **Published rmse gpa:** 0.09324611471845982
+- **Reduced chi square:** 1.5202094153128174
+- **Dataset identifiers:** cairo3\_perovskite\_boffa\_ballaran\_2007\_table1\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 This record is limited to the Pbnm CaIrO3 perovskite polymorph and must not be used for the Cmcm post-perovskite. V0 is the four-formula-unit conventional-cell volume. The source describes V0, K0, and K' together as refined parameters and marks none fixed, so fixed\_parameters is empty. The printed standard deviations are retained without conversion to a confidence interval, and numerical covariance is absent rather than assumed zero.
 
 Parameter covariance is not supplied.

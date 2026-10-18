@@ -147,6 +147,15 @@ accept old files, while old readers need the explicit compatibility export.
 For the meaning of parity, similarity, source checks, refits and diagnostics,
 use [the central EOS label guide](eos-labels.md).
 
+Bundled records put reconstruction outcome, basis and limitations at
+`evidence.reproduction.assessment`. Its `parameters` table contains the actual
+source-versus-reconstructed values, including failed reconstructions; its `fit`
+object records the available selection, objective, weights and fixed constraints.
+The EOS's main `parameters` are preserved. The readable material summaries show
+the scoped assessment and a separate reconstructed-coefficient table. See the
+[reconstruction field reference](eosmat-v4.md#actual-reconstructed-coefficients).
+Standalone user files do not require an audit block.
+
 ## Repeated metadata in large database files
 
 Keep ordinary user files inline. For a large file with identical citations or
@@ -204,5 +213,9 @@ python -m scripts.run_eosmat_audit refit_miozzi_2020_tange --check
 
 The runner gives the original script a temporary v3 export. A successful
 `--register` saves any material changes back as v4, after checking for concurrent
-edits. This compatibility step is only for these historical repository scripts;
+edits. For its historical calibration fingerprints, its catalog lookup excludes
+only the later standardized ledger assessment, retaining all original evidence,
+coefficients and datasets. The archived hashes and audit code remain unchanged;
+ordinary library lookups and compatibility exports retain the full assessment.
+This compatibility step is only for these historical repository scripts;
 normal file reading, authoring and calculation use v4 directly.

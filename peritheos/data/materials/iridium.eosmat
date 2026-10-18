@@ -86,6 +86,52 @@
         "audit_date": "2026-09-03"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "The exact Equations 1-3 thermal correction and source temperature average are reproduced. With the published BM3 reference held fixed, all 122 laser-heating rows independently refit alpha0. A second, explicitly plot-derived reconstruction uses the vector marker centers for the missing 300 K and 830 K series and the source's stated +/-100 K temperature bands. It materially approaches all four published coefficients, but is not source parity because the original numerical rows, exact averaging/selection algorithm, weights, and covariance remain unpublished.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "alpha0",
+                "published": 1.87e-05,
+                "published_error": 8e-07,
+                "refit": 1.7740295689829463e-05,
+                "refit_error": 3.2880224447968415e-07,
+                "difference": -9.597043101705374e-07,
+                "relative_difference": 0.051321086105376335,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "conditional_holland_powell_thermal_pressure",
+              "objective": "unweighted_pressure_residuals",
+              "selection": "all 122 Supplementary Tables 1-3 laser-heating rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": "mean_temperature_k", "volume": "iridium_lattice_a_angstrom"},
+              "absolute_sigma": false,
+              "free_parameters": ["alpha0"],
+              "fixed_parameters": ["Tr", "theta", "n"],
+              "observations": 122,
+              "observed_pressure_range_gpa": [22.7, 91.5],
+              "observed_temperature_range_k": [300.0, 5560.5],
+              "observed_volume_range": [47.911251968, 54.958685608],
+              "degrees_of_freedom": 121,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 3.0325674077570715,
+              "published_rmse_gpa": 3.1375096434286185,
+              "reduced_chi_square": 9.272468926248218,
+              "dataset_identifiers": ["iridium_anzellini_2025_tables_s1_s3_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

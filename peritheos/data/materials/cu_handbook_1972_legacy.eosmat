@@ -56,6 +56,62 @@
         "notes": "The refit uses the handbook's printed pressure values as tabulated."
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "independent_refit",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "This comparison concerns the stored independent Peritheos refit, not recovery of the original publication's coefficients or author workflow."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 139.23431084,
+                "published_error": null,
+                "refit": 139.23431092638697,
+                "refit_error": null,
+                "difference": 8.63869615841395e-08,
+                "relative_difference": 6.204430579141544e-10,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.00112704,
+                "published_error": null,
+                "refit": 5.001127035941476,
+                "refit_error": null,
+                "difference": -4.058524183392365e-09,
+                "relative_difference": 8.115219131470742e-10,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "eighth_power_pressure_residuals",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "v_over_v0"},
+              "absolute_sigma": true,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 25,
+              "observed_pressure_range_gpa": [1.5, 34.0],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [10.03071040803769, 11.6965881083125],
+              "degrees_of_freedom": 23,
+              "solver_success": true,
+              "solver_message": "Optimization terminated successfully.",
+              "rmse_gpa": 0.07015421358068172,
+              "published_rmse_gpa": 0.07015421226530144,
+              "reduced_chi_square": null,
+              "dataset_identifiers": ["aip_handbook_table4d12_cu"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",

@@ -64,6 +64,62 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 59.72,
+                "published_error": 0.22,
+                "refit": 59.7395132600023,
+                "refit_error": 0.13126348450424175,
+                "difference": 0.019513260002298694,
+                "relative_difference": 0.0003267458138362139,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 134.0,
+                "published_error": 4.0,
+                "refit": 133.66207218779005,
+                "refit_error": 2.1612363944843067,
+                "difference": -0.33792781220995494,
+                "relative_difference": 0.00252184934485041,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "fe093o_rhombohedral_volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0"],
+              "fixed_parameters": ["K0_prime"],
+              "observations": 9,
+              "observed_pressure_range_gpa": [27.7, 51.1],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [47.0, 51.27],
+              "degrees_of_freedom": 7,
+              "solver_success": true,
+              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+              "rmse_gpa": 0.016131562401951283,
+              "published_rmse_gpa": 0.4415688144493295,
+              "reduced_chi_square": 2.6797370526722912,
+              "dataset_identifiers": ["jacobsen_2005_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Checked directly against the final IUCr article and its complete printed Table 1.",

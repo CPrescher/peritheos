@@ -33,6 +33,7 @@ from scripts.brucite_reproduce import (
 )
 from scripts.brucite_stage import audit_document, catalog_document, staged_document
 from scripts.eosmat_io import read_material
+from scripts.run_eosmat_audit import historical_reconstruction_view
 
 
 @pytest.fixture(scope="module")
@@ -284,7 +285,10 @@ def test_catalog_brucite_published_ranges_and_qualified_source_records():
         assert (
             "Not recommended" in record["scientific_validation"]["usage_recommendation"]
         )
-    assert read_material(DATA.parent / "materials/brucite.eosmat") == document
+    registered = read_material(DATA.parent / "materials/brucite.eosmat")
+    assert all("assessment" in r["reproduction"] for r in registered["eos_records"])
+    # The later ledger summary is additive to the archived scientific document.
+    assert historical_reconstruction_view(registered) == document
     assert search_eos_records(formula="Mg(OH)2", pressure_gpa=22.56)
     assert not search_eos_records(formula="Mg(OH)2", thermal=True)
     assert not search_eos_records(formula="Mg(OH)2", temperature_k=873)

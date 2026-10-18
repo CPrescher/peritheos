@@ -88,6 +88,73 @@
         "audit_date": "2026-09-05"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
+            "qualifications": [
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "V0",
+                "published": 229.463,
+                "published_error": 0.008,
+                "refit": 229.46308783803153,
+                "refit_error": 0.007974591023761456,
+                "difference": 8.783803153278313e-05,
+                "relative_difference": 3.8279823558823486e-07,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0",
+                "published": 198.0,
+                "published_error": 3.0,
+                "refit": 199.94388569289163,
+                "refit_error": 2.6764487509049695,
+                "difference": 1.9438856928916266,
+                "relative_difference": 0.009817604509553669,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 1.2,
+                "published_error": 0.8,
+                "refit": 0.875977821521902,
+                "refit_error": 0.7639623163547105,
+                "difference": -0.324022178478098,
+                "relative_difference": 0.27001848206508167,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "errors_in_variables",
+              "selection": "all rows",
+              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3"},
+              "absolute_sigma": true,
+              "free_parameters": ["V0", "K0", "K0_prime"],
+              "fixed_parameters": [],
+              "observations": 11,
+              "observed_pressure_range_gpa": [0.0001, 7.79],
+              "observed_temperature_range_k": null,
+              "observed_volume_range": [220.801, 229.463],
+              "degrees_of_freedom": 8,
+              "solver_success": true,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.03622805921461332,
+              "published_rmse_gpa": 0.09324611471845982,
+              "reduced_chi_square": 1.5202094153128174,
+              "dataset_identifiers": ["cairo3_perovskite_boffa_ballaran_2007_table1_compression"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Validated against the author-uploaded copy of the final American Mineralogist article, with the complete printed Table 1 transcribed. LitCurate was used only for discovery.",

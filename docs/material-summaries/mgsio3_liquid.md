@@ -98,6 +98,55 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- This is numerical similarity for a source-equation validation, not strict fit parity. Pressure and shock density are impedance-match reductions rather than independent direct BM3 observations. With three states, two refined coefficients, one residual degree of freedom, and near-perfect rho0-K0S correlation, K0S-prime and the thermal terms are not identifiable. The published candidate therefore remains unchanged and explicitly qualified.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 45.29797155879917 | Not specified | 45.185995019007876 | 16.23987881216223 | Free |
+| K0 | 125.0 | Not specified | 125.46292307750784 | 129.29534947040386 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** mie\_gruneisen\_hugoniot\_bounded\_reconstruction
+- **Objective:** unweighted theoretical-minus-reduced Hugoniot pressure residuals
+- **Selection:** Mosenfelder et al. (2009) Table 2 rows credited to Akins et al. (2004), with enstatite starting material and phase\_state=melt
+- **Absolute sigma:** False
+- **Free parameters:** V0; K0
+- **Fixed parameters:** None declared
+- **Observations:** 3
+- **Observed pressure range gpa:** \[174.0, 204.3\]
+- **Degrees of freedom:** 1
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 6.7945426904420545
+- **Dataset identifiers:** mgsio3\_liquid\_akins\_2004\_mosenfelder\_2009\_rereduced\_melt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Accepted LitCurate source row 458 (litcurate\_042ccd0ac8e39a2b) after recovering V0 transparently from primary-source rho0 and confirming the BM3-isentrope family in the primary text. Retain in production as a published candidate reference isentrope with explicit qualification: it is not a direct P-rho fit, not a complete executable thermal Hugoniot, and not independently identifiable from the three melt states.
 
 Parameter covariance is not supplied.

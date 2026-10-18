@@ -60,6 +60,57 @@
         "audit_date": "2026-09-19"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "source_status": "similar",
+            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "qualifications": [
+              "Point estimates fall within the published errors, but source weighting and covariance are unspecified. All 27 printed 300 K rows are retained; the source RMS range is not recovered. The conflicting thermal coefficient is withheld. See literature-reproductions/litasov-2013-siderite.md.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 120.0,
+                "published_error": 1.0,
+                "refit": 120.2242130752825,
+                "refit_error": 1.322686992288662,
+                "difference": 0.22421307528250622,
+                "relative_difference": 0.0018684422940208852,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.57,
+                "published_error": 0.09,
+                "refit": 3.5722139862709232,
+                "refit_error": 0.13418562510556464,
+                "difference": 0.002213986270923396,
+                "relative_difference": 0.0006201642215471698,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "fixed_V0_linearized_bm3",
+              "objective": "unweighted_pressure_residuals",
+              "absolute_sigma": false,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "observations": 27,
+              "observed_pressure_range_gpa": [0, 33.01],
+              "observed_temperature_range_k": [300, 300],
+              "solver_success": true,
+              "rmse_gpa": 0.22730866010656467,
+              "published_rmse_gpa": 0.22958469054073105,
+              "dataset_identifiers": ["siderite_fe095mn005_litasov_2013_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Room-temperature parameterization traced to the primary manuscript and final publisher abstract, independently refitted on the original printed pressure scale. See docs/literature-reproductions/litasov-2013-siderite.md for limitations.",
@@ -212,6 +263,91 @@
         "audit_date": "2026-09-19"
       },
       "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "independent_refit",
+            "source_status": "parity",
+            "basis": "Reproduction of the stored independent Peritheos refit under its declared protocol.",
+            "basis_code": "reproduction_of_stored_peritheos_refit",
+            "qualifications": [
+              "This comparison concerns the stored independent Peritheos refit, not recovery of the original publication's coefficients or author workflow.",
+              "Reproduces the separately labelled Peritheos refit, not either published thermal coefficient set. All 111 printed states enter an unweighted joint pressure-residual fit; V0 and Tr are fixed. The ledger's published column contains the stored refit values for this comparison. Formal covariance excludes fixed V0 uncertainty and calibration systematics. Both source thermal variants remain non-executable evidence."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.K0",
+                "published": 121.90288040577286,
+                "published_error": 0.8855927629328301,
+                "refit": 121.90287687707195,
+                "refit_error": 0.8855930573905902,
+                "difference": -3.5287009154671978e-06,
+                "relative_difference": 2.894682146739571e-08,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "rt_eos.K0_prime",
+                "published": 3.427642322450656,
+                "published_error": 0.08617420289324854,
+                "refit": 3.427643358874071,
+                "refit_error": 0.08617420444691092,
+                "difference": 1.0364234150905816e-06,
+                "relative_difference": 3.023721023346367e-07,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "alpha0",
+                "published": 3.587839262956832e-05,
+                "published_error": 1.442174904027276e-06,
+                "refit": 3.5878359568313225e-05,
+                "refit_error": 1.4421765164866188e-06,
+                "difference": -3.306125509537454e-11,
+                "relative_difference": 9.214809436063726e-07,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "alpha1",
+                "published": 1.0132344225608927e-09,
+                "published_error": 1.9588122131294773e-09,
+                "refit": 1.0133103185840319e-09,
+                "refit_error": 1.958811150464104e-09,
+                "difference": 7.589602313916011e-14,
+                "relative_difference": 7.490470265245944e-05,
+                "similar": true,
+                "within_combined_2sigma": true
+              },
+              {
+                "parameter": "dK_dT",
+                "published": -0.014597911024728977,
+                "published_error": 0.0011884239133985548,
+                "refit": -0.014597941803188182,
+                "refit_error": 0.0011884224642203412,
+                "difference": -3.0778459204905406e-08,
+                "relative_difference": 2.1084153172852235e-06,
+                "similar": true,
+                "within_combined_2sigma": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "joint_thermal_reference_state_refit",
+              "objective": "unweighted_pressure_residuals",
+              "absolute_sigma": false,
+              "free_parameters": ["rt_eos.K0", "rt_eos.K0_prime", "alpha0", "alpha1", "dK_dT"],
+              "fixed_parameters": ["V0", "Tr"],
+              "observations": 111,
+              "observed_pressure_range_gpa": [0, 33.01],
+              "observed_temperature_range_k": [300, 1673],
+              "solver_success": true,
+              "rmse_gpa": 0.22121166605654996,
+              "published_rmse_gpa": 0.22121166605746373,
+              "dataset_identifiers": ["siderite_fe095mn005_litasov_2013_table2_pvt"]
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
         "scientific_validation": {
           "status": "primary_source_validated",
           "note": "Primary observations, composition, equation mapping, reference state and calibration lineage audited; independent numerical reproduction validates the separately labelled refit, not author-fit parity.",

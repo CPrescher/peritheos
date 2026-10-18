@@ -91,6 +91,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- The exact Equations 1-3 thermal correction and source temperature average are reproduced. With the published BM3 reference held fixed, all 122 laser-heating rows independently refit alpha0. A second, explicitly plot-derived reconstruction uses the vector marker centers for the missing 300 K and 830 K series and the source's stated +/-100 K temperature bands. It materially approaches all four published coefficients, but is not source parity because the original numerical rows, exact averaging/selection algorithm, weights, and covariance remain unpublished.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| alpha0 | 1.87e-05 | 8e-07 | 1.7740295689829463e-05 | 3.2880224447968415e-07 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** conditional\_holland\_powell\_thermal\_pressure
+- **Objective:** unweighted\_pressure\_residuals
+- **Selection:** all 122 Supplementary Tables 1-3 laser-heating rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** mean\_temperature\_k
+    - **Volume:** iridium\_lattice\_a\_angstrom
+- **Absolute sigma:** False
+- **Free parameters:** alpha0
+- **Fixed parameters:** Tr; theta; n
+- **Observations:** 122
+- **Observed pressure range gpa:** \[22.7, 91.5\]
+- **Observed temperature range k:** \[300.0, 5560.5\]
+- **Observed volume range:** \[47.911251968, 54.958685608\]
+- **Degrees of freedom:** 121
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 3.0325674077570715
+- **Published rmse gpa:** 3.1375096434286185
+- **Reduced chi square:** 9.272468926248218
+- **Dataset identifiers:** iridium\_anzellini\_2025\_tables\_s1\_s3\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Combined BM3 plus Holland-Powell thermal-pressure fit. The 300 K reference data are from Monteseguro et al. (2019), while the thermal contribution is constrained by the present resistive- and laser-heating experiments. Equation 2 uses a fixed 298 K Einstein temperature and the arithmetic mean of upstream/downstream pyrometry. The 122-row supplement contains the exact laser-heating observations but not numerical tables for the Monteseguro 300 K or present 830 K resistive-heating series. Figure 4 does expose 91 and 16 corresponding marker centers as vector paths; these are bundled as explicitly plot-derived coordinates with graphical uncertainty. A source-conditioned fit holds the published BM3 coefficients fixed and tests alpha0 on all exact hot rows. A separate four-parameter reconstruction combines the digitized series with exact hot rows in the stated plus-or-minus 100 K isotherm bands; it is not exact source parity because the original rows, averaging algorithm, weights, and covariance remain unpublished. fcc Ir remained stable to 101 GPa and 5600 K in the present experiments.
 
 Parameter covariance is not supplied.

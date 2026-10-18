@@ -96,6 +96,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** The recorded parameter reconstruction did not meet the audit's agreement criterion; the parameter comparisons retain the actual reconstructed values.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 56.126 | 0.11 | 58.83765142086295 | 0.5423223682041958 | Free |
+| K0 | 71.8 | 2.1 | 63.48664918864778 | 6.106967044629139 | Free |
+| K0\_prime | 4.4 | 0.08 | 3.303771258364891 | 0.3569619004575568 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** reduced\_pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** atomic\_volume\_a3\_per\_atom
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 21
+- **Observed pressure range gpa:** \[10.527, 35.121\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[42.3626, 51.3302\]
+- **Degrees of freedom:** 18
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.60172036353428
+- **Published rmse gpa:** 2.336133186552911
+- **Reduced chi square:** 10.564031151343334
+- **Dataset identifiers:** lead\_hcp\_kuznetsov\_2002\_figure3\_digitized
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
 
 Parameter covariance is not supplied.
@@ -186,6 +243,63 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** not reproduced.
+**Scope:** parameter agreement.
+
+**Comparison basis:** The recorded parameter reconstruction did not meet the audit's agreement criterion; the parameter comparisons retain the actual reconstructed values.
+
+Original audit code: `parity_not_achieved`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 56.116 | 0.11 | 58.83765340033019 | 0.5423226807534997 | Free |
+| K0 | 70.0 | 2.1 | 63.48662685422268 | 6.10696777076789 | Free |
+| K0\_prime | 4.77 | 0.08 | 3.3037725652189245 | 0.356961985762982 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** reduced\_pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** atomic\_volume\_a3\_per\_atom
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 21
+- **Observed pressure range gpa:** \[10.527, 35.121\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[42.3626, 51.3302\]
+- **Degrees of freedom:** 18
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.6017203646968212
+- **Published rmse gpa:** 2.4014233818607034
+- **Reduced chi square:** 10.564031151337183
+- **Dataset identifiers:** lead\_hcp\_kuznetsov\_2002\_figure3\_digitized
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Vinet fit to static diamond-anvil-cell X-ray compression data in helium or neon. The two records preserve the published Mao-1986 and Dorogokupets-2007 ruby-scale sensitivity; they are alternative reductions of the same data, not independent experiments.
 
@@ -279,6 +393,32 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** not refittable.
+**Scope:** parameter agreement.
+
+**Comparison basis:** The bundled Figure 3 coordinates are plot-digitized room-temperature and source-reduced markers, not the complete original P-V-T observations used to fit the nine-coefficient hcp thermal BM3 surface. The original rows, residual coordinate, weights, and covariance procedure are not published. See the \[dedicated Fortes/Kuznetsov audit\](literature-reproductions/fortes-2019-fcc-pb.md).
+
+Original audit code: `not_refittable`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fixed parameters:** None declared
+- **Dataset identifiers:** lead\_hcp\_kuznetsov\_2002\_figure3\_digitized
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Published 296 K isotherm of the source's temperature-dependent hcp BM3 model. The full polynomial P-V-T surface is executable in scripts/audit\_fortes\_2019\_fcc\_pb.py but is outside the current thermal schema. This is a source-published parameterization, not a Peritheos refit.
 

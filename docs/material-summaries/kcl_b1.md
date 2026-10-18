@@ -88,6 +88,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 249.44 | Not specified | 249.37909805826908 | 0.2885215905029003 | Free |
+| K0 | 17.1 | Not specified | 17.325289887618375 | 0.31899418465200324 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3\_per\_formula\_unit
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0
+- **Fixed parameters:** K0\_prime
+- **Observations:** 30
+- **Observed pressure range gpa:** \[0.16, 2.56\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[223.424, 246.816\]
+- **Degrees of freedom:** 28
+- **Solver success:** True
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
+- **Rmse gpa:** 0.053477743798609416
+- **Published rmse gpa:** 0.055444925019129614
+- **Reduced chi square:** 0.0030641454447746866
+- **Dataset identifiers:** kcl\_b1\_dewaele\_2012\_table2\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 The published 62.36 A^3/formula-unit V0 is multiplied by four for the conventional B1 cell. The source gives no individual fit uncertainties and fixes K0'=5.5.
 
 Parameter covariance is not supplied.
@@ -181,6 +237,52 @@ Values use the source model's parameter units. Primary `V0` uses
 the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- Fixed Figure 1 V0=37.50 cm3/mol=249.0808601 conventional-cell A3 (Z=4); Tables 1/3 retain the conflicting 249.53 A3, K0 prime=5, Tr=296.15 K. Complete unweighted joint pressure fit per Walker page 808; exact author Solver inputs and constraints are unavailable. K0 rounds to 17.7 GPa; alpha\_KT differs by 1.17%, within its printed error width; strict coefficient/uncertainty parity is not established. Individual elastic errors and covariance are not published. The printed BE1 signs are inconsistent with its positive strain definition; the compression-positive BM3 convention used by the existing B2 audit is retained explicitly.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 17.7 | Not specified | 17.683421849750918 | Not specified | Free |
+| alpha\_KT | 0.00195 | 5e-05 | 0.001927145871094727 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** independent\_primary\_equation\_pressure\_fit
+- **Objective:** equal pressure weights
+- **Selection:** 23 measured Table 1 KCl states; exclude six NaCl-only checks and one derived V0 anchor
+- **Free parameters:** K0; alpha\_KT
+- **Fixed parameters:** V0; K0\_prime; Tr
+- **Observations:** 23
+- **Solver success:** True
+- **Rmse gpa:** 0.05382736372911785
+- **Published rmse gpa:** 0.05443362976268607
+- **Dataset identifiers:** kcl\_b1\_walker\_2002\_table1\_pvt
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
 
 Figure 1 B1 reference V0=37.50 cm^3/mol is explicitly selected, giving 249.080860076 A^3 per Z=4 conventional cell. Tables 1/3 instead print 249.53 A^3 (37.57 cm^3/mol); their raw data and derived anchor are retained unchanged. The extra conversion digits are not measurement precision. Table 3 elastic/thermal coefficients: K0=177 kbar=17.7 GPa, K0 prime fixed at 5. The thermal coefficient is the directly reported alpha0\*K0=0.0195(5) kbar/K=0.00195(5) GPa/K, rather than the rounded product 177\*0.00011. T0=23 degC=296.15 K. Table 1 retains all 30 entries: 23 measured sample states, six separate NaCl spot checks without KCl volumes, and one derived 23 degC ambient-volume anchor. No individual elastic errors or covariance are assigned. The Table 1 volume heading erroneously says B2-KCl; volumes and Z=4 identify the B1 sample. Complete unweighted joint refit is close but not exact; see the dedicated reproduction. The marginal P-T bounds do not define a rectangular B1 stability region.
 

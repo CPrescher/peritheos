@@ -97,6 +97,57 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Direct final-article reproduction. Mao et al. explicitly fitted only the Fe10 data with K0-prime fixed at 4; Table 1 supplies the fixed Fe10 V0=162.79 A3. The paper does not state weights, and unweighted pressure residuals recover K0=260.80 GPa from the rounded table. MgSiO3 and Fe20 inherit this indistinguishable compression curve with their separately measured composition-specific ambient volumes.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 261.0 | 4.0 | 260.7999230336436 | 1.7340729995198663 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** shared\_bm2\_fe10\_pressure\_residuals
+- **Objective:** unweighted pressure residuals
+- **Selection:** fit\_included=1: all nine 300 K Fe10 rows in final-article Table 2
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Volume:** volume\_a3
+- **Absolute sigma:** False
+- **Free parameters:** K0
+- **Fixed parameters:** V0; K0\_prime
+- **Observations:** 9
+- **Observed pressure range gpa:** \[1.4, 26.0\]
+- **Degrees of freedom:** 8
+- **Solver success:** True
+- **Solver message:** analytic one-parameter least-squares solution
+- **Rmse gpa:** 0.28526073698634036
+- **Dataset identifiers:** mao\_1991\_tables2\_3\_bridgmanite\_pv
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 BM2 is represented as BM3 with V0 and K0\_prime fixed, which is algebraically identical. The final article fits K0 only to Fe10 data and applies the indistinguishable compression curve to all three composition-specific ambient volumes.
 
 Parameter covariance is not supplied.

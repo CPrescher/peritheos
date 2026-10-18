@@ -91,6 +91,62 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** similar.
+**Scope:** independent refit.
+
+**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+
+Original audit code: `similar`.
+
+**Limitations and qualifications:**
+
+- This comparison concerns the stored independent Peritheos refit, not recovery of the original publication's coefficients or author workflow.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 139.23431084 | Not specified | 139.23431092638697 | Not specified | Free |
+| K0\_prime | 5.00112704 | Not specified | 5.001127035941476 | Not specified | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** eighth\_power\_pressure\_residuals
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** v\_over\_v0
+- **Absolute sigma:** True
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Observations:** 25
+- **Observed pressure range gpa:** \[1.5, 34.0\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[10.03071040803769, 11.6965881083125\]
+- **Degrees of freedom:** 23
+- **Solver success:** True
+- **Solver message:** Optimization terminated successfully.
+- **Rmse gpa:** 0.07015421358068172
+- **Published rmse gpa:** 0.07015421226530144
+- **Reduced chi square:** Not specified
+- **Dataset identifiers:** aip\_handbook\_table4d12\_cu
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Independent Peritheos refit of the manually verified Cu column in AIP Handbook Table 4d-12. It is intentionally separate from the Sun et al. source-author Vinet record. The handbook values are rounded derived-isotherm points rather than experiment-level raw observations.
 
 Parameter covariance is not supplied.

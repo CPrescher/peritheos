@@ -84,6 +84,63 @@ the conventional-cell volume declared above. Errors retain their reported
 meaning; an absent error is unknown, and absence of covariance does not
 establish statistical independence.
 
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 512.56 | 0.03 | 512.558203684686 | 4.378176312452215 | Free |
+| K0 | 97.5 | 0.4 | 97.4359069161703 | 56.96055588310756 | Free |
+| K0\_prime | 5.97 | 0.14 | 5.978574020511421 | 16.402620176833924 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** errors\_in\_variables
+- **Selection:** all rows
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3\_conventional\_cell
+- **Absolute sigma:** True
+- **Free parameters:** V0; K0; K0\_prime
+- **Fixed parameters:** None declared
+- **Observations:** 12
+- **Observed pressure range gpa:** \[0.0001, 7.529\]
+- **Observed temperature range k:** Not specified
+- **Observed volume range:** \[480.86, 512.56\]
+- **Degrees of freedom:** 9
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.007708905723878184
+- **Published rmse gpa:** 0.008076586548178746
+- **Reduced chi square:** 7.924312006020416e-05
+- **Dataset identifiers:** phase\_a\_crichton\_2002\_table1\_compression
+
+</details>
+
+Full comparison report: `docs/data/primary-eos-refits.json` (this record's identifier).
+
 Hydrous phase A, Mg7Si2O8(OH)6. Crichton and Ross report V0 = 512.56(3) A^3, K0 = 97.5(4) GPa, and K0' = 5.97(14). The formula is stored in parser-compatible expanded form.
 
 Parameter covariance is not supplied.

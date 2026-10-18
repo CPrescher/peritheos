@@ -21,6 +21,7 @@ from scripts.reproduce_wang_1996_casio3 import (
     reproduce,
     thermal_fit,
 )
+from scripts.run_eosmat_audit import historical_reconstruction_view
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -194,6 +195,8 @@ def test_selectable_thermal_record_predictions_inverse_and_covariance():
 
 def test_thermal_addition_preserves_all_previous_scientific_content():
     doc = get_material_document("ca_perovskite")
+    assert all("assessment" in record["reproduction"] for record in doc["eos_records"])
+    doc = historical_reconstruction_view(doc)
     doc["eos_records"] = [r for r in doc["eos_records"] if r["identifier"] != RECORD_ID]
     doc["datasets"] = [
         d for d in doc["datasets"] if d["identifier"] != REFIT_DATASET_ID
