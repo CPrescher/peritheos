@@ -1,6 +1,6 @@
 # Morard FeS: actual GUI fitting comparison
 
-Audit date: 2026-10-19. **The distributed 20211014 GUI reproduces the tested console fits closely and still exceeds the ±3 GPa envelope.** The published coefficients remain unchanged and deferred.
+Audit date: 2026-10-19. **The distributed 20211014 GUI reproduces the tested console fits closely and still exceeds the ±3 GPa envelope.** The published coefficients are accepted unchanged on parameter agreement; the residual discrepancy is informational.
 
 [Original audit and author-input confirmation](fes-eosfit-direct.md) · [Archived model files, covariance, hashes and residuals](../data/fes-gui-2026-10-19/manifest.json)
 

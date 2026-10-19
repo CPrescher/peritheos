@@ -16,11 +16,11 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 |---|---:|
 | Stored material documents | 233 |
 | Stored EOS records | 664 |
-| Executable materials | 229 |
-| Executable EOS records, including references and qualified explicit-selection records | 660 |
-| Source EOS choices in normal discovery | 609 |
+| Executable materials | 230 |
+| Executable EOS records, including references and qualified explicit-selection records | 661 |
+| Source EOS choices in normal discovery | 610 |
 | Published pressure-scale reference variants | 51 |
-| Materials with an executable thermal EOS | 62 |
+| Materials with an executable thermal EOS | 63 |
 | Executable records with parameter covariance | 17 |
 | Executable records with known parameter-error confidence | 74 |
 
@@ -28,9 +28,9 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 
 | Status | Records |
 |---|---:|
-| `deferred` | 4 |
+| `deferred` | 3 |
 | `not_reproduced` | 18 |
-| `primary_source_validated` | 642 |
+| `primary_source_validated` | 643 |
 
 ## Executable equation kinds
 
@@ -38,14 +38,14 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 |---|---:|
 | `hugoniot` | 3 |
 | `isothermal` | 524 |
-| `thermal` | 133 |
+| `thermal` | 134 |
 
 ## Pressure-calibration provenance of executable records
 
 | Status | Records |
 |---|---:|
 | `not_applicable` | 163 |
-| `partially_resolved` | 182 |
+| `partially_resolved` | 183 |
 | `resolved` | 229 |
 | `unresolved` | 86 |
 
@@ -56,7 +56,7 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 | `missing_calibrant_observations` | 193 |
 | `not_applicable` | 160 |
 | `not_possible` | 122 |
-| `ready` | 124 |
+| `ready` | 125 |
 | `reference_eos_not_bundled` | 54 |
 | `reference_model_not_supported` | 7 |
 
@@ -165,7 +165,7 @@ Multiple temperature slices do not imply a continuous thermal EOS.
 | `ferropericlase_fe27` | Mg0.725Fe0.268O | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `ferrous_ringwoodite` | Fe2SiO4 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `fes` | FeS | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
-| `fes_vi` | FeS | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 5 |
+| `fes_vi` | FeS | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 5 |
 | `fesi_b2` | FeSi | 2 | 2 | 0 | 2 | 0 | 0 | 0 | 1 |
 | `fesi_b20` | FeSi | 2 | 2 | 2 | 0 | 0 | 0 | 0 | 1 |
 | `fesio3_bridgmanite` | FeSiO3 | 2 | 2 | 2 | 0 | 0 | 0 | 0 | 0 |

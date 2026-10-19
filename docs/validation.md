@@ -10,16 +10,16 @@ between a validated equation and a fully reproduced original fitting procedure.
 
 Structural `.eosmat` validation and scientific EOS validation are deliberately
 separate. All 233 bundled material documents and 664 EOS records pass the
-native v4 validator; 229 documents construct executable materials. The
-coesite-V structure card and deferred fcc-Fe, FeS-VI and wadsleyite source cards do not. The collection combines the reviewed Dioptas migration with
+native v4 validator; 230 documents construct executable materials. The
+coesite-V structure card and deferred fcc-Fe and wadsleyite source cards do not. The collection combines the reviewed Dioptas migration with
 native, primary-sourced records for pressure standards and material EOS models,
 including the MgO, CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)
 audits discovered through the LitCurate intake. These structural checks
 establish file and software interoperability only.
 
-The primary-source audit covers all 664 bundled records: 642 are
+The primary-source audit covers all 664 bundled records: 643 are
 `primary_source_validated`, eighteen explicit-selection implementations are
-`not_reproduced`, and four records are `deferred`. The seven newly qualified
+`not_reproduced`, and three records are `deferred`. The seven newly qualified
 records are the published Fu (2023) CaSiO3 thermal EOS, Baty (2024) experimental
 Pd BM3, and five Sakai (2014) Fe-Ni thermal variants; they are explicitly
 not recommended. The earlier Maltby, Chen, Miozzi and Yokoo qualifications
@@ -27,13 +27,16 @@ remain. The two Frost (2023) Pd fits additionally fail strict coefficient
 reproduction and are not recommended; Pd automatic equilibrium default
 selection is on hold. The [Frost audit](literature-reproductions/palladium-frost-2023-audit.md)
 also corrects the earlier comparison of measured-volume and adjusted-volume
-pressure residuals. The deferred records are the two Campbell Fe/FeO records, Morard FeS,
+pressure residuals. The deferred records are the two Campbell Fe/FeO records
 and the sole wadsleyite EOS, whose default is on hold pending source/model
 mapping review. See the [dispositions and fifteen audit corrections](research/eos-recommendation-dispositions-2026-10-17.md).
 The deferred records preserve source parameters for inspection and are
 excluded from executable discovery and loading by default. See the
 [Campbell mismatch report](literature-reproductions/campbell-2009-mismatch.md)
-and [FeS audit](literature-reproductions/morard-2026-fes.md).
+and [FeS audit](literature-reproductions/morard-2026-fes.md). Morard FeS is accepted
+on staged parameter agreement within reported uncertainties (maintainer decision,
+2026-10-19); its residual-envelope discrepancy is informational, while the
+reconstruction label remains `similar` and exact author workflow is unverified.
 Promotion required a
 direct trace of the equation, every stored parameter, units, reference state,
 phase, published uncertainty convention, and represented data range to the

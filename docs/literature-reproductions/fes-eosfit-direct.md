@@ -18,6 +18,11 @@ absolute file names instead of changing the user's directory preference.
 
 ## GUI follow-up (2026-10-19)
 
+**Accepted on parameter agreement within reported uncertainties.** The published
+coefficients are available through the normal catalog. The residual-envelope
+discrepancy is informational; reconstruction remains `similar`, and no author
+email is needed on the maintainer's acceptance criterion.
+
 [Actual distributed-GUI comparisons are now archived](fes-gui-replay.md). The 20211014 GUI was run with the complete confirmed selected input, saved-cold gamma-only controls and a weighted cold-then-hot sequence. Its coefficients agree closely with the console, and residuals still exceed ±3 GPa. The exact 20210609 author executable/workflow remains unavailable. The dated sections below preserve the earlier findings and pending questions as they stood; the empirical later-GUI comparison is now complete for these controls.
 
 ## Inputs and selected model
@@ -512,8 +517,8 @@ author EOS/input replay still does not reproduce this narrower displayed range.
 The [inspection record](../data/fes-author-eosfit/supplement-inspection.json)
 retains source metadata, checksum and the visual qualification.
 
-The source catalog entry stays deferred and its published parameters are
-preserved. Three additional [typed reference datasets](../datasets.md#fes-reference-data-and-author-input-variants)
+At this stage the source catalog entry was kept deferred and its published
+parameters preserved; the 2026-10-19 acceptance below supersedes that disposition. Three additional [typed reference datasets](../datasets.md#fes-reference-data-and-author-input-variants)
 expose the selected 167-row author input, its 21 literature cold observations and
 original Sata VI transcription. The user reports Guillaume Morard's personal
 communication confirming exclusion of the 11 unsuitable quenched observations.
@@ -602,7 +607,8 @@ the mismatch. None of these staged fits is promoted to a source EOS record.
 Independent native Peritheos full-MGD replay agrees with all six EosFit fits
 within **0.00112 GPa** for every pressure residual, using the final printed
 coefficients. This verifies numerical pressure evaluation, not independent
-physical validation. The source coefficients remain unchanged and deferred.
+physical validation. The source coefficients remain unchanged; the later
+parameter-based acceptance below supersedes the initial deferred disposition.
 
 The [machine-readable audit](../data/fes-author-staged/manifest.json) preserves
 source and executable SHA-256 values, all six macros and console outputs,
@@ -696,10 +702,10 @@ pending. The release/source/binary comparison above supports equivalent MGD
 pressure evaluation, but does not resolve GUI weighting, group selection,
 estimation or refinement controls.
 
-The database retains the published source coefficients as deferred, the
-accepted selected datasets, and explicit confirmation of the author-used input
-provenance. No replacement fit is promoted automatically and no further
-missing-data request is implied by the deferred status.
+The database retains the published source coefficients, selected datasets and
+explicit confirmation of the author-used input provenance. The 2026-10-19
+acceptance below supersedes the earlier deferred disposition; no replacement
+fit or further request for these inputs is required.
 
 
 ### Parameter agreement within reported error bars (2026-10-03)
@@ -711,10 +717,10 @@ all three cold coefficients inside the published parameter error widths.
 
 | Parameter | Published | Weighted reproduced-cold staged fit | Equal-weight reproduced-cold staged fit |
 |---|---:|---:|---:|
-| V₀ (cm³/mol) | 15.40 ± 0.45 | 15.37080 ± 0.52385 | 15.40339 ± 0.45392 |
-| K₀ (GPa) | 115.5 ± 27.91 | 115.43890 ± 34.78351 | 113.26873 ± 27.82267 |
-| K′ | 4.99 ± 0.51 | 4.99170 ± 0.67891 | 5.03520 ± 0.50650 |
-| γ₀ | 2.42 ± 0.03 | 2.46418 ± 0.03953 | 2.44884 ± 0.02904 |
+| V₀ (cm³/mol) | 15.4 ± 0.5 | 15.4 ± 0.5 | 15.4 ± 0.5 |
+| K₀ (GPa) | 116 ± 28 | 120 ± 30 | 113 ± 28 |
+| K′ | 5.0 ± 0.5 | 5.0 ± 0.7 | 5.0 ± 0.5 |
+| γ₀ | 2.42 ± 0.03 | 2.46 ± 0.04 | 2.449 ± 0.029 |
 
 The equal-weight γ₀ estimate is inside the published interval [2.39, 2.45].
 The weighted γ₀ central estimate is outside that interval, but its conditional
@@ -738,6 +744,15 @@ The [parameter comparison](../data/fes-author-staged/parameter-comparison.json)
 records interval overlap, central-value containment, descriptive error ratios
 and the separate residual diagnostics. The fit reproduction is classified **`similar`** in both the material metadata
 and primary refit ledger. The separate residual-claim status remains
-`not_reproduced`. The source card retains its existing deferred availability
-status; parameter agreement and the remaining source qualifications are
-recorded separately. Neither qualification means EosFit cannot fit the data.
+`not_reproduced`.
+
+### Acceptance on parameter agreement (2026-10-19)
+
+The maintainer accepts this parameter agreement as sufficient for catalog use.
+The published source coefficients are unchanged and available through normal
+loading, with `scientific_validation.status: primary_source_validated`. The
+residual-envelope discrepancy is informational and does not gate use. Both
+weighted and equal-weight results remain visible; the `similar` label and
+unknown confidence/covariance are retained. This decision does not assert exact
+author-workflow reproduction or a ±3 GPa prediction-error bound. No email to
+the author is needed on this criterion. See the [actual GUI comparison](fes-gui-replay.md).

@@ -296,6 +296,13 @@ it is not permission to develop a replacement model as part of curation.
 
 ### Stopping rule: unresolved reproduction discrepancies
 
+For Morard (2026) FeS, the maintainer explicitly accepted staged parameter
+agreement within reported uncertainties on 2026-10-19. Its separate failure to
+reproduce the stated complete ±3 GPa residual envelope is informational and does
+not block catalog use. Preserve that discrepancy and the `similar` reconstruction
+label; this scoped acceptance does not establish exact author-workflow or formal
+uncertainty parity. See the [Morard audit](literature-reproductions/morard-2026-fes.md).
+
 If the published EOS or its reported agreement with the source data cannot be
 reproduced within justified tolerances after checking transcription, equation
 mapping, units, reference state, and the reported fitting protocol, document

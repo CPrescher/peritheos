@@ -1,28 +1,28 @@
 {
   "format": "peritheos.catalog-coverage",
   "format_version": 1,
-  "material_files_sha256": "90dcd4ec3cea8a2601dd1c4302d5b9128fbb6bbe7b8e129491b2c107f1a59b18",
+  "material_files_sha256": "a11a16aa7c51c6891cdc3363c1eb130ceaf43a7498f1e88029e22c5bbe9f34e4",
   "summary": {
     "stored_materials": 233,
     "stored_records": 664,
-    "executable_materials": 229,
-    "executable_records": 660,
-    "source_records": 609,
+    "executable_materials": 230,
+    "executable_records": 661,
+    "source_records": 610,
     "pressure_scale_reference_variants": 51,
-    "materials_with_thermal_eos": 62,
+    "materials_with_thermal_eos": 63,
     "executable_equation_kinds": {
       "hugoniot": 3,
       "isothermal": 524,
-      "thermal": 133
+      "thermal": 134
     },
     "stored_validation": {
-      "deferred": 4,
+      "deferred": 3,
       "not_reproduced": 18,
-      "primary_source_validated": 642
+      "primary_source_validated": 643
     },
     "executable_calibration_status": {
       "not_applicable": 163,
-      "partially_resolved": 182,
+      "partially_resolved": 183,
       "resolved": 229,
       "unresolved": 86
     },
@@ -30,7 +30,7 @@
       "missing_calibrant_observations": 193,
       "not_applicable": 160,
       "not_possible": 122,
-      "ready": 124,
+      "ready": 125,
       "reference_eos_not_bundled": 54,
       "reference_model_not_supported": 7
     },
@@ -1180,12 +1180,12 @@
       "family_id": null,
       "input_file": "peritheos/data/materials/fes_vi.eosmat",
       "stored_records": 1,
-      "executable_records": 0,
+      "executable_records": 1,
       "isothermal_records": 0,
-      "thermal_records": 0,
+      "thermal_records": 1,
       "hugoniot_records": 0,
       "validation": {
-        "deferred": 1
+        "primary_source_validated": 1
       },
       "datasets": 5
     },
@@ -5682,9 +5682,9 @@
     {
       "identifier": "fes_vi_morard_2026_bm3_mgd",
       "material_identifier": "fes_vi",
-      "executable": false,
-      "equation_kind": null,
-      "scientific_validation": "deferred",
+      "executable": true,
+      "equation_kind": "thermal",
+      "scientific_validation": "primary_source_validated",
       "refit_ledger_present": true,
       "source_audit_present": true
     },

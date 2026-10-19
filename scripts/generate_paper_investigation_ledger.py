@@ -150,11 +150,12 @@ PAPER_SCOPE_NOTES = {
         "modeled. See the [Ma audit](literature-reproductions/ma-2024-kcl.md)."
     ),
     "10.1103/h4pj-rvxx": (
-        "FeS source record deferred from the executable catalog: the standard "
-        "thermal replay exceeds the stated +/-3 GPa bound. Table S1, paired "
+        "FeS source record accepted unchanged on parameter agreement within "
+        "reported uncertainties (maintainer decision, 2026-10-19). Table S1, paired "
         "KCl markers, the selected 167-row author input and the reference cold "
         "datasets are bundled separately. Author-input staged fit reproduction is classified similar; the residual-range discrepancy is retained separately. "
-        "The exact GUI procedure remains untested; see the "
+        "Distributed-GUI fits agree with the console; the residual discrepancy "
+        "is informational. Exact original workflow remains unverified; see the "
         "[source audit](literature-reproductions/morard-2026-fes.md)."
     ),
     "10.1103/physrevb.81.144110": (
