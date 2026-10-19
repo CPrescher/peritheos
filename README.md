@@ -136,8 +136,8 @@ that need the serialized representation. See [Loading observation
 datasets](docs/datasets.md) for column discovery, supported conversions,
 uncertainty semantics, and resource-integrity behavior.
 
-The normal catalog API constructs 229 materials and 660 executable
-records (642 primary-source-validated and 18 qualified explicit-selection
+The normal catalog API constructs 230 materials and 661 executable
+records (643 primary-source-validated and 18 qualified explicit-selection
 implementations) directly
 from the bundled `.eosmat` files. See [Material catalog](docs/catalog.md) for
 typed discovery examples, [Pressure standards](docs/pressure-standards.md) for

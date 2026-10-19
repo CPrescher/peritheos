@@ -9,7 +9,7 @@ The documentation is organized around scientific workflows:
 
 - [Getting started](getting-started.md) introduces isothermal and thermal use.
 - [Material catalog](catalog.md) covers executable lookup and typed discovery
-  across 229 executable materials, 642 primary-source-validated records, and 18
+  across 230 executable materials, 643 primary-source-validated records, and 18
   qualified explicit-selection implementations.
 - [EOS record categories](catalog.md#eos-record-categories) explains published,
   refit, derived and diagnostic records, scientific validation, and the separate

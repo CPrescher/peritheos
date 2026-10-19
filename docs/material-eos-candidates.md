@@ -24,10 +24,10 @@ between the live material files and the scientific ledgers. It includes local
 work and must not be read as the contents of a published release.
 
 The current local catalog contains 233 stored material documents / 664 records,
-229 executable materials / 660 records, and thermal EOS coverage for 62 materials
+230 executable materials / 661 records, and thermal EOS coverage for 63 materials
 (brucite has no accepted thermal EOS). Stored
-assessments are 642 primary-source validated, eighteen qualified `not_reproduced`,
-and four deferred. Both scientific ledgers cover all 664 record identities.
+assessments are 643 primary-source validated, eighteen qualified `not_reproduced`,
+and three deferred. Both scientific ledgers cover all 664 record identities.
 Forsterite, diopside, the rubidium halides, phase E, and the scoped brucite
 addition are integrated. Fe-ringwoodite has an integrated derived static reconstruction; its thermal candidate remains staged.
 Brucite does not yet provide an accepted broad high-pressure thermal or
