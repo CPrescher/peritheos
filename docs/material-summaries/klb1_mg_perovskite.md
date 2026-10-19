@@ -127,12 +127,13 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 245.0 | 1.0 | 245.19171711850413 | 0.22423728893259712 | Free |
-| alpha0 | 3.19e-05 | 1.7e-06 | 3.459117081073104e-05 | 1.3225176625324402e-06 | Free |
-| alpha1 | 8.8e-09 | 1.6e-09 | 6.564235547017396e-09 | 1.2050653705993899e-09 | Free |
-| dK\_dT | -0.036 | 0.001 | -0.036371009636110355 | 0.0009805019747781865 | Free |
+| K0 | 245.0 | 1.0 | 245.19 | 0.22 | Free |
+| alpha0 | 31.9e-6 | 1.7e-6 | 34.6e-6 | 1.3e-6 | Free |
+| alpha1 | 8.8e-9 | 1.6e-9 | 6.6e-9 | 1.2e-9 | Free |
+| dK\_dT | -0.0360 | 0.0010 | -0.0364 | 0.0010 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** staged\_source\_constrained\_thermal\_bm2\_odr
 - **Objective:** orthogonal distance regression using printed pressure and volume sigmas; temperature held fixed
@@ -141,10 +142,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; alpha0; alpha1; dK\_dT
 - **Fixed parameters:** V0; Tr
 - **Observations:** 153
-- **Observed pressure range gpa:** \[27.56, 113.0\]
+- **Observed pressure range gpa:** 27.56; 113
 - **Solver success:** True
 - **Solver message:** dedicated Ricolleau et al. (2009) audit completed
-- **Rmse gpa:** 1.3064340234776401
+- **Rmse gpa:** 1.30643
 - **Dataset identifiers:** klb1\_ricolleau\_2009\_table\_s1\_mg\_perovskite\_pvt
 
 </details>

@@ -252,10 +252,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 132.4 | 1.4 | 132.78654486305695 | 1.6901796592910652 | Free |
-| K0\_prime | 5.32 | 0.06 | 5.304036823540337 | 0.0784634033139044 | Free |
+| K0 | 132.4 | 1.4 | 132.8 | 1.7 | Free |
+| K0\_prime | 5.32 | 0.06 | 5.30 | 0.08 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -268,15 +269,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 42
-- **Observed pressure range gpa:** \[0.0, 153.0\]
+- **Observed pressure range gpa:** 0; 153
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[31.372, 47.232\]
+- **Observed volume range:** 31.372; 47.232
 - **Degrees of freedom:** 40
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.3023853527049118
-- **Published rmse gpa:** 0.43268768532351254
-- **Reduced chi square:** 0.13477844475195366
+- **Rmse gpa:** 0.302385
+- **Published rmse gpa:** 0.432688
+- **Reduced chi square:** 0.134778
 - **Dataset identifiers:** copper\_dewaele\_2004\_table1\_compression
 
 </details>
@@ -416,16 +417,16 @@ Original audit code: `source_reconstruction`.
 - **Objective:** minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight
 - **Fixed parameters:** n; Z; n
 - **Observations:** 42
-- **Rmse gpa:** 0.7102791639081447
-- **Published rmse gpa:** 0.5004545507498767
+- **Rmse gpa:** 0.710279
+- **Published rmse gpa:** 0.500455
 - **Comparison scope:** shared\_ruby\_calibration
 - **Dataset identifiers:** copper\_dewaele\_2004\_table1\_compression
 - **Published ruby parameters:**
-    - **A gpa:** 1870.0
-    - **M:** 6.0
+    - **A gpa:** 1870
+    - **M:** 6
 - **Sensitivity fit ruby parameters:**
-    - **A gpa:** 1869.3837840502665
-    - **M:** 6.10334763359135
+    - **A gpa:** 1869.38
+    - **M:** 6.10335
 
 </details>
 
@@ -563,11 +564,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 47.24 | 0.06 | 47.23986614179957 | Not specified | Free |
-| K0 | 135.3 | 1.5 | 135.28521472399964 | Not specified | Free |
-| K0\_prime | 4.91 | 0.06 | 4.908639568465103 | Not specified | Free |
+| V0 | 47.24 | 0.06 | 47.2399 | Not reported | Free |
+| K0 | 135.3 | 1.5 | 135.285 | Not reported | Free |
+| K0\_prime | 4.91 | 0.06 | 4.90864 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** static\_vinet\_with\_explicit\_ruby\_scale\_conversion
 - **Objective:** unweighted pressure residuals
@@ -575,10 +577,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 - **Observations:** 42
-- **Observed pressure range gpa:** \[0.0, 144.3\]
+- **Observed pressure range gpa:** 0; 144.3
 - **Solver success:** True
 - **Solver message:** dedicated Dewaele (2019) refit completed
-- **Rmse gpa:** 0.3753503374186546
+- **Rmse gpa:** 0.37535
 - **Dataset identifiers:** copper\_dewaele\_2004\_table1\_compression
 
 </details>
@@ -714,11 +716,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 47.24 | 0.06 | 47.24157863546331 | Not specified | Free |
-| K0 | 133.1 | 1.5 | 133.12658708830872 | Not specified | Free |
-| K0\_prime | 5.38 | 0.06 | 5.3785644277197795 | Not specified | Free |
+| V0 | 47.24 | 0.06 | 47.2416 | Not reported | Free |
+| K0 | 133.1 | 1.5 | 133.127 | Not reported | Free |
+| K0\_prime | 5.38 | 0.06 | 5.37856 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** static\_vinet\_with\_explicit\_ruby\_scale\_conversion
 - **Objective:** unweighted pressure residuals
@@ -726,10 +729,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 - **Observations:** 42
-- **Observed pressure range gpa:** \[0.0, 155.2907483824007\]
+- **Observed pressure range gpa:** 0; 155.291
 - **Solver success:** True
 - **Solver message:** dedicated Dewaele (2019) refit completed
-- **Rmse gpa:** 0.38774164454066784
+- **Rmse gpa:** 0.387742
 - **Dataset identifiers:** copper\_dewaele\_2004\_table1\_compression
 
 </details>
@@ -864,10 +867,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 135.1 | 1.1 | 135.4937874947168 | 1.745989269359478 | Free |
-| K0\_prime | 4.91 | 0.05 | 4.898536684870773 | 0.07946076430409386 | Free |
+| K0 | 135.1 | 1.1 | 135.5 | 1.7 | Free |
+| K0\_prime | 4.91 | 0.05 | 4.90 | 0.08 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -880,15 +884,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 42
-- **Observed pressure range gpa:** \[0.0, 144.3\]
+- **Observed pressure range gpa:** 0; 144.3
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[31.372, 47.232\]
+- **Observed volume range:** 31.372; 47.232
 - **Degrees of freedom:** 40
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.284969022636526
-- **Published rmse gpa:** 0.38428530187290305
-- **Reduced chi square:** 0.1108331901452907
+- **Rmse gpa:** 0.284969
+- **Published rmse gpa:** 0.384285
+- **Reduced chi square:** 0.110833
 - **Dataset identifiers:** copper\_dewaele\_2004\_table1\_compression
 
 </details>

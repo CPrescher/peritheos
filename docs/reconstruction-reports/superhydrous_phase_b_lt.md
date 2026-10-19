@@ -52,32 +52,49 @@ Record: `superhydrous_phase_b_lt_litasov_2007_bm3_a89` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for superhydrous_phase_b_lt_litasov_2007_bm3_a89](figures/superhydrous_phase_b_lt_litasov_2007_bm3_a89-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for superhydrous_phase_b_lt_litasov_2007_bm3_a89](figures/superhydrous_phase_b_lt_litasov_2007_bm3_a89-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.0751 |
+| Reconstruction / refit | 0.0731 |
+
+Both fits use the same 20 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** audit volume in record units. **Row selection:** Named source-audit row reader.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for superhydrous_phase_b_lt_litasov_2007_bm3_a89](figures/superhydrous_phase_b_lt_litasov_2007_bm3_a89.svg)
+![Source/target and reconstructed central values for superhydrous_phase_b_lt_litasov_2007_bm3_a89](figures/superhydrous_phase_b_lt_litasov_2007_bm3_a89.svg#only-light)
+![Source/target and reconstructed central values for superhydrous_phase_b_lt_litasov_2007_bm3_a89](figures/superhydrous_phase_b_lt_litasov_2007_bm3_a89-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 623.38 | 0.39 | 623.3136511689688 | 0.18823779100714583 | Free |
-| K0 | 138.7 | 3.0 | 138.4342806122216 | 1.4952624685883737 | Free |
-| K0\_prime | 4.9 | 0.3 | 4.9487496801675 | 0.158131776207648 | Free |
+| V0 | 623.4 | 0.4 | 623.31 | 0.19 | Free |
+| K0 | 139 | 3 | 138.4 | 1.5 | Free |
+| K0\_prime | 4.9 | 0.3 | 4.95 | 0.16 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
-- **Observed pressure range gpa:** \[0.0, 24.3\]
-- **Observed temperature range k:** \[300.0, 300.0\]
+- **Observed pressure range gpa:** 0; 24.3
+- **Observed temperature range k:** 300; 300
 - **Solver success:** True
-- **Rmse gpa:** 0.07312160499987383
-- **Published rmse gpa:** 0.07514057887346923
+- **Rmse gpa:** 0.0731216
+- **Published rmse gpa:** 0.0751406
 
 </details>
 
@@ -88,7 +105,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `superhydrous_phase_b_lt_litasov_2007_bm3_a89`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/superhydrous_phase_b_lt.eosmat).
@@ -126,32 +143,49 @@ Record: `superhydrous_phase_b_lt_litasov_2007_bm3_t03` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for superhydrous_phase_b_lt_litasov_2007_bm3_t03](figures/superhydrous_phase_b_lt_litasov_2007_bm3_t03-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for superhydrous_phase_b_lt_litasov_2007_bm3_t03](figures/superhydrous_phase_b_lt_litasov_2007_bm3_t03-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.0755 |
+| Reconstruction / refit | 0.064 |
+
+Both fits use the same 20 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** audit volume in record units. **Row selection:** Named source-audit row reader.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for superhydrous_phase_b_lt_litasov_2007_bm3_t03](figures/superhydrous_phase_b_lt_litasov_2007_bm3_t03.svg)
+![Source/target and reconstructed central values for superhydrous_phase_b_lt_litasov_2007_bm3_t03](figures/superhydrous_phase_b_lt_litasov_2007_bm3_t03.svg#only-light)
+![Source/target and reconstructed central values for superhydrous_phase_b_lt_litasov_2007_bm3_t03](figures/superhydrous_phase_b_lt_litasov_2007_bm3_t03-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 623.34 | 0.04 | 623.3045744919759 | 0.1698748530533363 | Free |
-| K0 | 134.7 | 1.8 | 134.17297395805127 | 1.3398123800210247 | Free |
-| K0\_prime | 6.0 | 0.3 | 6.042880934079354 | 0.15276815848196748 | Free |
+| V0 | 623.34 | 0.04 | 623.30 | 0.17 | Free |
+| K0 | 134.7 | 1.8 | 134.2 | 1.3 | Free |
+| K0\_prime | 6.0 | 0.3 | 6.04 | 0.15 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
-- **Observed pressure range gpa:** \[0.0, 25.1\]
-- **Observed temperature range k:** \[300.0, 300.0\]
+- **Observed pressure range gpa:** 0; 25.1
+- **Observed temperature range k:** 300; 300
 - **Solver success:** True
-- **Rmse gpa:** 0.06397977143078648
-- **Published rmse gpa:** 0.07552462214798593
+- **Rmse gpa:** 0.0639798
+- **Published rmse gpa:** 0.0755246
 
 </details>
 
@@ -162,7 +196,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `superhydrous_phase_b_lt_litasov_2007_bm3_t03`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/superhydrous_phase_b_lt.eosmat).
@@ -200,35 +234,52 @@ Record: `superhydrous_phase_b_lt_litasov_2007_htbm_a89` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for superhydrous_phase_b_lt_litasov_2007_htbm_a89](figures/superhydrous_phase_b_lt_litasov_2007_htbm_a89-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for superhydrous_phase_b_lt_litasov_2007_htbm_a89](figures/superhydrous_phase_b_lt_litasov_2007_htbm_a89-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.126 |
+| Reconstruction / refit | 0.108 |
+
+Both fits use the same 69 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** audit volume in record units. **Row selection:** Named source-audit row reader.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for superhydrous_phase_b_lt_litasov_2007_htbm_a89](figures/superhydrous_phase_b_lt_litasov_2007_htbm_a89.svg)
+![Source/target and reconstructed central values for superhydrous_phase_b_lt_litasov_2007_htbm_a89](figures/superhydrous_phase_b_lt_litasov_2007_htbm_a89.svg#only-light)
+![Source/target and reconstructed central values for superhydrous_phase_b_lt_litasov_2007_htbm_a89](figures/superhydrous_phase_b_lt_litasov_2007_htbm_a89-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 623.47 | 0.37 | 623.4622455180263 | 0.2575824161972996 | Free |
-| K0 | 135.8 | 2.6 | 135.781767022147 | 1.8576732611740419 | Free |
-| K0\_prime | 5.3 | 0.2 | 5.251179243570913 | 0.1935188739453234 | Free |
-| alpha0 | 3.21e-05 | 1.4e-06 | 3.200583361010583e-05 | 1.1271048909251933e-06 | Free |
-| alpha1 | 1.19e-08 | 3.7e-09 | 1.1515771971921886e-08 | 2.5662916001040617e-09 | Free |
-| dK\_dT | -0.026 | 0.003 | -0.02563806087001639 | 0.0026413691487219004 | Free |
+| V0 | 623.5 | 0.4 | 623.46 | 0.26 | Free |
+| K0 | 135.8 | 2.6 | 135.8 | 1.9 | Free |
+| K0\_prime | 5.30 | 0.20 | 5.25 | 0.19 | Free |
+| alpha0 | 32.1e-6 | 1.4e-6 | 32.0e-6 | 1.1e-6 | Free |
+| alpha1 | 12e-9 | 4e-9 | 11.5e-9 | 2.6e-9 | Free |
+| dK\_dT | -0.026 | 0.003 | -0.0256 | 0.0026 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
-- **Observed pressure range gpa:** \[0.0, 26.6\]
-- **Observed temperature range k:** \[300.0, 1373.0\]
+- **Observed pressure range gpa:** 0; 26.6
+- **Observed temperature range k:** 300; 1373
 - **Solver success:** True
-- **Rmse gpa:** 0.10813474664224723
-- **Published rmse gpa:** 0.12637114188299595
+- **Rmse gpa:** 0.108135
+- **Published rmse gpa:** 0.126371
 
 </details>
 
@@ -239,7 +290,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `superhydrous_phase_b_lt_litasov_2007_htbm_a89`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/superhydrous_phase_b_lt.eosmat).
@@ -277,35 +328,52 @@ Record: `superhydrous_phase_b_lt_litasov_2007_htbm_t03` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for superhydrous_phase_b_lt_litasov_2007_htbm_t03](figures/superhydrous_phase_b_lt_litasov_2007_htbm_t03-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for superhydrous_phase_b_lt_litasov_2007_htbm_t03](figures/superhydrous_phase_b_lt_litasov_2007_htbm_t03-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.134 |
+| Reconstruction / refit | 0.13 |
+
+Both fits use the same 69 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** audit volume in record units. **Row selection:** Named source-audit row reader.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for superhydrous_phase_b_lt_litasov_2007_htbm_t03](figures/superhydrous_phase_b_lt_litasov_2007_htbm_t03.svg)
+![Source/target and reconstructed central values for superhydrous_phase_b_lt_litasov_2007_htbm_t03](figures/superhydrous_phase_b_lt_litasov_2007_htbm_t03.svg#only-light)
+![Source/target and reconstructed central values for superhydrous_phase_b_lt_litasov_2007_htbm_t03](figures/superhydrous_phase_b_lt_litasov_2007_htbm_t03-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 623.34 | 0.04 | 623.4132846844781 | 0.32053807668176815 | Free |
-| K0 | 132.7 | 1.5 | 131.88958651317557 | 2.3053574330701823 | Free |
-| K0\_prime | 6.2 | 0.2 | 6.321468991688166 | 0.25752601139591985 | Free |
-| alpha0 | 3.38e-05 | 1.5e-06 | 3.4301504516603735e-05 | 1.2279635579527844e-06 | Free |
-| alpha1 | 1.26e-08 | 3.7e-09 | 1.3796464886515867e-08 | 3.2022085346294376e-09 | Free |
-| dK\_dT | -0.027 | 0.003 | -0.028476152419237243 | 0.0030487576398255853 | Free |
+| V0 | 623.34 | 0.04 | 623.4 | 0.3 | Free |
+| K0 | 132.7 | 1.5 | 131.9 | 2.3 | Free |
+| K0\_prime | 6.20 | 0.20 | 6.32 | 0.26 | Free |
+| alpha0 | 33.8e-6 | 1.5e-6 | 34.3e-6 | 1.2e-6 | Free |
+| alpha1 | 13e-9 | 4e-9 | 14e-9 | 3e-9 | Free |
+| dK\_dT | -0.027 | 0.003 | -0.028 | 0.003 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
-- **Observed pressure range gpa:** \[0.0, 28.1\]
-- **Observed temperature range k:** \[300.0, 1373.0\]
+- **Observed pressure range gpa:** 0; 28.1
+- **Observed temperature range k:** 300; 1373
 - **Solver success:** True
-- **Rmse gpa:** 0.13036669472985118
-- **Published rmse gpa:** 0.13411117660373725
+- **Rmse gpa:** 0.130367
+- **Published rmse gpa:** 0.134111
 
 </details>
 
@@ -316,7 +384,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `superhydrous_phase_b_lt_litasov_2007_htbm_t03`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/superhydrous_phase_b_lt.eosmat).
@@ -354,34 +422,51 @@ Record: `superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89` · Model: `B
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89](figures/superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89](figures/superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.116 |
+| Reconstruction / refit | 0.11 |
+
+Both fits use the same 69 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** audit volume in record units. **Row selection:** Named source-audit row reader.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89](figures/superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89.svg)
+![Source/target and reconstructed central values for superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89](figures/superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89.svg#only-light)
+![Source/target and reconstructed central values for superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89](figures/superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 623.5 | 0.36 | 623.4219252201992 | 0.2574001592778335 | Free |
-| K0 | 135.3 | 2.3 | 135.74064618734764 | 1.8281533804001846 | Free |
-| K0\_prime | 5.3 | 0.2 | 5.243358562078898 | 0.19049273951553658 | Free |
-| alpha0 | 3.78e-05 | 1.9e-06 | 3.765818152298365e-05 | 1.8495010952658433e-06 | Free |
-| dK\_dT\_V | -0.002 | 0.002 | -0.0023183141091294244 | 0.00214140639296662 | Free |
+| V0 | 623.5 | 0.4 | 623.42 | 0.26 | Free |
+| K0 | 135.3 | 2.3 | 135.7 | 1.8 | Free |
+| K0\_prime | 5.30 | 0.20 | 5.24 | 0.19 | Free |
+| alpha0 | 37.8e-6 | 1.9e-6 | 37.7e-6 | 1.8e-6 | Free |
+| dK\_dT\_V | -0.0020 | 0.0020 | -0.0023 | 0.0021 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
-- **Observed pressure range gpa:** \[0.0, 26.6\]
-- **Observed temperature range k:** \[300.0, 1373.0\]
+- **Observed pressure range gpa:** 0; 26.6
+- **Observed temperature range k:** 300; 1373
 - **Solver success:** True
-- **Rmse gpa:** 0.1097657364937112
-- **Published rmse gpa:** 0.11554793085237937
+- **Rmse gpa:** 0.109766
+- **Published rmse gpa:** 0.115548
 
 </details>
 
@@ -392,7 +477,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/superhydrous_phase_b_lt.eosmat).
@@ -430,35 +515,52 @@ Record: `superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89` · Model: `BM3
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89](figures/superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89](figures/superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.107 |
+| Reconstruction / refit | 0.106 |
+
+Both fits use the same 69 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** audit volume in record units. **Row selection:** Named source-audit row reader.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89](figures/superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89.svg)
+![Source/target and reconstructed central values for superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89](figures/superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89.svg#only-light)
+![Source/target and reconstructed central values for superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89](figures/superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 623.53 | 0.35 | 623.4388972064203 | 0.24944769436570002 | Free |
-| K0 | 135.5 | 2.3 | 135.97491671356167 | 1.7681851781412292 | Free |
-| K0\_prime | 5.3 | 0.2 | 5.244516100967703 | 0.18277000501213322 | Free |
-| gamma0 | 1.18 | 0.06 | 1.185292049457412 | 0.06378945142973545 | Free |
-| q | 1.74 | 0.45 | 1.75834067005706 | 0.43826222534954634 | Free |
-| theta0 | 552.0 | 130.0 | 553.0327419309925 | 129.02514723448633 | Free |
+| V0 | 623.5 | 0.4 | 623.44 | 0.25 | Free |
+| K0 | 135.5 | 2.3 | 136.0 | 1.8 | Free |
+| K0\_prime | 5.30 | 0.20 | 5.24 | 0.18 | Free |
+| gamma0 | 1.18 | 0.06 | 1.19 | 0.06 | Free |
+| q | 1.7 | 0.5 | 1.8 | 0.4 | Free |
+| theta0 | 550 | 130 | 550 | 130 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
-- **Observed pressure range gpa:** \[0.0, 26.6\]
-- **Observed temperature range k:** \[300.0, 1373.0\]
+- **Observed pressure range gpa:** 0; 26.6
+- **Observed temperature range k:** 300; 1373
 - **Solver success:** True
-- **Rmse gpa:** 0.10555102599548966
-- **Published rmse gpa:** 0.10662679200955953
+- **Rmse gpa:** 0.105551
+- **Published rmse gpa:** 0.106627
 
 </details>
 
@@ -469,7 +571,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/superhydrous_phase_b_lt.eosmat).
@@ -507,34 +609,51 @@ Record: `superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89` · Model: `
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89](figures/superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89](figures/superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.123 |
+| Reconstruction / refit | 0.112 |
+
+Both fits use the same 69 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** audit volume in record units. **Row selection:** Named source-audit row reader.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89](figures/superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89.svg)
+![Source/target and reconstructed central values for superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89](figures/superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89.svg#only-light)
+![Source/target and reconstructed central values for superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89](figures/superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 623.53 | 0.35 | 623.4578471395107 | 0.2628146780234006 | Free |
-| K0 | 135.5 | 2.3 | 136.4007508677185 | 1.8566318232260446 | Free |
-| K0\_prime | 5.3 | 0.2 | 5.230646346561506 | 0.1910796105824656 | Free |
-| gamma0 | 1.33 | 0.05 | 1.3032844333315172 | 0.05985831782617076 | Free |
-| q | 2.03 | 0.35 | 2.0956167406141364 | 0.45011556388002655 | Free |
+| V0 | 623.5 | 0.4 | 623.46 | 0.26 | Free |
+| K0 | 135.5 | 2.3 | 136.4 | 1.9 | Free |
+| K0\_prime | 5.30 | 0.20 | 5.23 | 0.19 | Free |
+| gamma0 | 1.33 | 0.05 | 1.30 | 0.06 | Free |
+| q | 2.0 | 0.4 | 2.1 | 0.5 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
-- **Observed pressure range gpa:** \[0.0, 26.6\]
-- **Observed temperature range k:** \[300.0, 1373.0\]
+- **Observed pressure range gpa:** 0; 26.6
+- **Observed temperature range k:** 300; 1373
 - **Solver success:** True
-- **Rmse gpa:** 0.11240879143243881
-- **Published rmse gpa:** 0.1230806599723373
+- **Rmse gpa:** 0.112409
+- **Published rmse gpa:** 0.123081
 
 </details>
 
@@ -545,7 +664,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/superhydrous_phase_b_lt.eosmat).

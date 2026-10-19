@@ -61,29 +61,46 @@ Record: `argon_fcc_dewaele_2021_vinet_mgd` · Model: `Vinet`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for argon_fcc_dewaele_2021_vinet_mgd](figures/argon_fcc_dewaele_2021_vinet_mgd-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for argon_fcc_dewaele_2021_vinet_mgd](figures/argon_fcc_dewaele_2021_vinet_mgd-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.341 |
+| Reconstruction / refit | 0.279 |
+
+Both fits use the same 95 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** audit volume in record units. **Row selection:** Runs 2-3 with measured pressure, plus runs 1 and 4 at P&lt;=5 GPa.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for argon_fcc_dewaele_2021_vinet_mgd](figures/argon_fcc_dewaele_2021_vinet_mgd.svg)
+![Source/target and reconstructed central values for argon_fcc_dewaele_2021_vinet_mgd](figures/argon_fcc_dewaele_2021_vinet_mgd.svg#only-light)
+![Source/target and reconstructed central values for argon_fcc_dewaele_2021_vinet_mgd](figures/argon_fcc_dewaele_2021_vinet_mgd-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 152.0 | Not specified | 152.3842901654245 | Not specified | Free |
-| K0\_prime | 7.423 | Not specified | 7.4143791697887975 | Not specified | Free |
+| V0 | 152 | Not reported | 152.384 | Not reported | Free |
+| K0\_prime | 7.423 | Not reported | 7.41438 | Not reported | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
 - **Solver success:** True
-- **Rmse gpa:** 0.27875374509339046
-- **Published rmse gpa:** 0.34144299130983014
+- **Rmse gpa:** 0.278754
+- **Published rmse gpa:** 0.341443
 
 </details>
 
@@ -94,7 +111,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `argon_fcc_dewaele_2021_vinet_mgd`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/argon_fcc.eosmat).
@@ -133,30 +150,47 @@ Record: `argon_fcc_ono_2020_vinet` · Model: `Vinet`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for argon_fcc_ono_2020_vinet](figures/argon_fcc_ono_2020_vinet-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for argon_fcc_ono_2020_vinet](figures/argon_fcc_ono_2020_vinet-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.847 |
+| Reconstruction / refit | 0.853 |
+
+Both fits use the same 19 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** volume\_a3. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for argon_fcc_ono_2020_vinet](figures/argon_fcc_ono_2020_vinet.svg)
+![Source/target and reconstructed central values for argon_fcc_ono_2020_vinet](figures/argon_fcc_ono_2020_vinet.svg#only-light)
+![Source/target and reconstructed central values for argon_fcc_ono_2020_vinet](figures/argon_fcc_ono_2020_vinet-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 184.5 | 38.5 | 211.74492423778685 | Not specified | Free |
-| K0 | 1.07 | 1.33 | 0.4584437466877124 | Not specified | Free |
-| K0\_prime | 8.02 | 0.95 | 8.664677487846673 | Not specified | Free |
+| V0 | 180 | 40 | 211.745 | Not reported | Free |
+| K0 | 1.1 | 1.3 | 0.458444 | Not reported | Free |
+| K0\_prime | 8.0 | 1.0 | 8.66468 | Not reported | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
 - **Solver success:** True
-- **Rmse gpa:** 0.8531818076185209
-- **Published rmse gpa:** 0.8474923941002821
+- **Rmse gpa:** 0.853182
+- **Published rmse gpa:** 0.847492
 
 </details>
 
@@ -167,7 +201,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `argon_fcc_ono_2020_vinet`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/argon_fcc.eosmat).
@@ -202,6 +236,17 @@ Record: `argon_fcc_xiao_2025_helmholtz` · Model: `NaturalStrain4`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+**Curve/residual comparison unavailable:** No reconstructed coefficient set is recorded; a source/refit residual comparison is unavailable..
+
+| Fit | Recorded pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | Not reported |
+| Reconstruction / refit | Not reported |
+
+These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+
 ### Why no coefficient graph is shown
 
 No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
@@ -212,7 +257,7 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `argon_fcc_xiao_2025_helmholtz`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/argon_fcc.eosmat).
@@ -247,6 +292,17 @@ Record: `argon_fcc_errandonea_2006_bm3` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+**Curve/residual comparison unavailable:** No reconstructed coefficient set is recorded; a source/refit residual comparison is unavailable..
+
+| Fit | Recorded pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | Not reported |
+| Reconstruction / refit | Not reported |
+
+These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+
 ### Why no coefficient graph is shown
 
 No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
@@ -256,7 +312,7 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `argon_fcc_errandonea_2006_bm3`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/argon_fcc.eosmat).
@@ -292,6 +348,17 @@ Record: `argon_fcc_grimsditch_1986_density_polynomial` · Model: `DensityPolynom
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+**Curve/residual comparison unavailable:** No reconstructed coefficient set is recorded; a source/refit residual comparison is unavailable..
+
+| Fit | Recorded pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | Not reported |
+| Reconstruction / refit | Not reported |
+
+These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+
 ### Why no coefficient graph is shown
 
 No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
@@ -301,7 +368,7 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `argon_fcc_grimsditch_1986_density_polynomial`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/argon_fcc.eosmat).
@@ -339,6 +406,17 @@ Record: `argon_fcc_finger_1981_murnaghan2_debye` · Model: `SecondOrderMurnaghan
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+**Curve/residual comparison unavailable:** No reconstructed coefficient set is recorded; a source/refit residual comparison is unavailable..
+
+| Fit | Recorded pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.0954 |
+| Reconstruction / refit | 0.0941 |
+
+These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+
 ### Why no coefficient graph is shown
 
 No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
@@ -347,8 +425,8 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
-- **Rmse gpa:** 0.09412675921023864
-- **Published rmse gpa:** 0.09535520774523343
+- **Rmse gpa:** 0.0941268
+- **Published rmse gpa:** 0.0953552
 
 </details>
 
@@ -358,7 +436,7 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `argon_fcc_finger_1981_murnaghan2_debye`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/argon_fcc.eosmat).
@@ -393,6 +471,17 @@ Record: `argon_fcc_anderson_swenson_1975_4p2k` · Model: `OddInversePower`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+**Curve/residual comparison unavailable:** No reconstructed coefficient set is recorded; a source/refit residual comparison is unavailable..
+
+| Fit | Recorded pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | Not reported |
+| Reconstruction / refit | Not reported |
+
+These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+
 ### Why no coefficient graph is shown
 
 No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
@@ -402,7 +491,7 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `argon_fcc_anderson_swenson_1975_4p2k`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/argon_fcc.eosmat).
@@ -437,6 +526,17 @@ Record: `argon_fcc_anderson_swenson_1975_20p0k` · Model: `OddInversePower`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+**Curve/residual comparison unavailable:** No reconstructed coefficient set is recorded; a source/refit residual comparison is unavailable..
+
+| Fit | Recorded pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | Not reported |
+| Reconstruction / refit | Not reported |
+
+These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+
 ### Why no coefficient graph is shown
 
 No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
@@ -446,7 +546,7 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `argon_fcc_anderson_swenson_1975_20p0k`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/argon_fcc.eosmat).
@@ -481,6 +581,17 @@ Record: `argon_fcc_anderson_swenson_1975_40p0k` · Model: `OddInversePower`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+**Curve/residual comparison unavailable:** No reconstructed coefficient set is recorded; a source/refit residual comparison is unavailable..
+
+| Fit | Recorded pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | Not reported |
+| Reconstruction / refit | Not reported |
+
+These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+
 ### Why no coefficient graph is shown
 
 No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
@@ -490,7 +601,7 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `argon_fcc_anderson_swenson_1975_40p0k`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/argon_fcc.eosmat).
@@ -525,6 +636,17 @@ Record: `argon_fcc_anderson_swenson_1975_60p0k` · Model: `OddInversePower`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+**Curve/residual comparison unavailable:** No reconstructed coefficient set is recorded; a source/refit residual comparison is unavailable..
+
+| Fit | Recorded pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | Not reported |
+| Reconstruction / refit | Not reported |
+
+These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+
 ### Why no coefficient graph is shown
 
 No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
@@ -534,7 +656,7 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `argon_fcc_anderson_swenson_1975_60p0k`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/argon_fcc.eosmat).
@@ -569,6 +691,17 @@ Record: `argon_fcc_anderson_swenson_1975_77p0k` · Model: `OddInversePower`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+**Curve/residual comparison unavailable:** No reconstructed coefficient set is recorded; a source/refit residual comparison is unavailable..
+
+| Fit | Recorded pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | Not reported |
+| Reconstruction / refit | Not reported |
+
+These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+
 ### Why no coefficient graph is shown
 
 No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
@@ -578,7 +711,7 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `argon_fcc_anderson_swenson_1975_77p0k`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/argon_fcc.eosmat).
@@ -615,6 +748,17 @@ Record: `argon_fcc_chen_2010_bm3_reported_constants` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+**Curve/residual comparison unavailable:** No reconstructed coefficient set is recorded; a source/refit residual comparison is unavailable..
+
+| Fit | Recorded pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | Not reported |
+| Reconstruction / refit | Not reported |
+
+These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+
 ### Why no coefficient graph is shown
 
 No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
@@ -625,7 +769,7 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `argon_fcc_chen_2010_bm3_reported_constants`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/argon_fcc.eosmat).
@@ -665,6 +809,17 @@ The source/target column below is the stored **Peritheos refit**. Agreement with
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+**Curve/residual comparison unavailable:** No reconstructed coefficient set is recorded; a source/refit residual comparison is unavailable..
+
+| Fit | Recorded pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | Not reported |
+| Reconstruction / refit | Not reported |
+
+These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+
 ### Why no coefficient graph is shown
 
 No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
@@ -676,7 +831,7 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `argon_fcc_chen_2010_bm3_digitized_refit`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/argon_fcc.eosmat).
@@ -711,6 +866,17 @@ Record: `argon_fcc_maltby_2024_published` · Model: `Maltby2024`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+**Curve/residual comparison unavailable:** No reconstructed coefficient set is recorded; a source/refit residual comparison is unavailable..
+
+| Fit | Recorded pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | Not reported |
+| Reconstruction / refit | Not reported |
+
+These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+
 ### Why no coefficient graph is shown
 
 No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
@@ -720,7 +886,7 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `argon_fcc_maltby_2024_published`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/argon_fcc.eosmat).
@@ -760,29 +926,46 @@ The source/target column below is the stored **Peritheos refit**. Agreement with
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for argon_fcc_ross_1986_errandonea_2006_bm3_refit](figures/argon_fcc_ross_1986_errandonea_2006_bm3_refit-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for argon_fcc_ross_1986_errandonea_2006_bm3_refit](figures/argon_fcc_ross_1986_errandonea_2006_bm3_refit-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Stored Peritheos refit (target) | 1.2 |
+| Reconstruction / refit | 1.2 |
+
+Both fits use the same 49 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** volume\_a3. **Row selection:** all rows; reference-T rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for argon_fcc_ross_1986_errandonea_2006_bm3_refit](figures/argon_fcc_ross_1986_errandonea_2006_bm3_refit.svg)
+![Source/target and reconstructed central values for argon_fcc_ross_1986_errandonea_2006_bm3_refit](figures/argon_fcc_ross_1986_errandonea_2006_bm3_refit.svg#only-light)
+![Source/target and reconstructed central values for argon_fcc_ross_1986_errandonea_2006_bm3_refit](figures/argon_fcc_ross_1986_errandonea_2006_bm3_refit-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 138.83326594378107 | Not specified | 138.83326250893583 | Not specified | See protocol |
-| K0 | 7.3276753422964385 | Not specified | 7.3276762855873425 | Not specified | See protocol |
-| K0\_prime | 5.018612278319878 | Not specified | 5.01861218191841 | Not specified | See protocol |
+| V0 | 138.833 | Not reported | 138.833 | Not reported | See protocol |
+| K0 | 7.32768 | Not reported | 7.32768 | Not reported | See protocol |
+| K0\_prime | 5.01861 | Not reported | 5.01861 | Not reported | See protocol |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
 - **Solver success:** True
-- **Rmse gpa:** 1.2028193647740388
+- **Rmse gpa:** 1.20282
 
 </details>
 
@@ -791,7 +974,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `argon_fcc_ross_1986_errandonea_2006_bm3_refit`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/argon_fcc.eosmat).

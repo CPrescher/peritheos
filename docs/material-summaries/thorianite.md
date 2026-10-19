@@ -119,10 +119,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 204.0 | 2.0 | 203.12770813359694 | Not specified | Free |
-| alpha\_KT | 0.0035 | 0.0003 | 0.0036613931510300997 | Not specified | Free |
+| K0 | 204.0 | 2.0 | 203.128 | Not reported | Free |
+| alpha\_KT | 0.0035 | 0.0003 | 0.00366139 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** source\_constrained\_bm3\_linear\_thermal\_diagnostic
 - **Objective:** joint pressure residuals divided by fixed propagated coordinate errors including Ar 3% accuracy
@@ -131,8 +132,8 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Fixed parameters:** V0; K0\_prime; Tr
 - **Observations:** 29
 - **Solver success:** True
-- **Rmse gpa:** 0.9168047800085756
-- **Published rmse gpa:** 0.9100714261490399
+- **Rmse gpa:** 0.916805
+- **Published rmse gpa:** 0.910071
 - **Dataset identifiers:** thorianite\_chidester\_2018\_table\_s1
 
 </details>

@@ -115,9 +115,10 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 134.0 | 5.0 | 139.4652126595 | 4.502631252020866 | Free |
+| K0 | 134 | 5 | 139 | 5 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -130,15 +131,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0
 - **Fixed parameters:** V0
 - **Observations:** 6
-- **Observed pressure range gpa:** \[0.0001, 24.6\]
+- **Observed pressure range gpa:** 0.0001; 24.6
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[77.62, 88.12\]
+- **Observed volume range:** 77.62; 88.12
 - **Degrees of freedom:** 5
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.7467023175219354
-- **Published rmse gpa:** 1.2605738400213593
-- **Reduced chi square:** 0.8874661576042226
+- **Rmse gpa:** 0.746702
+- **Published rmse gpa:** 1.26057
+- **Reduced chi square:** 0.887466
 - **Dataset identifiers:** phase\_d\_shieh\_2000\_table2\_pv
 
 </details>
@@ -259,9 +260,10 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 134.0 | 5.0 | 134.71378933177388 | 4.584414287476834 | Free |
+| K0 | 134 | 5 | 135 | 5 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -274,15 +276,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0
 - **Fixed parameters:** V0
 - **Observations:** 5
-- **Observed pressure range gpa:** \[0.0001, 22.0\]
+- **Observed pressure range gpa:** 0.0001; 22
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[77.878, 87.191\]
+- **Observed volume range:** 77.878; 87.191
 - **Degrees of freedom:** 4
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 1.6822610591377454
-- **Published rmse gpa:** 1.8398513712137285
-- **Reduced chi square:** 3.8603412973846303
+- **Rmse gpa:** 1.68226
+- **Published rmse gpa:** 1.83985
+- **Reduced chi square:** 3.86034
 - **Dataset identifiers:** phase\_d\_shieh\_2000\_table2\_pv
 
 </details>

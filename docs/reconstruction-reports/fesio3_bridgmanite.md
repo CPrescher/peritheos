@@ -43,6 +43,17 @@ Record: `fesio3_bridgmanite_cohen_lin_2014_vinet_1` · Model: `Vinet`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+**Curve/residual comparison unavailable:** No reconstructed coefficient set is recorded; a source/refit residual comparison is unavailable..
+
+| Fit | Recorded pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | Not reported |
+| Reconstruction / refit | Not reported |
+
+These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+
 ### Why no coefficient graph is shown
 
 No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
@@ -52,7 +63,7 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `fesio3_bridgmanite_cohen_lin_2014_vinet_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/fesio3_bridgmanite.eosmat).
@@ -86,6 +97,17 @@ Record: `fesio3_bridgmanite_holland_2013_fpv_modified_tait` · Model: `ModifiedT
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+**Curve/residual comparison unavailable:** No reconstructed coefficient set is recorded; a source/refit residual comparison is unavailable..
+
+| Fit | Recorded pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | Not reported |
+| Reconstruction / refit | Not reported |
+
+These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+
 ### Why no coefficient graph is shown
 
 No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
@@ -95,7 +117,7 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `fesio3_bridgmanite_holland_2013_fpv_modified_tait`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/fesio3_bridgmanite.eosmat).

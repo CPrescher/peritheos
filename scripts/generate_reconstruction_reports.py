@@ -1,8 +1,8 @@
 """Build readable, linked reports from recorded EOSMAT assessments, without fitting.
 
 Run ``python -m scripts.generate_reconstruction_reports``; ``--check`` verifies
-the pages and deterministic SVG comparisons. Figures show recorded coefficient
-central values, never invented observations, fitted curves or uncertainty bands.
+the pages and deterministic SVG comparisons. Curves replay recorded fits;
+no optimization, invented observations or inferred uncertainty bands are used.
 """
 
 from __future__ import annotations
@@ -23,7 +23,12 @@ from xml.etree import ElementTree
 
 from peritheos import load_eosmat
 from scripts.generate_material_summaries import details, metadata, text
+from scripts.reconstruction_diagnostics import DiagnosticComparison
+from scripts.reconstruction_figures import current_curve, curve_svg
 from scripts.reconstruction_links import report_links
+from scripts.reconstruction_plot_data import curve_comparison
+from scripts.report_numbers import number, rounded_metadata, value_error
+from scripts.report_plot_themes import dark_path, dark_svg, themed_images
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "docs/reconstruction-reports"
@@ -79,6 +84,8 @@ def figure_signature(assessment: Mapping[str, Any]) -> str:
             p["parameter"],
             p["published"],
             p["refit"],
+            p.get("published_error", p.get("published_sigma")),
+            p.get("refit_error", p.get("refit_sigma")),
             fit_role(assessment, p["parameter"]),
         )
         for p in comparison_rows(assessment)
@@ -108,7 +115,7 @@ def current_figure(payload: bytes, assessment: Mapping[str, Any]) -> bool:
 
 
 def comparison_svg(assessment: Mapping[str, Any]) -> bytes | None:
-    """Plot central values on separate axes with zero visible; no uncertainty inference."""
+    """Plot coefficients and recorded error widths without inferring confidence."""
     rows = comparison_rows(assessment)
     if not rows:
         return None
@@ -138,8 +145,22 @@ def comparison_svg(assessment: Mapping[str, Any]) -> bytes | None:
             ax.plot([source, refit], [1, 0], color="#aab4c0", linewidth=1, zorder=1)
             ax.scatter([source], [1], color="#245b8a", marker="o", s=45, zorder=2)
             ax.scatter([refit], [0], color="#ae4c14", marker="D", s=40, zorder=2)
+            for side, y, color in (
+                ("published", 1, "#245b8a"),
+                ("refit", 0, "#ae4c14"),
+            ):
+                error = row.get(side + "_error", row.get(side + "_sigma"))
+                if numeric(error) and error > 0:
+                    ax.errorbar(
+                        row[side], y, xerr=error, color=color, capsize=3, fmt="none"
+                    )
             ax.set_yticks([0, 1], ["Reconstruction", "Source / target"])
-            low, high = min(0, source, refit), max(0, source, refit)
+            limits = [0, source, refit]
+            for side in ("published", "refit"):
+                error = row.get(side + "_error", row.get(side + "_sigma"))
+                if numeric(error) and error > 0:
+                    limits.extend([row[side] - error, row[side] + error])
+            low, high = min(limits), max(limits)
             span = high - low or 1
             ax.set_xlim(low - 0.08 * span, high + 0.08 * span)
             ax.set_ylim(-0.55, 1.55)
@@ -166,7 +187,7 @@ def comparison_svg(assessment: Mapping[str, Any]) -> bytes | None:
                 "Date": None,
                 "Creator": "Peritheos reconstruction reports",
                 "Title": "Stored source and reconstructed coefficients",
-                "Description": "Central-value comparison only; no observations, residuals or inferred confidence intervals.",
+                "Description": "Stored coefficients and available reported error widths; confidence conventions remain those of the named audit.",
             },
         )
         plt.close(figure)
@@ -214,7 +235,7 @@ def illustrated_mentions(identifier: str, root: Path) -> list[str]:
     ]
 
 
-def report_page(document: Mapping[str, Any], *, root: Path) -> str:
+def report_page(document: Mapping[str, Any], *, root: Path, comparisons=None) -> str:
     material = document["identifier"]
     previous = root / "docs/primary-eos-refits.md"
     anchors = (
@@ -256,6 +277,11 @@ def report_page(document: Mapping[str, Any], *, root: Path) -> str:
         assessment = record["evidence"]["reproduction"]["assessment"]
         validation = record["evidence"].get("scientific_validation", {})
         fit = assessment.get("fit", {})
+        comparison, unavailable = (
+            comparisons[rid]
+            if comparisons is not None
+            else curve_comparison(document, record)
+        )
         lines.extend(
             [
                 "",
@@ -308,7 +334,7 @@ def report_page(document: Mapping[str, Any], *, root: Path) -> str:
             if k in fit
         }
         if visible:
-            lines.extend(metadata(visible))
+            lines.extend(metadata(rounded_metadata(visible)))
         lines.extend(
             [
                 "",
@@ -316,16 +342,91 @@ def report_page(document: Mapping[str, Any], *, root: Path) -> str:
                 "",
             ]
         )
+        lines.extend(["### Curves, residuals and fit error", ""])
+        if isinstance(comparison, DiagnosticComparison):
+            lines.extend(
+                [
+                    *(
+                        [
+                            "**Partial replay — available subsets only.**",
+                            "",
+                            text(comparison.note),
+                            "",
+                        ]
+                        if comparison.partial_replay
+                        else []
+                    ),
+                    *themed_images(
+                        f"Source and refit curves with native-coordinate residuals for {rid}",
+                        f"figures/{rid}-curves.svg",
+                    ),
+                    "",
+                    "| Output / replay scope | Points | Residual units | Source RMS | Refit RMS |",
+                    "| --- | ---: | --- | ---: | ---: |",
+                    *[
+                        f"| {text(p.title)} | {len(p.x)} | {text(p.unit)} | {number(p.rms('source'), 3)} | {number(p.rms('refit'), 3)} |"
+                        for p in comparison.panels
+                    ],
+                    "",
+                    *(
+                        [text(comparison.note), ""]
+                        if not comparison.partial_replay
+                        else []
+                    ),
+                    "",
+                    "Each panel uses the stored source and reconstructed coefficients on the same selected inputs. RMS errors are unweighted descriptive errors in the panel's native units, separate from parameter uncertainties and the weighted fitting objective. Error bars retain the available source widths; missing uncertainty is not zero. No new optimization or uncertainty band is introduced.",
+                    "",
+                ]
+            )
+        elif comparison is not None:
+            lines.extend(
+                [
+                    *themed_images(
+                        f"Original/source and refitted curves with pressure residuals for {rid}",
+                        f"figures/{rid}-curves.svg",
+                    ),
+                    "",
+                    "| Fit | Pressure RMS error (GPa) |",
+                    "| --- | ---: |",
+                    f"| {'Stored Peritheos refit (target)' if assessment['scope'] == 'independent_refit' else 'Original / source fit'} | {number(comparison.source_rmse, 3)} |",
+                    f"| Reconstruction / refit | {number(comparison.refit_rmse, 3)} |",
+                    "",
+                    f"Both fits use the same {len(comparison.series.pressure)} recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.",
+                    "",
+                    f"**Volume coordinate:** {text(comparison.series.volume_column)}. **Row selection:** {text(comparison.series.selection)}.",
+                    "",
+                    *([text(comparison.note), ""] if comparison.note else []),
+                    "Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.",
+                    "",
+                ]
+            )
+        else:
+            lines.extend(
+                [
+                    f"**Curve/residual comparison unavailable:** {text(unavailable)}.",
+                    "",
+                    "| Fit | Recorded pressure RMS error (GPa) |",
+                    "| --- | ---: |",
+                    f"| Original / source fit | {number(fit.get('published_rmse_gpa'), 3)} |",
+                    f"| Reconstruction / refit | {number(fit.get('rmse_gpa'), 3)} |",
+                    "",
+                    "These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.",
+                    "",
+                ]
+            )
         if comparison_rows(assessment):
             lines.extend(
                 [
                     "### Source versus reconstruction",
                     "",
-                    f"![Source/target and reconstructed central values for {rid}](figures/{rid}.svg)",
+                    *themed_images(
+                        f"Source/target and reconstructed central values for {rid}",
+                        f"figures/{rid}.svg",
+                    ),
                     "",
                     "This is a **coefficient comparison**, not an observation or residual plot.",
                     "Each panel uses its coefficient's audit units and includes zero. Markers show",
-                    "stored central values only. Error widths are retained in the table below;",
+                    "stored central values and available recorded error widths (also in the table below);",
                     "no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.",
                     "",
                 ]
@@ -347,19 +448,26 @@ def report_page(document: Mapping[str, Any], *, root: Path) -> str:
                 ]
             )
             for row in assessment["parameters"]:
-                values = (
-                    row["parameter"],
+                published, published_error = value_error(
                     row["published"],
                     row.get("published_error", row.get("published_sigma")),
-                    row["refit"],
-                    row.get("refit_error", row.get("refit_sigma")),
+                )
+                refit, refit_error = value_error(
+                    row["refit"], row.get("refit_error", row.get("refit_sigma"))
+                )
+                values = (
+                    row["parameter"],
+                    published,
+                    published_error,
+                    refit,
+                    refit_error,
                     fit_role(assessment, row["parameter"]),
                 )
                 lines.append("| " + " | ".join(text(v) for v in values) + " |")
             lines.extend(
                 [
                     "",
-                    "Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.",
+                    "Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.",
                     "",
                 ]
             )
@@ -368,7 +476,7 @@ def report_page(document: Mapping[str, Any], *, root: Path) -> str:
             lines.extend(
                 details(
                     "Recorded diagnostics, covariance and additional protocol",
-                    diagnostics,
+                    rounded_metadata(diagnostics),
                 )
             )
         lines.extend(["### Detailed evidence and existing plots", ""])
@@ -392,7 +500,7 @@ def report_page(document: Mapping[str, Any], *, root: Path) -> str:
                 "- [Record-by-record numerical ledger](../primary-eos-refits.md#records).",
                 "- [Source-audit reports](../source-audits.md).",
                 "",
-                "Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.",
+                "Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.",
                 "",
                 f"[Machine-readable comparison ledger]({SOURCE}docs/data/primary-eos-refits.json) — look up `{rid}`.  ",
                 f"[Complete native EOSMAT file]({SOURCE}peritheos/data/materials/{quote(material)}.eosmat).",
@@ -404,6 +512,9 @@ def report_page(document: Mapping[str, Any], *, root: Path) -> str:
 
 def generated_outputs(root: Path = ROOT, *, plots: bool = True) -> dict[Path, bytes]:
     outputs: dict[Path, bytes] = {}
+    gaps = []
+    partials = []
+    total_records = total_curves = total_coefficients = 0
     index = [
         "# EOS reconstruction reports",
         "",
@@ -412,21 +523,29 @@ def generated_outputs(root: Path = ROOT, *, plots: bool = True) -> dict[Path, by
         "Open a material, then its EOS record. Every bundled record has a direct",
         "section explaining its recorded outcome, comparison basis, method and limitations.",
         "",
-        "Coefficient graphs show existing source/reconstructed central values only.",
-        "They are not observation/residual plots or new scientific validation.",
+        "Source and refit curves, residuals and RMS errors appear together",
+        "where the stored models and selected audit rows can be replayed. Each report",
+        "explicitly states any missing plot inputs or errors.",
+        "Residuals use the fitted quantities and their native units; joint fits have separate output panels.",
+        "Parameter uncertainties are rounded to one significant digit, or two for leading 1/2; values match",
+        "the error's decimal place. Full precision remains in EOSMAT and the ledger.",
+        "Coefficient graphs retain available error widths. Plots do not establish new scientific validation.",
+        "Plots automatically switch between light and dark versions with the documentation theme toggle.",
         "Supporting source reports retain their detailed explanations and existing plots.",
         "",
         "Public EOSMAT links use Read the Docs **latest**. Repository-relative report paths",
         "support offline and version-specific builds; latest may change after later audits.",
         "New links become live only after the corresponding documentation is published.",
         "",
-        "| Material | EOS records | Coefficient graphs |",
-        "| --- | ---: | ---: |",
+        "| Material | EOS records | Curve/residual comparisons | Coefficient graphs |",
+        "| --- | ---: | ---: | ---: |",
     ]
     for path in sorted((root / "peritheos/data/materials").glob("*.eosmat")):
         document = load_eosmat(path)
         material = document["identifier"]
         count = 0
+        curve_count = 0
+        comparisons = {}
         for record in document["eos_records"]:
             assessment = record["evidence"]["reproduction"]["assessment"]
             expected = report_links(material, record["identifier"])
@@ -434,6 +553,24 @@ def generated_outputs(root: Path = ROOT, *, plots: bool = True) -> dict[Path, by
                 raise ValueError(
                     f"Missing or inconsistent report links: {record['identifier']}; standardize reconstruction metadata first"
                 )
+            comparison, reason = curve_comparison(document, record)
+            comparisons[record["identifier"]] = (comparison, reason)
+            if comparison is None and comparison_rows(assessment):
+                gaps.append((material, record["identifier"], reason))
+            if comparison is not None:
+                if (
+                    isinstance(comparison, DiagnosticComparison)
+                    and comparison.partial_replay
+                ):
+                    partials.append((material, record["identifier"], comparison))
+                curve_count += 1
+                if plots:
+                    relative = Path("figures") / (record["identifier"] + "-curves.svg")
+                    existing = root / "docs/reconstruction-reports" / relative
+                    figure = existing.read_bytes() if existing.exists() else b""
+                    if not current_curve(figure, comparison):
+                        figure = curve_svg(comparison)
+                    outputs[relative] = figure
             if comparison_rows(assessment):
                 count += 1
                 if plots:
@@ -444,11 +581,56 @@ def generated_outputs(root: Path = ROOT, *, plots: bool = True) -> dict[Path, by
                         figure = comparison_svg(assessment)
                     assert figure is not None
                     outputs[relative] = figure
-        outputs[Path(material + ".md")] = report_page(document, root=root).encode()
+        outputs[Path(material + ".md")] = report_page(
+            document, root=root, comparisons=comparisons
+        ).encode()
         index.append(
-            f"| [{text(document.get('name', material))}]({material}.md) | {len(document['eos_records'])} | {count} |"
+            f"| [{text(document.get('name', material))}]({material}.md) | {len(document['eos_records'])} | {curve_count} | {count} |"
         )
+        total_records += len(document["eos_records"])
+        total_curves += curve_count
+        total_coefficients += count
+    index.extend(
+        [
+            "",
+            f"{total_curves} of {total_coefficients} assessments with stored coefficient comparisons have inline curve/residual plots, including {len(partials)} explicitly partial replays listed below. The other {total_records - total_coefficients} records have no numeric source/refit coefficient pair recorded.",
+            "",
+            "## Partial replays",
+            "",
+            "These plots cover the named available subsets only. Their presence does not establish a replay of the complete recorded objective or the author's workflow. See each report for the omitted inputs and limitations.",
+            "",
+            "| EOS record | Available plot scope |",
+            "| --- | --- |",
+            *[
+                f"| [{text(rid)}]({material}.md#record-{rid}) | {text('; '.join(p.title for p in c.panels))} |"
+                for material, rid, c in partials
+            ],
+            "",
+            "## Remaining curve/residual replay gaps",
+            "",
+            *(
+                [
+                    "These are report-rendering gaps, not a finding that source observations do not exist. The named audit remains authoritative. Specialized pressure reductions, joint objectives or model mappings need an explicit replay adapter before a corresponding plot can be shown here.",
+                    "",
+                    "| EOS record | Replay gap |",
+                    "| --- | --- |",
+                    *[
+                        f"| [{text(rid)}]({material}.md#record-{rid}) | {text(reason)} |"
+                        for material, rid, reason in gaps
+                    ],
+                ]
+                if gaps
+                else [
+                    "None among assessments with stored coefficient pairs. The partial-replay limits above still apply."
+                ]
+            ),
+        ]
+    )
     outputs[Path("index.md")] = ("\n".join(index) + "\n").encode()
+    if plots:
+        for path, light in list(outputs.items()):
+            if path.suffix == ".svg":
+                outputs[Path(dark_path(path.as_posix()))] = dark_svg(light)
     return outputs
 
 
@@ -458,6 +640,14 @@ def main() -> int:
     args = parser.parse_args()
     outputs = generated_outputs()
     stale = []
+    for path in (OUTPUT / "figures").glob("*.svg"):
+        if path.relative_to(OUTPUT) not in outputs and (
+            b"<!-- peritheos-curves " in path.read_bytes()
+            or b"<!-- peritheos-dark " in path.read_bytes()
+        ):
+            stale.append(path.relative_to(OUTPUT))
+            if not args.check:
+                path.unlink()
     for relative, payload in outputs.items():
         path = OUTPUT / relative
         if path.exists() and path.read_bytes() == payload:
@@ -471,7 +661,7 @@ def main() -> int:
             print(f"Reconstruction report needs regeneration: {path}")
         return 1
     print(
-        f"{'Checked' if args.check else 'Generated'} {sum(p.suffix == '.md' for p in outputs)} pages and {sum(p.suffix == '.svg' for p in outputs)} coefficient graphs; {len(stale)} changed."
+        f"{'Checked' if args.check else 'Generated'} {sum(p.suffix == '.md' for p in outputs)} pages and {sum(p.suffix == '.svg' for p in outputs)} figures; {len(stale)} changed."
     )
     return 0
 

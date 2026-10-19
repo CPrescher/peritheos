@@ -126,18 +126,19 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 438.66 | 0.02 | 438.6553948430803 | Not specified | See protocol |
-| K0 | 118.0 | 1.0 | 117.8641776706991 | Not specified | See protocol |
-| K0\_prime | 3.8 | 0.3 | 3.7962907042955125 | Not specified | See protocol |
+| V0 | 438.660 | 0.020 | 438.655 | Not reported | See protocol |
+| K0 | 118.0 | 1.0 | 117.864 | Not reported | See protocol |
+| K0\_prime | 3.8 | 0.3 | 3.79629 | Not reported | See protocol |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** effective\_variance\_pv
 - **Fixed parameters:** None declared
 - **Observations:** 14
 - **Solver success:** True
-- **Rmse gpa:** 0.03658693276345292
-- **Published rmse gpa:** 0.03739721229323705
+- **Rmse gpa:** 0.0365869
+- **Published rmse gpa:** 0.0373972
 - **Dataset identifiers:** diopside\_thompson\_2008\_table1
 - **Reproduction report:** docs/data/diopside-reproduction.json
 
@@ -294,20 +295,21 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 109.1 | 4.0 | 107.72466440881215 | Not specified | See protocol |
-| K0\_prime | 4.84 | 0.6 | 5.122488565130115 | Not specified | See protocol |
-| alpha0 | 2.32e-05 | 5e-07 | 2.2972456391882284e-05 | Not specified | See protocol |
-| alpha1 | 1.88e-08 | 7e-10 | 1.902591653883834e-08 | Not specified | See protocol |
-| dK\_dT | -0.0205 | 0.0004 | -0.020207621644568515 | Not specified | See protocol |
+| K0 | 109 | 4 | 107.725 | Not reported | See protocol |
+| K0\_prime | 4.8 | 0.6 | 5.12249 | Not reported | See protocol |
+| alpha0 | 232e-7 | 5e-7 | 2.29725e-05 | Not reported | See protocol |
+| alpha1 | 188e-10 | 7e-10 | 1.90259e-08 | Not reported | See protocol |
+| dK\_dT | -0.0205 | 0.0004 | -0.0202076 | Not reported | See protocol |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** graph\_corroborated\_corrected\_pvt
 - **Fixed parameters:** Tr
 - **Observations:** 32
 - **Solver success:** True
-- **Rmse gpa:** 0.057920259389445686
-- **Published rmse gpa:** 0.06455854469786602
+- **Rmse gpa:** 0.0579203
+- **Published rmse gpa:** 0.0645585
 - **Dataset identifiers:** diopside\_zhao\_1998\_table1\_corrected\_pvt
 - **Reproduction report:** docs/data/diopside-plot-check.json
 

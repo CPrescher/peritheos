@@ -112,10 +112,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 220.0 | 9.0 | 226.12463701024387 | 3.535841487132809 | Free |
-| K0\_prime | 4.4 | 0.4 | 3.301697859777839 | 0.5165141614948036 | Free |
+| K0 | 220 | 9 | 226 | 4 | Free |
+| K0\_prime | 4.4 | 0.4 | 3.3 | 0.5 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** pressure\_residuals
@@ -128,15 +129,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 21
-- **Observed pressure range gpa:** \[0.8481, 19.8101\]
+- **Observed pressure range gpa:** 0.8481; 19.8101
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[146.756548, 157.777816\]
+- **Observed volume range:** 146.757; 157.778
 - **Degrees of freedom:** 19
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.1960352228258812
-- **Published rmse gpa:** 0.2189251532336543
-- **Reduced chi square:** 1.0618762899424357
+- **Rmse gpa:** 0.196035
+- **Published rmse gpa:** 0.218925
+- **Reduced chi square:** 1.06188
 - **Dataset identifiers:** cerium\_dioxide\_gerward\_2005\_figure3a\_digitized
 
 </details>

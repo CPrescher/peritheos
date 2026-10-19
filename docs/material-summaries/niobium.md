@@ -114,10 +114,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 168.0 | 4.0 | 166.1726317999564 | 0.41775349958426705 | Free |
-| K0\_prime | 3.4 | 0.3 | 3.533481315869524 | 0.02788348319255274 | Free |
+| K0 | 168 | 4 | 166.2 | 0.4 | Free |
+| K0\_prime | 3.4 | 0.3 | 3.533 | 0.028 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -130,15 +131,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 43
-- **Observed pressure range gpa:** \[0.11, 134.0\]
+- **Observed pressure range gpa:** 0.11; 134
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[23.974465329999997, 35.83404035\]
+- **Observed volume range:** 23.9745; 35.834
 - **Degrees of freedom:** 41
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 1.6974999302349352
-- **Published rmse gpa:** 1.3567892071381271
-- **Reduced chi square:** 7.6347616513898515
+- **Rmse gpa:** 1.6975
+- **Published rmse gpa:** 1.35679
+- **Reduced chi square:** 7.63476
 - **Dataset identifiers:** niobium\_takemura\_2006\_table1\_compression
 
 </details>
@@ -277,16 +278,16 @@ Original audit code: `source_reconstruction`.
 - **Objective:** minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight
 - **Fixed parameters:** n; Z; n
 - **Observations:** 43
-- **Rmse gpa:** 2.985195422138322
-- **Published rmse gpa:** 3.1276690001706005
+- **Rmse gpa:** 2.9852
+- **Published rmse gpa:** 3.12767
 - **Comparison scope:** shared\_ruby\_calibration
 - **Dataset identifiers:** niobium\_takemura\_2006\_table1\_compression
 - **Published ruby parameters:**
-    - **A gpa:** 1870.0
-    - **M:** 6.0
+    - **A gpa:** 1870
+    - **M:** 6
 - **Sensitivity fit ruby parameters:**
-    - **A gpa:** 1869.3837840502665
-    - **M:** 6.10334763359135
+    - **A gpa:** 1869.38
+    - **M:** 6.10335
 
 </details>
 

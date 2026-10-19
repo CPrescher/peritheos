@@ -114,10 +114,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 395.0 | 2.0 | 395.16184460219006 | 2.2606899728837178 | Free |
-| K0\_prime | 3.62 | 0.05 | 3.6171261603911873 | 0.05542308451761129 | Free |
+| K0 | 395.0 | 2.0 | 395.2 | 2.3 | Free |
+| K0\_prime | 3.62 | 0.05 | 3.62 | 0.06 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** pressure\_residuals
@@ -130,15 +131,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 38
-- **Observed pressure range gpa:** \[0.0, 162.5\]
-- **Observed temperature range k:** \[295.0, 295.0\]
-- **Observed volume range:** \[36.424, 47.256\]
+- **Observed pressure range gpa:** 0; 162.5
+- **Observed temperature range k:** 295; 295
+- **Observed volume range:** 36.424; 47.256
 - **Degrees of freedom:** 36
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.5848254609210809
-- **Published rmse gpa:** 0.5849199630636431
-- **Reduced chi square:** 0.3610219763938633
+- **Rmse gpa:** 0.584825
+- **Published rmse gpa:** 0.58492
+- **Reduced chi square:** 0.361022
 - **Dataset identifiers:** cubic\_boron\_nitride\_datchi\_2007\_table4\_pvt
 
 </details>
@@ -284,9 +285,10 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| q | 4.0 | 1.5 | 6.241100607705336 | 1.9742155371367653 | Free |
+| q | 4.0 | 1.5 | 6.2 | 2.0 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** joint\_pvt
 - **Objective:** pressure\_residuals
@@ -299,15 +301,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** q
 - **Fixed parameters:** V0; K0; K0\_prime; Tr; theta0; gamma0; n
 - **Observations:** 66
-- **Observed pressure range gpa:** \[0.0, 162.5\]
-- **Observed temperature range k:** \[295.0, 948.0\]
-- **Observed volume range:** \[36.424, 47.616\]
+- **Observed pressure range gpa:** 0; 162.5
+- **Observed temperature range k:** 295; 948
+- **Observed volume range:** 36.424; 47.616
 - **Degrees of freedom:** 65
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.5921916786848203
-- **Published rmse gpa:** 0.588949793133316
-- **Reduced chi square:** 0.35608623021590763
+- **Rmse gpa:** 0.592192
+- **Published rmse gpa:** 0.58895
+- **Reduced chi square:** 0.356086
 - **Dataset identifiers:** cubic\_boron\_nitride\_datchi\_2007\_table4\_pvt
 
 </details>

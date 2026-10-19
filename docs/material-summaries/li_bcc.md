@@ -115,10 +115,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 11.32 | 0.1 | 11.315656612703812 | 0.03922452274513274 | Free |
-| K0\_prime | 3.62 | 0.04 | 3.616768766094577 | 0.013883557520548553 | Free |
+| K0 | 11.32 | 0.10 | 11.32 | 0.04 | Free |
+| K0\_prime | 3.62 | 0.04 | 3.617 | 0.014 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** pressure\_residuals
@@ -131,15 +132,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 26
-- **Observed pressure range gpa:** \[0.0, 21.1\]
+- **Observed pressure range gpa:** 0; 21.1
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[22.8742, 43.245\]
+- **Observed volume range:** 22.8742; 43.245
 - **Degrees of freedom:** 24
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.033805294729050986
-- **Published rmse gpa:** 0.03620400826033935
-- **Reduced chi square:** 0.0012380311143611693
+- **Rmse gpa:** 0.0338053
+- **Published rmse gpa:** 0.036204
+- **Reduced chi square:** 0.00123803
 - **Dataset identifiers:** lithium\_hanfland\_1999\_table1\_compression
 
 </details>

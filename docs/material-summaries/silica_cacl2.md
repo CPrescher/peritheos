@@ -117,12 +117,13 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.V0 | 48.1 | 0.2 | 48.485206451852385 | 0.20725728953425138 | Free |
-| rt\_eos.K0 | 245.0 | 7.0 | 235.5085295711504 | 6.220566444223275 | Free |
-| theta0 | 1100.0 | 400.0 | 2594.2340425650036 | 643.243317153621 | Free |
-| gamma0 | 1.3 | 0.3 | 1.684938828541015 | 0.47487077401613464 | Free |
+| rt\_eos.V0 | 48.10 | 0.20 | 48.49 | 0.21 | Free |
+| rt\_eos.K0 | 245 | 7 | 236 | 6 | Free |
+| theta0 | 1100 | 400 | 2600 | 600 | Free |
+| gamma0 | 1.3 | 0.3 | 1.7 | 0.5 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** joint\_pvt
 - **Objective:** errors\_in\_variables
@@ -135,15 +136,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** rt\_eos.V0; rt\_eos.K0; theta0; gamma0
 - **Fixed parameters:** q; n
 - **Observations:** 48
-- **Observed pressure range gpa:** \[64.4, 143.0\]
-- **Observed temperature range k:** \[300.0, 2250.0\]
-- **Observed volume range:** \[35.68, 40.65\]
+- **Observed pressure range gpa:** 64.4; 143
+- **Observed temperature range k:** 300; 2250
+- **Observed volume range:** 35.68; 40.65
 - **Degrees of freedom:** 44
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 1.5045744179271328
-- **Published rmse gpa:** 1.907159817564574
-- **Reduced chi square:** 1.0838539447098678
+- **Rmse gpa:** 1.50457
+- **Published rmse gpa:** 1.90716
+- **Reduced chi square:** 1.08385
 - **Dataset identifiers:** sio2\_cacl2\_sun\_2019\_dataset\_s1\_pvt
 
 </details>

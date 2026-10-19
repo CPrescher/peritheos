@@ -117,10 +117,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 17.9 | 1.0 | 17.88084365996729 | 1.0581791574892083 | Free |
-| K0\_prime | 5.23 | 0.29 | 5.238151959171043 | 0.3525905442063895 | Free |
+| K0 | 17.9 | 1.0 | 17.9 | 1.1 | Free |
+| K0\_prime | 5.23 | 0.29 | 5.2 | 0.4 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -133,15 +134,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 24
-- **Observed pressure range gpa:** \[1.11, 32.3\]
+- **Observed pressure range gpa:** 1.11; 32.3
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[36.929363769900995, 58.406555796399005\]
+- **Observed volume range:** 36.9294; 58.4066
 - **Degrees of freedom:** 22
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.27906464867282704
-- **Published rmse gpa:** 0.28986542659100895
-- **Reduced chi square:** 0.19972537696575704
+- **Rmse gpa:** 0.279065
+- **Published rmse gpa:** 0.289865
+- **Reduced chi square:** 0.199725
 - **Dataset identifiers:** rbcl\_campbell\_1994\_table1\_compression
 
 </details>
@@ -283,20 +284,21 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 19.89 | 0.08 | 19.921940727841257 | Not specified | See protocol |
-| K0\_prime | 5.0 | 0.02 | 4.995184896218001 | Not specified | See protocol |
-| gamma0 | 1.96 | 0.04 | 1.9639111476753601 | Not specified | See protocol |
-| q | 1.05 | 0.09 | 1.0592376167051918 | Not specified | See protocol |
+| K0 | 19.89 | 0.08 | 19.9219 | Not reported | See protocol |
+| K0\_prime | 5.000 | 0.020 | 4.99518 | Not reported | See protocol |
+| gamma0 | 1.96 | 0.04 | 1.96391 | Not reported | See protocol |
+| q | 1.05 | 0.09 | 1.05924 | Not reported | See protocol |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** iterated\_effective\_variance\_bm3\_mgd
 - **Objective:** iterated frozen diagonal effective P/V/T variance
 - **Fixed parameters:** V0; Tr; theta0; n
 - **Observations:** 122
 - **Solver success:** True
-- **Rmse gpa:** 0.15516257838688707
-- **Published rmse gpa:** 0.15442869781174814
+- **Rmse gpa:** 0.155163
+- **Published rmse gpa:** 0.154429
 - **Dataset identifiers:** rbcl\_farla\_2025\_observations
 - **Reproduction report:** docs/data/rubidium-halides-farla-2025-follow-up.json
 

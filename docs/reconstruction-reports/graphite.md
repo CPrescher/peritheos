@@ -47,22 +47,39 @@ Record: `graphite_hanfland_1989_murnaghan_1` · Model: `Murnaghan`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for graphite_hanfland_1989_murnaghan_1](figures/graphite_hanfland_1989_murnaghan_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for graphite_hanfland_1989_murnaghan_1](figures/graphite_hanfland_1989_murnaghan_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.343 |
+| Reconstruction / refit | 0.33 |
+
+Both fits use the same 10 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** volume\_ratio. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for graphite_hanfland_1989_murnaghan_1](figures/graphite_hanfland_1989_murnaghan_1.svg)
+![Source/target and reconstructed central values for graphite_hanfland_1989_murnaghan_1](figures/graphite_hanfland_1989_murnaghan_1.svg#only-light)
+![Source/target and reconstructed central values for graphite_hanfland_1989_murnaghan_1](figures/graphite_hanfland_1989_murnaghan_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 35.12 | 0.02 | 35.289557787941845 | 0.2150381422338965 | Free |
-| K0 | 33.8 | 3.0 | 31.350635504713292 | 4.714053277201576 | Free |
-| K0\_prime | 8.9 | 1.0 | 9.140728272853567 | 0.9628978195027382 | Free |
+| V0 | 35.120 | 0.020 | 35.29 | 0.22 | Free |
+| K0 | 34 | 3 | 31 | 5 | Free |
+| K0\_prime | 8.9 | 1.0 | 9.1 | 1.0 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -72,15 +89,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** Not specified
     - **Volume:** volume\_ratio
-- **Observed pressure range gpa:** \[0.0, 13.1351\]
+- **Observed pressure range gpa:** 0; 13.1351
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[29.851999999999997, 35.12\]
+- **Observed volume range:** 29.852; 35.12
 - **Degrees of freedom:** 7
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.15305430860689825
-- **Published rmse gpa:** 0.34294152687069585
-- **Reduced chi square:** 1.7262608481249881
+- **Rmse gpa:** 0.153054
+- **Published rmse gpa:** 0.342942
+- **Reduced chi square:** 1.72626
 
 </details>
 
@@ -89,7 +106,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `graphite_hanfland_1989_murnaghan_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/graphite.eosmat).

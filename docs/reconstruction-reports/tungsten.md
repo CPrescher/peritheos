@@ -48,6 +48,17 @@ Record: `tungsten_sakai_2025_rydberg_stacey_1` · Model: `RydbergStacey`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+**Curve/residual comparison unavailable:** No reconstructed coefficient set is recorded; a source/refit residual comparison is unavailable..
+
+| Fit | Recorded pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | Not reported |
+| Reconstruction / refit | Not reported |
+
+These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+
 ### Why no coefficient graph is shown
 
 No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
@@ -57,7 +68,7 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `tungsten_sakai_2025_rydberg_stacey_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/tungsten.eosmat).
@@ -96,21 +107,38 @@ Record: `tungsten_dewaele_2004_vinet_2` · Model: `Vinet`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for tungsten_dewaele_2004_vinet_2](figures/tungsten_dewaele_2004_vinet_2-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for tungsten_dewaele_2004_vinet_2](figures/tungsten_dewaele_2004_vinet_2-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.642 |
+| Reconstruction / refit | 0.643 |
+
+Both fits use the same 42 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** atomic\_volume\_a3. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for tungsten_dewaele_2004_vinet_2](figures/tungsten_dewaele_2004_vinet_2.svg)
+![Source/target and reconstructed central values for tungsten_dewaele_2004_vinet_2](figures/tungsten_dewaele_2004_vinet_2.svg#only-light)
+![Source/target and reconstructed central values for tungsten_dewaele_2004_vinet_2](figures/tungsten_dewaele_2004_vinet_2-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 295.2 | 3.9 | 295.6708882674571 | 3.104761269038508 | Free |
-| K0\_prime | 4.32 | 0.11 | 4.305452805931812 | 0.09306902574189016 | Free |
+| K0 | 295 | 4 | 296 | 3 | Free |
+| K0\_prime | 4.32 | 0.11 | 4.31 | 0.09 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -120,15 +148,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** ruby\_pressure\_revised\_gpa
     - **Temperature:** Not specified
     - **Volume:** atomic\_volume\_a3
-- **Observed pressure range gpa:** \[0.0, 153.0\]
+- **Observed pressure range gpa:** 0; 153
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[23.872, 31.704\]
+- **Observed volume range:** 23.872; 31.704
 - **Degrees of freedom:** 40
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.5088342729511246
-- **Published rmse gpa:** 0.6419979768671387
-- **Reduced chi square:** 0.34129209851304815
+- **Rmse gpa:** 0.508834
+- **Published rmse gpa:** 0.641998
+- **Reduced chi square:** 0.341292
 
 </details>
 
@@ -137,7 +165,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `tungsten_dewaele_2004_vinet_2`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/tungsten.eosmat).
@@ -177,21 +205,38 @@ Record: `tungsten_shen_2026_vinet_3` · Model: `Vinet`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for tungsten_shen_2026_vinet_3](figures/tungsten_shen_2026_vinet_3-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for tungsten_shen_2026_vinet_3](figures/tungsten_shen_2026_vinet_3-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 1.18 |
+| Reconstruction / refit | 1.16 |
+
+Both fits use the same 335 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** unit\_cell\_volume\_a3. **Row selection:** W; DAC-1 and DAC-2.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for tungsten_shen_2026_vinet_3](figures/tungsten_shen_2026_vinet_3.svg)
+![Source/target and reconstructed central values for tungsten_shen_2026_vinet_3](figures/tungsten_shen_2026_vinet_3.svg#only-light)
+![Source/target and reconstructed central values for tungsten_shen_2026_vinet_3](figures/tungsten_shen_2026_vinet_3-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 307.0 | 0.8 | 304.9214484327302 | 1.2622063670984367 | Free |
-| K0\_prime | 4.02 | 0.03 | 4.114318638143665 | 0.04138556465536932 | Free |
+| K0 | 307.0 | 0.8 | 304.9 | 1.3 | Free |
+| K0\_prime | 4.02 | 0.03 | 4.11 | 0.04 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -201,15 +246,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** Fratanduono-2020 298 K Cu pressure reconstructed per run
     - **Temperature:** Not specified
     - **Volume:** unit\_cell\_volume\_a3
-- **Observed pressure range gpa:** \[20.358253289699487, 136.62217040703038\]
+- **Observed pressure range gpa:** 20.3583; 136.622
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[24.35774, 29.93479\]
+- **Observed volume range:** 24.3577; 29.9348
 - **Degrees of freedom:** 333
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 1.1558877160431738
-- **Published rmse gpa:** 1.180681893379939
-- **Reduced chi square:** 1.3441008950550573
+- **Rmse gpa:** 1.15589
+- **Published rmse gpa:** 1.18068
+- **Reduced chi square:** 1.3441
 - **Pressure reconstruction:**
     - **Density0 g cm3:** 8.939
     - **DOI:** 10.1103/PhysRevLett.124.015701
@@ -222,7 +267,7 @@ Values and reported errors are copied without rounding or conversion from the na
         - **Psi:** 1.65
     - **Reference:** Fratanduono et al. (2020)
     - **Reference eos record:** copper\_fratanduono\_2020\_vinet3\_298k
-    - **Reference unit cell volume a3:** 47.218085048721
+    - **Reference unit cell volume a3:** 47.2181
     - **Source locations:** main article Table I, 298 K isotherm row; Supplemental Material Eq. (2), Section S4
 
 </details>
@@ -232,7 +277,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `tungsten_shen_2026_vinet_3`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/tungsten.eosmat).
@@ -269,6 +314,17 @@ Record: `tungsten_sokolova_2013_holzapfel_4` · Model: `Holzapfel`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+**Curve/residual comparison unavailable:** No reconstructed coefficient set is recorded; a source/refit residual comparison is unavailable..
+
+| Fit | Recorded pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.902 |
+| Reconstruction / refit | 0.863 |
+
+These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+
 ### Why no coefficient graph is shown
 
 No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
@@ -277,15 +333,15 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
-- **Rmse gpa:** 0.8629577273808435
-- **Published rmse gpa:** 0.9017181923505817
+- **Rmse gpa:** 0.862958
+- **Published rmse gpa:** 0.901718
 - **Comparison scope:** shared\_ruby\_calibration
 - **Published ruby parameters:**
-    - **A gpa:** 1870.0
-    - **M:** 6.0
+    - **A gpa:** 1870
+    - **M:** 6
 - **Sensitivity fit ruby parameters:**
-    - **A gpa:** 1869.3837840502665
-    - **M:** 6.10334763359135
+    - **A gpa:** 1869.38
+    - **M:** 6.10335
 
 </details>
 
@@ -294,7 +350,7 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `tungsten_sokolova_2013_holzapfel_4`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/tungsten.eosmat).
@@ -333,31 +389,48 @@ Record: `tungsten_dewaele_2019_mao_vinet` · Model: `Vinet`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for tungsten_dewaele_2019_mao_vinet](figures/tungsten_dewaele_2019_mao_vinet-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for tungsten_dewaele_2019_mao_vinet](figures/tungsten_dewaele_2019_mao_vinet-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.579 |
+| Reconstruction / refit | 0.577 |
+
+Both fits use the same 42 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** audit volume in record units. **Row selection:** complete.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for tungsten_dewaele_2019_mao_vinet](figures/tungsten_dewaele_2019_mao_vinet.svg)
+![Source/target and reconstructed central values for tungsten_dewaele_2019_mao_vinet](figures/tungsten_dewaele_2019_mao_vinet.svg#only-light)
+![Source/target and reconstructed central values for tungsten_dewaele_2019_mao_vinet](figures/tungsten_dewaele_2019_mao_vinet-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 31.724 | 0.032 | 31.72380788852021 | Not specified | Free |
-| K0 | 298.3 | 4.1 | 298.2828928549196 | Not specified | Free |
-| K0\_prime | 3.82 | 0.11 | 3.8151712079835667 | Not specified | Free |
+| V0 | 31.72 | 0.03 | 31.7238 | Not reported | Free |
+| K0 | 298 | 4 | 298.283 | Not reported | Free |
+| K0\_prime | 3.82 | 0.11 | 3.81517 | Not reported | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
-- **Observed pressure range gpa:** \[0.0, 144.3\]
+- **Observed pressure range gpa:** 0; 144.3
 - **Solver success:** True
 - **Solver message:** dedicated Dewaele (2019) refit completed
-- **Rmse gpa:** 0.5773964095092282
+- **Rmse gpa:** 0.577396
 
 </details>
 
@@ -367,7 +440,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `tungsten_dewaele_2019_mao_vinet`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/tungsten.eosmat).
@@ -406,31 +479,48 @@ Record: `tungsten_dewaele_2019_dor_vinet` · Model: `Vinet`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for tungsten_dewaele_2019_dor_vinet](figures/tungsten_dewaele_2019_dor_vinet-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for tungsten_dewaele_2019_dor_vinet](figures/tungsten_dewaele_2019_dor_vinet-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.581 |
+| Reconstruction / refit | 0.579 |
+
+Both fits use the same 42 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** audit volume in record units. **Row selection:** complete.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for tungsten_dewaele_2019_dor_vinet](figures/tungsten_dewaele_2019_dor_vinet.svg)
+![Source/target and reconstructed central values for tungsten_dewaele_2019_dor_vinet](figures/tungsten_dewaele_2019_dor_vinet.svg#only-light)
+![Source/target and reconstructed central values for tungsten_dewaele_2019_dor_vinet](figures/tungsten_dewaele_2019_dor_vinet-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 31.716 | 0.032 | 31.715451429377534 | Not specified | Free |
-| K0 | 298.6 | 4.1 | 298.5707930715493 | Not specified | Free |
-| K0\_prime | 4.37 | 0.11 | 4.367303906905507 | Not specified | Free |
+| V0 | 31.72 | 0.03 | 31.7155 | Not reported | Free |
+| K0 | 299 | 4 | 298.571 | Not reported | Free |
+| K0\_prime | 4.37 | 0.11 | 4.3673 | Not reported | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
-- **Observed pressure range gpa:** \[0.0, 155.2907483824007\]
+- **Observed pressure range gpa:** 0; 155.291
 - **Solver success:** True
 - **Solver message:** dedicated Dewaele (2019) refit completed
-- **Rmse gpa:** 0.5794876562451563
+- **Rmse gpa:** 0.579488
 
 </details>
 
@@ -440,7 +530,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `tungsten_dewaele_2019_dor_vinet`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/tungsten.eosmat).
@@ -479,21 +569,38 @@ Record: `tungsten_dewaele_2004_mao_ruby_vinet` · Model: `Vinet`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for tungsten_dewaele_2004_mao_ruby_vinet](figures/tungsten_dewaele_2004_mao_ruby_vinet-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for tungsten_dewaele_2004_mao_ruby_vinet](figures/tungsten_dewaele_2004_mao_ruby_vinet-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.579 |
+| Reconstruction / refit | 0.578 |
+
+Both fits use the same 42 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** atomic\_volume\_a3. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for tungsten_dewaele_2004_mao_ruby_vinet](figures/tungsten_dewaele_2004_mao_ruby_vinet.svg)
+![Source/target and reconstructed central values for tungsten_dewaele_2004_mao_ruby_vinet](figures/tungsten_dewaele_2004_mao_ruby_vinet.svg#only-light)
+![Source/target and reconstructed central values for tungsten_dewaele_2004_mao_ruby_vinet](figures/tungsten_dewaele_2004_mao_ruby_vinet-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 298.3 | 3.6 | 298.6920450821574 | 3.1874732947699425 | Free |
-| K0\_prime | 3.81 | 0.1 | 3.801931970782946 | 0.09472714981508523 | Free |
+| K0 | 298 | 4 | 299 | 3 | Free |
+| K0\_prime | 3.81 | 0.10 | 3.80 | 0.09 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -503,15 +610,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** ruby\_pressure\_classical\_gpa
     - **Temperature:** Not specified
     - **Volume:** atomic\_volume\_a3
-- **Observed pressure range gpa:** \[0.0, 144.3\]
+- **Observed pressure range gpa:** 0; 144.3
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[23.872, 31.704\]
+- **Observed volume range:** 23.872; 31.704
 - **Degrees of freedom:** 40
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.4761818012430946
-- **Published rmse gpa:** 0.5785375974644915
-- **Reduced chi square:** 0.28770095909695365
+- **Rmse gpa:** 0.476182
+- **Published rmse gpa:** 0.578538
+- **Reduced chi square:** 0.287701
 
 </details>
 
@@ -520,7 +627,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `tungsten_dewaele_2004_mao_ruby_vinet`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/tungsten.eosmat).

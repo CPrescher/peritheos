@@ -48,21 +48,38 @@ Record: `fe_shen_2026_vinet_1` · Model: `Vinet`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for fe_shen_2026_vinet_1](figures/fe_shen_2026_vinet_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for fe_shen_2026_vinet_1](figures/fe_shen_2026_vinet_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.215 |
+| Reconstruction / refit | 0.215 |
+
+Both fits use the same 42 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** unit\_cell\_volume\_a3. **Row selection:** bcc-Fe; DAC-1 and DAC-2.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for fe_shen_2026_vinet_1](figures/fe_shen_2026_vinet_1.svg)
+![Source/target and reconstructed central values for fe_shen_2026_vinet_1](figures/fe_shen_2026_vinet_1.svg#only-light)
+![Source/target and reconstructed central values for fe_shen_2026_vinet_1](figures/fe_shen_2026_vinet_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 162.1 | 2.5 | 162.3514810441337 | 2.4913739665854386 | Free |
-| K0\_prime | 5.4 | 0.5 | 5.345415186411802 | 0.4926613969210368 | Free |
+| K0 | 162.1 | 2.5 | 162.4 | 2.5 | Free |
+| K0\_prime | 5.4 | 0.5 | 5.3 | 0.5 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -72,15 +89,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** Fratanduono-2020 298 K Cu pressure reconstructed per run
     - **Temperature:** Not specified
     - **Volume:** unit\_cell\_volume\_a3
-- **Observed pressure range gpa:** \[2.786190605963631, 15.735215643013111\]
+- **Observed pressure range gpa:** 2.78619; 15.7352
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[21.72444, 23.12581\]
+- **Observed volume range:** 21.7244; 23.1258
 - **Degrees of freedom:** 40
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.21506885344816878
-- **Published rmse gpa:** 0.21510416076590483
-- **Reduced chi square:** 0.04856734230968539
+- **Rmse gpa:** 0.215069
+- **Published rmse gpa:** 0.215104
+- **Reduced chi square:** 0.0485673
 - **Pressure reconstruction:**
     - **Density0 g cm3:** 8.939
     - **DOI:** 10.1103/PhysRevLett.124.015701
@@ -93,7 +110,7 @@ Values and reported errors are copied without rounding or conversion from the na
         - **Psi:** 1.65
     - **Reference:** Fratanduono et al. (2020)
     - **Reference eos record:** copper\_fratanduono\_2020\_vinet3\_298k
-    - **Reference unit cell volume a3:** 47.218085048721
+    - **Reference unit cell volume a3:** 47.2181
     - **Source locations:** main article Table I, 298 K isotherm row; Supplemental Material Eq. (2), Section S4
 
 </details>
@@ -103,7 +120,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `fe_shen_2026_vinet_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/fe.eosmat).

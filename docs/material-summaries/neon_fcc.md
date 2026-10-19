@@ -123,11 +123,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 1.43 | 0.14 | 1.5182220582605885 | 0.1195033052004044 | Free |
-| K0\_prime | 8.02 | 0.31 | 7.713752591624531 | 0.38055629711750694 | Free |
-| q | 0.6 | 0.3 | 0.6181752608698434 | 0.12877065447628067 | Free |
+| K0 | 1.43 | 0.14 | 1.52 | 0.12 | Free |
+| K0\_prime | 8.0 | 0.3 | 7.7 | 0.4 | Free |
+| q | 0.6 | 0.3 | 0.62 | 0.13 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** diagnostic\_joint\_pvt
 - **Free parameters:** K0; K0\_prime; q
@@ -136,11 +137,11 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
     - **Gamma0:** 2.05
     - **Theta0:** 75.1
 - **Observations:** 54
-- **Observed pressure range gpa:** \[4.83, 115.715945233\]
-- **Observed temperature range k:** \[300.0, 1000.0\]
+- **Observed pressure range gpa:** 4.83; 115.716
+- **Observed temperature range k:** 300; 1000
 - **Solver success:** True
-- **Rmse gpa:** 0.9968994754037073
-- **Published rmse gpa:** 1.0064452317540593
+- **Rmse gpa:** 0.996899
+- **Published rmse gpa:** 1.00645
 - **Dataset identifiers:** neon\_fei\_2007\_figure5\_digitized; neon\_hemley\_1989\_table1\_fei\_recalculated; neon\_finger\_1981\_table1; neon\_fei\_2007\_figure5\_1000k\_digitized
 
 </details>
@@ -326,11 +327,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 1.16 | 0.14 | 1.1904095828283714 | 0.044824837066523536 | Free |
-| K0\_prime | 8.23 | 0.31 | 8.176482612977884 | 0.07713244213469729 | Free |
-| q | 0.6 | 0.3 | 0.6222960580475505 | 0.13340786728850254 | Free |
+| K0 | 1.16 | 0.14 | 1.19 | 0.04 | Free |
+| K0\_prime | 8.2 | 0.3 | 8.18 | 0.08 | Free |
+| q | 0.6 | 0.3 | 0.62 | 0.13 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** diagnostic\_joint\_pvt
 - **Free parameters:** K0; K0\_prime; q
@@ -339,11 +341,11 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
     - **Gamma0:** 2.05
     - **Theta0:** 75.1
 - **Observations:** 54
-- **Observed pressure range gpa:** \[4.83, 115.715945233\]
-- **Observed temperature range k:** \[300.0, 1000.0\]
+- **Observed pressure range gpa:** 4.83; 115.716
+- **Observed temperature range k:** 300; 1000
 - **Solver success:** True
-- **Rmse gpa:** 1.0229458085559253
-- **Published rmse gpa:** 1.0278664292160768
+- **Rmse gpa:** 1.02295
+- **Published rmse gpa:** 1.02787
 - **Dataset identifiers:** neon\_fei\_2007\_figure5\_digitized; neon\_hemley\_1989\_table1\_fei\_recalculated; neon\_finger\_1981\_table1; neon\_fei\_2007\_figure5\_1000k\_digitized
 
 </details>
@@ -519,10 +521,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 1.7277462566083195 | 0.22322191999036312 | 1.7277485613618908 | 0.2232218905071419 | Free |
-| K0\_prime | 6.972110967032526 | 0.5439133435530098 | 6.972105349252884 | 0.5439118223351491 | Free |
+| K0 | 1.73 | 0.22 | 1.73 | 0.22 | Free |
+| K0\_prime | 7.0 | 0.5 | 7.0 | 0.5 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -535,15 +538,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 21
-- **Observed pressure range gpa:** \[10.0, 110.4\]
+- **Observed pressure range gpa:** 10; 110.4
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[25.076571983, 45.384685263\]
+- **Observed volume range:** 25.0766; 45.3847
 - **Degrees of freedom:** 19
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.027066792396926876
-- **Published rmse gpa:** 0.9156108479099396
-- **Reduced chi square:** 0.311633157391931
+- **Rmse gpa:** 0.0270668
+- **Published rmse gpa:** 0.915611
+- **Reduced chi square:** 0.311633
 - **Dataset identifiers:** neon\_hemley\_1989\_table1\_compression
 
 </details>

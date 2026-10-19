@@ -129,20 +129,21 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 16.28 | 0.04 | 16.31593787701798 | Not specified | See protocol |
-| K0\_prime | 5.28 | 0.02 | 5.255871185051541 | Not specified | See protocol |
-| gamma0 | 2.18 | 0.14 | 2.166479029403295 | Not specified | See protocol |
-| q | 1.52 | 0.24 | 1.4741843779781867 | Not specified | See protocol |
+| K0 | 16.28 | 0.04 | 16.3159 | Not reported | See protocol |
+| K0\_prime | 5.280 | 0.020 | 5.25587 | Not reported | See protocol |
+| gamma0 | 2.18 | 0.14 | 2.16648 | Not reported | See protocol |
+| q | 1.52 | 0.24 | 1.47418 | Not reported | See protocol |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** iterated\_effective\_variance\_bm3\_mgd
 - **Objective:** iterated frozen diagonal effective P/V/T variance
 - **Fixed parameters:** V0; Tr; theta0; n
 - **Observations:** 123
 - **Solver success:** True
-- **Rmse gpa:** 0.1567603609069775
-- **Published rmse gpa:** 0.15948654363882814
+- **Rmse gpa:** 0.15676
+- **Published rmse gpa:** 0.159487
 - **Dataset identifiers:** rbbr\_farla\_2025\_observations
 - **Reproduction report:** docs/data/rubidium-halides-farla-2025-follow-up.json
 

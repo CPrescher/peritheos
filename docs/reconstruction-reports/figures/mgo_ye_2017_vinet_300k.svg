@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<!-- peritheos-comparison data=e045b36cdaaebc02ba0c31cbcd7d7e1f72265ade5457c52416b17a5aaad77507 body=a913752b551108e04c7f02361ca8d82d4b1363ed53e2390b8cef3e8873c71494 -->
+<!-- peritheos-comparison data=560741eb76ba41e2dc08c4db699eefbf7b2a794bb9eb2dc2554f93b2a71d6204 body=9797b5e4a465905016e287a82b15798389839a0600a2b305658f82983581dfba -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="518.4pt" height="154.8pt" viewBox="0 0 518.4 154.8" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -9,7 +9,7 @@
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
     <dc:title>Stored source and reconstructed coefficients</dc:title>
-    <dc:description>Central-value comparison only; no observations, residuals or inferred confidence intervals.</dc:description>
+    <dc:description>Stored coefficients and available reported error widths; confidence conventions remain those of the named audit.</dc:description>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -191,6 +191,46 @@ z
     </defs>
     <g clip-path="url(#p137748983c)">
      <use xlink:href="#m79c71298e6" x="486.221948" y="92.75448" style="fill: #ae4c14; stroke: #ae4c14"/>
+    </g>
+   </g>
+   <g id="LineCollection_1">
+    <path d="M 484.524857 44.111926
+L 487.838566 44.111926
+" clip-path="url(#p137748983c)" style="fill: none; stroke: #245b8a; stroke-width: 1.5"/>
+   </g>
+   <g id="line2d_15">
+    <defs>
+     <path id="m002537e231" d="M 0 3
+L 0 -3
+" style="stroke: #245b8a"/>
+    </defs>
+    <g clip-path="url(#p137748983c)">
+     <use xlink:href="#m002537e231" x="484.524857" y="44.111926" style="fill: #245b8a; stroke: #245b8a"/>
+    </g>
+   </g>
+   <g id="line2d_16">
+    <g clip-path="url(#p137748983c)">
+     <use xlink:href="#m002537e231" x="487.838566" y="44.111926" style="fill: #245b8a; stroke: #245b8a"/>
+    </g>
+   </g>
+   <g id="LineCollection_2">
+    <path d="M 484.56873 92.75448
+L 487.875166 92.75448
+" clip-path="url(#p137748983c)" style="fill: none; stroke: #ae4c14; stroke-width: 1.5"/>
+   </g>
+   <g id="line2d_17">
+    <defs>
+     <path id="m3def4cd5cd" d="M 0 3
+L 0 -3
+" style="stroke: #ae4c14"/>
+    </defs>
+    <g clip-path="url(#p137748983c)">
+     <use xlink:href="#m3def4cd5cd" x="484.56873" y="92.75448" style="fill: #ae4c14; stroke: #ae4c14"/>
+    </g>
+   </g>
+   <g id="line2d_18">
+    <g clip-path="url(#p137748983c)">
+     <use xlink:href="#m3def4cd5cd" x="487.875166" y="92.75448" style="fill: #ae4c14; stroke: #ae4c14"/>
     </g>
    </g>
    <g id="patch_3">

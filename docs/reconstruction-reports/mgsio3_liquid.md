@@ -48,31 +48,46 @@ Record: `mgsio3_liquid_akins_2004_adiabatic_bm3` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Source and refit curves with native-coordinate residuals for mgsio3_liquid_akins_2004_adiabatic_bm3](figures/mgsio3_liquid_akins_2004_adiabatic_bm3-curves.svg#only-light)
+![Source and refit curves with native-coordinate residuals for mgsio3_liquid_akins_2004_adiabatic_bm3](figures/mgsio3_liquid_akins_2004_adiabatic_bm3-curves-dark.svg#only-dark)
+
+| Output / replay scope | Points | Residual units | Source RMS | Refit RMS |
+| --- | ---: | --- | ---: | ---: |
+| Energy-balanced liquid Hugoniot | 3 | GPa | 6.85 | 6.79 |
+
+Only the three source-selected Akins/enstatite/melt shock states enter this diagnostic. Curves use each recorded initial density and the audit's fixed Mie–Grüneisen/transition-energy reduction. They are theoretical Hugoniots, not the catalog's reference isentrope fitted directly to shock states. Pressure residuals use the source shock pressures. The bounded, ill-conditioned reconstruction and its original qualifications remain applicable.
+
+
+Each panel uses the stored source and reconstructed coefficients on the same selected inputs. RMS errors are unweighted descriptive errors in the panel's native units, separate from parameter uncertainties and the weighted fitting objective. Error bars retain the available source widths; missing uncertainty is not zero. No new optimization or uncertainty band is introduced.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for mgsio3_liquid_akins_2004_adiabatic_bm3](figures/mgsio3_liquid_akins_2004_adiabatic_bm3.svg)
+![Source/target and reconstructed central values for mgsio3_liquid_akins_2004_adiabatic_bm3](figures/mgsio3_liquid_akins_2004_adiabatic_bm3.svg#only-light)
+![Source/target and reconstructed central values for mgsio3_liquid_akins_2004_adiabatic_bm3](figures/mgsio3_liquid_akins_2004_adiabatic_bm3-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 45.29797155879917 | Not specified | 45.185995019007876 | 16.23987881216223 | Free |
-| K0 | 125.0 | Not specified | 125.46292307750784 | 129.29534947040386 | Free |
+| V0 | 45.298 | Not reported | 45 | 16 | Free |
+| K0 | 125 | Not reported | 130 | 130 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
-- **Observed pressure range gpa:** \[174.0, 204.3\]
+- **Observed pressure range gpa:** 174; 204.3
 - **Degrees of freedom:** 1
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 6.7945426904420545
+- **Rmse gpa:** 6.79454
 
 </details>
 
@@ -82,7 +97,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `mgsio3_liquid_akins_2004_adiabatic_bm3`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/mgsio3_liquid.eosmat).

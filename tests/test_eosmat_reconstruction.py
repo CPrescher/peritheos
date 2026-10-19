@@ -159,20 +159,21 @@ def test_comparison_survives_exports_without_replacing_calculation_parameters():
         "published_error",
     ]
     sheet = "\n".join(reconstruction(legacy["eos_records"][0]))
-    assert "180.12345678901235" in sheet and "160" in sheet
+    assert "180.1" in sheet and "160" in sheet
+    assert "180.12345678901235" not in sheet
     assert "Fixed/adopted coefficients" in sheet and "do not replace" in sheet
     assessment = legacy["eos_records"][0]["reproduction"]["assessment"]
     assessment["parameters"].append(
         {"parameter": "K0_prime", "published": 4, "refit": 4}
     )
     sheet = "\n".join(reconstruction(legacy["eos_records"][0]))
-    assert "| 4 | Not specified | 4 | Not specified | Fixed/adopted |" in sheet
+    assert "| 4 | Not reported | 4 | Not reported | Fixed/adopted |" in sheet
     assessment["fit"] = {
         "fixed_parameters": "K0_prime was constrained",
         "free_parameters": None,
     }
     sheet = "\n".join(reconstruction(legacy["eos_records"][0]))
-    assert "| 4 | Not specified | 4 | Not specified | See protocol |" in sheet
+    assert "| 4 | Not reported | 4 | Not reported | See protocol |" in sheet
 
 
 @pytest.mark.parametrize(

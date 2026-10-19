@@ -20,6 +20,78 @@ Use the generated [material summaries](material-summaries/index.md) to inspect
 existing parameterizations and their qualifications. The template is fictional
 and deliberately unaudited; the acceptance requirements below still apply.
 
+### Reconstruction report presentation
+
+Every [reconstruction report](reconstruction-reports/index.md) must expose the
+original/source and reconstructed coefficients, available parameter errors, and
+fit error for both curves. Show P–V curves (pressure on the horizontal axis),
+or the appropriate fitted quantity for velocity, acoustic and joint objectives,
+the selected input rows, and residuals for each curve on the same rows. Define
+the residual sign, coordinate, units and RMS statistic. Distinguish parameter
+uncertainty from descriptive residual error; retain confidence, weighting,
+fixed-parameter and staged-fit qualifications. A stored Peritheos refit used as
+the comparison target must be labelled as such.
+
+Round displayed uncertainties to two significant digits when their leading digit
+is 1 or 2, otherwise one, and round the corresponding value to the same decimal
+place. For example, `25.447259 ± 0.091348` is displayed as `25.45 ± 0.09`, and
+`24.9234 ± 0.1125` as `24.92 ± 0.11`. Preserve the selected decimal place on
+carry (`0.099` becomes `0.10`). Values without a positive reported error use at
+most six significant digits; this display limit does not estimate uncertainty.
+Missing errors must be labelled; a reported zero does not mean an exact value.
+Preserve full source and computed precision in EOSMAT and numerical evidence.
+
+The repository-only maintenance command
+`uv run --group docs python -m scripts.generate_reconstruction_reports` replays
+stored coefficients without optimizing or changing scientific assessments.
+`--check` checks generated pages and fingerprinted SVGs. Its P–V adapters reuse
+the named audit's row selection, pressure reduction and volume normalization;
+row-count and available source-RMS mismatches prevent an incorrect comparison.
+Pressure RMS is evaluated at observed coordinates and may differ from an
+errors-in-variables objective evaluated at fitted latent coordinates. Thermal
+curves are separate labelled isotherms; residuals use every row's temperature.
+Do not connect mixed-temperature observations as one fitted curve.
+
+Curve SVGs retain an integrity-checked, full-precision input snapshot. Freshness
+checks allow only cross-platform numerical roundoff (relative and absolute
+tolerance `1e-9` in the displayed coordinates); labels, selection sizes, renderer
+code and SVG body integrity must still match. This cache tolerance does not
+round stored observations, coefficients, model evaluations or reported errors.
+
+Specialized adapters replay the audit's equations in their actual coordinates:
+Us–up, density–velocity, bulk/shear modulus, energy-balanced shock paths and
+coupled mixed-spin trajectories. A reference HS/LS endmember must not be plotted
+as though it were fitted directly to the mixed-spin observations. Co-compression
+reports show the joint phase-pair equality residuals; their separate calculated
+material-curve differences are explicitly distinguished from data residuals.
+RMS values for different outputs retain their native units and separate panels.
+When a statistic uses a different selection (for example, excluding an ambient
+anchor), identify that difference beside the plot.
+
+Available-subset plots must be prominently marked **partial replay**, both on
+the report and in the index. Tange (2009) MgO displays the public bundled
+expansion, elastic and LASL shock subsets; the restricted legacy inputs and
+surrogate global block are excluded. Zhu (2025) Au/Pt displays released thermal
+expansion only; the intermediate shock-temperature state needed to reproduce
+the saved iterative residual vector was not stored. Do not run a new regression
+or silently substitute a different forward calculation to fill such a gap.
+These plots do not change the recorded reconstruction findings.
+
+Generated curve/residual and coefficient plots have paired light and dark SVGs.
+The documentation's theme toggle selects the appropriate image using Material's
+`#only-light` / `#only-dark` image fragments, including when the site theme differs
+from the operating-system preference. Dark variants change paint only: the
+scientific geometry, text and precision are identical. Direct links to the
+unsuffixed SVG remain light; `-dark.svg` is the standalone dark version.
+
+Where the selected observations, coefficient mapping or pressure-reduction
+replay are unavailable, state the specific gap beside the recorded error
+statistics and link the detailed source audit. Do not invent observations,
+uncertainties or a replacement model to fill a missing panel. New specialized
+audits should supply a replayable row reader in
+`scripts/reconstruction_plot_data.py`, with tests against their stored numerical
+diagnostics, so both curves and residuals appear inline.
+
 ## First classify the contribution
 
 | Contribution | What changes | Main review burden |

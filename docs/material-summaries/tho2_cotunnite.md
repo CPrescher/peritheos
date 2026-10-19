@@ -119,11 +119,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 164.39336765021082 | 0.3985293761217232 | 164.48163575583166 | Not specified | Free |
-| K0 | 190.0 | 3.0 | 191.0397624784711 | Not specified | Free |
-| alpha\_KT | 0.0037 | 0.0004 | 0.003524437225708338 | Not specified | Free |
+| V0 | 164.4 | 0.4 | 164.482 | Not reported | Free |
+| K0 | 190 | 3 | 191.04 | Not reported | Free |
+| alpha\_KT | 0.0037 | 0.0004 | 0.00352444 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** source\_constrained\_bm3\_linear\_thermal\_diagnostic
 - **Objective:** joint pressure residuals divided by fixed propagated coordinate errors including Ar 3% accuracy
@@ -132,8 +133,8 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Fixed parameters:** K0\_prime; Tr
 - **Observations:** 59
 - **Solver success:** True
-- **Rmse gpa:** 0.9595744940835326
-- **Published rmse gpa:** 0.9677019947550033
+- **Rmse gpa:** 0.959574
+- **Published rmse gpa:** 0.967702
 - **Dataset identifiers:** tho2\_cotunnite\_chidester\_2018\_table\_s2
 
 </details>

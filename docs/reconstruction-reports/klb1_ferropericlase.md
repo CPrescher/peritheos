@@ -49,32 +49,49 @@ Record: `klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt` · Model: `BM
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt](figures/klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt](figures/klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 1.59 |
+| Reconstruction / refit | 1.48 |
+
+Both fits use the same 136 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** audit volume in record units. **Row selection:** V0 from the seven limiting high-spin 300 K rows; thermal coefficients from all 136 heated rows with published V0 and K0 fixed.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt](figures/klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt.svg)
+![Source/target and reconstructed central values for klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt](figures/klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt.svg#only-light)
+![Source/target and reconstructed central values for klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt](figures/klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 76.44 | 0.02 | 76.43827898867148 | 0.017711803853117408 | Free |
-| alpha0 | 2.2e-05 | 2e-06 | 2.7597289976043394e-05 | 1.6321859181719822e-06 | Free |
-| alpha1 | 3.61e-08 | 2.7e-09 | 3.087478002503601e-08 | 1.9536510121458086e-09 | Free |
-| dK\_dT | -0.034 | 0.001 | -0.03401873114665049 | 0.0007067326783047755 | Free |
+| V0 | 76.440 | 0.020 | 76.438 | 0.018 | Free |
+| alpha0 | 22.0e-6 | 2.0e-6 | 27.6e-6 | 1.6e-6 | Free |
+| alpha1 | 36.1e-9 | 2.7e-9 | 30.9e-9 | 2.0e-9 | Free |
+| dK\_dT | -0.0340 | 0.0010 | -0.0340 | 0.0007 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
-- **Observed pressure range gpa:** \[27.56, 113.0\]
+- **Observed pressure range gpa:** 27.56; 113
 - **Solver success:** True
 - **Solver message:** dedicated Ricolleau et al. (2009) audit completed
-- **Rmse gpa:** 1.4791143041717107
+- **Rmse gpa:** 1.47911
 
 </details>
 
@@ -84,7 +101,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `klb1_ferropericlase_ricolleau_2009_high_spin_bm2_alphakt`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/klb1_ferropericlase.eosmat).
@@ -124,29 +141,46 @@ Record: `klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2` · Model: `BM2`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2](figures/klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2](figures/klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 1.57 |
+| Reconstruction / refit | 1.58 |
+
+Both fits use the same 7 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** audit volume in record units. **Row selection:** seven limiting low-spin 300 K rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2](figures/klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2.svg)
+![Source/target and reconstructed central values for klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2](figures/klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2.svg#only-light)
+![Source/target and reconstructed central values for klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2](figures/klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 74.04 | 0.02 | 74.04288033963479 | 0.02537519008226588 | Free |
+| V0 | 74.040 | 0.020 | 74.043 | 0.025 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
-- **Observed pressure range gpa:** \[74.21, 98.36\]
+- **Observed pressure range gpa:** 74.21; 98.36
 - **Solver success:** True
 - **Solver message:** dedicated Ricolleau et al. (2009) audit completed
-- **Rmse gpa:** 1.5775129387527014
+- **Rmse gpa:** 1.57751
 
 </details>
 
@@ -155,7 +189,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `klb1_ferropericlase_ricolleau_2009_low_spin_300k_bm2`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/klb1_ferropericlase.eosmat).

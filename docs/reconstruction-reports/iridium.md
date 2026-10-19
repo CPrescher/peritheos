@@ -48,20 +48,37 @@ Record: `iridium_anzellini_2025_bm3_1` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for iridium_anzellini_2025_bm3_1](figures/iridium_anzellini_2025_bm3_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for iridium_anzellini_2025_bm3_1](figures/iridium_anzellini_2025_bm3_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 3.14 |
+| Reconstruction / refit | 3.03 |
+
+Both fits use the same 122 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** iridium\_lattice\_a\_angstrom. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for iridium_anzellini_2025_bm3_1](figures/iridium_anzellini_2025_bm3_1.svg)
+![Source/target and reconstructed central values for iridium_anzellini_2025_bm3_1](figures/iridium_anzellini_2025_bm3_1.svg#only-light)
+![Source/target and reconstructed central values for iridium_anzellini_2025_bm3_1](figures/iridium_anzellini_2025_bm3_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| alpha0 | 1.87e-05 | 8e-07 | 1.7740295689829463e-05 | 3.2880224447968415e-07 | Free |
+| alpha0 | 187e-7 | 8e-7 | 177e-7 | 3e-7 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -71,15 +88,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** mean\_temperature\_k
     - **Volume:** iridium\_lattice\_a\_angstrom
-- **Observed pressure range gpa:** \[22.7, 91.5\]
-- **Observed temperature range k:** \[300.0, 5560.5\]
-- **Observed volume range:** \[47.911251968, 54.958685608\]
+- **Observed pressure range gpa:** 22.7; 91.5
+- **Observed temperature range k:** 300; 5560.5
+- **Observed volume range:** 47.9113; 54.9587
 - **Degrees of freedom:** 121
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 3.0325674077570715
-- **Published rmse gpa:** 3.1375096434286185
-- **Reduced chi square:** 9.272468926248218
+- **Rmse gpa:** 3.03257
+- **Published rmse gpa:** 3.13751
+- **Reduced chi square:** 9.27247
 
 </details>
 
@@ -88,7 +105,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `iridium_anzellini_2025_bm3_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/iridium.eosmat).

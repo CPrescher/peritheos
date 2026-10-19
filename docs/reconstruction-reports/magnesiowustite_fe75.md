@@ -47,22 +47,39 @@ Record: `magnesiowustite_fe75_jacobsen_2002_bm3_1` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for magnesiowustite_fe75_jacobsen_2002_bm3_1](figures/magnesiowustite_fe75_jacobsen_2002_bm3_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for magnesiowustite_fe75_jacobsen_2002_bm3_1](figures/magnesiowustite_fe75_jacobsen_2002_bm3_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.00506 |
+| Reconstruction / refit | 0.00502 |
+
+Both fits use the same 7 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** lattice\_a\_angstrom. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for magnesiowustite_fe75_jacobsen_2002_bm3_1](figures/magnesiowustite_fe75_jacobsen_2002_bm3_1.svg)
+![Source/target and reconstructed central values for magnesiowustite_fe75_jacobsen_2002_bm3_1](figures/magnesiowustite_fe75_jacobsen_2002_bm3_1.svg#only-light)
+![Source/target and reconstructed central values for magnesiowustite_fe75_jacobsen_2002_bm3_1](figures/magnesiowustite_fe75_jacobsen_2002_bm3_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 78.082 | 0.003 | 78.08155886879042 | 0.46085105467415965 | Free |
-| K0 | 151.3 | 0.6 | 151.43998489909333 | 97.81736686394719 | Free |
-| K0\_prime | 5.55 | 0.19 | 5.510939259134723 | 28.212481150457645 | Free |
+| V0 | 78.082 | 0.003 | 78.1 | 0.5 | Free |
+| K0 | 151.3 | 0.6 | 150 | 100 | Free |
+| K0\_prime | 5.55 | 0.19 | 6 | 28 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -72,15 +89,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** Not specified
     - **Volume:** lattice\_a\_angstrom
-- **Observed pressure range gpa:** \[0.0001, 7.179\]
+- **Observed pressure range gpa:** 0.0001; 7.179
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[74.85479508229638, 78.08389552020105\]
+- **Observed volume range:** 74.8548; 78.0839
 - **Degrees of freedom:** 4
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.005024700379593284
-- **Published rmse gpa:** 0.005057308845039083
-- **Reduced chi square:** 4.418556173482458e-05
+- **Rmse gpa:** 0.0050247
+- **Published rmse gpa:** 0.00505731
+- **Reduced chi square:** 4.41856e-05
 
 </details>
 
@@ -89,7 +106,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `magnesiowustite_fe75_jacobsen_2002_bm3_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/magnesiowustite_fe75.eosmat).

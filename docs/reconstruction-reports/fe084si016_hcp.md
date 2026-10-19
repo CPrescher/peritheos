@@ -49,23 +49,40 @@ Record: `fe084si016_hcp_fischer_2014_bm3_1` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for fe084si016_hcp_fischer_2014_bm3_1](figures/fe084si016_hcp_fischer_2014_bm3_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for fe084si016_hcp_fischer_2014_bm3_1](figures/fe084si016_hcp_fischer_2014_bm3_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 1.36 |
+| Reconstruction / refit | 1.35 |
+
+Both fits use the same 76 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** hcp\_volume\_a3. **Row selection:** phase=hcp.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for fe084si016_hcp_fischer_2014_bm3_1](figures/fe084si016_hcp_fischer_2014_bm3_1.svg)
+![Source/target and reconstructed central values for fe084si016_hcp_fischer_2014_bm3_1](figures/fe084si016_hcp_fischer_2014_bm3_1.svg#only-light)
+![Source/target and reconstructed central values for fe084si016_hcp_fischer_2014_bm3_1](figures/fe084si016_hcp_fischer_2014_bm3_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.V0 | 23.921725801706437 | 0.17933821925477544 | 23.877799732461103 | 0.29640929957744455 | Free |
-| rt\_eos.K0 | 129.1 | 1.4 | 131.1223222591529 | 14.641112194006409 | Free |
-| rt\_eos.K0\_prime | 5.29 | 0.08 | 5.254359871574407 | 0.2693800928158629 | Free |
-| gamma0 | 1.14 | 0.14 | 1.1846549216904039 | 0.15009376867056062 | Free |
+| rt\_eos.V0 | 23.92 | 0.18 | 23.88 | 0.30 | Free |
+| rt\_eos.K0 | 129.1 | 1.4 | 131 | 15 | Free |
+| rt\_eos.K0\_prime | 5.29 | 0.08 | 5.25 | 0.27 | Free |
+| gamma0 | 1.14 | 0.14 | 1.18 | 0.15 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -75,15 +92,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** temperature\_k
     - **Volume:** hcp\_volume\_a3
-- **Observed pressure range gpa:** \[46.46991151576709, 197.0644255148494\]
-- **Observed temperature range k:** \[1128.7150000000001, 2566.255\]
-- **Observed volume range:** \[15.242475553688518, 19.650928459386936\]
+- **Observed pressure range gpa:** 46.4699; 197.064
+- **Observed temperature range k:** 1128.72; 2566.26
+- **Observed volume range:** 15.2425; 19.6509
 - **Degrees of freedom:** 72
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 1.353860642273373
-- **Published rmse gpa:** 1.3644500996350781
-- **Reduced chi square:** 1.9347685630689186
+- **Rmse gpa:** 1.35386
+- **Published rmse gpa:** 1.36445
+- **Reduced chi square:** 1.93477
 
 </details>
 
@@ -93,7 +110,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `fe084si016_hcp_fischer_2014_bm3_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/fe084si016_hcp.eosmat).
@@ -133,23 +150,40 @@ Record: `fe084si016_hcp_fischer_2014_vinet_2` · Model: `Vinet`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for fe084si016_hcp_fischer_2014_vinet_2](figures/fe084si016_hcp_fischer_2014_vinet_2-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for fe084si016_hcp_fischer_2014_vinet_2](figures/fe084si016_hcp_fischer_2014_vinet_2-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 1.38 |
+| Reconstruction / refit | 1.36 |
+
+Both fits use the same 76 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** hcp\_volume\_a3. **Row selection:** phase=hcp.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for fe084si016_hcp_fischer_2014_vinet_2](figures/fe084si016_hcp_fischer_2014_vinet_2.svg)
+![Source/target and reconstructed central values for fe084si016_hcp_fischer_2014_vinet_2](figures/fe084si016_hcp_fischer_2014_vinet_2.svg#only-light)
+![Source/target and reconstructed central values for fe084si016_hcp_fischer_2014_vinet_2](figures/fe084si016_hcp_fischer_2014_vinet_2-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.V0 | 24.187412052454253 | 0.08302695335869234 | 24.22943692257538 | 0.33293807509812645 | Free |
-| rt\_eos.K0 | 111.4 | 1.2 | 109.52134882742749 | 13.511642518280398 | Free |
-| rt\_eos.K0\_prime | 6.08 | 0.08 | 6.124474609084446 | 0.27279937825655115 | Free |
-| gamma0 | 1.15 | 0.15 | 1.19757940302062 | 0.15251652052914422 | Free |
+| rt\_eos.V0 | 24.19 | 0.08 | 24.2 | 0.3 | Free |
+| rt\_eos.K0 | 111.4 | 1.2 | 110 | 14 | Free |
+| rt\_eos.K0\_prime | 6.08 | 0.08 | 6.12 | 0.27 | Free |
+| gamma0 | 1.15 | 0.15 | 1.20 | 0.15 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -159,15 +193,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** temperature\_k
     - **Volume:** hcp\_volume\_a3
-- **Observed pressure range gpa:** \[46.46991151576709, 197.0644255148494\]
-- **Observed temperature range k:** \[1128.7150000000001, 2566.255\]
-- **Observed volume range:** \[15.242475553688518, 19.650928459386936\]
+- **Observed pressure range gpa:** 46.4699; 197.064
+- **Observed temperature range k:** 1128.72; 2566.26
+- **Observed volume range:** 15.2425; 19.6509
 - **Degrees of freedom:** 72
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 1.355083352265737
-- **Published rmse gpa:** 1.3839029983369042
-- **Reduced chi square:** 1.938264830009289
+- **Rmse gpa:** 1.35508
+- **Published rmse gpa:** 1.3839
+- **Reduced chi square:** 1.93826
 
 </details>
 
@@ -177,7 +211,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `fe084si016_hcp_fischer_2014_vinet_2`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/fe084si016_hcp.eosmat).

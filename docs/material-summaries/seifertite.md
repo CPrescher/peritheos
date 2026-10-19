@@ -119,12 +119,13 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.V0 | 92.3 | 0.5 | 91.5098931548666 | 9.942180677319786 | Free |
-| rt\_eos.K0 | 290.0 | 10.0 | 307.5949877577548 | 204.5861312455744 | Free |
-| theta0 | 1600.0 | 200.0 | 2329.397304746349 | 4424.946796032946 | Free |
-| gamma0 | 1.6 | 0.2 | 1.842480689184046 | 2.512098696423555 | Free |
+| rt\_eos.V0 | 92.3 | 0.5 | 92 | 10 | Free |
+| rt\_eos.K0 | 290 | 10 | 310 | 200 | Free |
+| theta0 | 1600 | 200 | 2000 | 4000 | Free |
+| gamma0 | 1.60 | 0.20 | 1.8 | 2.5 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** joint\_pvt
 - **Objective:** errors\_in\_variables
@@ -137,15 +138,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** rt\_eos.V0; rt\_eos.K0; theta0; gamma0
 - **Fixed parameters:** q; n
 - **Observations:** 20
-- **Observed pressure range gpa:** \[111.8, 140.5\]
-- **Observed temperature range k:** \[300.0, 3030.0\]
-- **Observed volume range:** \[70.7, 73.1\]
+- **Observed pressure range gpa:** 111.8; 140.5
+- **Observed temperature range k:** 300; 3030
+- **Observed volume range:** 70.7; 73.1
 - **Degrees of freedom:** 16
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.13740983523478445
-- **Published rmse gpa:** 1.139641424838796
-- **Reduced chi square:** 0.01306121653612071
+- **Rmse gpa:** 0.13741
+- **Published rmse gpa:** 1.13964
+- **Reduced chi square:** 0.0130612
 - **Dataset identifiers:** seifertite\_sun\_2019\_dataset\_s2\_pvt
 
 </details>

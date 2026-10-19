@@ -47,24 +47,41 @@ Record: `mg087fe013sio3_bridgmanite_wolf_2015_vinet_mgd_1` · Model: `Vinet`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for mg087fe013sio3_bridgmanite_wolf_2015_vinet_mgd_1](figures/mg087fe013sio3_bridgmanite_wolf_2015_vinet_mgd_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for mg087fe013sio3_bridgmanite_wolf_2015_vinet_mgd_1](figures/mg087fe013sio3_bridgmanite_wolf_2015_vinet_mgd_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 1.95 |
+| Reconstruction / refit | 1.94 |
+
+Both fits use the same 153 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** bridgmanite\_unit\_cell\_volume\_a3. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for mg087fe013sio3_bridgmanite_wolf_2015_vinet_mgd_1](figures/mg087fe013sio3_bridgmanite_wolf_2015_vinet_mgd_1.svg)
+![Source/target and reconstructed central values for mg087fe013sio3_bridgmanite_wolf_2015_vinet_mgd_1](figures/mg087fe013sio3_bridgmanite_wolf_2015_vinet_mgd_1.svg#only-light)
+![Source/target and reconstructed central values for mg087fe013sio3_bridgmanite_wolf_2015_vinet_mgd_1](figures/mg087fe013sio3_bridgmanite_wolf_2015_vinet_mgd_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.V0 | 163.16 | 0.19 | 162.60249726814212 | 0.9892223853928208 | Free |
-| rt\_eos.K0 | 243.8 | 4.3 | 254.1786085606223 | 20.258233450273092 | Free |
-| rt\_eos.K0\_prime | 4.16 | 0.11 | 3.9857458076163974 | 0.38012192157554864 | Free |
-| gamma0 | 1.4 | 0.11 | 1.39320084076452 | 0.16372684916820773 | Free |
-| q | 0.56 | 0.37 | 0.5535850391932572 | 0.5406059438791783 | Free |
+| rt\_eos.V0 | 163.16 | 0.19 | 162.6 | 1.0 | Free |
+| rt\_eos.K0 | 244 | 4 | 254 | 20 | Free |
+| rt\_eos.K0\_prime | 4.16 | 0.11 | 4.0 | 0.4 | Free |
+| gamma0 | 1.40 | 0.11 | 1.39 | 0.16 | Free |
+| q | 0.6 | 0.4 | 0.6 | 0.5 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -74,15 +91,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** temperature\_k
     - **Volume:** bridgmanite\_unit\_cell\_volume\_a3
-- **Observed pressure range gpa:** \[33.15, 132.7\]
-- **Observed temperature range k:** \[300.0, 2455.0\]
-- **Observed volume range:** \[122.42, 146.59\]
+- **Observed pressure range gpa:** 33.15; 132.7
+- **Observed temperature range k:** 300; 2455
+- **Observed volume range:** 122.42; 146.59
 - **Degrees of freedom:** 148
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 1.0712048891019135
-- **Published rmse gpa:** 1.9496990046194926
-- **Reduced chi square:** 0.613916105009841
+- **Rmse gpa:** 1.0712
+- **Published rmse gpa:** 1.9497
+- **Reduced chi square:** 0.613916
 
 </details>
 
@@ -91,7 +108,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `mg087fe013sio3_bridgmanite_wolf_2015_vinet_mgd_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/mg087fe013sio3_bridgmanite.eosmat).

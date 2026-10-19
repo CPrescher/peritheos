@@ -49,20 +49,37 @@ Record: `e_feooh_gleason_2008_bm2_1` · Model: `BM2`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for e_feooh_gleason_2008_bm2_1](figures/e_feooh_gleason_2008_bm2_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for e_feooh_gleason_2008_bm2_1](figures/e_feooh_gleason_2008_bm2_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.946 |
+| Reconstruction / refit | 0.946 |
+
+Both fits use the same 49 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** cell\_volume\_a3 reduced to 300 K. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for e_feooh_gleason_2008_bm2_1](figures/e_feooh_gleason_2008_bm2_1.svg)
+![Source/target and reconstructed central values for e_feooh_gleason_2008_bm2_1](figures/e_feooh_gleason_2008_bm2_1.svg#only-light)
+![Source/target and reconstructed central values for e_feooh_gleason_2008_bm2_1](figures/e_feooh_gleason_2008_bm2_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 158.0 | 5.0 | 158.0986983485346 | 1.6723069894662843 | Free |
+| K0 | 158 | 5 | 158.1 | 1.7 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -72,15 +89,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** temperature\_celsius
     - **Volume:** cell\_volume\_a3 reduced to 300 K
-- **Observed pressure range gpa:** \[3.81, 21.01\]
-- **Observed temperature range k:** \[473.15, 673.15\]
-- **Observed volume range:** \[60.4, 65.03\]
+- **Observed pressure range gpa:** 3.81; 21.01
+- **Observed temperature range k:** 473.15; 673.15
+- **Observed volume range:** 60.4; 65.03
 - **Degrees of freedom:** 48
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.9456977490356161
-- **Published rmse gpa:** 0.9457320622338763
-- **Reduced chi square:** 0.9129764040420943
+- **Rmse gpa:** 0.945698
+- **Published rmse gpa:** 0.945732
+- **Reduced chi square:** 0.912976
 
 </details>
 
@@ -89,7 +106,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `e_feooh_gleason_2008_bm2_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/e_feooh.eosmat).
@@ -128,24 +145,41 @@ Record: `e_feooh_suzuki_2016_bm3_thermal_2` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for e_feooh_suzuki_2016_bm3_thermal_2](figures/e_feooh_suzuki_2016_bm3_thermal_2-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for e_feooh_suzuki_2016_bm3_thermal_2](figures/e_feooh_suzuki_2016_bm3_thermal_2-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.102 |
+| Reconstruction / refit | 0.0938 |
+
+Both fits use the same 33 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** cell\_volume\_a3. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for e_feooh_suzuki_2016_bm3_thermal_2](figures/e_feooh_suzuki_2016_bm3_thermal_2.svg)
+![Source/target and reconstructed central values for e_feooh_suzuki_2016_bm3_thermal_2](figures/e_feooh_suzuki_2016_bm3_thermal_2.svg#only-light)
+![Source/target and reconstructed central values for e_feooh_suzuki_2016_bm3_thermal_2](figures/e_feooh_suzuki_2016_bm3_thermal_2-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.K0 | 135.0 | 3.0 | 132.2948372496863 | 6.436715796348928e-11 | Free |
-| rt\_eos.K0\_prime | 6.1 | 0.9 | 6.861798756973407 | 0.0061887390074661375 | Free |
-| alpha0 | 2.6e-05 | 7e-06 | 3.0412845500814004e-05 | 5.089818923191499e-05 | Free |
-| alpha1 | 1e-07 | 3e-08 | 1.1170942997601218e-07 | 2.4282015212479566e-07 | Free |
-| dK\_dT | -0.05 | 0.02 | -0.0609132438044162 | 0.1620030288469084 | Free |
+| rt\_eos.K0 | 135 | 3 | 13229483724969e-11 | 6e-11 | Free |
+| rt\_eos.K0\_prime | 6.1 | 0.9 | 6.862 | 0.006 | Free |
+| alpha0 | 26e-6 | 7e-6 | 3e-5 | 5e-5 | Free |
+| alpha1 | 10e-8 | 3e-8 | 1.1e-7 | 2.4e-7 | Free |
+| dK\_dT | -0.050 | 0.020 | -0.06 | 0.16 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -155,15 +189,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** temperature\_k
     - **Volume:** cell\_volume\_a3
-- **Observed pressure range gpa:** \[0.0001, 11.07\]
-- **Observed temperature range k:** \[300.0, 700.0\]
-- **Observed volume range:** \[62.19, 66.278\]
+- **Observed pressure range gpa:** 0.0001; 11.07
+- **Observed temperature range k:** 300; 700
+- **Observed volume range:** 62.19; 66.278
 - **Degrees of freedom:** 28
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.09143599681900522
-- **Published rmse gpa:** 0.10201978513163779
-- **Reduced chi square:** 0.010105674904282585
+- **Rmse gpa:** 0.091436
+- **Published rmse gpa:** 0.10202
+- **Reduced chi square:** 0.0101057
 
 </details>
 
@@ -172,7 +206,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `e_feooh_suzuki_2016_bm3_thermal_2`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/e_feooh.eosmat).

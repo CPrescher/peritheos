@@ -114,10 +114,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 162.1 | 2.5 | 162.3514810441337 | 2.4913739665854386 | Free |
-| K0\_prime | 5.4 | 0.5 | 5.345415186411802 | 0.4926613969210368 | Free |
+| K0 | 162.1 | 2.5 | 162.4 | 2.5 | Free |
+| K0\_prime | 5.4 | 0.5 | 5.3 | 0.5 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** fixed\_v0\_vinet\_with\_reconstructed\_cu\_pressure
 - **Objective:** unweighted\_pressure\_residuals
@@ -130,15 +131,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 42
-- **Observed pressure range gpa:** \[2.786190605963631, 15.735215643013111\]
+- **Observed pressure range gpa:** 2.78619; 15.7352
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[21.72444, 23.12581\]
+- **Observed volume range:** 21.7244; 23.1258
 - **Degrees of freedom:** 40
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.21506885344816878
-- **Published rmse gpa:** 0.21510416076590483
-- **Reduced chi square:** 0.04856734230968539
+- **Rmse gpa:** 0.215069
+- **Published rmse gpa:** 0.215104
+- **Reduced chi square:** 0.0485673
 - **Pressure reconstruction:**
     - **Density0 g cm3:** 8.939
     - **DOI:** 10.1103/PhysRevLett.124.015701
@@ -151,7 +152,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
         - **Psi:** 1.65
     - **Reference:** Fratanduono et al. (2020)
     - **Reference eos record:** copper\_fratanduono\_2020\_vinet3\_298k
-    - **Reference unit cell volume a3:** 47.218085048721
+    - **Reference unit cell volume a3:** 47.2181
     - **Source locations:** main article Table I, 298 K isotherm row; Supplemental Material Eq. (2), Section S4
 - **Dataset identifiers:** shen\_smith\_2026\_table\_s1\_simultaneous\_volumes
 

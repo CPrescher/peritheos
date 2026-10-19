@@ -116,10 +116,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 199.0 | 6.0 | 202.7072716900071 | 16.42416297027183 | Free |
-| K0\_prime | 3.6 | 0.2 | 3.643827879405484 | 0.8314273882369375 | Free |
+| K0 | 199 | 6 | 203 | 16 | Free |
+| K0\_prime | 3.60 | 0.20 | 3.6 | 0.8 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -132,15 +133,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 8
-- **Observed pressure range gpa:** \[24.0204, 79.046\]
+- **Observed pressure range gpa:** 24.0204; 79.046
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[17.4857730975, 20.327386761\]
+- **Observed volume range:** 17.4858; 20.3274
 - **Degrees of freedom:** 6
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.10721362874914021
-- **Published rmse gpa:** 1.3905285846088389
-- **Reduced chi square:** 0.11816657360477413
+- **Rmse gpa:** 0.107214
+- **Published rmse gpa:** 1.39053
+- **Reduced chi square:** 0.118167
 - **Dataset identifiers:** cobalt\_hcp\_fujihisa\_1996\_figure3\_digitized
 
 </details>
@@ -273,11 +274,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 22.154 | 0.024 | 22.154211831423616 | Not specified | Free |
-| K0 | 197.0 | 3.2 | 197.02818238040842 | Not specified | Free |
-| K0\_prime | 3.85 | 0.2 | 3.849071457165032 | Not specified | Free |
+| V0 | 22.154 | 0.024 | 22.1542 | Not reported | Free |
+| K0 | 197 | 3 | 197.028 | Not reported | Free |
+| K0\_prime | 3.85 | 0.20 | 3.84907 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** static\_vinet\_with\_explicit\_ruby\_scale\_conversion
 - **Objective:** unweighted pressure residuals
@@ -285,10 +287,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 - **Observations:** 25
-- **Observed pressure range gpa:** \[0.0, 63.4\]
+- **Observed pressure range gpa:** 0; 63.4
 - **Solver success:** True
 - **Solver message:** dedicated Dewaele (2019) refit completed
-- **Rmse gpa:** 0.2542280308833028
+- **Rmse gpa:** 0.254228
 - **Dataset identifiers:** cobalt\_dewaele\_2008\_table2\_compression
 
 </details>
@@ -424,11 +426,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 22.154 | 0.024 | 22.153725569761363 | Not specified | Free |
-| K0 | 194.85 | 3.2 | 194.84630408858632 | Not specified | Free |
-| K0\_prime | 4.36 | 0.2 | 4.358418631337993 | Not specified | Free |
+| V0 | 22.154 | 0.024 | 22.1537 | Not reported | Free |
+| K0 | 195 | 3 | 194.846 | Not reported | Free |
+| K0\_prime | 4.36 | 0.20 | 4.35842 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** static\_vinet\_with\_explicit\_ruby\_scale\_conversion
 - **Objective:** unweighted pressure residuals
@@ -436,10 +439,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 - **Observations:** 25
-- **Observed pressure range gpa:** \[0.0, 66.09908878096965\]
+- **Observed pressure range gpa:** 0; 66.0991
 - **Solver success:** True
 - **Solver message:** dedicated Dewaele (2019) refit completed
-- **Rmse gpa:** 0.26584864078177023
+- **Rmse gpa:** 0.265849
 - **Dataset identifiers:** cobalt\_dewaele\_2008\_table2\_compression
 
 </details>

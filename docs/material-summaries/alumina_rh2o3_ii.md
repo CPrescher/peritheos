@@ -122,12 +122,13 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.V0 | 165.2 | 0.7 | 167.19400527415326 | 1.8127107951351986 | Free |
-| rt\_eos.K0 | 256.0 | 6.0 | 239.41531321837596 | 14.703300185409736 | Free |
-| theta0 | 600.0 | 200.0 | 766.2592031228312 | 572.846246963602 | Free |
-| gamma0 | 1.47 | 0.05 | 1.550212367349021 | 0.16220313626055743 | Free |
+| rt\_eos.V0 | 165.2 | 0.7 | 167.2 | 1.8 | Free |
+| rt\_eos.K0 | 256 | 6 | 239 | 15 | Free |
+| theta0 | 600 | 200 | 800 | 600 | Free |
+| gamma0 | 1.47 | 0.05 | 1.55 | 0.16 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** joint\_pvt
 - **Objective:** errors\_in\_variables
@@ -140,15 +141,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** rt\_eos.V0; rt\_eos.K0; theta0; gamma0
 - **Fixed parameters:** K0\_prime; Tr; q; n
 - **Observations:** 75
-- **Observed pressure range gpa:** \[96.5, 156.7\]
-- **Observed temperature range k:** \[300.0, 3670.0\]
-- **Observed volume range:** \[123.3, 132.4\]
+- **Observed pressure range gpa:** 96.5; 156.7
+- **Observed temperature range k:** 300; 3670
+- **Observed volume range:** 123.3; 132.4
 - **Degrees of freedom:** 71
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.8659771664003755
-- **Published rmse gpa:** 1.1433652954894855
-- **Reduced chi square:** 0.15196005581308814
+- **Rmse gpa:** 0.865977
+- **Published rmse gpa:** 1.14337
+- **Reduced chi square:** 0.15196
 - **Dataset identifiers:** alumina\_rh2o3\_ii\_shi\_2022\_table\_s2\_pvt
 
 </details>
