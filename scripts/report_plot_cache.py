@@ -26,14 +26,14 @@ def same_inputs(left, right):
     if isinstance(left, (list, tuple)) and isinstance(right, (list, tuple)):
         if len(left) != len(right):
             return False
-        try:
-            a, b = np.asarray(left), np.asarray(right)
-            if a.dtype.kind in "if" and b.dtype.kind in "if":
-                return a.shape == b.shape and bool(
-                    np.allclose(a, b, rtol=1e-9, atol=1e-9, equal_nan=False)
-                )
-        except (ValueError, TypeError):
-            pass
+        # Only convert flat numeric vectors. Older supported NumPy versions
+        # warn instead of rejecting ragged lists of differently sized panels.
+        if all(
+            isinstance(v, (int, float)) and not isinstance(v, bool)
+            for values in (left, right)
+            for v in values
+        ):
+            return bool(np.allclose(left, right, rtol=1e-9, atol=1e-9, equal_nan=False))
         return all(same_inputs(a, b) for a, b in zip(left, right))
     if isinstance(left, bool) or isinstance(right, bool):
         return type(left) is type(right) and left == right

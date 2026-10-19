@@ -238,6 +238,7 @@ def test_plot_cache_accepts_roundoff_but_rejects_changed_values_and_labels():
     assert not same_inputs([True], [1])
     assert not same_inputs(["5"], [5])
     assert same_inputs([None], [None])
+    assert same_inputs([[1.0], [2.0, 3.0], None], [[1.0], [2.0, 3.0], None])
     c = replay("mgo", "mgo_li_2006_bm3_absolute_acoustic")
     svg = curve_svg(c)
     c.panels[0].refit[0] += 1e-11
