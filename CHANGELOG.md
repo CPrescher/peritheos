@@ -5,11 +5,17 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+## [0.16.1] - 2026-10-19
+
 ### Added
 
 - Integrate the Fe2SiO4 ringwoodite endmember as a derived Finger (1979) static ambient-cell reconstruction, with source structure, all three observations, explicit uncertainty scope and 296.15 K / 0–4 GPa limits. Keep the unresolved 2011 thermal candidate staged.
 - Replay eight conditional Sakai (2025) calibration stages from measured paired volumes, expose six additional source tables through the dataset API, and provide source/refit curves, residuals and conditional errors in light and dark themes. Preserve the published coefficients and full-network limitations.
-- Archive actual EosFit GUI fits on the confirmed Morard FeS inputs, including a cold-then-hot workflow, saved covariance and screenshots. The tested GUI and console agree closely; the reported ±3 GPa envelope remains unreproduced and the source record remains deferred.
+- Archive actual EosFit GUI fits on the confirmed Morard FeS inputs, including a cold-then-hot workflow, saved covariance and screenshots. The tested GUI and console agree closely; preserve the separate residual-envelope discrepancy.
+
+### Changed
+
+- Accept the unchanged Morard (2026) FeS source EOS in the executable catalog on staged parameter agreement within reported uncertainties. Retain the `similar` reconstruction label and the unreproduced ±3 GPa envelope as an informational qualification; exact author workflow and formal uncertainty parity remain unverified.
 
 ### Fixed
 
@@ -1323,7 +1329,8 @@ qualified outcomes and links to individual reproductions.
   and out-of-domain states.
 - Project naming and release metadata were standardized.
 
-[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.16.0...HEAD
+[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.16.1...HEAD
+[0.16.1]: https://github.com/CPrescher/peritheos/compare/v0.16.0...v0.16.1
 [0.16.0]: https://github.com/CPrescher/peritheos/compare/v0.15.0...v0.16.0
 [0.13.0]: https://github.com/CPrescher/peritheos/compare/v0.12.0...v0.13.0
 [0.12.0]: https://github.com/CPrescher/peritheos/compare/v0.11.0...v0.12.0
