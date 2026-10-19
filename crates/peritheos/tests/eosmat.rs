@@ -240,12 +240,12 @@ fn bundled_ma_2024_kcl_scale_preserves_molar_units_and_source_metadata() {
 }
 
 #[test]
-fn morard_fes_deferred_source_round_trips_and_matches_independent_quadrature() {
+fn morard_fes_accepted_source_round_trips_and_matches_independent_quadrature() {
     let Some(material) = load_bundled_material("fes_vi.eosmat") else {
         return;
     };
-    // Loading a source document preserves its deferred disposition. Numerical
-    // execution here tests the declared audit interpretation, not source parity.
+    // Acceptance is based on parameter agreement. Preserve its separate
+    // residual qualification while checking the unchanged source equation.
     let record = material.record("fes_vi_morard_2026_bm3_mgd").unwrap();
     let cell_per_molar = 4e24 / 6.022_140_76e23;
     assert_close(record.reference_volume(), 15.4 * cell_per_molar, 1e-12);
@@ -258,7 +258,12 @@ fn morard_fes_deferred_source_round_trips_and_matches_independent_quadrature() {
     assert_close(record.pressure(volume, 2000.0).unwrap(), 100.0, 1e-8);
     assert_eq!(
         material.document["eos_records"][0]["evidence"]["scientific_validation"]["status"],
-        "deferred"
+        "primary_source_validated"
+    );
+    assert_eq!(
+        material.document["eos_records"][0]["evidence"]["scientific_validation"]
+            ["residual_discrepancy_blocks_use"],
+        false
     );
     let restored = load_eosmat_str(&material.to_json().unwrap()).unwrap();
     assert_eq!(restored.document, material.document);

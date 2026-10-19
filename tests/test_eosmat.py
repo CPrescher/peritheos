@@ -156,8 +156,8 @@ def test_migrated_records_have_completed_primary_source_audit():
     assert len({record["identifier"] for record in records}) == 664
     statuses = [record["scientific_validation"]["status"] for record in records]
     assert set(statuses) == {"primary_source_validated", "deferred", "not_reproduced"}
-    assert statuses.count("primary_source_validated") == 642
-    assert statuses.count("deferred") == 4
+    assert statuses.count("primary_source_validated") == 643
+    assert statuses.count("deferred") == 3
     audit_dates = {
         record["identifier"]: record["scientific_validation"]["audit_date"]
         for record in records
@@ -272,6 +272,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "2026-10-15",
         "2026-10-16",
         "2026-10-17",
+        "2026-10-19",
     }
     assert all(
         record["scientific_validation"]["primary_source_check"] for record in records
@@ -362,6 +363,7 @@ def test_migrated_records_have_completed_primary_source_audit():
         "2026-10-12",
         "2026-10-15",
         "2026-10-16",
+        "2026-10-19",
     }
     assert native_identifiers == (
         legacy_native_identifiers | overnight_identifiers | batch_identifiers
@@ -395,8 +397,8 @@ def test_primary_source_audit_report_covers_every_migrated_record():
     assert report["summary"] == {
         "records": 664,
         "not_reproduced": 18,
-        "primary_source_validated": 642,
-        "deferred": 4,
+        "primary_source_validated": 643,
+        "deferred": 3,
     }
     assert report["audit_date"] == "2026-09-24"
     assert {entry["record"] for entry in report["records"]} == bundled_ids
@@ -959,7 +961,7 @@ def test_every_primary_validated_migrated_record_is_executable():
             except (TypeError, ValueError) as error:
                 failures.append(f"{record['identifier']}: {error}")
 
-    assert checked == 642
+    assert checked == 643
     assert failures == []
 
 
@@ -2090,7 +2092,6 @@ def test_primary_errors_and_explicit_campbell_mismatch_deferrals():
     assert deferred == [
         "fe_fcc_campbell_2009_bm3_mgd",
         "feo_campbell_2009_bm3_mgd",
-        "fes_vi_morard_2026_bm3_mgd",
         "wadsleyite_katsura_2009_bm3_1",
     ]
 
