@@ -131,10 +131,10 @@ Original audit code: `not_refittable`.
     - **Volume:** volume\_cm3\_mol
 - **Fixed parameters:** None declared
 - **Observations:** 40
-- **Observed pressure range gpa:** \[0.32, 296.11\]
-- **Observed temperature range k:** \[2500.0, 6000.0\]
-- **Observed volume range:** \[27.046860326127614, 87.90229605991475\]
-- **Published rmse gpa:** 0.6409268655910171
+- **Observed pressure range gpa:** 0.32; 296.11
+- **Observed temperature range k:** 2500; 6000
+- **Observed volume range:** 27.0469; 87.9023
+- **Published rmse gpa:** 0.640927
 - **Dataset identifiers:** fesio3\_liquid\_sun\_2019\_table1\_pvt; fesio3\_liquid\_sun\_2019\_figures\_s3\_s4\_digitized
 
 </details>

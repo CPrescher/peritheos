@@ -164,10 +164,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 195.3 | 1.6 | 200.0343783266108 | Not specified | Free |
-| K0\_prime | 4.37 | 0.05 | 4.2243284230188465 | Not specified | Free |
+| K0 | 195.3 | 1.6 | 200.034 | Not reported | Free |
+| K0\_prime | 4.37 | 0.05 | 4.22433 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
 - **Weighting:** unweighted; published coefficient constraints retained
@@ -176,10 +177,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Tied parameters:**
 - **Observations:** 45
 - **Solver success:** True
-- **Rmse gpa:** 1.606401520793189
-- **Published rmse gpa:** 2.210908056547755
-- **Published pressure rmse gpa:** 2.210908056547755
-- **Refitted pressure rmse gpa:** 1.606401520793189
+- **Rmse gpa:** 1.6064
+- **Published rmse gpa:** 2.21091
+- **Published pressure rmse gpa:** 2.21091
+- **Refitted pressure rmse gpa:** 1.6064
 - **Rmse shock velocity km s:** Not specified
 - **Parameter covariance:** Not specified
 - **Dataset identifiers:** sakai\_2014\_table2\_pvt
@@ -317,10 +318,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 189.6 | 1.7 | 192.27435509720192 | Not specified | Free |
-| K0\_prime | 4.81 | 0.06 | 4.706556611960647 | Not specified | Free |
+| K0 | 189.6 | 1.7 | 192.274 | Not reported | Free |
+| K0\_prime | 4.81 | 0.06 | 4.70656 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
 - **Weighting:** unweighted; published coefficient constraints retained
@@ -329,10 +331,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Tied parameters:**
 - **Observations:** 45
 - **Solver success:** True
-- **Rmse gpa:** 1.7062383521313806
-- **Published rmse gpa:** 1.972609141767631
-- **Published pressure rmse gpa:** 1.972609141767631
-- **Refitted pressure rmse gpa:** 1.7062383521313806
+- **Rmse gpa:** 1.70624
+- **Published rmse gpa:** 1.97261
+- **Published pressure rmse gpa:** 1.97261
+- **Refitted pressure rmse gpa:** 1.70624
 - **Rmse shock velocity km s:** Not specified
 - **Parameter covariance:** Not specified
 - **Dataset identifiers:** sakai\_2014\_table2\_pvt
@@ -470,10 +472,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 179.8 | 1.6 | 187.0329689879698 | Not specified | Free |
-| K0\_prime | 4.59 | 0.05 | 4.353887510008359 | Not specified | Free |
+| K0 | 179.8 | 1.6 | 187.033 | Not reported | Free |
+| K0\_prime | 4.59 | 0.05 | 4.35389 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
 - **Weighting:** unweighted; published coefficient constraints retained
@@ -482,10 +485,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Tied parameters:**
 - **Observations:** 45
 - **Solver success:** True
-- **Rmse gpa:** 1.6199964199966193
-- **Published rmse gpa:** 2.7538171899931974
-- **Published pressure rmse gpa:** 2.7538171899931974
-- **Refitted pressure rmse gpa:** 1.6199964199966193
+- **Rmse gpa:** 1.62
+- **Published rmse gpa:** 2.75382
+- **Published pressure rmse gpa:** 2.75382
+- **Refitted pressure rmse gpa:** 1.62
 - **Rmse shock velocity km s:** Not specified
 - **Parameter covariance:** Not specified
 - **Dataset identifiers:** sakai\_2014\_table2\_pvt
@@ -623,10 +626,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 173.9 | 1.6 | 178.82057566405422 | Not specified | Free |
-| K0\_prime | 5.07 | 0.06 | 4.885879076106027 | Not specified | Free |
+| K0 | 173.9 | 1.6 | 178.821 | Not reported | Free |
+| K0\_prime | 5.07 | 0.06 | 4.88588 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
 - **Weighting:** unweighted; published coefficient constraints retained
@@ -635,10 +639,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Tied parameters:**
 - **Observations:** 45
 - **Solver success:** True
-- **Rmse gpa:** 1.653409509846668
-- **Published rmse gpa:** 2.2197830754151466
-- **Published pressure rmse gpa:** 2.2197830754151466
-- **Refitted pressure rmse gpa:** 1.653409509846668
+- **Rmse gpa:** 1.65341
+- **Published rmse gpa:** 2.21978
+- **Published pressure rmse gpa:** 2.21978
+- **Refitted pressure rmse gpa:** 1.65341
 - **Rmse shock velocity km s:** Not specified
 - **Parameter covariance:** Not specified
 - **Dataset identifiers:** sakai\_2014\_table2\_pvt
@@ -776,10 +780,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 22.468 | Not specified | 22.59086269559718 | Not specified | Free |
-| K0\_prime | 4.73 | 0.06 | 4.537970473756033 | Not specified | Free |
+| V0 | 22.468 | Not reported | 22.5909 | Not reported | Free |
+| K0\_prime | 4.73 | 0.06 | 4.53797 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
 - **Weighting:** unweighted; published coefficient constraints retained
@@ -788,10 +793,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Tied parameters:**
 - **Observations:** 45
 - **Solver success:** True
-- **Rmse gpa:** 1.7349314547623915
-- **Published rmse gpa:** 3.1922874500456198
-- **Published pressure rmse gpa:** 3.1922874500456198
-- **Refitted pressure rmse gpa:** 1.7349314547623915
+- **Rmse gpa:** 1.73493
+- **Published rmse gpa:** 3.19229
+- **Published pressure rmse gpa:** 3.19229
+- **Refitted pressure rmse gpa:** 1.73493
 - **Rmse shock velocity km s:** Not specified
 - **Parameter covariance:** Not specified
 - **Dataset identifiers:** sakai\_2014\_table2\_pvt
@@ -929,10 +934,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 22.468 | Not specified | 22.5562203902947 | Not specified | Free |
-| K0\_prime | 5.23 | 0.06 | 5.079133042342121 | Not specified | Free |
+| V0 | 22.468 | Not reported | 22.5562 | Not reported | Free |
+| K0\_prime | 5.23 | 0.06 | 5.07913 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
 - **Weighting:** unweighted; published coefficient constraints retained
@@ -941,10 +947,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Tied parameters:**
 - **Observations:** 45
 - **Solver success:** True
-- **Rmse gpa:** 1.66732485758244
-- **Published rmse gpa:** 2.612050295823673
-- **Published pressure rmse gpa:** 2.612050295823673
-- **Refitted pressure rmse gpa:** 1.66732485758244
+- **Rmse gpa:** 1.66732
+- **Published rmse gpa:** 2.61205
+- **Published pressure rmse gpa:** 2.61205
+- **Refitted pressure rmse gpa:** 1.66732
 - **Rmse shock velocity km s:** Not specified
 - **Parameter covariance:** Not specified
 - **Dataset identifiers:** sakai\_2014\_table2\_pvt
@@ -1644,10 +1650,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 213.0 | 1.8 | 218.4138156274682 | Not specified | Free |
-| K0\_prime | 4.41 | 0.05 | 4.255462850825763 | Not specified | Free |
+| K0 | 213.0 | 1.8 | 218.414 | Not reported | Free |
+| K0\_prime | 4.41 | 0.05 | 4.25546 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
 - **Weighting:** unweighted; published coefficient constraints retained
@@ -1656,10 +1663,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Tied parameters:**
 - **Observations:** 45
 - **Solver success:** True
-- **Rmse gpa:** 1.667656628629867
-- **Published rmse gpa:** 2.3447890411123287
-- **Published pressure rmse gpa:** 2.3447890411123287
-- **Refitted pressure rmse gpa:** 1.667656628629867
+- **Rmse gpa:** 1.66766
+- **Published rmse gpa:** 2.34479
+- **Published pressure rmse gpa:** 2.34479
+- **Refitted pressure rmse gpa:** 1.66766
 - **Rmse shock velocity km s:** Not specified
 - **Parameter covariance:** Not specified
 - **Dataset identifiers:** sakai\_2014\_table2\_pvt
@@ -1799,10 +1806,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 207.0 | 1.8 | 210.03586660274584 | Not specified | Free |
-| K0\_prime | 4.85 | 0.06 | 4.739384266532654 | Not specified | Free |
+| K0 | 207.0 | 1.8 | 210.036 | Not reported | Free |
+| K0\_prime | 4.85 | 0.06 | 4.73938 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
 - **Weighting:** unweighted; published coefficient constraints retained
@@ -1811,10 +1819,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Tied parameters:**
 - **Observations:** 45
 - **Solver success:** True
-- **Rmse gpa:** 1.7788197892068633
-- **Published rmse gpa:** 2.117292921135934
-- **Published pressure rmse gpa:** 2.117292921135934
-- **Refitted pressure rmse gpa:** 1.7788197892068633
+- **Rmse gpa:** 1.77882
+- **Published rmse gpa:** 2.11729
+- **Published pressure rmse gpa:** 2.11729
+- **Refitted pressure rmse gpa:** 1.77882
 - **Rmse shock velocity km s:** Not specified
 - **Parameter covariance:** Not specified
 - **Dataset identifiers:** sakai\_2014\_table2\_pvt
@@ -1954,10 +1962,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 211.5 | 1.8 | 214.9151214647974 | Not specified | Free |
-| K0\_prime | 4.42 | 0.05 | 4.3135447483778515 | Not specified | Free |
+| K0 | 211.5 | 1.8 | 214.915 | Not reported | Free |
+| K0\_prime | 4.42 | 0.05 | 4.31354 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
 - **Weighting:** unweighted; published coefficient constraints retained
@@ -1966,10 +1975,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Tied parameters:**
 - **Observations:** 45
 - **Solver success:** True
-- **Rmse gpa:** 1.8347163432871763
-- **Published rmse gpa:** 2.2515693718530896
-- **Published pressure rmse gpa:** 2.2515693718530896
-- **Refitted pressure rmse gpa:** 1.8347163432871763
+- **Rmse gpa:** 1.83472
+- **Published rmse gpa:** 2.25157
+- **Published pressure rmse gpa:** 2.25157
+- **Refitted pressure rmse gpa:** 1.83472
 - **Rmse shock velocity km s:** Not specified
 - **Parameter covariance:** Not specified
 - **Dataset identifiers:** sakai\_2014\_table2\_pvt
@@ -2110,10 +2119,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 205.4 | 1.9 | 206.2987950920161 | Not specified | Free |
-| K0\_prime | 4.86 | 0.06 | 4.816594627576633 | Not specified | Free |
+| K0 | 205.4 | 1.9 | 206.299 | Not reported | Free |
+| K0\_prime | 4.86 | 0.06 | 4.81659 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
 - **Weighting:** unweighted; published coefficient constraints retained
@@ -2122,10 +2132,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Tied parameters:**
 - **Observations:** 45
 - **Solver success:** True
-- **Rmse gpa:** 1.9794522014797378
-- **Published rmse gpa:** 2.085638180438255
-- **Published pressure rmse gpa:** 2.085638180438255
-- **Refitted pressure rmse gpa:** 1.9794522014797378
+- **Rmse gpa:** 1.97945
+- **Published rmse gpa:** 2.08564
+- **Published pressure rmse gpa:** 2.08564
+- **Refitted pressure rmse gpa:** 1.97945
 - **Rmse shock velocity km s:** Not specified
 - **Parameter covariance:** Not specified
 - **Dataset identifiers:** sakai\_2014\_table2\_pvt
@@ -2265,10 +2275,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 191.2 | 1.8 | 196.58930346809018 | Not specified | Free |
-| K0\_prime | 4.82 | 0.06 | 4.638208630235569 | Not specified | Free |
+| K0 | 191.2 | 1.8 | 196.589 | Not reported | Free |
+| K0\_prime | 4.82 | 0.06 | 4.63821 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
 - **Weighting:** unweighted; published coefficient constraints retained
@@ -2277,10 +2288,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Tied parameters:**
 - **Observations:** 45
 - **Solver success:** True
-- **Rmse gpa:** 1.7786202823007078
-- **Published rmse gpa:** 2.489597189653668
-- **Published pressure rmse gpa:** 2.489597189653668
-- **Refitted pressure rmse gpa:** 1.7786202823007078
+- **Rmse gpa:** 1.77862
+- **Published rmse gpa:** 2.4896
+- **Published pressure rmse gpa:** 2.4896
+- **Refitted pressure rmse gpa:** 1.77862
 - **Rmse shock velocity km s:** Not specified
 - **Parameter covariance:** Not specified
 - **Dataset identifiers:** sakai\_2014\_table2\_pvt
@@ -2420,10 +2431,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 185.1 | 1.7 | 187.47744968957844 | Not specified | Free |
-| K0\_prime | 5.31 | 0.06 | 5.211820018794027 | Not specified | Free |
+| K0 | 185.1 | 1.7 | 187.477 | Not reported | Free |
+| K0\_prime | 5.31 | 0.06 | 5.21182 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
 - **Weighting:** unweighted; published coefficient constraints retained
@@ -2432,10 +2444,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Tied parameters:**
 - **Observations:** 45
 - **Solver success:** True
-- **Rmse gpa:** 1.9135004369802666
-- **Published rmse gpa:** 2.200673940141978
-- **Published pressure rmse gpa:** 2.200673940141978
-- **Refitted pressure rmse gpa:** 1.9135004369802666
+- **Rmse gpa:** 1.9135
+- **Published rmse gpa:** 2.20067
+- **Published pressure rmse gpa:** 2.20067
+- **Refitted pressure rmse gpa:** 1.9135
 - **Rmse shock velocity km s:** Not specified
 - **Parameter covariance:** Not specified
 - **Dataset identifiers:** sakai\_2014\_table2\_pvt
@@ -2589,10 +2601,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| gamma0 | 2.169 | 0.207 | 5.218611619598649 | Not specified | Free |
-| theta0 | 1162 | 204 | 2214.815336047005 | Not specified | Free |
+| gamma0 | 2.17 | 0.21 | 5.21861 | Not reported | Free |
+| theta0 | 1160 | 200 | 2214.82 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
 - **Weighting:** unweighted; published coefficient constraints retained
@@ -2602,10 +2615,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
     - **Gamma inf:** gamma0
 - **Observations:** 32
 - **Solver success:** True
-- **Rmse gpa:** 1.0512363614149685
-- **Published rmse gpa:** 7.135102114330177
-- **Published pressure rmse gpa:** 7.135102114330177
-- **Refitted pressure rmse gpa:** 1.0512363614149685
+- **Rmse gpa:** 1.05124
+- **Published rmse gpa:** 7.1351
+- **Published pressure rmse gpa:** 7.1351
+- **Refitted pressure rmse gpa:** 1.05124
 - **Rmse shock velocity km s:** Not specified
 - **Parameter covariance:** Not specified
 - **Dataset identifiers:** sakai\_2014\_table2\_pvt
@@ -2784,11 +2797,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| gamma0 | 2.609 | 0.35 | 7.999999999999999 | Not specified | Free |
-| beta | 1.309 | 0.679 | 2.2108417548372907 | Not specified | Free |
-| theta0 | 600 | 474 | 1636.9776211198046 | Not specified | Free |
+| gamma0 | 2.6 | 0.4 | 8 | Not reported | Free |
+| beta | 1.3 | 0.7 | 2.21084 | Not reported | Free |
+| theta0 | 600 | 500 | 1636.98 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
 - **Weighting:** unweighted; published coefficient constraints retained
@@ -2797,10 +2811,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Tied parameters:**
 - **Observations:** 32
 - **Solver success:** True
-- **Rmse gpa:** 1.0453242461778438
-- **Published rmse gpa:** 7.085117575780836
-- **Published pressure rmse gpa:** 7.085117575780836
-- **Refitted pressure rmse gpa:** 1.0453242461778438
+- **Rmse gpa:** 1.04532
+- **Published rmse gpa:** 7.08512
+- **Published pressure rmse gpa:** 7.08512
+- **Refitted pressure rmse gpa:** 1.04532
 - **Rmse shock velocity km s:** Not specified
 - **Parameter covariance:** Not specified
 - **Dataset identifiers:** sakai\_2014\_table2\_pvt
@@ -2979,11 +2993,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| gamma0 | 2.882 | 0.394 | 7.999999999999996 | Not specified | Free |
-| gamma\_inf | 1.087 | 0.487 | 2.194773957257107 | Not specified | Free |
-| theta0 | 577 | 471 | 1664.4773035616872 | Not specified | Free |
+| gamma0 | 2.9 | 0.4 | 8 | Not reported | Free |
+| gamma\_inf | 1.1 | 0.5 | 2.19477 | Not reported | Free |
+| theta0 | 600 | 500 | 1664.48 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
 - **Weighting:** unweighted; published coefficient constraints retained
@@ -2992,10 +3007,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Tied parameters:**
 - **Observations:** 32
 - **Solver success:** True
-- **Rmse gpa:** 1.047994946666771
-- **Published rmse gpa:** 7.088296341328164
-- **Published pressure rmse gpa:** 7.088296341328164
-- **Refitted pressure rmse gpa:** 1.047994946666771
+- **Rmse gpa:** 1.04799
+- **Published rmse gpa:** 7.0883
+- **Published pressure rmse gpa:** 7.0883
+- **Refitted pressure rmse gpa:** 1.04799
 - **Rmse shock velocity km s:** Not specified
 - **Parameter covariance:** Not specified
 - **Dataset identifiers:** sakai\_2014\_table2\_pvt
@@ -3174,10 +3189,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| gamma0 | 2.883 | 0.374 | 2.2626134930835686 | Not specified | Free |
-| gamma\_inf | 0.968 | 0.242 | 8.521054711807216e-22 | Not specified | Free |
+| gamma0 | 2.9 | 0.4 | 2.26261 | Not reported | Free |
+| gamma\_inf | 0.97 | 0.24 | 8.52105e-22 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
 - **Weighting:** unweighted; published coefficient constraints retained
@@ -3186,10 +3202,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Tied parameters:**
 - **Observations:** 32
 - **Solver success:** True
-- **Rmse gpa:** 2.2581979489171067
-- **Published rmse gpa:** 7.096364413848751
-- **Published pressure rmse gpa:** 7.096364413848751
-- **Refitted pressure rmse gpa:** 2.2581979489171067
+- **Rmse gpa:** 2.2582
+- **Published rmse gpa:** 7.09636
+- **Published pressure rmse gpa:** 7.09636
+- **Refitted pressure rmse gpa:** 2.2582
 - **Rmse shock velocity km s:** Not specified
 - **Parameter covariance:** Not specified
 - **Dataset identifiers:** sakai\_2014\_table2\_pvt
@@ -3368,9 +3384,10 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| beta | 1.161 | 0.237 | 9.999999999999998 | Not specified | Free |
+| beta | 1.16 | 0.24 | 10 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
 - **Weighting:** unweighted; published coefficient constraints retained
@@ -3379,10 +3396,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Tied parameters:**
 - **Observations:** 32
 - **Solver success:** True
-- **Rmse gpa:** 4.6165012578403015
-- **Published rmse gpa:** 7.214289792430111
-- **Published pressure rmse gpa:** 7.214289792430111
-- **Refitted pressure rmse gpa:** 4.6165012578403015
+- **Rmse gpa:** 4.6165
+- **Published rmse gpa:** 7.21429
+- **Published pressure rmse gpa:** 7.21429
+- **Refitted pressure rmse gpa:** 4.6165
 - **Rmse shock velocity km s:** Not specified
 - **Parameter covariance:** Not specified
 - **Dataset identifiers:** sakai\_2014\_table2\_pvt

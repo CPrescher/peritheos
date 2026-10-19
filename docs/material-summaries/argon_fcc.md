@@ -153,10 +153,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 152.0 | Not specified | 152.3842901654245 | Not specified | Free |
-| K0\_prime | 7.423 | Not specified | 7.4143791697887975 | Not specified | Free |
+| V0 | 152 | Not reported | 152.384 | Not reported | Free |
+| K0\_prime | 7.423 | Not reported | 7.41438 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** primary\_table\_diagnostic
 - **Objective:** equal pressure residuals
@@ -165,8 +166,8 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Fixed parameters:** K0; Tr; theta0; gamma0; gamma\_inf; beta; anharmonic\_a; anharmonic\_m; electronic\_e; electronic\_g; n
 - **Observations:** 95
 - **Solver success:** True
-- **Rmse gpa:** 0.27875374509339046
-- **Published rmse gpa:** 0.34144299130983014
+- **Rmse gpa:** 0.278754
+- **Published rmse gpa:** 0.341443
 - **Dataset identifiers:** argon\_fcc\_dewaele\_2021\_supplement
 
 </details>
@@ -316,11 +317,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 184.5 | 38.5 | 211.74492423778685 | Not specified | Free |
-| K0 | 1.07 | 1.33 | 0.4584437466877124 | Not specified | Free |
-| K0\_prime | 8.02 | 0.95 | 8.664677487846673 | Not specified | Free |
+| V0 | 180 | 40 | 211.745 | Not reported | Free |
+| K0 | 1.1 | 1.3 | 0.458444 | Not reported | Free |
+| K0\_prime | 8.0 | 1.0 | 8.66468 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** primary\_table\_diagnostic
 - **Objective:** fixed effective P,V errors
@@ -329,8 +331,8 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Fixed parameters:** None declared
 - **Observations:** 19
 - **Solver success:** True
-- **Rmse gpa:** 0.8531818076185209
-- **Published rmse gpa:** 0.8474923941002821
+- **Rmse gpa:** 0.853182
+- **Published rmse gpa:** 0.847492
 - **Dataset identifiers:** argon\_fcc\_ono\_2020\_table1
 
 </details>
@@ -852,8 +854,8 @@ Original audit code: `similar`.
 - **Free parameters:** K0\_prime; K0\_double\_prime
 - **Fixed parameters:** V0; K0; P0; Tr; theta0; gamma0; gamma\_inf; beta; anharmonic\_a; anharmonic\_m; electronic\_e; electronic\_g; n
 - **Observations:** 19
-- **Rmse gpa:** 0.09412675921023864
-- **Published rmse gpa:** 0.09535520774523343
+- **Rmse gpa:** 0.0941268
+- **Published rmse gpa:** 0.0953552
 - **Dataset identifiers:** argon\_fcc\_finger\_1981\_table1
 
 </details>
@@ -2021,11 +2023,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 138.83326594378107 | Not specified | 138.83326250893583 | Not specified | See protocol |
-| K0 | 7.3276753422964385 | Not specified | 7.3276762855873425 | Not specified | See protocol |
-| K0\_prime | 5.018612278319878 | Not specified | 5.01861218191841 | Not specified | See protocol |
+| V0 | 138.833 | Not reported | 138.833 | Not reported | See protocol |
+| K0 | 7.32768 | Not reported | 7.32768 | Not reported | See protocol |
+| K0\_prime | 5.01861 | Not reported | 5.01861 | Not reported | See protocol |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** selected\_multi\_source\_bm3
 - **Objective:** equal pressure weights
@@ -2033,7 +2036,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Fixed parameters:** None declared
 - **Observations:** 49
 - **Solver success:** True
-- **Rmse gpa:** 1.2028193647740388
+- **Rmse gpa:** 1.20282
 - **Dataset identifiers:** argon\_fcc\_ross\_errandonea\_selected49
 
 </details>

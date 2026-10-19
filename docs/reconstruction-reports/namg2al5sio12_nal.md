@@ -47,22 +47,39 @@ Record: `namg2al5sio12_nal_kawai_2012_bm3_1` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for namg2al5sio12_nal_kawai_2012_bm3_1](figures/namg2al5sio12_nal_kawai_2012_bm3_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for namg2al5sio12_nal_kawai_2012_bm3_1](figures/namg2al5sio12_nal_kawai_2012_bm3_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.196 |
+| Reconstruction / refit | 0.00552 |
+
+Both fits use the same 6 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** volume\_a3\_conventional\_cell. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for namg2al5sio12_nal_kawai_2012_bm3_1](figures/namg2al5sio12_nal_kawai_2012_bm3_1.svg)
+![Source/target and reconstructed central values for namg2al5sio12_nal_kawai_2012_bm3_1](figures/namg2al5sio12_nal_kawai_2012_bm3_1.svg#only-light)
+![Source/target and reconstructed central values for namg2al5sio12_nal_kawai_2012_bm3_1](figures/namg2al5sio12_nal_kawai_2012_bm3_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 178.34189581447112 | Not specified | 178.2328857093995 | 0.005881375392549615 | Free |
-| K0 | 217.7 | Not specified | 217.61858686056965 | 0.18874323307669333 | Free |
-| K0\_prime | 4.08 | Not specified | 4.0856132536505045 | 0.008552205469489078 | Free |
+| V0 | 178.342 | Not reported | 178.233 | 0.006 | Free |
+| K0 | 217.7 | Not reported | 217.62 | 0.19 | Free |
+| K0\_prime | 4.08 | Not reported | 4.086 | 0.009 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -72,15 +89,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** Not specified
     - **Volume:** volume\_a3\_conventional\_cell
-- **Observed pressure range gpa:** \[0.0, 50.0\]
+- **Observed pressure range gpa:** 0; 50
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[151.25007456, 178.235777307\]
+- **Observed volume range:** 151.25; 178.236
 - **Degrees of freedom:** 3
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.005517062972859495
-- **Published rmse gpa:** 0.1959975125525443
-- **Reduced chi square:** 6.0875967692994504e-05
+- **Rmse gpa:** 0.00551706
+- **Published rmse gpa:** 0.195998
+- **Reduced chi square:** 6.0876e-05
 
 </details>
 
@@ -90,7 +107,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `namg2al5sio12_nal_kawai_2012_bm3_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/namg2al5sio12_nal.eosmat).

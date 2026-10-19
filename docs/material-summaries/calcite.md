@@ -112,10 +112,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 367.789 | 0.004 | 367.84830031662693 | 2.4950202029924027 | Free |
-| K0 | 73.46 | 0.27 | 72.5376735297565 | 44.457452586842514 | Free |
+| V0 | 367.789 | 0.004 | 367.8 | 2.5 | Free |
+| K0 | 73.46 | 0.27 | 70 | 40 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -128,15 +129,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0
 - **Fixed parameters:** None declared
 - **Observations:** 14
-- **Observed pressure range gpa:** \[0.0, 1.425\]
+- **Observed pressure range gpa:** 0; 1.425
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[361.001, 367.787\]
+- **Observed volume range:** 361.001; 367.787
 - **Degrees of freedom:** 12
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.009279720006517665
-- **Published rmse gpa:** 0.011292043488631614
-- **Reduced chi square:** 0.00010047351594240502
+- **Rmse gpa:** 0.00927972
+- **Published rmse gpa:** 0.011292
+- **Reduced chi square:** 0.000100474
 - **Dataset identifiers:** calcite\_redfern\_1999\_table1\_compression
 
 </details>

@@ -5,6 +5,22 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+## [0.16.0] - 2026-10-19
+
+### Added
+
+- Show source and reconstructed curves, residuals and RMS errors for all 471
+  stored coefficient comparisons. Replay joint co-compression, acoustic/modulus,
+  coupled mixed-spin and energy-balanced shock objectives in their native units.
+  Explicitly mark the three available-subset plots (Tange MgO and Zhu Au/Pt)
+  as partial replays, with the omitted inputs and limitations beside the plots.
+- Automatically switch reconstruction and coefficient plots between matching
+  light and dark versions with the documentation theme.
+- Display available parameter error widths and round uncertainties to two
+  significant digits for leading 1/2, otherwise one; match parameter precision
+  to the error's decimal place. Preserve full stored precision and all scientific
+  findings, source coefficients and observations.
+
 ## [0.15.0] - 2026-10-18
 
 ### Added
@@ -1297,7 +1313,8 @@ qualified outcomes and links to individual reproductions.
   and out-of-domain states.
 - Project naming and release metadata were standardized.
 
-[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.13.0...HEAD
+[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.16.0...HEAD
+[0.16.0]: https://github.com/CPrescher/peritheos/compare/v0.15.0...v0.16.0
 [0.13.0]: https://github.com/CPrescher/peritheos/compare/v0.12.0...v0.13.0
 [0.12.0]: https://github.com/CPrescher/peritheos/compare/v0.11.0...v0.12.0
 [0.11.0]: https://github.com/CPrescher/peritheos/compare/v0.10.0...v0.11.0

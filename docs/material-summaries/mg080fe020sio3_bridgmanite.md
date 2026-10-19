@@ -125,9 +125,10 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 261.0 | 4.0 | 260.7999230336436 | 1.7340729995198663 | Free |
+| K0 | 261 | 4 | 260.8 | 1.7 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** shared\_bm2\_fe10\_pressure\_residuals
 - **Objective:** unweighted pressure residuals
@@ -139,11 +140,11 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0
 - **Fixed parameters:** V0; K0\_prime
 - **Observations:** 9
-- **Observed pressure range gpa:** \[1.4, 26.0\]
+- **Observed pressure range gpa:** 1.4; 26
 - **Degrees of freedom:** 8
 - **Solver success:** True
 - **Solver message:** analytic one-parameter least-squares solution
-- **Rmse gpa:** 0.28526073698634036
+- **Rmse gpa:** 0.285261
 - **Dataset identifiers:** mao\_1991\_tables2\_3\_bridgmanite\_pv
 
 </details>

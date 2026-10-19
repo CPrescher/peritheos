@@ -47,22 +47,39 @@ Record: `silicon_carbide_b1_miozzi_2018_bm3_1` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for silicon_carbide_b1_miozzi_2018_bm3_1](figures/silicon_carbide_b1_miozzi_2018_bm3_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for silicon_carbide_b1_miozzi_2018_bm3_1](figures/silicon_carbide_b1_miozzi_2018_bm3_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 1.62 |
+| Reconstruction / refit | 1.48 |
+
+Both fits use the same 67 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** sic\_unit\_cell\_volume\_a3. **Row selection:** all rows; reference-T rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for silicon_carbide_b1_miozzi_2018_bm3_1](figures/silicon_carbide_b1_miozzi_2018_bm3_1.svg)
+![Source/target and reconstructed central values for silicon_carbide_b1_miozzi_2018_bm3_1](figures/silicon_carbide_b1_miozzi_2018_bm3_1.svg#only-light)
+![Source/target and reconstructed central values for silicon_carbide_b1_miozzi_2018_bm3_1](figures/silicon_carbide_b1_miozzi_2018_bm3_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 66.3 | 0.1 | 65.77707217884615 | 0.07490638285244797 | Free |
-| K0 | 323.0 | 3.0 | 340.649762165055 | 3.532854939007289 | Free |
-| K0\_prime | 3.1 | 0.43 | 3.062845954108703 | 0.02636963961419028 | Free |
+| V0 | 66.30 | 0.10 | 65.78 | 0.07 | Free |
+| K0 | 323 | 3 | 341 | 4 | Free |
+| K0\_prime | 3.1 | 0.4 | 3.063 | 0.026 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -72,15 +89,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** temperature\_k
     - **Volume:** sic\_unit\_cell\_volume\_a3
-- **Observed pressure range gpa:** \[65.37, 202.09\]
-- **Observed temperature range k:** \[300.0, 300.0\]
-- **Observed volume range:** \[45.97, 56.727\]
+- **Observed pressure range gpa:** 65.37; 202.09
+- **Observed temperature range k:** 300; 300
+- **Observed volume range:** 45.97; 56.727
 - **Degrees of freedom:** 64
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.058842648800634605
-- **Published rmse gpa:** 1.6219704296948159
-- **Reduced chi square:** 188.17516260644527
+- **Rmse gpa:** 0.0588426
+- **Published rmse gpa:** 1.62197
+- **Reduced chi square:** 188.175
 
 </details>
 
@@ -90,7 +107,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `silicon_carbide_b1_miozzi_2018_bm3_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/silicon_carbide_b1.eosmat).

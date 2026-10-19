@@ -47,23 +47,40 @@ Record: `aragonite_martinez_1996_bm2_2` · Model: `BM2`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for aragonite_martinez_1996_bm2_2](figures/aragonite_martinez_1996_bm2_2-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for aragonite_martinez_1996_bm2_2](figures/aragonite_martinez_1996_bm2_2-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.259 |
+| Reconstruction / refit | 0.205 |
+
+Both fits use the same 64 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** volume\_a3. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for aragonite_martinez_1996_bm2_2](figures/aragonite_martinez_1996_bm2_2.svg)
+![Source/target and reconstructed central values for aragonite_martinez_1996_bm2_2](figures/aragonite_martinez_1996_bm2_2.svg#only-light)
+![Source/target and reconstructed central values for aragonite_martinez_1996_bm2_2](figures/aragonite_martinez_1996_bm2_2-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.V0 | 227.5 | 0.8 | 227.0509188911685 | 0.46287683892679543 | Free |
-| rt\_eos.K0 | 64.81 | 3.48 | 65.7594847830113 | 1.6574642736217322 | Free |
-| alpha0 | 6.5e-05 | 1e-06 | 6.616277302577296e-05 | 5.239895204479933e-06 | Free |
-| dK\_dT | -0.018 | 0.002 | -0.01666478438939185 | 0.004169185507704645 | Free |
+| rt\_eos.V0 | 227.5 | 0.8 | 227.1 | 0.5 | Free |
+| rt\_eos.K0 | 65 | 3 | 65.8 | 1.7 | Free |
+| alpha0 | 65.0e-6 | 1.0e-6 | 66e-6 | 5e-6 | Free |
+| dK\_dT | -0.0180 | 0.0020 | -0.017 | 0.004 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -75,8 +92,8 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Volume:** volume\_a3
 - **Solver success:** True
 - **Solver message:** eight isotherm fits and two linear regressions completed
-- **Rmse gpa:** 0.20549596467076306
-- **Published rmse gpa:** 0.2591892383500495
+- **Rmse gpa:** 0.205496
+- **Published rmse gpa:** 0.259189
 - **Reduced chi square:** Not specified
 
 </details>
@@ -86,7 +103,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `aragonite_martinez_1996_bm2_2`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/aragonite.eosmat).

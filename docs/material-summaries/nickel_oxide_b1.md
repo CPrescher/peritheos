@@ -121,11 +121,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.K0 | 190.0 | 3.0 | 209.23491285108383 | 7.959268104780271 | Free |
-| rt\_eos.K0\_prime | 5.4 | 0.2 | 4.316125512272684 | 0.3790702536078477 | Free |
-| gamma0 | 1.8 | 0.04 | 1.6663367005990992 | 0.05890351252433249 | Free |
+| rt\_eos.K0 | 190 | 3 | 209 | 8 | Free |
+| rt\_eos.K0\_prime | 5.40 | 0.20 | 4.3 | 0.4 | Free |
+| gamma0 | 1.80 | 0.04 | 1.67 | 0.06 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** conditional\_bm3\_mgd\_variable\_exponent
 - **Objective:** pressure\_residuals
@@ -134,15 +135,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** rt\_eos.K0; rt\_eos.K0\_prime; gamma0
 - **Fixed parameters:** V0; Tr; theta0; n; q
 - **Observations:** 92
-- **Observed pressure range gpa:** \[2.336174779961698, 65.9\]
-- **Observed temperature range k:** \[298.0, 2457.07\]
+- **Observed pressure range gpa:** 2.33617; 65.9
+- **Observed temperature range k:** 298; 2457.07
 - **Degrees of freedom:** 89
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 1.2411290539942956
-- **Published rmse gpa:** 1.308570029842643
-- **Reduced chi square:** 1.592324968960981
-- **Covariance:** \[\[63.34994876377254, -2.9579974380690417, -0.3997238519706632\], \[-2.957997438069198, 0.14369425717031795, 0.01706708438955018\], \[-0.3997238519706057, 0.01706708438954651, 0.0034696237877041946\]\]
+- **Rmse gpa:** 1.24113
+- **Published rmse gpa:** 1.30857
+- **Reduced chi square:** 1.59232
+- **Covariance:** \[\["63.3499", "-2.958", "-0.399724"\], \["-2.958", "0.143694", "0.0170671"\], \["-0.399724", "0.0170671", "0.00346962"\]\]
 - **Covariance convention:** Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors.
 - **Dataset identifiers:** ni\_nio\_campbell\_2009\_table\_s3\_pvt
 

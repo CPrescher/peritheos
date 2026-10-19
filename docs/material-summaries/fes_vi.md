@@ -131,20 +131,21 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| eos.V0 | 102.28920653790895 | 2.988970320912924 | 102.09525557486305 | 3.4794935613560787 | Free |
-| eos.K0 | 115.5 | 27.91 | 115.4389 | 34.78351 | Free |
-| eos.K0\_prime | 4.99 | 0.51 | 4.9917 | 0.67891 | Free |
-| thermal.gamma0 | 2.42 | 0.03 | 2.46418 | 0.03953 | Free |
+| eos.V0 | 102.3 | 3.0 | 102 | 3 | Free |
+| eos.K0 | 116 | 28 | 120 | 30 | Free |
+| eos.K0\_prime | 5.0 | 0.5 | 5.0 | 0.7 | Free |
+| thermal.gamma0 | 2.42 | 0.03 | 2.46 | 0.04 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** cold\_then\_fixed\_cold\_thermal
 - **Objective:** EosFit pressure residuals with supplied P/V/T uncertainty weights
 - **Free parameters:** eos.V0; eos.K0; eos.K0\_prime; thermal.gamma0
 - **Fixed parameters:** theta0; q; n; Tr=300 K
 - **Observations:** 167
-- **Rmse gpa:** 1.6336098214363033
-- **Published rmse gpa:** 1.916099083712202
+- **Rmse gpa:** 1.63361
+- **Published rmse gpa:** 1.9161
 - **Reduced chi square:** 0.6274
 - **Dataset identifiers:** fes\_morard\_2026\_author\_without\_additional\_cold\_pvt
 

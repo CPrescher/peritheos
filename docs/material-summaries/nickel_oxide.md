@@ -117,10 +117,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 191.0 | Not specified | 182.43511253506455 | 11.494590806763085 | Free |
-| K0\_prime | 3.9 | Not specified | 4.124651942331509 | 0.35671288331062556 | Free |
+| K0 | 191 | Not reported | 182 | 11 | Free |
+| K0\_prime | 3.9 | Not reported | 4.1 | 0.4 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** shock\_to\_300k\_mie\_gruneisen\_debye\_then\_bm3
 - **Objective:** unweighted\_reduced\_isothermal\_pressure\_residuals
@@ -128,12 +129,12 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 8
-- **Observed pressure range gpa:** \[17.7, 147.6\]
+- **Observed pressure range gpa:** 17.7; 147.6
 - **Degrees of freedom:** 6
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 2.084318952516954
-- **Reduced chi square:** 5.792513994428496
+- **Rmse gpa:** 2.08432
+- **Reduced chi square:** 5.79251
 - **Dataset identifiers:** nickel\_oxide\_noguchi\_1999\_table1\_shock
 
 </details>
@@ -331,10 +332,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| c0 | 5.3549770536 | 0.0531157378 | 5.354977053622233 | 0.05311573780318259 | Free |
-| s | 1.2137281492 | 0.02956091343 | 1.2137281492244212 | 0.029560913431890334 | Free |
+| c0 | 5.35 | 0.05 | 5.35 | 0.05 | Free |
+| s | 1.214 | 0.030 | 1.214 | 0.030 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** linear\_us\_up\_hugoniot
 - **Objective:** shock\_velocity\_residuals
@@ -349,8 +351,8 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Degrees of freedom:** 6
 - **Solver success:** True
 - **Solver message:** \`gtol\` termination condition is satisfied.
-- **Rmse shock velocity km s:** 0.05563671460959945
-- **Reduced chi square:** 0.004127258683400022
+- **Rmse shock velocity km s:** 0.0556367
+- **Reduced chi square:** 0.00412726
 - **Dataset identifiers:** nickel\_oxide\_noguchi\_1999\_table1\_shock
 
 </details>

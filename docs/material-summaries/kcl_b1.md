@@ -115,10 +115,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 249.44 | Not specified | 249.37909805826908 | 0.2885215905029003 | Free |
-| K0 | 17.1 | Not specified | 17.325289887618375 | 0.31899418465200324 | Free |
+| V0 | 249.44 | Not reported | 249.38 | 0.29 | Free |
+| K0 | 17.1 | Not reported | 17.3 | 0.3 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** pressure\_residuals
@@ -131,15 +132,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0
 - **Fixed parameters:** K0\_prime
 - **Observations:** 30
-- **Observed pressure range gpa:** \[0.16, 2.56\]
+- **Observed pressure range gpa:** 0.16; 2.56
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[223.424, 246.816\]
+- **Observed volume range:** 223.424; 246.816
 - **Degrees of freedom:** 28
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.053477743798609416
-- **Published rmse gpa:** 0.055444925019129614
-- **Reduced chi square:** 0.0030641454447746866
+- **Rmse gpa:** 0.0534777
+- **Published rmse gpa:** 0.0554449
+- **Reduced chi square:** 0.00306415
 - **Dataset identifiers:** kcl\_b1\_dewaele\_2012\_table2\_compression
 
 </details>
@@ -268,10 +269,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 17.7 | Not specified | 17.683421849750918 | Not specified | Free |
-| alpha\_KT | 0.00195 | 5e-05 | 0.001927145871094727 | Not specified | Free |
+| K0 | 17.7 | Not reported | 17.6834 | Not reported | Free |
+| alpha\_KT | 195e-5 | 5e-5 | 0.00192715 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** independent\_primary\_equation\_pressure\_fit
 - **Objective:** equal pressure weights
@@ -280,8 +282,8 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Fixed parameters:** V0; K0\_prime; Tr
 - **Observations:** 23
 - **Solver success:** True
-- **Rmse gpa:** 0.05382736372911785
-- **Published rmse gpa:** 0.05443362976268607
+- **Rmse gpa:** 0.0538274
+- **Published rmse gpa:** 0.0544336
 - **Dataset identifiers:** kcl\_b1\_walker\_2002\_table1\_pvt
 
 </details>

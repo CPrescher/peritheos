@@ -118,10 +118,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 47.23 | 0.36 | 47.26776659985669 | 0.09096853257033174 | Free |
-| K0 | 286.0 | 18.0 | 284.2176104350147 | 4.983794925908353 | Free |
+| V0 | 47.2 | 0.4 | 47.27 | 0.09 | Free |
+| K0 | 286 | 18 | 284 | 5 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** diagnostic\_unweighted\_pressure
 - **Objective:** unweighted pressure residuals; source dependent variable and weights unspecified
@@ -130,11 +131,11 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0
 - **Fixed parameters:** None declared
 - **Observations:** 8
-- **Observed pressure range gpa:** \[42.225, 62.934\]
+- **Observed pressure range gpa:** 42.225; 62.934
 - **Degrees of freedom:** 6
 - **Solver success:** True
-- **Rmse gpa:** 0.18052922464767193
-- **Published rmse gpa:** 0.19094366489555822
+- **Rmse gpa:** 0.180529
+- **Published rmse gpa:** 0.190944
 - **Dataset identifiers:** nisr\_2017\_silica\_tables\_s1\_s4
 
 </details>

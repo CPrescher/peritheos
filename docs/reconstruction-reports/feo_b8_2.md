@@ -48,22 +48,39 @@ Record: `feo_b8_2_fischer_2011_bm3_1` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for feo_b8_2_fischer_2011_bm3_1](figures/feo_b8_2_fischer_2011_bm3_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for feo_b8_2_fischer_2011_bm3_1](figures/feo_b8_2_fischer_2011_bm3_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 2.54 |
+| Reconstruction / refit | 2.53 |
+
+Both fits use the same 29 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** b8\_feo\_molar\_volume\_cm3\_mol. **Row selection:** all 52 Table S1 rows; finite B8 volumes retain 21 phase-specific observations, excluding one-peak detections without volume; all eight printed Ozawa B8 rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for feo_b8_2_fischer_2011_bm3_1](figures/feo_b8_2_fischer_2011_bm3_1.svg)
+![Source/target and reconstructed central values for feo_b8_2_fischer_2011_bm3_1](figures/feo_b8_2_fischer_2011_bm3_1.svg#only-light)
+![Source/target and reconstructed central values for feo_b8_2_fischer_2011_bm3_1](figures/feo_b8_2_fischer_2011_bm3_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.V0 | 39.843 | 0.0598 | 39.87450402914566 | 0.9227500249824091 | Free |
-| rt\_eos.K0 | 137.8 | 0.9 | 137.8628927154254 | 13.419067626962399 | Free |
-| gamma0 | 1.73 | 0.12 | 1.6661584108233458 | 0.16772849402876094 | Free |
+| rt\_eos.V0 | 39.84 | 0.06 | 39.9 | 0.9 | Free |
+| rt\_eos.K0 | 137.8 | 0.9 | 138 | 13 | Free |
+| gamma0 | 1.73 | 0.12 | 1.67 | 0.17 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -73,15 +90,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa + pressure\_gpa
     - **Temperature:** temperature\_k + temperature\_k
     - **Volume:** b8\_feo\_molar\_volume\_cm3\_mol + feo\_volume\_a3\_per\_formula\_unit
-- **Observed pressure range gpa:** \[131.343680431, 199.5\]
-- **Observed temperature range k:** \[300.0, 3000.0\]
-- **Observed volume range:** \[24.4, 26.844846548522057\]
+- **Observed pressure range gpa:** 131.344; 199.5
+- **Observed temperature range k:** 300; 3000
+- **Observed volume range:** 24.4; 26.8448
 - **Degrees of freedom:** 26
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 2.531779963298538
-- **Published rmse gpa:** 2.544868741352714
-- **Reduced chi square:** 7.149514757470708
+- **Rmse gpa:** 2.53178
+- **Published rmse gpa:** 2.54487
+- **Reduced chi square:** 7.14951
 
 </details>
 
@@ -91,7 +108,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `feo_b8_2_fischer_2011_bm3_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/feo_b8_2.eosmat).

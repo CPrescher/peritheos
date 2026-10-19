@@ -125,18 +125,19 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 105.627 | 0.007 | 105.62752391342688 | Not specified | See protocol |
-| K0 | 92.9 | 0.7 | 92.81450983679824 | Not specified | See protocol |
-| K0\_prime | 7.3 | 0.2 | 7.277216896213657 | Not specified | See protocol |
+| V0 | 105.627 | 0.007 | 105.628 | Not reported | See protocol |
+| K0 | 92.9 | 0.7 | 92.8145 | Not reported | See protocol |
+| K0\_prime | 7.30 | 0.20 | 7.27722 | Not reported | See protocol |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** iterated\_effective\_variance\_pv
 - **Fixed parameters:** None declared
 - **Observations:** 11
 - **Solver success:** True
-- **Rmse gpa:** 0.010738316186002777
-- **Published rmse gpa:** 0.012356921019492
+- **Rmse gpa:** 0.0107383
+- **Published rmse gpa:** 0.0123569
 - **Dataset identifiers:** phase\_e\_crichton\_ross\_2000\_table1
 - **Reproduction report:** docs/data/phase-e-crichton-ross-2000-reproduction.json
 

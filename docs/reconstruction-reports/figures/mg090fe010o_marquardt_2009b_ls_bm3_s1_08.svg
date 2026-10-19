@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<!-- peritheos-comparison data=6b0a7e41e79c5f4bd26db948b392269774af19f7252d9cdce87c7c37f2db3bb8 body=d37954708a7f09ca07117e095d920a39cbb0882fe89b78cd94fbc6bd461912f0 -->
+<!-- peritheos-comparison data=9a19d1c67f5b7163e02da84e90c475aa3931d781cc0f29ca658827023d706e87 body=9b2e36814db5ef762f5d4a9ca1813b43f3fcba89941532d2e83f909dc6e54505 -->
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
   "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 <svg xmlns:xlink="http://www.w3.org/1999/xlink" width="518.4pt" height="154.8pt" viewBox="0 0 518.4 154.8" xmlns="http://www.w3.org/2000/svg" version="1.1">
@@ -9,7 +9,7 @@
    <cc:Work>
     <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
     <dc:title>Stored source and reconstructed coefficients</dc:title>
-    <dc:description>Central-value comparison only; no observations, residuals or inferred confidence intervals.</dc:description>
+    <dc:description>Stored coefficients and available reported error widths; confidence conventions remain those of the named audit.</dc:description>
     <dc:format>image/svg+xml</dc:format>
     <dc:creator>
      <cc:Agent>
@@ -251,6 +251,26 @@ z
     </defs>
     <g clip-path="url(#p6e73b4ec56)">
      <use xlink:href="#m79c71298e6" x="477.342362" y="92.75448" style="fill: #ae4c14; stroke: #ae4c14"/>
+    </g>
+   </g>
+   <g id="LineCollection_1">
+    <path d="M 473.346876 92.75448
+L 481.337848 92.75448
+" clip-path="url(#p6e73b4ec56)" style="fill: none; stroke: #ae4c14; stroke-width: 1.5"/>
+   </g>
+   <g id="line2d_23">
+    <defs>
+     <path id="m3def4cd5cd" d="M 0 3
+L 0 -3
+" style="stroke: #ae4c14"/>
+    </defs>
+    <g clip-path="url(#p6e73b4ec56)">
+     <use xlink:href="#m3def4cd5cd" x="473.346876" y="92.75448" style="fill: #ae4c14; stroke: #ae4c14"/>
+    </g>
+   </g>
+   <g id="line2d_24">
+    <g clip-path="url(#p6e73b4ec56)">
+     <use xlink:href="#m3def4cd5cd" x="481.337848" y="92.75448" style="fill: #ae4c14; stroke: #ae4c14"/>
     </g>
    </g>
    <g id="patch_3">

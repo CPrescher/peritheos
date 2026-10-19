@@ -249,11 +249,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 29.4666 | 0.0332 | 29.47116809355935 | 0.01465445167215156 | Free |
-| K0 | 352.6 | 8.0 | 349.3235743292062 | 3.908645041756426 | Free |
-| K0\_prime | 4.56 | 0.17 | 4.650965022365095 | 0.08463980686232286 | Free |
+| V0 | 29.47 | 0.03 | 29.471 | 0.015 | Free |
+| K0 | 353 | 8 | 349 | 4 | Free |
+| K0\_prime | 4.56 | 0.17 | 4.65 | 0.08 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** pressure\_residuals
@@ -266,15 +267,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 - **Observations:** 59
-- **Observed pressure range gpa:** \[0.65, 144.0\]
+- **Observed pressure range gpa:** 0.65; 144
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[23.23852512, 29.45669406\]
+- **Observed volume range:** 23.2385; 29.4567
 - **Degrees of freedom:** 56
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.604047760657186
-- **Published rmse gpa:** 0.6131883761770216
-- **Reduced chi square:** 0.3844205023596911
+- **Rmse gpa:** 0.604048
+- **Published rmse gpa:** 0.613188
+- **Reduced chi square:** 0.384421
 - **Dataset identifiers:** rhenium\_anzellini\_2014\_table3\_compression
 
 </details>
@@ -424,11 +425,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 29.474 | 0.04 | 29.476510755297845 | Not specified | Free |
-| K0 | 350.5 | 8.0 | 349.46741636658453 | Not specified | Free |
-| K0\_prime | 3.98 | 0.17 | 4.012835983077084 | Not specified | Free |
+| V0 | 29.47 | 0.04 | 29.4765 | Not reported | Free |
+| K0 | 351 | 8 | 349.467 | Not reported | Free |
+| K0\_prime | 3.98 | 0.17 | 4.01284 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** static\_vinet\_with\_explicit\_ruby\_scale\_conversion
 - **Objective:** unweighted pressure residuals
@@ -436,10 +438,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 - **Observations:** 59
-- **Observed pressure range gpa:** \[0.6564113204013139, 134.16305399420037\]
+- **Observed pressure range gpa:** 0.656411; 134.163
 - **Solver success:** True
 - **Solver message:** dedicated Dewaele (2019) refit completed
-- **Rmse gpa:** 0.5744922590515854
+- **Rmse gpa:** 0.574492
 - **Dataset identifiers:** rhenium\_anzellini\_2014\_table3\_compression
 
 </details>
@@ -574,11 +576,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 29.468 | 0.04 | 29.471168094198738 | Not specified | Free |
-| K0 | 350.5 | 8.0 | 349.3235741323694 | Not specified | Free |
-| K0\_prime | 4.62 | 0.17 | 4.650965026819257 | Not specified | Free |
+| V0 | 29.47 | 0.04 | 29.4712 | Not reported | Free |
+| K0 | 351 | 8 | 349.324 | Not reported | Free |
+| K0\_prime | 4.62 | 0.17 | 4.65097 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** static\_vinet\_with\_explicit\_ruby\_scale\_conversion
 - **Objective:** unweighted pressure residuals
@@ -586,10 +589,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 - **Observations:** 59
-- **Observed pressure range gpa:** \[0.65, 144.0\]
+- **Observed pressure range gpa:** 0.65; 144
 - **Solver success:** True
 - **Solver message:** dedicated Dewaele (2019) refit completed
-- **Rmse gpa:** 0.6040477606572032
+- **Rmse gpa:** 0.604048
 - **Dataset identifiers:** rhenium\_anzellini\_2014\_table3\_compression
 
 </details>
@@ -725,10 +728,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 358.0 | 10.0 | 357.1917448671756 | 10.226614920564156 | Free |
-| K0\_prime | 4.8 | 0.2 | 4.834834244655565 | 0.18014696472120184 | Free |
+| K0 | 358 | 10 | 357 | 10 | Free |
+| K0\_prime | 4.80 | 0.20 | 4.83 | 0.18 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** diagnostic\_vector\_digitized\_vinet
 - **Objective:** pressure\_residuals
@@ -736,9 +740,9 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 26
-- **Observed pressure range gpa:** \[138.5287109544056, 302.80959631080384\]
-- **Rmse gpa:** 3.1061686073745998
-- **Published rmse gpa:** 3.2130888524322523
+- **Observed pressure range gpa:** 138.529; 302.81
+- **Rmse gpa:** 3.10617
+- **Published rmse gpa:** 3.21309
 - **Dataset identifiers:** rhenium\_sakai\_2018\_figure10
 
 </details>
@@ -879,21 +883,22 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| alpha\_KT\_ref | 0.00776 | Not specified | 0.007756156527449165 | Not specified | Free |
-| dK\_dT\_V | -0.00815 | Not specified | -0.008148788969999833 | Not specified | Free |
+| alpha\_KT\_ref | 0.00776 | Not reported | 0.00775616 | Not reported | Free |
+| dK\_dT\_V | -0.00815 | Not reported | -0.00814879 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isochore\_slope\_linear\_regression
 - **Objective:** unweighted residuals of (P-P300)/(T-300), the staged isochore construction in Section III
 - **Free parameters:** alpha\_KT\_ref; dK\_dT\_V
 - **Fixed parameters:** V0; K0; K0\_prime; Tr
 - **Observations:** 8
-- **Observed pressure range gpa:** \[6.41, 8.47\]
-- **Observed temperature range k:** \[1380.3, 1914.5\]
+- **Observed pressure range gpa:** 6.41; 8.47
+- **Observed temperature range k:** 1380.3; 1914.5
 - **Solver success:** True
-- **Rmse gpa:** 0.4083849112682927
-- **Published rmse gpa:** 0.4084918269955869
+- **Rmse gpa:** 0.408385
+- **Published rmse gpa:** 0.408492
 - **Dataset identifiers:** rhenium\_zha\_2004\_table2\_paired\_pvt
 
 </details>

@@ -114,9 +114,10 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 113.7 | 0.7 | 114.47622392545018 | 0.4803451819537479 | Free |
+| K0 | 113.7 | 0.7 | 114.5 | 0.5 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -129,15 +130,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0
 - **Fixed parameters:** V0; K0\_prime
 - **Observations:** 66
-- **Observed pressure range gpa:** \[0.0, 11.3\]
+- **Observed pressure range gpa:** 0; 11.3
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[42.38, 46.64\]
+- **Observed volume range:** 42.38; 46.64
 - **Degrees of freedom:** 65
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.12468757204577911
-- **Published rmse gpa:** 0.19805257122051892
-- **Reduced chi square:** 2.3005979302070867
+- **Rmse gpa:** 0.124688
+- **Published rmse gpa:** 0.198053
+- **Reduced chi square:** 2.3006
 - **Dataset identifiers:** zirconium\_alpha\_mchardy\_2026\_table\_s6\_compression
 
 </details>

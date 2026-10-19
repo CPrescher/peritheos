@@ -47,30 +47,47 @@ Record: `argon_hcp_wittlinger_1997_bm2_1` · Model: `BM2`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for argon_hcp_wittlinger_1997_bm2_1](figures/argon_hcp_wittlinger_1997_bm2_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for argon_hcp_wittlinger_1997_bm2_1](figures/argon_hcp_wittlinger_1997_bm2_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.772 |
+| Reconstruction / refit | 0.451 |
+
+Both fits use the same 9 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** volume\_a3\_conventional\_cell. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for argon_hcp_wittlinger_1997_bm2_1](figures/argon_hcp_wittlinger_1997_bm2_1.svg)
+![Source/target and reconstructed central values for argon_hcp_wittlinger_1997_bm2_1](figures/argon_hcp_wittlinger_1997_bm2_1.svg#only-light)
+![Source/target and reconstructed central values for argon_hcp_wittlinger_1997_bm2_1](figures/argon_hcp_wittlinger_1997_bm2_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 78.0 | 3.0 | 72.78172096898437 | Not specified | Free |
-| K0 | 6.5 | 1.3 | 8.060302736427957 | Not specified | Free |
+| V0 | 78 | 3 | 72.7817 | Not reported | Free |
+| K0 | 6.5 | 1.3 | 8.0603 | Not reported | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
 - **Solver success:** True
-- **Rmse gpa:** 0.4510113341777895
-- **Published rmse gpa:** 0.7722620448085159
-- **Reduced chi square:** 0.20254793447243688
+- **Rmse gpa:** 0.451011
+- **Published rmse gpa:** 0.772262
+- **Reduced chi square:** 0.202548
 
 </details>
 
@@ -79,7 +96,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `argon_hcp_wittlinger_1997_bm2_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/argon_hcp.eosmat).

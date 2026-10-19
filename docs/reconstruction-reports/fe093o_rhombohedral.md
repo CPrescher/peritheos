@@ -47,21 +47,38 @@ Record: `fe093o_rhombohedral_jacobsen_2005_bm3_1` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for fe093o_rhombohedral_jacobsen_2005_bm3_1](figures/fe093o_rhombohedral_jacobsen_2005_bm3_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for fe093o_rhombohedral_jacobsen_2005_bm3_1](figures/fe093o_rhombohedral_jacobsen_2005_bm3_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.442 |
+| Reconstruction / refit | 0.438 |
+
+Both fits use the same 9 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** fe093o\_rhombohedral\_volume\_a3. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for fe093o_rhombohedral_jacobsen_2005_bm3_1](figures/fe093o_rhombohedral_jacobsen_2005_bm3_1.svg)
+![Source/target and reconstructed central values for fe093o_rhombohedral_jacobsen_2005_bm3_1](figures/fe093o_rhombohedral_jacobsen_2005_bm3_1.svg#only-light)
+![Source/target and reconstructed central values for fe093o_rhombohedral_jacobsen_2005_bm3_1](figures/fe093o_rhombohedral_jacobsen_2005_bm3_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 59.72 | 0.22 | 59.7395132600023 | 0.13126348450424175 | Free |
-| K0 | 134.0 | 4.0 | 133.66207218779005 | 2.1612363944843067 | Free |
+| V0 | 59.72 | 0.22 | 59.74 | 0.13 | Free |
+| K0 | 134 | 4 | 133.7 | 2.2 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -71,15 +88,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** Not specified
     - **Volume:** fe093o\_rhombohedral\_volume\_a3
-- **Observed pressure range gpa:** \[27.7, 51.1\]
+- **Observed pressure range gpa:** 27.7; 51.1
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[47.0, 51.27\]
+- **Observed volume range:** 47; 51.27
 - **Degrees of freedom:** 7
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.016131562401951283
-- **Published rmse gpa:** 0.4415688144493295
-- **Reduced chi square:** 2.6797370526722912
+- **Rmse gpa:** 0.0161316
+- **Published rmse gpa:** 0.441569
+- **Reduced chi square:** 2.67974
 
 </details>
 
@@ -88,7 +105,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `fe093o_rhombohedral_jacobsen_2005_bm3_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/fe093o_rhombohedral.eosmat).

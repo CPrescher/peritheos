@@ -120,10 +120,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 120.0 | 1.0 | 120.2242130752825 | 1.322686992288662 | Free |
-| K0\_prime | 3.57 | 0.09 | 3.5722139862709232 | 0.13418562510556464 | Free |
+| K0 | 120.0 | 1.0 | 120.2 | 1.3 | Free |
+| K0\_prime | 3.57 | 0.09 | 3.57 | 0.13 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** fixed\_V0\_linearized\_bm3
 - **Objective:** unweighted\_pressure\_residuals
@@ -131,11 +132,11 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 27
-- **Observed pressure range gpa:** \[0, 33.01\]
+- **Observed pressure range gpa:** \[0, "33.01"\]
 - **Observed temperature range k:** \[300, 300\]
 - **Solver success:** True
-- **Rmse gpa:** 0.22730866010656467
-- **Published rmse gpa:** 0.22958469054073105
+- **Rmse gpa:** 0.227309
+- **Published rmse gpa:** 0.229585
 - **Dataset identifiers:** siderite\_fe095mn005\_litasov\_2013\_table2\_pvt
 
 </details>
@@ -281,13 +282,14 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.K0 | 121.90288040577286 | 0.8855927629328301 | 121.90287687707195 | 0.8855930573905902 | Free |
-| rt\_eos.K0\_prime | 3.427642322450656 | 0.08617420289324854 | 3.427643358874071 | 0.08617420444691092 | Free |
-| alpha0 | 3.587839262956832e-05 | 1.442174904027276e-06 | 3.5878359568313225e-05 | 1.4421765164866188e-06 | Free |
-| alpha1 | 1.0132344225608927e-09 | 1.9588122131294773e-09 | 1.0133103185840319e-09 | 1.958811150464104e-09 | Free |
-| dK\_dT | -0.014597911024728977 | 0.0011884239133985548 | -0.014597941803188182 | 0.0011884224642203412 | Free |
+| rt\_eos.K0 | 121.9 | 0.9 | 121.9 | 0.9 | Free |
+| rt\_eos.K0\_prime | 3.43 | 0.09 | 3.43 | 0.09 | Free |
+| alpha0 | 35.9e-6 | 1.4e-6 | 35.9e-6 | 1.4e-6 | Free |
+| alpha1 | 1.0e-9 | 2.0e-9 | 1.0e-9 | 2.0e-9 | Free |
+| dK\_dT | -0.0146 | 0.0012 | -0.0146 | 0.0012 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** joint\_thermal\_reference\_state\_refit
 - **Objective:** unweighted\_pressure\_residuals
@@ -295,11 +297,11 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** rt\_eos.K0; rt\_eos.K0\_prime; alpha0; alpha1; dK\_dT
 - **Fixed parameters:** V0; Tr
 - **Observations:** 111
-- **Observed pressure range gpa:** \[0, 33.01\]
+- **Observed pressure range gpa:** \[0, "33.01"\]
 - **Observed temperature range k:** \[300, 1673\]
 - **Solver success:** True
-- **Rmse gpa:** 0.22121166605654996
-- **Published rmse gpa:** 0.22121166605746373
+- **Rmse gpa:** 0.221212
+- **Published rmse gpa:** 0.221212
 - **Dataset identifiers:** siderite\_fe095mn005\_litasov\_2013\_table2\_pvt
 
 </details>

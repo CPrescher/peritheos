@@ -128,12 +128,13 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.V0 | 23.921725801706437 | 0.17933821925477544 | 23.877799732461103 | 0.29640929957744455 | Free |
-| rt\_eos.K0 | 129.1 | 1.4 | 131.1223222591529 | 14.641112194006409 | Free |
-| rt\_eos.K0\_prime | 5.29 | 0.08 | 5.254359871574407 | 0.2693800928158629 | Free |
-| gamma0 | 1.14 | 0.14 | 1.1846549216904039 | 0.15009376867056062 | Free |
+| rt\_eos.V0 | 23.92 | 0.18 | 23.88 | 0.30 | Free |
+| rt\_eos.K0 | 129.1 | 1.4 | 131 | 15 | Free |
+| rt\_eos.K0\_prime | 5.29 | 0.08 | 5.25 | 0.27 | Free |
+| gamma0 | 1.14 | 0.14 | 1.18 | 0.15 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** joint\_pvt
 - **Objective:** pressure\_residuals
@@ -146,15 +147,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** rt\_eos.V0; rt\_eos.K0; rt\_eos.K0\_prime; gamma0
 - **Fixed parameters:** Tr; theta0; q; n
 - **Observations:** 76
-- **Observed pressure range gpa:** \[46.46991151576709, 197.0644255148494\]
-- **Observed temperature range k:** \[1128.7150000000001, 2566.255\]
-- **Observed volume range:** \[15.242475553688518, 19.650928459386936\]
+- **Observed pressure range gpa:** 46.4699; 197.064
+- **Observed temperature range k:** 1128.72; 2566.26
+- **Observed volume range:** 15.2425; 19.6509
 - **Degrees of freedom:** 72
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 1.353860642273373
-- **Published rmse gpa:** 1.3644500996350781
-- **Reduced chi square:** 1.9347685630689186
+- **Rmse gpa:** 1.35386
+- **Published rmse gpa:** 1.36445
+- **Reduced chi square:** 1.93477
 - **Dataset identifiers:** fischer\_2014\_table\_s1\_pvt
 
 </details>
@@ -310,12 +311,13 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.V0 | 24.187412052454253 | 0.08302695335869234 | 24.22943692257538 | 0.33293807509812645 | Free |
-| rt\_eos.K0 | 111.4 | 1.2 | 109.52134882742749 | 13.511642518280398 | Free |
-| rt\_eos.K0\_prime | 6.08 | 0.08 | 6.124474609084446 | 0.27279937825655115 | Free |
-| gamma0 | 1.15 | 0.15 | 1.19757940302062 | 0.15251652052914422 | Free |
+| rt\_eos.V0 | 24.19 | 0.08 | 24.2 | 0.3 | Free |
+| rt\_eos.K0 | 111.4 | 1.2 | 110 | 14 | Free |
+| rt\_eos.K0\_prime | 6.08 | 0.08 | 6.12 | 0.27 | Free |
+| gamma0 | 1.15 | 0.15 | 1.20 | 0.15 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** joint\_pvt
 - **Objective:** pressure\_residuals
@@ -328,15 +330,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** rt\_eos.V0; rt\_eos.K0; rt\_eos.K0\_prime; gamma0
 - **Fixed parameters:** Tr; theta0; q; n
 - **Observations:** 76
-- **Observed pressure range gpa:** \[46.46991151576709, 197.0644255148494\]
-- **Observed temperature range k:** \[1128.7150000000001, 2566.255\]
-- **Observed volume range:** \[15.242475553688518, 19.650928459386936\]
+- **Observed pressure range gpa:** 46.4699; 197.064
+- **Observed temperature range k:** 1128.72; 2566.26
+- **Observed volume range:** 15.2425; 19.6509
 - **Degrees of freedom:** 72
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 1.355083352265737
-- **Published rmse gpa:** 1.3839029983369042
-- **Reduced chi square:** 1.938264830009289
+- **Rmse gpa:** 1.35508
+- **Published rmse gpa:** 1.3839
+- **Reduced chi square:** 1.93826
 - **Dataset identifiers:** fischer\_2014\_table\_s1\_pvt
 
 </details>

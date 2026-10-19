@@ -47,23 +47,40 @@ Record: `silica_cacl2_sun_2019_bm2_1` · Model: `BM2`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for silica_cacl2_sun_2019_bm2_1](figures/silica_cacl2_sun_2019_bm2_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for silica_cacl2_sun_2019_bm2_1](figures/silica_cacl2_sun_2019_bm2_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 1.91 |
+| Reconstruction / refit | 2 |
+
+Both fits use the same 48 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** volume\_angstrom3. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for silica_cacl2_sun_2019_bm2_1](figures/silica_cacl2_sun_2019_bm2_1.svg)
+![Source/target and reconstructed central values for silica_cacl2_sun_2019_bm2_1](figures/silica_cacl2_sun_2019_bm2_1.svg#only-light)
+![Source/target and reconstructed central values for silica_cacl2_sun_2019_bm2_1](figures/silica_cacl2_sun_2019_bm2_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.V0 | 48.1 | 0.2 | 48.485206451852385 | 0.20725728953425138 | Free |
-| rt\_eos.K0 | 245.0 | 7.0 | 235.5085295711504 | 6.220566444223275 | Free |
-| theta0 | 1100.0 | 400.0 | 2594.2340425650036 | 643.243317153621 | Free |
-| gamma0 | 1.3 | 0.3 | 1.684938828541015 | 0.47487077401613464 | Free |
+| rt\_eos.V0 | 48.10 | 0.20 | 48.49 | 0.21 | Free |
+| rt\_eos.K0 | 245 | 7 | 236 | 6 | Free |
+| theta0 | 1100 | 400 | 2600 | 600 | Free |
+| gamma0 | 1.3 | 0.3 | 1.7 | 0.5 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -73,15 +90,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** temperature\_k
     - **Volume:** volume\_angstrom3
-- **Observed pressure range gpa:** \[64.4, 143.0\]
-- **Observed temperature range k:** \[300.0, 2250.0\]
-- **Observed volume range:** \[35.68, 40.65\]
+- **Observed pressure range gpa:** 64.4; 143
+- **Observed temperature range k:** 300; 2250
+- **Observed volume range:** 35.68; 40.65
 - **Degrees of freedom:** 44
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 1.5045744179271328
-- **Published rmse gpa:** 1.907159817564574
-- **Reduced chi square:** 1.0838539447098678
+- **Rmse gpa:** 1.50457
+- **Published rmse gpa:** 1.90716
+- **Reduced chi square:** 1.08385
 
 </details>
 
@@ -91,7 +108,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `silica_cacl2_sun_2019_bm2_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/silica_cacl2.eosmat).

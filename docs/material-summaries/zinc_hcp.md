@@ -122,11 +122,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 30.294 | 0.038 | 30.292457843118044 | Not specified | Free |
-| K0 | 64.3 | 1.2 | 64.3338855596799 | Not specified | Free |
-| K0\_prime | 5.3 | 0.1 | 5.297409276246986 | Not specified | Free |
+| V0 | 30.29 | 0.04 | 30.2925 | Not reported | Free |
+| K0 | 64.3 | 1.2 | 64.3339 | Not reported | Free |
+| K0\_prime | 5.30 | 0.10 | 5.29741 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** static\_vinet\_with\_explicit\_ruby\_scale\_conversion
 - **Objective:** unweighted pressure residuals
@@ -134,10 +135,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 - **Observations:** 43
-- **Observed pressure range gpa:** \[0.0, 147.4\]
+- **Observed pressure range gpa:** 0; 147.4
 - **Solver success:** True
 - **Solver message:** dedicated Dewaele (2019) refit completed
-- **Rmse gpa:** 0.5941302906776338
+- **Rmse gpa:** 0.59413
 - **Dataset identifiers:** zinc\_dewaele\_2008\_table2\_compression
 
 </details>
@@ -273,11 +274,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 30.31 | 0.038 | 30.30938831413312 | Not specified | Free |
-| K0 | 62.2 | 1.2 | 62.25517455441376 | Not specified | Free |
-| K0\_prime | 5.705 | 0.1 | 5.7035858793585135 | Not specified | Free |
+| V0 | 30.31 | 0.04 | 30.3094 | Not reported | Free |
+| K0 | 62.2 | 1.2 | 62.2552 | Not reported | Free |
+| K0\_prime | 5.71 | 0.10 | 5.70359 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** static\_vinet\_with\_explicit\_ruby\_scale\_conversion
 - **Objective:** unweighted pressure residuals
@@ -285,10 +287,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 - **Observations:** 43
-- **Observed pressure range gpa:** \[0.0, 158.7461178680547\]
+- **Observed pressure range gpa:** 0; 158.746
 - **Solver success:** True
 - **Solver message:** dedicated Dewaele (2019) refit completed
-- **Rmse gpa:** 0.6543739589034804
+- **Rmse gpa:** 0.654374
 - **Dataset identifiers:** zinc\_dewaele\_2008\_table2\_compression
 
 </details>

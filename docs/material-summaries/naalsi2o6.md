@@ -124,12 +124,13 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.K0 | 124.5 | 4.0 | 123.76531127225114 | 1.3079217383697208 | Free |
-| alpha0 | 2.56e-05 | 2.2e-06 | 2.6907805461388988e-05 | 2.2631463855223843e-06 | Free |
-| alpha1 | 2.6e-09 | 1.8e-09 | 1.4119785809547507e-09 | 3.3359683548023392e-09 | Free |
-| dK\_dT | -0.0165 | 0.0049 | -0.015274475228462205 | 0.002798352278049637 | Free |
+| rt\_eos.K0 | 125 | 4 | 123.8 | 1.3 | Free |
+| alpha0 | 25.6e-6 | 2.2e-6 | 26.9e-6 | 2.3e-6 | Free |
+| alpha1 | 2.6e-9 | 1.8e-9 | 1e-9 | 3e-9 | Free |
+| dK\_dT | -0.017 | 0.005 | -0.0153 | 0.0028 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** joint\_pvt
 - **Objective:** pressure\_residuals
@@ -142,15 +143,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** rt\_eos.K0; alpha0; alpha1; dK\_dT
 - **Fixed parameters:** V0; K0\_prime; Tr
 - **Observations:** 31
-- **Observed pressure range gpa:** \[0.0, 8.16\]
-- **Observed temperature range k:** \[300.0, 1280.0\]
-- **Observed volume range:** \[385.41, 406.7\]
+- **Observed pressure range gpa:** 0; 8.16
+- **Observed temperature range k:** 300; 1280
+- **Observed volume range:** 385.41; 406.7
 - **Degrees of freedom:** 27
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.10057798930809785
-- **Published rmse gpa:** 0.1100101303257055
-- **Reduced chi square:** 0.011614588515965007
+- **Rmse gpa:** 0.100578
+- **Published rmse gpa:** 0.11001
+- **Reduced chi square:** 0.0116146
 - **Dataset identifiers:** jadeite\_zhao\_1997\_table1\_pvt
 
 </details>

@@ -113,10 +113,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 78.44 | 0.4 | 77.91467996193494 | 0.1153396106978765 | Free |
-| K0 | 172.0 | 21.0 | 205.8449604879571 | 8.212686062275395 | Free |
+| V0 | 78.4 | 0.4 | 77.91 | 0.12 | Free |
+| K0 | 172 | 21 | 206 | 8 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -129,15 +130,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0
 - **Fixed parameters:** None declared
 - **Observations:** 20
-- **Observed pressure range gpa:** \[2.857, 11.086\]
+- **Observed pressure range gpa:** 2.857; 11.086
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[74.20066, 76.91803\]
+- **Observed volume range:** 74.2007; 76.918
 - **Degrees of freedom:** 18
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.07466856648367305
-- **Published rmse gpa:** 0.802756702268262
-- **Reduced chi square:** 7.057255829895715
+- **Rmse gpa:** 0.0746686
+- **Published rmse gpa:** 0.802757
+- **Reduced chi square:** 7.05726
 - **Dataset identifiers:** zinc\_oxide\_rocksalt\_hanna\_2011\_figure4\_bulk\_digitized
 
 </details>
