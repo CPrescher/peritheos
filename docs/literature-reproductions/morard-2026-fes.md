@@ -12,6 +12,10 @@ paper's claim that every calculated-minus-observed pressure lies within
 it does not establish an error in the experiments. No diagnostic fit replaces
 the published coefficients.
 
+## GUI follow-up (2026-10-19)
+
+The [actual 20211014 GUI replay](fes-gui-replay.md) now verifies saved-cold and cold-then-hot fitting controls with the confirmed selected author inputs. It agrees closely with the console and still exceeds the claimed ±3 GPa envelope. The exact original build/workflow remains unresolved; no additional request for the already confirmed author-used files is needed.
+
 ## Sources and material identity
 
 The user supplied the final nine-page article and `Table S1.xlsx`, with one

@@ -24,6 +24,12 @@
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 2, "molar_mass_g_mol": 55.845},
       "notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
+      "network_reconstruction_audit": {
+        "report": "docs/literature-reproductions/sakai-2025-network.md",
+        "data": "docs/data/sakai-2025-network-reconstruction.json",
+        "scope": "Conditional measured subsets, published-upstream and sequential controls; original full-network workflow and uncertainty not reproduced."
+      },
+      "fit_datasets": ["iron_sakai_2025_table_s6_measured_pairs"],
       "reference": {
         "authors": [
           "Sakai",
@@ -86,7 +92,7 @@
             "status": "not_refittable",
             "scope": "parameter_agreement",
             "source_status": "not_refittable",
-            "basis": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
+            "basis": "Conditional measured-pair subset regressions are replayable. The complete source multi-stage regression and uncertainty remain unreproduced; subset coefficient differences do not establish failure of the full published fit.",
             "qualifications": [
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
               "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
@@ -95,7 +101,7 @@
             "report_path": "docs/reconstruction-reports/iron.md#record-iron_sakai_2025_rydberg_stacey_1",
             "fit": {
               "fixed_parameters": ["K_infinity_prime"],
-              "dataset_identifiers": []
+              "dataset_identifiers": ["iron_sakai_2025_table_s6_measured_pairs"]
             },
             "report": "docs/data/primary-eos-refits.json"
           }
@@ -112,10 +118,11 @@
             "doi": "10.1038/s43246-025-00792-5"
           },
           "primary_data_check": {
-            "status": "derived_output_only",
+            "status": "bundled",
             "audit_date": "2026-09-05",
             "source_locations": ["Supplementary Data 1, Table S9"],
-            "finding": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance."
+            "finding": "Table S6 measured paired volumes are bundled alongside the separately calculated Table S9 checkpoints. Conditional subset regressions are replayable; the full Table S8 historical constraint inventory, original weights and covariance are not reproduced.",
+            "dataset_identifiers": ["iron_sakai_2025_table_s6_measured_pairs"]
           }
         },
         "parameter_provenance": {
@@ -7613,6 +7620,99 @@
         "notes": "Equal-weight refit does not use coordinate errors. Derived MgO pressure error omits calibration uncertainty; P-T covariance retained. He P-T covariance unknown and blank. Missing errors stay blank, original zeros remain zero."
       },
       "notes": "Explicit derived Speziale variable-q Debye pressures; not an author-supplied pressure column. Original pressures, coordinate precision, missing errors and He optical-gauge provenance retained. The isothermal-only catalog Speziale record is not used as a thermal calibrant."
+    },
+    {
+      "identifier": "iron_sakai_2025_table_s6_measured_pairs",
+      "kind": "simultaneous_xrd_compression",
+      "description": "All 19 measured iron–tungsten cell-volume pairs on source Table S6. Pressure is calculated from the calibrant during an explicitly conditional audit; it is not an independently measured column. Missing source errors remain blank.",
+      "reference": {
+        "authors": [
+          "Sakai",
+          "Kadobayashi",
+          "Nakamoto",
+          "Dekura",
+          "Ishimatsu",
+          "Kawaguchi-Imada",
+          "Seto",
+          "Sekizawa",
+          "Nitta",
+          "Shimizu"
+        ],
+        "year": 2025,
+        "title": "The equations of state of nine materials up to 0.43 TPa for extreme pressure science",
+        "source": "Communications Materials",
+        "volume": "6",
+        "locator": "68",
+        "doi": "10.1038/s43246-025-00792-5"
+      },
+      "source_location": "Supplementary Data 1, Table S6",
+      "source_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs43246-025-00792-5/MediaObjects/43246_2025_792_MOESM5_ESM.xlsx",
+      "columns": [
+        {"name": "source_table", "quantity": "source_table", "unit": "1", "role": "flag"},
+        {"name": "source_sheet", "quantity": "source_sheet", "unit": "1", "role": "flag"},
+        {"name": "source_row", "quantity": "source_row", "unit": "1", "role": "flag"},
+        {"name": "run", "quantity": "run", "unit": "1", "role": "flag"},
+        {"name": "target", "quantity": "target", "unit": "1", "role": "flag"},
+        {"name": "calibrant", "quantity": "calibrant", "unit": "1", "role": "flag"},
+        {"name": "target_volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+        {"name": "target_volume_source_cell", "quantity": "target_volume_source_cell", "unit": "1", "role": "flag"},
+        {"name": "target_volume_source_token", "quantity": "target_volume_source_token", "unit": "1", "role": "flag"},
+        {
+          "name": "target_error_a3",
+          "quantity": "target_error_a3",
+          "unit": "angstrom^3",
+          "role": "uncertainty",
+          "of": "target_volume_a3"
+        },
+        {"name": "target_error_source_token", "quantity": "target_error_source_token", "unit": "1", "role": "flag"},
+        {
+          "name": "calibrant_volume_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "value"
+        },
+        {
+          "name": "calibrant_volume_source_cell",
+          "quantity": "calibrant_volume_source_cell",
+          "unit": "1",
+          "role": "flag"
+        },
+        {
+          "name": "calibrant_volume_source_token",
+          "quantity": "calibrant_volume_source_token",
+          "unit": "1",
+          "role": "flag"
+        },
+        {
+          "name": "calibrant_error_a3",
+          "quantity": "calibrant_error_a3",
+          "unit": "angstrom^3",
+          "role": "uncertainty",
+          "of": "calibrant_volume_a3"
+        },
+        {
+          "name": "calibrant_error_source_token",
+          "quantity": "calibrant_error_source_token",
+          "unit": "1",
+          "role": "flag"
+        }
+      ],
+      "row_count": 19,
+      "resource": {
+        "path": "datasets/iron-sakai-2025-table-s6-measured-pairs.csv",
+        "sha256": "fc3e4cc086b17e6e9c6645576798152439b620349633c3c4f252d9b19dfb2d91",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["iron_sakai_2025_rydberg_stacey_1"],
+      "license": "Contributor CC0 covers only transcription, normalization, metadata and arrangement. Sakai source article: CC BY-NC-ND 4.0; retain source rights and exclusions. See sakai-2025-au.LICENSE.md.",
+      "uncertainty": {
+        "notes": "Source err. fields retain unspecified confidence/standard-deviation semantics. Missing errors remain missing; no covariance or error is imputed."
+      },
+      "provenance": {
+        "type": "primary_source_numeric_recovery",
+        "cell_archive": "datasets/sakai-2025-au-workbook-cells.json",
+        "analysis": "docs/literature-reproductions/sakai-2025-network.md"
+      }
     }
   ]
 }

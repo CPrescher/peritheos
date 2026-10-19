@@ -47,7 +47,7 @@ def test_staged_card_schema_qualification_and_lossless_roundtrip(tmp_path):
     document = load_eosmat(CARD)
     Draft202012Validator(eosmat_schema()).validate(document)
     assert document["identifier"] == "ferrous_ringwoodite"
-    assert "ferrous_ringwoodite" not in list_material_documents()
+    assert "ferrous_ringwoodite" in list_material_documents()
     record = next(r for r in document["eos_records"] if r["identifier"] == THERMAL_ID)
     assert record["record_kind"] == "published"
     assert record["scientific_validation"]["status"] == "not_reproduced"
@@ -255,7 +255,9 @@ def test_manifest_license_and_calibrant_scope():
             hashlib.sha256((DATA / filename).read_bytes()).hexdigest()
             == resource["sha256"]
         )
-    assert manifest["catalog_installed"] is False
+    assert manifest["catalog_installed"] is True
+    assert manifest["catalog_scope"] == "derived_static_only"
+    assert manifest["thermal_candidate_installed"] is False
     assert "contributor" in manifest["contributor_rights"].lower()
     record = next(
         r for r in load_eosmat(CARD)["eos_records"] if r["identifier"] == THERMAL_ID

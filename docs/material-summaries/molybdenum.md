@@ -21,7 +21,7 @@ and recommendation for use are distinct assessments.
 | Temperature unit | K |
 | Volume unit | Å³ per conventional unit cell |
 | Stored EOS records | 7 |
-| Observation datasets | 4 |
+| Observation datasets | 5 |
 
 Ambient bcc phase reference: JCPDS 42-1120.
 
@@ -111,7 +111,7 @@ establish statistical independence.
 **Outcome:** not refittable.
 **Scope:** parameter agreement.
 
-**Comparison basis:** The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
+**Comparison basis:** Conditional measured-pair subset regressions are replayable. The complete source multi-stage regression and uncertainty remain unreproduced; subset coefficient differences do not establish failure of the full published fit.
 
 [Open reconstruction report](../reconstruction-reports/molybdenum.md#record-molybdenum_sakai_2025_rydberg_stacey_1)
 
@@ -127,7 +127,7 @@ Original audit code: `not_refittable`.
 <summary>Reconstruction protocol and available diagnostics</summary>
 
 - **Fixed parameters:** V0; K0; K\_infinity\_prime
-- **Dataset identifiers:** None declared
+- **Dataset identifiers:** molybdenum\_sakai\_2025\_table\_s5\_measured\_pairs
 
 </details>
 
@@ -151,10 +151,11 @@ Parameter covariance is not supplied.
     - **Finding:** The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.
     - **DOI:** 10.1038/s43246-025-00792-5
 - **Primary data check:**
-    - **Status:** derived\_output\_only
+    - **Status:** bundled
     - **Audit date:** 2026-09-05
     - **Source locations:** Supplementary Data 1, Table S9
-    - **Finding:** The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
+    - **Finding:** Table S5 measured paired volumes are bundled alongside the separately calculated Table S9 checkpoints. Conditional subset regressions are replayable; the full Table S8 historical constraint inventory, original weights and covariance are not reproduced.
+    - **Dataset identifiers:** molybdenum\_sakai\_2025\_table\_s5\_measured\_pairs
 
 </details>
 
@@ -1216,3 +1217,23 @@ Parameter covariance is not supplied.
 
 [Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/dorfman-2012-tables-s1-s6-cocompression.csv)
 — SHA-256 `c65d843d31085e72b63cc3377042b2e855ea83d958e34846c78c862e3a25246c`.
+
+### molybdenum\_sakai\_2025\_table\_s5\_measured\_pairs
+
+- **Description:** All 48 measured molybdenum–tungsten cell-volume pairs on source Table S5. Pressure is calculated from the calibrant during an explicitly conditional audit; it is not an independently measured column. Missing source errors remain blank.
+- **Kind:** simultaneous\_xrd\_compression
+- **Reference:**
+    - **Authors:** Sakai; Kadobayashi; Nakamoto; Dekura; Ishimatsu; Kawaguchi-Imada; Seto; Sekizawa; Nitta; Shimizu
+    - **Year:** 2025
+    - **Title:** The equations of state of nine materials up to 0.43 TPa for extreme pressure science
+    - **Source:** Communications Materials
+    - **Volume:** 6
+    - **Locator:** 68
+    - **DOI:** 10.1038/s43246-025-00792-5
+- **Source location:** Supplementary Data 1, Table S5
+- **Associated EOS records:** molybdenum\_sakai\_2025\_rydberg\_stacey\_1
+- **Uncertainty:**
+    - **Notes:** Source err. fields retain unspecified confidence/standard-deviation semantics. Missing errors remain missing; no covariance or error is imputed.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/molybdenum-sakai-2025-table-s5-measured-pairs.csv)
+— SHA-256 `85a170737a05c65e06989eb1e90a6d944a2eb669f7ff5fed2829778427018156`.

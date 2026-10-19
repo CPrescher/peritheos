@@ -15820,6 +15820,75 @@
       "status": "parity"
     },
     {
+      "covariance_convention": "conditional residual-scaled covariance, one degree of freedom; fixed V0 uncertainty not propagated",
+      "dataset_identifiers": [
+        "ferrous_ringwoodite_finger_1979_table2"
+      ],
+      "degrees_of_freedom": 1,
+      "experimental_pressure_range_gpa": [
+        0.0001,
+        4.0
+      ],
+      "experimental_temperature_range_k": [
+        296.15,
+        296.15
+      ],
+      "fit_kind": "finger_1979_fixed_measured_v0",
+      "fixed_parameters": [
+        "V0"
+      ],
+      "fixed_values": {
+        "K0_prime": 4.0,
+        "V0": 558.7
+      },
+      "free_parameters": [
+        "K0"
+      ],
+      "label": "Finger et al. (1979), 23 degC BM2, measured ambient-cell reconstruction",
+      "material_identifier": "ferrous_ringwoodite",
+      "model": "BM2",
+      "objective": "equal pressure residuals",
+      "observations": 2,
+      "original_author_workflow_parity": false,
+      "parameter_covariance": [
+        [
+          39.80522731755176
+        ]
+      ],
+      "parameters": [
+        {
+          "difference": 0.21758730432060247,
+          "parameter": "K0",
+          "published": 196.0,
+          "published_error": 6.0,
+          "refit": 196.2175873043206,
+          "refit_error": 6.309138397400374,
+          "relative_difference": 0.001110139307758176,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_error": true
+        }
+      ],
+      "parity_basis": "within_reported_parameter_errors",
+      "primary_data_finding": "All three original Fe rows and all their triclinic lattice, angle, volume and pressure errors retained.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://hazen.carnegiescience.edu/sites/default/files/043-FH-SiSpinels.pdf",
+      "published_rmse_gpa": 0.10168709922334743,
+      "qualification": "Derived ambient-cell reconstruction: published BM2 K0=196(6) GPa, Kprime=4 and measured V0=558.7(2) A3 are preserved. Conditional equal-pressure-residual K0 check uses only the two compressed states, with V0 fixed. Refit covariance is residual-scaled with one degree of freedom and omits V0/coordinate/calibration uncertainty. Original author objective and fitted intercept are not recovered. The ambient row is archived as the reference constraint; no thermal EOS is accepted.",
+      "reason": "Derived ambient-cell reconstruction: published BM2 K0=196(6) GPa, Kprime=4 and measured V0=558.7(2) A3 are preserved. Conditional equal-pressure-residual K0 check uses only the two compressed states, with V0 fixed. Refit covariance is residual-scaled with one degree of freedom and omits V0/coordinate/calibration uncertainty. Original author objective and fitted intercept are not recovered. The ambient row is archived as the reference constraint; no thermal EOS is accepted.",
+      "record_identifier": "ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction",
+      "reproduction_report": "docs/research/ferrous-ringwoodite-armentrout-2011-integration.md",
+      "rmse_gpa": 0.10162667992777438,
+      "selection": "Two compressed Table 2 states; ambient row defines fixed V0 and is excluded from regression/RMS.",
+      "solver_success": true,
+      "source_notes": "Derived ambient-cell reconstruction, not an independently refitted record and not a claim to have recovered the original fit intercept. Static default; the separate 2011 thermal candidate remains staged outside the executable catalog. PublishedK0 unchanged;Kprime=4 fixed. ReferenceT296.15K; no300K or thermal behavior claimed.",
+      "status": "parity",
+      "validation_fixed_parameters": [
+        "V0",
+        "K0_prime"
+      ]
+    },
+    {
       "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_gpa",
@@ -20189,7 +20258,9 @@
       "status": "parity"
     },
     {
-      "dataset_identifiers": [],
+      "dataset_identifiers": [
+        "iron_sakai_2025_table_s6_measured_pairs"
+      ],
       "experimental_pressure_range_gpa": [
         0,
         324
@@ -20201,10 +20272,13 @@
       "label": "Sakai et al. (2025), Fe-hcp generalized Rydberg-Stacey scale",
       "material_identifier": "iron",
       "model": "RydbergStacey",
-      "primary_data_finding": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
-      "primary_data_status": "derived_output_only",
+      "original_author_workflow_parity": false,
+      "partial_reconstruction_data": "docs/data/sakai-2025-network-reconstruction.json",
+      "partial_reconstruction_report": "docs/literature-reproductions/sakai-2025-network.md",
+      "primary_data_finding": "Table S6 measured paired volumes are bundled alongside the separately calculated Table S9 checkpoints. Conditional subset regressions are replayable; the full Table S8 historical constraint inventory, original weights and covariance are not reproduced.",
+      "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1038/s43246-025-00792-5",
-      "reason": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
+      "reason": "Conditional measured-pair subset regressions are replayable. The complete source multi-stage regression and uncertainty remain unreproduced; subset coefficient differences do not establish failure of the full published fit.",
       "record_identifier": "iron_sakai_2025_rydberg_stacey_1",
       "source_notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed \u00b1 values are not reported.",
       "status": "not_refittable"
@@ -32799,7 +32873,9 @@
       "status": "similar"
     },
     {
-      "dataset_identifiers": [],
+      "dataset_identifiers": [
+        "mgo_sakai_2025_table_s7_measured_pairs"
+      ],
       "experimental_pressure_range_gpa": [
         0,
         314
@@ -32813,10 +32889,13 @@
       "label": "Sakai et al. (2025), MgO generalized Rydberg-Stacey scale",
       "material_identifier": "mgo",
       "model": "RydbergStacey",
-      "primary_data_finding": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
-      "primary_data_status": "derived_output_only",
+      "original_author_workflow_parity": false,
+      "partial_reconstruction_data": "docs/data/sakai-2025-network-reconstruction.json",
+      "partial_reconstruction_report": "docs/literature-reproductions/sakai-2025-network.md",
+      "primary_data_finding": "Table S7 measured paired volumes are bundled alongside the separately calculated Table S9 checkpoints. Conditional subset regressions are replayable; the full Table S8 historical constraint inventory, original weights and covariance are not reproduced.",
+      "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1038/s43246-025-00792-5",
-      "reason": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
+      "reason": "Conditional measured-pair subset regressions are replayable. The complete source multi-stage regression and uncertainty remain unreproduced; subset coefficient differences do not establish failure of the full published fit.",
       "record_identifier": "mgo_sakai_2025_rydberg_stacey_1",
       "source_notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed \u00b1 values are not reported.",
       "status": "not_refittable"
@@ -36126,7 +36205,9 @@
       "status": "not_refittable"
     },
     {
-      "dataset_identifiers": [],
+      "dataset_identifiers": [
+        "molybdenum_sakai_2025_table_s5_measured_pairs"
+      ],
       "experimental_pressure_range_gpa": [
         0,
         395
@@ -36140,10 +36221,13 @@
       "label": "Sakai et al. (2025), Mo generalized Rydberg-Stacey scale",
       "material_identifier": "molybdenum",
       "model": "RydbergStacey",
-      "primary_data_finding": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
-      "primary_data_status": "derived_output_only",
+      "original_author_workflow_parity": false,
+      "partial_reconstruction_data": "docs/data/sakai-2025-network-reconstruction.json",
+      "partial_reconstruction_report": "docs/literature-reproductions/sakai-2025-network.md",
+      "primary_data_finding": "Table S5 measured paired volumes are bundled alongside the separately calculated Table S9 checkpoints. Conditional subset regressions are replayable; the full Table S8 historical constraint inventory, original weights and covariance are not reproduced.",
+      "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1038/s43246-025-00792-5",
-      "reason": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
+      "reason": "Conditional measured-pair subset regressions are replayable. The complete source multi-stage regression and uncertainty remain unreproduced; subset coefficient differences do not establish failure of the full published fit.",
       "record_identifier": "molybdenum_sakai_2025_rydberg_stacey_1",
       "source_notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed \u00b1 values are not reported.",
       "status": "not_refittable"
@@ -37191,10 +37275,13 @@
       "label": "Sakai et al. (2025), NaCl-B2 generalized Rydberg-Stacey scale",
       "material_identifier": "nacl_b2",
       "model": "RydbergStacey",
+      "original_author_workflow_parity": false,
+      "partial_reconstruction_data": "docs/data/sakai-2025-network-reconstruction.json",
+      "partial_reconstruction_report": "docs/literature-reproductions/sakai-2025-network.md",
       "primary_data_finding": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
       "primary_data_status": "derived_output_only",
       "primary_source": "https://doi.org/10.1038/s43246-025-00792-5",
-      "reason": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
+      "reason": "Conditional measured-pair subset regressions are replayable. The complete source multi-stage regression and uncertainty remain unreproduced; subset coefficient differences do not establish failure of the full published fit.",
       "record_identifier": "nacl_b2_sakai_2025_rydberg_stacey_1",
       "source_notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed \u00b1 values are not reported.",
       "status": "not_refittable"
@@ -42301,7 +42388,9 @@
       "status": "parity"
     },
     {
-      "dataset_identifiers": [],
+      "dataset_identifiers": [
+        "platinum_sakai_2025_table_s2_measured_pairs"
+      ],
       "experimental_pressure_range_gpa": [
         0,
         394
@@ -42315,10 +42404,13 @@
       "label": "Sakai et al. (2025), Pt generalized Rydberg-Stacey scale",
       "material_identifier": "platinum",
       "model": "RydbergStacey",
-      "primary_data_finding": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
-      "primary_data_status": "derived_output_only",
+      "original_author_workflow_parity": false,
+      "partial_reconstruction_data": "docs/data/sakai-2025-network-reconstruction.json",
+      "partial_reconstruction_report": "docs/literature-reproductions/sakai-2025-network.md",
+      "primary_data_finding": "Table S2 measured paired volumes are bundled alongside the separately calculated Table S9 checkpoints. Conditional subset regressions are replayable; the full Table S8 historical constraint inventory, original weights and covariance are not reproduced.",
+      "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1038/s43246-025-00792-5",
-      "reason": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
+      "reason": "Conditional measured-pair subset regressions are replayable. The complete source multi-stage regression and uncertainty remain unreproduced; subset coefficient differences do not establish failure of the full published fit.",
       "record_identifier": "platinum_sakai_2025_rydberg_stacey_1",
       "source_notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed \u00b1 values are not reported.",
       "status": "not_refittable"
@@ -46373,7 +46465,9 @@
       "status": "similar"
     },
     {
-      "dataset_identifiers": [],
+      "dataset_identifiers": [
+        "rhenium_sakai_2025_table_s1_measured_pairs"
+      ],
       "experimental_pressure_range_gpa": [
         0,
         431
@@ -46387,10 +46481,13 @@
       "label": "Sakai et al. (2025), Re generalized Rydberg-Stacey scale",
       "material_identifier": "rhenium",
       "model": "RydbergStacey",
-      "primary_data_finding": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
-      "primary_data_status": "derived_output_only",
+      "original_author_workflow_parity": false,
+      "partial_reconstruction_data": "docs/data/sakai-2025-network-reconstruction.json",
+      "partial_reconstruction_report": "docs/literature-reproductions/sakai-2025-network.md",
+      "primary_data_finding": "Table S1 measured paired volumes are bundled alongside the separately calculated Table S9 checkpoints. Conditional subset regressions are replayable; the full Table S8 historical constraint inventory, original weights and covariance are not reproduced.",
+      "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1038/s43246-025-00792-5",
-      "reason": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
+      "reason": "Conditional measured-pair subset regressions are replayable. The complete source multi-stage regression and uncertainty remain unreproduced; subset coefficient differences do not establish failure of the full published fit.",
       "record_identifier": "rhenium_sakai_2025_rydberg_stacey_1",
       "source_notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed \u00b1 values are not reported.",
       "status": "not_refittable"
@@ -50979,7 +51076,9 @@
       "status": "parity"
     },
     {
-      "dataset_identifiers": [],
+      "dataset_identifiers": [
+        "tungsten_sakai_2025_table_s3_measured_pairs"
+      ],
       "experimental_pressure_range_gpa": [
         0,
         395
@@ -50993,10 +51092,13 @@
       "label": "Sakai et al. (2025), W generalized Rydberg-Stacey scale",
       "material_identifier": "tungsten",
       "model": "RydbergStacey",
-      "primary_data_finding": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
-      "primary_data_status": "derived_output_only",
+      "original_author_workflow_parity": false,
+      "partial_reconstruction_data": "docs/data/sakai-2025-network-reconstruction.json",
+      "partial_reconstruction_report": "docs/literature-reproductions/sakai-2025-network.md",
+      "primary_data_finding": "Table S3 measured paired volumes are bundled alongside the separately calculated Table S9 checkpoints. Conditional subset regressions are replayable; the full Table S8 historical constraint inventory, original weights and covariance are not reproduced.",
+      "primary_data_status": "bundled",
       "primary_source": "https://doi.org/10.1038/s43246-025-00792-5",
-      "reason": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
+      "reason": "Conditional measured-pair subset regressions are replayable. The complete source multi-stage regression and uncertainty remain unreproduced; subset coefficient differences do not establish failure of the full published fit.",
       "record_identifier": "tungsten_sakai_2025_rydberg_stacey_1",
       "source_notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed \u00b1 values are not reported.",
       "status": "not_refittable"
@@ -52260,10 +52362,10 @@
   ],
   "summary": {
     "not_refittable": 177,
-    "parity": 247,
+    "parity": 248,
     "parity_not_achieved": 62,
     "similar": 161,
     "source_reconstruction": 16,
-    "total": 663
+    "total": 664
   }
 }

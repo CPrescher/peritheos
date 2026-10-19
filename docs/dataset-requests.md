@@ -20,7 +20,7 @@ experimental observations.
 |---|---|---|---|---|
 | [Shen and Smith (2026), MgO and NaCl-B2](#shen-and-smith-2026-mgo-and-nacl-b2) | Exact author-used inputs needed to resolve both fit holds | Establish whether additional observations or unpublished processing entered Table II; replay Cu reduction and regression | Not contacted | 2026-10-17 |
 | [Frost et al. (2023), Pd](#frost-et-al-2023-palladium) | Recover original regression inputs/settings to resolve the recommendation hold | Reconcile both published fits with all 93 verified observations and the stated coordinate errors | Not contacted | 2026-10-17 |
-| [Morard et al. (2026), FeS](#morard-et-al-2026-fes) | Reconcile GUI regression controls with supplied author-used files | Resolve the remaining ±3 GPa discrepancy after exact author-input replay | User supplied author communication, supplement, EOS and selected input | 2026-10-03 |
+| [Morard et al. (2026), FeS](#morard-et-al-2026-fes) | Distributed-GUI comparison completed for tested controls; source-output discrepancy remains | The 20211014 GUI agrees closely with the console but still exceeds ±3 GPa; exact original build/workflow remains unresolved | User supplied author communication, supplement, EOS and selected input | 2026-10-03 |
 | [Miozzi et al. (2020), hcp iron](#miozzi-et-al-2020-hcp-iron) | Author clarification would resolve a substantial source-fit discrepancy | Replay the actual pressure reduction and EosFit-7c objective; verify thermal normalization | Not contacted | 2026-10-02 |
 | [Chen et al. (2010), fcc argon](literature-reproductions/chen-2010-argon.md) | Original coefficients and data needed to resolve source inconsistency | Reconcile the 2 GPa elastic constants with Figure 5 and the extrapolated density; reproduce integration and fit | Not contacted; user requested no outreach | 2026-09-24 |
 | [Crichton et al. (2016), bcc vanadium](#crichton-et-al-2016-bcc-vanadium) | Contact authors; high priority for original-fit verification | Refit the complete 62-state experiment; resolve the two incomplete fixed-K′ alternatives | Not contacted; historical contact route available | 2026-09-19 |
@@ -324,3 +324,7 @@ volume (22.80 versus 22.81 A³ versus 6.87 cm³/mol).
 parameter covariance/confidence definitions, and paired ruby/Sr gauge readings
 for the helium series. The nonpreferred joint fits additionally need their
 Dewaele (2006) row selection. No author contact has been made.
+
+### Morard GUI follow-up, 2026-10-19
+
+The [actual distributed-GUI comparison](literature-reproductions/fes-gui-replay.md) has been completed for saved-cold and cold-then-hot controls on the complete confirmed selected input. The GUI agrees closely with the console and retains residuals above ±3 GPa. The exact 20210609 executable/workflow remains unverified. The author-used input files are complete; do not request them again.

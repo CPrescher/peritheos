@@ -23,13 +23,13 @@ and records which materials have static, thermal, and Hugoniot coverage. Its
 between the live material files and the scientific ledgers. It includes local
 work and must not be read as the contents of a published release.
 
-The current local catalog contains 232 stored material documents / 663 records,
-228 executable materials / 659 records, and thermal EOS coverage for 62 materials
+The current local catalog contains 233 stored material documents / 664 records,
+229 executable materials / 660 records, and thermal EOS coverage for 62 materials
 (brucite has no accepted thermal EOS). Stored
-assessments are 645 primary-source validated, fourteen qualified `not_reproduced`,
-and four deferred. Both scientific ledgers cover all 663 record identities.
+assessments are 642 primary-source validated, eighteen qualified `not_reproduced`,
+and four deferred. Both scientific ledgers cover all 664 record identities.
 Forsterite, diopside, the rubidium halides, phase E, and the scoped brucite
-addition are integrated. Fe-ringwoodite remains staged pending its own review.
+addition are integrated. Fe-ringwoodite has an integrated derived static reconstruction; its thermal candidate remains staged.
 Brucite does not yet provide an accepted broad high-pressure thermal or
 disordered-phase EOS; its precise limits are in the source audit.
 
@@ -46,7 +46,7 @@ sources, compositions, and pressure standards remain distinguishable.
 | G02 | Diopside | Implemented and integrated: Thompson (2008) static default and Zhao (1998) thermal record; conditional parameter parity within reported error widths | [Audit](literature-reproductions/diopside.md). Preserve the original tables and separate corrected refit dataset, including the graph-corroborated row-15 pressure and its non-statistical reading bound. Exact original workflow remains unrecovered. |
 | G03 / C07 | B2 RbCl, RbBr, RbI thermal markers | Implemented and integrated: three published thermal records; RbCl static default preserved; independent fits classified similar | [Audit](literature-reproductions/rubidium-halides-farla-2025.md). Retain coefficient-precision, benchmark and composite-CsCl calibration qualifications; independent EosFit replay is not recovery of the original author project. |
 | G04 / C12 | Brucite | Only published 300/473/673 K isotherms integrated; full thermal EOS not recommended | [Audit](literature-reproductions/brucite.md). Published-data parity not achieved; 873 K normalization and continuous reconstruction unresolved. All Peritheos refits retained only as diagnostics outside executable selection. |
-| G05 / C10 | Fe2SiO4 ringwoodite | Absent from bundle; source audit and staged addition started in a separate chat on 2026-10-16 | Audit Armentrout–Kavner (2011), DOI [10.1029/2011GL046949](https://doi.org/10.1029/2011GL046949), with its adopted constraints and molar/cell conversion; create a separate Fe endmember. |
+| G05 / C10 | Fe2SiO4 ringwoodite | Static reconstruction integrated at 296.15 K / 0–4 GPa; thermal candidate remains staged | [Integration and thermal limits](research/ferrous-ringwoodite-armentrout-2011-integration.md). Preserve the published static coefficient and explicit measured-cell derivation; thermal acceptance still requires its missing equation/workflow evidence. |
 | G06 / C11 | Dense hydrous phase E | Implemented and integrated: measured Fe-bearing phase E static BM3, with fit parity within reported uncertainty | [Audit, differences and residual plot](literature-reproductions/phase-e-crichton-ross-2000.md). All 11 source rows/errors retained; phase-specific peak-position fallback. Published coefficients and exact measured composition preserved. |
 | G07 | Garnet thermal coverage | Pyrope, almandine and majorite each have one static record; queued literature search | Find source-owned, composition-specific P–V–T parameterizations and primary observations; do not treat this family as a mixing model. |
 | G08 | Akimotoite continuous thermal EOS | Eleven static/temperature-slice records; queued | Review a source-faithful continuous model; separate the Karki temperature slices and partial Dorogokupets synthesis from a complete thermal EOS. |
@@ -59,11 +59,11 @@ sources, compositions, and pressure standards remain distinguishable.
 
 | Work item | Current disposition | Next action / reopening condition |
 |---|---|---|
-| Coverage and backlog maintenance | Accepted additions reconcile all 663 stored records across coverage and both scientific ledgers | Run `python -m scripts.generate_catalog_coverage` after additions; use `--check` to detect drift. Reconcile shared ledgers after reviewing parallel additions. |
+| Coverage and backlog maintenance | Accepted additions reconcile all 664 stored records across coverage and both scientific ledgers | Run `python -m scripts.generate_catalog_coverage` after additions; use `--check` to detect drift. Reconcile shared ledgers after reviewing parallel additions. |
 | Catalog integration checks | Catalog-count and Fei Au range expectations reconciled; Rust floating-point JSON round-trip fixed | Keep coverage and ledger checks synchronized with accepted additions. Staged second-batch candidates do not change bundled totals. |
 | Calibration dependencies | See the generated coverage overview for current `reference_eos_not_bundled` and `reference_model_not_supported` totals | Check for stale metadata/links first, then audit genuinely missing standards (including Tsuchiya Au and historical NaCl/Pt formulations). These status counts do not establish that every cited scale is absent. |
-| Sakai (2025) nine-material network | All nine published RT records accepted; Au conditional central-value parity integrated in the common ledger | Extend source reconstruction to the remaining sequential calibration stages using measured paired volumes. Keep calculated Table S9 outputs separate. [Audit](literature-reproductions/sakai-2025-nine-materials.md). |
-| Morard (2026) FeS-VI | Deferred availability; reproduced-cold staged coefficients classified `similar`; residual-envelope claim unresolved | Replay the original GUI workflow with the already confirmed complete author-used files. Do not request those files again. [Audit](literature-reproductions/fes-eosfit-direct.md). |
+| Sakai (2025) nine-material network | All nine published RT records accepted; Au conditional central-value parity integrated in the common ledger | [Eight conditional measured-subset stages are now replayable](literature-reproductions/sakai-2025-network.md); full Table S8 regression/workflow and uncertainty parity remain open. Keep calculated Table S9 outputs separate. [Audit](literature-reproductions/sakai-2025-nine-materials.md). |
+| Morard (2026) FeS-VI | Deferred availability; reproduced-cold staged coefficients classified `similar`; residual-envelope claim unresolved | [The distributed 20211014 GUI replay is completed](literature-reproductions/fes-gui-replay.md) for saved-cold and cold-then-hot controls; fits agree closely with the console but the ±3 GPa envelope remains unreproduced. Exact author build/workflow remains unknown. Do not request the confirmed inputs again. [Audit](literature-reproductions/fes-eosfit-direct.md). |
 | Miozzi (2020) hcp-Fe | Three qualified published records; separate independent refit available | Reconcile original pressure reduction and workflow, retaining the already registered author-reported n=2 setting. [Audit](literature-reproductions/miozzi-2020-iron.md). |
 | Campbell (2009) FeO / fcc-Fe | Both published records deferred | Recover the exact combined reduction, row selection and fit controls; fcc recalibration alone does not address the dominant FeO residuals. [Audit](literature-reproductions/campbell-2009-mismatch.md). |
 | Fei (2007) NaCl-B2 | Published equation checked; digitized hot-data diagnostic lacks q parity | Recover original numerical measurements, paired Pt readings, uncertainties and fit procedure. [Audit](literature-reproductions/fei-2007-nacl-b2.md). |

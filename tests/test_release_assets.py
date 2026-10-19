@@ -14,6 +14,7 @@ FIXTURES = ROOT / "crates/peritheos/tests/data"
         "brucite",
         "diopside",
         "forsterite",
+        "ferrous_ringwoodite",
         "nacl_b2",
         "palladium",
         "rbcl",

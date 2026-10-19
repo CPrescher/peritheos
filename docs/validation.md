@@ -9,16 +9,16 @@ between a validated equation and a fully reproduced original fitting procedure.
 ## Material-library validation levels
 
 Structural `.eosmat` validation and scientific EOS validation are deliberately
-separate. All 232 bundled material documents and 663 EOS records pass the
-native v4 validator; 228 documents construct executable materials. The
+separate. All 233 bundled material documents and 664 EOS records pass the
+native v4 validator; 229 documents construct executable materials. The
 coesite-V structure card and deferred fcc-Fe, FeS-VI and wadsleyite source cards do not. The collection combines the reviewed Dioptas migration with
 native, primary-sourced records for pressure standards and material EOS models,
 including the MgO, CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)
 audits discovered through the LitCurate intake. These structural checks
 establish file and software interoperability only.
 
-The primary-source audit covers all 663 bundled records: 643 are
-`primary_source_validated`, sixteen explicit-selection implementations are
+The primary-source audit covers all 664 bundled records: 642 are
+`primary_source_validated`, eighteen explicit-selection implementations are
 `not_reproduced`, and four records are `deferred`. The seven newly qualified
 records are the published Fu (2023) CaSiO3 thermal EOS, Baty (2024) experimental
 Pd BM3, and five Sakai (2014) Fe-Ni thermal variants; they are explicitly
@@ -51,10 +51,10 @@ the ledger after a mechanical Dioptas migration.
 
 Primary-source traceability is complemented by the independent
 [primary EOS refit campaign](primary-eos-refits.md). It attempts a Peritheos
-fit for every record with sufficient direct observations and documents all 663
+fit for every record with sufficient direct observations and documents all 664
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 247 parity matches and 161 additional numerically similar results.
+diagnostics. The current campaign finds 248 parity matches and 161 additional numerically similar results.
 The Crichton–Ross (2000) phase E fit achieves parity within reported parameter
 errors: all three coefficient shifts are below 0.123 reported error widths,
 and the largest pressure-curve difference is about 0.0096 GPa. Its published

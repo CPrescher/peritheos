@@ -1,0 +1,252 @@
+{
+  "format_version": 4,
+  "identifier": "ferrous_ringwoodite",
+  "name": "Ferrous ringwoodite (Fe2SiO4)",
+  "formula": "Fe2SiO4",
+  "phase": "gamma spinel, Fe endmember",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 8,
+  "eos_records": [
+    {
+      "identifier": "ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction",
+      "label": "Finger et al. (1979), 23 degC BM2, measured ambient-cell reconstruction",
+      "model": "BM2",
+      "temperature_ref": 296.15,
+      "parameters": {
+        "V0": {"value": 558.7, "error": 0.2, "fixed": true},
+        "K0": {"value": 196.0, "error": 6.0}
+      },
+      "experimental_pressure_range_gpa": [0.0001, 4.0],
+      "experimental_temperature_range_k": [296.15, 296.15],
+      "validity": {
+        "pressure_gpa": [0.0, 4.0],
+        "temperature_k": [296.15, 296.15],
+        "notes": [
+          "Three measured Fe2SiO4 states only, at room temperature; no thermal correction or equilibrium phase-stability claim.",
+          "Source BM2 coefficients reconstructed with the measured ambient volume; original fit covariance/weights and precise reference-intercept treatment are not recovered.",
+          "Zero-pressure gauge approximation to the1bar measured ambient state is explicit and negligible at the source precision."
+        ]
+      },
+      "determination_method": "experimental",
+      "record_kind": "derived",
+      "default": true,
+      "notes": "Derived ambient-cell reconstruction, not an independently refitted record and not a claim to have recovered the original fit intercept. Static default; the separate 2011 thermal candidate remains staged outside the executable catalog. PublishedK0 unchanged;Kprime=4 fixed. ReferenceT296.15K; no300K or thermal behavior claimed.",
+      "published_constraints": {
+        "K0_prime": 4.0,
+        "original_K0_mbar": 1.96,
+        "original_K0_error_mbar": 0.06,
+        "measured_reference_pressure_kbar": 0.001
+      },
+      "parameter_uncertainty_convention": "V0 uncertainty is the Table2 measurement esd, not an EOS-fit error. K0 uncertainty is the printed1.96(6)Mbar error; its confidence level is not supplied. No covariance is known.",
+      "fit_datasets": ["ferrous_ringwoodite_finger_1979_table2"],
+      "derivation": {
+        "source_kind": "published_table",
+        "source_identifier": "ferrous_ringwoodite_finger_1979_table2",
+        "method": "Adopt the measured ambient Table2 volume558.7(2)A3 as fixedV0, and preserve the published p1005 BM2 K0=1.96(6)Mbar with fixedKprime4. This reconstruction is not a fit-intercept recovery or new refit. SourceT23degC=296.15K; approximate1bar by zero gauge pressure.",
+        "source_locations": ["Table2 p1005", "BM2 discussion pp1004-1005"],
+        "assumptions": [
+          "Measured ambient cell substitutes for unreported fitted intercept; its error is a measurement esd.",
+          "At1bar the pressure offset0.0001GPa is negligible relative to source coordinate precision."
+        ],
+        "reproduction_script": "scripts/ferrous_ringwoodite_reproduce.py"
+      },
+      "reference": {
+        "authors": ["Finger, L. W.", "Hazen, R. M.", "Yagi, T."],
+        "year": 1979,
+        "title": "Crystal structures and electron densities of nickel and iron silicate spinels at elevated temperature or pressure",
+        "source": "American Mineralogist",
+        "volume": "64",
+        "locator": "1002-1009",
+        "url": "https://hazen.carnegiescience.edu/sites/default/files/043-FH-SiSpinels.pdf"
+      },
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "No rowwise marker observations in the three-row Table2. The exact gauge scale was not independently resolved in this pass."
+        },
+        "audit_date": "2026-10-16"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
+            "qualifications": [
+              "Derived ambient-cell reconstruction: published BM2 K0=196(6) GPa, Kprime=4 and measured V0=558.7(2) A3 are preserved. Conditional equal-pressure-residual K0 check uses only the two compressed states, with V0 fixed. Refit covariance is residual-scaled with one degree of freedom and omits V0/coordinate/calibration uncertainty. Original author objective and fitted intercept are not recovered. The ambient row is archived as the reference constraint; no thermal EOS is accepted.",
+              "Original author fit objective, weights, covariance and exact intercept constraint unavailable.",
+              "Exact pressure-scale equation and paired marker readings not recovered.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/ferrous_ringwoodite/#record-ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction",
+            "report_path": "docs/reconstruction-reports/ferrous_ringwoodite.md#record-ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction",
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 196.0,
+                "published_error": 6.0,
+                "refit": 196.2175873043206,
+                "refit_error": 6.309138397400374,
+                "difference": 0.21758730432060247,
+                "relative_difference": 0.001110139307758176,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_reported_error": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "finger_1979_fixed_measured_v0",
+              "objective": "equal pressure residuals",
+              "selection": "Two compressed Table 2 states; ambient row defines fixed V0 and is excluded from regression/RMS.",
+              "free_parameters": ["K0"],
+              "fixed_parameters": ["V0"],
+              "validation_fixed_parameters": ["V0", "K0_prime"],
+              "fixed_values": {"K0_prime": 4.0, "V0": 558.7},
+              "observations": 2,
+              "degrees_of_freedom": 1,
+              "solver_success": true,
+              "rmse_gpa": 0.10162667992777438,
+              "published_rmse_gpa": 0.10168709922334743,
+              "parameter_covariance": [
+                [39.80522731755176]
+              ],
+              "covariance_convention": "conditional residual-scaled covariance, one degree of freedom; fixed V0 uncertainty not propagated",
+              "dataset_identifiers": ["ferrous_ringwoodite_finger_1979_table2"],
+              "reproduction_report": "docs/research/ferrous-ringwoodite-armentrout-2011-integration.md"
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-10-16",
+          "verified_fields": [
+            "source_equation",
+            "published_K0_and_fixed_Kprime",
+            "adopted_measured_reference_cell",
+            "units",
+            "phase",
+            "structure",
+            "uncertainty_scope",
+            "temperature_ref",
+            "independent_compressed_state_checks"
+          ],
+          "primary_source_check": {
+            "access_url": "https://hazen.carnegiescience.edu/sites/default/files/043-FH-SiSpinels.pdf",
+            "locations": [
+              "p1004: explicitly second-order Birch-Murnaghan, Kprime fixed4; room-condition crystal refinement",
+              "p1005 Table2: all three Fe cell refinements",
+              "p1005:1.96(6)Mbar Fe spinel bulk modulus"
+            ],
+            "finding": "Source BM2 bulk modulus with explicitly adopted measured ambient cell; both compressed states agree within the printed coordinate errors. This is a derived reconstruction, not recovery of the original fitted intercept."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "dataset_identifiers": ["ferrous_ringwoodite_finger_1979_table2"],
+            "finding": "All three original Fe rows and all their triclinic lattice, angle, volume and pressure errors retained."
+          },
+          "numerical_reproduction": {
+            "source_equation_validation": "Explicit source BM2 equation family, coefficient and fixed derivative verified; adopting the independently measured ambient cell is an explicit derived choice.",
+            "conditional_coefficient_agreement": "Holding measuredV0=558.7, an unweighted pressure fit of the two compressed states givesK0=196.2176GPa, within published196(6). This is not the author objective.",
+            "author_fit_reproduced": false,
+            "source_check": "Calculated1.867379GPa at553.5A3 versus2.0(1)GPa;4.055608GPa at547.7A3 versus4.0(1)GPa. Differences are inside combined printed coordinate uncertainties."
+          },
+          "unresolved": [
+            "Original author fit objective, weights, covariance and exact intercept constraint unavailable.",
+            "Exact pressure-scale equation and paired marker readings not recovered."
+          ]
+        },
+        "parameter_provenance": {
+          "determination_method": "Single-crystal XRD experiment; no theoretical thermal coefficient.",
+          "equation": "Primary p1004/p1005 explicitly identifies second-order Birch-Murnaghan with Kprime fixed4 (also called first-order Birch in the source).",
+          "V0": "ADOPTED measured ambient Table2 volume558.7(2)A3, not a recovered author-fitted intercept. This explicitly derived reconstruction fixes V0 to that measured value.",
+          "K0": "Primary p1005:1.96(6)Mbar=196(6)GPa; preserved without refitting.",
+          "temperature_ref": "Primary Tables1/2 and room-condition methods:23degC=296.15K. No correction to300K is invented.",
+          "reference_pressure": "Ambient0.001kbar=0.0001GPa is approximated as the zero-pressure gauge reference; effect is much smaller than printed compressed-state pressure/volume errors."
+        }
+      }
+    }
+  ],
+  "aliases": ["Fe-ringwoodite", "Ahrensite"],
+  "cell_contents": "Fe16 Si8 O32; eight Fe2SiO4 formula units in the conventional cubic F cell",
+  "symmetry": "CUBIC",
+  "space_group": "Fd-3m",
+  "space_group_number": 227,
+  "lattice": {"a": 8.236, "b": 8.236, "c": 8.236, "alpha": 90, "beta": 90, "gamma": 90},
+  "atom_sites": [
+    {"element": "Fe", "wyckoff": "16d", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1.0},
+    {"element": "Si", "wyckoff": "8a", "x": 0.125, "y": 0.125, "z": 0.125, "occupancy": 1.0},
+    {"element": "O", "wyckoff": "32e", "x": 0.2409, "y": 0.2409, "z": 0.2409, "occupancy": 1.0}
+  ],
+  "notes": "Fe endmember distinct from Mg-ringwoodite and fayalite. Derived static ambient-cell reconstruction only, valid at 296.15 K over 0–4 GPa. The qualified Armentrout–Kavner thermal candidate remains in the staged audit, outside the executable bundle.",
+  "datasets": [
+    {
+      "identifier": "ferrous_ringwoodite_finger_1979_table2",
+      "kind": "pressure_volume_structure",
+      "source_location": "Table 2, page 1005: all three Fe2SiO4 rows, triclinic lattice refinements and estimated standard deviations",
+      "reference": {
+        "authors": ["Finger, L. W.", "Hazen, R. M.", "Yagi, T."],
+        "year": 1979,
+        "title": "Crystal structures and electron densities of nickel and iron silicate spinels at elevated temperature or pressure",
+        "source": "American Mineralogist",
+        "volume": "64",
+        "locator": "1002-1009",
+        "url": "https://hazen.carnegiescience.edu/sites/default/files/043-FH-SiSpinels.pdf"
+      },
+      "columns": [
+        {"name": "pressure_kbar", "quantity": "pressure", "unit": "kbar", "role": "value"},
+        {"name": "pressure_esd_kbar", "quantity": "pressure", "unit": "kbar", "role": "standard_deviation"},
+        {"name": "a1_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {"name": "a1_esd_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "standard_deviation"},
+        {"name": "a2_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {"name": "a2_esd_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "standard_deviation"},
+        {"name": "a3_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {"name": "a3_esd_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "standard_deviation"},
+        {"name": "alpha1_deg", "quantity": "lattice_angle", "unit": "degree", "role": "value"},
+        {"name": "alpha1_esd_deg", "quantity": "lattice_angle", "unit": "degree", "role": "standard_deviation"},
+        {"name": "alpha2_deg", "quantity": "lattice_angle", "unit": "degree", "role": "value"},
+        {"name": "alpha2_esd_deg", "quantity": "lattice_angle", "unit": "degree", "role": "standard_deviation"},
+        {"name": "alpha3_deg", "quantity": "lattice_angle", "unit": "degree", "role": "value"},
+        {"name": "alpha3_esd_deg", "quantity": "lattice_angle", "unit": "degree", "role": "standard_deviation"},
+        {"name": "volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+        {
+          "name": "volume_esd_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "standard_deviation"
+        },
+        {"name": "mean_a_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"}
+      ],
+      "resource": {
+        "path": "datasets/ferrous-ringwoodite-finger-1979-table2.csv",
+        "sha256": "4c25f6e674342aabd492f7ed51495cbeaad6404e38831da6af72031bc190a909",
+        "media_type": "text/csv"
+      },
+      "row_count": 3,
+      "used_by_eos_records": ["ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction"],
+      "notes": "Factual transcription; source errors and calculated/extrapolated status are preserved. See ferrous-ringwoodite-source.json and ferrous-ringwoodite.LICENSE.md. Linked data do not imply recovery of the complete historical author input or exact row mask."
+    }
+  ],
+  "source": {
+    "structure_reference": {
+      "authors": ["Finger, L. W.", "Hazen, R. M.", "Yagi, T."],
+      "year": 1979,
+      "title": "Crystal structures and electron densities of nickel and iron silicate spinels at elevated temperature or pressure",
+      "source": "American Mineralogist",
+      "volume": "64",
+      "locator": "1002-1009",
+      "url": "https://hazen.carnegiescience.edu/sites/default/files/043-FH-SiSpinels.pdf"
+    },
+    "structure_locations": [
+      "Table 1, p1004: oxygen u=0.2409(1), room conditions 23 degC and 0.001 kbar; text assumes complete cation ordering after occupancy refinement",
+      "Table 2, p1005: mean cubic a=8.236 angstrom, measured V=558.7(2) angstrom^3"
+    ],
+    "origin_choice": 2,
+    "structure_dataset": "datasets/ferrous-ringwoodite-finger-1979-table2.csv",
+    "structure_notes": "Experimental pure Fe2SiO4 spinel endmember, with the source conventional F cell and ordered sites. The mean cubic cell a=8.236 Å gives 558.661848 Å³, consistent with the rounded measured Table 2 reference volume 558.7(2) Å³. The separately staged 2011 thermal sample is not an installed EOS."
+  }
+}

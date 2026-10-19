@@ -16,6 +16,10 @@ The executable emits a font-config warning at startup; fitting and saving
 completed. It restores its saved working directory, so the batch runner uses
 absolute file names instead of changing the user's directory preference.
 
+## GUI follow-up (2026-10-19)
+
+[Actual distributed-GUI comparisons are now archived](fes-gui-replay.md). The 20211014 GUI was run with the complete confirmed selected input, saved-cold gamma-only controls and a weighted cold-then-hot sequence. Its coefficients agree closely with the console, and residuals still exceed ±3 GPa. The exact 20210609 author executable/workflow remains unavailable. The dated sections below preserve the earlier findings and pending questions as they stood; the empirical later-GUI comparison is now complete for these controls.
+
 ## Inputs and selected model
 
 Morard Section III.D describes a staged procedure: first fit the cold BM3

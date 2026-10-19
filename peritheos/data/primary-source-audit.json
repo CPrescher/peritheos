@@ -9,10 +9,10 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 663,
+    "records": 664,
     "deferred": 4,
     "not_reproduced": 18,
-    "primary_source_validated": 641
+    "primary_source_validated": 642
   },
   "records": [
     {
@@ -3961,6 +3961,24 @@
           "Figures 5-6"
         ],
         "finding": "The source defines a three-free-parameter, error-weighted BM3 fit to all 10 Fe27 observations and gives the Eulerian equation, conventional-cell volume basis, exact sample composition, and quartz pressure calibration."
+      }
+    },
+    {
+      "material": "ferrous_ringwoodite",
+      "file": "ferrous_ringwoodite.eosmat",
+      "record": "ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction",
+      "label": "Finger et al. (1979), 23 degC BM2, measured ambient-cell reconstruction",
+      "doi": null,
+      "status": "primary_source_validated",
+      "note": "Source BM2 bulk modulus with explicitly adopted measured ambient cell; both compressed states agree within the printed coordinate errors. This is a derived reconstruction, not recovery of the original fitted intercept.",
+      "primary_source_check": {
+        "access_url": "https://hazen.carnegiescience.edu/sites/default/files/043-FH-SiSpinels.pdf",
+        "locations": [
+          "p1004: explicitly second-order Birch-Murnaghan, Kprime fixed4; room-condition crystal refinement",
+          "p1005 Table2: all three Fe cell refinements",
+          "p1005:1.96(6)Mbar Fe spinel bulk modulus"
+        ],
+        "finding": "Source BM2 bulk modulus with explicitly adopted measured ambient cell; both compressed states agree within the printed coordinate errors. This is a derived reconstruction, not recovery of the original fitted intercept."
       }
     },
     {

@@ -1712,3 +1712,21 @@ fn speziale_mgo_thermal_record_matches_integrated_equation_benchmarks() {
         Some("variable_q_mie_gruneisen_debye")
     );
 }
+
+#[test]
+fn integrated_ferrous_ringwoodite_preserves_static_source_checks() {
+    let Some(material) = load_bundled_material("ferrous_ringwoodite.eosmat") else {
+        return;
+    };
+    assert_eq!(material.eos_records.len(), 1);
+    let record = material
+        .record("ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction")
+        .unwrap();
+    // Independent BM2 evaluations of the two compressed Finger Table 2 states.
+    for (volume, expected) in [(553.5, 1.867_379_040_453_365), (547.7, 4.055_607_673_803_6)] {
+        let pressure = record.pressure(volume, 296.15).unwrap();
+        assert_close(pressure, expected, 1e-10);
+        assert_close(record.volume(pressure, 296.15).unwrap(), volume, 1e-8);
+    }
+    assert_eq!(record.eos.thermal_model_identifier(), None);
+}

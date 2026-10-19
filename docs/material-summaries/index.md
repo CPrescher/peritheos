@@ -110,6 +110,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [FeH3](feh3.md) | FeH3 | 1 | 1 |
 | [FeO (B1)](feo.md) | FeO | 5 | 6 |
 | [FeO (B8)](feo_b8_2.md) | FeO | 1 | 2 |
+| [Ferrous ringwoodite (Fe2SiO4)](ferrous_ringwoodite.md) | Fe2SiO4 | 1 | 1 |
 | [FeS-VI](fes.md) | FeS | 1 | 1 |
 | [FeSi (B20)](fesi_b20.md) | FeSi | 2 | 1 |
 | [FeSi (B2; Peritheos refits)](fesi_b2.md) | FeSi | 2 | 1 |
@@ -128,7 +129,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Ice VIII (D2O)](iceviii.md) | D2O | 1 | 1 |
 | [Indium Nitride](indium_nitride.md) | InN | 1 | 0 |
 | [Iridium](iridium.md) | Ir | 1 | 2 |
-| [Iron](iron.md) | Fe | 38 | 14 |
+| [Iron](iron.md) | Fe | 38 | 15 |
 | [Iron (fcc)](fe_fcc.md) | Fe | 1 | 3 |
 | [Iron carbide (orthorhombic Fe7C3)](iron_carbide_fe7c3.md) | Fe7C3 | 1 | 1 |
 | [Iron silicate perovskite](fesio3_bridgmanite.md) | FeSiO3 | 2 | 0 |
@@ -156,10 +157,10 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [MgAl2O4 calcium-ferrite phase](mgal2o4_cafe2o4.md) | MgAl2O4 | 4 | 3 |
 | [MgAl2O4 calcium-titanate phase](mgal2o4_cati2o4.md) | MgAl2O4 | 2 | 2 |
 | [MgGeO3 post-perovskite](mggeo3_post_perovskite.md) | MgGeO3 | 4 | 2 |
-| [MgO](mgo.md) | MgO | 37 | 18 |
+| [MgO](mgo.md) | MgO | 37 | 19 |
 | [MgSi(OH)6 3.65 A phase](mgsioh6_365a_phase.md) | MgSiH6O6 | 3 | 1 |
 | [MgSiO3 post-perovskite](mgsio3_post_perovskite.md) | MgSiO3 | 14 | 9 |
-| [Molybdenum](molybdenum.md) | Mo | 7 | 4 |
+| [Molybdenum](molybdenum.md) | Mo | 7 | 5 |
 | [Molybdenum carbide Mo2C](molybenum_carbide_mo2c.md) | Mo2C | 2 | 1 |
 | [Mw78 defect-bearing magnesiowustite](mg0215fe0762vac0023o_b1.md) | Mg0.215Fe0.762□0.023O | 2 | 1 |
 | [Mw94 magnesiowustite B1](mgfe94o_b1.md) | Mg0.058Fe0.942O | 1 | 1 |
@@ -192,7 +193,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Phase E (Fe-bearing, Crichton–Ross 2000)](phase_e_fe0072.md) | Mg1.96Fe0.072Si1.04H3.7O6 | 1 | 1 |
 | [Phase Egg](phase_egg.md) | Al0.98Si0.92H1.39O4 | 3 | 3 |
 | [Phase H](phase_h.md) | MgSiO4H2 | 1 | 1 |
-| [Platinum](platinum.md) | Pt | 21 | 16 |
+| [Platinum](platinum.md) | Pt | 21 | 17 |
 | [Potassium bromide (B1)](kbr_b1.md) | KBr | 1 | 1 |
 | [Potassium bromide (B2)](kbr_b2.md) | KBr | 1 | 1 |
 | [Potassium chloride (B1)](kcl_b1.md) | KCl | 2 | 2 |
@@ -201,7 +202,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Pseudowollastonite](pseudowollastonite.md) | CaSiO3 | 1 | 0 |
 | [Pyrope](pyrope.md) | Mg3Al2Si3O12 | 1 | 1 |
 | [Rh2O3(II)-type alumina](alumina_rh2o3_ii.md) | Al2O3 | 1 | 1 |
-| [Rhenium](rhenium.md) | Re | 6 | 7 |
+| [Rhenium](rhenium.md) | Re | 6 | 8 |
 | [Rhodium](rhodium.md) | Rh | 1 | 1 |
 | [Ringwoodite](ringwoodite.md) | Mg2SiO4 | 1 | 1 |
 | [Rubidium bromide (B2)](rbbr.md) | RbBr | 1 | 2 |
@@ -234,7 +235,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Titanite-structured CaSi2O5](casio2o5_titanite.md) | CaSi2O5 | 1 | 0 |
 | [Titanium (alpha)](titanium_alpha.md) | Ti | 1 | 1 |
 | [Titanium (omega)](titanium_omega.md) | Ti | 1 | 1 |
-| [Tungsten](tungsten.md) | W | 7 | 3 |
+| [Tungsten](tungsten.md) | W | 7 | 4 |
 | [Vanadium (bcc)](vanadium_bcc.md) | V | 1 | 2 |
 | [Wadsleyite](wadsleyite.md) | Mg2SiO4 | 1 | 1 |
 | [Wollastonite](wollastonite.md) | CaSiO3 | 1 | 0 |

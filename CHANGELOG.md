@@ -5,6 +5,16 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### Added
+
+- Integrate the Fe2SiO4 ringwoodite endmember as a derived Finger (1979) static ambient-cell reconstruction, with source structure, all three observations, explicit uncertainty scope and 296.15 K / 0–4 GPa limits. Keep the unresolved 2011 thermal candidate staged.
+- Replay eight conditional Sakai (2025) calibration stages from measured paired volumes, expose six additional source tables through the dataset API, and provide source/refit curves, residuals and conditional errors in light and dark themes. Preserve the published coefficients and full-network limitations.
+- Archive actual EosFit GUI fits on the confirmed Morard FeS inputs, including a cold-then-hot workflow, saved covariance and screenshots. The tested GUI and console agree closely; the reported ±3 GPa envelope remains unreproduced and the source record remains deferred.
+
+### Fixed
+
+- Keep reconstruction freshness checks portable across equivalent fixed-parameter name ordering and allowed numerical replay roundoff, without changing source values, covariance-array order or retained report precision.
+
 ## [0.16.0] - 2026-10-19
 
 ### Added
