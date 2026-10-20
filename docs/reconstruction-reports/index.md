@@ -89,6 +89,7 @@ New links become live only after the corresponding documentation is published.
 | [FeO (B1)](feo.md) | 5 | 3 | 3 |
 | [FeO (B8)](feo_b8_2.md) | 1 | 1 | 1 |
 | [Fe27 ferropericlase](ferropericlase_fe27.md) | 1 | 1 | 1 |
+| [Ferrous ringwoodite (Fe2SiO4)](ferrous_ringwoodite.md) | 1 | 1 | 1 |
 | [FeS-VI](fes.md) | 1 | 1 | 1 |
 | [Iron sulfide FeS-VI](fes_vi.md) | 1 | 1 | 1 |
 | [FeSi (B2; Peritheos refits)](fesi_b2.md) | 2 | 2 | 2 |
@@ -254,7 +255,7 @@ New links become live only after the corresponding documentation is published.
 | [Zirconium (beta)](zirconium_beta.md) | 1 | 1 | 1 |
 | [Zirconium (omega)](zirconium_omega.md) | 1 | 1 | 1 |
 
-471 of 471 assessments with stored coefficient comparisons have inline curve/residual plots, including 3 explicitly partial replays listed below. The other 192 records have no numeric source/refit coefficient pair recorded.
+472 of 472 assessments with stored coefficient comparisons have inline curve/residual plots, including 3 explicitly partial replays listed below. The other 192 records have no numeric source/refit coefficient pair recorded.
 
 ## Partial replays
 

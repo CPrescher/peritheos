@@ -20,7 +20,7 @@ experimental observations.
 |---|---|---|---|---|
 | [Shen and Smith (2026), MgO and NaCl-B2](#shen-and-smith-2026-mgo-and-nacl-b2) | Exact author-used inputs needed to resolve both fit holds | Establish whether additional observations or unpublished processing entered Table II; replay Cu reduction and regression | Not contacted | 2026-10-17 |
 | [Frost et al. (2023), Pd](#frost-et-al-2023-palladium) | Recover original regression inputs/settings to resolve the recommendation hold | Reconcile both published fits with all 93 verified observations and the stated coordinate errors | Not contacted | 2026-10-17 |
-| [Morard et al. (2026), FeS](#morard-et-al-2026-fes) | Reconcile GUI regression controls with supplied author-used files | Resolve the remaining ±3 GPa discrepancy after exact author-input replay | User supplied author communication, supplement, EOS and selected input | 2026-10-03 |
+| [Morard et al. (2026), FeS](#morard-et-al-2026-fes) | Accepted on parameter agreement; no author email needed | GUI and console agree; residual-envelope discrepancy retained as informational | User supplied author communication, supplement, EOS and selected input | 2026-10-03 |
 | [Miozzi et al. (2020), hcp iron](#miozzi-et-al-2020-hcp-iron) | Author clarification would resolve a substantial source-fit discrepancy | Replay the actual pressure reduction and EosFit-7c objective; verify thermal normalization | Not contacted | 2026-10-02 |
 | [Chen et al. (2010), fcc argon](literature-reproductions/chen-2010-argon.md) | Original coefficients and data needed to resolve source inconsistency | Reconcile the 2 GPa elastic constants with Figure 5 and the extrapolated density; reproduce integration and fit | Not contacted; user requested no outreach | 2026-09-24 |
 | [Crichton et al. (2016), bcc vanadium](#crichton-et-al-2016-bcc-vanadium) | Contact authors; high priority for original-fit verification | Refit the complete 62-state experiment; resolve the two incomplete fixed-K′ alternatives | Not contacted; historical contact route available | 2026-09-19 |
@@ -102,7 +102,7 @@ or authorized by this audit.
 ### Morard et al. (2026): FeS
 
 Paper: [FeS phase diagram and thermal Equation of State under high pressure](https://doi.org/10.1103/h4pj-rvxx).
-Record: `fes_vi_morard_2026_bm3_mgd` (deferred).
+Record: `fes_vi_morard_2026_bm3_mgd` (accepted on parameter agreement, 2026-10-19).
 Evidence: [source audit](literature-reproductions/morard-2026-fes.md).
 
 All 146 supplied Table S1 observations are bundled. Standard integrated MGD
@@ -127,12 +127,12 @@ outside ±3 GPa. See the [author-input follow-up](literature-reproductions/fes-e
 
 The user subsequently confirmed that the supplied files are all inputs used by
 Guillaume Morard. They are therefore treated as the complete author-used inputs;
-a new request for the same data/EOS files is not the next step. The remaining
-numerical task is an empirical GUI replay with those files and controlled
-weighting, groups and cold/thermal selections. The original 20210609 GUI itself
-has not been run. Exact publication coefficient/residual parity remains
-unresolved, despite verified pressure evaluation and converged console fits.
-This audit has not contacted the author; the user supplied the personal communication.
+a new request for the same data/EOS files is not needed. The distributed
+20211014 GUI comparison is complete and agrees closely with the console.
+On 2026-10-19 the maintainer accepted staged parameter agreement within reported
+uncertainties as sufficient for catalog use. The ±3 GPa envelope discrepancy
+is informational; exact original workflow remains unverified. No email is
+needed on this criterion and no author outreach was performed by this audit.
 
 ### Crichton et al. (2016): bcc vanadium
 
@@ -324,3 +324,7 @@ volume (22.80 versus 22.81 A³ versus 6.87 cm³/mol).
 parameter covariance/confidence definitions, and paired ruby/Sr gauge readings
 for the helium series. The nonpreferred joint fits additionally need their
 Dewaele (2006) row selection. No author contact has been made.
+
+### Morard GUI follow-up, 2026-10-19
+
+The [actual distributed-GUI comparison](literature-reproductions/fes-gui-replay.md) has been completed for saved-cold and cold-then-hot controls on the complete confirmed selected input. The GUI agrees closely with the console and retains residuals above ±3 GPa. The exact 20210609 executable/workflow remains unverified. The author-used input files are complete; do not request them again. The maintainer accepts the parameter agreement for catalog use; residual-envelope non-parity is informational and no email is needed on this criterion.

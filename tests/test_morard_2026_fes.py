@@ -33,12 +33,16 @@ def candidate():
     ).get_eos_record(RECORD_ID)
 
 
-def test_source_record_is_preserved_but_deferred_from_normal_catalog():
+def test_source_record_is_accepted_on_parameter_agreement_and_preserved():
     document = get_material_document("fes_vi")
     validate_eosmat_document(document)
     validate(document, eosmat_schema())
     record = document["eos_records"][0]
-    assert record["scientific_validation"]["status"] == "deferred"
+    assert record["scientific_validation"]["status"] == "primary_source_validated"
+    assert record["scientific_validation"]["acceptance_basis"] == (
+        "parameter_agreement_within_reported_uncertainties"
+    )
+    assert record["scientific_validation"]["residual_discrepancy_blocks_use"] is False
     assert record["default"] is False
     assert record["eos"]["parameters"] == {
         "V0": pytest.approx(102.28920653790897),
@@ -48,20 +52,18 @@ def test_source_record_is_preserved_but_deferred_from_normal_catalog():
     assert record["parameter_errors"]["V0"] == pytest.approx(0.45 * CELL_PER_MOLAR)
     assert record["thermal"]["parameters"]["gamma0"] == 2.42
     assert record["thermal"]["parameters"]["n"] == 2
-    assert RECORD_ID not in {r.identifier for r in list_eos_records()}
-    with pytest.raises(ValueError, match="deferred"):
-        Material.from_eosmat(document)
-    material = Material.from_eosmat(document, require_primary_validation=False)
+    assert RECORD_ID in {r.identifier for r in list_eos_records()}
+    material = Material.from_eosmat(document)
+    eos = material.get_eos_record(RECORD_ID)
+    volume = eos.volume(80, 1800)
+    assert eos.pressure(volume, 1800) == pytest.approx(80, abs=1e-7)
     exported = material.to_eosmat()
     assert (
         exported["eos_records"][0]["scientific_validation"]
         == record["scientific_validation"]
     )
     assert exported["datasets"][0] == document["datasets"][0]
-    assert (
-        Material.from_eosmat(exported, require_primary_validation=False).to_eosmat()
-        == exported
-    )
+    assert Material.from_eosmat(exported).to_eosmat() == exported
 
 
 def test_complete_source_table_and_its_actual_uncertainty_conventions():

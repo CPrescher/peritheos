@@ -41,7 +41,7 @@ def semantic(document):
 def test_entire_catalog_migrates_with_every_scientific_field_and_source_array_intact():
     validator = Draft202012Validator(eosmat_schema(4))
     paths = sorted((ROOT / "peritheos/data/materials").glob("*.eosmat"))
-    assert len(paths) == 232
+    assert len(paths) == 233
     for path in paths:
         original = json.loads(path.read_text(encoding="utf-8"))
         before = copy.deepcopy(original)

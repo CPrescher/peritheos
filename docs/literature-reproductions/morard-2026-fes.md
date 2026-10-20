@@ -5,12 +5,28 @@ Cerantola and Mezouar, *Physical Review Materials* **10**, 063605,
 [DOI 10.1103/h4pj-rvxx](https://doi.org/10.1103/h4pj-rvxx).
 
 The published BM3–MGD coefficients and all 146 supplied Table S1 observations
-are preserved in `fes_vi_morard_2026_bm3_mgd`. The record is **deferred** from
-the normal executable catalog. Standard MGD replay does not reproduce the
-paper's claim that every calculated-minus-observed pressure lies within
-±3 GPa. This finding concerns the available source model and data versions;
-it does not establish an error in the experiments. No diagnostic fit replaces
-the published coefficients.
+are preserved in `fes_vi_morard_2026_bm3_mgd`. The record is **accepted in the
+executable catalog on parameter agreement within reported uncertainties**
+(maintainer decision, 2026-10-19). The reconstruction label remains `similar`;
+exact author-workflow and formal independent uncertainty parity are unverified.
+The failure to reproduce the paper's complete ±3 GPa residual envelope is
+retained as an informational qualification and does not block use.
+
+## GUI follow-up and acceptance (2026-10-19)
+
+The [actual 20211014 GUI replay](fes-gui-replay.md) verifies saved-cold and
+cold-then-hot controls with the confirmed selected author inputs. It agrees
+closely with the console. Weighted and equal-weight cold fits put all three
+cold coefficients within published error widths. Equal-weight γ₀ is inside
+the published width; weighted γ₀ has an overlapping reported interval. The
+[parameter comparison](fes-eosfit-direct.md#parameter-agreement-within-reported-error-bars-2026-10-03)
+retains both objectives and their conditional uncertainty qualifications.
+
+The staged weighted GUI hot fit has RMS 1.63 GPa, maximum 5.29 GPa and 12 of
+146 rows outside ±3 GPa. That reporting discrepancy is retained, but the
+maintainer accepts the parameter agreement as sufficient for this record.
+The exact original build/workflow remains unverified. No email is needed on
+this acceptance criterion; no author outreach was performed.
 
 ## Sources and material identity
 
@@ -91,8 +107,7 @@ Z=4 is not an extra thermal-energy multiplier. Published coefficient-error
 confidence and covariance are unspecified. No missing error is replaced by zero.
 
 The paper names MGD and EOSFIT but does not print the volume-dependent Debye
-law or provide the final configuration in the supplied files. The deferred
-implementation declares the standard integrated interpretation:
+law or provide the final configuration in the supplied files. The implementation declares the standard integrated interpretation:
 γ=γ0(V/V0)^q, θ=θ0 exp[−γ0((V/V0)^q−1)/q], and
 Pthermal=γ[E(V,T)−E(V,300 K)]/V. A variable-exponent
 θ=θ0(V/V0)^−γ(V) sensitivity is also audited. Neither interpretation is
@@ -169,20 +184,19 @@ Run `python -m scripts.audit_morard_2026_fes --check` to verify it.
 
 ## Disposition
 
-The source is retained in the database with `scientific_validation.status:
-deferred`, `default: false`, and its failed replay documented. The normal
-catalog excludes it. For an explicit audit calculation only, load the
-document with `Material.from_eosmat(document, require_primary_validation=False)`;
-this retains the deferred status. No validated default or replacement refit
-is added.
+The unchanged published record has `scientific_validation.status:
+primary_source_validated` and is available through the normal catalog and
+`Material.from_eosmat(document)`. Acceptance is based on the staged parameter
+comparison, not reproduction of the complete ±3 GPa residual envelope. No
+independent refit replaces the source record. The common EOS is scoped to the
+paper's 40–150 GPa range and observed thermal coverage, with the phase and
+reference-temperature qualifications above. The residual envelope must not be
+used as a prediction-error bound.
 
-The decisive remaining inputs are the final EosFit model/input/output files,
-cold-fit observation selection and source pressure scales, exact thermal
-convention, Table S2 and Figure S5. The final Table S1 pressure reduction has
-been recovered independently; the exact source regression remains unavailable.
-See the
-[reviewed data request](../dataset-requests.md#morard-et-al-2026-fes).
-No author outreach was performed.
+The final author-used input files and selection are confirmed. Individual cold
+row calibrations, exact original regression controls and uncertainty covariance
+remain qualifications. The [request tracker](../dataset-requests.md#morard-et-al-2026-fes)
+records the completed GUI follow-up and accepted disposition.
 
 ## EosFit manual and direct-console follow-up (2026-10-03)
 
@@ -203,5 +217,5 @@ See [direct EosFit runs](fes-eosfit-direct.md) for all six fits, covariance,
 warnings, macros and raw outputs, and the
 [separate cold FeS-VI audit](sata-2010-fes-vi.md) for the 13 numerical
 observations re-reported in Sata (2010). These newly recovered observations
-improve cold-data availability; they do not recover the authors' final
-Morard regression file or change the deferred catalog disposition.
+improve cold-data availability. The later author-input and GUI follow-ups
+supersede this initial investigation; the current acceptance is stated above.

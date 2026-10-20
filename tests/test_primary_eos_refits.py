@@ -44,13 +44,51 @@ def test_ledger_check_tolerates_only_small_calculated_roundoff():
             check_ledger_values(saved, current)
 
 
+def test_fixed_name_order_does_not_change_values_or_ordered_numerical_arrays():
+    check_ledger_values(
+        {"fixed_parameters": ["Tr", "beta", "anharmonic_a"]},
+        {"fixed_parameters": ["Tr", "anharmonic_a", "beta"]},
+    )
+    with pytest.raises(ValueError):
+        check_ledger_values(
+            {"fixed_parameters": ["V0", "K0"]}, {"fixed_parameters": ["V0", "q"]}
+        )
+    with pytest.raises(ValueError):
+        check_ledger_values({"parameters": [1.0, 2.0]}, {"parameters": [2.0, 1.0]})
+
+
+def test_freshness_check_retains_document_precision_within_numerical_tolerance(
+    tmp_path, monkeypatch
+):
+    import scripts.validate_primary_eos_refits as campaign
+
+    saved = load_ledger()
+    current = json.loads(json.dumps(saved))
+    row = next(r for r in current["records"] if r.get("parameters"))
+    parameter = row["parameters"][0]
+    parameter["refit"] *= 1.000005
+    document = campaign.render_markdown(saved)
+    assert campaign.render_markdown(current) != document
+    numerical = tmp_path / "ledger.json"
+    markdown = tmp_path / "ledger.md"
+    numerical.write_text(json.dumps(saved), encoding="utf-8")
+    markdown.write_text(document, encoding="utf-8")
+    monkeypatch.setattr(campaign, "validate_all", lambda: current)
+    monkeypatch.setattr(
+        "sys.argv",
+        ["validate", "--check", "--json", str(numerical), "--markdown", str(markdown)],
+    )
+    assert campaign.main() == 0
+    assert markdown.read_text(encoding="utf-8") == document
+
+
 def test_primary_refit_ledger_covers_every_bundled_record_once():
     ledger = load_ledger()
     identifiers = [item["record_identifier"] for item in ledger["records"]]
 
     assert ledger["format"] == "peritheos.primary-eos-refit-validation"
     assert ledger["format_version"] == 1
-    assert len(identifiers) == len(set(identifiers)) == 663
+    assert len(identifiers) == len(set(identifiers)) == 664
     assert set(identifiers) == set(list_eos_record_documents())
 
 
@@ -58,10 +96,10 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     ledger = load_ledger()
     statuses = Counter(item["status"] for item in ledger["records"])
 
-    assert ledger["summary"] == {"total": 663, **dict(sorted(statuses.items()))}
+    assert ledger["summary"] == {"total": 664, **dict(sorted(statuses.items()))}
     assert statuses == {
         "not_refittable": 177,
-        "parity": 247,
+        "parity": 248,
         "parity_not_achieved": 62,
         "similar": 161,
         "source_reconstruction": 16,

@@ -246,7 +246,7 @@ def test_every_bundled_link_opens_its_record_and_each_graph_matches_its_input():
     records = charts = curves = 0
     outputs = generated_outputs(plots=False)
     index = outputs[Path("index.md")].decode()
-    assert "471 of 471" in index
+    assert "472 of 472" in index
     assert "3 explicitly partial replays" in index
     assert "None among assessments with stored coefficient pairs" in index
     for relative, payload in outputs.items():
@@ -281,7 +281,7 @@ def test_every_bundled_link_opens_its_record_and_each_graph_matches_its_input():
                 assert current_curve(curve.read_bytes(), comparison)
                 curves += 1
             records += 1
-    assert records == 663 and charts == curves == 471
+    assert records == 664 and charts == curves == 472
     for light in (ROOT / "docs/reconstruction-reports/figures").glob("*.svg"):
         if not light.stem.endswith("-dark"):
             dark = light.with_name(Path(dark_path(light.name)).name)

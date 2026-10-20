@@ -1,4 +1,19 @@
-# Fe2SiO4 ringwoodite: staged G05/C10 audit
+# Fe2SiO4 ringwoodite: static integration and staged thermal audit
+
+Integration update: 2026-10-19. **The derived Finger (1979) static record is now integrated** as `ferrous_ringwoodite`, with its measured ambient cell, unchanged published K0, source structure and all three observations. It is restricted to 296.15 K and 0–4 GPa. The 2011 thermal candidate remains outside the executable catalog. [Parameters](../material-summaries/ferrous_ringwoodite.md) · [Curves, residuals and uncertainty comparison](../reconstruction-reports/ferrous_ringwoodite.md).
+
+The installed package exposes the accepted static record through the public API:
+
+```python
+from peritheos import get_eos_record
+
+static = get_eos_record(
+    "ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction"
+)
+print(static.volume(2.0, 296.15, check_validity=True))  # Å³/conventional cell
+```
+
+The following dated investigation and staged two-record card are preserved as the original handoff.
 
 Audit date: 2026-10-16. The material identifier is `ferrous_ringwoodite`.
 The proposed file is

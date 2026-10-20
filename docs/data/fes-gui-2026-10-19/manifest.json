@@ -1,0 +1,4500 @@
+{
+  "audit_date": "2026-10-19",
+  "gui_version": "20211014",
+  "executable_sha256": "e7d19f1f79cf544e0828b83c25a9a9e981e97c2fce925c1d895e9943fea5968e",
+  "executable_source": "https://www.rossangel.com/Download/EoSFit7installer_MacOS.dmg",
+  "execution": "Unmodified official Mac GUI in an authenticated temporary Xvfb display; extracted X11 dependencies relocated locally, no system installation.",
+  "selection": "Complete confirmed selected 167-row author input, excluding the 11 rejected quenched rows. Cold stage uses 21 literature rows; thermal stage uses unchanged 146 hot rows, with duplicate retained.",
+  "protocol": "Gamma-only on 167 rows with saved author cold model at Tr=298 K, equal weights and supplied P/V/T errors; separate three-parameter weighted BM3 cold fit at 300 K, followed by full-MGD gamma-only weighted fit on hot rows at Tr=300 K. Theta=417 K, n=2, q=1; q-compromise off.",
+  "staged_handoff": "GUI data loading clears the model. The cold solution is saved and its three printed parameter tokens inserted into an otherwise unchanged author EOS at Tr=300 K before loading the hot data. This checks the GUI workflow at saved-file precision, not an unrounded in-memory handoff. Initial files and outputs are archived; no estimation step or new model family is used.",
+  "residual_sign": "Pcalculated - Pobserved",
+  "statistics": "RMS and pointwise residuals are native Peritheos evaluations of GUI-saved models, not RMS read from GUI output. Screenshots independently retain displayed fit convergence, coefficients, esds and maximum residual. Covariance is the actual GUI-saved conditional covariance; cold covariance is not propagated into thermal gamma errors.",
+  "limitation": "The author's exact 20210609 executable is unavailable. This 20211014 GUI comparison supports the tested controls only; original exact GUI selections/controls and saved-vs-printed source-output differences remain unresolved.",
+  "cases": {
+    "gamma-unweighted": {
+      "rows": 167,
+      "source_initial_eos": "docs/data/fes-author-eosfit/sources/FeS6.eos",
+      "fitted_eos": "docs/data/fes-gui-2026-10-19/gamma-unweighted.eos",
+      "refined_parameters": {
+        "18": {
+          "value": 2.44237,
+          "error": 0.0300634329377069
+        }
+      },
+      "conditional_covariance": [
+        [
+          0.00090381
+        ]
+      ],
+      "reference_temperature_k": 298.0,
+      "source": {
+        "all": {
+          "rows": 167,
+          "rmse_gpa": 1.6693384881121769,
+          "min_gpa": -4.205908640345001,
+          "max_gpa": 5.058701117984043,
+          "max_abs_gpa": 5.058701117984043,
+          "rows_exceeding_3_gpa": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8,
+            27,
+            122,
+            123,
+            124,
+            125,
+            126,
+            146,
+            152,
+            153
+          ]
+        },
+        "thermal": {
+          "rows": 146,
+          "rmse_gpa": 1.631729697057762,
+          "min_gpa": -4.116951817524942,
+          "max_gpa": 5.058701117984043,
+          "max_abs_gpa": 5.058701117984043,
+          "rows_exceeding_3_gpa": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8,
+            27,
+            122,
+            123,
+            124,
+            125,
+            126,
+            146
+          ]
+        },
+        "cold": {
+          "rows": 21,
+          "rmse_gpa": 1.9104511005080498,
+          "min_gpa": -4.205908640345001,
+          "max_gpa": 4.108681581411787,
+          "max_abs_gpa": 4.205908640345001,
+          "rows_exceeding_3_gpa": [
+            152,
+            153
+          ]
+        }
+      },
+      "refit": {
+        "all": {
+          "rows": 167,
+          "rmse_gpa": 1.665754507253747,
+          "min_gpa": -4.205890775096037,
+          "max_gpa": 5.180814631805745,
+          "max_abs_gpa": 5.180814631805745,
+          "rows_exceeding_3_gpa": [
+            2,
+            3,
+            4,
+            7,
+            8,
+            27,
+            122,
+            123,
+            124,
+            125,
+            126,
+            146,
+            152,
+            153
+          ]
+        },
+        "thermal": {
+          "rows": 146,
+          "rmse_gpa": 1.6275348063307509,
+          "min_gpa": -4.003785556533174,
+          "max_gpa": 5.180814631805745,
+          "max_abs_gpa": 5.180814631805745,
+          "rows_exceeding_3_gpa": [
+            2,
+            3,
+            4,
+            7,
+            8,
+            27,
+            122,
+            123,
+            124,
+            125,
+            126,
+            146
+          ]
+        },
+        "cold": {
+          "rows": 21,
+          "rmse_gpa": 1.9104512731588794,
+          "min_gpa": -4.205890775096037,
+          "max_gpa": 4.108689255693349,
+          "max_abs_gpa": 4.205890775096037,
+          "rows_exceeding_3_gpa": [
+            152,
+            153
+          ]
+        }
+      },
+      "gui_displayed_max_abs_gpa": 5.18,
+      "gui_saved_native_max_difference_from_display_gpa": 0.0008146318057455915,
+      "residuals": [
+        {
+          "row": 1,
+          "pressure_gpa": 29.59643816,
+          "temperature_k": 1450.0,
+          "volume_cm3_mol": 13.69121917,
+          "initial_residual_gpa": -3.013179831086756,
+          "refit_residual_gpa": -2.921949023601652
+        },
+        {
+          "row": 2,
+          "pressure_gpa": 29.61727201,
+          "temperature_k": 1530.0,
+          "volume_cm3_mol": 13.74976223,
+          "initial_residual_gpa": -3.246553941639,
+          "refit_residual_gpa": -3.1485902272894606
+        },
+        {
+          "row": 3,
+          "pressure_gpa": 29.68104188,
+          "temperature_k": 1610.0,
+          "volume_cm3_mol": 13.79940105,
+          "initial_residual_gpa": -3.380043314349898,
+          "refit_residual_gpa": -3.275360102191325
+        },
+        {
+          "row": 4,
+          "pressure_gpa": 29.90492469,
+          "temperature_k": 1710.0,
+          "volume_cm3_mol": 13.89468574,
+          "initial_residual_gpa": -4.116951817524942,
+          "refit_residual_gpa": -4.003785556533174
+        },
+        {
+          "row": 5,
+          "pressure_gpa": 33.12772584,
+          "temperature_k": 1270.0,
+          "volume_cm3_mol": 13.37514874,
+          "initial_residual_gpa": -3.0755905123616287,
+          "refit_residual_gpa": -2.999924793506654
+        },
+        {
+          "row": 6,
+          "pressure_gpa": 33.23118826,
+          "temperature_k": 1350.0,
+          "volume_cm3_mol": 13.40191256,
+          "initial_residual_gpa": -2.994139964405367,
+          "refit_residual_gpa": -2.911844854217005
+        },
+        {
+          "row": 7,
+          "pressure_gpa": 33.41794186,
+          "temperature_k": 1470.0,
+          "volume_cm3_mol": 13.45946566,
+          "initial_residual_gpa": -3.170347645265174,
+          "refit_residual_gpa": -3.0780395645206013
+        },
+        {
+          "row": 8,
+          "pressure_gpa": 33.41794186,
+          "temperature_k": 1470.0,
+          "volume_cm3_mol": 13.45946566,
+          "initial_residual_gpa": -3.170347645265174,
+          "refit_residual_gpa": -3.0780395645206013
+        },
+        {
+          "row": 9,
+          "pressure_gpa": 41.65184068,
+          "temperature_k": 1220.0,
+          "volume_cm3_mol": 12.81106362,
+          "initial_residual_gpa": -1.5875534496636021,
+          "refit_residual_gpa": -1.517559185838799
+        },
+        {
+          "row": 10,
+          "pressure_gpa": 41.76934184,
+          "temperature_k": 1330.0,
+          "volume_cm3_mol": 12.83495973,
+          "initial_residual_gpa": -1.343252878501744,
+          "refit_residual_gpa": -1.2642180759992812
+        },
+        {
+          "row": 11,
+          "pressure_gpa": 41.6736134,
+          "temperature_k": 1420.0,
+          "volume_cm3_mol": 12.86480437,
+          "initial_residual_gpa": -1.1548931790461907,
+          "refit_residual_gpa": -1.0684036886748132
+        },
+        {
+          "row": 12,
+          "pressure_gpa": 41.92909677,
+          "temperature_k": 1510.0,
+          "volume_cm3_mol": 12.92016747,
+          "initial_residual_gpa": -1.815568502035262,
+          "refit_residual_gpa": -1.7215238387715672
+        },
+        {
+          "row": 13,
+          "pressure_gpa": 41.8033473,
+          "temperature_k": 1580.0,
+          "volume_cm3_mol": 12.9554079,
+          "initial_residual_gpa": -1.8353580662958109,
+          "refit_residual_gpa": -1.7354513775906142
+        },
+        {
+          "row": 14,
+          "pressure_gpa": 41.91758698,
+          "temperature_k": 1640.0,
+          "volume_cm3_mol": 12.97524497,
+          "initial_residual_gpa": -1.8665255549194697,
+          "refit_residual_gpa": -1.761621050610593
+        },
+        {
+          "row": 15,
+          "pressure_gpa": 42.19857017,
+          "temperature_k": 1750.0,
+          "volume_cm3_mol": 13.00964279,
+          "initial_residual_gpa": -1.949025247800428,
+          "refit_residual_gpa": -1.8349516352824864
+        },
+        {
+          "row": 16,
+          "pressure_gpa": 42.6556377,
+          "temperature_k": 1890.0,
+          "volume_cm3_mol": 13.04180644,
+          "initial_residual_gpa": -1.9216399866747338,
+          "refit_residual_gpa": -1.7959144033924943
+        },
+        {
+          "row": 17,
+          "pressure_gpa": 45.16809303,
+          "temperature_k": 1250.0,
+          "volume_cm3_mol": 12.63487883,
+          "initial_residual_gpa": -1.0994918957661142,
+          "refit_residual_gpa": -1.027626153223089
+        },
+        {
+          "row": 18,
+          "pressure_gpa": 44.99938828,
+          "temperature_k": 1340.0,
+          "volume_cm3_mol": 12.67346588,
+          "initial_residual_gpa": -1.0830422773018498,
+          "refit_residual_gpa": -1.0037197867278422
+        },
+        {
+          "row": 19,
+          "pressure_gpa": 44.99088308,
+          "temperature_k": 1410.0,
+          "volume_cm3_mol": 12.69373397,
+          "initial_residual_gpa": -0.9721502197525496,
+          "refit_residual_gpa": -0.8870437649069629
+        },
+        {
+          "row": 20,
+          "pressure_gpa": 44.90095589,
+          "temperature_k": 1530.0,
+          "volume_cm3_mol": 12.77919654,
+          "initial_residual_gpa": -1.7682789204977425,
+          "refit_residual_gpa": -1.6730564618187458
+        },
+        {
+          "row": 21,
+          "pressure_gpa": 44.8589917,
+          "temperature_k": 1660.0,
+          "volume_cm3_mol": 12.80249427,
+          "initial_residual_gpa": -1.1991384626154726,
+          "refit_residual_gpa": -1.0931605438323473
+        },
+        {
+          "row": 22,
+          "pressure_gpa": 44.90717895,
+          "temperature_k": 1760.0,
+          "volume_cm3_mol": 12.85786793,
+          "initial_residual_gpa": -1.6016153101547204,
+          "refit_residual_gpa": -1.487219020347311
+        },
+        {
+          "row": 23,
+          "pressure_gpa": 44.93903417,
+          "temperature_k": 1850.0,
+          "volume_cm3_mol": 12.91702078,
+          "initial_residual_gpa": -2.114290350752995,
+          "refit_residual_gpa": -1.9922761930847699
+        },
+        {
+          "row": 24,
+          "pressure_gpa": 45.00218695,
+          "temperature_k": 1940.0,
+          "volume_cm3_mol": 12.94235472,
+          "initial_residual_gpa": -1.9729415101096706,
+          "refit_residual_gpa": -1.8434156604018384
+        },
+        {
+          "row": 25,
+          "pressure_gpa": 45.06777749,
+          "temperature_k": 2000.0,
+          "volume_cm3_mol": 12.98309217,
+          "initial_residual_gpa": -2.3598060871182867,
+          "refit_residual_gpa": -2.2251886840812176
+        },
+        {
+          "row": 26,
+          "pressure_gpa": 45.19849373,
+          "temperature_k": 2100.0,
+          "volume_cm3_mol": 13.0162714,
+          "initial_residual_gpa": -2.3430245131033303,
+          "refit_residual_gpa": -2.2000316736793835
+        },
+        {
+          "row": 27,
+          "pressure_gpa": 45.2392356,
+          "temperature_k": 2190.0,
+          "volume_cm3_mol": 13.10592218,
+          "initial_residual_gpa": -3.3499072105791328,
+          "refit_residual_gpa": -3.199175386086935
+        },
+        {
+          "row": 28,
+          "pressure_gpa": 45.33431719,
+          "temperature_k": 2290.0,
+          "volume_cm3_mol": 13.12169391,
+          "initial_residual_gpa": -2.9507619555194324,
+          "refit_residual_gpa": -2.791700832725404
+        },
+        {
+          "row": 29,
+          "pressure_gpa": 54.18431222,
+          "temperature_k": 1220.0,
+          "volume_cm3_mol": 12.21726304,
+          "initial_residual_gpa": -0.22305078007631352,
+          "refit_residual_gpa": -0.1551131608342402
+        },
+        {
+          "row": 30,
+          "pressure_gpa": 54.27403106,
+          "temperature_k": 1260.0,
+          "volume_cm3_mol": 12.22978011,
+          "initial_residual_gpa": -0.33362381971977584,
+          "refit_residual_gpa": -0.26240648183177484
+        },
+        {
+          "row": 31,
+          "pressure_gpa": 54.29698221,
+          "temperature_k": 1340.0,
+          "volume_cm3_mol": 12.24970303,
+          "initial_residual_gpa": -0.2590824186146534,
+          "refit_residual_gpa": -0.1813054641784646
+        },
+        {
+          "row": 32,
+          "pressure_gpa": 54.22844421,
+          "temperature_k": 1430.0,
+          "volume_cm3_mol": 12.27345927,
+          "initial_residual_gpa": -0.10907625030615264,
+          "refit_residual_gpa": -0.023887481162624624
+        },
+        {
+          "row": 33,
+          "pressure_gpa": 54.14069301,
+          "temperature_k": 1480.0,
+          "volume_cm3_mol": 12.30596974,
+          "initial_residual_gpa": -0.46643717159145126,
+          "refit_residual_gpa": -0.3770431610551199
+        },
+        {
+          "row": 34,
+          "pressure_gpa": 54.16874945,
+          "temperature_k": 1580.0,
+          "volume_cm3_mol": 12.33603162,
+          "initial_residual_gpa": -0.4779025441829603,
+          "refit_residual_gpa": -0.38021778579989274
+        },
+        {
+          "row": 35,
+          "pressure_gpa": 54.22146666,
+          "temperature_k": 1680.0,
+          "volume_cm3_mol": 12.37606747,
+          "initial_residual_gpa": -0.7504580462552894,
+          "refit_residual_gpa": -0.6444210303617126
+        },
+        {
+          "row": 36,
+          "pressure_gpa": 54.22024059,
+          "temperature_k": 1750.0,
+          "volume_cm3_mol": 12.40591708,
+          "initial_residual_gpa": -0.9372447688267869,
+          "refit_residual_gpa": -0.825343130776119
+        },
+        {
+          "row": 37,
+          "pressure_gpa": 54.22105256,
+          "temperature_k": 1810.0,
+          "volume_cm3_mol": 12.42462031,
+          "initial_residual_gpa": -0.9252808674350987,
+          "refit_residual_gpa": -0.8083740363919674
+        },
+        {
+          "row": 38,
+          "pressure_gpa": 54.24300777,
+          "temperature_k": 1880.0,
+          "volume_cm3_mol": 12.45774934,
+          "initial_residual_gpa": -1.1982179339902856,
+          "refit_residual_gpa": -1.0754201965207386
+        },
+        {
+          "row": 39,
+          "pressure_gpa": 54.23019787,
+          "temperature_k": 1940.0,
+          "volume_cm3_mol": 12.46917773,
+          "initial_residual_gpa": -0.9897855567435911,
+          "refit_residual_gpa": -0.8620018253856117
+        },
+        {
+          "row": 40,
+          "pressure_gpa": 54.23582942,
+          "temperature_k": 2020.0,
+          "volume_cm3_mol": 12.49278571,
+          "initial_residual_gpa": -0.9295812819302114,
+          "refit_residual_gpa": -0.7951100743890649
+        },
+        {
+          "row": 41,
+          "pressure_gpa": 54.28923815,
+          "temperature_k": 2120.0,
+          "volume_cm3_mol": 12.54119045,
+          "initial_residual_gpa": -1.3300157546394615,
+          "refit_residual_gpa": -1.1871014326831286
+        },
+        {
+          "row": 42,
+          "pressure_gpa": 54.22426526,
+          "temperature_k": 2200.0,
+          "volume_cm3_mol": 12.58743756,
+          "initial_residual_gpa": -1.6965888470390524,
+          "refit_residual_gpa": -1.5468852365068457
+        },
+        {
+          "row": 43,
+          "pressure_gpa": 57.99811343,
+          "temperature_k": 1300.0,
+          "volume_cm3_mol": 12.088177,
+          "initial_residual_gpa": 0.08689683019580485,
+          "refit_residual_gpa": 0.16078319974965183
+        },
+        {
+          "row": 44,
+          "pressure_gpa": 58.05631662,
+          "temperature_k": 1410.0,
+          "volume_cm3_mol": 12.1189162,
+          "initial_residual_gpa": 0.028091680945571795,
+          "refit_residual_gpa": 0.11102249460702751
+        },
+        {
+          "row": 45,
+          "pressure_gpa": 58.08520666,
+          "temperature_k": 1460.0,
+          "volume_cm3_mol": 12.1069402,
+          "initial_residual_gpa": 0.7174622276454272,
+          "refit_residual_gpa": 0.804408090643534
+        },
+        {
+          "row": 46,
+          "pressure_gpa": 58.12645189,
+          "temperature_k": 1520.0,
+          "volume_cm3_mol": 12.12024218,
+          "initial_residual_gpa": 0.7746392685763652,
+          "refit_residual_gpa": 0.8665290539711918
+        },
+        {
+          "row": 47,
+          "pressure_gpa": 58.23627022,
+          "temperature_k": 1630.0,
+          "volume_cm3_mol": 12.13425497,
+          "initial_residual_gpa": 1.1348390302572327,
+          "refit_residual_gpa": 1.2357710347776134
+        },
+        {
+          "row": 48,
+          "pressure_gpa": 58.30766838,
+          "temperature_k": 1700.0,
+          "volume_cm3_mol": 12.14116537,
+          "initial_residual_gpa": 1.4190314244645705,
+          "refit_residual_gpa": 1.5257217453679672
+        },
+        {
+          "row": 49,
+          "pressure_gpa": 58.5403872,
+          "temperature_k": 1770.0,
+          "volume_cm3_mol": 12.16154092,
+          "initial_residual_gpa": 1.1777227024960268,
+          "refit_residual_gpa": 1.2902391661280248
+        },
+        {
+          "row": 50,
+          "pressure_gpa": 58.66625268,
+          "temperature_k": 1850.0,
+          "volume_cm3_mol": 12.21549544,
+          "initial_residual_gpa": 0.23250520713990852,
+          "refit_residual_gpa": 0.3518242100960407
+        },
+        {
+          "row": 51,
+          "pressure_gpa": 58.80020353,
+          "temperature_k": 1930.0,
+          "volume_cm3_mol": 12.22931113,
+          "initial_residual_gpa": 0.357909347475605,
+          "refit_residual_gpa": 0.4838645209846888
+        },
+        {
+          "row": 52,
+          "pressure_gpa": 58.81793192,
+          "temperature_k": 2010.0,
+          "volume_cm3_mol": 12.24100872,
+          "initial_residual_gpa": 0.657356930503461,
+          "refit_residual_gpa": 0.7899466138697377
+        },
+        {
+          "row": 53,
+          "pressure_gpa": 58.93420094,
+          "temperature_k": 2070.0,
+          "volume_cm3_mol": 12.25175037,
+          "initial_residual_gpa": 0.7289130149754115,
+          "refit_residual_gpa": 0.8664916685647555
+        },
+        {
+          "row": 54,
+          "pressure_gpa": 59.12124315,
+          "temperature_k": 2180.0,
+          "volume_cm3_mol": 12.25815307,
+          "initial_residual_gpa": 1.2338893696873967,
+          "refit_residual_gpa": 1.3805644164022652
+        },
+        {
+          "row": 55,
+          "pressure_gpa": 59.28908936,
+          "temperature_k": 2250.0,
+          "volume_cm3_mol": 12.28254006,
+          "initial_residual_gpa": 0.9828415957827303,
+          "refit_residual_gpa": 1.1354003909264136
+        },
+        {
+          "row": 56,
+          "pressure_gpa": 59.38378257,
+          "temperature_k": 2330.0,
+          "volume_cm3_mol": 12.29596601,
+          "initial_residual_gpa": 1.1690093085212752,
+          "refit_residual_gpa": 1.3282328448051928
+        },
+        {
+          "row": 57,
+          "pressure_gpa": 63.7709034,
+          "temperature_k": 1300.0,
+          "volume_cm3_mol": 11.93362459,
+          "initial_residual_gpa": -1.2287007221410349,
+          "refit_residual_gpa": -1.1554679239269703
+        },
+        {
+          "row": 58,
+          "pressure_gpa": 63.60239229,
+          "temperature_k": 1340.0,
+          "volume_cm3_mol": 11.94445351,
+          "initial_residual_gpa": -1.0729219658125544,
+          "refit_residual_gpa": -0.9964114903152748
+        },
+        {
+          "row": 59,
+          "pressure_gpa": 63.48380598,
+          "temperature_k": 1420.0,
+          "volume_cm3_mol": 11.95105202,
+          "initial_residual_gpa": -0.5305750080130309,
+          "refit_residual_gpa": -0.44755689851081115
+        },
+        {
+          "row": 60,
+          "pressure_gpa": 63.43530501,
+          "temperature_k": 1480.0,
+          "volume_cm3_mol": 11.95406039,
+          "initial_residual_gpa": -0.10599873800864401,
+          "refit_residual_gpa": -0.01809508841713381
+        },
+        {
+          "row": 61,
+          "pressure_gpa": 63.42630189,
+          "temperature_k": 1550.0,
+          "volume_cm3_mol": 11.95846573,
+          "initial_residual_gpa": 0.31606064886449303,
+          "refit_residual_gpa": 0.40968065879788185
+        },
+        {
+          "row": 62,
+          "pressure_gpa": 63.47076071,
+          "temperature_k": 1630.0,
+          "volume_cm3_mol": 11.96378819,
+          "initial_residual_gpa": 0.736150591348526,
+          "refit_residual_gpa": 0.8363193890134042
+        },
+        {
+          "row": 63,
+          "pressure_gpa": 63.47876727,
+          "temperature_k": 1680.0,
+          "volume_cm3_mol": 11.97123209,
+          "initial_residual_gpa": 0.8981768682958844,
+          "refit_residual_gpa": 1.0024646981973362
+        },
+        {
+          "row": 64,
+          "pressure_gpa": 63.45610639,
+          "temperature_k": 1760.0,
+          "volume_cm3_mol": 11.99314831,
+          "initial_residual_gpa": 0.9035930116830571,
+          "refit_residual_gpa": 1.0145281813448577
+        },
+        {
+          "row": 65,
+          "pressure_gpa": 63.4578388,
+          "temperature_k": 1830.0,
+          "volume_cm3_mol": 12.01484881,
+          "initial_residual_gpa": 0.8194251899167639,
+          "refit_residual_gpa": 0.9361980974546569
+        },
+        {
+          "row": 66,
+          "pressure_gpa": 63.48196896,
+          "temperature_k": 1900.0,
+          "volume_cm3_mol": 12.03693666,
+          "initial_residual_gpa": 0.7079443320705963,
+          "refit_residual_gpa": 0.8305646161156375
+        },
+        {
+          "row": 67,
+          "pressure_gpa": 63.45220174,
+          "temperature_k": 1980.0,
+          "volume_cm3_mol": 12.05863388,
+          "initial_residual_gpa": 0.7455707265359948,
+          "refit_residual_gpa": 0.8748655707115418
+        },
+        {
+          "row": 68,
+          "pressure_gpa": 63.56469453,
+          "temperature_k": 2060.0,
+          "volume_cm3_mol": 12.08600616,
+          "initial_residual_gpa": 0.4883532596947049,
+          "refit_residual_gpa": 0.6243570156364058
+        },
+        {
+          "row": 69,
+          "pressure_gpa": 63.76629453,
+          "temperature_k": 2180.0,
+          "volume_cm3_mol": 12.10855595,
+          "initial_residual_gpa": 0.596550364678798,
+          "refit_residual_gpa": 0.7425436072764668
+        },
+        {
+          "row": 70,
+          "pressure_gpa": 63.85995901,
+          "temperature_k": 2280.0,
+          "volume_cm3_mol": 12.13190556,
+          "initial_residual_gpa": 0.6411696770316979,
+          "refit_residual_gpa": 0.795518654046063
+        },
+        {
+          "row": 71,
+          "pressure_gpa": 63.91745354,
+          "temperature_k": 2370.0,
+          "volume_cm3_mol": 12.1585575,
+          "initial_residual_gpa": 0.5610919871769084,
+          "refit_residual_gpa": 0.7229940198445206
+        },
+        {
+          "row": 72,
+          "pressure_gpa": 64.22849155,
+          "temperature_k": 2420.0,
+          "volume_cm3_mol": 12.17929187,
+          "initial_residual_gpa": 0.08191348030756274,
+          "refit_residual_gpa": 0.24804157505965918
+        },
+        {
+          "row": 73,
+          "pressure_gpa": 64.26439414,
+          "temperature_k": 2510.0,
+          "volume_cm3_mol": 12.21926628,
+          "initial_residual_gpa": -0.31420738658274416,
+          "refit_residual_gpa": -0.1404568559834587
+        },
+        {
+          "row": 74,
+          "pressure_gpa": 64.1073195,
+          "temperature_k": 2540.0,
+          "volume_cm3_mol": 12.24135099,
+          "initial_residual_gpa": -0.5025471736318963,
+          "refit_residual_gpa": -0.3262148376935059
+        },
+        {
+          "row": 75,
+          "pressure_gpa": 83.75932412,
+          "temperature_k": 1420.0,
+          "volume_cm3_mol": 11.33203905,
+          "initial_residual_gpa": 0.17401093592354755,
+          "refit_residual_gpa": 0.2539653284410264
+        },
+        {
+          "row": 76,
+          "pressure_gpa": 83.83464084,
+          "temperature_k": 1490.0,
+          "volume_cm3_mol": 11.34082807,
+          "initial_residual_gpa": 0.30066525482817497,
+          "refit_residual_gpa": 0.38630611752056154
+        },
+        {
+          "row": 77,
+          "pressure_gpa": 83.92101446,
+          "temperature_k": 1560.0,
+          "volume_cm3_mol": 11.37934832,
+          "initial_residual_gpa": -0.7148513378408978,
+          "refit_residual_gpa": -0.6233398190484962
+        },
+        {
+          "row": 78,
+          "pressure_gpa": 84.24790084,
+          "temperature_k": 1680.0,
+          "volume_cm3_mol": 11.3831874,
+          "initial_residual_gpa": -0.2565565133699579,
+          "refit_residual_gpa": -0.15529035852760842
+        },
+        {
+          "row": 79,
+          "pressure_gpa": 84.39924341,
+          "temperature_k": 1740.0,
+          "volume_cm3_mol": 11.39576381,
+          "initial_residual_gpa": -0.4161666241531634,
+          "refit_residual_gpa": -0.3099487099332805
+        },
+        {
+          "row": 80,
+          "pressure_gpa": 84.44419738,
+          "temperature_k": 1810.0,
+          "volume_cm3_mol": 11.41689284,
+          "initial_residual_gpa": -0.7078070399149539,
+          "refit_residual_gpa": -0.5957642766774711
+        },
+        {
+          "row": 81,
+          "pressure_gpa": 84.46492195,
+          "temperature_k": 1880.0,
+          "volume_cm3_mol": 11.44048108,
+          "initial_residual_gpa": -1.0581669707355843,
+          "refit_residual_gpa": -0.940274619613831
+        },
+        {
+          "row": 82,
+          "pressure_gpa": 84.46349353,
+          "temperature_k": 1960.0,
+          "volume_cm3_mol": 11.46969088,
+          "initial_residual_gpa": -1.5039585864550844,
+          "refit_residual_gpa": -1.3793566106172221
+        },
+        {
+          "row": 83,
+          "pressure_gpa": 84.46946171,
+          "temperature_k": 2060.0,
+          "volume_cm3_mol": 11.4935059,
+          "initial_residual_gpa": -1.5932822163247096,
+          "refit_residual_gpa": -1.4603509674482495
+        },
+        {
+          "row": 84,
+          "pressure_gpa": 84.37180086,
+          "temperature_k": 2170.0,
+          "volume_cm3_mol": 11.52006516,
+          "initial_residual_gpa": -1.5892390845313855,
+          "refit_residual_gpa": -1.4471273648237997
+        },
+        {
+          "row": 85,
+          "pressure_gpa": 84.35257163,
+          "temperature_k": 2240.0,
+          "volume_cm3_mol": 11.50925161,
+          "initial_residual_gpa": -0.6384358015131966,
+          "refit_residual_gpa": -0.49063426135438704
+        },
+        {
+          "row": 86,
+          "pressure_gpa": 84.33747972,
+          "temperature_k": 2330.0,
+          "volume_cm3_mol": 11.51269925,
+          "initial_residual_gpa": -0.04451962266691112,
+          "refit_residual_gpa": 0.11070433155794035
+        },
+        {
+          "row": 87,
+          "pressure_gpa": 84.6732423,
+          "temperature_k": 2440.0,
+          "volume_cm3_mol": 11.54934757,
+          "initial_residual_gpa": -0.8199397036174219,
+          "refit_residual_gpa": -0.6554448385062699
+        },
+        {
+          "row": 88,
+          "pressure_gpa": 84.62270558,
+          "temperature_k": 2510.0,
+          "volume_cm3_mol": 11.5592875,
+          "initial_residual_gpa": -0.5714137616560606,
+          "refit_residual_gpa": -0.4010918453312513
+        },
+        {
+          "row": 89,
+          "pressure_gpa": 92.40859141,
+          "temperature_k": 1610.0,
+          "volume_cm3_mol": 11.22508635,
+          "initial_residual_gpa": -2.7710513981848237,
+          "refit_residual_gpa": -2.6763761723197916
+        },
+        {
+          "row": 90,
+          "pressure_gpa": 92.41861987,
+          "temperature_k": 1810.0,
+          "volume_cm3_mol": 11.22271673,
+          "initial_residual_gpa": -1.1333082859594867,
+          "refit_residual_gpa": -1.0224108924994653
+        },
+        {
+          "row": 91,
+          "pressure_gpa": 92.82677728,
+          "temperature_k": 1910.0,
+          "volume_cm3_mol": 11.21116184,
+          "initial_residual_gpa": -0.2943759779833073,
+          "refit_residual_gpa": -0.1753992287701749
+        },
+        {
+          "row": 92,
+          "pressure_gpa": 92.81249733,
+          "temperature_k": 1700.0,
+          "volume_cm3_mol": 11.16866423,
+          "initial_residual_gpa": -0.161765240528581,
+          "refit_residual_gpa": -0.060136522271903914
+        },
+        {
+          "row": 93,
+          "pressure_gpa": 92.79705475,
+          "temperature_k": 1600.0,
+          "volume_cm3_mol": 11.15153004,
+          "initial_residual_gpa": -0.2066509463958397,
+          "refit_residual_gpa": -0.11322294039518965
+        },
+        {
+          "row": 94,
+          "pressure_gpa": 93.07991467,
+          "temperature_k": 1860.0,
+          "volume_cm3_mol": 11.18166926,
+          "initial_residual_gpa": 0.2742204531162713,
+          "refit_residual_gpa": 0.38893753440959244
+        },
+        {
+          "row": 95,
+          "pressure_gpa": 93.2651403,
+          "temperature_k": 1940.0,
+          "volume_cm3_mol": 11.19126637,
+          "initial_residual_gpa": 0.3153071416826094,
+          "refit_residual_gpa": 0.43660834411254257
+        },
+        {
+          "row": 96,
+          "pressure_gpa": 93.49541135,
+          "temperature_k": 2040.0,
+          "volume_cm3_mol": 11.21097669,
+          "initial_residual_gpa": 0.0558898976855744,
+          "refit_residual_gpa": 0.18548623606577053
+        },
+        {
+          "row": 97,
+          "pressure_gpa": 93.6135479,
+          "temperature_k": 2120.0,
+          "volume_cm3_mol": 11.23021686,
+          "initial_residual_gpa": -0.2204845780421465,
+          "refit_residual_gpa": -0.08421838511230817
+        },
+        {
+          "row": 98,
+          "pressure_gpa": 93.72675134,
+          "temperature_k": 2230.0,
+          "volume_cm3_mol": 11.25428024,
+          "initial_residual_gpa": -0.44422304105064825,
+          "refit_residual_gpa": -0.29878589468002303
+        },
+        {
+          "row": 99,
+          "pressure_gpa": 94.00627023,
+          "temperature_k": 2390.0,
+          "volume_cm3_mol": 11.27598814,
+          "initial_residual_gpa": -0.34015996411544336,
+          "refit_residual_gpa": -0.18144142529851592
+        },
+        {
+          "row": 100,
+          "pressure_gpa": 94.00820193,
+          "temperature_k": 2480.0,
+          "volume_cm3_mol": 11.32154858,
+          "initial_residual_gpa": -1.4265110397009693,
+          "refit_residual_gpa": -1.2600994562949666
+        },
+        {
+          "row": 101,
+          "pressure_gpa": 94.2591652,
+          "temperature_k": 2550.0,
+          "volume_cm3_mol": 11.321485,
+          "initial_residual_gpa": -1.1286149092202464,
+          "refit_residual_gpa": -0.956439114794918
+        },
+        {
+          "row": 102,
+          "pressure_gpa": 108.262962,
+          "temperature_k": 1730.0,
+          "volume_cm3_mol": 10.79216874,
+          "initial_residual_gpa": 1.6602820129604368,
+          "refit_residual_gpa": 1.7618937393976921
+        },
+        {
+          "row": 103,
+          "pressure_gpa": 108.5540282,
+          "temperature_k": 1800.0,
+          "volume_cm3_mol": 10.79380083,
+          "initial_residual_gpa": 1.8315986520379255,
+          "refit_residual_gpa": 1.9388846452314539
+        },
+        {
+          "row": 104,
+          "pressure_gpa": 109.0999186,
+          "temperature_k": 1970.0,
+          "volume_cm3_mol": 10.81196072,
+          "initial_residual_gpa": 1.7163056666211247,
+          "refit_residual_gpa": 1.8375226716411817
+        },
+        {
+          "row": 105,
+          "pressure_gpa": 109.3470732,
+          "temperature_k": 1740.0,
+          "volume_cm3_mol": 10.79552844,
+          "initial_residual_gpa": 0.4884606723199596,
+          "refit_residual_gpa": 0.5909037992916666
+        },
+        {
+          "row": 106,
+          "pressure_gpa": 109.2659176,
+          "temperature_k": 1630.0,
+          "volume_cm3_mol": 10.78715526,
+          "initial_residual_gpa": 0.13004671183983874,
+          "refit_residual_gpa": 0.22355906509913837
+        },
+        {
+          "row": 107,
+          "pressure_gpa": 109.2103785,
+          "temperature_k": 1540.0,
+          "volume_cm3_mol": 10.77606895,
+          "initial_residual_gpa": 0.038100858235409873,
+          "refit_residual_gpa": 0.12430953458932947
+        },
+        {
+          "row": 108,
+          "pressure_gpa": 109.1462013,
+          "temperature_k": 1440.0,
+          "volume_cm3_mol": 10.76578075,
+          "initial_residual_gpa": -0.15793340783996257,
+          "refit_residual_gpa": -0.07978512261942683
+        },
+        {
+          "row": 109,
+          "pressure_gpa": 109.0517818,
+          "temperature_k": 1340.0,
+          "volume_cm3_mol": 10.7579362,
+          "initial_residual_gpa": -0.44157656319876537,
+          "refit_residual_gpa": -0.37142067036619153
+        },
+        {
+          "row": 110,
+          "pressure_gpa": 109.0970853,
+          "temperature_k": 1340.0,
+          "volume_cm3_mol": 10.75622913,
+          "initial_residual_gpa": -0.4014988978822629,
+          "refit_residual_gpa": -0.33135398032403884
+        },
+        {
+          "row": 111,
+          "pressure_gpa": 109.5042168,
+          "temperature_k": 1700.0,
+          "volume_cm3_mol": 10.78531079,
+          "initial_residual_gpa": 0.5246264461221557,
+          "refit_residual_gpa": 0.6237681884715442
+        },
+        {
+          "row": 112,
+          "pressure_gpa": 109.608824,
+          "temperature_k": 1800.0,
+          "volume_cm3_mol": 10.79468461,
+          "initial_residual_gpa": 0.7333551462641168,
+          "refit_residual_gpa": 0.8406473048607097
+        },
+        {
+          "row": 113,
+          "pressure_gpa": 109.7800485,
+          "temperature_k": 1850.0,
+          "volume_cm3_mol": 10.79673648,
+          "initial_residual_gpa": 0.8492436989779861,
+          "refit_residual_gpa": 0.9606029459889243
+        },
+        {
+          "row": 114,
+          "pressure_gpa": 109.9607255,
+          "temperature_k": 1990.0,
+          "volume_cm3_mol": 10.81032079,
+          "initial_residual_gpa": 1.0909261277151785,
+          "refit_residual_gpa": 1.2137594789125359
+        },
+        {
+          "row": 115,
+          "pressure_gpa": 110.0567728,
+          "temperature_k": 2070.0,
+          "volume_cm3_mol": 10.82462055,
+          "initial_residual_gpa": 0.9213459713984093,
+          "refit_residual_gpa": 1.0508008744479724
+        },
+        {
+          "row": 116,
+          "pressure_gpa": 110.2192754,
+          "temperature_k": 2160.0,
+          "volume_cm3_mol": 10.84991909,
+          "initial_residual_gpa": 0.2396352145956655,
+          "refit_residual_gpa": 0.3766193869553689
+        },
+        {
+          "row": 117,
+          "pressure_gpa": 110.3026761,
+          "temperature_k": 2250.0,
+          "volume_cm3_mol": 10.86843835,
+          "initial_residual_gpa": -0.026852334350962792,
+          "refit_residual_gpa": 0.11762586358398153
+        },
+        {
+          "row": 118,
+          "pressure_gpa": 110.5619733,
+          "temperature_k": 2320.0,
+          "volume_cm3_mol": 10.87372147,
+          "initial_residual_gpa": 0.008401485542393061,
+          "refit_residual_gpa": 0.1586508373720079
+        },
+        {
+          "row": 119,
+          "pressure_gpa": 110.7559991,
+          "temperature_k": 2410.0,
+          "volume_cm3_mol": 10.88966153,
+          "initial_residual_gpa": -0.2371597207619658,
+          "refit_residual_gpa": -0.07941547776299274
+        },
+        {
+          "row": 120,
+          "pressure_gpa": 110.7066625,
+          "temperature_k": 2520.0,
+          "volume_cm3_mol": 10.93414695,
+          "initial_residual_gpa": -1.402979371346163,
+          "refit_residual_gpa": -1.2358823027837218
+        },
+        {
+          "row": 121,
+          "pressure_gpa": 110.9283546,
+          "temperature_k": 2590.0,
+          "volume_cm3_mol": 10.95068892,
+          "initial_residual_gpa": -1.8388116182323415,
+          "refit_residual_gpa": -1.665841129179654
+        },
+        {
+          "row": 122,
+          "pressure_gpa": 115.8547733,
+          "temperature_k": 1820.0,
+          "volume_cm3_mol": 10.60508562,
+          "initial_residual_gpa": 4.376279538613062,
+          "refit_residual_gpa": 4.48382578753295
+        },
+        {
+          "row": 123,
+          "pressure_gpa": 116.3056944,
+          "temperature_k": 1830.0,
+          "volume_cm3_mol": 10.58674546,
+          "initial_residual_gpa": 4.990062889918221,
+          "refit_residual_gpa": 5.098281085172431
+        },
+        {
+          "row": 124,
+          "pressure_gpa": 116.7403315,
+          "temperature_k": 2000.0,
+          "volume_cm3_mol": 10.60189659,
+          "initial_residual_gpa": 5.058701117984043,
+          "refit_residual_gpa": 5.180814631805745
+        },
+        {
+          "row": 125,
+          "pressure_gpa": 117.4068917,
+          "temperature_k": 2060.0,
+          "volume_cm3_mol": 10.62541866,
+          "initial_residual_gpa": 3.602684894683563,
+          "refit_residual_gpa": 3.7298568139524377
+        },
+        {
+          "row": 126,
+          "pressure_gpa": 117.8324028,
+          "temperature_k": 2200.0,
+          "volume_cm3_mol": 10.64028991,
+          "initial_residual_gpa": 3.479163348921972,
+          "refit_residual_gpa": 3.617861389058234
+        },
+        {
+          "row": 127,
+          "pressure_gpa": 118.4978217,
+          "temperature_k": 2350.0,
+          "volume_cm3_mol": 10.69447244,
+          "initial_residual_gpa": 1.1598557861915992,
+          "refit_residual_gpa": 1.3112323988179924
+        },
+        {
+          "row": 128,
+          "pressure_gpa": 118.8467946,
+          "temperature_k": 2430.0,
+          "volume_cm3_mol": 10.69577542,
+          "initial_residual_gpa": 1.3672652793821243,
+          "refit_residual_gpa": 1.5252053375404984
+        },
+        {
+          "row": 129,
+          "pressure_gpa": 118.5503174,
+          "temperature_k": 2000.0,
+          "volume_cm3_mol": 10.61700442,
+          "initial_residual_gpa": 2.440636851067225,
+          "refit_residual_gpa": 2.562864949515159
+        },
+        {
+          "row": 130,
+          "pressure_gpa": 118.5241814,
+          "temperature_k": 1900.0,
+          "volume_cm3_mol": 10.6003698,
+          "initial_residual_gpa": 2.5804146181559418,
+          "refit_residual_gpa": 2.694401337617961
+        },
+        {
+          "row": 131,
+          "pressure_gpa": 118.493861,
+          "temperature_k": 1800.0,
+          "volume_cm3_mol": 10.59500155,
+          "initial_residual_gpa": 2.123920436747369,
+          "refit_residual_gpa": 2.2297755618339608
+        },
+        {
+          "row": 132,
+          "pressure_gpa": 118.3501988,
+          "temperature_k": 1700.0,
+          "volume_cm3_mol": 10.59345129,
+          "initial_residual_gpa": 1.5766138840102428,
+          "refit_residual_gpa": 1.6743939571636872
+        },
+        {
+          "row": 133,
+          "pressure_gpa": 118.3727179,
+          "temperature_k": 1600.0,
+          "volume_cm3_mol": 10.58131102,
+          "initial_residual_gpa": 1.4369630510421416,
+          "refit_residual_gpa": 1.5266248436815033
+        },
+        {
+          "row": 134,
+          "pressure_gpa": 118.2401709,
+          "temperature_k": 1400.0,
+          "volume_cm3_mol": 10.58030759,
+          "initial_residual_gpa": 0.08222842056626689,
+          "refit_residual_gpa": 0.15595009659605807
+        },
+        {
+          "row": 135,
+          "pressure_gpa": 128.7520495,
+          "temperature_k": 1330.0,
+          "volume_cm3_mol": 10.40381769,
+          "initial_residual_gpa": -0.9945200810839623,
+          "refit_residual_gpa": -0.9275495238572944
+        },
+        {
+          "row": 136,
+          "pressure_gpa": 129.080921,
+          "temperature_k": 1490.0,
+          "volume_cm3_mol": 10.40800587,
+          "initial_residual_gpa": -0.34042344911890154,
+          "refit_residual_gpa": -0.2608011263213825
+        },
+        {
+          "row": 137,
+          "pressure_gpa": 129.3405025,
+          "temperature_k": 1660.0,
+          "volume_cm3_mol": 10.4123364,
+          "initial_residual_gpa": 0.4573781664203693,
+          "refit_residual_gpa": 0.5505902937771339
+        },
+        {
+          "row": 138,
+          "pressure_gpa": 129.9074879,
+          "temperature_k": 1790.0,
+          "volume_cm3_mol": 10.4082876,
+          "initial_residual_gpa": 1.1335452501777752,
+          "refit_residual_gpa": 1.2371690555604857
+        },
+        {
+          "row": 139,
+          "pressure_gpa": 130.2108007,
+          "temperature_k": 1920.0,
+          "volume_cm3_mol": 10.40540382,
+          "initial_residual_gpa": 2.0071835922750836,
+          "refit_residual_gpa": 2.121278413176924
+        },
+        {
+          "row": 140,
+          "pressure_gpa": 130.9709272,
+          "temperature_k": 2100.0,
+          "volume_cm3_mol": 10.40746804,
+          "initial_residual_gpa": 2.523293980321654,
+          "refit_residual_gpa": 2.652002656119123
+        },
+        {
+          "row": 141,
+          "pressure_gpa": 131.6954827,
+          "temperature_k": 2240.0,
+          "volume_cm3_mol": 10.42745876,
+          "initial_residual_gpa": 1.7188571934920844,
+          "refit_residual_gpa": 1.8591276114852349
+        },
+        {
+          "row": 142,
+          "pressure_gpa": 132.5959653,
+          "temperature_k": 2440.0,
+          "volume_cm3_mol": 10.45856905,
+          "initial_residual_gpa": 0.5786473658082798,
+          "refit_residual_gpa": 0.7355126798445895
+        },
+        {
+          "row": 143,
+          "pressure_gpa": 148.5086149,
+          "temperature_k": 1370.0,
+          "volume_cm3_mol": 10.07167409,
+          "initial_residual_gpa": 0.7081325452178362,
+          "refit_residual_gpa": 0.7757326449343225
+        },
+        {
+          "row": 144,
+          "pressure_gpa": 148.9057667,
+          "temperature_k": 1570.0,
+          "volume_cm3_mol": 10.07203016,
+          "initial_residual_gpa": 1.822228207821098,
+          "refit_residual_gpa": 1.9055505084598678
+        },
+        {
+          "row": 145,
+          "pressure_gpa": 149.3473277,
+          "temperature_k": 1730.0,
+          "volume_cm3_mol": 10.07488224,
+          "initial_residual_gpa": 2.4186408868216063,
+          "refit_residual_gpa": 2.514716106358918
+        },
+        {
+          "row": 146,
+          "pressure_gpa": 149.9480702,
+          "temperature_k": 1900.0,
+          "volume_cm3_mol": 10.07388021,
+          "initial_residual_gpa": 3.201758692323409,
+          "refit_residual_gpa": 3.311458147450395
+        },
+        {
+          "row": 147,
+          "pressure_gpa": 39.0,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 12.483606,
+          "initial_residual_gpa": 1.481376292024784,
+          "refit_residual_gpa": 1.4814820995847526
+        },
+        {
+          "row": 148,
+          "pressure_gpa": 44.3,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 12.305957,
+          "initial_residual_gpa": 0.5611769468972128,
+          "refit_residual_gpa": 0.5612783724600732
+        },
+        {
+          "row": 149,
+          "pressure_gpa": 112.3,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 10.529467,
+          "initial_residual_gpa": 0.9086638091760477,
+          "refit_residual_gpa": 0.9087106639572795
+        },
+        {
+          "row": 150,
+          "pressure_gpa": 130.6,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 10.2750375,
+          "initial_residual_gpa": -2.3445131046087795,
+          "refit_residual_gpa": -2.3444754151812504
+        },
+        {
+          "row": 151,
+          "pressure_gpa": 148.5,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 10.0100695,
+          "initial_residual_gpa": -2.542284696528668,
+          "refit_residual_gpa": -2.542256780729872
+        },
+        {
+          "row": 152,
+          "pressure_gpa": 170.5,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 9.7420905,
+          "initial_residual_gpa": -4.205908640345001,
+          "refit_residual_gpa": -4.205890775096037
+        },
+        {
+          "row": 153,
+          "pressure_gpa": 185.5,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 9.472606,
+          "initial_residual_gpa": 4.108681581411787,
+          "refit_residual_gpa": 4.108689255693349
+        },
+        {
+          "row": 154,
+          "pressure_gpa": 198.2,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 9.379265,
+          "initial_residual_gpa": 0.23804110553859914,
+          "refit_residual_gpa": 0.23804524736601707
+        },
+        {
+          "row": 155,
+          "pressure_gpa": 214.5,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 9.2302205,
+          "initial_residual_gpa": -1.0763117149233778,
+          "refit_residual_gpa": -1.0763132006601097
+        },
+        {
+          "row": 156,
+          "pressure_gpa": 68.9,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 11.5486905,
+          "initial_residual_gpa": -1.1982650329598385,
+          "refit_residual_gpa": -1.1981845711652852
+        },
+        {
+          "row": 157,
+          "pressure_gpa": 84.8,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 11.074458,
+          "initial_residual_gpa": 1.5215823124839716,
+          "refit_residual_gpa": 1.5216478356663572
+        },
+        {
+          "row": 158,
+          "pressure_gpa": 101.2,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 10.734215,
+          "initial_residual_gpa": 1.120200327075679,
+          "refit_residual_gpa": 1.1202543640407043
+        },
+        {
+          "row": 159,
+          "pressure_gpa": 70.3,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 11.474921,
+          "initial_residual_gpa": 0.049939165807757036,
+          "refit_residual_gpa": 0.05001739160312013
+        },
+        {
+          "row": 160,
+          "pressure_gpa": 43.2,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 12.393276,
+          "initial_residual_gpa": -0.5321772646778768,
+          "refit_residual_gpa": -0.5320736597059224
+        },
+        {
+          "row": 161,
+          "pressure_gpa": 49.3,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 12.2050885,
+          "initial_residual_gpa": -1.8032119274400529,
+          "refit_residual_gpa": -1.8031130810528921
+        },
+        {
+          "row": 162,
+          "pressure_gpa": 56.3,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 11.8317245,
+          "initial_residual_gpa": 1.990722129771875,
+          "refit_residual_gpa": 1.9908108562024296
+        },
+        {
+          "row": 163,
+          "pressure_gpa": 58.9,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 11.8377465,
+          "initial_residual_gpa": -0.7973285279074318,
+          "refit_residual_gpa": -0.7972396311348717
+        },
+        {
+          "row": 164,
+          "pressure_gpa": 64.7,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 11.6751525,
+          "initial_residual_gpa": -1.3454142485641043,
+          "refit_residual_gpa": -1.3453300318669505
+        },
+        {
+          "row": 165,
+          "pressure_gpa": 67.2,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 11.586328,
+          "initial_residual_gpa": -0.8170336778048153,
+          "refit_residual_gpa": -0.8169520880905026
+        },
+        {
+          "row": 166,
+          "pressure_gpa": 110.6,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 10.544522,
+          "initial_residual_gpa": 1.77272242027,
+          "refit_residual_gpa": 1.772769809415351
+        },
+        {
+          "row": 167,
+          "pressure_gpa": 120.1,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 10.3653675,
+          "initial_residual_gpa": 2.608278123966528,
+          "refit_residual_gpa": 2.6083190950496657
+        }
+      ]
+    },
+    "gamma-weighted": {
+      "rows": 167,
+      "source_initial_eos": "docs/data/fes-author-eosfit/sources/FeS6.eos",
+      "fitted_eos": "docs/data/fes-gui-2026-10-19/gamma-weighted.eos",
+      "refined_parameters": {
+        "18": {
+          "value": 2.46316,
+          "error": 0.0394943033866911
+        }
+      },
+      "conditional_covariance": [
+        [
+          0.0015598
+        ]
+      ],
+      "reference_temperature_k": 298.0,
+      "source": {
+        "all": {
+          "rows": 167,
+          "rmse_gpa": 1.6693384881121769,
+          "min_gpa": -4.205908640345001,
+          "max_gpa": 5.058701117984043,
+          "max_abs_gpa": 5.058701117984043,
+          "rows_exceeding_3_gpa": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8,
+            27,
+            122,
+            123,
+            124,
+            125,
+            126,
+            146,
+            152,
+            153
+          ]
+        },
+        "thermal": {
+          "rows": 146,
+          "rmse_gpa": 1.631729697057762,
+          "min_gpa": -4.116951817524942,
+          "max_gpa": 5.058701117984043,
+          "max_abs_gpa": 5.058701117984043,
+          "rows_exceeding_3_gpa": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            7,
+            8,
+            27,
+            122,
+            123,
+            124,
+            125,
+            126,
+            146
+          ]
+        },
+        "cold": {
+          "rows": 21,
+          "rmse_gpa": 1.9104511005080498,
+          "min_gpa": -4.205908640345001,
+          "max_gpa": 4.108681581411787,
+          "max_abs_gpa": 4.205908640345001,
+          "rows_exceeding_3_gpa": [
+            152,
+            153
+          ]
+        }
+      },
+      "refit": {
+        "all": {
+          "rows": 167,
+          "rmse_gpa": 1.6681609118234968,
+          "min_gpa": -4.205877945716253,
+          "max_gpa": 5.279469617022954,
+          "max_abs_gpa": 5.279469617022954,
+          "rows_exceeding_3_gpa": [
+            2,
+            3,
+            4,
+            7,
+            8,
+            27,
+            122,
+            123,
+            124,
+            125,
+            126,
+            146,
+            152,
+            153
+          ]
+        },
+        "thermal": {
+          "rows": 146,
+          "rmse_gpa": 1.6303515467871146,
+          "min_gpa": -3.912122886310989,
+          "max_gpa": 5.279469617022954,
+          "max_abs_gpa": 5.279469617022954,
+          "rows_exceeding_3_gpa": [
+            2,
+            3,
+            4,
+            7,
+            8,
+            27,
+            122,
+            123,
+            124,
+            125,
+            126,
+            146
+          ]
+        },
+        "cold": {
+          "rows": 21,
+          "rmse_gpa": 1.910451429819075,
+          "min_gpa": -4.205877945716253,
+          "max_gpa": 4.108693744527869,
+          "max_abs_gpa": 4.205877945716253,
+          "rows_exceeding_3_gpa": [
+            152,
+            153
+          ]
+        }
+      },
+      "gui_displayed_max_abs_gpa": 5.28,
+      "gui_saved_native_max_difference_from_display_gpa": 0.0005303829770459956,
+      "residuals": [
+        {
+          "row": 1,
+          "pressure_gpa": 29.59643816,
+          "temperature_k": 1450.0,
+          "volume_cm3_mol": 13.69121917,
+          "initial_residual_gpa": -3.013179831086756,
+          "refit_residual_gpa": -2.848063428502755
+        },
+        {
+          "row": 2,
+          "pressure_gpa": 29.61727201,
+          "temperature_k": 1530.0,
+          "volume_cm3_mol": 13.74976223,
+          "initial_residual_gpa": -3.246553941639,
+          "refit_residual_gpa": -3.06924824343961
+        },
+        {
+          "row": 3,
+          "pressure_gpa": 29.68104188,
+          "temperature_k": 1610.0,
+          "volume_cm3_mol": 13.79940105,
+          "initial_residual_gpa": -3.380043314349898,
+          "refit_residual_gpa": -3.190572823511342
+        },
+        {
+          "row": 4,
+          "pressure_gpa": 29.90492469,
+          "temperature_k": 1710.0,
+          "volume_cm3_mol": 13.89468574,
+          "initial_residual_gpa": -4.116951817524942,
+          "refit_residual_gpa": -3.912122886310989
+        },
+        {
+          "row": 5,
+          "pressure_gpa": 33.12772584,
+          "temperature_k": 1270.0,
+          "volume_cm3_mol": 13.37514874,
+          "initial_residual_gpa": -3.0755905123616287,
+          "refit_residual_gpa": -2.9386590830011414
+        },
+        {
+          "row": 6,
+          "pressure_gpa": 33.23118826,
+          "temperature_k": 1350.0,
+          "volume_cm3_mol": 13.40191256,
+          "initial_residual_gpa": -2.994139964405367,
+          "refit_residual_gpa": -2.845207795113069
+        },
+        {
+          "row": 7,
+          "pressure_gpa": 33.41794186,
+          "temperature_k": 1470.0,
+          "volume_cm3_mol": 13.45946566,
+          "initial_residual_gpa": -3.170347645265174,
+          "refit_residual_gpa": -3.0032888604856183
+        },
+        {
+          "row": 8,
+          "pressure_gpa": 33.41794186,
+          "temperature_k": 1470.0,
+          "volume_cm3_mol": 13.45946566,
+          "initial_residual_gpa": -3.170347645265174,
+          "refit_residual_gpa": -3.0032888604856183
+        },
+        {
+          "row": 9,
+          "pressure_gpa": 41.65184068,
+          "temperature_k": 1220.0,
+          "volume_cm3_mol": 12.81106362,
+          "initial_residual_gpa": -1.5875534496636021,
+          "refit_residual_gpa": -1.460910882003894
+        },
+        {
+          "row": 10,
+          "pressure_gpa": 41.76934184,
+          "temperature_k": 1330.0,
+          "volume_cm3_mol": 12.83495973,
+          "initial_residual_gpa": -1.343252878501744,
+          "refit_residual_gpa": -1.2002457867320544
+        },
+        {
+          "row": 11,
+          "pressure_gpa": 41.6736134,
+          "temperature_k": 1420.0,
+          "volume_cm3_mol": 12.86480437,
+          "initial_residual_gpa": -1.1548931790461907,
+          "refit_residual_gpa": -0.9983913996591411
+        },
+        {
+          "row": 12,
+          "pressure_gpa": 41.92909677,
+          "temperature_k": 1510.0,
+          "volume_cm3_mol": 12.92016747,
+          "initial_residual_gpa": -1.815568502035262,
+          "refit_residual_gpa": -1.6453887202874853
+        },
+        {
+          "row": 13,
+          "pressure_gpa": 41.8033473,
+          "temperature_k": 1580.0,
+          "volume_cm3_mol": 12.9554079,
+          "initial_residual_gpa": -1.8353580662958109,
+          "refit_residual_gpa": -1.6545658540798343
+        },
+        {
+          "row": 14,
+          "pressure_gpa": 41.91758698,
+          "temperature_k": 1640.0,
+          "volume_cm3_mol": 12.97524497,
+          "initial_residual_gpa": -1.8665255549194697,
+          "refit_residual_gpa": -1.6766858802768567
+        },
+        {
+          "row": 15,
+          "pressure_gpa": 42.19857017,
+          "temperature_k": 1750.0,
+          "volume_cm3_mol": 13.00964279,
+          "initial_residual_gpa": -1.949025247800428,
+          "refit_residual_gpa": -1.7425868617313327
+        },
+        {
+          "row": 16,
+          "pressure_gpa": 42.6556377,
+          "temperature_k": 1890.0,
+          "volume_cm3_mol": 13.04180644,
+          "initial_residual_gpa": -1.9216399866747338,
+          "refit_residual_gpa": -1.694108562920725
+        },
+        {
+          "row": 17,
+          "pressure_gpa": 45.16809303,
+          "temperature_k": 1250.0,
+          "volume_cm3_mol": 12.63487883,
+          "initial_residual_gpa": -1.0994918957661142,
+          "refit_residual_gpa": -0.9694708685524702
+        },
+        {
+          "row": 18,
+          "pressure_gpa": 44.99938828,
+          "temperature_k": 1340.0,
+          "volume_cm3_mol": 12.67346588,
+          "initial_residual_gpa": -1.0830422773018498,
+          "refit_residual_gpa": -0.9395226697511347
+        },
+        {
+          "row": 19,
+          "pressure_gpa": 44.99088308,
+          "temperature_k": 1410.0,
+          "volume_cm3_mol": 12.69373397,
+          "initial_residual_gpa": -0.9721502197525496,
+          "refit_residual_gpa": -0.818160514023738
+        },
+        {
+          "row": 20,
+          "pressure_gpa": 44.90095589,
+          "temperature_k": 1530.0,
+          "volume_cm3_mol": 12.77919654,
+          "initial_residual_gpa": -1.7682789204977425,
+          "refit_residual_gpa": -1.5959743294693922
+        },
+        {
+          "row": 21,
+          "pressure_gpa": 44.8589917,
+          "temperature_k": 1660.0,
+          "volume_cm3_mol": 12.80249427,
+          "initial_residual_gpa": -1.1991384626154726,
+          "refit_residual_gpa": -1.0073644898207021
+        },
+        {
+          "row": 22,
+          "pressure_gpa": 44.90717895,
+          "temperature_k": 1760.0,
+          "volume_cm3_mol": 12.85786793,
+          "initial_residual_gpa": -1.6016153101547204,
+          "refit_residual_gpa": -1.394600397849949
+        },
+        {
+          "row": 23,
+          "pressure_gpa": 44.93903417,
+          "temperature_k": 1850.0,
+          "volume_cm3_mol": 12.91702078,
+          "initial_residual_gpa": -2.114290350752995,
+          "refit_residual_gpa": -1.893483214807823
+        },
+        {
+          "row": 24,
+          "pressure_gpa": 45.00218695,
+          "temperature_k": 1940.0,
+          "volume_cm3_mol": 12.94235472,
+          "initial_residual_gpa": -1.9729415101096706,
+          "refit_residual_gpa": -1.7385360001808579
+        },
+        {
+          "row": 25,
+          "pressure_gpa": 45.06777749,
+          "temperature_k": 2000.0,
+          "volume_cm3_mol": 12.98309217,
+          "initial_residual_gpa": -2.3598060871182867,
+          "refit_residual_gpa": -2.1161821467623696
+        },
+        {
+          "row": 26,
+          "pressure_gpa": 45.19849373,
+          "temperature_k": 2100.0,
+          "volume_cm3_mol": 13.0162714,
+          "initial_residual_gpa": -2.3430245131033303,
+          "refit_residual_gpa": -2.084238211918695
+        },
+        {
+          "row": 27,
+          "pressure_gpa": 45.2392356,
+          "temperature_k": 2190.0,
+          "volume_cm3_mol": 13.10592218,
+          "initial_residual_gpa": -3.3499072105791328,
+          "refit_residual_gpa": -3.0771078515718884
+        },
+        {
+          "row": 28,
+          "pressure_gpa": 45.33431719,
+          "temperature_k": 2290.0,
+          "volume_cm3_mol": 13.12169391,
+          "initial_residual_gpa": -2.9507619555194324,
+          "refit_residual_gpa": -2.66288451073536
+        },
+        {
+          "row": 29,
+          "pressure_gpa": 54.18431222,
+          "temperature_k": 1220.0,
+          "volume_cm3_mol": 12.21726304,
+          "initial_residual_gpa": -0.22305078007631352,
+          "refit_residual_gpa": -0.10016372295417142
+        },
+        {
+          "row": 30,
+          "pressure_gpa": 54.27403106,
+          "temperature_k": 1260.0,
+          "volume_cm3_mol": 12.22978011,
+          "initial_residual_gpa": -0.33362381971977584,
+          "refit_residual_gpa": -0.20480013739562963
+        },
+        {
+          "row": 31,
+          "pressure_gpa": 54.29698221,
+          "temperature_k": 1340.0,
+          "volume_cm3_mol": 12.24970303,
+          "initial_residual_gpa": -0.2590824186146534,
+          "refit_residual_gpa": -0.1183852463523607
+        },
+        {
+          "row": 32,
+          "pressure_gpa": 54.22844421,
+          "temperature_k": 1430.0,
+          "volume_cm3_mol": 12.27345927,
+          "initial_residual_gpa": -0.10907625030615264,
+          "refit_residual_gpa": 0.04503737976262556
+        },
+        {
+          "row": 33,
+          "pressure_gpa": 54.14069301,
+          "temperature_k": 1480.0,
+          "volume_cm3_mol": 12.30596974,
+          "initial_residual_gpa": -0.46643717159145126,
+          "refit_residual_gpa": -0.3047100539130625
+        },
+        {
+          "row": 34,
+          "pressure_gpa": 54.16874945,
+          "temperature_k": 1580.0,
+          "volume_cm3_mol": 12.33603162,
+          "initial_residual_gpa": -0.4779025441829603,
+          "refit_residual_gpa": -0.30116724340350487
+        },
+        {
+          "row": 35,
+          "pressure_gpa": 54.22146666,
+          "temperature_k": 1680.0,
+          "volume_cm3_mol": 12.37606747,
+          "initial_residual_gpa": -0.7504580462552894,
+          "refit_residual_gpa": -0.558602314126766
+        },
+        {
+          "row": 36,
+          "pressure_gpa": 54.22024059,
+          "temperature_k": 1750.0,
+          "volume_cm3_mol": 12.40591708,
+          "initial_residual_gpa": -0.9372447688267869,
+          "refit_residual_gpa": -0.7347718345685408
+        },
+        {
+          "row": 37,
+          "pressure_gpa": 54.22105256,
+          "temperature_k": 1810.0,
+          "volume_cm3_mol": 12.42462031,
+          "initial_residual_gpa": -0.9252808674350987,
+          "refit_residual_gpa": -0.7137470017079295
+        },
+        {
+          "row": 38,
+          "pressure_gpa": 54.24300777,
+          "temperature_k": 1880.0,
+          "volume_cm3_mol": 12.45774934,
+          "initial_residual_gpa": -1.1982179339902856,
+          "refit_residual_gpa": -0.976018929466214
+        },
+        {
+          "row": 39,
+          "pressure_gpa": 54.23019787,
+          "temperature_k": 1940.0,
+          "volume_cm3_mol": 12.46917773,
+          "initial_residual_gpa": -0.9897855567435911,
+          "refit_residual_gpa": -0.7585607339150471
+        },
+        {
+          "row": 40,
+          "pressure_gpa": 54.23582942,
+          "temperature_k": 2020.0,
+          "volume_cm3_mol": 12.49278571,
+          "initial_residual_gpa": -0.9295812819302114,
+          "refit_residual_gpa": -0.686249954440747
+        },
+        {
+          "row": 41,
+          "pressure_gpa": 54.28923815,
+          "temperature_k": 2120.0,
+          "volume_cm3_mol": 12.54119045,
+          "initial_residual_gpa": -1.3300157546394615,
+          "refit_residual_gpa": -1.0713983627838815
+        },
+        {
+          "row": 42,
+          "pressure_gpa": 54.22426526,
+          "temperature_k": 2200.0,
+          "volume_cm3_mol": 12.58743756,
+          "initial_residual_gpa": -1.6965888470390524,
+          "refit_residual_gpa": -1.4256791014121717
+        },
+        {
+          "row": 43,
+          "pressure_gpa": 57.99811343,
+          "temperature_k": 1300.0,
+          "volume_cm3_mol": 12.088177,
+          "initial_residual_gpa": 0.08689683019580485,
+          "refit_residual_gpa": 0.22054152042461084
+        },
+        {
+          "row": 44,
+          "pressure_gpa": 58.05631662,
+          "temperature_k": 1410.0,
+          "volume_cm3_mol": 12.1189162,
+          "initial_residual_gpa": 0.028091680945571795,
+          "refit_residual_gpa": 0.17810794620400117
+        },
+        {
+          "row": 45,
+          "pressure_gpa": 58.08520666,
+          "temperature_k": 1460.0,
+          "volume_cm3_mol": 12.1069402,
+          "initial_residual_gpa": 0.7174622276454272,
+          "refit_residual_gpa": 0.8747445621630305
+        },
+        {
+          "row": 46,
+          "pressure_gpa": 58.12645189,
+          "temperature_k": 1520.0,
+          "volume_cm3_mol": 12.12024218,
+          "initial_residual_gpa": 0.7746392685763652,
+          "refit_residual_gpa": 0.9408707878642844
+        },
+        {
+          "row": 47,
+          "pressure_gpa": 58.23627022,
+          "temperature_k": 1630.0,
+          "volume_cm3_mol": 12.13425497,
+          "initial_residual_gpa": 1.1348390302572327,
+          "refit_residual_gpa": 1.3174377542201725
+        },
+        {
+          "row": 48,
+          "pressure_gpa": 58.30766838,
+          "temperature_k": 1700.0,
+          "volume_cm3_mol": 12.14116537,
+          "initial_residual_gpa": 1.4190314244645705,
+          "refit_residual_gpa": 1.6120532144731925
+        },
+        {
+          "row": 49,
+          "pressure_gpa": 58.5403872,
+          "temperature_k": 1770.0,
+          "volume_cm3_mol": 12.16154092,
+          "initial_residual_gpa": 1.1777227024960268,
+          "refit_residual_gpa": 1.3812914333860888
+        },
+        {
+          "row": 50,
+          "pressure_gpa": 58.66625268,
+          "temperature_k": 1850.0,
+          "volume_cm3_mol": 12.21549544,
+          "initial_residual_gpa": 0.23250520713990852,
+          "refit_residual_gpa": 0.44839077326930976
+        },
+        {
+          "row": 51,
+          "pressure_gpa": 58.80020353,
+          "temperature_k": 1930.0,
+          "volume_cm3_mol": 12.22931113,
+          "initial_residual_gpa": 0.357909347475605,
+          "refit_residual_gpa": 0.585807773380516
+        },
+        {
+          "row": 52,
+          "pressure_gpa": 58.81793192,
+          "temperature_k": 2010.0,
+          "volume_cm3_mol": 12.24100872,
+          "initial_residual_gpa": 0.657356930503461,
+          "refit_residual_gpa": 0.8972651474176772
+        },
+        {
+          "row": 53,
+          "pressure_gpa": 58.93420094,
+          "temperature_k": 2070.0,
+          "volume_cm3_mol": 12.25175037,
+          "initial_residual_gpa": 0.7289130149754115,
+          "refit_residual_gpa": 0.9778524633137664
+        },
+        {
+          "row": 54,
+          "pressure_gpa": 59.12124315,
+          "temperature_k": 2180.0,
+          "volume_cm3_mol": 12.25815307,
+          "initial_residual_gpa": 1.2338893696873967,
+          "refit_residual_gpa": 1.4992946008714725
+        },
+        {
+          "row": 55,
+          "pressure_gpa": 59.28908936,
+          "temperature_k": 2250.0,
+          "volume_cm3_mol": 12.28254006,
+          "initial_residual_gpa": 0.9828415957827303,
+          "refit_residual_gpa": 1.2588988163812331
+        },
+        {
+          "row": 56,
+          "pressure_gpa": 59.38378257,
+          "temperature_k": 2330.0,
+          "volume_cm3_mol": 12.29596601,
+          "initial_residual_gpa": 1.1690093085212752,
+          "refit_residual_gpa": 1.4571314394282453
+        },
+        {
+          "row": 57,
+          "pressure_gpa": 63.7709034,
+          "temperature_k": 1300.0,
+          "volume_cm3_mol": 11.93362459,
+          "initial_residual_gpa": -1.2287007221410349,
+          "refit_residual_gpa": -1.096250151732086
+        },
+        {
+          "row": 58,
+          "pressure_gpa": 63.60239229,
+          "temperature_k": 1340.0,
+          "volume_cm3_mol": 11.94445351,
+          "initial_residual_gpa": -1.0729219658125544,
+          "refit_residual_gpa": -0.9345385545521481
+        },
+        {
+          "row": 59,
+          "pressure_gpa": 63.48380598,
+          "temperature_k": 1420.0,
+          "volume_cm3_mol": 11.95105202,
+          "initial_residual_gpa": -0.5305750080130309,
+          "refit_residual_gpa": -0.3804131894553109
+        },
+        {
+          "row": 60,
+          "pressure_gpa": 63.43530501,
+          "temperature_k": 1480.0,
+          "volume_cm3_mol": 11.95406039,
+          "initial_residual_gpa": -0.10599873800864401,
+          "refit_residual_gpa": 0.05300562217396276
+        },
+        {
+          "row": 61,
+          "pressure_gpa": 63.42630189,
+          "temperature_k": 1550.0,
+          "volume_cm3_mol": 11.95846573,
+          "initial_residual_gpa": 0.31606064886449303,
+          "refit_residual_gpa": 0.48541151586167786
+        },
+        {
+          "row": 62,
+          "pressure_gpa": 63.47076071,
+          "temperature_k": 1630.0,
+          "volume_cm3_mol": 11.96378819,
+          "initial_residual_gpa": 0.736150591348526,
+          "refit_residual_gpa": 0.9173548504623241
+        },
+        {
+          "row": 63,
+          "pressure_gpa": 63.47876727,
+          "temperature_k": 1680.0,
+          "volume_cm3_mol": 11.97123209,
+          "initial_residual_gpa": 0.8981768682958844,
+          "refit_residual_gpa": 1.0868370481240035
+        },
+        {
+          "row": 64,
+          "pressure_gpa": 63.45610639,
+          "temperature_k": 1760.0,
+          "volume_cm3_mol": 11.99314831,
+          "initial_residual_gpa": 0.9035930116830571,
+          "refit_residual_gpa": 1.1042865702704177
+        },
+        {
+          "row": 65,
+          "pressure_gpa": 63.4578388,
+          "temperature_k": 1830.0,
+          "volume_cm3_mol": 12.01484881,
+          "initial_residual_gpa": 0.8194251899167639,
+          "refit_residual_gpa": 1.030686862770203
+        },
+        {
+          "row": 66,
+          "pressure_gpa": 63.48196896,
+          "temperature_k": 1900.0,
+          "volume_cm3_mol": 12.03693666,
+          "initial_residual_gpa": 0.7079443320705963,
+          "refit_residual_gpa": 0.9297916965166451
+        },
+        {
+          "row": 67,
+          "pressure_gpa": 63.45220174,
+          "temperature_k": 1980.0,
+          "volume_cm3_mol": 12.05863388,
+          "initial_residual_gpa": 0.7455707265359948,
+          "refit_residual_gpa": 0.9795010841356557
+        },
+        {
+          "row": 68,
+          "pressure_gpa": 63.56469453,
+          "temperature_k": 2060.0,
+          "volume_cm3_mol": 12.08600616,
+          "initial_residual_gpa": 0.4883532596947049,
+          "refit_residual_gpa": 0.7344293400098536
+        },
+        {
+          "row": 69,
+          "pressure_gpa": 63.76629453,
+          "temperature_k": 2180.0,
+          "volume_cm3_mol": 12.10855595,
+          "initial_residual_gpa": 0.596550364678798,
+          "refit_residual_gpa": 0.8607099805638185
+        },
+        {
+          "row": 70,
+          "pressure_gpa": 63.85995901,
+          "temperature_k": 2280.0,
+          "volume_cm3_mol": 12.13190556,
+          "initial_residual_gpa": 0.6411696770316979,
+          "refit_residual_gpa": 0.920455796627607
+        },
+        {
+          "row": 71,
+          "pressure_gpa": 63.91745354,
+          "temperature_k": 2370.0,
+          "volume_cm3_mol": 12.1585575,
+          "initial_residual_gpa": 0.5610919871769084,
+          "refit_residual_gpa": 0.8540520278483399
+        },
+        {
+          "row": 72,
+          "pressure_gpa": 64.22849155,
+          "temperature_k": 2420.0,
+          "volume_cm3_mol": 12.17929187,
+          "initial_residual_gpa": 0.08191348030756274,
+          "refit_residual_gpa": 0.38252479451213617
+        },
+        {
+          "row": 73,
+          "pressure_gpa": 64.26439414,
+          "temperature_k": 2510.0,
+          "volume_cm3_mol": 12.21926628,
+          "initial_residual_gpa": -0.31420738658274416,
+          "refit_residual_gpa": 0.00020455536663632756
+        },
+        {
+          "row": 74,
+          "pressure_gpa": 64.1073195,
+          "temperature_k": 2540.0,
+          "volume_cm3_mol": 12.24135099,
+          "initial_residual_gpa": -0.5025471736318963,
+          "refit_residual_gpa": -0.18346014056355386
+        },
+        {
+          "row": 75,
+          "pressure_gpa": 83.75932412,
+          "temperature_k": 1420.0,
+          "volume_cm3_mol": 11.33203905,
+          "initial_residual_gpa": 0.17401093592354755,
+          "refit_residual_gpa": 0.3185729139379134
+        },
+        {
+          "row": 76,
+          "pressure_gpa": 83.83464084,
+          "temperature_k": 1490.0,
+          "volume_cm3_mol": 11.34082807,
+          "initial_residual_gpa": 0.30066525482817497,
+          "refit_residual_gpa": 0.4555191019760798
+        },
+        {
+          "row": 77,
+          "pressure_gpa": 83.92101446,
+          "temperature_k": 1560.0,
+          "volume_cm3_mol": 11.37934832,
+          "initial_residual_gpa": -0.7148513378408978,
+          "refit_residual_gpa": -0.5493689413025038
+        },
+        {
+          "row": 78,
+          "pressure_gpa": 84.24790084,
+          "temperature_k": 1680.0,
+          "volume_cm3_mol": 11.3831874,
+          "initial_residual_gpa": -0.2565565133699579,
+          "refit_residual_gpa": -0.07341945157033081
+        },
+        {
+          "row": 79,
+          "pressure_gpa": 84.39924341,
+          "temperature_k": 1740.0,
+          "volume_cm3_mol": 11.39576381,
+          "initial_residual_gpa": -0.4161666241531634,
+          "refit_residual_gpa": -0.22406618169972603
+        },
+        {
+          "row": 80,
+          "pressure_gpa": 84.44419738,
+          "temperature_k": 1810.0,
+          "volume_cm3_mol": 11.41689284,
+          "initial_residual_gpa": -0.7078070399149539,
+          "refit_residual_gpa": -0.5051619717423961
+        },
+        {
+          "row": 81,
+          "pressure_gpa": 84.46492195,
+          "temperature_k": 1880.0,
+          "volume_cm3_mol": 11.44048108,
+          "initial_residual_gpa": -1.0581669707355843,
+          "refit_residual_gpa": -0.8449320847287538
+        },
+        {
+          "row": 82,
+          "pressure_gpa": 84.46349353,
+          "temperature_k": 1960.0,
+          "volume_cm3_mol": 11.46969088,
+          "initial_residual_gpa": -1.5039585864550844,
+          "refit_residual_gpa": -1.2785765179004898
+        },
+        {
+          "row": 83,
+          "pressure_gpa": 84.46946171,
+          "temperature_k": 2060.0,
+          "volume_cm3_mol": 11.4935059,
+          "initial_residual_gpa": -1.5932822163247096,
+          "refit_residual_gpa": -1.3528218222910198
+        },
+        {
+          "row": 84,
+          "pressure_gpa": 84.37180086,
+          "temperature_k": 2170.0,
+          "volume_cm3_mol": 11.52006516,
+          "initial_residual_gpa": -1.5892390845313855,
+          "refit_residual_gpa": -1.3321591909770092
+        },
+        {
+          "row": 85,
+          "pressure_gpa": 84.35257163,
+          "temperature_k": 2240.0,
+          "volume_cm3_mol": 11.50925161,
+          "initial_residual_gpa": -0.6384358015131966,
+          "refit_residual_gpa": -0.37105832753307766
+        },
+        {
+          "row": 86,
+          "pressure_gpa": 84.33747972,
+          "temperature_k": 2330.0,
+          "volume_cm3_mol": 11.51269925,
+          "initial_residual_gpa": -0.04451962266691112,
+          "refit_residual_gpa": 0.23629306273065254
+        },
+        {
+          "row": 87,
+          "pressure_gpa": 84.6732423,
+          "temperature_k": 2440.0,
+          "volume_cm3_mol": 11.54934757,
+          "initial_residual_gpa": -0.8199397036174219,
+          "refit_residual_gpa": -0.5223422922508405
+        },
+        {
+          "row": 88,
+          "pressure_gpa": 84.62270558,
+          "temperature_k": 2510.0,
+          "volume_cm3_mol": 11.5592875,
+          "initial_residual_gpa": -0.5714137616560606,
+          "refit_residual_gpa": -0.263267947837889
+        },
+        {
+          "row": 89,
+          "pressure_gpa": 92.40859141,
+          "temperature_k": 1610.0,
+          "volume_cm3_mol": 11.22508635,
+          "initial_residual_gpa": -2.7710513981848237,
+          "refit_residual_gpa": -2.5998597735746642
+        },
+        {
+          "row": 90,
+          "pressure_gpa": 92.41861987,
+          "temperature_k": 1810.0,
+          "volume_cm3_mol": 11.22271673,
+          "initial_residual_gpa": -1.1333082859594867,
+          "refit_residual_gpa": -0.9327574918431338
+        },
+        {
+          "row": 91,
+          "pressure_gpa": 92.82677728,
+          "temperature_k": 1910.0,
+          "volume_cm3_mol": 11.21116184,
+          "initial_residual_gpa": -0.2943759779833073,
+          "refit_residual_gpa": -0.07920375258973422
+        },
+        {
+          "row": 92,
+          "pressure_gpa": 92.81249733,
+          "temperature_k": 1700.0,
+          "volume_cm3_mol": 11.16866423,
+          "initial_residual_gpa": -0.161765240528581,
+          "refit_residual_gpa": 0.02200447397449068
+        },
+        {
+          "row": 93,
+          "pressure_gpa": 92.79705475,
+          "temperature_k": 1600.0,
+          "volume_cm3_mol": 11.15153004,
+          "initial_residual_gpa": -0.2066509463958397,
+          "refit_residual_gpa": -0.03772475892954219
+        },
+        {
+          "row": 94,
+          "pressure_gpa": 93.07991467,
+          "temperature_k": 1860.0,
+          "volume_cm3_mol": 11.18166926,
+          "initial_residual_gpa": 0.2742204531162713,
+          "refit_residual_gpa": 0.48167968303609143
+        },
+        {
+          "row": 95,
+          "pressure_gpa": 93.2651403,
+          "temperature_k": 1940.0,
+          "volume_cm3_mol": 11.19126637,
+          "initial_residual_gpa": 0.3153071416826094,
+          "refit_residual_gpa": 0.5346840932801769
+        },
+        {
+          "row": 96,
+          "pressure_gpa": 93.49541135,
+          "temperature_k": 2040.0,
+          "volume_cm3_mol": 11.21097669,
+          "initial_residual_gpa": 0.0558898976855744,
+          "refit_residual_gpa": 0.290282782439931
+        },
+        {
+          "row": 97,
+          "pressure_gpa": 93.6135479,
+          "temperature_k": 2120.0,
+          "volume_cm3_mol": 11.23021686,
+          "initial_residual_gpa": -0.2204845780421465,
+          "refit_residual_gpa": 0.025982724303489135
+        },
+        {
+          "row": 98,
+          "pressure_gpa": 93.72675134,
+          "temperature_k": 2230.0,
+          "volume_cm3_mol": 11.25428024,
+          "initial_residual_gpa": -0.44422304105064825,
+          "refit_residual_gpa": -0.18115364254070698
+        },
+        {
+          "row": 99,
+          "pressure_gpa": 94.00627023,
+          "temperature_k": 2390.0,
+          "volume_cm3_mol": 11.27598814,
+          "initial_residual_gpa": -0.34015996411544336,
+          "refit_residual_gpa": -0.05304853884155136
+        },
+        {
+          "row": 100,
+          "pressure_gpa": 94.00820193,
+          "temperature_k": 2480.0,
+          "volume_cm3_mol": 11.32154858,
+          "initial_residual_gpa": -1.4265110397009693,
+          "refit_residual_gpa": -1.1254695760745648
+        },
+        {
+          "row": 101,
+          "pressure_gpa": 94.2591652,
+          "temperature_k": 2550.0,
+          "volume_cm3_mol": 11.321485,
+          "initial_residual_gpa": -1.1286149092202464,
+          "refit_residual_gpa": -0.8171399531579056
+        },
+        {
+          "row": 102,
+          "pressure_gpa": 108.262962,
+          "temperature_k": 1730.0,
+          "volume_cm3_mol": 10.79216874,
+          "initial_residual_gpa": 1.6602820129604368,
+          "refit_residual_gpa": 1.843974106709183
+        },
+        {
+          "row": 103,
+          "pressure_gpa": 108.5540282,
+          "temperature_k": 1800.0,
+          "volume_cm3_mol": 10.79380083,
+          "initial_residual_gpa": 1.8315986520379255,
+          "refit_residual_gpa": 2.025559946617065
+        },
+        {
+          "row": 104,
+          "pressure_gpa": 109.0999186,
+          "temperature_k": 1970.0,
+          "volume_cm3_mol": 10.81196072,
+          "initial_residual_gpa": 1.7163056666211247,
+          "refit_residual_gpa": 1.9354818622959158
+        },
+        {
+          "row": 105,
+          "pressure_gpa": 109.3470732,
+          "temperature_k": 1740.0,
+          "volume_cm3_mol": 10.79552844,
+          "initial_residual_gpa": 0.4884606723199596,
+          "refit_residual_gpa": 0.6736578281620922
+        },
+        {
+          "row": 106,
+          "pressure_gpa": 109.2659176,
+          "temperature_k": 1630.0,
+          "volume_cm3_mol": 10.78715526,
+          "initial_residual_gpa": 0.13004671183983874,
+          "refit_residual_gpa": 0.2990807333939074
+        },
+        {
+          "row": 107,
+          "pressure_gpa": 109.2103785,
+          "temperature_k": 1540.0,
+          "volume_cm3_mol": 10.77606895,
+          "initial_residual_gpa": 0.038100858235409873,
+          "refit_residual_gpa": 0.19391647345948115
+        },
+        {
+          "row": 108,
+          "pressure_gpa": 109.1462013,
+          "temperature_k": 1440.0,
+          "volume_cm3_mol": 10.76578075,
+          "initial_residual_gpa": -0.15793340783996257,
+          "refit_residual_gpa": -0.016704787477436867
+        },
+        {
+          "row": 109,
+          "pressure_gpa": 109.0517818,
+          "temperature_k": 1340.0,
+          "volume_cm3_mol": 10.7579362,
+          "initial_residual_gpa": -0.44157656319876537,
+          "refit_residual_gpa": -0.3148107217260616
+        },
+        {
+          "row": 110,
+          "pressure_gpa": 109.0970853,
+          "temperature_k": 1340.0,
+          "volume_cm3_mol": 10.75622913,
+          "initial_residual_gpa": -0.4014988978822629,
+          "refit_residual_gpa": -0.2747531297814447
+        },
+        {
+          "row": 111,
+          "pressure_gpa": 109.5042168,
+          "temperature_k": 1700.0,
+          "volume_cm3_mol": 10.78531079,
+          "initial_residual_gpa": 0.5246264461221557,
+          "refit_residual_gpa": 0.7038476468317327
+        },
+        {
+          "row": 112,
+          "pressure_gpa": 109.608824,
+          "temperature_k": 1800.0,
+          "volume_cm3_mol": 10.79468461,
+          "initial_residual_gpa": 0.7333551462641168,
+          "refit_residual_gpa": 0.9273277187110835
+        },
+        {
+          "row": 113,
+          "pressure_gpa": 109.7800485,
+          "temperature_k": 1850.0,
+          "volume_cm3_mol": 10.79673648,
+          "initial_residual_gpa": 0.8492436989779861,
+          "refit_residual_gpa": 1.0505770730129598
+        },
+        {
+          "row": 114,
+          "pressure_gpa": 109.9607255,
+          "temperature_k": 1990.0,
+          "volume_cm3_mol": 10.81032079,
+          "initial_residual_gpa": 1.0909261277151785,
+          "refit_residual_gpa": 1.313027434662402
+        },
+        {
+          "row": 115,
+          "pressure_gpa": 110.0567728,
+          "temperature_k": 2070.0,
+          "volume_cm3_mol": 10.82462055,
+          "initial_residual_gpa": 0.9213459713984093,
+          "refit_residual_gpa": 1.1554333725294015
+        },
+        {
+          "row": 116,
+          "pressure_gpa": 110.2192754,
+          "temperature_k": 2160.0,
+          "volume_cm3_mol": 10.84991909,
+          "initial_residual_gpa": 0.2396352145956655,
+          "refit_residual_gpa": 0.48735331758646794
+        },
+        {
+          "row": 117,
+          "pressure_gpa": 110.3026761,
+          "temperature_k": 2250.0,
+          "volume_cm3_mol": 10.86843835,
+          "initial_residual_gpa": -0.026852334350962792,
+          "refit_residual_gpa": 0.23443196247819742
+        },
+        {
+          "row": 118,
+          "pressure_gpa": 110.5619733,
+          "temperature_k": 2320.0,
+          "volume_cm3_mol": 10.87372147,
+          "initial_residual_gpa": 0.008401485542393061,
+          "refit_residual_gpa": 0.28013199978533976
+        },
+        {
+          "row": 119,
+          "pressure_gpa": 110.7559991,
+          "temperature_k": 2410.0,
+          "volume_cm3_mol": 10.88966153,
+          "initial_residual_gpa": -0.2371597207619658,
+          "refit_residual_gpa": 0.04813851369530653
+        },
+        {
+          "row": 120,
+          "pressure_gpa": 110.7066625,
+          "temperature_k": 2520.0,
+          "volume_cm3_mol": 10.93414695,
+          "initial_residual_gpa": -1.402979371346163,
+          "refit_residual_gpa": -1.1007464495031485
+        },
+        {
+          "row": 121,
+          "pressure_gpa": 110.9283546,
+          "temperature_k": 2590.0,
+          "volume_cm3_mol": 10.95068892,
+          "initial_residual_gpa": -1.8388116182323415,
+          "refit_residual_gpa": -1.5259454711518288
+        },
+        {
+          "row": 122,
+          "pressure_gpa": 115.8547733,
+          "temperature_k": 1820.0,
+          "volume_cm3_mol": 10.60508562,
+          "initial_residual_gpa": 4.376279538613062,
+          "refit_residual_gpa": 4.570685211241596
+        },
+        {
+          "row": 123,
+          "pressure_gpa": 116.3056944,
+          "temperature_k": 1830.0,
+          "volume_cm3_mol": 10.58674546,
+          "initial_residual_gpa": 4.990062889918221,
+          "refit_residual_gpa": 5.185681899566589
+        },
+        {
+          "row": 124,
+          "pressure_gpa": 116.7403315,
+          "temperature_k": 2000.0,
+          "volume_cm3_mol": 10.60189659,
+          "initial_residual_gpa": 5.058701117984043,
+          "refit_residual_gpa": 5.279469617022954
+        },
+        {
+          "row": 125,
+          "pressure_gpa": 117.4068917,
+          "temperature_k": 2060.0,
+          "volume_cm3_mol": 10.62541866,
+          "initial_residual_gpa": 3.602684894683563,
+          "refit_residual_gpa": 3.832611712025198
+        },
+        {
+          "row": 126,
+          "pressure_gpa": 117.8324028,
+          "temperature_k": 2200.0,
+          "volume_cm3_mol": 10.64028991,
+          "initial_residual_gpa": 3.479163348921972,
+          "refit_residual_gpa": 3.7299530442929836
+        },
+        {
+          "row": 127,
+          "pressure_gpa": 118.4978217,
+          "temperature_k": 2350.0,
+          "volume_cm3_mol": 10.69447244,
+          "initial_residual_gpa": 1.1598557861915992,
+          "refit_residual_gpa": 1.4336006835905266
+        },
+        {
+          "row": 128,
+          "pressure_gpa": 118.8467946,
+          "temperature_k": 2430.0,
+          "volume_cm3_mol": 10.69577542,
+          "initial_residual_gpa": 1.3672652793821243,
+          "refit_residual_gpa": 1.6528898257404165
+        },
+        {
+          "row": 129,
+          "pressure_gpa": 118.5503174,
+          "temperature_k": 2000.0,
+          "volume_cm3_mol": 10.61700442,
+          "initial_residual_gpa": 2.440636851067225,
+          "refit_residual_gpa": 2.661614986220684
+        },
+        {
+          "row": 130,
+          "pressure_gpa": 118.5241814,
+          "temperature_k": 1900.0,
+          "volume_cm3_mol": 10.6003698,
+          "initial_residual_gpa": 2.5804146181559418,
+          "refit_residual_gpa": 2.7864751680236566
+        },
+        {
+          "row": 131,
+          "pressure_gpa": 118.493861,
+          "temperature_k": 1800.0,
+          "volume_cm3_mol": 10.59500155,
+          "initial_residual_gpa": 2.123920436747369,
+          "refit_residual_gpa": 2.315264184729685
+        },
+        {
+          "row": 132,
+          "pressure_gpa": 118.3501988,
+          "temperature_k": 1700.0,
+          "volume_cm3_mol": 10.59345129,
+          "initial_residual_gpa": 1.5766138840102428,
+          "refit_residual_gpa": 1.7533441887891712
+        },
+        {
+          "row": 133,
+          "pressure_gpa": 118.3727179,
+          "temperature_k": 1600.0,
+          "volume_cm3_mol": 10.58131102,
+          "initial_residual_gpa": 1.4369630510421416,
+          "refit_residual_gpa": 1.5990007343985155
+        },
+        {
+          "row": 134,
+          "pressure_gpa": 118.2401709,
+          "temperature_k": 1400.0,
+          "volume_cm3_mol": 10.58030759,
+          "initial_residual_gpa": 0.08222842056626689,
+          "refit_residual_gpa": 0.2154227850159316
+        },
+        {
+          "row": 135,
+          "pressure_gpa": 128.7520495,
+          "temperature_k": 1330.0,
+          "volume_cm3_mol": 10.40381769,
+          "initial_residual_gpa": -0.9945200810839623,
+          "refit_residual_gpa": -0.8735650073727612
+        },
+        {
+          "row": 136,
+          "pressure_gpa": 129.080921,
+          "temperature_k": 1490.0,
+          "volume_cm3_mol": 10.40800587,
+          "initial_residual_gpa": -0.34042344911890154,
+          "refit_residual_gpa": -0.19657720597388106
+        },
+        {
+          "row": 137,
+          "pressure_gpa": 129.3405025,
+          "temperature_k": 1660.0,
+          "volume_cm3_mol": 10.4123364,
+          "initial_residual_gpa": 0.4573781664203693,
+          "refit_residual_gpa": 0.6258153629883907
+        },
+        {
+          "row": 138,
+          "pressure_gpa": 129.9074879,
+          "temperature_k": 1790.0,
+          "volume_cm3_mol": 10.4082876,
+          "initial_residual_gpa": 1.1335452501777752,
+          "refit_residual_gpa": 1.3208227103959587
+        },
+        {
+          "row": 139,
+          "pressure_gpa": 130.2108007,
+          "temperature_k": 1920.0,
+          "volume_cm3_mol": 10.40540382,
+          "initial_residual_gpa": 2.0071835922750836,
+          "refit_residual_gpa": 2.213409734333368
+        },
+        {
+          "row": 140,
+          "pressure_gpa": 130.9709272,
+          "temperature_k": 2100.0,
+          "volume_cm3_mol": 10.40746804,
+          "initial_residual_gpa": 2.523293980321654,
+          "refit_residual_gpa": 2.7559679480056047
+        },
+        {
+          "row": 141,
+          "pressure_gpa": 131.6954827,
+          "temperature_k": 2240.0,
+          "volume_cm3_mol": 10.42745876,
+          "initial_residual_gpa": 1.7188571934920844,
+          "refit_residual_gpa": 1.9724591387596888
+        },
+        {
+          "row": 142,
+          "pressure_gpa": 132.5959653,
+          "temperature_k": 2440.0,
+          "volume_cm3_mol": 10.45856905,
+          "initial_residual_gpa": 0.5786473658082798,
+          "refit_residual_gpa": 0.862289242618715
+        },
+        {
+          "row": 143,
+          "pressure_gpa": 148.5086149,
+          "temperature_k": 1370.0,
+          "volume_cm3_mol": 10.07167409,
+          "initial_residual_gpa": 0.7081325452178362,
+          "refit_residual_gpa": 0.8301757221394439
+        },
+        {
+          "row": 144,
+          "pressure_gpa": 148.9057667,
+          "temperature_k": 1570.0,
+          "volume_cm3_mol": 10.07203016,
+          "initial_residual_gpa": 1.822228207821098,
+          "refit_residual_gpa": 1.9727153942274072
+        },
+        {
+          "row": 145,
+          "pressure_gpa": 149.3473277,
+          "temperature_k": 1730.0,
+          "volume_cm3_mol": 10.07488224,
+          "initial_residual_gpa": 2.4186408868216063,
+          "refit_residual_gpa": 2.592203444641001
+        },
+        {
+          "row": 146,
+          "pressure_gpa": 149.9480702,
+          "temperature_k": 1900.0,
+          "volume_cm3_mol": 10.07388021,
+          "initial_residual_gpa": 3.201758692323409,
+          "refit_residual_gpa": 3.399974480518239
+        },
+        {
+          "row": 147,
+          "pressure_gpa": 39.0,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 12.483606,
+          "initial_residual_gpa": 1.481376292024784,
+          "refit_residual_gpa": 1.4815672854717334
+        },
+        {
+          "row": 148,
+          "pressure_gpa": 44.3,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 12.305957,
+          "initial_residual_gpa": 0.5611769468972128,
+          "refit_residual_gpa": 0.5613599473005948
+        },
+        {
+          "row": 149,
+          "pressure_gpa": 112.3,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 10.529467,
+          "initial_residual_gpa": 0.9086638091760477,
+          "refit_residual_gpa": 0.9087472908587699
+        },
+        {
+          "row": 150,
+          "pressure_gpa": 130.6,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 10.2750375,
+          "initial_residual_gpa": -2.3445131046087795,
+          "refit_residual_gpa": -2.344446321625526
+        },
+        {
+          "row": 151,
+          "pressure_gpa": 148.5,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 10.0100695,
+          "initial_residual_gpa": -2.542284696528668,
+          "refit_residual_gpa": -2.5422357114342446
+        },
+        {
+          "row": 152,
+          "pressure_gpa": 170.5,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 9.7420905,
+          "initial_residual_gpa": -4.205908640345001,
+          "refit_residual_gpa": -4.205877945716253
+        },
+        {
+          "row": 153,
+          "pressure_gpa": 185.5,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 9.472606,
+          "initial_residual_gpa": 4.108681581411787,
+          "refit_residual_gpa": 4.108693744527869
+        },
+        {
+          "row": 154,
+          "pressure_gpa": 198.2,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 9.379265,
+          "initial_residual_gpa": 0.23804110553859914,
+          "refit_residual_gpa": 0.23804684906019702
+        },
+        {
+          "row": 155,
+          "pressure_gpa": 214.5,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 9.2302205,
+          "initial_residual_gpa": -1.0763117149233778,
+          "refit_residual_gpa": -1.0763161938234305
+        },
+        {
+          "row": 156,
+          "pressure_gpa": 68.9,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 11.5486905,
+          "initial_residual_gpa": -1.1982650329598385,
+          "refit_residual_gpa": -1.1981202737719912
+        },
+        {
+          "row": 157,
+          "pressure_gpa": 84.8,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 11.074458,
+          "initial_residual_gpa": 1.5215823124839716,
+          "refit_residual_gpa": 1.5216998262673087
+        },
+        {
+          "row": 158,
+          "pressure_gpa": 101.2,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 10.734215,
+          "initial_residual_gpa": 1.120200327075679,
+          "refit_residual_gpa": 1.120296899034372
+        },
+        {
+          "row": 159,
+          "pressure_gpa": 70.3,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 11.474921,
+          "initial_residual_gpa": 0.049939165807757036,
+          "refit_residual_gpa": 0.05007984646415764
+        },
+        {
+          "row": 160,
+          "pressure_gpa": 43.2,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 12.393276,
+          "initial_residual_gpa": -0.5321772646778768,
+          "refit_residual_gpa": -0.531990288834777
+        },
+        {
+          "row": 161,
+          "pressure_gpa": 49.3,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 12.2050885,
+          "initial_residual_gpa": -1.8032119274400529,
+          "refit_residual_gpa": -1.803033631801668
+        },
+        {
+          "row": 162,
+          "pressure_gpa": 56.3,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 11.8317245,
+          "initial_residual_gpa": 1.990722129771875,
+          "refit_residual_gpa": 1.9908819647312797
+        },
+        {
+          "row": 163,
+          "pressure_gpa": 58.9,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 11.8377465,
+          "initial_residual_gpa": -0.7973285279074318,
+          "refit_residual_gpa": -0.7971683822131155
+        },
+        {
+          "row": 164,
+          "pressure_gpa": 64.7,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 11.6751525,
+          "initial_residual_gpa": -1.3454142485641043,
+          "refit_residual_gpa": -1.3452626400748287
+        },
+        {
+          "row": 165,
+          "pressure_gpa": 67.2,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 11.586328,
+          "initial_residual_gpa": -0.8170336778048153,
+          "refit_residual_gpa": -0.816886861212538
+        },
+        {
+          "row": 166,
+          "pressure_gpa": 110.6,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 10.544522,
+          "initial_residual_gpa": 1.77272242027,
+          "refit_residual_gpa": 1.7728068757522522
+        },
+        {
+          "row": 167,
+          "pressure_gpa": 120.1,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 10.3653675,
+          "initial_residual_gpa": 2.608278123966528,
+          "refit_residual_gpa": 2.608350885056822
+        }
+      ]
+    },
+    "cold-weighted": {
+      "rows": 21,
+      "source_initial_eos": "docs/data/fes-gui-2026-10-19/cold-initial.eos",
+      "fitted_eos": "docs/data/fes-gui-2026-10-19/cold-weighted.eos",
+      "refined_parameters": {
+        "1": {
+          "value": 15.3707,
+          "error": 0.5238415791057445
+        },
+        "2": {
+          "value": 115.445,
+          "error": 34.78361683321618
+        },
+        "3": {
+          "value": 4.99158,
+          "error": 0.6788961628997471
+        }
+      },
+      "conditional_covariance": [
+        [
+          0.27441,
+          -18.148,
+          0.34644
+        ],
+        [
+          -18.148,
+          1209.9,
+          -23.375
+        ],
+        [
+          0.34644,
+          -23.375,
+          0.4609
+        ]
+      ],
+      "reference_temperature_k": 300.0,
+      "source": {
+        "cold": {
+          "rows": 21,
+          "rmse_gpa": 1.9105422995375574,
+          "min_gpa": -4.215325719291144,
+          "max_gpa": 4.099634897639902,
+          "max_abs_gpa": 4.215325719291144,
+          "rows_exceeding_3_gpa": [
+            6,
+            7
+          ]
+        }
+      },
+      "refit": {
+        "cold": {
+          "rows": 21,
+          "rmse_gpa": 1.9101786459338501,
+          "min_gpa": -4.188842026487208,
+          "max_gpa": 4.132305529414964,
+          "max_abs_gpa": 4.188842026487208,
+          "rows_exceeding_3_gpa": [
+            6,
+            7
+          ]
+        }
+      },
+      "gui_displayed_max_abs_gpa": 4.19,
+      "gui_saved_native_max_difference_from_display_gpa": 0.001157973512792232,
+      "residuals": [
+        {
+          "row": 1,
+          "pressure_gpa": 39.0,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 12.483606,
+          "initial_residual_gpa": 1.4689038938241197,
+          "refit_residual_gpa": 1.4730608312795255
+        },
+        {
+          "row": 2,
+          "pressure_gpa": 44.3,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 12.305957,
+          "initial_residual_gpa": 0.5488596717147303,
+          "refit_residual_gpa": 0.5533087869898239
+        },
+        {
+          "row": 3,
+          "pressure_gpa": 112.3,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 10.529467,
+          "initial_residual_gpa": 0.8982284823791247,
+          "refit_residual_gpa": 0.9125491225313738
+        },
+        {
+          "row": 4,
+          "pressure_gpa": 130.6,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 10.2750375,
+          "initial_residual_gpa": -2.3546306690946324,
+          "refit_residual_gpa": -2.3371715816903134
+        },
+        {
+          "row": 5,
+          "pressure_gpa": 148.5,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 10.0100695,
+          "initial_residual_gpa": -2.5520596404132334,
+          "refit_residual_gpa": -2.53058080141426
+        },
+        {
+          "row": 6,
+          "pressure_gpa": 170.5,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 9.7420905,
+          "initial_residual_gpa": -4.215325719291144,
+          "refit_residual_gpa": -4.188842026487208
+        },
+        {
+          "row": 7,
+          "pressure_gpa": 185.5,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 9.472606,
+          "initial_residual_gpa": 4.099634897639902,
+          "refit_residual_gpa": 4.132305529414964
+        },
+        {
+          "row": 8,
+          "pressure_gpa": 198.2,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 9.379265,
+          "initial_residual_gpa": 0.22912496447128206,
+          "refit_residual_gpa": 0.2642521708128527
+        },
+        {
+          "row": 9,
+          "pressure_gpa": 214.5,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 9.2302205,
+          "initial_residual_gpa": -1.0850172124330868,
+          "refit_residual_gpa": -1.0455888838672251
+        },
+        {
+          "row": 10,
+          "pressure_gpa": 68.9,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 11.5486905,
+          "initial_residual_gpa": -1.2098538982253473,
+          "refit_residual_gpa": -1.2030854431802709
+        },
+        {
+          "row": 11,
+          "pressure_gpa": 84.8,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 11.074458,
+          "initial_residual_gpa": 1.510505749673868,
+          "refit_residual_gpa": 1.5199644392845215
+        },
+        {
+          "row": 12,
+          "pressure_gpa": 101.2,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 10.734215,
+          "initial_residual_gpa": 1.1095176579795947,
+          "refit_residual_gpa": 1.1217454115214878
+        },
+        {
+          "row": 13,
+          "pressure_gpa": 70.3,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 11.474921,
+          "initial_residual_gpa": 0.038427151125006276,
+          "refit_residual_gpa": 0.04553908635143955
+        },
+        {
+          "row": 14,
+          "pressure_gpa": 43.2,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 12.393276,
+          "initial_residual_gpa": -0.5445715223666738,
+          "refit_residual_gpa": -0.5402757239738207
+        },
+        {
+          "row": 15,
+          "pressure_gpa": 49.3,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 12.2050885,
+          "initial_residual_gpa": -1.8154384918713689,
+          "refit_residual_gpa": -1.8107873182286625
+        },
+        {
+          "row": 16,
+          "pressure_gpa": 56.3,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 11.8317245,
+          "initial_residual_gpa": 1.9788481500602089,
+          "refit_residual_gpa": 1.984513528138116
+        },
+        {
+          "row": 17,
+          "pressure_gpa": 58.9,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 11.8377465,
+          "initial_residual_gpa": -0.8092084061947986,
+          "refit_residual_gpa": -0.803563096807288
+        },
+        {
+          "row": 18,
+          "pressure_gpa": 64.7,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 11.6751525,
+          "initial_residual_gpa": -1.3571324145048393,
+          "refit_residual_gpa": -1.350896991396283
+        },
+        {
+          "row": 19,
+          "pressure_gpa": 67.2,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 11.586328,
+          "initial_residual_gpa": -0.8286613479912148,
+          "refit_residual_gpa": -0.8220587092926479
+        },
+        {
+          "row": 20,
+          "pressure_gpa": 110.6,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 10.544522,
+          "initial_residual_gpa": 1.7622686484904762,
+          "refit_residual_gpa": 1.77642307901624
+        },
+        {
+          "row": 21,
+          "pressure_gpa": 120.1,
+          "temperature_k": 300.0,
+          "volume_cm3_mol": 10.3653675,
+          "initial_residual_gpa": 2.59804645246588,
+          "refit_residual_gpa": 2.614317025631607
+        }
+      ]
+    },
+    "staged-weighted": {
+      "rows": 146,
+      "source_initial_eos": "docs/data/fes-gui-2026-10-19/thermal-initial.eos",
+      "fitted_eos": "docs/data/fes-gui-2026-10-19/staged-weighted.eos",
+      "refined_parameters": {
+        "18": {
+          "value": 2.4642,
+          "error": 0.03953353007258522
+        }
+      },
+      "conditional_covariance": [
+        [
+          0.0015629
+        ]
+      ],
+      "reference_temperature_k": 300.0,
+      "source": {
+        "all": {
+          "rows": 146,
+          "rmse_gpa": 1.635370694635846,
+          "min_gpa": -4.1271908993395705,
+          "max_gpa": 5.0610390830884455,
+          "max_abs_gpa": 5.0610390830884455,
+          "rows_exceeding_3_gpa": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            27,
+            122,
+            123,
+            124,
+            125,
+            126,
+            146
+          ]
+        },
+        "thermal": {
+          "rows": 146,
+          "rmse_gpa": 1.635370694635846,
+          "min_gpa": -4.1271908993395705,
+          "max_gpa": 5.0610390830884455,
+          "max_abs_gpa": 5.0610390830884455,
+          "rows_exceeding_3_gpa": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            27,
+            122,
+            123,
+            124,
+            125,
+            126,
+            146
+          ]
+        }
+      },
+      "refit": {
+        "all": {
+          "rows": 146,
+          "rmse_gpa": 1.6337157373903919,
+          "min_gpa": -3.9180365338469265,
+          "max_gpa": 5.286628825098234,
+          "max_abs_gpa": 5.286628825098234,
+          "rows_exceeding_3_gpa": [
+            2,
+            3,
+            4,
+            7,
+            8,
+            27,
+            122,
+            123,
+            124,
+            125,
+            126,
+            146
+          ]
+        },
+        "thermal": {
+          "rows": 146,
+          "rmse_gpa": 1.6337157373903919,
+          "min_gpa": -3.9180365338469265,
+          "max_gpa": 5.286628825098234,
+          "max_abs_gpa": 5.286628825098234,
+          "rows_exceeding_3_gpa": [
+            2,
+            3,
+            4,
+            7,
+            8,
+            27,
+            122,
+            123,
+            124,
+            125,
+            126,
+            146
+          ]
+        }
+      },
+      "gui_displayed_max_abs_gpa": 5.29,
+      "gui_saved_native_max_difference_from_display_gpa": 0.003371174901766416,
+      "residuals": [
+        {
+          "row": 1,
+          "pressure_gpa": 29.59643816,
+          "temperature_k": 1450.0,
+          "volume_cm3_mol": 13.69121917,
+          "initial_residual_gpa": -3.0233000360432705,
+          "refit_residual_gpa": -2.854739680407544
+        },
+        {
+          "row": 2,
+          "pressure_gpa": 29.61727201,
+          "temperature_k": 1530.0,
+          "volume_cm3_mol": 13.74976223,
+          "initial_residual_gpa": -3.2567146587833733,
+          "refit_residual_gpa": -3.075694388778423
+        },
+        {
+          "row": 3,
+          "pressure_gpa": 29.68104188,
+          "temperature_k": 1610.0,
+          "volume_cm3_mol": 13.79940105,
+          "initial_residual_gpa": -3.3902399407086783,
+          "refit_residual_gpa": -3.1967845190193884
+        },
+        {
+          "row": 4,
+          "pressure_gpa": 29.90492469,
+          "temperature_k": 1710.0,
+          "volume_cm3_mol": 13.89468574,
+          "initial_residual_gpa": -4.1271908993395705,
+          "refit_residual_gpa": -3.9180365338469265
+        },
+        {
+          "row": 5,
+          "pressure_gpa": 33.12772584,
+          "temperature_k": 1270.0,
+          "volume_cm3_mol": 13.37514874,
+          "initial_residual_gpa": -3.0855149290537085,
+          "refit_residual_gpa": -2.945759523969233
+        },
+        {
+          "row": 6,
+          "pressure_gpa": 33.23118826,
+          "temperature_k": 1350.0,
+          "volume_cm3_mol": 13.40191256,
+          "initial_residual_gpa": -3.0041096662815363,
+          "refit_residual_gpa": -2.8520863354928068
+        },
+        {
+          "row": 7,
+          "pressure_gpa": 33.41794186,
+          "temperature_k": 1470.0,
+          "volume_cm3_mol": 13.45946566,
+          "initial_residual_gpa": -3.180392178214074,
+          "refit_residual_gpa": -3.009839150275294
+        },
+        {
+          "row": 8,
+          "pressure_gpa": 33.41794186,
+          "temperature_k": 1470.0,
+          "volume_cm3_mol": 13.45946566,
+          "initial_residual_gpa": -3.180392178214074,
+          "refit_residual_gpa": -3.009839150275294
+        },
+        {
+          "row": 9,
+          "pressure_gpa": 41.65184068,
+          "temperature_k": 1220.0,
+          "volume_cm3_mol": 12.81106362,
+          "initial_residual_gpa": -1.5968677581156001,
+          "refit_residual_gpa": -1.4676114341560762
+        },
+        {
+          "row": 10,
+          "pressure_gpa": 41.76934184,
+          "temperature_k": 1330.0,
+          "volume_cm3_mol": 12.83495973,
+          "initial_residual_gpa": -1.3526442776455596,
+          "refit_residual_gpa": -1.206658890962963
+        },
+        {
+          "row": 11,
+          "pressure_gpa": 41.6736134,
+          "temperature_k": 1420.0,
+          "volume_cm3_mol": 12.86480437,
+          "initial_residual_gpa": -1.1643615858758736,
+          "refit_residual_gpa": -1.0045812442059585
+        },
+        {
+          "row": 12,
+          "pressure_gpa": 41.92909677,
+          "temperature_k": 1510.0,
+          "volume_cm3_mol": 12.92016747,
+          "initial_residual_gpa": -1.8251467803946966,
+          "refit_residual_gpa": -1.6513849715464417
+        },
+        {
+          "row": 13,
+          "pressure_gpa": 41.8033473,
+          "temperature_k": 1580.0,
+          "volume_cm3_mol": 12.9554079,
+          "initial_residual_gpa": -1.84500788713666,
+          "refit_residual_gpa": -1.6603978851824905
+        },
+        {
+          "row": 14,
+          "pressure_gpa": 41.91758698,
+          "temperature_k": 1640.0,
+          "volume_cm3_mol": 12.97524497,
+          "initial_residual_gpa": -1.876222140813688,
+          "refit_residual_gpa": -1.6823633002971832
+        },
+        {
+          "row": 15,
+          "pressure_gpa": 42.19857017,
+          "temperature_k": 1750.0,
+          "volume_cm3_mol": 13.00964279,
+          "initial_residual_gpa": -1.9588033458856202,
+          "refit_residual_gpa": -1.7479762486851484
+        },
+        {
+          "row": 16,
+          "pressure_gpa": 42.6556377,
+          "temperature_k": 1890.0,
+          "volume_cm3_mol": 13.04180644,
+          "initial_residual_gpa": -1.9315058197850874,
+          "refit_residual_gpa": -1.6991156393910885
+        },
+        {
+          "row": 17,
+          "pressure_gpa": 45.16809303,
+          "temperature_k": 1250.0,
+          "volume_cm3_mol": 12.63487883,
+          "initial_residual_gpa": -1.108512433089352,
+          "refit_residual_gpa": -0.9757954377689586
+        },
+        {
+          "row": 18,
+          "pressure_gpa": 44.99938828,
+          "temperature_k": 1340.0,
+          "volume_cm3_mol": 12.67346588,
+          "initial_residual_gpa": -1.0921685803021006,
+          "refit_residual_gpa": -0.94565309163211
+        },
+        {
+          "row": 19,
+          "pressure_gpa": 44.99088308,
+          "temperature_k": 1410.0,
+          "volume_cm3_mol": 12.69373397,
+          "initial_residual_gpa": -0.9813390623156693,
+          "refit_residual_gpa": -0.8241204463842919
+        },
+        {
+          "row": 20,
+          "pressure_gpa": 44.90095589,
+          "temperature_k": 1530.0,
+          "volume_cm3_mol": 12.77919654,
+          "initial_residual_gpa": -1.7776570946067807,
+          "refit_residual_gpa": -1.6017178173370255
+        },
+        {
+          "row": 21,
+          "pressure_gpa": 44.8589917,
+          "temperature_k": 1660.0,
+          "volume_cm3_mol": 12.80249427,
+          "initial_residual_gpa": -1.2086011206669696,
+          "refit_residual_gpa": -1.0127584847083781
+        },
+        {
+          "row": 22,
+          "pressure_gpa": 44.90717895,
+          "temperature_k": 1760.0,
+          "volume_cm3_mol": 12.85786793,
+          "initial_residual_gpa": -1.6111979269914656,
+          "refit_residual_gpa": -1.399775974147083
+        },
+        {
+          "row": 23,
+          "pressure_gpa": 44.93903417,
+          "temperature_k": 1850.0,
+          "volume_cm3_mol": 12.91702078,
+          "initial_residual_gpa": -2.1239883466389458,
+          "refit_residual_gpa": -1.8984682418633483
+        },
+        {
+          "row": 24,
+          "pressure_gpa": 45.00218695,
+          "temperature_k": 1940.0,
+          "volume_cm3_mol": 12.94235472,
+          "initial_residual_gpa": -1.9827055585686324,
+          "refit_residual_gpa": -1.7432842307973218
+        },
+        {
+          "row": 25,
+          "pressure_gpa": 45.06777749,
+          "temperature_k": 2000.0,
+          "volume_cm3_mol": 12.98309217,
+          "initial_residual_gpa": -2.369643120157157,
+          "refit_residual_gpa": -2.1207988851402035
+        },
+        {
+          "row": 26,
+          "pressure_gpa": 45.19849373,
+          "temperature_k": 2100.0,
+          "volume_cm3_mol": 13.0162714,
+          "initial_residual_gpa": -2.352937289762046,
+          "refit_residual_gpa": -2.0885931508707714
+        },
+        {
+          "row": 27,
+          "pressure_gpa": 45.2392356,
+          "temperature_k": 2190.0,
+          "volume_cm3_mol": 13.10592218,
+          "initial_residual_gpa": -3.3599499068289447,
+          "refit_residual_gpa": -3.081282760603031
+        },
+        {
+          "row": 28,
+          "pressure_gpa": 45.33431719,
+          "temperature_k": 2290.0,
+          "volume_cm3_mol": 13.12169391,
+          "initial_residual_gpa": -2.9608565121041366,
+          "refit_residual_gpa": -2.666774975160301
+        },
+        {
+          "row": 29,
+          "pressure_gpa": 54.18431222,
+          "temperature_k": 1220.0,
+          "volume_cm3_mol": 12.21726304,
+          "initial_residual_gpa": -0.231041675905594,
+          "refit_residual_gpa": -0.1056005833753133
+        },
+        {
+          "row": 30,
+          "pressure_gpa": 54.27403106,
+          "temperature_k": 1260.0,
+          "volume_cm3_mol": 12.22978011,
+          "initial_residual_gpa": -0.3416670105370798,
+          "refit_residual_gpa": -0.2101573056000703
+        },
+        {
+          "row": 31,
+          "pressure_gpa": 54.29698221,
+          "temperature_k": 1340.0,
+          "volume_cm3_mol": 12.24970303,
+          "initial_residual_gpa": -0.2672138607690897,
+          "refit_residual_gpa": -0.12356643691848745
+        },
+        {
+          "row": 32,
+          "pressure_gpa": 54.22844421,
+          "temperature_k": 1430.0,
+          "volume_cm3_mol": 12.27345927,
+          "initial_residual_gpa": -0.11730925911312085,
+          "refit_residual_gpa": 0.04005317080626014
+        },
+        {
+          "row": 33,
+          "pressure_gpa": 54.14069301,
+          "temperature_k": 1480.0,
+          "volume_cm3_mol": 12.30596974,
+          "initial_residual_gpa": -0.4747794725772181,
+          "refit_residual_gpa": -0.30963493254105146
+        },
+        {
+          "row": 34,
+          "pressure_gpa": 54.16874945,
+          "temperature_k": 1580.0,
+          "volume_cm3_mol": 12.33603162,
+          "initial_residual_gpa": -0.48636294266445645,
+          "refit_residual_gpa": -0.3058763342133446
+        },
+        {
+          "row": 35,
+          "pressure_gpa": 54.22146666,
+          "temperature_k": 1680.0,
+          "volume_cm3_mol": 12.37606747,
+          "initial_residual_gpa": -0.759059566424348,
+          "refit_residual_gpa": -0.5631165155281721
+        },
+        {
+          "row": 36,
+          "pressure_gpa": 54.22024059,
+          "temperature_k": 1750.0,
+          "volume_cm3_mol": 12.40591708,
+          "initial_residual_gpa": -0.9459469719266522,
+          "refit_residual_gpa": -0.7391508282602075
+        },
+        {
+          "row": 37,
+          "pressure_gpa": 54.22105256,
+          "temperature_k": 1810.0,
+          "volume_cm3_mol": 12.42462031,
+          "initial_residual_gpa": -0.9340508143545989,
+          "refit_residual_gpa": -0.7179921325944889
+        },
+        {
+          "row": 38,
+          "pressure_gpa": 54.24300777,
+          "temperature_k": 1880.0,
+          "volume_cm3_mol": 12.45774934,
+          "initial_residual_gpa": -1.2070923985730388,
+          "refit_residual_gpa": -0.9801317181658504
+        },
+        {
+          "row": 39,
+          "pressure_gpa": 54.23019787,
+          "temperature_k": 1940.0,
+          "volume_cm3_mol": 12.46917773,
+          "initial_residual_gpa": -0.9987084426825632,
+          "refit_residual_gpa": -0.7625208044060514
+        },
+        {
+          "row": 40,
+          "pressure_gpa": 54.23582942,
+          "temperature_k": 2020.0,
+          "volume_cm3_mol": 12.49278571,
+          "initial_residual_gpa": -0.9385871502714167,
+          "refit_residual_gpa": -0.6900235396814836
+        },
+        {
+          "row": 41,
+          "pressure_gpa": 54.28923815,
+          "temperature_k": 2120.0,
+          "volume_cm3_mol": 12.54119045,
+          "initial_residual_gpa": -1.3391641781596064,
+          "refit_residual_gpa": -1.0749749863385105
+        },
+        {
+          "row": 42,
+          "pressure_gpa": 54.22426526,
+          "temperature_k": 2200.0,
+          "volume_cm3_mol": 12.58743756,
+          "initial_residual_gpa": -1.7058625450284737,
+          "refit_residual_gpa": -1.4291082371209498
+        },
+        {
+          "row": 43,
+          "pressure_gpa": 57.99811343,
+          "temperature_k": 1300.0,
+          "volume_cm3_mol": 12.088177,
+          "initial_residual_gpa": 0.07928984491755386,
+          "refit_residual_gpa": 0.21573445157478943
+        },
+        {
+          "row": 44,
+          "pressure_gpa": 58.05631662,
+          "temperature_k": 1410.0,
+          "volume_cm3_mol": 12.1189162,
+          "initial_residual_gpa": 0.020340734719319187,
+          "refit_residual_gpa": 0.17352106319253124
+        },
+        {
+          "row": 45,
+          "pressure_gpa": 58.08520666,
+          "temperature_k": 1460.0,
+          "volume_cm3_mol": 12.1069402,
+          "initial_residual_gpa": 0.7097326997606359,
+          "refit_residual_gpa": 0.8703418709632871
+        },
+        {
+          "row": 46,
+          "pressure_gpa": 58.12645189,
+          "temperature_k": 1520.0,
+          "volume_cm3_mol": 12.12024218,
+          "initial_residual_gpa": 0.7668434207138475,
+          "refit_residual_gpa": 0.9366010163446816
+        },
+        {
+          "row": 47,
+          "pressure_gpa": 58.23627022,
+          "temperature_k": 1630.0,
+          "volume_cm3_mol": 12.13425497,
+          "initial_residual_gpa": 1.1269568342901053,
+          "refit_residual_gpa": 1.3134465113181477
+        },
+        {
+          "row": 48,
+          "pressure_gpa": 58.30766838,
+          "temperature_k": 1700.0,
+          "volume_cm3_mol": 12.14116537,
+          "initial_residual_gpa": 1.4111011674832312,
+          "refit_residual_gpa": 1.6082463779634892
+        },
+        {
+          "row": 49,
+          "pressure_gpa": 58.5403872,
+          "temperature_k": 1770.0,
+          "volume_cm3_mol": 12.16154092,
+          "initial_residual_gpa": 1.1697015527273749,
+          "refit_residual_gpa": 1.3776283581478168
+        },
+        {
+          "row": 50,
+          "pressure_gpa": 58.66625268,
+          "temperature_k": 1850.0,
+          "volume_cm3_mol": 12.21549544,
+          "initial_residual_gpa": 0.22428805804843677,
+          "refit_residual_gpa": 0.4448044420200148
+        },
+        {
+          "row": 51,
+          "pressure_gpa": 58.80020353,
+          "temperature_k": 1930.0,
+          "volume_cm3_mol": 12.22931113,
+          "initial_residual_gpa": 0.34962178178101766,
+          "refit_residual_gpa": 0.582418739924428
+        },
+        {
+          "row": 52,
+          "pressure_gpa": 58.81793192,
+          "temperature_k": 2010.0,
+          "volume_cm3_mol": 12.24100872,
+          "initial_residual_gpa": 0.6490057668810678,
+          "refit_residual_gpa": 0.8940802633472416
+        },
+        {
+          "row": 53,
+          "pressure_gpa": 58.93420094,
+          "temperature_k": 2070.0,
+          "volume_cm3_mol": 12.25175037,
+          "initial_residual_gpa": 0.7205087206040872,
+          "refit_residual_gpa": 0.9748157145445973
+        },
+        {
+          "row": 54,
+          "pressure_gpa": 59.12124315,
+          "temperature_k": 2180.0,
+          "volume_cm3_mol": 12.25815307,
+          "initial_residual_gpa": 1.2254266784456576,
+          "refit_residual_gpa": 1.4965669776974408
+        },
+        {
+          "row": 55,
+          "pressure_gpa": 59.28908936,
+          "temperature_k": 2250.0,
+          "volume_cm3_mol": 12.28254006,
+          "initial_residual_gpa": 0.9742840670949775,
+          "refit_residual_gpa": 1.2563132600677704
+        },
+        {
+          "row": 56,
+          "pressure_gpa": 59.38378257,
+          "temperature_k": 2330.0,
+          "volume_cm3_mol": 12.29596601,
+          "initial_residual_gpa": 1.160385311822182,
+          "refit_residual_gpa": 1.454748353420861
+        },
+        {
+          "row": 57,
+          "pressure_gpa": 63.7709034,
+          "temperature_k": 1300.0,
+          "volume_cm3_mol": 11.93362459,
+          "initial_residual_gpa": -1.2357408160556744,
+          "refit_residual_gpa": -1.100509921142411
+        },
+        {
+          "row": 58,
+          "pressure_gpa": 63.60239229,
+          "temperature_k": 1340.0,
+          "volume_cm3_mol": 11.94445351,
+          "initial_residual_gpa": -1.0800193324677565,
+          "refit_residual_gpa": -0.9387236543743924
+        },
+        {
+          "row": 59,
+          "pressure_gpa": 63.48380598,
+          "temperature_k": 1420.0,
+          "volume_cm3_mol": 11.95105202,
+          "initial_residual_gpa": -0.5377276268176487,
+          "refit_residual_gpa": -0.3843908850003146
+        },
+        {
+          "row": 60,
+          "pressure_gpa": 63.43530501,
+          "temperature_k": 1480.0,
+          "volume_cm3_mol": 11.95406039,
+          "initial_residual_gpa": -0.11318513078784775,
+          "refit_residual_gpa": 0.04919144508676254
+        },
+        {
+          "row": 61,
+          "pressure_gpa": 63.42630189,
+          "temperature_k": 1550.0,
+          "volume_cm3_mol": 11.95846573,
+          "initial_residual_gpa": 0.3088315149425327,
+          "refit_residual_gpa": 0.4817854197027387
+        },
+        {
+          "row": 62,
+          "pressure_gpa": 63.47076071,
+          "temperature_k": 1630.0,
+          "volume_cm3_mol": 11.96378819,
+          "initial_residual_gpa": 0.7288716716953374,
+          "refit_residual_gpa": 0.9139434120573142
+        },
+        {
+          "row": 63,
+          "pressure_gpa": 63.47876727,
+          "temperature_k": 1680.0,
+          "volume_cm3_mol": 11.97123209,
+          "initial_residual_gpa": 0.8908512360957204,
+          "refit_residual_gpa": 1.0835450559036914
+        },
+        {
+          "row": 64,
+          "pressure_gpa": 63.45610639,
+          "temperature_k": 1760.0,
+          "volume_cm3_mol": 11.99314831,
+          "initial_residual_gpa": 0.8961556449002472,
+          "refit_residual_gpa": 1.1011505757841888
+        },
+        {
+          "row": 65,
+          "pressure_gpa": 63.4578388,
+          "temperature_k": 1830.0,
+          "volume_cm3_mol": 12.01484881,
+          "initial_residual_gpa": 0.8118822450358252,
+          "refit_residual_gpa": 1.027680326534174
+        },
+        {
+          "row": 66,
+          "pressure_gpa": 63.48196896,
+          "temperature_k": 1900.0,
+          "volume_cm3_mol": 12.03693666,
+          "initial_residual_gpa": 0.7002960722473262,
+          "refit_residual_gpa": 0.9269152714956022
+        },
+        {
+          "row": 67,
+          "pressure_gpa": 63.45220174,
+          "temperature_k": 1980.0,
+          "volume_cm3_mol": 12.05863388,
+          "initial_residual_gpa": 0.7378165633977503,
+          "refit_residual_gpa": 0.9767876556074597
+        },
+        {
+          "row": 68,
+          "pressure_gpa": 63.56469453,
+          "temperature_k": 2060.0,
+          "volume_cm3_mol": 12.08600616,
+          "initial_residual_gpa": 0.48047536957990644,
+          "refit_residual_gpa": 0.7318622483039547
+        },
+        {
+          "row": 69,
+          "pressure_gpa": 63.76629453,
+          "temperature_k": 2180.0,
+          "volume_cm3_mol": 12.10855595,
+          "initial_residual_gpa": 0.5885528032105825,
+          "refit_residual_gpa": 0.8584261411959417
+        },
+        {
+          "row": 70,
+          "pressure_gpa": 63.85995901,
+          "temperature_k": 2280.0,
+          "volume_cm3_mol": 12.13190556,
+          "initial_residual_gpa": 0.6330587673635506,
+          "refit_residual_gpa": 0.9183954657416251
+        },
+        {
+          "row": 71,
+          "pressure_gpa": 63.91745354,
+          "temperature_k": 2370.0,
+          "volume_cm3_mol": 12.1585575,
+          "initial_residual_gpa": 0.5528625785465096,
+          "refit_residual_gpa": 0.8521774786288319
+        },
+        {
+          "row": 72,
+          "pressure_gpa": 64.22849155,
+          "temperature_k": 2420.0,
+          "volume_cm3_mol": 12.17929187,
+          "initial_residual_gpa": 0.07360066145005817,
+          "refit_residual_gpa": 0.380736850491175
+        },
+        {
+          "row": 73,
+          "pressure_gpa": 64.26439414,
+          "temperature_k": 2510.0,
+          "volume_cm3_mol": 12.21926628,
+          "initial_residual_gpa": -0.3226749862713092,
+          "refit_residual_gpa": -0.0014316056403060884
+        },
+        {
+          "row": 74,
+          "pressure_gpa": 64.1073195,
+          "temperature_k": 2540.0,
+          "volume_cm3_mol": 12.24135099,
+          "initial_residual_gpa": -0.5110911089526411,
+          "refit_residual_gpa": -0.1850691447178363
+        },
+        {
+          "row": 75,
+          "pressure_gpa": 83.75932412,
+          "temperature_k": 1420.0,
+          "volume_cm3_mol": 11.33203905,
+          "initial_residual_gpa": 0.17004241377985352,
+          "refit_residual_gpa": 0.31768473103733186
+        },
+        {
+          "row": 76,
+          "pressure_gpa": 83.83464084,
+          "temperature_k": 1490.0,
+          "volume_cm3_mol": 11.34082807,
+          "initial_residual_gpa": 0.2966130060261776,
+          "refit_residual_gpa": 0.45477646377490544
+        },
+        {
+          "row": 77,
+          "pressure_gpa": 83.92101446,
+          "temperature_k": 1560.0,
+          "volume_cm3_mol": 11.37934832,
+          "initial_residual_gpa": -0.7191779305505435,
+          "refit_residual_gpa": -0.5501506448150337
+        },
+        {
+          "row": 78,
+          "pressure_gpa": 84.24790084,
+          "temperature_k": 1680.0,
+          "volume_cm3_mol": 11.3831874,
+          "initial_residual_gpa": -0.2609515729891143,
+          "refit_residual_gpa": -0.07387566250311295
+        },
+        {
+          "row": 79,
+          "pressure_gpa": 84.39924341,
+          "temperature_k": 1740.0,
+          "volume_cm3_mol": 11.39576381,
+          "initial_residual_gpa": -0.42066287856746953,
+          "refit_residual_gpa": -0.22442409825227116
+        },
+        {
+          "row": 80,
+          "pressure_gpa": 84.44419738,
+          "temperature_k": 1810.0,
+          "volume_cm3_mol": 11.41689284,
+          "initial_residual_gpa": -0.712460130350081,
+          "refit_residual_gpa": -0.505442349311906
+        },
+        {
+          "row": 81,
+          "pressure_gpa": 84.46492195,
+          "temperature_k": 1880.0,
+          "volume_cm3_mol": 11.44048108,
+          "initial_residual_gpa": -1.062989441312297,
+          "refit_residual_gpa": -0.8451465646341774
+        },
+        {
+          "row": 82,
+          "pressure_gpa": 84.46349353,
+          "temperature_k": 1960.0,
+          "volume_cm3_mol": 11.46969088,
+          "initial_residual_gpa": -1.5089844556947156,
+          "refit_residual_gpa": -1.2787246045135134
+        },
+        {
+          "row": 83,
+          "pressure_gpa": 84.46946171,
+          "temperature_k": 2060.0,
+          "volume_cm3_mol": 11.4935059,
+          "initial_residual_gpa": -1.598483427408695,
+          "refit_residual_gpa": -1.3528097056431108
+        },
+        {
+          "row": 84,
+          "pressure_gpa": 84.37180086,
+          "temperature_k": 2170.0,
+          "volume_cm3_mol": 11.52006516,
+          "initial_residual_gpa": -1.5946319827863817,
+          "refit_residual_gpa": -1.3319689084219561
+        },
+        {
+          "row": 85,
+          "pressure_gpa": 84.35257163,
+          "temperature_k": 2240.0,
+          "volume_cm3_mol": 11.50925161,
+          "initial_residual_gpa": -0.6437927290050425,
+          "refit_residual_gpa": -0.37060154617986996
+        },
+        {
+          "row": 86,
+          "pressure_gpa": 84.33747972,
+          "temperature_k": 2330.0,
+          "volume_cm3_mol": 11.51269925,
+          "initial_residual_gpa": -0.04992879348833412,
+          "refit_residual_gpa": 0.23699750603871905
+        },
+        {
+          "row": 87,
+          "pressure_gpa": 84.6732423,
+          "temperature_k": 2440.0,
+          "volume_cm3_mol": 11.54934757,
+          "initial_residual_gpa": -0.8255938303860262,
+          "refit_residual_gpa": -0.5215097146924847
+        },
+        {
+          "row": 88,
+          "pressure_gpa": 84.62270558,
+          "temperature_k": 2510.0,
+          "volume_cm3_mol": 11.5592875,
+          "initial_residual_gpa": -0.577147756386239,
+          "refit_residual_gpa": -0.262280113189874
+        },
+        {
+          "row": 89,
+          "pressure_gpa": 92.40859141,
+          "temperature_k": 1610.0,
+          "volume_cm3_mol": 11.22508635,
+          "initial_residual_gpa": -2.774352647463644,
+          "refit_residual_gpa": -2.599480654953936
+        },
+        {
+          "row": 90,
+          "pressure_gpa": 92.41861987,
+          "temperature_k": 1810.0,
+          "volume_cm3_mol": 11.22271673,
+          "initial_residual_gpa": -1.1366658594730126,
+          "refit_residual_gpa": -0.9317790921207632
+        },
+        {
+          "row": 91,
+          "pressure_gpa": 92.82677728,
+          "temperature_k": 1910.0,
+          "volume_cm3_mol": 11.21116184,
+          "initial_residual_gpa": -0.2976863991999039,
+          "refit_residual_gpa": -0.07785111478726492
+        },
+        {
+          "row": 92,
+          "pressure_gpa": 92.81249733,
+          "temperature_k": 1700.0,
+          "volume_cm3_mol": 11.16866423,
+          "initial_residual_gpa": -0.16468420385027116,
+          "refit_residual_gpa": 0.023049662475401078
+        },
+        {
+          "row": 93,
+          "pressure_gpa": 92.79705475,
+          "temperature_k": 1600.0,
+          "volume_cm3_mol": 11.15153004,
+          "initial_residual_gpa": -0.20940324252336495,
+          "refit_residual_gpa": -0.036843366785376475
+        },
+        {
+          "row": 94,
+          "pressure_gpa": 93.07991467,
+          "temperature_k": 1860.0,
+          "volume_cm3_mol": 11.18166926,
+          "initial_residual_gpa": 0.27114547453423654,
+          "refit_residual_gpa": 0.483097089348945
+        },
+        {
+          "row": 95,
+          "pressure_gpa": 93.2651403,
+          "temperature_k": 1940.0,
+          "volume_cm3_mol": 11.19126637,
+          "initial_residual_gpa": 0.31213171446958654,
+          "refit_residual_gpa": 0.5362666596383434
+        },
+        {
+          "row": 96,
+          "pressure_gpa": 93.49541135,
+          "temperature_k": 2040.0,
+          "volume_cm3_mol": 11.21097669,
+          "initial_residual_gpa": 0.05253343048288173,
+          "refit_residual_gpa": 0.2920185897501568
+        },
+        {
+          "row": 97,
+          "pressure_gpa": 93.6135479,
+          "temperature_k": 2120.0,
+          "volume_cm3_mol": 11.23021686,
+          "initial_residual_gpa": -0.22400910786211625,
+          "refit_residual_gpa": 0.02781910757708772
+        },
+        {
+          "row": 98,
+          "pressure_gpa": 93.72675134,
+          "temperature_k": 2230.0,
+          "volume_cm3_mol": 11.25428024,
+          "initial_residual_gpa": -0.44795831855039125,
+          "refit_residual_gpa": -0.17915848521059274
+        },
+        {
+          "row": 99,
+          "pressure_gpa": 94.00627023,
+          "temperature_k": 2390.0,
+          "volume_cm3_mol": 11.27598814,
+          "initial_residual_gpa": -0.3441045025193148,
+          "refit_residual_gpa": -0.05072680695575116
+        },
+        {
+          "row": 100,
+          "pressure_gpa": 94.00820193,
+          "temperature_k": 2480.0,
+          "volume_cm3_mol": 11.32154858,
+          "initial_residual_gpa": -1.430797085537975,
+          "refit_residual_gpa": -1.12318056087841
+        },
+        {
+          "row": 101,
+          "pressure_gpa": 94.2591652,
+          "temperature_k": 2550.0,
+          "volume_cm3_mol": 11.321485,
+          "initial_residual_gpa": -1.132925849334569,
+          "refit_residual_gpa": -0.8146427890115575
+        },
+        {
+          "row": 102,
+          "pressure_gpa": 108.262962,
+          "temperature_k": 1730.0,
+          "volume_cm3_mol": 10.79216874,
+          "initial_residual_gpa": 1.6606504680421637,
+          "refit_residual_gpa": 1.848325441326935
+        },
+        {
+          "row": 103,
+          "pressure_gpa": 108.5540282,
+          "temperature_k": 1800.0,
+          "volume_cm3_mol": 10.79380083,
+          "initial_residual_gpa": 1.8319249340734274,
+          "refit_residual_gpa": 2.0300982598043475
+        },
+        {
+          "row": 104,
+          "pressure_gpa": 109.0999186,
+          "temperature_k": 1970.0,
+          "volume_cm3_mol": 10.81196072,
+          "initial_residual_gpa": 1.716387803708514,
+          "refit_residual_gpa": 1.9403379680474018
+        },
+        {
+          "row": 105,
+          "pressure_gpa": 109.3470732,
+          "temperature_k": 1740.0,
+          "volume_cm3_mol": 10.79552844,
+          "initial_residual_gpa": 0.4887915580868025,
+          "refit_residual_gpa": 0.678005003598571
+        },
+        {
+          "row": 106,
+          "pressure_gpa": 109.2659176,
+          "temperature_k": 1630.0,
+          "volume_cm3_mol": 10.78715526,
+          "initial_residual_gpa": 0.13050272014925213,
+          "refit_residual_gpa": 0.30319271517086577
+        },
+        {
+          "row": 107,
+          "pressure_gpa": 109.2103785,
+          "temperature_k": 1540.0,
+          "volume_cm3_mol": 10.77606895,
+          "initial_residual_gpa": 0.03870301888990468,
+          "refit_residual_gpa": 0.1978802142328817
+        },
+        {
+          "row": 108,
+          "pressure_gpa": 109.1462013,
+          "temperature_k": 1440.0,
+          "volume_cm3_mol": 10.76578075,
+          "initial_residual_gpa": -0.1571885069437826,
+          "refit_residual_gpa": -0.012923236423176832
+        },
+        {
+          "row": 109,
+          "pressure_gpa": 109.0517818,
+          "temperature_k": 1340.0,
+          "volume_cm3_mol": 10.7579362,
+          "initial_residual_gpa": -0.44071324937227985,
+          "refit_residual_gpa": -0.31123298736129357
+        },
+        {
+          "row": 110,
+          "pressure_gpa": 109.0970853,
+          "temperature_k": 1340.0,
+          "volume_cm3_mol": 10.75622913,
+          "initial_residual_gpa": -0.40061786898071716,
+          "refit_residual_gpa": -0.27115803174602604
+        },
+        {
+          "row": 111,
+          "pressure_gpa": 109.5042168,
+          "temperature_k": 1700.0,
+          "volume_cm3_mol": 10.78531079,
+          "initial_residual_gpa": 0.5250753908796355,
+          "refit_residual_gpa": 0.7081800532110378
+        },
+        {
+          "row": 112,
+          "pressure_gpa": 109.608824,
+          "temperature_k": 1800.0,
+          "volume_cm3_mol": 10.79468461,
+          "initial_residual_gpa": 0.7336725148880134,
+          "refit_residual_gpa": 0.9318573211963894
+        },
+        {
+          "row": 113,
+          "pressure_gpa": 109.7800485,
+          "temperature_k": 1850.0,
+          "volume_cm3_mol": 10.79673648,
+          "initial_residual_gpa": 0.8495220736586617,
+          "refit_residual_gpa": 1.0552318947114117
+        },
+        {
+          "row": 114,
+          "pressure_gpa": 109.9607255,
+          "temperature_k": 1990.0,
+          "volume_cm3_mol": 10.81032079,
+          "initial_residual_gpa": 1.091017289551374,
+          "refit_residual_gpa": 1.3179579662017744
+        },
+        {
+          "row": 115,
+          "pressure_gpa": 110.0567728,
+          "temperature_k": 2070.0,
+          "volume_cm3_mol": 10.82462055,
+          "initial_residual_gpa": 0.9212662887568825,
+          "refit_residual_gpa": 1.1604599009095296
+        },
+        {
+          "row": 116,
+          "pressure_gpa": 110.2192754,
+          "temperature_k": 2160.0,
+          "volume_cm3_mol": 10.84991909,
+          "initial_residual_gpa": 0.23927591497752587,
+          "refit_residual_gpa": 0.49240320836017304
+        },
+        {
+          "row": 117,
+          "pressure_gpa": 110.3026761,
+          "temperature_k": 2250.0,
+          "volume_cm3_mol": 10.86843835,
+          "initial_residual_gpa": -0.027422024732928207,
+          "refit_residual_gpa": 0.23957339428569924
+        },
+        {
+          "row": 118,
+          "pressure_gpa": 110.5619733,
+          "temperature_k": 2320.0,
+          "volume_cm3_mol": 10.87372147,
+          "initial_residual_gpa": 0.007756157436006106,
+          "refit_residual_gpa": 0.28543078826292856
+        },
+        {
+          "row": 119,
+          "pressure_gpa": 110.7559991,
+          "temperature_k": 2410.0,
+          "volume_cm3_mol": 10.88966153,
+          "initial_residual_gpa": -0.23798798223060658,
+          "refit_residual_gpa": 0.05355650349460461
+        },
+        {
+          "row": 120,
+          "pressure_gpa": 110.7066625,
+          "temperature_k": 2520.0,
+          "volume_cm3_mol": 10.93414695,
+          "initial_residual_gpa": -1.404257231179045,
+          "refit_residual_gpa": -1.095402255711619
+        },
+        {
+          "row": 121,
+          "pressure_gpa": 110.9283546,
+          "temperature_k": 2590.0,
+          "volume_cm3_mol": 10.95068892,
+          "initial_residual_gpa": -1.8402636027376218,
+          "refit_residual_gpa": -1.5205388073046038
+        },
+        {
+          "row": 122,
+          "pressure_gpa": 115.8547733,
+          "temperature_k": 1820.0,
+          "volume_cm3_mol": 10.60508562,
+          "initial_residual_gpa": 4.37864619603684,
+          "refit_residual_gpa": 4.577284397732512
+        },
+        {
+          "row": 123,
+          "pressure_gpa": 116.3056944,
+          "temperature_k": 1830.0,
+          "volume_cm3_mol": 10.58674546,
+          "initial_residual_gpa": 4.992640953375755,
+          "refit_residual_gpa": 5.192520614908915
+        },
+        {
+          "row": 124,
+          "pressure_gpa": 116.7403315,
+          "temperature_k": 2000.0,
+          "volume_cm3_mol": 10.60189659,
+          "initial_residual_gpa": 5.0610390830884455,
+          "refit_residual_gpa": 5.286628825098234
+        },
+        {
+          "row": 125,
+          "pressure_gpa": 117.4068917,
+          "temperature_k": 2060.0,
+          "volume_cm3_mol": 10.62541866,
+          "initial_residual_gpa": 3.6047287965548094,
+          "refit_residual_gpa": 3.8396800078751454
+        },
+        {
+          "row": 126,
+          "pressure_gpa": 117.8324028,
+          "temperature_k": 2200.0,
+          "volume_cm3_mol": 10.64028991,
+          "initial_residual_gpa": 3.480986668954685,
+          "refit_residual_gpa": 3.7372657572279024
+        },
+        {
+          "row": 127,
+          "pressure_gpa": 118.4978217,
+          "temperature_k": 2350.0,
+          "volume_cm3_mol": 10.69447244,
+          "initial_residual_gpa": 1.1610226465359546,
+          "refit_residual_gpa": 1.4407665135591259
+        },
+        {
+          "row": 128,
+          "pressure_gpa": 118.8467946,
+          "temperature_k": 2430.0,
+          "volume_cm3_mol": 10.69577542,
+          "initial_residual_gpa": 1.368388946593825,
+          "refit_residual_gpa": 1.6602776836024162
+        },
+        {
+          "row": 129,
+          "pressure_gpa": 118.5503174,
+          "temperature_k": 2000.0,
+          "volume_cm3_mol": 10.61700442,
+          "initial_residual_gpa": 2.4427994529984858,
+          "refit_residual_gpa": 2.668602660522609
+        },
+        {
+          "row": 130,
+          "pressure_gpa": 118.5241814,
+          "temperature_k": 1900.0,
+          "volume_cm3_mol": 10.6003698,
+          "initial_residual_gpa": 2.582806978993446,
+          "refit_residual_gpa": 2.7933605007726925
+        },
+        {
+          "row": 131,
+          "pressure_gpa": 118.493861,
+          "temperature_k": 1800.0,
+          "volume_cm3_mol": 10.59500155,
+          "initial_residual_gpa": 2.126412320008356,
+          "refit_residual_gpa": 2.3219208187379365
+        },
+        {
+          "row": 132,
+          "pressure_gpa": 118.3501988,
+          "temperature_k": 1700.0,
+          "volume_cm3_mol": 10.59345129,
+          "initial_residual_gpa": 1.5791607320693828,
+          "refit_residual_gpa": 1.759729693181825
+        },
+        {
+          "row": 133,
+          "pressure_gpa": 118.3727179,
+          "temperature_k": 1600.0,
+          "volume_cm3_mol": 10.58131102,
+          "initial_residual_gpa": 1.4396900798458319,
+          "refit_residual_gpa": 1.6052392033124931
+        },
+        {
+          "row": 134,
+          "pressure_gpa": 118.2401709,
+          "temperature_k": 1400.0,
+          "volume_cm3_mol": 10.58030759,
+          "initial_residual_gpa": 0.08504161948873445,
+          "refit_residual_gpa": 0.22110392295401482
+        },
+        {
+          "row": 135,
+          "pressure_gpa": 128.7520495,
+          "temperature_k": 1330.0,
+          "volume_cm3_mol": 10.40381769,
+          "initial_residual_gpa": -0.9894412547591713,
+          "refit_residual_gpa": -0.8658810139276483
+        },
+        {
+          "row": 136,
+          "pressure_gpa": 129.080921,
+          "temperature_k": 1490.0,
+          "volume_cm3_mol": 10.40800587,
+          "initial_residual_gpa": -0.3354610339210353,
+          "refit_residual_gpa": -0.18849928487136935
+        },
+        {
+          "row": 137,
+          "pressure_gpa": 129.3405025,
+          "temperature_k": 1660.0,
+          "volume_cm3_mol": 10.4123364,
+          "initial_residual_gpa": 0.4622192352248078,
+          "refit_residual_gpa": 0.6343203736973351
+        },
+        {
+          "row": 138,
+          "pressure_gpa": 129.9074879,
+          "temperature_k": 1790.0,
+          "volume_cm3_mol": 10.4082876,
+          "initial_residual_gpa": 1.1383930161018156,
+          "refit_residual_gpa": 1.3297551226309565
+        },
+        {
+          "row": 139,
+          "pressure_gpa": 130.2108007,
+          "temperature_k": 1920.0,
+          "volume_cm3_mol": 10.40540382,
+          "initial_residual_gpa": 2.0120226422284873,
+          "refit_residual_gpa": 2.222756551930786
+        },
+        {
+          "row": 140,
+          "pressure_gpa": 130.9709272,
+          "temperature_k": 2100.0,
+          "volume_cm3_mol": 10.40746804,
+          "initial_residual_gpa": 2.5280393540466832,
+          "refit_residual_gpa": 2.765811402504454
+        },
+        {
+          "row": 141,
+          "pressure_gpa": 131.6954827,
+          "temperature_k": 2240.0,
+          "volume_cm3_mol": 10.42745876,
+          "initial_residual_gpa": 1.723283576067928,
+          "refit_residual_gpa": 1.9824497247131774
+        },
+        {
+          "row": 142,
+          "pressure_gpa": 132.5959653,
+          "temperature_k": 2440.0,
+          "volume_cm3_mol": 10.45856905,
+          "initial_residual_gpa": 0.5825919118762215,
+          "refit_residual_gpa": 0.8724670052051806
+        },
+        {
+          "row": 143,
+          "pressure_gpa": 148.5086149,
+          "temperature_k": 1370.0,
+          "volume_cm3_mol": 10.07167409,
+          "initial_residual_gpa": 0.7182970453546318,
+          "refit_residual_gpa": 0.8429892062356146
+        },
+        {
+          "row": 144,
+          "pressure_gpa": 148.9057667,
+          "temperature_k": 1570.0,
+          "volume_cm3_mol": 10.07203016,
+          "initial_residual_gpa": 1.8323119097269682,
+          "refit_residual_gpa": 1.986082391655259
+        },
+        {
+          "row": 145,
+          "pressure_gpa": 149.3473277,
+          "temperature_k": 1730.0,
+          "volume_cm3_mol": 10.07488224,
+          "initial_residual_gpa": 2.428616083137058,
+          "refit_residual_gpa": 2.6059765796377405
+        },
+        {
+          "row": 146,
+          "pressure_gpa": 149.9480702,
+          "temperature_k": 1900.0,
+          "volume_cm3_mol": 10.07388021,
+          "initial_residual_gpa": 3.2116886773120825,
+          "refit_residual_gpa": 3.4142526186177804
+        }
+      ]
+    }
+  },
+  "artifact_sha256": {
+    "docs/data/fes-author-eosfit/sources/FeS6EOSfittot-SataOhfuji-300K.dat": "463b97a3e39c32c4457ad5c37b2f93f56c92f13b878ff9c017b9c1b0e6014f8e",
+    "docs/data/fes-author-eosfit/sources/FeS6.eos": "d7590158a533b191d48924dbf7087722cf758ae9874316152c6cf731243f7b64",
+    "docs/data/fes-gui-2026-10-19/cold-initial.eos": "9cf7b1597e3a0684527f7ebd7b18f704d0b55ce259a2000c30abc4dafd2159ca",
+    "docs/data/fes-gui-2026-10-19/cold-weighted.eos": "b69430cd9e425395a5a2d52411ddce4a0e4e89d8d9de21647f47c8f396298160",
+    "docs/data/fes-gui-2026-10-19/gamma-unweighted.eos": "2a9f9aff270308e7a56de8f5da6db8399429a3f1896a2797be058ad23ac4b105",
+    "docs/data/fes-gui-2026-10-19/gamma-weighted.eos": "5e2a2225f632b1cc02dcfb300adae7d95ea3a1eaae9d364f2577783c0f5209e4",
+    "docs/data/fes-gui-2026-10-19/staged-weighted.eos": "3a14a82195767da5037863a139386e1286bcaa3a029ef3a40aec5ea6b14516c0",
+    "docs/data/fes-gui-2026-10-19/thermal-initial.eos": "b4b7a3784f61c846d2f1ba36d689d43630efa10b1f63d91def8bd454f5e7ce33",
+    "docs/data/fes-gui-2026-10-19/cold.dat": "cfd3effd0c34f24bafcc2783d7c160705d3fdb17f758fdef9fcd0038311163c4",
+    "docs/data/fes-gui-2026-10-19/hot.dat": "945a50924bdd84fc495659eb4360e99af0c9d0aef098f0ae0590d79454b54d1a",
+    "docs/data/fes-gui-2026-10-19/cold-weighted.png": "edf57e433de9b5c8db9124f3994d16ab5489e693c5adbab5426d49afbf157870",
+    "docs/data/fes-gui-2026-10-19/gamma-unweighted.png": "cb8b71c1afa977c4d8cf02ddab0eedb10bd1062e39cbc37834eaa4c2ee2d9058",
+    "docs/data/fes-gui-2026-10-19/gamma-weighted.png": "4c62bc0ed5e87e8e0c59f3b6f732dcafee29e1707c45f4d194766c9f3bd65acd",
+    "docs/data/fes-gui-2026-10-19/staged-weighted.png": "5ed6b6b21a732b5089bd268009876fb36a665ea72ceec6001a452b0cd1a07f98"
+  },
+  "published_residual_envelope_reproduced": false
+}

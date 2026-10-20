@@ -21,6 +21,7 @@ peritheos/data/datasets/morard_2026_author_sources/** -text whitespace=-blank-at
 # Preserve EosFit inputs, outputs and manual evidence without reformatting.
 docs/data/fes-author-*/** -text whitespace=-blank-at-eol,-blank-at-eof
 docs/data/fes-eosfit*/** -text whitespace=-blank-at-eol,-blank-at-eof
+docs/data/fes-gui-2026-10-19/** -text whitespace=-blank-at-eol,-blank-at-eof
 docs/data/miozzi-2020-eosfit*/** -text whitespace=-blank-at-eol,-blank-at-eof
 # Preserve native rubidium-halide EosFit logs/models and their recorded hashes.
 docs/data/rubidium-halides-farla-2025-eosfit7c/** -text whitespace=-blank-at-eol,-blank-at-eof

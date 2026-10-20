@@ -5360,7 +5360,11 @@ def validate_all() -> dict[str, Any]:
                     if key in record["scientific_validation"]
                 },
             }
-            if material_id == "brucite":
+            if material_id == "ferrous_ringwoodite":
+                from scripts.ferrous_ringwoodite_static import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif material_id == "brucite":
                 from scripts.brucite_reproduce import ledger_outcome
 
                 outcome = ledger_outcome(record)
@@ -5372,6 +5376,20 @@ def validate_all() -> dict[str, Any]:
                 from scripts.catalog_addition_outcomes import sakai_gold_outcome
 
                 outcome = sakai_gold_outcome(record)
+            elif "network_reconstruction_audit" in record:
+                outcome = {
+                    "status": "not_refittable",
+                    "dataset_identifiers": identifiers,
+                    "reason": (
+                        "Conditional measured-pair subset regressions are replayable. "
+                        "The complete source multi-stage regression and uncertainty "
+                        "remain unreproduced; subset coefficient differences do not "
+                        "establish failure of the full published fit."
+                    ),
+                    "partial_reconstruction_report": "docs/literature-reproductions/sakai-2025-network.md",
+                    "partial_reconstruction_data": "docs/data/sakai-2025-network-reconstruction.json",
+                    "original_author_workflow_parity": False,
+                }
             elif record["identifier"].startswith("diopside_"):
                 from scripts.catalog_addition_outcomes import diopside_outcome
 
@@ -6339,6 +6357,15 @@ def check_ledger_values(
     elif isinstance(current, list):
         if not isinstance(saved, list) or len(saved) != len(current):
             raise ValueError(f"{path}: list length differs")
+        # Native EOSMAT annotations may group fixed names by parameter block.
+        # Their order has no numerical meaning; retain strict ordering for
+        # coefficient/covariance arrays and every other source list.
+        if (
+            path.endswith(".fixed_parameters")
+            and all(isinstance(item, str) for item in saved + current)
+            and Counter(saved) == Counter(current)
+        ):
+            return
         for index, (left, right) in enumerate(zip(saved, current)):
             check_ledger_values(
                 left,
@@ -6377,8 +6404,12 @@ def main() -> int:
             args.markdown.read_text(encoding="utf-8") if args.markdown.exists() else ""
         )
         try:
-            check_ledger_values(json.loads(current_json), json.loads(json_text))
-            if current_markdown != markdown_text:
+            saved_ledger = json.loads(current_json)
+            check_ledger_values(saved_ledger, json.loads(json_text))
+            # Check the document against the retained numerical ledger. The
+            # fresh fit has already passed the bounded roundoff comparison;
+            # rendering its last digits would defeat that portability policy.
+            if current_markdown != render_markdown(saved_ledger):
                 raise ValueError("rendered Markdown differs")
         except (ValueError, TypeError) as error:
             print(f"primary EOS refit documentation is stale: {error}", file=sys.stderr)

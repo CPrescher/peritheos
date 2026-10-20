@@ -2,8 +2,8 @@
   "audit_date": "2026-10-16",
   "material": "ferrous_ringwoodite",
   "stage_card": "output/material-candidates/ferrous-ringwoodite/ferrous_ringwoodite.eosmat",
-  "catalog_installed": false,
-  "acceptance": "Source-validated derived static reconstruction is ready at 296.15 K/0-4 GPa. The 2011 thermal candidate remains qualified: integrated constant-q equations now have direct support from the cited formalism and visually verified same-author equations, but complete author inputs, reduction and workflow remain unrecovered.",
+  "catalog_installed": true,
+  "acceptance": "The derived Finger (1979) static reconstruction is integrated at 296.15 K / 0–4 GPa, with unchanged published K0 and the explicit measured-cell assumption. The qualified 2011 thermal candidate and original two-record staging card remain outside the executable catalog.",
   "source_rights": "Unspecified for numerical data; retain article/publisher copyright terms. No CC0 claim on third-party source material.",
   "contributor_rights": "CC0-1.0 only to the extent contributors hold rights in transcription, normalization, metadata and arrangement; see ferrous-ringwoodite.LICENSE.md.",
   "datasets": {
@@ -513,5 +513,13 @@
         "result": "BrownHighPLab,PublicationArchive,LocalBasisFunction public recursive trees inspected; NaCl code identified as aqueous-solution models rather than1999 solid standard."
       }
     ]
-  }
+  },
+  "integration": {
+    "date": "2026-10-19",
+    "catalog_path": "peritheos/data/materials/ferrous_ringwoodite.eosmat",
+    "accepted_record": "ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction",
+    "scope": "Static derived record only. The original staged two-record card and qualified thermal evidence remain archived; the thermal candidate is not integrated."
+  },
+  "catalog_scope": "derived_static_only",
+  "thermal_candidate_installed": false
 }

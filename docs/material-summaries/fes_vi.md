@@ -26,24 +26,24 @@ and recommendation for use are distinct assessments.
 | Stored EOS records | 1 |
 | Observation datasets | 5 |
 
-Experimental FeS-VI structure is independent of the Morard EOS. Fixed coordinates are a reference diffraction model and are not a refinement of all hot FeS polymorphs. The source EOS is deferred after unsuccessful source replay; no validated default is supplied.
+Experimental FeS-VI structure is independent of the Morard EOS. Fixed coordinates are a reference diffraction model and are not a refinement of all hot FeS polymorphs. The published common FeS EOS is accepted on parameter agreement within reported uncertainties. Its residual-envelope discrepancy is informational; the FeS-VI structure does not supply a phase-stability map.
 
 ## Automatic selections
 
-- **Equilibrium:** None
+- **Equilibrium:** [fes\_vi\_morard\_2026\_bm3\_mgd](#record-fes_vi_morard_2026_bm3_mgd)
 - **Hugoniot:** None
 
 ## EOS comparison
 
 | Record | Model | Reference temperature (K) | Source status | Availability |
 | --- | --- | --- | --- | --- |
-| [Morard et al. (2026), FeS BM3-MGD, source replay unresolved](#record-fes_vi_morard_2026_bm3_mgd) | BM3 + MieGruneisenDebye | 300 | deferred | Document only |
+| [Morard et al. (2026), FeS BM3-MGD](#record-fes_vi_morard_2026_bm3_mgd) | BM3 + MieGruneisenDebye | 300 | primary source validated | Executable; see usage qualifications |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Morard et al. (2026), FeS BM3-MGD, source replay unresolved](#record-fes_vi_morard_2026_bm3_mgd) | 102.28920653790895 ± 2.988970320912924 | 115.5 ± 27.91 | 4.99 ± 0.51 |
+| [Morard et al. (2026), FeS BM3-MGD](#record-fes_vi_morard_2026_bm3_mgd) | 102.28920653790895 ± 2.988970320912924 | 115.5 ± 27.91 | 4.99 ± 0.51 |
 
 Errors are shown only when supplied, with their source meaning; a bare
 central value does not imply zero uncertainty. A dash means this parameter
@@ -56,13 +56,15 @@ a joint phase-stability domain or authorize extrapolation.
 
 <a id="record-fes_vi_morard_2026_bm3_mgd"></a>
 
-## Morard et al. (2026), FeS BM3-MGD, source replay unresolved
+## Morard et al. (2026), FeS BM3-MGD
 
 Identifier: `fes_vi_morard_2026_bm3_mgd`.
 
-Availability: **Document only**.
+Availability: **Executable; see usage qualifications**.
 
-**Usage qualification:** Retain as source evidence; do not use for pressure calibration or prediction until the final source model and residual mismatch are resolved.
+Automatic selection for equilibrium calculations.
+
+**Usage qualification:** Accepted for use as the unchanged published common FeS volume relation within the paper's 40-150 GPa scope and observed thermal coverage, with phase, reference-temperature and uncertainty qualifications. The +/-3 GPa envelope is not reproduced and must not be assumed as a prediction-error bound.
 
 - **Reproduction status:** similar
 
@@ -111,13 +113,13 @@ Original audit code: `similar`.
 
 **Limitations and qualifications:**
 
-- Classified similar: staged reproduced-cold coefficients are compatible within reported uncertainty intervals, and the equal-weight control puts all four central estimates inside published error widths. Exact GUI output and the complete +/-3 GPa residual envelope are separate unresolved findings. Published coefficients are preserved; this is not an automatic replacement EOS or a formal independent uncertainty-parity claim.
-- Fit reproduction is classified similar: the reproduced-cold staged coefficients are compatible with reported parameter uncertainties. The supplied Table S1 and recovered author inputs are bundled separately. The selected author input contains 146 thermal plus 21 literature cold rows. The 11 unsuitable quenched rows are excluded on the basis of user-reported author personal communication and are not database datasets. FeS6.eos confirms full BM3-MGD with q=1 and Tref=298 K, but differs from the printed parameters and was saved in March 2024. Actual EosFit replay gives thermal RMS 1.632 GPa, maximum 5.058 GPa and 14 rows beyond +/-3 GPa. Conditional cold refits closely recover the saved cold coefficients. Candidate-input refits converge. The user confirms the supplied files are the complete author-used inputs; the selected rows are confirmed by author communication. Exact GUI regression controls and agreement with printed coefficients and residuals remain unresolved. Published coefficients stay unchanged and deferred. Selected-data, cold-then-thermal EosFit fits at Tr=300 K give gamma0=2.29252(3829) for fixed published cold coefficients and 2.46418(3953) for fixed weighted-reproduced cold coefficients; both exceed the +/-3 GPa residual bound. Both reproduced-cold staged fits have cold coefficients within published error widths; equal-weight gamma0 is also within the published width, and weighted gamma0 error intervals overlap the published interval. Parameter agreement is compatible within reported uncertainties; exact source-output and residual-envelope reproduction are separate. See docs/literature-reproductions/fes-eosfit-direct.md.
-- Usage recommendation: Retain as source evidence; do not use for pressure calibration or prediction until the final source model and residual mismatch are resolved.
-- printed publication coefficients versus the supplied author-used saved model
-- published +/-3 GPa residual bound versus 5.058 GPa with supplied author files
-- GUI versus console regression controls, weighting and selected groups
+- Accepted on parameter agreement under the 2026-10-19 maintainer decision: staged reproduced-cold coefficients are compatible within reported uncertainty intervals, and the equal-weight control puts all four central estimates inside published error widths. The numerical label remains similar, without asserting formal independent uncertainty parity or exact author-workflow reproduction. The unreproduced +/-3 GPa residual envelope is informational and does not gate catalog use. Published coefficients are preserved.
+- Published BM3-MGD coefficients accepted unchanged on parameter agreement, following the 2026-10-19 maintainer decision. The confirmed selected author input has 21 literature cold and 146 thermal rows, excluding all 11 unsuitable quenched rows. Weighted and equal-weight cold-then-thermal EosFit fits recover all three cold coefficients within published error widths; equal-weight gamma0 is inside the published width and the weighted gamma0 interval overlaps it. Actual distributed-GUI fits agree closely with the console. Reconstruction remains classified similar: source error confidence and cross-fit covariance are unspecified and thermal errors condition on fixed cold coefficients. The staged weighted GUI thermal replay has RMS 1.63 GPa, maximum 5.29 GPa, and 12/146 rows outside +/-3 GPa. This residual-reporting discrepancy does not block use; exact original author-workflow reproduction is not claimed. See docs/literature-reproductions/fes-gui-replay.md and docs/literature-reproductions/fes-eosfit-direct.md.
+- Usage recommendation: Accepted for use as the unchanged published common FeS volume relation within the paper's 40-150 GPa scope and observed thermal coverage, with phase, reference-temperature and uncertainty qualifications. The +/-3 GPa envelope is not reproduced and must not be assumed as a prediction-error bound.
+- exact original 20210609 GUI build and regression controls
+- published +/-3 GPa envelope versus staged weighted GUI maximum 5.29 GPa (informational; does not block use)
 - individual provenance and pressure calibration of all 21 literature cold rows
+- source error confidence and cross-fit/cold-to-thermal covariance
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -161,7 +163,7 @@ Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's 
 
 </details>
 
-One published common volume relation fitted across FeS-VI, IV and IX. This card supplies a FeS-VI Pnma diffraction structure only; it does not supply IV/IX coordinates, phase transitions, anisotropic thermal expansion or a stability map. The structural cell is measured at 56 GPa/300 K and is distinct from extrapolated EOS V0. Reported parameter errors have unspecified confidence and no covariance. The deferred integrated-MGD implementation is available only by explicitly loading this record with require\_primary\_validation=False; it is excluded from the normal catalog.
+One published common volume relation fitted across FeS-VI, IV and IX. This card supplies a FeS-VI Pnma diffraction structure only; it does not supply IV/IX coordinates, phase transitions, anisotropic thermal expansion or a stability map. The structural cell is measured at 56 GPa/300 K and is distinct from extrapolated EOS V0. Reported parameter errors have unspecified confidence and no covariance. Accepted on staged parameter agreement within reported uncertainties. The residual-envelope discrepancy is informational; exact author workflow is unverified. Use the common EOS within the paper's 40-150 GPa scope and observed thermal coverage; this is not a phase-stability guarantee.
 
 Parameter covariance is not supplied.
 
@@ -169,18 +171,18 @@ Parameter covariance is not supplied.
 <details markdown="1">
 <summary>Scientific validation and usage qualifications</summary>
 
-- **Status:** deferred
+- **Status:** primary\_source\_validated
 - **Reproduction status:** similar
-- **Audit date:** 2026-10-03
-- **Note:** Fit reproduction is classified similar: the reproduced-cold staged coefficients are compatible with reported parameter uncertainties. The supplied Table S1 and recovered author inputs are bundled separately. The selected author input contains 146 thermal plus 21 literature cold rows. The 11 unsuitable quenched rows are excluded on the basis of user-reported author personal communication and are not database datasets. FeS6.eos confirms full BM3-MGD with q=1 and Tref=298 K, but differs from the printed parameters and was saved in March 2024. Actual EosFit replay gives thermal RMS 1.632 GPa, maximum 5.058 GPa and 14 rows beyond +/-3 GPa. Conditional cold refits closely recover the saved cold coefficients. Candidate-input refits converge. The user confirms the supplied files are the complete author-used inputs; the selected rows are confirmed by author communication. Exact GUI regression controls and agreement with printed coefficients and residuals remain unresolved. Published coefficients stay unchanged and deferred. Selected-data, cold-then-thermal EosFit fits at Tr=300 K give gamma0=2.29252(3829) for fixed published cold coefficients and 2.46418(3953) for fixed weighted-reproduced cold coefficients; both exceed the +/-3 GPa residual bound. Both reproduced-cold staged fits have cold coefficients within published error widths; equal-weight gamma0 is also within the published width, and weighted gamma0 error intervals overlap the published interval. Parameter agreement is compatible within reported uncertainties; exact source-output and residual-envelope reproduction are separate. See docs/literature-reproductions/fes-eosfit-direct.md.
-- **Usage recommendation:** Retain as source evidence; do not use for pressure calibration or prediction until the final source model and residual mismatch are resolved.
-- **Unresolved:** printed publication coefficients versus the supplied author-used saved model; published +/-3 GPa residual bound versus 5.058 GPa with supplied author files; GUI versus console regression controls, weighting and selected groups; individual provenance and pressure calibration of all 21 literature cold rows
-- **Verified fields:** printed\_parameters; units; reference\_temperature; published\_uncertainties; phase; primary\_table\_transcription
+- **Audit date:** 2026-10-19
+- **Note:** Published BM3-MGD coefficients accepted unchanged on parameter agreement, following the 2026-10-19 maintainer decision. The confirmed selected author input has 21 literature cold and 146 thermal rows, excluding all 11 unsuitable quenched rows. Weighted and equal-weight cold-then-thermal EosFit fits recover all three cold coefficients within published error widths; equal-weight gamma0 is inside the published width and the weighted gamma0 interval overlaps it. Actual distributed-GUI fits agree closely with the console. Reconstruction remains classified similar: source error confidence and cross-fit covariance are unspecified and thermal errors condition on fixed cold coefficients. The staged weighted GUI thermal replay has RMS 1.63 GPa, maximum 5.29 GPa, and 12/146 rows outside +/-3 GPa. This residual-reporting discrepancy does not block use; exact original author-workflow reproduction is not claimed. See docs/literature-reproductions/fes-gui-replay.md and docs/literature-reproductions/fes-eosfit-direct.md.
+- **Usage recommendation:** Accepted for use as the unchanged published common FeS volume relation within the paper's 40-150 GPa scope and observed thermal coverage, with phase, reference-temperature and uncertainty qualifications. The +/-3 GPa envelope is not reproduced and must not be assumed as a prediction-error bound.
+- **Unresolved:** exact original 20210609 GUI build and regression controls; published +/-3 GPa envelope versus staged weighted GUI maximum 5.29 GPa (informational; does not block use); individual provenance and pressure calibration of all 21 literature cold rows; source error confidence and cross-fit/cold-to-thermal covariance
+- **Verified fields:** printed\_parameters; units; reference\_temperature; published\_uncertainties; phase; primary\_table\_transcription; integrated\_mgd\_equation\_mapping; confirmed\_author\_input\_selection; staged\_parameter\_agreement; distributed\_gui\_console\_agreement
 - **Primary source check:**
     - **DOI:** 10.1103/h4pj-rvxx
     - **Access URL:** https://doi.org/10.1103/h4pj-rvxx
     - **Locations:** Section II; Section III.B; Section III.D, pages 063605-6 to 063605-7; Figure 6; Table S1, Sheet1 A3:M148; Author-supplied FeS6.eos; Both FeS6EOSfittot-SataOhfuji input variants; Supplementary\_Materials\_Rev\_140526.docx, Figures S1-S5
-    - **Finding:** Fit reproduction is classified similar: the reproduced-cold staged coefficients are compatible with reported parameter uncertainties. The supplied Table S1 and recovered author inputs are bundled separately. The selected author input contains 146 thermal plus 21 literature cold rows. The 11 unsuitable quenched rows are excluded on the basis of user-reported author personal communication and are not database datasets. FeS6.eos confirms full BM3-MGD with q=1 and Tref=298 K, but differs from the printed parameters and was saved in March 2024. Actual EosFit replay gives thermal RMS 1.632 GPa, maximum 5.058 GPa and 14 rows beyond +/-3 GPa. Conditional cold refits closely recover the saved cold coefficients. Candidate-input refits converge. The user confirms the supplied files are the complete author-used inputs; the selected rows are confirmed by author communication. Exact GUI regression controls and agreement with printed coefficients and residuals remain unresolved. Published coefficients stay unchanged and deferred. Selected-data, cold-then-thermal EosFit fits at Tr=300 K give gamma0=2.29252(3829) for fixed published cold coefficients and 2.46418(3953) for fixed weighted-reproduced cold coefficients; both exceed the +/-3 GPa residual bound. Both reproduced-cold staged fits have cold coefficients within published error widths; equal-weight gamma0 is also within the published width, and weighted gamma0 error intervals overlap the published interval. Parameter agreement is compatible within reported uncertainties; exact source-output and residual-envelope reproduction are separate. See docs/literature-reproductions/fes-eosfit-direct.md.
+    - **Finding:** Published BM3-MGD coefficients accepted unchanged on parameter agreement, following the 2026-10-19 maintainer decision. The confirmed selected author input has 21 literature cold and 146 thermal rows, excluding all 11 unsuitable quenched rows. Weighted and equal-weight cold-then-thermal EosFit fits recover all three cold coefficients within published error widths; equal-weight gamma0 is inside the published width and the weighted gamma0 interval overlaps it. Actual distributed-GUI fits agree closely with the console. Reconstruction remains classified similar: source error confidence and cross-fit covariance are unspecified and thermal errors condition on fixed cold coefficients. The staged weighted GUI thermal replay has RMS 1.63 GPa, maximum 5.29 GPa, and 12/146 rows outside +/-3 GPa. This residual-reporting discrepancy does not block use; exact original author-workflow reproduction is not claimed. See docs/literature-reproductions/fes-gui-replay.md and docs/literature-reproductions/fes-eosfit-direct.md.
 - **Primary data check:**
     - **Status:** bundled
     - **Audit date:** 2026-10-03
@@ -191,7 +193,10 @@ Parameter covariance is not supplied.
     - **Report:** docs/data/morard-2026-fes-audit.json
     - **Script:** scripts/audit\_morard\_2026\_fes.py
     - **Source audit:** docs/literature-reproductions/morard-2026-fes.md
+    - **Gui report:** docs/literature-reproductions/fes-gui-replay.md
 - **Residual claim reproduction status:** not\_reproduced
+- **Acceptance basis:** parameter\_agreement\_within\_reported\_uncertainties
+- **Residual discrepancy blocks use:** False
 
 </details>
 
@@ -230,7 +235,7 @@ Parameter covariance is not supplied.
 - **Q:** Section III.D: assumed q=1.
 - **N:** Two atoms per FeS formula unit; Z=4 handled by the public-to-molar volume conversion, not by changing n to 8.
 - **Origin of the parameterization:** Experimental cold compression and LH-DAC PVT fits; fixed Debye temperature adopted from measured hcp-Fe EOS, fixed q is an analytical model choice. Section III.D.
-- **Debye temperature law:** Full integrated MGD confirmed for the supplied March 2024 FeS6.eos (Thermal=7, Param14=0, q=1). The printed source coefficients and 300 K reference are retained; the supplied author-used file has different V0, gamma0 and Tref. The user confirms these are the complete author-used inputs; numerical publication parity remains unresolved.
+- **Debye temperature law:** Full integrated MGD confirmed for the supplied March 2024 FeS6.eos (Thermal=7, Param14=0, q=1). The printed source coefficients and 300 K reference are retained; the supplied author-used file has different V0, gamma0 and Tref. The user confirms these are the complete author-used inputs; staged parameter agreement within reported uncertainties is accepted, while exact author-workflow reproduction remains unverified.
 
 </details>
 

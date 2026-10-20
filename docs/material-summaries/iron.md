@@ -21,7 +21,7 @@ and recommendation for use are distinct assessments.
 | Temperature unit | K |
 | Volume unit | Å³ per conventional unit cell |
 | Stored EOS records | 38 |
-| Observation datasets | 14 |
+| Observation datasets | 15 |
 
 iron
 
@@ -173,7 +173,7 @@ establish statistical independence.
 **Outcome:** not refittable.
 **Scope:** parameter agreement.
 
-**Comparison basis:** The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
+**Comparison basis:** Conditional measured-pair subset regressions are replayable. The complete source multi-stage regression and uncertainty remain unreproduced; subset coefficient differences do not establish failure of the full published fit.
 
 [Open reconstruction report](../reconstruction-reports/iron.md#record-iron_sakai_2025_rydberg_stacey_1)
 
@@ -189,7 +189,7 @@ Original audit code: `not_refittable`.
 <summary>Reconstruction protocol and available diagnostics</summary>
 
 - **Fixed parameters:** K\_infinity\_prime
-- **Dataset identifiers:** None declared
+- **Dataset identifiers:** iron\_sakai\_2025\_table\_s6\_measured\_pairs
 
 </details>
 
@@ -213,10 +213,11 @@ Parameter covariance is not supplied.
     - **Finding:** The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.
     - **DOI:** 10.1038/s43246-025-00792-5
 - **Primary data check:**
-    - **Status:** derived\_output\_only
+    - **Status:** bundled
     - **Audit date:** 2026-09-05
     - **Source locations:** Supplementary Data 1, Table S9
-    - **Finding:** The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
+    - **Finding:** Table S6 measured paired volumes are bundled alongside the separately calculated Table S9 checkpoints. Conditional subset regressions are replayable; the full Table S8 historical constraint inventory, original weights and covariance are not reproduced.
+    - **Dataset identifiers:** iron\_sakai\_2025\_table\_s6\_measured\_pairs
 
 </details>
 
@@ -6548,3 +6549,23 @@ Parameter covariance is supplied in the complete EOSMAT source.
 
 [Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/iron-miozzi-2020-speziale-2001-variable-q-pvt.csv)
 — SHA-256 `4059a98c14548f07f9d648f8ba941d8911adf27e12792cfac5fac1e99a63c51a`.
+
+### iron\_sakai\_2025\_table\_s6\_measured\_pairs
+
+- **Description:** All 19 measured iron–tungsten cell-volume pairs on source Table S6. Pressure is calculated from the calibrant during an explicitly conditional audit; it is not an independently measured column. Missing source errors remain blank.
+- **Kind:** simultaneous\_xrd\_compression
+- **Reference:**
+    - **Authors:** Sakai; Kadobayashi; Nakamoto; Dekura; Ishimatsu; Kawaguchi-Imada; Seto; Sekizawa; Nitta; Shimizu
+    - **Year:** 2025
+    - **Title:** The equations of state of nine materials up to 0.43 TPa for extreme pressure science
+    - **Source:** Communications Materials
+    - **Volume:** 6
+    - **Locator:** 68
+    - **DOI:** 10.1038/s43246-025-00792-5
+- **Source location:** Supplementary Data 1, Table S6
+- **Associated EOS records:** iron\_sakai\_2025\_rydberg\_stacey\_1
+- **Uncertainty:**
+    - **Notes:** Source err. fields retain unspecified confidence/standard-deviation semantics. Missing errors remain missing; no covariance or error is imputed.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/iron-sakai-2025-table-s6-measured-pairs.csv)
+— SHA-256 `fc3e4cc086b17e6e9c6645576798152439b620349633c3c4f252d9b19dfb2d91`.
