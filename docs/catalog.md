@@ -4,7 +4,7 @@ Browse the [readable material summaries](material-summaries/index.md) for
 parameter comparisons, uncertainties, calibration, selection holds and source
 qualifications. These sheets are generated from the complete EOSMAT documents.
 
-Peritheos exposes the complete bundled library through the normal executable
+Peritheos exposes the main curated library through the normal executable
 API. `list_materials()` returns 230 `Material` objects and
 `list_eos_records()` returns 610 `EOSRecord` choices. Pass
 `include_reference_variants=True` to include all 661 executable records. Both
@@ -388,3 +388,10 @@ These explicit-selection diagnostic records have validation status
 empirical residual-pressure correction; exact author-fit reproduction is
 not claimed. The [pressure-convention audit](literature-reproductions/yokoo-2009-pressure-conventions.md)
 tests the unreproduced analytical PVT independently of the fitted corrections.
+
+## Research collections
+
+The [Dewaele (2008) PAW collection](research/dewaele-2008-paw.md) preserves all
+54 published computational parameterizations, provenance and graphical checks
+outside the main database. Its records are absent from catalog listings, searches
+and default selection. The paper's 13 experimental Table IV EOS remain in the catalog.

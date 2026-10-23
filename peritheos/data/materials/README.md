@@ -11,7 +11,11 @@ file. Scientific values, observations and qualifications are preserved.
 default; pass `format_version=4` for native fields. Older file readers can use
 `python -m peritheos convert native.eosmat compatible.eosmat --format-version 3`.
 
-This directory contains 233 curated material documents with 664 EOS records. The
+The 54 Dewaele (2008) PAW records are retained in a separate
+[research collection](../research/dewaele-2008-paw/README.md), excluded from
+main database discovery. The paper's 13 experimental EOS remain here.
+
+This directory contains 233 curated material documents with 677 EOS records. The
 collection began with the 120-material, 147-EOS-record Dioptas 0.10.0 database,
 tag commit
 `5a8bfd81d10bfab3499039603380aae34576d60a`. Its project source is
@@ -19,9 +23,9 @@ tag commit
 
 Every EOS record has an explicit `determination_method` and a rationale under
 `evidence.parameter_provenance.determination_method`. The current collection classifies
-514 records as experimental, 114 as theoretical, 28 as hybrid, and seven as
-unknown. These counts include the two deferred Campbell source records and
-the deferred Morard FeS source record.
+528 records as experimental, 114 as theoretical, 28 as hybrid, and seven as
+unknown. These counts include deferred source evidence and explicitly qualified
+diagnostic records.
 The seven unknowns are the Holland et al. (2013) THERMOCALC modified-Tait
 endmembers: the existing source audit verifies the coefficients but does not
 establish each endmember's measurement-versus-calculation constraints.
@@ -48,13 +52,13 @@ rather than a copyright license.
 The migration preserves supported Dioptas crystallographic and EOS data and adds
 stable identifiers plus explicit migration provenance. It does **not** make
 Dioptas the scientific authority for an EOS record. The primary-source audit
-with dispositions through 2026-10-17 classifies 642 of 664 bundled records as
+with dispositions through 2026-10-23 classifies 656 of 677 bundled records as
 `primary_source_validated`. The Campbell fcc-Fe and FeO records are retained
 as `deferred` source evidence because of unresolved coefficient-refit
 discrepancies; they are not exposed by the executable catalog. The Morard
-(2026) FeS record is also deferred after its source replay exceeds the stated
-±3 GPa residual bound; its 146 Table S1 observations, source contradictions and
-independent FeS-VI structure are documented in the
+(2026) FeS record is executable on staged parameter agreement within the reported
+uncertainties. Its ±3 GPa residual envelope remains unreproduced; its 146 Table S1
+observations, source contradictions and independent FeS-VI structure are documented in the
 [source audit](../../../docs/literature-reproductions/morard-2026-fes.md).
 The selected 167-row author EosFit input, its 21 literature cold rows and
 the original Sata (2010) VI transcription are accessible as separate datasets.
@@ -149,7 +153,7 @@ CC0 is limited to transcription, normalization and metadata rights.
 ## Reference titles
 
 The 2026-09-23 bibliographic review added missing `reference.title` fields to
-185 EOS records citing 115 distinct publications. All 664 records now carry
+185 EOS records citing 115 distinct publications. All 677 records now carry
 an explicit publication title; `reference.source` retains the journal or
 book name. Previously, the catalog fell back to that source name when a
 title was absent.
@@ -216,7 +220,7 @@ O6 correction and official 2014 H2 erratum; the original archive CIF is retained
 The source audit documents equation typos, calibration qualifications and held
 branches, separately from the Al-bearing Xu (2024) investigation.
 
-The current bundle contains 390 distinct datasets with 27,811 retained rows, represented by 430 material-document links to 522 EOS records.
+The current bundle contains 396 distinct datasets with 28,029 retained rows, represented by 436 material-document links to 535 EOS records.
 Chen (2010) contributes 80 Brillouin-derived density positions, 262 separately
 identified published-fit curve vertices, and 14 reported constants. These
 supporting assets do not validate the source-author Chen EOS. A separate

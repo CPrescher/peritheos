@@ -1,0 +1,1056 @@
+{
+  "format": "peritheos.research-eos-audit",
+  "format_version": 1,
+  "audit_date": "2026-09-24",
+  "policy": {
+    "scientific_authority": "primary publications and official supplements",
+    "external_catalogs": "External software catalogs are not used as scientific authority. Dioptas supplied migration/file provenance only.",
+    "validated_definition": "Equation, all stored parameters, units, reference state, phase, published errors when available, and represented validity/data range traced to primary evidence.",
+    "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
+  },
+  "summary": {
+    "records": 54,
+    "deferred": 2,
+    "not_reproduced": 2,
+    "primary_source_validated": 50
+  },
+  "records": [
+    {
+      "material": "cobalt_hcp",
+      "file": "cobalt_hcp.eosmat",
+      "record": "cobalt_hcp_dewaele_2008_paw_lda_static_vinet",
+      "label": "Dewaele et al. (2008), PAW LDA, static lattice, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, cobalt_hcp lda, parenthesized static-lattice values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "cobalt_hcp",
+      "file": "cobalt_hcp.eosmat",
+      "record": "cobalt_hcp_dewaele_2008_paw_lda_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW LDA, 298 K, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, cobalt_hcp lda, unparenthesized 298 K values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "cobalt_hcp",
+      "file": "cobalt_hcp.eosmat",
+      "record": "cobalt_hcp_dewaele_2008_paw_pbe_static_vinet",
+      "label": "Dewaele et al. (2008), PAW PBE, static lattice, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, cobalt_hcp pbe, parenthesized static-lattice values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "cobalt_hcp",
+      "file": "cobalt_hcp.eosmat",
+      "record": "cobalt_hcp_dewaele_2008_paw_pbe_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW PBE, 298 K, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, cobalt_hcp pbe, unparenthesized 298 K values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "cobalt_hcp",
+      "file": "cobalt_hcp.eosmat",
+      "record": "cobalt_hcp_dewaele_2008_paw_pbesol_static_vinet",
+      "label": "Dewaele et al. (2008), PAW PBESOL, static lattice, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, cobalt_hcp pbesol, parenthesized static-lattice values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "cobalt_hcp",
+      "file": "cobalt_hcp.eosmat",
+      "record": "cobalt_hcp_dewaele_2008_paw_pbesol_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW PBESOL, 298 K, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, cobalt_hcp pbesol, unparenthesized 298 K values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "fe",
+      "file": "fe.eosmat",
+      "record": "fe_dewaele_2008_paw_lda_static_vinet",
+      "label": "Dewaele et al. (2008), PAW LDA, static lattice, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "deferred",
+      "note": "No separately identified with-semicore alpha-Fe LDA finite-compression curve in Figure 4; raw PAW points are not tabulated. Coefficients are preserved for interchange, pending an independent source benchmark.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, fe lda, parenthesized static-lattice values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "No separately identified with-semicore alpha-Fe LDA finite-compression curve in Figure 4; raw PAW points are not tabulated. Coefficients are preserved for interchange, pending an independent source benchmark."
+      }
+    },
+    {
+      "material": "fe",
+      "file": "fe.eosmat",
+      "record": "fe_dewaele_2008_paw_lda_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW LDA, 298 K, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "deferred",
+      "note": "No separately identified with-semicore alpha-Fe LDA finite-compression curve in Figure 4; raw PAW points are not tabulated. Coefficients are preserved for interchange, pending an independent source benchmark.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, fe lda, unparenthesized 298 K values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "No separately identified with-semicore alpha-Fe LDA finite-compression curve in Figure 4; raw PAW points are not tabulated. Coefficients are preserved for interchange, pending an independent source benchmark."
+      }
+    },
+    {
+      "material": "fe",
+      "file": "fe.eosmat",
+      "record": "fe_dewaele_2008_paw_pbe_static_vinet",
+      "label": "Dewaele et al. (2008), PAW PBE, static lattice, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, fe pbe, parenthesized static-lattice values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "fe",
+      "file": "fe.eosmat",
+      "record": "fe_dewaele_2008_paw_pbe_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW PBE, 298 K, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, fe pbe, unparenthesized 298 K values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "fe",
+      "file": "fe.eosmat",
+      "record": "fe_dewaele_2008_paw_pbesol_static_vinet",
+      "label": "Dewaele et al. (2008), PAW PBESOL, static lattice, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, fe pbesol, parenthesized static-lattice values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "fe",
+      "file": "fe.eosmat",
+      "record": "fe_dewaele_2008_paw_pbesol_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW PBESOL, 298 K, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, fe pbesol, unparenthesized 298 K values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "gold",
+      "file": "gold.eosmat",
+      "record": "gold_dewaele_2008_paw_lda_static_vinet",
+      "label": "Dewaele et al. (2008), PAW LDA, static lattice, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, gold lda, parenthesized static-lattice values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "gold",
+      "file": "gold.eosmat",
+      "record": "gold_dewaele_2008_paw_lda_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW LDA, 298 K, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, gold lda, unparenthesized 298 K values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "gold",
+      "file": "gold.eosmat",
+      "record": "gold_dewaele_2008_paw_pbe_static_vinet",
+      "label": "Dewaele et al. (2008), PAW PBE, static lattice, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, gold pbe, parenthesized static-lattice values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "gold",
+      "file": "gold.eosmat",
+      "record": "gold_dewaele_2008_paw_pbe_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW PBE, 298 K, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, gold pbe, unparenthesized 298 K values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "gold",
+      "file": "gold.eosmat",
+      "record": "gold_dewaele_2008_paw_pbesol_static_vinet",
+      "label": "Dewaele et al. (2008), PAW PBESOL, static lattice, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, gold pbesol, parenthesized static-lattice values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "gold",
+      "file": "gold.eosmat",
+      "record": "gold_dewaele_2008_paw_pbesol_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW PBESOL, 298 K, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, gold pbesol, unparenthesized 298 K values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_dewaele_2008_paw_lda_static_vinet",
+      "label": "Dewaele et al. (2008), PAW LDA, static lattice, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "not_reproduced",
+      "note": "The hcp-Fe LDA Table VI parameterization disagrees with the thick LDA Figure 4 path assigned to with-semicore PAW beyond digitization and printed-precision bounds. The follow-up finds agreement with the thin path instead (static maximum difference 0.00244 A3/atom; 298 K 0.00138 A3/atom). The source's table/semicore identity remains unresolved; diagnostic only, not recommended for predictions or pressure calibration. See docs/literature-reproductions/dewaele-2008-metals.md#follow-up-hcp-fe-lda-curve-identity.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, iron lda, parenthesized static-lattice values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "The hcp-Fe LDA Table VI parameterization disagrees with the thick LDA Figure 4 path assigned to with-semicore PAW beyond digitization and printed-precision bounds. The follow-up finds agreement with the thin path instead (static maximum difference 0.00244 A3/atom; 298 K 0.00138 A3/atom). The source's table/semicore identity remains unresolved; diagnostic only, not recommended for predictions or pressure calibration. See docs/literature-reproductions/dewaele-2008-metals.md#follow-up-hcp-fe-lda-curve-identity."
+      },
+      "usage_recommendation": "not_recommended",
+      "reproduction_status": "not_reproduced",
+      "recommendation_date": "2026-10-23",
+      "recommendation_audit": "docs/literature-reproductions/dewaele-2008-metals.md",
+      "recommendation_reason": "The hcp-Fe LDA Table VI parameterization disagrees with the thick LDA Figure 4 path assigned to with-semicore PAW beyond digitization and printed-precision bounds. The follow-up finds agreement with the thin path instead (static maximum difference 0.00244 A3/atom; 298 K 0.00138 A3/atom). The source's table/semicore identity remains unresolved; diagnostic only, not recommended for predictions or pressure calibration. See docs/literature-reproductions/dewaele-2008-metals.md#follow-up-hcp-fe-lda-curve-identity."
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_dewaele_2008_paw_lda_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW LDA, 298 K, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "not_reproduced",
+      "note": "The hcp-Fe LDA Table VI parameterization disagrees with the thick LDA Figure 4 path assigned to with-semicore PAW beyond digitization and printed-precision bounds. The follow-up finds agreement with the thin path instead (static maximum difference 0.00244 A3/atom; 298 K 0.00138 A3/atom). The source's table/semicore identity remains unresolved; diagnostic only, not recommended for predictions or pressure calibration. See docs/literature-reproductions/dewaele-2008-metals.md#follow-up-hcp-fe-lda-curve-identity.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, iron lda, unparenthesized 298 K values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "The hcp-Fe LDA Table VI parameterization disagrees with the thick LDA Figure 4 path assigned to with-semicore PAW beyond digitization and printed-precision bounds. The follow-up finds agreement with the thin path instead (static maximum difference 0.00244 A3/atom; 298 K 0.00138 A3/atom). The source's table/semicore identity remains unresolved; diagnostic only, not recommended for predictions or pressure calibration. See docs/literature-reproductions/dewaele-2008-metals.md#follow-up-hcp-fe-lda-curve-identity."
+      },
+      "usage_recommendation": "not_recommended",
+      "reproduction_status": "not_reproduced",
+      "recommendation_date": "2026-10-23",
+      "recommendation_audit": "docs/literature-reproductions/dewaele-2008-metals.md",
+      "recommendation_reason": "The hcp-Fe LDA Table VI parameterization disagrees with the thick LDA Figure 4 path assigned to with-semicore PAW beyond digitization and printed-precision bounds. The follow-up finds agreement with the thin path instead (static maximum difference 0.00244 A3/atom; 298 K 0.00138 A3/atom). The source's table/semicore identity remains unresolved; diagnostic only, not recommended for predictions or pressure calibration. See docs/literature-reproductions/dewaele-2008-metals.md#follow-up-hcp-fe-lda-curve-identity."
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_dewaele_2008_paw_pbe_static_vinet",
+      "label": "Dewaele et al. (2008), PAW PBE, static lattice, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, iron pbe, parenthesized static-lattice values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_dewaele_2008_paw_pbe_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW PBE, 298 K, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, iron pbe, unparenthesized 298 K values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_dewaele_2008_paw_pbesol_static_vinet",
+      "label": "Dewaele et al. (2008), PAW PBESOL, static lattice, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, iron pbesol, parenthesized static-lattice values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "iron",
+      "file": "iron.eosmat",
+      "record": "iron_dewaele_2008_paw_pbesol_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW PBESOL, 298 K, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, iron pbesol, unparenthesized 298 K values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "molybdenum",
+      "file": "molybdenum.eosmat",
+      "record": "molybdenum_dewaele_2008_paw_lda_static_vinet",
+      "label": "Dewaele et al. (2008), PAW LDA, static lattice, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, molybdenum lda, parenthesized static-lattice values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "molybdenum",
+      "file": "molybdenum.eosmat",
+      "record": "molybdenum_dewaele_2008_paw_lda_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW LDA, 298 K, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, molybdenum lda, unparenthesized 298 K values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "molybdenum",
+      "file": "molybdenum.eosmat",
+      "record": "molybdenum_dewaele_2008_paw_pbe_static_vinet",
+      "label": "Dewaele et al. (2008), PAW PBE, static lattice, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, molybdenum pbe, parenthesized static-lattice values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "molybdenum",
+      "file": "molybdenum.eosmat",
+      "record": "molybdenum_dewaele_2008_paw_pbe_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW PBE, 298 K, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, molybdenum pbe, unparenthesized 298 K values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "molybdenum",
+      "file": "molybdenum.eosmat",
+      "record": "molybdenum_dewaele_2008_paw_pbesol_static_vinet",
+      "label": "Dewaele et al. (2008), PAW PBESOL, static lattice, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, molybdenum pbesol, parenthesized static-lattice values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "molybdenum",
+      "file": "molybdenum.eosmat",
+      "record": "molybdenum_dewaele_2008_paw_pbesol_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW PBESOL, 298 K, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, molybdenum pbesol, unparenthesized 298 K values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "nickel",
+      "file": "nickel.eosmat",
+      "record": "nickel_dewaele_2008_paw_lda_static_vinet",
+      "label": "Dewaele et al. (2008), PAW LDA, static lattice, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, nickel lda, parenthesized static-lattice values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "nickel",
+      "file": "nickel.eosmat",
+      "record": "nickel_dewaele_2008_paw_lda_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW LDA, 298 K, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, nickel lda, unparenthesized 298 K values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "nickel",
+      "file": "nickel.eosmat",
+      "record": "nickel_dewaele_2008_paw_pbe_static_vinet",
+      "label": "Dewaele et al. (2008), PAW PBE, static lattice, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, nickel pbe, parenthesized static-lattice values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "nickel",
+      "file": "nickel.eosmat",
+      "record": "nickel_dewaele_2008_paw_pbe_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW PBE, 298 K, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, nickel pbe, unparenthesized 298 K values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "nickel",
+      "file": "nickel.eosmat",
+      "record": "nickel_dewaele_2008_paw_pbesol_static_vinet",
+      "label": "Dewaele et al. (2008), PAW PBESOL, static lattice, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, nickel pbesol, parenthesized static-lattice values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "nickel",
+      "file": "nickel.eosmat",
+      "record": "nickel_dewaele_2008_paw_pbesol_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW PBESOL, 298 K, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, nickel pbesol, unparenthesized 298 K values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "platinum",
+      "file": "platinum.eosmat",
+      "record": "platinum_dewaele_2008_paw_lda_static_vinet",
+      "label": "Dewaele et al. (2008), PAW LDA, static lattice, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, platinum lda, parenthesized static-lattice values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "platinum",
+      "file": "platinum.eosmat",
+      "record": "platinum_dewaele_2008_paw_lda_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW LDA, 298 K, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, platinum lda, unparenthesized 298 K values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "platinum",
+      "file": "platinum.eosmat",
+      "record": "platinum_dewaele_2008_paw_pbe_static_vinet",
+      "label": "Dewaele et al. (2008), PAW PBE, static lattice, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, platinum pbe, parenthesized static-lattice values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "platinum",
+      "file": "platinum.eosmat",
+      "record": "platinum_dewaele_2008_paw_pbe_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW PBE, 298 K, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, platinum pbe, unparenthesized 298 K values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "platinum",
+      "file": "platinum.eosmat",
+      "record": "platinum_dewaele_2008_paw_pbesol_static_vinet",
+      "label": "Dewaele et al. (2008), PAW PBESOL, static lattice, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, platinum pbesol, parenthesized static-lattice values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "platinum",
+      "file": "platinum.eosmat",
+      "record": "platinum_dewaele_2008_paw_pbesol_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW PBESOL, 298 K, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, platinum pbesol, unparenthesized 298 K values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "silver",
+      "file": "silver.eosmat",
+      "record": "silver_dewaele_2008_paw_lda_static_vinet",
+      "label": "Dewaele et al. (2008), PAW LDA, static lattice, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, silver lda, parenthesized static-lattice values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "silver",
+      "file": "silver.eosmat",
+      "record": "silver_dewaele_2008_paw_lda_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW LDA, 298 K, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, silver lda, unparenthesized 298 K values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "silver",
+      "file": "silver.eosmat",
+      "record": "silver_dewaele_2008_paw_pbe_static_vinet",
+      "label": "Dewaele et al. (2008), PAW PBE, static lattice, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, silver pbe, parenthesized static-lattice values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "silver",
+      "file": "silver.eosmat",
+      "record": "silver_dewaele_2008_paw_pbe_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW PBE, 298 K, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, silver pbe, unparenthesized 298 K values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "silver",
+      "file": "silver.eosmat",
+      "record": "silver_dewaele_2008_paw_pbesol_static_vinet",
+      "label": "Dewaele et al. (2008), PAW PBESOL, static lattice, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, silver pbesol, parenthesized static-lattice values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "silver",
+      "file": "silver.eosmat",
+      "record": "silver_dewaele_2008_paw_pbesol_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW PBESOL, 298 K, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, silver pbesol, unparenthesized 298 K values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "zinc_hcp",
+      "file": "zinc_hcp.eosmat",
+      "record": "zinc_hcp_dewaele_2008_paw_lda_static_vinet",
+      "label": "Dewaele et al. (2008), PAW LDA, static lattice, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, zinc_hcp lda, parenthesized static-lattice values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "zinc_hcp",
+      "file": "zinc_hcp.eosmat",
+      "record": "zinc_hcp_dewaele_2008_paw_lda_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW LDA, 298 K, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, zinc_hcp lda, unparenthesized 298 K values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "zinc_hcp",
+      "file": "zinc_hcp.eosmat",
+      "record": "zinc_hcp_dewaele_2008_paw_pbe_static_vinet",
+      "label": "Dewaele et al. (2008), PAW PBE, static lattice, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, zinc_hcp pbe, parenthesized static-lattice values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "zinc_hcp",
+      "file": "zinc_hcp.eosmat",
+      "record": "zinc_hcp_dewaele_2008_paw_pbe_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW PBE, 298 K, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, zinc_hcp pbe, unparenthesized 298 K values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "zinc_hcp",
+      "file": "zinc_hcp.eosmat",
+      "record": "zinc_hcp_dewaele_2008_paw_pbesol_static_vinet",
+      "label": "Dewaele et al. (2008), PAW PBESOL, static lattice, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, zinc_hcp pbesol, parenthesized static-lattice values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    },
+    {
+      "material": "zinc_hcp",
+      "file": "zinc_hcp.eosmat",
+      "record": "zinc_hcp_dewaele_2008_paw_pbesol_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW PBESOL, 298 K, with semicore",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table VI, zinc_hcp pbesol, unparenthesized 298 K values, p. 104102-10"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+      }
+    }
+  ],
+  "catalog_scope": "research_only"
+}

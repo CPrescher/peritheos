@@ -5,6 +5,29 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+## [0.16.2] - 2026-10-23
+
+### Fixed
+
+- Correct the source attribution and input pressure-scale provenance of the
+  historical Dewaele (2008) Ag and Ni identifiers. Their original numerical
+  coefficients remain unchanged; they identify the matching 2019 Mao-scale
+  parameterizations. Preserve the published pressure-scale alternatives.
+
+### Added
+
+- Add all 13 experimental Table IV Dewaele (2008) Vinet EOS, complete source
+  observations and independently replayed fits. Record conditional parameter
+  parity within the reported 95% intervals, with source-fixed volumes and
+  ultrasonic-modulus alternatives; author-workflow reproduction is not claimed.
+- Preserve all 54 Table VI PAW parameterizations in a separate research EOSMAT
+  collection with source provenance, graphical checkpoints and complete checks.
+  Exclude them from the main database and catalog discovery. Retain the four
+  unresolved Fe LDA qualifications and all published coefficients.
+- Document the distinction between the 2004 ruby scale used by the experimental
+  fits and the 2008 ten-metal calibration proposed as an output. The original
+  ruby optimization remains unreproduced; no calibration coefficients change.
+
 ## [0.16.1] - 2026-10-19
 
 ### Added
@@ -1329,7 +1352,8 @@ qualified outcomes and links to individual reproductions.
   and out-of-domain states.
 - Project naming and release metadata were standardized.
 
-[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.16.1...HEAD
+[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.16.2...HEAD
+[0.16.2]: https://github.com/CPrescher/peritheos/compare/v0.16.1...v0.16.2
 [0.16.1]: https://github.com/CPrescher/peritheos/compare/v0.16.0...v0.16.1
 [0.16.0]: https://github.com/CPrescher/peritheos/compare/v0.15.0...v0.16.0
 [0.13.0]: https://github.com/CPrescher/peritheos/compare/v0.12.0...v0.13.0

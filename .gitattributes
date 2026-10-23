@@ -42,3 +42,6 @@ output/palladium-baty-2024-refit-2026-10-17/*.csv -text whitespace=cr-at-eol
 output/palladium-frost-2023-own-data-2026-10-17/*.csv -text whitespace=cr-at-eol
 # Preserve generated research-figure bytes, including Matplotlib path spacing.
 output/**/*.svg -text whitespace=-blank-at-eol,-blank-at-eof
+
+# Preserve recovered Dewaele tables and their recorded byte fingerprints.
+*dewaele-2008*.csv -text -eol whitespace=cr-at-eol

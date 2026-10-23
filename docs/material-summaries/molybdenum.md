@@ -20,8 +20,8 @@ and recommendation for use are distinct assessments.
 | Pressure unit | GPa |
 | Temperature unit | K |
 | Volume unit | Å³ per conventional unit cell |
-| Stored EOS records | 7 |
-| Observation datasets | 5 |
+| Stored EOS records | 9 |
+| Observation datasets | 6 |
 
 Ambient bcc phase reference: JCPDS 42-1120.
 
@@ -41,6 +41,8 @@ Ambient bcc phase reference: JCPDS 42-1120.
 | [Dewaele (2019), Mo DOR-scale Vinet](#record-molybdenum_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Pressure-scale reference variant |
 | [Dorfman et al. (2012), Mo K0-fixed Vinet](#record-molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet) | Vinet | 300.0 | primary source validated | Executable |
 | [Dorfman et al. (2012), Mo K0-free Vinet](#record-molybdenum_dorfman_2012_tange_mgo_k0_free_vinet) | Vinet | 300.0 | primary source validated | Executable |
+| [Dewaele et al. (2008), Table IV Vinet, K0 fitted](#record-molybdenum_dewaele_2008_table4_vinet) | Vinet | 300.0 | primary source validated | Executable |
+| [Dewaele et al. (2008), Table IV Vinet, US K0=261 GPa fixed](#record-molybdenum_dewaele_2008_table4_us_k0_261_vinet) | Vinet | 300.0 | primary source validated | Executable |
 
 ### Reference coefficients
 
@@ -53,6 +55,8 @@ Ambient bcc phase reference: JCPDS 42-1120.
 | [Dewaele (2019), Mo DOR-scale Vinet](#record-molybdenum_dewaele_2019_dor_vinet) | 31.134 ± 0.042 | 269.3 ± 3.9 | 3.87 ± 0.12 |
 | [Dorfman et al. (2012), Mo K0-fixed Vinet](#record-molybdenum_dorfman_2012_tange_mgo_k0_fixed_vinet) | 31.17 (fixed) | 261.0 (fixed) | 4.19 ± 0.02 |
 | [Dorfman et al. (2012), Mo K0-free Vinet](#record-molybdenum_dorfman_2012_tange_mgo_k0_free_vinet) | 31.17 (fixed) | 271.0 ± 3.0 | 3.89 ± 0.09 |
+| [Dewaele et al. (2008), Table IV Vinet, K0 fitted](#record-molybdenum_dewaele_2008_table4_vinet) | 31.116 (fixed) | 274.1 ± 3.2 | 3.58 ± 0.12 |
+| [Dewaele et al. (2008), Table IV Vinet, US K0=261 GPa fixed](#record-molybdenum_dewaele_2008_table4_us_k0_261_vinet) | 31.116 (fixed) | 261.0 (fixed) | 4.06 ± 0.05 |
 
 Errors are shown only when supplied, with their source meaning; a bare
 central value does not imply zero uncertainty. A dash means this parameter
@@ -1146,6 +1150,304 @@ Parameter covariance is not supplied.
 
 </details>
 
+<a id="record-molybdenum_dewaele_2008_table4_vinet"></a>
+
+## Dewaele et al. (2008), Table IV Vinet, K0 fitted
+
+Identifier: `molybdenum_dewaele_2008_table4_vinet`.
+
+Availability: **Executable**.
+
+
+- **Record kind:** published
+- **Origin of the parameterization:** experimental
+- **Equation kind:** isothermal
+- **Reference:**
+    - **Authors:** Dewaele; Torrent; Loubeyre; Mezouar
+    - **Year:** 2008
+    - **Title:** Compression curves of transition metals in the Mbar range: Experiments and projector augmented-wave calculations
+    - **Source:** Physical Review B
+    - **Volume:** 78
+    - **Locator:** 104102
+    - **DOI:** 10.1103/PhysRevB.78.104102
+- **Reference temperature (K):** 300.0
+- **Reported pressure coverage (GPa):** \[0.0, 97.9\]
+- **Coverage provenance:** reported\_qualitatively
+- **Reported error confidence level:** 0.95
+
+| Component | Parameter | Value | Reported error | Fixed |
+| --- | --- | --- | --- | --- |
+| Primary | V0 | 31.116 | Not reported | Yes |
+| Primary | K0 | 274.1 | 3.2 | Not listed |
+| Primary | K0\_prime | 3.58 | 0.12 | Not listed |
+
+Values use the source model's parameter units. Primary `V0` uses
+the conventional-cell volume declared above. Errors retain their reported
+meaning; an absent error is unknown, and absence of covariance does not
+establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
+
+[Open reconstruction report](../reconstruction-reports/molybdenum.md#record-molybdenum_dewaele_2008_table4_vinet)
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 274 | 3 | 273.762 | Not reported | Free |
+| K0\_prime | 3.58 | 0.12 | 3.59726 | Not reported | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** unweighted pressure residuals
+- **Selection:** all rows except run 2 revised pressure &gt;100 GPa
+- **Columns:**
+    - **Pressure:** ruby\_pressure\_dewaele\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** atomic\_volume\_a3
+- **Weighting:** unweighted diagnostic; source weights not specified
+- **Absolute sigma:** Not specified
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Fixed values:**
+    - **V0:** 31.116
+- **Observations:** 26
+- **Observed pressure range gpa:** 0; 97.9
+- **Observed volume range:** 24.5874; 31.1168
+- **Degrees of freedom:** 24
+- **Solver success:** True
+- **Solver message:** \`xtol\` termination condition is satisfied.
+- **Rmse gpa:** 0.33605
+- **Published rmse gpa:** 0.336982
+- **Dataset identifiers:** molybdenum\_dewaele\_2008\_source\_table
+
+</details>
+
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 and K0-prime are fitted. All printed rows are retained; run-2 Ag/Mo rows with revised pressure &gt;100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.
+
+Parameter covariance is not supplied.
+
+
+<details markdown="1">
+<summary>Scientific validation and usage qualifications</summary>
+
+- **Status:** primary\_source\_validated
+- **Audit date:** 2026-10-23
+- **Note:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+- **Verified fields:** equation; parameters; units; reference\_state; phase; published\_uncertainties; fixed\_parameters
+- **Primary source check:**
+    - **DOI:** 10.1103/PhysRevB.78.104102
+    - **Access URL:** https://doi.org/10.1103/PhysRevB.78.104102
+    - **Locations:** Equation (1); Table IV, third column, p. 104102-5
+    - **Source pdf sha256:** a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf
+    - **Finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+- **Primary data check:**
+    - **Status:** bundled
+    - **Dataset identifiers:** molybdenum\_dewaele\_2008\_source\_table
+    - **Finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+
+</details>
+
+
+<details markdown="1">
+<summary>Pressure calibration</summary>
+
+- **Status:** resolved
+- **Methods:**
+    - **Kind:** ruby\_fluorescence
+    - **Reference calibration record:** ruby\_dewaele\_2004
+    - **Source location:** Section IV, Tables II-IV: P\_R-prime from reference 3
+- **Recalculation:**
+    - **Status:** ready
+    - **Notes:** Revised-scale pressures are tabulated. Ruby-only pressures can be inverted to the corrected wavelength ratio. For parenthesized run-6 rows the pressure came from helium: raw He volumes are absent, so an exact mixed-gauge recalibration is unavailable. No wavelength or helium volume is synthesized.
+- **Audit date:** 2026-10-22
+
+</details>
+
+
+<details markdown="1">
+<summary>Parameter provenance</summary>
+
+- **V0:** Table IV, third column, p. 104102-5; atomic V0 multiplied by Z=2
+- **K0:** Table IV, third column, p. 104102-5
+- **K0 prime:** Table IV, third column, p. 104102-5
+- **Origin of the parameterization:** DAC observations on the 2004 revised ruby scale; V0 fixed from separate 0-5 GPa reduction.
+
+</details>
+
+<a id="record-molybdenum_dewaele_2008_table4_us_k0_261_vinet"></a>
+
+## Dewaele et al. (2008), Table IV Vinet, US K0=261 GPa fixed
+
+Identifier: `molybdenum_dewaele_2008_table4_us_k0_261_vinet`.
+
+Availability: **Executable**.
+
+
+- **Record kind:** published
+- **Origin of the parameterization:** experimental
+- **Equation kind:** isothermal
+- **Reference:**
+    - **Authors:** Dewaele; Torrent; Loubeyre; Mezouar
+    - **Year:** 2008
+    - **Title:** Compression curves of transition metals in the Mbar range: Experiments and projector augmented-wave calculations
+    - **Source:** Physical Review B
+    - **Volume:** 78
+    - **Locator:** 104102
+    - **DOI:** 10.1103/PhysRevB.78.104102
+- **Reference temperature (K):** 300.0
+- **Reported pressure coverage (GPa):** \[0.0, 97.9\]
+- **Coverage provenance:** reported\_qualitatively
+- **Reported error confidence level:** 0.95
+
+| Component | Parameter | Value | Reported error | Fixed |
+| --- | --- | --- | --- | --- |
+| Primary | V0 | 31.116 | Not reported | Yes |
+| Primary | K0 | 261.0 | Not reported | Yes |
+| Primary | K0\_prime | 4.06 | 0.05 | Not listed |
+
+Values use the source model's parameter units. Primary `V0` uses
+the conventional-cell volume declared above. Errors retain their reported
+meaning; an absent error is unknown, and absence of covariance does not
+establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
+
+[Open reconstruction report](../reconstruction-reports/molybdenum.md#record-molybdenum_dewaele_2008_table4_us_k0_261_vinet)
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0\_prime | 4.06 | 0.05 | 4.08693 | Not reported | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** unweighted pressure residuals
+- **Selection:** all rows except run 2 revised pressure &gt;100 GPa
+- **Columns:**
+    - **Pressure:** ruby\_pressure\_dewaele\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** atomic\_volume\_a3
+- **Weighting:** unweighted diagnostic; source weights not specified
+- **Absolute sigma:** Not specified
+- **Free parameters:** K0\_prime
+- **Fixed parameters:** V0; K0
+- **Fixed values:**
+    - **K0:** 261
+    - **V0:** 31.116
+- **Observations:** 26
+- **Observed pressure range gpa:** 0; 97.9
+- **Observed volume range:** 24.5874; 31.1168
+- **Degrees of freedom:** 25
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.630865
+- **Published rmse gpa:** 0.642675
+- **Dataset identifiers:** molybdenum\_dewaele\_2008\_source\_table
+
+</details>
+
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 is adopted from ultrasound and fixed; its adopted uncertainty is not a fitted parameter error. All printed rows are retained; run-2 Ag/Mo rows with revised pressure &gt;100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.
+
+Parameter covariance is not supplied.
+
+
+<details markdown="1">
+<summary>Scientific validation and usage qualifications</summary>
+
+- **Status:** primary\_source\_validated
+- **Audit date:** 2026-10-23
+- **Note:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+- **Verified fields:** equation; parameters; units; reference\_state; phase; published\_uncertainties; fixed\_parameters
+- **Primary source check:**
+    - **DOI:** 10.1103/PhysRevB.78.104102
+    - **Access URL:** https://doi.org/10.1103/PhysRevB.78.104102
+    - **Locations:** Equation (1); Table IV, fourth column, p. 104102-5
+    - **Source pdf sha256:** a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf
+    - **Finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+- **Primary data check:**
+    - **Status:** bundled
+    - **Dataset identifiers:** molybdenum\_dewaele\_2008\_source\_table
+    - **Finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+
+</details>
+
+
+<details markdown="1">
+<summary>Pressure calibration</summary>
+
+- **Status:** resolved
+- **Methods:**
+    - **Kind:** ruby\_fluorescence
+    - **Reference calibration record:** ruby\_dewaele\_2004
+    - **Source location:** Section IV, Tables II-IV: P\_R-prime from reference 3
+- **Recalculation:**
+    - **Status:** ready
+    - **Notes:** Revised-scale pressures are tabulated. Ruby-only pressures can be inverted to the corrected wavelength ratio. For parenthesized run-6 rows the pressure came from helium: raw He volumes are absent, so an exact mixed-gauge recalibration is unavailable. No wavelength or helium volume is synthesized.
+- **Audit date:** 2026-10-22
+
+</details>
+
+
+<details markdown="1">
+<summary>Parameter provenance</summary>
+
+- **V0:** Table IV, fourth column, p. 104102-5; atomic V0 multiplied by Z=2
+- **K0:** Table IV, fourth column, p. 104102-5
+- **K0 prime:** Table IV, fourth column, p. 104102-5
+- **Origin of the parameterization:** DAC observations on the 2004 revised ruby scale; V0 fixed from separate 0-5 GPa reduction; K0 fixed to adopted ultrasonic value.
+
+</details>
+
 ## Observation datasets
 
 ### molybdenum\_sakai\_2025\_table\_s9\_rs\_eos\_grid
@@ -1237,3 +1539,22 @@ Parameter covariance is not supplied.
 
 [Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/molybdenum-sakai-2025-table-s5-measured-pairs.csv)
 — SHA-256 `85a170737a05c65e06989eb1e90a6d944a2eb669f7ff5fed2829778427018156`.
+
+### molybdenum\_dewaele\_2008\_source\_table
+
+- **Description:** Complete source table rows, including excluded observations and gauge flags; selection belongs to each fit.
+- **Kind:** pressure\_volume\_lattice\_parameters\_with\_calibrant
+- **Reference:**
+    - **Authors:** Dewaele; Torrent; Loubeyre; Mezouar
+    - **Year:** 2008
+    - **Title:** Compression curves of transition metals in the Mbar range: Experiments and projector augmented-wave calculations
+    - **Source:** Physical Review B
+    - **Volume:** 78
+    - **Locator:** 104102
+    - **DOI:** 10.1103/PhysRevB.78.104102
+- **Source location:** Table II
+- **Associated EOS records:** molybdenum\_dewaele\_2008\_table4\_vinet; molybdenum\_dewaele\_2008\_table4\_us\_k0\_261\_vinet
+- **Notes:** Source tokens, run identities, reported lattice data and mixed-gauge markings retained. Common Table II volume uncertainty 0.01 A3/atom is reported without an explicit confidence convention; pressure precision endpoints do not supply rowwise errors. No rowwise uncertainty array is synthesized.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/molybdenum-dewaele-2008-source-table2.csv)
+— SHA-256 `21171d3ccd613f806b8ac369d9654feeb5727a59dfe9eb0c92990545ae2c4f02`.
