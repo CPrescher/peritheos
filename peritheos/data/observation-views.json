@@ -13926,11 +13926,11 @@
             "nickel_dewaele_2008_vinet_1"
           ],
           "evidence_kind": "experimental",
-          "notes": "The source pressure column is selected by the explicit record calibration. A declared ruby-scale conversion uses the existing signal-ratio calculation. Source errors are not total calibration uncertainty.",
+          "notes": "Historical compatibility identifier for the 2019 Mao-scale parameterization: use the printed Mao pressure column, exactly as for the matching 2019 parent. The underlying observations remain the 2008 Table II source data; source errors are not total calibration uncertainty.",
           "coordinates": {
             "pressure": {
               "kind": "column",
-              "column": "ruby_pressure_dewaele_gpa"
+              "column": "ruby_pressure_mao_gpa"
             },
             "volume": {
               "kind": "column",
@@ -13991,7 +13991,7 @@
         }
       ],
       "record_pressure_calibration_sha256": {
-        "nickel_dewaele_2008_vinet_1": "cbcdc4cabf3cd9cf5e739984b12b0455b6de65f2c335ba69aa4781d76e957717",
+        "nickel_dewaele_2008_vinet_1": "c6c772668cffc548c9b65b8c23561447e9f9c4c2f54a59cf2f083c7cbb3866a1",
         "nickel_dewaele_2019_mao_vinet": "c6c772668cffc548c9b65b8c23561447e9f9c4c2f54a59cf2f083c7cbb3866a1",
         "nickel_dewaele_2019_dor_vinet": "5652b2afe7926104e65dff98781fa7766572096e090e861aab7aa158f311f326"
       }
@@ -13999,7 +13999,7 @@
     {
       "material_id": "silver",
       "dataset_id": "silver_dewaele_2008_table2_compression",
-      "declaration_sha256": "f55d1ea8e0c2a47e04444fdf9a6200c77ebb8e635eebb2325f77b1337d7f73a6",
+      "declaration_sha256": "72934528ec13aee92af7327ed74c7a41934d2bb4d15a0fcfd250fcc8d06260e2",
       "material_identity_sha256": "d9fd43f41d57be0d452ad76c6774bdb0f76a65e3740b9a5aa4b44aa8cc0472fd",
       "views": [
         {
@@ -14008,11 +14008,11 @@
             "silver_dewaele_2008_vinet_1"
           ],
           "evidence_kind": "experimental",
-          "notes": "The source pressure column is selected by the explicit record calibration. A declared ruby-scale conversion uses the existing signal-ratio calculation. Source errors are not total calibration uncertainty.",
+          "notes": "Historical compatibility identifier for the 2019 Mao-scale parameterization: use the printed Mao pressure column, exactly as for the matching 2019 parent. The underlying observations remain the 2008 Table II source data; source errors are not total calibration uncertainty.",
           "coordinates": {
             "pressure": {
               "kind": "column",
-              "column": "ruby_pressure_dewaele_gpa"
+              "column": "ruby_pressure_mao_gpa"
             },
             "volume": {
               "kind": "column",
@@ -14073,7 +14073,7 @@
         }
       ],
       "record_pressure_calibration_sha256": {
-        "silver_dewaele_2008_vinet_1": "cbcdc4cabf3cd9cf5e739984b12b0455b6de65f2c335ba69aa4781d76e957717",
+        "silver_dewaele_2008_vinet_1": "c6c772668cffc548c9b65b8c23561447e9f9c4c2f54a59cf2f083c7cbb3866a1",
         "silver_dewaele_2019_mao_vinet": "c6c772668cffc548c9b65b8c23561447e9f9c4c2f54a59cf2f083c7cbb3866a1",
         "silver_dewaele_2019_dor_vinet": "5652b2afe7926104e65dff98781fa7766572096e090e861aab7aa158f311f326"
       }

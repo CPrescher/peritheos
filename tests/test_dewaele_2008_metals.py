@@ -6,7 +6,12 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from peritheos import get_eos_record, get_material_document, search_eos_records
+from peritheos import (
+    get_eos_record,
+    get_material_document,
+    resolve_dataset_observations,
+    search_eos_records,
+)
 from scripts.reproduce_dewaele_2008_metals import (
     experiment_rows,
     reproduce,
@@ -196,3 +201,22 @@ def test_common_ledger_retains_the_dedicated_source_outcomes():
             relocate_record_links(temporary)
             expected_assessment = temporary["evidence"]["reproduction"]["assessment"]
         assert native["evidence"]["reproduction"]["assessment"] == expected_assessment
+
+
+@pytest.mark.parametrize("material", ["nickel", "silver"])
+def test_historical_compatibility_views_use_the_published_mao_coordinates(material):
+    document = get_material_document(material)
+    dataset = f"{material}_dewaele_2008_table2_compression"
+    compatibility = resolve_dataset_observations(
+        document, f"{material}_dewaele_2008_vinet_1", dataset
+    )
+    parent = resolve_dataset_observations(
+        document, f"{material}_dewaele_2019_mao_vinet", dataset
+    )
+    with (DATA / f"{material}-dewaele-2008-table2-compression.csv").open() as stream:
+        source = list(csv.DictReader(stream))
+    assert compatibility.pressure_gpa == pytest.approx(
+        [float(row["ruby_pressure_mao_gpa"]) for row in source]
+    )
+    assert np.array_equal(compatibility.pressure_gpa, parent.pressure_gpa)
+    assert np.array_equal(compatibility.volume_a3, parent.volume_a3)
