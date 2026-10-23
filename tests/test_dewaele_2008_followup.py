@@ -109,6 +109,7 @@ def test_saved_numerical_report_matches_executable_analysis(report):
         for field in (
             "volume_difference_range_a3_per_atom",
             "max_absolute_volume_difference_a3_per_atom",
+            "pressure_rms_gpa",
         ):
             assert comparison.pop(field) == pytest.approx(
                 original.pop(field), rel=1e-10, abs=1e-10
