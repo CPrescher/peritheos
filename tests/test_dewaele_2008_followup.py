@@ -100,10 +100,25 @@ def test_saved_numerical_report_matches_executable_analysis(report):
     from scripts.validate_primary_eos_refits import check_ledger_values
 
     saved = json.loads(Path(REPORT).read_text())
-    # These three diagnostic optimizations vary at optimizer/BLAS roundoff
-    # across supported Python/SciPy builds. Keep source fields and assessments
-    # exact; apply the ledger's calculated-value tolerance only to fit outputs.
+    # Calculated curve differences and optimizations vary at floating-point
+    # roundoff across platforms. Source coordinates, coefficients, counts and
+    # assessments remain exact; calculated differences use a tight bound.
     current = json.loads(json.dumps(report))
+    for name, comparison in current["fe_lda"]["comparisons"].items():
+        original = saved["fe_lda"]["comparisons"][name]
+        for field in (
+            "volume_difference_range_a3_per_atom",
+            "max_absolute_volume_difference_a3_per_atom",
+        ):
+            assert comparison.pop(field) == pytest.approx(
+                original.pop(field), rel=1e-10, abs=1e-10
+            )
+    source_check = saved["ruby_crosscalibration"]["input_scale_table2_check"]
+    replay_check = current["ruby_crosscalibration"]["input_scale_table2_check"]
+    for original, replay in zip(source_check["exceptions"], replay_check["exceptions"]):
+        assert replay.pop("computed_revised_pressure_gpa") == pytest.approx(
+            original.pop("computed_revised_pressure_gpa"), rel=1e-12, abs=1e-10
+        )
     for key in (
         "common_range_mean",
         "individual_ranges_pooled",
