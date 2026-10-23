@@ -31,7 +31,7 @@ produce an executable record.
 
 ## Summary
 
-The register covers **370 primary papers**: **266** support the 664 audited catalog records and **104** were investigated without adding a production record.
+The register covers **370 primary papers**: **266** support the 677 audited catalog records and **104** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
@@ -1135,14 +1135,14 @@ the primary-source and refit ledgers.
 | [data from JCPDS and Levien and Prewitt, 1981](https://msaweb.org/AmMin/AM66/AM66_324.pdf) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Datchi et al. (2007)](https://doi.org/10.1103/physrevb.75.214104) | Reproduced | 3 | 1 parity; 2 similar | 2 bundled; 1 plot only/digitized |
 | [Deng et al. (2006)](https://doi.org/10.1088/0256-307x/23/8/101) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 theoretical parameterization only |
-| [Dewaele (2019)](https://doi.org/10.3390/min9110684) | Mixed: reproduced and discrepant records | 31 | 1 parity; 26 similar; 2 parity not achieved; 2 direct refit unavailable | 27 bundled; 2 partial primary rows bundled; 2 parameterization only |
+| [Dewaele (2019)](https://doi.org/10.3390/min9110684) | Mixed: reproduced and discrepant records | 33 | 1 parity; 28 similar; 2 parity not achieved; 2 direct refit unavailable | 29 bundled; 2 partial primary rows bundled; 2 parameterization only |
 | [Dewaele and Torrent (2013)](https://doi.org/10.1103/physrevb.88.064107) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Dewaele et al. (2000)](https://doi.org/10.1029/1999jb900364) | Reproduced | 5 | 5 parity | 1 bundled; 4 partial primary rows bundled |
 | [Dewaele et al. (2004)](https://doi.org/10.1103/physrevb.70.094112) | Reproduced | 12 | 12 parity | 12 bundled |
 | [Dewaele et al. (2005), high-pressure metrology abstract](https://doi.org/10.1107/S0108767305096972) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Dewaele et al. (2006)](https://doi.org/10.1103/physrevlett.97.215504) | Partly reproduced | 2 | 1 similar; 1 direct refit unavailable | 2 bundled |
 | [Dewaele et al. (2008)](https://doi.org/10.1103/physrevb.77.094106) | Partly reproduced | 3 | 1 parity; 2 source reconstruction | 3 bundled |
-| [Dewaele et al. (2008)](https://doi.org/10.1103/physrevb.78.104102) | Reproduced | 2 | 2 similar | 2 bundled |
+| [Dewaele et al. (2008)](https://doi.org/10.1103/physrevb.78.104102) | Reproduced | 13 | 13 parity | 13 bundled |
 | [Dewaele et al. (2012)](https://doi.org/10.1103/physrevb.85.214105) | Reproduced | 4 | 4 similar | 4 bundled |
 | [Dewaele et al. (2015)](https://doi.org/10.1103/physrevb.91.134108) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Dewaele et al. (2021)](https://doi.org/10.1038/s41598-021-93995-y) | Reproduced | 1 | 1 similar | 1 bundled |
