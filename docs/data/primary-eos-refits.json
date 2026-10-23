@@ -4,7 +4,7 @@
   "generated_with": "scripts/validate_primary_eos_refits.py",
   "policy": {
     "not_refittable": "Available observations or source reduction/calibration details are insufficient for an independent full refit. A qualified subset or proxy calculation may still be available as a diagnostic.",
-    "parity": "Every fitted parameter agrees within combined 2-sigma and also meets the parameter-specific numerical similarity threshold. The Sakai 2018 rhenium audit explicitly accepts numerical parity within reported parameter error widths, with comparable refit standard errors; its source confidence convention remains unknown. Sakai 2011 NaCl-B2 parity is conditional fixed-V0 agreement within printed error widths, without claiming the unspecified source weights, marker averaging or error confidence were recovered. Fei 2007 Au parity is a staged equal-pressure-weight replay within printed parameter widths; source weights, exact MgO reduction and error confidence/covariance remain unresolved. For explicitly registered Peritheos refits, parity verifies the stored coefficients under the documented selection and objective; it does not imply reproduction of source-author coefficients. Diopside parity is conditional agreement within reported error widths, including a graph-corroborated corrected Zhao analysis dataset; exact original inputs and workflow remain unrecovered. Sakai 2025 Au parity concerns only the independently fitted K0-prime central value at published precision under stated calibrants and residuals, not uncertainty or sequential-network parity. Phase E (Crichton and Ross 2000) achieves fit parity within reported parameter error widths, with small pressure-curve differences relative to the observation errors. Exact author workflow availability is a separate provenance assessment. Katsura 2022 forsterite accepts conditional numerical parity within printed Table 2 parameter error widths. The full-precision theta0=760 K author-script vector is recommended; the theta0=768 K table alternative is retained. Table errors are a comparison scale only for the script vector; script-specific errors, covariance and exact bootstrap reproduction remain unavailable.",
+    "parity": "Every fitted parameter agrees within combined 2-sigma and also meets the parameter-specific numerical similarity threshold. The Sakai 2018 rhenium audit explicitly accepts numerical parity within reported parameter error widths, with comparable refit standard errors; its source confidence convention remains unknown. Sakai 2011 NaCl-B2 parity is conditional fixed-V0 agreement within printed error widths, without claiming the unspecified source weights, marker averaging or error confidence were recovered. Fei 2007 Au parity is a staged equal-pressure-weight replay within printed parameter widths; source weights, exact MgO reduction and error confidence/covariance remain unresolved. For explicitly registered Peritheos refits, parity verifies the stored coefficients under the documented selection and objective; it does not imply reproduction of source-author coefficients. Diopside parity is conditional agreement within reported error widths, including a graph-corroborated corrected Zhao analysis dataset; exact original inputs and workflow remain unrecovered. Sakai 2025 Au parity concerns only the independently fitted K0-prime central value at published precision under stated calibrants and residuals, not uncertainty or sequential-network parity. Phase E (Crichton and Ross 2000) achieves fit parity within reported parameter error widths, with small pressure-curve differences relative to the observation errors. Exact author workflow availability is a separate provenance assessment. Katsura 2022 forsterite accepts conditional numerical parity within printed Table 2 parameter error widths. The full-precision theta0=760 K author-script vector is recommended; the theta0=768 K table alternative is retained. Table errors are a comparison scale only for the script vector; script-specific errors, covariance and exact bootstrap reproduction remain unavailable. Dewaele 2008 Table IV parity compares free coefficients with printed 95% parameter widths under the documented fixed constraints. Table VI parity has source-equation scope only: identified Figure 4 checkpoints pass declared reading and printed-coefficient bounds. It is not PAW refit or author-workflow reproduction; the four unresolved Fe LDA sets are excluded.",
     "parity_not_achieved": "At least one fitted parameter is outside both the uncertainty and similarity criteria, or a dedicated partial-source audit cannot reproduce the published coefficient pair.",
     "similar": "Every fitted parameter either agrees within combined 2-sigma or meets the documented parameter-specific similarity threshold.",
     "source_reconstruction": "A source calculation or composition of audited source equations is reproduced without independently fitting the complete EOS coefficients. Component refits and remaining source-input gaps are documented separately."
@@ -40115,88 +40115,78 @@
       "status": "parity"
     },
     {
-      "absolute_sigma": true,
-      "columns": {
-        "pressure": "ruby_pressure_dewaele_gpa",
-        "temperature": null,
-        "volume": "atomic_volume_a3"
-      },
       "dataset_identifiers": [
         "nickel_dewaele_2008_table2_compression"
       ],
-      "degrees_of_freedom": 39,
       "experimental_pressure_range_gpa": [
         0.0,
         157.0
       ],
       "experimental_temperature_range_k": null,
-      "fit_kind": "isothermal_pv",
+      "fit_kind": "static_vinet_with_explicit_ruby_scale_conversion",
       "fixed_parameters": [],
       "free_parameters": [
         "V0",
         "K0",
         "K0_prime"
       ],
-      "label": "Dewaele et al. (2008), Vinet",
+      "label": "Dewaele (2019), Mao-scale Vinet; historical 2008 identifier",
       "material_identifier": "nickel",
       "model": "Vinet",
-      "objective": "pressure_residuals",
+      "objective": "unweighted pressure residuals",
       "observations": 42,
       "observed_pressure_range_gpa": [
         0.0,
-        156.6
-      ],
-      "observed_temperature_range_k": null,
-      "observed_volume_range": [
-        30.5116,
-        43.7692
+        147.4
       ],
       "parameters": [
         {
-          "difference": 0.0432633144382919,
+          "difference": 0.01140979561660771,
           "parameter": "V0",
           "published": 43.816,
           "published_error": 0.072,
-          "refit": 43.859263314438294,
-          "refit_error": 0.05651611678809481,
-          "relative_difference": 0.000987386215955174,
+          "refit": 43.82740979561661,
+          "refit_error": null,
+          "relative_difference": 0.0002604024926193105,
           "similar": true,
-          "within_combined_2sigma": true
+          "within_combined_2sigma": null,
+          "within_reported_95pct": true
         },
         {
-          "difference": -5.588959009180684,
+          "difference": -1.4507331167292818,
           "parameter": "K0",
           "published": 177.5,
           "published_error": 2.4,
-          "refit": 171.91104099081932,
-          "refit_error": 3.120778150112471,
-          "relative_difference": 0.03148709300946864,
+          "refit": 176.04926688327072,
+          "refit_error": null,
+          "relative_difference": 0.008173144319601588,
           "similar": true,
-          "within_combined_2sigma": true
+          "within_combined_2sigma": null,
+          "within_reported_95pct": true
         },
         {
-          "difference": 0.5023052480017975,
+          "difference": 0.037459199246375086,
           "parameter": "K0_prime",
           "published": 4.83,
           "published_error": 0.09,
-          "refit": 5.332305248001798,
-          "refit_error": 0.0792067839078175,
-          "relative_difference": 0.10399694575606575,
+          "refit": 4.867459199246375,
+          "refit_error": null,
+          "relative_difference": 0.007755527794280556,
           "similar": true,
-          "within_combined_2sigma": false
+          "within_combined_2sigma": null,
+          "within_reported_95pct": true
         }
       ],
-      "primary_data_finding": "All 42 Ni pressure-volume observations printed in Table II, retaining both tabulated ruby-scale pressures and the author's helium-EOS pressure flag for selected run-6 points.",
+      "primary_data_finding": "All 42 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).",
       "primary_data_status": "bundled",
-      "primary_source": "https://doi.org/10.1103/PhysRevB.78.104102",
-      "published_rmse_gpa": 3.3381367238639177,
+      "primary_source": "https://www.mdpi.com/2075-163X/9/11/684",
+      "qualification": "Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. Historical 2008 identifier retained with unchanged coefficients; corrected attribution is the 2019 Table 1 Mao-scale fit.",
       "record_identifier": "nickel_dewaele_2008_vinet_1",
-      "reduced_chi_square": 0.39272449671348386,
-      "rmse_gpa": 0.6038814013928853,
-      "selection": "all rows",
-      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "rmse_gpa": 0.6016140965087852,
+      "selection": "complete",
+      "solver_message": "dedicated Dewaele (2019) refit completed",
       "solver_success": true,
-      "source_notes": "Quasi-hydrostatic helium-medium fit; published atomic V0=10.954 A^3 is multiplied by four atoms in the conventional fcc cell. Measurements extend to 157 GPa.",
+      "source_notes": "Compatibility lookup: this identifier historically attributed later 2019 Mao-scale coefficients to the 2008 paper and compared them with revised-scale observations. Its numerical coefficients and uncertainties are preserved exactly. Table IV of the 2008 paper is represented separately by the *_dewaele_2008_table4_* records. The source attribution, calibration and audit are corrected to the matching 2019 Table 1 Mao row; this is not an additional experiment.",
       "status": "similar"
     },
     {
@@ -48266,88 +48256,78 @@
       "status": "similar"
     },
     {
-      "absolute_sigma": true,
-      "columns": {
-        "pressure": "ruby_pressure_dewaele_gpa",
-        "temperature": null,
-        "volume": "atomic_volume_a3"
-      },
       "dataset_identifiers": [
         "silver_dewaele_2008_table2_compression"
       ],
-      "degrees_of_freedom": 31,
       "experimental_pressure_range_gpa": [
         0.0,
         124.0
       ],
       "experimental_temperature_range_k": null,
-      "fit_kind": "isothermal_pv",
+      "fit_kind": "static_vinet_with_explicit_ruby_scale_conversion",
       "fixed_parameters": [],
       "free_parameters": [
         "V0",
         "K0",
         "K0_prime"
       ],
-      "label": "Dewaele et al. (2008), Vinet",
+      "label": "Dewaele (2019), Mao-scale Vinet; historical 2008 identifier",
       "material_identifier": "silver",
       "model": "Vinet",
-      "objective": "pressure_residuals",
+      "objective": "unweighted pressure residuals",
       "observations": 34,
       "observed_pressure_range_gpa": [
         0.0,
-        122.0
-      ],
-      "observed_temperature_range_k": null,
-      "observed_volume_range": [
-        46.054,
-        68.0848
+        116.0
       ],
       "parameters": [
         {
-          "difference": 0.1405418931372111,
+          "difference": -0.0011898162260450817,
           "parameter": "V0",
           "published": 68.28,
           "published_error": 0.064,
-          "refit": 68.42054189313721,
-          "refit_error": 0.2141425479772155,
-          "relative_difference": 0.0020583171226890907,
+          "refit": 68.27881018377396,
+          "refit_error": null,
+          "relative_difference": 1.742554519691098e-05,
           "similar": true,
-          "within_combined_2sigma": true
+          "within_combined_2sigma": null,
+          "within_reported_95pct": true
         },
         {
-          "difference": -3.9114248148978135,
+          "difference": 0.18827132510557476,
           "parameter": "K0",
           "published": 100.2,
           "published_error": 1.6,
-          "refit": 96.28857518510219,
-          "refit_error": 3.6294751719091383,
-          "relative_difference": 0.03903617579738337,
+          "refit": 100.38827132510558,
+          "refit_error": null,
+          "relative_difference": 0.0018789553403749976,
           "similar": true,
-          "within_combined_2sigma": true
+          "within_combined_2sigma": null,
+          "within_reported_95pct": true
         },
         {
-          "difference": 0.41177614600797696,
+          "difference": -0.010264205115760205,
           "parameter": "K0_prime",
           "published": 5.7,
           "published_error": 0.09,
-          "refit": 6.111776146007977,
-          "refit_error": 0.1281504344720458,
-          "relative_difference": 0.07224142912420649,
+          "refit": 5.68973579488424,
+          "refit_error": null,
+          "relative_difference": 0.0018007377396070535,
           "similar": true,
-          "within_combined_2sigma": false
+          "within_combined_2sigma": null,
+          "within_reported_95pct": true
         }
       ],
-      "primary_data_finding": "All 34 Ag pressure-volume observations printed in Table II, retaining pressures on both the Mao et al. and revised Dewaele et al. ruby scales.",
+      "primary_data_finding": "All 34 source observations used by this published parameterization are bundled. The dedicated unweighted pressure-residual refit recovers every coefficient within the 95% intervals printed by Dewaele (2019).",
       "primary_data_status": "bundled",
-      "primary_source": "https://doi.org/10.1103/PhysRevB.78.104102",
-      "published_rmse_gpa": 2.128223541712955,
+      "primary_source": "https://www.mdpi.com/2075-163X/9/11/684",
+      "qualification": "Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. Historical 2008 identifier retained with unchanged coefficients; corrected attribution is the 2019 Table 1 Mao-scale fit.",
       "record_identifier": "silver_dewaele_2008_vinet_1",
-      "reduced_chi_square": 0.35946992682656986,
-      "rmse_gpa": 0.5724962813037116,
-      "selection": "all rows",
-      "solver_message": "`ftol` termination condition is satisfied.",
+      "rmse_gpa": 0.4681111110604099,
+      "selection": "complete",
+      "solver_message": "dedicated Dewaele (2019) refit completed",
       "solver_success": true,
-      "source_notes": "Quasi-hydrostatic helium-medium fit; published atomic V0=17.070 A^3 is multiplied by four atoms in the conventional fcc cell. Measurements extend to 124 GPa.",
+      "source_notes": "Compatibility lookup: this identifier historically attributed later 2019 Mao-scale coefficients to the 2008 paper and compared them with revised-scale observations. Its numerical coefficients and uncertainties are preserved exactly. Table IV of the 2008 paper is represented separately by the *_dewaele_2008_table4_* records. The source attribution, calibration and audit are corrected to the matching 2019 Table 1 Mao row; this is not an additional experiment.",
       "status": "similar"
     },
     {
@@ -52358,14 +52338,1016 @@
       "solver_success": true,
       "source_notes": "The fit constrained V0 to the independently measured decompression value 23.05(3) A^3/atom; volume and uncertainty are tripled for the conventional Z=3 cell.",
       "status": "parity"
+    },
+    {
+      "absolute_sigma": null,
+      "columns": {
+        "pressure": "ruby_pressure_dewaele_gpa",
+        "temperature": null,
+        "volume": "atomic_volume_a3"
+      },
+      "dataset_identifiers": [
+        "cobalt_hcp_dewaele_2008_source_table"
+      ],
+      "degrees_of_freedom": 24,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        65.2
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0",
+        "K0"
+      ],
+      "fixed_values": {
+        "K0": 184,
+        "V0": 22.192
+      },
+      "free_parameters": [
+        "K0_prime"
+      ],
+      "label": "Dewaele et al. (2008), Table IV Vinet, US K0=184 GPa fixed",
+      "material_identifier": "cobalt_hcp",
+      "model": "Vinet",
+      "objective": "unweighted pressure residuals",
+      "observations": 25,
+      "observed_pressure_range_gpa": [
+        0.0,
+        65.2
+      ],
+      "observed_volume_range": [
+        17.85822,
+        22.1932
+      ],
+      "original_author_workflow_parity": false,
+      "parameters": [
+        {
+          "difference": 0.00011151160528299897,
+          "parameter": "K0_prime",
+          "published": 4.73,
+          "published_error": 0.06,
+          "refit": 4.730111511605283,
+          "refit_error": null,
+          "relative_difference": 2.35753922374205e-05,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_95pct": true
+        }
+      ],
+      "parity_basis": "within_reported_parameter_errors",
+      "primary_data_finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1103/PhysRevB.78.104102",
+      "published_rmse_gpa": 0.35515325748322735,
+      "qualification": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "record_identifier": "cobalt_hcp_dewaele_2008_table4_us_k0_184_vinet",
+      "rmse_gpa": 0.3551531382054606,
+      "selection": "all rows except run 2 revised pressure >100 GPa",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_error_confidence": 0.95,
+      "source_notes": "Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 is adopted from ultrasound and fixed; its adopted uncertainty is not a fitted parameter error. All printed rows are retained; run-2 Ag/Mo rows with revised pressure >100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.",
+      "status": "parity",
+      "weighting": "unweighted diagnostic; source weights not specified"
+    },
+    {
+      "absolute_sigma": null,
+      "columns": {
+        "pressure": "ruby_pressure_dewaele_gpa",
+        "temperature": null,
+        "volume": "atomic_volume_a3"
+      },
+      "dataset_identifiers": [
+        "cobalt_hcp_dewaele_2008_source_table"
+      ],
+      "degrees_of_freedom": 24,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        65.2
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0",
+        "K0"
+      ],
+      "fixed_values": {
+        "K0": 190,
+        "V0": 22.192
+      },
+      "free_parameters": [
+        "K0_prime"
+      ],
+      "label": "Dewaele et al. (2008), Table IV Vinet, US K0=190 GPa fixed",
+      "material_identifier": "cobalt_hcp",
+      "model": "Vinet",
+      "objective": "unweighted pressure residuals",
+      "observations": 25,
+      "observed_pressure_range_gpa": [
+        0.0,
+        65.2
+      ],
+      "observed_volume_range": [
+        17.85822,
+        22.1932
+      ],
+      "original_author_workflow_parity": false,
+      "parameters": [
+        {
+          "difference": 0.0016014680741331944,
+          "parameter": "K0_prime",
+          "published": 4.37,
+          "published_error": 0.04,
+          "refit": 4.371601468074133,
+          "refit_error": null,
+          "relative_difference": 0.0003664686668497012,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_95pct": true
+        }
+      ],
+      "parity_basis": "within_reported_parameter_errors",
+      "primary_data_finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1103/PhysRevB.78.104102",
+      "published_rmse_gpa": 0.2964515355543362,
+      "qualification": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "record_identifier": "cobalt_hcp_dewaele_2008_table4_us_k0_190_vinet",
+      "rmse_gpa": 0.29642216070207195,
+      "selection": "all rows except run 2 revised pressure >100 GPa",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_error_confidence": 0.95,
+      "source_notes": "Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 is adopted from ultrasound and fixed; its adopted uncertainty is not a fitted parameter error. All printed rows are retained; run-2 Ag/Mo rows with revised pressure >100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.",
+      "status": "parity",
+      "weighting": "unweighted diagnostic; source weights not specified"
+    },
+    {
+      "absolute_sigma": null,
+      "columns": {
+        "pressure": "ruby_pressure_dewaele_gpa",
+        "temperature": null,
+        "volume": "atomic_volume_a3"
+      },
+      "dataset_identifiers": [
+        "cobalt_hcp_dewaele_2008_source_table"
+      ],
+      "degrees_of_freedom": 23,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        65.2
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0"
+      ],
+      "fixed_values": {
+        "V0": 22.192
+      },
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Dewaele et al. (2008), Table IV Vinet, K0 fitted",
+      "material_identifier": "cobalt_hcp",
+      "model": "Vinet",
+      "objective": "unweighted pressure residuals",
+      "observations": 25,
+      "observed_pressure_range_gpa": [
+        0.0,
+        65.2
+      ],
+      "observed_volume_range": [
+        17.85822,
+        22.1932
+      ],
+      "original_author_workflow_parity": false,
+      "parameters": [
+        {
+          "difference": -1.422338527108451,
+          "parameter": "K0",
+          "published": 190.5,
+          "published_error": 2.9,
+          "refit": 189.07766147289155,
+          "refit_error": null,
+          "relative_difference": 0.007466343974322578,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_95pct": true
+        },
+        {
+          "difference": 0.04604587835994778,
+          "parameter": "K0_prime",
+          "published": 4.38,
+          "published_error": 0.18,
+          "refit": 4.426045878359948,
+          "refit_error": null,
+          "relative_difference": 0.010512757616426434,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_95pct": true
+        }
+      ],
+      "parity_basis": "within_reported_parameter_errors",
+      "primary_data_finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1103/PhysRevB.78.104102",
+      "published_rmse_gpa": 0.3152323204438745,
+      "qualification": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "record_identifier": "cobalt_hcp_dewaele_2008_table4_vinet",
+      "rmse_gpa": 0.2942511090399979,
+      "selection": "all rows except run 2 revised pressure >100 GPa",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_error_confidence": 0.95,
+      "source_notes": "Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 and K0-prime are fitted. All printed rows are retained; run-2 Ag/Mo rows with revised pressure >100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.",
+      "status": "parity",
+      "weighting": "unweighted diagnostic; source weights not specified"
+    },
+    {
+      "absolute_sigma": null,
+      "columns": {
+        "pressure": "pressure_revised_gpa",
+        "temperature": null,
+        "volume": "atomic_volume_a3"
+      },
+      "dataset_identifiers": [
+        "fe_dewaele_2008_source_table"
+      ],
+      "degrees_of_freedom": 9,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        14.6
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0",
+        "K0"
+      ],
+      "fixed_values": {
+        "K0": 165,
+        "V0": 23.52
+      },
+      "free_parameters": [
+        "K0_prime"
+      ],
+      "label": "Dewaele et al. (2008), Table IV Vinet, US K0=165 GPa fixed",
+      "material_identifier": "fe",
+      "model": "Vinet",
+      "objective": "unweighted pressure residuals",
+      "observations": 10,
+      "observed_pressure_range_gpa": [
+        0.0,
+        14.6
+      ],
+      "observed_volume_range": [
+        21.87,
+        23.508
+      ],
+      "original_author_workflow_parity": false,
+      "parameters": [
+        {
+          "difference": -0.040980228841402955,
+          "parameter": "K0_prime",
+          "published": 5.47,
+          "published_error": 0.51,
+          "refit": 5.429019771158597,
+          "refit_error": null,
+          "relative_difference": 0.007491815144680614,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_95pct": true
+        }
+      ],
+      "parity_basis": "within_reported_parameter_errors",
+      "primary_data_finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1103/PhysRevB.78.104102",
+      "published_rmse_gpa": 0.16041980792072366,
+      "qualification": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "record_identifier": "fe_dewaele_2008_table4_us_k0_165_vinet",
+      "rmse_gpa": 0.16012270373305137,
+      "selection": "bcc rows only",
+      "solver_message": "`xtol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_error_confidence": 0.95,
+      "source_notes": "Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 is adopted from ultrasound and fixed; its adopted uncertainty is not a fitted parameter error. All printed rows are retained; run-2 Ag/Mo rows with revised pressure >100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.",
+      "status": "parity",
+      "weighting": "unweighted diagnostic; source weights not specified"
+    },
+    {
+      "absolute_sigma": null,
+      "columns": {
+        "pressure": "pressure_revised_gpa",
+        "temperature": null,
+        "volume": "atomic_volume_a3"
+      },
+      "dataset_identifiers": [
+        "fe_dewaele_2008_source_table"
+      ],
+      "degrees_of_freedom": 8,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        14.6
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0"
+      ],
+      "fixed_values": {
+        "V0": 23.52
+      },
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Dewaele et al. (2008), Table IV Vinet, K0 fitted",
+      "material_identifier": "fe",
+      "model": "Vinet",
+      "objective": "unweighted pressure residuals",
+      "observations": 10,
+      "observed_pressure_range_gpa": [
+        0.0,
+        14.6
+      ],
+      "observed_volume_range": [
+        21.87,
+        23.508
+      ],
+      "original_author_workflow_parity": false,
+      "parameters": [
+        {
+          "difference": -1.4422559069239753,
+          "parameter": "K0",
+          "published": 171,
+          "published_error": 11,
+          "refit": 169.55774409307602,
+          "refit_error": null,
+          "relative_difference": 0.00843424506973085,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_95pct": true
+        },
+        {
+          "difference": 0.19134545048701046,
+          "parameter": "K0_prime",
+          "published": 4.34,
+          "published_error": 2.1,
+          "refit": 4.53134545048701,
+          "refit_error": null,
+          "relative_difference": 0.044088813476269695,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_95pct": true
+        }
+      ],
+      "parity_basis": "within_reported_parameter_errors",
+      "primary_data_finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1103/PhysRevB.78.104102",
+      "published_rmse_gpa": 0.15401594248940295,
+      "qualification": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "record_identifier": "fe_dewaele_2008_table4_vinet",
+      "rmse_gpa": 0.15173812232770334,
+      "selection": "bcc rows only",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_error_confidence": 0.95,
+      "source_notes": "Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 and K0-prime are fitted. All printed rows are retained; run-2 Ag/Mo rows with revised pressure >100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.",
+      "status": "parity",
+      "weighting": "unweighted diagnostic; source weights not specified"
+    },
+    {
+      "absolute_sigma": null,
+      "columns": {
+        "pressure": "ruby_pressure_dewaele_gpa",
+        "temperature": null,
+        "volume": "atomic_volume_a3"
+      },
+      "dataset_identifiers": [
+        "molybdenum_dewaele_2008_source_table"
+      ],
+      "degrees_of_freedom": 25,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        97.9
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0",
+        "K0"
+      ],
+      "fixed_values": {
+        "K0": 261,
+        "V0": 31.116
+      },
+      "free_parameters": [
+        "K0_prime"
+      ],
+      "label": "Dewaele et al. (2008), Table IV Vinet, US K0=261 GPa fixed",
+      "material_identifier": "molybdenum",
+      "model": "Vinet",
+      "objective": "unweighted pressure residuals",
+      "observations": 26,
+      "observed_pressure_range_gpa": [
+        0.0,
+        97.9
+      ],
+      "observed_volume_range": [
+        24.5874,
+        31.1168
+      ],
+      "original_author_workflow_parity": false,
+      "parameters": [
+        {
+          "difference": 0.026929670432047637,
+          "parameter": "K0_prime",
+          "published": 4.06,
+          "published_error": 0.05,
+          "refit": 4.086929670432047,
+          "refit_error": null,
+          "relative_difference": 0.006632923751735872,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_95pct": true
+        }
+      ],
+      "parity_basis": "within_reported_parameter_errors",
+      "primary_data_finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1103/PhysRevB.78.104102",
+      "published_rmse_gpa": 0.6426747209735924,
+      "qualification": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "record_identifier": "molybdenum_dewaele_2008_table4_us_k0_261_vinet",
+      "rmse_gpa": 0.6308653503784949,
+      "selection": "all rows except run 2 revised pressure >100 GPa",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_error_confidence": 0.95,
+      "source_notes": "Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 is adopted from ultrasound and fixed; its adopted uncertainty is not a fitted parameter error. All printed rows are retained; run-2 Ag/Mo rows with revised pressure >100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.",
+      "status": "parity",
+      "weighting": "unweighted diagnostic; source weights not specified"
+    },
+    {
+      "absolute_sigma": null,
+      "columns": {
+        "pressure": "ruby_pressure_dewaele_gpa",
+        "temperature": null,
+        "volume": "atomic_volume_a3"
+      },
+      "dataset_identifiers": [
+        "molybdenum_dewaele_2008_source_table"
+      ],
+      "degrees_of_freedom": 24,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        97.9
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0"
+      ],
+      "fixed_values": {
+        "V0": 31.116
+      },
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Dewaele et al. (2008), Table IV Vinet, K0 fitted",
+      "material_identifier": "molybdenum",
+      "model": "Vinet",
+      "objective": "unweighted pressure residuals",
+      "observations": 26,
+      "observed_pressure_range_gpa": [
+        0.0,
+        97.9
+      ],
+      "observed_volume_range": [
+        24.5874,
+        31.1168
+      ],
+      "original_author_workflow_parity": false,
+      "parameters": [
+        {
+          "difference": -0.3381328383847517,
+          "parameter": "K0",
+          "published": 274.1,
+          "published_error": 3.2,
+          "refit": 273.76186716161527,
+          "refit_error": null,
+          "relative_difference": 0.0012336112308819836,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_95pct": true
+        },
+        {
+          "difference": 0.01726285156099472,
+          "parameter": "K0_prime",
+          "published": 3.58,
+          "published_error": 0.12,
+          "refit": 3.597262851560995,
+          "refit_error": null,
+          "relative_difference": 0.0048220255756968484,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_95pct": true
+        }
+      ],
+      "parity_basis": "within_reported_parameter_errors",
+      "primary_data_finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1103/PhysRevB.78.104102",
+      "published_rmse_gpa": 0.3369820837786423,
+      "qualification": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "record_identifier": "molybdenum_dewaele_2008_table4_vinet",
+      "rmse_gpa": 0.3360499862874089,
+      "selection": "all rows except run 2 revised pressure >100 GPa",
+      "solver_message": "`xtol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_error_confidence": 0.95,
+      "source_notes": "Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 and K0-prime are fitted. All printed rows are retained; run-2 Ag/Mo rows with revised pressure >100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.",
+      "status": "parity",
+      "weighting": "unweighted diagnostic; source weights not specified"
+    },
+    {
+      "absolute_sigma": null,
+      "columns": {
+        "pressure": "ruby_pressure_dewaele_gpa",
+        "temperature": null,
+        "volume": "atomic_volume_a3"
+      },
+      "dataset_identifiers": [
+        "nickel_dewaele_2008_source_table"
+      ],
+      "degrees_of_freedom": 41,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        156.6
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0",
+        "K0"
+      ],
+      "fixed_values": {
+        "K0": 183,
+        "V0": 43.768
+      },
+      "free_parameters": [
+        "K0_prime"
+      ],
+      "label": "Dewaele et al. (2008), Table IV Vinet, US K0=183 GPa fixed",
+      "material_identifier": "nickel",
+      "model": "Vinet",
+      "objective": "unweighted pressure residuals",
+      "observations": 42,
+      "observed_pressure_range_gpa": [
+        0.0,
+        156.6
+      ],
+      "observed_volume_range": [
+        30.5116,
+        43.7692
+      ],
+      "original_author_workflow_parity": false,
+      "parameters": [
+        {
+          "difference": -0.0014977393634678648,
+          "parameter": "K0_prime",
+          "published": 4.99,
+          "published_error": 0.02,
+          "refit": 4.988502260636532,
+          "refit_error": null,
+          "relative_difference": 0.0003001481690316362,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_95pct": true
+        }
+      ],
+      "parity_basis": "within_reported_parameter_errors",
+      "primary_data_finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1103/PhysRevB.78.104102",
+      "published_rmse_gpa": 0.7969954909512884,
+      "qualification": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "record_identifier": "nickel_dewaele_2008_table4_us_k0_183_vinet",
+      "rmse_gpa": 0.7968458835152549,
+      "selection": "all rows except run 2 revised pressure >100 GPa",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_error_confidence": 0.95,
+      "source_notes": "Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 is adopted from ultrasound and fixed; its adopted uncertainty is not a fitted parameter error. All printed rows are retained; run-2 Ag/Mo rows with revised pressure >100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.",
+      "status": "parity",
+      "weighting": "unweighted diagnostic; source weights not specified"
+    },
+    {
+      "absolute_sigma": null,
+      "columns": {
+        "pressure": "ruby_pressure_dewaele_gpa",
+        "temperature": null,
+        "volume": "atomic_volume_a3"
+      },
+      "dataset_identifiers": [
+        "nickel_dewaele_2008_source_table"
+      ],
+      "degrees_of_freedom": 40,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        156.6
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0"
+      ],
+      "fixed_values": {
+        "V0": 43.768
+      },
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Dewaele et al. (2008), Table IV Vinet, K0 fitted",
+      "material_identifier": "nickel",
+      "model": "Vinet",
+      "objective": "unweighted pressure residuals",
+      "observations": 42,
+      "observed_pressure_range_gpa": [
+        0.0,
+        156.6
+      ],
+      "observed_volume_range": [
+        30.5116,
+        43.7692
+      ],
+      "original_author_workflow_parity": false,
+      "parameters": [
+        {
+          "difference": -0.06801678466058547,
+          "parameter": "K0",
+          "published": 176.7,
+          "published_error": 2.5,
+          "refit": 176.6319832153394,
+          "refit_error": null,
+          "relative_difference": 0.0003849280399580389,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_95pct": true
+        },
+        {
+          "difference": 0.0002216621579620437,
+          "parameter": "K0_prime",
+          "published": 5.23,
+          "published_error": 0.09,
+          "refit": 5.2302216621579625,
+          "refit_error": null,
+          "relative_difference": 4.2382821790065713e-05,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_95pct": true
+        }
+      ],
+      "parity_basis": "within_reported_parameter_errors",
+      "primary_data_finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1103/PhysRevB.78.104102",
+      "published_rmse_gpa": 0.6250563260401442,
+      "qualification": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "record_identifier": "nickel_dewaele_2008_table4_vinet",
+      "rmse_gpa": 0.6245411026306884,
+      "selection": "all rows except run 2 revised pressure >100 GPa",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_error_confidence": 0.95,
+      "source_notes": "Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 and K0-prime are fitted. All printed rows are retained; run-2 Ag/Mo rows with revised pressure >100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.",
+      "status": "parity",
+      "weighting": "unweighted diagnostic; source weights not specified"
+    },
+    {
+      "absolute_sigma": null,
+      "columns": {
+        "pressure": "ruby_pressure_dewaele_gpa",
+        "temperature": null,
+        "volume": "atomic_volume_a3"
+      },
+      "dataset_identifiers": [
+        "silver_dewaele_2008_source_table"
+      ],
+      "degrees_of_freedom": 30,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        97.9
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0",
+        "K0"
+      ],
+      "fixed_values": {
+        "K0": 101,
+        "V0": 68.084
+      },
+      "free_parameters": [
+        "K0_prime"
+      ],
+      "label": "Dewaele et al. (2008), Table IV Vinet, US K0=101 GPa fixed",
+      "material_identifier": "silver",
+      "model": "Vinet",
+      "objective": "unweighted pressure residuals",
+      "observations": 31,
+      "observed_pressure_range_gpa": [
+        0.0,
+        97.9
+      ],
+      "observed_volume_range": [
+        47.8192,
+        68.0848
+      ],
+      "original_author_workflow_parity": false,
+      "parameters": [
+        {
+          "difference": 0.002060375801631764,
+          "parameter": "K0_prime",
+          "published": 5.97,
+          "published_error": 0.02,
+          "refit": 5.9720603758016315,
+          "refit_error": null,
+          "relative_difference": 0.0003451215748126908,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_95pct": true
+        }
+      ],
+      "parity_basis": "within_reported_parameter_errors",
+      "primary_data_finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1103/PhysRevB.78.104102",
+      "published_rmse_gpa": 0.4623779500094729,
+      "qualification": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "record_identifier": "silver_dewaele_2008_table4_us_k0_101_vinet",
+      "rmse_gpa": 0.4621792626707408,
+      "selection": "all rows except run 2 revised pressure >100 GPa",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_error_confidence": 0.95,
+      "source_notes": "Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 is adopted from ultrasound and fixed; its adopted uncertainty is not a fitted parameter error. All printed rows are retained; run-2 Ag/Mo rows with revised pressure >100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.",
+      "status": "parity",
+      "weighting": "unweighted diagnostic; source weights not specified"
+    },
+    {
+      "absolute_sigma": null,
+      "columns": {
+        "pressure": "ruby_pressure_dewaele_gpa",
+        "temperature": null,
+        "volume": "atomic_volume_a3"
+      },
+      "dataset_identifiers": [
+        "silver_dewaele_2008_source_table"
+      ],
+      "degrees_of_freedom": 29,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        97.9
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0"
+      ],
+      "fixed_values": {
+        "V0": 68.084
+      },
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Dewaele et al. (2008), Table IV Vinet, K0 fitted",
+      "material_identifier": "silver",
+      "model": "Vinet",
+      "objective": "unweighted pressure residuals",
+      "observations": 31,
+      "observed_pressure_range_gpa": [
+        0.0,
+        97.9
+      ],
+      "observed_volume_range": [
+        47.8192,
+        68.0848
+      ],
+      "original_author_workflow_parity": false,
+      "parameters": [
+        {
+          "difference": 0.2220221439010004,
+          "parameter": "K0",
+          "published": 103.9,
+          "published_error": 1.4,
+          "refit": 104.122022143901,
+          "refit_error": null,
+          "relative_difference": 0.0021368830019345563,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_95pct": true
+        },
+        {
+          "difference": -0.019047269087101526,
+          "parameter": "K0_prime",
+          "published": 5.78,
+          "published_error": 0.09,
+          "refit": 5.760952730912899,
+          "refit_error": null,
+          "relative_difference": 0.003295375274585039,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_95pct": true
+        }
+      ],
+      "parity_basis": "within_reported_parameter_errors",
+      "primary_data_finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1103/PhysRevB.78.104102",
+      "published_rmse_gpa": 0.35808237947232713,
+      "qualification": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "record_identifier": "silver_dewaele_2008_table4_vinet",
+      "rmse_gpa": 0.35640055825529415,
+      "selection": "all rows except run 2 revised pressure >100 GPa",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_error_confidence": 0.95,
+      "source_notes": "Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 and K0-prime are fitted. All printed rows are retained; run-2 Ag/Mo rows with revised pressure >100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.",
+      "status": "parity",
+      "weighting": "unweighted diagnostic; source weights not specified"
+    },
+    {
+      "absolute_sigma": null,
+      "columns": {
+        "pressure": "ruby_pressure_dewaele_gpa",
+        "temperature": null,
+        "volume": "atomic_volume_a3"
+      },
+      "dataset_identifiers": [
+        "zinc_hcp_dewaele_2008_source_table"
+      ],
+      "degrees_of_freedom": 42,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        156.6
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0",
+        "K0"
+      ],
+      "fixed_values": {
+        "K0": 60,
+        "V0": 30.426
+      },
+      "free_parameters": [
+        "K0_prime"
+      ],
+      "label": "Dewaele et al. (2008), Table IV Vinet, US K0=60 GPa fixed",
+      "material_identifier": "zinc_hcp",
+      "model": "Vinet",
+      "objective": "unweighted pressure residuals",
+      "observations": 43,
+      "observed_pressure_range_gpa": [
+        0.0,
+        156.6
+      ],
+      "observed_volume_range": [
+        17.1584,
+        30.425
+      ],
+      "original_author_workflow_parity": false,
+      "parameters": [
+        {
+          "difference": -0.005235619806208014,
+          "parameter": "K0_prime",
+          "published": 5.73,
+          "published_error": 0.01,
+          "refit": 5.724764380193792,
+          "refit_error": null,
+          "relative_difference": 0.0009137207340677161,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_95pct": true
+        }
+      ],
+      "parity_basis": "within_reported_parameter_errors",
+      "primary_data_finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1103/PhysRevB.78.104102",
+      "published_rmse_gpa": 0.5633038675453319,
+      "qualification": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "record_identifier": "zinc_hcp_dewaele_2008_table4_us_k0_60_vinet",
+      "rmse_gpa": 0.5568664746653577,
+      "selection": "all rows except run 2 revised pressure >100 GPa",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_error_confidence": 0.95,
+      "source_notes": "Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 is adopted from ultrasound and fixed; its adopted uncertainty is not a fitted parameter error. All printed rows are retained; run-2 Ag/Mo rows with revised pressure >100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.",
+      "status": "parity",
+      "weighting": "unweighted diagnostic; source weights not specified"
+    },
+    {
+      "absolute_sigma": null,
+      "columns": {
+        "pressure": "ruby_pressure_dewaele_gpa",
+        "temperature": null,
+        "volume": "atomic_volume_a3"
+      },
+      "dataset_identifiers": [
+        "zinc_hcp_dewaele_2008_source_table"
+      ],
+      "degrees_of_freedom": 41,
+      "experimental_pressure_range_gpa": [
+        0.0,
+        156.6
+      ],
+      "experimental_temperature_range_k": null,
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0"
+      ],
+      "fixed_values": {
+        "V0": 30.426
+      },
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Dewaele et al. (2008), Table IV Vinet, K0 fitted",
+      "material_identifier": "zinc_hcp",
+      "model": "Vinet",
+      "objective": "unweighted pressure residuals",
+      "observations": 43,
+      "observed_pressure_range_gpa": [
+        0.0,
+        156.6
+      ],
+      "observed_volume_range": [
+        17.1584,
+        30.425
+      ],
+      "original_author_workflow_parity": false,
+      "parameters": [
+        {
+          "difference": -0.2862343568705583,
+          "parameter": "K0",
+          "published": 60.5,
+          "published_error": 0.9,
+          "refit": 60.21376564312944,
+          "refit_error": null,
+          "relative_difference": 0.004731146394554683,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_95pct": true
+        },
+        {
+          "difference": 0.019405016880912562,
+          "parameter": "K0_prime",
+          "published": 5.69,
+          "published_error": 0.07,
+          "refit": 5.709405016880913,
+          "refit_error": null,
+          "relative_difference": 0.0034103720353097647,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_reported_95pct": true
+        }
+      ],
+      "parity_basis": "within_reported_parameter_errors",
+      "primary_data_finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.1103/PhysRevB.78.104102",
+      "published_rmse_gpa": 0.5582342198049777,
+      "qualification": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "record_identifier": "zinc_hcp_dewaele_2008_table4_vinet",
+      "rmse_gpa": 0.5554672487635354,
+      "selection": "all rows except run 2 revised pressure >100 GPa",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_error_confidence": 0.95,
+      "source_notes": "Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 and K0-prime are fitted. All printed rows are retained; run-2 Ag/Mo rows with revised pressure >100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.",
+      "status": "parity",
+      "weighting": "unweighted diagnostic; source weights not specified"
     }
   ],
   "summary": {
     "not_refittable": 177,
-    "parity": 248,
+    "parity": 261,
     "parity_not_achieved": 62,
     "similar": 161,
     "source_reconstruction": 16,
-    "total": 664
+    "total": 677
   }
 }

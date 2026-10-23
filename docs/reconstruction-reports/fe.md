@@ -13,6 +13,8 @@ agreement, source verification, author-workflow reproduction and recommendation 
 | EOS record | Recorded outcome | Coefficient comparison |
 | --- | --- | --- |
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-fe_shen_2026_vinet_1) | Coefficient parity achieved | Graph and table |
+| [Dewaele et al. (2008), Table IV Vinet, K0 fitted](#record-fe_dewaele_2008_table4_vinet) | Coefficient parity achieved | Graph and table |
+| [Dewaele et al. (2008), Table IV Vinet, US K0=165 GPa fixed](#record-fe_dewaele_2008_table4_us_k0_165_vinet) | Coefficient parity achieved | Graph and table |
 
 <a id="record-fe_shen_2026_vinet_1"></a>
 
@@ -123,4 +125,202 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `fe_shen_2026_vinet_1`.
+[Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/fe.eosmat).
+
+
+<a id="record-fe_dewaele_2008_table4_vinet"></a>
+
+## Dewaele et al. (2008), Table IV Vinet, K0 fitted
+
+Record: `fe_dewaele_2008_table4_vinet` · Model: `Vinet`
+
+**Outcome: Coefficient parity achieved.**
+
+**Scope:** Comparison with the source parameterization.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
+
+[Stored EOS coefficients and source](../material-summaries/fe.md#record-fe_dewaele_2008_table4_vinet)
+
+### What this result establishes
+
+**Separate source-review status:** primary\_source\_validated.
+**Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
+
+- Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+### Data and reconstruction method
+
+- **Dataset identifiers:** fe\_dewaele\_2008\_source\_table
+- **Observations:** 10
+- **Fit kind:** isothermal\_pv
+- **Selection:** bcc rows only
+- **Objective:** unweighted pressure residuals
+- **Weighting:** unweighted diagnostic; source weights not specified
+- **Absolute sigma:** Not specified
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Fixed values:**
+    - **V0:** 23.52
+
+Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
+
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for fe_dewaele_2008_table4_vinet](figures/fe_dewaele_2008_table4_vinet-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for fe_dewaele_2008_table4_vinet](figures/fe_dewaele_2008_table4_vinet-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.154 |
+| Reconstruction / refit | 0.152 |
+
+Both fits use the same 10 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** audit volume in record units. **Row selection:** bcc rows only.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
+### Source versus reconstruction
+
+![Source/target and reconstructed central values for fe_dewaele_2008_table4_vinet](figures/fe_dewaele_2008_table4_vinet.svg#only-light)
+![Source/target and reconstructed central values for fe_dewaele_2008_table4_vinet](figures/fe_dewaele_2008_table4_vinet-dark.svg#only-dark)
+
+This is a **coefficient comparison**, not an observation or residual plot.
+Each panel uses its coefficient's audit units and includes zero. Markers show
+stored central values and available recorded error widths (also in the table below);
+no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
+
+| Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 171 | 11 | 169.558 | Not reported | Free |
+| K0\_prime | 4.3 | 2.1 | 4.53135 | Not reported | Free |
+
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
+
+
+<details markdown="1">
+<summary>Recorded diagnostics, covariance and additional protocol</summary>
+
+- **Columns:**
+    - **Pressure:** pressure\_revised\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** atomic\_volume\_a3
+- **Observed pressure range gpa:** 0; 14.6
+- **Observed volume range:** 21.87; 23.508
+- **Degrees of freedom:** 8
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.151738
+- **Published rmse gpa:** 0.154016
+
+</details>
+
+### Detailed evidence and existing plots
+
+- [Record-by-record numerical ledger](../primary-eos-refits.md#records).
+- [Source-audit reports](../source-audits.md).
+
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
+
+[Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `fe_dewaele_2008_table4_vinet`.
+[Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/fe.eosmat).
+
+
+<a id="record-fe_dewaele_2008_table4_us_k0_165_vinet"></a>
+
+## Dewaele et al. (2008), Table IV Vinet, US K0=165 GPa fixed
+
+Record: `fe_dewaele_2008_table4_us_k0_165_vinet` · Model: `Vinet`
+
+**Outcome: Coefficient parity achieved.**
+
+**Scope:** Comparison with the source parameterization.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
+
+[Stored EOS coefficients and source](../material-summaries/fe.md#record-fe_dewaele_2008_table4_us_k0_165_vinet)
+
+### What this result establishes
+
+**Separate source-review status:** primary\_source\_validated.
+**Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
+
+- Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+### Data and reconstruction method
+
+- **Dataset identifiers:** fe\_dewaele\_2008\_source\_table
+- **Observations:** 10
+- **Fit kind:** isothermal\_pv
+- **Selection:** bcc rows only
+- **Objective:** unweighted pressure residuals
+- **Weighting:** unweighted diagnostic; source weights not specified
+- **Absolute sigma:** Not specified
+- **Free parameters:** K0\_prime
+- **Fixed parameters:** V0; K0
+- **Fixed values:**
+    - **K0:** 165
+    - **V0:** 23.52
+
+Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
+
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for fe_dewaele_2008_table4_us_k0_165_vinet](figures/fe_dewaele_2008_table4_us_k0_165_vinet-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for fe_dewaele_2008_table4_us_k0_165_vinet](figures/fe_dewaele_2008_table4_us_k0_165_vinet-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.16 |
+| Reconstruction / refit | 0.16 |
+
+Both fits use the same 10 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** audit volume in record units. **Row selection:** bcc rows only.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
+### Source versus reconstruction
+
+![Source/target and reconstructed central values for fe_dewaele_2008_table4_us_k0_165_vinet](figures/fe_dewaele_2008_table4_us_k0_165_vinet.svg#only-light)
+![Source/target and reconstructed central values for fe_dewaele_2008_table4_us_k0_165_vinet](figures/fe_dewaele_2008_table4_us_k0_165_vinet-dark.svg#only-dark)
+
+This is a **coefficient comparison**, not an observation or residual plot.
+Each panel uses its coefficient's audit units and includes zero. Markers show
+stored central values and available recorded error widths (also in the table below);
+no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
+
+| Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0\_prime | 5.5 | 0.5 | 5.42902 | Not reported | Free |
+
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
+
+
+<details markdown="1">
+<summary>Recorded diagnostics, covariance and additional protocol</summary>
+
+- **Columns:**
+    - **Pressure:** pressure\_revised\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** atomic\_volume\_a3
+- **Observed pressure range gpa:** 0; 14.6
+- **Observed volume range:** 21.87; 23.508
+- **Degrees of freedom:** 9
+- **Solver success:** True
+- **Solver message:** \`xtol\` termination condition is satisfied.
+- **Rmse gpa:** 0.160123
+- **Published rmse gpa:** 0.16042
+
+</details>
+
+### Detailed evidence and existing plots
+
+- [Record-by-record numerical ledger](../primary-eos-refits.md#records).
+- [Source-audit reports](../source-audits.md).
+
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
+
+[Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `fe_dewaele_2008_table4_us_k0_165_vinet`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/fe.eosmat).

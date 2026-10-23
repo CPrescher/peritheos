@@ -126,6 +126,19 @@ def observations(document, record, fit):
         return np.array([float(row[name]) for row in rows])
 
     molar_to_cell = float(document.get("formula_units_per_cell") or 1) / 0.602214076
+    if "_dewaele_2008_table4_" in rid:
+        from scripts.reproduce_dewaele_2008_metals import experiment_rows
+
+        rows = experiment_rows(document["identifier"])
+        pressure_name = (
+            "pressure_revised_gpa"
+            if document["identifier"] == "fe"
+            else "ruby_pressure_dewaele_gpa"
+        )
+        return direct(
+            column(rows, pressure_name),
+            column(rows, "atomic_volume_a3") * document["formula_units_per_cell"],
+        )
     if fit.get("fit_kind") == "finger_1979_fixed_measured_v0":
         rows = table_rows("ferrous-ringwoodite-finger-1979-table2.csv")[1:]
         return direct(

@@ -1,5 +1,10 @@
 # Literature reproductions
 
+The [Dewaele (2008) audit](literature-reproductions/dewaele-2008-metals.md)
+recovers the 13 Table IV experimental EOS and preserves all 54 PAW sets in a
+[separate research collection](research/dewaele-2008-paw.md). The input 2004 ruby
+scale remains distinct from the paper's output calibration.
+
 ## Mosenfelder et al. (2009) MgSiO3 post-perovskite
 
 The combined Guignot static P-V-T and Mosenfelder PPv shock inversion is now

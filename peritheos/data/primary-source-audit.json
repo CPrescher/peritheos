@@ -9,10 +9,10 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 664,
+    "records": 677,
     "deferred": 3,
     "not_reproduced": 18,
-    "primary_source_validated": 643
+    "primary_source_validated": 656
   },
   "records": [
     {
@@ -10611,17 +10611,18 @@
       "material": "nickel",
       "file": "nickel.eosmat",
       "record": "nickel_dewaele_2008_vinet_1",
-      "label": "Dewaele et al. (2008), Vinet",
-      "doi": "10.1103/physrevb.78.104102",
+      "label": "Dewaele (2019), Mao-scale Vinet; historical 2008 identifier",
+      "doi": "10.3390/min9110684",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
       "primary_source_check": {
-        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
         "locations": [
-          "Vinet formulation",
-          "Table II, Ni and Ag rows"
+          "Equation (1)",
+          "Table 1"
         ],
-        "doi": "10.1103/physrevb.78.104102"
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
       }
     },
     {
@@ -12228,17 +12229,18 @@
       "material": "silver",
       "file": "silver.eosmat",
       "record": "silver_dewaele_2008_vinet_1",
-      "label": "Dewaele et al. (2008), Vinet",
-      "doi": "10.1103/physrevb.78.104102",
+      "label": "Dewaele (2019), Mao-scale Vinet; historical 2008 identifier",
+      "doi": "10.3390/min9110684",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
       "primary_source_check": {
-        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
         "locations": [
-          "Vinet formulation",
-          "Table II, Ni and Ag rows"
+          "Equation (1)",
+          "Table 1"
         ],
-        "doi": "10.1103/physrevb.78.104102"
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
       }
     },
     {
@@ -13296,6 +13298,253 @@
         ],
         "finding": "The beta-phase V0 is explicitly an extrapolated fixed fit parameter.",
         "doi": "10.1103/zp3m-kjpc"
+      }
+    },
+    {
+      "material": "cobalt_hcp",
+      "file": "cobalt_hcp.eosmat",
+      "record": "cobalt_hcp_dewaele_2008_table4_us_k0_184_vinet",
+      "label": "Dewaele et al. (2008), Table IV Vinet, US K0=184 GPa fixed",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table IV, fourth column, p. 104102-5"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
+      }
+    },
+    {
+      "material": "cobalt_hcp",
+      "file": "cobalt_hcp.eosmat",
+      "record": "cobalt_hcp_dewaele_2008_table4_us_k0_190_vinet",
+      "label": "Dewaele et al. (2008), Table IV Vinet, US K0=190 GPa fixed",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table IV, fourth column, p. 104102-5"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
+      }
+    },
+    {
+      "material": "cobalt_hcp",
+      "file": "cobalt_hcp.eosmat",
+      "record": "cobalt_hcp_dewaele_2008_table4_vinet",
+      "label": "Dewaele et al. (2008), Table IV Vinet, K0 fitted",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table IV, third column, p. 104102-5"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
+      }
+    },
+    {
+      "material": "fe",
+      "file": "fe.eosmat",
+      "record": "fe_dewaele_2008_table4_us_k0_165_vinet",
+      "label": "Dewaele et al. (2008), Table IV Vinet, US K0=165 GPa fixed",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table IV, fourth column, p. 104102-5"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
+      }
+    },
+    {
+      "material": "fe",
+      "file": "fe.eosmat",
+      "record": "fe_dewaele_2008_table4_vinet",
+      "label": "Dewaele et al. (2008), Table IV Vinet, K0 fitted",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table IV, third column, p. 104102-5"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
+      }
+    },
+    {
+      "material": "molybdenum",
+      "file": "molybdenum.eosmat",
+      "record": "molybdenum_dewaele_2008_table4_us_k0_261_vinet",
+      "label": "Dewaele et al. (2008), Table IV Vinet, US K0=261 GPa fixed",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table IV, fourth column, p. 104102-5"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
+      }
+    },
+    {
+      "material": "molybdenum",
+      "file": "molybdenum.eosmat",
+      "record": "molybdenum_dewaele_2008_table4_vinet",
+      "label": "Dewaele et al. (2008), Table IV Vinet, K0 fitted",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table IV, third column, p. 104102-5"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
+      }
+    },
+    {
+      "material": "nickel",
+      "file": "nickel.eosmat",
+      "record": "nickel_dewaele_2008_table4_us_k0_183_vinet",
+      "label": "Dewaele et al. (2008), Table IV Vinet, US K0=183 GPa fixed",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table IV, fourth column, p. 104102-5"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
+      }
+    },
+    {
+      "material": "nickel",
+      "file": "nickel.eosmat",
+      "record": "nickel_dewaele_2008_table4_vinet",
+      "label": "Dewaele et al. (2008), Table IV Vinet, K0 fitted",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table IV, third column, p. 104102-5"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
+      }
+    },
+    {
+      "material": "silver",
+      "file": "silver.eosmat",
+      "record": "silver_dewaele_2008_table4_us_k0_101_vinet",
+      "label": "Dewaele et al. (2008), Table IV Vinet, US K0=101 GPa fixed",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table IV, fourth column, p. 104102-5"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
+      }
+    },
+    {
+      "material": "silver",
+      "file": "silver.eosmat",
+      "record": "silver_dewaele_2008_table4_vinet",
+      "label": "Dewaele et al. (2008), Table IV Vinet, K0 fitted",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table IV, third column, p. 104102-5"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
+      }
+    },
+    {
+      "material": "zinc_hcp",
+      "file": "zinc_hcp.eosmat",
+      "record": "zinc_hcp_dewaele_2008_table4_us_k0_60_vinet",
+      "label": "Dewaele et al. (2008), Table IV Vinet, US K0=60 GPa fixed",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table IV, fourth column, p. 104102-5"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
+      }
+    },
+    {
+      "material": "zinc_hcp",
+      "file": "zinc_hcp.eosmat",
+      "record": "zinc_hcp_dewaele_2008_table4_vinet",
+      "label": "Dewaele et al. (2008), Table IV Vinet, K0 fitted",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table IV, third column, p. 104102-5"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
       }
     }
   ]

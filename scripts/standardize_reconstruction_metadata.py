@@ -34,6 +34,7 @@ BASIS = {
     "reproduction_of_stored_peritheos_refit": "Reproduction of the stored independent Peritheos refit under its declared protocol.",
     "conditional_central_value_at_published_precision": "Conditional agreement of the fitted central value at published precision; this does not establish uncertainty or calibration-network parity.",
     "published_decimal_precision": "Agreement at the source's printed decimal precision.",
+    "source_curve_reading_and_print_precision": "Source-equation parity against identified graphical checkpoints within declared reading and printed-coefficient bounds; no independent parameter refit or author-workflow reproduction.",
 }
 FIT_FIELDS = (
     "fit_kind",
@@ -120,6 +121,7 @@ def assessment_for_record(
     scope = (
         "source_equation"
         if status == "source_reconstruction"
+        or row.get("fit_kind") == "source_curve_validation_only"
         else "independent_refit"
         if record.get("record_kind") == "refit"
         else "parameter_agreement"

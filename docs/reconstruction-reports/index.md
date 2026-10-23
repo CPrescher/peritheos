@@ -58,7 +58,7 @@ New links become live only after the corresponding documentation is published.
 | [Cementite](cementite.md) | 1 | 1 | 1 |
 | [Cerium dioxide (fluorite)](cerium_dioxide.md) | 1 | 1 | 1 |
 | [Chromium](chromium.md) | 1 | 1 | 1 |
-| [Cobalt](cobalt_hcp.md) | 3 | 3 | 3 |
+| [Cobalt](cobalt_hcp.md) | 6 | 6 | 6 |
 | [Coesite](coesite.md) | 2 | 2 | 2 |
 | [Coesite-IV](coesite_iv.md) | 1 | 1 | 1 |
 | [Coesite-V](coesite_v.md) | 0 | 0 | 0 |
@@ -72,7 +72,7 @@ New links become live only after the corresponding documentation is published.
 | [E-FeOOH](e_feooh.md) | 2 | 2 | 2 |
 | [Epsilon-FeOOH, hydrogen-centered low-spin phase](e_feooh_hc_low_spin.md) | 1 | 1 | 1 |
 | [Fayalite](fayalite.md) | 1 | 1 | 1 |
-| [Fe](fe.md) | 1 | 1 | 1 |
+| [Fe](fe.md) | 3 | 3 | 3 |
 | [Fe–16 wt% Si (D03)](fe073si027_d03.md) | 1 | 1 | 1 |
 | [Fe–9 wt% Si (d03)](fe084si016_d03.md) | 2 | 2 | 2 |
 | [Fe–9 wt% Si (hcp)](fe084si016_hcp.md) | 2 | 2 | 2 |
@@ -182,7 +182,7 @@ New links become live only after the corresponding documentation is published.
 | [Liquid MgSiO3](mgsio3_liquid.md) | 1 | 1 | 1 |
 | [MgSiO3 post-perovskite](mgsio3_post_perovskite.md) | 14 | 7 | 7 |
 | [MgSi(OH)6 3.65 A phase](mgsioh6_365a_phase.md) | 3 | 2 | 2 |
-| [Molybdenum](molybdenum.md) | 7 | 5 | 5 |
+| [Molybdenum](molybdenum.md) | 9 | 7 | 7 |
 | [Molybdenum carbide Mo2C](molybenum_carbide_mo2c.md) | 2 | 2 | 2 |
 | [Na0.88Al0.99Fe0.13Si0.94O4 (calcium-ferrite type)](na088al099fe013si094o4_calcium_ferrite.md) | 1 | 1 | 1 |
 | [Na0.93Al1.02Si1.00O4 (calcium-ferrite type)](na093al102si100o4_calcium_ferrite.md) | 1 | 1 | 1 |
@@ -193,7 +193,7 @@ New links become live only after the corresponding documentation is published.
 | [NaMg2Al5SiO12 calcium-ferrite phase](namg2al5sio12_cf.md) | 1 | 1 | 1 |
 | [NaMg2Al5SiO12 NAL phase](namg2al5sio12_nal.md) | 1 | 1 | 1 |
 | [Neon (fcc)](neon_fcc.md) | 3 | 3 | 3 |
-| [Nickel](nickel.md) | 4 | 4 | 4 |
+| [Nickel](nickel.md) | 6 | 6 | 6 |
 | [Nickel oxide (rhombohedral B1)](nickel_oxide.md) | 2 | 2 | 2 |
 | [Nickel oxide (cubic B1 model)](nickel_oxide_b1.md) | 1 | 1 | 1 |
 | [Niobium](niobium.md) | 2 | 1 | 1 |
@@ -228,7 +228,7 @@ New links become live only after the corresponding documentation is published.
 | [Silicon (Si-V, simple hexagonal)](silicon_v.md) | 1 | 1 | 1 |
 | [Silicon (Si-VII, hcp)](silicon_vii.md) | 1 | 1 | 1 |
 | [Silicon (Si-X, fcc)](silicon_x.md) | 1 | 1 | 1 |
-| [Silver](silver.md) | 4 | 3 | 3 |
+| [Silver](silver.md) | 6 | 5 | 5 |
 | [SiO2 stishovite](sio2_stv_andr.md) | 7 | 3 | 3 |
 | [SnO2](sno2.md) | 1 | 1 | 1 |
 | [SnO2 Pa-3 (26.6 GPa pattern)](sno2_cubic_27gpa.md) | 1 | 1 | 1 |
@@ -247,7 +247,7 @@ New links become live only after the corresponding documentation is published.
 | [Vanadium (bcc)](vanadium_bcc.md) | 1 | 0 | 0 |
 | [Wadsleyite](wadsleyite.md) | 1 | 1 | 1 |
 | [Wollastonite](wollastonite.md) | 1 | 0 | 0 |
-| [Zinc (hcp)](zinc_hcp.md) | 2 | 2 | 2 |
+| [Zinc (hcp)](zinc_hcp.md) | 4 | 4 | 4 |
 | [Zinc oxide (rocksalt B1)](zinc_oxide_rocksalt.md) | 1 | 1 | 1 |
 | [Zinc oxide (wurtzite B4)](zinc_oxide_wurtzite.md) | 1 | 1 | 1 |
 | [Zircon](zircon.md) | 1 | 1 | 1 |
@@ -255,7 +255,7 @@ New links become live only after the corresponding documentation is published.
 | [Zirconium (beta)](zirconium_beta.md) | 1 | 1 | 1 |
 | [Zirconium (omega)](zirconium_omega.md) | 1 | 1 | 1 |
 
-472 of 472 assessments with stored coefficient comparisons have inline curve/residual plots, including 3 explicitly partial replays listed below. The other 192 records have no numeric source/refit coefficient pair recorded.
+485 of 485 assessments with stored coefficient comparisons have inline curve/residual plots, including 3 explicitly partial replays listed below. The other 192 records have no numeric source/refit coefficient pair recorded.
 
 ## Partial replays
 

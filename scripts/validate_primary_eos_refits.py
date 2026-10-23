@@ -376,10 +376,12 @@ PRESSURE_COLUMNS = {
     "tungsten_dewaele_2004_table1_compression": "ruby_pressure_revised_gpa",
     "tungsten_dewaele_2004_table1_compression#tungsten_dewaele_2004_mao_ruby_vinet": "ruby_pressure_classical_gpa",
     "silver_dewaele_2008_table2_compression": "ruby_pressure_dewaele_gpa",
+    "silver_dewaele_2008_table2_compression#silver_dewaele_2008_vinet_1": "ruby_pressure_mao_gpa",
     "diamond_dewaele_2008_table1_pvt": "pressure_h05_gpa",
     "gold_takemura_2008_table3_compression": "ruby_pressure_dorogokupets_gpa",
     "gold_fratanduono_2021_table_s3_compression": "isotherm_298k_pressure_gpa",
     "nickel_dewaele_2008_table2_compression": "ruby_pressure_dewaele_gpa",
+    "nickel_dewaele_2008_table2_compression#nickel_dewaele_2008_vinet_1": "ruby_pressure_mao_gpa",
     "mgsio3_post_perovskite_sakai_2016_table_s1_pvt": "pressure_bm3_gpa",
     "rhodium_rodrigo_ramon_2024_table2_compression": "pressure_gpa",
     "chromium_anzellini_2022_table2_compression": "pressure_w_gpa",
@@ -5360,7 +5362,26 @@ def validate_all() -> dict[str, Any]:
                     if key in record["scientific_validation"]
                 },
             }
-            if material_id == "ferrous_ringwoodite":
+            if (
+                "_dewaele_2008_table4_" in record["identifier"]
+                or "_dewaele_2008_paw_" in record["identifier"]
+            ):
+                from scripts.reproduce_dewaele_2008_metals import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif record["identifier"] in {
+                "silver_dewaele_2008_vinet_1",
+                "nickel_dewaele_2008_vinet_1",
+            }:
+                outcome = _dewaele_2019_outcome(
+                    document,
+                    record,
+                    dewaele_refits[f"{material_id}_dewaele_2019_mao_vinet"],
+                )
+                outcome["qualification"] += (
+                    " Historical 2008 identifier retained with unchanged coefficients; corrected attribution is the 2019 Table 1 Mao-scale fit."
+                )
+            elif material_id == "ferrous_ringwoodite":
                 from scripts.ferrous_ringwoodite_static import ledger_outcome
 
                 outcome = ledger_outcome(record)
@@ -5682,6 +5703,9 @@ def validate_all() -> dict[str, Any]:
             results.append({**base, **outcome})
 
     from scripts.forsterite_reproduce_katsura_2022 import LEDGER_PARITY_POLICY
+    from scripts.reproduce_dewaele_2008_metals import (
+        PARITY_POLICY as DEWAELE_2008_PARITY_POLICY,
+    )
 
     counts = Counter(item["status"] for item in results)
     return {
@@ -5714,7 +5738,7 @@ def validate_all() -> dict[str, Any]:
                 "reported parameter error widths, with small pressure-curve "
                 "differences relative to the observation errors. Exact author "
                 "workflow availability is a separate provenance assessment."
-                " " + LEDGER_PARITY_POLICY
+                " " + LEDGER_PARITY_POLICY + " " + DEWAELE_2008_PARITY_POLICY
             ),
             "similar": (
                 "Every fitted parameter either agrees within combined 2-sigma or "
@@ -5858,7 +5882,7 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         "## Outcome",
         "",
         f"The campaign covers all **{summary['total']}** EOS records. "
-        f"**{summary.get('parity', 0)}** achieve uncertainty parity, "
+        f"**{summary.get('parity', 0)}** achieve numerical parity under their stated comparison criteria, "
         f"**{summary.get('similar', 0)}** are numerically similar, "
         f"**{summary.get('source_reconstruction', 0)}** have a source "
         "reconstruction without an independent EOS refit, "
@@ -5875,6 +5899,10 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         "25% for gamma0/q/theta0, 30% for thermal-expansion or dK/dT terms, and 20% ",
         "for other coefficients. These broad limits identify broadly reproducible ",
         "published reductions; they are not statistical confidence statements.",
+        "Dewaele (2008) Table IV parity is conditional parameter agreement within ",
+        "printed 95% widths. All 54 Table VI PAW parameterizations and their ",
+        "graphical source-equation checks are retained in a separate ",
+        "[research collection](research/dewaele-2008-paw.md), excluded from this ledger. ",
         "For separately registered Peritheos refits, `parity_basis` instead ",
         "identifies numerical reproduction of that explicit analysis. The Fei ",
         "(2007) NaCl-B2 staged thermal refit is reproducible in this sense; its ",

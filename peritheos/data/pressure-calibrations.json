@@ -143,7 +143,30 @@
      298.0
     ],
     "pressure_medium": "helium; hydrostatic calibration",
-    "notes": "The source equation uses the experiment-specific ambient R1 wavelength lambda0. The library's 694.24 nm default is overrideable and does not alter ratio-based scale conversion."
+    "notes": "The source equation uses the experiment-specific ambient R1 wavelength lambda0. The library's 694.24 nm default is overrideable and does not alter ratio-based scale conversion. Section IV and Figure 3 derive A=1920 GPa and B=9.61 from the ten-metal reduced-shock/DAC comparison, excluding Zn. Table IV uses the earlier 2004 revised ruby scale, not this output calibration. Exact optimization weights, comparison grid and covariance are unavailable."
+   },
+   "calibration_provenance": {
+    "source_location": "Section IV; Figures 2(b) and 3; Table IV",
+    "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+    "input_ruby_calibration_record": "ruby_dewaele_2004",
+    "comparison_metals": [
+     "Co",
+     "Ni",
+     "Mo",
+     "Ag",
+     "Al",
+     "Cu",
+     "Pt",
+     "Ta",
+     "W",
+     "Au"
+    ],
+    "excluded_metals": [
+     "Zn"
+    ],
+    "derivation": "Average reduced-shock-wave versus DAC pressure comparison with adopted ultrasonic K0; not an executable pairwise pressure-identity edge.",
+    "author_optimization_reproduced": false,
+    "source_manifest": "datasets/dewaele-2008-source.json"
    }
   },
   {

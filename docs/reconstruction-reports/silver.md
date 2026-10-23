@@ -12,14 +12,116 @@ agreement, source verification, author-workflow reproduction and recommendation 
 
 | EOS record | Recorded outcome | Coefficient comparison |
 | --- | --- | --- |
-| [Dewaele et al. (2008), Vinet](#record-silver_dewaele_2008_vinet_1) | Numerically similar, with qualifications | Graph and table |
+| [Dewaele et al. (2008), Table IV Vinet, K0 fitted](#record-silver_dewaele_2008_table4_vinet) | Coefficient parity achieved | Graph and table |
+| [Dewaele (2019), Mao-scale Vinet; historical 2008 identifier](#record-silver_dewaele_2008_vinet_1) | Numerically similar, with qualifications | Graph and table |
 | [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-silver_sokolova_2013_holzapfel_2) | Source calculation reconstructed | No numeric coefficient pair recorded |
 | [Dewaele (2019), Ag MAO-scale Vinet](#record-silver_dewaele_2019_mao_vinet) | Numerically similar, with qualifications | Graph and table |
 | [Dewaele (2019), Ag DOR-scale Vinet](#record-silver_dewaele_2019_dor_vinet) | Numerically similar, with qualifications | Graph and table |
+| [Dewaele et al. (2008), Table IV Vinet, US K0=101 GPa fixed](#record-silver_dewaele_2008_table4_us_k0_101_vinet) | Coefficient parity achieved | Graph and table |
+
+<a id="record-silver_dewaele_2008_table4_vinet"></a>
+
+## Dewaele et al. (2008), Table IV Vinet, K0 fitted
+
+Record: `silver_dewaele_2008_table4_vinet` · Model: `Vinet`
+
+**Outcome: Coefficient parity achieved.**
+
+**Scope:** Comparison with the source parameterization.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
+
+[Stored EOS coefficients and source](../material-summaries/silver.md#record-silver_dewaele_2008_table4_vinet)
+
+### What this result establishes
+
+**Separate source-review status:** primary\_source\_validated.
+**Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
+
+- Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+### Data and reconstruction method
+
+- **Dataset identifiers:** silver\_dewaele\_2008\_source\_table
+- **Observations:** 31
+- **Fit kind:** isothermal\_pv
+- **Selection:** all rows except run 2 revised pressure &gt;100 GPa
+- **Objective:** unweighted pressure residuals
+- **Weighting:** unweighted diagnostic; source weights not specified
+- **Absolute sigma:** Not specified
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Fixed values:**
+    - **V0:** 68.084
+
+Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
+
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for silver_dewaele_2008_table4_vinet](figures/silver_dewaele_2008_table4_vinet-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for silver_dewaele_2008_table4_vinet](figures/silver_dewaele_2008_table4_vinet-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.358 |
+| Reconstruction / refit | 0.356 |
+
+Both fits use the same 31 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** audit volume in record units. **Row selection:** all rows except run 2 revised pressure &gt;100 GPa.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
+### Source versus reconstruction
+
+![Source/target and reconstructed central values for silver_dewaele_2008_table4_vinet](figures/silver_dewaele_2008_table4_vinet.svg#only-light)
+![Source/target and reconstructed central values for silver_dewaele_2008_table4_vinet](figures/silver_dewaele_2008_table4_vinet-dark.svg#only-dark)
+
+This is a **coefficient comparison**, not an observation or residual plot.
+Each panel uses its coefficient's audit units and includes zero. Markers show
+stored central values and available recorded error widths (also in the table below);
+no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
+
+| Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 103.9 | 1.4 | 104.122 | Not reported | Free |
+| K0\_prime | 5.78 | 0.09 | 5.76095 | Not reported | Free |
+
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
+
+
+<details markdown="1">
+<summary>Recorded diagnostics, covariance and additional protocol</summary>
+
+- **Columns:**
+    - **Pressure:** ruby\_pressure\_dewaele\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** atomic\_volume\_a3
+- **Observed pressure range gpa:** 0; 97.9
+- **Observed volume range:** 47.8192; 68.0848
+- **Degrees of freedom:** 29
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.356401
+- **Published rmse gpa:** 0.358082
+
+</details>
+
+### Detailed evidence and existing plots
+
+- [Related illustrated report explicitly naming this EOS: dewaele-2008-metals](../literature-reproductions/dewaele-2008-metals.md).
+- [Record-by-record numerical ledger](../primary-eos-refits.md#records).
+- [Source-audit reports](../source-audits.md).
+
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
+
+[Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `silver_dewaele_2008_table4_vinet`.
+[Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/silver.eosmat).
+
 
 <a id="record-silver_dewaele_2008_vinet_1"></a>
 
-## Dewaele et al. (2008), Vinet
+## Dewaele (2019), Mao-scale Vinet; historical 2008 identifier
 
 Record: `silver_dewaele_2008_vinet_1` · Model: `Vinet`
 
@@ -35,16 +137,16 @@ Record: `silver_dewaele_2008_vinet_1` · Model: `Vinet`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
+- Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. Historical 2008 identifier retained with unchanged coefficients; corrected attribution is the 2019 Table 1 Mao-scale fit.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
 
 - **Dataset identifiers:** silver\_dewaele\_2008\_table2\_compression
 - **Observations:** 34
-- **Fit kind:** isothermal\_pv
-- **Selection:** all rows
-- **Objective:** pressure\_residuals
-- **Absolute sigma:** True
+- **Fit kind:** static\_vinet\_with\_explicit\_ruby\_scale\_conversion
+- **Selection:** complete
+- **Objective:** unweighted pressure residuals
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 
@@ -57,8 +159,8 @@ Unspecified selections, weights, fixed values or error conventions remain unknow
 
 | Fit | Pressure RMS error (GPa) |
 | --- | ---: |
-| Original / source fit | 2.13 |
-| Reconstruction / refit | 0.572 |
+| Original / source fit | 0.469 |
+| Reconstruction / refit | 0.468 |
 
 Both fits use the same 34 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
 
@@ -78,9 +180,9 @@ no confidence interval or uncertainty band is inferred. Fixed/adopted values are
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 68.28 | 0.06 | 68.42 | 0.21 | Free |
-| K0 | 100.2 | 1.6 | 96 | 4 | Free |
-| K0\_prime | 5.70 | 0.09 | 6.11 | 0.13 | Free |
+| V0 | 68.28 | 0.06 | 68.2788 | Not reported | Free |
+| K0 | 100.2 | 1.6 | 100.388 | Not reported | Free |
+| K0\_prime | 5.70 | 0.09 | 5.68974 | Not reported | Free |
 
 Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
@@ -88,19 +190,10 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
-- **Columns:**
-    - **Pressure:** ruby\_pressure\_dewaele\_gpa
-    - **Temperature:** Not specified
-    - **Volume:** atomic\_volume\_a3
-- **Observed pressure range gpa:** 0; 122
-- **Observed temperature range k:** Not specified
-- **Observed volume range:** 46.054; 68.0848
-- **Degrees of freedom:** 31
+- **Observed pressure range gpa:** 0; 116
 - **Solver success:** True
-- **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.572496
-- **Published rmse gpa:** 2.12822
-- **Reduced chi square:** 0.35947
+- **Solver message:** dedicated Dewaele (2019) refit completed
+- **Rmse gpa:** 0.468111
 
 </details>
 
@@ -366,4 +459,103 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `silver_dewaele_2019_dor_vinet`.
+[Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/silver.eosmat).
+
+
+<a id="record-silver_dewaele_2008_table4_us_k0_101_vinet"></a>
+
+## Dewaele et al. (2008), Table IV Vinet, US K0=101 GPa fixed
+
+Record: `silver_dewaele_2008_table4_us_k0_101_vinet` · Model: `Vinet`
+
+**Outcome: Coefficient parity achieved.**
+
+**Scope:** Comparison with the source parameterization.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
+
+[Stored EOS coefficients and source](../material-summaries/silver.md#record-silver_dewaele_2008_table4_us_k0_101_vinet)
+
+### What this result establishes
+
+**Separate source-review status:** primary\_source\_validated.
+**Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
+
+- Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+### Data and reconstruction method
+
+- **Dataset identifiers:** silver\_dewaele\_2008\_source\_table
+- **Observations:** 31
+- **Fit kind:** isothermal\_pv
+- **Selection:** all rows except run 2 revised pressure &gt;100 GPa
+- **Objective:** unweighted pressure residuals
+- **Weighting:** unweighted diagnostic; source weights not specified
+- **Absolute sigma:** Not specified
+- **Free parameters:** K0\_prime
+- **Fixed parameters:** V0; K0
+- **Fixed values:**
+    - **K0:** 101
+    - **V0:** 68.084
+
+Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
+
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for silver_dewaele_2008_table4_us_k0_101_vinet](figures/silver_dewaele_2008_table4_us_k0_101_vinet-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for silver_dewaele_2008_table4_us_k0_101_vinet](figures/silver_dewaele_2008_table4_us_k0_101_vinet-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.462 |
+| Reconstruction / refit | 0.462 |
+
+Both fits use the same 31 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** audit volume in record units. **Row selection:** all rows except run 2 revised pressure &gt;100 GPa.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
+### Source versus reconstruction
+
+![Source/target and reconstructed central values for silver_dewaele_2008_table4_us_k0_101_vinet](figures/silver_dewaele_2008_table4_us_k0_101_vinet.svg#only-light)
+![Source/target and reconstructed central values for silver_dewaele_2008_table4_us_k0_101_vinet](figures/silver_dewaele_2008_table4_us_k0_101_vinet-dark.svg#only-dark)
+
+This is a **coefficient comparison**, not an observation or residual plot.
+Each panel uses its coefficient's audit units and includes zero. Markers show
+stored central values and available recorded error widths (also in the table below);
+no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
+
+| Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0\_prime | 5.970 | 0.020 | 5.97206 | Not reported | Free |
+
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
+
+
+<details markdown="1">
+<summary>Recorded diagnostics, covariance and additional protocol</summary>
+
+- **Columns:**
+    - **Pressure:** ruby\_pressure\_dewaele\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** atomic\_volume\_a3
+- **Observed pressure range gpa:** 0; 97.9
+- **Observed volume range:** 47.8192; 68.0848
+- **Degrees of freedom:** 30
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.462179
+- **Published rmse gpa:** 0.462378
+
+</details>
+
+### Detailed evidence and existing plots
+
+- [Record-by-record numerical ledger](../primary-eos-refits.md#records).
+- [Source-audit reports](../source-audits.md).
+
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
+
+[Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `silver_dewaele_2008_table4_us_k0_101_vinet`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/silver.eosmat).

@@ -79,7 +79,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Cementite](cementite.md) | Fe3C | 1 | 1 |
 | [Cerium dioxide (fluorite)](cerium_dioxide.md) | CeO2 | 1 | 1 |
 | [Chromium](chromium.md) | Cr | 1 | 1 |
-| [Cobalt](cobalt_hcp.md) | Co | 3 | 2 |
+| [Cobalt](cobalt_hcp.md) | Co | 6 | 3 |
 | [Coesite](coesite.md) | SiO2 | 2 | 3 |
 | [Coesite-IV](coesite_iv.md) | SiO2 | 1 | 1 |
 | [Coesite-V](coesite_v.md) | SiO2 | 0 | 0 |
@@ -95,7 +95,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Epsilon-FeOOH, hydrogen-centered low-spin phase](e_feooh_hc_low_spin.md) | FeOOH | 1 | 1 |
 | [FA50 bridgmanite](mg05fe05al05si05o3_bridgmanite.md) | Mg0.5Fe0.5Al0.5Si0.5O3 | 4 | 2 |
 | [Fayalite](fayalite.md) | Fe2SiO4 | 1 | 1 |
-| [Fe](fe.md) | Fe | 1 | 1 |
+| [Fe](fe.md) | Fe | 3 | 2 |
 | [Fe-bearing Al-phase D](fe_bearing_al_phase_d.md) | Al1.53Fe0.22Si0.86O6H3.33 | 2 | 1 |
 | [Fe0.93O (rhombohedrally distorted B1)](fe093o_rhombohedral.md) | Fe0.93O | 1 | 1 |
 | [Fe0.9Ni0.1 alloy (hcp)](fe09ni01_hcp.md) | Fe0.9Ni0.1 | 21 | 1 |
@@ -160,7 +160,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [MgO](mgo.md) | MgO | 37 | 19 |
 | [MgSi(OH)6 3.65 A phase](mgsioh6_365a_phase.md) | MgSiH6O6 | 3 | 1 |
 | [MgSiO3 post-perovskite](mgsio3_post_perovskite.md) | MgSiO3 | 14 | 9 |
-| [Molybdenum](molybdenum.md) | Mo | 7 | 5 |
+| [Molybdenum](molybdenum.md) | Mo | 9 | 6 |
 | [Molybdenum carbide Mo2C](molybenum_carbide_mo2c.md) | Mo2C | 2 | 1 |
 | [Mw78 defect-bearing magnesiowustite](mg0215fe0762vac0023o_b1.md) | Mg0.215Fe0.762□0.023O | 2 | 1 |
 | [Mw94 magnesiowustite B1](mgfe94o_b1.md) | Mg0.058Fe0.942O | 1 | 1 |
@@ -179,7 +179,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Natural Fe9 post-perovskite](mg090fe009al0005ca0005sio3_post_perovskite.md) | Mg0.90Fe0.09Al0.005Ca0.005SiO3 | 2 | 1 |
 | [Natural magnesite (Harwood 2212)](mg0991fe0008mn0001co3_magnesite.md) | Mg0.991Fe0.008Mn0.001CO3 | 2 | 1 |
 | [Neon (fcc)](neon_fcc.md) | Ne | 3 | 5 |
-| [Nickel](nickel.md) | Ni | 4 | 3 |
+| [Nickel](nickel.md) | Ni | 6 | 4 |
 | [Nickel oxide (cubic B1 model)](nickel_oxide_b1.md) | NiO | 1 | 2 |
 | [Nickel oxide (rhombohedral B1)](nickel_oxide.md) | NiO | 2 | 1 |
 | [Niobium](niobium.md) | Nb | 2 | 1 |
@@ -218,7 +218,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Silicon (Si-X, fcc)](silicon_x.md) | Si | 1 | 1 |
 | [Silicon carbide (B1 rock salt)](silicon_carbide_b1.md) | SiC | 1 | 1 |
 | [Silicon carbide (B3 zinc blende)](silicon_carbide_b3.md) | SiC | 1 | 1 |
-| [Silver](silver.md) | Ag | 4 | 1 |
+| [Silver](silver.md) | Ag | 6 | 2 |
 | [SiO2 stishovite](sio2_stv_andr.md) | SiO2 | 7 | 4 |
 | [SnO2](sno2.md) | SnO2 | 1 | 1 |
 | [SnO2 Pa-3 (26.6 GPa pattern)](sno2_cubic_27gpa.md) | SnO2 | 1 | 1 |
@@ -239,7 +239,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Vanadium (bcc)](vanadium_bcc.md) | V | 1 | 2 |
 | [Wadsleyite](wadsleyite.md) | Mg2SiO4 | 1 | 1 |
 | [Wollastonite](wollastonite.md) | CaSiO3 | 1 | 0 |
-| [Zinc (hcp)](zinc_hcp.md) | Zn | 2 | 1 |
+| [Zinc (hcp)](zinc_hcp.md) | Zn | 4 | 2 |
 | [Zinc oxide (rocksalt B1)](zinc_oxide_rocksalt.md) | ZnO | 1 | 1 |
 | [Zinc oxide (wurtzite B4)](zinc_oxide_wurtzite.md) | ZnO | 1 | 1 |
 | [Zircon](zircon.md) | ZrSiO4 | 1 | 1 |
