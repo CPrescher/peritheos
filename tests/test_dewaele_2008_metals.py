@@ -178,7 +178,28 @@ def test_common_ledger_retains_the_dedicated_source_outcomes():
     research = json.loads((RESEARCH / "reproduction.json").read_text())
     rows = {r["record_identifier"]: r for r in common["records"] + research["records"]}
     for rid, expected in reproduce()["records"].items():
-        subset = {key: rows[rid][key] for key in expected}
+        # Preserve source facts and verdicts exactly. Successful SciPy stop
+        # messages can name different satisfied criteria on different builds;
+        # they are diagnostic text, not source evidence or a success flag.
+        expected = json.loads(json.dumps(expected))
+        subset = json.loads(json.dumps({key: rows[rid][key] for key in expected}))
+        if "solver_message" in expected:
+            for row in (expected, subset):
+                assert row["solver_success"] is True
+                assert "termination condition" in row.pop("solver_message")
+        if "curve_validation" in expected:
+            for replay, original in zip(
+                expected["curve_validation"]["checks"],
+                subset["curve_validation"]["checks"],
+            ):
+                for field in (
+                    "model_atomic_volume_a3",
+                    "volume_difference_a3",
+                    "source_volume_acceptance_interval_a3",
+                ):
+                    assert replay.pop(field) == pytest.approx(
+                        original.pop(field), rel=1e-12, abs=1e-10
+                    )
         check_ledger_values(expected, subset)
         path = (
             ROOT / f"peritheos/data/materials/{expected['material_identifier']}.eosmat"
