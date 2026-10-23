@@ -220,3 +220,35 @@ def test_historical_compatibility_views_use_the_published_mao_coordinates(materi
     )
     assert np.array_equal(compatibility.pressure_gpa, parent.pressure_gpa)
     assert np.array_equal(compatibility.volume_a3, parent.volume_a3)
+
+
+def test_table_iv_observation_api_replays_the_reviewed_source_selection():
+    counts = {
+        "fe": (10, 10, 2),
+        "cobalt_hcp": (25, 25, 2),
+        "nickel": (42, 42, 4),
+        "zinc_hcp": (43, 43, 2),
+        "molybdenum": (29, 26, 2),
+        "silver": (34, 31, 4),
+    }
+    for material, rid, *_ in table4_specs():
+        document = get_material_document(material)
+        observed = resolve_dataset_observations(
+            document, rid, f"{material}_dewaele_2008_source_table"
+        )
+        retained, selected, atoms = counts[material]
+        assert len(observed.row_indices) == retained
+        assert sum(observed.selected_for_fit) == selected
+        rows = experiment_rows(material)
+        pressure = (
+            "pressure_revised_gpa" if material == "fe" else "ruby_pressure_dewaele_gpa"
+        )
+        assert observed.pressure_gpa[observed.selected_for_fit] == pytest.approx(
+            [float(row[pressure]) for row in rows]
+        )
+        assert observed.volume_a3[observed.selected_for_fit] == pytest.approx(
+            [float(row["atomic_volume_a3"]) * atoms for row in rows]
+        )
+        # Missing rowwise source errors are never fabricated by coordinate recovery.
+        assert np.isnan(observed.pressure_uncertainty).all()
+        assert np.isnan(observed.volume_uncertainty).all()

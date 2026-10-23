@@ -276,3 +276,25 @@ print(ag.pressure_calibration)
 is bundled as `peritheos/data/datasets/dewaele-2008-source.json`.
 The [numerical audit](../data/dewaele-2008-metals-reproduction.json) records
 each fit, curve comparison, selection and unresolved condition.
+
+
+## Using the reviewed experimental observations
+
+The 13 Table IV EOS expose native observation views with the published revised
+pressure column, conventional-cell volume conversion and fit selection. The
+Fe view selects the ten bcc observations; the other five source tables retain
+all rows and mark the six excluded high-pressure run-2 Ag/Mo rows outside the
+fit. Parenthesized helium-EOS pressures stay as printed. Rowwise uncertainties
+are unavailable and remain missing.
+
+```python
+from peritheos import get_material_document, resolve_dataset_observations
+
+document = get_material_document("silver")
+observations = resolve_dataset_observations(
+    document,
+    "silver_dewaele_2008_table4_vinet",
+    "silver_dewaele_2008_source_table",
+)
+print(len(observations.row_indices), sum(observations.selected_for_fit))  # 34, 31
+```
