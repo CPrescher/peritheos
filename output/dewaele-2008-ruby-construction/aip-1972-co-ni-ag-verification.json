@@ -1,0 +1,21 @@
+{
+  "source_pdf_sha256": "dda86a046830f63d95933b01e5b56bce9a46572a038ba37e68ceee9f2e059dad",
+  "distinct_populated_cells": 136,
+  "independent_PDF_text_comparisons": 136,
+  "visual_OCR_overrides": [
+    {
+      "material": "Ag",
+      "P_kbar": 400,
+      "OCR": "0.1811",
+      "printed": "0.811"
+    }
+  ],
+  "empty_cells_preserved": 23,
+  "checks": [
+    "All source values agree with separate PDF-text reading after the documented visual override",
+    "All populated volumes strictly decrease with pressure in each column",
+    "Source pressure tokens retained; exact kbar/GPa conversion",
+    "No missing entries or zero-pressure anchor synthesized"
+  ],
+  "scope": "Transcription verification, not validation of original shock reduction or Dewaele workflow"
+}

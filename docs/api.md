@@ -426,6 +426,7 @@ Constructor signatures and special requirements are:
 | Class | Signature after class name | Special requirement |
 |---|---|---|
 | `BM2` | `(V0, K0)` | $K_0'=4$ is implied |
+| `BM2Reference` | `(V0, K0, P0)` | $P(V0)=P0$; `V0`, `K0` are reference-pressure values; $K'=4$ at that reference |
 | `BM3` | `(V0, K0, K0_prime)` | none |
 | `BM4` | `(V0, K0, K0_prime, K0_double_prime)` | `K0_double_prime` has inverse-pressure units |
 | `Murnaghan` | `(V0, K0, K0_prime)` | supports the `K0_prime=0` limit |

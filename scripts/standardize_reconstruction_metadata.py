@@ -190,6 +190,22 @@ def assessment_for_record(
             "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
         )
     result["fit"] = {key: copy.deepcopy(row[key]) for key in FIT_FIELDS if key in row}
+    if "data_agreement_status" in row:
+        # A data-agreement assessment retains its distinct coefficient result
+        # and measured-coordinate diagnostics alongside the fitting objective.
+        result["fit"].update(
+            {
+                key: copy.deepcopy(row[key])
+                for key in (
+                    "coefficient_comparison_status",
+                    "data_agreement_status",
+                    "weighted_sum_squares",
+                    "published_max_abs_pressure_residual_gpa",
+                    "pressure_rmse_coordinates",
+                )
+                if key in row
+            }
+        )
     result["report"] = REPORT
     if row.get("material_identifier"):
         result.update(report_links(row["material_identifier"], record["identifier"]))

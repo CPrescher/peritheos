@@ -1,8 +1,8 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://peritheos.readthedocs.io/schemas/eosmat-v4.schema.json",
-  "title": "EOSMAT v4 — native material and scientific evidence",
-  "description": "Native simplified EOSMAT: one model identifier, parameter annotations beside values, and optional detailed evidence. GPa, kelvin and conventional-cell Å³ are fixed by this version; missing review metadata is unreviewed.",
+  "title": "EOSMAT v4 \u2014 native material and scientific evidence",
+  "description": "Native simplified EOSMAT: one model identifier, parameter annotations beside values, and optional detailed evidence. GPa, kelvin and conventional-cell \u00c5\u00b3 are fixed by this version; missing review metadata is unreviewed.",
   "type": "object",
   "required": [
     "format_version",
@@ -489,6 +489,7 @@
           "enum": [
             "Baonza",
             "BM2",
+            "BM2Reference",
             "BM3",
             "BM4",
             "Holzapfel",
@@ -514,6 +515,7 @@
           "enum": [
             "baonza",
             "birch_murnaghan_2",
+            "birch_murnaghan_2_reference",
             "birch_murnaghan_3",
             "birch_murnaghan_4",
             "holzapfel",
@@ -563,6 +565,16 @@
                 },
                 "model": {
                   "const": "birch_murnaghan_2"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "BM2Reference"
+                },
+                "model": {
+                  "const": "birch_murnaghan_2_reference"
                 }
               }
             },
@@ -1609,6 +1621,7 @@
           "enum": [
             "Baonza",
             "BM2",
+            "BM2Reference",
             "BM3",
             "BM4",
             "Holzapfel",

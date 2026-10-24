@@ -44,6 +44,10 @@ BM3 = {
 
 COESITE_V_HELD_CANDIDATE = (427.3921208, 185.26, 3.10)
 
+BM2_REFERENCE = {
+    "coesite_iv_v_bykova_2018_experimental_bm2_reference": (375.04, 254.0, 32.7),
+}
+
 BM2 = {
     "ca_perovskite_wang_weidner_1994_bm2": (45.83, 280.0),
     "fe088sio3_bridgmanite_ismailova_2016_300k_bm2": (178.98, 190.0),
@@ -218,7 +222,7 @@ def reproduce() -> dict[str, object]:
         ]
     )
     return {
-        "accepted_record_count": len(BM3) + len(BM2) + len(VINET),
+        "accepted_record_count": len(BM3) + len(BM2) + len(VINET) + len(BM2_REFERENCE),
         "bm3_zero_pressure_max_abs_gpa": max(
             abs(float(bm3_pressure(v[0], *v))) for v in BM3.values()
         ),

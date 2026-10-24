@@ -81,7 +81,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Chromium](chromium.md) | Cr | 1 | 1 |
 | [Cobalt](cobalt_hcp.md) | Co | 6 | 3 |
 | [Coesite](coesite.md) | SiO2 | 2 | 3 |
-| [Coesite-IV](coesite_iv.md) | SiO2 | 1 | 1 |
+| [Coesite-IV](coesite_iv.md) | SiO2 | 2 | 3 |
 | [Coesite-V](coesite_v.md) | SiO2 | 0 | 0 |
 | [CoO](coo.md) | CoO | 1 | 1 |
 | [Copper](copper.md) | Cu | 7 | 2 |

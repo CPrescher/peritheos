@@ -45,3 +45,8 @@ output/**/*.svg -text whitespace=-blank-at-eol,-blank-at-eof
 
 # Preserve recovered Dewaele tables and their recorded byte fingerprints.
 *dewaele-2008*.csv -text -eol whitespace=cr-at-eol
+
+# Preserve numerical investigation archives and generated source-check figures.
+output/dewaele-2008-ruby-construction/*.csv -text -eol whitespace=cr-at-eol
+output/dewaele-2008-ruby-construction/source-reconstruction/*.csv -text -eol whitespace=cr-at-eol
+docs/literature-reproductions/assets/*bykova*.svg -text whitespace=-blank-at-eol,-blank-at-eof

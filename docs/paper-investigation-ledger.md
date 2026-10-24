@@ -31,7 +31,7 @@ produce an executable record.
 
 ## Summary
 
-The register covers **370 primary papers**: **266** support the 677 audited catalog records and **104** were investigated without adding a production record.
+The register covers **370 primary papers**: **266** support the 678 audited catalog records and **104** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
@@ -1105,7 +1105,7 @@ the primary-source and refit ledgers.
 | [Boffa Ballaran et al. (2007)](https://doi.org/10.2138/am.2007.2715) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Braithwaite (2002), high-pressure solid/melt representations](https://doi.org/10.1063/1.1483512) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Brown et al. (2000)](https://doi.org/10.1063/1.1319320) | Reproduced | 1 | 1 parity | 1 bundled |
-| [Bykova et al. (2018)](https://doi.org/10.1038/s41467-018-07265-z) | Mixed: reproduced and discrepant records | 2 | 1 similar; 1 parity not achieved | 2 bundled |
+| [Bykova et al. (2018)](https://doi.org/10.1038/s41467-018-07265-z) | Mixed: reproduced and discrepant records | 3 | 1 parity; 1 parity not achieved; 1 source reconstruction | 3 bundled |
 | [Campbell and Heinz (1991)](https://doi.org/10.1016/0022-3697(91)90181-x) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Campbell and Heinz (1993)](https://doi.org/10.1016/0022-3697(93)90106-2) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Campbell and Heinz (1994)](https://doi.org/10.1029/94jb00127) | Reproduced | 2 | 2 parity | 2 bundled |
@@ -1141,8 +1141,8 @@ the primary-source and refit ledgers.
 | [Dewaele et al. (2004)](https://doi.org/10.1103/physrevb.70.094112) | Reproduced | 12 | 12 parity | 12 bundled |
 | [Dewaele et al. (2005), high-pressure metrology abstract](https://doi.org/10.1107/S0108767305096972) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Dewaele et al. (2006)](https://doi.org/10.1103/physrevlett.97.215504) | Partly reproduced | 2 | 1 similar; 1 direct refit unavailable | 2 bundled |
-| [Dewaele et al. (2008)](https://doi.org/10.1103/physrevb.77.094106) | Partly reproduced | 3 | 1 parity; 2 source reconstruction | 3 bundled |
 | [Dewaele et al. (2008)](https://doi.org/10.1103/physrevb.78.104102) | Reproduced | 13 | 13 parity | 13 bundled |
+| [Dewaele et al. (2008)](https://doi.org/10.1103/physrevb.77.094106) | Partly reproduced | 3 | 1 parity; 2 source reconstruction | 3 bundled |
 | [Dewaele et al. (2012)](https://doi.org/10.1103/physrevb.85.214105) | Reproduced | 4 | 4 similar | 4 bundled |
 | [Dewaele et al. (2015)](https://doi.org/10.1103/physrevb.91.134108) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Dewaele et al. (2021)](https://doi.org/10.1038/s41598-021-93995-y) | Reproduced | 1 | 1 similar | 1 bundled |
@@ -1163,7 +1163,7 @@ the primary-source and refit ledgers.
 | [EXTREME COMPRESSION BEHAVIOUR OF SOLIDS BASED ON THE ROY-ROY INVERTED EQUATION OF STATE (2008)](https://doi.org/10.1142/s0217979208038910) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Farla et al. (2025)](https://doi.org/10.1063/5.0248905) | Reproduced | 3 | 3 similar | 3 bundled |
 | [Faust and Knittle (1994), natural chondrodite](https://doi.org/10.1029/94GL01592) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
-| [Fedotenko et al. (2020)](https://doi.org/10.1016/j.jallcom.2020.156179) | Reproduced | 2 | 2 parity | 2 bundled |
+| [Fedotenko et al. (2020)](https://doi.org/10.1016/j.jallcom.2020.156179) | Reproduced | 2 | 2 parity; Corrected Fedotenko Pd weighting retains all 14 printed positive-pressure coordinate errors with explicit ambient-datum handling. Both Pd fits achieve conditional coefficient parity; fixed-Kprime=4 has poor data agreement (source pressure RMS 0.934246 GPa; corrected diagnostic reduced chi-square about 25). The constrained curve is not recommended for quantitative use. Published coefficients and observations are unchanged. See the [Fedotenko audit](literature-reproductions/palladium-fedotenko-2020-audit.md). | 2 bundled |
 | [Fei and Mao (1993), brucite static and thermal compression](https://doi.org/10.1029/93JB00701) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Fei et al. (2000)](https://doi.org/10.2138/am-2000-11-1229) | Reproduced | 1 | 1 similar | 1 plot only/digitized |
 | [Fei et al. (2004)](https://doi.org/10.1016/j.pepi.2003.09.018) | Mixed: reproduced and discrepant records | 3 | 1 similar; 1 parity not achieved; 1 direct refit unavailable | 3 bundled |

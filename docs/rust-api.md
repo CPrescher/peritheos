@@ -38,6 +38,13 @@ let volume = eos.volume(pressure)?;
 # Ok::<(), peritheos::EosError>(())
 ```
 
+For a second-order Birch–Murnaghan law defined at finite pressure, use
+`isothermal::BM2Reference::new(v_ref, k_ref, p_ref)`. It implements
+`P(V) = p_ref + 1.5*k_ref*((v_ref/V)^(7/3) - (v_ref/V)^(5/3))`;
+its reference volume and modulus belong to `p_ref`. Ordinary `BM2` keeps its
+zero-pressure convention. EOSMAT uses the explicit model identifier
+`birch_murnaghan_2_reference`, requiring a reader with that capability.
+
 Use an `.eosmat` record when model choice, parameters, reference state,
 provenance, and extension metadata should be data:
 

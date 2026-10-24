@@ -281,7 +281,7 @@ def test_every_bundled_link_opens_its_record_and_each_graph_matches_its_input():
                 assert current_curve(curve.read_bytes(), comparison)
                 curves += 1
             records += 1
-    assert records == 677 and charts == curves == 485
+    assert records == 678 and charts == curves == 485
     for light in (ROOT / "docs/reconstruction-reports/figures").glob("*.svg"):
         if not light.stem.endswith("-dark"):
             dark = light.with_name(Path(dark_path(light.name)).name)

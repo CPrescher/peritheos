@@ -204,6 +204,7 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 ### Detailed evidence and existing plots
 
 - [Earlier detailed record investigation](../primary-eos-refits.md#investigation-coesite_i_iii_bykova_2018_300k_bm3).
+- [Related illustrated report explicitly naming this EOS: bykova-2018-other-eos-audit](../literature-reproductions/bykova-2018-other-eos-audit.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 

@@ -63,14 +63,15 @@ remain supported as explicit compatibility lookups, preserving their prior
 parameters and numerical results when a primary-source audit found that the
 new canonical record is not identical. They are intentionally omitted from
 `list_materials()`, `list_eos_records()`, and search results, whose deterministic
-contents are exactly the bundled 224-executable-material/647-record collection.
-The document API separately exposes all 227 material cards, including cards
-with no executable EOS.
+contents come directly from the bundled 230 executable materials. Normal EOS
+discovery exposes 624 source choices; explicit inclusion of pressure-scale
+reference variants exposes all 675 executable records. The document API
+separately exposes all 233 material cards, including cards with no executable EOS.
 
 The migration audit covered all 37 historical convenience records: 11 have an
 equation-identical canonical counterpart, 17 have a counterpart whose audited
 parameters, reference state, or equation composition differs, and 9 have no
-executable record in the bundled 647-record collection. Consequently, the old names are not
+executable record in the original migration audit. Consequently, the old names are not
 blindly redirected to scientifically different records. Their compatibility
 objects remain numerically stable; all new discovery and canonical-identifier
 lookups use document-built objects. An exhaustive internal manifest is tested

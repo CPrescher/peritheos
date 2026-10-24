@@ -6,9 +6,9 @@ use peritheos::fit::{
     StructuredLayout, ThermalObservations,
 };
 use peritheos::isothermal::{
-    Baonza, DensityPolynomial3, Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2,
-    NaturalStrain3, NaturalStrain4, RydbergStacey, SecondOrderMurnaghan, SunMorse3, SunMorse4,
-    Vinet, BM2, BM3, BM4,
+    BM2Reference, Baonza, DensityPolynomial3, Holzapfel, ModifiedTait, Morse3, Murnaghan,
+    NaturalStrain2, NaturalStrain3, NaturalStrain4, RydbergStacey, SecondOrderMurnaghan, SunMorse3,
+    SunMorse4, Vinet, BM2, BM3, BM4,
 };
 use peritheos::thermal::{
     AsymptoticPowerLawMieGruneisenDebye, DebyeAnharmonicHelmholtz, DebyeQuadraticThermalPressure,
@@ -92,6 +92,17 @@ impl RtModel {
                     BM2::new(
                         value(names, values, "V0", model.v0),
                         value(names, values, "K0", model.k0),
+                    )
+                    .map_err(FitError::from)?,
+                )
+            }
+            Self::BM2Reference(model) => {
+                ensure_names(names, &["V0", "K0", "P0"], false)?;
+                Self::BM2Reference(
+                    BM2Reference::new(
+                        value(names, values, "V0", model.v0),
+                        value(names, values, "K0", model.k0),
+                        value(names, values, "P0", model.p0),
                     )
                     .map_err(FitError::from)?,
                 )

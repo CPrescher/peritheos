@@ -48,6 +48,15 @@ CITATION_OVERRIDES = {
 
 
 PAPER_SCOPE_NOTES = {
+    "10.1016/j.jallcom.2020.156179": (
+        "Corrected Fedotenko Pd weighting retains all 14 printed positive-pressure "
+        "coordinate errors with explicit ambient-datum handling. Both Pd fits "
+        "achieve conditional coefficient parity; fixed-Kprime=4 has poor data agreement "
+        "(source pressure RMS 0.934246 GPa; corrected diagnostic reduced chi-square "
+        "about 25). The constrained curve is not recommended for quantitative use. "
+        "Published coefficients and observations are unchanged. See the "
+        "[Fedotenko audit](literature-reproductions/palladium-fedotenko-2020-audit.md)."
+    ),
     "10.1007/s00269-003-0353-z": (
         "Full published thermal EOS: parity not achieved, not recommended. "
         "Only individually source-checked 300/473/673 K isotherms remain executable. "

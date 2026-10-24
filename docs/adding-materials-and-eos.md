@@ -272,6 +272,15 @@ sufficient.
 
 ## 4. Reproduce the publication
 
+An explicitly finite-pressure BM2 source can use `BM2Reference(V0, K0, P0)`
+after establishing its equation mapping against independent source evidence.
+V0/K0 then mean values at P0. Preserve original notation and values rather
+than synthesizing ambient coefficients. A published-curve check establishes
+equation mapping at graphical resolution; observation residuals and
+author-workflow reproduction remain separate. The
+[joint coesite-IV/V audit](literature-reproductions/coesite-iv-v-bykova-2018-experimental.md)
+shows a reproduced source curve with substantial observation scatter.
+
 Write a small, deterministic reproduction before treating the record as
 validated. It should be independent of the test fixture: expected values must
 come from the primary source, a transparent hand calculation, or a separately
@@ -397,7 +406,7 @@ classes.
 | Area | Required checks |
 |---|---|
 | Literature | Independent source value(s), justified tolerance, and primary-data/refit result |
-| Reference state | `P(V0) = 0`, `K(V0) = K0`, and zero thermal increment at `Tr` |
+| Reference state | `P(V0) = 0` (or explicit `P0` for `BM2Reference`), `K(V0) = K0`, and zero thermal increment at `Tr` |
 | Derivatives | Analytic bulk modulus against `-V dP/dV`; stated `K0'`, `K0''`, Gruneisen, or caloric identities |
 | Inversion | Pressure-volume and thermal round trips across the supported branch |
 | Inputs | Invalid parameters, nonpositive volumes or temperatures, nonfinite values, and model-domain boundaries |

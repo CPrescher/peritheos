@@ -11,9 +11,9 @@ use peritheos::fit::{
 };
 use peritheos::hugoniot::{Hugoniot, LinearUsUpHugoniot};
 use peritheos::isothermal::{
-    holzapfel_bulk_modulus_derivative_analytical, Baonza, DensityPolynomial3, Holzapfel,
-    ModifiedTait, Morse3, Murnaghan, NaturalStrain2, NaturalStrain3, NaturalStrain4, RydbergStacey,
-    SecondOrderMurnaghan, SunMorse3, SunMorse4, Vinet, BM2, BM3, BM4,
+    holzapfel_bulk_modulus_derivative_analytical, BM2Reference, Baonza, DensityPolynomial3,
+    Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2, NaturalStrain3, NaturalStrain4,
+    RydbergStacey, SecondOrderMurnaghan, SunMorse3, SunMorse4, Vinet, BM2, BM3, BM4,
 };
 use peritheos::thermal::{
     AsymptoticPowerLawMieGruneisenDebye, DebyeAnharmonicHelmholtz, DebyeQuadraticThermalPressure,
@@ -39,6 +39,7 @@ enum RtModel {
     Baonza(Baonza),
     DensityPolynomial3(DensityPolynomial3),
     BM2(BM2),
+    BM2Reference(BM2Reference),
     BM3(BM3),
     BM4(BM4),
     Morse3(Morse3),
@@ -62,6 +63,7 @@ impl RtModel {
             Self::Baonza(_) => "Baonza",
             Self::DensityPolynomial3(_) => "DensityPolynomial3",
             Self::BM2(_) => "BM2",
+            Self::BM2Reference(_) => "BM2Reference",
             Self::BM3(_) => "BM3",
             Self::BM4(_) => "BM4",
             Self::Morse3(_) => "Morse3",
@@ -86,6 +88,7 @@ impl IsothermalEos for RtModel {
             Self::Baonza(model) => model.reference_volume(),
             Self::DensityPolynomial3(model) => model.reference_volume(),
             Self::BM2(model) => model.reference_volume(),
+            Self::BM2Reference(model) => model.reference_volume(),
             Self::BM3(model) => model.reference_volume(),
             Self::BM4(model) => model.reference_volume(),
             Self::Morse3(model) => model.reference_volume(),
@@ -108,6 +111,7 @@ impl IsothermalEos for RtModel {
             Self::Baonza(model) => model.pressure(volume),
             Self::DensityPolynomial3(model) => model.pressure(volume),
             Self::BM2(model) => model.pressure(volume),
+            Self::BM2Reference(model) => model.pressure(volume),
             Self::BM3(model) => model.pressure(volume),
             Self::BM4(model) => model.pressure(volume),
             Self::Morse3(model) => model.pressure(volume),
@@ -130,6 +134,7 @@ impl IsothermalEos for RtModel {
             Self::Baonza(model) => model.volume(pressure),
             Self::DensityPolynomial3(model) => model.volume(pressure),
             Self::BM2(model) => model.volume(pressure),
+            Self::BM2Reference(model) => model.volume(pressure),
             Self::BM3(model) => model.volume(pressure),
             Self::BM4(model) => model.volume(pressure),
             Self::Morse3(model) => model.volume(pressure),
@@ -152,6 +157,7 @@ impl IsothermalEos for RtModel {
             Self::Baonza(model) => model.bulk_modulus(volume),
             Self::DensityPolynomial3(model) => model.bulk_modulus(volume),
             Self::BM2(model) => model.bulk_modulus(volume),
+            Self::BM2Reference(model) => model.bulk_modulus(volume),
             Self::BM3(model) => model.bulk_modulus(volume),
             Self::BM4(model) => model.bulk_modulus(volume),
             Self::Morse3(model) => model.bulk_modulus(volume),
@@ -208,6 +214,7 @@ impl ReferenceStateEos for RtModel {
             Self::Baonza(model) => model.k0,
             Self::DensityPolynomial3(model) => model.reference_bulk_modulus(),
             Self::BM2(model) => model.k0,
+            Self::BM2Reference(model) => model.k0,
             Self::BM3(model) => model.k0,
             Self::BM4(model) => model.k0,
             Self::Morse3(model) => model.k0,
@@ -234,6 +241,9 @@ impl ReferenceStateEos for RtModel {
                 Baonza::new(volume, bulk_modulus, model.k0_prime).map(Self::Baonza)
             }
             Self::BM2(_) => BM2::new(volume, bulk_modulus).map(Self::BM2),
+            Self::BM2Reference(model) => {
+                BM2Reference::new(volume, bulk_modulus, model.p0).map(Self::BM2Reference)
+            }
             Self::BM3(model) => BM3::new(volume, bulk_modulus, model.k0_prime).map(Self::BM3),
             Self::BM4(model) => {
                 BM4::new(volume, bulk_modulus, model.k0_prime, model.k0_double_prime).map(Self::BM4)
@@ -326,6 +336,13 @@ impl PyRtEos {
     fn bm2(v0: f64, k0: f64) -> PyResult<Self> {
         Ok(Self {
             model: RtModel::BM2(BM2::new(v0, k0).map_err(to_python_error)?),
+        })
+    }
+
+    #[staticmethod]
+    fn bm2_reference(v0: f64, k0: f64, p0: f64) -> PyResult<Self> {
+        Ok(Self {
+            model: RtModel::BM2Reference(BM2Reference::new(v0, k0, p0).map_err(to_python_error)?),
         })
     }
 

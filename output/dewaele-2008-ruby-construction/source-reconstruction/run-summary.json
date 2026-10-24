@@ -1,0 +1,132 @@
+{
+  "fits": {
+    "source_stated_range": {
+      "A_GPa": 1916.930165655635,
+      "B": 10.15256632971911,
+      "target_mean_RMSE_GPa": 0.032941301162216274,
+      "target_mean_max_abs_residual_GPa": 0.06574193844539877,
+      "fit_coordinate_2004_range_GPa": [
+        0.0,
+        160.0
+      ],
+      "grid_points": 321,
+      "delta_at_published_160_GPa": 2.6894887032304666,
+      "max_abs_delta_0_to_160_GPa": 2.6894887032304666,
+      "comparison_axis": "published2008 pressure at identical wavelength ratio"
+    },
+    "source_Co_full_table": {
+      "A_GPa": 1915.138083602523,
+      "B": 10.056142938365753,
+      "target_mean_RMSE_GPa": 0.027830054977849947,
+      "target_mean_max_abs_residual_GPa": 0.05556237028795863,
+      "fit_coordinate_2004_range_GPa": [
+        0.0,
+        160.0
+      ],
+      "grid_points": 321,
+      "delta_at_published_160_GPa": 2.009448350392148,
+      "max_abs_delta_0_to_160_GPa": 2.009448350392148,
+      "comparison_axis": "published2008 pressure at identical wavelength ratio"
+    },
+    "literal_published_pairs": {
+      "A_GPa": 1911.0264385047385,
+      "B": 9.792774790259651,
+      "target_mean_RMSE_GPa": 0.015282949389796501,
+      "target_mean_max_abs_residual_GPa": 0.029958474522317147,
+      "fit_coordinate_2004_range_GPa": [
+        0.0,
+        160.0
+      ],
+      "grid_points": 321,
+      "delta_at_published_160_GPa": 0.23373464805678168,
+      "max_abs_delta_0_to_160_GPa": 0.23373464805678168,
+      "comparison_axis": "published2008 pressure at identical wavelength ratio"
+    },
+    "common_DAC_support": {
+      "A_GPa": 1909.933484976177,
+      "B": 10.401493123460185,
+      "target_mean_RMSE_GPa": 0.006915032000636009,
+      "target_mean_max_abs_residual_GPa": 0.01503838960371695,
+      "fit_coordinate_2004_range_GPa": [
+        0.0,
+        65.2
+      ],
+      "grid_points": 321,
+      "delta_at_published_160_GPa": 3.465023547837717,
+      "max_abs_delta_0_to_160_GPa": 3.465023547837717,
+      "comparison_axis": "published2008 pressure at identical wavelength ratio"
+    },
+    "source_Hixson_300K": {
+      "A_GPa": 1917.0594599196243,
+      "B": 10.162622938301936,
+      "target_mean_RMSE_GPa": 0.03335822540296782,
+      "target_mean_max_abs_residual_GPa": 0.06660849311205652,
+      "fit_coordinate_2004_range_GPa": [
+        0.0,
+        160.0
+      ],
+      "grid_points": 321,
+      "delta_at_published_160_GPa": 2.7557058156668006,
+      "max_abs_delta_0_to_160_GPa": 2.7557058156668006,
+      "comparison_axis": "published2008 pressure at identical wavelength ratio"
+    },
+    "source_Pt_Wang": {
+      "A_GPa": 1916.8710805313992,
+      "B": 10.148393973976408,
+      "target_mean_RMSE_GPa": 0.03275896722221756,
+      "target_mean_max_abs_residual_GPa": 0.06536931339823582,
+      "fit_coordinate_2004_range_GPa": [
+        0.0,
+        160.0
+      ],
+      "grid_points": 321,
+      "delta_at_published_160_GPa": 2.661563407484522,
+      "max_abs_delta_0_to_160_GPa": 2.661563407484522,
+      "comparison_axis": "published2008 pressure at identical wavelength ratio"
+    },
+    "source_Co190": {
+      "A_GPa": 1916.5755372921371,
+      "B": 10.146229170310846,
+      "target_mean_RMSE_GPa": 0.03215429636836139,
+      "target_mean_max_abs_residual_GPa": 0.0643207466599165,
+      "fit_coordinate_2004_range_GPa": [
+        0.0,
+        160.0
+      ],
+      "grid_points": 321,
+      "delta_at_published_160_GPa": 2.6246005712935983,
+      "max_abs_delta_0_to_160_GPa": 2.6246005712935983,
+      "comparison_axis": "published2008 pressure at identical wavelength ratio"
+    }
+  },
+  "verification": {
+    "vinet_inverse_max_error_GPa": 3.0411229090532288e-12,
+    "independent_equal_K0_ratio_identity_max_error_GPa": 3.211653165635653e-12,
+    "published_2008_formula_vs_Figure3_max_error_GPa": 0.01068517065200325,
+    "321_vs_1601_grid_max_calibration_change_GPa": 0.0002947234624457451,
+    "dense_grid_fit": {
+      "A_GPa": 1916.9160597720283,
+      "B": 10.152766536275148,
+      "target_mean_RMSE_GPa": 0.03289421084889321,
+      "target_mean_max_abs_residual_GPa": 0.06635895881242959,
+      "fit_coordinate_2004_range_GPa": [
+        0.0,
+        160.0
+      ],
+      "grid_points": 1601
+    },
+    "source_hashes": {
+      "output/dewaele-2008-ruby-construction/aip-1972-table4d12-co-ni-ag-isotherms.csv": "cf942d812882de136939310f28031fb4da1823c202d5ff634792b5b23de634e7",
+      "output/dewaele-2008-ruby-construction/hixson-1992-293K-density-isotherms.csv": "96a4e8821006d07e874f51788d0ad8983fe5fbac91de05d3de753a7293562c37",
+      "output/dewaele-2008-ruby-construction/hixson-1992-300K-isotherms.csv": "5f3fe2540e4f57c71f4a684feedbba1dfc7eb98d970a34fcdef32357a94a0c75",
+      "output/dewaele-2008-ruby-construction/wang-2002-table2-generalized-eos.csv": "0ad5a1d7c1db755ec4b9d59bd5ee54f43255b1d2d4377a6953d54a02dc652e26",
+      "output/dewaele-2008-ruby-construction/dewaele-2004-table2-vinet-branches.csv": "fea5bdde21bd26706a028721eebcf82dace84b0a51e987441eb25b18cac1e344",
+      "output/dewaele-2008-ruby-construction/source-table4-vinet-pairs.csv": "22611524e18b772fd19327c22e896780f6c02d9f7cbf9ea0bc66896800b37574",
+      "output/dewaele-2008-ruby-construction/holmes-1989-300K-parameterization.json": "7607fa88cd2a0e0883b78099bf473faed65f6dbcea51778ec737a217b5450051",
+      "output/dewaele-2008-ruby-construction/dewaele-loubeyre-2007-stress-correction.json": "27b40ef2dc05f13427e858a51c20041b89a0f296c12f9fce84eb9c147279be14",
+      "output/dewaele-2008-ruby-construction/pressure-volume-input-inventory.csv": "0448d7e9543421725f0989a3cf3f3c5f4c409c4aa3c7bcc5cf9532f19dc1141b",
+      "output/dewaele-2008-ruby-construction/figure3-source.json": "d38bacc57c6a6bdaee881510715dafa00a8a704b1520d36101e0f2ad8015d4c7",
+      "docs/data/dewaele-2008-followup-source.json": "2e35bea5f2a67d310f6ab0d01c345a04f9364c07a1aaa8d4e397f56a5ae14326"
+    }
+  }
+}

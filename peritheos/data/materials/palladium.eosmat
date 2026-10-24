@@ -245,6 +245,7 @@
             "source_status": "parity",
             "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
             "qualifications": [
+              "All 14 positive-pressure rows retain their printed 0.2 GPa pressure and 0.003 A^3 volume widths. No uncertainty is invented for ambient pressure. Printed widths are interpreted conditionally as independent absolute standard deviations; source confidence and covariance conventions remain unknown. The exact author constraints and EoSFit7-GUI workflow are not recovered.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/palladium/#record-palladium_fedotenko_2020_bm3_1",
@@ -254,44 +255,52 @@
                 "parameter": "V0",
                 "published": 58.868,
                 "published_error": 0.002,
-                "refit": 58.853666469947484,
-                "refit_error": 0.33891833156786705,
-                "difference": -0.014333530052518029,
-                "relative_difference": 0.00024348593552554916,
-                "similar": true,
-                "within_combined_2sigma": true
+                "refit": 58.86798783900774,
+                "refit_error": 0.0019998697746548538,
+                "difference": -1.2160992262977288e-05,
+                "relative_difference": 2.0658069346635333e-07,
+                "within_combined_2sigma": true,
+                "similar": true
               },
               {
                 "parameter": "K0",
                 "published": 157.0,
                 "published_error": 3.0,
-                "refit": 158.6681151821531,
-                "refit_error": 34.16957310711251,
-                "difference": 1.6681151821530875,
-                "relative_difference": 0.010624937465943233,
-                "similar": true,
-                "within_combined_2sigma": true
+                "refit": 157.33272241225117,
+                "refit_error": 2.5878540108284964,
+                "difference": 0.3327224122511723,
+                "relative_difference": 0.002119251033446957,
+                "within_combined_2sigma": true,
+                "similar": true
               },
               {
                 "parameter": "K0_prime",
                 "published": 9.9,
                 "published_error": 0.4,
-                "refit": 9.783509440958094,
-                "refit_error": 3.5695353810228267,
-                "difference": -0.11649055904190675,
-                "relative_difference": 0.011766723135546137,
-                "similar": true,
-                "within_combined_2sigma": true
+                "refit": 9.906463418693042,
+                "refit_error": 0.4245632631549423,
+                "difference": 0.006463418693041234,
+                "relative_difference": 0.0006528705750546701,
+                "within_combined_2sigma": true,
+                "similar": true
               }
             ],
             "fit": {
               "fit_kind": "isothermal_pv",
-              "objective": "errors_in_variables",
-              "selection": "all rows",
-              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "objective": "errors_in_variables_with_separate_ambient_datum",
+              "selection": "all 15 Table 1 rows; ambient datum handled separately",
+              "columns": {"pressure": "pressure_gpa", "volume": "volume_a3_conventional_cell", "temperature": null},
+              "weighting": {
+                "positive_pressure_rows": 14,
+                "pressure_sigma_gpa": 0.2,
+                "volume_sigma_a3": 0.003,
+                "ambient": "ambient volume observation 58.868 +/-0.002 A^3 at reference P=0; V0 free",
+                "missing_ambient_pressure_sigma": "not imputed"
+              },
               "absolute_sigma": true,
               "free_parameters": ["V0", "K0", "K0_prime"],
               "fixed_parameters": [],
+              "fixed_values": {},
               "observations": 15,
               "observed_pressure_range_gpa": [0.0, 31.2],
               "observed_temperature_range_k": null,
@@ -299,10 +308,22 @@
               "degrees_of_freedom": 12,
               "solver_success": true,
               "solver_message": "`ftol` termination condition is satisfied.",
-              "rmse_gpa": 0.07495317817507276,
+              "rmse_gpa": 0.07575661620811351,
               "published_rmse_gpa": 0.08853265579056052,
-              "reduced_chi_square": 0.007024818746604909,
-              "dataset_identifiers": ["palladium_fedotenko_2020_table1_compression"]
+              "reduced_chi_square": 0.1778752801713516,
+              "parameter_covariance": [
+                [3.999479115578055e-06, -0.0003711040927980666, 3.433742832262476e-05],
+                [-0.0003711040927980663, 6.696988381361136, -1.0835599454760996],
+                [3.433742832262461e-05, -1.0835599454760991, 0.1802539644207728]
+              ],
+              "covariance_convention": "inverse J^T J; absolute independent coordinate widths; no residual scaling",
+              "dataset_identifiers": ["palladium_fedotenko_2020_table1_compression"],
+              "reproduction_report": "docs/literature-reproductions/palladium-fedotenko-2020-audit.md",
+              "coefficient_comparison_status": "parity",
+              "data_agreement_status": "consistent_with_printed_widths",
+              "weighted_sum_squares": 2.1345033620562193,
+              "published_max_abs_pressure_residual_gpa": 0.21874722480981035,
+              "pressure_rmse_coordinates": "measured volumes for both curves; all 15 rows"
             },
             "report": "docs/data/primary-eos-refits.json"
           }
@@ -333,7 +354,7 @@
     },
     {
       "identifier": "palladium_fedotenko_2020_bm2_2",
-      "label": "Fedotenko et al. (2020), constrained BM2",
+      "label": "Fedotenko et al. (2020), constrained BM2 (poor fit; diagnostic only)",
       "model": "BM2",
       "temperature_ref": 300.0,
       "parameters": {
@@ -343,7 +364,9 @@
       "experimental_pressure_range_gpa": [0.0, 31.2],
       "pressure_range_status": "reported_exactly",
       "determination_method": "experimental",
-      "notes": "Second-order Birch-Murnaghan fit to the same 15 pure-Pd Table 1 observations, with K0'=4 imposed. Table 2 reports K0=203(3) GPa. V0=58.868(2) A^3 is used consistently with Table 1, the BM3 fit paragraph, and Figure 1; Table 2's isolated 58.863(2) A^3 value is documented as a source inconsistency.",
+      "default": false,
+      "catalog_access": "explicit_selection",
+      "notes": "Second-order Birch-Murnaghan fit to the same 15 pure-Pd Table 1 observations, with K0'=4 imposed. Table 2 reports K0=203(3) GPa. V0=58.868(2) A^3 is used consistently with Table 1, the BM3 fit paragraph, and Figure 1; Table 2's isolated 58.863(2) A^3 value is documented as a source inconsistency. Audit 2026-10-23: poor data agreement despite coefficient parity (0.934246 GPa pressure RMS, maximum residual 1.438559 GPa). Not recommended for quantitative predictions or pressure calibration. The published coefficients and errors are preserved. Fixed V0 is a diagnostic reconstruction constraint, not an established author choice.",
       "reference": {
         "authors": ["Fedotenko", "Dubrovinsky", "Khandarkhaeva", "Chariton", "Koemets", "Koemets", "Hanfland", "Dubrovinskaia"],
         "year": 2020,
@@ -381,6 +404,10 @@
             "source_status": "parity",
             "basis": "Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.",
             "qualifications": [
+              "All 14 positive-pressure rows retain their printed 0.2 GPa pressure and 0.003 A^3 volume widths. No uncertainty is invented for ambient pressure. Printed widths are interpreted conditionally as independent absolute standard deviations; source confidence and covariance conventions remain unknown. The exact author constraints and EoSFit7-GUI workflow are not recovered. V0 fixed at 58.868 A^3 is a diagnostic constraint, not a documented author choice. Using Table 2's isolated 58.863 A^3 does not resolve the misfit. The published fixed-Kprime=4 curve shows systematic poor agreement with Table 1 despite numerical coefficient parity; corrected diagnostic reduced chi-square is about 25 under the documented independent absolute-error assumptions.",
+              "Poor data agreement despite coefficient parity: the published fixed-K'=4 curve has 0.934246 GPa pressure RMS and 1.438559 GPa maximum residual on Table 1. The correctly weighted diagnostic refit remains poor (reduced chi-square about 25 under independent absolute-error assumptions). Published coefficients are preserved; agreement of K0 does not validate the curve.",
+              "The published fixed-Kprime=4 curve shows systematic poor agreement with Table 1 despite numerical coefficient parity; corrected diagnostic reduced chi-square is about 25 under the documented independent absolute-error assumptions.",
+              "Usage recommendation: not_recommended_for_quantitative_use",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/palladium/#record-palladium_fedotenko_2020_bm2_2",
@@ -390,40 +417,58 @@
                 "parameter": "K0",
                 "published": 203.0,
                 "published_error": 3.0,
-                "refit": 202.66732584626578,
-                "refit_error": 2.6964526193481033,
-                "difference": -0.33267415373421727,
-                "relative_difference": 0.0016387889346513166,
-                "similar": true,
-                "within_combined_2sigma": true
+                "refit": 202.6592865846168,
+                "refit_error": 0.5410056827284302,
+                "difference": -0.3407134153831919,
+                "relative_difference": 0.0016783912087841965,
+                "within_combined_2sigma": true,
+                "similar": true
               }
             ],
             "fit": {
               "fit_kind": "isothermal_pv",
-              "objective": "errors_in_variables",
-              "selection": "all rows",
-              "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
+              "objective": "errors_in_variables_with_separate_ambient_datum",
+              "selection": "all 15 Table 1 rows; ambient datum handled separately",
+              "columns": {"pressure": "pressure_gpa", "volume": "volume_a3_conventional_cell", "temperature": null},
+              "weighting": {
+                "positive_pressure_rows": 14,
+                "pressure_sigma_gpa": 0.2,
+                "volume_sigma_a3": 0.003,
+                "ambient": "V0 fixed diagnostically at 58.868 A^3; ambient row contributes no residual or degree of freedom",
+                "missing_ambient_pressure_sigma": "not imputed"
+              },
               "absolute_sigma": true,
               "free_parameters": ["K0"],
-              "fixed_parameters": ["V0"],
+              "fixed_parameters": ["V0", "K0_prime"],
+              "fixed_values": {"V0": 58.868, "K0_prime": 4.0},
               "observations": 15,
               "observed_pressure_range_gpa": [0.0, 31.2],
               "observed_temperature_range_k": null,
               "observed_volume_range": [52.411, 58.868],
-              "degrees_of_freedom": 14,
+              "degrees_of_freedom": 13,
               "solver_success": true,
-              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
-              "rmse_gpa": 0.9334901591251806,
+              "solver_message": "`ftol` termination condition is satisfied.",
+              "rmse_gpa": 0.9337035754344584,
               "published_rmse_gpa": 0.9342455220941308,
-              "reduced_chi_square": 0.9338601176416805,
-              "dataset_identifiers": ["palladium_fedotenko_2020_table1_compression"]
+              "reduced_chi_square": 25.005483411904855,
+              "parameter_covariance": [
+                [0.2926871487444549]
+              ],
+              "covariance_convention": "inverse J^T J; absolute independent coordinate widths; no residual scaling",
+              "dataset_identifiers": ["palladium_fedotenko_2020_table1_compression"],
+              "reproduction_report": "docs/literature-reproductions/palladium-fedotenko-2020-audit.md",
+              "coefficient_comparison_status": "parity",
+              "data_agreement_status": "poor",
+              "weighted_sum_squares": 325.0712843547631,
+              "published_max_abs_pressure_residual_gpa": 1.438558988593126,
+              "pressure_rmse_coordinates": "measured volumes for both curves; all 15 rows"
             },
             "report": "docs/data/primary-eos-refits.json"
           }
         },
         "scientific_validation": {
           "status": "primary_source_validated",
-          "note": "Independently checked against the author-provided publication copy embedded in the first author's thesis.",
+          "note": "Source equation, coefficients and units are verified, and the corrected conditional refit achieves coefficient parity. The published BM2 curve fits Table 1 poorly; data agreement and the negative quantitative-use recommendation are separate findings, not failed coefficient reproduction.",
           "audit_date": "2026-09-04",
           "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
           "primary_source_check": {
@@ -438,7 +483,16 @@
             "dataset_identifiers": ["palladium_fedotenko_2020_table1_compression"],
             "source_locations": ["Table 1"],
             "finding": "All 15 printed pure-Pd pressure and conventional-cell-volume observations and their printed uncertainties are bundled."
-          }
+          },
+          "source_equation_status": "reproduced",
+          "data_agreement_status": "poor",
+          "usage_recommendation": "not_recommended_for_quantitative_use",
+          "recommendation_date": "2026-10-23",
+          "recommendation_audit": "docs/literature-reproductions/palladium-fedotenko-2020-audit.md",
+          "recommendation_reason": "The published fixed-Kprime=4 curve shows systematic poor agreement with Table 1 despite numerical coefficient parity; corrected diagnostic reduced chi-square is about 25 under the documented independent absolute-error assumptions.",
+          "reproduction_status": "parity",
+          "classification_date": "2026-10-24",
+          "warning": "Do not use this fixed-Kprime=4 fit for quantitative predictions or pressure calibration. Coefficient parity reproduces the published poor fit; it does not establish adequate data agreement."
         },
         "parameter_provenance": {
           "determination_method": "Measurements or their experimental reduction determine this EOS; source: Section 3.1; Table 1; Table 2."

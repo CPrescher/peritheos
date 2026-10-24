@@ -1,0 +1,37 @@
+{
+  "reference": {
+    "A_gpa": 1920.0,
+    "B": 9.61
+  },
+  "x_axis": "pressure on published 2008 calibration, 0-160 GPa",
+  "y_axis": "alternative minus published pressure at identical lambda/lambda0, GPa",
+  "common_fit_support_upper_gpa_on_published_axis": 63.48036213344669,
+  "source_reconstruction_sha256": "22511444b36298a49bf02547f48a20f246cd96b027d5265090c4ec7449adaac1",
+  "calibrations": {
+    "figure3_refit": {
+      "A_gpa": 1919.928563046788,
+      "B": 9.611446305831032,
+      "difference_at_160_gpa": 0.0018198101435018543,
+      "max_absolute_difference_over_0_160_gpa": 0.0018198101435018543
+    },
+    "common_range_mean": {
+      "A_gpa": 1909.4802639996688,
+      "B": 10.291217139586266,
+      "difference_at_160_gpa": 2.817949431695439,
+      "max_absolute_difference_over_0_160_gpa": 2.817949431695439
+    },
+    "individual_ranges_pooled": {
+      "A_gpa": 1937.48838387288,
+      "B": 9.34480411595623,
+      "difference_at_160_gpa": 0.02724505855633197,
+      "max_absolute_difference_over_0_160_gpa": 0.3340577070503201
+    },
+    "full_range_graph_continuation": {
+      "A_gpa": 1915.6692549320485,
+      "B": 10.066139912037828,
+      "difference_at_160_gpa": 2.109032656833989,
+      "max_absolute_difference_over_0_160_gpa": 2.109032656833989
+    }
+  },
+  "author_workflow_reproduced": false
+}

@@ -9,7 +9,7 @@ between a validated equation and a fully reproduced original fitting procedure.
 ## Material-library validation levels
 
 Structural `.eosmat` validation and scientific EOS validation are deliberately
-separate. All 233 bundled material documents and 677 EOS records pass the
+separate. All 233 bundled material documents and 678 EOS records pass the
 native v4 validator; 230 documents construct executable materials. The
 coesite-V structure card and deferred fcc-Fe and wadsleyite source cards do not. The collection combines the reviewed Dioptas migration with
 native, primary-sourced records for pressure standards and material EOS models,
@@ -17,7 +17,7 @@ including the MgO, CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)
 audits discovered through the LitCurate intake. These structural checks
 establish file and software interoperability only.
 
-The primary-source audit covers all 677 bundled records: 656 are
+The primary-source audit covers all 678 bundled records: 657 are
 `primary_source_validated`, eighteen explicit-selection implementations are
 `not_reproduced`, and three records are `deferred`. The seven newly qualified
 records are the published Fu (2023) CaSiO3 thermal EOS, Baty (2024) experimental
@@ -43,7 +43,12 @@ phase, published uncertainty convention, and represented data range to the
 cited primary publication or official supplement. Parsing or reproducing
 another library was never sufficient. Explicit refit records instead trace their
 observations and model choices to the source and identify optimized coefficients
-as Peritheos results.
+as Peritheos results. Both Fedotenko (2020) Pd fits have conditional coefficient
+parity. The fixed-K'=4 curve has poor data agreement and is available
+only through explicit diagnostic selection. Its published coefficients are
+preserved. Corrected weighting gives reduced chi-square about 25 under the
+documented independent absolute-error assumptions; see the
+[Fedotenko audit](literature-reproductions/palladium-fedotenko-2020-audit.md).
 
 The package ships the complete record-by-record ledger as
 `peritheos/data/primary-source-audit.json`. Each `.eosmat` record repeats its
@@ -54,10 +59,10 @@ the ledger after a mechanical Dioptas migration.
 
 Primary-source traceability is complemented by the independent
 [primary EOS refit campaign](primary-eos-refits.md). It attempts a Peritheos
-fit for every record with sufficient direct observations and documents all 677
+fit for every record with sufficient direct observations and documents all 678
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 261 parity matches and 161 additional numerically similar results.
+diagnostics. The current campaign finds 262 scoped numerical parity matches and 160 additional numerically similar results.
 The Crichton–Ross (2000) phase E fit achieves parity within reported parameter
 errors: all three coefficient shifts are below 0.123 reported error widths,
 and the largest pressure-curve difference is about 0.0096 GPa. Its published

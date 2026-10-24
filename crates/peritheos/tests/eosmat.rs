@@ -1065,6 +1065,13 @@ fn all_bundled_material_records_load_and_round_trip_through_rust() {
                 assert!(pressure > 0.0);
                 continue;
             }
+            if record.eos.isothermal_model_identifier() == "birch_murnaghan_2_reference" {
+                let reference_pressure = record.document["parameters"]["P0"]["value"]
+                    .as_f64()
+                    .expect("explicit reference pressure");
+                assert_close(pressure, reference_pressure, 1.0e-8);
+                continue;
+            }
             if record
                 .document
                 .pointer("/thermal/thermal_pressure_reference")
@@ -1455,7 +1462,9 @@ fn double_debye_bm_reference_survives_eosmat_round_trip() {
                     "parameters": {"V0": 10.0, "K0": 160.0, "K0_prime": 4.6}
                 });
                 let error = material_from_value(document).unwrap_err();
-                assert!(error.to_string().contains("Vinet, BM2, BM3, or BM4"));
+                assert!(error
+                    .to_string()
+                    .contains("Vinet, BM2, BM2Reference, BM3, or BM4"));
             }
         }
     }
