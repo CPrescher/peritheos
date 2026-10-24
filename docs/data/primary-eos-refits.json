@@ -42324,52 +42324,52 @@
       ],
       "parameter_covariance": [
         [
-          3.999479115528885e-06,
-          -0.00037110409265994317,
-          3.433742734978404e-05
+          3.999479115578055e-06,
+          -0.0003711040927980666,
+          3.433742832262476e-05
         ],
         [
-          -0.00037110409265994404,
-          6.696988422718366,
-          -1.0835599283724464
+          -0.0003711040927980663,
+          6.696988381361136,
+          -1.0835599454760996
         ],
         [
-          3.433742734978425e-05,
-          -1.0835599283724469,
-          0.18025395776763753
+          3.433742832262461e-05,
+          -1.0835599454760991,
+          0.1802539644207728
         ]
       ],
       "parameters": [
         {
-          "difference": -1.216099002476767e-05,
+          "difference": -1.2160992262977288e-05,
           "parameter": "V0",
           "published": 58.868,
           "published_error": 0.002,
-          "refit": 58.86798783900998,
-          "refit_error": 0.00199986977464256,
-          "relative_difference": 2.0658065544553357e-07,
+          "refit": 58.86798783900774,
+          "refit_error": 0.0019998697746548538,
+          "relative_difference": 2.0658069346635333e-07,
           "similar": true,
           "within_combined_2sigma": true
         },
         {
-          "difference": 0.3327233999850705,
+          "difference": 0.3327224122511723,
           "parameter": "K0",
           "published": 157.0,
           "published_error": 3.0,
-          "refit": 157.33272339998507,
-          "refit_error": 2.5878540188191383,
-          "relative_difference": 0.002119257324745672,
+          "refit": 157.33272241225117,
+          "refit_error": 2.5878540108284964,
+          "relative_difference": 0.002119251033446957,
           "similar": true,
           "within_combined_2sigma": true
         },
         {
-          "difference": 0.0064632476855255305,
+          "difference": 0.006463418693041234,
           "parameter": "K0_prime",
           "published": 9.9,
           "published_error": 0.4,
-          "refit": 9.906463247685526,
-          "refit_error": 0.42456325531967265,
-          "relative_difference": 0.0006528533015682353,
+          "refit": 9.906463418693042,
+          "refit_error": 0.4245632631549423,
+          "relative_difference": 0.0006528705750546701,
           "similar": true,
           "within_combined_2sigma": true
         }
@@ -42382,16 +42382,16 @@
       "published_rmse_gpa": 0.08853265579056052,
       "qualification": "All 14 positive-pressure rows retain their printed 0.2 GPa pressure and 0.003 A^3 volume widths. No uncertainty is invented for ambient pressure. Printed widths are interpreted conditionally as independent absolute standard deviations; source confidence and covariance conventions remain unknown. The exact author constraints and EoSFit7-GUI workflow are not recovered.",
       "record_identifier": "palladium_fedotenko_2020_bm3_1",
-      "reduced_chi_square": 0.17787528017126686,
+      "reduced_chi_square": 0.1778752801713516,
       "reproduction_report": "docs/literature-reproductions/palladium-fedotenko-2020-audit.md",
-      "rmse_gpa": 0.07575661619723036,
+      "rmse_gpa": 0.07575661620811351,
       "selection": "all 15 Table 1 rows; ambient datum handled separately",
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
       "source_equation_status": "reproduced",
       "source_notes": "Room-temperature BM3 fit to the 15 pure-Pd Table 1 observations measured with neon as pressure medium and marker. All three BM3 parameters remain free because the source does not state that V0 was fixed. Table 2 prints 58.863(2) A^3, but Table 1, the fit paragraph, and the Figure 1 caption independently agree on 58.868(2) A^3; the repeated value is used here and the source inconsistency is documented.",
       "status": "parity",
-      "weighted_sum_squares": 2.1345033620552023,
+      "weighted_sum_squares": 2.1345033620562193,
       "weighting": {
         "ambient": "ambient volume observation 58.868 +/-0.002 A^3 at reference P=0; V0 free",
         "missing_ambient_pressure_sigma": "not imputed",
