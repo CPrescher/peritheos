@@ -23,6 +23,9 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Fixed
 
+- Make the new Bykova audit replays portable across supported numerical
+  libraries: bound calculated digitization and diagnostic roundoff while keeping
+  source coefficients, pixel readings, observations, hashes and findings exact.
 - Identify the coesite-IV Bykova (2018) static entry as a conditional Peritheos
   refit. Separate refit repeatability, source-author reproduction and graphical
   checks; preserve all original EOS coefficients and source observations.
