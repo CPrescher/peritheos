@@ -6,9 +6,9 @@ pub use tabulated::{
 };
 
 use crate::isothermal::{
-    Baonza, Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2, NaturalStrain3,
-    NaturalStrain4, OddInversePower, ReferenceEnergyEos, RydbergStacey, SecondOrderMurnaghan,
-    SunMorse3, SunMorse4, Vinet, Vinet3, BM2, BM3, BM4,
+    BM2Reference, Baonza, Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2,
+    NaturalStrain3, NaturalStrain4, OddInversePower, ReferenceEnergyEos, RydbergStacey,
+    SecondOrderMurnaghan, SunMorse3, SunMorse4, Vinet, Vinet3, BM2, BM3, BM4,
 };
 use crate::quadrature::integrate;
 use crate::root::solve_temperature_function;
@@ -707,6 +707,15 @@ impl ReferenceStateEos for SecondOrderMurnaghan {
             self.k0_double_prime,
             self.p0,
         )
+    }
+}
+
+impl ReferenceStateEos for BM2Reference {
+    fn reference_bulk_modulus(&self) -> f64 {
+        self.k0
+    }
+    fn with_reference_state(&self, volume: f64, bulk_modulus: f64) -> EosResult<Self> {
+        Self::new(volume, bulk_modulus, self.p0)
     }
 }
 

@@ -21,9 +21,9 @@ use serde_json::Value;
 
 use crate::hugoniot::{Hugoniot, LinearUsUpHugoniot};
 use crate::isothermal::{
-    Baonza, DensityPolynomial3, Holzapfel, ModifiedTait, Morse3, Murnaghan, NaturalStrain2,
-    NaturalStrain3, NaturalStrain4, OddInversePower, ReferenceEnergyEos, RydbergStacey,
-    SecondOrderMurnaghan, SunMorse3, SunMorse4, Vinet, Vinet3, BM2, BM3, BM4,
+    BM2Reference, Baonza, DensityPolynomial3, Holzapfel, ModifiedTait, Morse3, Murnaghan,
+    NaturalStrain2, NaturalStrain3, NaturalStrain4, OddInversePower, ReferenceEnergyEos,
+    RydbergStacey, SecondOrderMurnaghan, SunMorse3, SunMorse4, Vinet, Vinet3, BM2, BM3, BM4,
 };
 use crate::thermal::{
     AsymptoticDebyeTabulatedPressure, AsymptoticPowerLawMieGruneisenDebye,
@@ -158,6 +158,7 @@ pub enum IsothermalModel {
     DensityPolynomial3(DensityPolynomial3),
     /// Second-order Birch--Murnaghan EOS.
     BM2(BM2),
+    BM2Reference(BM2Reference),
     /// Third-order Birch--Murnaghan EOS.
     BM3(BM3),
     /// Fourth-order Birch--Murnaghan EOS.
@@ -200,6 +201,7 @@ impl IsothermalModel {
             Self::Baonza(_) => "baonza",
             Self::DensityPolynomial3(_) => "density_polynomial_3",
             Self::BM2(_) => "birch_murnaghan_2",
+            Self::BM2Reference(_) => "birch_murnaghan_2_reference",
             Self::BM3(_) => "birch_murnaghan_3",
             Self::BM4(_) => "birch_murnaghan_4",
             Self::Holzapfel(_) => "holzapfel",
@@ -226,6 +228,7 @@ impl IsothermalModel {
             Self::Baonza(_) => "Baonza",
             Self::DensityPolynomial3(_) => "DensityPolynomial3",
             Self::BM2(_) => "BM2",
+            Self::BM2Reference(_) => "BM2Reference",
             Self::BM3(_) => "BM3",
             Self::BM4(_) => "BM4",
             Self::Holzapfel(_) => "Holzapfel",
@@ -252,6 +255,7 @@ macro_rules! dispatch_isothermal {
             IsothermalModel::Baonza($model) => $expression,
             IsothermalModel::DensityPolynomial3($model) => $expression,
             IsothermalModel::BM2($model) => $expression,
+            IsothermalModel::BM2Reference($model) => $expression,
             IsothermalModel::BM3($model) => $expression,
             IsothermalModel::BM4($model) => $expression,
             IsothermalModel::Holzapfel($model) => $expression,
@@ -295,11 +299,13 @@ impl ReferenceEnergyEos for IsothermalModel {
         match self {
             Self::Vinet(model) => model.reference_energy(volume),
             Self::BM2(model) => model.reference_energy(volume),
+            Self::BM2Reference(model) => model.reference_energy(volume),
             Self::BM3(model) => model.reference_energy(volume),
             Self::BM4(model) => model.reference_energy(volume),
             _ => Err(EosError::InvalidParameter {
                 name: "rt_eos",
-                reason: "double-Debye requires a Vinet, BM2, BM3, or BM4 reference EOS",
+                reason:
+                    "double-Debye requires a Vinet, BM2, BM2Reference, BM3, or BM4 reference EOS",
             }),
         }
     }
@@ -353,6 +359,9 @@ impl ReferenceStateEos for IsothermalModel {
             Self::BM2(model) => model
                 .with_reference_state(volume, bulk_modulus)
                 .map(Self::BM2),
+            Self::BM2Reference(model) => model
+                .with_reference_state(volume, bulk_modulus)
+                .map(Self::BM2Reference),
             Self::BM3(model) => model
                 .with_reference_state(volume, bulk_modulus)
                 .map(Self::BM3),
@@ -3124,6 +3133,7 @@ fn component_model_identifier(component: &RawComponent, thermal: bool) -> Result
             "Baonza" => "baonza",
             "DensityPolynomial3" => "density_polynomial_3",
             "BM2" => "birch_murnaghan_2",
+            "BM2Reference" => "birch_murnaghan_2_reference",
             "BM3" => "birch_murnaghan_3",
             "BM4" => "birch_murnaghan_4",
             "Holzapfel" => "holzapfel",
@@ -3188,6 +3198,10 @@ fn build_isothermal(
         "birch_murnaghan_2" => {
             check_type(component, "BM2")?;
             BM2::new(v0, p("K0")?).map(IsothermalModel::BM2)
+        }
+        "birch_murnaghan_2_reference" => {
+            check_type(component, "BM2Reference")?;
+            BM2Reference::new(v0, p("K0")?, p("P0")?).map(IsothermalModel::BM2Reference)
         }
         "birch_murnaghan_3" => {
             check_type(component, "BM3")?;

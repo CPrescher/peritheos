@@ -60,7 +60,7 @@ New links become live only after the corresponding documentation is published.
 | [Chromium](chromium.md) | 1 | 1 | 1 |
 | [Cobalt](cobalt_hcp.md) | 6 | 6 | 6 |
 | [Coesite](coesite.md) | 2 | 2 | 2 |
-| [Coesite-IV](coesite_iv.md) | 1 | 1 | 1 |
+| [Coesite-IV](coesite_iv.md) | 2 | 1 | 1 |
 | [Coesite-V](coesite_v.md) | 0 | 0 | 0 |
 | [CoO](coo.md) | 1 | 1 | 1 |
 | [Copper](copper.md) | 7 | 4 | 4 |
@@ -255,7 +255,7 @@ New links become live only after the corresponding documentation is published.
 | [Zirconium (beta)](zirconium_beta.md) | 1 | 1 | 1 |
 | [Zirconium (omega)](zirconium_omega.md) | 1 | 1 | 1 |
 
-485 of 485 assessments with stored coefficient comparisons have inline curve/residual plots, including 3 explicitly partial replays listed below. The other 192 records have no numeric source/refit coefficient pair recorded.
+485 of 485 assessments with stored coefficient comparisons have inline curve/residual plots, including 3 explicitly partial replays listed below. The other 193 records have no numeric source/refit coefficient pair recorded.
 
 ## Partial replays
 

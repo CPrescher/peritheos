@@ -235,6 +235,12 @@ def illustrated_mentions(identifier: str, root: Path) -> list[str]:
     ]
 
 
+def outcome_label(assessment: Mapping[str, Any]) -> str:
+    if assessment.get("fit", {}).get("data_agreement_status") == "poor":
+        return f"{OUTCOMES[assessment['status']]}; poor data agreement"
+    return OUTCOMES[assessment["status"]]
+
+
 def report_page(document: Mapping[str, Any], *, root: Path, comparisons=None) -> str:
     material = document["identifier"]
     previous = root / "docs/primary-eos-refits.md"
@@ -262,7 +268,7 @@ def report_page(document: Mapping[str, Any], *, root: Path, comparisons=None) ->
     for record in document["eos_records"]:
         assessment = record["evidence"]["reproduction"]["assessment"]
         lines.append(
-            f"| [{text(record.get('label', record['identifier']))}](#record-{record['identifier']}) | {OUTCOMES[assessment['status']]} | {'Graph and table' if comparison_rows(assessment) else 'No numeric coefficient pair recorded'} |"
+            f"| [{text(record.get('label', record['identifier']))}](#record-{record['identifier']}) | {outcome_label(assessment)} | {'Graph and table' if comparison_rows(assessment) else 'No numeric coefficient pair recorded'} |"
         )
     if not document["eos_records"]:
         lines.extend(
@@ -291,7 +297,7 @@ def report_page(document: Mapping[str, Any], *, root: Path, comparisons=None) ->
                 "",
                 f"Record: `{rid}` · Model: `{record['model']}`",
                 "",
-                f"**Outcome: {OUTCOMES[assessment['status']]}.**",
+                f"**Outcome: {outcome_label(assessment)}.**",
                 "",
                 f"**Scope:** {SCOPES[assessment['scope']]}.  ",
                 f"**Comparison basis:** {text(assessment.get('basis', 'No comparison has been assessed.'))}",
@@ -303,6 +309,11 @@ def report_page(document: Mapping[str, Any], *, root: Path, comparisons=None) ->
                 f"**Separate source-review status:** {text(validation.get('status', 'Not specified'))}.  ",
                 f"**Usage recommendation:** {text(validation.get('usage_recommendation', 'See the stored EOS qualifications; no recommendation is inferred here.'))}",
                 "",
+                *(
+                    [f"**Warning:** {text(validation['warning'])}", ""]
+                    if validation.get("warning")
+                    else []
+                ),
                 *[f"- {text(value)}" for value in assessment.get("qualifications", [])],
                 "",
                 "### Data and reconstruction method",

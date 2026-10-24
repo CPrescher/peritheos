@@ -1,0 +1,39 @@
+{
+  "doi": "10.1080/08957950701659627",
+  "locations": "Sec.5, Eq.6 p.425, Figure5 and fit paragraph p.426; C/Cprime definition Sec.4 p.422",
+  "delta_P_equation": "DeltaP ~= -t*K/30*(9/C+6/Cprime)",
+  "C": "C44",
+  "Cprime": "(C11-C12)/2",
+  "assumption": "alpha approximately 1, Reuss aggregate; approximate pressure correction, uncertainties in high-pressure elastic constants remain",
+  "Au_correction_magnitude_GPa": [
+    0,
+    1.6
+  ],
+  "coefficients": [
+    {
+      "material": "Au",
+      "V0_A3_atom": 16.962,
+      "K0_GPa": 167,
+      "K0_prime_uncorrected": 6.0,
+      "K0_prime_corrected": 5.88,
+      "printed_plusminus_K0_prime": 0.02
+    },
+    {
+      "material": "Cu",
+      "V0_A3_atom": 11.81,
+      "K0_GPa": 133,
+      "K0_prime_uncorrected": 5.3,
+      "K0_prime_corrected": 5.28,
+      "printed_plusminus_K0_prime": 0.02
+    }
+  ],
+  "fitting_constraints": "Only K0_prime free; V0 and K0 fixed",
+  "uncertainty_semantics": "Printed plus/minus fit errors; confidence level not explicitly restated in the Sec.5 paragraph. No covariance supplied.",
+  "pressure_scale": "Sec.5 corrects the Dewaele 2004 data (ref.5) and compares their uncorrected fit. The 2004 pressure basis is inferred from that dependency; no fresh numerical pressure recalibration is described in Sec.5.",
+  "observation_access": "Corrected Au/Cu observations are plotted in Figure5, a raster image, but not provided in a numerical table in this PDF. No graph coordinates or exact corrected observations synthesized.",
+  "not_recovered": [
+    "Pointwise stress t(P) and original elastic-model evaluation arrays",
+    "Numerical corrected observations and their covariance",
+    "Any author calibration worksheet"
+  ]
+}

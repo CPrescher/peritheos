@@ -2174,6 +2174,14 @@ def _fit_record(
     document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
 ) -> dict[str, Any]:
     record_id = record["identifier"]
+    if record_id in {
+        "palladium_fedotenko_2020_bm3_1",
+        "palladium_fedotenko_2020_bm2_2",
+    }:
+        # Keep the 14 printed pressure widths despite the missing ambient one.
+        from scripts.reproduce_fedotenko_2020_palladium import ledger_outcome
+
+        return ledger_outcome(record)
     if record_id == "gold_takemura_2008_vinet_6":
         from scripts.reproduce_takemura_2008_gold import ledger_outcome
 
@@ -5369,6 +5377,17 @@ def validate_all() -> dict[str, Any]:
                 from scripts.reproduce_dewaele_2008_metals import ledger_outcome
 
                 outcome = ledger_outcome(record)
+            elif record["identifier"] == "coesite_iv_bykova_2018_am05_static_bm3_refit":
+                from scripts.reproduce_bykova_2018_coesite_iv import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif (
+                record["identifier"]
+                == "coesite_iv_v_bykova_2018_experimental_bm2_reference"
+            ):
+                from scripts.reproduce_bykova_2018_experimental import ledger_outcome
+
+                outcome = ledger_outcome(record)
             elif record["identifier"] in {
                 "silver_dewaele_2008_vinet_1",
                 "nickel_dewaele_2008_vinet_1",
@@ -5747,7 +5766,8 @@ def validate_all() -> dict[str, Any]:
             "parity_not_achieved": (
                 "At least one fitted parameter is outside both the uncertainty and "
                 "similarity criteria, or a dedicated partial-source audit cannot "
-                "reproduce the published coefficient pair."
+                "reproduce the published coefficient pair. Data agreement and "
+                "recommendation are recorded separately from coefficient parity."
             ),
             "not_refittable": (
                 "Available observations or source reduction/calibration details are "
@@ -5781,6 +5801,9 @@ def _range_text(value: list[float] | None, unit: str) -> str:
 def _investigation_findings(item: dict[str, Any]) -> list[str]:
     parameters = item.get("parameters", [])
     findings = []
+    if item.get("data_agreement_status") == "poor":
+        findings.append(item["reason"])
+        findings.append(item["qualification"])
     if item["status"] == "similar":
         uncertainty_missing = [
             p["parameter"] for p in parameters if p["within_combined_2sigma"] is None
@@ -5899,15 +5922,23 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         "25% for gamma0/q/theta0, 30% for thermal-expansion or dK/dT terms, and 20% ",
         "for other coefficients. These broad limits identify broadly reproducible ",
         "published reductions; they are not statistical confidence statements.",
-        "Dewaele (2008) Table IV parity is conditional parameter agreement within ",
-        "printed 95% widths. All 54 Table VI PAW parameterizations and their ",
-        "graphical source-equation checks are retained in a separate ",
-        "[research collection](research/dewaele-2008-paw.md), excluded from this ledger. ",
+        "Dewaele (2008) Table IV parity compares experimental refit coefficients ",
+        "with printed 95% widths. Its Table VI parity instead has source-equation ",
+        "scope: identified Figure 4 checkpoints agree within declared graphical ",
+        "reading and printed-coefficient bounds. Those 54 PAW parameterizations ",
+        "and their checks are in the separate [research collection](research/dewaele-2008-paw.md), ",
+        "excluded from this catalog ledger and its counts. They are not independent PAW refits.",
         "For separately registered Peritheos refits, `parity_basis` instead ",
         "identifies numerical reproduction of that explicit analysis. The Fei ",
         "(2007) NaCl-B2 staged thermal refit is reproducible in this sense; its ",
         "published parent remains `parity_not_achieved`, with original-author ",
         "thermal coefficients and uncertainties unreproduced.",
+        "For coesite-IV Bykova (2018), the target is the stored Peritheos V0 ",
+        "refit with the two published moduli fixed. Its `parity` concerns only ",
+        "repeatability at the stored precision; the source publishes no V0. ",
+        "Separate [Figure 6 checks](literature-reproductions/coesite-iv-bykova-2018.md) ",
+        "test the unchanged curve at graphical resolution. Integer-pressure ",
+        "rounding and fixed-modulus uncertainty limit the formal fit error.",
         "The Sakai (2018) rhenium audit accepts numerical `parity` because both ",
         "coefficients agree within the reported parameter error widths and the refit ",
         "standard errors are comparable. Its explicit `parity_basis` preserves this ",
@@ -6208,8 +6239,9 @@ def render_markdown(ledger: dict[str, Any]) -> str:
             "refit that does not meet the strict `parity` definition. `similar` means ",
             "the difference is numerically acceptable or covered by combined ",
             "uncertainty; `parity_not_achieved` means at least one coefficient is ",
-            "outside both tests or a dedicated partial-source reconstruction does ",
-            "not reproduce the published pair. Causes described as possible remain hypotheses until ",
+            "outside both tests, a dedicated partial-source reconstruction does ",
+            "not reproduce the published pair. Poor data agreement does not itself ",
+            "negate coefficient parity. Causes described as possible remain hypotheses until ",
             "the missing source fit detail is recovered.",
         ]
     )
@@ -6355,6 +6387,9 @@ def check_ledger_values(
                     "difference",
                     "relative_difference",
                     "reduced_chi_square",
+                    "weighted_sum_squares",
+                    "parameter_covariance",
+                    "published_max_abs_pressure_residual_gpa",
                 }
                 or key.startswith("rmse_")
                 or key.endswith("_rmse_gpa")

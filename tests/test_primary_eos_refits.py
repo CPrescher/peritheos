@@ -88,7 +88,7 @@ def test_primary_refit_ledger_covers_every_bundled_record_once():
 
     assert ledger["format"] == "peritheos.primary-eos-refit-validation"
     assert ledger["format_version"] == 1
-    assert len(identifiers) == len(set(identifiers)) == 677
+    assert len(identifiers) == len(set(identifiers)) == 678
     assert set(identifiers) == set(list_eos_record_documents())
 
 
@@ -96,13 +96,13 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     ledger = load_ledger()
     statuses = Counter(item["status"] for item in ledger["records"])
 
-    assert ledger["summary"] == {"total": 677, **dict(sorted(statuses.items()))}
+    assert ledger["summary"] == {"total": 678, **dict(sorted(statuses.items()))}
     assert statuses == {
         "not_refittable": 177,
-        "parity": 261,
+        "parity": 262,
         "parity_not_achieved": 62,
-        "similar": 161,
-        "source_reconstruction": 16,
+        "similar": 160,
+        "source_reconstruction": 17,
     }
     assert all(
         item.get("reason")
@@ -563,12 +563,14 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     assert fedotenko_bm3["status"] == "parity"
     assert fedotenko_bm3["observations"] == 15
     assert [item["refit"] for item in fedotenko_bm3["parameters"]] == (
-        pytest.approx([58.853666470, 158.668115182, 9.783509441])
+        pytest.approx([58.867987839, 157.332722412, 9.906463419])
     )
     fedotenko_bm2 = by_identifier["palladium_fedotenko_2020_bm2_2"]
     assert fedotenko_bm2["status"] == "parity"
+    assert fedotenko_bm2["coefficient_comparison_status"] == "parity"
+    assert fedotenko_bm2["data_agreement_status"] == "poor"
     assert [item["refit"] for item in fedotenko_bm2["parameters"]] == (
-        pytest.approx([202.667325846])
+        pytest.approx([202.659286585])
     )
     assert by_identifier["palladium_baty_2024_bm3_dft_2"]["status"] == (
         "not_refittable"

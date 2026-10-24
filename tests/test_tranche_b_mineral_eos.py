@@ -15,6 +15,7 @@ from peritheos import (
 from scripts.eosmat_io import read_material
 from scripts.reproduce_tranche_b_mineral_eos import (
     BM2,
+    BM2_REFERENCE,
     BM3,
     THERMAL_BM2,
     VINET,
@@ -82,13 +83,13 @@ def _records() -> list[tuple[dict, Material]]:
     return found
 
 
-def test_twenty_three_primary_source_records_have_exact_parameters_or_reproduced_derivations():
+def test_twenty_four_source_records_preserve_parameters_and_reference_conventions():
     records = _records()
-    assert len(records) == 23
+    assert len(records) == 24
     observed = {
         r["identifier"]: tuple(r["eos"]["parameters"].values()) for r, _ in records
     }
-    assert observed == {**BM3, **BM2, **VINET}
+    assert observed == {**BM3, **BM2, **VINET, **BM2_REFERENCE}
     assert (
         sum(r["reference"]["doi"].lower() == "10.1029/2001gl013523" for r, _ in records)
         == 4
@@ -106,7 +107,7 @@ def test_twenty_three_primary_source_records_have_exact_parameters_or_reproduced
     )
 
 
-def test_all_accepted_curves_execute_and_anchor_zero_pressure():
+def test_all_accepted_curves_execute_and_anchor_their_reference_pressure():
     for record, material in _records():
         model = material.get_eos_record(record["identifier"])
         v0 = record["eos"]["parameters"]["V0"]
@@ -115,7 +116,9 @@ def test_all_accepted_curves_execute_and_anchor_zero_pressure():
             assert np.isfinite(model.pressure(0.9 * v0, 2000.0))
             assert model.pressure(0.9 * v0, 2000.0) > 0.0
         else:
-            assert model.pressure(v0) == pytest.approx(0.0, abs=1e-12)
+            assert model.pressure(v0) == pytest.approx(
+                record["eos"]["parameters"].get("P0", 0.0), abs=1e-12
+            )
             assert np.isfinite(model.pressure(0.9 * v0))
             assert model.pressure(0.9 * v0) > 0.0
 
@@ -130,7 +133,7 @@ def test_phase_h_primary_table_is_complete_unchanged_and_reproduced():
         "4ad82028fa5483acc94f7d1218f1b13176c25f178ebe3750cdfb11309a0ccaf4"
     )
     result = reproduce()
-    assert result["accepted_record_count"] == 23
+    assert result["accepted_record_count"] == 24
     assert result["phase_h_table1"]["observations"] == 12
     assert result["phase_h_table1"]["published_bm3_pressure_rmse_gpa"] == pytest.approx(
         0.5462582, abs=1e-6

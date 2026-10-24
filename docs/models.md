@@ -5,6 +5,7 @@
 | Import | Parameters after `V0`, `K0` | Notes |
 |---|---|---|
 | [`BM2`](equation-reference.md#birch-murnaghan-family) | none | Second-order Birch-Murnaghan; implied `K0_prime = 4` |
+| [`BM2Reference`](equation-reference.md#finite-pressure-bm2-reference) | required `P0` | BM2 pressure increment above `P0`; `V0` and `K0` refer to that pressure |
 | [`BM3`](equation-reference.md#birch-murnaghan-family) | `K0_prime` | Standard third-order Eulerian finite strain |
 | [`BM4`](equation-reference.md#birch-murnaghan-family) | `K0_prime`, `K0_double_prime` | Fourth-order Eulerian finite strain |
 | [`Murnaghan`](equation-reference.md#murnaghan) | `K0_prime` | Assumes bulk modulus linear in pressure |

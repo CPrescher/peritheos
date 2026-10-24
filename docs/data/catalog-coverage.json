@@ -1,35 +1,35 @@
 {
   "format": "peritheos.catalog-coverage",
   "format_version": 1,
-  "material_files_sha256": "8d2c6050cc782f0f187dfcb2b0f3e25f2a015f315fc16e8a97b36ad8c22440e6",
+  "material_files_sha256": "8c50ba90d42f6414c24a862f47374a00c0f7c230131ed82436079bab45686efa",
   "summary": {
     "stored_materials": 233,
-    "stored_records": 677,
+    "stored_records": 678,
     "executable_materials": 230,
-    "executable_records": 674,
-    "source_records": 623,
+    "executable_records": 675,
+    "source_records": 624,
     "pressure_scale_reference_variants": 51,
     "materials_with_thermal_eos": 63,
     "executable_equation_kinds": {
       "hugoniot": 3,
-      "isothermal": 537,
+      "isothermal": 538,
       "thermal": 134
     },
     "stored_validation": {
       "deferred": 3,
       "not_reproduced": 18,
-      "primary_source_validated": 656
+      "primary_source_validated": 657
     },
     "executable_calibration_status": {
       "not_applicable": 163,
       "partially_resolved": 187,
       "resolved": 238,
-      "unresolved": 86
+      "unresolved": 87
     },
     "executable_recalculation_status": {
       "missing_calibrant_observations": 195,
       "not_applicable": 160,
-      "not_possible": 122,
+      "not_possible": 123,
       "ready": 136,
       "reference_eos_not_bundled": 54,
       "reference_model_not_supported": 7
@@ -40,10 +40,10 @@
   "ledgers": {
     "refit_outcomes": {
       "not_refittable": 177,
-      "parity": 261,
+      "parity": 262,
       "parity_not_achieved": 62,
-      "similar": 161,
-      "source_reconstruction": 16
+      "similar": 160,
+      "source_reconstruction": 17
     },
     "missing_from_refit_ledger": [],
     "absent_from_catalog_refit_entries": [],
@@ -683,15 +683,15 @@
       "formula": "SiO2",
       "family_id": null,
       "input_file": "peritheos/data/materials/coesite_iv.eosmat",
-      "stored_records": 1,
-      "executable_records": 1,
-      "isothermal_records": 1,
+      "stored_records": 2,
+      "executable_records": 2,
+      "isothermal_records": 2,
       "thermal_records": 0,
       "hugoniot_records": 0,
       "validation": {
-        "primary_source_validated": 1
+        "primary_source_validated": 2
       },
-      "datasets": 1
+      "datasets": 3
     },
     {
       "identifier": "coesite_v",
@@ -5060,6 +5060,15 @@
     },
     {
       "identifier": "coesite_iv_bykova_2018_am05_static_bm3_refit",
+      "material_identifier": "coesite_iv",
+      "executable": true,
+      "equation_kind": "isothermal",
+      "scientific_validation": "primary_source_validated",
+      "refit_ledger_present": true,
+      "source_audit_present": true
+    },
+    {
+      "identifier": "coesite_iv_v_bykova_2018_experimental_bm2_reference",
       "material_identifier": "coesite_iv",
       "executable": true,
       "equation_kind": "isothermal",

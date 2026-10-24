@@ -15,10 +15,10 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 | Measure | Count |
 |---|---:|
 | Stored material documents | 233 |
-| Stored EOS records | 677 |
+| Stored EOS records | 678 |
 | Executable materials | 230 |
-| Executable EOS records, including references and qualified explicit-selection records | 674 |
-| Source EOS choices in normal discovery | 623 |
+| Executable EOS records, including references and qualified explicit-selection records | 675 |
+| Source EOS choices in normal discovery | 624 |
 | Published pressure-scale reference variants | 51 |
 | Materials with an executable thermal EOS | 63 |
 | Executable records with parameter covariance | 17 |
@@ -30,14 +30,14 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 |---|---:|
 | `deferred` | 3 |
 | `not_reproduced` | 18 |
-| `primary_source_validated` | 656 |
+| `primary_source_validated` | 657 |
 
 ## Executable equation kinds
 
 | Status | Records |
 |---|---:|
 | `hugoniot` | 3 |
-| `isothermal` | 537 |
+| `isothermal` | 538 |
 | `thermal` | 134 |
 
 ## Pressure-calibration provenance of executable records
@@ -47,7 +47,7 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 | `not_applicable` | 163 |
 | `partially_resolved` | 187 |
 | `resolved` | 238 |
-| `unresolved` | 86 |
+| `unresolved` | 87 |
 
 ## Observation pressure-recalculation readiness
 
@@ -55,7 +55,7 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 |---|---:|
 | `missing_calibrant_observations` | 195 |
 | `not_applicable` | 160 |
-| `not_possible` | 122 |
+| `not_possible` | 123 |
 | `ready` | 136 |
 | `reference_eos_not_bundled` | 54 |
 | `reference_model_not_supported` | 7 |
@@ -73,10 +73,10 @@ of records missing from that ledger. No scientific classifications are changed h
 | Outcome | Records |
 |---|---:|
 | `not_refittable` | 177 |
-| `parity` | 261 |
+| `parity` | 262 |
 | `parity_not_achieved` | 62 |
-| `similar` | 161 |
-| `source_reconstruction` | 16 |
+| `similar` | 160 |
+| `source_reconstruction` | 17 |
 
 **Catalog records absent from the refit ledger:** none.
 
@@ -134,7 +134,7 @@ Multiple temperature slices do not imply a continuous thermal EOS.
 | `chromium` | Cr | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `cobalt_hcp` | Co | 6 | 6 | 6 | 0 | 0 | 0 | 0 | 3 |
 | `coesite` | SiO2 | 2 | 2 | 2 | 0 | 0 | 0 | 0 | 3 |
-| `coesite_iv` | SiO2 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
+| `coesite_iv` | SiO2 | 2 | 2 | 2 | 0 | 0 | 0 | 0 | 3 |
 | `coesite_v` | SiO2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `coo` | CoO | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `copper` | Cu | 7 | 7 | 6 | 1 | 0 | 0 | 0 | 2 |

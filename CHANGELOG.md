@@ -5,6 +5,42 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+## [0.17.0] - 2026-10-24
+
+### Added
+
+- Add `BM2Reference` in Python, Rust, native fitting and EOSMAT, with explicit
+  nonzero reference pressure, reference volume and reference bulk modulus.
+  Include a complete standalone example and reference-state, energy,
+  inversion, fitting and compatibility checks.
+- Add the joint coesite-IV/V experimental EOS of Bykova (2018), preserving
+  its 32.7 GPa reference and all 16 published observations. Distinguish
+  published-curve checks from observation scatter and the unresolved author
+  regression; this empirical joint-phase curve is not a default pressure calibrant.
+- Document additional Bykova (2018) EOS checks and the diagnostic reconstruction
+  of the Dewaele (2008) multi-metal ruby calibration. Preserve published
+  coefficients and explicitly retain unresolved source and workflow limitations.
+
+### Fixed
+
+- Identify the coesite-IV Bykova (2018) static entry as a conditional Peritheos
+  refit. Separate refit repeatability, source-author reproduction and graphical
+  checks; preserve all original EOS coefficients and source observations.
+- Retain printed pressure and volume errors in the Fedotenko (2020) Pd audit
+  with an explicit ambient-datum treatment. Record conditional coefficient parity
+  separately from poor data agreement in the fixed-Kprime=4 fit, which remains
+  available for diagnostic selection and is not recommended for quantitative use.
+
+### Compatibility and scientific limits
+
+- `BM2Reference` retains its nonzero reference state in native v4 and explicit
+  v3 exports. Readers without this model must reject it; substituting `BM2`
+  changes the pressure law. Existing BM2 calculations remain unchanged.
+- This release includes the unreleased 0.16.2 Dewaele provenance and dataset
+  corrections listed below. Software checks do not establish physical validation
+  or reproduction of an original author's complete regression workflow.
+
+
 ## [0.16.2] - 2026-10-23
 
 ### Fixed
@@ -1352,7 +1388,8 @@ qualified outcomes and links to individual reproductions.
   and out-of-domain states.
 - Project naming and release metadata were standardized.
 
-[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.16.2...HEAD
+[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.17.0...HEAD
+[0.17.0]: https://github.com/CPrescher/peritheos/compare/v0.16.1...v0.17.0
 [0.16.2]: https://github.com/CPrescher/peritheos/compare/v0.16.1...v0.16.2
 [0.16.1]: https://github.com/CPrescher/peritheos/compare/v0.16.0...v0.16.1
 [0.16.0]: https://github.com/CPrescher/peritheos/compare/v0.15.0...v0.16.0

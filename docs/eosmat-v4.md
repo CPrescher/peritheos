@@ -1,8 +1,21 @@
 # EOSMAT v4
 
+`BM2Reference` requires V0, K0 and P0, with V0/K0 defined at P0; ordinary BM2
+remains referenced to zero pressure. Native v4 and explicit v3 exports retain
+this model identifier and its parameters. A reader without the model must
+reject it. See the [reference-state convention](equation-reference.md#finite-pressure-bm2-reference)
+and [complete standalone example](examples/bm2-reference.eosmat).
+
 EOSMAT v4 is a simpler **native material format**. The `.eosmat` file itself is
 the complete editable record. Readers load it directly, and saving it preserves
 v4. There is no separate short authoring file or generated companion.
+
+Source verification and coefficient parity are separate from recommendation for
+use. A nondefault record marked `"catalog_access": "explicit_selection"` is
+omitted by ordinary `Material.from_eosmat(document)` loading, regardless of its
+parity or source-verification status. An explicit `record_identifiers` selection
+retains access for diagnostic work. The record, its warning and published
+coefficients remain in the source document and round-trip exports.
 
 ## Small material files
 
@@ -259,7 +272,7 @@ commit or documentation version when an exact historical assessment is needed.
 These optional fields do not require standalone user files to have online reports.
 The existing `report` field still identifies the full machine-readable ledger.
 
-The [reconstruction reports](reconstruction-reports/index.md) cover every bundled
+The [reconstruction reports](reconstruction-reports/index.md) cover every main-catalog
 EOS. They explain scope, comparison basis, recorded data/method, fixed constraints
 and limitations. Where numeric comparison pairs exist, a graph shows source/target
 and reconstructed **coefficient central values**, with full values and reported

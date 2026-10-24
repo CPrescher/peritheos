@@ -12,18 +12,19 @@ agreement, source verification, author-workflow reproduction and recommendation 
 
 | EOS record | Recorded outcome | Coefficient comparison |
 | --- | --- | --- |
-| [Bykova et al. (2018), coesite-IV static AM05 BM3 reconstruction](#record-coesite_iv_bykova_2018_am05_static_bm3_refit) | Numerically similar, with qualifications | Graph and table |
+| [Peritheos coesite-IV BM3 refit of Bykova et al. (2018) calculated states](#record-coesite_iv_bykova_2018_am05_static_bm3_refit) | Coefficient parity achieved | Graph and table |
+| [Bykova et al. (2018), combined coesite-IV/V experimental BM2 at 32.7 GPa](#record-coesite_iv_v_bykova_2018_experimental_bm2_reference) | Source calculation reconstructed | No numeric coefficient pair recorded |
 
 <a id="record-coesite_iv_bykova_2018_am05_static_bm3_refit"></a>
 
-## Bykova et al. (2018), coesite-IV static AM05 BM3 reconstruction
+## Peritheos coesite-IV BM3 refit of Bykova et al. (2018) calculated states
 
 Record: `coesite_iv_bykova_2018_am05_static_bm3_refit` · Model: `BM3`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Coefficient parity achieved.**
 
-**Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Scope:** Reproduction of a stored independent Peritheos refit.
+**Comparison basis:** Reproduction of the registered Peritheos refit's stored coefficients under its declared protocol.
 
 [Stored EOS coefficients and source](../material-summaries/coesite_iv.md#record-coesite_iv_bykova_2018_am05_static_bm3_refit)
 
@@ -32,18 +33,25 @@ Record: `coesite_iv_bykova_2018_am05_static_bm3_refit` · Model: `BM3`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
-- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- This comparison concerns the stored independent Peritheos refit, not recovery of the original publication's coefficients or author workflow.
+- Replays the stored Peritheos one-parameter refit, not a published V0 or the authors' E-P-V regression. K0=168.52 GPa and K0-prime=3.34 are adopted from Supplementary Table 11 and held fixed. Three calculated Table 10 pressures are printed as whole GPa; they are not exact states. The V0 formal standard error is conditional residual-scatter covariance, not a source uncertainty or a rounding/systematic error budget. The unweighted residual sum per degree of freedom is not a statistical reduced chi-square. Figure 6 supplies separate graphical checks, including five points beyond the three apparent table counterparts; none is fitted. See the dedicated coesite-IV audit for reading bounds and limitations.
 
 ### Data and reconstruction method
 
+The source/target column below is the stored **Peritheos refit**. Agreement with it does not reproduce the original publication's coefficients.
+
 - **Dataset identifiers:** coesite\_iv\_bykova\_2018\_table10\_calc\_pv
 - **Observations:** 3
-- **Fit kind:** isothermal\_pv
-- **Selection:** all rows
+- **Fit kind:** stored\_refit\_reproduction
+- **Selection:** all three coesite-IV Table 10 rows; Figure 6 excluded
 - **Objective:** pressure\_residuals
-- **Absolute sigma:** True
+- **Weighting:** Equal pressure weights; no source standard deviations supplied.
+- **Absolute sigma:** False
 - **Free parameters:** V0
 - **Fixed parameters:** K0; K0\_prime
+- **Fixed values:**
+    - **K0:** 168.52
+    - **K0 prime:** 3.34
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
@@ -54,7 +62,7 @@ Unspecified selections, weights, fixed values or error conventions remain unknow
 
 | Fit | Pressure RMS error (GPa) |
 | --- | ---: |
-| Original / source fit | 0.0808 |
+| Stored Peritheos refit (target) | 0.0808 |
 | Reconstruction / refit | 0.0808 |
 
 Both fits use the same 3 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
@@ -88,24 +96,96 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
     - **Temperature:** Not specified
     - **Volume:** volume\_a3\_conventional\_cell
 - **Observed pressure range gpa:** 39; 48
-- **Observed temperature range k:** Not specified
 - **Observed volume range:** 357.827; 368.501
 - **Degrees of freedom:** 2
 - **Solver success:** True
-- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
 - **Rmse gpa:** 0.0808114
 - **Published rmse gpa:** 0.0808114
-- **Reduced chi square:** 0.00979573
+- **Covariance convention:** Residual-scaled conditional one-parameter covariance. Formal V0 error excludes pressure rounding, fixed-modulus uncertainty, DFT systematics and model inadequacy; not a source error or confidence interval.
+- **Comparison scope:** Stored Peritheos V0 at its registered four-decimal precision; not a published coefficient.
+- **Reproduction report:** docs/literature-reproductions/coesite-iv-bykova-2018.md
 
 </details>
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-coesite_iv_bykova_2018_am05_static_bm3_refit).
+- [Supporting source report: coesite-iv-bykova-2018](../literature-reproductions/coesite-iv-bykova-2018.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
 Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `coesite_iv_bykova_2018_am05_static_bm3_refit`.
+[Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/coesite_iv.eosmat).
+
+
+<a id="record-coesite_iv_v_bykova_2018_experimental_bm2_reference"></a>
+
+## Bykova et al. (2018), combined coesite-IV/V experimental BM2 at 32.7 GPa
+
+Record: `coesite_iv_v_bykova_2018_experimental_bm2_reference` · Model: `BM2Reference`
+
+**Outcome: Source calculation reconstructed.**
+
+**Scope:** Reconstruction of a source equation or calculation.
+**Comparison basis:** Published joint coesite-IV/V room-temperature empirical fit, not a pure-phase EOS. The explicit 32.7 GPa reference-pressure BM2 reproduces Figure 1's red vector curve within its stroke/calibration bounds. All 16 Table 2 observations are retained: pressure RMS 4.04659 GPa; maximum 11.85457 GPa at the 44.5 GPa coesite-V datum. The source acknowledges significant between-run scatter. Original objective, weights, row mask, fixed/free reference-volume choice and covariance are unspecified. The independent equal-weight diagnostic does not recover the source coefficients and is not adopted. Source-equation validation is not author-fit parity or physical validation. See the dedicated experimental audit. Retained for reproduction of the published joint empirical curve. Large observation residuals, unresolved fitting protocol, stress sensitivity and joint-phase scope preclude recommendation for quantitative pure-phase predictions or pressure calibration. Explicit selection only.
+
+[Stored EOS coefficients and source](../material-summaries/coesite_iv.md#record-coesite_iv_v_bykova_2018_experimental_bm2_reference)
+
+### What this result establishes
+
+**Separate source-review status:** primary\_source\_validated.
+**Usage recommendation:** not\_recommended
+
+- Retained for reproduction of the published joint empirical curve. Large observation residuals, unresolved fitting protocol, stress sensitivity and joint-phase scope preclude recommendation for quantitative pure-phase predictions or pressure calibration. Explicit selection only.
+- Usage recommendation: not\_recommended
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+### Data and reconstruction method
+
+- **Dataset identifiers:** coesite\_iv\_v\_bykova\_2018\_table2\_pv
+- **Observations:** 16
+- **Fit kind:** source\_curve\_validation\_only
+- **Fixed parameters:** P0
+- **Fixed values:**
+    - **P0:** 32.7
+
+Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
+
+### Curves, residuals and fit error
+
+**Curve/residual comparison unavailable:** No reconstructed coefficient set is recorded; a source/refit residual comparison is unavailable..
+
+| Fit | Recorded pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 4.05 |
+| Reconstruction / refit | Not reported |
+
+These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+
+### Why no coefficient graph is shown
+
+No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
+
+
+<details markdown="1">
+<summary>Recorded diagnostics, covariance and additional protocol</summary>
+
+- **Published rmse gpa:** 4.04659
+- **Comparison scope:** Published Figure 1 curve at graphical resolution, with observation residuals reported separately; not source-author coefficient parity.
+- **Reconstruction kind:** finite\_pressure\_reference\_bm2
+- **Reproduction report:** docs/literature-reproductions/coesite-iv-v-bykova-2018-experimental.md
+
+</details>
+
+### Detailed evidence and existing plots
+
+- [Supporting source report: coesite-iv-v-bykova-2018-experimental](../literature-reproductions/coesite-iv-v-bykova-2018-experimental.md).
+- [Record-by-record numerical ledger](../primary-eos-refits.md#records).
+- [Source-audit reports](../source-audits.md).
+
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
+
+[Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `coesite_iv_v_bykova_2018_experimental_bm2_reference`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/coesite_iv.eosmat).

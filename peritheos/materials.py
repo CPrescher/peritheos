@@ -27,6 +27,7 @@ from peritheos.eos.rt import (
     BM3,
     BM4,
     Baonza,
+    BM2Reference,
     DensityPolynomial3,
     Holzapfel,
     ModifiedTait,
@@ -1306,7 +1307,8 @@ class Material:
 
         By default every record must have been checked against its primary
         source. Nondefault records marked ``catalog_access=explicit_selection``
-        and ``not_reproduced`` are omitted unless selected explicitly.
+        are omitted unless selected explicitly, independently of source-validation
+        or coefficient-parity status.
         Pass ``require_primary_validation=False`` only when explicitly
         accepting migrated or otherwise unaudited parameters.
         """
@@ -1323,6 +1325,7 @@ _MODEL_IDENTIFIERS = MappingProxyType(
         "Baonza": "baonza",
         "DensityPolynomial3": "density_polynomial_3",
         "BM2": "birch_murnaghan_2",
+        "BM2Reference": "birch_murnaghan_2_reference",
         "BM3": "birch_murnaghan_3",
         "BM4": "birch_murnaghan_4",
         "Vinet": "vinet",
@@ -1376,6 +1379,7 @@ _MODEL_CLASSES = MappingProxyType(
             Baonza,
             DensityPolynomial3,
             BM2,
+            BM2Reference,
             BM3,
             BM4,
             Holzapfel,
@@ -1424,6 +1428,7 @@ _EOSMAT_TYPES = MappingProxyType(
         "baonza": "Baonza",
         "density_polynomial_3": "DensityPolynomial3",
         "birch_murnaghan_2": "BM2",
+        "birch_murnaghan_2_reference": "BM2Reference",
         "birch_murnaghan_3": "BM3",
         "birch_murnaghan_4": "BM4",
         "vinet": "Vinet",
@@ -2176,8 +2181,7 @@ def _material_from_eosmat(
             r
             for r in records_data
             if not (
-                r.get("scientific_validation", {}).get("status") == "not_reproduced"
-                and r.get("catalog_access") == "explicit_selection"
+                r.get("catalog_access") == "explicit_selection"
                 and r.get("default") is not True
                 and r.get("default_for") is None
             )

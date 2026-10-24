@@ -31,7 +31,7 @@ produce an executable record.
 
 ## Summary
 
-The register covers **370 primary papers**: **266** support the 677 audited catalog records and **104** were investigated without adding a production record.
+The register covers **370 primary papers**: **266** support the 678 audited catalog records and **104** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
@@ -918,13 +918,13 @@ are marked as mixed in the complete register.
 |---|---|---|
 | [Anzellini et al. (2019)](https://doi.org/10.1038/s41598-019-51931-1) | `silicon_vii_anzellini_2019_vinet_1` | K0 96.9 -> 4.845 |
 | [Baty et al. (2024)](https://doi.org/10.1063/5.0179469) | `palladium_baty_2024_bm3_1` | K0 190 -> 152.057 |
-| [Benedict et al. (2014)](https://doi.org/10.1103/physrevb.89.224109) | `diamond_benedict_2014_double_debye_4` | b_a 0.913 -> -0.0067749; a_b 2.78971 -> 1.65621; b_b 0.429 -> 0.560571; alpha0 3.79e-05 -> 6.09924e-05; Ve 0.348381 -> 0.175475; kappa 0 -> 1 |
+| [Benedict et al. (2014)](https://doi.org/10.1103/physrevb.89.224109) | `diamond_benedict_2014_double_debye_4` | b_a 0.913 -> -0.00768816; a_b 2.78971 -> 1.65486; b_b 0.429 -> 0.559764; alpha0 3.79e-05 -> 6.09832e-05; Ve 0.348381 -> 0.175501; kappa 0 -> 1 |
 | [Bykova et al. (2018)](https://doi.org/10.1038/s41467-018-07265-z) | `coesite_i_iii_bykova_2018_300k_bm3` | K0 103 -> 126.328; K0_prime 3.02 -> 1.69514 |
 | [Campbell et al. (2009)](https://doi.org/10.1016/j.epsl.2009.07.022) | `fe_fcc_campbell_2009_bm3_mgd` | published coefficients were not recovered |
 |  | `feo_campbell_2009_bm3_mgd` | published coefficients were not recovered |
 |  | `nickel_oxide_b1_campbell_2009_bm3_mgd` | rt_eos.K0_prime 5.4 -> 4.31613 |
 | [Clendenen and Drickamer (1966)](https://doi.org/10.1063/1.1726610) | `coo_clendenen_1966_murnaghan_1` | K0_prime 3.9 -> 5.1481 |
-| [Correa et al. (2008)](https://doi.org/10.1103/physrevb.78.024101) | `diamond_correa_2008_double_debye_log_moment_5` | Vp 0.335493 -> 0.453158; theta_a0 1887.8 -> 8800.19; a_a -5.2473 -> 0.34053; b_a 0.913 -> -1.69049; theta_b0 1887.8 -> 2882.08; b_b 0.429 -> 0.243306; theta_0_0 1887.8 -> 37756; a_0 2.17531 -> 1.50765; b_0 0.202 -> 0.370766 |
+| [Correa et al. (2008)](https://doi.org/10.1103/physrevb.78.024101) | `diamond_correa_2008_double_debye_log_moment_5` | Vp 0.335493 -> 0.452445; theta_a0 1887.8 -> 8775.11; a_a -5.2473 -> 0.371484; b_a 0.913 -> -1.7005; theta_b0 1887.8 -> 2890.65; b_b 0.429 -> 0.243468; theta_0_0 1887.8 -> 37756; a_0 2.17531 -> 1.50688; b_0 0.202 -> 0.37087 |
 | [Dewaele (2019)](https://doi.org/10.3390/min9110684) | `lead_hcp_dewaele_2019_dor_vinet` | K0_prime 4.77 -> 3.30377 |
 |  | `lead_hcp_dewaele_2019_mao_vinet` | K0_prime 4.4 -> 3.30377 |
 | [Dorfman et al. (2012)](https://doi.org/10.1029/2012jb009292) | `gold_dorfman_2012_tange_mgo_k0_fixed_vinet` | K0_prime 5.88 -> 5.86027 |
@@ -936,7 +936,7 @@ are marked as mixed in the complete register.
 | [Dorogokupets et al. (2015)](https://doi.org/10.1016/j.rgg.2015.01.011) | `akimotoite_dorogokupets_2015_298k_rydberg_stacey` | K0 215.3 -> 254.928; K0_prime 4.91 -> 2.29614 |
 |  | `bridgmanite_dorogokupets_2015_298k_rydberg_stacey` | Only a partial 298 K slice of the source's joint thermoelastic objective is recoverable, and that transparent slice does not reproduce the published coefficient pair. |
 |  | `mgsio3_post_perovskite_dorogokupets_2015_298k_rydberg_stacey` | Only a partial 298 K slice of the source's joint thermoelastic objective is recoverable, and that transparent slice does not reproduce the published coefficient pair. |
-| [Fei et al. (2004)](https://doi.org/10.1016/j.pepi.2003.09.018) | `platinum_fei_2004_bm3_mgd` | K0 273 -> 289.739; K0_prime 4.8 -> 2.63629; gamma0 2.69 -> 2.5594; q 0.5 -> -0.977205 |
+| [Fei et al. (2004)](https://doi.org/10.1016/j.pepi.2003.09.018) | `platinum_fei_2004_bm3_mgd` | K0 273 -> 289.739; K0_prime 4.8 -> 2.6363; gamma0 2.69 -> 2.5594; q 0.5 -> -0.977205 |
 | [Fei et al. (2007)](https://doi.org/10.1073/pnas.0609013104) | `nacl_b2_fei_2007` | q 0.5 -> 0.993385 |
 |  | `platinum_fei_2007_vinet_mgd` | gamma0 2.72 -> 2.6124; q 0.5 -> -1.66064 |
 | [Fei et al. (2007)](https://doi.org/10.1029/2007gl030712) | `mg080fe020o_fei_2007_ls_b1_bm3` | K0 170 -> 144.186 |
@@ -944,7 +944,7 @@ are marked as mixed in the complete register.
 | [Gleason et al. (2008)](https://doi.org/10.2138/am.2008.2942) | `goethite_gleason_2008_bm3_1` | rt_eos.K0 140.3 -> 183.338; rt_eos.K0_prime 4.6 -> 0 |
 | [Katsura et al. (2009)](https://doi.org/10.1029/2009gl038107) | `wadsleyite_katsura_2009_bm3_1` | gamma0 1.64 -> 1.12567 |
 | [Miozzi et al. (2020)](https://doi.org/10.3390/min10020100) | `iron_miozzi_2020_bm3` | K0 129 -> 163.357; K0_prime 6.2 -> 5.49869 |
-|  | `iron_miozzi_2020_bm3_mgd` | gamma0 1.11 -> 1.22374; q 0.3 -> 1.36126 |
+|  | `iron_miozzi_2020_bm3_mgd` | gamma0 1.11 -> 1.22374; q 0.3 -> 1.36127 |
 |  | `iron_miozzi_2020_vinet` | K0 125 -> 156.193; K0_prime 6.5 -> 5.94292 |
 | [Ono et al. (2000)](https://doi.org/10.1007/s002690000108) | `sno2_cubic_27gpa_ono_2000_bm3_1` | K0 252 -> 379.59 |
 |  | `sno2_pa_3_at_48gpa_ono_2000_bm3_1` | K0 252 -> 379.59 |
@@ -962,7 +962,7 @@ are marked as mixed in the complete register.
 |  | `fe09ni01_hcp_sakai_2014_type1_thermal` | gamma0 2.169 -> 5.21861; theta0 1162 -> 2214.82 |
 |  | `fe09ni01_hcp_sakai_2014_type2_thermal` | gamma0 2.609 -> 8; beta 1.309 -> 2.21084; theta0 600 -> 1636.98 |
 |  | `fe09ni01_hcp_sakai_2014_type4_1_thermal` | gamma0 2.882 -> 8; gamma_inf 1.087 -> 2.19477; theta0 577 -> 1664.48 |
-|  | `fe09ni01_hcp_sakai_2014_type4_2_thermal` | gamma0 2.883 -> 2.26261; gamma_inf 0.968 -> 8.52105e-22 |
+|  | `fe09ni01_hcp_sakai_2014_type4_2_thermal` | gamma0 2.883 -> 2.26261; gamma_inf 0.968 -> 1.20623e-25 |
 |  | `fe09ni01_hcp_sakai_2014_type4_3_thermal` | beta 1.161 -> 10 |
 |  | `iron_sakai_2014_p1_bm3` | K0 179.6 -> 183.743 |
 |  | `iron_sakai_2014_p1_v0_dewaele_bm3` | V0 22.468 -> 22.5517 |
@@ -1105,7 +1105,7 @@ the primary-source and refit ledgers.
 | [Boffa Ballaran et al. (2007)](https://doi.org/10.2138/am.2007.2715) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Braithwaite (2002), high-pressure solid/melt representations](https://doi.org/10.1063/1.1483512) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Brown et al. (2000)](https://doi.org/10.1063/1.1319320) | Reproduced | 1 | 1 parity | 1 bundled |
-| [Bykova et al. (2018)](https://doi.org/10.1038/s41467-018-07265-z) | Mixed: reproduced and discrepant records | 2 | 1 similar; 1 parity not achieved | 2 bundled |
+| [Bykova et al. (2018)](https://doi.org/10.1038/s41467-018-07265-z) | Mixed: reproduced and discrepant records | 3 | 1 parity; 1 parity not achieved; 1 source reconstruction | 3 bundled |
 | [Campbell and Heinz (1991)](https://doi.org/10.1016/0022-3697(91)90181-x) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Campbell and Heinz (1993)](https://doi.org/10.1016/0022-3697(93)90106-2) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Campbell and Heinz (1994)](https://doi.org/10.1029/94jb00127) | Reproduced | 2 | 2 parity | 2 bundled |
@@ -1141,8 +1141,8 @@ the primary-source and refit ledgers.
 | [Dewaele et al. (2004)](https://doi.org/10.1103/physrevb.70.094112) | Reproduced | 12 | 12 parity | 12 bundled |
 | [Dewaele et al. (2005), high-pressure metrology abstract](https://doi.org/10.1107/S0108767305096972) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Dewaele et al. (2006)](https://doi.org/10.1103/physrevlett.97.215504) | Partly reproduced | 2 | 1 similar; 1 direct refit unavailable | 2 bundled |
-| [Dewaele et al. (2008)](https://doi.org/10.1103/physrevb.77.094106) | Partly reproduced | 3 | 1 parity; 2 source reconstruction | 3 bundled |
 | [Dewaele et al. (2008)](https://doi.org/10.1103/physrevb.78.104102) | Reproduced | 13 | 13 parity | 13 bundled |
+| [Dewaele et al. (2008)](https://doi.org/10.1103/physrevb.77.094106) | Partly reproduced | 3 | 1 parity; 2 source reconstruction | 3 bundled |
 | [Dewaele et al. (2012)](https://doi.org/10.1103/physrevb.85.214105) | Reproduced | 4 | 4 similar | 4 bundled |
 | [Dewaele et al. (2015)](https://doi.org/10.1103/physrevb.91.134108) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Dewaele et al. (2021)](https://doi.org/10.1038/s41598-021-93995-y) | Reproduced | 1 | 1 similar | 1 bundled |
@@ -1163,7 +1163,7 @@ the primary-source and refit ledgers.
 | [EXTREME COMPRESSION BEHAVIOUR OF SOLIDS BASED ON THE ROY-ROY INVERTED EQUATION OF STATE (2008)](https://doi.org/10.1142/s0217979208038910) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Farla et al. (2025)](https://doi.org/10.1063/5.0248905) | Reproduced | 3 | 3 similar | 3 bundled |
 | [Faust and Knittle (1994), natural chondrodite](https://doi.org/10.1029/94GL01592) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
-| [Fedotenko et al. (2020)](https://doi.org/10.1016/j.jallcom.2020.156179) | Reproduced | 2 | 2 parity | 2 bundled |
+| [Fedotenko et al. (2020)](https://doi.org/10.1016/j.jallcom.2020.156179) | Reproduced | 2 | 2 parity; Corrected Fedotenko Pd weighting retains all 14 printed positive-pressure coordinate errors with explicit ambient-datum handling. Both Pd fits achieve conditional coefficient parity; fixed-Kprime=4 has poor data agreement (source pressure RMS 0.934246 GPa; corrected diagnostic reduced chi-square about 25). The constrained curve is not recommended for quantitative use. Published coefficients and observations are unchanged. See the [Fedotenko audit](literature-reproductions/palladium-fedotenko-2020-audit.md). | 2 bundled |
 | [Fei and Mao (1993), brucite static and thermal compression](https://doi.org/10.1029/93JB00701) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Fei et al. (2000)](https://doi.org/10.2138/am-2000-11-1229) | Reproduced | 1 | 1 similar | 1 plot only/digitized |
 | [Fei et al. (2004)](https://doi.org/10.1016/j.pepi.2003.09.018) | Mixed: reproduced and discrepant records | 3 | 1 similar; 1 parity not achieved; 1 direct refit unavailable | 3 bundled |

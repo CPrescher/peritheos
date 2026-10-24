@@ -1,0 +1,271 @@
+{
+  "record_identifier": "coesite_iv_v_bykova_2018_experimental_bm2_reference",
+  "published_parameters": {
+    "V0": 375.04,
+    "K0": 254.0,
+    "P0": 32.7
+  },
+  "reference_volume_per_formula_unit_a3": 23.44,
+  "reference_pressure_gpa": 32.7,
+  "table_sha256": "b750673a49ef8c2d56241bd810a4d8f0b0ada801c65df850573ae579089f57de",
+  "curve_check": {
+    "source_kind": "published_fitted_curve_vector_path",
+    "observations": 23,
+    "bounds": {
+      "pressure_bound_gpa": 0.10552634318036104,
+      "cell_volume_bound_a3": 0.39431741215920707,
+      "meaning": "Half the source vector stroke width plus maximum tick-map residual, independently in both coordinates. Graphical bounds, not statistical errors. The PDF Bezier is a drawn approximation to the analytic EOS."
+    },
+    "rmse_gpa": 0.02469600469028936,
+    "max_absolute_residual_gpa": 0.0426315608952379,
+    "all_within_graphical_bounds": true,
+    "checkpoints": [
+      {
+        "pressure_gpa": 32.684611675513395,
+        "volume_a3_conventional_cell": 375.0017915931037,
+        "residual_gpa": 0.04127198381338815,
+        "residual_interval_gpa": [
+          -0.3307452256549539,
+          0.4146938582852855
+        ]
+      },
+      {
+        "pressure_gpa": 33.70601961504394,
+        "volume_a3_conventional_cell": 373.5073988810628,
+        "residual_gpa": 0.0426315608952379,
+        "residual_interval_gpa": [
+          -0.33475013536615994,
+          0.42144750361196803
+        ]
+      },
+      {
+        "pressure_gpa": 35.369793216875365,
+        "volume_a3_conventional_cell": 371.1645719524165,
+        "residual_gpa": 0.02392650450279632,
+        "residual_interval_gpa": [
+          -0.3620940177923544,
+          0.41142909239354286
+        ]
+      },
+      {
+        "pressure_gpa": 37.038823884592034,
+        "volume_a3_conventional_cell": 368.8775898608799,
+        "residual_gpa": 0.011206218406414337,
+        "residual_interval_gpa": [
+          -0.3835254891490678,
+          0.40746843521466336
+        ]
+      },
+      {
+        "pressure_gpa": 38.712924929884565,
+        "volume_a3_conventional_cell": 366.64514049454567,
+        "residual_gpa": 0.0035699121429786373,
+        "residual_interval_gpa": [
+          -0.3999403539854456,
+          0.40865972960255736
+        ]
+      },
+      {
+        "pressure_gpa": 40.39190966444352,
+        "volume_a3_conventional_cell": 364.46591174150626,
+        "residual_gpa": 0.0001478290582781483,
+        "residual_interval_gpa": [
+          -0.41220347164815796,
+          0.41412829550742036
+        ]
+      },
+      {
+        "pressure_gpa": 42.075591399959364,
+        "volume_a3_conventional_cell": 362.33859148985437,
+        "residual_gpa": 0.00010580646439706243,
+        "residual_interval_gpa": [
+          -0.4211442224899813,
+          0.42303516199472857
+        ]
+      },
+      {
+        "pressure_gpa": 43.76378344812258,
+        "volume_a3_conventional_cell": 360.2618676276827,
+        "residual_gpa": 0.0026497448499824827,
+        "residual_interval_gpa": [
+          -0.4275520649991791,
+          0.4345815629710714
+        ]
+      },
+      {
+        "pressure_gpa": 45.456299120623925,
+        "volume_a3_conventional_cell": 358.23442804308365,
+        "residual_gpa": 0.00702997100529501,
+        "residual_interval_gpa": [
+          -0.43217219888599634,
+          0.4480133266939561
+        ]
+      },
+      {
+        "pressure_gpa": 47.152951729153784,
+        "volume_a3_conventional_cell": 356.25496062415,
+        "residual_gpa": 0.012545481295518357,
+        "residual_interval_gpa": [
+          -0.43570134778338176,
+          0.46262514520093423
+        ]
+      },
+      {
+        "pressure_gpa": 48.85355458540275,
+        "volume_a3_conventional_cell": 354.32215325897425,
+        "residual_gpa": 0.01854805283105776,
+        "residual_interval_gpa": [
+          -0.43878367372329596,
+          0.4777647113035528
+        ]
+      },
+      {
+        "pressure_gpa": 50.55792100106137,
+        "volume_a3_conventional_cell": 352.434693835649,
+        "residual_gpa": 0.024446211886115066,
+        "residual_interval_gpa": [
+          -0.4420068339437251,
+          0.492836712412138
+        ]
+      },
+      {
+        "pressure_gpa": 52.26586428782019,
+        "volume_a3_conventional_cell": 350.5912702422668,
+        "residual_gpa": 0.029709050631069545,
+        "residual_interval_gpa": [
+          -0.44589818888507016,
+          0.5073066721758608
+        ]
+      },
+      {
+        "pressure_gpa": 53.977197757369765,
+        "volume_a3_conventional_cell": 348.79057036692035,
+        "residual_gpa": 0.0338698850265331,
+        "residual_interval_gpa": [
+          -0.45092116845190167,
+          0.520704632715119
+        ]
+      },
+      {
+        "pressure_gpa": 55.691734721400564,
+        "volume_a3_conventional_cell": 347.0312820977022,
+        "residual_gpa": 0.036529748584953836,
+        "residual_interval_gpa": [
+          -0.45747180178445324,
+          0.5326286720856104
+        ]
+      },
+      {
+        "pressure_gpa": 57.409288491603235,
+        "volume_a3_conventional_cell": 345.312093322705,
+        "residual_gpa": 0.03736071859368906,
+        "residual_interval_gpa": [
+          -0.46587541387969655,
+          0.5427482535293848
+        ]
+      },
+      {
+        "pressure_gpa": 59.12967237966828,
+        "volume_a3_conventional_cell": 343.6316919300212,
+        "residual_gpa": 0.03610907335259128,
+        "residual_interval_gpa": [
+          -0.476383490490494,
+          0.5508074050164311
+        ]
+      },
+      {
+        "pressure_gpa": 60.852699697286255,
+        "volume_a3_conventional_cell": 341.98876580774356,
+        "residual_gpa": 0.0325982809144989,
+        "residual_interval_gpa": [
+          -0.4891707107725225,
+          0.5566277295443627
+        ]
+      },
+      {
+        "pressure_gpa": 62.578183756147695,
+        "volume_a3_conventional_cell": 340.38200284396453,
+        "residual_gpa": 0.026731821803252842,
+        "residual_interval_gpa": [
+          -0.5043321452014411,
+          0.5601112486594275
+        ]
+      },
+      {
+        "pressure_gpa": 64.30593786794313,
+        "volume_a3_conventional_cell": 338.81009092677687,
+        "residual_gpa": 0.018495850137668413,
+        "residual_interval_gpa": [
+          -0.5218806143268211,
+          0.5612430836204567
+        ]
+      },
+      {
+        "pressure_gpa": 66.03577534436309,
+        "volume_a3_conventional_cell": 337.2717179442731,
+        "residual_gpa": 0.007961699543656664,
+        "residual_interval_gpa": [
+          -0.5417442019950613,
+          0.5600939806059728
+        ]
+      },
+      {
+        "pressure_gpa": 67.76750949709819,
+        "volume_a3_conventional_cell": 335.76557178454584,
+        "residual_gpa": -0.0047117578410222904,
+        "residual_interval_gpa": [
+          -0.5637639147598634,
+          0.5568226882942213
+        ]
+      },
+      {
+        "pressure_gpa": 69.50095363783896,
+        "volume_a3_conventional_cell": 334.2903403356876,
+        "residual_gpa": -0.019275889066335594,
+        "residual_interval_gpa": [
+          -0.5876914773228521,
+          0.5516781980556857
+        ]
+      }
+    ]
+  },
+  "observations_check": {
+    "observations": 16,
+    "coesite_iv_rows": 12,
+    "coesite_v_rows": 4,
+    "rmse_gpa": 4.046586960906344,
+    "max_absolute_residual_gpa": 11.85456531900855,
+    "residuals_gpa": [
+      -0.8295330563967624,
+      -4.213223843380479,
+      0.027097668375148487,
+      3.2310582996321173,
+      -2.239680144351425,
+      -3.0454588966400706,
+      -2.5771427078038016,
+      -3.0928829996754104,
+      -2.8715986854858784,
+      -5.527101155381047,
+      1.6074110158706816,
+      1.3601415722465475,
+      11.85456531900855,
+      3.5410362848144388,
+      -1.8055679745193487,
+      -1.7495751989804518
+    ],
+    "largest_residual_source_row": 13,
+    "interpretation": "All rows retained, including significant between-run scatter reported in Figure 1. These residuals are data agreement, not PDF curve-reading error or proof of author-regression reproduction. Row 13 is the 44.5 GPa coesite-V observation."
+  },
+  "diagnostic_refit": {
+    "objective": "Equal-weight pressure residuals on all 16 Table 2 rows, P0=32.7 GPa fixed; V0 and K0 free. This is an analyst diagnostic, not the recovered author protocol.",
+    "parameters": {
+      "V0": 378.2718182300249,
+      "K0": 212.38075829682458,
+      "P0": 32.7
+    },
+    "rmse_gpa": 3.65865585464033,
+    "adopted_as_replacement": false
+  },
+  "author_workflow_reproduced": false,
+  "limitations": "Original row selection, objective, weights, fixed/free reference-volume choice and covariance are not specified. Printed errors have no stated confidence convention. No pressure-calibrant paired observations were recovered. Graphical source-equation agreement does not establish physical validation, author-fit parity or a recommended pure-phase EOS."
+}

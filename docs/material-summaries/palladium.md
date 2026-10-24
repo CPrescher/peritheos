@@ -46,7 +46,7 @@ The lattice parameter is calculated from the fitted 300 K atomic reference volum
 | [Baty et al. (2024), 0 K DFT BM3](#record-palladium_baty_2024_bm3_dft_2) | BM3 | 0.0 | primary source validated | Executable |
 | [Guigue et al. (2020), Vinet](#record-palladium_guigue_2020_vinet_1) | Vinet | 300.0 | primary source validated | Executable |
 | [Fedotenko et al. (2020), BM3](#record-palladium_fedotenko_2020_bm3_1) | BM3 | 300.0 | primary source validated | Executable |
-| [Fedotenko et al. (2020), constrained BM2](#record-palladium_fedotenko_2020_bm2_2) | BM2 | 300.0 | primary source validated | Executable |
+| [Fedotenko et al. (2020), constrained BM2 (poor fit; diagnostic only)](#record-palladium_fedotenko_2020_bm2_2) | BM2 | 300.0 | primary source validated | Explicit diagnostic selection; not recommended |
 | [Frost et al. (2023), Vinet](#record-palladium_frost_2023_vinet_1) | Vinet | 300.0 | not reproduced | Explicit diagnostic selection; not recommended |
 | [Frost et al. (2023), BM3](#record-palladium_frost_2023_bm3_2) | BM3 | 300.0 | not reproduced | Explicit diagnostic selection; not recommended |
 | [Baty et al. (2024), BM3](#record-palladium_baty_2024_bm3_1) | BM3 | 300.0 | not reproduced | Explicit diagnostic selection; not recommended |
@@ -58,7 +58,7 @@ The lattice parameter is calculated from the fitted 300 K atomic reference volum
 | [Baty et al. (2024), 0 K DFT BM3](#record-palladium_baty_2024_bm3_dft_2) | 58.4668 | 195.0 ± 2.5 | 5.1 ± 0.1 |
 | [Guigue et al. (2020), Vinet](#record-palladium_guigue_2020_vinet_1) | 59.0 ± 0.16 | 162.0 ± 2.0 | 6.2 ± 0.9 |
 | [Fedotenko et al. (2020), BM3](#record-palladium_fedotenko_2020_bm3_1) | 58.868 ± 0.002 | 157.0 ± 3.0 | 9.9 ± 0.4 |
-| [Fedotenko et al. (2020), constrained BM2](#record-palladium_fedotenko_2020_bm2_2) | 58.868 ± 0.002 (fixed) | 203.0 ± 3.0 | — |
+| [Fedotenko et al. (2020), constrained BM2 (poor fit; diagnostic only)](#record-palladium_fedotenko_2020_bm2_2) | 58.868 ± 0.002 (fixed) | 203.0 ± 3.0 | — |
 | [Frost et al. (2023), Vinet](#record-palladium_frost_2023_vinet_1) | 58.678 ± 0.073 | 189.3 ± 3.0 | 5.473 ± 0.063 |
 | [Frost et al. (2023), BM3](#record-palladium_frost_2023_bm3_2) | 58.588 ± 0.076 | 197.5 ± 3.3 | 4.996 ± 0.066 |
 | [Baty et al. (2024), BM3](#record-palladium_baty_2024_bm3_1) | 58.88 ± 0.16 | 190.0 ± 3.0 | 5.3 ± 0.2 |
@@ -354,6 +354,7 @@ Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
+- All 14 positive-pressure rows retain their printed 0.2 GPa pressure and 0.003 A^3 volume widths. No uncertainty is invented for ambient pressure. Printed widths are interpreted conditionally as independent absolute standard deviations; source confidence and covariance conventions remain unknown. The exact author constraints and EoSFit7-GUI workflow are not recovered.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -367,23 +368,30 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 58.8680 | 0.0020 | 58.9 | 0.3 | Free |
-| K0 | 157 | 3 | 160 | 30 | Free |
-| K0\_prime | 9.9 | 0.4 | 10 | 4 | Free |
+| V0 | 58.8680 | 0.0020 | 58.8680 | 0.0020 | Free |
+| K0 | 157 | 3 | 157.3 | 2.6 | Free |
+| K0\_prime | 9.9 | 0.4 | 9.9 | 0.4 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
 Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
-- **Objective:** errors\_in\_variables
-- **Selection:** all rows
+- **Objective:** errors\_in\_variables\_with\_separate\_ambient\_datum
+- **Selection:** all 15 Table 1 rows; ambient datum handled separately
 - **Columns:**
     - **Pressure:** pressure\_gpa
-    - **Temperature:** Not specified
     - **Volume:** volume\_a3\_conventional\_cell
+    - **Temperature:** Not specified
+- **Weighting:**
+    - **Positive pressure rows:** 14
+    - **Pressure sigma gpa:** 0.2
+    - **Volume sigma a3:** 0.003
+    - **Ambient:** ambient volume observation 58.868 +/-0.002 A^3 at reference P=0; V0 free
+    - **Missing ambient pressure sigma:** not imputed
 - **Absolute sigma:** True
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
+- **Fixed values:**
 - **Observations:** 15
 - **Observed pressure range gpa:** 0; 31.2
 - **Observed temperature range k:** Not specified
@@ -391,10 +399,18 @@ Displayed uncertainties use two significant digits for leading 1/2, otherwise on
 - **Degrees of freedom:** 12
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.0749532
+- **Rmse gpa:** 0.0757566
 - **Published rmse gpa:** 0.0885327
-- **Reduced chi square:** 0.00702482
+- **Reduced chi square:** 0.177875
+- **Parameter covariance:** \[\["3.99948e-06", "-0.000371104", "3.43374e-05"\], \["-0.000371104", "6.69699", "-1.08356"\], \["3.43374e-05", "-1.08356", "0.180254"\]\]
+- **Covariance convention:** inverse J^T J; absolute independent coordinate widths; no residual scaling
 - **Dataset identifiers:** palladium\_fedotenko\_2020\_table1\_compression
+- **Reproduction report:** docs/literature-reproductions/palladium-fedotenko-2020-audit.md
+- **Coefficient comparison status:** parity
+- **Data agreement status:** consistent\_with\_printed\_widths
+- **Weighted sum squares:** 2.1345
+- **Published max abs pressure residual gpa:** 0.218747
+- **Pressure rmse coordinates:** measured volumes for both curves; all 15 rows
 
 </details>
 
@@ -456,12 +472,15 @@ Parameter covariance is not supplied.
 
 <a id="record-palladium_fedotenko_2020_bm2_2"></a>
 
-## Fedotenko et al. (2020), constrained BM2
+## Fedotenko et al. (2020), constrained BM2 (poor fit; diagnostic only)
 
 Identifier: `palladium_fedotenko_2020_bm2_2`.
 
-Availability: **Executable**.
+Availability: **Explicit diagnostic selection; not recommended**.
 
+**Usage qualification:** not\_recommended\_for\_quantitative\_use
+
+- **Reproduction status:** parity
 
 - **Origin of the parameterization:** experimental
 - **Reference:**
@@ -500,6 +519,10 @@ Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
+- All 14 positive-pressure rows retain their printed 0.2 GPa pressure and 0.003 A^3 volume widths. No uncertainty is invented for ambient pressure. Printed widths are interpreted conditionally as independent absolute standard deviations; source confidence and covariance conventions remain unknown. The exact author constraints and EoSFit7-GUI workflow are not recovered. V0 fixed at 58.868 A^3 is a diagnostic constraint, not a documented author choice. Using Table 2's isolated 58.863 A^3 does not resolve the misfit. The published fixed-Kprime=4 curve shows systematic poor agreement with Table 1 despite numerical coefficient parity; corrected diagnostic reduced chi-square is about 25 under the documented independent absolute-error assumptions.
+- Poor data agreement despite coefficient parity: the published fixed-K'=4 curve has 0.934246 GPa pressure RMS and 1.438559 GPa maximum residual on Table 1. The correctly weighted diagnostic refit remains poor (reduced chi-square about 25 under independent absolute-error assumptions). Published coefficients are preserved; agreement of K0 does not validate the curve.
+- The published fixed-Kprime=4 curve shows systematic poor agreement with Table 1 despite numerical coefficient parity; corrected diagnostic reduced chi-square is about 25 under the documented independent absolute-error assumptions.
+- Usage recommendation: not\_recommended\_for\_quantitative\_use
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -513,38 +536,55 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 203 | 3 | 202.7 | 2.7 | Free |
+| K0 | 203 | 3 | 202.7 | 0.5 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
 Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
-- **Objective:** errors\_in\_variables
-- **Selection:** all rows
+- **Objective:** errors\_in\_variables\_with\_separate\_ambient\_datum
+- **Selection:** all 15 Table 1 rows; ambient datum handled separately
 - **Columns:**
     - **Pressure:** pressure\_gpa
-    - **Temperature:** Not specified
     - **Volume:** volume\_a3\_conventional\_cell
+    - **Temperature:** Not specified
+- **Weighting:**
+    - **Positive pressure rows:** 14
+    - **Pressure sigma gpa:** 0.2
+    - **Volume sigma a3:** 0.003
+    - **Ambient:** V0 fixed diagnostically at 58.868 A^3; ambient row contributes no residual or degree of freedom
+    - **Missing ambient pressure sigma:** not imputed
 - **Absolute sigma:** True
 - **Free parameters:** K0
-- **Fixed parameters:** V0
+- **Fixed parameters:** V0; K0\_prime
+- **Fixed values:**
+    - **V0:** 58.868
+    - **K0 prime:** 4
 - **Observations:** 15
 - **Observed pressure range gpa:** 0; 31.2
 - **Observed temperature range k:** Not specified
 - **Observed volume range:** 52.411; 58.868
-- **Degrees of freedom:** 14
+- **Degrees of freedom:** 13
 - **Solver success:** True
-- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.93349
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.933704
 - **Published rmse gpa:** 0.934246
-- **Reduced chi square:** 0.93386
+- **Reduced chi square:** 25.0055
+- **Parameter covariance:** \[\["0.292687"\]\]
+- **Covariance convention:** inverse J^T J; absolute independent coordinate widths; no residual scaling
 - **Dataset identifiers:** palladium\_fedotenko\_2020\_table1\_compression
+- **Reproduction report:** docs/literature-reproductions/palladium-fedotenko-2020-audit.md
+- **Coefficient comparison status:** parity
+- **Data agreement status:** poor
+- **Weighted sum squares:** 325.071
+- **Published max abs pressure residual gpa:** 1.43856
+- **Pressure rmse coordinates:** measured volumes for both curves; all 15 rows
 
 </details>
 
 Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
-Second-order Birch-Murnaghan fit to the same 15 pure-Pd Table 1 observations, with K0'=4 imposed. Table 2 reports K0=203(3) GPa. V0=58.868(2) A^3 is used consistently with Table 1, the BM3 fit paragraph, and Figure 1; Table 2's isolated 58.863(2) A^3 value is documented as a source inconsistency.
+Second-order Birch-Murnaghan fit to the same 15 pure-Pd Table 1 observations, with K0'=4 imposed. Table 2 reports K0=203(3) GPa. V0=58.868(2) A^3 is used consistently with Table 1, the BM3 fit paragraph, and Figure 1; Table 2's isolated 58.863(2) A^3 value is documented as a source inconsistency. Audit 2026-10-23: poor data agreement despite coefficient parity (0.934246 GPa pressure RMS, maximum residual 1.438559 GPa). Not recommended for quantitative predictions or pressure calibration. The published coefficients and errors are preserved. Fixed V0 is a diagnostic reconstruction constraint, not an established author choice.
 
 Parameter covariance is not supplied.
 
@@ -553,7 +593,7 @@ Parameter covariance is not supplied.
 <summary>Scientific validation and usage qualifications</summary>
 
 - **Status:** primary\_source\_validated
-- **Note:** Independently checked against the author-provided publication copy embedded in the first author's thesis.
+- **Note:** Source equation, coefficients and units are verified, and the corrected conditional refit achieves coefficient parity. The published BM2 curve fits Table 1 poorly; data agreement and the negative quantitative-use recommendation are separate findings, not failed coefficient reproduction.
 - **Audit date:** 2026-09-04
 - **Verified fields:** equation; parameters; units; reference\_state; phase; published\_uncertainties; validity
 - **Primary source check:**
@@ -567,6 +607,15 @@ Parameter covariance is not supplied.
     - **Dataset identifiers:** palladium\_fedotenko\_2020\_table1\_compression
     - **Source locations:** Table 1
     - **Finding:** All 15 printed pure-Pd pressure and conventional-cell-volume observations and their printed uncertainties are bundled.
+- **Source equation status:** reproduced
+- **Data agreement status:** poor
+- **Usage recommendation:** not\_recommended\_for\_quantitative\_use
+- **Recommendation date:** 2026-10-23
+- **Recommendation audit:** docs/literature-reproductions/palladium-fedotenko-2020-audit.md
+- **Recommendation reason:** The published fixed-Kprime=4 curve shows systematic poor agreement with Table 1 despite numerical coefficient parity; corrected diagnostic reduced chi-square is about 25 under the documented independent absolute-error assumptions.
+- **Reproduction status:** parity
+- **Classification date:** 2026-10-24
+- **Warning:** Do not use this fixed-Kprime=4 fit for quantitative predictions or pressure calibration. Coefficient parity reproduces the published poor fit; it does not establish adequate data agreement.
 
 </details>
 

@@ -41,6 +41,12 @@ fixed constraints and row selection still matter. The ledger rule is not a
 universal 95% confidence claim. Fixed/adopted coefficients do not become
 independently recovered coefficients merely because a comparison keeps them fixed.
 
+A reproduced parameterization can fit its observations poorly. Record coefficient
+parity and poor data agreement separately: reproducing the paper's poor fit is
+still reproduction. Usage recommendations may remain negative. Fedotenko (2020)
+Pd with fixed K'=4 is such a case; see its
+[audit](literature-reproductions/palladium-fedotenko-2020-audit.md).
+
 The generic similarity limits are:
 
 | Coefficient | Numerical similarity limit |
@@ -83,6 +89,15 @@ For example:
   uncertainty, adopted coefficients, calibration network or original weighting.
 - A cold-branch reconstruction does not establish full thermal-fit reproduction.
 - Reproducing a stored independent refit does not reproduce the original paper.
+- Dewaele (2008) Table VI source-equation parity checks identified Figure 4
+  curves within declared graphical reading and coefficient-printing bounds.
+  It does not claim recovery of the raw PAW fit or parameter-refit parity;
+  the four unresolved Fe LDA sets remain separately qualified.
+
+The [Dewaele PAW research collection](research/dewaele-2008-paw.md) preserves
+its 54 assessments and full checks in its own `reproduction.json`. Those files
+are outside the main catalog and its reconstruction totals; explicit file loading
+does not register them as database records.
 
 Historical records may express these findings through `parity_basis`,
 `reproduction_status`, `summary_status`, scientific-validation notes or dedicated

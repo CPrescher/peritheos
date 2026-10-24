@@ -13,7 +13,7 @@ from peritheos import (
     list_material_families,
     list_materials,
 )
-from peritheos.eos.rt import BM3, Baonza
+from peritheos.eos.rt import BM3, Baonza, BM2Reference
 
 
 def main():
@@ -32,6 +32,9 @@ def main():
     assert package.joinpath(
         "data", "datasets", "experimental-metal-eos-batch-47.csv"
     ).is_file()
+    reference = BM2Reference(375.04, 254, 32.7)
+    assert reference.pressure(375.04) == 32.7
+    assert abs(reference.pressure(375.04 / 8) - 36608.7) < 1e-8
     assert BM3(10, 120, 4).pressure(9) > 0
     assert Baonza(10, 120, 4).pressure(9) > 0
 

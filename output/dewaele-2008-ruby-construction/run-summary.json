@@ -1,0 +1,137 @@
+{
+  "status": "partial_source_reconstruction; original optimization unresolved",
+  "inventory_rows": 363,
+  "figure3": {
+    "kind": "independent source-figure equation check; not author optimization",
+    "checkpoints": 190,
+    "mao_pressure_range_gpa": [
+      0.0,
+      182.54138913159426
+    ],
+    "rms_difference_gpa": 0.003990009713695964,
+    "max_abs_difference_gpa": 0.01068517065200325,
+    "passes_0_03_gpa_centerline_reading_bound": true,
+    "diagnostic_graph_fit_A_gpa_B": [
+      1919.928563046788,
+      9.611446305831032
+    ],
+    "author_workflow_reproduced": false
+  },
+  "table4": {
+    "Co184": {
+      "kind": "published Vinet coefficient replay; not original shock reduction",
+      "source": "2008 Table IV, columns 4 and 7; Section IV",
+      "V0_atomic_a3_fixed_shared": 11.096,
+      "K0_gpa_fixed_shared": 184.0,
+      "DAC_K0_prime": 4.73,
+      "RSW_K0_prime": 4.93,
+      "printed_95pct_widths_DAC_RSW": [
+        0.06,
+        0.04
+      ],
+      "graph_checkpoint_count": 37,
+      "graph_domain_gpa": [
+        0.023797960174831555,
+        62.847498785818374
+      ],
+      "nominal_rms_graph_difference_gpa": 0.18728547974175822,
+      "nominal_max_graph_difference_gpa": 0.5225365529585555,
+      "all_graph_points_within_reading_bound_0_03_gpa": false,
+      "all_graph_points_in_coefficient_box_plus_reading_bound": true,
+      "coefficient_box_is_statistical_confidence_band": false,
+      "original_shock_observations_recovered": false
+    },
+    "Co190": {
+      "kind": "published Vinet coefficient replay; not original shock reduction",
+      "source": "2008 Table IV, columns 4 and 7; Section IV",
+      "V0_atomic_a3_fixed_shared": 11.096,
+      "K0_gpa_fixed_shared": 190.0,
+      "DAC_K0_prime": 4.37,
+      "RSW_K0_prime": 4.67,
+      "printed_95pct_widths_DAC_RSW": [
+        0.04,
+        0.03
+      ],
+      "graph_checkpoint_count": 37,
+      "graph_domain_gpa": [
+        0.023797960174831555,
+        62.847498785818374
+      ],
+      "nominal_rms_graph_difference_gpa": 0.05015283046305646,
+      "nominal_max_graph_difference_gpa": 0.13843391280855188,
+      "all_graph_points_within_reading_bound_0_03_gpa": false,
+      "all_graph_points_in_coefficient_box_plus_reading_bound": true,
+      "coefficient_box_is_statistical_confidence_band": false,
+      "original_shock_observations_recovered": false
+    },
+    "Ni": {
+      "kind": "published Vinet coefficient replay; not original shock reduction",
+      "source": "2008 Table IV, columns 4 and 7; Section IV",
+      "V0_atomic_a3_fixed_shared": 10.942,
+      "K0_gpa_fixed_shared": 183.0,
+      "DAC_K0_prime": 4.99,
+      "RSW_K0_prime": 5.13,
+      "printed_95pct_widths_DAC_RSW": [
+        0.02,
+        0.01
+      ],
+      "graph_checkpoint_count": 43,
+      "graph_domain_gpa": [
+        0.0,
+        160.00000000000003
+      ],
+      "nominal_rms_graph_difference_gpa": 0.0942970887941454,
+      "nominal_max_graph_difference_gpa": 0.2845186959002639,
+      "all_graph_points_within_reading_bound_0_03_gpa": false,
+      "all_graph_points_in_coefficient_box_plus_reading_bound": true,
+      "coefficient_box_is_statistical_confidence_band": false,
+      "original_shock_observations_recovered": false
+    },
+    "Mo": {
+      "kind": "published Vinet coefficient replay; not original shock reduction",
+      "source": "2008 Table IV, columns 4 and 7; Section IV",
+      "V0_atomic_a3_fixed_shared": 15.558,
+      "K0_gpa_fixed_shared": 261.0,
+      "DAC_K0_prime": 4.06,
+      "RSW_K0_prime": 4.18,
+      "printed_95pct_widths_DAC_RSW": [
+        0.05,
+        0.02
+      ],
+      "graph_checkpoint_count": 13,
+      "graph_domain_gpa": [
+        0.0,
+        118.35259834871296
+      ],
+      "nominal_rms_graph_difference_gpa": 0.0021420940499744987,
+      "nominal_max_graph_difference_gpa": 0.005233623765989126,
+      "all_graph_points_within_reading_bound_0_03_gpa": true,
+      "all_graph_points_in_coefficient_box_plus_reading_bound": true,
+      "coefficient_box_is_statistical_confidence_band": false,
+      "original_shock_observations_recovered": false
+    },
+    "Ag": {
+      "kind": "published Vinet coefficient replay; not original shock reduction",
+      "source": "2008 Table IV, columns 4 and 7; Section IV",
+      "V0_atomic_a3_fixed_shared": 17.021,
+      "K0_gpa_fixed_shared": 101.0,
+      "DAC_K0_prime": 5.97,
+      "RSW_K0_prime": 6.19,
+      "printed_95pct_widths_DAC_RSW": [
+        0.02,
+        0.01
+      ],
+      "graph_checkpoint_count": 21,
+      "graph_domain_gpa": [
+        0.0,
+        103.70859640602237
+      ],
+      "nominal_rms_graph_difference_gpa": 0.002692456776921321,
+      "nominal_max_graph_difference_gpa": 0.009807093385350463,
+      "all_graph_points_within_reading_bound_0_03_gpa": true,
+      "all_graph_points_in_coefficient_box_plus_reading_bound": true,
+      "coefficient_box_is_statistical_confidence_band": false,
+      "original_shock_observations_recovered": false
+    }
+  }
+}

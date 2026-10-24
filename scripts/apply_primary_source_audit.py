@@ -3347,7 +3347,8 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
         record["identifier"] in set(NOT_RECOMMENDED) | {WADSLEYITE}
         and previous_validation.get("recommendation_date") == "2026-10-17"
     ) or (
-        previous_validation.get("status") == "not_reproduced"
+        previous_validation.get("status")
+        in {"not_reproduced", "primary_source_validated"}
         and previous_validation.get("usage_recommendation")
         == "not_recommended_for_quantitative_use"
         and previous_validation.get("recommendation_audit")

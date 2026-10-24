@@ -1,0 +1,34 @@
+{
+  "doi": "10.1063/1.351203",
+  "locations": "Sec.IV, Table III, pp.1722-1724",
+  "law": "Mie-Gruneisen with rho*gamma constant; Debye caloric model; experimentally fitted linear Us=c0+s*up Hugoniot",
+  "materials": {
+    "Mo": {
+      "rho0_g_cm3": 10.215,
+      "c0_km_s": 5.122,
+      "s": 1.245,
+      "gamma0": 1.58,
+      "model_3nk_J_g_K": 0.272,
+      "theta0_K_rounded": 411,
+      "theta0_over_293K": 1.403
+    },
+    "W": {
+      "rho0_g_cm3": 19.256,
+      "c0_km_s": 4.022,
+      "s": 1.26,
+      "gamma0": 1.65,
+      "model_3nk_J_g_K": 0.14,
+      "theta0_K_rounded": 340,
+      "theta0_over_293K": 1.1612
+    }
+  },
+  "reference_state": "293 K; use Hugoniot rho0, not the distinct 25 C crystallographic density also printed in Table III",
+  "qualifications": [
+    "Adjusted model 3nk differs from mass-based Dulong-Petit value.",
+    "Phase changes ignored in reduction.",
+    "No explicit electron thermal term.",
+    "Gamma uncertainty can grow toward 10% at higher compression; authors estimate resulting isotherms accurate to about 2-3%.",
+    "Ta/Pt/Cu primary Hugoniot standards are shared ancestors; Mo/W are not independent absolute standards.",
+    "Per-row covariance and Dewaele sampling/weighting not recovered."
+  ]
+}

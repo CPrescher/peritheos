@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-23",
+  "papers": [
+    {
+      "doi": "10.1063/1.1518781",
+      "file": "output/dewaele-2008-ruby-construction/sources/wang-2002.pdf",
+      "pages": 6,
+      "bytes": 318131,
+      "sha256": "8b101a77880ce09e2c27df231a220d5f1afba76e14530e23fb311f52563da7f4",
+      "lookup_site": "https://sci-hub.usualwant.com/",
+      "lookup_redirect": "https://sci-hub.reatk.com/10.1063/1.1518781",
+      "download_url": "https://sci.bban.top/pdf/10.1063/1.1518781.pdf"
+    },
+    {
+      "doi": "10.1103/PhysRevB.70.094112",
+      "file": "output/dewaele-2008-ruby-construction/sources/dewaele-2004.pdf",
+      "pages": 8,
+      "bytes": 677461,
+      "sha256": "1f9e02e4a77f49a868b1a6261290465bdb00597b1660691b1790c7502ec9aeeb",
+      "lookup_site": "https://sci-hub.usualwant.com/",
+      "lookup_redirect": "https://sci-hub.reatk.com/10.1103/physrevb.70.094112",
+      "download_url": "https://sci.bban.top/pdf/10.1103/physrevb.70.094112.pdf"
+    },
+    {
+      "doi": "10.1080/08957950701659627",
+      "file": "output/dewaele-2008-ruby-construction/sources/dewaele-loubeyre-2007.pdf",
+      "pages": 11,
+      "bytes": 397200,
+      "sha256": "438113c1aee3d40914099f665cda31ce06534dd52178501ee49382c65331ea08",
+      "lookup_site": "https://sci-hub.usualwant.com/",
+      "lookup_redirect": "https://sci-hub.reatk.com/10.1080/08957950701659627",
+      "download_url": "https://sci.bban.top/pdf/10.1080/08957950701659627.pdf"
+    }
+  ],
+  "handbook_search": {
+    "query": "American Institute of Physics Handbook 1972 9780070014855",
+    "result": "No matching papers were found.",
+    "not_retrieved": true,
+    "subsequent_resolution": "Resolved using user-supplied full book in Downloads; aip-1972-co-ni-ag-source.json records identity and136 recovered entries."
+  },
+  "verification": "Titles, DOI, article page sequence and relevant equations/tables checked in PDFs. Numerical signs and fixed/free formatting checked against rendered pages.",
+  "scope": "No author contact; no catalog or calibration changes; PDFs/text stay local and are excluded from numerical archives.",
+  "numerical_checks": {
+    "row_counts": {
+      "wang-2002-table2-generalized-eos.csv": 5,
+      "wang-2002-table1-hugoniot-inputs.csv": 10,
+      "dewaele-2004-table2-vinet-branches.csv": 30
+    },
+    "RSW_pairs_checked_against_source": true,
+    "Wang_Eq8_signs_and_powers_visually_checked": true,
+    "Wang_pressure_monotonicity_near_V0_checked": true,
+    "scope": "Coefficient transcription and source mapping; no refit or calibration change"
+  }
+}
