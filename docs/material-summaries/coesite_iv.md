@@ -360,6 +360,7 @@ Parameter covariance is not supplied.
 <details markdown="1">
 <summary>Parameter provenance</summary>
 
+- **Origin of the parameterization:** Experimental room-temperature joint coesite-IV/V compression parameterization published in Figure 1 and Supplementary Figure 9; the original regression protocol is not recovered.
 - **Equation:** Figure 1 caption and Supplementary Figure 9: second-order Birch-Murnaghan at 32.7 GPa. P=P0+1.5\*K0\*((V0/V)^(7/3)-(V0/V)^(5/3)) is identified against the primary red vector curve.
 - **Parameters:** V32.7/Z=23.44(3) A3 and K32.7=254(9) GPa retained. V0=16\*23.44=375.04 A3 and error=16\*0.03=0.48 A3. V0/K0 are reference-pressure values, not ambient values. P0=32.7 is the fixed reference coordinate, not a fitted pressure.
 - **Method:** Room-temperature joint empirical compression fit. Author objective, weights and fixed/free reference-volume choice unspecified.
