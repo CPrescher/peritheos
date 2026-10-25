@@ -4023,50 +4023,50 @@
               "observations": 27,
               "degrees_of_freedom": 25.0,
               "solver_success": true,
-              "rmse_gpa": 1.493582371073135,
+              "rmse_gpa": 1.4935823710731382,
               "published_rmse_gpa": 1.8254949981537465,
               "published_pressure_rmse_gpa": 1.8254949981537465,
-              "refitted_pressure_rmse_gpa": 1.493582371073135,
+              "refitted_pressure_rmse_gpa": 1.4935823710731382,
               "rmse_shock_velocity_km_s": null,
               "parameter_covariance": [
                 [4.691183702370708, -0.11794750621188474],
                 [-0.11794750621188474, 0.003068159505561356]
               ],
               "covariance": {
-                "parameters": ["K0", "K0_prime"],
-                "matrix": [
-                  [4.691183702370708, -0.11794750621188474],
-                  [-0.11794750621188474, 0.003068159505561356]
-                ],
-                "standard_errors": {"K0": 2.1659140570139686, "K0_prime": 0.05539096953079406},
-                "correlation_matrix": [
-                  [0.9999999999999998, -0.9831246292113585],
-                  [-0.9831246292113585, 1.0]
-                ],
-                "degrees_of_freedom": 25.0,
-                "local_student_t_95_intervals": {
-                  "K0": [193.92350397397067, 202.8450709787118],
-                  "K0_prime": [4.789467363744729, 5.017627038190836]
-                },
-                "residual_variance": 2.409251363114867,
-                "max_abs_residual_jacobian_cosine": 1.2413319566932666e-09,
-                "residual_sum_squares": 60.23128407787167,
-                "residual_count": 27,
-                "scaled_jacobian_condition_number": 10.846874433241316,
-                "derivative_step_halving_relative_change": 1.826281179948179e-12,
-                "method": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
-                "previous_assessment": {
-                  "status": "similar",
-                  "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures.",
-                  "reason": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures."
-                },
                 "assumptions": [
                   "Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.",
                   "Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.",
                   "Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.",
                   "Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.",
                   "Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred."
-                ]
+                ],
+                "correlation_matrix": [
+                  [0.9999999999999998, -0.9831246292113585],
+                  [-0.9831246292113585, 1.0]
+                ],
+                "degrees_of_freedom": 25.0,
+                "derivative_step_halving_relative_change": 1.826281179948179e-12,
+                "local_student_t_95_intervals": {
+                  "K0": [193.92350397397067, 202.8450709787118],
+                  "K0_prime": [4.789467363744729, 5.017627038190836]
+                },
+                "matrix": [
+                  [4.691183702370708, -0.11794750621188474],
+                  [-0.11794750621188474, 0.003068159505561356]
+                ],
+                "max_abs_residual_jacobian_cosine": 1.2413319566932666e-09,
+                "method": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
+                "parameters": ["K0", "K0_prime"],
+                "previous_assessment": {
+                  "qualification": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures.",
+                  "reason": "Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures.",
+                  "status": "similar"
+                },
+                "residual_count": 27,
+                "residual_sum_squares": 60.23128407787167,
+                "residual_variance": 2.409251363114867,
+                "scaled_jacobian_condition_number": 10.846874433241316,
+                "standard_errors": {"K0": 2.1659140570139686, "K0_prime": 0.05539096953079406}
               },
               "covariance_convention": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
               "dataset_identifiers": ["sakai_2014_table2_pvt"]

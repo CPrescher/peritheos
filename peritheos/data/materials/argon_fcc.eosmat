@@ -286,7 +286,7 @@
               "observations": 19,
               "degrees_of_freedom": 16.0,
               "solver_success": true,
-              "rmse_gpa": 0.8531818076185209,
+              "rmse_gpa": 0.8531818688514283,
               "published_rmse_gpa": 0.8474923941002821,
               "parameter_covariance": [
                 [1363.9915657897322, -18.7540728573737, 31.44953283491452],
@@ -294,42 +294,42 @@
                 [31.449532834914514, -0.4342206505774031, 0.7329459931166193]
               ],
               "covariance": {
-                "parameters": ["V0", "K0", "K0_prime"],
-                "matrix": [
-                  [1363.9915657897322, -18.7540728573737, 31.44953283491452],
-                  [-18.754072857373696, 0.2582827522252391, -0.4342206505774031],
-                  [31.449532834914514, -0.4342206505774031, 0.7329459931166193]
-                ],
-                "standard_errors": {"V0": 36.93225644053897, "K0": 0.5082152617004325, "K0_prime": 0.8561226507438168},
-                "correlation_matrix": [
-                  [1.0, -0.9991761376287766, 0.9946547677388503],
-                  [-0.9991761376287763, 1.0, -0.9979913645812455],
-                  [0.9946547677388501, -0.9979913645812455, 1.0000000000000002]
-                ],
-                "degrees_of_freedom": 16.0,
-                "local_student_t_95_intervals": {
-                  "V0": [133.45203809728997, 290.0378103782837],
-                  "K0": [-0.6189244797361512, 1.535811973111576],
-                  "K0_prime": [6.849778543751508, 10.479576431941837]
-                },
-                "residual_variance": 13.391019374429256,
-                "max_abs_residual_jacobian_cosine": 3.855113343778729e-09,
-                "residual_sum_squares": 214.2563099908681,
-                "residual_count": 19,
-                "scaled_jacobian_condition_number": 1161.5808973129638,
-                "derivative_step_halving_relative_change": 3.2726646828895705e-12,
-                "method": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
-                "previous_assessment": {
-                  "status": "similar",
-                  "reason": "All 19 rows. Effective-error weights combine printed 1-sigma P,V errors using a fixed derivative at published coefficients. Source weighting and covariance are unspecified; no strict parameter parity claimed."
-                },
                 "assumptions": [
                   "Original effective coordinate widths, frozen at published coefficients; residual-scaled covariance conditional on those fixed weights.",
                   "Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.",
                   "Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.",
                   "Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.",
                   "Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred."
-                ]
+                ],
+                "correlation_matrix": [
+                  [1.0, -0.9991761376287766, 0.9946547677388503],
+                  [-0.9991761376287763, 1.0, -0.9979913645812455],
+                  [0.9946547677388501, -0.9979913645812455, 1.0000000000000002]
+                ],
+                "degrees_of_freedom": 16.0,
+                "derivative_step_halving_relative_change": 3.2726646828895705e-12,
+                "local_student_t_95_intervals": {
+                  "K0": [-0.6189244797361512, 1.535811973111576],
+                  "K0_prime": [6.849778543751508, 10.479576431941837],
+                  "V0": [133.45203809728997, 290.0378103782837]
+                },
+                "matrix": [
+                  [1363.9915657897322, -18.7540728573737, 31.44953283491452],
+                  [-18.754072857373696, 0.2582827522252391, -0.4342206505774031],
+                  [31.449532834914514, -0.4342206505774031, 0.7329459931166193]
+                ],
+                "max_abs_residual_jacobian_cosine": 3.855113343778729e-09,
+                "method": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
+                "parameters": ["V0", "K0", "K0_prime"],
+                "previous_assessment": {
+                  "reason": "All 19 rows. Effective-error weights combine printed 1-sigma P,V errors using a fixed derivative at published coefficients. Source weighting and covariance are unspecified; no strict parameter parity claimed.",
+                  "status": "similar"
+                },
+                "residual_count": 19,
+                "residual_sum_squares": 214.2563099908681,
+                "residual_variance": 13.391019374429256,
+                "scaled_jacobian_condition_number": 1161.5808973129638,
+                "standard_errors": {"K0": 0.5082152617004325, "K0_prime": 0.8561226507438168, "V0": 36.93225644053897}
               },
               "covariance_convention": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
               "dataset_identifiers": ["argon_fcc_ono_2020_table1"]
@@ -819,8 +819,8 @@
                 "refit_error": 0.1049019120920322,
                 "difference": -0.06619461855530862,
                 "relative_difference": 0.009497075832899372,
-                "within_combined_2sigma": null,
                 "similar": true,
+                "within_combined_2sigma": null,
                 "within_reported_error": true
               },
               {
@@ -831,8 +831,8 @@
                 "refit_error": 0.09434158016748784,
                 "difference": 0.06336704035386836,
                 "relative_difference": 0.1584176008846709,
-                "within_combined_2sigma": null,
                 "similar": true,
+                "within_combined_2sigma": null,
                 "within_reported_error": true
               }
             ],
@@ -859,46 +859,46 @@
               ],
               "observations": 19,
               "degrees_of_freedom": 17.0,
-              "rmse_gpa": 0.09412675921023864,
-              "published_rmse_gpa": 0.09535520774523343,
+              "rmse_gpa": 0.09412675920679371,
+              "published_rmse_gpa": 0.09535520774265238,
               "parameter_covariance": [
                 [0.011004411160564451, -0.009665184341005198],
                 [-0.0096651843410052, 0.008900333748498534]
               ],
               "covariance": {
-                "parameters": ["K0_prime", "K0_double_prime"],
-                "matrix": [
-                  [0.011004411160564451, -0.009665184341005198],
-                  [-0.0096651843410052, 0.008900333748498534]
-                ],
-                "standard_errors": {"K0_prime": 0.1049019120920322, "K0_double_prime": 0.09434158016748784},
-                "correlation_matrix": [
-                  [1.0, -0.9766154513427967],
-                  [-0.9766154513427968, 1.0]
-                ],
-                "degrees_of_freedom": 17.0,
-                "local_student_t_95_intervals": {
-                  "K0_prime": [6.6824816931684206, 7.125129069720962],
-                  "K0_double_prime": [-0.5356762951209081, -0.13758962417135523]
-                },
-                "residual_variance": 0.009902181716276378,
-                "max_abs_residual_jacobian_cosine": 2.165324476703796e-08,
-                "residual_sum_squares": 0.16833708917669843,
-                "residual_count": 19,
-                "scaled_jacobian_condition_number": 86.02846706228031,
-                "derivative_step_halving_relative_change": 1.1704059159321416e-11,
-                "method": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
-                "previous_assessment": {
-                  "status": "similar",
-                  "reason": "All 19 measured rows retained. An unweighted refit reproduces both fitted parameters within published error bars, consistent with an unweighted original fit. The paper does not specify its weighting; covariance and uncertainty estimation are not reproduced."
-                },
                 "assumptions": [
                   "All 19 molar-volume rows and the full original Murnaghan/zero-point/Debye model at 293 K; other coefficients fixed.",
                   "Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.",
                   "Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.",
                   "Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.",
                   "Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred."
-                ]
+                ],
+                "correlation_matrix": [
+                  [1.0, -0.9766154513427967],
+                  [-0.9766154513427968, 1.0]
+                ],
+                "degrees_of_freedom": 17.0,
+                "derivative_step_halving_relative_change": 1.1704059159321416e-11,
+                "local_student_t_95_intervals": {
+                  "K0_double_prime": [-0.5356762951209081, -0.13758962417135523],
+                  "K0_prime": [6.6824816931684206, 7.125129069720962]
+                },
+                "matrix": [
+                  [0.011004411160564451, -0.009665184341005198],
+                  [-0.0096651843410052, 0.008900333748498534]
+                ],
+                "max_abs_residual_jacobian_cosine": 2.165324476703796e-08,
+                "method": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
+                "parameters": ["K0_prime", "K0_double_prime"],
+                "previous_assessment": {
+                  "reason": "All 19 measured rows retained. An unweighted refit reproduces both fitted parameters within published error bars, consistent with an unweighted original fit. The paper does not specify its weighting; covariance and uncertainty estimation are not reproduced.",
+                  "status": "similar"
+                },
+                "residual_count": 19,
+                "residual_sum_squares": 0.16833708917669843,
+                "residual_variance": 0.009902181716276378,
+                "scaled_jacobian_condition_number": 86.02846706228031,
+                "standard_errors": {"K0_double_prime": 0.09434158016748784, "K0_prime": 0.1049019120920322}
               },
               "covariance_convention": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
               "dataset_identifiers": ["argon_fcc_finger_1981_table1"]

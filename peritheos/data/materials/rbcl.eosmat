@@ -356,7 +356,7 @@
               "observations": 122,
               "degrees_of_freedom": 118.0,
               "solver_success": true,
-              "rmse_gpa": 0.15516257838688707,
+              "rmse_gpa": 0.15516257865821326,
               "published_rmse_gpa": 0.15442869781174814,
               "parameter_covariance": [
                 [0.007407343785538174, -0.0020364556083878223, -0.0007041948556489386, 7.696568026137184e-05],
@@ -365,19 +365,13 @@
                 [7.696568026137184e-05, 1.2500040122148455e-05, 0.003492922614505614, 0.00805086602782535]
               ],
               "covariance": {
-                "parameters": ["K0", "K0_prime", "gamma0", "q"],
-                "matrix": [
-                  [0.007407343785538174, -0.0020364556083878223, -0.0007041948556489386, 7.696568026137184e-05],
-                  [-0.0020364556083878214, 0.0005679800447036175, 0.00020175816540109672, 1.250004012214845e-05],
-                  [-0.0007041948556489386, 0.0002017581654010968, 0.0017846901341782837, 0.003492922614505614],
-                  [7.696568026137184e-05, 1.2500040122148455e-05, 0.003492922614505614, 0.00805086602782535]
+                "assumptions": [
+                  "Final frozen effective P/V/T weights at the existing converged fit, without a pressure floor. Conditional on the analyst row mask and source-reported CsCl pressures; calibration replay and benchmark discrepancies remain unresolved.",
+                  "Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.",
+                  "Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.",
+                  "Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.",
+                  "Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred."
                 ],
-                "standard_errors": {
-                  "K0": 0.08606592697193341,
-                  "K0_prime": 0.02383233191913073,
-                  "gamma0": 0.042245593074050736,
-                  "q": 0.08972661827922275
-                },
                 "correlation_matrix": [
                   [0.9999999999999999, -0.9928351813964067, -0.19367795283519953, 0.009966543387016554],
                   [-0.9928351813964063, 1.0, 0.20039328746935184, 0.005845525620655643],
@@ -385,31 +379,37 @@
                   [0.009966543387016554, 0.005845525620655646, 0.9214807193798034, 1.0]
                 ],
                 "degrees_of_freedom": 118.0,
+                "derivative_step_halving_relative_change": 3.525636637623691e-12,
                 "local_student_t_95_intervals": {
                   "K0": [19.751506761050784, 20.09237469463173],
                   "K0_prime": [4.947990390683084, 5.042379401752918],
                   "gamma0": [1.880253372056739, 2.0475689232939813],
                   "q": [0.8815544845057378, 1.2369207489046459]
                 },
-                "residual_variance": 2.46783906765505,
+                "matrix": [
+                  [0.007407343785538174, -0.0020364556083878223, -0.0007041948556489386, 7.696568026137184e-05],
+                  [-0.0020364556083878214, 0.0005679800447036175, 0.00020175816540109672, 1.250004012214845e-05],
+                  [-0.0007041948556489386, 0.0002017581654010968, 0.0017846901341782837, 0.003492922614505614],
+                  [7.696568026137184e-05, 1.2500040122148455e-05, 0.003492922614505614, 0.00805086602782535]
+                ],
                 "max_abs_residual_jacobian_cosine": 4.923295072397343e-09,
-                "residual_sum_squares": 291.2050099832959,
-                "residual_count": 122,
-                "scaled_jacobian_condition_number": 233.85267066774173,
-                "derivative_step_halving_relative_change": 3.525636637623691e-12,
                 "method": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
+                "parameters": ["K0", "K0_prime", "gamma0", "q"],
                 "previous_assessment": {
-                  "status": "similar",
                   "qualification": "Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications.",
-                  "reason": "Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications."
+                  "reason": "Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications.",
+                  "status": "similar"
                 },
-                "assumptions": [
-                  "Final frozen effective P/V/T weights at the existing converged fit, without a pressure floor. Conditional on the analyst row mask and source-reported CsCl pressures; calibration replay and benchmark discrepancies remain unresolved.",
-                  "Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.",
-                  "Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.",
-                  "Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.",
-                  "Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred."
-                ]
+                "residual_count": 122,
+                "residual_sum_squares": 291.2050099832959,
+                "residual_variance": 2.46783906765505,
+                "scaled_jacobian_condition_number": 233.85267066774173,
+                "standard_errors": {
+                  "K0": 0.08606592697193341,
+                  "K0_prime": 0.02383233191913073,
+                  "gamma0": 0.042245593074050736,
+                  "q": 0.08972661827922275
+                }
               },
               "covariance_convention": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
               "dataset_identifiers": ["rbcl_farla_2025_observations"],

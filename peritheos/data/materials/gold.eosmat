@@ -2825,28 +2825,28 @@
               "fixed_parameters": ["V0", "K0", "K0_prime", "Tr", "alpha0", "alpha1", "dK_dT"],
               "observations": 38,
               "solver_success": true,
-              "rmse_gpa": 0.445141799111663,
+              "rmse_gpa": 0.4451417991116562,
               "published_rmse_gpa": 0.4479194129604852,
               "covariance": {
-                "parameters": ["beta1", "beta2", "beta3", "kprime_log_coefficient"],
-                "standard_errors": {
-                  "beta1": 4.4515812720505623e-07,
-                  "beta2": 3.914573391230663e-10,
-                  "beta3": 9.764421605205168e-14,
-                  "kprime_log_coefficient": 2.2723108298574738e-05
-                },
-                "method": "Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.",
-                "previous_assessment": {
-                  "status": "similar",
-                  "reason": "Complete published PVT selection recovered. Original residual coordinate, weights, covariance and unrounded observations remain unspecified. Weighted sensitivity treats printed pressure errors as relative weights only, not established sigma; it omits Au-volume and temperature uncertainty and correlated calibration errors. Ambient expansivity coefficients are source-fixed, not refitted from unavailable Touloukian data."
-                },
                 "assumptions": [
                   "Existing reconstructed errors retained; no source confidence convention inferred.",
                   "Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.",
                   "Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.",
                   "Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.",
                   "Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred."
-                ]
+                ],
+                "method": "Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.",
+                "parameters": ["beta1", "beta2", "beta3", "kprime_log_coefficient"],
+                "previous_assessment": {
+                  "reason": "Complete published PVT selection recovered. Original residual coordinate, weights, covariance and unrounded observations remain unspecified. Weighted sensitivity treats printed pressure errors as relative weights only, not established sigma; it omits Au-volume and temperature uncertainty and correlated calibration errors. Ambient expansivity coefficients are source-fixed, not refitted from unavailable Touloukian data.",
+                  "status": "similar"
+                },
+                "standard_errors": {
+                  "beta1": 4.4515812720505623e-07,
+                  "beta2": 3.914573391230663e-10,
+                  "beta3": 9.764421605205168e-14,
+                  "kprime_log_coefficient": 2.2723108298574738e-05
+                }
               },
               "dataset_identifiers": ["gold_hirose_2008_table1", "gold_fei_2004_table1"]
             },
@@ -3020,7 +3020,7 @@
               "observations": 12,
               "degrees_of_freedom": 9.0,
               "solver_success": true,
-              "rmse_gpa": 0.38847700498905835,
+              "rmse_gpa": 0.38847700499064436,
               "published_rmse_gpa": 0.4595254485710879,
               "parameter_covariance": [
                 [7.237939050552362e-06, -1.573611832784001e-09, -8.076088549313398e-12],
@@ -3028,42 +3028,42 @@
                 [-8.076088549313397e-12, 2.88630165677837e-16, 1.0312843635611235e-17]
               ],
               "covariance": {
-                "parameters": ["dK_dT", "alpha0", "alpha1"],
-                "matrix": [
-                  [7.237939050552362e-06, -1.573611832784001e-09, -8.076088549313398e-12],
-                  [-1.573611832784001e-09, 2.0143475645719933e-12, 2.8863016567783705e-16],
-                  [-8.076088549313397e-12, 2.88630165677837e-16, 1.0312843635611235e-17]
-                ],
-                "standard_errors": {"dK_dT": 0.0026903418092414136, "alpha0": 1.4192771274744033e-06, "alpha1": 3.2113616482126758e-09},
-                "correlation_matrix": [
-                  [0.9999999999999999, -0.41211929466624686, -0.9347692010553827],
-                  [-0.41211929466624686, 0.9999999999999998, 0.06332647268166643],
-                  [-0.9347692010553826, 0.06332647268166641, 1.0000000000000002]
-                ],
-                "degrees_of_freedom": 9.0,
-                "local_student_t_95_intervals": {
-                  "dK_dT": [-0.03441847175031265, -0.02224651976201076],
-                  "alpha0": [2.8556634592213588e-05, 3.497789043203735e-05],
-                  "alpha1": [7.733524364797707e-09, 2.226273387447721e-08]
-                },
-                "residual_variance": 0.20121917787369017,
-                "max_abs_residual_jacobian_cosine": 6.508650599485261e-08,
-                "residual_sum_squares": 1.8109726008632117,
-                "residual_count": 12,
-                "scaled_jacobian_condition_number": 94.92569080874486,
-                "derivative_step_halving_relative_change": 6.78019620569867e-11,
-                "method": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
-                "previous_assessment": {
-                  "status": "similar",
-                  "reason": "Published row selection and fixed reference coefficients retained. Unweighted pressure residuals are diagnostic because the source does not specify its objective, weights, or covariance. Published coefficients remain unchanged."
-                },
                 "assumptions": [
                   "Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.",
                   "Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.",
                   "Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.",
                   "Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.",
                   "Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred."
-                ]
+                ],
+                "correlation_matrix": [
+                  [0.9999999999999999, -0.41211929466624686, -0.9347692010553827],
+                  [-0.41211929466624686, 0.9999999999999998, 0.06332647268166643],
+                  [-0.9347692010553826, 0.06332647268166641, 1.0000000000000002]
+                ],
+                "degrees_of_freedom": 9.0,
+                "derivative_step_halving_relative_change": 6.78019620569867e-11,
+                "local_student_t_95_intervals": {
+                  "alpha0": [2.8556634592213588e-05, 3.497789043203735e-05],
+                  "alpha1": [7.733524364797707e-09, 2.226273387447721e-08],
+                  "dK_dT": [-0.03441847175031265, -0.02224651976201076]
+                },
+                "matrix": [
+                  [7.237939050552362e-06, -1.573611832784001e-09, -8.076088549313398e-12],
+                  [-1.573611832784001e-09, 2.0143475645719933e-12, 2.8863016567783705e-16],
+                  [-8.076088549313397e-12, 2.88630165677837e-16, 1.0312843635611235e-17]
+                ],
+                "max_abs_residual_jacobian_cosine": 6.508650599485261e-08,
+                "method": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
+                "parameters": ["dK_dT", "alpha0", "alpha1"],
+                "previous_assessment": {
+                  "reason": "Published row selection and fixed reference coefficients retained. Unweighted pressure residuals are diagnostic because the source does not specify its objective, weights, or covariance. Published coefficients remain unchanged.",
+                  "status": "similar"
+                },
+                "residual_count": 12,
+                "residual_sum_squares": 1.8109726008632117,
+                "residual_variance": 0.20121917787369017,
+                "scaled_jacobian_condition_number": 94.92569080874486,
+                "standard_errors": {"alpha0": 1.4192771274744033e-06, "alpha1": 3.2113616482126758e-09, "dK_dT": 0.0026903418092414136}
               },
               "covariance_convention": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
               "dataset_identifiers": ["gold_hirose_2008_table1"]

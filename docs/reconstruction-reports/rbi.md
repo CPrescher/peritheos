@@ -89,27 +89,27 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 - **Rmse gpa:** 0.12894
 - **Published rmse gpa:** 0.127808
 - **Covariance:**
-    - **Parameters:** K0; K0\_prime; gamma0; q
-    - **Matrix:** \[\["0.00105182", "-0.000349229", "-0.00026358", "-6.4763e-05"\], \["-0.000349229", "0.000122451", "0.000103937", "6.46973e-05"\], \["-0.00026358", "0.000103937", "0.00372724", "0.00528278"\], \["-6.4763e-05", "6.46973e-05", "0.00528278", "0.00830387"\]\]
-    - **Standard errors:**
-        - **K0:** 0.0324318
-        - **K0 prime:** 0.0110657
-        - **Gamma0:** 0.0610512
-        - **Q:** 0.0911256
     - **Correlation matrix:** \[\["1", "-0.973103", "-0.133121", "-0.0219137"\], \["-0.973103", "1", "0.15385", "0.0641602"\], \["-0.133121", "0.15385", "1", "0.949573"\], \["-0.0219137", "0.0641602", "0.949573", "1"\]\]
     - **Degrees of freedom:** 117
+    - **Derivative step halving relative change:** 2.09924e-12
     - **Local student t 95 intervals:**
         - **K0:** 13.6909; 13.8193
         - **K0 prime:** 4.91198; 4.95581
         - **Gamma0:** 2.07161; 2.31342
         - **Q:** 1.23745; 1.59839
-    - **Residual variance:** 2.17524
+    - **Matrix:** \[\["0.00105182", "-0.000349229", "-0.00026358", "-6.4763e-05"\], \["-0.000349229", "0.000122451", "0.000103937", "6.46973e-05"\], \["-0.00026358", "0.000103937", "0.00372724", "0.00528278"\], \["-6.4763e-05", "6.46973e-05", "0.00528278", "0.00830387"\]\]
     - **Max abs residual jacobian cosine:** 4.55546e-09
-    - **Residual sum squares:** 254.503
-    - **Residual count:** 121
-    - **Scaled jacobian condition number:** 195.758
-    - **Derivative step halving relative change:** 2.09924e-12
     - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Parameters:** K0; K0\_prime; gamma0; q
+    - **Residual count:** 121
+    - **Residual sum squares:** 254.503
+    - **Residual variance:** 2.17524
+    - **Scaled jacobian condition number:** 195.758
+    - **Standard errors:**
+        - **K0:** 0.0324318
+        - **K0 prime:** 0.0110657
+        - **Gamma0:** 0.0610512
+        - **Q:** 0.0911256
 - **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 - **Comparison scope:** Compared free coefficients: K0, K0\_prime, gamma0, q; scope=parameter\_agreement
 - **Reproduction report:** docs/data/rubidium-halides-farla-2025-follow-up.json

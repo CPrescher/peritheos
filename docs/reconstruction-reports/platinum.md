@@ -1330,15 +1330,15 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 - **Rmse gpa:** 0.141153
 - **Published rmse gpa:** 0.157141
 - **Covariance:**
+    - **Assumptions:** Existing reconstructed errors retained; no source confidence convention inferred.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+    - **Method:** Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.
     - **Parameters:** K0; K0\_prime
+    - **Previous assessment:**
+        - **Reason:** Unweighted pressure residuals, printed volumes and pressures; residual-scaled linearized standard errors are diagnostic only. No source weights, covariance, confidence or calibration-error correlations. Pt V0 and theta0 fixed for this diagnostic; source does not enumerate its full fitted/fixed list. Au q fit excludes upstream shock observations and is not the source joint compromise.
+        - **Status:** similar
     - **Standard errors:**
         - **K0:** 5.87276
         - **K0 prime:** 0.650884
-    - **Method:** Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.
-    - **Previous assessment:**
-        - **Status:** similar
-        - **Reason:** Unweighted pressure residuals, printed volumes and pressures; residual-scaled linearized standard errors are diagnostic only. No source weights, covariance, confidence or calibration-error correlations. Pt V0 and theta0 fixed for this diagnostic; source does not enumerate its full fitted/fixed list. Au q fit excludes upstream shock observations and is not the source joint compromise.
-    - **Assumptions:** Existing reconstructed errors retained; no source confidence convention inferred.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
 
 </details>
 

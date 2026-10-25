@@ -171,6 +171,7 @@ def test_ruby_2008_derivation_does_not_become_table4_input_scale():
 
 
 def test_common_ledger_retains_the_dedicated_source_outcomes():
+    from scripts.reconstruct_similar_eos_uncertainties import augment_outcome
     from scripts.standardize_reconstruction_metadata import assessment_for_record
     from scripts.validate_primary_eos_refits import check_ledger_values
 
@@ -182,6 +183,7 @@ def test_common_ledger_retains_the_dedicated_source_outcomes():
         # messages can name different satisfied criteria on different builds;
         # they are diagnostic text, not source evidence or a success flag.
         expected = json.loads(json.dumps(expected))
+        expected = augment_outcome({"identifier": rid}, expected)
         subset = json.loads(json.dumps({key: rows[rid][key] for key in expected}))
         if "solver_message" in expected:
             for row in (expected, subset):

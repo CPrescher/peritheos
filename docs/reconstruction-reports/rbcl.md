@@ -192,32 +192,32 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 - **Published rmse gpa:** 0.154429
 - **Parameter covariance:** \[\["0.00740734", "-0.00203646", "-0.000704195", "7.69657e-05"\], \["-0.00203646", "0.00056798", "0.000201758", "1.25e-05"\], \["-0.000704195", "0.000201758", "0.00178469", "0.00349292"\], \["7.69657e-05", "1.25e-05", "0.00349292", "0.00805087"\]\]
 - **Covariance:**
-    - **Parameters:** K0; K0\_prime; gamma0; q
-    - **Matrix:** \[\["0.00740734", "-0.00203646", "-0.000704195", "7.69657e-05"\], \["-0.00203646", "0.00056798", "0.000201758", "1.25e-05"\], \["-0.000704195", "0.000201758", "0.00178469", "0.00349292"\], \["7.69657e-05", "1.25e-05", "0.00349292", "0.00805087"\]\]
-    - **Standard errors:**
-        - **K0:** 0.0860659
-        - **K0 prime:** 0.0238323
-        - **Gamma0:** 0.0422456
-        - **Q:** 0.0897266
+    - **Assumptions:** Final frozen effective P/V/T weights at the existing converged fit, without a pressure floor. Conditional on the analyst row mask and source-reported CsCl pressures; calibration replay and benchmark discrepancies remain unresolved.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
     - **Correlation matrix:** \[\["1", "-0.992835", "-0.193678", "0.00996654"\], \["-0.992835", "1", "0.200393", "0.00584553"\], \["-0.193678", "0.200393", "1", "0.921481"\], \["0.00996654", "0.00584553", "0.921481", "1"\]\]
     - **Degrees of freedom:** 118
+    - **Derivative step halving relative change:** 3.52564e-12
     - **Local student t 95 intervals:**
         - **K0:** 19.7515; 20.0924
         - **K0 prime:** 4.94799; 5.04238
         - **Gamma0:** 1.88025; 2.04757
         - **Q:** 0.881554; 1.23692
-    - **Residual variance:** 2.46784
+    - **Matrix:** \[\["0.00740734", "-0.00203646", "-0.000704195", "7.69657e-05"\], \["-0.00203646", "0.00056798", "0.000201758", "1.25e-05"\], \["-0.000704195", "0.000201758", "0.00178469", "0.00349292"\], \["7.69657e-05", "1.25e-05", "0.00349292", "0.00805087"\]\]
     - **Max abs residual jacobian cosine:** 4.9233e-09
-    - **Residual sum squares:** 291.205
-    - **Residual count:** 122
-    - **Scaled jacobian condition number:** 233.853
-    - **Derivative step halving relative change:** 3.52564e-12
     - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Parameters:** K0; K0\_prime; gamma0; q
     - **Previous assessment:**
-        - **Status:** similar
         - **Qualification:** Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications.
         - **Reason:** Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications.
-    - **Assumptions:** Final frozen effective P/V/T weights at the existing converged fit, without a pressure floor. Conditional on the analyst row mask and source-reported CsCl pressures; calibration replay and benchmark discrepancies remain unresolved.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+        - **Status:** similar
+    - **Residual count:** 122
+    - **Residual sum squares:** 291.205
+    - **Residual variance:** 2.46784
+    - **Scaled jacobian condition number:** 233.853
+    - **Standard errors:**
+        - **K0:** 0.0860659
+        - **K0 prime:** 0.0238323
+        - **Gamma0:** 0.0422456
+        - **Q:** 0.0897266
 - **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 - **Reproduction report:** docs/data/rubidium-halides-farla-2025-follow-up.json
 

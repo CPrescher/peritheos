@@ -159,10 +159,10 @@
               "observed_volume_range": [385.41, 406.7],
               "degrees_of_freedom": 27,
               "solver_success": true,
-              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
-              "rmse_gpa": 0.10057798930809785,
+              "solver_message": "`xtol` termination condition is satisfied.",
+              "rmse_gpa": 0.1005779893084489,
               "published_rmse_gpa": 0.1100101303257055,
-              "reduced_chi_square": 0.011614588515965007,
+              "reduced_chi_square": 0.011614588516046085,
               "comparison_scope": "Compared free coefficients: rt_eos.K0, alpha0, alpha1, dK_dT; scope=parameter_agreement",
               "dataset_identifiers": ["jadeite_zhao_1997_table1_pvt"]
             },
