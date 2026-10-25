@@ -65,6 +65,12 @@ cap an outcome, or use an explicitly documented alternative criterion. Its
 recorded basis and qualification take precedence over this generic description.
 See the [record-by-record ledger](primary-eos-refits.md) for actual comparisons.
 
+The original [Wang T0150 follow-up](literature-reproductions/wang-zhou-komabayashi-mgsio3.md#t0150-uncertainty-reconstruction)
+also establishes conditional parameter parity within printed source widths, with
+analytic BM3 covariance under residual-scaled, unweighted pressure residuals.
+Its fixed K0, unknown source confidence and unrecovered author weighting remain
+explicit. This is separate from the 159 subsequent comparisons below.
+
 The [25 October 2026 uncertainty follow-up](literature-reproductions/uncertainty-reconstruction.md)
 uses an explicit printed-source-error-width criterion for 61 conditional
 parameter comparisons, and the combined-error/numerical-similarity criterion

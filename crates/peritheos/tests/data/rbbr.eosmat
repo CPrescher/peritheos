@@ -148,11 +148,13 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "similar",
+            "status": "parity",
             "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "source_status": "parity",
+            "basis": "Conditional parameter agreement under both the combined-error comparison and numerical similarity screen; source confidence conventions remain explicit, and unknown source confidence or shared-data covariance does not become a formal confidence test or author-workflow reproduction.",
+            "basis_code": "conditional_combined_error_parameter_agreement",
             "qualifications": [
+              "Every compared free coefficient meets both the combined-two-width diagnostic and numerical similarity screen. Source confidence and shared-data covariance are not inferred. Final frozen effective P/V/T weights at the existing converged fit, without a pressure floor. Conditional on the analyst row mask and source-reported CsCl pressures; calibration replay and benchmark discrepancies remain unresolved. Conditional local errors use residual scaling and frozen diagonal weights, with fixed V0/theta0, all DAC and heated LVP rows, and source CsCl pressures. Original EoSFit row flags, calibration covariance and exact author workflow remain unrecovered. Earlier audit wording (superseded only for the named numerical scope): Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications. Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications.",
               "Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
@@ -164,7 +166,7 @@
                 "published": 16.28,
                 "published_error": 0.04,
                 "refit": 16.31593787701798,
-                "refit_error": null,
+                "refit_error": 0.04081346325817082,
                 "difference": 0.03593787701797879,
                 "relative_difference": 0.0022074863033156506,
                 "similar": true,
@@ -176,7 +178,7 @@
                 "published": 5.28,
                 "published_error": 0.02,
                 "refit": 5.255871185051541,
-                "refit_error": null,
+                "refit_error": 0.015146627552626538,
                 "difference": -0.024128814948459087,
                 "relative_difference": 0.004569851315996039,
                 "similar": true,
@@ -188,7 +190,7 @@
                 "published": 2.18,
                 "published_error": 0.14,
                 "refit": 2.166479029403295,
-                "refit_error": null,
+                "refit_error": 0.1394917129988145,
                 "difference": -0.013520970596704984,
                 "relative_difference": 0.0062022800902316435,
                 "similar": true,
@@ -200,7 +202,7 @@
                 "published": 1.52,
                 "published_error": 0.24,
                 "refit": 1.4741843779781867,
-                "refit_error": null,
+                "refit_error": 0.24366894806981407,
                 "difference": -0.04581562202181333,
                 "relative_difference": 0.030141856593298242,
                 "similar": true,
@@ -216,6 +218,43 @@
               "solver_success": true,
               "rmse_gpa": 0.1567603609069775,
               "published_rmse_gpa": 0.15948654363882814,
+              "covariance": {
+                "parameters": ["K0", "K0_prime", "gamma0", "q"],
+                "matrix": [
+                  [0.0016657387831260596, -0.0005892704217187733, -0.0003077441155638969, -0.00021208755744526033],
+                  [-0.0005892704217187733, 0.0002294203262179854, 0.00014166186607728, 0.00017972984806283835],
+                  [-0.0003077441155638969, 0.00014166186607728, 0.01945793799534363, 0.03224527833935071],
+                  [-0.00021208755744526033, 0.00017972984806283835, 0.032245278339350716, 0.05937455625344974]
+                ],
+                "standard_errors": {
+                  "K0": 0.04081346325817082,
+                  "K0_prime": 0.015146627552626538,
+                  "gamma0": 0.1394917129988145,
+                  "q": 0.24366894806981407
+                },
+                "correlation_matrix": [
+                  [1.0000000000000002, -0.9532246118722907, -0.05405525260071474, -0.021326105499431303],
+                  [-0.9532246118722907, 1.0, 0.0670484286724538, 0.048697209134782884],
+                  [-0.05405525260071474, 0.0670484286724538, 0.9999999999999998, 0.9486751706586575],
+                  [-0.021326105499431303, 0.048697209134782884, 0.9486751706586577, 1.0]
+                ],
+                "degrees_of_freedom": 119.0,
+                "local_student_t_95_intervals": {
+                  "K0": [16.235123143462697, 16.396752610573262],
+                  "K0_prime": [5.225879349705846, 5.285863020397236],
+                  "gamma0": [1.8902715057275756, 2.4426865530790147],
+                  "q": [0.9916955240087554, 1.9566732319476179]
+                },
+                "residual_variance": 17.53855125966413,
+                "max_abs_residual_jacobian_cosine": 6.138967970781485e-09,
+                "residual_sum_squares": 2087.0875999000314,
+                "residual_count": 123,
+                "scaled_jacobian_condition_number": 309.4233125727041,
+                "derivative_step_halving_relative_change": 5.838056204737877e-12,
+                "method": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step."
+              },
+              "covariance_convention": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
+              "comparison_scope": "Compared free coefficients: K0, K0_prime, gamma0, q; scope=parameter_agreement",
               "dataset_identifiers": ["rbbr_farla_2025_observations"],
               "reproduction_report": "docs/data/rubidium-halides-farla-2025-follow-up.json"
             },

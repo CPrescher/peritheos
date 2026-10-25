@@ -148,7 +148,7 @@ Displayed uncertainties use two significant digits for leading 1/2, otherwise on
 - **Observed volume range:** 385.41; 406.7
 - **Degrees of freedom:** 27
 - **Solver success:** True
-- **Solver message:** \`xtol\` termination condition is satisfied.
+- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
 - **Rmse gpa:** 0.100578
 - **Published rmse gpa:** 0.11001
 - **Reduced chi square:** 0.0116146

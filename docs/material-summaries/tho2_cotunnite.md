@@ -141,29 +141,29 @@ Displayed uncertainties use two significant digits for leading 1/2, otherwise on
 - **Published rmse gpa:** 0.967702
 - **Parameter covariance:** \[\["0.152215", "-0.929744", "-9.56221e-05"\], \["-0.929744", "8.36789", "0.000258868"\], \["-9.56221e-05", "0.000258868", "1.07415e-07"\]\]
 - **Covariance:**
-    - **Assumptions:** Original effective P/V/T weights frozen at published coefficients, including the audit's Ar 3% cold-pressure sensitivity; diagonal and residual-scaled, with shared scale covariance unresolved.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+    - **Parameters:** V0; K0; alpha\_KT
+    - **Matrix:** \[\["0.152215", "-0.929744", "-9.56221e-05"\], \["-0.929744", "8.36789", "0.000258868"\], \["-9.56221e-05", "0.000258868", "1.07415e-07"\]\]
+    - **Standard errors:**
+        - **V0:** 0.390147
+        - **K0:** 2.89273
+        - **Alpha kt:** 0.000327743
     - **Correlation matrix:** \[\["1", "-0.82381", "-0.74782"\], \["-0.82381", "1", "0.273047"\], \["-0.74782", "0.273047", "1"\]\]
     - **Degrees of freedom:** 56
-    - **Derivative step halving relative change:** 4.79249e-12
     - **Local student t 95 intervals:**
-        - **K0:** 185.245; 196.835
         - **V0:** 163.7; 165.263
+        - **K0:** 185.245; 196.835
         - **Alpha kt:** 0.00286789; 0.00418098
-    - **Matrix:** \[\["0.152215", "-0.929744", "-9.56221e-05"\], \["-0.929744", "8.36789", "0.000258868"\], \["-9.56221e-05", "0.000258868", "1.07415e-07"\]\]
-    - **Max abs residual jacobian cosine:** 2.33518e-09
-    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
-    - **Parameters:** V0; K0; alpha\_KT
-    - **Previous assessment:**
-        - **Reason:** Published objective, weights, covariance, confidence levels and fit staging are unspecified. Each diagnostic jointly varies the source-free parameters once. Effective-error weights propagate P,V,T errors at published coefficients and add the stated Ar 3% accuracy in quadrature as a sensitivity assumption; cross-row scale correlation is not known. No strict statistical parity claimed.
-        - **Status:** similar
-    - **Residual count:** 59
-    - **Residual sum squares:** 52.7052
     - **Residual variance:** 0.941165
+    - **Max abs residual jacobian cosine:** 2.33518e-09
+    - **Residual sum squares:** 52.7052
+    - **Residual count:** 59
     - **Scaled jacobian condition number:** 245.225
-    - **Standard errors:**
-        - **K0:** 2.89273
-        - **V0:** 0.390147
-        - **Alpha kt:** 0.000327743
+    - **Derivative step halving relative change:** 4.79249e-12
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Reason:** Published objective, weights, covariance, confidence levels and fit staging are unspecified. Each diagnostic jointly varies the source-free parameters once. Effective-error weights propagate P,V,T errors at published coefficients and add the stated Ar 3% accuracy in quadrature as a sensitivity assumption; cross-row scale correlation is not known. No strict statistical parity claimed.
+    - **Assumptions:** Original effective P/V/T weights frozen at published coefficients, including the audit's Ar 3% cold-pressure sensitivity; diagonal and residual-scaled, with shared scale covariance unresolved.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
 - **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 - **Dataset identifiers:** tho2\_cotunnite\_chidester\_2018\_table\_s2
 

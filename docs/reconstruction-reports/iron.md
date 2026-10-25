@@ -2219,28 +2219,28 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 - **Rmse shock velocity km s:** Not specified
 - **Parameter covariance:** \[\["4.69118", "-0.117948"\], \["-0.117948", "0.00306816"\]\]
 - **Covariance:**
-    - **Assumptions:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
-    - **Correlation matrix:** \[\["1", "-0.983125"\], \["-0.983125", "1"\]\]
-    - **Degrees of freedom:** 25
-    - **Derivative step halving relative change:** 1.82628e-12
-    - **Local student t 95 intervals:**
-        - **K0:** 193.924; 202.845
-        - **K0 prime:** 4.78947; 5.01763
-    - **Matrix:** \[\["4.69118", "-0.117948"\], \["-0.117948", "0.00306816"\]\]
-    - **Max abs residual jacobian cosine:** 1.24133e-09
-    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
     - **Parameters:** K0; K0\_prime
-    - **Previous assessment:**
-        - **Qualification:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures.
-        - **Reason:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures.
-        - **Status:** similar
-    - **Residual count:** 27
-    - **Residual sum squares:** 60.2313
-    - **Residual variance:** 2.40925
-    - **Scaled jacobian condition number:** 10.8469
+    - **Matrix:** \[\["4.69118", "-0.117948"\], \["-0.117948", "0.00306816"\]\]
     - **Standard errors:**
         - **K0:** 2.16591
         - **K0 prime:** 0.055391
+    - **Correlation matrix:** \[\["1", "-0.983125"\], \["-0.983125", "1"\]\]
+    - **Degrees of freedom:** 25
+    - **Local student t 95 intervals:**
+        - **K0:** 193.924; 202.845
+        - **K0 prime:** 4.78947; 5.01763
+    - **Residual variance:** 2.40925
+    - **Max abs residual jacobian cosine:** 1.24133e-09
+    - **Residual sum squares:** 60.2313
+    - **Residual count:** 27
+    - **Scaled jacobian condition number:** 10.8469
+    - **Derivative step halving relative change:** 1.82628e-12
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Qualification:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures.
+        - **Reason:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures.
+    - **Assumptions:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
 - **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 
 </details>

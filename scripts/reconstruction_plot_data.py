@@ -126,6 +126,15 @@ def observations(document, record, fit):
         return np.array([float(row[name]) for row in rows])
 
     molar_to_cell = float(document.get("formula_units_per_cell") or 1) / 0.602214076
+    if rid == "argon_fcc_finger_1981_murnaghan2_debye":
+        from peritheos.eos.finger1981 import CELL_TO_MOLAR
+
+        rows = table_rows("argon-fcc-finger-1981-table1.csv")
+        return direct(
+            column(rows, "pressure_gpa"),
+            column(rows, "molar_volume_cm3_mol") / CELL_TO_MOLAR,
+            np.full(len(rows), 293.0),
+        )
     if "_dewaele_2008_table4_" in rid:
         from scripts.reproduce_dewaele_2008_metals import experiment_rows
 

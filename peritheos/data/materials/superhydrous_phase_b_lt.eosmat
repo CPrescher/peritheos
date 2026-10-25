@@ -511,30 +511,30 @@
               "observed_pressure_range_gpa": [0.0, 26.6],
               "observed_temperature_range_k": [300.0, 1373.0],
               "solver_success": true,
-              "rmse_gpa": 0.1081347466427695,
+              "rmse_gpa": 0.10813474664224723,
               "published_rmse_gpa": 0.12637114188299595,
               "covariance": {
+                "parameters": ["V0", "K0", "K0_prime", "alpha0", "alpha1", "dK_dT"],
+                "standard_errors": {
+                  "V0": 0.2575824161972996,
+                  "K0": 1.8576732611740419,
+                  "K0_prime": 0.1935188739453234,
+                  "alpha0": 1.1271048909251933e-06,
+                  "alpha1": 2.5662916001040617e-09,
+                  "dK_dT": 0.0026413691487219004
+                },
+                "method": "Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.",
+                "previous_assessment": {
+                  "status": "similar",
+                  "reason": "Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md."
+                },
                 "assumptions": [
                   "Existing reconstructed errors retained; no source confidence convention inferred.",
                   "Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.",
                   "Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.",
                   "Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.",
                   "Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred."
-                ],
-                "method": "Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.",
-                "parameters": ["V0", "K0", "K0_prime", "alpha0", "alpha1", "dK_dT"],
-                "previous_assessment": {
-                  "reason": "Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.",
-                  "status": "similar"
-                },
-                "standard_errors": {
-                  "K0": 1.8576732611740419,
-                  "K0_prime": 0.1935188739453234,
-                  "V0": 0.2575824161972996,
-                  "alpha0": 1.1271048909251933e-06,
-                  "alpha1": 2.5662916001040617e-09,
-                  "dK_dT": 0.0026413691487219004
-                }
+                ]
               },
               "dataset_identifiers": ["superhydrous_phase_b_lt_litasov_2007_table2"]
             },
@@ -737,30 +737,30 @@
               "observed_pressure_range_gpa": [0.0, 28.1],
               "observed_temperature_range_k": [300.0, 1373.0],
               "solver_success": true,
-              "rmse_gpa": 0.13036669473404047,
+              "rmse_gpa": 0.13036669472985118,
               "published_rmse_gpa": 0.13411117660373725,
               "covariance": {
+                "parameters": ["V0", "K0", "K0_prime", "alpha0", "alpha1", "dK_dT"],
+                "standard_errors": {
+                  "V0": 0.32053807668176815,
+                  "K0": 2.3053574330701823,
+                  "K0_prime": 0.25752601139591985,
+                  "alpha0": 1.2279635579527844e-06,
+                  "alpha1": 3.2022085346294376e-09,
+                  "dK_dT": 0.0030487576398255853
+                },
+                "method": "Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.",
+                "previous_assessment": {
+                  "status": "similar",
+                  "reason": "Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md."
+                },
                 "assumptions": [
                   "Existing reconstructed errors retained; no source confidence convention inferred.",
                   "Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.",
                   "Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.",
                   "Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.",
                   "Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred."
-                ],
-                "method": "Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.",
-                "parameters": ["V0", "K0", "K0_prime", "alpha0", "alpha1", "dK_dT"],
-                "previous_assessment": {
-                  "reason": "Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.",
-                  "status": "similar"
-                },
-                "standard_errors": {
-                  "K0": 2.3053574330701823,
-                  "K0_prime": 0.25752601139591985,
-                  "V0": 0.32053807668176815,
-                  "alpha0": 1.2279635579527844e-06,
-                  "alpha1": 3.2022085346294376e-09,
-                  "dK_dT": 0.0030487576398255853
-                }
+                ]
               },
               "dataset_identifiers": ["superhydrous_phase_b_lt_litasov_2007_table2"]
             },
@@ -948,29 +948,29 @@
               "observed_pressure_range_gpa": [0.0, 26.6],
               "observed_temperature_range_k": [300.0, 1373.0],
               "solver_success": true,
-              "rmse_gpa": 0.10976573649371546,
+              "rmse_gpa": 0.1097657364937112,
               "published_rmse_gpa": 0.11554793085237937,
               "covariance": {
+                "parameters": ["V0", "K0", "K0_prime", "alpha0", "dK_dT_V"],
+                "standard_errors": {
+                  "V0": 0.2574001592778335,
+                  "K0": 1.8281533804001846,
+                  "K0_prime": 0.19049273951553658,
+                  "alpha0": 1.8495010952658433e-06,
+                  "dK_dT_V": 0.00214140639296662
+                },
+                "method": "Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.",
+                "previous_assessment": {
+                  "status": "similar",
+                  "reason": "Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md."
+                },
                 "assumptions": [
                   "Existing reconstructed errors retained; no source confidence convention inferred.",
                   "Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.",
                   "Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.",
                   "Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.",
                   "Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred."
-                ],
-                "method": "Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.",
-                "parameters": ["V0", "K0", "K0_prime", "alpha0", "dK_dT_V"],
-                "previous_assessment": {
-                  "reason": "Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.",
-                  "status": "similar"
-                },
-                "standard_errors": {
-                  "K0": 1.8281533804001846,
-                  "K0_prime": 0.19049273951553658,
-                  "V0": 0.2574001592778335,
-                  "alpha0": 1.8495010952658433e-06,
-                  "dK_dT_V": 0.00214140639296662
-                }
+                ]
               },
               "dataset_identifiers": ["superhydrous_phase_b_lt_litasov_2007_table2"]
             },
@@ -1179,30 +1179,30 @@
               "observed_pressure_range_gpa": [0.0, 26.6],
               "observed_temperature_range_k": [300.0, 1373.0],
               "solver_success": true,
-              "rmse_gpa": 0.1055510259954912,
-              "published_rmse_gpa": 0.1066267920095598,
+              "rmse_gpa": 0.10555102599548966,
+              "published_rmse_gpa": 0.10662679200955953,
               "covariance": {
+                "parameters": ["V0", "K0", "K0_prime", "gamma0", "q", "theta0"],
+                "standard_errors": {
+                  "V0": 0.24944769436570002,
+                  "K0": 1.7681851781412292,
+                  "K0_prime": 0.18277000501213322,
+                  "gamma0": 0.06378945142973545,
+                  "q": 0.43826222534954634,
+                  "theta0": 129.02514723448633
+                },
+                "method": "Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.",
+                "previous_assessment": {
+                  "status": "similar",
+                  "reason": "Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md."
+                },
                 "assumptions": [
                   "Existing reconstructed errors retained; no source confidence convention inferred.",
                   "Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.",
                   "Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.",
                   "Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.",
                   "Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred."
-                ],
-                "method": "Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.",
-                "parameters": ["V0", "K0", "K0_prime", "gamma0", "q", "theta0"],
-                "previous_assessment": {
-                  "reason": "Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.",
-                  "status": "similar"
-                },
-                "standard_errors": {
-                  "K0": 1.7681851781412292,
-                  "K0_prime": 0.18277000501213322,
-                  "V0": 0.24944769436570002,
-                  "gamma0": 0.06378945142973545,
-                  "q": 0.43826222534954634,
-                  "theta0": 129.02514723448633
-                }
+                ]
               },
               "dataset_identifiers": ["superhydrous_phase_b_lt_litasov_2007_table2"]
             },
@@ -1401,29 +1401,29 @@
               "observed_pressure_range_gpa": [0.0, 26.6],
               "observed_temperature_range_k": [300.0, 1373.0],
               "solver_success": true,
-              "rmse_gpa": 0.11240879143243425,
-              "published_rmse_gpa": 0.12308065997233757,
+              "rmse_gpa": 0.11240879143243881,
+              "published_rmse_gpa": 0.1230806599723373,
               "covariance": {
+                "parameters": ["V0", "K0", "K0_prime", "gamma0", "q"],
+                "standard_errors": {
+                  "V0": 0.2628146780234006,
+                  "K0": 1.8566318232260446,
+                  "K0_prime": 0.1910796105824656,
+                  "gamma0": 0.05985831782617076,
+                  "q": 0.45011556388002655
+                },
+                "method": "Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.",
+                "previous_assessment": {
+                  "status": "similar",
+                  "reason": "Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md."
+                },
                 "assumptions": [
                   "Existing reconstructed errors retained; no source confidence convention inferred.",
                   "Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.",
                   "Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.",
                   "Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.",
                   "Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred."
-                ],
-                "method": "Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.",
-                "parameters": ["V0", "K0", "K0_prime", "gamma0", "q"],
-                "previous_assessment": {
-                  "reason": "Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.",
-                  "status": "similar"
-                },
-                "standard_errors": {
-                  "K0": 1.8566318232260446,
-                  "K0_prime": 0.1910796105824656,
-                  "V0": 0.2628146780234006,
-                  "gamma0": 0.05985831782617076,
-                  "q": 0.45011556388002655
-                }
+                ]
               },
               "dataset_identifiers": ["superhydrous_phase_b_lt_litasov_2007_table2"]
             },

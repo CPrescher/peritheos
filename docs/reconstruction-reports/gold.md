@@ -1502,17 +1502,17 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 - **Rmse gpa:** 0.445142
 - **Published rmse gpa:** 0.447919
 - **Covariance:**
-    - **Assumptions:** Existing reconstructed errors retained; no source confidence convention inferred.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
-    - **Method:** Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.
     - **Parameters:** beta1; beta2; beta3; kprime\_log\_coefficient
-    - **Previous assessment:**
-        - **Reason:** Complete published PVT selection recovered. Original residual coordinate, weights, covariance and unrounded observations remain unspecified. Weighted sensitivity treats printed pressure errors as relative weights only, not established sigma; it omits Au-volume and temperature uncertainty and correlated calibration errors. Ambient expansivity coefficients are source-fixed, not refitted from unavailable Touloukian data.
-        - **Status:** similar
     - **Standard errors:**
         - **Beta1:** 4.45158e-07
         - **Beta2:** 3.91457e-10
         - **Beta3:** 9.76442e-14
         - **Kprime log coefficient:** 2.27231e-05
+    - **Method:** Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Reason:** Complete published PVT selection recovered. Original residual coordinate, weights, covariance and unrounded observations remain unspecified. Weighted sensitivity treats printed pressure errors as relative weights only, not established sigma; it omits Au-volume and temperature uncertainty and correlated calibration errors. Ambient expansivity coefficients are source-fixed, not refitted from unavailable Touloukian data.
+    - **Assumptions:** Existing reconstructed errors retained; no source confidence convention inferred.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
 
 </details>
 
@@ -1607,29 +1607,29 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 - **Published rmse gpa:** 0.459525
 - **Parameter covariance:** \[\["7.23794e-06", "-1.57361e-09", "-8.07609e-12"\], \["-1.57361e-09", "2.01435e-12", "2.8863e-16"\], \["-8.07609e-12", "2.8863e-16", "1.03128e-17"\]\]
 - **Covariance:**
-    - **Assumptions:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
-    - **Correlation matrix:** \[\["1", "-0.412119", "-0.934769"\], \["-0.412119", "1", "0.0633265"\], \["-0.934769", "0.0633265", "1"\]\]
-    - **Degrees of freedom:** 9
-    - **Derivative step halving relative change:** 6.7802e-11
-    - **Local student t 95 intervals:**
-        - **Alpha0:** 2.85566e-05; 3.49779e-05
-        - **Alpha1:** 7.73352e-09; 2.22627e-08
-        - **Dk dt:** -0.0344185; -0.0222465
-    - **Matrix:** \[\["7.23794e-06", "-1.57361e-09", "-8.07609e-12"\], \["-1.57361e-09", "2.01435e-12", "2.8863e-16"\], \["-8.07609e-12", "2.8863e-16", "1.03128e-17"\]\]
-    - **Max abs residual jacobian cosine:** 6.50865e-08
-    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
     - **Parameters:** dK\_dT; alpha0; alpha1
-    - **Previous assessment:**
-        - **Reason:** Published row selection and fixed reference coefficients retained. Unweighted pressure residuals are diagnostic because the source does not specify its objective, weights, or covariance. Published coefficients remain unchanged.
-        - **Status:** similar
-    - **Residual count:** 12
-    - **Residual sum squares:** 1.81097
-    - **Residual variance:** 0.201219
-    - **Scaled jacobian condition number:** 94.9257
+    - **Matrix:** \[\["7.23794e-06", "-1.57361e-09", "-8.07609e-12"\], \["-1.57361e-09", "2.01435e-12", "2.8863e-16"\], \["-8.07609e-12", "2.8863e-16", "1.03128e-17"\]\]
     - **Standard errors:**
+        - **Dk dt:** 0.00269034
         - **Alpha0:** 1.41928e-06
         - **Alpha1:** 3.21136e-09
-        - **Dk dt:** 0.00269034
+    - **Correlation matrix:** \[\["1", "-0.412119", "-0.934769"\], \["-0.412119", "1", "0.0633265"\], \["-0.934769", "0.0633265", "1"\]\]
+    - **Degrees of freedom:** 9
+    - **Local student t 95 intervals:**
+        - **Dk dt:** -0.0344185; -0.0222465
+        - **Alpha0:** 2.85566e-05; 3.49779e-05
+        - **Alpha1:** 7.73352e-09; 2.22627e-08
+    - **Residual variance:** 0.201219
+    - **Max abs residual jacobian cosine:** 6.50865e-08
+    - **Residual sum squares:** 1.81097
+    - **Residual count:** 12
+    - **Scaled jacobian condition number:** 94.9257
+    - **Derivative step halving relative change:** 6.7802e-11
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Reason:** Published row selection and fixed reference coefficients retained. Unweighted pressure residuals are diagnostic because the source does not specify its objective, weights, or covariance. Published coefficients remain unchanged.
+    - **Assumptions:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
 - **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 
 </details>

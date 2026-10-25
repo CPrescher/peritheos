@@ -197,29 +197,29 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 - **Published rmse gpa:** 0.847492
 - **Parameter covariance:** \[\["1363.99", "-18.7541", "31.4495"\], \["-18.7541", "0.258283", "-0.434221"\], \["31.4495", "-0.434221", "0.732946"\]\]
 - **Covariance:**
-    - **Assumptions:** Original effective coordinate widths, frozen at published coefficients; residual-scaled covariance conditional on those fixed weights.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
-    - **Correlation matrix:** \[\["1", "-0.999176", "0.994655"\], \["-0.999176", "1", "-0.997991"\], \["0.994655", "-0.997991", "1"\]\]
-    - **Degrees of freedom:** 16
-    - **Derivative step halving relative change:** 3.27266e-12
-    - **Local student t 95 intervals:**
-        - **K0:** -0.618924; 1.53581
-        - **K0 prime:** 6.84978; 10.4796
-        - **V0:** 133.452; 290.038
-    - **Matrix:** \[\["1363.99", "-18.7541", "31.4495"\], \["-18.7541", "0.258283", "-0.434221"\], \["31.4495", "-0.434221", "0.732946"\]\]
-    - **Max abs residual jacobian cosine:** 3.85511e-09
-    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
     - **Parameters:** V0; K0; K0\_prime
-    - **Previous assessment:**
-        - **Reason:** All 19 rows. Effective-error weights combine printed 1-sigma P,V errors using a fixed derivative at published coefficients. Source weighting and covariance are unspecified; no strict parameter parity claimed.
-        - **Status:** similar
-    - **Residual count:** 19
-    - **Residual sum squares:** 214.256
-    - **Residual variance:** 13.391
-    - **Scaled jacobian condition number:** 1161.58
+    - **Matrix:** \[\["1363.99", "-18.7541", "31.4495"\], \["-18.7541", "0.258283", "-0.434221"\], \["31.4495", "-0.434221", "0.732946"\]\]
     - **Standard errors:**
+        - **V0:** 36.9323
         - **K0:** 0.508215
         - **K0 prime:** 0.856123
-        - **V0:** 36.9323
+    - **Correlation matrix:** \[\["1", "-0.999176", "0.994655"\], \["-0.999176", "1", "-0.997991"\], \["0.994655", "-0.997991", "1"\]\]
+    - **Degrees of freedom:** 16
+    - **Local student t 95 intervals:**
+        - **V0:** 133.452; 290.038
+        - **K0:** -0.618924; 1.53581
+        - **K0 prime:** 6.84978; 10.4796
+    - **Residual variance:** 13.391
+    - **Max abs residual jacobian cosine:** 3.85511e-09
+    - **Residual sum squares:** 214.256
+    - **Residual count:** 19
+    - **Scaled jacobian condition number:** 1161.58
+    - **Derivative step halving relative change:** 3.27266e-12
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Reason:** All 19 rows. Effective-error weights combine printed 1-sigma P,V errors using a fixed derivative at published coefficients. Source weighting and covariance are unspecified; no strict parameter parity claimed.
+    - **Assumptions:** Original effective coordinate widths, frozen at published coefficients; residual-scaled covariance conditional on those fixed weights.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
 - **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 
 </details>
@@ -441,14 +441,19 @@ Unspecified selections, weights, fixed values or error conventions remain unknow
 
 ### Curves, residuals and fit error
 
-**Curve/residual comparison unavailable:** ambiguous pressure columns: pressure\_kbar, pressure\_gpa.
+![Original/source and refitted curves with pressure residuals for argon_fcc_finger_1981_murnaghan2_debye](figures/argon_fcc_finger_1981_murnaghan2_debye-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for argon_fcc_finger_1981_murnaghan2_debye](figures/argon_fcc_finger_1981_murnaghan2_debye-curves-dark.svg#only-dark)
 
-| Fit | Recorded pressure RMS error (GPa) |
+| Fit | Pressure RMS error (GPa) |
 | --- | ---: |
 | Original / source fit | 0.0954 |
 | Reconstruction / refit | 0.0941 |
 
-These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+Both fits use the same 19 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** audit volume in record units. **Row selection:** Named source-audit row reader.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
 
 ### Source versus reconstruction
 
@@ -476,27 +481,27 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 - **Published rmse gpa:** 0.0953552
 - **Parameter covariance:** \[\["0.0110044", "-0.00966518"\], \["-0.00966518", "0.00890033"\]\]
 - **Covariance:**
-    - **Assumptions:** All 19 molar-volume rows and the full original Murnaghan/zero-point/Debye model at 293 K; other coefficients fixed.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+    - **Parameters:** K0\_prime; K0\_double\_prime
+    - **Matrix:** \[\["0.0110044", "-0.00966518"\], \["-0.00966518", "0.00890033"\]\]
+    - **Standard errors:**
+        - **K0 prime:** 0.104902
+        - **K0 double prime:** 0.0943416
     - **Correlation matrix:** \[\["1", "-0.976615"\], \["-0.976615", "1"\]\]
     - **Degrees of freedom:** 17
-    - **Derivative step halving relative change:** 1.17041e-11
     - **Local student t 95 intervals:**
-        - **K0 double prime:** -0.535676; -0.13759
         - **K0 prime:** 6.68248; 7.12513
-    - **Matrix:** \[\["0.0110044", "-0.00966518"\], \["-0.00966518", "0.00890033"\]\]
-    - **Max abs residual jacobian cosine:** 2.16532e-08
-    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
-    - **Parameters:** K0\_prime; K0\_double\_prime
-    - **Previous assessment:**
-        - **Reason:** All 19 measured rows retained. An unweighted refit reproduces both fitted parameters within published error bars, consistent with an unweighted original fit. The paper does not specify its weighting; covariance and uncertainty estimation are not reproduced.
-        - **Status:** similar
-    - **Residual count:** 19
-    - **Residual sum squares:** 0.168337
+        - **K0 double prime:** -0.535676; -0.13759
     - **Residual variance:** 0.00990218
+    - **Max abs residual jacobian cosine:** 2.16532e-08
+    - **Residual sum squares:** 0.168337
+    - **Residual count:** 19
     - **Scaled jacobian condition number:** 86.0285
-    - **Standard errors:**
-        - **K0 double prime:** 0.0943416
-        - **K0 prime:** 0.104902
+    - **Derivative step halving relative change:** 1.17041e-11
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Reason:** All 19 measured rows retained. An unweighted refit reproduces both fitted parameters within published error bars, consistent with an unweighted original fit. The paper does not specify its weighting; covariance and uncertainty estimation are not reproduced.
+    - **Assumptions:** All 19 molar-volume rows and the full original Murnaghan/zero-point/Debye model at 293 K; other coefficients fixed.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
 - **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 
 </details>

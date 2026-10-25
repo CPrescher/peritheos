@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **678** EOS records. **349** achieve numerical parity under their stated comparison criteria, **73** are numerically similar, **17** have a source reconstruction without an independent EOS refit, **[62](#parity-not-achieved)** do not achieve parity, **177** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **678** EOS records. **350** achieve numerical parity under their stated comparison criteria, **72** are numerically similar, **17** have a source reconstruction without an independent EOS refit, **[62](#parity-not-achieved)** do not achieve parity, **177** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` normally means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -109,7 +109,7 @@ use `--check` in continuous integration to detect stale generated files.
 | [`akimotoite_siersch_2021_bm3_1`](https://doi.org/10.1016/j.pepi.2021.106786) | `akimotoite_siersch_2021_table2_compression` | 54 | `V0` 262.43 → 262.426; `K0` 205 → 205.009; `K0_prime` 4.9 → 4.92363 | 0.156985/0.0738524 | parity |
 | [`akimotoite_dorogokupets_2015_298k_rydberg_stacey`](https://doi.org/10.1016/j.rgg.2015.01.011) | `dorogokupets_2015_akimotoite_298k_reconstruction` | 39 | `K0` 215.3 → 254.928; `K0_prime` 4.91 → 2.29614 | 1.37206/0.844392 | [parity_not_achieved](#investigation-akimotoite_dorogokupets_2015_298k_rydberg_stacey) — Only a partial 298 K slice of the source's joint thermoelastic objective is recoverable, and that transparent slice does not reproduce the published coefficient pair. |
 | [`akimotoite_wang_2004_t0133_bm3`](https://doi.org/10.1016/j.pepi.2003.08.007) | `akimotoite_wang_2004_tables1_2_pvt` | 13 | `V0` 264.2 → 264.324; `K0_prime` 4.8 → 4.4577 | 0.247987/0.239496 | parity — Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget. |
-| [`akimotoite_wang_2004_t0150_bm3`](https://doi.org/10.1016/j.pepi.2003.08.007) | `akimotoite_wang_2004_tables1_2_pvt` | 10 | `V0` 263.9 → 263.93; `K0_prime` 5.6 → 5.5689 | 0.347912/0.347186 | [similar](#investigation-akimotoite_wang_2004_t0150_bm3) — All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity. |
+| [`akimotoite_wang_2004_t0150_bm3`](https://doi.org/10.1016/j.pepi.2003.08.007) | `akimotoite_wang_2004_tables1_2_pvt` | 10 | `V0` 263.9 → 263.93; `K0_prime` 5.6 → 5.5689 | 0.347912/0.347186 | parity — Conditional numerical parameter parity: both free coefficients agree within the printed source error widths, with reconstructed local standard errors comparable to those widths. Covariance uses residual-scaled unweighted pressure least squares with K0=210 GPa fixed. The source confidence convention, original weighting and covariance remain unknown; no formal combined-two-sigma or author-workflow reproduction is claimed. See docs/literature-reproductions/wang-zhou-komabayashi-mgsio3.md#t0150-uncertainty-reconstruction for the uncertainty budget. |
 | [`akimotoite_zhou_2014_300k_bm3`](https://doi.org/10.1016/j.pepi.2013.06.005) | `akimotoite_zhou_2014_table1_elasticity` | 17 | `V0` 262.45 → 262.409; `K0` 207 → 206.771 | 0.501255/0.49742 | parity — Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget. |
 | [`al2o3_perovskite_akber_knutson_2005_gga_bm3`](https://authors.library.caltech.edu/records/ac43h-2q991) | `parameterization_only` | — | — | —/— | not_refittable — The source states the E(V) volume envelope but does not tabulate the individual calculated E(V) observations, fit weights, residuals, or covariance. |
 | [`al2o3_perovskite_holland_2013_apv_modified_tait`](https://academic.oup.com/petrology/article-pdf/54/9/1901/4353550/egt035.pdf) | `official_parameter_artifact` | — | — | —/— | not_refittable — The official tc-ds62 apv block provides all four coefficients. |
@@ -952,7 +952,7 @@ is retained in the machine-readable ledger.
 
 ## Detailed non-parity investigations
 
-The following **135** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
+The following **134** sections cover every completed refit that does not meet the strict `parity` definition. `similar` means
 the difference is numerically acceptable or covered by combined
 uncertainty; `parity_not_achieved` means at least one coefficient is
 outside both tests, a dedicated partial-source reconstruction does
@@ -979,26 +979,6 @@ the missing source fit detail is recovered.
 
 **Assessment and likely origin.**
 - No single failure mechanism is established by the available metadata. The next reproducible step is to recover the publication's exact row mask, fixed coefficients, residual definition, and covariance treatment.
-
-<a id="investigation-akimotoite_wang_2004_t0150_bm3"></a>
-
-### `akimotoite_wang_2004_t0150_bm3`
-
-**Classification:** `similar`. **Model:** `BM3`. **Data:** `akimotoite_wang_2004_tables1_2_pvt` with 10 selected observations.
-
-| Parameter | Published | Refit ± 1σ | Relative difference | Within combined 2σ | Numerical limit |
-|---|---:|---:|---:|:---:|:---:|
-| `V0` | 263.9 | 263.93 | 0.01% | — | yes |
-| `K0_prime` | 5.6 | 5.5689 | 0.56% | — | yes |
-
-**Fit diagnostics.** Observed pressure range: -0.05-17.044 GPa; source-declared range: -0.05-17.044 GPa; fit kind: `original_scale_source_constrained_bm3`; objective: `unweighted pressure residuals`; published/refit pressure RMSE: 0.347912/0.347186 GPa; reduced chi-square: —; free parameters: `V0, K0_prime`; source-fixed parameters: `K0`.
-
-**Source/data scope.** All 298 K rows in Table 2, run T0150 (NaCl); independently refitted within printed parameter uncertainties.
-
-**Registered source-fit note.** Authors' preferred static fit using NaCl pressures; separate from the T0133 Au experiment. K0=210 GPa is fixed. All ten 298 K observations are retained, including the printed -0.05 GPa recovered point. Wang's thermal fits additionally use external zero-pressure expansion data and are not represented as reproduced records here. Unweighted pressure residuals reproduce the free coefficients within printed errors; the source does not supply a complete optimizer/weighting protocol or covariance. Published coefficients are retained; this non-default record does not replace the Dorogokupets synthesis.
-
-**Assessment and likely origin.**
-- Strict uncertainty parity cannot be established because a source or refit uncertainty is unavailable for `V0`, `K0_prime`. The point estimates nevertheless meet the numerical criterion.
 
 <a id="investigation-alumina_rh2o3_ii_shi_2022_bm3_mgd_1"></a>
 

@@ -1413,7 +1413,7 @@ the primary-source and refit ledgers.
 | [Walker et al. (2002)](https://doi.org/10.2138/am-2002-0701) | Reproduced | 2 | 2 similar | 2 bundled |
 | [Wang and Weidner (1994)](https://doi.org/10.1029/94gl00976) | Reproduced | 1 | 1 parity | 1 plot only/digitized |
 | [Wang et al. (1996)](https://doi.org/10.1029/95jb03254) | Partly reproduced | 5 | 1 rounded source fit reproduced; room-temperature parameters within source errors; pressure-weighted source fits unresolved; independent thermal refit reproduced. See the [dedicated audit](literature-reproductions/wang-1996-casio3.md). | 1 bundled |
-| [Wang et al. (2004)](https://doi.org/10.1016/j.pepi.2003.08.007) | Reproduced | 2 | 1 parity; 1 similar | 2 bundled |
+| [Wang et al. (2004)](https://doi.org/10.1016/j.pepi.2003.08.007) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Wang et al. (2012)](https://doi.org/10.1029/2011jb009100) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Wang et al. (2026), KAlSi3O8 liebermannite and K-hollandite II](https://doi.org/10.2138/am-2024-9562) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Wentzcovitch et al. (1993), MgSiO3 molecular dynamics](https://doi.org/10.1103/PhysRevLett.70.3947) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |

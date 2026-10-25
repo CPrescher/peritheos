@@ -216,9 +216,22 @@
               "fixed_parameters": ["V0", "Tr", "theta0", "n"],
               "observations": 121,
               "solver_success": true,
-              "rmse_gpa": 0.12894046044004923,
+              "rmse_gpa": 0.12894046047990115,
               "published_rmse_gpa": 0.12780834540828995,
               "covariance": {
+                "parameters": ["K0", "K0_prime", "gamma0", "q"],
+                "matrix": [
+                  [0.001051823168235975, -0.0003492292714426915, -0.0002635800244818986, -6.476301628543673e-05],
+                  [-0.00034922927144269157, 0.00012245060226554456, 0.00010393745836205666, 6.469729517550336e-05],
+                  [-0.0002635800244818986, 0.00010393745836205666, 0.003727243588946639, 0.0052827802504507885],
+                  [-6.476301628543673e-05, 6.469729517550335e-05, 0.005282780250450788, 0.008303869679190223]
+                ],
+                "standard_errors": {
+                  "K0": 0.0324318233874689,
+                  "K0_prime": 0.011065740023403069,
+                  "gamma0": 0.061051155508693195,
+                  "q": 0.09112557094027024
+                },
                 "correlation_matrix": [
                   [1.0, -0.9731029941415235, -0.13312120478260264, -0.021913686221125488],
                   [-0.9731029941415237, 1.0, 0.15385008538817777, 0.06416015422337364],
@@ -226,32 +239,19 @@
                   [-0.021913686221125488, 0.06416015422337362, 0.9495730820573334, 1.0]
                 ],
                 "degrees_of_freedom": 117.0,
-                "derivative_step_halving_relative_change": 2.099236949217679e-12,
                 "local_student_t_95_intervals": {
                   "K0": [13.690880840262475, 13.819339893759748],
                   "K0_prime": [4.911975912106032, 4.955806148620038],
                   "gamma0": [2.0716060738525033, 2.31342330250058],
                   "q": [1.2374512541008622, 1.5983900903954869]
                 },
-                "matrix": [
-                  [0.001051823168235975, -0.0003492292714426915, -0.0002635800244818986, -6.476301628543673e-05],
-                  [-0.00034922927144269157, 0.00012245060226554456, 0.00010393745836205666, 6.469729517550336e-05],
-                  [-0.0002635800244818986, 0.00010393745836205666, 0.003727243588946639, 0.0052827802504507885],
-                  [-6.476301628543673e-05, 6.469729517550335e-05, 0.005282780250450788, 0.008303869679190223]
-                ],
-                "max_abs_residual_jacobian_cosine": 4.555456420712915e-09,
-                "method": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
-                "parameters": ["K0", "K0_prime", "gamma0", "q"],
-                "residual_count": 121,
-                "residual_sum_squares": 254.50329836626221,
                 "residual_variance": 2.1752418663783097,
+                "max_abs_residual_jacobian_cosine": 4.555456420712915e-09,
+                "residual_sum_squares": 254.50329836626221,
+                "residual_count": 121,
                 "scaled_jacobian_condition_number": 195.75843577503048,
-                "standard_errors": {
-                  "K0": 0.0324318233874689,
-                  "K0_prime": 0.011065740023403069,
-                  "gamma0": 0.061051155508693195,
-                  "q": 0.09112557094027024
-                }
+                "derivative_step_halving_relative_change": 2.099236949217679e-12,
+                "method": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step."
               },
               "covariance_convention": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
               "comparison_scope": "Compared free coefficients: K0, K0_prime, gamma0, q; scope=parameter_agreement",

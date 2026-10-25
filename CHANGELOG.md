@@ -9,9 +9,9 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Fixed
 
-- Review 159 reconstruction assessments and separate numerical coefficient
+- Review 160 reconstruction assessments and separate numerical coefficient
   agreement from calibration replay, source benchmarks, data agreement,
-  author-workflow reproduction and recommendations. Update 87 scoped outcomes:
+  author-workflow reproduction and recommendations. Update 88 scoped outcomes:
   conditional parameter comparisons, registered-refit replays and a calculated
   source-equation check, each with its explicit criterion and qualifications.
 - Reconstruct or recover missing conditional fitting uncertainties and ordered

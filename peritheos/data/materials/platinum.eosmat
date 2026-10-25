@@ -2554,23 +2554,23 @@
               "fixed_values": {"V0": 60.38},
               "observations": 7,
               "solver_success": true,
-              "rmse_gpa": 0.14115315078596466,
+              "rmse_gpa": 0.141153150785964,
               "published_rmse_gpa": 0.15714060367632096,
               "covariance": {
+                "parameters": ["K0", "K0_prime"],
+                "standard_errors": {"K0": 5.87275751246303, "K0_prime": 0.6508839844693242},
+                "method": "Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.",
+                "previous_assessment": {
+                  "status": "similar",
+                  "reason": "Unweighted pressure residuals, printed volumes and pressures; residual-scaled linearized standard errors are diagnostic only. No source weights, covariance, confidence or calibration-error correlations. Pt V0 and theta0 fixed for this diagnostic; source does not enumerate its full fitted/fixed list. Au q fit excludes upstream shock observations and is not the source joint compromise."
+                },
                 "assumptions": [
                   "Existing reconstructed errors retained; no source confidence convention inferred.",
                   "Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.",
                   "Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.",
                   "Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.",
                   "Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred."
-                ],
-                "method": "Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.",
-                "parameters": ["K0", "K0_prime"],
-                "previous_assessment": {
-                  "reason": "Unweighted pressure residuals, printed volumes and pressures; residual-scaled linearized standard errors are diagnostic only. No source weights, covariance, confidence or calibration-error correlations. Pt V0 and theta0 fixed for this diagnostic; source does not enumerate its full fitted/fixed list. Au q fit excludes upstream shock observations and is not the source joint compromise.",
-                  "status": "similar"
-                },
-                "standard_errors": {"K0": 5.87275751246303, "K0_prime": 0.6508839844693242}
+                ]
               },
               "dataset_identifiers": ["platinum_fei_2004_table2"]
             },

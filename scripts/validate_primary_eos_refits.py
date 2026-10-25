@@ -4366,6 +4366,40 @@ def _ricolleau_2009_outcome(
     }
 
 
+def _mgsio3_primary_outcome(
+    record: dict[str, Any], refit: dict[str, Any]
+) -> dict[str, Any]:
+    """Keep the dedicated audit's criterion and conditional covariance explicit."""
+    outcome = dict(refit)
+    outcome["dataset_identifiers"] = record["fit_datasets"]
+    outcome["fit_kind"] = "original_scale_source_constrained_bm3"
+    outcome["parameters"] = [
+        {**p, "similar": _similar(p["parameter"], p["published"], p["refit"])}
+        for p in outcome["parameters"]
+    ]
+    agreement = all(
+        p["within_reported_error"] and p["similar"] for p in outcome["parameters"]
+    )
+    if outcome["status"] == "parity":
+        if not (
+            record["identifier"] == "akimotoite_wang_2004_t0150_bm3"
+            and outcome.get("parity_basis") == "within_reported_parameter_errors"
+            and agreement
+            and all(
+                p["refit_error"] is not None and p["refit_error"] > 0
+                for p in outcome["parameters"]
+            )
+            and outcome.get("degrees_of_freedom") == outcome["observations"] - 2
+            and outcome.get("parameter_covariance")
+        ):
+            raise AssertionError(
+                "MgSiO3 parity requires its dedicated uncertainty audit"
+            )
+    elif outcome["status"] != "similar" or not agreement:
+        raise AssertionError("MgSiO3 dedicated refit no longer supports similar status")
+    return outcome
+
+
 def _dorogokupets_2015_outcome(
     record: dict[str, Any], refits: dict[str, Any]
 ) -> dict[str, Any]:
@@ -5523,23 +5557,9 @@ def validate_all() -> dict[str, Any]:
                     record, ricolleau_refits[record["identifier"]]
                 )
             elif record["identifier"] in mgsio3_primary_refits:
-                outcome = dict(mgsio3_primary_refits[record["identifier"]])
-                outcome["dataset_identifiers"] = record["fit_datasets"]
-                outcome["fit_kind"] = "original_scale_source_constrained_bm3"
-                outcome["parameters"] = [
-                    {
-                        **p,
-                        "similar": _similar(p["parameter"], p["published"], p["refit"]),
-                    }
-                    for p in outcome["parameters"]
-                ]
-                if not all(
-                    p["within_reported_error"] and p["similar"]
-                    for p in outcome["parameters"]
-                ):
-                    raise AssertionError(
-                        "MgSiO3 dedicated refit no longer supports similar status"
-                    )
+                outcome = _mgsio3_primary_outcome(
+                    record, mgsio3_primary_refits[record["identifier"]]
+                )
             elif record["identifier"] in DOROGOKUPETS_2015_FIT_BRANCH:
                 outcome = _dorogokupets_2015_outcome(record, dorogokupets_refits)
             elif record["identifier"] in {
