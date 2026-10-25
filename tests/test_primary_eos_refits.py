@@ -857,3 +857,31 @@ def test_chen_independent_refit_does_not_promote_source_author_coefficients():
     assert row["original_publication_reproduction_status"] == "not_reproduced"
     assert row["observations"] == 80
     assert row["refit"]["pressure_rms_original_coordinates_gpa"] < 0.12
+
+
+def test_successful_stop_conditions_preserve_source_values_and_scientific_verdicts():
+    from copy import deepcopy
+
+    from scripts.validate_primary_eos_refits import check_ledger_values
+
+    saved = {
+        "status": "parity",
+        "solver_success": True,
+        "solver_message": "`ftol` termination condition is satisfied.",
+        "parameters": [{"published": 160.0, "refit": 159.99}],
+    }
+    current = deepcopy(saved)
+    current["solver_message"] = "`xtol` termination condition is satisfied."
+    check_ledger_values(saved, current)
+    for field, value in [
+        ("status", "similar"),
+        ("solver_success", False),
+        ("solver_message", "Maximum evaluations exceeded"),
+    ]:
+        changed = deepcopy(current)
+        changed[field] = value
+        with pytest.raises(ValueError):
+            check_ledger_values(saved, changed)
+    current["parameters"][0]["published"] = 160.000001
+    with pytest.raises(ValueError):
+        check_ledger_values(saved, current)

@@ -6419,6 +6419,18 @@ def check_ledger_values(
         if not isinstance(saved, dict) or saved.keys() != current.keys():
             raise ValueError(f"{path}: fields differ")
         for key, value in current.items():
+            # Different numerical builds can satisfy different successful SciPy
+            # stopping criteria. Source facts, success flags and verdicts stay exact.
+            if (
+                key == "solver_message"
+                and saved.get("solver_success") is True
+                and current.get("solver_success") is True
+                and all(
+                    isinstance(message, str) and "termination condition" in message
+                    for message in (saved[key], value)
+                )
+            ):
+                continue
             derived = (
                 calculated
                 or key

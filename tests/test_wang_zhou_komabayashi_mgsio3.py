@@ -214,6 +214,11 @@ def test_t0150_uncertainty_assessment_round_trips_without_replacing_source(
             assert relative == pytest.approx(
                 abs(difference / parameter["published"]), abs=1e-12
             )
+    # This separate, inverse-volume sensitivity solve is numerically less stable
+    # than the analytic OLS covariance; it never supplies the parity criterion.
+    sensitivity_saved = saved["covariance"].pop("volume_weighting_sensitivity")
+    sensitivity_replay = replay["covariance"].pop("volume_weighting_sensitivity")
+    assert_audit_close(sensitivity_saved, sensitivity_replay, rel=3e-4)
     assert_audit_close(saved, replay)
     expected = assessment_for_record(record, row)
     assert record["evidence"]["reproduction"]["assessment"] == expected
