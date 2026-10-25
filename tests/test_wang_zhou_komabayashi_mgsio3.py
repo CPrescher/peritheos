@@ -200,7 +200,21 @@ def test_t0150_uncertainty_assessment_round_trips_without_replacing_source(
     native = load_eosmat(DATA.parent / "materials/akimotoite.eosmat")
     record = next(r for r in native["eos_records"] if r["identifier"] == IDS[1])
     translated = _mgsio3_primary_outcome(record, fit)
-    assert_audit_close({key: row[key] for key in translated}, translated)
+    saved = copy.deepcopy({key: row[key] for key in translated})
+    replay = copy.deepcopy(translated)
+    # Cancellation magnifies relative solver roundoff in small differences;
+    # compare the coefficients and uncertainties, then check each stored identity.
+    for outcome in (saved, replay):
+        for parameter in outcome["parameters"]:
+            difference = parameter.pop("difference")
+            assert difference == pytest.approx(
+                parameter["refit"] - parameter["published"], abs=1e-12
+            )
+            relative = parameter.pop("relative_difference")
+            assert relative == pytest.approx(
+                abs(difference / parameter["published"]), abs=1e-12
+            )
+    assert_audit_close(saved, replay)
     expected = assessment_for_record(record, row)
     assert record["evidence"]["reproduction"]["assessment"] == expected
     assert expected["scope"] == "parameter_agreement"
