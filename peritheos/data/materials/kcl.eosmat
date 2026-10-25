@@ -1068,12 +1068,14 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "similar",
+            "status": "parity",
             "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
             "qualifications": [
-              "Equal pressure weights; covariance and original objective details unavailable. Holmes-coordinate results are conditional: exact author rounding/thermal reduction is unspecified and Holmes's approximation is stated for T<2000 K. No pressure-coordinate or statistical parity claimed; source parameter errors are widths of unknown confidence. Published coefficients remain unchanged.",
+              "Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Equal pressure weights; covariance and original objective details unavailable. Holmes-coordinate results are conditional: exact author rounding/thermal reduction is unspecified and Holmes's approximation is stated for T<2000 K. No pressure-coordinate or statistical parity claimed; source parameter errors are widths of unknown confidence. Published coefficients remain unchanged. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.",
+              "Earlier audit statement, before the conditional uncertainty follow-up: Equal pressure weights; covariance and original objective details unavailable. Holmes-coordinate results are conditional: exact author rounding/thermal reduction is unspecified and Holmes's approximation is stated for T<2000 K. No pressure-coordinate or statistical parity claimed; source parameter errors are widths of unknown confidence. Published coefficients remain unchanged.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/kcl/#record-kcl_b2_tateno_2019_holmes_vinet_mgd",
@@ -1084,56 +1086,116 @@
                 "published": 17.4,
                 "published_error": 0.2,
                 "refit": 17.492509471923285,
-                "refit_error": null,
+                "refit_error": 0.2527661342797798,
                 "difference": 0.09250947192328596,
                 "relative_difference": 0.0053166363174302275,
                 "similar": true,
-                "within_combined_2sigma": null
+                "within_combined_2sigma": null,
+                "within_reported_error": true
               },
               {
                 "parameter": "K0_prime",
                 "published": 5.77,
                 "published_error": 0.04,
                 "refit": 5.757586933659126,
-                "refit_error": null,
+                "refit_error": 0.03603893166595005,
                 "difference": -0.01241306634087369,
                 "relative_difference": -0.002151311324241541,
                 "similar": true,
-                "within_combined_2sigma": null
+                "within_combined_2sigma": null,
+                "within_reported_error": true
               },
               {
                 "parameter": "gamma0",
                 "published": 1.8,
                 "published_error": 0.2,
                 "refit": 1.93368411891194,
-                "refit_error": null,
+                "refit_error": 0.2071562142553335,
                 "difference": 0.13368411891194,
                 "relative_difference": 0.07426895495107777,
                 "similar": true,
-                "within_combined_2sigma": null
+                "within_combined_2sigma": null,
+                "within_reported_error": true
               },
               {
                 "parameter": "q",
                 "published": 0.7,
                 "published_error": 0.3,
                 "refit": 0.7271591265912735,
-                "refit_error": null,
+                "refit_error": 0.2450196877033041,
                 "difference": 0.027159126591273508,
                 "relative_difference": 0.03879875227324787,
                 "similar": true,
-                "within_combined_2sigma": null
+                "within_combined_2sigma": null,
+                "within_reported_error": true
               }
             ],
             "fit": {
               "fit_kind": "independent_primary_equation_pressure_fit",
               "objective": "equal pressure weights",
               "selection": "all 39 correctly paired official Table S1 rows; no exclusions",
+              "weighting": "Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.",
+              "absolute_sigma": false,
               "free_parameters": ["K0", "K0_prime", "gamma0", "q"],
               "fixed_parameters": ["V0", "Tr", "theta0", "n"],
               "observations": 39,
+              "degrees_of_freedom": 35.0,
               "solver_success": true,
               "rmse_gpa": 0.7329733701901231,
               "published_rmse_gpa": 0.7767807095678241,
+              "parameter_covariance": [
+                [0.06389071863874367, -0.009064036491071936, -0.0013263250298606983, 0.016003262649768375],
+                [-0.009064036491071938, 0.0012988045956230172, 0.00021794568061970165, -0.0022017485383150036],
+                [-0.0013263250298606983, 0.00021794568061970165, 0.04291369710460164, 0.04603649471009996],
+                [0.016003262649768382, -0.0022017485383150036, 0.04603649471009996, 0.06003464736222467]
+              ],
+              "covariance": {
+                "parameters": ["K0", "K0_prime", "gamma0", "q"],
+                "matrix": [
+                  [0.06389071863874367, -0.009064036491071936, -0.0013263250298606983, 0.016003262649768375],
+                  [-0.009064036491071938, 0.0012988045956230172, 0.00021794568061970165, -0.0022017485383150036],
+                  [-0.0013263250298606983, 0.00021794568061970165, 0.04291369710460164, 0.04603649471009996],
+                  [0.016003262649768382, -0.0022017485383150036, 0.04603649471009996, 0.06003464736222467]
+                ],
+                "standard_errors": {
+                  "K0": 0.2527661342797798,
+                  "K0_prime": 0.03603893166595005,
+                  "gamma0": 0.2071562142553335,
+                  "q": 0.2450196877033041
+                },
+                "correlation_matrix": [
+                  [1.0, -0.9950178010756807, -0.025329878886045036, 0.2583977124030005],
+                  [-0.9950178010756809, 1.0000000000000002, 0.029192977479409545, -0.2493416484659889],
+                  [-0.025329878886045036, 0.029192977479409545, 1.0, 0.9069916745707302],
+                  [0.25839771240300063, -0.2493416484659889, 0.9069916745707302, 1.0]
+                ],
+                "degrees_of_freedom": 35.0,
+                "local_student_t_95_intervals": {
+                  "K0": [16.979366938728713, 18.005652005117856],
+                  "K0_prime": [5.6844240127584085, 5.830749854559843],
+                  "gamma0": [1.5131346459658608, 2.3542335918580193],
+                  "q": [0.2297427160073729, 1.224575537175174]
+                },
+                "residual_variance": 0.5986499569973318,
+                "max_abs_residual_jacobian_cosine": 1.1123147974916412e-08,
+                "residual_sum_squares": 20.952748494906615,
+                "residual_count": 39,
+                "scaled_jacobian_condition_number": 619.5543939972406,
+                "derivative_step_halving_relative_change": 2.5535725741442286e-12,
+                "method": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
+                "previous_assessment": {
+                  "status": "similar",
+                  "reason": "Equal pressure weights; covariance and original objective details unavailable. Holmes-coordinate results are conditional: exact author rounding/thermal reduction is unspecified and Holmes's approximation is stated for T<2000 K. No pressure-coordinate or statistical parity claimed; source parameter errors are widths of unknown confidence. Published coefficients remain unchanged."
+                },
+                "assumptions": [
+                  "Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.",
+                  "Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.",
+                  "Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.",
+                  "Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.",
+                  "Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred."
+                ]
+              },
+              "covariance_convention": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
               "dataset_identifiers": ["kcl_tateno_2019_official_table_s1"]
             },
             "report": "docs/data/primary-eos-refits.json"
@@ -1256,12 +1318,14 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "similar",
+            "status": "parity",
             "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
             "qualifications": [
-              "Equal pressure weights; covariance and original objective details unavailable. Holmes-coordinate results are conditional: exact author rounding/thermal reduction is unspecified and Holmes's approximation is stated for T<2000 K. No pressure-coordinate or statistical parity claimed; source parameter errors are widths of unknown confidence. Published coefficients remain unchanged.",
+              "Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Equal pressure weights; covariance and original objective details unavailable. Holmes-coordinate results are conditional: exact author rounding/thermal reduction is unspecified and Holmes's approximation is stated for T<2000 K. No pressure-coordinate or statistical parity claimed; source parameter errors are widths of unknown confidence. Published coefficients remain unchanged. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.",
+              "Earlier audit statement, before the conditional uncertainty follow-up: Equal pressure weights; covariance and original objective details unavailable. Holmes-coordinate results are conditional: exact author rounding/thermal reduction is unspecified and Holmes's approximation is stated for T<2000 K. No pressure-coordinate or statistical parity claimed; source parameter errors are widths of unknown confidence. Published coefficients remain unchanged.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/kcl/#record-kcl_b2_tateno_2019_holmes_vinet_linear_thermal",
@@ -1272,45 +1336,95 @@
                 "published": 17.7,
                 "published_error": 0.3,
                 "refit": 17.554928390334098,
-                "refit_error": null,
+                "refit_error": 0.24361913614994468,
                 "difference": -0.1450716096659015,
                 "relative_difference": -0.00819613613931647,
                 "similar": true,
-                "within_combined_2sigma": null
+                "within_combined_2sigma": null,
+                "within_reported_error": true
               },
               {
                 "parameter": "K0_prime",
                 "published": 5.73,
                 "published_error": 0.04,
                 "refit": 5.749003323377288,
-                "refit_error": null,
+                "refit_error": 0.03470448215695969,
                 "difference": 0.019003323377287273,
                 "relative_difference": 0.0033164613223887036,
                 "similar": true,
-                "within_combined_2sigma": null
+                "within_combined_2sigma": null,
+                "within_reported_error": true
               },
               {
                 "parameter": "alpha_KT",
                 "published": 0.0033,
                 "published_error": 0.0002,
                 "refit": 0.0032110148631012392,
-                "refit_error": null,
+                "refit_error": 0.00014135934935454638,
                 "difference": -8.898513689876075e-05,
                 "relative_difference": -0.02696519299962447,
                 "similar": true,
-                "within_combined_2sigma": null
+                "within_combined_2sigma": null,
+                "within_reported_error": true
               }
             ],
             "fit": {
               "fit_kind": "independent_primary_equation_pressure_fit",
               "objective": "equal pressure weights",
               "selection": "all 39 correctly paired official Table S1 rows; no exclusions",
+              "weighting": "Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.",
+              "absolute_sigma": false,
               "free_parameters": ["K0", "K0_prime", "alpha_KT"],
               "fixed_parameters": ["V0", "Tr"],
               "observations": 39,
+              "degrees_of_freedom": 36.0,
               "solver_success": true,
               "rmse_gpa": 0.7420058024099482,
               "published_rmse_gpa": 0.7660035003577548,
+              "parameter_covariance": [
+                [0.05935028349844529, -0.008409724066492033, -2.1892158127906744e-05],
+                [-0.008409724066492033, 0.0012044010817827333, 3.058650695301269e-06],
+                [-2.1892158127906744e-05, 3.058650695301269e-06, 1.9982465649940695e-08]
+              ],
+              "covariance": {
+                "parameters": ["K0", "K0_prime", "alpha_KT"],
+                "matrix": [
+                  [0.05935028349844529, -0.008409724066492033, -2.1892158127906744e-05],
+                  [-0.008409724066492033, 0.0012044010817827333, 3.058650695301269e-06],
+                  [-2.1892158127906744e-05, 3.058650695301269e-06, 1.9982465649940695e-08]
+                ],
+                "standard_errors": {"K0": 0.24361913614994468, "K0_prime": 0.03470448215695969, "alpha_KT": 0.00014135934935454638},
+                "correlation_matrix": [
+                  [1.0000000000000002, -0.9946831910162925, -0.6357006272763144],
+                  [-0.9946831910162925, 0.9999999999999998, 0.6234760516181241],
+                  [-0.6357006272763144, 0.6234760516181241, 1.0000000000000002]
+                ],
+                "degrees_of_freedom": 36.0,
+                "local_student_t_95_intervals": {
+                  "K0": [17.060845881784356, 18.04901089888384],
+                  "K0_prime": [5.678619371307625, 5.8193872754469504],
+                  "alpha_KT": [0.002924324814692784, 0.0034977049115096945]
+                },
+                "residual_variance": 0.5964536617108583,
+                "max_abs_residual_jacobian_cosine": 9.650048573631757e-10,
+                "residual_sum_squares": 21.4723318215909,
+                "residual_count": 39,
+                "scaled_jacobian_condition_number": 79.73011772046941,
+                "derivative_step_halving_relative_change": 3.401904251552068e-12,
+                "method": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
+                "previous_assessment": {
+                  "status": "similar",
+                  "reason": "Equal pressure weights; covariance and original objective details unavailable. Holmes-coordinate results are conditional: exact author rounding/thermal reduction is unspecified and Holmes's approximation is stated for T<2000 K. No pressure-coordinate or statistical parity claimed; source parameter errors are widths of unknown confidence. Published coefficients remain unchanged."
+                },
+                "assumptions": [
+                  "Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.",
+                  "Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.",
+                  "Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.",
+                  "Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.",
+                  "Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred."
+                ]
+              },
+              "covariance_convention": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
               "dataset_identifiers": ["kcl_tateno_2019_official_table_s1"]
             },
             "report": "docs/data/primary-eos-refits.json"
@@ -1427,12 +1541,14 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "similar",
+            "status": "parity",
             "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
             "qualifications": [
-              "All 39 author-reported Sokolova-pressure observations. Equal pressure weights; covariance and original objective details unavailable. Coefficients agree within printed error widths of unknown confidence; no statistical parity claimed. Published coefficients remain unchanged.",
+              "Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): All 39 author-reported Sokolova-pressure observations. Equal pressure weights; covariance and original objective details unavailable. Coefficients agree within printed error widths of unknown confidence; no statistical parity claimed. Published coefficients remain unchanged. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.",
+              "Earlier audit statement, before the conditional uncertainty follow-up: All 39 author-reported Sokolova-pressure observations. Equal pressure weights; covariance and original objective details unavailable. Coefficients agree within printed error widths of unknown confidence; no statistical parity claimed. Published coefficients remain unchanged.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/kcl/#record-kcl_b2_tateno_2019_sokolova_vinet_linear_thermal",
@@ -1443,45 +1559,95 @@
                 "published": 18.3,
                 "published_error": 0.2,
                 "refit": 18.338636288275783,
-                "refit_error": null,
+                "refit_error": 0.24735407756724215,
                 "difference": 0.03863628827578225,
                 "relative_difference": 0.002111272583376079,
                 "similar": true,
-                "within_combined_2sigma": null
+                "within_combined_2sigma": null,
+                "within_reported_error": true
               },
               {
                 "parameter": "K0_prime",
                 "published": 5.6,
                 "published_error": 0.03,
                 "refit": 5.5988178573924685,
-                "refit_error": null,
+                "refit_error": 0.033768055599962744,
                 "difference": -0.0011821426075311336,
                 "relative_difference": -0.00021109689420198817,
                 "similar": true,
-                "within_combined_2sigma": null
+                "within_combined_2sigma": null,
+                "within_reported_error": true
               },
               {
                 "parameter": "alpha_KT",
                 "published": 0.0037,
                 "published_error": 0.0001,
                 "refit": 0.0036762573045795253,
-                "refit_error": null,
+                "refit_error": 0.00013785209611145408,
                 "difference": -2.3742695420474885e-05,
                 "relative_difference": -0.0064169447082364555,
                 "similar": true,
-                "within_combined_2sigma": null
+                "within_combined_2sigma": null,
+                "within_reported_error": true
               }
             ],
             "fit": {
               "fit_kind": "independent_primary_equation_pressure_fit",
               "objective": "equal pressure weights",
               "selection": "all 39 correctly paired official Table S1 rows; no exclusions",
+              "weighting": "Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.",
+              "absolute_sigma": false,
               "free_parameters": ["K0", "K0_prime", "alpha_KT"],
               "fixed_parameters": ["V0", "Tr"],
               "observations": 39,
+              "degrees_of_freedom": 36.0,
               "solver_success": true,
               "rmse_gpa": 0.7198692268373714,
               "published_rmse_gpa": 0.7332862352372231,
+              "parameter_covariance": [
+                [0.06118403968914124, -0.008306974183822062, -2.182989630093388e-05],
+                [-0.008306974183822062, 0.0011402815790021751, 2.921252734549098e-06],
+                [-2.182989630093388e-05, 2.9212527345490986e-06, 1.9003200402321574e-08]
+              ],
+              "covariance": {
+                "parameters": ["K0", "K0_prime", "alpha_KT"],
+                "matrix": [
+                  [0.06118403968914124, -0.008306974183822062, -2.182989630093388e-05],
+                  [-0.008306974183822062, 0.0011402815790021751, 2.921252734549098e-06],
+                  [-2.182989630093388e-05, 2.9212527345490986e-06, 1.9003200402321574e-08]
+                ],
+                "standard_errors": {"K0": 0.24735407756724215, "K0_prime": 0.033768055599962744, "alpha_KT": 0.00013785209611145408},
+                "correlation_matrix": [
+                  [0.9999999999999999, -0.9945296437077238, -0.640205240080702],
+                  [-0.9945296437077238, 0.9999999999999998, 0.6275519791165886],
+                  [-0.640205240080702, 0.6275519791165886, 1.0000000000000002]
+                ],
+                "degrees_of_freedom": 36.0,
+                "local_student_t_95_intervals": {
+                  "K0": [17.836978967443606, 18.84029360910796],
+                  "K0_prime": [5.53033306640541, 5.667302648379527],
+                  "alpha_KT": [0.003396680295433305, 0.003955834313725746]
+                },
+                "residual_variance": 0.5613960123930446,
+                "max_abs_residual_jacobian_cosine": 1.6444919304077797e-09,
+                "residual_sum_squares": 20.210256446149604,
+                "residual_count": 39,
+                "scaled_jacobian_condition_number": 67.92811717508724,
+                "derivative_step_halving_relative_change": 3.5709797195626454e-12,
+                "method": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
+                "previous_assessment": {
+                  "status": "similar",
+                  "reason": "All 39 author-reported Sokolova-pressure observations. Equal pressure weights; covariance and original objective details unavailable. Coefficients agree within printed error widths of unknown confidence; no statistical parity claimed. Published coefficients remain unchanged."
+                },
+                "assumptions": [
+                  "Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.",
+                  "Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.",
+                  "Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.",
+                  "Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.",
+                  "Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred."
+                ]
+              },
+              "covariance_convention": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
               "dataset_identifiers": ["kcl_tateno_2019_official_table_s1"]
             },
             "report": "docs/data/primary-eos-refits.json"
@@ -1608,12 +1774,14 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "similar",
+            "status": "parity",
             "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
             "qualifications": [
-              "All five Table I coefficients are fitted, including q. Fixed theta0=235 K, Tr=300 K and n=2. Equal pressure weights; no original covariance or explicit row weights. Integrated-Gruneisen theta law is inferred by complete-data numerical reproduction; Equations 3-4 do not explicitly define theta(V). Dewaele 298 K measurements enter the source regression as its 300 K reference, preserving raw temperature provenance. High-temperature KCl temperatures are geometry-conditioned modeled effective temperatures. Cold ruby and high-T Pt calibration ancestry remain distinct.",
+              "Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): All five Table I coefficients are fitted, including q. Fixed theta0=235 K, Tr=300 K and n=2. Equal pressure weights; no original covariance or explicit row weights. Integrated-Gruneisen theta law is inferred by complete-data numerical reproduction; Equations 3-4 do not explicitly define theta(V). Dewaele 298 K measurements enter the source regression as its 300 K reference, preserving raw temperature provenance. High-temperature KCl temperatures are geometry-conditioned modeled effective temperatures. Cold ruby and high-T Pt calibration ancestry remain distinct. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.",
+              "Earlier audit statement, before the conditional uncertainty follow-up: All five Table I coefficients are fitted, including q. Fixed theta0=235 K, Tr=300 K and n=2. Equal pressure weights; no original covariance or explicit row weights. Integrated-Gruneisen theta law is inferred by complete-data numerical reproduction; Equations 3-4 do not explicitly define theta(V). Dewaele 298 K measurements enter the source regression as its 300 K reference, preserving raw temperature provenance. High-temperature KCl temperatures are geometry-conditioned modeled effective temperatures. Cold ruby and high-T Pt calibration ancestry remain distinct.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/kcl/#record-kcl_b2_chidester_2021_vinet_mgd",
@@ -1624,67 +1792,205 @@
                 "published": 56.956490004062935,
                 "published_error": 0.8302695335869233,
                 "refit": 56.84322297072302,
-                "refit_error": null,
+                "refit_error": 0.8152302177509683,
                 "difference": -0.11326703333991617,
                 "relative_difference": -0.001988658945307837,
                 "similar": true,
-                "within_combined_2sigma": null
+                "within_combined_2sigma": null,
+                "within_reported_error": true
               },
               {
                 "parameter": "K0",
                 "published": 13.0,
                 "published_error": 1.0,
                 "refit": 13.118956468473124,
-                "refit_error": null,
+                "refit_error": 1.1652103139561178,
                 "difference": 0.11895646847312413,
                 "relative_difference": 0.009150497574855702,
                 "similar": true,
-                "within_combined_2sigma": null
+                "within_combined_2sigma": null,
+                "within_reported_error": true
               },
               {
                 "parameter": "K0_prime",
                 "published": 6.2,
                 "published_error": 0.1,
                 "refit": 6.209818047627718,
-                "refit_error": null,
+                "refit_error": 0.1011159432970346,
                 "difference": 0.009818047627717874,
                 "relative_difference": 0.0015835560689867539,
                 "similar": true,
-                "within_combined_2sigma": null
+                "within_combined_2sigma": null,
+                "within_reported_error": true
               },
               {
                 "parameter": "gamma0",
                 "published": 3.4,
                 "published_error": 0.4,
                 "refit": 3.38729525853543,
-                "refit_error": null,
+                "refit_error": 0.3814091364667989,
                 "difference": -0.012704741464570013,
                 "relative_difference": -0.003736688666050004,
                 "similar": true,
-                "within_combined_2sigma": null
+                "within_combined_2sigma": null,
+                "within_reported_error": true
               },
               {
                 "parameter": "q",
                 "published": 1.0,
                 "published_error": 0.1,
                 "refit": 0.9850809742161145,
-                "refit_error": null,
+                "refit_error": 0.12912849669544943,
                 "difference": -0.014919025783885487,
                 "relative_difference": -0.014919025783885487,
                 "similar": true,
-                "within_combined_2sigma": null
+                "within_combined_2sigma": null,
+                "within_reported_error": true
               }
             ],
             "fit": {
               "fit_kind": "independent_primary_equation_pressure_fit",
               "objective": "equal pressure weights",
               "selection": "all 123 Dewaele room-temperature rows as 300 K source reference plus all 155 Chidester effective-temperature rows",
+              "weighting": "Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.",
+              "absolute_sigma": false,
               "free_parameters": ["V0", "K0", "K0_prime", "gamma0", "q"],
               "fixed_parameters": ["Tr", "theta0", "n"],
               "observations": 278,
+              "degrees_of_freedom": 273.0,
               "solver_success": true,
               "rmse_gpa": 1.2516022922765186,
               "published_rmse_gpa": 1.3562798619878813,
+              "parameter_covariance": [
+                [
+                  0.6646003079342911,
+                  -0.9420852957478486,
+                  0.07828576214574007,
+                  0.003936394320492626,
+                  -0.0272229720879472
+                ],
+                [
+                  -0.9420852957478486,
+                  1.357715075749715,
+                  -0.11564562865275067,
+                  -0.038958190984190066,
+                  0.03079640656823373
+                ],
+                [
+                  0.07828576214574007,
+                  -0.11564562865275067,
+                  0.010224433988849119,
+                  0.008390500992887512,
+                  -0.0011182579459296919
+                ],
+                [
+                  0.003936394320492638,
+                  -0.038958190984190066,
+                  0.008390500992887512,
+                  0.14547292938034923,
+                  0.042511036882261266
+                ],
+                [
+                  -0.0272229720879472,
+                  0.030796406568233733,
+                  -0.0011182579459296915,
+                  0.042511036882261266,
+                  0.01667416865882669
+                ]
+              ],
+              "covariance": {
+                "parameters": ["V0", "K0", "K0_prime", "gamma0", "q"],
+                "matrix": [
+                  [
+                    0.6646003079342911,
+                    -0.9420852957478486,
+                    0.07828576214574007,
+                    0.003936394320492626,
+                    -0.0272229720879472
+                  ],
+                  [
+                    -0.9420852957478486,
+                    1.357715075749715,
+                    -0.11564562865275067,
+                    -0.038958190984190066,
+                    0.03079640656823373
+                  ],
+                  [
+                    0.07828576214574007,
+                    -0.11564562865275067,
+                    0.010224433988849119,
+                    0.008390500992887512,
+                    -0.0011182579459296919
+                  ],
+                  [
+                    0.003936394320492638,
+                    -0.038958190984190066,
+                    0.008390500992887512,
+                    0.14547292938034923,
+                    0.042511036882261266
+                  ],
+                  [
+                    -0.0272229720879472,
+                    0.030796406568233733,
+                    -0.0011182579459296915,
+                    0.042511036882261266,
+                    0.01667416865882669
+                  ]
+                ],
+                "standard_errors": {
+                  "V0": 0.8152302177509683,
+                  "K0": 1.1652103139561178,
+                  "K0_prime": 0.1011159432970346,
+                  "gamma0": 0.3814091364667989,
+                  "q": 0.12912849669544943
+                },
+                "correlation_matrix": [
+                  [1.0, -0.991757825654585, 0.94969221339974, 0.012659811385060284, -0.2586027707649304],
+                  [
+                    -0.991757825654585,
+                    1.0000000000000002,
+                    -0.981533808886338,
+                    -0.08766038424623862,
+                    0.20467916155691165
+                  ],
+                  [0.94969221339974, -0.981533808886338, 1.0000000000000002, 0.21755905478288376, -0.08564465417654311],
+                  [0.012659811385060322, -0.08766038424623862, 0.21755905478288376, 1.0, 0.8631544437741235],
+                  [
+                    -0.2586027707649304,
+                    0.20467916155691165,
+                    -0.08564465417654307,
+                    0.8631544437741235,
+                    0.9999999999999998
+                  ]
+                ],
+                "degrees_of_freedom": 273.0,
+                "local_student_t_95_intervals": {
+                  "V0": [55.23828607283279, 58.448159868613246],
+                  "K0": [10.82501668808867, 15.412896248857578],
+                  "K0_prime": [6.0107519374311495, 6.4088841578242866],
+                  "gamma0": [2.636418287859883, 4.138172229210976],
+                  "q": [0.7308667848950188, 1.2392951635372103]
+                },
+                "residual_variance": 1.5951989262008968,
+                "max_abs_residual_jacobian_cosine": 2.433512566810527e-08,
+                "residual_sum_squares": 435.48930685284483,
+                "residual_count": 278,
+                "scaled_jacobian_condition_number": 853.988305252356,
+                "derivative_step_halving_relative_change": 3.0667575753804485e-12,
+                "method": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
+                "previous_assessment": {
+                  "status": "similar",
+                  "reason": "All five Table I coefficients are fitted, including q. Fixed theta0=235 K, Tr=300 K and n=2. Equal pressure weights; no original covariance or explicit row weights. Integrated-Gruneisen theta law is inferred by complete-data numerical reproduction; Equations 3-4 do not explicitly define theta(V). Dewaele 298 K measurements enter the source regression as its 300 K reference, preserving raw temperature provenance. High-temperature KCl temperatures are geometry-conditioned modeled effective temperatures. Cold ruby and high-T Pt calibration ancestry remain distinct."
+                },
+                "assumptions": [
+                  "Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.",
+                  "Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.",
+                  "Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.",
+                  "Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.",
+                  "Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred."
+                ]
+              },
+              "covariance_convention": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
               "dataset_identifiers": ["kcl_dewaele_2012_table1_compression", "kcl_chidester_2021_supplemental_pvt"]
             },
             "report": "docs/data/primary-eos-refits.json"
@@ -1844,12 +2150,13 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "similar",
+            "status": "parity",
             "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
             "qualifications": [
-              "All three BM3 coefficients lie within their published error widths, but unknown source weights/error confidence/covariance prevent strict statistical parity. Gamma0/theta0 receive a separate Eq 13 acoustic diagnostic; high-temperature use is modeled. Run-normalized upstream Walker recalibration is reproduced within printed-input precision; the exact algorithm and uncertainty propagation remain unverified. See the [Ma audit](literature-reproductions/ma-2024-kcl.md).",
+              "Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Joint 11 KT(V) plus eight Walker P(V) observations; same deposited relative weights as the stored diagnostic, not author covariance. Static coefficients only; thermal and calibration qualifications remain. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): All three BM3 coefficients lie within their published error widths, but unknown source weights/error confidence/covariance prevent strict statistical parity. Gamma0/theta0 receive a separate Eq 13 acoustic diagnostic; high-temperature use is modeled. Run-normalized upstream Walker recalibration is reproduced within printed-input precision; the exact algorithm and uncertainty propagation remain unverified. See the [Ma audit](literature-reproductions/ma-2024-kcl.md). See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/kcl/#record-kcl_b2_ma_2024_bm3_mgd",
@@ -1860,46 +2167,89 @@
                 "published": 53.93430890180654,
                 "published_error": 0.14944851604564618,
                 "refit": 53.93326879574039,
-                "refit_error": null,
+                "refit_error": 0.09393944678071331,
                 "difference": -0.0010401060661493489,
                 "relative_difference": 1.928468329951124e-05,
                 "similar": true,
-                "within_combined_2sigma": null
+                "within_combined_2sigma": null,
+                "within_reported_error": true
               },
               {
                 "parameter": "K0",
                 "published": 21.33,
                 "published_error": 0.7,
                 "refit": 21.348727595446597,
-                "refit_error": null,
+                "refit_error": 0.42693926246051916,
                 "difference": 0.018727595446598855,
                 "relative_difference": 0.0008779932230004152,
                 "similar": true,
-                "within_combined_2sigma": null
+                "within_combined_2sigma": null,
+                "within_reported_error": true
               },
               {
                 "parameter": "K0_prime",
                 "published": 4.836,
                 "published_error": 0.083,
                 "refit": 4.846212436598056,
-                "refit_error": null,
+                "refit_error": 0.05221729662182093,
                 "difference": 0.010212436598055596,
                 "relative_difference": 0.002111752811839453,
                 "similar": true,
-                "within_combined_2sigma": null
+                "within_combined_2sigma": null,
+                "within_reported_error": true
               }
             ],
             "fit": {
               "fit_kind": "joint_acoustic_kt_volume_and_recalibrated_walker_pv",
               "objective": "KT and pressure residuals divided by deposited row error widths; all 19 rows, V0/K0/K0_prime free",
               "selection": "11 measured acoustic-volume rows reduced to KT plus eight Matsui-2012-recalibrated Walker-2002 300 K P-V rows; S1 modeled pressures and S3-S4 grids excluded from all fits.",
+              "weighting": "Joint 11 KT(V) plus eight Walker P(V) observations; same deposited relative weights as the stored diagnostic, not author covariance. Static coefficients only; thermal and calibration qualifications remain.",
               "absolute_sigma": false,
               "free_parameters": ["V0", "K0", "K0_prime"],
               "fixed_parameters": ["Tr", "q", "n"],
               "observations": 19,
+              "degrees_of_freedom": 16.0,
               "solver_success": true,
               "solver_message": "dedicated Ma acoustic/Walker diagnostic completed",
               "rmse_gpa": 0.028929592032841005,
+              "parameter_covariance": [
+                [0.008824619661466469, -0.03941766621955943, 0.003947829805419139],
+                [-0.03941766621955943, 0.18227713383033206, -0.019559074459422388],
+                [0.003947829805419139, -0.019559074459422388, 0.002726646066491232]
+              ],
+              "covariance": {
+                "parameters": ["V0", "K0", "K0_prime"],
+                "matrix": [
+                  [0.008824619661466469, -0.03941766621955943, 0.003947829805419139],
+                  [-0.03941766621955943, 0.18227713383033206, -0.019559074459422388],
+                  [0.003947829805419139, -0.019559074459422388, 0.002726646066491232]
+                ],
+                "standard_errors": {"V0": 0.09393944678071331, "K0": 0.42693926246051916, "K0_prime": 0.05221729662182093},
+                "correlation_matrix": [
+                  [1.0, -0.9828264005193064, 0.80481495797074],
+                  [-0.9828264005193064, 1.0, -0.8773397783416363],
+                  [0.80481495797074, -0.8773397783416363, 1.0000000000000002]
+                ],
+                "degrees_of_freedom": 16.0,
+                "local_student_t_95_intervals": {
+                  "V0": [53.73412606470404, 54.132411526776735],
+                  "K0": [20.44365679051093, 22.253798400382266],
+                  "K0_prime": [4.735516712778449, 4.956908160417663]
+                },
+                "method": "Recovered existing joint acoustic/Walker residual-scaled diagnostic covariance; molar V0 converted to Z=1 conventional-cell units on both covariance axes.",
+                "previous_assessment": {
+                  "status": "similar",
+                  "qualification": "All three BM3 coefficients lie within their published error widths, but unknown source weights/error confidence/covariance prevent strict statistical parity. Gamma0/theta0 receive a separate Eq 13 acoustic diagnostic; high-temperature use is modeled. Run-normalized upstream Walker recalibration is reproduced within printed-input precision; the exact algorithm and uncertainty propagation remain unverified. See the [Ma audit](literature-reproductions/ma-2024-kcl.md)."
+                },
+                "assumptions": [
+                  "Joint 11 KT(V) plus eight Walker P(V) observations; same deposited relative weights as the stored diagnostic, not author covariance. Static coefficients only; thermal and calibration qualifications remain.",
+                  "Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.",
+                  "Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.",
+                  "Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.",
+                  "Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred."
+                ]
+              },
+              "covariance_convention": "Recovered existing joint acoustic/Walker residual-scaled diagnostic covariance; molar V0 converted to Z=1 conventional-cell units on both covariance axes.",
               "dataset_identifiers": ["kcl_ma_2024_acoustic", "kcl_ma_2024_walker"]
             },
             "report": "docs/data/primary-eos-refits.json"

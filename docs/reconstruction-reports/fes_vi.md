@@ -12,7 +12,7 @@ agreement, source verification, author-workflow reproduction and recommendation 
 
 | EOS record | Recorded outcome | Coefficient comparison |
 | --- | --- | --- |
-| [Morard et al. (2026), FeS BM3-MGD](#record-fes_vi_morard_2026_bm3_mgd) | Numerically similar, with qualifications | Graph and table |
+| [Morard et al. (2026), FeS BM3-MGD](#record-fes_vi_morard_2026_bm3_mgd) | Coefficient parity achieved | Graph and table |
 
 <a id="record-fes_vi_morard_2026_bm3_mgd"></a>
 
@@ -20,10 +20,10 @@ agreement, source verification, author-workflow reproduction and recommendation 
 
 Record: `fes_vi_morard_2026_bm3_mgd` · Model: `BM3`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Coefficient parity achieved.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Conditional parameter agreement under both the combined-error comparison and numerical similarity screen; source confidence conventions remain explicit, and unknown source confidence or shared-data covariance does not become a formal confidence test or author-workflow reproduction.
 
 [Stored EOS coefficients and source](../material-summaries/fes_vi.md#record-fes_vi_morard_2026_bm3_mgd)
 
@@ -32,7 +32,7 @@ Record: `fes_vi_morard_2026_bm3_mgd` · Model: `BM3`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** Accepted for use as the unchanged published common FeS volume relation within the paper's 40-150 GPa scope and observed thermal coverage, with phase, reference-temperature and uncertainty qualifications. The +/-3 GPa envelope is not reproduced and must not be assumed as a prediction-error bound.
 
-- Accepted on parameter agreement under the 2026-10-19 maintainer decision: staged reproduced-cold coefficients are compatible within reported uncertainty intervals, and the equal-weight control puts all four central estimates inside published error widths. The numerical label remains similar, without asserting formal independent uncertainty parity or exact author-workflow reproduction. The unreproduced +/-3 GPa residual envelope is informational and does not gate catalog use. Published coefficients are preserved.
+- Every compared free coefficient meets both the combined-two-width diagnostic and numerical similarity screen. Source confidence and shared-data covariance are not inferred. Conditional staged cold-then-thermal parameter agreement under the stored EosFit diagnostic and reported widths, whose confidence is unspecified. GUI publication digits, cold-fit pressure scales and the full +/-3 GPa residual envelope remain separate qualifications. Use remains limited to the source's 40-150 GPa scope and observed thermal coverage; coefficient agreement does not establish phase stability or independently change the source-use assessment. Earlier audit wording (superseded only for the named numerical scope): Accepted on parameter agreement under the 2026-10-19 maintainer decision: staged reproduced-cold coefficients are compatible within reported uncertainty intervals, and the equal-weight control puts all four central estimates inside published error widths. The numerical label remains similar, without asserting formal independent uncertainty parity or exact author-workflow reproduction. The unreproduced +/-3 GPa residual envelope is informational and does not gate catalog use. Published coefficients are preserved. Published BM3-MGD coefficients accepted unchanged on parameter agreement, following the 2026-10-19 maintainer decision. The confirmed selected author input has 21 literature cold and 146 thermal rows, excluding all 11 unsuitable quenched rows. Weighted and equal-weight cold-then-thermal EosFit fits recover all three cold coefficients within published error widths; equal-weight gamma0 is inside the published width and the weighted gamma0 interval overlaps it. Actual distributed-GUI fits agree closely with the console. Reconstruction remains classified similar: source error confidence and cross-fit covariance are unspecified and thermal errors condition on fixed cold coefficients. The staged weighted GUI thermal replay has RMS 1.63 GPa, maximum 5.29 GPa, and 12/146 rows outside +/-3 GPa. This residual-reporting discrepancy does not block use; exact original author-workflow reproduction is not claimed. See docs/literature-reproductions/fes-gui-replay.md and docs/literature-reproductions/fes-eosfit-direct.md.
 - Published BM3-MGD coefficients accepted unchanged on parameter agreement, following the 2026-10-19 maintainer decision. The confirmed selected author input has 21 literature cold and 146 thermal rows, excluding all 11 unsuitable quenched rows. Weighted and equal-weight cold-then-thermal EosFit fits recover all three cold coefficients within published error widths; equal-weight gamma0 is inside the published width and the weighted gamma0 interval overlaps it. Actual distributed-GUI fits agree closely with the console. Reconstruction remains classified similar: source error confidence and cross-fit covariance are unspecified and thermal errors condition on fixed cold coefficients. The staged weighted GUI thermal replay has RMS 1.63 GPa, maximum 5.29 GPa, and 12/146 rows outside +/-3 GPa. This residual-reporting discrepancy does not block use; exact original author-workflow reproduction is not claimed. See docs/literature-reproductions/fes-gui-replay.md and docs/literature-reproductions/fes-eosfit-direct.md.
 - Usage recommendation: Accepted for use as the unchanged published common FeS volume relation within the paper's 40-150 GPa scope and observed thermal coverage, with phase, reference-temperature and uncertainty qualifications. The +/-3 GPa envelope is not reproduced and must not be assumed as a prediction-error bound.
 - exact original 20210609 GUI build and regression controls
@@ -96,12 +96,12 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 - **Rmse gpa:** 1.63361
 - **Published rmse gpa:** 1.9161
 - **Reduced chi square:** 0.6274
+- **Comparison scope:** Compared free coefficients: eos.V0, eos.K0, eos.K0\_prime, thermal.gamma0; scope=parameter\_agreement
 
 </details>
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-fes_vi_morard_2026_bm3_mgd).
 - [Supporting source report: fes-eosfit-direct](../literature-reproductions/fes-eosfit-direct.md).
 - [Supporting source report: fes-gui-replay](../literature-reproductions/fes-gui-replay.md).
 - [Supporting source report: morard-2026-fes](../literature-reproductions/morard-2026-fes.md).

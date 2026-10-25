@@ -12,13 +12,13 @@ agreement, source verification, author-workflow reproduction and recommendation 
 
 | EOS record | Recorded outcome | Coefficient comparison |
 | --- | --- | --- |
-| [Litasov et al. (2007), bm3 a89](#record-superhydrous_phase_b_lt_litasov_2007_bm3_a89) | Numerically similar, with qualifications | Graph and table |
-| [Litasov et al. (2007), bm3 t03](#record-superhydrous_phase_b_lt_litasov_2007_bm3_t03) | Numerically similar, with qualifications | Graph and table |
-| [Litasov et al. (2007), htbm a89](#record-superhydrous_phase_b_lt_litasov_2007_htbm_a89) | Numerically similar, with qualifications | Graph and table |
-| [Litasov et al. (2007), htbm t03](#record-superhydrous_phase_b_lt_litasov_2007_htbm_t03) | Numerically similar, with qualifications | Graph and table |
-| [Litasov et al. (2007), thermal pressure a89](#record-superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89) | Numerically similar, with qualifications | Graph and table |
-| [Litasov et al. (2007), mgd free debye a89](#record-superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89) | Numerically similar, with qualifications | Graph and table |
-| [Litasov et al. (2007), mgd elastic debye a89](#record-superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89) | Numerically similar, with qualifications | Graph and table |
+| [Litasov et al. (2007), bm3 a89](#record-superhydrous_phase_b_lt_litasov_2007_bm3_a89) | Coefficient parity achieved | Graph and table |
+| [Litasov et al. (2007), bm3 t03](#record-superhydrous_phase_b_lt_litasov_2007_bm3_t03) | Coefficient parity achieved | Graph and table |
+| [Litasov et al. (2007), htbm a89](#record-superhydrous_phase_b_lt_litasov_2007_htbm_a89) | Coefficient parity achieved | Graph and table |
+| [Litasov et al. (2007), htbm t03](#record-superhydrous_phase_b_lt_litasov_2007_htbm_t03) | Coefficient parity achieved | Graph and table |
+| [Litasov et al. (2007), thermal pressure a89](#record-superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89) | Coefficient parity achieved | Graph and table |
+| [Litasov et al. (2007), mgd free debye a89](#record-superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89) | Coefficient parity achieved | Graph and table |
+| [Litasov et al. (2007), mgd elastic debye a89](#record-superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89) | Coefficient parity achieved | Graph and table |
 
 <a id="record-superhydrous_phase_b_lt_litasov_2007_bm3_a89"></a>
 
@@ -26,10 +26,10 @@ agreement, source verification, author-workflow reproduction and recommendation 
 
 Record: `superhydrous_phase_b_lt_litasov_2007_bm3_a89` · Model: `BM3`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Coefficient parity achieved.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Stored EOS coefficients and source](../material-summaries/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_bm3_a89)
 
@@ -38,7 +38,8 @@ Record: `superhydrous_phase_b_lt_litasov_2007_bm3_a89` · Model: `BM3`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
-- Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Existing reconstructed errors retained; no source confidence convention inferred. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
+- Earlier audit statement, before the conditional uncertainty follow-up: Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
@@ -47,6 +48,7 @@ Record: `superhydrous_phase_b_lt_litasov_2007_bm3_a89` · Model: `BM3`
 - **Observations:** 20
 - **Fit kind:** independent\_nonlinear\_pressure\_least\_squares
 - **Objective:** unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3
+- **Weighting:** Existing reconstructed errors retained; no source confidence convention inferred.
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 
@@ -95,13 +97,24 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 - **Solver success:** True
 - **Rmse gpa:** 0.0731216
 - **Published rmse gpa:** 0.0751406
+- **Covariance:**
+    - **Parameters:** V0; K0; K0\_prime
+    - **Standard errors:**
+        - **V0:** 0.188238
+        - **K0:** 1.49526
+        - **K0 prime:** 0.158132
+    - **Method:** Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Reason:** Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
+    - **Assumptions:** Existing reconstructed errors retained; no source confidence convention inferred.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
 
 </details>
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-superhydrous_phase_b_lt_litasov_2007_bm3_a89).
 - [Supporting source report: litasov-2007-superhydrous-phase-b](../literature-reproductions/litasov-2007-superhydrous-phase-b.md).
+- [Supporting source report: uncertainty-reconstruction](../literature-reproductions/uncertainty-reconstruction.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
@@ -117,10 +130,10 @@ Supporting reports retain additional source plots and protocol-specific diagnost
 
 Record: `superhydrous_phase_b_lt_litasov_2007_bm3_t03` · Model: `BM3`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Coefficient parity achieved.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Stored EOS coefficients and source](../material-summaries/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_bm3_t03)
 
@@ -129,7 +142,8 @@ Record: `superhydrous_phase_b_lt_litasov_2007_bm3_t03` · Model: `BM3`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
-- Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Existing reconstructed errors retained; no source confidence convention inferred. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
+- Earlier audit statement, before the conditional uncertainty follow-up: Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
@@ -138,6 +152,7 @@ Record: `superhydrous_phase_b_lt_litasov_2007_bm3_t03` · Model: `BM3`
 - **Observations:** 20
 - **Fit kind:** independent\_nonlinear\_pressure\_least\_squares
 - **Objective:** unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3
+- **Weighting:** Existing reconstructed errors retained; no source confidence convention inferred.
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 
@@ -186,13 +201,24 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 - **Solver success:** True
 - **Rmse gpa:** 0.0639798
 - **Published rmse gpa:** 0.0755246
+- **Covariance:**
+    - **Parameters:** V0; K0; K0\_prime
+    - **Standard errors:**
+        - **V0:** 0.169875
+        - **K0:** 1.33981
+        - **K0 prime:** 0.152768
+    - **Method:** Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Reason:** Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
+    - **Assumptions:** Existing reconstructed errors retained; no source confidence convention inferred.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
 
 </details>
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-superhydrous_phase_b_lt_litasov_2007_bm3_t03).
 - [Supporting source report: litasov-2007-superhydrous-phase-b](../literature-reproductions/litasov-2007-superhydrous-phase-b.md).
+- [Supporting source report: uncertainty-reconstruction](../literature-reproductions/uncertainty-reconstruction.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
@@ -208,10 +234,10 @@ Supporting reports retain additional source plots and protocol-specific diagnost
 
 Record: `superhydrous_phase_b_lt_litasov_2007_htbm_a89` · Model: `BM3`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Coefficient parity achieved.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Stored EOS coefficients and source](../material-summaries/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_htbm_a89)
 
@@ -220,7 +246,8 @@ Record: `superhydrous_phase_b_lt_litasov_2007_htbm_a89` · Model: `BM3`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
-- Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Existing reconstructed errors retained; no source confidence convention inferred. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
+- Earlier audit statement, before the conditional uncertainty follow-up: Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
@@ -229,6 +256,7 @@ Record: `superhydrous_phase_b_lt_litasov_2007_htbm_a89` · Model: `BM3`
 - **Observations:** 69
 - **Fit kind:** independent\_nonlinear\_pressure\_least\_squares
 - **Objective:** unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3
+- **Weighting:** Existing reconstructed errors retained; no source confidence convention inferred.
 - **Free parameters:** V0; K0; K0\_prime; alpha0; alpha1; dK\_dT
 - **Fixed parameters:** Tr
 
@@ -280,13 +308,27 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 - **Solver success:** True
 - **Rmse gpa:** 0.108135
 - **Published rmse gpa:** 0.126371
+- **Covariance:**
+    - **Parameters:** V0; K0; K0\_prime; alpha0; alpha1; dK\_dT
+    - **Standard errors:**
+        - **V0:** 0.257582
+        - **K0:** 1.85767
+        - **K0 prime:** 0.193519
+        - **Alpha0:** 1.1271e-06
+        - **Alpha1:** 2.56629e-09
+        - **Dk dt:** 0.00264137
+    - **Method:** Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Reason:** Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
+    - **Assumptions:** Existing reconstructed errors retained; no source confidence convention inferred.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
 
 </details>
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-superhydrous_phase_b_lt_litasov_2007_htbm_a89).
 - [Supporting source report: litasov-2007-superhydrous-phase-b](../literature-reproductions/litasov-2007-superhydrous-phase-b.md).
+- [Supporting source report: uncertainty-reconstruction](../literature-reproductions/uncertainty-reconstruction.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
@@ -302,10 +344,10 @@ Supporting reports retain additional source plots and protocol-specific diagnost
 
 Record: `superhydrous_phase_b_lt_litasov_2007_htbm_t03` · Model: `BM3`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Coefficient parity achieved.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Conditional parameter agreement under both the combined-error comparison and numerical similarity screen; source confidence conventions remain explicit, and unknown source confidence or shared-data covariance does not become a formal confidence test or author-workflow reproduction.
 
 [Stored EOS coefficients and source](../material-summaries/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_htbm_t03)
 
@@ -314,7 +356,8 @@ Record: `superhydrous_phase_b_lt_litasov_2007_htbm_t03` · Model: `BM3`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
-- Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
+- Every compared free coefficient passes the combined-error comparison and numerical similarity screen. Source confidence is unspecified, so the combined-two-width comparison is diagnostic, not a formal two-sigma confidence statement. The printed-source-width-only cutoff is not required for this parameter-agreement scope. Original weights, calibration covariance and author workflow remain unrecovered; shared-data cross-fit covariance is unknown. Existing reconstructed errors retained; no source confidence convention inferred. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
+- Earlier audit statement, before the conditional uncertainty follow-up: Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
@@ -323,6 +366,7 @@ Record: `superhydrous_phase_b_lt_litasov_2007_htbm_t03` · Model: `BM3`
 - **Observations:** 69
 - **Fit kind:** independent\_nonlinear\_pressure\_least\_squares
 - **Objective:** unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3
+- **Weighting:** Existing reconstructed errors retained; no source confidence convention inferred.
 - **Free parameters:** V0; K0; K0\_prime; alpha0; alpha1; dK\_dT
 - **Fixed parameters:** Tr
 
@@ -374,13 +418,27 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 - **Solver success:** True
 - **Rmse gpa:** 0.130367
 - **Published rmse gpa:** 0.134111
+- **Covariance:**
+    - **Parameters:** V0; K0; K0\_prime; alpha0; alpha1; dK\_dT
+    - **Standard errors:**
+        - **V0:** 0.320538
+        - **K0:** 2.30536
+        - **K0 prime:** 0.257526
+        - **Alpha0:** 1.22796e-06
+        - **Alpha1:** 3.20221e-09
+        - **Dk dt:** 0.00304876
+    - **Method:** Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Reason:** Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
+    - **Assumptions:** Existing reconstructed errors retained; no source confidence convention inferred.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
 
 </details>
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-superhydrous_phase_b_lt_litasov_2007_htbm_t03).
 - [Supporting source report: litasov-2007-superhydrous-phase-b](../literature-reproductions/litasov-2007-superhydrous-phase-b.md).
+- [Supporting source report: uncertainty-reconstruction](../literature-reproductions/uncertainty-reconstruction.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
@@ -396,10 +454,10 @@ Supporting reports retain additional source plots and protocol-specific diagnost
 
 Record: `superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89` · Model: `BM3`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Coefficient parity achieved.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Stored EOS coefficients and source](../material-summaries/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89)
 
@@ -408,7 +466,8 @@ Record: `superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89` · Model: `B
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
-- Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Existing reconstructed errors retained; no source confidence convention inferred. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
+- Earlier audit statement, before the conditional uncertainty follow-up: Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
@@ -417,6 +476,7 @@ Record: `superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89` · Model: `B
 - **Observations:** 69
 - **Fit kind:** independent\_nonlinear\_pressure\_least\_squares
 - **Objective:** unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3
+- **Weighting:** Existing reconstructed errors retained; no source confidence convention inferred.
 - **Free parameters:** V0; K0; K0\_prime; alpha0; dK\_dT\_V
 - **Fixed parameters:** Tr
 
@@ -467,13 +527,26 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 - **Solver success:** True
 - **Rmse gpa:** 0.109766
 - **Published rmse gpa:** 0.115548
+- **Covariance:**
+    - **Parameters:** V0; K0; K0\_prime; alpha0; dK\_dT\_V
+    - **Standard errors:**
+        - **V0:** 0.2574
+        - **K0:** 1.82815
+        - **K0 prime:** 0.190493
+        - **Alpha0:** 1.8495e-06
+        - **Dk dt v:** 0.00214141
+    - **Method:** Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Reason:** Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
+    - **Assumptions:** Existing reconstructed errors retained; no source confidence convention inferred.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
 
 </details>
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-superhydrous_phase_b_lt_litasov_2007_thermal_pressure_a89).
 - [Supporting source report: litasov-2007-superhydrous-phase-b](../literature-reproductions/litasov-2007-superhydrous-phase-b.md).
+- [Supporting source report: uncertainty-reconstruction](../literature-reproductions/uncertainty-reconstruction.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
@@ -489,10 +562,10 @@ Supporting reports retain additional source plots and protocol-specific diagnost
 
 Record: `superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89` · Model: `BM3`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Coefficient parity achieved.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Stored EOS coefficients and source](../material-summaries/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89)
 
@@ -501,7 +574,8 @@ Record: `superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89` · Model: `BM3
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
-- Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Existing reconstructed errors retained; no source confidence convention inferred. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
+- Earlier audit statement, before the conditional uncertainty follow-up: Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
@@ -510,6 +584,7 @@ Record: `superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89` · Model: `BM3
 - **Observations:** 69
 - **Fit kind:** independent\_nonlinear\_pressure\_least\_squares
 - **Objective:** unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3
+- **Weighting:** Existing reconstructed errors retained; no source confidence convention inferred.
 - **Free parameters:** V0; K0; K0\_prime; gamma0; q; theta0
 - **Fixed parameters:** Tr; n
 
@@ -561,13 +636,27 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 - **Solver success:** True
 - **Rmse gpa:** 0.105551
 - **Published rmse gpa:** 0.106627
+- **Covariance:**
+    - **Parameters:** V0; K0; K0\_prime; gamma0; q; theta0
+    - **Standard errors:**
+        - **V0:** 0.249448
+        - **K0:** 1.76819
+        - **K0 prime:** 0.18277
+        - **Gamma0:** 0.0637895
+        - **Q:** 0.438262
+        - **Theta0:** 129.025
+    - **Method:** Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Reason:** Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
+    - **Assumptions:** Existing reconstructed errors retained; no source confidence convention inferred.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
 
 </details>
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-superhydrous_phase_b_lt_litasov_2007_mgd_free_debye_a89).
 - [Supporting source report: litasov-2007-superhydrous-phase-b](../literature-reproductions/litasov-2007-superhydrous-phase-b.md).
+- [Supporting source report: uncertainty-reconstruction](../literature-reproductions/uncertainty-reconstruction.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
@@ -583,10 +672,10 @@ Supporting reports retain additional source plots and protocol-specific diagnost
 
 Record: `superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89` · Model: `BM3`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Coefficient parity achieved.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Stored EOS coefficients and source](../material-summaries/superhydrous_phase_b_lt.md#record-superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89)
 
@@ -595,7 +684,8 @@ Record: `superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89` · Model: `
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
-- Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Existing reconstructed errors retained; no source confidence convention inferred. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
+- Earlier audit statement, before the conditional uncertainty follow-up: Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
@@ -604,6 +694,7 @@ Record: `superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89` · Model: `
 - **Observations:** 69
 - **Fit kind:** independent\_nonlinear\_pressure\_least\_squares
 - **Objective:** unweighted pressure residuals; all 69 rows for thermal models, 20 at 300 K for BM3
+- **Weighting:** Existing reconstructed errors retained; no source confidence convention inferred.
 - **Free parameters:** V0; K0; K0\_prime; gamma0; q
 - **Fixed parameters:** Tr; n; theta0
 
@@ -654,13 +745,26 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 - **Solver success:** True
 - **Rmse gpa:** 0.112409
 - **Published rmse gpa:** 0.123081
+- **Covariance:**
+    - **Parameters:** V0; K0; K0\_prime; gamma0; q
+    - **Standard errors:**
+        - **V0:** 0.262815
+        - **K0:** 1.85663
+        - **K0 prime:** 0.19108
+        - **Gamma0:** 0.0598583
+        - **Q:** 0.450116
+    - **Method:** Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Reason:** Published coefficients compared with independent Table 2 unweighted pressure least squares; all reported-error comparisons use combined two-error diagnostic intervals (source confidence unspecified). Source weights/covariance unavailable. No diagnostic fit replaces a published record. Explicit BM3 and MGD sign interpretations, weighted/literal controls and held alternatives documented in literature-reproductions/litasov-2007-superhydrous-phase-b.md.
+    - **Assumptions:** Existing reconstructed errors retained; no source confidence convention inferred.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
 
 </details>
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-superhydrous_phase_b_lt_litasov_2007_mgd_elastic_debye_a89).
 - [Supporting source report: litasov-2007-superhydrous-phase-b](../literature-reproductions/litasov-2007-superhydrous-phase-b.md).
+- [Supporting source report: uncertainty-reconstruction](../literature-reproductions/uncertainty-reconstruction.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 

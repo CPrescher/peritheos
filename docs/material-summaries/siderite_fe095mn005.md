@@ -95,18 +95,18 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Open reconstruction report](../reconstruction-reports/siderite_fe095mn005.md#record-siderite_fe095mn005_litasov_2013_bm3)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
-- Point estimates fall within the published errors, but source weighting and covariance are unspecified. All 27 printed 300 K rows are retained; the source RMS range is not recovered. The conflicting thermal coefficient is withheld. See literature-reproductions/litasov-2013-siderite.md.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Agreement concerns K0 and K0-prime on all 27 printed 300 K rows, conditional on source-fixed V0=293.4 A^3, original printed Au pressures and equal pressure-residual weights. The published-curve pressure RMS remains 0.22958 GPa, outside the manuscript's reported 0.11-0.17 GPa range; that source-data agreement finding is unresolved separately. Exact pressure-scale realization, original objective/weights and author workflow remain unrecovered. No thermal-coefficient conflict or use restriction is resolved by this parameter comparison. Existing reconstructed errors retained; no source confidence convention inferred. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Point estimates fall within the published errors, but source weighting and covariance are unspecified. All 27 printed 300 K rows are retained; the source RMS range is not recovered. The conflicting thermal coefficient is withheld. See literature-reproductions/litasov-2013-siderite.md. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -128,6 +128,7 @@ Displayed uncertainties use two significant digits for leading 1/2, otherwise on
 
 - **Fit kind:** fixed\_V0\_linearized\_bm3
 - **Objective:** unweighted\_pressure\_residuals
+- **Weighting:** Existing reconstructed errors retained; no source confidence convention inferred.
 - **Absolute sigma:** False
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
@@ -137,6 +138,16 @@ Displayed uncertainties use two significant digits for leading 1/2, otherwise on
 - **Solver success:** True
 - **Rmse gpa:** 0.227309
 - **Published rmse gpa:** 0.229585
+- **Covariance:**
+    - **Parameters:** K0; K0\_prime
+    - **Standard errors:**
+        - **K0:** 1.32269
+        - **K0 prime:** 0.134186
+    - **Method:** Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Qualification:** Point estimates fall within the published errors, but source weighting and covariance are unspecified. All 27 printed 300 K rows are retained; the source RMS range is not recovered. The conflicting thermal coefficient is withheld. See literature-reproductions/litasov-2013-siderite.md.
+    - **Assumptions:** Existing reconstructed errors retained; no source confidence convention inferred.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
 - **Dataset identifiers:** siderite\_fe095mn005\_litasov\_2013\_table2\_pvt
 
 </details>

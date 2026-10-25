@@ -5719,12 +5719,24 @@ def validate_all() -> dict[str, Any]:
                     + " "
                     + record["scientific_validation"]["recommendation_reason"]
                 ).strip()
+            from scripts.reconstruct_similar_eos_uncertainties import augment_outcome
+            from scripts.review_similar_parameter_scope import (
+                augment_outcome as augment_parameter_scope,
+            )
+
+            outcome = augment_outcome(record, outcome)
+            outcome = augment_parameter_scope(record, outcome)
             results.append({**base, **outcome})
 
     from scripts.forsterite_reproduce_katsura_2022 import LEDGER_PARITY_POLICY
+    from scripts.reconstruct_similar_eos_uncertainties import COMBINED_ERROR_POLICY
+    from scripts.reconstruct_similar_eos_uncertainties import (
+        PARITY_POLICY as UNCERTAINTY_PARITY_POLICY,
+    )
     from scripts.reproduce_dewaele_2008_metals import (
         PARITY_POLICY as DEWAELE_2008_PARITY_POLICY,
     )
+    from scripts.review_similar_parameter_scope import POLICY as PARAMETER_SCOPE_POLICY
 
     counts = Counter(item["status"] for item in results)
     return {
@@ -5757,7 +5769,16 @@ def validate_all() -> dict[str, Any]:
                 "reported parameter error widths, with small pressure-curve "
                 "differences relative to the observation errors. Exact author "
                 "workflow availability is a separate provenance assessment."
-                " " + LEDGER_PARITY_POLICY + " " + DEWAELE_2008_PARITY_POLICY
+                " "
+                + LEDGER_PARITY_POLICY
+                + " "
+                + DEWAELE_2008_PARITY_POLICY
+                + " "
+                + UNCERTAINTY_PARITY_POLICY
+                + " "
+                + COMBINED_ERROR_POLICY
+                + " "
+                + PARAMETER_SCOPE_POLICY
             ),
             "similar": (
                 "Every fitted parameter either agrees within combined 2-sigma or "

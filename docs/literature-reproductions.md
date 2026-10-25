@@ -1,5 +1,20 @@
 # Literature reproductions
 
+The [25 October 2026 uncertainty reconstruction](literature-reproductions/uncertainty-reconstruction.md)
+supplies missing conditional errors for 51 records and reviews 12 existing
+qualifications. All 63 reviewed records meet their stated conditional numerical
+parameter criterion; selection hypotheses, fixed-parameter assumptions and
+unresolved data/calibration findings remain explicit. Source coefficients,
+observations and use limits are preserved.
+
+The [remaining-similar parameter-scope review](literature-reproductions/similar-parameter-review.md)
+checks the other 96 similar records: 21 achieve conditional parameter agreement,
+two reproduce registered Peritheos refits and one reproduces a source-equation
+checkpoint calculation; 72 retain similarity. Their source uncertainties,
+printed-precision tolerances, fixed masks and separate qualifications are listed
+record by record.
+
+
 The [Dewaele (2008) audit](literature-reproductions/dewaele-2008-metals.md)
 recovers the 13 Table IV experimental EOS and preserves all 54 PAW sets in a
 [separate research collection](research/dewaele-2008-paw.md). The input 2004 ruby

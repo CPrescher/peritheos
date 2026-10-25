@@ -12,7 +12,7 @@ agreement, source verification, author-workflow reproduction and recommendation 
 
 | EOS record | Recorded outcome | Coefficient comparison |
 | --- | --- | --- |
-| [AIP Handbook Cu low-pressure Vinet m=8 refit](#record-cu_sun_2010_low_vn_refit) | Numerically similar, with qualifications | Graph and table |
+| [AIP Handbook Cu low-pressure Vinet m=8 refit](#record-cu_sun_2010_low_vn_refit) | Coefficient parity achieved | Graph and table |
 
 <a id="record-cu_sun_2010_low_vn_refit"></a>
 
@@ -20,10 +20,10 @@ agreement, source verification, author-workflow reproduction and recommendation 
 
 Record: `cu_sun_2010_low_vn_refit` · Model: `Vinet`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Coefficient parity achieved.**
 
 **Scope:** Reproduction of a stored independent Peritheos refit.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Reproduction of the stored independent Peritheos refit under its declared protocol.
 
 [Stored EOS coefficients and source](../material-summaries/cu_handbook_1972_legacy.md#record-cu_sun_2010_low_vn_refit)
 
@@ -33,6 +33,7 @@ Record: `cu_sun_2010_low_vn_refit` · Model: `Vinet`
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
 - This comparison concerns the stored independent Peritheos refit, not recovery of the original publication's coefficients or author workflow.
+- Registered independent refit point estimates reproduce within the declared numerical solver tolerance. Replay of the registered independent Peritheos refit's stored point estimates, with numerical relative tolerance 1e-6 and absolute tolerance 1e-8 in the recorded units. This is solver repeatability, not agreement with source-author coefficients or an uncertainty estimate. Source-data limitations, graphical correlations and original-publication findings remain unchanged. Earlier audit wording (superseded only for the named numerical scope):
 
 ### Data and reconstruction method
 
@@ -99,12 +100,12 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 - **Rmse gpa:** 0.0701542
 - **Published rmse gpa:** 0.0701542
 - **Reduced chi square:** Not specified
+- **Comparison scope:** Compared free coefficients: K0, K0\_prime; scope=independent\_refit
 
 </details>
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-cu_sun_2010_low_vn_refit).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 

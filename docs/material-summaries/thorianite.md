@@ -94,18 +94,19 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Open reconstruction report](../reconstruction-reports/thorianite.md#record-thorianite_chidester_2018_bm3_linear_thermal)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
-- Published objective, weights, covariance, confidence levels and fit staging are unspecified. Each diagnostic jointly varies the source-free parameters once. Effective-error weights propagate P,V,T errors at published coefficients and add the stated Ar 3% accuracy in quadrature as a sensitivity assumption; cross-row scale correlation is not known. No strict statistical parity claimed.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Original effective P/V/T weights frozen at published coefficients, including the audit's Ar 3% cold-pressure sensitivity; diagonal and residual-scaled, with shared scale covariance unresolved. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Published objective, weights, covariance, confidence levels and fit staging are unspecified. Each diagnostic jointly varies the source-free parameters once. Effective-error weights propagate P,V,T errors at published coefficients and add the stated Ar 3% accuracy in quadrature as a sensitivity assumption; cross-row scale correlation is not known. No strict statistical parity claimed. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
+- Earlier audit statement, before the conditional uncertainty follow-up: Published objective, weights, covariance, confidence levels and fit staging are unspecified. Each diagnostic jointly varies the source-free parameters once. Effective-error weights propagate P,V,T errors at published coefficients and add the stated Ar 3% accuracy in quadrature as a sensitivity assumption; cross-row scale correlation is not known. No strict statistical parity claimed.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -119,8 +120,8 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 204.0 | 2.0 | 203.128 | Not reported | Free |
-| alpha\_KT | 0.0035 | 0.0003 | 0.00366139 | Not reported | Free |
+| K0 | 204.0 | 2.0 | 203.1 | 2.9 | Free |
+| alpha\_KT | 0.0035 | 0.0003 | 0.00366 | 0.00028 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
 Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
@@ -128,12 +129,39 @@ Displayed uncertainties use two significant digits for leading 1/2, otherwise on
 - **Fit kind:** source\_constrained\_bm3\_linear\_thermal\_diagnostic
 - **Objective:** joint pressure residuals divided by fixed propagated coordinate errors including Ar 3% accuracy
 - **Selection:** All high-T rows plus 300 K rows below 15 GPa; measured ambient V0 fixed.
+- **Weighting:** Original effective P/V/T weights frozen at published coefficients, including the audit's Ar 3% cold-pressure sensitivity; diagonal and residual-scaled, with shared scale covariance unresolved.
+- **Absolute sigma:** False
 - **Free parameters:** K0; alpha\_KT
 - **Fixed parameters:** V0; K0\_prime; Tr
 - **Observations:** 29
+- **Degrees of freedom:** 27
 - **Solver success:** True
 - **Rmse gpa:** 0.916805
 - **Published rmse gpa:** 0.910071
+- **Parameter covariance:** \[\["8.43435", "-0.000613716"\], \["-0.000613716", "8.03421e-08"\]\]
+- **Covariance:**
+    - **Parameters:** K0; alpha\_KT
+    - **Matrix:** \[\["8.43435", "-0.000613716"\], \["-0.000613716", "8.03421e-08"\]\]
+    - **Standard errors:**
+        - **K0:** 2.90419
+        - **Alpha kt:** 0.000283447
+    - **Correlation matrix:** \[\["1", "-0.745538"\], \["-0.745538", "1"\]\]
+    - **Degrees of freedom:** 27
+    - **Local student t 95 intervals:**
+        - **K0:** 197.169; 209.087
+        - **Alpha kt:** 0.00307981; 0.00424298
+    - **Residual variance:** 1.59397
+    - **Max abs residual jacobian cosine:** 1.92479e-09
+    - **Residual sum squares:** 43.0373
+    - **Residual count:** 29
+    - **Scaled jacobian condition number:** 8.28078
+    - **Derivative step halving relative change:** 2.36771e-12
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Reason:** Published objective, weights, covariance, confidence levels and fit staging are unspecified. Each diagnostic jointly varies the source-free parameters once. Effective-error weights propagate P,V,T errors at published coefficients and add the stated Ar 3% accuracy in quadrature as a sensitivity assumption; cross-row scale correlation is not known. No strict statistical parity claimed.
+    - **Assumptions:** Original effective P/V/T weights frozen at published coefficients, including the audit's Ar 3% cold-pressure sensitivity; diagonal and residual-scaled, with shared scale covariance unresolved.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+- **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 - **Dataset identifiers:** thorianite\_chidester\_2018\_table\_s1
 
 </details>

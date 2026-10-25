@@ -25,7 +25,7 @@ agreement, source verification, author-workflow reproduction and recommendation 
 | [Li and Zeng (2009), GGA natural-strain-3 sensitivity](#record-mgsio3_post_perovskite_li_zeng_2009_gga_natural_strain3) | Complete independent refit unavailable | No numeric coefficient pair recorded |
 | [Liu et al. (2010), LDA static BM3](#record-mgsio3_post_perovskite_liu_2010_lda_static_bm3) | Complete independent refit unavailable | No numeric coefficient pair recorded |
 | [Dorogokupets et al. (2015), 298 K generalized Rydberg-Stacey](#record-mgsio3_post_perovskite_dorogokupets_2015_298k_rydberg_stacey) | Parity not achieved for this comparison | Graph and table |
-| [Komabayashi et al. (2008), MgO-scale thermal BM3](#record-mgsio3_post_perovskite_komabayashi_2008_thermal_bm3) | Numerically similar, with qualifications | Graph and table |
+| [Komabayashi et al. (2008), MgO-scale thermal BM3](#record-mgsio3_post_perovskite_komabayashi_2008_thermal_bm3) | Coefficient parity achieved | Graph and table |
 
 <a id="record-mgsio3_post_perovskite_mosenfelder_2009_bm3_1"></a>
 
@@ -979,10 +979,10 @@ Supporting reports retain additional source plots and protocol-specific diagnost
 
 Record: `mgsio3_post_perovskite_komabayashi_2008_thermal_bm3` · Model: `BM3`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Coefficient parity achieved.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Stored EOS coefficients and source](../material-summaries/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_komabayashi_2008_thermal_bm3)
 
@@ -991,7 +991,7 @@ Record: `mgsio3_post_perovskite_komabayashi_2008_thermal_bm3` · Model: `BM3`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
-- All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Cold-stage K0 uncertainty propagated into the thermal stage, including covariance from reuse of the three cold observations; fixed V0, K0-prime and alpha(300) conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
@@ -1001,6 +1001,8 @@ Record: `mgsio3_post_perovskite_komabayashi_2008_thermal_bm3` · Model: `BM3`
 - **Fit kind:** original\_scale\_source\_constrained\_bm3
 - **Selection:** All 21 Table 1 rows with PPv volume, using original Speziale-MgO pressures; the Pv-only row is excluded
 - **Objective:** unweighted pressure residuals
+- **Weighting:** Cold-stage K0 uncertainty propagated into the thermal stage, including covariance from reuse of the three cold observations; fixed V0, K0-prime and alpha(300) conditioned on.
+- **Absolute sigma:** False
 - **Free parameters:** K0; alpha1; dK\_dT
 - **Fixed parameters:** V0; K0\_prime; Tr
 - **Fixed values:**
@@ -1039,9 +1041,9 @@ no confidence interval or uncertainty band is inferred. Fixed/adopted values are
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 223.20 | 0.20 | 223.171 | Not reported | Free |
-| alpha1 | 0.1e-8 | 1.1e-8 | 1.097e-09 | Not reported | Free |
-| dK\_dT | -0.0085 | 0.0011 | -0.0084156 | Not reported | Free |
+| K0 | 223.20 | 0.20 | 223.2 | 0.6 | Free |
+| alpha1 | 0.1e-8 | 1.1e-8 | 1.1e-9 | 2.0e-9 | Free |
+| dK\_dT | -0.0085 | 0.0011 | -0.0084 | 0.0022 | Free |
 
 Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
@@ -1051,9 +1053,38 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 
 - **Observed pressure range gpa:** 114.5; 129.7
 - **Observed temperature range k:** 300; 2330
+- **Degrees of freedom:** 18.7705
 - **Solver success:** True
 - **Rmse gpa:** 0.525963
 - **Published rmse gpa:** 0.525096
+- **Parameter covariance:** \[\["0.327383", "9.02087e-10", "-0.00106438"\], \["9.02087e-10", "3.85009e-18", "-4.18811e-12"\], \["-0.00106438", "-4.18811e-12", "4.66758e-06"\]\]
+- **Covariance:**
+    - **Parameters:** K0; alpha1; dK\_dT
+    - **Matrix:** \[\["0.327383", "9.02087e-10", "-0.00106438"\], \["9.02087e-10", "3.85009e-18", "-4.18811e-12"\], \["-0.00106438", "-4.18811e-12", "4.66758e-06"\]\]
+    - **Standard errors:**
+        - **K0:** 0.572174
+        - **Alpha1:** 1.96216e-09
+        - **Dk dt:** 0.00216046
+    - **Correlation matrix:** \[\["1", "0.803499", "-0.861039"\], \["0.803499", "1", "-0.987954"\], \["-0.861039", "-0.987954", "1"\]\]
+    - **Degrees of freedom:** 18.7705
+    - **Local student t 95 intervals:**
+        - **K0:** 221.972; 224.369
+        - **Alpha1:** -3.01326e-09; 5.20725e-09
+        - **Dk dt:** -0.0129412; -0.00388996
+    - **Method:** Linear influence propagation through the cold and thermal stages on shared observations; common independent pressure-residual variance estimated with tr((I-JA)(I-JA)^T) effective residual degrees of freedom.
+    - **Residual count:** 21
+    - **Residual sum squares:** 5.80937
+    - **Residual variance:** 0.309495
+    - **Estimator influence:** \[\["0.591169", "0", "0", "0", "0", "0", "0", "0.614078", "0", "0", "0", "0.575521", "0", "0", "0", "0", "0", "0", "0", "0", "0"\], \["1.62894e-09", "-2.05601e-10", "-3.18369e-10", "-4.56156e-10", "-5.87173e-10", "-6.99165e-10", "-7.84941e-10", "1.69206e-09", "-3.47445e-10", "-5.43853e-10", "-7.01856e-10", "1.58582e-09", "-2.7522e-10", "-4.19896e-10", "-5.44693e-10", "2.42597e-10", "2.21192e-10", "-3.07456e-10", "4.20691e-12", "-2.86272e-10", "9.30053e-10"\], \["-0.001922", "0.000198287", "0.000307675", "0.000442271", "0.000571615", "0.000683753", "0.000771469", "-0.00199648", "0.000335821", "0.000528045", "0.000685318", "-0.00187112", "0.000265796", "0.00040686", "0.000529789", "-5.13877e-05", "-3.2975e-05", "0.000419502", "0.000152637", "0.00040309", "-0.000661481"\]\]
+    - **Prediction jacobian:** \[\["0.558868", "0", "0"\], \["0.552104", "3.14037e+06", "54.1061"\], \["0.547016", "8.30394e+06", "87.5225"\], \["0.539965", "1.97266e+07", "133.911"\], \["0.539385", "3.80099e+07", "186.088"\], \["0.544251", "6.22186e+07", "240.015"\], \["0.549154", "9.07261e+07", "292.15"\], \["0.580526", "0", "0"\], \["0.573579", "9.3123e+06", "95.7877"\], \["0.567729", "2.75832e+07", "164.074"\], \["0.563986", "5.66437e+07", "234.618"\], \["0.544075", "0", "0"\], \["0.536666", "6.19949e+06", "74.5965"\], \["0.529408", "1.67761e+07", "121.764"\], \["0.527434", "3.2692e+07", "169.834"\], \["0.571585", "9.91045e+08", "1017.42"\], \["0.570532", "9.79218e+08", "1009.84"\], \["0.54678", "6.74746e+08", "809.234"\], \["0.55835", "8.53657e+08", "926.861"\], \["0.551639", "6.96317e+08", "827.458"\], \["0.56642", "1.2688e+09", "1149.83"\]\]
+    - **Stage sizes:** \[3, 21\]
+    - **Stage uncertainty propagated:** True
+    - **Input array sha256:** 6c107bd33cd685d31ae21e769cb817de5badc0b5756a131db2fd4edc688f17c8
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Qualification:** All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity.
+    - **Assumptions:** Cold-stage K0 uncertainty propagated into the thermal stage, including covariance from reuse of the three cold observations; fixed V0, K0-prime and alpha(300) conditioned on.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+- **Covariance convention:** Linear influence propagation through the cold and thermal stages on shared observations; common independent pressure-residual variance estimated with tr((I-JA)(I-JA)^T) effective residual degrees of freedom.
 - **Stages:**
     - **Fixed parameters:** V0; K0\_prime
     - **Free parameters:** K0
@@ -1071,7 +1102,7 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-mgsio3_post_perovskite_komabayashi_2008_thermal_bm3).
+- [Supporting source report: uncertainty-reconstruction](../literature-reproductions/uncertainty-reconstruction.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 

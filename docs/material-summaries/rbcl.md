@@ -259,18 +259,19 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Open reconstruction report](../reconstruction-reports/rbcl.md#record-rbcl_b2_farla_2025_bm3_mgd_cscl)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
-- Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Parameter agreement is conditional on fixed V0/theta0, the documented analyst row mask, source-reported CsCl pressures and frozen diagonal effective P/V/T weights. CsCl calibration replay and source benchmark discrepancies remain unresolved as separate findings; neither calibration parity, publication-digit benchmark parity nor author-workflow reproduction is claimed. Final frozen effective P/V/T weights at the existing converged fit, without a pressure floor. Conditional on the analyst row mask and source-reported CsCl pressures; calibration replay and benchmark discrepancies remain unresolved. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications. Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
+- Earlier audit statement, before the conditional uncertainty follow-up: Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -284,21 +285,53 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 19.89 | 0.08 | 19.9219 | Not reported | See protocol |
-| K0\_prime | 5.000 | 0.020 | 4.99518 | Not reported | See protocol |
-| gamma0 | 1.96 | 0.04 | 1.96391 | Not reported | See protocol |
-| q | 1.05 | 0.09 | 1.05924 | Not reported | See protocol |
+| K0 | 19.89 | 0.08 | 19.92 | 0.09 | See protocol |
+| K0\_prime | 5.000 | 0.020 | 4.995 | 0.024 | See protocol |
+| gamma0 | 1.96 | 0.04 | 1.96 | 0.04 | See protocol |
+| q | 1.05 | 0.09 | 1.06 | 0.09 | See protocol |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
 Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** iterated\_effective\_variance\_bm3\_mgd
 - **Objective:** iterated frozen diagonal effective P/V/T variance
+- **Weighting:** Final frozen effective P/V/T weights at the existing converged fit, without a pressure floor. Conditional on the analyst row mask and source-reported CsCl pressures; calibration replay and benchmark discrepancies remain unresolved.
+- **Absolute sigma:** False
 - **Fixed parameters:** V0; Tr; theta0; n
 - **Observations:** 122
+- **Degrees of freedom:** 118
 - **Solver success:** True
 - **Rmse gpa:** 0.155163
 - **Published rmse gpa:** 0.154429
+- **Parameter covariance:** \[\["0.00740734", "-0.00203646", "-0.000704195", "7.69657e-05"\], \["-0.00203646", "0.00056798", "0.000201758", "1.25e-05"\], \["-0.000704195", "0.000201758", "0.00178469", "0.00349292"\], \["7.69657e-05", "1.25e-05", "0.00349292", "0.00805087"\]\]
+- **Covariance:**
+    - **Parameters:** K0; K0\_prime; gamma0; q
+    - **Matrix:** \[\["0.00740734", "-0.00203646", "-0.000704195", "7.69657e-05"\], \["-0.00203646", "0.00056798", "0.000201758", "1.25e-05"\], \["-0.000704195", "0.000201758", "0.00178469", "0.00349292"\], \["7.69657e-05", "1.25e-05", "0.00349292", "0.00805087"\]\]
+    - **Standard errors:**
+        - **K0:** 0.0860659
+        - **K0 prime:** 0.0238323
+        - **Gamma0:** 0.0422456
+        - **Q:** 0.0897266
+    - **Correlation matrix:** \[\["1", "-0.992835", "-0.193678", "0.00996654"\], \["-0.992835", "1", "0.200393", "0.00584553"\], \["-0.193678", "0.200393", "1", "0.921481"\], \["0.00996654", "0.00584553", "0.921481", "1"\]\]
+    - **Degrees of freedom:** 118
+    - **Local student t 95 intervals:**
+        - **K0:** 19.7515; 20.0924
+        - **K0 prime:** 4.94799; 5.04238
+        - **Gamma0:** 1.88025; 2.04757
+        - **Q:** 0.881554; 1.23692
+    - **Residual variance:** 2.46784
+    - **Max abs residual jacobian cosine:** 4.9233e-09
+    - **Residual sum squares:** 291.205
+    - **Residual count:** 122
+    - **Scaled jacobian condition number:** 233.853
+    - **Derivative step halving relative change:** 3.52564e-12
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Qualification:** Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications.
+        - **Reason:** Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications.
+    - **Assumptions:** Final frozen effective P/V/T weights at the existing converged fit, without a pressure floor. Conditional on the analyst row mask and source-reported CsCl pressures; calibration replay and benchmark discrepancies remain unresolved.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+- **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 - **Dataset identifiers:** rbcl\_farla\_2025\_observations
 - **Reproduction report:** docs/data/rubidium-halides-farla-2025-follow-up.json
 

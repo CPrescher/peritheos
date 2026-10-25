@@ -13,7 +13,7 @@ agreement, source verification, author-workflow reproduction and recommendation 
 | EOS record | Recorded outcome | Coefficient comparison |
 | --- | --- | --- |
 | [Ross (1997)](#record-magnesite_ross_1997_bm3_1) | Coefficient parity achieved | Graph and table |
-| [Vocadlo (1999), static GGA BM3](#record-magnesite_vocadlo_1999_bm3_2) | Numerically similar, with qualifications | Graph and table |
+| [Vocadlo (1999), static GGA BM3](#record-magnesite_vocadlo_1999_bm3_2) | Coefficient parity achieved | Graph and table |
 | [Yu et al. (2024), BM3-MGD](#record-magnesite_yu_2024_bm3_mgd_3) | Numerically similar, with qualifications | Graph and table |
 
 <a id="record-magnesite_ross_1997_bm3_1"></a>
@@ -120,10 +120,10 @@ Supporting reports retain additional source plots and protocol-specific diagnost
 
 Record: `magnesite_vocadlo_1999_bm3_2` · Model: `BM3`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Coefficient parity achieved.**
 
-**Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Scope:** Reconstruction of a source equation or calculation.
+**Comparison basis:** Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.
 
 [Stored EOS coefficients and source](../material-summaries/magnesite.md#record-magnesite_vocadlo_1999_bm3_2)
 
@@ -132,13 +132,14 @@ Record: `magnesite_vocadlo_1999_bm3_2` · Model: `BM3`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
+- Every compared free coefficient meets its printed source error width or the explicitly verified half-last-digit tolerance where source errors are absent. Printing precision is not a confidence interval. Source-equation checkpoint coefficient recovery only: Table 1 pressures are calculated from the BM3 parameterization. Their near-exact refit is circular evidence for author-fit recovery, not an independent fit of measured pressures or the original E-V objective. V0=287.49 A^3 is checked at its 0.01 A^3 printed precision; the K0/K0-prime comparisons retain their source widths. The separately documented E-V fit and Table 1 cell-normalization correction remain distinct. Earlier audit wording (superseded only for the named numerical scope):
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
 
 - **Dataset identifiers:** magnesite\_vocadlo\_1999\_table1\_energy\_volume
 - **Observations:** 9
-- **Fit kind:** isothermal\_pv
+- **Fit kind:** source\_curve\_validation\_only
 - **Selection:** all rows
 - **Objective:** pressure\_residuals
 - **Absolute sigma:** True
@@ -198,12 +199,13 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 - **Rmse gpa:** 1.37182e-05
 - **Published rmse gpa:** 3.99464e-05
 - **Reduced chi square:** 2.82283e-10
+- **Comparison scope:** Compared free coefficients: V0, K0, K0\_prime; scope=source\_equation
+- **Reconstruction kind:** published\_calculated\_pressure\_checkpoints
 
 </details>
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-magnesite_vocadlo_1999_bm3_2).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 

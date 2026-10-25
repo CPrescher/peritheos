@@ -913,12 +913,13 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "similar",
+            "status": "parity",
             "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
             "qualifications": [
-              "Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.",
+              "Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/platinum/#record-platinum_dewaele_2019_mao_vinet",
@@ -929,49 +930,99 @@
                 "published": 60.396,
                 "published_error": 0.1,
                 "refit": 60.39623682381311,
-                "refit_error": null,
+                "refit_error": 0.020013163390691417,
                 "difference": 0.0002368238131111866,
                 "relative_difference": 3.921183739174558e-06,
                 "similar": true,
                 "within_combined_2sigma": null,
-                "within_reported_95pct": true
+                "within_reported_95pct": true,
+                "within_reported_error": true
               },
               {
                 "parameter": "K0",
                 "published": 273.4,
                 "published_error": 2.5,
                 "refit": 273.4436423962288,
-                "refit_error": null,
+                "refit_error": 2.2328173763588786,
                 "difference": 0.04364239622884725,
                 "relative_difference": 0.00015962836952760517,
                 "similar": true,
                 "within_combined_2sigma": null,
-                "within_reported_95pct": true
+                "within_reported_95pct": true,
+                "within_reported_error": true
               },
               {
                 "parameter": "K0_prime",
                 "published": 4.83,
                 "published_error": 0.08,
                 "refit": 4.832689254337729,
-                "refit_error": null,
+                "refit_error": 0.07082491003161022,
                 "difference": 0.002689254337728819,
                 "relative_difference": 0.0005567814363827783,
                 "similar": true,
                 "within_combined_2sigma": null,
-                "within_reported_95pct": true
+                "within_reported_95pct": true,
+                "within_reported_error": true
               }
             ],
             "fit": {
               "fit_kind": "static_vinet_with_explicit_ruby_scale_conversion",
               "objective": "unweighted pressure residuals",
               "selection": "complete",
+              "weighting": "Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.",
+              "absolute_sigma": false,
               "free_parameters": ["V0", "K0", "K0_prime"],
               "fixed_parameters": [],
               "observations": 36,
               "observed_pressure_range_gpa": [0.0, 90.0],
+              "degrees_of_freedom": 33.0,
               "solver_success": true,
               "solver_message": "dedicated Dewaele (2019) refit completed",
               "rmse_gpa": 0.21440215531487147,
+              "parameter_covariance": [
+                [0.0004005267089025112, -0.039693534996458626, 0.001070842610786309],
+                [-0.039693534996458626, 4.985473436170145, -0.15248623698490987],
+                [0.001070842610786309, -0.15248623698490987, 0.005016167880985681]
+              ],
+              "covariance": {
+                "parameters": ["V0", "K0", "K0_prime"],
+                "matrix": [
+                  [0.0004005267089025112, -0.039693534996458626, 0.001070842610786309],
+                  [-0.039693534996458626, 4.985473436170145, -0.15248623698490987],
+                  [0.001070842610786309, -0.15248623698490987, 0.005016167880985681]
+                ],
+                "standard_errors": {"V0": 0.020013163390691417, "K0": 2.2328173763588786, "K0_prime": 0.07082491003161022},
+                "correlation_matrix": [
+                  [1.0, -0.8882819420079607, 0.7554815656638931],
+                  [-0.8882819420079607, 0.9999999999999998, -0.9642539183704834],
+                  [0.7554815656638931, -0.9642539183704834, 0.9999999999999998]
+                ],
+                "degrees_of_freedom": 33.0,
+                "local_student_t_95_intervals": {
+                  "V0": [60.3555197367444, 60.436953910881826],
+                  "K0": [268.900941287616, 277.98634350484167],
+                  "K0_prime": [4.688594891437945, 4.976783617237513]
+                },
+                "residual_variance": 0.050147219131267934,
+                "max_abs_residual_jacobian_cosine": 4.321689487478152e-09,
+                "residual_sum_squares": 1.6548582313318418,
+                "residual_count": 36,
+                "scaled_jacobian_condition_number": 197.46309498797487,
+                "derivative_step_halving_relative_change": 2.0841748840899245e-12,
+                "method": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
+                "previous_assessment": {
+                  "status": "similar",
+                  "qualification": "Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows."
+                },
+                "assumptions": [
+                  "Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.",
+                  "Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.",
+                  "Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.",
+                  "Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.",
+                  "Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred."
+                ]
+              },
+              "covariance_convention": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
               "dataset_identifiers": ["platinum_dewaele_2004_table1_compression"]
             },
             "report": "docs/data/primary-eos-refits.json"
@@ -1070,12 +1121,13 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "similar",
+            "status": "parity",
             "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
             "qualifications": [
-              "Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.",
+              "Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/platinum/#record-platinum_dewaele_2019_dor_vinet",
@@ -1086,49 +1138,99 @@
                 "published": 60.392,
                 "published_error": 0.1,
                 "refit": 60.39397899627025,
-                "refit_error": null,
+                "refit_error": 0.021576788386826248,
                 "difference": 0.001978996270246114,
                 "relative_difference": 3.276917919999526e-05,
                 "similar": true,
                 "within_combined_2sigma": null,
-                "within_reported_95pct": true
+                "within_reported_95pct": true,
+                "within_reported_error": true
               },
               {
                 "parameter": "K0",
                 "published": 270.8,
                 "published_error": 2.5,
                 "refit": 270.80006547500716,
-                "refit_error": null,
+                "refit_error": 2.384978925001701,
                 "difference": 6.547500714759735e-05,
                 "relative_difference": 2.4178363053027087e-07,
                 "similar": true,
                 "within_combined_2sigma": null,
-                "within_reported_95pct": true
+                "within_reported_95pct": true,
+                "within_reported_error": true
               },
               {
                 "parameter": "K0_prime",
                 "published": 5.5,
                 "published_error": 0.08,
                 "refit": 5.497634973418716,
-                "refit_error": null,
+                "refit_error": 0.0749138093435961,
                 "difference": -0.0023650265812840132,
                 "relative_difference": 0.0004300048329607297,
                 "similar": true,
                 "within_combined_2sigma": null,
-                "within_reported_95pct": true
+                "within_reported_95pct": true,
+                "within_reported_error": true
               }
             ],
             "fit": {
               "fit_kind": "static_vinet_with_explicit_ruby_scale_conversion",
               "objective": "unweighted pressure residuals",
               "selection": "complete",
+              "weighting": "Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.",
+              "absolute_sigma": false,
               "free_parameters": ["V0", "K0", "K0_prime"],
               "fixed_parameters": [],
               "observations": 36,
               "observed_pressure_range_gpa": [0.0, 95.1057151267236],
+              "degrees_of_freedom": 33.0,
               "solver_success": true,
               "solver_message": "dedicated Dewaele (2019) refit completed",
               "rmse_gpa": 0.2315519639709715,
+              "parameter_covariance": [
+                [0.00046555779708988, -0.045967968263543914, 0.0012269149994291494],
+                [-0.045967968263543914, 5.6881244727022695, -0.17213671189558305],
+                [0.0012269149994291494, -0.17213671189558305, 0.005612078830368666]
+              ],
+              "covariance": {
+                "parameters": ["V0", "K0", "K0_prime"],
+                "matrix": [
+                  [0.00046555779708988, -0.045967968263543914, 0.0012269149994291494],
+                  [-0.045967968263543914, 5.6881244727022695, -0.17213671189558305],
+                  [0.0012269149994291494, -0.17213671189558305, 0.005612078830368666]
+                ],
+                "standard_errors": {"V0": 0.021576788386826248, "K0": 2.384978925001701, "K0_prime": 0.0749138093435961},
+                "correlation_matrix": [
+                  [1.0, -0.893272493147253, 0.7590419736187624],
+                  [-0.893272493147253, 1.0000000000000002, -0.9634453297347091],
+                  [0.7590419736187624, -0.9634453297347091, 1.0]
+                ],
+                "degrees_of_freedom": 33.0,
+                "local_student_t_95_intervals": {
+                  "V0": [60.35008069022742, 60.437877302313076],
+                  "K0": [265.9477893679969, 275.6523415820174],
+                  "K0_prime": [5.345221682318966, 5.650048264518466]
+                },
+                "residual_variance": 0.05849052220234097,
+                "max_abs_residual_jacobian_cosine": 2.2712609084917333e-09,
+                "residual_sum_squares": 1.930187232677252,
+                "residual_count": 36,
+                "scaled_jacobian_condition_number": 187.58535636200898,
+                "derivative_step_halving_relative_change": 2.5602505722560485e-12,
+                "method": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
+                "previous_assessment": {
+                  "status": "similar",
+                  "qualification": "Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows."
+                },
+                "assumptions": [
+                  "Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.",
+                  "Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.",
+                  "Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.",
+                  "Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.",
+                  "Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred."
+                ]
+              },
+              "covariance_convention": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
               "dataset_identifiers": ["platinum_dewaele_2004_table1_compression"]
             },
             "report": "docs/data/primary-eos-refits.json"
@@ -2405,12 +2507,14 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "similar",
+            "status": "parity",
             "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
             "qualifications": [
-              "Unweighted pressure residuals, printed volumes and pressures; residual-scaled linearized standard errors are diagnostic only. No source weights, covariance, confidence or calibration-error correlations. Pt V0 and theta0 fixed for this diagnostic; source does not enumerate its full fitted/fixed list. Au q fit excludes upstream shock observations and is not the source joint compromise.",
+              "Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Agreement concerns K0 and K0-prime only, conditional on diagnostic V0=60.38 A^3 fixed and equal pressure-residual weights for seven Table 2 300 K rows. The source's fixed/free mask is unrecovered; V0 is not independently recovered. This preliminary narrow-range fit has a poorly constrained derivative and is not the preferred Pt pressure scale. No thermal or author-workflow reproduction is claimed. Existing reconstructed errors retained; no source confidence convention inferred. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Unweighted pressure residuals, printed volumes and pressures; residual-scaled linearized standard errors are diagnostic only. No source weights, covariance, confidence or calibration-error correlations. Pt V0 and theta0 fixed for this diagnostic; source does not enumerate its full fitted/fixed list. Au q fit excludes upstream shock observations and is not the source joint compromise. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.",
+              "Earlier audit statement, before the conditional uncertainty follow-up: Unweighted pressure residuals, printed volumes and pressures; residual-scaled linearized standard errors are diagnostic only. No source weights, covariance, confidence or calibration-error correlations. Pt V0 and theta0 fixed for this diagnostic; source does not enumerate its full fitted/fixed list. Au q fit excludes upstream shock observations and is not the source joint compromise.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/platinum/#record-platinum_fei_2004_bm3_300k",
@@ -2424,7 +2528,8 @@
                 "refit_error": 5.87275751246303,
                 "relative_difference": 0.015007494568463887,
                 "similar": true,
-                "within_combined_2sigma": null
+                "within_combined_2sigma": null,
+                "within_reported_error": true
               },
               {
                 "parameter": "K0_prime",
@@ -2434,16 +2539,39 @@
                 "refit_error": 0.6508839844693242,
                 "relative_difference": 0.22025682341256453,
                 "similar": true,
-                "within_combined_2sigma": null
+                "within_combined_2sigma": null,
+                "within_reported_error": true
               }
             ],
             "fit": {
               "fit_kind": "diagnostic_unweighted_pressure",
+              "objective": "unweighted_pressure_residuals",
+              "selection": "All seven Table 2 300 K rows; diagnostic V0 fixed, not a recovered source fixed/free protocol",
+              "weighting": "Existing reconstructed errors retained; no source confidence convention inferred.",
+              "free_parameters": ["K0", "K0_prime"],
               "fixed_parameters": [],
+              "validation_fixed_parameters": ["V0"],
+              "fixed_values": {"V0": 60.38},
               "observations": 7,
               "solver_success": true,
               "rmse_gpa": 0.141153150785964,
               "published_rmse_gpa": 0.15714060367632096,
+              "covariance": {
+                "parameters": ["K0", "K0_prime"],
+                "standard_errors": {"K0": 5.87275751246303, "K0_prime": 0.6508839844693242},
+                "method": "Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.",
+                "previous_assessment": {
+                  "status": "similar",
+                  "reason": "Unweighted pressure residuals, printed volumes and pressures; residual-scaled linearized standard errors are diagnostic only. No source weights, covariance, confidence or calibration-error correlations. Pt V0 and theta0 fixed for this diagnostic; source does not enumerate its full fitted/fixed list. Au q fit excludes upstream shock observations and is not the source joint compromise."
+                },
+                "assumptions": [
+                  "Existing reconstructed errors retained; no source confidence convention inferred.",
+                  "Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.",
+                  "Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.",
+                  "Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.",
+                  "Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred."
+                ]
+              },
               "dataset_identifiers": ["platinum_fei_2004_table2"]
             },
             "report": "docs/data/primary-eos-refits.json"
@@ -2938,12 +3066,13 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "similar",
+            "status": "parity",
             "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
             "qualifications": [
-              "Conditional cold-subset diagnostic: all 36 Dewaele (2004) observations use the revised ruby pressures with published V0 and K0 fixed. The separate platinum_fei_2007_vinet_mgd audit reconstructs the paired Au pressure reduction and a qualified joint thermal fit; the author's complete objective and confidence convention remain unspecified. This checks the 300 K branch without asserting recovery of the full fitting procedure.",
+              "Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Existing reconstructed errors retained; no source confidence convention inferred. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Conditional cold-subset diagnostic: all 36 Dewaele (2004) observations use the revised ruby pressures with published V0 and K0 fixed. The separate platinum_fei_2007_vinet_mgd audit reconstructs the paired Au pressure reduction and a qualified joint thermal fit; the author's complete objective and confidence convention remain unspecified. This checks the 300 K branch without asserting recovery of the full fitting procedure. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/platinum/#record-platinum_fei_2007_vinet_300k",
@@ -2958,7 +3087,8 @@
                 "difference": 0.004481455470603635,
                 "relative_difference": 0.000882176273740873,
                 "similar": true,
-                "within_combined_2sigma": true
+                "within_combined_2sigma": true,
+                "within_reported_error": true
               }
             ],
             "fit": {
@@ -2966,6 +3096,7 @@
               "objective": "errors_in_variables",
               "selection": "all rows",
               "columns": {"pressure": "ruby_pressure_revised_gpa", "temperature": null, "volume": "atomic_volume_a3"},
+              "weighting": "Existing reconstructed errors retained; no source confidence convention inferred.",
               "absolute_sigma": true,
               "free_parameters": ["K0_prime"],
               "fixed_parameters": ["V0", "K0"],
@@ -2979,6 +3110,22 @@
               "rmse_gpa": 0.22095749200854134,
               "published_rmse_gpa": 0.26172133030571426,
               "reduced_chi_square": 0.059128404314979906,
+              "covariance": {
+                "parameters": ["K0_prime"],
+                "standard_errors": {"K0_prime": 0.05040704691460084},
+                "method": "Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.",
+                "previous_assessment": {
+                  "status": "similar",
+                  "qualification": "Conditional cold-subset diagnostic: all 36 Dewaele (2004) observations use the revised ruby pressures with published V0 and K0 fixed. The separate platinum_fei_2007_vinet_mgd audit reconstructs the paired Au pressure reduction and a qualified joint thermal fit; the author's complete objective and confidence convention remain unspecified. This checks the 300 K branch without asserting recovery of the full fitting procedure."
+                },
+                "assumptions": [
+                  "Existing reconstructed errors retained; no source confidence convention inferred.",
+                  "Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.",
+                  "Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.",
+                  "Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.",
+                  "Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred."
+                ]
+              },
               "dataset_identifiers": ["platinum_dewaele_2004_table1_compression"]
             },
             "report": "docs/data/primary-eos-refits.json"

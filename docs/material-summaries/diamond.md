@@ -101,18 +101,18 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Open reconstruction report](../reconstruction-reports/diamond.md#record-diamond_datchi_2007_vinet_1)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
-- Conditional figure-level reproduction. The same run-2/equal-volume hypothesis approaches the independently printed MXB1986 and H2005 Table II coefficients and the H2005 chi-square, but Datchi et al. do not publish exclusions or weights and Occelli et al. do not print numerical rows. All 24 markers and all-marker sensitivity fits remain visible in the diagnostic. No refit covariance or parameter errors are inferred from the digitized points.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Agreement is conditional on the source-unconfirmed run-2/equal-volume hypothesis: 14 of 24 digitized markers, fixed source V0 and H2005 recalibration. Selection/weighting was supported by coefficient agreement, so this is hypothesis-dependent parameter agreement, not independent validation of that selection. Residual-scaled errors exclude graphical and calibration systematics; raw numerical observations and author workflow remain unavailable. Original run-2/equal-volume diagnostic in atomic A^3; digitization and calibration systematics are not estimated by residual scatter. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Conditional figure-level reproduction. The same run-2/equal-volume hypothesis approaches the independently printed MXB1986 and H2005 Table II coefficients and the H2005 chi-square, but Datchi et al. do not publish exclusions or weights and Occelli et al. do not print numerical rows. All 24 markers and all-marker sensitivity fits remain visible in the diagnostic. No refit covariance or parameter errors are inferred from the digitized points. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -126,8 +126,8 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 443 | 3 | 444.346 | Not reported | Free |
-| K0\_prime | 3.97 | 0.05 | 3.9607 | Not reported | Free |
+| K0 | 443 | 3 | 444.3 | 1.7 | Free |
+| K0\_prime | 3.97 | 0.05 | 3.96 | 0.04 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
 Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
@@ -135,14 +135,40 @@ Displayed uncertainties use two significant digits for leading 1/2, otherwise on
 - **Fit kind:** static\_vinet\_with\_explicit\_ruby\_scale\_conversion
 - **Objective:** equal volume residuals; equivalent point estimates from the published constant 0.003 cm^3/mol volume uncertainty
 - **Selection:** Occelli Figure 2 run-2 open circles only (14/24 markers); best-supported but source-unconfirmed Table II selection hypothesis
-- **Absolute sigma:** Not specified
+- **Weighting:** Original run-2/equal-volume diagnostic in atomic A^3; digitization and calibration systematics are not estimated by residual scatter.
+- **Absolute sigma:** False
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 14
 - **Observed pressure range gpa:** 13.2277; 154.975
+- **Degrees of freedom:** 12
 - **Solver success:** True
 - **Solver message:** \`gtol\` termination condition is satisfied.
 - **Rmse gpa:** 0.277587
+- **Parameter covariance:** \[\["2.87609", "-0.0730044"\], \["-0.0730044", "0.00198213"\]\]
+- **Covariance:**
+    - **Parameters:** K0; K0\_prime
+    - **Matrix:** \[\["2.87609", "-0.0730044"\], \["-0.0730044", "0.00198213"\]\]
+    - **Standard errors:**
+        - **K0:** 1.6959
+        - **K0 prime:** 0.0445211
+    - **Correlation matrix:** \[\["1", "-0.9669"\], \["-0.9669", "1"\]\]
+    - **Degrees of freedom:** 12
+    - **Local student t 95 intervals:**
+        - **K0:** 440.651; 448.041
+        - **K0 prime:** 3.8637; 4.0577
+    - **Residual variance:** 3.759e-06
+    - **Max abs residual jacobian cosine:** 4.67632e-08
+    - **Residual sum squares:** 4.5108e-05
+    - **Residual count:** 14
+    - **Scaled jacobian condition number:** 12.7952
+    - **Derivative step halving relative change:** 8.81763e-10
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Qualification:** Conditional figure-level reproduction. The same run-2/equal-volume hypothesis approaches the independently printed MXB1986 and H2005 Table II coefficients and the H2005 chi-square, but Datchi et al. do not publish exclusions or weights and Occelli et al. do not print numerical rows. All 24 markers and all-marker sensitivity fits remain visible in the diagnostic. No refit covariance or parameter errors are inferred from the digitized points.
+    - **Assumptions:** Original run-2/equal-volume diagnostic in atomic A^3; digitization and calibration systematics are not estimated by residual scatter.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+- **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 - **Dataset identifiers:** diamond\_occelli\_2003\_figure2\_digitized
 
 </details>

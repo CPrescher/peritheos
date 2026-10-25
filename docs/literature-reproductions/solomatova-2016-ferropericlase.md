@@ -1,5 +1,11 @@
 # Solomatova et al. (2016): spin-crossover ferropericlase branches
 
+**Assessment update (0.17.1):** five generic branch comparisons now qualify
+as conditional parameter parity within their reported source widths. This is
+separate from the coupled spin-transition diagnostics and their historical
+statuses below; their objective, phase selection and author-workflow limitations
+remain. See the [scoped review](similar-parameter-review.md).
+
 Primary source: N. V. Solomatova, J. M. Jackson, W. Sturhahn, J. K. Wicks,
 J. Zhao, T. S. Toellner, B. Kalkan, and W. M. Steinhardt, “Equation of state and
 spin crossover of (Mg,Fe)O at high pressure, with implications for explaining

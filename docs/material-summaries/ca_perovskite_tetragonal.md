@@ -779,18 +779,18 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Conditional parameter agreement under both the combined-error comparison and numerical similarity screen; source confidence conventions remain explicit, and unknown source confidence or shared-data covariance does not become a formal confidence test or author-workflow reproduction.
 
 [Open reconstruction report](../reconstruction-reports/ca_perovskite_tetragonal.md#record-ca_perovskite_tetragonal_chen_2018_vinet)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
-- Complete source-scope table check with unresolved fitting details: all seven I4/mcm Table 1 rows are used, K0-prime is fixed at 4, and the reported Ye et al. Pt pressures are retained. The source does not publish pressure uncertainties, residual direction, weights, fit software, unrounded inputs, or covariance. The generic fit therefore uses an errors-in-variables objective with one-sigma volume errors propagated from the table's two-sigma lattice errors; the dedicated reproduction also reports unweighted pressure- and volume-residual sensitivity fits. Those diagnostics do not define a replacement EOS, and the classification is capped at similar because statistical parity cannot be established without the source weighting and pressure-error model.
+- Every compared free coefficient passes the combined-error comparison and numerical similarity screen. The source explicitly reports two-sigma parameter widths; dividing those widths by two before combining with reconstruction standard errors also passes. The printed-source-width-only cutoff is not required for this parameter-agreement scope. Original weights, calibration covariance and author workflow remain unrecovered; shared-data cross-fit covariance is unknown. Existing reconstructed errors retained; no source confidence convention inferred. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Complete source-scope table check with unresolved fitting details: all seven I4/mcm Table 1 rows are used, K0-prime is fixed at 4, and the reported Ye et al. Pt pressures are retained. The source does not publish pressure uncertainties, residual direction, weights, fit software, unrounded inputs, or covariance. The generic fit therefore uses an errors-in-variables objective with one-sigma volume errors propagated from the table's two-sigma lattice errors; the dedicated reproduction also reports unweighted pressure- and volume-residual sensitivity fits. Those diagnostics do not define a replacement EOS, and the classification is capped at similar because statistical parity cannot be established without the source weighting and pressure-error model. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
 - Usage recommendation: Use the unchanged published 300 K Vinet parameterization for qualified comparison in its measured 28.824-62.477 GPa range. V0 is an extrapolation and K0' is fixed at 4. Retain the reported 2-sigma lattice and parameter errors without inventing pressure errors or source weights. P4/mmm refinements are parallel structural diagnostics, not additional independent fit observations.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
@@ -818,6 +818,7 @@ Displayed uncertainties use two significant digits for leading 1/2, otherwise on
     - **Pressure:** pressure\_pt\_ye\_gpa
     - **Temperature:** Not specified
     - **Volume:** i4mcm\_volume\_a3\_conventional\_cell
+- **Weighting:** Existing reconstructed errors retained; no source confidence convention inferred.
 - **Absolute sigma:** True
 - **Free parameters:** V0; K0
 - **Fixed parameters:** K0\_prime
@@ -831,6 +832,16 @@ Displayed uncertainties use two significant digits for leading 1/2, otherwise on
 - **Rmse gpa:** 0.634179
 - **Published rmse gpa:** 0.688528
 - **Reduced chi square:** 0.563347
+- **Covariance:**
+    - **Parameters:** V0; K0
+    - **Standard errors:**
+        - **V0:** 1.13265
+        - **K0:** 11.0393
+    - **Method:** Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Qualification:** Complete source-scope table check with unresolved fitting details: all seven I4/mcm Table 1 rows are used, K0-prime is fixed at 4, and the reported Ye et al. Pt pressures are retained. The source does not publish pressure uncertainties, residual direction, weights, fit software, unrounded inputs, or covariance. The generic fit therefore uses an errors-in-variables objective with one-sigma volume errors propagated from the table's two-sigma lattice errors; the dedicated reproduction also reports unweighted pressure- and volume-residual sensitivity fits. Those diagnostics do not define a replacement EOS, and the classification is capped at similar because statistical parity cannot be established without the source weighting and pressure-error model.
+    - **Assumptions:** Existing reconstructed errors retained; no source confidence convention inferred.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
 - **Dataset identifiers:** ca\_perovskite\_tetragonal\_chen\_2018\_table1\_compression
 
 </details>

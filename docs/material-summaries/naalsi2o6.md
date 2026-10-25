@@ -99,18 +99,18 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Open reconstruction report](../reconstruction-reports/naalsi2o6.md#record-naalsi2o6_zhao_1997_bm3_1)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
-- Complete conditional reproduction of the preferred K0'=5 thermal BM3 fit. All 31 source-selected hydrostatic Table 1 rows are used with the source-fixed V0=403 A^3 and K0'=5. The paper does not report its EOS residual definition, numerical weights, row-wise pressure/temperature uncertainties, covariance, or confidence convention, so Peritheos uses ordinary pressure residuals. Every varied coefficient is recovered within its published uncertainty; the result is classified similar because the small alpha1 coefficient has a 46% relative shift. See the dedicated \[Zhao jadeite audit\](literature-reproductions/zhao-1997-jadeite.md).
+- Every compared free coefficient lies inside its positive printed source error width. All four varied coefficients are within source widths on all 31 selected hydrostatic rows, with source V0=403 A^3 and K0-prime=5 fixed. The small alpha1 coefficient shifts about 46% but remains inside its printed error; this explicit source-width criterion is narrower in claim than the generic relative-change guard. Original weighting, objective, covariance and confidence remain unspecified. Earlier audit wording (superseded only for the named numerical scope): Complete conditional reproduction of the preferred K0'=5 thermal BM3 fit. All 31 source-selected hydrostatic Table 1 rows are used with the source-fixed V0=403 A^3 and K0'=5. The paper does not report its EOS residual definition, numerical weights, row-wise pressure/temperature uncertainties, covariance, or confidence convention, so Peritheos uses ordinary pressure residuals. Every varied coefficient is recovered within its published uncertainty; the result is classified similar because the small alpha1 coefficient has a 46% relative shift. See the dedicated \[Zhao jadeite audit\](literature-reproductions/zhao-1997-jadeite.md).
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -152,6 +152,7 @@ Displayed uncertainties use two significant digits for leading 1/2, otherwise on
 - **Rmse gpa:** 0.100578
 - **Published rmse gpa:** 0.11001
 - **Reduced chi square:** 0.0116146
+- **Comparison scope:** Compared free coefficients: rt\_eos.K0, alpha0, alpha1, dK\_dT; scope=parameter\_agreement
 - **Dataset identifiers:** jadeite\_zhao\_1997\_table1\_pvt
 
 </details>

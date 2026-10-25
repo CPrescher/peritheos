@@ -65,6 +65,35 @@ cap an outcome, or use an explicitly documented alternative criterion. Its
 recorded basis and qualification take precedence over this generic description.
 See the [record-by-record ledger](primary-eos-refits.md) for actual comparisons.
 
+The [25 October 2026 uncertainty follow-up](literature-reproductions/uncertainty-reconstruction.md)
+uses an explicit printed-source-error-width criterion for 61 conditional
+parameter comparisons, and the combined-error/numerical-similarity criterion
+for Chen (2018) and Litasov (2007) HTBM/T03. Chen's source two-sigma widths are
+converted to standard errors for that comparison; Litasov's unspecified-confidence
+widths remain diagnostic comparison quantities. Shared-data cross-fit covariance
+is unknown, so these are conditional numerical comparisons rather than formal
+confidence tests. It retains all calibration/workflow limits.
+Farla (2025) RbCl achieves conditional parameter parity while retaining separate
+unresolved calibration replay, source benchmark and author-workflow findings.
+The Datchi diamond and Fei preliminary Pt comparisons are explicitly conditional
+on a source-unconfirmed selection/weighting hypothesis and a diagnostic fixed-V0
+mask, respectively. Litasov siderite's parameter agreement retains its unresolved
+source-RMS discrepancy. These conditions and findings do not cap the limited
+`parameter_agreement` outcome; no hypothesis, author protocol or recommendation
+is validated by promoting that numerical outcome. All 63 reviewed records meet
+their stated conditional parameter criterion.
+
+The [remaining-similar scope review](literature-reproductions/similar-parameter-review.md)
+checks the other 96 similar findings. It promotes 21 conditional parameter
+comparisons, two registered independent-refit replays and one source-equation
+checkpoint check, while 72 retain similarity. Source-width comparisons can
+establish central-value agreement without a reconstruction covariance; that
+missing covariance stays unknown and no combined-error claim is inferred.
+Verified half-last-digit tolerances establish printed-precision agreement,
+not statistical uncertainty parity. Priors and fixed anchors remain explicit
+conditions rather than independently recovered coefficients. Data-agreement,
+calibration, original-publication and recommendation findings remain separate.
+
 ## Qualified results and comparison scope
 
 A parity label must identify what was reproduced. Native EOSMAT's optional

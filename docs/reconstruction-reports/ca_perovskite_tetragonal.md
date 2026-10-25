@@ -17,7 +17,7 @@ agreement, source verification, author-workflow reproduction and recommendation 
 | [Sagatova et al. (2021), tetragonal CaSiO3 GGA 300 K Vinet](#record-ca_perovskite_tetragonal_sagatova_2021_gga_300k_vinet) | Complete independent refit unavailable | No numeric coefficient pair recorded |
 | [Caracas et al. (2005), static I4/mcm BM3](#record-ca_perovskite_tetragonal_caracas_2005_bm3_1) | Complete independent refit unavailable | No numeric coefficient pair recorded |
 | [Caracas et al. (2005), static I4/mcm BM4](#record-ca_perovskite_tetragonal_caracas_2005_bm4_2) | Complete independent refit unavailable | No numeric coefficient pair recorded |
-| [Chen et al. (2018), 300 K Ne-medium Vinet](#record-ca_perovskite_tetragonal_chen_2018_vinet) | Numerically similar, with qualifications | Graph and table |
+| [Chen et al. (2018), 300 K Ne-medium Vinet](#record-ca_perovskite_tetragonal_chen_2018_vinet) | Coefficient parity achieved | Graph and table |
 
 <a id="record-ca_perovskite_tetragonal_sun_2022_bm3_1"></a>
 
@@ -338,10 +338,10 @@ Supporting reports retain additional source plots and protocol-specific diagnost
 
 Record: `ca_perovskite_tetragonal_chen_2018_vinet` · Model: `Vinet`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Coefficient parity achieved.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Conditional parameter agreement under both the combined-error comparison and numerical similarity screen; source confidence conventions remain explicit, and unknown source confidence or shared-data covariance does not become a formal confidence test or author-workflow reproduction.
 
 [Stored EOS coefficients and source](../material-summaries/ca_perovskite_tetragonal.md#record-ca_perovskite_tetragonal_chen_2018_vinet)
 
@@ -350,7 +350,7 @@ Record: `ca_perovskite_tetragonal_chen_2018_vinet` · Model: `Vinet`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** Use the unchanged published 300 K Vinet parameterization for qualified comparison in its measured 28.824-62.477 GPa range. V0 is an extrapolation and K0' is fixed at 4. Retain the reported 2-sigma lattice and parameter errors without inventing pressure errors or source weights. P4/mmm refinements are parallel structural diagnostics, not additional independent fit observations.
 
-- Complete source-scope table check with unresolved fitting details: all seven I4/mcm Table 1 rows are used, K0-prime is fixed at 4, and the reported Ye et al. Pt pressures are retained. The source does not publish pressure uncertainties, residual direction, weights, fit software, unrounded inputs, or covariance. The generic fit therefore uses an errors-in-variables objective with one-sigma volume errors propagated from the table's two-sigma lattice errors; the dedicated reproduction also reports unweighted pressure- and volume-residual sensitivity fits. Those diagnostics do not define a replacement EOS, and the classification is capped at similar because statistical parity cannot be established without the source weighting and pressure-error model.
+- Every compared free coefficient passes the combined-error comparison and numerical similarity screen. The source explicitly reports two-sigma parameter widths; dividing those widths by two before combining with reconstruction standard errors also passes. The printed-source-width-only cutoff is not required for this parameter-agreement scope. Original weights, calibration covariance and author workflow remain unrecovered; shared-data cross-fit covariance is unknown. Existing reconstructed errors retained; no source confidence convention inferred. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Complete source-scope table check with unresolved fitting details: all seven I4/mcm Table 1 rows are used, K0-prime is fixed at 4, and the reported Ye et al. Pt pressures are retained. The source does not publish pressure uncertainties, residual direction, weights, fit software, unrounded inputs, or covariance. The generic fit therefore uses an errors-in-variables objective with one-sigma volume errors propagated from the table's two-sigma lattice errors; the dedicated reproduction also reports unweighted pressure- and volume-residual sensitivity fits. Those diagnostics do not define a replacement EOS, and the classification is capped at similar because statistical parity cannot be established without the source weighting and pressure-error model. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
 - Usage recommendation: Use the unchanged published 300 K Vinet parameterization for qualified comparison in its measured 28.824-62.477 GPa range. V0 is an extrapolation and K0' is fixed at 4. Retain the reported 2-sigma lattice and parameter errors without inventing pressure errors or source weights. P4/mmm refinements are parallel structural diagnostics, not additional independent fit observations.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
@@ -361,6 +361,7 @@ Record: `ca_perovskite_tetragonal_chen_2018_vinet` · Model: `Vinet`
 - **Fit kind:** isothermal\_pv
 - **Selection:** all rows
 - **Objective:** errors\_in\_variables
+- **Weighting:** Existing reconstructed errors retained; no source confidence convention inferred.
 - **Absolute sigma:** True
 - **Free parameters:** V0; K0
 - **Fixed parameters:** K0\_prime
@@ -417,12 +418,22 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 - **Rmse gpa:** 0.634179
 - **Published rmse gpa:** 0.688528
 - **Reduced chi square:** 0.563347
+- **Covariance:**
+    - **Parameters:** V0; K0
+    - **Standard errors:**
+        - **V0:** 1.13265
+        - **K0:** 11.0393
+    - **Method:** Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Qualification:** Complete source-scope table check with unresolved fitting details: all seven I4/mcm Table 1 rows are used, K0-prime is fixed at 4, and the reported Ye et al. Pt pressures are retained. The source does not publish pressure uncertainties, residual direction, weights, fit software, unrounded inputs, or covariance. The generic fit therefore uses an errors-in-variables objective with one-sigma volume errors propagated from the table's two-sigma lattice errors; the dedicated reproduction also reports unweighted pressure- and volume-residual sensitivity fits. Those diagnostics do not define a replacement EOS, and the classification is capped at similar because statistical parity cannot be established without the source weighting and pressure-error model.
+    - **Assumptions:** Existing reconstructed errors retained; no source confidence convention inferred.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
 
 </details>
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-ca_perovskite_tetragonal_chen_2018_vinet).
+- [Supporting source report: uncertainty-reconstruction](../literature-reproductions/uncertainty-reconstruction.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 

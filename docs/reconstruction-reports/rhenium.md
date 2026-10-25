@@ -14,10 +14,10 @@ agreement, source verification, author-workflow reproduction and recommendation 
 | --- | --- | --- |
 | [Sakai et al. (2025), Re generalized Rydberg-Stacey scale](#record-rhenium_sakai_2025_rydberg_stacey_1) | Complete independent refit unavailable | No numeric coefficient pair recorded |
 | [Anzellini et al. (2014), helium-medium Vinet](#record-rhenium_anzellini_2014_vinet_1) | Coefficient parity achieved | Graph and table |
-| [Dewaele (2019), Re MAO-scale Vinet](#record-rhenium_dewaele_2019_mao_vinet) | Numerically similar, with qualifications | Graph and table |
-| [Dewaele (2019), Re DOR-scale Vinet](#record-rhenium_dewaele_2019_dor_vinet) | Numerically similar, with qualifications | Graph and table |
+| [Dewaele (2019), Re MAO-scale Vinet](#record-rhenium_dewaele_2019_mao_vinet) | Coefficient parity achieved | Graph and table |
+| [Dewaele (2019), Re DOR-scale Vinet](#record-rhenium_dewaele_2019_dor_vinet) | Coefficient parity achieved | Graph and table |
 | [Sakai et al. (2018), Re Vinet on the Yokoo Pt scale](#record-rhenium_sakai_2018_yokoo_pt_vinet) | Coefficient parity achieved | Graph and table |
-| [Zha et al. (2004), Table III BM3 plus logarithmic thermal pressure](#record-rhenium_zha_2004_bm3_log_thermal) | Numerically similar, with qualifications | Graph and table |
+| [Zha et al. (2004), Table III BM3 plus logarithmic thermal pressure](#record-rhenium_zha_2004_bm3_log_thermal) | Coefficient parity achieved | Graph and table |
 
 <a id="record-rhenium_sakai_2025_rydberg_stacey_1"></a>
 
@@ -178,10 +178,10 @@ Supporting reports retain additional source plots and protocol-specific diagnost
 
 Record: `rhenium_dewaele_2019_mao_vinet` · Model: `Vinet`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Coefficient parity achieved.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Stored EOS coefficients and source](../material-summaries/rhenium.md#record-rhenium_dewaele_2019_mao_vinet)
 
@@ -190,7 +190,7 @@ Record: `rhenium_dewaele_2019_mao_vinet` · Model: `Vinet`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
-- Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
@@ -200,6 +200,8 @@ Record: `rhenium_dewaele_2019_mao_vinet` · Model: `Vinet`
 - **Fit kind:** static\_vinet\_with\_explicit\_ruby\_scale\_conversion
 - **Selection:** complete
 - **Objective:** unweighted pressure residuals
+- **Weighting:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.
+- **Absolute sigma:** False
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 
@@ -233,9 +235,9 @@ no confidence interval or uncertainty band is inferred. Fixed/adopted values are
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 29.47 | 0.04 | 29.4765 | Not reported | Free |
-| K0 | 351 | 8 | 349.467 | Not reported | Free |
-| K0\_prime | 3.98 | 0.17 | 4.01284 | Not reported | Free |
+| V0 | 29.47 | 0.04 | 29.477 | 0.014 | Free |
+| K0 | 351 | 8 | 349 | 4 | Free |
+| K0\_prime | 3.98 | 0.17 | 4.01 | 0.08 | Free |
 
 Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
@@ -244,15 +246,42 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
 - **Observed pressure range gpa:** 0.656411; 134.163
+- **Degrees of freedom:** 56
 - **Solver success:** True
 - **Solver message:** dedicated Dewaele (2019) refit completed
 - **Rmse gpa:** 0.574492
+- **Parameter covariance:** \[\["0.000199321", "-0.0463125", "0.00086298"\], \["-0.0463125", "14.1779", "-0.301431"\], \["0.00086298", "-0.301431", "0.00690718"\]\]
+- **Covariance:**
+    - **Parameters:** V0; K0; K0\_prime
+    - **Matrix:** \[\["0.000199321", "-0.0463125", "0.00086298"\], \["-0.0463125", "14.1779", "-0.301431"\], \["0.00086298", "-0.301431", "0.00690718"\]\]
+    - **Standard errors:**
+        - **V0:** 0.0141181
+        - **K0:** 3.76535
+        - **K0 prime:** 0.0831095
+    - **Correlation matrix:** \[\["1", "-0.871196", "0.735484"\], \["-0.871196", "1", "-0.963235"\], \["0.735484", "-0.963235", "1"\]\]
+    - **Degrees of freedom:** 56
+    - **Local student t 95 intervals:**
+        - **V0:** 29.4482; 29.5048
+        - **K0:** 341.925; 357.01
+        - **K0 prime:** 3.84635; 4.17932
+    - **Residual variance:** 0.347722
+    - **Max abs residual jacobian cosine:** 4.2358e-09
+    - **Residual sum squares:** 19.4724
+    - **Residual count:** 59
+    - **Scaled jacobian condition number:** 160.554
+    - **Derivative step halving relative change:** 2.02043e-12
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Qualification:** Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.
+    - **Assumptions:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+- **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 
 </details>
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-rhenium_dewaele_2019_mao_vinet).
+- [Supporting source report: uncertainty-reconstruction](../literature-reproductions/uncertainty-reconstruction.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
@@ -268,10 +297,10 @@ Supporting reports retain additional source plots and protocol-specific diagnost
 
 Record: `rhenium_dewaele_2019_dor_vinet` · Model: `Vinet`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Coefficient parity achieved.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Stored EOS coefficients and source](../material-summaries/rhenium.md#record-rhenium_dewaele_2019_dor_vinet)
 
@@ -280,7 +309,7 @@ Record: `rhenium_dewaele_2019_dor_vinet` · Model: `Vinet`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
-- Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
@@ -290,6 +319,8 @@ Record: `rhenium_dewaele_2019_dor_vinet` · Model: `Vinet`
 - **Fit kind:** static\_vinet\_with\_explicit\_ruby\_scale\_conversion
 - **Selection:** complete
 - **Objective:** unweighted pressure residuals
+- **Weighting:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.
+- **Absolute sigma:** False
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 
@@ -323,9 +354,9 @@ no confidence interval or uncertainty band is inferred. Fixed/adopted values are
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 29.47 | 0.04 | 29.4712 | Not reported | Free |
-| K0 | 351 | 8 | 349.324 | Not reported | Free |
-| K0\_prime | 4.62 | 0.17 | 4.65097 | Not reported | Free |
+| V0 | 29.47 | 0.04 | 29.471 | 0.015 | Free |
+| K0 | 351 | 8 | 349 | 4 | Free |
+| K0\_prime | 4.62 | 0.17 | 4.65 | 0.08 | Free |
 
 Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
@@ -334,15 +365,42 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
 - **Observed pressure range gpa:** 0.65; 144
+- **Degrees of freedom:** 56
 - **Solver success:** True
 - **Solver message:** dedicated Dewaele (2019) refit completed
 - **Rmse gpa:** 0.604048
+- **Parameter covariance:** \[\["0.000214753", "-0.0502108", "0.000916534"\], \["-0.0502108", "15.2775", "-0.318443"\], \["0.000916534", "-0.318443", "0.0071639"\]\]
+- **Covariance:**
+    - **Parameters:** V0; K0; K0\_prime
+    - **Matrix:** \[\["0.000214753", "-0.0502108", "0.000916534"\], \["-0.0502108", "15.2775", "-0.318443"\], \["0.000916534", "-0.318443", "0.0071639"\]\]
+    - **Standard errors:**
+        - **V0:** 0.0146545
+        - **K0:** 3.90865
+        - **K0 prime:** 0.0846398
+    - **Correlation matrix:** \[\["1", "-0.876599", "0.738932"\], \["-0.876599", "1", "-0.962567"\], \["0.738932", "-0.962567", "1"\]\]
+    - **Degrees of freedom:** 56
+    - **Local student t 95 intervals:**
+        - **V0:** 29.4418; 29.5005
+        - **K0:** 341.494; 357.154
+        - **K0 prime:** 4.48141; 4.82052
+    - **Residual variance:** 0.384421
+    - **Max abs residual jacobian cosine:** 3.82649e-09
+    - **Residual sum squares:** 21.5275
+    - **Residual count:** 59
+    - **Scaled jacobian condition number:** 149.867
+    - **Derivative step halving relative change:** 2.93607e-12
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Qualification:** Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.
+    - **Assumptions:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+- **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 
 </details>
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-rhenium_dewaele_2019_dor_vinet).
+- [Supporting source report: uncertainty-reconstruction](../literature-reproductions/uncertainty-reconstruction.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
@@ -446,10 +504,10 @@ Supporting reports retain additional source plots and protocol-specific diagnost
 
 Record: `rhenium_zha_2004_bm3_log_thermal` · Model: `BM3`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Coefficient parity achieved.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.
 
 [Stored EOS coefficients and source](../material-summaries/rhenium.md#record-rhenium_zha_2004_bm3_log_thermal)
 
@@ -458,6 +516,7 @@ Record: `rhenium_zha_2004_bm3_log_thermal` · Model: `BM3`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
+- Every compared free coefficient meets its printed source error width or the explicitly verified half-last-digit tolerance where source errors are absent. Printing precision is not a confidence interval. Both Table III thermal coefficients agree at five printed decimal places using the existing staged isochore-slope objective and fixed cold curve. Source errors and reconstruction covariance remain unknown. The eight Au pressure reductions and the 0.40849 GPa published-curve RMS remain separate unresolved findings; no measurement-error or author-workflow parity is claimed. Earlier audit wording (superseded only for the named numerical scope): Both thermal point estimates recover within 0.05%; source errors are unavailable. The source staged isochore objective differs from direct pressure least squares. See literature-reproductions/zha-2004-rhenium.md.
 - Both thermal point estimates recover within 0.05%; source errors are unavailable. The source staged isochore objective differs from direct pressure least squares. See literature-reproductions/zha-2004-rhenium.md.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
@@ -514,12 +573,12 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 - **Solver success:** True
 - **Rmse gpa:** 0.408385
 - **Published rmse gpa:** 0.408492
+- **Comparison scope:** Compared free coefficients: alpha\_KT\_ref, dK\_dT\_V; scope=parameter\_agreement
 
 </details>
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-rhenium_zha_2004_bm3_log_thermal).
 - [Supporting source report: zha-2004-rhenium](../literature-reproductions/zha-2004-rhenium.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).

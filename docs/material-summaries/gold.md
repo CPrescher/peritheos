@@ -1426,18 +1426,18 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Open reconstruction report](../reconstruction-reports/gold.md#record-gold_dewaele_2019_mao_vinet)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
-- Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -1451,9 +1451,9 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 67.93 | 0.08 | 67.9327 | Not reported | Free |
-| K0 | 166.4 | 2.0 | 166.367 | Not reported | Free |
-| K0\_prime | 5.47 | 0.06 | 5.46613 | Not reported | Free |
+| V0 | 67.93 | 0.08 | 67.93 | 0.09 | Free |
+| K0 | 166.4 | 2.0 | 166 | 3 | Free |
+| K0\_prime | 5.47 | 0.06 | 5.47 | 0.10 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
 Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
@@ -1461,13 +1461,42 @@ Displayed uncertainties use two significant digits for leading 1/2, otherwise on
 - **Fit kind:** static\_vinet\_with\_explicit\_ruby\_scale\_conversion
 - **Objective:** unweighted pressure residuals
 - **Selection:** complete
+- **Weighting:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.
+- **Absolute sigma:** False
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 - **Observations:** 86
 - **Observed pressure range gpa:** 0; 122.292
+- **Degrees of freedom:** 83
 - **Solver success:** True
 - **Solver message:** dedicated Dewaele (2019) refit completed
 - **Rmse gpa:** 0.725872
+- **Parameter covariance:** \[\["0.0083291", "-0.290524", "0.0076494"\], \["-0.290524", "11.4671", "-0.333678"\], \["0.0076494", "-0.333678", "0.0105425"\]\]
+- **Covariance:**
+    - **Parameters:** V0; K0; K0\_prime
+    - **Matrix:** \[\["0.0083291", "-0.290524", "0.0076494"\], \["-0.290524", "11.4671", "-0.333678"\], \["0.0076494", "-0.333678", "0.0105425"\]\]
+    - **Standard errors:**
+        - **V0:** 0.0912639
+        - **K0:** 3.38631
+        - **K0 prime:** 0.102677
+    - **Correlation matrix:** \[\["1", "-0.940062", "0.816313"\], \["-0.940062", "1", "-0.959683"\], \["0.816313", "-0.959683", "1"\]\]
+    - **Degrees of freedom:** 83
+    - **Local student t 95 intervals:**
+        - **V0:** 67.7511; 68.1142
+        - **K0:** 159.631; 173.102
+        - **K0 prime:** 5.26191; 5.67035
+    - **Residual variance:** 0.545934
+    - **Max abs residual jacobian cosine:** 1.0845e-09
+    - **Residual sum squares:** 45.3125
+    - **Residual count:** 86
+    - **Scaled jacobian condition number:** 136.251
+    - **Derivative step halving relative change:** 2.4257e-12
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Qualification:** Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.
+    - **Assumptions:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+- **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 - **Dataset identifiers:** gold\_takemura\_2008\_table3\_compression
 
 </details>
@@ -1578,18 +1607,18 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Open reconstruction report](../reconstruction-reports/gold.md#record-gold_dewaele_2019_dor_vinet)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
-- Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -1603,9 +1632,9 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 67.94 | 0.08 | 67.9431 | Not reported | Free |
-| K0 | 163.4 | 2.0 | 163.377 | Not reported | Free |
-| K0\_prime | 6.04 | 0.06 | 6.02982 | Not reported | Free |
+| V0 | 67.94 | 0.08 | 67.94 | 0.10 | Free |
+| K0 | 163.4 | 2.0 | 163 | 4 | Free |
+| K0\_prime | 6.04 | 0.06 | 6.03 | 0.11 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
 Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
@@ -1613,13 +1642,42 @@ Displayed uncertainties use two significant digits for leading 1/2, otherwise on
 - **Fit kind:** static\_vinet\_with\_explicit\_ruby\_scale\_conversion
 - **Objective:** unweighted pressure residuals
 - **Selection:** complete
+- **Weighting:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.
+- **Absolute sigma:** False
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 - **Observations:** 86
 - **Observed pressure range gpa:** 0; 130.8
+- **Degrees of freedom:** 83
 - **Solver success:** True
 - **Solver message:** dedicated Dewaele (2019) refit completed
 - **Rmse gpa:** 0.773022
+- **Parameter covariance:** \[\["0.00943946", "-0.326289", "0.00851143"\], \["-0.326289", "12.6479", "-0.363759"\], \["0.00851143", "-0.363759", "0.0113752"\]\]
+- **Covariance:**
+    - **Parameters:** V0; K0; K0\_prime
+    - **Matrix:** \[\["0.00943946", "-0.326289", "0.00851143"\], \["-0.326289", "12.6479", "-0.363759"\], \["0.00851143", "-0.363759", "0.0113752"\]\]
+    - **Standard errors:**
+        - **V0:** 0.0971569
+        - **K0:** 3.55639
+        - **K0 prime:** 0.106655
+    - **Correlation matrix:** \[\["1", "-0.944321", "0.821391"\], \["-0.944321", "1", "-0.959015"\], \["0.821391", "-0.959015", "1"\]\]
+    - **Degrees of freedom:** 83
+    - **Local student t 95 intervals:**
+        - **V0:** 67.7499; 68.1364
+        - **K0:** 156.304; 170.451
+        - **K0 prime:** 5.81769; 6.24195
+    - **Residual variance:** 0.619162
+    - **Max abs residual jacobian cosine:** 4.19873e-09
+    - **Residual sum squares:** 51.3905
+    - **Residual count:** 86
+    - **Scaled jacobian condition number:** 139.448
+    - **Derivative step halving relative change:** 2.43672e-12
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Qualification:** Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.
+    - **Assumptions:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+- **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 - **Dataset identifiers:** gold\_takemura\_2008\_table3\_compression
 
 </details>
@@ -2558,18 +2616,19 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Open reconstruction report](../reconstruction-reports/gold.md#record-gold_hirose_2008_bm3_fit2)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
-- Complete published PVT selection recovered. Original residual coordinate, weights, covariance and unrounded observations remain unspecified. Weighted sensitivity treats printed pressure errors as relative weights only, not established sigma; it omits Au-volume and temperature uncertainty and correlated calibration errors. Ambient expansivity coefficients are source-fixed, not refitted from unavailable Touloukian data.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Existing reconstructed errors retained; no source confidence convention inferred. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Complete published PVT selection recovered. Original residual coordinate, weights, covariance and unrounded observations remain unspecified. Weighted sensitivity treats printed pressure errors as relative weights only, not established sigma; it omits Au-volume and temperature uncertainty and correlated calibration errors. Ambient expansivity coefficients are source-fixed, not refitted from unavailable Touloukian data. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
+- Earlier audit statement, before the conditional uncertainty follow-up: Complete published PVT selection recovered. Original residual coordinate, weights, covariance and unrounded observations remain unspecified. Weighted sensitivity treats printed pressure errors as relative weights only, not established sigma; it omits Au-volume and temperature uncertainty and correlated calibration errors. Ambient expansivity coefficients are source-fixed, not refitted from unavailable Touloukian data.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -2592,11 +2651,24 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** diagnostic\_unweighted\_pressure
+- **Weighting:** Existing reconstructed errors retained; no source confidence convention inferred.
 - **Fixed parameters:** V0; K0; K0\_prime; Tr; alpha0; alpha1; dK\_dT
 - **Observations:** 38
 - **Solver success:** True
 - **Rmse gpa:** 0.445142
 - **Published rmse gpa:** 0.447919
+- **Covariance:**
+    - **Parameters:** beta1; beta2; beta3; kprime\_log\_coefficient
+    - **Standard errors:**
+        - **Beta1:** 4.45158e-07
+        - **Beta2:** 3.91457e-10
+        - **Beta3:** 9.76442e-14
+        - **Kprime log coefficient:** 2.27231e-05
+    - **Method:** Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Reason:** Complete published PVT selection recovered. Original residual coordinate, weights, covariance and unrounded observations remain unspecified. Weighted sensitivity treats printed pressure errors as relative weights only, not established sigma; it omits Au-volume and temperature uncertainty and correlated calibration errors. Ambient expansivity coefficients are source-fixed, not refitted from unavailable Touloukian data.
+    - **Assumptions:** Existing reconstructed errors retained; no source confidence convention inferred.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
 - **Dataset identifiers:** gold\_hirose\_2008\_table1; gold\_fei\_2004\_table1
 
 </details>
@@ -2732,18 +2804,19 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Open reconstruction report](../reconstruction-reports/gold.md#record-gold_hirose_2008_bm3_fit1)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
-- Published row selection and fixed reference coefficients retained. Unweighted pressure residuals are diagnostic because the source does not specify its objective, weights, or covariance. Published coefficients remain unchanged.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Published row selection and fixed reference coefficients retained. Unweighted pressure residuals are diagnostic because the source does not specify its objective, weights, or covariance. Published coefficients remain unchanged. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
+- Earlier audit statement, before the conditional uncertainty follow-up: Published row selection and fixed reference coefficients retained. Unweighted pressure residuals are diagnostic because the source does not specify its objective, weights, or covariance. Published coefficients remain unchanged.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -2757,20 +2830,49 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| dK\_dT | -0.028 | 0.003 | -0.0283325 | Not reported | Free |
-| alpha0 | 31.8e-6 | 1.4e-6 | 3.17673e-05 | Not reported | Free |
-| alpha1 | 15e-9 | 3e-9 | 1.49981e-08 | Not reported | Free |
+| dK\_dT | -0.028 | 0.003 | -0.0283 | 0.0027 | Free |
+| alpha0 | 31.8e-6 | 1.4e-6 | 31.8e-6 | 1.4e-6 | Free |
+| alpha1 | 15e-9 | 3e-9 | 15e-9 | 3e-9 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
 Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** diagnostic\_unweighted\_pressure
+- **Weighting:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.
+- **Absolute sigma:** False
 - **Free parameters:** dK\_dT; alpha0; alpha1
 - **Fixed parameters:** V0; K0; K0\_prime; Tr
 - **Observations:** 12
+- **Degrees of freedom:** 9
 - **Solver success:** True
 - **Rmse gpa:** 0.388477
 - **Published rmse gpa:** 0.459525
+- **Parameter covariance:** \[\["7.23794e-06", "-1.57361e-09", "-8.07609e-12"\], \["-1.57361e-09", "2.01435e-12", "2.8863e-16"\], \["-8.07609e-12", "2.8863e-16", "1.03128e-17"\]\]
+- **Covariance:**
+    - **Parameters:** dK\_dT; alpha0; alpha1
+    - **Matrix:** \[\["7.23794e-06", "-1.57361e-09", "-8.07609e-12"\], \["-1.57361e-09", "2.01435e-12", "2.8863e-16"\], \["-8.07609e-12", "2.8863e-16", "1.03128e-17"\]\]
+    - **Standard errors:**
+        - **Dk dt:** 0.00269034
+        - **Alpha0:** 1.41928e-06
+        - **Alpha1:** 3.21136e-09
+    - **Correlation matrix:** \[\["1", "-0.412119", "-0.934769"\], \["-0.412119", "1", "0.0633265"\], \["-0.934769", "0.0633265", "1"\]\]
+    - **Degrees of freedom:** 9
+    - **Local student t 95 intervals:**
+        - **Dk dt:** -0.0344185; -0.0222465
+        - **Alpha0:** 2.85566e-05; 3.49779e-05
+        - **Alpha1:** 7.73352e-09; 2.22627e-08
+    - **Residual variance:** 0.201219
+    - **Max abs residual jacobian cosine:** 6.50865e-08
+    - **Residual sum squares:** 1.81097
+    - **Residual count:** 12
+    - **Scaled jacobian condition number:** 94.9257
+    - **Derivative step halving relative change:** 6.7802e-11
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Reason:** Published row selection and fixed reference coefficients retained. Unweighted pressure residuals are diagnostic because the source does not specify its objective, weights, or covariance. Published coefficients remain unchanged.
+    - **Assumptions:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+- **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 - **Dataset identifiers:** gold\_hirose\_2008\_table1
 
 </details>
@@ -2898,18 +3000,19 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Open reconstruction report](../reconstruction-reports/gold.md#record-gold_hirose_2008_bm3_300k)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
-- Published row selection and fixed reference coefficients retained. Unweighted pressure residuals are diagnostic because the source does not specify its objective, weights, or covariance. Published coefficients remain unchanged.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Published row selection and fixed reference coefficients retained. Unweighted pressure residuals are diagnostic because the source does not specify its objective, weights, or covariance. Published coefficients remain unchanged. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
+- Earlier audit statement, before the conditional uncertainty follow-up: Published row selection and fixed reference coefficients retained. Unweighted pressure residuals are diagnostic because the source does not specify its objective, weights, or covariance. Published coefficients remain unchanged.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -2923,18 +3026,43 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0\_prime | 5.580 | 0.020 | 5.58335 | Not reported | Free |
+| K0\_prime | 5.580 | 0.020 | 5.583 | 0.023 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
 Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** diagnostic\_unweighted\_pressure
+- **Weighting:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.
+- **Absolute sigma:** False
 - **Free parameters:** K0\_prime
 - **Fixed parameters:** V0; K0
 - **Observations:** 9
+- **Degrees of freedom:** 8
 - **Solver success:** True
 - **Rmse gpa:** 0.669731
 - **Published rmse gpa:** 0.670655
+- **Parameter covariance:** \[\["0.000506512"\]\]
+- **Covariance:**
+    - **Parameters:** K0\_prime
+    - **Matrix:** \[\["0.000506512"\]\]
+    - **Standard errors:**
+        - **K0 prime:** 0.0225058
+    - **Correlation matrix:** \[\["1"\]\]
+    - **Degrees of freedom:** 8
+    - **Local student t 95 intervals:**
+        - **K0 prime:** 5.53145; 5.63524
+    - **Residual variance:** 0.504607
+    - **Max abs residual jacobian cosine:** 5.4578e-09
+    - **Residual sum squares:** 4.03686
+    - **Residual count:** 9
+    - **Scaled jacobian condition number:** 1
+    - **Derivative step halving relative change:** 3.23618e-12
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Reason:** Published row selection and fixed reference coefficients retained. Unweighted pressure residuals are diagnostic because the source does not specify its objective, weights, or covariance. Published coefficients remain unchanged.
+    - **Assumptions:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+- **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 - **Dataset identifiers:** gold\_hirose\_2008\_table1
 
 </details>

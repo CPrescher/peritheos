@@ -60,12 +60,13 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "similar",
+            "status": "parity",
             "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
             "qualifications": [
-              "Coupled three-level spin-state reconstruction using the recovered earlier observations and Solomatova Table 2 priors. The original MINUTI input, row weights, residual definition, and covariance are unpublished, so this equal-weight approximate-volume fit tests numerical similarity rather than claiming an exact reproduction.",
+              "Every compared free coefficient lies inside its positive printed source error width. Target-branch agreement only, conditional on the existing coupled approximate-volume fit and Table 2 priors. Fixed LS K0-prime=4, and the Fp48 HS V0 anchor where applicable, are constraints, not independently recovered values. Prior regularization supports agreement and does not independently validate the endmembers or full spin-crossover fit. Reconstruction covariance remains unknown; this is a source-width central-value comparison, not combined-error or author-workflow parity. Earlier audit wording (superseded only for the named numerical scope): Coupled three-level spin-state reconstruction using the recovered earlier observations and Solomatova Table 2 priors. The original MINUTI input, row weights, residual definition, and covariance are unpublished, so this equal-weight approximate-volume fit tests numerical similarity rather than claiming an exact reproduction.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg061fe039o/#record-mg061fe039o_solomatova_2016_fei_hs_bm3_reference_1",
@@ -74,9 +75,12 @@
               {
                 "parameter": "V0",
                 "published": 77.49,
+                "published_error": 0.03,
                 "published_sigma": 0.03,
                 "refit": 77.4915781521927,
+                "refit_error": null,
                 "refit_sigma": null,
+                "difference": 0.0015781521927067388,
                 "delta": 0.0015781521927067388,
                 "relative_delta": 2.0365881955177946e-05,
                 "similar": true,
@@ -85,9 +89,12 @@
               {
                 "parameter": "K0",
                 "published": 161.0,
+                "published_error": 3,
                 "published_sigma": 3,
                 "refit": 160.2555876526297,
+                "refit_error": null,
                 "refit_sigma": null,
+                "difference": -0.7444123473702859,
                 "delta": -0.7444123473702859,
                 "relative_delta": -0.004623679176212956,
                 "similar": true,
@@ -96,9 +103,12 @@
               {
                 "parameter": "K0_prime",
                 "published": 4.25,
+                "published_error": 0.24,
                 "published_sigma": 0.24,
                 "refit": 4.063494833000203,
+                "refit_error": null,
                 "refit_sigma": null,
+                "difference": -0.18650516699979658,
                 "delta": -0.18650516699979658,
                 "relative_delta": -0.043883568705834486,
                 "similar": true,
@@ -115,6 +125,7 @@
               "solver_success": true,
               "solver_message": "dedicated Solomatova coupled reconstruction completed",
               "rmse_volume_a3": 0.13681193441273581,
+              "comparison_scope": "Compared free coefficients: V0, K0, K0_prime; scope=parameter_agreement",
               "dataset_identifiers": ["mg061fe039o_fei_2007_table_s2_pv"]
             },
             "report": "docs/data/primary-eos-refits.json"
@@ -489,12 +500,13 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "similar",
+            "status": "parity",
             "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
             "qualifications": [
-              "Coupled three-level spin-state reconstruction using the recovered earlier observations and Solomatova Table 2 priors. The original MINUTI input, row weights, residual definition, and covariance are unpublished, so this equal-weight approximate-volume fit tests numerical similarity rather than claiming an exact reproduction.",
+              "Every compared free coefficient lies inside its positive printed source error width. Target-branch agreement only, conditional on the existing coupled approximate-volume fit and Table 2 priors. Fixed LS K0-prime=4, and the Fp48 HS V0 anchor where applicable, are constraints, not independently recovered values. Prior regularization supports agreement and does not independently validate the endmembers or full spin-crossover fit. Reconstruction covariance remains unknown; this is a source-width central-value comparison, not combined-error or author-workflow parity. Earlier audit wording (superseded only for the named numerical scope): Coupled three-level spin-state reconstruction using the recovered earlier observations and Solomatova Table 2 priors. The original MINUTI input, row weights, residual definition, and covariance are unpublished, so this equal-weight approximate-volume fit tests numerical similarity rather than claiming an exact reproduction.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg061fe039o/#record-mg061fe039o_solomatova_2016_zhuravlev_ls_bm3_reference_4",
@@ -503,9 +515,12 @@
               {
                 "parameter": "V0",
                 "published": 73.56,
+                "published_error": 0.19,
                 "published_sigma": 0.19,
                 "refit": 73.53140264506077,
+                "refit_error": null,
                 "refit_sigma": null,
+                "difference": -0.028597354939236652,
                 "delta": -0.028597354939236652,
                 "relative_delta": -0.00038876230205596316,
                 "similar": true,
@@ -514,9 +529,12 @@
               {
                 "parameter": "K0",
                 "published": 170.0,
+                "published_error": 2,
                 "published_sigma": 2,
                 "refit": 171.3166944022198,
+                "refit_error": null,
                 "refit_sigma": null,
+                "difference": 1.3166944022198095,
                 "delta": 1.3166944022198095,
                 "relative_delta": 0.007745261189528291,
                 "similar": true,
@@ -525,9 +543,12 @@
               {
                 "parameter": "K0_prime",
                 "published": 4.0,
+                "published_error": null,
                 "published_sigma": null,
                 "refit": 4.0,
+                "refit_error": null,
                 "refit_sigma": null,
+                "difference": 0.0,
                 "delta": 0.0,
                 "relative_delta": 0.0,
                 "similar": true,
@@ -540,10 +561,12 @@
               "selection": "used_in_solomatova_2016_fit=1",
               "free_parameters": ["V0_HS", "K0_HS", "K0_prime_HS", "V0_LS", "K0_LS", "omega0"],
               "fixed_parameters": ["K0_prime"],
+              "validation_fixed_parameters": ["K0_prime"],
               "observations": 54,
               "solver_success": true,
               "solver_message": "dedicated Solomatova coupled reconstruction completed",
               "rmse_volume_a3": 0.19753949408156116,
+              "comparison_scope": "Compared free coefficients: V0, K0; scope=parameter_agreement",
               "dataset_identifiers": ["mg061fe039o_zhuravlev_2010_table5_pv"]
             },
             "report": "docs/data/primary-eos-refits.json"

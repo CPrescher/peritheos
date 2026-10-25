@@ -113,8 +113,8 @@ the covariance back to physical units.
 
 The published surface has a pressure RMSE of `0.11001 GPa` on the rounded
 table; the refit lowers it to `0.10058 GPa`. Every varied coefficient is within
-its published uncertainty. The ledger nevertheless labels the result
-`similar`, not strict `parity`, because `alpha1` shifts by about 46% relative to
-its very small central value. This is consistent with the source's broad
-`alpha1` error and strong tradeoffs, but the missing objective and covariance
-prevent a claim of exact protocol reproduction.
+its published uncertainty. The ledger labels this **conditional parameter parity**: every varied coefficient
+agrees within its published width. The roughly 46% relative shift in the small
+`alpha1` central value does not override its broad source width. Missing objective
+and source covariance still prevent a claim of exact protocol reproduction. See
+the [scoped review](similar-parameter-review.md).

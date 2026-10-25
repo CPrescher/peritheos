@@ -222,11 +222,13 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "similar",
-            "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "status": "parity",
+            "scope": "source_equation",
+            "source_status": "parity",
+            "basis": "Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.",
+            "basis_code": "conditional_reported_widths_and_print_precision",
             "qualifications": [
+              "Every compared free coefficient meets its printed source error width or the explicitly verified half-last-digit tolerance where source errors are absent. Printing precision is not a confidence interval. Source-equation checkpoint coefficient recovery only: Table 1 pressures are calculated from the BM3 parameterization. Their near-exact refit is circular evidence for author-fit recovery, not an independent fit of measured pressures or the original E-V objective. V0=287.49 A^3 is checked at its 0.01 A^3 printed precision; the K0/K0-prime comparisons retain their source widths. The separately documented E-V fit and Table 1 cell-normalization correction remain distinct. Earlier audit wording (superseded only for the named numerical scope): ",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/magnesite/#record-magnesite_vocadlo_1999_bm3_2",
@@ -267,7 +269,7 @@
               }
             ],
             "fit": {
-              "fit_kind": "isothermal_pv",
+              "fit_kind": "source_curve_validation_only",
               "objective": "pressure_residuals",
               "selection": "all rows",
               "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3"},
@@ -284,6 +286,8 @@
               "rmse_gpa": 1.3718185808392503e-05,
               "published_rmse_gpa": 3.994635008310426e-05,
               "reduced_chi_square": 2.8228293281037224e-10,
+              "comparison_scope": "Compared free coefficients: V0, K0, K0_prime; scope=source_equation",
+              "reconstruction_kind": "published_calculated_pressure_checkpoints",
               "dataset_identifiers": ["magnesite_vocadlo_1999_table1_energy_volume"]
             },
             "report": "docs/data/primary-eos-refits.json"

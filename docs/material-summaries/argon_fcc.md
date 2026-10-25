@@ -292,18 +292,19 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Open reconstruction report](../reconstruction-reports/argon_fcc.md#record-argon_fcc_ono_2020_vinet)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
-- All 19 rows. Effective-error weights combine printed 1-sigma P,V errors using a fixed derivative at published coefficients. Source weighting and covariance are unspecified; no strict parameter parity claimed.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Original effective coordinate widths, frozen at published coefficients; residual-scaled covariance conditional on those fixed weights. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): All 19 rows. Effective-error weights combine printed 1-sigma P,V errors using a fixed derivative at published coefficients. Source weighting and covariance are unspecified; no strict parameter parity claimed. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
+- Earlier audit statement, before the conditional uncertainty follow-up: All 19 rows. Effective-error weights combine printed 1-sigma P,V errors using a fixed derivative at published coefficients. Source weighting and covariance are unspecified; no strict parameter parity claimed.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -317,9 +318,9 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 180 | 40 | 211.745 | Not reported | Free |
-| K0 | 1.1 | 1.3 | 0.458444 | Not reported | Free |
-| K0\_prime | 8.0 | 1.0 | 8.66468 | Not reported | Free |
+| V0 | 180 | 40 | 210 | 40 | Free |
+| K0 | 1.1 | 1.3 | 0.5 | 0.5 | Free |
+| K0\_prime | 8.0 | 1.0 | 8.7 | 0.9 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
 Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
@@ -327,12 +328,41 @@ Displayed uncertainties use two significant digits for leading 1/2, otherwise on
 - **Fit kind:** primary\_table\_diagnostic
 - **Objective:** fixed effective P,V errors
 - **Selection:** All 19 Table 1 observations
+- **Weighting:** Original effective coordinate widths, frozen at published coefficients; residual-scaled covariance conditional on those fixed weights.
+- **Absolute sigma:** False
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 - **Observations:** 19
+- **Degrees of freedom:** 16
 - **Solver success:** True
 - **Rmse gpa:** 0.853182
 - **Published rmse gpa:** 0.847492
+- **Parameter covariance:** \[\["1363.99", "-18.7541", "31.4495"\], \["-18.7541", "0.258283", "-0.434221"\], \["31.4495", "-0.434221", "0.732946"\]\]
+- **Covariance:**
+    - **Parameters:** V0; K0; K0\_prime
+    - **Matrix:** \[\["1363.99", "-18.7541", "31.4495"\], \["-18.7541", "0.258283", "-0.434221"\], \["31.4495", "-0.434221", "0.732946"\]\]
+    - **Standard errors:**
+        - **V0:** 36.9323
+        - **K0:** 0.508215
+        - **K0 prime:** 0.856123
+    - **Correlation matrix:** \[\["1", "-0.999176", "0.994655"\], \["-0.999176", "1", "-0.997991"\], \["0.994655", "-0.997991", "1"\]\]
+    - **Degrees of freedom:** 16
+    - **Local student t 95 intervals:**
+        - **V0:** 133.452; 290.038
+        - **K0:** -0.618924; 1.53581
+        - **K0 prime:** 6.84978; 10.4796
+    - **Residual variance:** 13.391
+    - **Max abs residual jacobian cosine:** 3.85511e-09
+    - **Residual sum squares:** 214.256
+    - **Residual count:** 19
+    - **Scaled jacobian condition number:** 1161.58
+    - **Derivative step halving relative change:** 3.27266e-12
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Reason:** All 19 rows. Effective-error weights combine printed 1-sigma P,V errors using a fixed derivative at published coefficients. Source weighting and covariance are unspecified; no strict parameter parity claimed.
+    - **Assumptions:** Original effective coordinate widths, frozen at published coefficients; residual-scaled covariance conditional on those fixed weights.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+- **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 - **Dataset identifiers:** argon\_fcc\_ono\_2020\_table1
 
 </details>
@@ -831,31 +861,72 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** All 19 measured rows retained. An unweighted refit reproduces both fitted parameters within published error bars, consistent with an unweighted original fit. The paper does not specify its weighting; covariance and uncertainty estimation are not reproduced.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Open reconstruction report](../reconstruction-reports/argon_fcc.md#record-argon_fcc_finger_1981_murnaghan2_debye)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. All 19 molar-volume rows and the full original Murnaghan/zero-point/Debye model at 293 K; other coefficients fixed. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): All 19 measured rows retained. An unweighted refit reproduces both fitted parameters within published error bars, consistent with an unweighted original fit. The paper does not specify its weighting; covariance and uncertainty estimation are not reproduced. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
+- Earlier audit statement, before the conditional uncertainty follow-up: All 19 measured rows retained. An unweighted refit reproduces both fitted parameters within published error bars, consistent with an unweighted original fit. The paper does not specify its weighting; covariance and uncertainty estimation are not reproduced.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
-- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
-
 
 <details markdown="1">
-<summary>Reconstruction protocol and available diagnostics</summary>
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0\_prime | 6.97 | 0.11 | 6.90 | 0.10 | Free |
+| K0\_double\_prime | -0.40 | 0.10 | -0.34 | 0.09 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** primary\_table\_diagnostic
 - **Objective:** equal pressure residuals
+- **Weighting:** All 19 molar-volume rows and the full original Murnaghan/zero-point/Debye model at 293 K; other coefficients fixed.
+- **Absolute sigma:** False
 - **Free parameters:** K0\_prime; K0\_double\_prime
 - **Fixed parameters:** V0; K0; P0; Tr; theta0; gamma0; gamma\_inf; beta; anharmonic\_a; anharmonic\_m; electronic\_e; electronic\_g; n
 - **Observations:** 19
+- **Degrees of freedom:** 17
 - **Rmse gpa:** 0.0941268
 - **Published rmse gpa:** 0.0953552
+- **Parameter covariance:** \[\["0.0110044", "-0.00966518"\], \["-0.00966518", "0.00890033"\]\]
+- **Covariance:**
+    - **Parameters:** K0\_prime; K0\_double\_prime
+    - **Matrix:** \[\["0.0110044", "-0.00966518"\], \["-0.00966518", "0.00890033"\]\]
+    - **Standard errors:**
+        - **K0 prime:** 0.104902
+        - **K0 double prime:** 0.0943416
+    - **Correlation matrix:** \[\["1", "-0.976615"\], \["-0.976615", "1"\]\]
+    - **Degrees of freedom:** 17
+    - **Local student t 95 intervals:**
+        - **K0 prime:** 6.68248; 7.12513
+        - **K0 double prime:** -0.535676; -0.13759
+    - **Residual variance:** 0.00990218
+    - **Max abs residual jacobian cosine:** 2.16532e-08
+    - **Residual sum squares:** 0.168337
+    - **Residual count:** 19
+    - **Scaled jacobian condition number:** 86.0285
+    - **Derivative step halving relative change:** 1.17041e-11
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Reason:** All 19 measured rows retained. An unweighted refit reproduces both fitted parameters within published error bars, consistent with an unweighted original fit. The paper does not specify its weighting; covariance and uncertainty estimation are not reproduced.
+    - **Assumptions:** All 19 molar-volume rows and the full original Murnaghan/zero-point/Debye model at 293 K; other coefficients fixed.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+- **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 - **Dataset identifiers:** argon\_fcc\_finger\_1981\_table1
 
 </details>
@@ -1753,29 +1824,45 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** independent refit.
 
-**Comparison basis:** Numerically reproduced independent Peritheos errors-in-variables BM3 refit. This does not reproduce the source-author coefficients. Statistical parameter errors are unavailable because graphical halfwidth confidence and cross-row correlations are unknown.
+**Comparison basis:** Reproduction of the stored independent Peritheos refit under its declared protocol.
 
 [Open reconstruction report](../reconstruction-reports/argon_fcc.md#record-argon_fcc_chen_2010_bm3_digitized_refit)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
 - This comparison concerns the stored independent Peritheos refit, not recovery of the original publication's coefficients or author workflow.
+- Registered independent refit point estimates reproduce within the declared numerical solver tolerance. Replay of the registered independent Peritheos refit's stored point estimates, with numerical relative tolerance 1e-6 and absolute tolerance 1e-8 in the recorded units. This is solver repeatability, not agreement with source-author coefficients or an uncertainty estimate. Source-data limitations, graphical correlations and original-publication findings remain unchanged. Earlier audit wording (superseded only for the named numerical scope): Numerically reproduced independent Peritheos errors-in-variables BM3 refit. This does not reproduce the source-author coefficients. Statistical parameter errors are unavailable because graphical halfwidth confidence and cross-row correlations are unknown.
+- Numerically reproduced independent Peritheos errors-in-variables BM3 refit. This does not reproduce the source-author coefficients. Statistical parameter errors are unavailable because graphical halfwidth confidence and cross-row correlations are unknown.
 - Usage recommendation: Reproducible BM3 approximation to80 digitized Brillouin-integrated density positions at nominal290 K, qualified only over1.23–26.06 GPa. This does not validate the original EOS or independently establish elastic properties. Zero-pressure density1.6895 g/cm3 disagrees with Chen's1.52±0.05 extrapolation and1.564 comparison estimate; no statistical parameter uncertainties are claimed.
 - Reproducible BM3 approximation to80 digitized Brillouin-integrated density positions at nominal290 K, qualified only over1.23–26.06 GPa. This does not validate the original EOS or independently establish elastic properties. Zero-pressure density1.6895 g/cm3 disagrees with Chen's1.52±0.05 extrapolation and1.564 comparison estimate; no statistical parameter uncertainties are claimed.
 - Original publication reproduction status: not\_reproduced
-- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
-
 
 <details markdown="1">
-<summary>Reconstruction protocol and available diagnostics</summary>
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 157.054 | Not reported | 157.054 | Not reported | See protocol |
+| K0 | 4.39886 | Not reported | 4.39886 | Not reported | See protocol |
+| K0\_prime | 4.62176 | Not reported | 4.62176 | Not reported | See protocol |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fixed parameters:** None declared
 - **Observations:** 80
+- **Comparison scope:** Compared free coefficients: V0, K0, K0\_prime; scope=independent\_refit
 - **Dataset identifiers:** argon\_fcc\_chen\_2010\_figure5\_brillouin
 
 </details>

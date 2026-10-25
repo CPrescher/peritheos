@@ -73,9 +73,9 @@ of records missing from that ledger. No scientific classifications are changed h
 | Outcome | Records |
 |---|---:|
 | `not_refittable` | 177 |
-| `parity` | 262 |
+| `parity` | 349 |
 | `parity_not_achieved` | 62 |
-| `similar` | 160 |
+| `similar` | 73 |
 | `source_reconstruction` | 17 |
 
 **Catalog records absent from the refit ledger:** none.

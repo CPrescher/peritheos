@@ -20,9 +20,9 @@ agreement, source verification, author-workflow reproduction and recommendation 
 | [Reynard et al. (1996), preferred BM3, ice-VII pressure scale](#record-akimotoite_reynard_1996_bm3_ice_vii_3) | Coefficient parity achieved | Graph and table |
 | [Siersch et al. (2021), BM3](#record-akimotoite_siersch_2021_bm3_1) | Coefficient parity achieved | Graph and table |
 | [Dorogokupets et al. (2015), 298 K generalized Rydberg-Stacey](#record-akimotoite_dorogokupets_2015_298k_rydberg_stacey) | Parity not achieved for this comparison | Graph and table |
-| [Wang et al. (2004), T0133 Au-scale BM3](#record-akimotoite_wang_2004_t0133_bm3) | Numerically similar, with qualifications | Graph and table |
+| [Wang et al. (2004), T0133 Au-scale BM3](#record-akimotoite_wang_2004_t0133_bm3) | Coefficient parity achieved | Graph and table |
 | [Wang et al. (2004), preferred T0150 NaCl-scale BM3](#record-akimotoite_wang_2004_t0150_bm3) | Numerically similar, with qualifications | Graph and table |
-| [Zhou et al. (2014), 300 K isothermal BM3](#record-akimotoite_zhou_2014_300k_bm3) | Numerically similar, with qualifications | Graph and table |
+| [Zhou et al. (2014), 300 K isothermal BM3](#record-akimotoite_zhou_2014_300k_bm3) | Coefficient parity achieved | Graph and table |
 
 <a id="record-akimotoite_karki_2002_static_bm4_1"></a>
 
@@ -631,10 +631,10 @@ Supporting reports retain additional source plots and protocol-specific diagnost
 
 Record: `akimotoite_wang_2004_t0133_bm3` · Model: `BM3`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Coefficient parity achieved.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Stored EOS coefficients and source](../material-summaries/akimotoite.md#record-akimotoite_wang_2004_t0133_bm3)
 
@@ -643,7 +643,7 @@ Record: `akimotoite_wang_2004_t0133_bm3` · Model: `BM3`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
-- All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
@@ -653,6 +653,8 @@ Record: `akimotoite_wang_2004_t0133_bm3` · Model: `BM3`
 - **Fit kind:** original\_scale\_source\_constrained\_bm3
 - **Selection:** All 298 K rows in Table 1, run T0133 (Au)
 - **Objective:** unweighted pressure residuals
+- **Weighting:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.
+- **Absolute sigma:** False
 - **Free parameters:** V0; K0\_prime
 - **Fixed parameters:** K0
 - **Fixed values:**
@@ -688,8 +690,8 @@ no confidence interval or uncertainty band is inferred. Fixed/adopted values are
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 264.20 | 0.20 | 264.324 | Not reported | Free |
-| K0\_prime | 4.8 | 0.5 | 4.4577 | Not reported | Free |
+| V0 | 264.20 | 0.20 | 264.32 | 0.14 | Free |
+| K0\_prime | 4.8 | 0.5 | 4.5 | 0.4 | Free |
 
 Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
@@ -699,16 +701,41 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 
 - **Observed pressure range gpa:** 0; 16.2
 - **Observed temperature range k:** 298; 298
+- **Degrees of freedom:** 11
 - **Solver success:** True
 - **Rmse gpa:** 0.239496
 - **Published rmse gpa:** 0.247987
+- **Parameter covariance:** \[\["0.0201376", "-0.049857"\], \["-0.049857", "0.172083"\]\]
+- **Covariance:**
+    - **Parameters:** V0; K0\_prime
+    - **Matrix:** \[\["0.0201376", "-0.049857"\], \["-0.049857", "0.172083"\]\]
+    - **Standard errors:**
+        - **V0:** 0.141907
+        - **K0 prime:** 0.414829
+    - **Correlation matrix:** \[\["1", "-0.846939"\], \["-0.846939", "1"\]\]
+    - **Degrees of freedom:** 11
+    - **Local student t 95 intervals:**
+        - **V0:** 264.012; 264.636
+        - **K0 prime:** 3.54467; 5.37074
+    - **Residual variance:** 0.067787
+    - **Max abs residual jacobian cosine:** 9.84549e-09
+    - **Residual sum squares:** 0.745657
+    - **Residual count:** 13
+    - **Scaled jacobian condition number:** 326.019
+    - **Derivative step halving relative change:** 3.95336e-12
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Qualification:** All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity.
+    - **Assumptions:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+- **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 - **Stages:** None declared
 
 </details>
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-akimotoite_wang_2004_t0133_bm3).
+- [Supporting source report: uncertainty-reconstruction](../literature-reproductions/uncertainty-reconstruction.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
@@ -817,10 +844,10 @@ Supporting reports retain additional source plots and protocol-specific diagnost
 
 Record: `akimotoite_zhou_2014_300k_bm3` · Model: `BM3`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Coefficient parity achieved.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Stored EOS coefficients and source](../material-summaries/akimotoite.md#record-akimotoite_zhou_2014_300k_bm3)
 
@@ -829,7 +856,7 @@ Record: `akimotoite_zhou_2014_300k_bm3` · Model: `BM3`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
-- All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
@@ -839,6 +866,8 @@ Record: `akimotoite_zhou_2014_300k_bm3` · Model: `BM3`
 - **Fit kind:** original\_scale\_source\_constrained\_bm3
 - **Selection:** All 17 akimotoite 300 K density rows, including three ambient density-only rows; V=6\*M/(N\_A\*rho), M=100.387 g/mol
 - **Objective:** unweighted pressure residuals
+- **Weighting:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.
+- **Absolute sigma:** False
 - **Free parameters:** V0; K0
 - **Fixed parameters:** K0\_prime
 - **Fixed values:**
@@ -874,8 +903,8 @@ no confidence interval or uncertainty band is inferred. Fixed/adopted values are
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 262.45 | 0.26 | 262.409 | Not reported | Free |
-| K0 | 207 | 3 | 206.771 | Not reported | Free |
+| V0 | 262.45 | 0.26 | 262.4 | 0.4 | Free |
+| K0 | 207 | 3 | 207 | 5 | Free |
 
 Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
@@ -885,16 +914,41 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 
 - **Observed pressure range gpa:** 0; 25.02
 - **Observed temperature range k:** 300; 300
+- **Degrees of freedom:** 15
 - **Solver success:** True
 - **Rmse gpa:** 0.49742
 - **Published rmse gpa:** 0.501255
+- **Parameter covariance:** \[\["0.129762", "-1.53155"\], \["-1.53155", "20.3888"\]\]
+- **Covariance:**
+    - **Parameters:** V0; K0
+    - **Matrix:** \[\["0.129762", "-1.53155"\], \["-1.53155", "20.3888"\]\]
+    - **Standard errors:**
+        - **V0:** 0.360225
+        - **K0:** 4.5154
+    - **Correlation matrix:** \[\["1", "-0.941592"\], \["-0.941592", "1"\]\]
+    - **Degrees of freedom:** 15
+    - **Local student t 95 intervals:**
+        - **V0:** 261.641; 263.177
+        - **K0:** 197.146; 216.395
+    - **Residual variance:** 0.280417
+    - **Max abs residual jacobian cosine:** 6.45385e-09
+    - **Residual sum squares:** 4.20625
+    - **Residual count:** 17
+    - **Scaled jacobian condition number:** 47.4041
+    - **Derivative step halving relative change:** 4.44309e-12
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Qualification:** All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity.
+    - **Assumptions:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+- **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 - **Stages:** None declared
 
 </details>
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-akimotoite_zhou_2014_300k_bm3).
+- [Supporting source report: uncertainty-reconstruction](../literature-reproductions/uncertainty-reconstruction.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 

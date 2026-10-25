@@ -62,7 +62,7 @@ Primary-source traceability is complemented by the independent
 fit for every record with sufficient direct observations and documents all 678
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 262 scoped numerical parity matches and 160 additional numerically similar results.
+diagnostics. The current campaign finds 349 scoped numerical parity matches and 73 additional numerically similar results.
 The Crichton–Ross (2000) phase E fit achieves parity within reported parameter
 errors: all three coefficient shifts are below 0.123 reported error widths,
 and the largest pressure-curve difference is about 0.0096 GPa. Its published

@@ -7,7 +7,8 @@ Cerantola and Mezouar, *Physical Review Materials* **10**, 063605,
 The published BM3–MGD coefficients and all 146 supplied Table S1 observations
 are preserved in `fes_vi_morard_2026_bm3_mgd`. The record is **accepted in the
 executable catalog on parameter agreement within reported uncertainties**
-(maintainer decision, 2026-10-19). The reconstruction label remains `similar`;
+(maintainer decision, 2026-10-19). The scoped parameter comparison now has
+conditional parameter parity; see the [parameter-scope review](similar-parameter-review.md).
 exact author-workflow and formal independent uncertainty parity are unverified.
 The failure to reproduce the paper's complete ±3 GPa residual envelope is
 retained as an informational qualification and does not block use.

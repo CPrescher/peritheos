@@ -28,6 +28,8 @@ STATUS = {
     "source_reconstruction": "source_reconstruction",
 }
 BASIS = {
+    "conditional_reported_widths_and_print_precision": "Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.",
+    "conditional_combined_error_parameter_agreement": "Conditional parameter agreement under both the combined-error comparison and numerical similarity screen; source confidence conventions remain explicit, and unknown source confidence or shared-data covariance does not become a formal confidence test or author-workflow reproduction.",
     "within_reported_parameter_errors": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
     "conditional_fixed_V0_diagnostic_only": "Conditional fixed-V0 comparison under the documented diagnostic protocol; original source weighting and workflow are not established.",
     "registered_peritheos_refit_reproduced": "Reproduction of the registered Peritheos refit's stored coefficients under its declared protocol.",

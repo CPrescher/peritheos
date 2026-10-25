@@ -104,17 +104,18 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Conditional parameter agreement under both the combined-error comparison and numerical similarity screen; source confidence conventions remain explicit, and unknown source confidence or shared-data covariance does not become a formal confidence test or author-workflow reproduction.
 
 [Open reconstruction report](../reconstruction-reports/rbbr.md#record-rbbr_b2_farla_2025_bm3_mgd_cscl)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
+- Every compared free coefficient meets both the combined-two-width diagnostic and numerical similarity screen. Source confidence and shared-data covariance are not inferred. Final frozen effective P/V/T weights at the existing converged fit, without a pressure floor. Conditional on the analyst row mask and source-reported CsCl pressures; calibration replay and benchmark discrepancies remain unresolved. Conditional local errors use residual scaling and frozen diagonal weights, with fixed V0/theta0, all DAC and heated LVP rows, and source CsCl pressures. Original EoSFit row flags, calibration covariance and exact author workflow remain unrecovered. Earlier audit wording (superseded only for the named numerical scope): Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications. Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications.
 - Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
@@ -129,10 +130,10 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 16.28 | 0.04 | 16.3159 | Not reported | See protocol |
-| K0\_prime | 5.280 | 0.020 | 5.25587 | Not reported | See protocol |
-| gamma0 | 2.18 | 0.14 | 2.16648 | Not reported | See protocol |
-| q | 1.52 | 0.24 | 1.47418 | Not reported | See protocol |
+| K0 | 16.28 | 0.04 | 16.32 | 0.04 | See protocol |
+| K0\_prime | 5.280 | 0.020 | 5.256 | 0.015 | See protocol |
+| gamma0 | 2.18 | 0.14 | 2.17 | 0.14 | See protocol |
+| q | 1.52 | 0.24 | 1.47 | 0.24 | See protocol |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
 Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
@@ -144,6 +145,30 @@ Displayed uncertainties use two significant digits for leading 1/2, otherwise on
 - **Solver success:** True
 - **Rmse gpa:** 0.15676
 - **Published rmse gpa:** 0.159487
+- **Covariance:**
+    - **Parameters:** K0; K0\_prime; gamma0; q
+    - **Matrix:** \[\["0.00166574", "-0.00058927", "-0.000307744", "-0.000212088"\], \["-0.00058927", "0.00022942", "0.000141662", "0.00017973"\], \["-0.000307744", "0.000141662", "0.0194579", "0.0322453"\], \["-0.000212088", "0.00017973", "0.0322453", "0.0593746"\]\]
+    - **Standard errors:**
+        - **K0:** 0.0408135
+        - **K0 prime:** 0.0151466
+        - **Gamma0:** 0.139492
+        - **Q:** 0.243669
+    - **Correlation matrix:** \[\["1", "-0.953225", "-0.0540553", "-0.0213261"\], \["-0.953225", "1", "0.0670484", "0.0486972"\], \["-0.0540553", "0.0670484", "1", "0.948675"\], \["-0.0213261", "0.0486972", "0.948675", "1"\]\]
+    - **Degrees of freedom:** 119
+    - **Local student t 95 intervals:**
+        - **K0:** 16.2351; 16.3968
+        - **K0 prime:** 5.22588; 5.28586
+        - **Gamma0:** 1.89027; 2.44269
+        - **Q:** 0.991696; 1.95667
+    - **Residual variance:** 17.5386
+    - **Max abs residual jacobian cosine:** 6.13897e-09
+    - **Residual sum squares:** 2087.09
+    - **Residual count:** 123
+    - **Scaled jacobian condition number:** 309.423
+    - **Derivative step halving relative change:** 5.83806e-12
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+- **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+- **Comparison scope:** Compared free coefficients: K0, K0\_prime, gamma0, q; scope=parameter\_agreement
 - **Dataset identifiers:** rbbr\_farla\_2025\_observations
 - **Reproduction report:** docs/data/rubidium-halides-farla-2025-follow-up.json
 

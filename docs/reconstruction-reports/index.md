@@ -31,7 +31,7 @@ New links become live only after the corresponding documentation is published.
 | [Rh2O3(II)-type alumina](alumina_rh2o3_ii.md) | 1 | 1 | 1 |
 | [Aluminum](aluminum.md) | 5 | 4 | 4 |
 | [Aragonite](aragonite.md) | 1 | 1 | 1 |
-| [Argon (fcc)](argon_fcc.md) | 15 | 3 | 3 |
+| [Argon (fcc)](argon_fcc.md) | 15 | 4 | 5 |
 | [Argon (hcp)](argon_hcp.md) | 1 | 1 | 1 |
 | [B4C](b4c.md) | 3 | 3 | 3 |
 | [Beryllium (hcp)](beryllium_hcp.md) | 2 | 0 | 0 |
@@ -255,7 +255,7 @@ New links become live only after the corresponding documentation is published.
 | [Zirconium (beta)](zirconium_beta.md) | 1 | 1 | 1 |
 | [Zirconium (omega)](zirconium_omega.md) | 1 | 1 | 1 |
 
-485 of 485 assessments with stored coefficient comparisons have inline curve/residual plots, including 3 explicitly partial replays listed below. The other 193 records have no numeric source/refit coefficient pair recorded.
+486 of 487 assessments with stored coefficient comparisons have inline curve/residual plots, including 3 explicitly partial replays listed below. The other 191 records have no numeric source/refit coefficient pair recorded.
 
 ## Partial replays
 
@@ -269,4 +269,8 @@ These plots cover the named available subsets only. Their presence does not esta
 
 ## Remaining curve/residual replay gaps
 
-None among assessments with stored coefficient pairs. The partial-replay limits above still apply.
+These are report-rendering gaps, not a finding that source observations do not exist. The named audit remains authoritative. Specialized pressure reductions, joint objectives or model mappings need an explicit replay adapter before a corresponding plot can be shown here.
+
+| EOS record | Replay gap |
+| --- | --- |
+| [argon\_fcc\_finger\_1981\_murnaghan2\_debye](argon_fcc.md#record-argon_fcc_finger_1981_murnaghan2_debye) | ambiguous pressure columns: pressure\_kbar, pressure\_gpa |

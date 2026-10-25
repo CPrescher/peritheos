@@ -5,6 +5,24 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+## [0.17.1] - 2026-10-25
+
+### Fixed
+
+- Review 159 reconstruction assessments and separate numerical coefficient
+  agreement from calibration replay, source benchmarks, data agreement,
+  author-workflow reproduction and recommendations. Update 87 scoped outcomes:
+  conditional parameter comparisons, registered-refit replays and a calculated
+  source-equation check, each with its explicit criterion and qualifications.
+- Reconstruct or recover missing conditional fitting uncertainties and ordered
+  covariance, including staged/shared-observation propagation and Farla RbBr/RbI.
+  Recover the omitted Tange thermal parameter errors from primary Table 2.
+- Keep verified printed precision separate from statistical uncertainty, retain
+  missing covariance as unknown, and preserve the existing Frost Pd use hold.
+- Preserve every published 0.17.0 material source field, coefficient, observation,
+  calibration reduction, default and use decision. Add complete frozen review
+  inputs, source-preservation checks and human-readable record-by-record reports.
+
 ## [0.17.0] - 2026-10-24
 
 ### Added
@@ -1391,7 +1409,8 @@ qualified outcomes and links to individual reproductions.
   and out-of-domain states.
 - Project naming and release metadata were standardized.
 
-[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.17.0...HEAD
+[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.17.1...HEAD
+[0.17.1]: https://github.com/CPrescher/peritheos/compare/v0.17.0...v0.17.1
 [0.17.0]: https://github.com/CPrescher/peritheos/compare/v0.16.1...v0.17.0
 [0.16.2]: https://github.com/CPrescher/peritheos/compare/v0.16.1...v0.16.2
 [0.16.1]: https://github.com/CPrescher/peritheos/compare/v0.16.0...v0.16.1

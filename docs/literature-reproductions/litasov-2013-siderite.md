@@ -148,7 +148,10 @@ The original RT coefficients give 0.22958 GPa RMSE. The thermal Table 1
 and abstract variants give 0.23256 and 0.29937 GPa, respectively, across all
 111 observations. None reproduces the manuscript's stated 0.11–0.17 GPa RMS
 range. A lower residual alone cannot identify the intended coefficient.
-RT coefficient recovery is classified **similar**, not original-fit parity.
+RT coefficient recovery now qualifies as **conditional parameter parity**
+within the reported source widths. The RMS discrepancy remains a separate
+qualification, and original author-workflow reproduction is not established.
+See the [uncertainty review](uncertainty-reconstruction.md).
 The all-cold-row axial diagnostics give Ka = 219.263, K′a = 4.94465 and
 Kc = 61.7153, K′c = 2.65811; their disagreement with the printed axial fits
 is preserved. No axial material record has been added.

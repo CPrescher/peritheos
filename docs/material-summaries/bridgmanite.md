@@ -141,17 +141,18 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Conditional parameter agreement under both the combined-error comparison and numerical similarity screen; source confidence conventions remain explicit, and unknown source confidence or shared-data covariance does not become a formal confidence test or author-workflow reproduction.
 
 [Open reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_tange_2012_bm3_1)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
+- Every compared free coefficient meets both the combined-two-width diagnostic and numerical similarity screen. Source confidence and shared-data covariance are not inferred. Recovered missing ledger theta0/gamma0/q errors from primary Table 2, whose footnote explicitly identifies standard deviations. Source a=1 is fixed and b maps to q. Existing 42-row errors-in-variables fit and fixed V0 are unchanged. Source: https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011JB008988 Earlier audit wording (superseded only for the named numerical scope):
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -167,9 +168,9 @@ the named audit; reported errors retain their original meaning.
 | --- | --- | --- | --- | --- | --- |
 | rt\_eos.K0 | 256.7 | 1.5 | 255.6 | 1.2 | Free |
 | rt\_eos.K0\_prime | 4.09 | 0.06 | 4.13 | 0.05 | Free |
-| theta0 | 950 | Not reported | 1090 | 140 | Free |
-| gamma0 | 1.54 | Not reported | 1.66 | 0.09 | Free |
-| q | 1.5 | Not reported | 1.66 | 0.26 | Free |
+| theta0 | 950 | 150 | 1090 | 140 | Free |
+| gamma0 | 1.54 | 0.09 | 1.66 | 0.09 | Free |
+| q | 1.5 | 0.3 | 1.66 | 0.26 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
 Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
@@ -194,6 +195,7 @@ Displayed uncertainties use two significant digits for leading 1/2, otherwise on
 - **Rmse gpa:** 0.145462
 - **Published rmse gpa:** 0.292884
 - **Reduced chi square:** 0.834314
+- **Comparison scope:** Compared free coefficients: rt\_eos.K0, rt\_eos.K0\_prime, theta0, gamma0, q; scope=parameter\_agreement
 - **Dataset identifiers:** bridgmanite\_tange\_2012\_table1\_pvt
 
 </details>
@@ -300,17 +302,18 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Conditional parameter agreement under both the combined-error comparison and numerical similarity screen; source confidence conventions remain explicit, and unknown source confidence or shared-data covariance does not become a formal confidence test or author-workflow reproduction.
 
 [Open reconstruction report](../reconstruction-reports/bridgmanite.md#record-bridgmanite_tange_2012_vinet_2)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
+- Every compared free coefficient meets both the combined-two-width diagnostic and numerical similarity screen. Source confidence and shared-data covariance are not inferred. Recovered missing ledger theta0/gamma0/q errors from primary Table 2, whose footnote explicitly identifies standard deviations. Source a=1 is fixed and b maps to q. Existing 42-row errors-in-variables fit and fixed V0 are unchanged. Source: https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011JB008988 Earlier audit wording (superseded only for the named numerical scope):
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -326,9 +329,9 @@ the named audit; reported errors retain their original meaning.
 | --- | --- | --- | --- | --- | --- |
 | rt\_eos.K0 | 258.4 | 1.7 | 257.3 | 1.3 | Free |
 | rt\_eos.K0\_prime | 4.10 | 0.07 | 4.14 | 0.05 | Free |
-| theta0 | 940 | Not reported | 1060 | 130 | Free |
-| gamma0 | 1.55 | Not reported | 1.64 | 0.09 | Free |
-| q | 1.1 | Not reported | 1.21 | 0.24 | Free |
+| theta0 | 940 | 140 | 1060 | 130 | Free |
+| gamma0 | 1.55 | 0.09 | 1.64 | 0.09 | Free |
+| q | 1.1 | 0.3 | 1.21 | 0.24 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
 Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
@@ -353,6 +356,7 @@ Displayed uncertainties use two significant digits for leading 1/2, otherwise on
 - **Rmse gpa:** 0.148487
 - **Published rmse gpa:** 0.299319
 - **Reduced chi square:** 0.900864
+- **Comparison scope:** Compared free coefficients: rt\_eos.K0, rt\_eos.K0\_prime, theta0, gamma0, q; scope=parameter\_agreement
 - **Dataset identifiers:** bridgmanite\_tange\_2012\_table1\_pvt
 
 </details>

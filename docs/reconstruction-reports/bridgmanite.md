@@ -12,8 +12,8 @@ agreement, source verification, author-workflow reproduction and recommendation 
 
 | EOS record | Recorded outcome | Coefficient comparison |
 | --- | --- | --- |
-| [Tange et al. (2012), mantle-range BM3-MGD](#record-bridgmanite_tange_2012_bm3_1) | Numerically similar, with qualifications | Graph and table |
-| [Tange et al. (2012), mantle-range Vinet-MGD](#record-bridgmanite_tange_2012_vinet_2) | Numerically similar, with qualifications | Graph and table |
+| [Tange et al. (2012), mantle-range BM3-MGD](#record-bridgmanite_tange_2012_bm3_1) | Coefficient parity achieved | Graph and table |
+| [Tange et al. (2012), mantle-range Vinet-MGD](#record-bridgmanite_tange_2012_vinet_2) | Coefficient parity achieved | Graph and table |
 | [Vanpeteghem et al. (2006), low-pressure single-crystal BM2](#record-bridgmanite_vanpeteghem_2006_bm2_3) | Coefficient parity achieved | Graph and table |
 | [Saxena et al. (1999), 300 K BM3 slice](#record-bridgmanite_saxena_1999_bm3_4) | Numerically similar, with qualifications | Graph and table |
 | [Katsura et al. (2009), preferred 300 K BM3](#record-bridgmanite_katsura_2009_bm3) | Numerically similar, with qualifications | Graph and table |
@@ -43,10 +43,10 @@ agreement, source verification, author-workflow reproduction and recommendation 
 
 Record: `bridgmanite_tange_2012_bm3_1` · Model: `BM3`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Coefficient parity achieved.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Conditional parameter agreement under both the combined-error comparison and numerical similarity screen; source confidence conventions remain explicit, and unknown source confidence or shared-data covariance does not become a formal confidence test or author-workflow reproduction.
 
 [Stored EOS coefficients and source](../material-summaries/bridgmanite.md#record-bridgmanite_tange_2012_bm3_1)
 
@@ -55,6 +55,7 @@ Record: `bridgmanite_tange_2012_bm3_1` · Model: `BM3`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
+- Every compared free coefficient meets both the combined-two-width diagnostic and numerical similarity screen. Source confidence and shared-data covariance are not inferred. Recovered missing ledger theta0/gamma0/q errors from primary Table 2, whose footnote explicitly identifies standard deviations. Source a=1 is fixed and b maps to q. Existing 42-row errors-in-variables fit and fixed V0 are unchanged. Source: https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011JB008988 Earlier audit wording (superseded only for the named numerical scope):
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
@@ -100,9 +101,9 @@ no confidence interval or uncertainty band is inferred. Fixed/adopted values are
 | --- | --- | --- | --- | --- | --- |
 | rt\_eos.K0 | 256.7 | 1.5 | 255.6 | 1.2 | Free |
 | rt\_eos.K0\_prime | 4.09 | 0.06 | 4.13 | 0.05 | Free |
-| theta0 | 950 | Not reported | 1090 | 140 | Free |
-| gamma0 | 1.54 | Not reported | 1.66 | 0.09 | Free |
-| q | 1.5 | Not reported | 1.66 | 0.26 | Free |
+| theta0 | 950 | 150 | 1090 | 140 | Free |
+| gamma0 | 1.54 | 0.09 | 1.66 | 0.09 | Free |
+| q | 1.5 | 0.3 | 1.66 | 0.26 | Free |
 
 Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
@@ -123,12 +124,12 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 - **Rmse gpa:** 0.145462
 - **Published rmse gpa:** 0.292884
 - **Reduced chi square:** 0.834314
+- **Comparison scope:** Compared free coefficients: rt\_eos.K0, rt\_eos.K0\_prime, theta0, gamma0, q; scope=parameter\_agreement
 
 </details>
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-bridgmanite_tange_2012_bm3_1).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
@@ -144,10 +145,10 @@ Supporting reports retain additional source plots and protocol-specific diagnost
 
 Record: `bridgmanite_tange_2012_vinet_2` · Model: `Vinet`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Coefficient parity achieved.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Conditional parameter agreement under both the combined-error comparison and numerical similarity screen; source confidence conventions remain explicit, and unknown source confidence or shared-data covariance does not become a formal confidence test or author-workflow reproduction.
 
 [Stored EOS coefficients and source](../material-summaries/bridgmanite.md#record-bridgmanite_tange_2012_vinet_2)
 
@@ -156,6 +157,7 @@ Record: `bridgmanite_tange_2012_vinet_2` · Model: `Vinet`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
+- Every compared free coefficient meets both the combined-two-width diagnostic and numerical similarity screen. Source confidence and shared-data covariance are not inferred. Recovered missing ledger theta0/gamma0/q errors from primary Table 2, whose footnote explicitly identifies standard deviations. Source a=1 is fixed and b maps to q. Existing 42-row errors-in-variables fit and fixed V0 are unchanged. Source: https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011JB008988 Earlier audit wording (superseded only for the named numerical scope):
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
@@ -201,9 +203,9 @@ no confidence interval or uncertainty band is inferred. Fixed/adopted values are
 | --- | --- | --- | --- | --- | --- |
 | rt\_eos.K0 | 258.4 | 1.7 | 257.3 | 1.3 | Free |
 | rt\_eos.K0\_prime | 4.10 | 0.07 | 4.14 | 0.05 | Free |
-| theta0 | 940 | Not reported | 1060 | 130 | Free |
-| gamma0 | 1.55 | Not reported | 1.64 | 0.09 | Free |
-| q | 1.1 | Not reported | 1.21 | 0.24 | Free |
+| theta0 | 940 | 140 | 1060 | 130 | Free |
+| gamma0 | 1.55 | 0.09 | 1.64 | 0.09 | Free |
+| q | 1.1 | 0.3 | 1.21 | 0.24 | Free |
 
 Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
@@ -224,12 +226,12 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 - **Rmse gpa:** 0.148487
 - **Published rmse gpa:** 0.299319
 - **Reduced chi square:** 0.900864
+- **Comparison scope:** Compared free coefficients: rt\_eos.K0, rt\_eos.K0\_prime, theta0, gamma0, q; scope=parameter\_agreement
 
 </details>
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-bridgmanite_tange_2012_vinet_2).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 

@@ -194,7 +194,11 @@ volume-error-weighted fits to the six LS rows reproduce KT0 to within
 1.484 GPa (0.951%) across the 12 models. This is **numerical similarity**;
 no coefficient-uncertainty parity is claimed because the source supplies no
 coefficient standard errors or exact objective weights. Published values
-remain unchanged. The global refit ledger likewise finds 12 similar LS fits.
+remain unchanged. The scoped ledger review promotes nine LS comparisons whose KT0 difference
+is within the half-unit (0.5 GPa) rounding width of the printed integer. Three
+remain similar. This is conditional parameter parity at printed precision; it
+does not provide coefficient errors or reproduce the authors' exact objective.
+See the [scoped review](similar-parameter-review.md).
 
 The complete [Table S2 transcription](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/mg090fe010o-marquardt-2009-table-s2-elasticity.csv)
 preserves 26 rows, all printed values and their parenthesized uncertainties,

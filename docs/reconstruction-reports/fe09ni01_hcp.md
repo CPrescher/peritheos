@@ -25,7 +25,7 @@ agreement, source verification, author-workflow reproduction and recommendation 
 | [Sakai et al. (2014), p4\_bm3](#record-fe09ni01_hcp_sakai_2014_p4_bm3) | Parity not achieved for this comparison | Graph and table |
 | [Sakai et al. (2014), p4\_vinet](#record-fe09ni01_hcp_sakai_2014_p4_vinet) | Parity not achieved for this comparison | Graph and table |
 | [Sakai et al. (2014), p5\_bm3](#record-fe09ni01_hcp_sakai_2014_p5_bm3) | Parity not achieved for this comparison | Graph and table |
-| [Sakai et al. (2014), p5\_vinet](#record-fe09ni01_hcp_sakai_2014_p5_vinet) | Numerically similar, with qualifications | Graph and table |
+| [Sakai et al. (2014), p5\_vinet](#record-fe09ni01_hcp_sakai_2014_p5_vinet) | Coefficient parity achieved | Graph and table |
 | [Sakai et al. (2014), p6\_bm3](#record-fe09ni01_hcp_sakai_2014_p6_bm3) | Parity not achieved for this comparison | Graph and table |
 | [Sakai et al. (2014), p6\_vinet](#record-fe09ni01_hcp_sakai_2014_p6_vinet) | Parity not achieved for this comparison | Graph and table |
 | [Sakai et al. (2014), Fe0.9Ni0.1 type1 thermal EOS (P4 + P7)](#record-fe09ni01_hcp_sakai_2014_type1_thermal) | Parity not achieved for this comparison | Graph and table |
@@ -1135,10 +1135,10 @@ Supporting reports retain additional source plots and protocol-specific diagnost
 
 Record: `fe09ni01_hcp_sakai_2014_p5_vinet` · Model: `Vinet`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Coefficient parity achieved.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Stored EOS coefficients and source](../material-summaries/fe09ni01_hcp.md#record-fe09ni01_hcp_sakai_2014_p5_vinet)
 
@@ -1147,7 +1147,8 @@ Record: `fe09ni01_hcp_sakai_2014_p5_vinet` · Model: `Vinet`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
-- Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures. Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
+- Earlier audit statement, before the conditional uncertainty follow-up: Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
@@ -1155,7 +1156,8 @@ Record: `fe09ni01_hcp_sakai_2014_p5_vinet` · Model: `Vinet`
 - **Dataset identifiers:** sakai\_2014\_table2\_pvt
 - **Observations:** 45
 - **Objective:** Unweighted vertical pressure residuals; conditional on published reference/fixed coefficients. Source weights and covariance are not given.
-- **Weighting:** unweighted; published coefficient constraints retained
+- **Weighting:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.
+- **Absolute sigma:** False
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 
@@ -1189,8 +1191,8 @@ no confidence interval or uncertainty band is inferred. Fixed/adopted values are
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 205.4 | 1.9 | 206.299 | Not reported | Free |
-| K0\_prime | 4.86 | 0.06 | 4.81659 | Not reported | Free |
+| K0 | 205.4 | 1.9 | 206.3 | 2.2 | Free |
+| K0\_prime | 4.86 | 0.06 | 4.82 | 0.06 | Free |
 
 Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
@@ -1199,19 +1201,44 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
 - **Tied parameters:**
+- **Degrees of freedom:** 43
 - **Solver success:** True
 - **Rmse gpa:** 1.97945
 - **Published rmse gpa:** 2.08564
 - **Published pressure rmse gpa:** 2.08564
 - **Refitted pressure rmse gpa:** 1.97945
 - **Rmse shock velocity km s:** Not specified
-- **Parameter covariance:** Not specified
+- **Parameter covariance:** \[\["5.01695", "-0.124783"\], \["-0.124783", "0.0032004"\]\]
+- **Covariance:**
+    - **Parameters:** K0; K0\_prime
+    - **Matrix:** \[\["5.01695", "-0.124783"\], \["-0.124783", "0.0032004"\]\]
+    - **Standard errors:**
+        - **K0:** 2.23985
+        - **K0 prime:** 0.0565721
+    - **Correlation matrix:** \[\["1", "-0.984766"\], \["-0.984766", "1"\]\]
+    - **Degrees of freedom:** 43
+    - **Local student t 95 intervals:**
+        - **K0:** 201.782; 210.816
+        - **K0 prime:** 4.70251; 4.93068
+    - **Residual variance:** 4.10047
+    - **Max abs residual jacobian cosine:** 4.31638e-10
+    - **Residual sum squares:** 176.32
+    - **Residual count:** 45
+    - **Scaled jacobian condition number:** 11.4502
+    - **Derivative step halving relative change:** 2.03478e-12
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Qualification:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures.
+        - **Reason:** Conditional independent refit; matching within printed errors is similarity, not reproduction of the original statistical procedure. V0 preliminary g-G fit not repeated. P5 pressures independently reconstructed from the printed new NaCl-B2 BM3 coefficients and Table 2 NaCl volumes; B1 rows retain Brown (1999) pressures.
+    - **Assumptions:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+- **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 
 </details>
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-fe09ni01_hcp_sakai_2014_p5_vinet).
+- [Supporting source report: uncertainty-reconstruction](../literature-reproductions/uncertainty-reconstruction.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 

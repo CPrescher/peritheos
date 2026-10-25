@@ -99,9 +99,9 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     assert ledger["summary"] == {"total": 678, **dict(sorted(statuses.items()))}
     assert statuses == {
         "not_refittable": 177,
-        "parity": 262,
+        "parity": 349,
         "parity_not_achieved": 62,
-        "similar": 160,
+        "similar": 73,
         "source_reconstruction": 17,
     }
     assert all(
@@ -125,7 +125,7 @@ def test_integrated_additions_keep_source_workflow_and_conditional_results_separ
     ]
     for compound in ("rbcl", "rbbr", "rbi"):
         record = records[f"{compound}_b2_farla_2025_bm3_mgd_cscl"]
-        assert record["status"] == "similar"
+        assert record["status"] == "parity"
         assert record["original_author_workflow_parity"] is False
         assert record["original_author_coefficient_rounding_parity"] is False
     sakai = records["gold_sakai_2025_rydberg_stacey_1"]
@@ -195,7 +195,8 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     assert all(parameter["similar"] for parameter in tange["parameters"])
     assert "classified as similar, not parity" in tange["qualification"]
     jadeite = by_identifier["naalsi2o6_zhao_1997_bm3_1"]
-    assert jadeite["status"] == "similar"
+    assert jadeite["status"] == "parity"
+    assert jadeite["parity_basis"] == "within_reported_parameter_errors"
     assert jadeite["observations"] == 31
     assert jadeite["objective"] == "pressure_residuals"
     assert jadeite["absolute_sigma"] is False
@@ -261,7 +262,8 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
 
     assert by_identifier["aragonite_martinez_1996_bm2_2"]["status"] == "parity"
     chen = by_identifier["ca_perovskite_tetragonal_chen_2018_vinet"]
-    assert chen["status"] == "similar"
+    assert chen["status"] == "parity"
+    assert chen["parity_basis"] == "conditional_combined_error_parameter_agreement"
     assert chen["automatic_status"] == "parity"
     assert chen["observations"] == 7
     assert chen["dataset_identifiers"] == [

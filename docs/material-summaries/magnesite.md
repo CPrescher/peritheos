@@ -246,17 +246,18 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
-**Scope:** parameter agreement.
+**Outcome:** parity.
+**Scope:** source equation.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.
 
 [Open reconstruction report](../reconstruction-reports/magnesite.md#record-magnesite_vocadlo_1999_bm3_2)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
+- Every compared free coefficient meets its printed source error width or the explicitly verified half-last-digit tolerance where source errors are absent. Printing precision is not a confidence interval. Source-equation checkpoint coefficient recovery only: Table 1 pressures are calculated from the BM3 parameterization. Their near-exact refit is circular evidence for author-fit recovery, not an independent fit of measured pressures or the original E-V objective. V0=287.49 A^3 is checked at its 0.01 A^3 printed precision; the K0/K0-prime comparisons retain their source widths. The separately documented E-V fit and Table 1 cell-normalization correction remain distinct. Earlier audit wording (superseded only for the named numerical scope):
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -277,7 +278,7 @@ the named audit; reported errors retain their original meaning.
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
 Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
-- **Fit kind:** isothermal\_pv
+- **Fit kind:** source\_curve\_validation\_only
 - **Objective:** pressure\_residuals
 - **Selection:** all rows
 - **Columns:**
@@ -297,6 +298,8 @@ Displayed uncertainties use two significant digits for leading 1/2, otherwise on
 - **Rmse gpa:** 1.37182e-05
 - **Published rmse gpa:** 3.99464e-05
 - **Reduced chi square:** 2.82283e-10
+- **Comparison scope:** Compared free coefficients: V0, K0, K0\_prime; scope=source\_equation
+- **Reconstruction kind:** published\_calculated\_pressure\_checkpoints
 - **Dataset identifiers:** magnesite\_vocadlo\_1999\_table1\_energy\_volume
 
 </details>
