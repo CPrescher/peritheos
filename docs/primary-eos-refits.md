@@ -8,7 +8,7 @@ are independent diagnostics and never overwrite a library record.
 
 ## Outcome
 
-The campaign covers all **663** EOS records. **246** achieve uncertainty parity, **163** are numerically similar, **16** have a source reconstruction without an independent EOS refit, **[60](#parity-not-achieved)** do not achieve parity, **178** cannot be directly refitted, and **0** attempts failed before comparison.
+The campaign covers all **665** EOS records. **248** achieve uncertainty parity, **163** are numerically similar, **16** have a source reconstruction without an independent EOS refit, **[60](#parity-not-achieved)** do not achieve parity, **178** cannot be directly refitted, and **0** attempts failed before comparison.
 
 `parity` normally means all free coefficients agree within two combined standard
 uncertainties and also meet the numerical similarity limits. This prevents an
@@ -41,6 +41,12 @@ within the printed K0-prime width on both ruby coordinates, using all
 86 observed rows with V0/K0 fixed. Pressure- and volume-residual fits
 agree; original weights and uncertainty estimation are unresolved.
 No combined-two-sigma or source-exact author-fit claim is made.
+Takahashi (2019) Fe3C accepts conditional numerical parity for both pressure-scale variants
+within every printed source coefficient width using all 60 rows and P/V/T effective-variance weights.
+KBr central values and unscaled errors reproduce published rounding; MgO errors and exact
+printed coefficients do not. Original author workflow and source confidence remain unconfirmed.
+The previous equal-pressure diagnostic is retained separately. See the
+[scoped investigation](literature-reproductions/takahashi-2019-parity.md).
 Katsura (2022) forsterite accepts conditional numerical `parity` within
 printed Table 2 error widths. The full-precision author-script vector
 at theta0=760 K is the recommended thermal option; the printed-table
@@ -216,6 +222,8 @@ use `--check` in continuous integration to detect stale generated files.
 | [`casio2o5_titanite_sagatova_2021_gga_300k_vinet`](https://sciencejournals.ru/view-article/?a=GeoKhim2108007Sagatova&j=geokhim&n=8&v=66&y=2021) | `parameterization_and_plot_only` | — | — | —/— | not_refittable — Relative-volume curves are plotted in Figure 6; calculated P-V points are not tabulated. |
 | [`casio3_perovskite_tetragonal_shim_2002_bm3_1`](https://duffy.princeton.edu/sites/g/files/toruqf616/files/shim_et_al-2002-grl.pdf) | `casio3_perovskite_tetragonal_shim_2002_figure2a_digitized` | 6 | `K0` 255 → 254.981 | 2.0239/1.62325 | parity |
 | [`cementite_scott_2001_bm3_1`](https://agupubs.onlinelibrary.wiley.com/doi/epdf/10.1029/2000GL012606) | `cementite_scott_2001_figure3_digitized` | 21 | `K0` 175.4 → 161.341; `K0_prime` 5.1 → 6.04412 | 1.65742/1.55181 | parity |
+| [`cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd`](https://doi.org/10.3390/min9120744) | `cementite_takahashi_2019_table_s1` | 60 | `rt_eos.V0` 148.8 → 148.833; `rt_eos.K0` 311.1 → 311.148; `rt_eos.K0_prime` 3.4 → 3.4044; `gamma0` 1.06 → 1.05994; `q` 1.92 → 1.92209 | 2.47531/2.39199 | parity — All 60 Table S1 rows, including the 2600 K row and ten shared SiO2-marker rows. Conditional simultaneous five-parameter effective-variance replay uses printed independent P/V/T widths; missing 300 K temperature widths leave those temperatures fixed. Unscaled inverse-normal covariance treats the widths as absolute errors; their source confidence and covariance are unconfirmed. KBr reproduces all five central values and all five error widths at published printed precision. The original author objective, weights, fitting order and exact input selection remain unconfirmed; original_author_workflow_parity=False. No formal combined-two-sigma inference, experimental validation or change in recommendation follows. Published coefficients and errors remain intact; the earlier equal-pressure reconstruction is retained separately. Source-equation density checkpoints concern extrapolated calculated states, not measured core conditions. |
+| [`cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd`](https://doi.org/10.3390/min9120744) | `cementite_takahashi_2019_table_s1` | 60 | `rt_eos.V0` 147.3 → 147.361; `rt_eos.K0` 323 → 321.487; `rt_eos.K0_prime` 3.43 → 3.43809; `gamma0` 1.37 → 1.3661; `q` 0.98 → 0.940421 | 1.96542/1.98099 | parity — All 60 Table S1 rows, including the 2600 K row and ten shared SiO2-marker rows. Conditional simultaneous five-parameter effective-variance replay uses printed independent P/V/T widths; missing 300 K temperature widths leave those temperatures fixed. Unscaled inverse-normal covariance treats the widths as absolute errors; their source confidence and covariance are unconfirmed. MgO central values all lie within printed source widths, but exact printed coefficients and uncertainties are not reproduced. The original author objective, weights, fitting order and exact input selection remain unconfirmed; original_author_workflow_parity=False. No formal combined-two-sigma inference, experimental validation or change in recommendation follows. Published coefficients and errors remain intact; the earlier equal-pressure reconstruction is retained separately. Source-equation density checkpoints concern extrapolated calculated states, not measured core conditions. |
 | [`cerium_dioxide_gerward_2005_bm3_1`](https://people.iith.ac.in/kanchana/publications/2005/17.pdf) | `cerium_dioxide_gerward_2005_figure3a_digitized` | 21 | `K0` 220 → 226.125; `K0_prime` 4.4 → 3.3017 | 0.218925/0.196035 | [similar](#investigation-cerium_dioxide_gerward_2005_bm3_1) |
 | [`chromium_anzellini_2022_bm3_1`](https://doi.org/10.1038/s41598-022-10523-2) | `chromium_anzellini_2022_table2_compression` | 119 | `V0` 24.08 → 24.0852; `K0` 185 → 182.352; `K0_prime` 4.74 → 4.83257 | 0.4949/0.469487 | parity |
 | [`cobalt_hcp_fujihisa_1996_vinet_1`](https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.54.5/fulltext) | `cobalt_hcp_fujihisa_1996_figure3_digitized` | 8 | `K0` 199 → 202.707; `K0_prime` 3.6 → 3.64383 | 1.39053/0.107214 | parity |

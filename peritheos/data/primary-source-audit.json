@@ -9,10 +9,10 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 663,
+    "records": 665,
     "deferred": 4,
     "not_reproduced": 14,
-    "primary_source_validated": 645
+    "primary_source_validated": 647
   },
   "records": [
     {
@@ -2502,6 +2502,44 @@
         ],
         "finding": "The stored record is the reported 300 K third-order Birch-Murnaghan fit. V0 is the independently measured ambient reference volume; the paper reports no fit covariance or confidence convention for the printed +/- values. The abstract and title round the compression range to 73 GPa; Figure 1 labels the highest diffraction pattern 73.2 GPa, which is retained as the experimental maximum.",
         "doi": "10.1029/2000gl012606"
+      }
+    },
+    {
+      "material": "cementite_nonmagnetic",
+      "file": "cementite_nonmagnetic.eosmat",
+      "record": "cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd",
+      "label": "Takahashi et al. (2019), nonmagnetic Fe3C, KBr pressure scale, BM3 + MGD",
+      "doi": "10.3390/min9120744",
+      "status": "primary_source_validated",
+      "note": "Published equations and coefficients traced to the primary article. Independent source density benchmarks pass at declared precision. Complete supplementary observations are bundled; conditional coefficient agreement and original workflow recovery remain separate findings.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.3390/min9120744",
+        "locations": [
+          "Equations 1-6, pages 3-4",
+          "Tables 1-2, page 6",
+          "Figure 3a and Section 4, calculated density benchmarks",
+          "official Supplementary Table S1, worksheet Table S1, rows 4-63"
+        ],
+        "finding": "Source equations 1-6 and Tables 1-2 reproduce independent calculated density benchmarks at 329 GPa and 5000 K; these extrapolated calculated states are not measured observations. See cementite reproduction report for declared print/graphical tolerances."
+      }
+    },
+    {
+      "material": "cementite_nonmagnetic",
+      "file": "cementite_nonmagnetic.eosmat",
+      "record": "cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd",
+      "label": "Takahashi et al. (2019), nonmagnetic Fe3C, MgO pressure scale, BM3 + MGD",
+      "doi": "10.3390/min9120744",
+      "status": "primary_source_validated",
+      "note": "Published equations and coefficients traced to the primary article. Independent source density benchmarks pass at declared precision. Complete supplementary observations are bundled; conditional coefficient agreement and original workflow recovery remain separate findings.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.3390/min9120744",
+        "locations": [
+          "Equations 1-6, pages 3-4",
+          "Tables 1-2, page 6",
+          "Figure 3a and Section 4, calculated density benchmarks",
+          "official Supplementary Table S1, worksheet Table S1, rows 4-63"
+        ],
+        "finding": "Source equations 1-6 and Tables 1-2 reproduce independent calculated density benchmarks at 329 GPa and 5000 K; these extrapolated calculated states are not measured observations. See cementite reproduction report for declared print/graphical tolerances."
       }
     },
     {

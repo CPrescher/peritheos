@@ -50,6 +50,7 @@ New links become live only after the corresponding documentation is published.
 | [Titanite-structured CaSi2O5](casio2o5_titanite.md) | 1 | 0 |
 | [Tetragonal CaSiO3 perovskite](casio3_perovskite_tetragonal.md) | 1 | 1 |
 | [Cementite](cementite.md) | 1 | 1 |
+| [Cementite, nonmagnetic](cementite_nonmagnetic.md) | 2 | 2 |
 | [Cerium dioxide (fluorite)](cerium_dioxide.md) | 1 | 1 |
 | [Chromium](chromium.md) | 1 | 1 |
 | [Cobalt](cobalt_hcp.md) | 3 | 3 |

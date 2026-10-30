@@ -7,6 +7,11 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Add the two Takahashi (2019) nonmagnetic Fe3C source EOSs and their 60-row
+  dataset. Coordinate-error weighting recovers conditional coefficient parity;
+  KBr errors reproduce printed precision, while MgO errors and the original
+  author workflow remain unrecovered. Preserve the equal-pressure diagnostics.
+
 - Improve native EOSMAT for human authoring: explicit units in new files, EOS-first
   layout, installed validation/formatting commands, optional file-local sharing
   of identical metadata, and scoped reconstruction assessments. Preserve inline

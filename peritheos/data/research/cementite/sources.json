@@ -1,0 +1,47 @@
+{
+  "format": "peritheos.cementite-source-audit",
+  "audit_date": "2026-10-25",
+  "sources": [
+    {
+      "authors": [
+        "Takahashi",
+        "Ohtani",
+        "Ikuta",
+        "Kamada",
+        "Sakamaki",
+        "Hirao",
+        "Ohishi"
+      ],
+      "year": 2019,
+      "doi": "10.3390/min9120744",
+      "file": "takahashi-2019.pdf",
+      "authority": "Final published article, Equations 1-6, Tables 1-2; official supplemental workbook",
+      "url": "https://res.mdpi.com/d_attachment/minerals/minerals-09-00744/article_deploy/minerals-09-00744.pdf",
+      "supplement_url": "https://mdpi-res.com/d_attachment/minerals/minerals-09-00744/article_deploy/minerals-09-00744-s001.zip",
+      "supplement_file": "minerals-09-00744-s001.zip",
+      "workbook_file": "minerals-630318-supplementary.xlsx",
+      "sheet": "Table S1",
+      "data_rows": "4:63",
+      "row_count": 60,
+      "two_marker_rows": 50,
+      "sio2_marker_rows": 10,
+      "reported_error_meaning": "Last-digit errors in separate columns, as printed; confidence not specified. XLSX number formats are required: P5=121.30 with Q5=(8) means 0.08 A3, not 0.8 A3.",
+      "calibration": "KBr B2 Dewaele (2012), MgO Kono (2010), or pyrite-SiO2 Kuwayama (2011) for the ten highest-pressure 300 K rows; paired marker volumes retained.",
+      "source_equation": "BM3 300 K plus integrated-Gruneisen MGD; n=4 atoms per Fe3C formula, Z=4, theta0 fixed to 314 K, gamma=gamma0*(V/V0)^q, theta=theta0*exp((gamma0-gamma)/q).",
+      "source_qualifications": [
+        "Workbook contains a 2600 K row although the main text says 2450 K maximum. Keep it; no source exclusion documented.",
+        "Figure 3 caption reverses dotted/dashed temperature naming relative to its legend. The visible 300 K density is higher than 5000 K at each P.",
+        "The KBr and MgO fits are pressure-scale variants of the same observations, not independent experiments. No automatic pressure conversion is authorized.",
+        "Standalone source models are staged outside the catalog; high-pressure magnetic-state/structure integration and exact fit workflow remain open."
+      ],
+      "file_sha256": "4d814c8a44be5b6c310254825eae4f3770e7361697e88bbec17fd35da27c3c44",
+      "supplement_file_sha256": "404dbc6bc03e600f08674f2a408f6988858e82eaad4b209f854a29b798727b01",
+      "workbook_file_sha256": "45db30d8d78f529a53bd2bc50911949c4c0efe05c999b98faa4879afdb0b52cb"
+    }
+  ],
+  "datasets": {
+    "cementite-takahashi-2019-table-s1.csv": "ad54b8510e2a02f41856ec455e15893fabaca08afe60ff5af6446edf0dea6c01",
+    "cementite-takahashi-2019-table-s1-cells.json": "bad636ec15d446d92e1fc97b735f4af28f746302abdf6b99b416498af8aeefd4"
+  },
+  "snapshot_note": "Source qualifications retain the 25 October recovery snapshot; current catalog integration and conditional parity are documented in the two Takahashi EOS records and docs/literature-reproductions/takahashi-2019-parity.md."
+}

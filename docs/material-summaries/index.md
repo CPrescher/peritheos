@@ -77,6 +77,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [CaO](cao.md) | CaO | 1 | 1 |
 | [CaO-b2](cao_b2.md) | CaO | 1 | 1 |
 | [Cementite](cementite.md) | Fe3C | 1 | 1 |
+| [Cementite, nonmagnetic](cementite_nonmagnetic.md) | Fe3C | 2 | 1 |
 | [Cerium dioxide (fluorite)](cerium_dioxide.md) | CeO2 | 1 | 1 |
 | [Chromium](chromium.md) | Cr | 1 | 1 |
 | [Cobalt](cobalt_hcp.md) | Co | 3 | 2 |

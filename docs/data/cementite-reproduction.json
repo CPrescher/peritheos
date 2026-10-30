@@ -1,0 +1,256 @@
+{
+  "format": "peritheos.cementite-reproduction",
+  "source_manifest": "peritheos/data/research/cementite/sources.json",
+  "takahashi_2019": {
+    "kbr": {
+      "coefficient_reconstruction": "similar",
+      "source_equation_check": "consistent_with_source_density_benchmark",
+      "original_author_workflow_parity": false,
+      "selection": "all 60 Table S1 rows, including 2600 K row and ten SiO2-marker rows",
+      "weighting": "equal pressure weights; source weights and row mask unknown",
+      "observations": 60,
+      "free_parameters": [
+        "rt_eos.V0",
+        "rt_eos.K0",
+        "rt_eos.K0_prime",
+        "gamma0",
+        "q"
+      ],
+      "fixed_parameters": {
+        "Tr": 300,
+        "theta0": 314,
+        "n": 4
+      },
+      "parameters": [
+        {
+          "parameter": "rt_eos.V0",
+          "published": 148.8,
+          "published_error": 1,
+          "refit": 152.01005435301042,
+          "refit_error": 2.243166895915836,
+          "difference": 3.210054353010406,
+          "within_printed_source_error_width": false
+        },
+        {
+          "parameter": "rt_eos.K0",
+          "published": 311.1,
+          "published_error": 17.1,
+          "refit": 266.3484583530816,
+          "refit_error": 26.905361015567117,
+          "difference": -44.75154164691844,
+          "within_printed_source_error_width": false
+        },
+        {
+          "parameter": "rt_eos.K0_prime",
+          "published": 3.4,
+          "published_error": 0.1,
+          "refit": 3.6566961651668946,
+          "refit_error": 0.14384704214755847,
+          "difference": 0.25669616516689464,
+          "within_printed_source_error_width": false
+        },
+        {
+          "parameter": "gamma0",
+          "published": 1.06,
+          "published_error": 0.42,
+          "refit": 0.9945269626704878,
+          "refit_error": 0.6455354275906069,
+          "difference": -0.06547303732951226,
+          "within_printed_source_error_width": true
+        },
+        {
+          "parameter": "q",
+          "published": 1.92,
+          "published_error": 1.73,
+          "refit": 1.4982056703534212,
+          "refit_error": 2.2066604958575375,
+          "difference": -0.4217943296465787,
+          "within_printed_source_error_width": true
+        }
+      ],
+      "published_pressure_rmse_gpa": 2.4753104338816434,
+      "published_max_abs_pressure_residual_gpa": 6.782513326245208,
+      "refit_pressure_rmse_gpa": 2.222583869820739,
+      "covariance_order": [
+        "rt_eos.V0",
+        "rt_eos.K0",
+        "rt_eos.K0_prime",
+        "gamma0",
+        "q"
+      ],
+      "covariance_model_units": [
+        [
+          0.0011405254911783299,
+          -0.904809873938246,
+          0.004732550171734705,
+          -0.01671723187529824,
+          -0.05801570576947622
+        ],
+        [
+          -0.904809873938246,
+          723.8984513779989,
+          -3.832744097550831,
+          13.07365230975526,
+          46.01093317162062
+        ],
+        [
+          0.004732550171734705,
+          -3.832744097550831,
+          0.020691971534601467,
+          -0.06669052140610832,
+          -0.2390623107504448
+        ],
+        [
+          -0.01671723187529824,
+          13.07365230975526,
+          -0.06669052140610832,
+          0.4167159882745877,
+          1.4059975107087126
+        ],
+        [
+          -0.05801570576947622,
+          46.01093317162062,
+          -0.2390623107504448,
+          1.4059975107087126,
+          4.869350543978234
+        ]
+      ],
+      "covariance_convention": "Residual-scaled inverse normal matrix; conditional on equal pressure weights. V0 uses molar J/bar.",
+      "solver_success": true,
+      "density_benchmark": {
+        "pressure_gpa": 329,
+        "temperature_k": 5000,
+        "calculated_density_g_cm3": 12.83553778262439,
+        "source_value_g_cm3": 12.83,
+        "tolerance_g_cm3": 0.67,
+        "source": "Section 4, printed calculated density and its reported uncertainty",
+        "qualification": "Extrapolated source calculation beyond measured coverage; not a core-density measurement or author-fit reproduction."
+      }
+    },
+    "mgo": {
+      "coefficient_reconstruction": "similar",
+      "source_equation_check": "consistent_with_source_density_benchmark",
+      "original_author_workflow_parity": false,
+      "selection": "all 60 Table S1 rows, including 2600 K row and ten SiO2-marker rows",
+      "weighting": "equal pressure weights; source weights and row mask unknown",
+      "observations": 60,
+      "free_parameters": [
+        "rt_eos.V0",
+        "rt_eos.K0",
+        "rt_eos.K0_prime",
+        "gamma0",
+        "q"
+      ],
+      "fixed_parameters": {
+        "Tr": 300,
+        "theta0": 314,
+        "n": 4
+      },
+      "parameters": [
+        {
+          "parameter": "rt_eos.V0",
+          "published": 147.3,
+          "published_error": 1,
+          "refit": 145.7364403875129,
+          "refit_error": 1.2052157674570834,
+          "difference": -1.5635596124870972,
+          "within_printed_source_error_width": false
+        },
+        {
+          "parameter": "rt_eos.K0",
+          "published": 323,
+          "published_error": 16.6,
+          "refit": 350.96595642578154,
+          "refit_error": 20.99233687209721,
+          "difference": 27.965956425781542,
+          "within_printed_source_error_width": false
+        },
+        {
+          "parameter": "rt_eos.K0_prime",
+          "published": 3.43,
+          "published_error": 0.09,
+          "refit": 3.2894076510224255,
+          "refit_error": 0.09547919577717615,
+          "difference": -0.14059234897757467,
+          "within_printed_source_error_width": false
+        },
+        {
+          "parameter": "gamma0",
+          "published": 1.37,
+          "published_error": 0.33,
+          "refit": 1.4391747960747572,
+          "refit_error": 0.4318384934073722,
+          "difference": 0.06917479607475707,
+          "within_printed_source_error_width": true
+        },
+        {
+          "parameter": "q",
+          "published": 0.98,
+          "published_error": 1.01,
+          "refit": 1.3298058245367324,
+          "refit_error": 1.1815920396751851,
+          "difference": 0.34980582453673237,
+          "within_printed_source_error_width": true
+        }
+      ],
+      "published_pressure_rmse_gpa": 1.9654236493519575,
+      "published_max_abs_pressure_residual_gpa": 6.676512310595172,
+      "refit_pressure_rmse_gpa": 1.9063962754546557,
+      "covariance_order": [
+        "rt_eos.V0",
+        "rt_eos.K0",
+        "rt_eos.K0_prime",
+        "gamma0",
+        "q"
+      ],
+      "covariance_model_units": [
+        [
+          0.00032923911957797875,
+          -0.3782858592733936,
+          0.0016721992274807613,
+          -0.0060083697781334695,
+          -0.0166799070296709
+        ],
+        [
+          -0.3782858592733936,
+          440.678207351612,
+          -1.9808305933607318,
+          6.781407287031146,
+          19.222576944101924
+        ],
+        [
+          0.0016721992274807613,
+          -1.9808305933607318,
+          0.009116276826256332,
+          -0.029177046288849682,
+          -0.08460472360058081
+        ],
+        [
+          -0.0060083697781334695,
+          6.781407287031146,
+          -0.029177046288849682,
+          0.18648448438834903,
+          0.5014134221760139
+        ],
+        [
+          -0.0166799070296709,
+          19.222576944101924,
+          -0.08460472360058081,
+          0.5014134221760139,
+          1.396159748223764
+        ]
+      ],
+      "covariance_convention": "Residual-scaled inverse normal matrix; conditional on equal pressure weights. V0 uses molar J/bar.",
+      "solver_success": true,
+      "density_benchmark": {
+        "pressure_gpa": 329,
+        "temperature_k": 5000,
+        "calculated_density_g_cm3": 12.640582820271327,
+        "source_value_g_cm3": 12.64,
+        "tolerance_g_cm3": 0.04,
+        "source": "Figure 3a, blue dotted 5000 K curve; manual graphical reading with 0.04 g/cm3 reading bound",
+        "qualification": "Extrapolated source calculation beyond measured coverage; not a core-density measurement or author-fit reproduction."
+      }
+    }
+  }
+}

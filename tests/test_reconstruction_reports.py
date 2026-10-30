@@ -158,4 +158,4 @@ def test_every_bundled_link_opens_its_record_and_each_graph_matches_its_input():
                 assert f"figures/{record['identifier']}.svg" in page
                 charts += 1
             records += 1
-    assert records == 663 and charts > 0
+    assert records == 665 and charts > 0

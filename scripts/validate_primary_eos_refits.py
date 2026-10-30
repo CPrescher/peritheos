@@ -5313,7 +5313,11 @@ def validate_all() -> dict[str, Any]:
                     if key in record["scientific_validation"]
                 },
             }
-            if material_id == "brucite":
+            if record["identifier"].startswith("cementite_nonmagnetic_takahashi_2019_"):
+                from scripts.reproduce_cementite import takahashi_ledger_outcome
+
+                outcome = takahashi_ledger_outcome(record)
+            elif material_id == "brucite":
                 from scripts.brucite_reproduce import ledger_outcome
 
                 outcome = ledger_outcome(record)
@@ -5826,6 +5830,12 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         "86 observed rows with V0/K0 fixed. Pressure- and volume-residual fits ",
         "agree; original weights and uncertainty estimation are unresolved. ",
         "No combined-two-sigma or source-exact author-fit claim is made.",
+        "Takahashi (2019) Fe3C accepts conditional numerical parity for both pressure-scale variants ",
+        "within every printed source coefficient width using all 60 rows and P/V/T effective-variance weights. ",
+        "KBr central values and unscaled errors reproduce published rounding; MgO errors and exact ",
+        "printed coefficients do not. Original author workflow and source confidence remain unconfirmed. ",
+        "The previous equal-pressure diagnostic is retained separately. See the ",
+        "[scoped investigation](literature-reproductions/takahashi-2019-parity.md).",
         "Katsura (2022) forsterite accepts conditional numerical `parity` within ",
         "printed Table 2 error widths. The full-precision author-script vector ",
         "at theta0=760 K is the recommended thermal option; the printed-table ",

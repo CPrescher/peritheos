@@ -14,11 +14,11 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 
 | Measure | Count |
 |---|---:|
-| Stored material documents | 232 |
-| Stored EOS records | 663 |
-| Executable materials | 228 |
-| Executable EOS records, including qualified explicit-selection records | 659 |
-| Materials with an executable thermal EOS | 62 |
+| Stored material documents | 233 |
+| Stored EOS records | 665 |
+| Executable materials | 229 |
+| Executable EOS records, including qualified explicit-selection records | 661 |
+| Materials with an executable thermal EOS | 63 |
 | Executable records with parameter covariance | 17 |
 | Executable records with known parameter-error confidence | 74 |
 
@@ -28,7 +28,7 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 |---|---:|
 | `deferred` | 4 |
 | `not_reproduced` | 14 |
-| `primary_source_validated` | 645 |
+| `primary_source_validated` | 647 |
 
 ## Executable equation kinds
 
@@ -36,14 +36,14 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 |---|---:|
 | `hugoniot` | 3 |
 | `isothermal` | 523 |
-| `thermal` | 133 |
+| `thermal` | 135 |
 
 ## Pressure-calibration provenance of executable records
 
 | Status | Records |
 |---|---:|
 | `not_applicable` | 163 |
-| `partially_resolved` | 182 |
+| `partially_resolved` | 184 |
 | `resolved` | 229 |
 | `unresolved` | 85 |
 
@@ -53,7 +53,7 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 |---|---:|
 | `missing_calibrant_observations` | 192 |
 | `not_applicable` | 160 |
-| `not_possible` | 118 |
+| `not_possible` | 120 |
 | `ready` | 124 |
 | `reference_eos_not_bundled` | 57 |
 | `reference_model_not_supported` | 8 |
@@ -71,7 +71,7 @@ of records missing from that ledger. No scientific classifications are changed h
 | Outcome | Records |
 |---|---:|
 | `not_refittable` | 178 |
-| `parity` | 246 |
+| `parity` | 248 |
 | `parity_not_achieved` | 60 |
 | `similar` | 163 |
 | `source_reconstruction` | 16 |
@@ -128,6 +128,7 @@ Multiple temperature slices do not imply a continuous thermal EOS.
 | `casio2o5_titanite` | CaSi2O5 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 |
 | `casio3_perovskite_tetragonal` | CaSiO3 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `cementite` | Fe3C | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
+| `cementite_nonmagnetic` | Fe3C | 2 | 2 | 0 | 2 | 0 | 0 | 0 | 1 |
 | `cerium_dioxide` | CeO2 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `chromium` | Cr | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `cobalt_hcp` | Co | 3 | 3 | 3 | 0 | 0 | 0 | 0 | 2 |

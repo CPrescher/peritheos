@@ -11,7 +11,7 @@ file. Scientific values, observations and qualifications are preserved.
 default; pass `format_version=4` for native fields. Older file readers can use
 `python -m peritheos convert native.eosmat compatible.eosmat --format-version 3`.
 
-This directory contains 232 curated material documents with 663 EOS records. The
+This directory contains 233 curated material documents with 665 EOS records. The
 collection began with the 120-material, 147-EOS-record Dioptas 0.10.0 database,
 tag commit
 `5a8bfd81d10bfab3499039603380aae34576d60a`. Its project source is
@@ -19,7 +19,7 @@ tag commit
 
 Every EOS record has an explicit `determination_method` and a rationale under
 `evidence.parameter_provenance.determination_method`. The current collection classifies
-514 records as experimental, 114 as theoretical, 28 as hybrid, and seven as
+516 records as experimental, 114 as theoretical, 28 as hybrid, and seven as
 unknown. These counts include the two deferred Campbell source records and
 the deferred Morard FeS source record.
 The seven unknowns are the Holland et al. (2013) THERMOCALC modified-Tait
@@ -215,7 +215,8 @@ O6 correction and official 2014 H2 erratum; the original archive CIF is retained
 The source audit documents equation typos, calibration qualifications and held
 branches, separately from the Al-bearing Xu (2024) investigation.
 
-The current bundle contains 378 distinct datasets with 26,934 retained rows, represented by 418 material-document links to 521 EOS records.
+The current bundle contains 379 distinct datasets with 26,994 retained rows, represented by
+419 material-document links to 523 EOS records.
 Chen (2010) contributes 80 Brillouin-derived density positions, 262 separately
 identified published-fit curve vertices, and 14 reported constants. These
 supporting assets do not validate the source-author Chen EOS. A separate

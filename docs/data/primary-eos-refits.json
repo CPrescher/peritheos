@@ -9135,6 +9135,728 @@
     {
       "absolute_sigma": true,
       "columns": {
+        "pressure": "pressure_kbr_gpa|pressure_sio2_gpa",
+        "temperature": "temperature_k",
+        "volume": "volume_a3"
+      },
+      "covariance_convention": "Unscaled inverse normal matrix at final frozen effective-variance weights, in free_parameters order with V0 in conventional-cell A3. Printed coordinate widths are assumed absolute independent errors; source confidence and covariance are unconfirmed.",
+      "dataset_identifiers": [
+        "cementite_takahashi_2019_table_s1"
+      ],
+      "degrees_of_freedom": 55,
+      "effective_variance_iterations": 6,
+      "experimental_pressure_range_gpa": [
+        70.8,
+        326.4
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        2600
+      ],
+      "fit_kind": "joint_pvt",
+      "fixed_parameters": [
+        "Tr",
+        "theta0",
+        "n"
+      ],
+      "fixed_values": {
+        "Tr": 300,
+        "n": 4,
+        "theta0": 314
+      },
+      "free_parameters": [
+        "rt_eos.V0",
+        "rt_eos.K0",
+        "rt_eos.K0_prime",
+        "gamma0",
+        "q"
+      ],
+      "label": "Takahashi et al. (2019), nonmagnetic Fe3C, KBr pressure scale, BM3 + MGD",
+      "material_identifier": "cementite_nonmagnetic",
+      "model": "BM3",
+      "objective": "iteratively_reweighted_pressure_residuals",
+      "observations": 60,
+      "observed_pressure_range_gpa": [
+        70.8,
+        326.4
+      ],
+      "observed_temperature_range_k": [
+        300,
+        2600
+      ],
+      "observed_volume_range": [
+        92.5,
+        126.09
+      ],
+      "original_author_workflow_parity": false,
+      "parameter_covariance": [
+        [
+          1.0447808560905405,
+          -17.309506295636883,
+          0.0954499487969002,
+          -0.2704453328949287,
+          -1.1881496846523085
+        ],
+        [
+          -17.309506295636883,
+          291.76425962768684,
+          -1.6471064132309483,
+          4.320796990715951,
+          19.491662503203464
+        ],
+        [
+          0.0954499487969002,
+          -1.6471064132309483,
+          0.009736338229480744,
+          -0.021876939728861,
+          -0.10151669480280001
+        ],
+        [
+          -0.2704453328949287,
+          4.320796990715951,
+          -0.021876939728861,
+          0.17600125883411466,
+          0.7126106983105858
+        ],
+        [
+          -1.1881496846523085,
+          19.491662503203464,
+          -0.10151669480280001,
+          0.7126106983105858,
+          3.0095733870606978
+        ]
+      ],
+      "parameters": [
+        {
+          "central_value_matches_printed_precision": true,
+          "difference": 0.03277631128844405,
+          "error_matches_printed_precision": true,
+          "parameter": "rt_eos.V0",
+          "published": 148.8,
+          "published_error": 1.0,
+          "refit": 148.83277631128846,
+          "refit_error": 1.0221452226031977,
+          "relative_difference": 0.00022027090919653257,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_printed_source_error_width": true
+        },
+        {
+          "central_value_matches_printed_precision": true,
+          "difference": 0.047913213811057176,
+          "error_matches_printed_precision": true,
+          "parameter": "rt_eos.K0",
+          "published": 311.1,
+          "published_error": 17.1,
+          "refit": 311.1479132138111,
+          "refit_error": 17.08110826696227,
+          "relative_difference": 0.00015401225911622362,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_printed_source_error_width": true
+        },
+        {
+          "central_value_matches_printed_precision": true,
+          "difference": 0.004396192967735857,
+          "error_matches_printed_precision": true,
+          "parameter": "rt_eos.K0_prime",
+          "published": 3.4,
+          "published_error": 0.1,
+          "refit": 3.4043961929677358,
+          "refit_error": 0.09867288497596867,
+          "relative_difference": 0.0012929979316870168,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_printed_source_error_width": true
+        },
+        {
+          "central_value_matches_printed_precision": true,
+          "difference": -6.356413692665264e-05,
+          "error_matches_printed_precision": true,
+          "parameter": "gamma0",
+          "published": 1.06,
+          "published_error": 0.42,
+          "refit": 1.0599364358630734,
+          "refit_error": 0.4195250395794209,
+          "relative_difference": 5.996616691193645e-05,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_printed_source_error_width": true
+        },
+        {
+          "central_value_matches_printed_precision": true,
+          "difference": 0.002087524757639958,
+          "error_matches_printed_precision": true,
+          "parameter": "q",
+          "published": 1.92,
+          "published_error": 1.73,
+          "refit": 1.9220875247576399,
+          "refit_error": 1.7348122051278916,
+          "relative_difference": 0.0010872524779374781,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_printed_source_error_width": true
+        }
+      ],
+      "parity_basis": "Conditional parameter_agreement: every free central coefficient lies within its own printed source error width under the all-60-row P/V/T effective-variance replay. Uncertainty reproduction is assessed separately; source confidence is unknown and author workflow is unconfirmed.",
+      "previous_equal_pressure_reconstruction": {
+        "absolute_sigma": false,
+        "columns": {
+          "pressure": "pressure_kbr_gpa|pressure_sio2_gpa",
+          "temperature": "temperature_k",
+          "volume": "volume_a3"
+        },
+        "covariance_convention": "Residual-scaled inverse normal matrix in free_parameters order, with V0 converted to conventional-cell A3; conditional on equal pressure weights.",
+        "dataset_identifiers": [
+          "cementite_takahashi_2019_table_s1"
+        ],
+        "degrees_of_freedom": 55,
+        "fit_kind": "joint_pvt",
+        "fixed_parameters": [
+          "Tr",
+          "theta0",
+          "n"
+        ],
+        "fixed_values": {
+          "Tr": 300,
+          "n": 4,
+          "theta0": 314
+        },
+        "free_parameters": [
+          "rt_eos.V0",
+          "rt_eos.K0",
+          "rt_eos.K0_prime",
+          "gamma0",
+          "q"
+        ],
+        "objective": "pressure_residuals",
+        "observations": 60,
+        "observed_pressure_range_gpa": [
+          70.8,
+          326.4
+        ],
+        "observed_temperature_range_k": [
+          300,
+          2600
+        ],
+        "observed_volume_range": [
+          92.5,
+          126.09
+        ],
+        "original_author_workflow_parity": false,
+        "parameter_covariance": [
+          [
+            5.031797722932685,
+            -60.09888576156403,
+            0.31434337790103095,
+            -1.1103846649574654,
+            -3.8534938375951358
+          ],
+          [
+            -60.09888576156403,
+            723.8984513779989,
+            -3.832744097550831,
+            13.07365230975526,
+            46.01093317162062
+          ],
+          [
+            0.31434337790103095,
+            -3.832744097550831,
+            0.020691971534601467,
+            -0.06669052140610832,
+            -0.2390623107504448
+          ],
+          [
+            -1.1103846649574654,
+            13.07365230975526,
+            -0.06669052140610832,
+            0.4167159882745877,
+            1.4059975107087126
+          ],
+          [
+            -3.8534938375951358,
+            46.01093317162062,
+            -0.2390623107504448,
+            1.4059975107087126,
+            4.869350543978234
+          ]
+        ],
+        "parameters": [
+          {
+            "difference": 3.210054353010406,
+            "parameter": "rt_eos.V0",
+            "published": 148.8,
+            "published_error": 1,
+            "refit": 152.01005435301042,
+            "refit_error": 2.243166895915836,
+            "relative_difference": 0.021572945920768857,
+            "similar": true,
+            "within_combined_2sigma": null,
+            "within_printed_source_error_width": false
+          },
+          {
+            "difference": -44.75154164691844,
+            "parameter": "rt_eos.K0",
+            "published": 311.1,
+            "published_error": 17.1,
+            "refit": 266.3484583530816,
+            "refit_error": 26.905361015567117,
+            "relative_difference": 0.14384937848575519,
+            "similar": true,
+            "within_combined_2sigma": null,
+            "within_printed_source_error_width": false
+          },
+          {
+            "difference": 0.25669616516689464,
+            "parameter": "rt_eos.K0_prime",
+            "published": 3.4,
+            "published_error": 0.1,
+            "refit": 3.6566961651668946,
+            "refit_error": 0.14384704214755847,
+            "relative_difference": 0.07549887210791019,
+            "similar": true,
+            "within_combined_2sigma": null,
+            "within_printed_source_error_width": false
+          },
+          {
+            "difference": -0.06547303732951226,
+            "parameter": "gamma0",
+            "published": 1.06,
+            "published_error": 0.42,
+            "refit": 0.9945269626704878,
+            "refit_error": 0.6455354275906069,
+            "relative_difference": 0.06176701634859647,
+            "similar": true,
+            "within_combined_2sigma": null,
+            "within_printed_source_error_width": true
+          },
+          {
+            "difference": -0.4217943296465787,
+            "parameter": "q",
+            "published": 1.92,
+            "published_error": 1.73,
+            "refit": 1.4982056703534212,
+            "refit_error": 2.2066604958575375,
+            "relative_difference": 0.2196845466909264,
+            "similar": true,
+            "within_combined_2sigma": null,
+            "within_printed_source_error_width": true
+          }
+        ],
+        "parity_basis": "Conditional simultaneous five-parameter comparison: every coefficient meets the broader numerical similarity screen or its printed source width, but parity additionally requires every central value within its printed source width. Missing source confidence and fit weights are not inferred. Source-equation density benchmarks are checked separately.",
+        "published_rmse_gpa": 2.4753104338816434,
+        "qualification": "All 60 Table S1 rows and equal pressure weights are an explicit conditional reconstruction, including the 2600 K row and ten SiO2-marker rows. Source weights and exact fit selection remain unknown. No source coefficient is replaced and no author-workflow reproduction is claimed. The independent source density benchmarks concern extrapolated calculated states, not measurements or experimental validation.",
+        "reproduction_report": "docs/literature-reproductions/cementite.md",
+        "rmse_gpa": 2.222583869820739,
+        "selection": "all 60 Table S1 rows, including 2600 K row and ten SiO2-marker rows",
+        "solver_success": true,
+        "source_equation_density_benchmark": {
+          "calculated_density_g_cm3": 12.83553778262439,
+          "pressure_gpa": 329,
+          "qualification": "Extrapolated source calculation beyond measured coverage; not a core-density measurement or author-fit reproduction.",
+          "source": "Section 4, printed calculated density and its reported uncertainty",
+          "source_value_g_cm3": 12.83,
+          "temperature_k": 5000,
+          "tolerance_g_cm3": 0.67
+        },
+        "status": "similar",
+        "weighting": "equal pressure weights; source weights and row mask unknown"
+      },
+      "primary_data_finding": "All 60 workbook rows, original printed errors and paired calibrant cells preserved. Fit mask and weights unknown.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.3390/min9120744",
+      "published_printed_precision_agreement": true,
+      "published_rmse_gpa": 2.4753104338816434,
+      "qualification": "All 60 Table S1 rows, including the 2600 K row and ten shared SiO2-marker rows. Conditional simultaneous five-parameter effective-variance replay uses printed independent P/V/T widths; missing 300 K temperature widths leave those temperatures fixed. Unscaled inverse-normal covariance treats the widths as absolute errors; their source confidence and covariance are unconfirmed. KBr reproduces all five central values and all five error widths at published printed precision. The original author objective, weights, fitting order and exact input selection remain unconfirmed; original_author_workflow_parity=False. No formal combined-two-sigma inference, experimental validation or change in recommendation follows. Published coefficients and errors remain intact; the earlier equal-pressure reconstruction is retained separately. Source-equation density checkpoints concern extrapolated calculated states, not measured core conditions.",
+      "record_identifier": "cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd",
+      "reduced_chi_square": 0.573002358766646,
+      "reproduction_report": "docs/literature-reproductions/takahashi-2019-parity.md",
+      "rmse_gpa": 2.391991045958338,
+      "selection": "all 60 Table S1 rows, including 2600 K row and ten SiO2-marker rows",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_equation_density_benchmark": {
+        "calculated_density_g_cm3": 12.83553778262439,
+        "pressure_gpa": 329,
+        "qualification": "Extrapolated source calculation beyond measured coverage; not a core-density measurement or author-fit reproduction.",
+        "source": "Section 4, printed calculated density and its reported uncertainty",
+        "source_value_g_cm3": 12.83,
+        "temperature_k": 5000,
+        "tolerance_g_cm3": 0.67
+      },
+      "source_notes": "Published five-parameter fit (author fitting order unconfirmed), with theta0 fixed to Litasov (2013). The workbook includes a 2600 K row despite 2450 K in the article text; both declarations are preserved. High-pressure 300 K SiO2-marker states supplement the KBr/MgO rows. Marginal ranges are not a stability rectangle. No source covariance, confidence convention, exact weights or row mask are given. Source coefficients are preserved even when the conditional equal-weight reconstruction differs. Current conditional P/V/T-coordinate-width replay achieves central-coefficient parity. All five KBr central values and unscaled errors reproduce published rounding. Original author workflow remains unconfirmed; published coefficients, source errors and use recommendation are unchanged.",
+      "source_parameter_widths_agreement": true,
+      "status": "parity",
+      "uncertainty_reproduction": {
+        "basis": "Unscaled inverse-normal errors compared with printed source widths; confidence and cross-coordinate covariance unconfirmed.",
+        "status": "reproduced_at_printed_precision"
+      },
+      "weighting": "Effective variance: sP^2 + (dP/dV*sV)^2 + (dP/dT*sT)^2 from printed widths; freeze during each solve, update to convergence. Missing 300 K T widths leave T fixed."
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
+        "pressure": "pressure_mgo_gpa|pressure_sio2_gpa",
+        "temperature": "temperature_k",
+        "volume": "volume_a3"
+      },
+      "covariance_convention": "Unscaled inverse normal matrix at final frozen effective-variance weights, in free_parameters order with V0 in conventional-cell A3. Printed coordinate widths are assumed absolute independent errors; source confidence and covariance are unconfirmed.",
+      "dataset_identifiers": [
+        "cementite_takahashi_2019_table_s1"
+      ],
+      "degrees_of_freedom": 55,
+      "effective_variance_iterations": 5,
+      "experimental_pressure_range_gpa": [
+        69.3,
+        326.4
+      ],
+      "experimental_temperature_range_k": [
+        300,
+        2600
+      ],
+      "fit_kind": "joint_pvt",
+      "fixed_parameters": [
+        "Tr",
+        "theta0",
+        "n"
+      ],
+      "fixed_values": {
+        "Tr": 300,
+        "n": 4,
+        "theta0": 314
+      },
+      "free_parameters": [
+        "rt_eos.V0",
+        "rt_eos.K0",
+        "rt_eos.K0_prime",
+        "gamma0",
+        "q"
+      ],
+      "label": "Takahashi et al. (2019), nonmagnetic Fe3C, MgO pressure scale, BM3 + MGD",
+      "material_identifier": "cementite_nonmagnetic",
+      "model": "BM3",
+      "objective": "iteratively_reweighted_pressure_residuals",
+      "observations": 60,
+      "observed_pressure_range_gpa": [
+        69.3,
+        326.4
+      ],
+      "observed_temperature_range_k": [
+        300,
+        2600
+      ],
+      "observed_volume_range": [
+        92.5,
+        126.09
+      ],
+      "original_author_workflow_parity": false,
+      "parameter_covariance": [
+        [
+          0.659065595263514,
+          -11.553980846228999,
+          0.06536921169491364,
+          -0.144686013308201,
+          -0.46775433093665375
+        ],
+        [
+          -11.553980846228999,
+          205.8560201249829,
+          -1.196484209574366,
+          2.428932825992708,
+          8.001530833763427
+        ],
+        [
+          0.06536921169491364,
+          -1.196484209574366,
+          0.007373962265297425,
+          -0.012375351949583932,
+          -0.04147373853474685
+        ],
+        [
+          -0.144686013308201,
+          2.428932825992708,
+          -0.012375351949583932,
+          0.08722978035972268,
+          0.262451364840956
+        ],
+        [
+          -0.46775433093665375,
+          8.001530833763427,
+          -0.04147373853474685,
+          0.262451364840956,
+          0.8253892957744636
+        ]
+      ],
+      "parameters": [
+        {
+          "central_value_matches_printed_precision": false,
+          "difference": 0.060800395471630964,
+          "error_matches_printed_precision": false,
+          "parameter": "rt_eos.V0",
+          "published": 147.3,
+          "published_error": 1.0,
+          "refit": 147.36080039547164,
+          "refit_error": 0.8118285504116703,
+          "relative_difference": 0.00041276575337156115,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_printed_source_error_width": true
+        },
+        {
+          "central_value_matches_printed_precision": false,
+          "difference": -1.5125837282218981,
+          "error_matches_printed_precision": false,
+          "parameter": "rt_eos.K0",
+          "published": 323.0,
+          "published_error": 16.6,
+          "refit": 321.4874162717781,
+          "refit_error": 14.347683441064028,
+          "relative_difference": 0.004682921759200923,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_printed_source_error_width": true
+        },
+        {
+          "central_value_matches_printed_precision": false,
+          "difference": 0.008092266537532922,
+          "error_matches_printed_precision": true,
+          "parameter": "rt_eos.K0_prime",
+          "published": 3.43,
+          "published_error": 0.09,
+          "refit": 3.438092266537533,
+          "refit_error": 0.08587177804900412,
+          "relative_difference": 0.002359261381204933,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_printed_source_error_width": true
+        },
+        {
+          "central_value_matches_printed_precision": true,
+          "difference": -0.003896160398319637,
+          "error_matches_printed_precision": false,
+          "parameter": "gamma0",
+          "published": 1.37,
+          "published_error": 0.33,
+          "refit": 1.3661038396016805,
+          "refit_error": 0.29534688141187926,
+          "relative_difference": 0.0028439126995033846,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_printed_source_error_width": true
+        },
+        {
+          "central_value_matches_printed_precision": false,
+          "difference": -0.03957878354139799,
+          "error_matches_printed_precision": false,
+          "parameter": "q",
+          "published": 0.98,
+          "published_error": 1.01,
+          "refit": 0.940421216458602,
+          "refit_error": 0.9085093812253474,
+          "relative_difference": 0.04038651381775305,
+          "similar": true,
+          "within_combined_2sigma": null,
+          "within_printed_source_error_width": true
+        }
+      ],
+      "parity_basis": "Conditional parameter_agreement: every free central coefficient lies within its own printed source error width under the all-60-row P/V/T effective-variance replay. Uncertainty reproduction is assessed separately; source confidence is unknown and author workflow is unconfirmed.",
+      "previous_equal_pressure_reconstruction": {
+        "absolute_sigma": false,
+        "columns": {
+          "pressure": "pressure_mgo_gpa|pressure_sio2_gpa",
+          "temperature": "temperature_k",
+          "volume": "volume_a3"
+        },
+        "covariance_convention": "Residual-scaled inverse normal matrix in free_parameters order, with V0 converted to conventional-cell A3; conditional on equal pressure weights.",
+        "dataset_identifiers": [
+          "cementite_takahashi_2019_table_s1"
+        ],
+        "degrees_of_freedom": 55,
+        "fit_kind": "joint_pvt",
+        "fixed_parameters": [
+          "Tr",
+          "theta0",
+          "n"
+        ],
+        "fixed_values": {
+          "Tr": 300,
+          "n": 4,
+          "theta0": 314
+        },
+        "free_parameters": [
+          "rt_eos.V0",
+          "rt_eos.K0",
+          "rt_eos.K0_prime",
+          "gamma0",
+          "q"
+        ],
+        "objective": "pressure_residuals",
+        "observations": 60,
+        "observed_pressure_range_gpa": [
+          69.3,
+          326.4
+        ],
+        "observed_temperature_range_k": [
+          300,
+          2600
+        ],
+        "observed_volume_range": [
+          92.5,
+          126.09
+        ],
+        "original_author_workflow_parity": false,
+        "parameter_covariance": [
+          [
+            1.4525450461271658,
+            -25.12633791531592,
+            0.11107008581318921,
+            -0.3990853098646913,
+            -1.107905490383848
+          ],
+          [
+            -25.12633791531592,
+            440.678207351612,
+            -1.9808305933607318,
+            6.781407287031146,
+            19.222576944101924
+          ],
+          [
+            0.11107008581318921,
+            -1.9808305933607318,
+            0.009116276826256332,
+            -0.029177046288849682,
+            -0.08460472360058081
+          ],
+          [
+            -0.3990853098646913,
+            6.781407287031146,
+            -0.029177046288849682,
+            0.18648448438834903,
+            0.5014134221760139
+          ],
+          [
+            -1.107905490383848,
+            19.222576944101924,
+            -0.08460472360058081,
+            0.5014134221760139,
+            1.396159748223764
+          ]
+        ],
+        "parameters": [
+          {
+            "difference": -1.5635596124870972,
+            "parameter": "rt_eos.V0",
+            "published": 147.3,
+            "published_error": 1,
+            "refit": 145.7364403875129,
+            "refit_error": 1.2052157674570834,
+            "relative_difference": 0.010614797097672077,
+            "similar": true,
+            "within_combined_2sigma": null,
+            "within_printed_source_error_width": false
+          },
+          {
+            "difference": 27.965956425781542,
+            "parameter": "rt_eos.K0",
+            "published": 323,
+            "published_error": 16.6,
+            "refit": 350.96595642578154,
+            "refit_error": 20.99233687209721,
+            "relative_difference": 0.08658190843895214,
+            "similar": true,
+            "within_combined_2sigma": null,
+            "within_printed_source_error_width": false
+          },
+          {
+            "difference": -0.14059234897757467,
+            "parameter": "rt_eos.K0_prime",
+            "published": 3.43,
+            "published_error": 0.09,
+            "refit": 3.2894076510224255,
+            "refit_error": 0.09547919577717615,
+            "relative_difference": 0.04098902302553197,
+            "similar": true,
+            "within_combined_2sigma": null,
+            "within_printed_source_error_width": false
+          },
+          {
+            "difference": 0.06917479607475707,
+            "parameter": "gamma0",
+            "published": 1.37,
+            "published_error": 0.33,
+            "refit": 1.4391747960747572,
+            "refit_error": 0.4318384934073722,
+            "relative_difference": 0.05049255187938472,
+            "similar": true,
+            "within_combined_2sigma": null,
+            "within_printed_source_error_width": true
+          },
+          {
+            "difference": 0.34980582453673237,
+            "parameter": "q",
+            "published": 0.98,
+            "published_error": 1.01,
+            "refit": 1.3298058245367324,
+            "refit_error": 1.1815920396751851,
+            "relative_difference": 0.35694471891503304,
+            "similar": true,
+            "within_combined_2sigma": null,
+            "within_printed_source_error_width": true
+          }
+        ],
+        "parity_basis": "Conditional simultaneous five-parameter comparison: every coefficient meets the broader numerical similarity screen or its printed source width, but parity additionally requires every central value within its printed source width. Missing source confidence and fit weights are not inferred. Source-equation density benchmarks are checked separately.",
+        "published_rmse_gpa": 1.9654236493519575,
+        "qualification": "All 60 Table S1 rows and equal pressure weights are an explicit conditional reconstruction, including the 2600 K row and ten SiO2-marker rows. Source weights and exact fit selection remain unknown. No source coefficient is replaced and no author-workflow reproduction is claimed. The independent source density benchmarks concern extrapolated calculated states, not measurements or experimental validation.",
+        "reproduction_report": "docs/literature-reproductions/cementite.md",
+        "rmse_gpa": 1.9063962754546557,
+        "selection": "all 60 Table S1 rows, including 2600 K row and ten SiO2-marker rows",
+        "solver_success": true,
+        "source_equation_density_benchmark": {
+          "calculated_density_g_cm3": 12.640582820271327,
+          "pressure_gpa": 329,
+          "qualification": "Extrapolated source calculation beyond measured coverage; not a core-density measurement or author-fit reproduction.",
+          "source": "Figure 3a, blue dotted 5000 K curve; manual graphical reading with 0.04 g/cm3 reading bound",
+          "source_value_g_cm3": 12.64,
+          "temperature_k": 5000,
+          "tolerance_g_cm3": 0.04
+        },
+        "status": "similar",
+        "weighting": "equal pressure weights; source weights and row mask unknown"
+      },
+      "primary_data_finding": "All 60 workbook rows, original printed errors and paired calibrant cells preserved. Fit mask and weights unknown.",
+      "primary_data_status": "bundled",
+      "primary_source": "https://doi.org/10.3390/min9120744",
+      "published_printed_precision_agreement": false,
+      "published_rmse_gpa": 1.9654236493519575,
+      "qualification": "All 60 Table S1 rows, including the 2600 K row and ten shared SiO2-marker rows. Conditional simultaneous five-parameter effective-variance replay uses printed independent P/V/T widths; missing 300 K temperature widths leave those temperatures fixed. Unscaled inverse-normal covariance treats the widths as absolute errors; their source confidence and covariance are unconfirmed. MgO central values all lie within printed source widths, but exact printed coefficients and uncertainties are not reproduced. The original author objective, weights, fitting order and exact input selection remain unconfirmed; original_author_workflow_parity=False. No formal combined-two-sigma inference, experimental validation or change in recommendation follows. Published coefficients and errors remain intact; the earlier equal-pressure reconstruction is retained separately. Source-equation density checkpoints concern extrapolated calculated states, not measured core conditions.",
+      "record_identifier": "cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd",
+      "reduced_chi_square": 0.5375476812725855,
+      "reproduction_report": "docs/literature-reproductions/takahashi-2019-parity.md",
+      "rmse_gpa": 1.9809872127727486,
+      "selection": "all 60 Table S1 rows, including 2600 K row and ten SiO2-marker rows",
+      "solver_message": "`ftol` termination condition is satisfied.",
+      "solver_success": true,
+      "source_equation_density_benchmark": {
+        "calculated_density_g_cm3": 12.640582820271327,
+        "pressure_gpa": 329,
+        "qualification": "Extrapolated source calculation beyond measured coverage; not a core-density measurement or author-fit reproduction.",
+        "source": "Figure 3a, blue dotted 5000 K curve; manual graphical reading with 0.04 g/cm3 reading bound",
+        "source_value_g_cm3": 12.64,
+        "temperature_k": 5000,
+        "tolerance_g_cm3": 0.04
+      },
+      "source_notes": "Published five-parameter fit (author fitting order unconfirmed), with theta0 fixed to Litasov (2013). The workbook includes a 2600 K row despite 2450 K in the article text; both declarations are preserved. High-pressure 300 K SiO2-marker states supplement the KBr/MgO rows. Marginal ranges are not a stability rectangle. No source covariance, confidence convention, exact weights or row mask are given. Source coefficients are preserved even when the conditional equal-weight reconstruction differs. Current conditional P/V/T-coordinate-width replay achieves central-coefficient parity. MgO exact printed central values and uncertainties are not reproduced. Original author workflow remains unconfirmed; published coefficients, source errors and use recommendation are unchanged.",
+      "source_parameter_widths_agreement": true,
+      "status": "parity",
+      "uncertainty_reproduction": {
+        "basis": "Unscaled inverse-normal errors compared with printed source widths; confidence and cross-coordinate covariance unconfirmed.",
+        "status": "not_reproduced_at_printed_precision"
+      },
+      "weighting": "Effective variance: sP^2 + (dP/dV*sV)^2 + (dP/dT*sT)^2 from printed widths; freeze during each solve, update to convergence. Missing 300 K T widths leave T fixed."
+    },
+    {
+      "absolute_sigma": true,
+      "columns": {
         "pressure": "pressure_gpa",
         "temperature": null,
         "volume": "volume_angstrom3"
@@ -52128,10 +52850,10 @@
   ],
   "summary": {
     "not_refittable": 178,
-    "parity": 246,
+    "parity": 248,
     "parity_not_achieved": 60,
     "similar": 163,
     "source_reconstruction": 16,
-    "total": 663
+    "total": 665
   }
 }

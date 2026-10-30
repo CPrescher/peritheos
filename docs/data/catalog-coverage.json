@@ -1,33 +1,33 @@
 {
   "format": "peritheos.catalog-coverage",
   "format_version": 1,
-  "material_files_sha256": "7f84f6800966f722e933875f52c3540f038844600955115915af65d2f5c0a1e9",
+  "material_files_sha256": "166d63142f9a40dd7795cf40f313a65d4e17afb3ed137865baf1ddc8c156ac40",
   "summary": {
-    "stored_materials": 232,
-    "stored_records": 663,
-    "executable_materials": 228,
-    "executable_records": 659,
-    "materials_with_thermal_eos": 62,
+    "stored_materials": 233,
+    "stored_records": 665,
+    "executable_materials": 229,
+    "executable_records": 661,
+    "materials_with_thermal_eos": 63,
     "executable_equation_kinds": {
       "hugoniot": 3,
       "isothermal": 523,
-      "thermal": 133
+      "thermal": 135
     },
     "stored_validation": {
       "deferred": 4,
       "not_reproduced": 14,
-      "primary_source_validated": 645
+      "primary_source_validated": 647
     },
     "executable_calibration_status": {
       "not_applicable": 163,
-      "partially_resolved": 182,
+      "partially_resolved": 184,
       "resolved": 229,
       "unresolved": 85
     },
     "executable_recalculation_status": {
       "missing_calibrant_observations": 192,
       "not_applicable": 160,
-      "not_possible": 118,
+      "not_possible": 120,
       "ready": 124,
       "reference_eos_not_bundled": 57,
       "reference_model_not_supported": 8
@@ -38,7 +38,7 @@
   "ledgers": {
     "refit_outcomes": {
       "not_refittable": 178,
-      "parity": 246,
+      "parity": 248,
       "parity_not_achieved": 60,
       "similar": 163,
       "source_reconstruction": 16
@@ -608,6 +608,22 @@
       "hugoniot_records": 0,
       "validation": {
         "primary_source_validated": 1
+      },
+      "datasets": 1
+    },
+    {
+      "identifier": "cementite_nonmagnetic",
+      "name": "Cementite, nonmagnetic",
+      "formula": "Fe3C",
+      "family_id": null,
+      "input_file": "peritheos/data/materials/cementite_nonmagnetic.eosmat",
+      "stored_records": 2,
+      "executable_records": 2,
+      "isothermal_records": 0,
+      "thermal_records": 2,
+      "hugoniot_records": 0,
+      "validation": {
+        "primary_source_validated": 2
       },
       "datasets": 1
     },
@@ -4944,6 +4960,24 @@
       "material_identifier": "cementite",
       "executable": true,
       "equation_kind": "isothermal",
+      "scientific_validation": "primary_source_validated",
+      "refit_ledger_present": true,
+      "source_audit_present": true
+    },
+    {
+      "identifier": "cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd",
+      "material_identifier": "cementite_nonmagnetic",
+      "executable": true,
+      "equation_kind": "thermal",
+      "scientific_validation": "primary_source_validated",
+      "refit_ledger_present": true,
+      "source_audit_present": true
+    },
+    {
+      "identifier": "cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd",
+      "material_identifier": "cementite_nonmagnetic",
+      "executable": true,
+      "equation_kind": "thermal",
       "scientific_validation": "primary_source_validated",
       "refit_ledger_present": true,
       "source_audit_present": true
