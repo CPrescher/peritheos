@@ -61,10 +61,7 @@ def test_published_parameters_and_explicit_adoption_survive_public_loading(
             "material_identifier": "cementite",
         },
     )
-    for key in ("status", "scope", "parameters", "fit", "basis_code"):
-        assert assessment[key] == organized[key]
-    # The retained source assessment has a more specific reviewed narrative.
-    # Organizing its ledger must preserve the complete numerical comparison.
+    assert assessment == organized
     replay = {p["parameter"]: p for p in assessment["parameters"]}
     for name in ("K0", "K0_prime"):
         assert replay[name]["within_published_printing_precision"] is True
@@ -209,3 +206,27 @@ def test_numbered_primary_fit_replays_the_preserved_ledger_at_recorded_precision
     )
     replay = ledger_outcome(record)
     check_ledger_values({key: stored[key] for key in replay}, replay)
+
+
+@pytest.mark.parametrize(
+    "changes",
+    [
+        {"assessment_basis": ""},
+        {"assessment_qualifications": []},
+        {"assessment_qualifications": ["Reviewed context", 2]},
+    ],
+)
+def test_explicit_assessment_narrative_rejects_missing_or_nonprose_values(changes):
+    record = next(
+        r
+        for r in get_material_document("cementite", format_version=4)["eos_records"]
+        if r["identifier"] == IDS["full"]
+    )
+    row = {
+        **ledger_outcome(record),
+        "record_identifier": record["identifier"],
+        "material_identifier": "cementite",
+        **changes,
+    }
+    with pytest.raises(ValueError, match="basis|qualifications"):
+        assessment_for_record(record, row)

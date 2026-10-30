@@ -107,6 +107,12 @@ def ledger_outcome(record):
         "status": "parity",
         "parity_basis": "conditional_K0_and_K0_prime_at_published_printed_precision",
         "comparison_scope": "parameter_agreement",
+        "assessment_basis": "Conditional agreement of K0 and K0_prime at published printed precision for the 19 numbered p1-p19 observations, with adopted curve-derived V0 held fixed. K0 uncertainty is not reproduced: 2.532193 GPa rounds to 3, while the published error is 2 GPa.",
+        "assessment_qualifications": [
+            COMMON,
+            QUALIFICATIONS["full"],
+            "This is a conditional coefficient comparison, not recovery of source confidence, calibration covariance or the author fitting workflow.",
+        ],
         "conditional": True,
         "compared_parameters": ["K0", "K0_prime"],
         "author_workflow_reproduced": False,

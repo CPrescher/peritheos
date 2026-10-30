@@ -45,6 +45,11 @@ printed-precision comparison requires the same decimal place on both source and
 refit values/errors. This affects report display only: retain unrounded values,
 error confidence and any uncertainty mismatch. The usual rounding convention
 continues to apply when that optional field is absent.
+The repository audit ledger may retain explicit `assessment_basis` and
+`assessment_qualifications` prose when the reviewed finding is more specific
+than the organizer's default wording. These fields preserve that narrative
+verbatim; numerical comparisons, status, scope and constraints remain separate.
+
 
 The repository-only maintenance command
 `uv run --group docs python -m scripts.generate_reconstruction_reports` replays

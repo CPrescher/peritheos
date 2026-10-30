@@ -81,6 +81,11 @@ FIT_FIELDS = (
 
 
 def _basis(row: Mapping[str, Any]) -> str:
+    explicit = row.get("assessment_basis")
+    if explicit is not None:
+        if not isinstance(explicit, str) or not explicit.strip():
+            raise ValueError("An explicit assessment basis must be nonempty prose")
+        return explicit
     code = row.get("parity_basis")
     if isinstance(code, str) and code:
         return BASIS.get(code, code)
@@ -179,6 +184,22 @@ def assessment_for_record(
         qualifications.append(
             "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
         )
+    explicit_qualifications = row.get("assessment_qualifications")
+    if explicit_qualifications is not None:
+        if (
+            not isinstance(explicit_qualifications, list)
+            or not explicit_qualifications
+            or any(
+                not isinstance(value, str) or not value.strip()
+                for value in explicit_qualifications
+            )
+        ):
+            raise ValueError(
+                "Explicit assessment qualifications must be a nonempty list of prose"
+            )
+        # Preserve the audit's reviewed narrative verbatim. This changes no
+        # classification, numerical comparison, constraint or confidence field.
+        qualifications = copy.deepcopy(explicit_qualifications)
     result: dict[str, Any] = {
         "status": status,
         "scope": scope,
