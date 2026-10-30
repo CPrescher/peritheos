@@ -31,7 +31,7 @@ produce an executable record.
 
 ## Summary
 
-The register covers **370 primary papers**: **266** support the 678 audited catalog records and **104** were investigated without adding a production record.
+The register covers **371 primary papers**: **267** support the 679 audited catalog records and **104** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
@@ -39,7 +39,7 @@ refits, or acceptance-gate holds.
 | Paper-level outcome | Papers |
 |---|---:|
 | Original unreproduced; independent refit available | 4 |
-| Reproduced | 175 |
+| Reproduced | 176 |
 | Partly reproduced | 14 |
 | Mixed: reproduced and discrepant records | 9 |
 | Coefficient parity not achieved | 8 |
@@ -1324,6 +1324,7 @@ the primary-source and refit ledgers.
 | [Pamato et al. (2016), NAL elasticity](https://doi.org/10.1002/2016JB013136) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Pepin et al. (2014)](https://doi.org/10.1103/physrevlett.113.265504) | Reproduced | 2 | 2 parity | 2 plot only/digitized |
 | [Performance of an ab initio equation of state for magnesium oxide (2004)](https://doi.org/10.1088/0953-8984/16/30/006) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
+| [Prescher et al. (2012)](https://doi.org/10.1103/physrevb.85.140402) | Reproduced | 1 | 1 parity |  |
 | [Prescher et al. (2015)](https://doi.org/10.1038/ngeo2370) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Pressure Dependence of Interatomic Separation and Thermal Expansivity for Alkali Halides and Periclase (MgO) (2009)](https://doi.org/10.12693/aphyspola.115.709) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Pressure-Induced Magnetization in FeO: Evidence from Elasticity and Mössbauer Spectroscopy (2004)](https://doi.org/10.1103/physrevlett.93.215502) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |

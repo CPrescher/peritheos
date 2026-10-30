@@ -7,7 +7,7 @@ qualifications. These sheets are generated from the complete EOSMAT documents.
 Peritheos exposes the main curated library through the normal executable
 API. `list_materials()` returns 230 `Material` objects and
 `list_eos_records()` returns 624 `EOSRecord` choices. Pass
-`include_reference_variants=True` to include all 675 executable records. Both
+`include_reference_variants=True` to include all 676 executable records. Both
 material and EOS listings are ordered by
 stable identifier and constructed from the same `.eosmat` files returned by
 the advanced `get_material_document()` API.
