@@ -31,7 +31,7 @@ produce an executable record.
 
 ## Summary
 
-The register covers **369 primary papers**: **265** support the 663 audited catalog records and **104** were investigated without adding a production record.
+The register covers **371 primary papers**: **267** support the 666 audited catalog records and **104** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
@@ -39,7 +39,7 @@ refits, or acceptance-gate holds.
 | Paper-level outcome | Papers |
 |---|---:|
 | Original unreproduced; independent refit available | 4 |
-| Reproduced | 176 |
+| Reproduced | 178 |
 | Partly reproduced | 12 |
 | Mixed: reproduced and discrepant records | 9 |
 | Coefficient parity not achieved | 7 |
@@ -1254,6 +1254,7 @@ the primary-source and refit ledgers.
 | [Lee and Wan (2008)](https://doi.org/10.1103/physrevb.78.224103) | Direct refit unavailable | 2 | 2 direct refit unavailable | 2 theoretical parameterization only |
 | [Leonov et al. (2017)](https://doi.org/10.1103/physrevb.96.075136) | Direct refit unavailable | 8 | 8 direct refit unavailable |  |
 | [Li and Zeng (2009)](https://doi.org/10.1142/s0129183109014242) | Direct refit unavailable | 6 | 6 direct refit unavailable |  |
+| [Li et al. (2002)](https://doi.org/10.1007/s00269-001-0224-4) | Reproduced | 1 | 1 parity; Conditional K0/K0-prime parameter parity on all 12 nonambient Table 1 rows with fixed measured V0. Published coefficients/errors and all 14 source rows are preserved. Five graphical source-curve checks pass. Original weights, confidence, covariance and ruby/neon reduction workflow remain unrecovered. See the [Li audit and integration](literature-reproductions/li-2002-fe3c.md). |  |
 | [Li et al. (2006)](https://doi.org/10.1029/2005jb004251) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Li-and-Zhang-data elastic refit (2010)](https://doi.org/10.1016/j.pnsc.2009.09.002) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Litasov et al. (2007)](https://doi.org/10.1016/j.pepi.2007.06.003) | Reproduced | 7 | 7 similar | 7 bundled |
@@ -1383,6 +1384,7 @@ the primary-source and refit ledgers.
 | [Sun et al. (2019)](https://doi.org/10.1029/2019jb017853) | Reproduced | 2 | 2 similar | 2 bundled |
 | [Sun et al. (2022)](https://doi.org/10.2138/am-2021-7913) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Suzuki (2016)](https://doi.org/10.2465/jmps.160719c) | Reproduced | 1 | 1 parity | 1 bundled |
+| [Takahashi et al. (2019)](https://doi.org/10.3390/min9120744) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Takemura (2004)](https://doi.org/10.1103/physrevb.70.012101) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Takemura and Dewaele (2008)](https://doi.org/10.1103/physrevb.78.104119) | Reproduced | 1 | 1 parity; Conditional numerical K0-prime parity on both ruby coordinates using all 86 observed rows with V0/K0 fixed. Original weights and uncertainty estimation remain unresolved; no exact author-fit claim. See the [dedicated audit](literature-reproductions/takemura-2008-gold.md). | 1 bundled |
 | [Takemura and Singh (2006)](https://doi.org/10.1103/physrevb.73.224119) | Reproduced | 1 | 1 parity | 1 bundled |

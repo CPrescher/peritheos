@@ -94,3 +94,12 @@ replays the audit. It is not an installed-package authoring requirement.
 Source checksums, access results, exact locations and literal unmerged values
 are in `peritheos/data/research/cementite/sources.json`. The dataset license
 note distinguishes source rights from transcription rights.
+
+## Li (2002): published 300 K BM3
+
+The published `cementite_li_2002_bm3` retains V0=155.28(11) Å³ fixed,
+K0=174(6) GPa and K0′=4.8(8). All 14 original Table 1 rows, source tokens
+and paired neon lattice measurements are bundled. Source-curve checks and
+conditional coefficient parity pass; the original weights, confidence,
+covariance and ruby/neon reduction workflow remain unrecovered. The existing
+cementite default is unchanged. See the [Li audit and integration](li-2002-fe3c.md).

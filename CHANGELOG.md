@@ -7,6 +7,11 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Added
 
+- Add Li (2002) cementite BM3 with original coefficients/errors and fixed measured
+  V0. Bundle all 14 Table 1 rows, source tokens and paired neon measurements;
+  document conditional parameter parity, source-curve checks and unresolved
+  author weighting, confidence and pressure-reduction workflow.
+
 - Add the two Takahashi (2019) nonmagnetic Fe3C source EOSs and their 60-row
   dataset. Coordinate-error weighting recovers conditional coefficient parity;
   KBr errors reproduce printed precision, while MgO errors and the original

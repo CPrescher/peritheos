@@ -23,15 +23,19 @@ and records which materials have static, thermal, and Hugoniot coverage. Its
 between the live material files and the scientific ledgers. It includes local
 work and must not be read as the contents of a published release.
 
-The current local catalog contains 232 stored material documents / 663 records,
-228 executable materials / 659 records, and thermal EOS coverage for 62 materials
+The current local catalog contains 233 stored material documents / 666 records,
+229 executable materials / 662 records, and thermal EOS coverage for 63 materials
 (brucite has no accepted thermal EOS). Stored
-assessments are 645 primary-source validated, fourteen qualified `not_reproduced`,
-and four deferred. Both scientific ledgers cover all 663 record identities.
+assessments are 648 primary-source validated, fourteen qualified `not_reproduced`,
+and four deferred. Both scientific ledgers cover all 666 record identities.
 Forsterite, diopside, the rubidium halides, phase E, and the scoped brucite
 addition are integrated. Fe-ringwoodite remains staged pending its own review.
 Brucite does not yet provide an accepted broad high-pressure thermal or
 disordered-phase EOS; its precise limits are in the source audit.
+
+The [Li (2002) Fe3C EOS](literature-reproductions/li-2002-fe3c.md) is integrated
+with original coefficients, fixed measured V0 and all 14 source Table 1 rows.
+Conditional parameter parity is separate from unresolved author-workflow reproduction.
 
 ## Active material-gap queue
 

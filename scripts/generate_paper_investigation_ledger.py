@@ -48,6 +48,14 @@ CITATION_OVERRIDES = {
 
 
 PAPER_SCOPE_NOTES = {
+    "10.1007/s00269-001-0224-4": (
+        "Conditional K0/K0-prime parameter parity on all 12 nonambient Table 1 "
+        "rows with fixed measured V0. Published coefficients/errors and all "
+        "14 source rows are preserved. Five graphical source-curve checks pass. "
+        "Original weights, confidence, covariance and ruby/neon reduction "
+        "workflow remain unrecovered. See the [Li audit and integration]"
+        "(literature-reproductions/li-2002-fe3c.md)."
+    ),
     "10.1007/s00269-003-0353-z": (
         "Full published thermal EOS: parity not achieved, not recommended. "
         "Only individually source-checked 300/473/673 K isotherms remain executable. "

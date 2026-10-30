@@ -1,0 +1,16 @@
+{
+  "source": "Li et al. (2002), Figure 2 main panel, PDF page 3 (printed page 168)",
+  "kind": "digitized_published_model_curve_checkpoints_not_observations",
+  "method": "Manual selection of isolated curve stripes in losslessly extracted 1350 x 1394 one-bit raster. Figure 2 is PDF image xref 8, not vector linework. Pixel coordinates have origin at top left. Midpoints preserve the initial readings; no adjustment against calculated EOS values.",
+  "image_relative_path": "output/li-2002-fe3c-audit/inspection/figure-image-8.png",
+  "calibration_pixels": {"pressure_0_x": 198, "pressure_30_x": 1169, "volume_135_y": 1225, "volume_155_y": 75},
+  "volume_reading_bound_a3": 0.12,
+  "bound_basis": "A deterministic graphical reading bound of approximately 7 vertical pixels. It covers curve half-width up to 5 pixels and about 2 pixels of axis calibration/placement. This is not a measurement error or a statistical confidence interval. Source coefficient rounding is not needed to pass this bound.",
+  "readings": [
+    {"x": 522, "y_min": 499, "y_max": 509},
+    {"x": 684, "y_min": 682, "y_max": 689},
+    {"x": 845, "y_min": 842, "y_max": 850},
+    {"x": 1007, "y_min": 990, "y_max": 997},
+    {"x": 1169, "y_min": 1121, "y_max": 1130}
+  ]
+}

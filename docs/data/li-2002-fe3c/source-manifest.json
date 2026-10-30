@@ -1,0 +1,68 @@
+{
+  "retrieved_date": "2026-10-30",
+  "authority": "Final publisher-formatted Li article, not secondary comparison coefficients. All four pages visually inspected. Publisher DOI/citation/abstract independently checked at Springer.",
+  "li_publication": {
+    "authors": [
+      "J. Li",
+      "H. K. Mao",
+      "Y. Fei",
+      "E. Gregoryanz",
+      "M. Eremets",
+      "C. S. Zha"
+    ],
+    "title": "Compression of Fe3C to 30 GPa at room temperature",
+    "journal": "Physics and Chemistry of Minerals",
+    "volume": 29,
+    "issue": 3,
+    "pages": "166-169",
+    "year": 2002,
+    "doi": "10.1007/s00269-001-0224-4",
+    "publisher_url": "https://link.springer.com/article/10.1007/s00269-001-0224-4",
+    "download_url": "https://repository.geologyscience.ru/bitstreams/02e949f2-8995-4c06-989e-7b832b5a584a/download",
+    "repository_item": "https://repository.geologyscience.ru/items/d85f4b66-7a05-4e7a-a115-4f4886e10c59",
+    "version_evidence": "Four pages, Springer-Verlag 2002 copyright, printed 166-169, matching DOI; received 2001-04-30, accepted 2001-09-17. PDF creation 2002-04-03 and modification 2002-04-04.",
+    "license": "Copyright Springer-Verlag 2002; no open license identified. Publisher PDF, extracted text and figure images retained locally only; factual transcriptions carry attribution and no claim to third-party copyright."
+  },
+  "supplement_correction_search": {
+    "checked": [
+      "Springer article landing page",
+      "DOI-specific web searches for erratum and supplementary material",
+      "all four article pages",
+      "output/cementite-eos-audit-2026-10-25/sources/",
+      "the supplied archive lead",
+      "filename searches under Dropbox/Science and local ChatGPT/Programming folders"
+    ],
+    "result": "No linked supplement or correction identified; not proof none exists. Supplied archive Fe3C path absent in this filesystem. Existing sources folder has Prescher, Scott, Litasov and Takahashi copies, but no Li copy."
+  },
+  "missing_reduction_inputs": [
+    "Separate measured ruby wavelengths / shifts and their uncertainties",
+    "Separate ruby- and neon-pressure arrays before averaging",
+    "Raw diffraction frames/profiles and peak-choice replicates",
+    "Original least-squares program/project, residual direction, weights, covariance and confidence convention",
+    "Run/step identities beyond printed Table 1 order; compression/decompression direction unspecified"
+  ],
+  "auxiliary_structure_only": {
+    "citation": "I. G. Wood, L. Vocadlo, K. S. Knight, D. P. Dobson, W. G. Marshall, G. D. Price, J. Brodholt (2004), J. Appl. Cryst. 37:82-90, doi:10.1107/S0021889803024695",
+    "url": "https://discovery.ucl.ac.uk/id/eprint/8923/1/8923.pdf",
+    "basis": "Table 1 heading, printed page 88: Pnma Fe1 8d, Fe2 4c, C 4c, hence 12 Fe+4 C and Z=4. No auxiliary EOS parameters, volumes or fitting choices borrowed.",
+    "license": "IUCr 2004 copyright; all rights reserved, university-hosted publisher-formatted copy"
+  },
+  "preserved_files": [
+    {
+      "path": "output/li-2002-fe3c-audit/sources/li-2002.pdf",
+      "bytes": 117927,
+      "sha256": "3b4761baa81a3e4bd419f8e93d5e453d7c5d7c2b64b400514d0f468dbcb211af"
+    },
+    {
+      "path": "output/li-2002-fe3c-audit/sources/wood-2004-cell-contents.pdf",
+      "bytes": 373183,
+      "sha256": "663df7b5f08c6136c3a2245acbb1d6764553b8e68230aa1029e37d3132f76c28"
+    },
+    {
+      "path": "output/li-2002-fe3c-audit/inspection/figure-image-8.png",
+      "bytes": 28980,
+      "sha256": "12848d4183ffe6f665659be99e6874657690d6fd14ee8df13544e68122512bb1",
+      "role": "Losslessly extracted Figure 2 raster; original image readings preserved separately from calculated curves"
+    }
+  ]
+}

@@ -15,9 +15,9 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 | Measure | Count |
 |---|---:|
 | Stored material documents | 233 |
-| Stored EOS records | 665 |
+| Stored EOS records | 666 |
 | Executable materials | 229 |
-| Executable EOS records, including qualified explicit-selection records | 661 |
+| Executable EOS records, including qualified explicit-selection records | 662 |
 | Materials with an executable thermal EOS | 63 |
 | Executable records with parameter covariance | 17 |
 | Executable records with known parameter-error confidence | 74 |
@@ -28,14 +28,14 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 |---|---:|
 | `deferred` | 4 |
 | `not_reproduced` | 14 |
-| `primary_source_validated` | 647 |
+| `primary_source_validated` | 648 |
 
 ## Executable equation kinds
 
 | Status | Records |
 |---|---:|
 | `hugoniot` | 3 |
-| `isothermal` | 523 |
+| `isothermal` | 524 |
 | `thermal` | 135 |
 
 ## Pressure-calibration provenance of executable records
@@ -44,14 +44,14 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 |---|---:|
 | `not_applicable` | 163 |
 | `partially_resolved` | 184 |
-| `resolved` | 229 |
+| `resolved` | 230 |
 | `unresolved` | 85 |
 
 ## Observation pressure-recalculation readiness
 
 | Status | Records |
 |---|---:|
-| `missing_calibrant_observations` | 192 |
+| `missing_calibrant_observations` | 193 |
 | `not_applicable` | 160 |
 | `not_possible` | 120 |
 | `ready` | 124 |
@@ -71,7 +71,7 @@ of records missing from that ledger. No scientific classifications are changed h
 | Outcome | Records |
 |---|---:|
 | `not_refittable` | 178 |
-| `parity` | 248 |
+| `parity` | 249 |
 | `parity_not_achieved` | 60 |
 | `similar` | 163 |
 | `source_reconstruction` | 16 |
@@ -127,7 +127,7 @@ Multiple temperature slices do not imply a continuous thermal EOS.
 | `cao_b2` | CaO | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `casio2o5_titanite` | CaSi2O5 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 |
 | `casio3_perovskite_tetragonal` | CaSiO3 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
-| `cementite` | Fe3C | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
+| `cementite` | Fe3C | 2 | 2 | 2 | 0 | 0 | 0 | 0 | 2 |
 | `cementite_nonmagnetic` | Fe3C | 2 | 2 | 0 | 2 | 0 | 0 | 0 | 1 |
 | `cerium_dioxide` | CeO2 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `chromium` | Cr | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |

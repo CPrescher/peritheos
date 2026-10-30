@@ -9,10 +9,10 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 665,
+    "records": 666,
     "deferred": 4,
     "not_reproduced": 14,
-    "primary_source_validated": 647
+    "primary_source_validated": 648
   },
   "records": [
     {
@@ -2502,6 +2502,24 @@
         ],
         "finding": "The stored record is the reported 300 K third-order Birch-Murnaghan fit. V0 is the independently measured ambient reference volume; the paper reports no fit covariance or confidence convention for the printed +/- values. The abstract and title round the compression range to 73 GPa; Figure 1 labels the highest diffraction pattern 73.2 GPa, which is retained as the experimental maximum.",
         "doi": "10.1029/2000gl012606"
+      }
+    },
+    {
+      "material": "cementite",
+      "file": "cementite.eosmat",
+      "record": "cementite_li_2002_bm3",
+      "label": "Li et al. (2002), 300 K BM3",
+      "doi": "10.1007/s00269-001-0224-4",
+      "status": "primary_source_validated",
+      "note": "Primary equation, original coefficients/errors, fixed measured V0 and original pressure basis verified. Five source-curve checkpoints pass their declared 0.12 A^3 reading bound; conditional K0/K0_prime parity is separate from author-workflow and physical validation.",
+      "primary_source_check": {
+        "doi": "10.1007/s00269-001-0224-4",
+        "access_url": "https://doi.org/10.1007/s00269-001-0224-4",
+        "locations": [
+          "pp. 166-168, abstract, Table 1, Eq. (1)-(2), Figure 2"
+        ],
+        "source_pdf_sha256": "3b4761baa81a3e4bd419f8e93d5e453d7c5d7c2b64b400514d0f468dbcb211af",
+        "finding": "Published BM3 coefficients preserved with measured V0 fixed; direct source-equation and conditional coefficient checks pass. See docs/literature-reproductions/li-2002-fe3c.md"
       }
     },
     {

@@ -1,5 +1,10 @@
 # Literature reproductions
 
+The [Li (2002) Fe3C audit](literature-reproductions/li-2002-fe3c.md)
+integrates the published 300 K BM3 with original coefficients, fixed measured
+V0 and complete Table 1 evidence. Source-curve checks and conditional coefficient
+parity pass; author weights, confidence and calibration replay remain unresolved.
+
 ## Mosenfelder et al. (2009) MgSiO3 post-perovskite
 
 The combined Guignot static P-V-T and Mosenfelder PPv shock inversion is now

@@ -5313,7 +5313,11 @@ def validate_all() -> dict[str, Any]:
                     if key in record["scientific_validation"]
                 },
             }
-            if record["identifier"].startswith("cementite_nonmagnetic_takahashi_2019_"):
+            if record["identifier"] == "cementite_li_2002_bm3":
+                from scripts.li_2002_catalog import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif record["identifier"].startswith("cementite_nonmagnetic_takahashi_2019_"):
                 from scripts.reproduce_cementite import takahashi_ledger_outcome
 
                 outcome = takahashi_ledger_outcome(record)

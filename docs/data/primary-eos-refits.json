@@ -9134,6 +9134,135 @@
     },
     {
       "absolute_sigma": true,
+      "author_workflow_reproduced": false,
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "volume_a3"
+      },
+      "compared_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "comparison_scope": "parameter_agreement",
+      "conditional": true,
+      "covariance_convention": "Conditional unscaled inverse JtJ for the declared effective-variance residual; source confidence and shared covariance unknown, fixed-V0 uncertainty unpropagated",
+      "dataset_identifiers": [
+        "cementite_li_2002_table1"
+      ],
+      "degrees_of_freedom": 10,
+      "experimental_pressure_range_gpa": [
+        0.0001,
+        30.5
+      ],
+      "experimental_temperature_range_k": [
+        299,
+        301
+      ],
+      "fit_kind": "isothermal_pv",
+      "fixed_parameters": [
+        "V0"
+      ],
+      "fixed_values": {
+        "V0": 155.28
+      },
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "label": "Li et al. (2002), 300 K BM3",
+      "material_identifier": "cementite",
+      "model": "BM3",
+      "objective": "effective_variance_pressure_residuals",
+      "objective_sum_squares_per_dof": 0.18683095880952397,
+      "observations": 12,
+      "observed_pressure_range_gpa": [
+        2.5,
+        30.5
+      ],
+      "observed_temperature_range_k": [
+        300,
+        300
+      ],
+      "observed_volume_range": [
+        136.68,
+        153.04
+      ],
+      "original_author_workflow_parity": false,
+      "parameter_covariance": [
+        [
+          38.394512623068984,
+          -4.4669606200047935
+        ],
+        [
+          -4.466960620004794,
+          0.600521052960867
+        ]
+      ],
+      "parameters": [
+        {
+          "difference": -0.21213999157856733,
+          "parameter": "K0",
+          "published": 174.0,
+          "published_error": 6.0,
+          "refit": 173.78786000842143,
+          "refit_error": 6.196330577290803,
+          "relative_difference": 0.0012191953538998122,
+          "similar": true,
+          "uncertainty_finding": "conditional_width_compatible_at_printed_precision_source_confidence_unknown",
+          "within_combined_2sigma": null,
+          "within_published_error_width": true,
+          "within_published_printing_precision": true
+        },
+        {
+          "difference": 0.04972155282154578,
+          "parameter": "K0_prime",
+          "published": 4.8,
+          "published_error": 0.8,
+          "refit": 4.849721552821546,
+          "refit_error": 0.7749329344923127,
+          "relative_difference": 0.010358656837822038,
+          "similar": true,
+          "uncertainty_finding": "conditional_width_compatible_at_printed_precision_source_confidence_unknown",
+          "within_combined_2sigma": null,
+          "within_published_error_width": true,
+          "within_published_printing_precision": true
+        }
+      ],
+      "parity_basis": "within_reported_parameter_errors",
+      "primary_data_finding": "All 14 Table 1 rows, source tokens and errors retained. Row 1 is a reference card; row 2 is the measured anchor; rows 3-14 are the 12 nonambient fit observations. Ten paired neon lattice parameters retained.",
+      "primary_data_status": "primary_table",
+      "primary_source": "https://doi.org/10.1007/s00269-001-0224-4",
+      "published_rmse_gpa": 0.2633934456555272,
+      "published_rmse_volume_a3": 0.14331884883657262,
+      "qualification": "Conditional parameter parity compares K0 and K0_prime within the printed source error widths using all 12 nonambient Table 1 observations. Measured V0=155.28(11) A^3 per conventional Pnma Fe3C cell (Z=4) is fixed as in the source, not independently recovered by the fit. Published errors have unspecified confidence. The diagnostic effective-variance objective treats printed pressure and volume widths as if independent standard errors; its unscaled inverse-JtJ covariance is conditional. Original residual direction, weights, covariance, confidence convention and fit project are unavailable. Fixed-V0 uncertainty and shared calibration errors are not propagated. Original ruby wavelengths and separate ruby/neon pressure arrays are missing, so the pressure averaging cannot be replayed. Original-scale published coefficients and observations are preserved; Litasov (2013) recalibrated comparison coefficients are not substituted. This is not author-workflow reproduction, magnetic-phase validation or a recommendation for extrapolation.",
+      "record_identifier": "cementite_li_2002_bm3",
+      "reduced_chi_square": null,
+      "reproduction_report": "docs/literature-reproductions/li-2002-fe3c.md",
+      "rmse_gpa": 0.2574168421103657,
+      "rmse_volume_a3": 0.14124864978937224,
+      "selection": "Table 1 rows 3-14; reference-card row 1 excluded; measured ambient row 2 supplies fixed V0 only",
+      "solver_success": true,
+      "source_notes": "Conditional parameter parity compares K0 and K0_prime within the printed source error widths using all 12 nonambient Table 1 observations. Measured V0=155.28(11) A^3 per conventional Pnma Fe3C cell (Z=4) is fixed as in the source, not independently recovered by the fit. Published errors have unspecified confidence. The diagnostic effective-variance objective treats printed pressure and volume widths as if independent standard errors; its unscaled inverse-JtJ covariance is conditional. Original residual direction, weights, covariance, confidence convention and fit project are unavailable. Fixed-V0 uncertainty and shared calibration errors are not propagated. Original ruby wavelengths and separate ruby/neon pressure arrays are missing, so the pressure averaging cannot be replayed. Original-scale published coefficients and observations are preserved; Litasov (2013) recalibrated comparison coefficients are not substituted. This is not author-workflow reproduction, magnetic-phase validation or a recommendation for extrapolation. Eq. (2) approximates the 1-bar reference by zero pressure. The source is a 300 K isotherm; the 299-301 K range records reported room-temperature variation, not a thermal model. No crystallographic transition was observed to 30.5 GPa; the magnetic state was not measured. The material's structural reference cell is independent of this EOS V0.",
+      "source_row_ids": [
+        "T1-03",
+        "T1-04",
+        "T1-05",
+        "T1-06",
+        "T1-07",
+        "T1-08",
+        "T1-09",
+        "T1-10",
+        "T1-11",
+        "T1-12",
+        "T1-13",
+        "T1-14"
+      ],
+      "status": "parity",
+      "weighting": "rP/sqrt(sP^2+(dP/dV*sV)^2), parameter-dependent, with printed widths conditionally treated as independent standard errors; no log-variance term"
+    },
+    {
+      "absolute_sigma": true,
       "columns": {
         "pressure": "pressure_kbr_gpa|pressure_sio2_gpa",
         "temperature": "temperature_k",
@@ -52850,10 +52979,10 @@
   ],
   "summary": {
     "not_refittable": 178,
-    "parity": 248,
+    "parity": 249,
     "parity_not_achieved": 60,
     "similar": 163,
     "source_reconstruction": 16,
-    "total": 665
+    "total": 666
   }
 }
