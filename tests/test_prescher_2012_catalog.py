@@ -52,7 +52,14 @@ def test_published_parameters_and_explicit_adoption_survive_public_loading(
     assert assessment["scope"] == "parameter_agreement"
     assert "uncertainty is not reproduced" in assessment["basis"].lower()
     assert "confidence" in json.dumps(assessment).lower()
-    outcome = ledger_outcome(record)
+    # Exact serialization checks use the saved audit, not a fresh regression:
+    # supported NumPy/SciPy builds can differ in insignificant optimizer bits.
+    ledger = json.loads((ROOT / "docs/data/primary-eos-refits.json").read_text())
+    outcome = next(
+        row
+        for row in ledger["records"]
+        if row["record_identifier"] == record["identifier"]
+    )
     organized = assessment_for_record(
         record,
         {
@@ -206,6 +213,13 @@ def test_numbered_primary_fit_replays_the_preserved_ledger_at_recorded_precision
     )
     replay = ledger_outcome(record)
     check_ledger_values({key: stored[key] for key in replay}, replay)
+    expected = {row["parameter"]: row for row in stored["parameters"]}
+    actual = {row["parameter"]: row for row in replay["parameters"]}
+    for name in ("K0", "K0_prime"):
+        for key in ("refit", "refit_error"):
+            assert actual[name][key] == pytest.approx(
+                expected[name][key], rel=1e-7, abs=1e-8
+            )
 
 
 @pytest.mark.parametrize(
