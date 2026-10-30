@@ -1,0 +1,680 @@
+{
+  "format": "peritheos.prescher-2012-numbered-full-range-fit",
+  "date": "2026-10-30",
+  "numpy_version": "2.0.2",
+  "scipy_version": "1.13.1",
+  "input_sha256": {
+    "peritheos/data/datasets/cementite-prescher-2012-table-s1.csv": "eb0b6ffb6fc0e12bd72e51da27a3b0f71d917aadb59f00651331c58629447843",
+    "peritheos/data/research/cementite/prescher-2012-numbered-pressure-audit.csv": "23f02133276db63b7286b5000681b4a39c6bf72830c9f9167cc89f7ad17adced"
+  },
+  "protocol": {
+    "model": "Third-order Birch-Murnaghan; pressure in GPa, conventional cell volume in A^3; nominal 293 K",
+    "selection": "All numbered p1-p19, 1.8-47.4 GPa, final Table S1 volumes and published ruby pressures. No ambient, graph-only, neon-recalibrated or p20-p22 points.",
+    "p16": "133.25 A^3 from final Table S1, corroborated by the separate red.p4p export; not 133.58 A^3 from the alternate SHELX cell.",
+    "primary_objective": "Sum[((P_BM3(V_latent)-P_observed)/width_P)^2 + ((V_latent-V_observed)/width_V)^2]; V0,K0,K0_prime and latent volumes free",
+    "primary_errors": "Conditional formal 1-sigma errors, treating printed coordinate widths as independent absolute standard deviations; coefficient block of full inverse normal matrix including latent-volume nuisance parameters, no residual scaling",
+    "secondary_errors": "Same covariance multiplied by weighted SSE/(19-number_of_free_EOS_coefficients); retained separately",
+    "confidence_qualification": "Published parameter confidence, calibration covariance and coordinate covariance are unrecovered. Ruby widths are before/after differences, not established standard deviations. Neither formal convention recovers author uncertainty semantics.",
+    "fixed_V0_control": "154.5678863704812 A^3 adopted from the drawn calculated full-range curve, held exact; not the measured starting/ambient volume or a published printed coefficient",
+    "equal_pressure_controls": "Same 19 observations, equal pressure weights and exact input volumes; errors use residual covariance SSE/(19-number_of_free_EOS_coefficients). These isolate weighting effects and compare with the existing 22-marker protocol.",
+    "verification": "Independent inverse V(P) ODRPACK checks both coordinate fits and covariances; linear BM3 polynomial/design solutions verify equal-pressure coefficients"
+  },
+  "observations": [
+    {
+      "run": "p1",
+      "pressure_gpa": 1.8,
+      "volume_a3": 152.98,
+      "reported_pressure_width_gpa": 0.1,
+      "reported_volume_width_a3": 0.07
+    },
+    {
+      "run": "p2",
+      "pressure_gpa": 4.7,
+      "volume_a3": 150.65,
+      "reported_pressure_width_gpa": 0.1,
+      "reported_volume_width_a3": 0.08
+    },
+    {
+      "run": "p3",
+      "pressure_gpa": 6.7,
+      "volume_a3": 148.56,
+      "reported_pressure_width_gpa": 0.2,
+      "reported_volume_width_a3": 0.06
+    },
+    {
+      "run": "p4",
+      "pressure_gpa": 9.1,
+      "volume_a3": 146.85,
+      "reported_pressure_width_gpa": 0.1,
+      "reported_volume_width_a3": 0.07
+    },
+    {
+      "run": "p5",
+      "pressure_gpa": 11.4,
+      "volume_a3": 145.36,
+      "reported_pressure_width_gpa": 0.1,
+      "reported_volume_width_a3": 0.08
+    },
+    {
+      "run": "p6",
+      "pressure_gpa": 13.4,
+      "volume_a3": 144.1,
+      "reported_pressure_width_gpa": 0.2,
+      "reported_volume_width_a3": 0.08
+    },
+    {
+      "run": "p7",
+      "pressure_gpa": 16.2,
+      "volume_a3": 142.5,
+      "reported_pressure_width_gpa": 0.1,
+      "reported_volume_width_a3": 0.07
+    },
+    {
+      "run": "p8",
+      "pressure_gpa": 18.4,
+      "volume_a3": 141.56,
+      "reported_pressure_width_gpa": 0.2,
+      "reported_volume_width_a3": 0.09
+    },
+    {
+      "run": "p9",
+      "pressure_gpa": 20.7,
+      "volume_a3": 140.34,
+      "reported_pressure_width_gpa": 0.2,
+      "reported_volume_width_a3": 0.09
+    },
+    {
+      "run": "p10",
+      "pressure_gpa": 22.6,
+      "volume_a3": 139.58,
+      "reported_pressure_width_gpa": 0.1,
+      "reported_volume_width_a3": 0.11
+    },
+    {
+      "run": "p11",
+      "pressure_gpa": 25.3,
+      "volume_a3": 138.2,
+      "reported_pressure_width_gpa": 0.1,
+      "reported_volume_width_a3": 0.08
+    },
+    {
+      "run": "p12",
+      "pressure_gpa": 27.5,
+      "volume_a3": 137.26,
+      "reported_pressure_width_gpa": 0.2,
+      "reported_volume_width_a3": 0.09
+    },
+    {
+      "run": "p13",
+      "pressure_gpa": 29.7,
+      "volume_a3": 136.37,
+      "reported_pressure_width_gpa": 0.1,
+      "reported_volume_width_a3": 0.09
+    },
+    {
+      "run": "p14",
+      "pressure_gpa": 32.1,
+      "volume_a3": 135.14,
+      "reported_pressure_width_gpa": 0.2,
+      "reported_volume_width_a3": 0.04
+    },
+    {
+      "run": "p15",
+      "pressure_gpa": 34.7,
+      "volume_a3": 134.24,
+      "reported_pressure_width_gpa": 0.2,
+      "reported_volume_width_a3": 0.06
+    },
+    {
+      "run": "p16",
+      "pressure_gpa": 37.0,
+      "volume_a3": 133.25,
+      "reported_pressure_width_gpa": 0.1,
+      "reported_volume_width_a3": 0.07
+    },
+    {
+      "run": "p17",
+      "pressure_gpa": 39.6,
+      "volume_a3": 132.31,
+      "reported_pressure_width_gpa": 0.2,
+      "reported_volume_width_a3": 0.05
+    },
+    {
+      "run": "p18",
+      "pressure_gpa": 41.9,
+      "volume_a3": 131.45,
+      "reported_pressure_width_gpa": 0.1,
+      "reported_volume_width_a3": 0.05
+    },
+    {
+      "run": "p19",
+      "pressure_gpa": 47.4,
+      "volume_a3": 129.5,
+      "reported_pressure_width_gpa": 0.2,
+      "reported_volume_width_a3": 0.05
+    }
+  ],
+  "published": {
+    "K0_gpa": 161,
+    "K0_error_gpa": 2,
+    "K0_prime": 5.9,
+    "K0_prime_error": 0.2,
+    "V0": null,
+    "parameter_error_confidence": null,
+    "doi": "10.1103/PhysRevB.85.140402"
+  },
+  "cases": {
+    "coordinate_widths_free_V0_primary": {
+      "parameters": {
+        "V0": 154.48775033149934,
+        "K0": 160.5354954166765,
+        "K0_prime": 6.031740200002456
+      },
+      "absolute_covariance": [
+        [
+          0.013638259671335766,
+          -0.36893451853508097,
+          0.021195181736228128
+        ],
+        [
+          -0.3689345185350818,
+          12.039830180315276,
+          -0.7687948233122541
+        ],
+        [
+          0.021195181736228218,
+          -0.7687948233122553,
+          0.05237985618612587
+        ]
+      ],
+      "residual_scaled_covariance": [
+        [
+          0.04555495336032853,
+          -1.2323269383266389,
+          0.07079682736111091
+        ],
+        [
+          -1.2323269383266415,
+          40.21582779240478,
+          -2.567953181978208
+        ],
+        [
+          0.07079682736111122,
+          -2.567953181978212,
+          0.1749608793997961
+        ]
+      ],
+      "correlation": [
+        [
+          1.0000000000000002,
+          -0.9104574054350028,
+          0.7930042526787912
+        ],
+        [
+          -0.9104574054350048,
+          1.0,
+          -0.9680953159673205
+        ],
+        [
+          0.7930042526787945,
+          -0.9680953159673219,
+          1.0
+        ]
+      ],
+      "observations": 19,
+      "degrees_of_freedom": 16,
+      "weighted_sum_squares": 53.44371432501609,
+      "reduced_chi_square": 3.3402321453135055,
+      "latent_table_volumes_a3": [
+        152.91942436260146,
+        150.51227683998934,
+        148.5983309036076,
+        146.98303250763698,
+        145.4930224990901,
+        144.1688922902096,
+        142.61170276649833,
+        141.52428266315266,
+        140.31109103847888,
+        139.37093216077199,
+        138.08972484460412,
+        137.1602788850614,
+        136.16323387637607,
+        135.1378237782567,
+        134.18922891421832,
+        133.24010798568457,
+        132.3051999067846,
+        131.48036048713777,
+        129.57348988930352
+      ],
+      "normalized_residuals": [
+        -1.107865341103964,
+        -1.7295900840939105,
+        1.5702025599730973,
+        1.8617463996324446,
+        1.3331302612754392,
+        1.301286090284588,
+        1.2850612655154947,
+        -0.473506924262459,
+        -0.3629738682350947,
+        -0.8423656489994968,
+        -0.7931286686887162,
+        -1.0870788264281828,
+        -1.0776332342366501,
+        -0.10966334807140043,
+        -1.0895342907472028,
+        -0.07471339132898436,
+        -0.136242613994213,
+        0.4150872735518618,
+        1.843024954620347,
+        -0.8653662485504094,
+        -1.7215395001333178,
+        0.6388483934600231,
+        1.900464394814045,
+        1.6627812386261098,
+        0.8611536276202258,
+        1.5957538071189348,
+        -0.39685929830379035,
+        -0.32121068356805915,
+        -1.9006167202547886,
+        -1.3784394424483537,
+        -1.1080123882067028,
+        -2.2974013735992886,
+        -0.054405543582447535,
+        -0.846184763028172,
+        -0.14131449022037096,
+        -0.09600186430816393,
+        0.6072097427556855,
+        1.4697977860703304
+      ],
+      "success": true,
+      "termination": "`ftol` termination condition is satisfied.",
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "fixed_parameters": {},
+      "absolute_errors": [
+        0.1167829596787809,
+        3.4698458438834536,
+        0.22886645928603402
+      ],
+      "residual_scaled_errors": [
+        0.21343606387002295,
+        6.341595051121191,
+        0.4182832525930199
+      ],
+      "independent_ODRPACK_check": {
+        "parameters_V0_K0_K0prime": [
+          154.4877481801239,
+          160.53558765507051,
+          6.031733518904687
+        ],
+        "absolute_covariance": [
+          [
+            0.01363801643067588,
+            -0.36892957236097035,
+            0.021194912054405962
+          ],
+          [
+            -0.36892957236097035,
+            12.03976135316665,
+            -0.7687916303378185
+          ],
+          [
+            0.021194912054405962,
+            -0.7687916303378185,
+            0.052379712002319216
+          ]
+        ],
+        "weighted_sum_squares": 53.44371432674812,
+        "stop_reason": [
+          "Sum of squares convergence"
+        ]
+      },
+      "comparison_error_convention": "absolute_errors",
+      "matches_published_printed_K0_Kp_errorK0_errorKp": [
+        true,
+        false,
+        false,
+        true
+      ]
+    },
+    "coordinate_widths_fixed_adopted_V0_control": {
+      "parameters": {
+        "V0": 154.5678863704812,
+        "K0": 158.35935333832123,
+        "K0_prime": 6.158829188660975
+      },
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "fixed_parameters": {
+        "V0": 154.5678863704812
+      },
+      "absolute_errors": [
+        1.4269848821146325,
+        0.14134722952632536
+      ],
+      "absolute_covariance": [
+        [
+          2.0362858537837116,
+          -0.19706296059142733
+        ],
+        [
+          -0.19706296059142736,
+          0.019979039294767707
+        ]
+      ],
+      "residual_scaled_errors": [
+        2.5407662770717683,
+        0.2516706929689538
+      ],
+      "residual_scaled_covariance": [
+        [
+          6.455493274705133,
+          -0.6247347907601605
+        ],
+        [
+          -0.6247347907601606,
+          0.06333813769947341
+        ]
+      ],
+      "observations": 19,
+      "degrees_of_freedom": 17,
+      "weighted_sum_squares": 53.893899751878294,
+      "reduced_chi_square": 3.1702293971693116,
+      "latent_table_volumes_a3": [
+        152.9420668973938,
+        150.52970475105352,
+        148.60076066535868,
+        146.98709170912045,
+        145.49370375434674,
+        144.16771752788105,
+        142.60715329362276,
+        141.52054861494813,
+        140.30661066565156,
+        139.36217402466792,
+        138.08217971629335,
+        137.15556593298268,
+        136.15682161809264,
+        135.1366645311807,
+        134.18777009058272,
+        133.23921239092286,
+        132.3057508218273,
+        131.48341976380098,
+        129.57822557594287
+      ],
+      "success": true,
+      "independent_ODRPACK_check": {
+        "parameters_V0_K0_K0prime": [
+          154.5678863704812,
+          158.35934018910768,
+          6.1588306282703815
+        ],
+        "absolute_covariance_K0_K0prime": [
+          [
+            2.0361494824562136,
+            -0.19705005121324348
+          ],
+          [
+            -0.19705005121324348,
+            0.019977821294063888
+          ]
+        ],
+        "weighted_sum_squares": 53.89389975418945,
+        "stop_reason": [
+          "Sum of squares convergence"
+        ]
+      },
+      "comparison_error_convention": "absolute_errors",
+      "matches_published_printed_K0_Kp_errorK0_errorKp": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    "equal_pressure_free_V0_control": {
+      "parameters": {
+        "V0": 154.19436069878054,
+        "K0": 170.2761079525436,
+        "K0_prime": 5.448014621834254
+      },
+      "fixed_parameters": {},
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "residual_scaled_errors": [
+        0.24776246507288352,
+        6.774157282599327,
+        0.3789427227953734
+      ],
+      "residual_scaled_covariance": [
+        [
+          0.06138623909899183,
+          -1.559294706880585,
+          0.0761559760277319
+        ],
+        [
+          -1.559294706880585,
+          45.88920688939349,
+          -2.4780357400703545
+        ],
+        [
+          0.0761559760277319,
+          -2.4780357400703545,
+          0.14359758715957122
+        ]
+      ],
+      "unscaled_inverse_normal_matrix": [
+        [
+          0.49821582544757287,
+          -12.655365614625193,
+          0.618088239584711
+        ],
+        [
+          -12.655365614625193,
+          372.44062228124204,
+          -20.111944302970258
+        ],
+        [
+          0.618088239584711,
+          -20.111944302970258,
+          1.165449968414184
+        ]
+      ],
+      "conditional_95pct_half_widths": [
+        0.5252329626560664,
+        14.360571921138918,
+        0.8033226861551508
+      ],
+      "correlation": [
+        [
+          1.0000000000000002,
+          -0.9290464227826357,
+          0.8111382918628736
+        ],
+        [
+          -0.9290464227826357,
+          0.9999999999999999,
+          -0.9653364803350787
+        ],
+        [
+          0.8111382918628736,
+          -0.9653364803350787,
+          1.0000000000000002
+        ]
+      ],
+      "objective": "equal_pressure",
+      "observations": 19,
+      "degrees_of_freedom": 16,
+      "sum_squared_objective_residuals": 1.9713942741612567,
+      "pressure_rmse_gpa": 0.3221142551594205,
+      "volume_rmse_a3": 0.19476951586113514,
+      "pressure_residuals_gpa": [
+        -0.4243674518181144,
+        -0.48135240937040535,
+        0.31495362875514576,
+        0.3912940978374362,
+        0.3979092060845417,
+        0.46365390468694834,
+        0.4486172902118888,
+        -0.02610115027475146,
+        0.016895799277101275,
+        -0.36170881514796704,
+        -0.1717821369808199,
+        -0.30488314636307123,
+        -0.4709046992672121,
+        0.06910803668486665,
+        -0.2804804636164633,
+        -0.0036183512900365145,
+        -0.054316836258557544,
+        0.06930756143942318,
+        0.40682815688548857
+      ],
+      "volume_residuals_a3": [
+        -0.36251227755238347,
+        -0.37300197262115375,
+        0.22649814662915446,
+        0.2622181123232963,
+        0.2505110470770262,
+        0.27708790938976335,
+        0.2506088258685111,
+        -0.013940461570456364,
+        0.008577830350702698,
+        -0.17717308620314043,
+        -0.07955916186588752,
+        -0.1355562496098912,
+        -0.20136680211243174,
+        0.028189230571143753,
+        -0.10980004809076149,
+        -0.001361225433868185,
+        -0.019623891714502406,
+        0.02415913880358289,
+        0.13073335736982017
+      ],
+      "success": true,
+      "comparison_error_convention": "residual_scaled_errors",
+      "matches_published_printed_K0_Kp_errorK0_errorKp": [
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    "equal_pressure_fixed_adopted_V0_control": {
+      "parameters": {
+        "V0": 154.5678863704812,
+        "K0": 160.9940113745816,
+        "K0_prime": 5.919478184077078
+      },
+      "fixed_parameters": {
+        "V0": 154.5678863704812
+      },
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "residual_scaled_errors": [
+        2.5321927447246857,
+        0.24086704947871293
+      ],
+      "residual_scaled_covariance": [
+        [
+          6.412000096436337,
+          -0.5978092392927002
+        ],
+        [
+          -0.5978092392927002,
+          0.058016935524580746
+        ]
+      ],
+      "unscaled_inverse_normal_matrix": [
+        [
+          48.993837289505954,
+          -4.567836581341931
+        ],
+        [
+          -4.567836581341931,
+          0.4433050930094117
+        ]
+      ],
+      "conditional_95pct_half_widths": [
+        5.342459698896301,
+        0.508185053176904
+      ],
+      "correlation": [
+        [
+          1.0,
+          -0.98014080503896
+        ],
+        [
+          -0.98014080503896,
+          1.0
+        ]
+      ],
+      "objective": "equal_pressure",
+      "observations": 19,
+      "degrees_of_freedom": 17,
+      "sum_squared_objective_residuals": 2.224851280688835,
+      "pressure_rmse_gpa": 0.3421950260096253,
+      "volume_rmse_a3": 0.19124940062112208,
+      "pressure_residuals_gpa": [
+        -0.08597203324487657,
+        -0.24064159988540545,
+        0.47578743716651495,
+        0.49331179372921774,
+        0.45425147844794544,
+        0.4859485007226301,
+        0.434466963775094,
+        -0.057751087413556945,
+        -0.032713392743584535,
+        -0.41958438849272284,
+        -0.23843408944738087,
+        -0.37254771281473964,
+        -0.5355195872497127,
+        0.015616318235032622,
+        -0.32037553530742,
+        -0.022823093795757643,
+        -0.04793508052642892,
+        0.10450776035698794,
+        0.5282655206582945
+      ],
+      "volume_residuals_a3": [
+        -0.07675509127619762,
+        -0.19317652860752332,
+        0.35235091738650226,
+        0.33857992136236703,
+        0.2915806256726512,
+        0.2950467612979253,
+        0.2455068277701855,
+        -0.0311144350950201,
+        -0.016704258689543394,
+        -0.2062943159890267,
+        -0.11051155291553982,
+        -0.16541933219485827,
+        -0.22825058555417854,
+        0.006334800704792087,
+        -0.12449278529086882,
+        -0.008507636572829824,
+        -0.017130409894406284,
+        0.03598037572928092,
+        0.1671246653182834
+      ],
+      "success": true,
+      "comparison_error_convention": "residual_scaled_errors",
+      "matches_published_printed_K0_Kp_errorK0_errorKp": [
+        true,
+        true,
+        false,
+        true
+      ]
+    }
+  },
+  "author_workflow_reproduced": false,
+  "catalog_action": "Independent requested refit only; no published coefficients, source observations, catalog classifications or Studio records changed."
+}

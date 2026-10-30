@@ -5404,7 +5404,11 @@ def validate_all() -> dict[str, Any]:
                     if key in record["scientific_validation"]
                 },
             }
-            if (
+            if record["identifier"] == "cementite_prescher_2012_full_range_bm3":
+                from scripts.prescher_2012_catalog import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif (
                 "_dewaele_2008_table4_" in record["identifier"]
                 or "_dewaele_2008_paw_" in record["identifier"]
             ):

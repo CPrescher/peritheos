@@ -9,10 +9,10 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 678,
+    "records": 679,
     "deferred": 3,
     "not_reproduced": 18,
-    "primary_source_validated": 657
+    "primary_source_validated": 658
   },
   "records": [
     {
@@ -2502,6 +2502,25 @@
         ],
         "finding": "The stored record is the reported 300 K third-order Birch-Murnaghan fit. V0 is the independently measured ambient reference volume; the paper reports no fit covariance or confidence convention for the printed +/- values. The abstract and title round the compression range to 73 GPa; Figure 1 labels the highest diffraction pattern 73.2 GPa, which is retained as the experimental maximum.",
         "doi": "10.1029/2000gl012606"
+      }
+    },
+    {
+      "material": "cementite",
+      "file": "cementite.eosmat",
+      "record": "cementite_prescher_2012_full_range_bm3",
+      "label": "Prescher et al. (2012), full-range BM3 (adopted V0)",
+      "doi": "10.1103/physrevb.85.140402",
+      "status": "primary_source_validated",
+      "note": "Published BM3 K coefficients/errors, units and reference conventions checked against the primary paper; V0 is an explicitly documented graph-derived adoption, not a published coefficient. Conditional agreement includes both printed error values; original confidence and author workflow remain unconfirmed.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.85.140402",
+        "access_url": "https://doi.org/10.1103/PhysRevB.85.140402",
+        "locations": [
+          "page 140402-2, section III and Figure 1",
+          "Figure 1, drawn full-range curve (adopted V0)",
+          "Final supplementary Table S1, pages 1-2"
+        ],
+        "finding": "Published K coefficients/errors preserved. Unprinted V0 supplied by explicit Figure 1 full-curve adoption; source constraint and original workflow unresolved. See docs/literature-reproductions/prescher-2012-recovery.md"
       }
     },
     {

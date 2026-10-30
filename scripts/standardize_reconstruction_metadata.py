@@ -28,6 +28,8 @@ STATUS = {
     "source_reconstruction": "source_reconstruction",
 }
 BASIS = {
+    "conditional_coefficients_and_errors_at_published_precision_fixed_V0": "Conditional agreement of K0, K0_prime and both error values at published printed precision with curve-derived V0 held fixed. Errors are residual-based and conditional on exact V0; the source confidence convention and original author workflow remain unconfirmed.",
+    "conditional_K0_and_K0_prime_at_published_printed_precision": "Conditional agreement of K0 and K0_prime at published printed precision with an explicitly adopted, fixed reference volume. Parameter-error reproduction is assessed separately; coefficient agreement does not establish source confidence, calibration covariance or author-workflow reproduction.",
     "conditional_reported_widths_and_print_precision": "Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.",
     "conditional_combined_error_parameter_agreement": "Conditional parameter agreement under both the combined-error comparison and numerical similarity screen; source confidence conventions remain explicit, and unknown source confidence or shared-data covariance does not become a formal confidence test or author-workflow reproduction.",
     "within_reported_parameter_errors": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",

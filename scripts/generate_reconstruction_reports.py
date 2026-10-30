@@ -462,9 +462,12 @@ def report_page(document: Mapping[str, Any], *, root: Path, comparisons=None) ->
                 published, published_error = value_error(
                     row["published"],
                     row.get("published_error", row.get("published_sigma")),
+                    row.get("display_decimal_places"),
                 )
                 refit, refit_error = value_error(
-                    row["refit"], row.get("refit_error", row.get("refit_sigma"))
+                    row["refit"],
+                    row.get("refit_error", row.get("refit_sigma")),
+                    row.get("display_decimal_places"),
                 )
                 values = (
                     row["parameter"],

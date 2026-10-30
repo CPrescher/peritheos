@@ -1,0 +1,126 @@
+{
+  "format": "peritheos.prescher-2012-ambient-candidates",
+  "date": "2026-10-30",
+  "source_root": "/Volumes/personal_folder/Projects/Iron Carbides/Fe3C",
+  "log_files_scanned": 113,
+  "source_log_excerpts": [
+    {
+      "file": "ESRF single crystal/Fe3C_S1_data/log/REDLOGWed-May-04-11-41-52-2011.txt",
+      "sha256": "1af3bddd5266cf19192f60b5b3587aaaaafa16313253ee5ecb1ee808aeace397",
+      "excerpts": [
+        {
+          "start_line": 702,
+          "end_line": 710,
+          "lines": [
+            "UB fit with 148 obs out of 148 (total:148,skipped:0) (100.00%)",
+            "    unit cell:",
+            "       4.5158(12)  5.086(5)  6.752(2)       ",
+            "      89.89(5)    89.88(2)  89.70(4)  ",
+            "      V = 155.08(19) ",
+            "    unit cell:",
+            "       4.5198(6)  5.073(3)  6.7637(11)       ",
+            "      90.0       90.0      90.0        ",
+            "      V = 155.08(19) "
+          ]
+        },
+        {
+          "start_line": 900,
+          "end_line": 913,
+          "lines": [
+            "Maximum peak integral for reflections I/sig<=  10000 - raw:   8219424 lp-corr:    603411",
+            "UB fit with 145 obs out of 145 (total:145,skipped:0) (100.00%)",
+            "   UB - matrix:",
+            "      -0.011058   -0.075603   -0.021641   (  0.000038    0.000108    0.000038 )",
+            "       0.035678    0.023020   -0.053936   (  0.000010    0.000029    0.000010 )",
+            "       0.083922   -0.020218    0.019936   (  0.000018    0.000051    0.000018 )",
+            "    M - matrix:",
+            "       0.008438   -0.000039   -0.000012   (  0.000003    0.000005    0.000002 )",
+            "      -0.000039    0.006654   -0.000009   (  0.000005    0.000016    0.000004 )",
+            "      -0.000012   -0.000009    0.003775   (  0.000002    0.000004    0.000002 )",
+            "    unit cell:",
+            "       4.5158(12)  5.085(6)  6.752(2)       ",
+            "      89.90(5)    89.88(2)  89.70(4)  ",
+            "      V = 155.0(2) "
+          ]
+        }
+      ]
+    },
+    {
+      "file": "ESRF single crystal/Fe3C_S1_data/log/REDLOGFri-May-06-15-27-38-2011.txt",
+      "sha256": "ac8593216d9c5ba6842fc2f20fe04f1bb84710a06d1f060cfda1e6e4607a1a6f",
+      "excerpts": [
+        {
+          "start_line": 390,
+          "end_line": 398,
+          "lines": [
+            "UB fit with 154 obs out of 154 (total:154,skipped:0) (100.00%)",
+            "    unit cell:",
+            "       4.5158(12)  5.087(6)  6.752(2)       ",
+            "      89.88(5)    89.88(2)  89.72(4)  ",
+            "      V = 155.1(2) ",
+            "    unit cell:",
+            "       4.515(2)  5.073(10)  6.771(4)       ",
+            "      90.0      90.0       90.0      ",
+            "      V = 155.1(2) "
+          ]
+        }
+      ]
+    },
+    {
+      "file": "ESRF single crystal/Fe3C starting/log/REDLOGMon-Feb-14-16-57-13-2011.txt",
+      "sha256": "2016200f7685caaae22d809ca2880bb97b9885668b398b2b27284b6065e70672",
+      "excerpts": [
+        {
+          "start_line": 1755,
+          "end_line": 1763,
+          "lines": [
+            "UB fit with 183 obs out of 183 (total:183,skipped:0) (100.00%)",
+            "    unit cell:",
+            "       4.5150(5)  5.093(4)   6.7502(17)       ",
+            "      89.91(4)   89.973(14) 89.89(2)    ",
+            "      V = 155.22(14) ",
+            "    unit cell:",
+            "       4.5178(2)  5.0858(10)  6.7554(4)       ",
+            "      90.0       90.0        90.0       ",
+            "      V = 155.22(14) "
+          ]
+        }
+      ]
+    }
+  ],
+  "interpretation": [
+    "The May 4 log contains a cell volume 155.08(19) A3 from 148 observations, close to the digitized Figure 1 ambient marker 155.0871198396942 A3. This is a plausible numeric source for that marker, not an established identity; pressure and temperature are not explicitly attached to this log entry.",
+    "The same processing history contains 155.0(2) A3 after 145-observation refinement and May 6 contains 155.1(2) A3 from 154 observations. These are related processing stages, not independent ambient measurements.",
+    "The February starting-folder volume 155.22(14) A3 is backed by a log entry with 183 observations, despite the separate INI field number of reflections=0. It is not merely an arbitrary numeric guess.",
+    "Byte-identical first raw frame links the starting and May folders; preserved in prescher-2012-starting-cell.json.",
+    "A measured starting/ambient volume need not equal a fitted EOS zero-pressure intercept; the original split-fit V0 constraints remain unconfirmed."
+  ],
+  "explicit_zero_rows": [
+    {
+      "file": "APS single crystal/eos.xls",
+      "sheet": "Sheet1",
+      "pressure_cell": "B1",
+      "pressure_gpa": 0,
+      "volume_cell": "I1",
+      "volume_a3": 155.39005364399998,
+      "qualification": "Separate APS series; row has no stored coordinate errors and no established role in the final ESRF fits. The XLSX version contains the same axes and their product formula."
+    },
+    {
+      "file": "ESRF single crystal/Fe3C_up_p19.XLS",
+      "sheet": "Fe3C_up_p19",
+      "run_cell": "A2",
+      "run": "p0",
+      "pressure_cell": "B2",
+      "pressure_gpa": 0,
+      "volume_cell": "I2",
+      "volume_a3": 163.40230309104,
+      "qualification": "Archived processing value markedly different from published ambient marker; original EOS role unconfirmed."
+    }
+  ],
+  "adopted_catalog_V0": {
+    "value_a3": 154.5678863704812,
+    "basis": "BM3 regression to 247 vertices of the calculated full-range curve in published Figure 1; not an ambient observation or a printed coefficient",
+    "evidence": "docs/data/prescher-2012-fe3c-recovery.json:source_drawn_curve_reconstruction"
+  },
+  "catalog_action": "No catalog or Studio changes."
+}

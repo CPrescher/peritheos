@@ -1,0 +1,1855 @@
+{
+  "date": "2026-10-30",
+  "scope": "Restored subset of original archive, read without modification",
+  "script_files": [
+    {
+      "file": "Debye Calc/calc cv.asv",
+      "sha256": "4a9d5ef252ea2fcd13df6e4ade6b785e8db9dc50d25744209eab132789237230",
+      "fitting_or_model_lines": [],
+      "finding": "Debye integral / heat capacity / velocity calculation, not an EOS fit."
+    },
+    {
+      "file": "Debye Calc/calc cv.m",
+      "sha256": "763380a1bf6743efae44facf89c1235901b4b9df9732b16038664e4b5ca4457b",
+      "fitting_or_model_lines": [
+        {
+          "line": 8,
+          "text": "   cv1(n)=9*R*(t(n)./debye1)*quad(fun,0.0000001,600./t(n));"
+        },
+        {
+          "line": 9,
+          "text": "   cv2(n)=9*R*(t(n)./debye2)*quad(fun,0.0000001,600./t(n)); "
+        }
+      ],
+      "finding": "Debye integral / heat capacity / velocity calculation, not an EOS fit."
+    },
+    {
+      "file": "Debye Calc/calc_cv.asv",
+      "sha256": "8322c5a30d10d2d5f9480501632f6fe6313b101f16e652760e8559d409256db0",
+      "fitting_or_model_lines": [
+        {
+          "line": 3,
+          "text": "cv1=9*R*(300./debye1).^3.*quad(fun,0.0000001,debye1./300);"
+        },
+        {
+          "line": 4,
+          "text": "cv2=9*R*(300./debye2).^3.*quad(fun,0.0000001,debye2./300); "
+        }
+      ],
+      "finding": "Debye integral / heat capacity / velocity calculation, not an EOS fit."
+    },
+    {
+      "file": "Debye Calc/calc_cv.m",
+      "sha256": "e4567973e1c092b22584ac36f9ab5bfc0d4e55b35147866a2f0430ab885fdae2",
+      "fitting_or_model_lines": [
+        {
+          "line": 4,
+          "text": "cv1=9*R*(300./debye1).^3.*quad(fun,0.0000001,debye1./300);"
+        },
+        {
+          "line": 9,
+          "text": "    cv2(n)=9*R*(300./debye2(n)).^3.*quad(fun,0.0000001,debye2(n)./300); "
+        }
+      ],
+      "finding": "Debye integral / heat capacity / velocity calculation, not an EOS fit."
+    },
+    {
+      "file": "Debye Calc/cv_calculations.mat",
+      "sha256": "df441e936c0cf8b3bbd613e5d7226f92cbaad5cbabdb26a56acbd9e445b64ecb",
+      "variables": [
+        {
+          "name": "R",
+          "shape": [
+            1,
+            1
+          ],
+          "class": "double"
+        },
+        {
+          "name": "fun",
+          "shape": [
+            1,
+            1
+          ],
+          "class": "function"
+        },
+        {
+          "name": "debye1",
+          "shape": [
+            1,
+            1
+          ],
+          "class": "double"
+        },
+        {
+          "name": "debye2",
+          "shape": [
+            7,
+            1
+          ],
+          "class": "double"
+        },
+        {
+          "name": "cv1",
+          "shape": [
+            1,
+            1
+          ],
+          "class": "double"
+        },
+        {
+          "name": "cv2",
+          "shape": [
+            7,
+            1
+          ],
+          "class": "double"
+        },
+        {
+          "name": "result",
+          "shape": [
+            7,
+            1
+          ],
+          "class": "double"
+        },
+        {
+          "name": "l",
+          "shape": [
+            1,
+            1
+          ],
+          "class": "double"
+        },
+        {
+          "name": "n",
+          "shape": [
+            1,
+            1
+          ],
+          "class": "double"
+        },
+        {
+          "name": "__function_workspace__",
+          "shape": [
+            1,
+            968
+          ],
+          "class": "uint8"
+        }
+      ],
+      "finding": "Debye heat-capacity calculation; no volume, pressure or EOS parameters.",
+      "function_handle_repr": "MatlabFunction([[(array(['C:\\\\Program Files\\\\MATLAB\\\\R2009a'], dtype='<U30'), array(['\\\\'], dtype='<U1'), array(['@'], dtype='<U1'), array([[(array(['sf%0@(x)(x.^4./(exp(x)-1).^2)'], dtype='<U29'), array(['anonymous'], dtype='<U9'), array([], dtype='<U1'), MatlabOpaque([(b'', b'MCOS', b'function_handle_workspace', array([[3707764736],\n                                              [         2],\n                                              [         1],\n                                              [         1],\n                                              [         1],\n                                              [         1]], dtype=uint32))                             ],\n                                      dtype=[('s0', 'O'), ('s1', 'O'), ('s2', 'O'), ('arr', 'O')]))                                                                                                                         ]],\n                       dtype=[('function', 'O'), ('type', 'O'), ('file', 'O'), ('workspace', 'O')]))                                                                                                                                                                                                                                            ]],\n               dtype=[('matlabroot', 'O'), ('separator', 'O'), ('sentinel', 'O'), ('function_handle', 'O')])",
+      "numeric_variables": {
+        "R": [
+          [
+            8.31447
+          ]
+        ],
+        "debye1": [
+          [
+            604
+          ]
+        ],
+        "debye2": [
+          [
+            441.4761893
+          ],
+          [
+            402.1772078
+          ],
+          [
+            335.7634348
+          ],
+          [
+            219.2062091
+          ],
+          [
+            477.8390014
+          ],
+          [
+            528.4044914
+          ],
+          [
+            589.6908329
+          ]
+        ],
+        "cv1": [
+          [
+            5.1231123544505435
+          ]
+        ],
+        "cv2": [
+          [
+            7.887542873792979
+          ],
+          [
+            8.757880894560941
+          ],
+          [
+            10.449434120250636
+          ],
+          [
+            14.21309859343319
+          ],
+          [
+            7.159505103249949
+          ],
+          [
+            6.258572087024328
+          ],
+          [
+            5.320381790366842
+          ]
+        ],
+        "result": [
+          [
+            2.7644305193424357
+          ],
+          [
+            3.6347685401103975
+          ],
+          [
+            5.326321765800093
+          ],
+          [
+            9.089986238982647
+          ],
+          [
+            2.036392748799406
+          ],
+          [
+            1.1354597325737847
+          ],
+          [
+            0.19726943591629809
+          ]
+        ],
+        "l": [
+          [
+            7
+          ]
+        ],
+        "n": [
+          [
+            7
+          ]
+        ]
+      },
+      "saved_function_workspace_sha256": "422fd143396f789202dfa3180c30a5b0dfae7aa0010de187c625f13b242bd3b6"
+    },
+    {
+      "file": "Debye Calc/minmizef.asv",
+      "sha256": "c7dddc61932facd584ad5c6d3b03871d0bd9c7237c3c1901cb9271cab7daa072",
+      "fitting_or_model_lines": [
+        {
+          "line": 10,
+          "text": "int1=quad(fun,0,theta1/t);"
+        },
+        {
+          "line": 11,
+          "text": "int2=quad(fun,0,theta2/t);"
+        }
+      ],
+      "finding": "Debye integral / heat capacity / velocity calculation, not an EOS fit."
+    },
+    {
+      "file": "Debye Calc/minmizef.m",
+      "sha256": "90e94c5a3c36e376429a0e518a7290a05f153dbaaf01082929c568cb9aba0205",
+      "fitting_or_model_lines": [
+        {
+          "line": 1,
+          "text": "function y=minmizef(theta2)"
+        },
+        {
+          "line": 10,
+          "text": "    int1=quad(fun,0.000001,theta1./t);"
+        },
+        {
+          "line": 11,
+          "text": "    int2=quad(fun,0.000001,theta2./t);"
+        }
+      ],
+      "finding": "Debye integral / heat capacity / velocity calculation, not an EOS fit."
+    },
+    {
+      "file": "Fe3C new calc/data.mat",
+      "sha256": "92ff3dc458e52e3920a4e18a6e37ade1f974a0d8aaa5084affbe7aae3fe05827",
+      "variables": [
+        {
+          "name": "CS",
+          "shape": [
+            33,
+            1
+          ],
+          "class": "double"
+        },
+        {
+          "name": "P",
+          "shape": [
+            33,
+            1
+          ],
+          "class": "double"
+        },
+        {
+          "name": "CS_error",
+          "shape": [
+            33,
+            1
+          ],
+          "class": "double"
+        }
+      ],
+      "finding": "P, CS, CS_error only; no volume, BM3 coefficients or fit covariance.",
+      "pressure_range": [
+        0.0,
+        88.0
+      ]
+    },
+    {
+      "file": "Fe3C new calc/debye calc/debye.m",
+      "sha256": "01edc2dc5b745eee4bee4cc113c7a3564c6bbbc645be5bc5155fc004f2aa6c61",
+      "fitting_or_model_lines": [
+        {
+          "line": 1,
+          "text": "function y=debye(x)"
+        }
+      ],
+      "finding": "Debye integral / heat capacity / velocity calculation, not an EOS fit."
+    },
+    {
+      "file": "Fe3C new calc/debye calc/run.m",
+      "sha256": "f77ca7e184f298f03ec486c6bc3ad627acc04341619794532f110cdc30507e59",
+      "fitting_or_model_lines": [
+        {
+          "line": 2,
+          "text": "Td=470;"
+        },
+        {
+          "line": 7,
+          "text": "    res(n)=sqrt(k*9*(T/Td).^3*quad(@debye,0,(Td./T))*1e-23/56e-3*6);"
+        }
+      ],
+      "finding": "Debye integral / heat capacity / velocity calculation, not an EOS fit."
+    },
+    {
+      "file": "Fe3C new calc/run.asv",
+      "sha256": "f1d3b6a9b4952b956e165e6de95168e914ec703a279659f9639e952d7c2d334e",
+      "fitting_or_model_lines": [
+        {
+          "line": 8,
+          "text": "model=@(x,xdata)(x(1)+x(2).*xdata);"
+        },
+        {
+          "line": 9,
+          "text": "param1=lsqcurvefit(model,ival,P(1:3),CS(1:3),lb,ub);"
+        },
+        {
+          "line": 21,
+          "text": "param2=lsqcurvefit(model,ival,P(ind), CS(ind), lb, ub);"
+        }
+      ],
+      "finding": "Straight-line central-shift / second-order Doppler analysis, not an EOS fit."
+    },
+    {
+      "file": "Fe3C new calc/run.m",
+      "sha256": "b890e805906461bed207e1fd624f161116dbfd68f678d53616790499b7af3fd2",
+      "fitting_or_model_lines": [
+        {
+          "line": 10,
+          "text": "model=@(x,xdata)(x(1)+x(2).*xdata);"
+        },
+        {
+          "line": 11,
+          "text": "param1=lsqcurvefit(model,ival,P(1:3),CS(1:3),lb,ub);"
+        },
+        {
+          "line": 25,
+          "text": "param2=lsqcurvefit(model,ival,P(ind), CS(ind), lb, ub);"
+        }
+      ],
+      "finding": "Straight-line central-shift / second-order Doppler analysis, not an EOS fit."
+    }
+  ],
+  "previous_evidence_checks": [
+    {
+      "file": "ESRF single crystal/Fe3C_up_p19.XLS",
+      "present": true,
+      "same_sha256_as_2026_10_25": true
+    },
+    {
+      "file": "ESRF single crystal/Fe3C_HP.XLS",
+      "present": true,
+      "same_sha256_as_2026_10_25": true
+    },
+    {
+      "file": "APS single crystal/eos.xls",
+      "present": true,
+      "same_sha256_as_2026_10_25": true
+    },
+    {
+      "file": "APS single crystal/eos.xlsx",
+      "present": true,
+      "same_sha256_as_2026_10_25": true
+    },
+    {
+      "file": "ESRF single crystal/Data.opj",
+      "present": true,
+      "same_sha256_as_2026_10_25": true
+    },
+    {
+      "file": "Analysis/analysis.opj",
+      "present": true,
+      "same_sha256_as_2026_10_25": true
+    }
+  ],
+  "xls_formula_records": [
+    {
+      "file": "APS single crystal/eos.xls",
+      "sha256": "c25890b069c10bbbce4e5b33cc01465a1e077f217edfc64a3ad803c1883a5241",
+      "formulas": [
+        {
+          "sheet": "Sheet1",
+          "cell": "I1",
+          "formula": "C1*D1*E1",
+          "rpn_hex": "0100000800",
+          "row_index": 0,
+          "column_index": 8
+        },
+        {
+          "sheet": "Sheet1",
+          "cell": "I2",
+          "formula": "C2*D2*E2",
+          "rpn_hex": "0100000800",
+          "row_index": 1,
+          "column_index": 8
+        },
+        {
+          "sheet": "Sheet1",
+          "cell": "J2",
+          "formula": "D2*E2*F2+C2*E2*G2+C2*D2*G2",
+          "rpn_hex": "0101000900",
+          "row_index": 1,
+          "column_index": 9
+        },
+        {
+          "sheet": "Sheet1",
+          "cell": "I3",
+          "formula": "C3*D3*E3",
+          "rpn_hex": "0100000800",
+          "row_index": 2,
+          "column_index": 8
+        },
+        {
+          "sheet": "Sheet1",
+          "cell": "J3",
+          "formula": "D3*E3*F3+C3*E3*G3+C3*D3*G3",
+          "rpn_hex": "0101000900",
+          "row_index": 2,
+          "column_index": 9
+        },
+        {
+          "sheet": "Sheet1",
+          "cell": "I4",
+          "formula": "C4*D4*E4",
+          "rpn_hex": "0100000800",
+          "row_index": 3,
+          "column_index": 8
+        },
+        {
+          "sheet": "Sheet1",
+          "cell": "J4",
+          "formula": "D4*E4*F4+C4*E4*G4+C4*D4*G4",
+          "rpn_hex": "0101000900",
+          "row_index": 3,
+          "column_index": 9
+        },
+        {
+          "sheet": "Sheet1",
+          "cell": "I5",
+          "formula": "C5*D5*E5",
+          "rpn_hex": "0100000800",
+          "row_index": 4,
+          "column_index": 8
+        },
+        {
+          "sheet": "Sheet1",
+          "cell": "J5",
+          "formula": "D5*E5*F5+C5*E5*G5+C5*D5*G5",
+          "rpn_hex": "0101000900",
+          "row_index": 4,
+          "column_index": 9
+        },
+        {
+          "sheet": "Sheet1",
+          "cell": "I6",
+          "formula": "C6*D6*E6",
+          "rpn_hex": "0100000800",
+          "row_index": 5,
+          "column_index": 8
+        },
+        {
+          "sheet": "Sheet1",
+          "cell": "J6",
+          "formula": "D6*E6*F6+C6*E6*G6+C6*D6*G6",
+          "rpn_hex": "0101000900",
+          "row_index": 5,
+          "column_index": 9
+        },
+        {
+          "sheet": "Sheet1",
+          "cell": "I7",
+          "formula": "C7*D7*E7",
+          "rpn_hex": "0100000800",
+          "row_index": 6,
+          "column_index": 8
+        },
+        {
+          "sheet": "Sheet1",
+          "cell": "J7",
+          "formula": "D7*E7*F7+C7*E7*G7+C7*D7*G7",
+          "rpn_hex": "0101000900",
+          "row_index": 6,
+          "column_index": 9
+        },
+        {
+          "sheet": "Sheet1",
+          "cell": "I8",
+          "formula": "C8*D8*E8",
+          "rpn_hex": "0100000800",
+          "row_index": 7,
+          "column_index": 8
+        },
+        {
+          "sheet": "Sheet1",
+          "cell": "J8",
+          "formula": "D8*E8*F8+C8*E8*G8+C8*D8*G8",
+          "rpn_hex": "0101000900",
+          "row_index": 7,
+          "column_index": 9
+        },
+        {
+          "sheet": "Sheet1",
+          "cell": "I9",
+          "formula": "C9*D9*E9",
+          "rpn_hex": "0100000800",
+          "row_index": 8,
+          "column_index": 8
+        },
+        {
+          "sheet": "Sheet1",
+          "cell": "J9",
+          "formula": "D9*E9*F9+C9*E9*G9+C9*D9*G9",
+          "rpn_hex": "0101000900",
+          "row_index": 8,
+          "column_index": 9
+        },
+        {
+          "sheet": "Sheet1",
+          "cell": "I10",
+          "formula": "C10*D10*E10",
+          "rpn_hex": "0100000800",
+          "row_index": 9,
+          "column_index": 8
+        },
+        {
+          "sheet": "Sheet1",
+          "cell": "J10",
+          "formula": "D10*E10*F10+C10*E10*G10+C10*D10*G10",
+          "rpn_hex": "0101000900",
+          "row_index": 9,
+          "column_index": 9
+        },
+        {
+          "sheet": "new",
+          "cell": "I2",
+          "formula": "C2*D2*E2",
+          "rpn_hex": "0101000800",
+          "row_index": 1,
+          "column_index": 8
+        },
+        {
+          "sheet": "new",
+          "cell": "I3",
+          "formula": "C3*D3*E3",
+          "rpn_hex": "0101000800",
+          "row_index": 2,
+          "column_index": 8
+        },
+        {
+          "sheet": "new",
+          "cell": "I4",
+          "formula": "C4*D4*E4",
+          "rpn_hex": "0101000800",
+          "row_index": 3,
+          "column_index": 8
+        },
+        {
+          "sheet": "new",
+          "cell": "I5",
+          "formula": "C5*D5*E5",
+          "rpn_hex": "0101000800",
+          "row_index": 4,
+          "column_index": 8
+        },
+        {
+          "sheet": "new",
+          "cell": "I6",
+          "formula": "C6*D6*E6",
+          "rpn_hex": "0101000800",
+          "row_index": 5,
+          "column_index": 8
+        },
+        {
+          "sheet": "new",
+          "cell": "I7",
+          "formula": "C7*D7*E7",
+          "rpn_hex": "0101000800",
+          "row_index": 6,
+          "column_index": 8
+        },
+        {
+          "sheet": "new",
+          "cell": "I8",
+          "formula": "C8*D8*E8",
+          "rpn_hex": "0101000800",
+          "row_index": 7,
+          "column_index": 8
+        },
+        {
+          "sheet": "new",
+          "cell": "I9",
+          "formula": "C9*D9*E9",
+          "rpn_hex": "0101000800",
+          "row_index": 8,
+          "column_index": 8
+        },
+        {
+          "sheet": "new",
+          "cell": "I10",
+          "formula": "C10*D10*E10",
+          "rpn_hex": "0101000800",
+          "row_index": 9,
+          "column_index": 8
+        }
+      ],
+      "shared_formula_groups": [
+        {
+          "sheet": "Sheet1",
+          "bounds": [
+            0,
+            9,
+            8,
+            8
+          ],
+          "rpn_hex": "4c0000fac04c0000fbc0054c0000fcc005"
+        },
+        {
+          "sheet": "Sheet1",
+          "bounds": [
+            1,
+            9,
+            9,
+            9
+          ],
+          "rpn_hex": "4c0000fac04c0000fbc0054c0000fcc0054c0000f9c04c0000fbc0054c0000fdc005034c0000f9c04c0000fac0054c0000fdc00503"
+        },
+        {
+          "sheet": "new",
+          "bounds": [
+            1,
+            9,
+            8,
+            8
+          ],
+          "rpn_hex": "4c0000fac04c0000fbc0054c0000fcc005"
+        }
+      ],
+      "decoder": "xlrd 2.0.2 decompile_formula; original token bytes retained, no recalculation"
+    },
+    {
+      "file": "Debye Calc/CS_diff.xls",
+      "sha256": "dbe542f44fc3fc7aba862ef642a56686a8817d108646f139411f4efd1ed0dce1",
+      "formulas": [
+        {
+          "sheet": "Tabelle1",
+          "cell": "C3",
+          "formula": "B3/B$14*A$14",
+          "rpn_hex": "44020001c0440d00014006440d00004005",
+          "row_index": 2,
+          "column_index": 2
+        },
+        {
+          "sheet": "Tabelle1",
+          "cell": "C4",
+          "formula": "B4/B$14*A$14",
+          "rpn_hex": "44030001c0440d00014006440d00004005",
+          "row_index": 3,
+          "column_index": 2
+        },
+        {
+          "sheet": "Tabelle1",
+          "cell": "C5",
+          "formula": "B5/B$14*A$14",
+          "rpn_hex": "44040001c0440d00014006440d00004005",
+          "row_index": 4,
+          "column_index": 2
+        },
+        {
+          "sheet": "Tabelle1",
+          "cell": "C6",
+          "formula": "B6/B$14*A$14",
+          "rpn_hex": "44050001c0440d00014006440d00004005",
+          "row_index": 5,
+          "column_index": 2
+        },
+        {
+          "sheet": "Tabelle1",
+          "cell": "C7",
+          "formula": "B7/B$14*A$14",
+          "rpn_hex": "44060001c0440d00014006440d00004005",
+          "row_index": 6,
+          "column_index": 2
+        },
+        {
+          "sheet": "Tabelle1",
+          "cell": "C8",
+          "formula": "B8/B$14*A$14",
+          "rpn_hex": "44070001c0440d00014006440d00004005",
+          "row_index": 7,
+          "column_index": 2
+        },
+        {
+          "sheet": "Tabelle1",
+          "cell": "C9",
+          "formula": "B9/B$14*A$14",
+          "rpn_hex": "44080001c0440d00014006440d00004005",
+          "row_index": 8,
+          "column_index": 2
+        }
+      ],
+      "shared_formula_groups": [],
+      "decoder": "xlrd 2.0.2 decompile_formula; original token bytes retained, no recalculation"
+    },
+    {
+      "file": "ESRF single crystal/Fe3C U11.xls",
+      "sha256": "06ddf1235600688f667b51573cd9a4eef1045e1f01b8a7ca8473a5c060042ffd",
+      "formulas": [],
+      "shared_formula_groups": [],
+      "decoder": "xlrd 2.0.2 decompile_formula; original token bytes retained, no recalculation"
+    },
+    {
+      "file": "ESRF single crystal/Fe3C_HP.XLS",
+      "sha256": "47d7ef35bccae86fa812d9a442ba50dfce88de228d41b678a0abe1fc62dd4148",
+      "biff_version": 20,
+      "formula_record_count": 0,
+      "formulas": [],
+      "decoder": "BIFF2 record framing scanned to exact EOF; no formula records present."
+    },
+    {
+      "file": "ESRF single crystal/Fe3C_up_p19.XLS",
+      "sha256": "039f717747869d84e49f781c8d30f633a4e585d8703acc80742461195f4e0d63",
+      "formulas": [
+        {
+          "sheet": "Fe3C_up_p19",
+          "cell": "I2",
+          "formula": "C2*E2*G2",
+          "rpn_hex": "44010002c044010004c00544010006c005",
+          "row_index": 1,
+          "column_index": 8
+        },
+        {
+          "sheet": "Fe3C_up_p19",
+          "cell": "J2",
+          "formula": "E2/C2",
+          "rpn_hex": "44010004c044010002c006",
+          "row_index": 1,
+          "column_index": 9
+        },
+        {
+          "sheet": "Fe3C_up_p19",
+          "cell": "K2",
+          "formula": "G2/C2",
+          "rpn_hex": "44010006c044010002c006",
+          "row_index": 1,
+          "column_index": 10
+        },
+        {
+          "sheet": "Fe3C_up_p19",
+          "cell": "I3",
+          "formula": "C3*E3*G3",
+          "rpn_hex": "44020002c044020004c00544020006c005",
+          "row_index": 2,
+          "column_index": 8
+        },
+        {
+          "sheet": "Fe3C_up_p19",
+          "cell": "I4",
+          "formula": "C4*E4*G4",
+          "rpn_hex": "44030002c044030004c00544030006c005",
+          "row_index": 3,
+          "column_index": 8
+        },
+        {
+          "sheet": "Fe3C_up_p19",
+          "cell": "I5",
+          "formula": "C5*E5*G5",
+          "rpn_hex": "44040002c044040004c00544040006c005",
+          "row_index": 4,
+          "column_index": 8
+        },
+        {
+          "sheet": "Fe3C_up_p19",
+          "cell": "I6",
+          "formula": "C6*E6*G6",
+          "rpn_hex": "44050002c044050004c00544050006c005",
+          "row_index": 5,
+          "column_index": 8
+        }
+      ],
+      "shared_formula_groups": [],
+      "decoder": "xlrd 2.0.2 decompile_formula; original token bytes retained, no recalculation"
+    },
+    {
+      "file": "ESRF single crystal/atompositions.xls",
+      "sha256": "93f5761b219ed9cc204ccf60a2abce8e0ffcc78c6bb99010506dabf939fc8292",
+      "formulas": [],
+      "shared_formula_groups": [],
+      "decoder": "xlrd 2.0.2 decompile_formula; original token bytes retained, no recalculation"
+    }
+  ],
+  "currently_missing_leads": [],
+  "doc_object_investigation": {
+    "manifest": "output/prescher-2012-fe3c-recovery-2026-10-30/doc-stream-evidence.json",
+    "documents": 21,
+    "unique_jpeg_pictures": 14,
+    "finding": "No ObjectPool embedded storage or nested OLE-file signatures found. JPEG images visually inspected: spectroscopy / central-shift / derived velocity / heat-capacity figures, no diffraction EOS figure. One compressed WMF recovered. This is not exhaustive semantic decoding of every drawing record."
+  },
+  "conclusion": "Restored MATLAB files establish central-shift fitting with lsqcurvefit but do not identify the EOS routine. Workbook formulas inspected for EOS fitting; source text and original results preserved.",
+  "external_volume_investigation": {
+    "archive_root": "/Volumes/personal_folder/Projects/Iron Carbides/Fe3C",
+    "date": "2026-10-30",
+    "file_count": 15939,
+    "top_folder_counts": {
+      "Fe3c abstract.doc": 1,
+      "Fe3C paper_CP.doc": 1,
+      "Analysis": 49,
+      "Publish or Perish": 51,
+      "i_kantor_ph_d_thesis.pdf": 1,
+      "Debye Calc": 8,
+      "Caracas-ironalloy.ppt": 1,
+      "Paper": 56,
+      "Experiments": 36,
+      "Fe3C new calc": 5,
+      "Fe3C Poster": 56,
+      "JahresBericht": 5,
+      "Moessbauer": 347,
+      "ESRF single crystal": 13788,
+      "APS single crystal": 1534
+    },
+    "previous_evidence_hash_checks": [
+      {
+        "file": "ESRF single crystal/Fe3C_up_p19.XLS",
+        "sha256": "039f717747869d84e49f781c8d30f633a4e585d8703acc80742461195f4e0d63",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "ESRF single crystal/Fe3C_HP.XLS",
+        "sha256": "47d7ef35bccae86fa812d9a442ba50dfce88de228d41b678a0abe1fc62dd4148",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "APS single crystal/eos.xls",
+        "sha256": "c25890b069c10bbbce4e5b33cc01465a1e077f217edfc64a3ad803c1883a5241",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "APS single crystal/eos.xlsx",
+        "sha256": "e4d95ae0a6ff47c3f3fa9cea5186126c6fcaea8961e2ee83e5667aa350e05961",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "ESRF single crystal/Data.opj",
+        "sha256": "57fb0c39bca0818662fbe87f0a2583374e1f7e5b7ff21641527b258e60b56585",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "Analysis/analysis.opj",
+        "sha256": "ea7578db026c8710c9880335eddb380db4985c9fdf947506dc43aeef0ba4afde",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "Fe3c abstract.doc",
+        "sha256": "30a6e9ed27a682ded4ab33ff2ceae65fe3e4f0ea8b9e392c65396efb95d25bb6",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "Fe3C paper_CP.doc",
+        "sha256": "7753b479a08650e09c4a86dfff6dd91245669655063d2eace3891f4bd2ea1a54",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "Publish or Perish/Fe3C paper_LSD01032011.doc",
+        "sha256": "fec3cd10f9f1d002b9e302669ea91dadf253fbd8e1deeba0bf779601d558ed14",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "Publish or Perish/waste disposal....doc",
+        "sha256": "9022c60e06dbea2423de29420e2203a3081e59d9889efbb4d70f3a9c81eba4a5",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "Publish or Perish/Fe3C paper outline.doc",
+        "sha256": "38e7c06b7b33390a3d5a54e42a9ece929f0c568c683a49d64c56c355042701ae",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "Publish or Perish/abstract Fe3C.doc",
+        "sha256": "cac30fd0d326566374c12bbc62ba7b929d1209ab2938f4dd78a10b4631f6bec6",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "Publish or Perish/paper_ges.doc",
+        "sha256": "324e4646d20de4c235142b9a9f5fbccce01529b93f5b0801c32e300028a0e7f2",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "Publish or Perish/Fe3C paper_CP22032011.doc",
+        "sha256": "afb8cbfec11fce73e1632001e2e686e8a1e932255888a94e59fb4a807ab3b033",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "Publish or Perish/Fe3C paper_CP21032011_CM.doc",
+        "sha256": "d1d61aaf2924d6ebf9081817609c6ef3d13343df0e6586aef407dc28e3cca000",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "Publish or Perish/abstract Fe3C_CM.doc",
+        "sha256": "da25bc03000c82566fdec91eaec9bc0d90bd110bad29553b832ee4311dea139f",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "Publish or Perish/Introduction.doc",
+        "sha256": "5c0289059311304ec2b5fa441e1847c3841fc94e880b7ddb95579814690f3e7e",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "Publish or Perish/Fe3C paper_CP18032011.doc",
+        "sha256": "506803c900c4c8edb41c322eb5555d2b4901383c8e78b2cbd8983bcaf8f444d3",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "Publish or Perish/Fe3C paper new.doc",
+        "sha256": "82398f602f5c9d7d4c23bc41a88508984e418adc66fb77415d52fab40f70309a",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "Publish or Perish/Fe3C paper_CP21032011.doc",
+        "sha256": "ad19228e55f58c4b3a4834febf581c669b5bf837141c9a9a3fefdda2014246cc",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "Publish or Perish/Experiments.doc",
+        "sha256": "79ca6e1a547ad4ebf35178713c76c6d7a3e8dd1d5762e003542df7929d660f7c",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "Publish or Perish/Fe3C paper_final 30032011.doc",
+        "sha256": "4cdb41442323b688892a1ede9848abd9000092504b158c1449c9584501e53735",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "Publish or Perish/Fe3C submit PRL/Suggested referees.doc",
+        "sha256": "c9d7e413da349311db958b79a04d46fad5487c0cc227c27af50541568f49698f",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "Publish or Perish/Fe3C submit PRL/Magnetic transitions in Fe3C.doc",
+        "sha256": "f918ef895ff98dbf9fed46da7bb48719767321f6c8b83362b990fb062b7b198c",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "Publish or Perish/Fe3C submit PRL/Justification for PRL_CM.doc",
+        "sha256": "317ced74a4afef78b4971959bdd4fda26cf870da22e59abb91697cf532cbb3fb",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "Publish or Perish/Fe3C submit PRL/Justification for PRL_LSD_CM2.doc",
+        "sha256": "f673047b7674877fc4b2aa9e8205fad9e8a554a04ffdecbc41d80b3d070f057d",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "Publish or Perish/Fe3C submit PRL/Justification for PRL.doc",
+        "sha256": "885825ed5b41ebc663bd9ae1bd89b5f24f9f970360f0d2d86aa65fb50611719e",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "Experiments/Synthesis.doc",
+        "sha256": "a59bbb16d4f1dc2ed5b517c24ad53ebba50944f73d244d37911c343714e280fe",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "JahresBericht/Fe3C Jahresbericht.doc",
+        "sha256": "d559aebd4a688dabca10ee2fb6dc07aed46dab4b8fc41f27d9b8d868dd010ecd",
+        "matches_2026_10_25": true
+      },
+      {
+        "file": "JahresBericht/Prescher - Magnetic Transitions in Fe3C.doc",
+        "sha256": "f476fdf722a59db35e81c93a1791af5a87b7b3c44e8a1f0a6da3dfffc95156f2",
+        "matches_2026_10_25": true
+      }
+    ],
+    "matlab_files": [
+      {
+        "file": "Debye Calc/minmizef.m",
+        "sha256": "90e94c5a3c36e376429a0e518a7290a05f153dbaaf01082929c568cb9aba0205",
+        "relevant_lines": [],
+        "finding": "Central shift, Debye calculation or stacked-spectrum plotting; no BM3 EOS routine."
+      },
+      {
+        "file": "Debye Calc/calc_cv.asv",
+        "sha256": "8322c5a30d10d2d5f9480501632f6fe6313b101f16e652760e8559d409256db0",
+        "relevant_lines": [
+          {
+            "line": 2,
+            "text": "for n=1:length(debye2)"
+          },
+          {
+            "line": 3,
+            "text": "cv1=9*R*(300./debye1).^3.*quad(fun,0.0000001,debye1./300);"
+          },
+          {
+            "line": 4,
+            "text": "cv2=9*R*(300./debye2).^3.*quad(fun,0.0000001,debye2./300); "
+          },
+          {
+            "line": 8,
+            "text": "result=cv2-cv1"
+          }
+        ],
+        "finding": "Central shift, Debye calculation or stacked-spectrum plotting; no BM3 EOS routine."
+      },
+      {
+        "file": "Debye Calc/cv_calculations.mat",
+        "sha256": "df441e936c0cf8b3bbd613e5d7226f92cbaad5cbabdb26a56acbd9e445b64ecb",
+        "variables": [
+          {
+            "name": "R",
+            "shape": [
+              1,
+              1
+            ],
+            "class": "double"
+          },
+          {
+            "name": "fun",
+            "shape": [
+              1,
+              1
+            ],
+            "class": "function"
+          },
+          {
+            "name": "debye1",
+            "shape": [
+              1,
+              1
+            ],
+            "class": "double"
+          },
+          {
+            "name": "debye2",
+            "shape": [
+              7,
+              1
+            ],
+            "class": "double"
+          },
+          {
+            "name": "cv1",
+            "shape": [
+              1,
+              1
+            ],
+            "class": "double"
+          },
+          {
+            "name": "cv2",
+            "shape": [
+              7,
+              1
+            ],
+            "class": "double"
+          },
+          {
+            "name": "result",
+            "shape": [
+              7,
+              1
+            ],
+            "class": "double"
+          },
+          {
+            "name": "l",
+            "shape": [
+              1,
+              1
+            ],
+            "class": "double"
+          },
+          {
+            "name": "n",
+            "shape": [
+              1,
+              1
+            ],
+            "class": "double"
+          },
+          {
+            "name": "__function_workspace__",
+            "shape": [
+              1,
+              968
+            ],
+            "class": "uint8"
+          }
+        ],
+        "finding": "Previously inspected central-shift or heat-capacity workspace"
+      },
+      {
+        "file": "Debye Calc/calc_cv.m",
+        "sha256": "e4567973e1c092b22584ac36f9ab5bfc0d4e55b35147866a2f0430ab885fdae2",
+        "relevant_lines": [
+          {
+            "line": 2,
+            "text": "l=length(debye2);"
+          },
+          {
+            "line": 4,
+            "text": "cv1=9*R*(300./debye1).^3.*quad(fun,0.0000001,debye1./300);"
+          },
+          {
+            "line": 5,
+            "text": "cv2=ones(l,1);"
+          },
+          {
+            "line": 9,
+            "text": "    cv2(n)=9*R*(300./debye2(n)).^3.*quad(fun,0.0000001,debye2(n)./300); "
+          },
+          {
+            "line": 10,
+            "text": "    result(n)=cv2(n)-cv1;"
+          }
+        ],
+        "finding": "Central shift, Debye calculation or stacked-spectrum plotting; no BM3 EOS routine."
+      },
+      {
+        "file": "Debye Calc/calc cv.m",
+        "sha256": "763380a1bf6743efae44facf89c1235901b4b9df9732b16038664e4b5ca4457b",
+        "relevant_lines": [
+          {
+            "line": 5,
+            "text": "debye1=600;"
+          },
+          {
+            "line": 6,
+            "text": "debye2=300;"
+          },
+          {
+            "line": 8,
+            "text": "   cv1(n)=9*R*(t(n)./debye1)*quad(fun,0.0000001,600./t(n));"
+          },
+          {
+            "line": 9,
+            "text": "   cv2(n)=9*R*(t(n)./debye2)*quad(fun,0.0000001,600./t(n)); "
+          },
+          {
+            "line": 11,
+            "text": "plot(t,cv1,t,cv2)"
+          }
+        ],
+        "finding": "Central shift, Debye calculation or stacked-spectrum plotting; no BM3 EOS routine."
+      },
+      {
+        "file": "Debye Calc/calc cv.asv",
+        "sha256": "4a9d5ef252ea2fcd13df6e4ade6b785e8db9dc50d25744209eab132789237230",
+        "relevant_lines": [],
+        "finding": "Central shift, Debye calculation or stacked-spectrum plotting; no BM3 EOS routine."
+      },
+      {
+        "file": "Debye Calc/minmizef.asv",
+        "sha256": "c7dddc61932facd584ad5c6d3b03871d0bd9c7237c3c1901cb9271cab7daa072",
+        "relevant_lines": [],
+        "finding": "Central shift, Debye calculation or stacked-spectrum plotting; no BM3 EOS routine."
+      },
+      {
+        "file": "Fe3C new calc/data.mat",
+        "sha256": "92ff3dc458e52e3920a4e18a6e37ade1f974a0d8aaa5084affbe7aae3fe05827",
+        "variables": [
+          {
+            "name": "CS",
+            "shape": [
+              33,
+              1
+            ],
+            "class": "double"
+          },
+          {
+            "name": "P",
+            "shape": [
+              33,
+              1
+            ],
+            "class": "double"
+          },
+          {
+            "name": "CS_error",
+            "shape": [
+              33,
+              1
+            ],
+            "class": "double"
+          }
+        ],
+        "finding": "Previously inspected central-shift or heat-capacity workspace"
+      },
+      {
+        "file": "Fe3C new calc/run.m",
+        "sha256": "b890e805906461bed207e1fd624f161116dbfd68f678d53616790499b7af3fd2",
+        "relevant_lines": [
+          {
+            "line": 5,
+            "text": "%initiate the fitting of a line"
+          },
+          {
+            "line": 10,
+            "text": "model=@(x,xdata)(x(1)+x(2).*xdata);"
+          },
+          {
+            "line": 11,
+            "text": "param1=lsqcurvefit(model,ival,P(1:3),CS(1:3),lb,ub);"
+          },
+          {
+            "line": 17,
+            "text": "plot(P(ind),model(param1,P(ind)),'g-');"
+          },
+          {
+            "line": 19,
+            "text": "line1=[P(ind) model(param1,P(ind))];"
+          },
+          {
+            "line": 25,
+            "text": "param2=lsqcurvefit(model,ival,P(ind), CS(ind), lb, ub);"
+          },
+          {
+            "line": 27,
+            "text": "plot(P(ind),model(param2,P(ind)));"
+          },
+          {
+            "line": 30,
+            "text": "line2=[P(ind) model(param2,P(ind))];"
+          },
+          {
+            "line": 37,
+            "text": "CS_diff=CS(ind)-model(param1,P_diff);"
+          },
+          {
+            "line": 50,
+            "text": "clear ival lb ub ind param1 param2 model "
+          }
+        ],
+        "finding": "Central shift, Debye calculation or stacked-spectrum plotting; no BM3 EOS routine."
+      },
+      {
+        "file": "Fe3C new calc/run.asv",
+        "sha256": "f1d3b6a9b4952b956e165e6de95168e914ec703a279659f9639e952d7c2d334e",
+        "relevant_lines": [
+          {
+            "line": 8,
+            "text": "model=@(x,xdata)(x(1)+x(2).*xdata);"
+          },
+          {
+            "line": 9,
+            "text": "param1=lsqcurvefit(model,ival,P(1:3),CS(1:3),lb,ub);"
+          },
+          {
+            "line": 15,
+            "text": "plot(P(ind),model(param1,P(ind)),'g-');"
+          },
+          {
+            "line": 21,
+            "text": "param2=lsqcurvefit(model,ival,P(ind), CS(ind), lb, ub);"
+          },
+          {
+            "line": 23,
+            "text": "plot(P(ind),model(param2,P(ind)));"
+          },
+          {
+            "line": 31,
+            "text": "CS_diff=CS(ind)-model(param1,P_diff);"
+          }
+        ],
+        "finding": "Central shift, Debye calculation or stacked-spectrum plotting; no BM3 EOS routine."
+      },
+      {
+        "file": "Fe3C new calc/debye calc/debye.m",
+        "sha256": "01edc2dc5b745eee4bee4cc113c7a3564c6bbbc645be5bc5155fc004f2aa6c61",
+        "relevant_lines": [
+          {
+            "line": 1,
+            "text": "function y=debye(x)"
+          }
+        ],
+        "finding": "Central shift, Debye calculation or stacked-spectrum plotting; no BM3 EOS routine."
+      },
+      {
+        "file": "Fe3C new calc/debye calc/run.m",
+        "sha256": "f77ca7e184f298f03ec486c6bc3ad627acc04341619794532f110cdc30507e59",
+        "relevant_lines": [
+          {
+            "line": 7,
+            "text": "    res(n)=sqrt(k*9*(T/Td).^3*quad(@debye,0,(Td./T))*1e-23/56e-3*6);"
+          }
+        ],
+        "finding": "Central shift, Debye calculation or stacked-spectrum plotting; no BM3 EOS routine."
+      },
+      {
+        "file": "Moessbauer/MossA-Analysis/selected data2/scaleline.m",
+        "sha256": "a30d1c0215a594d15dcb661037baca73133910ce19f80753abb6c542c52593ad",
+        "relevant_lines": [],
+        "finding": "Central shift, Debye calculation or stacked-spectrum plotting; no BM3 EOS routine."
+      },
+      {
+        "file": "Moessbauer/MossA-Analysis/selected data2/plot_results.m",
+        "sha256": "3756b13a3842347cefa1efbe1c12f5bf770eb7a29146dc70e41e067b63f3b846",
+        "relevant_lines": [
+          {
+            "line": 16,
+            "text": "    % subtract the base line from the model:"
+          },
+          {
+            "line": 54,
+            "text": "    %plot the fitted line:"
+          },
+          {
+            "line": 93,
+            "text": "xlabel('velocity (mm/s)');"
+          }
+        ],
+        "finding": "Central shift, Debye calculation or stacked-spectrum plotting; no BM3 EOS routine."
+      },
+      {
+        "file": "Moessbauer/MossA-Analysis/selected data2/test.mat",
+        "sha256": "11ac2ba6980759553c1ca7846962aee24f2c7834c528bd219c945f36544b4d51",
+        "variables": [
+          {
+            "name": "x020GPa",
+            "shape": [
+              256,
+              6
+            ],
+            "class": "double"
+          },
+          {
+            "name": "x100GPa",
+            "shape": [
+              256,
+              6
+            ],
+            "class": "double"
+          },
+          {
+            "name": "x370GPa",
+            "shape": [
+              256,
+              6
+            ],
+            "class": "double"
+          },
+          {
+            "name": "x880GPa",
+            "shape": [
+              256,
+              6
+            ],
+            "class": "double"
+          }
+        ],
+        "finding": "Stacked spectra arrays"
+      },
+      {
+        "file": "Moessbauer/MossA-Analysis/selected data/scaleline.m",
+        "sha256": "a30d1c0215a594d15dcb661037baca73133910ce19f80753abb6c542c52593ad",
+        "relevant_lines": [],
+        "finding": "Central shift, Debye calculation or stacked-spectrum plotting; no BM3 EOS routine."
+      },
+      {
+        "file": "Moessbauer/MossA-Analysis/selected data/plot_results.m",
+        "sha256": "826a2170e0a6d3330c4368a4440bc8a55af950a5bee0eb398d0171bea5489801",
+        "relevant_lines": [
+          {
+            "line": 15,
+            "text": "    % subtract the base line from the model:"
+          },
+          {
+            "line": 53,
+            "text": "    %plot the fitted line:"
+          },
+          {
+            "line": 91,
+            "text": "xlabel('velocity (mm/s)');"
+          }
+        ],
+        "finding": "Central shift, Debye calculation or stacked-spectrum plotting; no BM3 EOS routine."
+      },
+      {
+        "file": "Moessbauer/MossA-Analysis/selected data/test.mat",
+        "sha256": "cf76c48b0f76a5ffac5b845a3d91ef23212b093623f9b3c649c533259b74c3cc",
+        "variables": [
+          {
+            "name": "x00GPa",
+            "shape": [
+              256,
+              5
+            ],
+            "class": "double"
+          },
+          {
+            "name": "x03GPa",
+            "shape": [
+              255,
+              5
+            ],
+            "class": "double"
+          },
+          {
+            "name": "x055GPa",
+            "shape": [
+              256,
+              5
+            ],
+            "class": "double"
+          },
+          {
+            "name": "x076GPa",
+            "shape": [
+              256,
+              5
+            ],
+            "class": "double"
+          },
+          {
+            "name": "x097GPa",
+            "shape": [
+              256,
+              5
+            ],
+            "class": "double"
+          },
+          {
+            "name": "x128GPa",
+            "shape": [
+              255,
+              5
+            ],
+            "class": "double"
+          },
+          {
+            "name": "x880GPa",
+            "shape": [
+              256,
+              5
+            ],
+            "class": "double"
+          },
+          {
+            "name": "x175GPa",
+            "shape": [
+              256,
+              5
+            ],
+            "class": "double"
+          },
+          {
+            "name": "x220GPa",
+            "shape": [
+              256,
+              5
+            ],
+            "class": "double"
+          },
+          {
+            "name": "x336GPa",
+            "shape": [
+              256,
+              5
+            ],
+            "class": "double"
+          },
+          {
+            "name": "x520GPa",
+            "shape": [
+              256,
+              5
+            ],
+            "class": "double"
+          },
+          {
+            "name": "x690GPa",
+            "shape": [
+              256,
+              5
+            ],
+            "class": "double"
+          }
+        ],
+        "finding": "Stacked spectra arrays"
+      }
+    ],
+    "sigmaplot_notebooks": [
+      {
+        "file": "ESRF single crystal/Anastasia/Fe3C_HP.JNB",
+        "sha256": "531508c0f2e04a685943a34ff52d8dbe7680d180b273df8020fac117dfa6479b",
+        "storage_entries": [
+          {
+            "name": "Data 1JNB",
+            "parent": 0,
+            "directory_id": 1
+          },
+          {
+            "name": "Graph Page 1JNB",
+            "parent": 0,
+            "directory_id": 11
+          }
+        ],
+        "streams": [
+          {
+            "name": "JNBVersion",
+            "bytes": 12,
+            "sha256": "1591947641a49a0899bd183f64df64a80cd2477c84b41bea25a8f81dfdb918b9",
+            "relevant_strings": []
+          },
+          {
+            "name": "Data 1JNB/JNBVersion",
+            "bytes": 12,
+            "sha256": "0f07cb72d6b0af3f2f878916d35193d5d8ac5b39af3fc22a2f155dc17abf69d3",
+            "relevant_strings": []
+          },
+          {
+            "name": "Data 1JNB/JNBSummaryInformation",
+            "bytes": 79,
+            "sha256": "f5e23e9114271aa1e877cf7d98d45413cc4e93904afd5afe485ecf1e602fda0f",
+            "relevant_strings": [
+              "Worksheet",
+              "2/17/2011 2:41:37 PM",
+              "2/17/2011 9:19:45 PM",
+              "Worksheet"
+            ]
+          },
+          {
+            "name": "Data 1JNB/JNBContents",
+            "bytes": 16392,
+            "sha256": "92970cbb23c5bfe11878ced24614c1ce86fe95df9fa89ab69d1e831968d8a5c5",
+            "relevant_strings": [
+              "JSDataWorksheet",
+              "Run #",
+              "P, GPad",
+              "Fe-1_coor-xvR",
+              "Fe-1_coor-yvR",
+              "Fe-1_coor-zvR",
+              "Fe-2_coor-xvR",
+              "Fe-2_coor-yvR",
+              "Fe-2_coor-zvR",
+              "Run #",
+              "P, GPa",
+              "Fe-1_coor-x",
+              "Fe-1_coor-y",
+              "Fe-1_coor-z",
+              "Fe-2_coor-x",
+              "Fe-2_coor-y",
+              "Fe-2_coor-z"
+            ]
+          },
+          {
+            "name": "JNBNotebookInfo",
+            "bytes": 24,
+            "sha256": "09b8d72c6e5b1ae09836c30a2a6bc60882fd1eb526ba88fdcfbe53af7148ab0a",
+            "relevant_strings": []
+          },
+          {
+            "name": "JNBDirectory",
+            "bytes": 110,
+            "sha256": "21571efc2361d7906fcf252e9cba2828bf583bec05d3a59013b05558377fde18",
+            "relevant_strings": [
+              "Graph Page 1",
+              "Graph Page 1JNB"
+            ]
+          },
+          {
+            "name": "JNBSummaryInformation",
+            "bytes": 79,
+            "sha256": "dc23cface1a5651a74c5bf0c74f2695fd499b639ec789d8b43fe17169c273d42",
+            "relevant_strings": [
+              "2/17/2011 2:41:37 PM",
+              "2/17/2011 9:19:45 PM"
+            ]
+          },
+          {
+            "name": "\u0005SummaryInformation",
+            "bytes": 412,
+            "sha256": "130e8e4bba490173a988b9781fe70f9eeb8c4a78002bd4e7b4a66e050addf2a6",
+            "relevant_strings": [
+              "SigmaPlot SigmaStat ",
+              "SigmaPlot"
+            ]
+          },
+          {
+            "name": "\u0001CompObj",
+            "bytes": 125,
+            "sha256": "b6c8b2476356592446c2480f3b7e4ea707c173b132df9ea3e0a9c9d245265286",
+            "relevant_strings": [
+              "SigmaPlot 6.0 Notebook",
+              "SigmaPlot.JNB.Page.4"
+            ]
+          },
+          {
+            "name": "Graph Page 1JNB/\u0001Ole",
+            "bytes": 20,
+            "sha256": "b2162bc27b0f5b3a55a79fb5e0763e0321dc8de86ad59054d6aafc4b01eaad47",
+            "relevant_strings": []
+          },
+          {
+            "name": "Graph Page 1JNB/GPDoc Contents",
+            "bytes": 10012,
+            "sha256": "9fbb9e4fc7f20c807f2e4440cfb5cbbac3c9876e00e77d7dfc25cfa84fd4515e",
+            "relevant_strings": [
+              "JSGraphicPage",
+              "{\\rtf1\\ansi0{\\colortbl\\red0\\green0\\blue0;}\\deff0{\\fonttbl\\f0\\fnil Arial;}{\\i0{\\ul0{\\cf0{\\f0{\\fs28{\\b0 2D Graph 1}}}}}}}",
+              "P, GPa vs a ",
+              "{\\rtf1\\ansi0{\\colortbl\\red0\\green0\\blue0;}\\deff0{\\fonttbl\\f0\\fnil Arial;}{\\b0{\\i0{\\ul0{\\fs20{\\cf0{\\f0P, GPa vs a }}}}}}}",
+              "P, GPa vs b ",
+              "{\\rtf1\\ansi0{\\colortbl\\red0\\green0\\blue0;}\\deff0{\\fonttbl\\f0\\fnil Arial;}{\\b0{\\i0{\\ul0{\\fs20{\\cf0{\\f0P, GPa vs b }}}}}}}",
+              "P, GPa vs c ",
+              "{\\rtf1\\ansi0{\\colortbl\\red0\\green0\\blue0;}\\deff0{\\fonttbl\\f0\\fnil Arial;}{\\b0{\\i0{\\ul0{\\fs20{\\cf0{\\f0P, GPa vs c }}}}}}}"
+            ]
+          },
+          {
+            "name": "Graph Page 1JNB/\u0001CompObj",
+            "bytes": 128,
+            "sha256": "178360bb59379f291fad0a9bd50f3d7b6856d1d6a3e107416349e523577c1831",
+            "relevant_strings": [
+              "SPW 6.0 Graph",
+              "SigmaPlot Internal Data Stream.4",
+              "SigmaPlotGraphicObject.4"
+            ]
+          },
+          {
+            "name": "Graph Page 1JNB/JNBVersion",
+            "bytes": 12,
+            "sha256": "a724fe2b5636032cfad13bbaf4f40d2b95591d27328e45bd9158c33cb574b486",
+            "relevant_strings": []
+          },
+          {
+            "name": "Graph Page 1JNB/JNBSummaryInfo",
+            "bytes": 114,
+            "sha256": "ada0437e5e1f390cd4094f735b9039198545cba37507155bedfca9098823d0b6",
+            "relevant_strings": [
+              "Graph Page"
+            ]
+          },
+          {
+            "name": "Graph Page 1JNB/JNBSummaryInformation",
+            "bytes": 87,
+            "sha256": "cfd7ba5b36ef6f0add4fa33c887b46d5129d7ca7a74b5d3730bd3a7e4d969f46",
+            "relevant_strings": [
+              "Graph Page 1",
+              "Graph Page",
+              "2/17/2011 7:26:30 PM",
+              "2/17/2011 9:18:09 PM",
+              "Graph Page"
+            ]
+          }
+        ],
+        "finding": "SigmaPlot 6.0 notebook with Data 1 and Graph Page 1 only. Plot labels are pressure versus lattice lengths/axial ratios. No fit-report entry or readable BM3 definition recovered; worksheet binary is not exhaustively decoded."
+      },
+      {
+        "file": "ESRF single crystal/Anastasia/Fe3C_HP_up-to-p19.JNB",
+        "sha256": "e9bf3f9fdcf7bf665e0941d38fac56dcd82d9d5a34750705e4b3bc7ae5c0145a",
+        "storage_entries": [
+          {
+            "name": "Data 1JNB",
+            "parent": 0,
+            "directory_id": 2
+          },
+          {
+            "name": "Graph Page 1JNB",
+            "parent": 0,
+            "directory_id": 5
+          }
+        ],
+        "streams": [
+          {
+            "name": "\u0001CompObj",
+            "bytes": 125,
+            "sha256": "b6c8b2476356592446c2480f3b7e4ea707c173b132df9ea3e0a9c9d245265286",
+            "relevant_strings": [
+              "SigmaPlot 6.0 Notebook",
+              "SigmaPlot.JNB.Page.4"
+            ]
+          },
+          {
+            "name": "JNBVersion",
+            "bytes": 12,
+            "sha256": "1591947641a49a0899bd183f64df64a80cd2477c84b41bea25a8f81dfdb918b9",
+            "relevant_strings": []
+          },
+          {
+            "name": "JNBDirectory",
+            "bytes": 110,
+            "sha256": "21571efc2361d7906fcf252e9cba2828bf583bec05d3a59013b05558377fde18",
+            "relevant_strings": [
+              "Graph Page 1",
+              "Graph Page 1JNB"
+            ]
+          },
+          {
+            "name": "JNBNotebookInfo",
+            "bytes": 24,
+            "sha256": "09b8d72c6e5b1ae09836c30a2a6bc60882fd1eb526ba88fdcfbe53af7148ab0a",
+            "relevant_strings": []
+          },
+          {
+            "name": "\u0005SummaryInformation",
+            "bytes": 412,
+            "sha256": "c08c2e86a3be95c5f0b76fdecc59233bf29dd4450c6059ba34c1099c1e25f173",
+            "relevant_strings": [
+              "SigmaPlot SigmaStat ",
+              "SigmaPlot"
+            ]
+          },
+          {
+            "name": "JNBSummaryInformation",
+            "bytes": 79,
+            "sha256": "695cacee6628966786f30787e54f82a9f5cecafa04dc44bdeb6e4bf9866d5049",
+            "relevant_strings": [
+              "2/17/2011 2:41:37 PM",
+              "2/18/2011 3:38:54 PM"
+            ]
+          },
+          {
+            "name": "Graph Page 1JNB/\u0001Ole",
+            "bytes": 20,
+            "sha256": "b2162bc27b0f5b3a55a79fb5e0763e0321dc8de86ad59054d6aafc4b01eaad47",
+            "relevant_strings": []
+          },
+          {
+            "name": "Graph Page 1JNB/\u0001CompObj",
+            "bytes": 128,
+            "sha256": "178360bb59379f291fad0a9bd50f3d7b6856d1d6a3e107416349e523577c1831",
+            "relevant_strings": [
+              "SPW 6.0 Graph",
+              "SigmaPlot Internal Data Stream.4",
+              "SigmaPlotGraphicObject.4"
+            ]
+          },
+          {
+            "name": "Graph Page 1JNB/JNBVersion",
+            "bytes": 12,
+            "sha256": "a724fe2b5636032cfad13bbaf4f40d2b95591d27328e45bd9158c33cb574b486",
+            "relevant_strings": []
+          },
+          {
+            "name": "Graph Page 1JNB/GPDoc Contents",
+            "bytes": 19295,
+            "sha256": "5e30480f9d8afed36196b5e40235b06438d2502bd639389c91f286760fcafbad",
+            "relevant_strings": [
+              "JSGraphicPage",
+              "{\\rtf1\\ansi0{\\colortbl\\red0\\green0\\blue0;}\\deff0{\\fonttbl\\f0\\fnil Arial;}{\\i0{\\ul0{\\cf0{\\f0{\\fs28{\\b0 2D Graph 1}}}}}}}",
+              "P, GPa vs a ",
+              "{\\rtf1\\ansi0{\\colortbl\\red0\\green0\\blue0;}\\deff0{\\fonttbl\\f0\\fnil Arial;}{\\b0{\\i0{\\ul0{\\fs20{\\cf0{\\f0P, GPa vs a }}}}}}}",
+              "P, GPa vs b ",
+              "{\\rtf1\\ansi0{\\colortbl\\red0\\green0\\blue0;}\\deff0{\\fonttbl\\f0\\fnil Arial;}{\\b0{\\i0{\\ul0{\\fs20{\\cf0{\\f0P, GPa vs b }}}}}}}",
+              "P, GPa vs c ",
+              "{\\rtf1\\ansi0{\\colortbl\\red0\\green0\\blue0;}\\deff0{\\fonttbl\\f0\\fnil Arial;}{\\b0{\\i0{\\ul0{\\fs20{\\cf0{\\f0P, GPa vs c }}}}}}}",
+              "{\\rtf1\\ansi0{\\colortbl\\red0\\green0\\blue0;}\\deff0{\\fonttbl\\f0\\fnil Arial;}{\\i0{\\ul0{\\cf0{\\f0{\\fs28{\\b0 2D Graph 1}}}}}}}",
+              "P, GPa vs b/a ",
+              "{\\rtf1\\ansi0{\\colortbl\\red0\\green0\\blue0;}\\deff0{\\fonttbl\\f0\\fnil Arial;}{\\b0{\\i0{\\ul0{\\fs20{\\cf0{\\f0P, GPa vs b/a }}}}}}}",
+              "P, GPa vs c/a ",
+              "{\\rtf1\\ansi0{\\colortbl\\red0\\green0\\blue0;}\\deff0{\\fonttbl\\f0\\fnil Arial;}{\\b0{\\i0{\\ul0{\\fs20{\\cf0{\\f0P, GPa vs c/a }}}}}}}"
+            ]
+          },
+          {
+            "name": "Graph Page 1JNB/JNBSummaryInfo",
+            "bytes": 114,
+            "sha256": "ada0437e5e1f390cd4094f735b9039198545cba37507155bedfca9098823d0b6",
+            "relevant_strings": [
+              "Graph Page"
+            ]
+          },
+          {
+            "name": "Graph Page 1JNB/JNBSummaryInformation",
+            "bytes": 87,
+            "sha256": "c538c4993af9a633ec8450fa4ce460faec9863a5eebf6e9659e7f60d090f0a44",
+            "relevant_strings": [
+              "Graph Page 1",
+              "Graph Page",
+              "2/17/2011 7:26:30 PM",
+              "2/18/2011 3:38:54 PM",
+              "Graph Page"
+            ]
+          },
+          {
+            "name": "Data 1JNB/JNBVersion",
+            "bytes": 12,
+            "sha256": "0f07cb72d6b0af3f2f878916d35193d5d8ac5b39af3fc22a2f155dc17abf69d3",
+            "relevant_strings": []
+          },
+          {
+            "name": "Data 1JNB/JNBSummaryInformation",
+            "bytes": 79,
+            "sha256": "3a24ad84b69b677dba39bfd4a47601e79e70b73893c87c44a44fddd933515af8",
+            "relevant_strings": [
+              "Worksheet",
+              "2/17/2011 2:41:37 PM",
+              "2/18/2011 3:38:54 PM",
+              "Worksheet"
+            ]
+          },
+          {
+            "name": "Data 1JNB/JNBContents",
+            "bytes": 20232,
+            "sha256": "71e3fdba114acf4b02ffcc377b96863726c349a8951f019ec4aa5ecd3d98fb42",
+            "relevant_strings": [
+              "JSDataWorksheet",
+              "Run #",
+              "P, GPa",
+              "Fe-1_coor-xv",
+              "Fe-1_coor-yv",
+              "Fe-1_coor-zv",
+              "Fe-2_coor-xv",
+              "Fe-2_coor-yv",
+              "Fe-2_coor-zv",
+              "Run #",
+              "P, GPa",
+              "Fe-1_coor-x",
+              "Fe-1_coor-y",
+              "Fe-1_coor-z",
+              "Fe-2_coor-x",
+              "Fe-2_coor-y",
+              "Fe-2_coor-z"
+            ]
+          }
+        ],
+        "finding": "SigmaPlot 6.0 notebook with Data 1 and Graph Page 1 only. Plot labels are pressure versus lattice lengths/axial ratios. No fit-report entry or readable BM3 definition recovered; worksheet binary is not exhaustively decoded."
+      }
+    ],
+    "single_crystal_folder": "Present but empty at inspection",
+    "cif_check": {
+      "manifest": "output/prescher-2012-fe3c-recovery-2026-10-30/cif-cell-evidence.json",
+      "files_with_cell_tags": 176,
+      "finding": "No stored cell volume found within 0.08 A3 of the figure-only marker volumes 155.09, 149.51 or 130.61. Starting CIFs contain zero placeholders, not ambient observations. The 152.97(10) A3 p1_own refinement is near the final table; it remains an identifiable working version."
+    },
+    "conclusion": "Complete filename inventory adds no Python EOS script. All 30 prior evidence hashes match. MATLAB scripts/workspaces describe spectroscopy or Debye calculations. Two SigmaPlot notebooks extend the search but do not establish the final three-fit workflow. Original figure-only numerical inputs and fitting output remain unresolved."
+  }
+}

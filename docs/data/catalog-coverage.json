@@ -1,33 +1,33 @@
 {
   "format": "peritheos.catalog-coverage",
   "format_version": 1,
-  "material_files_sha256": "f6061ab03c01ce35c7e685ceeea85e4bbe5cac25456d4442fea546f25acfee1e",
+  "material_files_sha256": "1d2461075f501636ea7baa6836b1297cfdb4b9f19baf7dfe92033a63906f40c4",
   "summary": {
     "stored_materials": 233,
-    "stored_records": 678,
+    "stored_records": 679,
     "executable_materials": 230,
-    "executable_records": 675,
-    "source_records": 624,
+    "executable_records": 676,
+    "source_records": 625,
     "pressure_scale_reference_variants": 51,
     "materials_with_thermal_eos": 63,
     "executable_equation_kinds": {
       "hugoniot": 3,
-      "isothermal": 538,
+      "isothermal": 539,
       "thermal": 134
     },
     "stored_validation": {
       "deferred": 3,
       "not_reproduced": 18,
-      "primary_source_validated": 657
+      "primary_source_validated": 658
     },
     "executable_calibration_status": {
       "not_applicable": 163,
       "partially_resolved": 187,
-      "resolved": 238,
+      "resolved": 239,
       "unresolved": 87
     },
     "executable_recalculation_status": {
-      "missing_calibrant_observations": 195,
+      "missing_calibrant_observations": 196,
       "not_applicable": 160,
       "not_possible": 123,
       "ready": 136,
@@ -40,7 +40,7 @@
   "ledgers": {
     "refit_outcomes": {
       "not_refittable": 177,
-      "parity": 350,
+      "parity": 351,
       "parity_not_achieved": 62,
       "similar": 72,
       "source_reconstruction": 17
@@ -603,15 +603,15 @@
       "formula": "Fe3C",
       "family_id": null,
       "input_file": "peritheos/data/materials/cementite.eosmat",
-      "stored_records": 1,
-      "executable_records": 1,
-      "isothermal_records": 1,
+      "stored_records": 2,
+      "executable_records": 2,
+      "isothermal_records": 2,
       "thermal_records": 0,
       "hugoniot_records": 0,
       "validation": {
-        "primary_source_validated": 1
+        "primary_source_validated": 2
       },
-      "datasets": 1
+      "datasets": 3
     },
     {
       "identifier": "cerium_dioxide",
@@ -4961,6 +4961,15 @@
     },
     {
       "identifier": "cementite_scott_2001_bm3_1",
+      "material_identifier": "cementite",
+      "executable": true,
+      "equation_kind": "isothermal",
+      "scientific_validation": "primary_source_validated",
+      "refit_ledger_present": true,
+      "source_audit_present": true
+    },
+    {
+      "identifier": "cementite_prescher_2012_full_range_bm3",
       "material_identifier": "cementite",
       "executable": true,
       "equation_kind": "isothermal",

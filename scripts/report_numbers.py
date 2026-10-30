@@ -17,12 +17,16 @@ def number(value: Any, significant: int = 6) -> str:
     return format(value, f".{significant}g")
 
 
-def value_error(value: Any, error: Any) -> tuple[str, str]:
+def value_error(
+    value: Any, error: Any, decimal_places: int | None = None
+) -> tuple[str, str]:
     """Round error to two significant digits for leading 1/2, otherwise one.
 
     Match the value's last decimal place to that of the error. Decimal avoids
     binary tie artefacts; retain the selected place when rounding carries.
     Missing/zero errors do not license extra precision or an exact-value claim.
+    An explicitly audited decimal place keeps source/refit comparisons at the
+    paper's precision; it does not change stored numbers or confidence semantics.
     """
     if (
         isinstance(error, bool)
@@ -37,7 +41,13 @@ def value_error(value: Any, error: Any) -> tuple[str, str]:
         uncertainty = Decimal(str(error))
         exponent = uncertainty.adjusted()
         leading = int(uncertainty.scaleb(-exponent))
-        place = exponent - (1 if leading in (1, 2) else 0)
+        place = (
+            -decimal_places
+            if isinstance(decimal_places, int)
+            and not isinstance(decimal_places, bool)
+            and 0 <= decimal_places <= 12
+            else exponent - (1 if leading in (1, 2) else 0)
+        )
         quantum = Decimal(1).scaleb(place)
         rounded_error = uncertainty.quantize(quantum, rounding=ROUND_HALF_UP)
         if isinstance(value, (int, float)) and math.isfinite(value):
@@ -73,7 +83,9 @@ def rounded_metadata(value: Any) -> Any:
                 for error_key in (side + "_error", side + "_sigma"):
                     if error_key in value:
                         result[side], result[error_key] = value_error(
-                            value[side], value[error_key]
+                            value[side],
+                            value[error_key],
+                            value.get("display_decimal_places"),
                         )
                         break
         return result

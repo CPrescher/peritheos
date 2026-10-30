@@ -1,0 +1,1171 @@
+{
+  "source_doi": "10.1103/PhysRevB.85.140402",
+  "source_pdf_sha256": "ef63531041dd2ee4feac3990c267192c052ad71c155ec640915638f165f8e237",
+  "space_group": "Pnma",
+  "space_group_number": 62,
+  "formula_units_per_cell": 4,
+  "axis_mapping": "(a,b,c)_Pnma=(b,c,a)_table; (x,y,z)_Pnma=(y,z,x)_table. No origin shift.",
+  "occupancy_basis": "Ideal stoichiometric Fe3C: full occupancy on Fe 8d/4c and C 4c. Occupancies are not reported as refined values in Table S1.",
+  "error_convention": "Original token widths retained; no confidence convention assigned. U is kept in source tokens without inferring an additional displacement law.",
+  "structures": [
+    {
+      "source_row": 1,
+      "pressure_gpa": 1.8,
+      "temperature_k": 293.0,
+      "lattice": {
+        "a": 5.0726,
+        "b": 6.699,
+        "c": 4.501,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 90.0
+      },
+      "reported_volume_a3": 152.98,
+      "atom_sites": [
+        {
+          "source_label": "Fe1",
+          "element": "Fe",
+          "wyckoff": "8d",
+          "x": 0.1796,
+          "y": 0.0668,
+          "z": 0.3354,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.3354(2)",
+            "0.1796(2)",
+            "0.0668(3)",
+            "0.0092(4)"
+          ]
+        },
+        {
+          "source_label": "Fe2",
+          "element": "Fe",
+          "wyckoff": "4c",
+          "x": 0.0373,
+          "y": 0.25,
+          "z": 0.8398,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.8398(3)",
+            "0.0373(3)",
+            "0.25",
+            "0.0095(5)"
+          ]
+        },
+        {
+          "source_label": "C",
+          "element": "C",
+          "wyckoff": "4c",
+          "x": 0.876,
+          "y": 0.25,
+          "z": 0.441,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.441(2)",
+            "0.876(2)",
+            "0.25",
+            "0.017(2)"
+          ]
+        }
+      ]
+    },
+    {
+      "source_row": 2,
+      "pressure_gpa": 4.7,
+      "temperature_k": 293.0,
+      "lattice": {
+        "a": 5.0468,
+        "b": 6.666,
+        "c": 4.4785,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 90.0
+      },
+      "reported_volume_a3": 150.65,
+      "atom_sites": [
+        {
+          "source_label": "Fe1",
+          "element": "Fe",
+          "wyckoff": "8d",
+          "x": 0.1808,
+          "y": 0.0663,
+          "z": 0.3363,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.3363(3)",
+            "0.1808(3)",
+            "0.0663(4)",
+            "0.0097(7)"
+          ]
+        },
+        {
+          "source_label": "Fe2",
+          "element": "Fe",
+          "wyckoff": "4c",
+          "x": 0.0369,
+          "y": 0.25,
+          "z": 0.8414,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.8414(5)",
+            "0.0369(5)",
+            "0.25",
+            "0.0100(7)"
+          ]
+        },
+        {
+          "source_label": "C",
+          "element": "C",
+          "wyckoff": "4c",
+          "x": 0.871,
+          "y": 0.25,
+          "z": 0.439,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.439(4)",
+            "0.871(3)",
+            "0.25",
+            "0.017(4)"
+          ]
+        }
+      ]
+    },
+    {
+      "source_row": 3,
+      "pressure_gpa": 6.7,
+      "temperature_k": 293.0,
+      "lattice": {
+        "a": 5.021,
+        "b": 6.639,
+        "c": 4.4568,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 90.0
+      },
+      "reported_volume_a3": 148.56,
+      "atom_sites": [
+        {
+          "source_label": "Fe1",
+          "element": "Fe",
+          "wyckoff": "8d",
+          "x": 0.1821,
+          "y": 0.0664,
+          "z": 0.3375,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.3375(3)",
+            "0.1821(3)",
+            "0.0664(4)",
+            "0.0093(6)"
+          ]
+        },
+        {
+          "source_label": "Fe2",
+          "element": "Fe",
+          "wyckoff": "4c",
+          "x": 0.0367,
+          "y": 0.25,
+          "z": 0.8426,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.8426(5)",
+            "0.0367(4)",
+            "0.25",
+            "0.0100(6)"
+          ]
+        },
+        {
+          "source_label": "C",
+          "element": "C",
+          "wyckoff": "4c",
+          "x": 0.871,
+          "y": 0.25,
+          "z": 0.438,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.438(4)",
+            "0.871(3)",
+            "0.25",
+            "0.016(3)"
+          ]
+        }
+      ]
+    },
+    {
+      "source_row": 4,
+      "pressure_gpa": 9.1,
+      "temperature_k": 293.0,
+      "lattice": {
+        "a": 5.0034,
+        "b": 6.614,
+        "c": 4.4377,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 90.0
+      },
+      "reported_volume_a3": 146.85,
+      "atom_sites": [
+        {
+          "source_label": "Fe1",
+          "element": "Fe",
+          "wyckoff": "8d",
+          "x": 0.1827,
+          "y": 0.0663,
+          "z": 0.338,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.3380(3)",
+            "0.1827(3)",
+            "0.0663(4)",
+            "0.0090(6)"
+          ]
+        },
+        {
+          "source_label": "Fe2",
+          "element": "Fe",
+          "wyckoff": "4c",
+          "x": 0.0361,
+          "y": 0.25,
+          "z": 0.8441,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.8441(4)",
+            "0.0361(4)",
+            "0.25",
+            "0.0094(6)"
+          ]
+        },
+        {
+          "source_label": "C",
+          "element": "C",
+          "wyckoff": "4c",
+          "x": 0.873,
+          "y": 0.25,
+          "z": 0.44,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.440(3)",
+            "0.873(3)",
+            "0.25",
+            "0.017(3)"
+          ]
+        }
+      ]
+    },
+    {
+      "source_row": 5,
+      "pressure_gpa": 11.4,
+      "temperature_k": 293.0,
+      "lattice": {
+        "a": 4.9875,
+        "b": 6.593,
+        "c": 4.4209,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 90.0
+      },
+      "reported_volume_a3": 145.36,
+      "atom_sites": [
+        {
+          "source_label": "Fe1",
+          "element": "Fe",
+          "wyckoff": "8d",
+          "x": 0.1832,
+          "y": 0.0659,
+          "z": 0.3385,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.3385(3)",
+            "0.1832(3)",
+            "0.0659(4)",
+            "0.0092(7)"
+          ]
+        },
+        {
+          "source_label": "Fe2",
+          "element": "Fe",
+          "wyckoff": "4c",
+          "x": 0.0362,
+          "y": 0.25,
+          "z": 0.8443,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.8443(4)",
+            "0.0362(4)",
+            "0.25",
+            "0.0096(8)"
+          ]
+        },
+        {
+          "source_label": "C",
+          "element": "C",
+          "wyckoff": "4c",
+          "x": 0.872,
+          "y": 0.25,
+          "z": 0.441,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.441(4)",
+            "0.872(4)",
+            "0.25",
+            "0.022(4)"
+          ]
+        }
+      ]
+    },
+    {
+      "source_row": 6,
+      "pressure_gpa": 13.4,
+      "temperature_k": 293.0,
+      "lattice": {
+        "a": 4.9738,
+        "b": 6.574,
+        "c": 4.4073,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 90.0
+      },
+      "reported_volume_a3": 144.1,
+      "atom_sites": [
+        {
+          "source_label": "Fe1",
+          "element": "Fe",
+          "wyckoff": "8d",
+          "x": 0.184,
+          "y": 0.0653,
+          "z": 0.3386,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.3386(4)",
+            "0.1840(4)",
+            "0.0653(5)",
+            "0.0111(9)"
+          ]
+        },
+        {
+          "source_label": "Fe2",
+          "element": "Fe",
+          "wyckoff": "4c",
+          "x": 0.0354,
+          "y": 0.25,
+          "z": 0.8453,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.8453(5)",
+            "0.0354(6)",
+            "0.25",
+            "0.012(1)"
+          ]
+        },
+        {
+          "source_label": "C",
+          "element": "C",
+          "wyckoff": "4c",
+          "x": 0.87,
+          "y": 0.25,
+          "z": 0.441,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.441(5)",
+            "0.870(4)",
+            "0.25",
+            "0.020(4)"
+          ]
+        }
+      ]
+    },
+    {
+      "source_row": 7,
+      "pressure_gpa": 16.2,
+      "temperature_k": 293.0,
+      "lattice": {
+        "a": 4.9578,
+        "b": 6.549,
+        "c": 4.3889,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 90.0
+      },
+      "reported_volume_a3": 142.5,
+      "atom_sites": [
+        {
+          "source_label": "Fe1",
+          "element": "Fe",
+          "wyckoff": "8d",
+          "x": 0.1837,
+          "y": 0.0655,
+          "z": 0.3391,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.3391(3)",
+            "0.1837(3)",
+            "0.0655(4)",
+            "0.0084(7)"
+          ]
+        },
+        {
+          "source_label": "Fe2",
+          "element": "Fe",
+          "wyckoff": "4c",
+          "x": 0.0356,
+          "y": 0.25,
+          "z": 0.846,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.8460(4)",
+            "0.0356(4)",
+            "0.25",
+            "0.0090(8)"
+          ]
+        },
+        {
+          "source_label": "C",
+          "element": "C",
+          "wyckoff": "4c",
+          "x": 0.866,
+          "y": 0.25,
+          "z": 0.442,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.442(4)",
+            "0.866(4)",
+            "0.25",
+            "0.021(4)"
+          ]
+        }
+      ]
+    },
+    {
+      "source_row": 8,
+      "pressure_gpa": 18.4,
+      "temperature_k": 293.0,
+      "lattice": {
+        "a": 4.9482,
+        "b": 6.534,
+        "c": 4.3787,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 90.0
+      },
+      "reported_volume_a3": 141.56,
+      "atom_sites": [
+        {
+          "source_label": "Fe1",
+          "element": "Fe",
+          "wyckoff": "8d",
+          "x": 0.1842,
+          "y": 0.0653,
+          "z": 0.3396,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.3396(3)",
+            "0.1842(4)",
+            "0.0653(5)",
+            "0.0100(8)"
+          ]
+        },
+        {
+          "source_label": "Fe2",
+          "element": "Fe",
+          "wyckoff": "4c",
+          "x": 0.0352,
+          "y": 0.25,
+          "z": 0.8463,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.8463(5)",
+            "0.0352(5)",
+            "0.25",
+            "0.0105(9)"
+          ]
+        },
+        {
+          "source_label": "C",
+          "element": "C",
+          "wyckoff": "4c",
+          "x": 0.867,
+          "y": 0.25,
+          "z": 0.439,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.439(5)",
+            "0.867(5)",
+            "0.25",
+            "0.025(5)"
+          ]
+        }
+      ]
+    },
+    {
+      "source_row": 9,
+      "pressure_gpa": 20.7,
+      "temperature_k": 293.0,
+      "lattice": {
+        "a": 4.935,
+        "b": 6.514,
+        "c": 4.3652,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 90.0
+      },
+      "reported_volume_a3": 140.34,
+      "atom_sites": [
+        {
+          "source_label": "Fe1",
+          "element": "Fe",
+          "wyckoff": "8d",
+          "x": 0.1843,
+          "y": 0.0651,
+          "z": 0.3399,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.3399(3)",
+            "0.1843(3)",
+            "0.0651(4)",
+            "0.0089(8)"
+          ]
+        },
+        {
+          "source_label": "Fe2",
+          "element": "Fe",
+          "wyckoff": "4c",
+          "x": 0.0354,
+          "y": 0.25,
+          "z": 0.8471,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.8471(5)",
+            "0.0354(5)",
+            "0.25",
+            "0.0099(8)"
+          ]
+        },
+        {
+          "source_label": "C",
+          "element": "C",
+          "wyckoff": "4c",
+          "x": 0.867,
+          "y": 0.25,
+          "z": 0.438,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.438(4)",
+            "0.867(4)",
+            "0.25",
+            "0.021(4)"
+          ]
+        }
+      ]
+    },
+    {
+      "source_row": 10,
+      "pressure_gpa": 22.6,
+      "temperature_k": 293.0,
+      "lattice": {
+        "a": 4.928,
+        "b": 6.502,
+        "c": 4.3558,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 90.0
+      },
+      "reported_volume_a3": 139.58,
+      "atom_sites": [
+        {
+          "source_label": "Fe1",
+          "element": "Fe",
+          "wyckoff": "8d",
+          "x": 0.1841,
+          "y": 0.0649,
+          "z": 0.3404,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.3404(4)",
+            "0.1841(4)",
+            "0.0649(5)",
+            "0.010(1)"
+          ]
+        },
+        {
+          "source_label": "Fe2",
+          "element": "Fe",
+          "wyckoff": "4c",
+          "x": 0.0352,
+          "y": 0.25,
+          "z": 0.8476,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.8476(5)",
+            "0.0352(6)",
+            "0.25",
+            "0.010(1)"
+          ]
+        },
+        {
+          "source_label": "C",
+          "element": "C",
+          "wyckoff": "4c",
+          "x": 0.866,
+          "y": 0.25,
+          "z": 0.438,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.438(5)",
+            "0.866(5)",
+            "0.25",
+            "0.029(6)"
+          ]
+        }
+      ]
+    },
+    {
+      "source_row": 11,
+      "pressure_gpa": 25.3,
+      "temperature_k": 293.0,
+      "lattice": {
+        "a": 4.912,
+        "b": 6.481,
+        "c": 4.3408,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 90.0
+      },
+      "reported_volume_a3": 138.2,
+      "atom_sites": [
+        {
+          "source_label": "Fe1",
+          "element": "Fe",
+          "wyckoff": "8d",
+          "x": 0.1844,
+          "y": 0.0647,
+          "z": 0.3409,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.3409(4)",
+            "0.1844(3)",
+            "0.0647(4)",
+            "0.0096(7)"
+          ]
+        },
+        {
+          "source_label": "Fe2",
+          "element": "Fe",
+          "wyckoff": "4c",
+          "x": 0.0346,
+          "y": 0.25,
+          "z": 0.8484,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.8484(5)",
+            "0.0346(5)",
+            "0.25",
+            "0.0102(8)"
+          ]
+        },
+        {
+          "source_label": "C",
+          "element": "C",
+          "wyckoff": "4c",
+          "x": 0.872,
+          "y": 0.25,
+          "z": 0.439,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.439(4)",
+            "0.872(4)",
+            "0.25",
+            "0.018(4)"
+          ]
+        }
+      ]
+    },
+    {
+      "source_row": 12,
+      "pressure_gpa": 27.5,
+      "temperature_k": 293.0,
+      "lattice": {
+        "a": 4.902,
+        "b": 6.465,
+        "c": 4.3305,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 90.0
+      },
+      "reported_volume_a3": 137.26,
+      "atom_sites": [
+        {
+          "source_label": "Fe1",
+          "element": "Fe",
+          "wyckoff": "8d",
+          "x": 0.1846,
+          "y": 0.0649,
+          "z": 0.3413,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.3413(4)",
+            "0.1846(4)",
+            "0.0649(4)",
+            "0.011(1)"
+          ]
+        },
+        {
+          "source_label": "Fe2",
+          "element": "Fe",
+          "wyckoff": "4c",
+          "x": 0.0345,
+          "y": 0.25,
+          "z": 0.8487,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.8487(5)",
+            "0.0345(6)",
+            "0.25",
+            "0.012(1)"
+          ]
+        },
+        {
+          "source_label": "C",
+          "element": "C",
+          "wyckoff": "4c",
+          "x": 0.866,
+          "y": 0.25,
+          "z": 0.443,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.443(4)",
+            "0.866(4)",
+            "0.25",
+            "0.023(4)"
+          ]
+        }
+      ]
+    },
+    {
+      "source_row": 13,
+      "pressure_gpa": 29.7,
+      "temperature_k": 293.0,
+      "lattice": {
+        "a": 4.892,
+        "b": 6.452,
+        "c": 4.3201,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 90.0
+      },
+      "reported_volume_a3": 136.37,
+      "atom_sites": [
+        {
+          "source_label": "Fe1",
+          "element": "Fe",
+          "wyckoff": "8d",
+          "x": 0.1848,
+          "y": 0.0643,
+          "z": 0.3411,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.3411(4)",
+            "0.1848(4)",
+            "0.0643(4)",
+            "0.0106(9)"
+          ]
+        },
+        {
+          "source_label": "Fe2",
+          "element": "Fe",
+          "wyckoff": "4c",
+          "x": 0.034,
+          "y": 0.25,
+          "z": 0.8492,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.8492(5)",
+            "0.0340(5)",
+            "0.25",
+            "0.012(1)"
+          ]
+        },
+        {
+          "source_label": "C",
+          "element": "C",
+          "wyckoff": "4c",
+          "x": 0.87,
+          "y": 0.25,
+          "z": 0.444,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.444(4)",
+            "0.870(4)",
+            "0.25",
+            "0.020(4)"
+          ]
+        }
+      ]
+    },
+    {
+      "source_row": 14,
+      "pressure_gpa": 32.1,
+      "temperature_k": 293.0,
+      "lattice": {
+        "a": 4.877,
+        "b": 6.444,
+        "c": 4.3002,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 90.0
+      },
+      "reported_volume_a3": 135.14,
+      "atom_sites": [
+        {
+          "source_label": "Fe1",
+          "element": "Fe",
+          "wyckoff": "8d",
+          "x": 0.1846,
+          "y": 0.0639,
+          "z": 0.3416,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.3416(4)",
+            "0.1846(3)",
+            "0.0639(4)",
+            "0.0081(7)"
+          ]
+        },
+        {
+          "source_label": "Fe2",
+          "element": "Fe",
+          "wyckoff": "4c",
+          "x": 0.0344,
+          "y": 0.25,
+          "z": 0.8481,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.8481(4)",
+            "0.0344(5)",
+            "0.25",
+            "0.0101(8)"
+          ]
+        },
+        {
+          "source_label": "C",
+          "element": "C",
+          "wyckoff": "4c",
+          "x": 0.869,
+          "y": 0.25,
+          "z": 0.438,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.438(4)",
+            "0.869(4)",
+            "0.25",
+            "0.030(4)"
+          ]
+        }
+      ]
+    },
+    {
+      "source_row": 15,
+      "pressure_gpa": 34.7,
+      "temperature_k": 293.0,
+      "lattice": {
+        "a": 4.865,
+        "b": 6.433,
+        "c": 4.289,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 90.0
+      },
+      "reported_volume_a3": 134.24,
+      "atom_sites": [
+        {
+          "source_label": "Fe1",
+          "element": "Fe",
+          "wyckoff": "8d",
+          "x": 0.1847,
+          "y": 0.0637,
+          "z": 0.3426,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.3426(4)",
+            "0.1847(4)",
+            "0.0637(5)",
+            "0.0099(7)"
+          ]
+        },
+        {
+          "source_label": "Fe2",
+          "element": "Fe",
+          "wyckoff": "4c",
+          "x": 0.0345,
+          "y": 0.25,
+          "z": 0.8489,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.8489(6)",
+            "0.0345(5)",
+            "0.25",
+            "0.0107(7)"
+          ]
+        },
+        {
+          "source_label": "C",
+          "element": "C",
+          "wyckoff": "4c",
+          "x": 0.88,
+          "y": 0.25,
+          "z": 0.428,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.428(6)",
+            "0.880(7)",
+            "0.25",
+            "0.034(6)"
+          ]
+        }
+      ]
+    },
+    {
+      "source_row": 16,
+      "pressure_gpa": 37.0,
+      "temperature_k": 293.0,
+      "lattice": {
+        "a": 4.855,
+        "b": 6.415,
+        "c": 4.2783,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 90.0
+      },
+      "reported_volume_a3": 133.25,
+      "atom_sites": [
+        {
+          "source_label": "Fe1",
+          "element": "Fe",
+          "wyckoff": "8d",
+          "x": 0.1851,
+          "y": 0.0637,
+          "z": 0.3427,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.3427(5)",
+            "0.1851(4)",
+            "0.0637(6)",
+            "0.0107(9)"
+          ]
+        },
+        {
+          "source_label": "Fe2",
+          "element": "Fe",
+          "wyckoff": "4c",
+          "x": 0.0345,
+          "y": 0.25,
+          "z": 0.8496,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.8496(6)",
+            "0.0345(7)",
+            "0.25",
+            "0.011(1)"
+          ]
+        },
+        {
+          "source_label": "C",
+          "element": "C",
+          "wyckoff": "4c",
+          "x": 0.87,
+          "y": 0.25,
+          "z": 0.43,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.430(7)",
+            "0.870(8)",
+            "0.25",
+            "0.041(7)"
+          ]
+        }
+      ]
+    },
+    {
+      "source_row": 17,
+      "pressure_gpa": 39.6,
+      "temperature_k": 293.0,
+      "lattice": {
+        "a": 4.849,
+        "b": 6.4,
+        "c": 4.2632,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 90.0
+      },
+      "reported_volume_a3": 132.31,
+      "atom_sites": [
+        {
+          "source_label": "Fe1",
+          "element": "Fe",
+          "wyckoff": "8d",
+          "x": 0.185,
+          "y": 0.0635,
+          "z": 0.342,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.3420(4)",
+            "0.1850(4)",
+            "0.0635(5)",
+            "0.0086(7)"
+          ]
+        },
+        {
+          "source_label": "Fe2",
+          "element": "Fe",
+          "wyckoff": "4c",
+          "x": 0.0336,
+          "y": 0.25,
+          "z": 0.8498,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.8498(6)",
+            "0.0336(5)",
+            "0.25",
+            "0.0095(7)"
+          ]
+        },
+        {
+          "source_label": "C",
+          "element": "C",
+          "wyckoff": "4c",
+          "x": 0.873,
+          "y": 0.25,
+          "z": 0.438,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.438(6)",
+            "0.873(6)",
+            "0.25",
+            "0.032(6)"
+          ]
+        }
+      ]
+    },
+    {
+      "source_row": 18,
+      "pressure_gpa": 41.9,
+      "temperature_k": 293.0,
+      "lattice": {
+        "a": 4.838,
+        "b": 6.388,
+        "c": 4.2528,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 90.0
+      },
+      "reported_volume_a3": 131.45,
+      "atom_sites": [
+        {
+          "source_label": "Fe1",
+          "element": "Fe",
+          "wyckoff": "8d",
+          "x": 0.1849,
+          "y": 0.0632,
+          "z": 0.3426,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.3426(4)",
+            "0.1849(4)",
+            "0.0632(5)",
+            "0.0090(7)"
+          ]
+        },
+        {
+          "source_label": "Fe2",
+          "element": "Fe",
+          "wyckoff": "4c",
+          "x": 0.0333,
+          "y": 0.25,
+          "z": 0.8507,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.8507(6)",
+            "0.0333(5)",
+            "0.25",
+            "0.0097(7)"
+          ]
+        },
+        {
+          "source_label": "C",
+          "element": "C",
+          "wyckoff": "4c",
+          "x": 0.873,
+          "y": 0.25,
+          "z": 0.434,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.434(6)",
+            "0.873(6)",
+            "0.25",
+            "0.031(6)"
+          ]
+        }
+      ]
+    },
+    {
+      "source_row": 19,
+      "pressure_gpa": 47.4,
+      "temperature_k": 293.0,
+      "lattice": {
+        "a": 4.82,
+        "b": 6.357,
+        "c": 4.226,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 90.0
+      },
+      "reported_volume_a3": 129.5,
+      "atom_sites": [
+        {
+          "source_label": "Fe1",
+          "element": "Fe",
+          "wyckoff": "8d",
+          "x": 0.1857,
+          "y": 0.0629,
+          "z": 0.3428,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.3428(5)",
+            "0.1857(5)",
+            "0.0629(6)",
+            "0.0107(9)"
+          ]
+        },
+        {
+          "source_label": "Fe2",
+          "element": "Fe",
+          "wyckoff": "4c",
+          "x": 0.0328,
+          "y": 0.25,
+          "z": 0.8509,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.8509(7)",
+            "0.0328(7)",
+            "0.25",
+            "0.011(1)"
+          ]
+        },
+        {
+          "source_label": "C",
+          "element": "C",
+          "wyckoff": "4c",
+          "x": 0.871,
+          "y": 0.25,
+          "z": 0.435,
+          "occupancy": 1.0,
+          "source_xyzu_tokens": [
+            "0.435(8)",
+            "0.871(8)",
+            "0.25",
+            "0.042(8)"
+          ]
+        }
+      ]
+    }
+  ]
+}

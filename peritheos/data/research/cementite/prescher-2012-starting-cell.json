@@ -1,0 +1,74 @@
+{
+  "format": "peritheos.prescher-2012-archived-starting-cell",
+  "date": "2026-10-30",
+  "source_root": "/Volumes/personal_folder/Projects/Iron Carbides/Fe3C",
+  "source_file": "ESRF single crystal/Fe3C starting/Fe3C_S1_data_crystal.ini",
+  "source_sha256": "7cfa02b5242b11e7394b21a01708c7dd0028affe5a1e1fd8d476c0c35a9abfc9",
+  "source_kind": "archived_data_reduction_starting_cell_not_confirmed_EOS_fit_reference",
+  "software": "CrysAlis",
+  "source_section": "Mother of all lattices",
+  "modification_time_recorded": "Mon Feb 14 17:16:15 2011",
+  "source_lines": {
+    "6": "constants plus vol=4.5177842  5.0858456 6.7553513 90.0000000 90.0000000 90.0000000 155.2160381",
+    "7": "error on constants plus vol=0.0001974  0.0010359 0.0004058 0.0000000 0.0000000 0.0000000 0.1388118",
+    "8": "number of reflections=0"
+  },
+  "cell": {
+    "a_angstrom": 4.5177842,
+    "b_angstrom": 5.0858456,
+    "c_angstrom": 6.7553513,
+    "alpha_degree": 90.0,
+    "beta_degree": 90.0,
+    "gamma_degree": 90.0,
+    "volume_a3": 155.2160381
+  },
+  "stored_cell_errors": {
+    "a_angstrom": 0.0001974,
+    "b_angstrom": 0.0010359,
+    "c_angstrom": 0.0004058,
+    "alpha_degree": 0.0,
+    "beta_degree": 0.0,
+    "gamma_degree": 0.0,
+    "volume_a3": 0.1388118,
+    "convention": "Source field says error on constants plus vol; confidence, covariance and uncertainty propagation are not recovered. Reported zeros are retained, not interpreted as experimental exactness."
+  },
+  "axes_product_a3": 155.2160375411755,
+  "pressure_gpa": null,
+  "temperature_k": null,
+  "source_number_of_reflections": 0,
+  "interpretation": [
+    "A genuine stored starting-cell entry, with volume and error digits preserved. The source field reports zero reflections; that field does not establish an independent final refinement or absence of measured raw frames.",
+    "Folder name suggests the starting/ambient sample, but pressure and temperature are not explicitly stated in this INI file.",
+    "The CrysAlis P4P export in the same folder stores volume 155.2160 A3 and different raw unconstrained axes. The INI orthogonalized axes are preserved as stored.",
+    "The May reprocessing folder contains an earlier cell near 155.1117 A3 and a later exported cell near 163.3820 A3. They are processing alternatives, not independently established ambient observations.",
+    "No final BM3 source V0, fixed/shared/refined constraint, starting optimizer vector or source coefficient covariance was recovered. The adopted catalog V0 remains unchanged."
+  ],
+  "first_raw_frame_comparison": [
+    {
+      "file": "ESRF single crystal/Fe3C starting/Fe3C_S1_data_001.mar2560",
+      "bytes": 4220197,
+      "sha256": "5c69c4ba0c0a3f57e16821f923ea6ca9d5de076b632dbe0863d253ef5d3ba49e"
+    },
+    {
+      "file": "ESRF single crystal/Fe3C_S1_data/Fe3C_S1_data_001.mar2560",
+      "bytes": 4220197,
+      "sha256": "5c69c4ba0c0a3f57e16821f923ea6ca9d5de076b632dbe0863d253ef5d3ba49e"
+    }
+  ],
+  "same_first_raw_frame": true,
+  "comparison": {
+    "digitized_figure_ambient_a3": 155.0871198396942,
+    "adopted_full_curve_V0_a3": 154.5678863704812,
+    "starting_minus_digitized_ambient_a3": 0.12891826030579523,
+    "starting_minus_adopted_V0_a3": 0.6481517295187871
+  },
+  "search_scope": {
+    "additional_refinement_configuration_files": 576,
+    "related_sources": [
+      "Projects/EOS Database/JCPDS Fe3C cards (older or different parameterizations)",
+      "Projects/Promotion/Doctoral Thesis/Thesis gesamt FINAL_Tomoo.pdf",
+      "Two thesis DOCX versions and original Fe3C presentation inspected for embedded charts/workbooks; none found"
+    ]
+  },
+  "catalog_action": "No coefficients, adopted V0, errors, comparison classifications or Studio assets changed."
+}

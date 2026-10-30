@@ -1,0 +1,330 @@
+{
+  "format": "peritheos.prescher-2012-coordinate-error-fits",
+  "date": "2026-10-30",
+  "numpy_version": "2.0.2",
+  "scipy_version": "1.13.1",
+  "input_sha256": {
+    "peritheos/data/datasets/cementite-prescher-2012-table-s1.csv": "eb0b6ffb6fc0e12bd72e51da27a3b0f71d917aadb59f00651331c58629447843"
+  },
+  "protocol": {
+    "equation": "BM3, GPa and conventional-cell A^3; V0, K0, K0_prime all free",
+    "objective": "Sum of squared normalized pressure and volume corrections, using latent table volumes; plus ((V0-155.08)/0.19)^2 for the ambient point when included",
+    "ambient_pressure": "Ambient observation omitted; no pressure coordinate is fixed. V0 remains free.",
+    "input_errors": "Table S1 pressure and volume errors, conditionally treated as independent absolute one-sigma widths. Ambient volume error 0.19 A^3 is additionally used only when the ambient point is included. Actual source confidence and coordinate/calibration covariance are unknown; pressure widths derive from before/after ruby differences.",
+    "primary_errors": "Square roots of the coefficient block of the full inverse normal matrix, including latent-volume nuisance parameters; no residual-variance scaling",
+    "secondary_errors": "Same covariance multiplied by weighted SSE/(N-3), retained separately",
+    "full_fit_rows": "All 19 final Table S1 rows, P=1.8-47.4 GPa, with no ambient point",
+    "verification": "ODRPACK independently fits inverse V(P), fixing only the ambient pressure coordinate when included; parameters, covariance and objective agree with direct P(V) latent-volume least squares"
+  },
+  "cases": [
+    {
+      "selection": "full_without_ambient",
+      "role": "primary",
+      "table_row_indices_1based": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "pressure_gpa": [
+        1.8,
+        4.7,
+        6.7,
+        9.1,
+        11.4,
+        13.4,
+        16.2,
+        18.4,
+        20.7,
+        22.6,
+        25.3,
+        27.5,
+        29.7,
+        32.1,
+        34.7,
+        37.0,
+        39.6,
+        41.9,
+        47.4
+      ],
+      "volume_a3": [
+        152.98,
+        150.65,
+        148.56,
+        146.85,
+        145.36,
+        144.1,
+        142.5,
+        141.56,
+        140.34,
+        139.58,
+        138.2,
+        137.26,
+        136.37,
+        135.14,
+        134.24,
+        133.25,
+        132.31,
+        131.45,
+        129.5
+      ],
+      "pressure_error_gpa": [
+        0.1,
+        0.1,
+        0.2,
+        0.1,
+        0.1,
+        0.2,
+        0.1,
+        0.2,
+        0.2,
+        0.1,
+        0.1,
+        0.2,
+        0.1,
+        0.2,
+        0.2,
+        0.1,
+        0.2,
+        0.1,
+        0.2
+      ],
+      "volume_error_a3": [
+        0.07,
+        0.08,
+        0.06,
+        0.07,
+        0.08,
+        0.08,
+        0.07,
+        0.09,
+        0.09,
+        0.11,
+        0.08,
+        0.09,
+        0.09,
+        0.04,
+        0.06,
+        0.07,
+        0.05,
+        0.05,
+        0.05
+      ],
+      "ambient_added": false,
+      "parameters": {
+        "V0": 154.48775033149934,
+        "K0": 160.5354954166765,
+        "K0_prime": 6.031740200002456
+      },
+      "absolute_errors_V0_K0_K0prime": [
+        0.1167829596787809,
+        3.4698458438834536,
+        0.22886645928603402
+      ],
+      "absolute_covariance": [
+        [
+          0.013638259671335766,
+          -0.36893451853508097,
+          0.021195181736228128
+        ],
+        [
+          -0.3689345185350818,
+          12.039830180315276,
+          -0.7687948233122541
+        ],
+        [
+          0.021195181736228218,
+          -0.7687948233122553,
+          0.05237985618612587
+        ]
+      ],
+      "residual_scaled_errors_V0_K0_K0prime": [
+        0.21343606387002295,
+        6.341595051121191,
+        0.4182832525930199
+      ],
+      "residual_scaled_covariance": [
+        [
+          0.04555495336032853,
+          -1.2323269383266389,
+          0.07079682736111091
+        ],
+        [
+          -1.2323269383266415,
+          40.21582779240478,
+          -2.567953181978208
+        ],
+        [
+          0.07079682736111122,
+          -2.567953181978212,
+          0.1749608793997961
+        ]
+      ],
+      "correlation": [
+        [
+          1.0000000000000002,
+          -0.9104574054350028,
+          0.7930042526787912
+        ],
+        [
+          -0.9104574054350048,
+          1.0,
+          -0.9680953159673205
+        ],
+        [
+          0.7930042526787945,
+          -0.9680953159673219,
+          1.0
+        ]
+      ],
+      "observations": 19,
+      "degrees_of_freedom": 16,
+      "weighted_sum_squares": 53.44371432501609,
+      "reduced_chi_square": 3.3402321453135055,
+      "latent_table_volumes_a3": [
+        152.91942436260146,
+        150.51227683998934,
+        148.5983309036076,
+        146.98303250763698,
+        145.4930224990901,
+        144.1688922902096,
+        142.61170276649833,
+        141.52428266315266,
+        140.31109103847888,
+        139.37093216077199,
+        138.08972484460412,
+        137.1602788850614,
+        136.16323387637607,
+        135.1378237782567,
+        134.18922891421832,
+        133.24010798568457,
+        132.3051999067846,
+        131.48036048713777,
+        129.57348988930352
+      ],
+      "normalized_residuals": [
+        -1.107865341103964,
+        -1.7295900840939105,
+        1.5702025599730973,
+        1.8617463996324446,
+        1.3331302612754392,
+        1.301286090284588,
+        1.2850612655154947,
+        -0.473506924262459,
+        -0.3629738682350947,
+        -0.8423656489994968,
+        -0.7931286686887162,
+        -1.0870788264281828,
+        -1.0776332342366501,
+        -0.10966334807140043,
+        -1.0895342907472028,
+        -0.07471339132898436,
+        -0.136242613994213,
+        0.4150872735518618,
+        1.843024954620347,
+        -0.8653662485504094,
+        -1.7215395001333178,
+        0.6388483934600231,
+        1.900464394814045,
+        1.6627812386261098,
+        0.8611536276202258,
+        1.5957538071189348,
+        -0.39685929830379035,
+        -0.32121068356805915,
+        -1.9006167202547886,
+        -1.3784394424483537,
+        -1.1080123882067028,
+        -2.2974013735992886,
+        -0.054405543582447535,
+        -0.846184763028172,
+        -0.14131449022037096,
+        -0.09600186430816393,
+        0.6072097427556855,
+        1.4697977860703304
+      ],
+      "success": true,
+      "termination": "`ftol` termination condition is satisfied.",
+      "published_K0_K0prime_errorK0_errorK0prime": [
+        161,
+        5.9,
+        2,
+        0.2
+      ],
+      "comparisons": {
+        "absolute": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            160.5354954166765,
+            6.031740200002456,
+            3.4698458438834536,
+            0.22886645928603402
+          ],
+          "matches_printed_digits": [
+            true,
+            false,
+            false,
+            true
+          ]
+        },
+        "residual_scaled": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            160.5354954166765,
+            6.031740200002456,
+            6.341595051121191,
+            0.4182832525930199
+          ],
+          "matches_printed_digits": [
+            true,
+            false,
+            false,
+            false
+          ]
+        }
+      },
+      "independent_ODRPACK_check": {
+        "parameters_V0_K0_K0prime": [
+          154.4877481801239,
+          160.53558765507051,
+          6.031733518904687
+        ],
+        "absolute_covariance": [
+          [
+            0.01363801643067588,
+            -0.36892957236097035,
+            0.021194912054405962
+          ],
+          [
+            -0.36892957236097035,
+            12.03976135316665,
+            -0.7687916303378185
+          ],
+          [
+            0.021194912054405962,
+            -0.7687916303378185,
+            0.052379712002319216
+          ]
+        ],
+        "weighted_sum_squares": 53.44371432674812,
+        "stop_reason": [
+          "Sum of squares convergence"
+        ]
+      }
+    }
+  ],
+  "author_workflow_reproduced": false,
+  "catalog_action": "No catalog, previous diagnostic or Studio values changed."
+}

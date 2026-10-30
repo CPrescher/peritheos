@@ -1,0 +1,3996 @@
+{
+  "format": "peritheos.prescher-2012-starting-volume-split-check",
+  "date": "2026-10-30",
+  "numpy_version": "2.0.2",
+  "scipy_version": "1.13.1",
+  "purpose": "Requested diagnostic of the recovered starting-cell volume; no catalog or Studio changes",
+  "input_sha256": {
+    "peritheos/data/datasets/cementite-prescher-2012-table-s1.csv": "eb0b6ffb6fc0e12bd72e51da27a3b0f71d917aadb59f00651331c58629447843",
+    "peritheos/data/research/cementite/prescher-2012-own-shelx-cells.json": "7ed0aea53599ba97ff5cf39ccc6bb85d58a008120def326d280f06e19036a7d0",
+    "peritheos/data/research/cementite/prescher-2012-starting-cell.json": "69ca826221a0b6edac5e984614efebdb7600c5aa3c8f18b634cbc0b4125b8e56",
+    "docs/data/prescher-2012-fe3c-recovery.json": "53bc249e822404e041d81337d0bb971d63ff1a1fe4a6d7545f07f54fdf38da39"
+  },
+  "archived_starting_volume_a3": 155.2160381,
+  "stored_volume_error_a3_unknown_convention": 0.1388118,
+  "previous_adopted_volume_a3": 154.5678863704812,
+  "requested_fixed_volume_a3": 155.08,
+  "targets_K0_K0prime_errorK0_errorK0prime": {
+    "low": [
+      145,
+      8.5,
+      3,
+      0.7
+    ],
+    "high": [
+      172,
+      5.1,
+      1,
+      0.1
+    ]
+  },
+  "qualifications": [
+    "Only V0 is changed in each fixed-V0 comparison; observations, row selection and pressure weights are preserved.",
+    "Absolute pressure sigmas 0.2 GPa (low) and 0.1 GPa (high) are the previous conditional assumptions, not recovered author settings. Volume errors are omitted.",
+    "Absolute conditional one-sigma errors and residual-scaled errors are both retained. Source error confidence is unknown.",
+    "The archived V0 error is not propagated as an established Gaussian standard deviation. Plus/minus that stored width is a sensitivity check only; fixed-V0 errors condition on exact V0.",
+    "Using the recovered volume solely as an optimizer starting value is a separate free-V0 check, with three fitted EOS parameters.",
+    "Pressure/temperature and the original EOS role of the starting-cell entry remain unconfirmed; no ambient-pressure observation is invented or added.",
+    "Printed agreement uses the same half-up intervals as the earlier split recovery, separately for central coefficients and errors."
+  ],
+  "cases": [
+    {
+      "selection": "low_previous_protocol",
+      "side": "low",
+      "selection_description": "Final Table S1 rows 1-10; includes 22.6 GPa, as in previous conditional replay",
+      "table_row_indices_1based": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "pressure_gpa": [
+        1.8,
+        4.7,
+        6.7,
+        9.1,
+        11.4,
+        13.4,
+        16.2,
+        18.4,
+        20.7,
+        22.6
+      ],
+      "volume_a3": [
+        152.98,
+        150.65,
+        148.56,
+        146.85,
+        145.36,
+        144.1,
+        142.5,
+        141.56,
+        140.34,
+        139.58
+      ],
+      "V0_basis": "previous_drawn_curve_fixed",
+      "initial_V0_a3": 155.2160381,
+      "assumed_absolute_pressure_sigma_gpa": 0.2,
+      "verification": "Independent weighted linear BM3 solution and transformed covariance agree",
+      "parameters": {
+        "V0": 154.5678863704812,
+        "K0": 144.76159487607103,
+        "K0_prime": 8.494393996090439
+      },
+      "fixed_parameters": {
+        "V0": 154.5678863704812
+      },
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "residual_scaled_errors": [
+        4.7494036474753285,
+        0.8814077608331139
+      ],
+      "residual_scaled_covariance": [
+        [
+          22.556835006651955,
+          -4.120607605912655
+        ],
+        [
+          -4.120607605912655,
+          0.7768796408568437
+        ]
+      ],
+      "unscaled_inverse_normal_matrix": [
+        [
+          13.47250519049316,
+          -2.461112445175603
+        ],
+        [
+          -2.461112445175603,
+          0.4640063639577866
+        ]
+      ],
+      "conditional_95pct_half_widths": [
+        10.952144450831856,
+        2.032529941282205
+      ],
+      "correlation": [
+        [
+          1.0,
+          -0.98434039573884
+        ],
+        [
+          -0.98434039573884,
+          1.0
+        ]
+      ],
+      "objective": "pressure_widths",
+      "observations": 10,
+      "degrees_of_freedom": 8,
+      "sum_squared_objective_residuals": 13.394292858061249,
+      "pressure_rmse_gpa": 0.23146743060794756,
+      "volume_rmse_a3": 0.17824507943276016,
+      "pressure_residuals_gpa": [
+        -0.23843306877704573,
+        -0.5598234428222915,
+        0.07360971650845372,
+        0.07717037973428909,
+        0.07056565383582125,
+        0.16553494263394697,
+        0.24649636054421364,
+        -0.13837289014815113,
+        0.06136174856410648,
+        -0.1951700172141635
+      ],
+      "volume_residuals_a3": [
+        -0.2295565101350121,
+        -0.4660859931152572,
+        0.05510820945426076,
+        0.052388032402291174,
+        0.04402834348036322,
+        0.09639647418993036,
+        0.13148905739595307,
+        -0.06970615627759003,
+        0.028994308734638707,
+        -0.0882017730282314
+      ],
+      "success": true,
+      "comparisons": {
+        "residual_scaled_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            144.76159487607103,
+            8.494393996090439,
+            4.7494036474753285,
+            0.8814077608331139
+          ],
+          "matches_printed_digits": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            144.76159487607103,
+            8.494393996090439,
+            9.498807294950657,
+            1.7628155216662278
+          ],
+          "matches_printed_digits": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            144.76159487607103,
+            8.494393996090439,
+            10.952144450831856,
+            2.032529941282205
+          ],
+          "matches_printed_digits": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            144.76159487607103,
+            8.494393996090439,
+            3.670491137503694,
+            0.6811801259268995
+          ],
+          "matches_printed_digits": [
+            true,
+            true,
+            false,
+            true
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            144.76159487607103,
+            8.494393996090439,
+            7.340982275007388,
+            1.362360251853799
+          ],
+          "matches_printed_digits": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            144.76159487607103,
+            8.494393996090439,
+            8.46416774131376,
+            1.5708041872063245
+          ],
+          "matches_printed_digits": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "all_four_match": false
+        }
+      }
+    },
+    {
+      "selection": "low_previous_protocol",
+      "side": "low",
+      "selection_description": "Final Table S1 rows 1-10; includes 22.6 GPa, as in previous conditional replay",
+      "table_row_indices_1based": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "pressure_gpa": [
+        1.8,
+        4.7,
+        6.7,
+        9.1,
+        11.4,
+        13.4,
+        16.2,
+        18.4,
+        20.7,
+        22.6
+      ],
+      "volume_a3": [
+        152.98,
+        150.65,
+        148.56,
+        146.85,
+        145.36,
+        144.1,
+        142.5,
+        141.56,
+        140.34,
+        139.58
+      ],
+      "V0_basis": "archived_starting_cell_fixed",
+      "initial_V0_a3": 155.2160381,
+      "assumed_absolute_pressure_sigma_gpa": 0.2,
+      "verification": "Independent weighted linear BM3 solution and transformed covariance agree",
+      "parameters": {
+        "V0": 155.2160381,
+        "K0": 122.5022588336304,
+        "K0_prime": 11.240161639003858
+      },
+      "fixed_parameters": {
+        "V0": 155.2160381
+      },
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "residual_scaled_errors": [
+        3.1941730071139323,
+        0.74717578855871
+      ],
+      "residual_scaled_covariance": [
+        [
+          10.20274119937526,
+          -2.3567918577880187
+        ],
+        [
+          -2.3567918577880187,
+          0.5582716590083302
+        ]
+      ],
+      "unscaled_inverse_normal_matrix": [
+        [
+          12.072014060802333,
+          -2.788586311230118
+        ],
+        [
+          -2.788586311230118,
+          0.660554177117487
+        ]
+      ],
+      "conditional_95pct_half_widths": [
+        7.365776162962253,
+        1.7229904581408189
+      ],
+      "correlation": [
+        [
+          1.0,
+          -0.9875065916112592
+        ],
+        [
+          -0.9875065916112592,
+          1.0
+        ]
+      ],
+      "objective": "pressure_widths",
+      "observations": 10,
+      "degrees_of_freedom": 8,
+      "sum_squared_objective_residuals": 6.761252031674433,
+      "pressure_rmse_gpa": 0.16445366559215924,
+      "volume_rmse_a3": 0.13045193196916238,
+      "pressure_residuals_gpa": [
+        0.12654478505884237,
+        -0.39318396644649667,
+        0.1049507157207028,
+        0.032654288242424556,
+        -0.011031592055188,
+        0.07599721053856179,
+        0.18108467291184027,
+        -0.17014168114200245,
+        0.09665146603234831,
+        -0.1038425902765816
+      ],
+      "volume_residuals_a3": [
+        0.13576961804895404,
+        -0.3498959628213072,
+        0.08197608978619542,
+        0.0226791907440429,
+        -0.006938280077122272,
+        0.044128637171922946,
+        0.0951278611711075,
+        -0.08379289130928669,
+        0.0443078199345166,
+        -0.04530837351123296
+      ],
+      "success": true,
+      "comparisons": {
+        "residual_scaled_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            122.5022588336304,
+            11.240161639003858,
+            3.1941730071139323,
+            0.74717578855871
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            true,
+            true
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            122.5022588336304,
+            11.240161639003858,
+            6.3883460142278645,
+            1.49435157711742
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            122.5022588336304,
+            11.240161639003858,
+            7.365776162962253,
+            1.7229904581408189
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            122.5022588336304,
+            11.240161639003858,
+            3.4744804015568045,
+            0.8127448413355123
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            122.5022588336304,
+            11.240161639003858,
+            6.948960803113609,
+            1.6254896826710246
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            122.5022588336304,
+            11.240161639003858,
+            8.012166173675821,
+            1.8741929649855449
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        }
+      }
+    },
+    {
+      "selection": "low_previous_protocol",
+      "side": "low",
+      "selection_description": "Final Table S1 rows 1-10; includes 22.6 GPa, as in previous conditional replay",
+      "table_row_indices_1based": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "pressure_gpa": [
+        1.8,
+        4.7,
+        6.7,
+        9.1,
+        11.4,
+        13.4,
+        16.2,
+        18.4,
+        20.7,
+        22.6
+      ],
+      "volume_a3": [
+        152.98,
+        150.65,
+        148.56,
+        146.85,
+        145.36,
+        144.1,
+        142.5,
+        141.56,
+        140.34,
+        139.58
+      ],
+      "V0_basis": "requested_ambient_volume_fixed",
+      "initial_V0_a3": 155.2160381,
+      "assumed_absolute_pressure_sigma_gpa": 0.2,
+      "verification": "Independent weighted linear BM3 solution and transformed covariance agree",
+      "parameters": {
+        "V0": 155.08,
+        "K0": 126.94620329510659,
+        "K0_prime": 10.634633228353907
+      },
+      "fixed_parameters": {
+        "V0": 155.08
+      },
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "residual_scaled_errors": [
+        3.347771371108749,
+        0.7448387357142727
+      ],
+      "residual_scaled_covariance": [
+        [
+          11.207573153215352,
+          -2.4608263320266346
+        ],
+        [
+          -2.4608263320266346,
+          0.5547847422204363
+        ]
+      ],
+      "unscaled_inverse_normal_matrix": [
+        [
+          12.34561421130869,
+          -2.7107039250076004
+        ],
+        [
+          -2.7107039250076004,
+          0.6111187769324429
+        ]
+      ],
+      "conditional_95pct_half_widths": [
+        7.719974625494895,
+        1.7176012046173557
+      ],
+      "correlation": [
+        [
+          0.9999999999999999,
+          -0.9868767555597752
+        ],
+        [
+          -0.9868767555597752,
+          1.0000000000000002
+        ]
+      ],
+      "objective": "pressure_widths",
+      "observations": 10,
+      "degrees_of_freedom": 8,
+      "sum_squared_objective_residuals": 7.262545523542516,
+      "pressure_rmse_gpa": 0.17044113967634122,
+      "volume_rmse_a3": 0.13167069330791262,
+      "pressure_residuals_gpa": [
+        0.059434526797530474,
+        -0.42276743856424126,
+        0.10081335007846715,
+        0.042621346091591406,
+        0.005634349568955699,
+        0.09381693822528625,
+        0.19378060133981378,
+        -0.1642052677263095,
+        0.0893102539195354,
+        -0.12220132366831749
+      ],
+      "volume_residuals_a3": [
+        0.06239097840841623,
+        -0.37137594826776876,
+        0.07811261621299082,
+        0.02947824946994615,
+        0.0035390861773691995,
+        0.05451791147828544,
+        0.10211475495904665,
+        -0.08123149317626144,
+        0.041183794754402925,
+        -0.05368078056977765
+      ],
+      "success": true,
+      "comparisons": {
+        "residual_scaled_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            126.94620329510659,
+            10.634633228353907,
+            3.347771371108749,
+            0.7448387357142727
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            true,
+            true
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            126.94620329510659,
+            10.634633228353907,
+            6.695542742217498,
+            1.4896774714285455
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            126.94620329510659,
+            10.634633228353907,
+            7.719974625494895,
+            1.7176012046173557
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            126.94620329510659,
+            10.634633228353907,
+            3.513632623270209,
+            0.7817408630309937
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            126.94620329510659,
+            10.634633228353907,
+            7.027265246540418,
+            1.5634817260619873
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            126.94620329510659,
+            10.634633228353907,
+            8.102451358849363,
+            1.8026976628075448
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        }
+      }
+    },
+    {
+      "selection": "low_previous_protocol",
+      "side": "low",
+      "selection_description": "Final Table S1 rows 1-10; includes 22.6 GPa, as in previous conditional replay",
+      "table_row_indices_1based": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "pressure_gpa": [
+        1.8,
+        4.7,
+        6.7,
+        9.1,
+        11.4,
+        13.4,
+        16.2,
+        18.4,
+        20.7,
+        22.6
+      ],
+      "volume_a3": [
+        152.98,
+        150.65,
+        148.56,
+        146.85,
+        145.36,
+        144.1,
+        142.5,
+        141.56,
+        140.34,
+        139.58
+      ],
+      "V0_basis": "starting_cell_minus_stored_width_fixed",
+      "initial_V0_a3": 155.2160381,
+      "assumed_absolute_pressure_sigma_gpa": 0.2,
+      "verification": "Independent weighted linear BM3 solution and transformed covariance agree",
+      "parameters": {
+        "V0": 155.07722629999998,
+        "K0": 127.03805460417432,
+        "K0_prime": 10.62245700688824
+      },
+      "fixed_parameters": {
+        "V0": 155.07722629999998
+      },
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "residual_scaled_errors": [
+        3.3518001828439363,
+        0.7449799501872162
+      ],
+      "residual_scaled_covariance": [
+        [
+          11.234564465712646,
+          -2.4642223249045396
+        ],
+        [
+          -2.4642223249045396,
+          0.5549951261809472
+        ]
+      ],
+      "unscaled_inverse_normal_matrix": [
+        [
+          12.351300327637064,
+          -2.7091704446446765
+        ],
+        [
+          -2.7091704446446765,
+          0.6101626373462513
+        ]
+      ],
+      "conditional_95pct_half_widths": [
+        7.729265082016196,
+        1.717926845775914
+      ],
+      "correlation": [
+        [
+          1.0000000000000002,
+          -0.9868637188810155
+        ],
+        [
+          -0.9868637188810155,
+          1.0
+        ]
+      ],
+      "objective": "pressure_widths",
+      "observations": 10,
+      "degrees_of_freedom": 8,
+      "sum_squared_objective_residuals": 7.27668450621308,
+      "pressure_rmse_gpa": 0.17060696944982148,
+      "volume_rmse_a3": 0.131748125451947,
+      "pressure_residuals_gpa": [
+        0.058017894781295265,
+        -0.42339738533760407,
+        0.10071761170841853,
+        0.0428225372758817,
+        0.00597757400564447,
+        0.09418611163393997,
+        0.19404518822230443,
+        -0.1640803909088362,
+        0.08915976853419494,
+        -0.12258067597360878
+      ],
+      "volume_residuals_a3": [
+        0.060876470876621624,
+        -0.37182893633141134,
+        0.07802526705756918,
+        0.029614785708673708,
+        0.003754567966467448,
+        0.05473326373487453,
+        0.1022607461822247,
+        -0.08117724600612064,
+        0.04111943744945279,
+        -0.05385503332627195
+      ],
+      "success": true,
+      "comparisons": {
+        "residual_scaled_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            127.03805460417432,
+            10.62245700688824,
+            3.3518001828439363,
+            0.7449799501872162
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            true,
+            true
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            127.03805460417432,
+            10.62245700688824,
+            6.703600365687873,
+            1.4899599003744324
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            127.03805460417432,
+            10.62245700688824,
+            7.729265082016196,
+            1.717926845775914
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            127.03805460417432,
+            10.62245700688824,
+            3.5144416807847394,
+            0.7811290785435218
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            127.03805460417432,
+            10.62245700688824,
+            7.028883361569479,
+            1.5622581570870435
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            127.03805460417432,
+            10.62245700688824,
+            8.104317048823487,
+            1.8012868852495807
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        }
+      }
+    },
+    {
+      "selection": "low_previous_protocol",
+      "side": "low",
+      "selection_description": "Final Table S1 rows 1-10; includes 22.6 GPa, as in previous conditional replay",
+      "table_row_indices_1based": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "pressure_gpa": [
+        1.8,
+        4.7,
+        6.7,
+        9.1,
+        11.4,
+        13.4,
+        16.2,
+        18.4,
+        20.7,
+        22.6
+      ],
+      "volume_a3": [
+        152.98,
+        150.65,
+        148.56,
+        146.85,
+        145.36,
+        144.1,
+        142.5,
+        141.56,
+        140.34,
+        139.58
+      ],
+      "V0_basis": "starting_cell_plus_stored_width_fixed",
+      "initial_V0_a3": 155.2160381,
+      "assumed_absolute_pressure_sigma_gpa": 0.2,
+      "verification": "Independent weighted linear BM3 solution and transformed covariance agree",
+      "parameters": {
+        "V0": 155.3548499,
+        "K0": 118.08948531588445,
+        "K0_prime": 11.875470098887766
+      },
+      "fixed_parameters": {
+        "V0": 155.3548499
+      },
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "residual_scaled_errors": [
+        3.1191266997439198,
+        0.7685279067066147
+      ],
+      "residual_scaled_covariance": [
+        [
+          9.728951369055396,
+          -2.368681520005992
+        ],
+        [
+          -2.368681520005992,
+          0.5906351433868511
+        ]
+      ],
+      "unscaled_inverse_normal_matrix": [
+        [
+          11.803224105243563,
+          -2.8736991021977114
+        ],
+        [
+          -2.8736991021977114,
+          0.7165622169724686
+        ]
+      ],
+      "conditional_95pct_half_widths": [
+        7.192719067835202,
+        1.772228530885255
+      ],
+      "correlation": [
+        [
+          1.0,
+          -0.9881298373016904
+        ],
+        [
+          -0.9881298373016904,
+          0.9999999999999998
+        ]
+      ],
+      "objective": "pressure_widths",
+      "observations": 10,
+      "degrees_of_freedom": 8,
+      "sum_squared_objective_residuals": 6.594097532882275,
+      "pressure_rmse_gpa": 0.1624080974937183,
+      "volume_rmse_a3": 0.1341355095559573,
+      "pressure_residuals_gpa": [
+        0.1904419812458753,
+        -0.3655059354861834,
+        0.10813879306685426,
+        0.022342002912736803,
+        -0.027665486512114867,
+        0.05840788187603785,
+        0.1686942087644745,
+        -0.1758293839046452,
+        0.10404628561834883,
+        -0.08562594749003694
+      ],
+      "volume_residuals_a3": [
+        0.20881347023546937,
+        -0.3294162972121626,
+        0.08512629061704047,
+        0.015578618741756145,
+        -0.017420316063123664,
+        0.033886435532480164,
+        0.08834450399223215,
+        -0.08621411911454402,
+        0.04742478751185786,
+        -0.037114878226702785
+      ],
+      "success": true,
+      "comparisons": {
+        "residual_scaled_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            118.08948531588445,
+            11.875470098887766,
+            3.1191266997439198,
+            0.7685279067066147
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            118.08948531588445,
+            11.875470098887766,
+            6.2382533994878395,
+            1.5370558134132295
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            118.08948531588445,
+            11.875470098887766,
+            7.192719067835202,
+            1.772228530885255
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            118.08948531588445,
+            11.875470098887766,
+            3.4355820620738435,
+            0.8464999804917118
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            true,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            118.08948531588445,
+            11.875470098887766,
+            6.871164124147687,
+            1.6929999609834236
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            118.08948531588445,
+            11.875470098887766,
+            7.922466441975538,
+            1.952032455464133
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        }
+      }
+    },
+    {
+      "selection": "low_previous_protocol",
+      "side": "low",
+      "selection_description": "Final Table S1 rows 1-10; includes 22.6 GPa, as in previous conditional replay",
+      "table_row_indices_1based": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "pressure_gpa": [
+        1.8,
+        4.7,
+        6.7,
+        9.1,
+        11.4,
+        13.4,
+        16.2,
+        18.4,
+        20.7,
+        22.6
+      ],
+      "volume_a3": [
+        152.98,
+        150.65,
+        148.56,
+        146.85,
+        145.36,
+        144.1,
+        142.5,
+        141.56,
+        140.34,
+        139.58
+      ],
+      "V0_basis": "free_V0_initialized_at_starting_cell",
+      "initial_V0_a3": 155.2160381,
+      "assumed_absolute_pressure_sigma_gpa": 0.2,
+      "verification": "Independent three-term pressure polynomial gives the same free-V0 optimum",
+      "parameters": {
+        "V0": 155.3614412733642,
+        "K0": 117.88297031627599,
+        "K0_prime": 11.90609092198201
+      },
+      "fixed_parameters": {},
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "residual_scaled_errors": [
+        0.35665892052208337,
+        11.65384435622821,
+        1.8511308109363647
+      ],
+      "residual_scaled_covariance": [
+        [
+          0.1272055855879778,
+          -3.9828696597122266,
+          0.5913506824918652
+        ],
+        [
+          -3.9828696597122266,
+          135.81208827919212,
+          -21.22636047314835
+        ],
+        [
+          0.5913506824918652,
+          -21.22636047314835,
+          3.426685279197923
+        ]
+      ],
+      "unscaled_inverse_normal_matrix": [
+        [
+          0.13504238808905195,
+          -4.228243813421049,
+          0.6277822470819201
+        ],
+        [
+          -4.228243813421049,
+          144.17911483846507,
+          -22.534060870703787
+        ],
+        [
+          0.6277822470819201,
+          -22.534060870703787,
+          3.63779437194951
+        ]
+      ],
+      "conditional_95pct_half_widths": [
+        0.8433643330134217,
+        27.556962989024928,
+        4.377228808410745
+      ],
+      "correlation": [
+        [
+          1.0,
+          -0.9582388839731684,
+          0.8956841770838371
+        ],
+        [
+          -0.9582388839731684,
+          1.0,
+          -0.9839413504306547
+        ],
+        [
+          0.8956841770838371,
+          -0.9839413504306547,
+          1.0
+        ]
+      ],
+      "objective": "pressure_widths",
+      "observations": 10,
+      "degrees_of_freedom": 7,
+      "sum_squared_objective_residuals": 6.593774826676317,
+      "pressure_rmse_gpa": 0.16240412342888733,
+      "volume_rmse_a3": 0.1344224931319406,
+      "pressure_residuals_gpa": [
+        0.19336610667015686,
+        -0.3642511515645772,
+        0.10826650033410434,
+        0.021850177095144474,
+        -0.028445227365418546,
+        0.05758789567835976,
+        0.16811991684663496,
+        -0.17609046033068765,
+        0.10439459570945431,
+        -0.0847743483997867
+      ],
+      "volume_residuals_a3": [
+        0.2122356824670817,
+        -0.32847866671278325,
+        0.085257414261946,
+        0.01523843331008834,
+        -0.017912216746424292,
+        0.03340931570107841,
+        0.08803096638391139,
+        -0.0863244656187021,
+        0.047570885297318455,
+        -0.036734551104046886
+      ],
+      "success": true,
+      "comparisons": {
+        "residual_scaled_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            117.88297031627599,
+            11.90609092198201,
+            11.65384435622821,
+            1.8511308109363647
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            117.88297031627599,
+            11.90609092198201,
+            23.30768871245642,
+            3.7022616218727293
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            117.88297031627599,
+            11.90609092198201,
+            27.556962989024928,
+            4.377228808410745
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            117.88297031627599,
+            11.90609092198201,
+            12.007460798956,
+            1.9073002836337831
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            117.88297031627599,
+            11.90609092198201,
+            24.014921597912,
+            3.8146005672675662
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            117.88297031627599,
+            11.90609092198201,
+            28.393133005261028,
+            4.51004850575024
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        }
+      }
+    },
+    {
+      "selection": "high_previous_protocol",
+      "side": "high",
+      "selection_description": "Archived own/SHELX p10-p19 volumes paired by run index with final Table S1 pressures; working p16 differs from final table",
+      "table_row_indices_1based": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "pressure_gpa": [
+        22.6,
+        25.3,
+        27.5,
+        29.7,
+        32.1,
+        34.7,
+        37.0,
+        39.6,
+        41.9,
+        47.4
+      ],
+      "volume_a3": [
+        139.58,
+        138.19,
+        137.26,
+        136.38,
+        135.15,
+        134.24,
+        133.58,
+        132.31,
+        131.46,
+        129.5
+      ],
+      "V0_basis": "previous_drawn_curve_fixed",
+      "initial_V0_a3": 155.2160381,
+      "assumed_absolute_pressure_sigma_gpa": 0.1,
+      "verification": "Independent weighted linear BM3 solution and transformed covariance agree",
+      "parameters": {
+        "V0": 154.5678863704812,
+        "K0": 171.7919916575721,
+        "K0_prime": 5.0535963521045115
+      },
+      "fixed_parameters": {
+        "V0": 154.5678863704812
+      },
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "residual_scaled_errors": [
+        3.398903204134306,
+        0.2745681229061266
+      ],
+      "residual_scaled_covariance": [
+        [
+          11.552542991074453,
+          -0.9237712159889079
+        ],
+        [
+          -0.9237712159889079,
+          0.07538765411619384
+        ]
+      ],
+      "unscaled_inverse_normal_matrix": [
+        [
+          1.2231893243638563,
+          -0.09780938191922353
+        ],
+        [
+          -0.09780938191922353,
+          0.007982084444525132
+        ]
+      ],
+      "conditional_95pct_half_widths": [
+        7.8378848438923985,
+        0.6331552268167735
+      ],
+      "correlation": [
+        [
+          1.0,
+          -0.9898639650262245
+        ],
+        [
+          -0.9898639650262245,
+          1.0000000000000002
+        ]
+      ],
+      "objective": "pressure_widths",
+      "observations": 10,
+      "degrees_of_freedom": 8,
+      "sum_squared_objective_residuals": 75.55685950468923,
+      "pressure_rmse_gpa": 0.27487608027016325,
+      "volume_rmse_a3": 0.11025061609701717,
+      "pressure_residuals_gpa": [
+        0.08605625460398159,
+        0.25316572609456856,
+        0.06233864021254831,
+        -0.16630494033183396,
+        0.30857254908081444,
+        -0.07088474164063285,
+        -0.7085316475751426,
+        0.018045131044317486,
+        0.04233963962806797,
+        0.21943007971022155
+      ],
+      "volume_residuals_a3": [
+        0.04293604998545675,
+        0.11967811994310296,
+        0.028340520036238104,
+        -0.07283499050006981,
+        0.12914112213977091,
+        -0.028505671564488466,
+        -0.2760349200331973,
+        0.006715500382654227,
+        0.015223509933719015,
+        0.07290660314740194
+      ],
+      "success": true,
+      "comparisons": {
+        "residual_scaled_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            171.7919916575721,
+            5.0535963521045115,
+            3.398903204134306,
+            0.2745681229061266
+          ],
+          "matches_printed_digits": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            171.7919916575721,
+            5.0535963521045115,
+            6.797806408268612,
+            0.5491362458122532
+          ],
+          "matches_printed_digits": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            171.7919916575721,
+            5.0535963521045115,
+            7.8378848438923985,
+            0.6331552268167735
+          ],
+          "matches_printed_digits": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            171.7919916575721,
+            5.0535963521045115,
+            1.105978898697374,
+            0.0893425119667291
+          ],
+          "matches_printed_digits": [
+            true,
+            true,
+            true,
+            true
+          ],
+          "all_four_match": true
+        },
+        "input_widths_as_absolute_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            171.7919916575721,
+            5.0535963521045115,
+            2.211957797394748,
+            0.1786850239334582
+          ],
+          "matches_printed_digits": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            171.7919916575721,
+            5.0535963521045115,
+            2.5503919138446935,
+            0.20602420204480498
+          ],
+          "matches_printed_digits": [
+            true,
+            true,
+            false,
+            false
+          ],
+          "all_four_match": false
+        }
+      }
+    },
+    {
+      "selection": "high_previous_protocol",
+      "side": "high",
+      "selection_description": "Archived own/SHELX p10-p19 volumes paired by run index with final Table S1 pressures; working p16 differs from final table",
+      "table_row_indices_1based": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "pressure_gpa": [
+        22.6,
+        25.3,
+        27.5,
+        29.7,
+        32.1,
+        34.7,
+        37.0,
+        39.6,
+        41.9,
+        47.4
+      ],
+      "volume_a3": [
+        139.58,
+        138.19,
+        137.26,
+        136.38,
+        135.15,
+        134.24,
+        133.58,
+        132.31,
+        131.46,
+        129.5
+      ],
+      "V0_basis": "archived_starting_cell_fixed",
+      "initial_V0_a3": 155.2160381,
+      "assumed_absolute_pressure_sigma_gpa": 0.1,
+      "verification": "Independent weighted linear BM3 solution and transformed covariance agree",
+      "parameters": {
+        "V0": 155.2160381,
+        "K0": 159.84436788750213,
+        "K0_prime": 5.507287146055558
+      },
+      "fixed_parameters": {
+        "V0": 155.2160381
+      },
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "residual_scaled_errors": [
+        3.4943262116742275,
+        0.3055580870248545
+      ],
+      "residual_scaled_covariance": [
+        [
+          12.21031567359356,
+          -1.0580851524298645
+        ],
+        [
+          -1.0580851524298645,
+          0.09336574454628856
+        ]
+      ],
+      "unscaled_inverse_normal_matrix": [
+        [
+          1.1888832381125547,
+          -0.1030227011198487
+        ],
+        [
+          -0.1030227011198487,
+          0.009090753398377371
+        ]
+      ],
+      "conditional_95pct_half_widths": [
+        8.057930693873075,
+        0.7046182122243888
+      ],
+      "correlation": [
+        [
+          1.0,
+          -0.9909765822831819
+        ],
+        [
+          -0.9909765822831819,
+          1.0000000000000002
+        ]
+      ],
+      "objective": "pressure_widths",
+      "observations": 10,
+      "degrees_of_freedom": 8,
+      "sum_squared_objective_residuals": 82.16326234343008,
+      "pressure_rmse_gpa": 0.2866413479305281,
+      "volume_rmse_a3": 0.11510713988702302,
+      "pressure_residuals_gpa": [
+        0.1329021111951718,
+        0.2700371402025503,
+        0.06334258853708974,
+        -0.17695672796719464,
+        0.28754605893418983,
+        -0.09479427702677157,
+        -0.7317974868542265,
+        0.0029595770553001444,
+        0.03819351420257533,
+        0.258959208630813
+      ],
+      "volume_residuals_a3": [
+        0.06715268787280593,
+        0.12884578465417462,
+        0.028997786089320243,
+        -0.07787159841277003,
+        0.12061211035768338,
+        -0.03812407287870201,
+        -0.28465159547923236,
+        0.0010971139706725808,
+        0.013656008455939173,
+        0.08524090712734278
+      ],
+      "success": true,
+      "comparisons": {
+        "residual_scaled_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            159.84436788750213,
+            5.507287146055558,
+            3.4943262116742275,
+            0.3055580870248545
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            159.84436788750213,
+            5.507287146055558,
+            6.988652423348455,
+            0.611116174049709
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            159.84436788750213,
+            5.507287146055558,
+            8.057930693873075,
+            0.7046182122243888
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            159.84436788750213,
+            5.507287146055558,
+            1.0903592243442317,
+            0.09534544246253919
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            true,
+            true
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            159.84436788750213,
+            5.507287146055558,
+            2.1807184486884634,
+            0.19069088492507838
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            159.84436788750213,
+            5.507287146055558,
+            2.514372880195805,
+            0.21986698459148624
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        }
+      }
+    },
+    {
+      "selection": "high_previous_protocol",
+      "side": "high",
+      "selection_description": "Archived own/SHELX p10-p19 volumes paired by run index with final Table S1 pressures; working p16 differs from final table",
+      "table_row_indices_1based": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "pressure_gpa": [
+        22.6,
+        25.3,
+        27.5,
+        29.7,
+        32.1,
+        34.7,
+        37.0,
+        39.6,
+        41.9,
+        47.4
+      ],
+      "volume_a3": [
+        139.58,
+        138.19,
+        137.26,
+        136.38,
+        135.15,
+        134.24,
+        133.58,
+        132.31,
+        131.46,
+        129.5
+      ],
+      "V0_basis": "requested_ambient_volume_fixed",
+      "initial_V0_a3": 155.2160381,
+      "assumed_absolute_pressure_sigma_gpa": 0.1,
+      "verification": "Independent weighted linear BM3 solution and transformed covariance agree",
+      "parameters": {
+        "V0": 155.08,
+        "K0": 162.27901787927374,
+        "K0_prime": 5.411841628285643
+      },
+      "fixed_parameters": {
+        "V0": 155.08
+      },
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "residual_scaled_errors": [
+        3.4743719921005383,
+        0.29876734842754316
+      ],
+      "residual_scaled_covariance": [
+        [
+          12.071260739492661,
+          -1.0284305628687394
+        ],
+        [
+          -1.0284305628687394,
+          0.08926192848642499
+        ]
+      ],
+      "unscaled_inverse_normal_matrix": [
+        [
+          1.1959186134931805,
+          -0.10188821858483738
+        ],
+        [
+          -0.10188821858483738,
+          0.008843318362262412
+        ]
+      ],
+      "conditional_95pct_half_widths": [
+        8.011916181021377,
+        0.6889587409378983
+      ],
+      "correlation": [
+        [
+          0.9999999999999999,
+          -0.9907532973384225
+        ],
+        [
+          -0.9907532973384225,
+          1.0000000000000002
+        ]
+      ],
+      "objective": "pressure_widths",
+      "observations": 10,
+      "degrees_of_freedom": 8,
+      "sum_squared_objective_residuals": 80.74971392398348,
+      "pressure_rmse_gpa": 0.28416494140548637,
+      "volume_rmse_a3": 0.11407535010192471,
+      "pressure_residuals_gpa": [
+        0.12358705830271788,
+        0.26670001945668886,
+        0.06316850386672357,
+        -0.17480883965025384,
+        0.2917573476880335,
+        -0.0900138677752409,
+        -0.727150644419801,
+        0.0059626173837870056,
+        0.039004709673697846,
+        0.2510303993470657
+      ],
+      "volume_residuals_a3": [
+        0.06228761350860168,
+        0.12701682475531584,
+        0.02887795605167298,
+        -0.07685312652114362,
+        0.12232413433656575,
+        -0.036201029201436086,
+        -0.28293402313491356,
+        0.0022120705089037074,
+        0.013961674180308137,
+        0.0827846823624725
+      ],
+      "success": true,
+      "comparisons": {
+        "residual_scaled_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            162.27901787927374,
+            5.411841628285643,
+            3.4743719921005383,
+            0.29876734842754316
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            162.27901787927374,
+            5.411841628285643,
+            6.9487439842010765,
+            0.5975346968550863
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            162.27901787927374,
+            5.411841628285643,
+            8.011916181021377,
+            0.6889587409378983
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            162.27901787927374,
+            5.411841628285643,
+            1.093580638770265,
+            0.0940389194018222
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            true,
+            true
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            162.27901787927374,
+            5.411841628285643,
+            2.18716127754053,
+            0.1880778388036444
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            162.27901787927374,
+            5.411841628285643,
+            2.521801475183444,
+            0.21685413701073325
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        }
+      }
+    },
+    {
+      "selection": "high_previous_protocol",
+      "side": "high",
+      "selection_description": "Archived own/SHELX p10-p19 volumes paired by run index with final Table S1 pressures; working p16 differs from final table",
+      "table_row_indices_1based": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "pressure_gpa": [
+        22.6,
+        25.3,
+        27.5,
+        29.7,
+        32.1,
+        34.7,
+        37.0,
+        39.6,
+        41.9,
+        47.4
+      ],
+      "volume_a3": [
+        139.58,
+        138.19,
+        137.26,
+        136.38,
+        135.15,
+        134.24,
+        133.58,
+        132.31,
+        131.46,
+        129.5
+      ],
+      "V0_basis": "starting_cell_minus_stored_width_fixed",
+      "initial_V0_a3": 155.2160381,
+      "assumed_absolute_pressure_sigma_gpa": 0.1,
+      "verification": "Independent weighted linear BM3 solution and transformed covariance agree",
+      "parameters": {
+        "V0": 155.07722629999998,
+        "K0": 162.3290509890823,
+        "K0_prime": 5.409897128171229
+      },
+      "fixed_parameters": {
+        "V0": 155.07722629999998
+      },
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "residual_scaled_errors": [
+        3.473964132833898,
+        0.298630472444502
+      ],
+      "residual_scaled_covariance": [
+        [
+          12.068426796216379,
+          -1.0278339502691702
+        ],
+        [
+          -1.0278339502691702,
+          0.08918015907242648
+        ]
+      ],
+      "unscaled_inverse_normal_matrix": [
+        [
+          1.1960630973735562,
+          -0.10186532834006677
+        ],
+        [
+          -0.10186532834006677,
+          0.00883835972041309
+        ]
+      ],
+      "conditional_95pct_half_widths": [
+        8.010975655865924,
+        0.6886431043549953
+      ],
+      "correlation": [
+        [
+          1.0,
+          -0.9907486908683091
+        ],
+        [
+          -0.9907486908683091,
+          0.9999999999999999
+        ]
+      ],
+      "objective": "pressure_widths",
+      "observations": 10,
+      "degrees_of_freedom": 8,
+      "sum_squared_objective_residuals": 80.72100425281928,
+      "pressure_rmse_gpa": 0.28411442105746637,
+      "volume_rmse_a3": 0.11405434886734019,
+      "pressure_residuals_gpa": [
+        0.12339437516077822,
+        0.26663088914290256,
+        0.06316475618373119,
+        -0.1747645816050678,
+        0.29184428500534665,
+        -0.08991513412395591,
+        -0.727054641511721,
+        0.006024717039650795,
+        0.03902156625756703,
+        0.25086678661641315
+      ],
+      "volume_residuals_a3": [
+        0.062187243468571296,
+        0.12697902055816712,
+        0.028875414276001266,
+        -0.076832155162748,
+        0.12235945708064833,
+        -0.03616131060715588,
+        -0.2828985198640339,
+        0.0022351449604514073,
+        0.013968031028753103,
+        0.08273390477828002
+      ],
+      "success": true,
+      "comparisons": {
+        "residual_scaled_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            162.3290509890823,
+            5.409897128171229,
+            3.473964132833898,
+            0.298630472444502
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            162.3290509890823,
+            5.409897128171229,
+            6.947928265667796,
+            0.597260944889004
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            162.3290509890823,
+            5.409897128171229,
+            8.010975655865924,
+            0.6886431043549953
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            162.3290509890823,
+            5.409897128171229,
+            1.0936466967780574,
+            0.09401255086643001
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            true,
+            true
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            162.3290509890823,
+            5.409897128171229,
+            2.1872933935561147,
+            0.18802510173286002
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            162.3290509890823,
+            5.409897128171229,
+            2.521953805222577,
+            0.21679333105907958
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        }
+      }
+    },
+    {
+      "selection": "high_previous_protocol",
+      "side": "high",
+      "selection_description": "Archived own/SHELX p10-p19 volumes paired by run index with final Table S1 pressures; working p16 differs from final table",
+      "table_row_indices_1based": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "pressure_gpa": [
+        22.6,
+        25.3,
+        27.5,
+        29.7,
+        32.1,
+        34.7,
+        37.0,
+        39.6,
+        41.9,
+        47.4
+      ],
+      "volume_a3": [
+        139.58,
+        138.19,
+        137.26,
+        136.38,
+        135.15,
+        134.24,
+        133.58,
+        132.31,
+        131.46,
+        129.5
+      ],
+      "V0_basis": "starting_cell_plus_stored_width_fixed",
+      "initial_V0_a3": 155.2160381,
+      "assumed_absolute_pressure_sigma_gpa": 0.1,
+      "verification": "Independent weighted linear BM3 solution and transformed covariance agree",
+      "parameters": {
+        "V0": 155.3548499,
+        "K0": 157.3984768970827,
+        "K0_prime": 5.604846351779612
+      },
+      "fixed_parameters": {
+        "V0": 155.3548499
+      },
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "residual_scaled_errors": [
+        3.514527844919108,
+        0.312642116486226
+      ],
+      "residual_scaled_covariance": [
+        [
+          12.35190597271175,
+          -1.0891190650374925
+        ],
+        [
+          -1.0891190650374925,
+          0.09774509300098688
+        ]
+      ],
+      "unscaled_inverse_normal_matrix": [
+        [
+          1.181790550438423,
+          -0.10420340166182994
+        ],
+        [
+          -0.10420340166182994,
+          0.009351935443444039
+        ]
+      ],
+      "conditional_95pct_half_widths": [
+        8.104515743673648,
+        0.7209540134562196
+      ],
+      "correlation": [
+        [
+          0.9999999999999999,
+          -0.9911990790613927
+        ],
+        [
+          -0.9911990790613927,
+          0.9999999999999999
+        ]
+      ],
+      "objective": "pressure_widths",
+      "observations": 10,
+      "degrees_of_freedom": 8,
+      "sum_squared_objective_residuals": 83.61485691778067,
+      "pressure_rmse_gpa": 0.289162336616961,
+      "volume_rmse_a3": 0.11616209747957428,
+      "pressure_residuals_gpa": [
+        0.14214084825584905,
+        0.2733378684473742,
+        0.06350216385730079,
+        -0.17910229591697302,
+        0.2833537772505679,
+        -0.09954887641902843,
+        -0.7364167507658692,
+        -2.052204244762379e-05,
+        0.037395822277545676,
+        0.2668583524236894
+      ],
+      "volume_residuals_a3": [
+        0.07200284663619527,
+        0.1306626086870608,
+        0.029111009941686916,
+        -0.07889038006450733,
+        0.11890594598884263,
+        -0.040036688170715706,
+        -0.2863572480532923,
+        -7.601585451766368e-06,
+        0.013355916320278993,
+        0.08767921217139474
+      ],
+      "success": true,
+      "comparisons": {
+        "residual_scaled_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            157.3984768970827,
+            5.604846351779612,
+            3.514527844919108,
+            0.312642116486226
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            157.3984768970827,
+            5.604846351779612,
+            7.029055689838216,
+            0.625284232972452
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            157.3984768970827,
+            5.604846351779612,
+            8.104515743673648,
+            0.7209540134562196
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            157.3984768970827,
+            5.604846351779612,
+            1.0871019043486323,
+            0.09670540545100899
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            true,
+            true
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            157.3984768970827,
+            5.604846351779612,
+            2.1742038086972646,
+            0.19341081090201798
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            157.3984768970827,
+            5.604846351779612,
+            2.5068614868162697,
+            0.2230030648666222
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        }
+      }
+    },
+    {
+      "selection": "high_previous_protocol",
+      "side": "high",
+      "selection_description": "Archived own/SHELX p10-p19 volumes paired by run index with final Table S1 pressures; working p16 differs from final table",
+      "table_row_indices_1based": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "pressure_gpa": [
+        22.6,
+        25.3,
+        27.5,
+        29.7,
+        32.1,
+        34.7,
+        37.0,
+        39.6,
+        41.9,
+        47.4
+      ],
+      "volume_a3": [
+        139.58,
+        138.19,
+        137.26,
+        136.38,
+        135.15,
+        134.24,
+        133.58,
+        132.31,
+        131.46,
+        129.5
+      ],
+      "V0_basis": "free_V0_initialized_at_starting_cell",
+      "initial_V0_a3": 155.2160381,
+      "assumed_absolute_pressure_sigma_gpa": 0.1,
+      "verification": "Independent three-term pressure polynomial gives the same free-V0 optimum",
+      "parameters": {
+        "V0": 152.17465948587937,
+        "K0": 224.84892263602248,
+        "K0_prime": 3.369021514599528
+      },
+      "fixed_parameters": {},
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "residual_scaled_errors": [
+        1.4229793491037852,
+        36.645137414387555,
+        1.0434745767021618
+      ],
+      "residual_scaled_covariance": [
+        [
+          2.0248702279758324,
+          -51.915249203302274,
+          1.454658284682441
+        ],
+        [
+          -51.915249203302274,
+          1342.8660961193466,
+          -38.0042305299012
+        ],
+        [
+          1.454658284682441,
+          -38.0042305299012,
+          1.088839192223756
+        ]
+      ],
+      "unscaled_inverse_normal_matrix": [
+        [
+          0.2347589452651021,
+          -6.018938388128466,
+          0.16864984230350805
+        ],
+        [
+          -6.018938388128466,
+          155.68890489954188,
+          -4.406125860090371
+        ],
+        [
+          0.16864984230350805,
+          -4.406125860090371,
+          0.1262375913271641
+        ]
+      ],
+      "conditional_95pct_half_widths": [
+        3.3648114784065255,
+        86.65198063301092,
+        2.4674252899904467
+      ],
+      "correlation": [
+        [
+          1.0,
+          -0.9955887740970193,
+          0.9796715922999658
+        ],
+        [
+          -0.9955887740970193,
+          1.0,
+          -0.9938794635230729
+        ],
+        [
+          0.9796715922999658,
+          -0.9938794635230729,
+          1.0000000000000002
+        ]
+      ],
+      "objective": "pressure_widths",
+      "observations": 10,
+      "degrees_of_freedom": 7,
+      "sum_squared_objective_residuals": 60.37721621139803,
+      "pressure_rmse_gpa": 0.24571775721627861,
+      "volume_rmse_a3": 0.09956256700542343,
+      "pressure_residuals_gpa": [
+        -0.15605675463136137,
+        0.1630583771119909,
+        0.052937510525215004,
+        -0.11618042293232378,
+        0.4122261972313197,
+        0.048336684386796946,
+        -0.5917348640281759,
+        0.09535925578045834,
+        0.06581914558168478,
+        0.02622168515402734
+      ],
+      "volume_residuals_a3": [
+        -0.07325355207902362,
+        0.0736414703319781,
+        0.023246032228911417,
+        -0.0496586327463433,
+        0.1704658680487796,
+        0.019413869214304214,
+        -0.23218816555515787,
+        0.03617532394807199,
+        0.024340171141460587,
+        0.009142642742318685
+      ],
+      "success": true,
+      "comparisons": {
+        "residual_scaled_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            224.84892263602248,
+            3.369021514599528,
+            36.645137414387555,
+            1.0434745767021618
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            224.84892263602248,
+            3.369021514599528,
+            73.29027482877511,
+            2.0869491534043236
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            224.84892263602248,
+            3.369021514599528,
+            86.65198063301092,
+            2.4674252899904467
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            224.84892263602248,
+            3.369021514599528,
+            12.477536010749153,
+            0.3552992982362393
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            224.84892263602248,
+            3.369021514599528,
+            24.955072021498307,
+            0.7105985964724786
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            224.84892263602248,
+            3.369021514599528,
+            29.504684251139732,
+            0.8401493371833089
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        }
+      }
+    },
+    {
+      "selection": "low_literal_below_22",
+      "side": "low",
+      "selection_description": "Final Table S1 rows 1-9, strictly below 22 GPa",
+      "table_row_indices_1based": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "pressure_gpa": [
+        1.8,
+        4.7,
+        6.7,
+        9.1,
+        11.4,
+        13.4,
+        16.2,
+        18.4,
+        20.7
+      ],
+      "volume_a3": [
+        152.98,
+        150.65,
+        148.56,
+        146.85,
+        145.36,
+        144.1,
+        142.5,
+        141.56,
+        140.34
+      ],
+      "V0_basis": "previous_drawn_curve_fixed",
+      "initial_V0_a3": 155.2160381,
+      "assumed_absolute_pressure_sigma_gpa": 0.2,
+      "verification": "Independent weighted linear BM3 solution and transformed covariance agree",
+      "parameters": {
+        "V0": 154.5678863704812,
+        "K0": 147.17916563410887,
+        "K0_prime": 7.937240094231638
+      },
+      "fixed_parameters": {
+        "V0": 154.5678863704812
+      },
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "residual_scaled_errors": [
+        5.278924216826588,
+        0.9987752406426301
+      ],
+      "residual_scaled_covariance": [
+        [
+          27.8670408869982,
+          -5.180381649705092
+        ],
+        [
+          -5.180381649705092,
+          0.9975519813207437
+        ]
+      ],
+      "unscaled_inverse_normal_matrix": [
+        [
+          16.778292292352642,
+          -3.1190235754541464
+        ],
+        [
+          -3.1190235754541464,
+          0.600609831064767
+        ]
+      ],
+      "conditional_95pct_half_widths": [
+        12.482672225428596,
+        2.3617281559139824
+      ],
+      "correlation": [
+        [
+          0.9999999999999999,
+          -0.982536202046215
+        ],
+        [
+          -0.982536202046215,
+          1.0
+        ]
+      ],
+      "objective": "pressure_widths",
+      "observations": 9,
+      "degrees_of_freedom": 7,
+      "sum_squared_objective_residuals": 11.626289661069846,
+      "pressure_rmse_gpa": 0.2273156362717791,
+      "volume_rmse_a3": 0.17585117523080884,
+      "pressure_residuals_gpa": [
+        -0.21683289862956867,
+        -0.5193762862540376,
+        0.11604175063004973,
+        0.10919183733425264,
+        0.08359808823091797,
+        0.15456997527471827,
+        0.19354368373774022,
+        -0.22250810033624546,
+        -0.07103012543723963
+      ],
+      "volume_residuals_a3": [
+        -0.2066741168274575,
+        -0.4314860934623539,
+        0.08712574020870534,
+        0.07464833029129636,
+        0.0526967839638246,
+        0.09115945837055506,
+        0.10485636435515744,
+        -0.11403124201487458,
+        -0.03420578954978737
+      ],
+      "success": true,
+      "comparisons": {
+        "residual_scaled_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            147.17916563410887,
+            7.937240094231638,
+            5.278924216826588,
+            0.9987752406426301
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            147.17916563410887,
+            7.937240094231638,
+            10.557848433653175,
+            1.9975504812852602
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            147.17916563410887,
+            7.937240094231638,
+            12.482672225428596,
+            2.3617281559139824
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            147.17916563410887,
+            7.937240094231638,
+            4.096131381236769,
+            0.7749902135283819
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            147.17916563410887,
+            7.937240094231638,
+            8.192262762473538,
+            1.5499804270567639
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            147.17916563410887,
+            7.937240094231638,
+            9.685811601782714,
+            1.8325606536562824
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        }
+      }
+    },
+    {
+      "selection": "low_literal_below_22",
+      "side": "low",
+      "selection_description": "Final Table S1 rows 1-9, strictly below 22 GPa",
+      "table_row_indices_1based": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "pressure_gpa": [
+        1.8,
+        4.7,
+        6.7,
+        9.1,
+        11.4,
+        13.4,
+        16.2,
+        18.4,
+        20.7
+      ],
+      "volume_a3": [
+        152.98,
+        150.65,
+        148.56,
+        146.85,
+        145.36,
+        144.1,
+        142.5,
+        141.56,
+        140.34
+      ],
+      "V0_basis": "archived_starting_cell_fixed",
+      "initial_V0_a3": 155.2160381,
+      "assumed_absolute_pressure_sigma_gpa": 0.2,
+      "verification": "Independent weighted linear BM3 solution and transformed covariance agree",
+      "parameters": {
+        "V0": 155.2160381,
+        "K0": 123.6921372199463,
+        "K0_prime": 10.899849806200677
+      },
+      "fixed_parameters": {
+        "V0": 155.2160381
+      },
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "residual_scaled_errors": [
+        3.659251429679204,
+        0.8795465021529488
+      ],
+      "residual_scaled_covariance": [
+        [
+          13.3901210256093,
+          -3.1740174933293708
+        ],
+        [
+          -3.1740174933293708,
+          0.7736020494494872
+        ]
+      ],
+      "unscaled_inverse_normal_matrix": [
+        [
+          14.950532679039593,
+          -3.543900175891412
+        ],
+        [
+          -3.543900175891412,
+          0.8637534118434359
+        ]
+      ],
+      "conditional_95pct_half_widths": [
+        8.652754673295014,
+        2.079796989394468
+      ],
+      "correlation": [
+        [
+          1.0000000000000002,
+          -0.9861846967083366
+        ],
+        [
+          -0.9861846967083366,
+          1.0
+        ]
+      ],
+      "objective": "pressure_widths",
+      "observations": 9,
+      "degrees_of_freedom": 7,
+      "sum_squared_objective_residuals": 6.269398501812196,
+      "pressure_rmse_gpa": 0.1669251129740146,
+      "volume_rmse_a3": 0.13427459286579227,
+      "pressure_residuals_gpa": [
+        0.14067319638744458,
+        -0.3714701665830473,
+        0.12626036070813207,
+        0.04782433803501185,
+        -0.005995270477630044,
+        0.06863625725419809,
+        0.15243223591308563,
+        -0.21444108399403916,
+        0.028295178154415623
+      ],
+      "volume_residuals_a3": [
+        0.1502032483303708,
+        -0.33042994596272024,
+        0.09882466366812537,
+        0.03334783241567152,
+        -0.003791138074547007,
+        0.04011166325102522,
+        0.08068623586768808,
+        -0.10648362210719142,
+        0.013087812551304978
+      ],
+      "success": true,
+      "comparisons": {
+        "residual_scaled_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            123.6921372199463,
+            10.899849806200677,
+            3.659251429679204,
+            0.8795465021529488
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            123.6921372199463,
+            10.899849806200677,
+            7.318502859358408,
+            1.7590930043058977
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            123.6921372199463,
+            10.899849806200677,
+            8.652754673295014,
+            2.079796989394468
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            123.6921372199463,
+            10.899849806200677,
+            3.866591868692582,
+            0.9293833503153777
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            123.6921372199463,
+            10.899849806200677,
+            7.733183737385164,
+            1.8587667006307553
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            123.6921372199463,
+            10.899849806200677,
+            9.143036903721942,
+            2.1976424091822944
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        }
+      }
+    },
+    {
+      "selection": "low_literal_below_22",
+      "side": "low",
+      "selection_description": "Final Table S1 rows 1-9, strictly below 22 GPa",
+      "table_row_indices_1based": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "pressure_gpa": [
+        1.8,
+        4.7,
+        6.7,
+        9.1,
+        11.4,
+        13.4,
+        16.2,
+        18.4,
+        20.7
+      ],
+      "volume_a3": [
+        152.98,
+        150.65,
+        148.56,
+        146.85,
+        145.36,
+        144.1,
+        142.5,
+        141.56,
+        140.34
+      ],
+      "V0_basis": "requested_ambient_volume_fixed",
+      "initial_V0_a3": 155.2160381,
+      "assumed_absolute_pressure_sigma_gpa": 0.2,
+      "verification": "Independent weighted linear BM3 solution and transformed covariance agree",
+      "parameters": {
+        "V0": 155.08,
+        "K0": 128.3686921384831,
+        "K0_prime": 10.246412763841262
+      },
+      "fixed_parameters": {
+        "V0": 155.08
+      },
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "residual_scaled_errors": [
+        3.7928176025714158,
+        0.8655883028430617
+      ],
+      "residual_scaled_covariance": [
+        [
+          14.38546536637558,
+          -3.2352847768291015
+        ],
+        [
+          -3.2352847768291015,
+          0.7492431100187318
+        ]
+      ],
+      "unscaled_inverse_normal_matrix": [
+        [
+          15.305964325163696,
+          -3.4423045841559574
+        ],
+        [
+          -3.4423045841559574,
+          0.7971857719407754
+        ]
+      ],
+      "conditional_95pct_half_widths": [
+        8.968588484908373,
+        2.046791092797743
+      ],
+      "correlation": [
+        [
+          0.9999999999999999,
+          -0.9854604005357595
+        ],
+        [
+          -0.9854604005357595,
+          1.0
+        ]
+      ],
+      "objective": "pressure_widths",
+      "observations": 9,
+      "degrees_of_freedom": 7,
+      "sum_squared_objective_residuals": 6.57902079381412,
+      "pressure_rmse_gpa": 0.17099734622780452,
+      "volume_rmse_a3": 0.13363762783137192,
+      "pressure_residuals_gpa": [
+        0.07548877870267745,
+        -0.397233674345701,
+        0.1261996064908395,
+        0.06091438931126092,
+        0.012003646453964123,
+        0.08550737604535641,
+        0.1601685238852184,
+        -0.21645099464296536,
+        0.008378096018631709
+      ],
+      "volume_residuals_a3": [
+        0.07878529026925207,
+        -0.3487087435824776,
+        0.09800829180551318,
+        0.04232614621392372,
+        0.007588044752651513,
+        0.05007061050994821,
+        0.08517288259318434,
+        -0.10814243792532352,
+        0.003905272366552026
+      ],
+      "success": true,
+      "comparisons": {
+        "residual_scaled_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            128.3686921384831,
+            10.246412763841262,
+            3.7928176025714158,
+            0.8655883028430617
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            128.3686921384831,
+            10.246412763841262,
+            7.5856352051428315,
+            1.7311766056861233
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            128.3686921384831,
+            10.246412763841262,
+            8.968588484908373,
+            2.046791092797743
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            128.3686921384831,
+            10.246412763841262,
+            3.9122837735987015,
+            0.8928526037038675
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            128.3686921384831,
+            10.246412763841262,
+            7.824567547197403,
+            1.785705207407735
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            128.3686921384831,
+            10.246412763841262,
+            9.251081090164424,
+            2.1112609198159267
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        }
+      }
+    },
+    {
+      "selection": "high_final_table",
+      "side": "high",
+      "selection_description": "Final Table S1 rows 10-19, P>=22 GPa",
+      "table_row_indices_1based": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "pressure_gpa": [
+        22.6,
+        25.3,
+        27.5,
+        29.7,
+        32.1,
+        34.7,
+        37.0,
+        39.6,
+        41.9,
+        47.4
+      ],
+      "volume_a3": [
+        139.58,
+        138.2,
+        137.26,
+        136.37,
+        135.14,
+        134.24,
+        133.25,
+        132.31,
+        131.45,
+        129.5
+      ],
+      "V0_basis": "previous_drawn_curve_fixed",
+      "initial_V0_a3": 155.2160381,
+      "assumed_absolute_pressure_sigma_gpa": 0.1,
+      "verification": "Independent weighted linear BM3 solution and transformed covariance agree",
+      "parameters": {
+        "V0": 154.5678863704812,
+        "K0": 171.26584438819418,
+        "K0_prime": 5.058113013524726
+      },
+      "fixed_parameters": {
+        "V0": 154.5678863704812
+      },
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "residual_scaled_errors": [
+        1.6787265242916383,
+        0.13581298994818977
+      ],
+      "residual_scaled_covariance": [
+        [
+          2.8181227433602842,
+          -0.2257033216406657
+        ],
+        [
+          -0.2257033216406657,
+          0.018445168238667094
+        ]
+      ],
+      "unscaled_inverse_normal_matrix": [
+        [
+          1.226953069238095,
+          -0.09826661520571102
+        ],
+        [
+          -0.09826661520571102,
+          0.008030649423048321
+        ]
+      ],
+      "conditional_95pct_half_widths": [
+        3.8711503068934343,
+        0.31318531643496744
+      ],
+      "correlation": [
+        [
+          1.0,
+          -0.9899578134040742
+        ],
+        [
+          -0.9899578134040742,
+          1.0
+        ]
+      ],
+      "objective": "pressure_widths",
+      "observations": 10,
+      "degrees_of_freedom": 8,
+      "sum_squared_objective_residuals": 18.37477122159375,
+      "pressure_rmse_gpa": 0.1355535732527688,
+      "volume_rmse_a3": 0.057524626189248716,
+      "pressure_residuals_gpa": [
+        0.021682433086564146,
+        0.16006361525799306,
+        -0.014876368230702042,
+        -0.22588974962523523,
+        0.24275614105822285,
+        -0.16624959620008184,
+        0.037753273072056004,
+        -0.0898409337562498,
+        -0.043546873639748185,
+        0.09190882763164865
+      ],
+      "volume_residuals_a3": [
+        0.010839963371580552,
+        0.07582966031904448,
+        -0.0067760223418531496,
+        -0.09909480227014456,
+        0.10175936336224822,
+        -0.06697342585502497,
+        0.014635368473363997,
+        -0.033490303715836944,
+        -0.015680027149727493,
+        0.030584704821166042
+      ],
+      "success": true,
+      "comparisons": {
+        "residual_scaled_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            171.26584438819418,
+            5.058113013524726,
+            1.6787265242916383,
+            0.13581298994818977
+          ],
+          "matches_printed_digits": [
+            false,
+            true,
+            false,
+            true
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            171.26584438819418,
+            5.058113013524726,
+            3.3574530485832765,
+            0.27162597989637954
+          ],
+          "matches_printed_digits": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            171.26584438819418,
+            5.058113013524726,
+            3.8711503068934343,
+            0.31318531643496744
+          ],
+          "matches_printed_digits": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            171.26584438819418,
+            5.058113013524726,
+            1.1076791364100413,
+            0.08961389079293634
+          ],
+          "matches_printed_digits": [
+            false,
+            true,
+            true,
+            true
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            171.26584438819418,
+            5.058113013524726,
+            2.2153582728200827,
+            0.1792277815858727
+          ],
+          "matches_printed_digits": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            171.26584438819418,
+            5.058113013524726,
+            2.5543126690409346,
+            0.20665000274024573
+          ],
+          "matches_printed_digits": [
+            false,
+            true,
+            false,
+            false
+          ],
+          "all_four_match": false
+        }
+      }
+    },
+    {
+      "selection": "high_final_table",
+      "side": "high",
+      "selection_description": "Final Table S1 rows 10-19, P>=22 GPa",
+      "table_row_indices_1based": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "pressure_gpa": [
+        22.6,
+        25.3,
+        27.5,
+        29.7,
+        32.1,
+        34.7,
+        37.0,
+        39.6,
+        41.9,
+        47.4
+      ],
+      "volume_a3": [
+        139.58,
+        138.2,
+        137.26,
+        136.37,
+        135.14,
+        134.24,
+        133.25,
+        132.31,
+        131.45,
+        129.5
+      ],
+      "V0_basis": "archived_starting_cell_fixed",
+      "initial_V0_a3": 155.2160381,
+      "assumed_absolute_pressure_sigma_gpa": 0.1,
+      "verification": "Independent weighted linear BM3 solution and transformed covariance agree",
+      "parameters": {
+        "V0": 155.2160381,
+        "K0": 159.35657689742578,
+        "K0_prime": 5.511663949362376
+      },
+      "fixed_parameters": {
+        "V0": 155.2160381
+      },
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "residual_scaled_errors": [
+        1.7616915636746093,
+        0.15429272332318764
+      ],
+      "residual_scaled_covariance": [
+        [
+          3.1035571655222904,
+          -0.26938533579017243
+        ],
+        [
+          -0.26938533579017243,
+          0.023806244470485727
+        ]
+      ],
+      "unscaled_inverse_normal_matrix": [
+        [
+          1.192153974684559,
+          -0.1034776489222306
+        ],
+        [
+          -0.1034776489222306,
+          0.00914457425920355
+        ]
+      ],
+      "conditional_95pct_half_widths": [
+        4.062468030787942,
+        0.35579965801518293
+      ],
+      "correlation": [
+        [
+          1.0000000000000002,
+          -0.9910569961506777
+        ],
+        [
+          -0.9910569961506777,
+          0.9999999999999999
+        ]
+      ],
+      "objective": "pressure_widths",
+      "observations": 10,
+      "degrees_of_freedom": 8,
+      "sum_squared_objective_residuals": 20.826552485175306,
+      "pressure_rmse_gpa": 0.1443140758386905,
+      "volume_rmse_a3": 0.06128126625241908,
+      "pressure_residuals_gpa": [
+        0.06856818096275319,
+        0.17722766504780552,
+        -0.013745284790726231,
+        -0.23651984672498116,
+        0.22179318443310336,
+        -0.19007411643884353,
+        0.015739567628983764,
+        -0.10497838717423491,
+        -0.04768142570993916,
+        0.13100233922553173
+      ],
+      "volume_residuals_a3": [
+        0.03471499732475536,
+        0.08474309511063893,
+        -0.006304289668605634,
+        -0.10425133642647211,
+        0.09317792555668802,
+        -0.07657628843733733,
+        0.006089751793410869,
+        -0.03898006466508264,
+        -0.017072480215574615,
+        0.043188813957812044
+      ],
+      "success": true,
+      "comparisons": {
+        "residual_scaled_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            159.35657689742578,
+            5.511663949362376,
+            1.7616915636746093,
+            0.15429272332318764
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            159.35657689742578,
+            5.511663949362376,
+            3.5233831273492187,
+            0.30858544664637527
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            159.35657689742578,
+            5.511663949362376,
+            4.062468030787942,
+            0.35579965801518293
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            159.35657689742578,
+            5.511663949362376,
+            1.091858037789052,
+            0.09562726734150438
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            true,
+            true
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            159.35657689742578,
+            5.511663949362376,
+            2.183716075578104,
+            0.19125453468300876
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            159.35657689742578,
+            5.511663949362376,
+            2.5178291501974606,
+            0.22051687392778338
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        }
+      }
+    },
+    {
+      "selection": "high_final_table",
+      "side": "high",
+      "selection_description": "Final Table S1 rows 10-19, P>=22 GPa",
+      "table_row_indices_1based": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "pressure_gpa": [
+        22.6,
+        25.3,
+        27.5,
+        29.7,
+        32.1,
+        34.7,
+        37.0,
+        39.6,
+        41.9,
+        47.4
+      ],
+      "volume_a3": [
+        139.58,
+        138.2,
+        137.26,
+        136.37,
+        135.14,
+        134.24,
+        133.25,
+        132.31,
+        131.45,
+        129.5
+      ],
+      "V0_basis": "requested_ambient_volume_fixed",
+      "initial_V0_a3": 155.2160381,
+      "assumed_absolute_pressure_sigma_gpa": 0.1,
+      "verification": "Independent weighted linear BM3 solution and transformed covariance agree",
+      "parameters": {
+        "V0": 155.08,
+        "K0": 161.7833640691996,
+        "K0_prime": 5.416252301762443
+      },
+      "fixed_parameters": {
+        "V0": 155.08
+      },
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "residual_scaled_errors": [
+        1.742043568107864,
+        0.15003554710848685
+      ],
+      "residual_scaled_covariance": [
+        [
+          3.0347157931859785,
+          -0.25897337581448826
+        ],
+        [
+          -0.25897337581448826,
+          0.02251066539614298
+        ]
+      ],
+      "unscaled_inverse_normal_matrix": [
+        [
+          1.1992889963946312,
+          -0.10234365955153334
+        ],
+        [
+          -0.10234365955153334,
+          0.008895987351347072
+        ]
+      ],
+      "conditional_95pct_half_widths": [
+        4.017159671762554,
+        0.3459825920597901
+      ],
+      "correlation": [
+        [
+          1.0,
+          -0.9908363694113171
+        ],
+        [
+          -0.9908363694113171,
+          1.0000000000000002
+        ]
+      ],
+      "objective": "pressure_widths",
+      "observations": 10,
+      "degrees_of_freedom": 8,
+      "sum_squared_objective_residuals": 20.243432916063494,
+      "pressure_rmse_gpa": 0.1422794184555992,
+      "volume_rmse_a3": 0.0604022513506956,
+      "pressure_residuals_gpa": [
+        0.05924204492776752,
+        0.17382957596212378,
+        -0.013946909585314415,
+        -0.23437803126886436,
+        0.22599080363064417,
+        -0.18531095337155534,
+        0.02013430262856275,
+        -0.10196361539640719,
+        -0.04687040990241087,
+        0.12316498231731998
+      ],
+      "volume_residuals_a3": [
+        0.029917488543901527,
+        0.08296406306794779,
+        -0.006387927167310181,
+        -0.1032096885763849,
+        0.09489983316586859,
+        -0.07465664287940399,
+        0.007793154096248145,
+        -0.03789036940278834,
+        -0.016800958010691147,
+        0.040680513468032586
+      ],
+      "success": true,
+      "comparisons": {
+        "residual_scaled_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            161.7833640691996,
+            5.416252301762443,
+            1.742043568107864,
+            0.15003554710848685
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            161.7833640691996,
+            5.416252301762443,
+            3.484087136215728,
+            0.3000710942169737
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            161.7833640691996,
+            5.416252301762443,
+            4.017159671762554,
+            0.3459825920597901
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            161.7833640691996,
+            5.416252301762443,
+            1.0951205396643016,
+            0.09431854192759276
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            true,
+            true
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            161.7833640691996,
+            5.416252301762443,
+            2.190241079328603,
+            0.18863708385518552
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "input_widths_as_absolute_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            161.7833640691996,
+            5.416252301762443,
+            2.525352493012897,
+            0.2174989477114564
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        }
+      }
+    }
+  ],
+  "author_workflow_reproduced": false
+}

@@ -39,7 +39,12 @@ place. For example, `25.447259 ± 0.091348` is displayed as `25.45 ± 0.09`, and
 carry (`0.099` becomes `0.10`). Values without a positive reported error use at
 most six significant digits; this display limit does not estimate uncertainty.
 Missing errors must be labelled; a reported zero does not mean an exact value.
-Preserve full source and computed precision in EOSMAT and numerical evidence.
+Preserve full source and computed precision in EOSMAT and numerical evidence. A reconstruction
+comparison may explicitly record `display_decimal_places` when an audited
+printed-precision comparison requires the same decimal place on both source and
+refit values/errors. This affects report display only: retain unrounded values,
+error confidence and any uncertainty mismatch. The usual rounding convention
+continues to apply when that optional field is absent.
 
 The repository-only maintenance command
 `uv run --group docs python -m scripts.generate_reconstruction_reports` replays

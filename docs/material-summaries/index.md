@@ -76,7 +76,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Calcium titanate perovskite](calcium_titanate_perovskite.md) | CaTiO3 | 1 | 1 |
 | [CaO](cao.md) | CaO | 1 | 1 |
 | [CaO-b2](cao_b2.md) | CaO | 1 | 1 |
-| [Cementite](cementite.md) | Fe3C | 1 | 1 |
+| [Cementite](cementite.md) | Fe3C | 2 | 3 |
 | [Cerium dioxide (fluorite)](cerium_dioxide.md) | CeO2 | 1 | 1 |
 | [Chromium](chromium.md) | Cr | 1 | 1 |
 | [Cobalt](cobalt_hcp.md) | Co | 6 | 3 |

@@ -5,6 +5,32 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+## [0.17.2] - 2026-10-30
+
+### Added
+
+- Add the published Prescher (2012) Fe3C full-range BM3 parameterization,
+  preserving K0=161 +/-2 GPa and K0-prime=5.9 +/-0.2. Identify the adopted,
+  fixed curve-derived V0=154.5678863704812 A^3 separately from a published
+  coefficient or ambient measurement.
+- Make the complete numbered p1-p19 Table S1 series with published ruby
+  pressures the primary dataset. Retain the 22 digitized Figure 1 markers
+  separately, with source coordinate widths, raw tokens and recovery evidence.
+- Document conditional central-coefficient parity and the remaining K0 error
+  mismatch: the 19-point fixed-V0 comparison gives 160.994011 +/-2.532193 GPa,
+  displayed as 161 +/-3 at the paper precision rather than the published 161 +/-2.
+  Original source confidence, weights and the author V0 constraint remain unknown.
+  Split fits stay audit-only; no additional EOS choice or new default is introduced.
+
+### Compatibility and scientific limits
+
+- Preserve explicitly audited paper precision in repository report comparisons;
+  the optional display setting leaves stored coefficients, errors and default
+  rounding unchanged.
+- Preserve all 678 other released EOS source records and scientific model code.
+  The catalog contains 233 materials and 679 EOS records. Numerical agreement
+  does not establish author-workflow reproduction or physical validation.
+
 ## [0.17.1] - 2026-10-25
 
 ### Fixed
@@ -1409,7 +1435,8 @@ qualified outcomes and links to individual reproductions.
   and out-of-domain states.
 - Project naming and release metadata were standardized.
 
-[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.17.1...HEAD
+[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.17.2...HEAD
+[0.17.2]: https://github.com/CPrescher/peritheos/compare/v0.17.1...v0.17.2
 [0.17.1]: https://github.com/CPrescher/peritheos/compare/v0.17.0...v0.17.1
 [0.17.0]: https://github.com/CPrescher/peritheos/compare/v0.16.1...v0.17.0
 [0.16.2]: https://github.com/CPrescher/peritheos/compare/v0.16.1...v0.16.2

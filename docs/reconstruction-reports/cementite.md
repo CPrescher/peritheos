@@ -13,6 +13,7 @@ agreement, source verification, author-workflow reproduction and recommendation 
 | EOS record | Recorded outcome | Coefficient comparison |
 | --- | --- | --- |
 | [Scott et al. (2001), cementite BM3](#record-cementite_scott_2001_bm3_1) | Coefficient parity achieved | Graph and table |
+| [Prescher et al. (2012), full-range BM3 (adopted V0)](#record-cementite_prescher_2012_full_range_bm3) | Coefficient parity achieved | Graph and table |
 
 <a id="record-cementite_scott_2001_bm3_1"></a>
 
@@ -108,4 +109,112 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `cementite_scott_2001_bm3_1`.
+[Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/cementite.eosmat).
+
+
+<a id="record-cementite_prescher_2012_full_range_bm3"></a>
+
+## Prescher et al. (2012), full-range BM3 (adopted V0)
+
+Record: `cementite_prescher_2012_full_range_bm3` · Model: `BM3`
+
+**Outcome: Coefficient parity achieved.**
+
+**Scope:** Comparison with the source parameterization.
+**Comparison basis:** Conditional agreement of K0 and K0\_prime at published printed precision for the 19 numbered p1-p19 observations, with adopted curve-derived V0 held fixed. K0 uncertainty is not reproduced: 2.532193 GPa rounds to 3, while the published error is 2 GPa.
+
+[Stored EOS coefficients and source](../material-summaries/cementite.md#record-cementite_prescher_2012_full_range_bm3)
+
+### What this result establishes
+
+**Separate source-review status:** primary\_source\_validated.
+**Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
+
+- Conditional coefficient parity compares K0 and K0\_prime at the published printed precision, with adopted V0=154.5678863704812 A^3 per conventional Fe3C cell (Z=4) held fixed. Published K0=161 +/-2 GPa and K0\_prime=5.9 +/-0.2 are retained unchanged. V0 is adopted from the published calculated full-range curve, not a printed source coefficient or the ambient measurement. Its uncertainty and the original fixed/free V0 convention are unrecovered. Numerical coefficient agreement does not establish uncertainty agreement, author-workflow reproduction or physical validation.
+- The primary experimental dataset is all 19 numbered p1-p19 points from final Table S1, with published ruby pressures and reported widths, spanning 1.8-47.4 GPa at nominal 293 K. The recorded comparison uses equal pressure weights with V0 fixed and K0/K0\_prime free. It gives K0=160.994011 +/-2.532193 GPa and K0\_prime=5.919478 +/-0.240867, displayed as 161 +/-3 and 5.9 +/-0.2 at the paper precision. The K0 uncertainty is not reproduced: 2.532193 GPa rounds to 3, not the published 2 GPa. Covariance is inverse(J^T J)\*SSE/(19-2), conditional on exact V0 and exact input volumes. Source coordinate widths are preserved but are not the weights in this comparison; source confidence and calibration covariance are unknown. The 22 digitized Figure 1 markers remain separate supplementary evidence, not the primary dataset. No ambient or p20-p22 point is added. For p16, the final source volume is 133.25 A^3, not the alternate SHELX cell 133.58 A^3. Published split fits remain audit-only.
+- This is a conditional coefficient comparison, not recovery of source confidence, calibration covariance or the author fitting workflow.
+
+### Data and reconstruction method
+
+- **Dataset identifiers:** cementite\_prescher\_2012\_table\_s1
+- **Observations:** 19
+- **Fit kind:** isothermal\_pv
+- **Selection:** All 19 numbered p1-p19 final Table S1 rows; no ambient point
+- **Objective:** pressure\_residuals
+- **Weighting:** Equal pressure weights; reported coordinate widths retained but not used as weights
+- **Absolute sigma:** False
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Fixed values:**
+    - **V0:** 154.568
+
+Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
+
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for cementite_prescher_2012_full_range_bm3](figures/cementite_prescher_2012_full_range_bm3-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for cementite_prescher_2012_full_range_bm3](figures/cementite_prescher_2012_full_range_bm3-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.344 |
+| Reconstruction / refit | 0.342 |
+
+Both fits use the same 19 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** volume\_a3. **Row selection:** all rows; reference-T rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
+### Source versus reconstruction
+
+![Source/target and reconstructed central values for cementite_prescher_2012_full_range_bm3](figures/cementite_prescher_2012_full_range_bm3.svg#only-light)
+![Source/target and reconstructed central values for cementite_prescher_2012_full_range_bm3](figures/cementite_prescher_2012_full_range_bm3-dark.svg#only-dark)
+
+This is a **coefficient comparison**, not an observation or residual plot.
+Each panel uses its coefficient's audit units and includes zero. Markers show
+stored central values and available recorded error widths (also in the table below);
+no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
+
+| Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 154.568 | Not reported | 154.568 | Not reported | Fixed/adopted |
+| K0 | 161 | 2 | 161 | 3 | Free |
+| K0\_prime | 5.9 | 0.2 | 5.9 | 0.2 | Free |
+
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
+
+
+<details markdown="1">
+<summary>Recorded diagnostics, covariance and additional protocol</summary>
+
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Volume:** volume\_a3
+    - **Temperature:** Not specified
+- **Observed pressure range gpa:** 1.8; 47.4
+- **Observed temperature range k:** \[293, 293\]
+- **Observed volume range:** 129.5; 152.98
+- **Degrees of freedom:** 17
+- **Solver success:** True
+- **Rmse gpa:** 0.342195
+- **Published rmse gpa:** 0.343771
+- **Reduced chi square:** Not specified
+- **Parameter covariance:** \[\["6.412", "-0.597809"\], \["-0.597809", "0.0580169"\]\]
+- **Covariance convention:** Conditional residual-scaled one-sigma covariance: inverse(J^T J)\*SSE/(19-2), V0 exact. Not recovered experimental uncertainty or confidence convention.
+- **Comparison scope:** parameter\_agreement
+- **Reproduction report:** docs/literature-reproductions/prescher-2012-numbered-full-range-fit.md
+
+</details>
+
+### Detailed evidence and existing plots
+
+- [Supporting source report: prescher-2012-numbered-full-range-fit](../literature-reproductions/prescher-2012-numbered-full-range-fit.md).
+- [Supporting source report: prescher-2012-recovery](../literature-reproductions/prescher-2012-recovery.md).
+- [Record-by-record numerical ledger](../primary-eos-refits.md#records).
+- [Source-audit reports](../source-audits.md).
+
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
+
+[Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `cementite_prescher_2012_full_range_bm3`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/cementite.eosmat).
