@@ -1,5 +1,23 @@
 # Creating and editing EOSMAT
 
+An explicitly supported finite-pressure BM2 law uses `BM2Reference` with V0,
+K0 and P0. V0 and K0 are values at P0; retain the source's actual reference
+notation in its provenance. Do not put high-pressure reference values in an
+ordinary `BM2` record. A complete standalone demonstration is
+[bm2-reference.eosmat](examples/bm2-reference.eosmat):
+
+```python
+from peritheos import Material, load_eosmat
+
+document = load_eosmat("bm2-reference.eosmat")
+material = Material.from_eosmat(document, require_primary_validation=False)
+record = material.get_eos_record("finite_reference_demo")
+assert record.pressure(375.04) == 32.7
+```
+
+The example is explicitly unaudited. The published Bykova record has separate
+source review, joint-phase scope and use limitations.
+
 EOSMAT v4 is the native format for new material files. It supports small
 standalone user definitions and complete curated database records in the same
 `.eosmat` file. There is no separate authoring format, database registration or

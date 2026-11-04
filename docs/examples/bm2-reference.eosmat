@@ -1,0 +1,17 @@
+{
+  "format_version": 4,
+  "identifier": "finite_reference_demo",
+  "name": "Finite-pressure BM2 demonstration",
+  "formula": "SiO2",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "eos_records": [
+    {
+      "identifier": "finite_reference_demo",
+      "model": "BM2Reference",
+      "temperature_ref": 298.0,
+      "parameters": {"V0": 375.04, "K0": 254.0, "P0": 32.7},
+      "record_kind": "diagnostic",
+      "notes": "Unaudited standalone demonstration. V0 and K0 are values at P0, not ambient values. This file carries no scientific validation or recommendation."
+    }
+  ]
+}

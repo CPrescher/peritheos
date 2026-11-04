@@ -3,7 +3,7 @@ This module contains the room temperature equations of state (EOS) implementatio
 """
 
 from .baonza import Baonza
-from .bm import BM2, BM3, BM4
+from .bm import BM2, BM3, BM4, BM2Reference
 from .density_polynomial import DensityPolynomial3
 from .holzapfel import Holzapfel
 from .murnaghan import Murnaghan
@@ -18,6 +18,7 @@ from .vinet3 import Vinet3
 
 __all__ = [
     "BM2",
+    "BM2Reference",
     "BM3",
     "BM4",
     "Baonza",

@@ -51,6 +51,47 @@ impl IsothermalEos for BM2 {
     }
 }
 
+/// Second-order Birch--Murnaghan referred to an explicit pressure `p0`.
+/// `v0` and `k0` are values at `p0`, not necessarily ambient values.
+#[derive(Clone, Copy, Debug, PartialEq)]
+pub struct BM2Reference {
+    /// Volume at the reference pressure.
+    pub v0: f64,
+    /// Bulk modulus at the reference pressure.
+    pub k0: f64,
+    /// Reference pressure, in the same units as `k0`.
+    pub p0: f64,
+}
+
+impl BM2Reference {
+    /// Construct a finite-pressure reference BM2.
+    ///
+    /// # Errors
+    /// Returns an error unless the volume and modulus are positive and all
+    /// parameters are finite.
+    pub fn new(v0: f64, k0: f64, p0: f64) -> EosResult<Self> {
+        Ok(Self {
+            v0: positive_parameter(v0, "V0")?,
+            k0: positive_parameter(k0, "K0")?,
+            p0: finite_parameter(p0, "P0")?,
+        })
+    }
+}
+
+impl IsothermalEos for BM2Reference {
+    fn reference_volume(&self) -> f64 {
+        self.v0
+    }
+
+    fn pressure(&self, volume: f64) -> EosResult<f64> {
+        finite_result(self.p0 + BM2::new(self.v0, self.k0)?.pressure(volume)?)
+    }
+
+    fn bulk_modulus(&self, volume: f64) -> EosResult<f64> {
+        BM2::new(self.v0, self.k0)?.bulk_modulus(volume)
+    }
+}
+
 /// Third-order Birch--Murnaghan equation of state.
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct BM3 {
@@ -1058,6 +1099,16 @@ fn birch_murnaghan_energy(
 impl ReferenceEnergyEos for BM2 {
     fn reference_energy(&self, volume: f64) -> EosResult<f64> {
         birch_murnaghan_energy(self.v0, self.k0, 0.0, 0.0, volume)
+    }
+}
+
+impl ReferenceEnergyEos for BM2Reference {
+    fn reference_energy(&self, volume: f64) -> EosResult<f64> {
+        // E(V)-E(Vref) = -integral(P dV), including the reference-pressure work.
+        finite_result(
+            birch_murnaghan_energy(self.v0, self.k0, 0.0, 0.0, volume)?
+                - self.p0 * (volume - self.v0) * 1.0e4,
+        )
     }
 }
 

@@ -481,6 +481,7 @@
           "enum": [
             "Baonza",
             "BM2",
+            "BM2Reference",
             "BM3",
             "BM4",
             "Holzapfel",
@@ -506,6 +507,7 @@
           "enum": [
             "baonza",
             "birch_murnaghan_2",
+            "birch_murnaghan_2_reference",
             "birch_murnaghan_3",
             "birch_murnaghan_4",
             "holzapfel",
@@ -555,6 +557,16 @@
                 },
                 "model": {
                   "const": "birch_murnaghan_2"
+                }
+              }
+            },
+            {
+              "properties": {
+                "type": {
+                  "const": "BM2Reference"
+                },
+                "model": {
+                  "const": "birch_murnaghan_2_reference"
                 }
               }
             },

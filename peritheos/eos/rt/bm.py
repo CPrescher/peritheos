@@ -99,6 +99,28 @@ class BM2(EosBase):
         return _native_rt_evaluate(self._native, "bulk_modulus", V)
 
 
+class BM2Reference(EosBase):
+    """BM2 with an explicit pressure reference: P = P0 + BM2(V; V0, K0).
+
+    V0 and K0 denote volume and bulk modulus at P0; they are not ambient
+    quantities unless P0=0. The reference derivative dK/dP is 4. This is an
+    explicit shifted-reference law, not re-referencing an arbitrary BM2 fit.
+    A separate model identifier prevents older readers ignoring the offset.
+    """
+
+    def __init__(self, V0: float, K0: float, P0: float) -> None:
+        self.V0 = validate_positive_scalar(V0, "V0")
+        self.K0 = validate_positive_scalar(K0, "K0")
+        self.P0 = validate_finite_scalar(P0, "P0")
+        self._native = _rust.RtEos.bm2_reference(self.V0, self.K0, self.P0)
+
+    def pressure(self, V: NumericType) -> NumericType:
+        return _native_rt_evaluate(self._native, "pressure", validate_volume(V))
+
+    def bulk_modulus(self, V: NumericType) -> NumericType:
+        return _native_rt_evaluate(self._native, "bulk_modulus", validate_volume(V))
+
+
 class BM3(EosBase):
     """
     3rd-order Birch-Murnaghan equation of state.

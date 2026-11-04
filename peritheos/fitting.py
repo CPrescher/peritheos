@@ -669,6 +669,7 @@ def _native_fitting_types() -> tuple[type[EosBase], ...]:
         BM3,
         BM4,
         Baonza,
+        BM2Reference,
         Holzapfel,
         ModifiedTait,
         Morse3,
@@ -700,6 +701,7 @@ def _native_fitting_types() -> tuple[type[EosBase], ...]:
 
     return (
         BM2,
+        BM2Reference,
         BM3,
         BM4,
         Baonza,
