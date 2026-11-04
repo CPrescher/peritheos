@@ -63,10 +63,10 @@ remain supported as explicit compatibility lookups, preserving their prior
 parameters and numerical results when a primary-source audit found that the
 new canonical record is not identical. They are intentionally omitted from
 `list_materials()`, `list_eos_records()`, and search results, whose deterministic
-contents come directly from the bundled 230 executable materials. Normal EOS
-discovery exposes 624 source choices; explicit inclusion of pressure-scale
-reference variants exposes all 675 executable records. The document API
-separately exposes all 233 material cards, including cards with no executable EOS.
+contents come directly from the bundled 231 executable materials. Normal EOS
+discovery exposes 630 source choices; explicit inclusion of pressure-scale
+reference variants exposes all 682 executable records. The document API
+separately exposes all 234 material cards, including cards with no executable EOS.
 
 The migration audit covered all 37 historical convenience records: 11 have an
 equation-identical canonical counterpart, 17 have a counterpart whose audited

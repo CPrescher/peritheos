@@ -74,7 +74,7 @@ unchanged; the separate report records the protocol alternatives and limitations
 
 | Source | Contribution | Disposition in this investigation |
 | --- | --- | --- |
-| [Prescher et al. (2012)](https://doi.org/10.1103/PhysRevB.85.140402) | Single-crystal compression at 293 K to 47 GPa; three BM3 fits | Main paper and user-supplied final supplement recovered: all 19 Table S1 states and atomic coordinates preserved. Figure 1 has 22 markers, including three states absent from the 19-row supplement. Full-range central coefficients and an approximate source curve are recovered. Both split K0/K0′ comparisons have conditional parameter parity; the low K0 uncertainty is not reproduced. Only the full-range published fit is exposed in the catalog. With curve-derived V0 fixed, all 22 graph markers recover both K coefficients and both formal errors at published precision. The complete final table and graph markers remain public; split fits are retained as audit evidence only. Source confidence and original workflow remain unconfirmed. |
+| [Prescher et al. (2012)](https://doi.org/10.1103/PhysRevB.85.140402) | Single-crystal compression at 293 K to 47 GPa; three BM3 fits | Main paper and user-supplied final supplement recovered: all 19 Table S1 states and atomic coordinates preserved. Figure 1 has 22 markers, including three states absent from the 19-row supplement. Full-range central coefficients and an approximate source curve are recovered. Both split K0/K0′ comparisons have conditional parameter parity; the low K0 uncertainty is not reproduced. Only the full-range published fit is exposed in the catalog. Its current comparison uses the 19 numbered Table S1 states with curve-derived V0 fixed: both central coefficients agree at printed precision, but the K0 error is not reproduced (2.532193 GPa rounds to 3 rather than the published 2). The earlier 22-marker comparison is a separate historical diagnostic. The complete final table and graph markers remain public; split fits are retained as audit evidence only. Source confidence and original workflow remain unconfirmed. |
 | [Litasov et al. (2013)](https://doi.org/10.1002/2013JB010270) | FM and PM Vinet reference curves, HT, MGD and Kunc–Einstein thermal treatments to 31 GPa and 1473 K | All 81 Table 1 rows recovered with 1σ errors and paired MgO volumes. Literal table/prose alternatives retained; not integrated. |
 | [Takahashi et al. (2019)](https://doi.org/10.3390/min9120744) | Nonmagnetic BM3 + MGD, two pressure-scale variants, high-pressure and high-temperature observations | Both source models integrated as pressure-scale variants of nonmagnetic cementite, with all 60 supplementary rows and separate Prescher high-pressure structural provenance. |
 | [Li et al. (2002)](https://doi.org/10.1007/s00269-001-0224-4) | Room-temperature compression to 30.5 GPa | Published BM3 integrated with unchanged coefficients and fixed measured V0. All 14 Table 1 rows retained; conditional parameter parity and source-curve checks pass. Author weighting/confidence/calibration workflow remain unresolved. [Audit and integration](li-2002-fe3c.md). |
@@ -93,8 +93,9 @@ therefore cannot be recovered numerically from this table. Earlier failed APS
 access attempts remain in the source manifest as access history.
 
 The supporting dataset `cementite_prescher_2012_table_s1` is bundled with
-cementite and linked to the three Prescher records added on 30 October 2026;
-these are not Scott inputs. Their [integration note](prescher-2012-recovery.md#database-integration-full-range-only)
+cementite and linked to its single installed full-range Prescher record;
+these are not Scott inputs. The two published split parameterizations remain
+audit evidence rather than executable catalog choices. Their [integration note](prescher-2012-recovery.md#database-integration-full-range-only)
 documents the adopted V0 and conditional coefficient parity separately from
 uncertainty and author-workflow reproduction.
 Raw last-digit widths and atomic tokens are retained. Pressure widths are

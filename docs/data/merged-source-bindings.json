@@ -282,12 +282,10 @@
     "compared_fields": [
       "model",
       "parameters (values, errors, fixed flags)",
+      "thermal (model, parameters, laws, conventions)",
       "temperature_ref",
-      "thermal_model",
-      "thermal_parameters",
       "parameter_error_confidence",
-      "units",
-      "formula_units_per_cell"
+      "document formula, units, formula_units_per_cell"
     ],
     "parent_inventory": {
       "branch": {

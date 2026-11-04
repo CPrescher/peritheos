@@ -51,14 +51,16 @@ All notable changes to Peritheos are documented here. The project follows
   pressure–volume/lattice states and atomic coordinates. Use its finite-pressure
   Pnma structure for nonmagnetic cementite. Expose only the full-range published BM3
   fit with unchanged K coefficients/errors and explicitly adopted graph-derived
-  V0. With V0 fixed, all 22 graph markers recover both coefficients and formal
-  errors at published precision. Preserve split fits as audit evidence and
+  V0. The current 19-numbered-row comparison recovers both central coefficients
+  at published precision, but not the K0 uncertainty; the earlier 22-marker
+  error agreement remains a separate historical diagnostic. Preserve split fits as audit evidence and
   complete datasets for exploration; original confidence and workflow remain unknown.
 - Check Prescher (2015) Fe7C3 parameter parity against the recovered 28-row
   author fit input, reproducing the archived coefficients and errors at printed
   precision. Preserve published EOS coefficients and Table S4 separately. Mark
-  Table S4 as provenance only and unsuitable for scientific use because revised
-  cells and reduction/export cells were not kept synchronized; document the
+  Table S4 as provenance only and unsuitable for scientific use because the author
+  input and structural cells differ, with inconsistent cell representations in
+  the archived reduction/export products and an unresolved original cause; document the
   original-workflow and physical-validation limits.
 
 - Recover the original 22 coesite-I/II/III fit inputs from Bykova (2018),
