@@ -46,7 +46,7 @@ def digest(data):
 
 def dependency_lock_fingerprint(content):
     """Allow workspace version bumps without overlooking dependency changes."""
-    blocks = content.split(b"[[package]]")
+    blocks = content.replace(b"\r\n", b"\n").split(b"[[package]]")
     for index, block in enumerate(blocks):
         if re.search(
             rb'(?m)^name = "(?:peritheos|peritheos-python)"$', block

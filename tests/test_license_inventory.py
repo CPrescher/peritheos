@@ -37,6 +37,9 @@ checksum = "original-checksum"
 """
     bumped = original.replace(b"0.17.3", b"0.17.4")
     assert dependency_lock_fingerprint(original) == dependency_lock_fingerprint(bumped)
+    assert dependency_lock_fingerprint(original) == dependency_lock_fingerprint(
+        bumped.replace(b"\n", b"\r\n")
+    )
     assert dependency_lock_fingerprint(original) != dependency_lock_fingerprint(
         bumped.replace(b"0.8.8", b"0.10.3")
     )
@@ -141,6 +144,15 @@ def test_local_author_grants_are_not_backdated_to_published_release():
     assert (
         match_scope(path, policy["scopes"], True)["status"]
         == "author_permission_declared"
+    )
+    original = "peritheos/data/datasets/morard_2026_author_sources/FeS6.eos"
+    copied = "docs/data/fes-author-eosfit/sources/FeS6.eos"
+    assert match_scope(original, policy["scopes"], True) == match_scope(
+        copied, policy["scopes"], True
+    )
+    assert (
+        match_scope(copied, policy["scopes"], True)["status"]
+        == "mixed_author_permission"
     )
     path = "peritheos/data/datasets/morard_2026_author_sources/fes-sata-2010-table1.csv"
     scope = match_scope(path, policy["scopes"], True)
