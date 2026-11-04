@@ -44,11 +44,14 @@ file lists and qualifications control; a family name is not a blanket grant.
 | Cementite Ono–Mibe | [Unspecified source terms; contributor CC0](datasets/cementite-ono-mibe-2010.LICENSE.md) |
 | Cementite Sata/Li | [Unspecified source terms; contributor CC0](datasets/cementite-sata-2010.LICENSE.md) |
 | Cementite Takahashi, Litasov and Prescher | [Separate source scopes](datasets/cementite-sources.LICENSE.md) |
+| Coesite Bykova author inputs | [Maintainer-declared author CC BY 4.0; third-party inputs separate](datasets/coesite-bykova-2018-author-inputs.LICENSE.md) |
 | Diopside | [Unspecified source terms; contributor CC0](datasets/diopside.LICENSE.md) |
 | Dorfman co-compression tables | [Contributor-only CC0 scope](datasets/dorfman-2012-tables-s1-s6-cocompression.LICENSE.md) |
 | Ferrous ringwoodite | [Source terms and contributor CC0](datasets/ferrous-ringwoodite.LICENSE.md) |
+| FeS Morard author inputs | [Maintainer-reported author CC BY 4.0; literature inputs separate](datasets/fes-morard-2026-author-inputs.LICENSE.md) |
 | Forsterite Katsura workbook, MATLAB and table recovery | [Zenodo CC BY 4.0 and separate 2009 terms](datasets/forsterite-katsura-2022.LICENSE.md) |
 | KCl Ma Mendeley workbook and extractions | [Source CC BY 4.0](datasets/ma_2024_sources/LICENSE.md) |
+| Fe7C3 Prescher author inputs and fit export | [Author-declared CC BY 4.0; Table S4 separate](datasets/iron-carbide-fe7c3-prescher-2015-author-inputs.LICENSE.md) |
 | MgO Tange input recovery | [COD CC0 and LASL public-domain inputs](datasets/mgo-tange-2009-redistributable-inputs.LICENSE.md) |
 | Phase E | [Unspecified source terms; contributor CC0](datasets/phase-e-crichton-ross-2000.LICENSE.md) |
 | Rubidium halide Farla supplement | [Source CC BY 4.0 and contributor scope](datasets/rubidium-halides-farla-2025.LICENSE.md) |

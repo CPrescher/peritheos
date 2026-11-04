@@ -7,6 +7,9 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Fixed
 
+- Record maintainer-confirmed CC BY 4.0 permissions for the named Coesite,
+  Fe7C3 and Morard FeS author files and their numerical extractions. Preserve
+  third-party source terms, original bytes and scientific use restrictions.
 - Exclude Ma (2024)'s publisher supporting DOCX from wheels and source
   distributions, correcting its inadvertent inclusion in 0.17.3. Preserve the
   original repository audit evidence and scientific findings. Continue to
