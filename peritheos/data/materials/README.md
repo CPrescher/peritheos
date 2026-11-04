@@ -49,6 +49,10 @@ taken from beamline files and cited publications. Dataset-specific licenses are
 recorded where known. Otherwise, a source citation records scientific provenance
 rather than a copyright license.
 
+See the [installed licensing guide](../LICENSING.md) for the distinction between
+MIT code, explicitly licensed source datasets, contributor-only CC0 notices and
+unspecified third-party terms, with an index of standalone dataset notices.
+
 The migration preserves supported Dioptas crystallographic and EOS data and adds
 stable identifiers plus explicit migration provenance. It does **not** make
 Dioptas the scientific authority for an EOS record. The primary-source audit

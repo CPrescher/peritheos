@@ -48,6 +48,11 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Development and compatibility
 
+- Ship an installed code/data licensing guide, dataset notice index and complete
+  Creative Commons texts in both distribution formats. Replace the Python
+  distribution's blanket MIT metadata with an explicit component-scope reference;
+  library code remains MIT and unspecified third-party source terms stay explicit.
+
 - Separate routine CI from the complete release compatibility matrix and share
   unchanged numerical audit results through isolated test copies. Preserve
   fresh calculations for mutation, solver-patching and repeatability tests.

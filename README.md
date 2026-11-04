@@ -298,6 +298,14 @@ Sokolova et al. parameterizations remain available through author/year catalog
 identifiers such as `diamond_sokolova_2013`; replacing the reference isotherm
 creates a new user-composed model and does not inherit that validation claim.
 
+## Licensing
+
+Peritheos code and contributor-written research scripts use the [MIT (Expat)
+license](LICENSE). Bundled scientific data and original author artifacts have
+source-specific terms. See the [installed licensing guide](peritheos/data/LICENSING.md)
+for dataset notices, Creative Commons scopes and unspecified source terms.
+Contributor CC0 dedications do not relicense third-party material.
+
 ## Citation and support
 
 Use the repository's `CITATION.cff` to cite Peritheos and cite the original

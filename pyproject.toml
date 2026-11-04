@@ -10,8 +10,16 @@ readme = "README.md"
 authors = [
     {name = "Clemens Prescher", email = "clemens.prescher@gmail.com"}
 ]
-license = "MIT"
-license-files = ["LICENSE"]
+# The code is MIT; the distribution also contains separately attributed data.
+# This reference describes that scope without inventing missing source grants.
+license = "LicenseRef-Peritheos-Distribution"
+license-files = [
+    "LICENSE",
+    "LICENSES/*.txt",
+    "peritheos/data/LICENSING.md",
+    "peritheos/data/datasets/*.LICENSE.md",
+    "peritheos/data/datasets/ma_2024_sources/LICENSE.md",
+]
 keywords = ["equation-of-state", "high-pressure", "thermodynamics"]
 classifiers = [
     "Development Status :: 4 - Beta",

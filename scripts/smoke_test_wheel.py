@@ -4,6 +4,7 @@
 import json
 from collections import Counter
 from importlib import resources
+from importlib.metadata import distribution
 
 from peritheos import (
     get_material_document,
@@ -27,6 +28,44 @@ def main():
         get_material_document(identifier) for identifier in list_material_documents()
     ]
     assert package.joinpath("py.typed").is_file()
+    # License metadata must retain the installed data notices, rather than
+    # presenting the mixed code/data distribution as uniformly MIT.
+    installed = distribution("peritheos")
+    assert (
+        installed.metadata["License-Expression"] == "LicenseRef-Peritheos-Distribution"
+    )
+    license_files = set(installed.metadata.get_all("License-File", []))
+    assert {
+        "LICENSE",
+        "LICENSES/CC-BY-4.0.txt",
+        "LICENSES/CC0-1.0.txt",
+        "LICENSES/LicenseRef-Peritheos-Distribution.txt",
+        "peritheos/data/LICENSING.md",
+    } <= license_files
+    installed_licenses = {
+        str(path).split(".dist-info/licenses/", 1)[1]: installed.locate_file(path)
+        for path in installed.files or []
+        if ".dist-info/licenses/" in str(path)
+    }
+    assert license_files == set(installed_licenses)
+    for path in installed_licenses.values():
+        assert path.is_file() and path.stat().st_size > 0
+    data = package.joinpath("data")
+    guide = data.joinpath("LICENSING.md").read_text(encoding="utf-8")
+    datasets = data.joinpath("datasets")
+    notices = [path for path in datasets.iterdir() if path.name.endswith(".LICENSE.md")]
+    notices.append(datasets.joinpath("ma_2024_sources", "LICENSE.md"))
+    for notice in notices:
+        relative = (
+            "datasets/ma_2024_sources/LICENSE.md"
+            if notice.name == "LICENSE.md"
+            else f"datasets/{notice.name}"
+        )
+        assert f"]({relative})" in guide
+        assert (
+            notice.read_bytes()
+            == installed_licenses[f"peritheos/data/{relative}"].read_bytes()
+        )
     assert package.joinpath("data", "material-families.json").is_file()
     assert list_material_families()
     assert package.joinpath(
