@@ -12,6 +12,7 @@ on:
         type: string
 
 env:
+  RELEASE_RUST_TOOLCHAIN: "1.99.1"
   RELEASE_TAG: ${{ github.event_name == 'workflow_dispatch' && format('v{0}', inputs.version) || github.ref_name }}
 
 permissions:
@@ -53,6 +54,9 @@ jobs:
             echo "Tag ${RELEASE_TAG} does not match Cargo version ${cargo_version}." >&2
             exit 1
           fi
+
+      - name: Verify locked Rust notice bundle
+        run: python scripts/generate_rust_notices.py --check
 
       - name: Verify changelog contains release notes
         shell: bash
@@ -111,11 +115,22 @@ jobs:
         with:
           command: build
           maturin-version: v1.15.0
+          rust-toolchain: ${{ env.RELEASE_RUST_TOOLCHAIN }}
           target: ${{ matrix.platform.target }}
           manylinux: ${{ matrix.platform.manylinux }}
+          before-script-linux: >-
+            python3.9 scripts/generate_rust_notices.py
+            --check --verify-toolchain
           args: >-
             --release --locked --compatibility pypi --out dist
             -i ${{ runner.os == 'Linux' && format('python{0}', matrix.python-version) || 'python' }}
+
+      - name: Verify host wheel compiler and notices
+        if: runner.os != 'Linux'
+        shell: bash
+        env:
+          RUSTUP_TOOLCHAIN: ${{ env.RELEASE_RUST_TOOLCHAIN }}
+        run: python scripts/generate_rust_notices.py --check --verify-toolchain
 
       - name: Install uv for wheel validation
         uses: astral-sh/setup-uv@07a047e608db84b3d8c06cd9a7c7dcc9c355c18e # v10.3.2

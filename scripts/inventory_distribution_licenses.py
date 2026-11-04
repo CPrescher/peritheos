@@ -336,6 +336,13 @@ def action(status):
 
 
 def classify_file(path, content, scopes, resource_rows, current):
+    if path.startswith("peritheos/data/third_party/rust/"):
+        return (
+            "license_notice",
+            "rust-notice-bundle",
+            "peritheos/data/third_party/rust/manifest.json",
+            action("license_notice"),
+        )
     if (
         path.endswith(".LICENSE.md")
         or path.endswith("/LICENSE.md")
@@ -452,7 +459,7 @@ def cargo_inventory(metadata_path):
         texts = []
         for file in sorted(base.iterdir()):
             if file.is_file() and file.name.upper().startswith(
-                ("LICENSE", "COPYING", "NOTICE")
+                ("LICENSE", "COPYING", "NOTICE", "COPYRIGHT")
             ):
                 texts.append({"file": file.name, "sha256": digest(file.read_bytes())})
         rows.append(
@@ -463,7 +470,7 @@ def cargo_inventory(metadata_path):
                 "source": f"https://crates.io/crates/{p['name']}/{p['version']}",
                 "license_texts": compact(texts),
                 "scope": "All-target normal/build dependency closure; includes build tools, excludes dev-only dependencies. Not a per-wheel linked-code determination.",
-                "required_action": "Review which code is redistributed in each wheel and preserve required copyright/license/NOTICE texts; these crates are not vendored in the source archive.",
+                "required_action": "Preserve the packaged Rust notice bundle and standard-library copyright document. Target roles and archive checksums are recorded in peritheos/data/third_party/rust/manifest.json; re-audit dependency, compiler or native-payload changes. Crate source code is not vendored in the source archive.",
             }
         )
     return rows

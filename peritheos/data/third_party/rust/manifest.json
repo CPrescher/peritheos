@@ -1,0 +1,1642 @@
+{
+  "schema": "peritheos.rust-notices.v1",
+  "cargo_lock_lf_sha256": "99f5c3fd66a4b95680feb72e6b8b8af5e8142a9ae090d4e473cf0501fce1ae82",
+  "targets": [
+    "aarch64-apple-darwin",
+    "aarch64-unknown-linux-gnu",
+    "x86_64-apple-darwin",
+    "x86_64-pc-windows-msvc",
+    "x86_64-unknown-linux-gnu"
+  ],
+  "stdlib": {
+    "version": "1.99.1",
+    "commit": "58cf8f9c35b355199727627d07ae34a4e2846d67",
+    "notice": "rust-stdlib/COPYRIGHT-library.html",
+    "sha256": "5647be074c8edf7339fd863055923a8fc80bc5610a8d4661ec3b767b9d392c27",
+    "source": "https://doc.rust-lang.org/1.99.1/COPYRIGHT-library.html",
+    "scope": "Official Rust Standard Library copyright document, including its in-tree and third-party/build dependency notices; a conservative all-target notice set, not the compiler/toolchain being redistributed."
+  },
+  "packages": [
+    {
+      "crate": "autocfg",
+      "version": "1.5.1",
+      "license_expression": "Apache-2.0 OR MIT",
+      "archive_sha256": "f2032f911046de80f0a198e0901378627c33f59ea0ac00e363d481118bd70a53",
+      "source": "https://crates.io/crates/autocfg/1.5.1",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "host-tool"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "host-tool"
+        ],
+        "x86_64-apple-darwin": [
+          "host-tool"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "host-tool"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "host-tool"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/autocfg-1.5.1/LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        },
+        {
+          "path": "licenses/autocfg-1.5.1/LICENSE-MIT",
+          "sha256": "27995d58ad5c1145c1a8cd86244ce844886958a35eb2b78c6b772748669999ac"
+        }
+      ]
+    },
+    {
+      "crate": "cfg-if",
+      "version": "1.0.4",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "9330f8b2ff13f34540b44e946ef35111825727b38d33286ef986142615121801",
+      "source": "https://crates.io/crates/cfg-if/1.0.4",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/cfg-if-1.0.4/LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        },
+        {
+          "path": "licenses/cfg-if-1.0.4/LICENSE-MIT",
+          "sha256": "378f5840b258e2779c39418f3f2d7b2ba96f1c7917dd6be0713f88305dbda397"
+        }
+      ]
+    },
+    {
+      "crate": "crossbeam-deque",
+      "version": "0.8.7",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "5181e0de7b61eb03a81e347d6dd8797bae9da5146707b51077e2d71a54ec0ceb",
+      "source": "https://crates.io/crates/crossbeam-deque/0.8.7",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/crossbeam-deque-0.8.7/LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        },
+        {
+          "path": "licenses/crossbeam-deque-0.8.7/LICENSE-MIT",
+          "sha256": "5734ed989dfca1f625b40281ee9f4530f91b2411ec01cb748223e7eb87e201ab"
+        }
+      ]
+    },
+    {
+      "crate": "crossbeam-epoch",
+      "version": "0.9.20",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "2d6914041f254d6e9176c01941b21115dcfb7089e55135a35411081bd106ef3f",
+      "source": "https://crates.io/crates/crossbeam-epoch/0.9.20",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/crossbeam-epoch-0.9.20/LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        },
+        {
+          "path": "licenses/crossbeam-epoch-0.9.20/LICENSE-MIT",
+          "sha256": "5734ed989dfca1f625b40281ee9f4530f91b2411ec01cb748223e7eb87e201ab"
+        }
+      ]
+    },
+    {
+      "crate": "crossbeam-utils",
+      "version": "0.8.22",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "61803da095bee82a81bb1a452ecc25d3b2f1416d1897eb86430c6159ef717c17",
+      "source": "https://crates.io/crates/crossbeam-utils/0.8.22",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/crossbeam-utils-0.8.22/LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        },
+        {
+          "path": "licenses/crossbeam-utils-0.8.22/LICENSE-MIT",
+          "sha256": "5734ed989dfca1f625b40281ee9f4530f91b2411ec01cb748223e7eb87e201ab"
+        }
+      ]
+    },
+    {
+      "crate": "either",
+      "version": "1.18.0",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "252afb9ae5eaa683babdc6a068b3f5726eb19e05070c731f9b2a23a7c3e8ed34",
+      "source": "https://crates.io/crates/either/1.18.0",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/either-1.18.0/LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        },
+        {
+          "path": "licenses/either-1.18.0/LICENSE-MIT",
+          "sha256": "7576269ea71f767b99297934c0b2367532690f8c4badc695edf8e04ab6a1e545"
+        }
+      ]
+    },
+    {
+      "crate": "getrandom",
+      "version": "0.2.17",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "ff2abc00be7fca6ebc474524697ae276ad847ad0a6b3faa4bcb027e9a4614ad0",
+      "source": "https://crates.io/crates/getrandom/0.2.17",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/getrandom-0.2.17/LICENSE-APACHE",
+          "sha256": "aaff376532ea30a0cd5330b9502ad4a4c8bf769c539c87ffe78819d188a18ebf"
+        },
+        {
+          "path": "licenses/getrandom-0.2.17/LICENSE-MIT",
+          "sha256": "42fa16951ce7f24b5a467a40e5b449a1d41e662f97ca779864f053f39e097737"
+        }
+      ]
+    },
+    {
+      "crate": "heck",
+      "version": "0.5.0",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "2304e00983f87ffb38b55b444b5e3b60a884b5d30c0fca7d82fe33449bbe55ea",
+      "source": "https://crates.io/crates/heck/0.5.0",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "host-tool"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "host-tool"
+        ],
+        "x86_64-apple-darwin": [
+          "host-tool"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "host-tool"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "host-tool"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/heck-0.5.0/LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        },
+        {
+          "path": "licenses/heck-0.5.0/LICENSE-MIT",
+          "sha256": "7b63ecd5f1902af1b63729947373683c32745c16a10e8e6292e2e2dcd7e90ae0"
+        }
+      ]
+    },
+    {
+      "crate": "itoa",
+      "version": "1.0.18",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "8f42a60cbdf9a97f5d2305f08a87dc4e09308d1276d28c869c684d7777685682",
+      "source": "https://crates.io/crates/itoa/1.0.18",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/itoa-1.0.18/LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+        },
+        {
+          "path": "licenses/itoa-1.0.18/LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+        }
+      ]
+    },
+    {
+      "crate": "libc",
+      "version": "0.2.189",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "3eaf3ede3fee6db1a4c2ee091bf8a8b4dccdc6d17f656fb07896ee72867612f2",
+      "source": "https://crates.io/crates/libc/0.2.189",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/libc-0.2.189/LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+        },
+        {
+          "path": "licenses/libc-0.2.189/LICENSE-MIT",
+          "sha256": "123a331b5dbf04c30097fa43b8f858bc85df671fe776de498d01f3d6b7c1f69e"
+        }
+      ]
+    },
+    {
+      "crate": "matrixmultiply",
+      "version": "0.3.11",
+      "license_expression": "MIT/Apache-2.0",
+      "archive_sha256": "3f607c237553f086e7043417a51df26b2eb899d3caff94e6a67592ff992fedc7",
+      "source": "https://crates.io/crates/matrixmultiply/0.3.11",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/matrixmultiply-0.3.11/LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        },
+        {
+          "path": "licenses/matrixmultiply-0.3.11/LICENSE-MIT",
+          "sha256": "792d075c7bad6dac258a44e799eb64cbf465e24d9932d27669be08c5ec957e27"
+        },
+        {
+          "path": "source-notices/matrixmultiply-0.3.11.txt",
+          "sha256": "142a5eb232852ee63fd3d6797341413159cb78f47093945a74b2ff85b66f985e"
+        }
+      ]
+    },
+    {
+      "crate": "memchr",
+      "version": "2.8.3",
+      "license_expression": "Unlicense OR MIT",
+      "archive_sha256": "cf8baf1c55e62ffcace7a9f06f4bd9cd3f0c4beb022d3b367256b91b87513d98",
+      "source": "https://crates.io/crates/memchr/2.8.3",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/memchr-2.8.3/COPYING",
+          "sha256": "01c266bced4a434da0051174d6bee16a4c82cf634e2679b6155d40d75012390f"
+        },
+        {
+          "path": "licenses/memchr-2.8.3/LICENSE-MIT",
+          "sha256": "0f96a83840e146e43c0ec96a22ec1f392e0680e6c1226e6f3ba87e0740af850f"
+        }
+      ]
+    },
+    {
+      "crate": "ndarray",
+      "version": "0.17.2",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "520080814a7a6b4a6e9070823bb24b4531daac8c4627e08ba5de8c5ef2f2752d",
+      "source": "https://crates.io/crates/ndarray/0.17.2",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/ndarray-0.17.2/LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        },
+        {
+          "path": "licenses/ndarray-0.17.2/LICENSE-MIT",
+          "sha256": "1fd6747d2c8e80f9fa766f57c5888864774621deb85cc2838ccaed727db32d45"
+        },
+        {
+          "path": "source-notices/ndarray-0.17.2.txt",
+          "sha256": "0340e595849dcc9c46d069aa5c70fbf032d6fe8cdbcd917c58aa594ad3b550ee"
+        }
+      ]
+    },
+    {
+      "crate": "num-complex",
+      "version": "0.4.6",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "73f88a1307638156682bada9d7604135552957b7818057dcef22705b4d509495",
+      "source": "https://crates.io/crates/num-complex/0.4.6",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/num-complex-0.4.6/LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        },
+        {
+          "path": "licenses/num-complex-0.4.6/LICENSE-MIT",
+          "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb"
+        },
+        {
+          "path": "source-notices/num-complex-0.4.6.txt",
+          "sha256": "0d234256998495b72742133371cccd9574da8038cd4ef2ec0e9d5f31f60d1a4a"
+        }
+      ]
+    },
+    {
+      "crate": "num-integer",
+      "version": "0.1.47",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "7ce2d95d4b3734dc35aa2f45e1aa22cd416814592a4f9d9205e11affd5b8e10b",
+      "source": "https://crates.io/crates/num-integer/0.1.47",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/num-integer-0.1.47/LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        },
+        {
+          "path": "licenses/num-integer-0.1.47/LICENSE-MIT",
+          "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb"
+        },
+        {
+          "path": "source-notices/num-integer-0.1.47.txt",
+          "sha256": "441c849585c2a46b8c66710cecb37db19914848bf79813bedae2ad142cc137bd"
+        }
+      ]
+    },
+    {
+      "crate": "num-traits",
+      "version": "0.2.19",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "071dfc062690e90b734c0b2273ce72ad0ffa95f0c74596bc250dcfd960262841",
+      "source": "https://crates.io/crates/num-traits/0.2.19",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/num-traits-0.2.19/LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        },
+        {
+          "path": "licenses/num-traits-0.2.19/LICENSE-MIT",
+          "sha256": "6485b8ed310d3f0340bf1ad1f47645069ce4069dcc6bb46c7d5c6faf41de1fdb"
+        },
+        {
+          "path": "source-notices/num-traits-0.2.19.txt",
+          "sha256": "d3b2a2a2bf3fe107d3113d55c094666fe32e126b28506a5e3dd800c1357c15da"
+        }
+      ]
+    },
+    {
+      "crate": "numpy",
+      "version": "0.29.0",
+      "license_expression": "BSD-2-Clause",
+      "archive_sha256": "6a5b15d63a5ff39e378daed0e1340d3a5964703ea9712eb09a0dc66fade996f4",
+      "source": "https://crates.io/crates/numpy/0.29.0",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/numpy-0.29.0/LICENSE",
+          "sha256": "57088c28c5ea50e729a06c3b04de70c41e496a5b753d75a744e2abbf60a2448f"
+        }
+      ]
+    },
+    {
+      "crate": "once_cell",
+      "version": "1.21.4",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "9f7c3e4beb33f85d45ae3e3a1792185706c8e16d043238c593331cc7cd313b50",
+      "source": "https://crates.io/crates/once_cell/1.21.4",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/once_cell-1.21.4/LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        },
+        {
+          "path": "licenses/once_cell-1.21.4/LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+        }
+      ]
+    },
+    {
+      "crate": "portable-atomic",
+      "version": "1.15.0",
+      "license_expression": "Apache-2.0 OR MIT",
+      "archive_sha256": "05c8b63e8d9609db387f0324918f81d68fe27748f084ef092fb35954d0539a85",
+      "source": "https://crates.io/crates/portable-atomic/1.15.0",
+      "target_roles": {},
+      "notice_files": [
+        {
+          "path": "licenses/portable-atomic-1.15.0/LICENSE-APACHE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+        },
+        {
+          "path": "licenses/portable-atomic-1.15.0/LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+        },
+        {
+          "path": "source-notices/portable-atomic-1.15.0.txt",
+          "sha256": "608cb165d35523119c44f2b8aa1ef930ca3388220e712beec16fbecf04d5e59d"
+        }
+      ]
+    },
+    {
+      "crate": "portable-atomic-util",
+      "version": "0.2.7",
+      "license_expression": "Apache-2.0 OR MIT",
+      "archive_sha256": "c2a106d1259c23fac8e543272398ae0e3c0b8d33c88ed73d0cc71b0f1d902618",
+      "source": "https://crates.io/crates/portable-atomic-util/0.2.7",
+      "target_roles": {},
+      "notice_files": [
+        {
+          "path": "licenses/portable-atomic-util-0.2.7/LICENSE-APACHE",
+          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+        },
+        {
+          "path": "licenses/portable-atomic-util-0.2.7/LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+        },
+        {
+          "path": "source-notices/portable-atomic-util-0.2.7.txt",
+          "sha256": "cf23a30d0a93ee9aff6b51fb883539ebdf194f246b1837183e6c79f687e159d7"
+        }
+      ]
+    },
+    {
+      "crate": "ppv-lite86",
+      "version": "0.2.21",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "85eae3c4ed2f50dcfe72643da4befc30deadb458a9b590d720cde2f2b1e97da9",
+      "source": "https://crates.io/crates/ppv-lite86/0.2.21",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/ppv-lite86-0.2.21/LICENSE-APACHE",
+          "sha256": "0218327e7a480793ffdd4eb792379a9709e5c135c7ba267f709d6f6d4d70af0a"
+        },
+        {
+          "path": "licenses/ppv-lite86-0.2.21/LICENSE-MIT",
+          "sha256": "4cada0bd02ea3692eee6f16400d86c6508bbd3bafb2b65fed0419f36d4f83e8f"
+        }
+      ]
+    },
+    {
+      "crate": "proc-macro2",
+      "version": "1.0.107",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "985e7ec9bb745e6ce6535b544d84d6cd6f7ad8bd711c398938ae983b91a766d9",
+      "source": "https://crates.io/crates/proc-macro2/1.0.107",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "host-tool"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "host-tool"
+        ],
+        "x86_64-apple-darwin": [
+          "host-tool"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "host-tool"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "host-tool"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/proc-macro2-1.0.107/LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+        },
+        {
+          "path": "licenses/proc-macro2-1.0.107/LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+        }
+      ]
+    },
+    {
+      "crate": "pyo3",
+      "version": "0.29.2",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "4688ddedf473e32662b9b067670129a8afb8c18e351482c70d62ba4a88171e8b",
+      "source": "https://crates.io/crates/pyo3/0.29.2",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/pyo3-0.29.2/LICENSE-APACHE",
+          "sha256": "32c76dbe0e73d79100d5ece77c158399f2e2541bc5c78548a4ba45c1cb53c5c9"
+        },
+        {
+          "path": "licenses/pyo3-0.29.2/LICENSE-MIT",
+          "sha256": "afcbe3b2e6b37172b5a9ca869ee4c0b8cdc09316e5d4384864154482c33e5af6"
+        },
+        {
+          "path": "licenses/pyo3-0.29.2/pyo3-runtime/LICENSE-APACHE",
+          "sha256": "32c76dbe0e73d79100d5ece77c158399f2e2541bc5c78548a4ba45c1cb53c5c9"
+        },
+        {
+          "path": "licenses/pyo3-0.29.2/pyo3-runtime/LICENSE-MIT",
+          "sha256": "afcbe3b2e6b37172b5a9ca869ee4c0b8cdc09316e5d4384864154482c33e5af6"
+        },
+        {
+          "path": "source-notices/pyo3-0.29.2.txt",
+          "sha256": "059ce4ac9501bb3b76643e8af8f2a71e09a4b6af587f25862edb4bf93dc086dd"
+        }
+      ]
+    },
+    {
+      "crate": "pyo3-build-config",
+      "version": "0.29.2",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "f41027e41b4bd03f6e60f9f417fe24a6341a6bb744edd62b6f709f2a52ea30e9",
+      "source": "https://crates.io/crates/pyo3-build-config/0.29.2",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "host-tool"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "host-tool"
+        ],
+        "x86_64-apple-darwin": [
+          "host-tool"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "host-tool"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "host-tool"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/pyo3-build-config-0.29.2/LICENSE-APACHE",
+          "sha256": "32c76dbe0e73d79100d5ece77c158399f2e2541bc5c78548a4ba45c1cb53c5c9"
+        },
+        {
+          "path": "licenses/pyo3-build-config-0.29.2/LICENSE-MIT",
+          "sha256": "afcbe3b2e6b37172b5a9ca869ee4c0b8cdc09316e5d4384864154482c33e5af6"
+        }
+      ]
+    },
+    {
+      "crate": "pyo3-ffi",
+      "version": "0.29.2",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "e591a95526fead067432c3b3a33fc74770b87b1e04e73671090d9c2055a2b327",
+      "source": "https://crates.io/crates/pyo3-ffi/0.29.2",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/pyo3-ffi-0.29.2/LICENSE-APACHE",
+          "sha256": "32c76dbe0e73d79100d5ece77c158399f2e2541bc5c78548a4ba45c1cb53c5c9"
+        },
+        {
+          "path": "licenses/pyo3-ffi-0.29.2/LICENSE-MIT",
+          "sha256": "afcbe3b2e6b37172b5a9ca869ee4c0b8cdc09316e5d4384864154482c33e5af6"
+        }
+      ]
+    },
+    {
+      "crate": "pyo3-macros",
+      "version": "0.29.2",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "73225868fc1cd84eef2c3c230ddb91273bf1de46aeb8a4248da76d32a0924a1c",
+      "source": "https://crates.io/crates/pyo3-macros/0.29.2",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "host-tool"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "host-tool"
+        ],
+        "x86_64-apple-darwin": [
+          "host-tool"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "host-tool"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "host-tool"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/pyo3-macros-0.29.2/LICENSE-APACHE",
+          "sha256": "32c76dbe0e73d79100d5ece77c158399f2e2541bc5c78548a4ba45c1cb53c5c9"
+        },
+        {
+          "path": "licenses/pyo3-macros-0.29.2/LICENSE-MIT",
+          "sha256": "afcbe3b2e6b37172b5a9ca869ee4c0b8cdc09316e5d4384864154482c33e5af6"
+        }
+      ]
+    },
+    {
+      "crate": "pyo3-macros-backend",
+      "version": "0.29.2",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "571575aa3749fa6216757dd47d2a3e7ef360f329a40f0666a9fbd14889024952",
+      "source": "https://crates.io/crates/pyo3-macros-backend/0.29.2",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "host-tool"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "host-tool"
+        ],
+        "x86_64-apple-darwin": [
+          "host-tool"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "host-tool"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "host-tool"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/pyo3-macros-backend-0.29.2/LICENSE-APACHE",
+          "sha256": "32c76dbe0e73d79100d5ece77c158399f2e2541bc5c78548a4ba45c1cb53c5c9"
+        },
+        {
+          "path": "licenses/pyo3-macros-backend-0.29.2/LICENSE-MIT",
+          "sha256": "afcbe3b2e6b37172b5a9ca869ee4c0b8cdc09316e5d4384864154482c33e5af6"
+        }
+      ]
+    },
+    {
+      "crate": "quote",
+      "version": "1.0.47",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "1fbf4db142a473a8d80c26bbf18454ed458bf8d26c8219c331daecfdbd079001",
+      "source": "https://crates.io/crates/quote/1.0.47",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "host-tool"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "host-tool"
+        ],
+        "x86_64-apple-darwin": [
+          "host-tool"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "host-tool"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "host-tool"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/quote-1.0.47/LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+        },
+        {
+          "path": "licenses/quote-1.0.47/LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+        }
+      ]
+    },
+    {
+      "crate": "rand",
+      "version": "0.8.8",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "e058c7de0b26af77780c769414d6257830bb240f3c38477dbc2c16e5f54d6d4c",
+      "source": "https://crates.io/crates/rand/0.8.8",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/rand-0.8.8/COPYRIGHT",
+          "sha256": "90eb64f0279b0d9432accfa6023ff803bc4965212383697eee27a0f426d5f8d5"
+        },
+        {
+          "path": "licenses/rand-0.8.8/LICENSE-APACHE",
+          "sha256": "35242e7a83f69875e6edeff02291e688c97caafe2f8902e4e19b49d3e78b4cab"
+        },
+        {
+          "path": "licenses/rand-0.8.8/LICENSE-MIT",
+          "sha256": "209fbbe0ad52d9235e37badf9cadfe4dbdc87203179c0899e738b39ade42177b"
+        },
+        {
+          "path": "source-notices/rand-0.8.8.txt",
+          "sha256": "4030607a6f6a873e1b41ebb8d8c94b94b33f32bebb2442e631533225ece1dcfd"
+        }
+      ]
+    },
+    {
+      "crate": "rand_chacha",
+      "version": "0.3.1",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "e6c10a63a0fa32252be49d21e7709d4d4baf8d231c2dbce1eaa8141b9b127d88",
+      "source": "https://crates.io/crates/rand_chacha/0.3.1",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/rand_chacha-0.3.1/COPYRIGHT",
+          "sha256": "90eb64f0279b0d9432accfa6023ff803bc4965212383697eee27a0f426d5f8d5"
+        },
+        {
+          "path": "licenses/rand_chacha-0.3.1/LICENSE-APACHE",
+          "sha256": "aaff376532ea30a0cd5330b9502ad4a4c8bf769c539c87ffe78819d188a18ebf"
+        },
+        {
+          "path": "licenses/rand_chacha-0.3.1/LICENSE-MIT",
+          "sha256": "209fbbe0ad52d9235e37badf9cadfe4dbdc87203179c0899e738b39ade42177b"
+        },
+        {
+          "path": "source-notices/rand_chacha-0.3.1.txt",
+          "sha256": "6ef88769602d6f972a787c365dcfc0864f3435807141ecb06f4204dffc4882f1"
+        }
+      ]
+    },
+    {
+      "crate": "rand_core",
+      "version": "0.6.4",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "ec0be4795e2f6a28069bec0b5ff3e2ac9bafc99e6a9a7dc3547996c5c816922c",
+      "source": "https://crates.io/crates/rand_core/0.6.4",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/rand_core-0.6.4/COPYRIGHT",
+          "sha256": "90eb64f0279b0d9432accfa6023ff803bc4965212383697eee27a0f426d5f8d5"
+        },
+        {
+          "path": "licenses/rand_core-0.6.4/LICENSE-APACHE",
+          "sha256": "6df43f6f4b5d4587f3d8d71e45532c688fd168afa5fe89d571cb32fa09c4ef51"
+        },
+        {
+          "path": "licenses/rand_core-0.6.4/LICENSE-MIT",
+          "sha256": "209fbbe0ad52d9235e37badf9cadfe4dbdc87203179c0899e738b39ade42177b"
+        },
+        {
+          "path": "source-notices/rand_core-0.6.4.txt",
+          "sha256": "c8d0d57fca49d6d7a1a6a88a031001995e2884e30cf810e7e466e630a76d1f15"
+        }
+      ]
+    },
+    {
+      "crate": "rawpointer",
+      "version": "0.2.1",
+      "license_expression": "MIT/Apache-2.0",
+      "archive_sha256": "60a357793950651c4ed0f3f52338f53b2f809f32d83a07f72909fa13e4c6c1e3",
+      "source": "https://crates.io/crates/rawpointer/0.2.1",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/rawpointer-0.2.1/LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        },
+        {
+          "path": "licenses/rawpointer-0.2.1/LICENSE-MIT",
+          "sha256": "7576269ea71f767b99297934c0b2367532690f8c4badc695edf8e04ab6a1e545"
+        },
+        {
+          "path": "source-notices/rawpointer-0.2.1.txt",
+          "sha256": "1c43bec2267d7ee0402a1ffbc4c9fe9f2e1e9b053dd3251d69588a85ac6489e0"
+        }
+      ]
+    },
+    {
+      "crate": "rayon",
+      "version": "1.12.0",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "fb39b166781f92d482534ef4b4b1b2568f42613b53e5b6c160e24cfbfa30926d",
+      "source": "https://crates.io/crates/rayon/1.12.0",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/rayon-1.12.0/LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        },
+        {
+          "path": "licenses/rayon-1.12.0/LICENSE-MIT",
+          "sha256": "0621878e61f0d0fda054bcbe02df75192c28bde1ecc8289cbd86aeba2dd72720"
+        }
+      ]
+    },
+    {
+      "crate": "rayon-core",
+      "version": "1.13.0",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "22e18b0f0062d30d4230b2e85ff77fdfe4326feb054b9783a3460d8435c8ab91",
+      "source": "https://crates.io/crates/rayon-core/1.13.0",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/rayon-core-1.13.0/LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        },
+        {
+          "path": "licenses/rayon-core-1.13.0/LICENSE-MIT",
+          "sha256": "0621878e61f0d0fda054bcbe02df75192c28bde1ecc8289cbd86aeba2dd72720"
+        }
+      ]
+    },
+    {
+      "crate": "rustc-hash",
+      "version": "2.1.3",
+      "license_expression": "Apache-2.0 OR MIT",
+      "archive_sha256": "6b1e7f9a428571be2dc5bc0505c13fb6bf936822b894ec87abf8a08a4e51742d",
+      "source": "https://crates.io/crates/rustc-hash/2.1.3",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/rustc-hash-2.1.3/LICENSE-APACHE",
+          "sha256": "95bd3988beee069fa2848f648dab43cc6e0b2add2ad6bcb17360caf749802bcc"
+        },
+        {
+          "path": "licenses/rustc-hash-2.1.3/LICENSE-MIT",
+          "sha256": "30fefc3a7d6a0041541858293bcbea2dde4caa4c0a5802f996a7f7e8c0085652"
+        }
+      ]
+    },
+    {
+      "crate": "serde",
+      "version": "1.0.229",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "4148590afebada386688f18773da617792bf2ef03ffc1e4cbd2b1d45b023e0ba",
+      "source": "https://crates.io/crates/serde/1.0.229",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/serde-1.0.229/LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+        },
+        {
+          "path": "licenses/serde-1.0.229/LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+        }
+      ]
+    },
+    {
+      "crate": "serde_core",
+      "version": "1.0.229",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "67dca2c9c51e58a4791a4b1ed58308b39c64224d349a935ab5039aa360942a48",
+      "source": "https://crates.io/crates/serde_core/1.0.229",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/serde_core-1.0.229/LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+        },
+        {
+          "path": "licenses/serde_core-1.0.229/LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+        }
+      ]
+    },
+    {
+      "crate": "serde_derive",
+      "version": "1.0.229",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "e7a5d71263a5a7d47b41f6b3f06ba276f10cc18b0931f1799f710578e2309348",
+      "source": "https://crates.io/crates/serde_derive/1.0.229",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "host-tool"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "host-tool"
+        ],
+        "x86_64-apple-darwin": [
+          "host-tool"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "host-tool"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "host-tool"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/serde_derive-1.0.229/LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+        },
+        {
+          "path": "licenses/serde_derive-1.0.229/LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+        }
+      ]
+    },
+    {
+      "crate": "serde_json",
+      "version": "1.0.151",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "c841b55ecdae098c80dcae9cf767f6f8a0c2cdb3416bbef72181df4d0fe73f14",
+      "source": "https://crates.io/crates/serde_json/1.0.151",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/serde_json-1.0.151/LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+        },
+        {
+          "path": "licenses/serde_json-1.0.151/LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+        },
+        {
+          "path": "source-notices/serde_json-1.0.151.txt",
+          "sha256": "cf39584ce1742d14d4c321d38d1f66c39714c8b23162ba08c0898661ea5d0080"
+        }
+      ]
+    },
+    {
+      "crate": "syn",
+      "version": "2.0.119",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "872831b642d1a07999a962a351ed35b955ea2cfc8f3862091e2a240a84f17297",
+      "source": "https://crates.io/crates/syn/2.0.119",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "host-tool"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "host-tool"
+        ],
+        "x86_64-apple-darwin": [
+          "host-tool"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "host-tool"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "host-tool"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/syn-2.0.119/LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+        },
+        {
+          "path": "licenses/syn-2.0.119/LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+        }
+      ]
+    },
+    {
+      "crate": "syn",
+      "version": "3.0.4",
+      "license_expression": "MIT OR Apache-2.0",
+      "archive_sha256": "e6275cddf4610d1775e6d1fe9469b2e77d0f39fd98fb7450901b821e0c53649f",
+      "source": "https://crates.io/crates/syn/3.0.4",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "host-tool"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "host-tool"
+        ],
+        "x86_64-apple-darwin": [
+          "host-tool"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "host-tool"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "host-tool"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/syn-3.0.4/LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+        },
+        {
+          "path": "licenses/syn-3.0.4/LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+        }
+      ]
+    },
+    {
+      "crate": "target-lexicon",
+      "version": "0.13.5",
+      "license_expression": "Apache-2.0 WITH LLVM-exception",
+      "archive_sha256": "adb6935a6f5c20170eeceb1a3835a49e12e19d792f6dd344ccc76a985ca5a6ca",
+      "source": "https://crates.io/crates/target-lexicon/0.13.5",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "host-tool"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "host-tool"
+        ],
+        "x86_64-apple-darwin": [
+          "host-tool"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "host-tool"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "host-tool"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/target-lexicon-0.13.5/LICENSE",
+          "sha256": "268872b9816f90fd8e85db5a28d33f8150ebb8dd016653fb39ef1f94f2686bc5"
+        }
+      ]
+    },
+    {
+      "crate": "unicode-ident",
+      "version": "1.0.24",
+      "license_expression": "(MIT OR Apache-2.0) AND Unicode-3.0",
+      "archive_sha256": "e6e4313cd5fcd3dad5cafa179702e2b244f760991f45397d14d4ebf38247da75",
+      "source": "https://crates.io/crates/unicode-ident/1.0.24",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "host-tool"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "host-tool"
+        ],
+        "x86_64-apple-darwin": [
+          "host-tool"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "host-tool"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "host-tool"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/unicode-ident-1.0.24/LICENSE-APACHE",
+          "sha256": "62c7a1e35f56406896d7aa7ca52d0cc0d272ac022b5d2796e7d6905db8a3636a"
+        },
+        {
+          "path": "licenses/unicode-ident-1.0.24/LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+        },
+        {
+          "path": "licenses/unicode-ident-1.0.24/LICENSE-UNICODE",
+          "sha256": "f7db81051789b729fea528a63ec4c938fdcb93d9d61d97dc8cc2e9df6d47f2a1"
+        }
+      ]
+    },
+    {
+      "crate": "wasi",
+      "version": "0.11.1+wasi-snapshot-preview1",
+      "license_expression": "Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT",
+      "archive_sha256": "ccf3ec651a847eb01de73ccad15eb7d99f80485de043efb2f370cd654f4ea44b",
+      "source": "https://crates.io/crates/wasi/0.11.1+wasi-snapshot-preview1",
+      "target_roles": {},
+      "notice_files": [
+        {
+          "path": "licenses/wasi-0.11.1+wasi-snapshot-preview1/LICENSE-APACHE",
+          "sha256": "a60eea817514531668d7e00765731449fe14d059d3249e0bc93b36de45f759f2"
+        },
+        {
+          "path": "licenses/wasi-0.11.1+wasi-snapshot-preview1/LICENSE-Apache-2.0_WITH_LLVM-exception",
+          "sha256": "268872b9816f90fd8e85db5a28d33f8150ebb8dd016653fb39ef1f94f2686bc5"
+        },
+        {
+          "path": "licenses/wasi-0.11.1+wasi-snapshot-preview1/LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+        }
+      ]
+    },
+    {
+      "crate": "zerocopy",
+      "version": "0.8.56",
+      "license_expression": "BSD-2-Clause OR Apache-2.0 OR MIT",
+      "archive_sha256": "556764e583adb45a9f8d413c2a147fa7e8d821e48e12b14fd560b607998b75eb",
+      "source": "https://crates.io/crates/zerocopy/0.8.56",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/zerocopy-0.8.56/LICENSE-APACHE",
+          "sha256": "9d185ac6703c4b0453974c0d85e9eee43e6941009296bb1f5eb0b54e2329e9f3"
+        },
+        {
+          "path": "licenses/zerocopy-0.8.56/LICENSE-BSD",
+          "sha256": "83c1763356e822adde0a2cae748d938a73fdc263849ccff6b27776dff213bd32"
+        },
+        {
+          "path": "licenses/zerocopy-0.8.56/LICENSE-MIT",
+          "sha256": "1a2f5c12ddc934d58956aa5dbdd3255fe55fd957633ab7d0d39e4f0daa73f7df"
+        },
+        {
+          "path": "source-notices/zerocopy-0.8.56.txt",
+          "sha256": "ed285d2fac32fa8458adc735d4d6dd9392d2213a600f1f7d2352d6a7da8da0a6"
+        }
+      ]
+    },
+    {
+      "crate": "zerocopy-derive",
+      "version": "0.8.56",
+      "license_expression": "BSD-2-Clause OR Apache-2.0 OR MIT",
+      "archive_sha256": "f2ab42fc20575779bd240faa45f94a74256f755c0fa9e89f0ede20d91d0cdfc1",
+      "source": "https://crates.io/crates/zerocopy-derive/0.8.56",
+      "target_roles": {},
+      "notice_files": [
+        {
+          "path": "licenses/zerocopy-derive-0.8.56/LICENSE-APACHE",
+          "sha256": "9d185ac6703c4b0453974c0d85e9eee43e6941009296bb1f5eb0b54e2329e9f3"
+        },
+        {
+          "path": "licenses/zerocopy-derive-0.8.56/LICENSE-BSD",
+          "sha256": "83c1763356e822adde0a2cae748d938a73fdc263849ccff6b27776dff213bd32"
+        },
+        {
+          "path": "licenses/zerocopy-derive-0.8.56/LICENSE-MIT",
+          "sha256": "1a2f5c12ddc934d58956aa5dbdd3255fe55fd957633ab7d0d39e4f0daa73f7df"
+        },
+        {
+          "path": "source-notices/zerocopy-derive-0.8.56.txt",
+          "sha256": "ebab308c7b5a80dd5269dc1f101cb4cdecec23affb44016d78ff1cc2d3f067d0"
+        }
+      ]
+    },
+    {
+      "crate": "zmij",
+      "version": "1.0.23",
+      "license_expression": "MIT",
+      "archive_sha256": "29666d0abbfad1e3dc4dcf6144730dd3a3ab225bbbdac83319345b1b44ccfc1b",
+      "source": "https://crates.io/crates/zmij/1.0.23",
+      "target_roles": {
+        "aarch64-apple-darwin": [
+          "target-library"
+        ],
+        "aarch64-unknown-linux-gnu": [
+          "target-library"
+        ],
+        "x86_64-apple-darwin": [
+          "target-library"
+        ],
+        "x86_64-pc-windows-msvc": [
+          "target-library"
+        ],
+        "x86_64-unknown-linux-gnu": [
+          "target-library"
+        ]
+      },
+      "notice_files": [
+        {
+          "path": "licenses/zmij-1.0.23/LICENSE-MIT",
+          "sha256": "23f18e03dc49df91622fe2a76176497404e46ced8a715d9d2b67a7446571cca3"
+        }
+      ]
+    }
+  ],
+  "scope": "Conservative all-target normal/build closure. Target roles distinguish Cargo-selected libraries from host build/procedural-macro tools; selection does not assert every byte survives linking. Additional conditional packages are included for completeness. Dev-only dependencies are excluded.",
+  "source_builds": "Official wheels use the audited Rust version. Other-toolchain redistributors must refresh and review matching standard-library notices; source/MSRV builds remain supported without changing their compiler.",
+  "external_libraries": "NumPy/SciPy/Python are separate installations; OS libraries are dynamically supplied by the platform. Extra bundled native libraries require an additional audit; installed wheel smoke checks reject unexpected native payloads."
+}

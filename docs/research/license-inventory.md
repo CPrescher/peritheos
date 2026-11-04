@@ -176,10 +176,15 @@ Project implementation and contributor-written research scripts remain MIT.
 The retained Katsura MATLAB code is separately attributed CC BY 4.0.
 Rust licenses include MIT/Apache alternatives, BSD-2-Clause, Unicode-3.0 and
 the LLVM exception. The dependency inventory includes build tools and
-all-target conditional dependencies and excludes dev-only packages. It is
-not a per-wheel linked-code or Rust standard-library inventory. Determine
-which code and required notices are redistributed before claiming complete
-native-binary notice compliance; the project MIT/CC notices do not replace it.
+all-target conditional dependencies and excludes dev-only packages. The [subsequent Rust notice audit](rust-third-party-notices.md) maps all five
+wheel-target graphs, distinguishes target libraries from host tools and ships
+a conservative all-47-package notice set plus the complete audited Rust
+standard-library copyright document. The installed bundle records exact
+archive and notice hashes. Target selection is not a claim that every byte
+survives linking. The publication compiler is pinned; dependency/compiler
+changes or extra bundled native libraries require a new audit. The original
+release's dependency inventory remains historical evidence, not a statement
+that these notices were already shipped in 0.17.3/0.17.4.
 
 NumPy and SciPy are external `Requires-Dist` dependencies, not bundled by
 virtue of that dependency. Cargo registry sources are not vendored in the

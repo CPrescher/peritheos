@@ -15,7 +15,12 @@ and each resource's source/rights metadata. Some source datasets are CC BY
 CC0 dedication covers only the contributor-held rights stated in its notice.
 It does not grant rights held by the authors or publishers of source material.
 
-MIT, CC BY 4.0 and CC0 texts are included with this distribution. Their presence
+Rust dependencies and standard-library components retain their upstream
+licenses and notices in peritheos/data/third_party/rust/. The manifest records
+source versions, hashes, target roles and the audited publication compiler.
+These are separate from the MIT license of Peritheos implementation code.
+
+MIT, CC BY 4.0, CC0 and Rust third-party notices are included. Their presence
 does not apply any of these licenses to files outside their stated scope.
 Unknown source terms remain unknown; this reference does not establish that
 every bundled resource meets a downstream distributor's licensing policy.

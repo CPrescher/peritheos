@@ -23,6 +23,17 @@ vanadium, superhydrous-phase-B and archival brucite CIFs. He (2023)'s separate
 thesis-derived brucite CIF still has unresolved source reuse terms. Original
 CIF bytes, headers and structural values are unchanged.
 
+The [Rust third-party notice audit](research/rust-third-party-notices.md)
+documents the complete installed notice bundle, source/archive verification,
+platform roles and audited release compiler. License texts, additional source
+attributions and the full standard-library copyright document ship in both
+package formats and their license metadata. Extra native libraries trigger a
+new audit through the installed smoke check.
+
+A [Morard author-data permission template](research/morard-data-permission-template.md)
+is available for file-specific confirmation. It is an unsigned draft and does
+not extend the existing author-file grant until confirmation is recorded.
+
 Peritheos implementation code and contributor-written research scripts use
 the MIT (Expat) license. Bundled scientific data have source-specific terms.
 Article citations in scripts identify scientific sources; they do not change

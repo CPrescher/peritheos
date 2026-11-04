@@ -73,6 +73,46 @@ def main():
     for item in cif_review["files"]:
         payload = data.joinpath("datasets", item["file"]).read_bytes()
         assert hashlib.sha256(payload).hexdigest() == item["local_sha256"], item["file"]
+    rust_notices = data.joinpath("third_party", "rust")
+    rust_manifest = json.loads(
+        rust_notices.joinpath("manifest.json").read_text(encoding="utf-8")
+    )
+    expected_notice_files = {
+        "NOTICE.md",
+        "manifest.json",
+        "stdlib.json",
+        rust_manifest["stdlib"]["notice"],
+    }
+    for dependency in rust_manifest["packages"]:
+        for notice in dependency["notice_files"]:
+            expected_notice_files.add(notice["path"])
+            assert (
+                hashlib.sha256(
+                    rust_notices.joinpath(notice["path"]).read_bytes()
+                ).hexdigest()
+                == notice["sha256"]
+            )
+    assert (
+        hashlib.sha256(
+            rust_notices.joinpath(rust_manifest["stdlib"]["notice"]).read_bytes()
+        ).hexdigest()
+        == rust_manifest["stdlib"]["sha256"]
+    )
+    for relative in expected_notice_files:
+        license_path = "peritheos/data/third_party/rust/" + relative
+        assert license_path in installed_licenses, license_path
+        assert (
+            installed_licenses[license_path].read_bytes()
+            == rust_notices.joinpath(relative).read_bytes()
+        )
+    native_payloads = [
+        str(p).replace("\\", "/")
+        for p in installed.files or []
+        if str(p).lower().endswith((".so", ".pyd", ".dll", ".dylib", ".a", ".lib"))
+    ]
+    assert len(native_payloads) == 1 and native_payloads[0].startswith(
+        "peritheos/_rust."
+    ), ("Unexpected bundled native library requires a license audit", native_payloads)
     guide = data.joinpath("LICENSING.md").read_text(encoding="utf-8")
     datasets = data.joinpath("datasets")
     notices = [path for path in datasets.iterdir() if path.name.endswith(".LICENSE.md")]

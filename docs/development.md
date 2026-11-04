@@ -233,6 +233,28 @@ Document the required molar-volume unit, reference temperature, pressure unit,
 parameter domain, source equations, and whether energy methods are absolute or
 reference contributions.
 
+## Maintaining Rust distribution notices
+
+The [third-party notice audit](research/rust-third-party-notices.md) describes
+source verification and toolchain scope. Repository maintenance commands:
+
+```bash
+python scripts/generate_rust_notices.py --check
+```
+
+Regenerate and review the bundle after Cargo.lock changes, including a
+workspace-version bump, before preparing distributions:
+
+```bash
+python scripts/generate_rust_notices.py
+```
+
+Official publication pins the audited Rust compiler and verifies its notice
+bundle. This does not raise the library MSRV. Other-toolchain redistributors
+must refresh/review matching standard-library notices as documented in the
+audit. License/notice copies are byte-exact; only the Cargo.lock fingerprint
+normalizes checkout CRLF to LF.
+
 ## Preparing a release
 
 The Python version in `peritheos/__init__.py`, workspace version in

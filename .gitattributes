@@ -94,3 +94,6 @@ peritheos/data/research/dewaele-2008-paw/datasets/nickel-dewaele-2008-figure4-ve
 peritheos/data/research/dewaele-2008-paw/datasets/platinum-dewaele-2008-figure4-vector.csv -text whitespace=cr-at-eol
 peritheos/data/research/dewaele-2008-paw/datasets/silver-dewaele-2008-figure4-vector.csv -text whitespace=cr-at-eol
 peritheos/data/research/dewaele-2008-paw/datasets/zinc_hcp-dewaele-2008-figure4-vector.csv -text whitespace=cr-at-eol
+
+# Keep copied Rust license/notice payloads byte-exact on all platforms.
+peritheos/data/third_party/rust/** -text whitespace=-blank-at-eol,-blank-at-eof

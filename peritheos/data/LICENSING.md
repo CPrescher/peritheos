@@ -13,6 +13,7 @@ scientific provenance; it is not, by itself, a permission to redistribute.
 | A source explicitly dedicated under CC0 or identified as public domain | The scope established by that source's notice; it does not automatically extend to the associated publication or other sources. |
 | A Peritheos contributor's scoped CC0 dedication | Only rights held by that contributor in the stated transcription, normalization, metadata or arrangement. It does not relicense the original observations, article, figures, publisher files or author artifacts. |
 | A resource whose source terms are unspecified | No source license grant is asserted. Neither the code's MIT license nor a contributor's CC0 dedication supplies missing third-party permissions. |
+| Compiled Rust dependencies and standard library | [Rust third-party notices](third_party/rust/NOTICE.md) and their full license/copyright texts; these do not change the MIT license of Peritheos code or grant scientific-data rights. |
 | Retained original author code or workbooks | Their own source terms. For example, Katsura's original MATLAB files and workbook retain CC BY 4.0, even though Peritheos's independent Python diagnostics use MIT. |
 
 Numerical coefficients, measurements and their transcription are distinguished
@@ -80,7 +81,11 @@ unresolved source rights; it is not a blanket redistribution clearance.
 
 This guide and the dataset notices are installed under `peritheos/data/`.
 The distribution's `License-File` metadata also includes these notices, the
-MIT license and complete CC BY 4.0 and CC0 texts. Python package metadata uses
+MIT license, complete CC BY 4.0 and CC0 texts, and the complete Rust notice
+bundle. The Rust manifest records locked crate sources, target roles and
+notice hashes; its standard-library document matches the pinned official
+release compiler. Redistributors rebuilding with another compiler must
+refresh/review the matching standard-library notices. Python package metadata uses
 `LicenseRef-Peritheos-Distribution` to refer to this component-specific scope;
 it does not change the MIT license of the library code or grant unknown rights.
 

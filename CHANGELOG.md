@@ -26,6 +26,14 @@ All notable changes to Peritheos are documented here. The project follows
   Keep He (2023) thesis-derived brucite source terms explicitly unresolved,
   including the limitations of failed live repository requests.
 
+- Ship full Rust dependency licenses, COPYRIGHT/NOTICE files, additional
+  source-header attributions and the audited standard-library copyright
+  document in both distribution formats and license metadata. Verify source
+  archives against Cargo.lock, map all five target graphs, pin the official
+  wheel compiler and reject stale notices or unexpected bundled native code.
+  Document custom-toolchain rebuilding and provide an unsigned Morard
+  author-data permission template without changing existing grants.
+
 ## [0.17.4] - 2026-11-04
 
 ### Fixed
