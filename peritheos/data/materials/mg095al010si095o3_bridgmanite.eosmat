@@ -1,7 +1,7 @@
 {
   "format_version": 4,
   "identifier": "mg095al010si095o3_bridgmanite",
-  "name": "Mg0.95Al0.10Si0.95O3 aluminous bridgmanite (Al.05-Pv)",
+  "name": "Bridgmanite Al.05-Pv",
   "formula": "Mg0.95Al0.10Si0.95O3",
   "phase": "orthorhombic aluminous silicate perovskite, Al.05-Pv specimen",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
@@ -509,7 +509,12 @@
       }
     }
   ],
-  "aliases": ["Al.05-Pv", "5 mol% Al2O3 silicate perovskite", "aluminous MgSiO3 perovskite"],
+  "aliases": [
+    "Al.05-Pv",
+    "5 mol% Al2O3 silicate perovskite",
+    "aluminous MgSiO3 perovskite",
+    "Mg0.95Al0.10Si0.95O3 aluminous bridgmanite (Al.05-Pv)"
+  ],
   "family_id": "bridgmanite",
   "cell_contents": "Four nominal Mg0.95Al0.10Si0.95O3 formula units per conventional orthorhombic bridgmanite cell (Z=4). The stored atom_sites are an explicitly identified MgSiO3 Pbnm positional-topology proxy and do not encode an experimentally refined Al distribution.",
   "symmetry": "ORTHORHOMBIC",

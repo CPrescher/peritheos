@@ -23,7 +23,7 @@ from scripts.ferrous_ringwoodite_recover import DATA, PREFIX, read_csv
 
 ROOT = Path(__file__).resolve().parents[1]
 STAGE = ROOT / "output/material-candidates/ferrous-ringwoodite"
-CARD = STAGE / "ferrous_ringwoodite.eosmat"
+CARD = ROOT / "docs/research/data/ferrous-ringwoodite-candidate.eosmat"
 V0_MOLAR = 42.03
 Z = 8
 N = 7

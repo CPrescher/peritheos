@@ -22,7 +22,7 @@ and recommendation for use are distinct assessments.
 | Temperature unit | K |
 | Volume unit | Å³ per conventional unit cell |
 | Stored EOS records | 1 |
-| Observation datasets | 1 |
+| Observation datasets | 2 |
 
 Pbca structure and fractional coordinates from Prescher et al., Nature Geosci. 8, 220-223 (2015); the reported axial ratios are normalized to the fitted V0.
 
@@ -90,17 +90,18 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Open reconstruction report](../reconstruction-reports/iron_carbide_fe7c3.md#record-iron_carbide_fe7c3_prescher_2015_bm3_1)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
+- Numerical parameter parity on the recovered 28-row author input, with all six archived coefficient/error values reproduced at their printed precision. Effective pressure-variance weighting and residual-scaled covariance are reconstructed interpretations; the original solver and confidence convention remain unrecovered. Pressure widths include before/after half-differences, not established standard deviations. Table S4 contains different cell values and is retained for provenance only: it should not be used for scientific calculations, EOS fitting or pressure calibration. The affected processing logs contain revised cells alongside inconsistent reduction/export cells. This does not establish the physically preferable reduction or exact author-workflow identity.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -114,40 +115,47 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 748.0 | 1.0 | 745.1 | 2.3 | Free |
-| K0 | 168 | 4 | 188 | 8 | Free |
-| K0\_prime | 6.10 | 0.10 | 5.23 | 0.19 | Free |
+| V0 | 748.0 | 1.0 | 748.1 | 1.0 | Free |
+| K0 | 168 | 4 | 168 | 4 | Free |
+| K0\_prime | 6.10 | 0.10 | 6.06 | 0.13 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
 Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
-- **Objective:** errors\_in\_variables
-- **Selection:** all rows
+- **Objective:** effective\_variance\_pressure\_residuals
+- **Selection:** all 28 archived author EOS inputs; series a new and series d new, excluding series b
 - **Columns:**
     - **Pressure:** pressure\_gpa
-    - **Temperature:** Not specified
     - **Volume:** unit\_cell\_volume\_a3
-- **Absolute sigma:** True
+    - **Temperature:** Not specified
+- **Weighting:**
+    - **Denominator:** sqrt(sP^2 + (K(V)/V \* sV)^2); updated with parameters
+    - **Zero pressure widths:** preserved as printed; positive volume widths keep the denominator finite
+    - **Source width semantics:** pressure widths include before/after half-differences; confidence/cross-row covariance unknown
+- **Absolute sigma:** False
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
-- **Observations:** 27
-- **Observed pressure range gpa:** 3.92; 158
+- **Observations:** 28
+- **Observed pressure range gpa:** 3.92; 158.04
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** 529.64; 732.3
-- **Degrees of freedom:** 24
+- **Observed volume range:** 531.5; 732.3
+- **Degrees of freedom:** 25
 - **Solver success:** True
-- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 2.04963
-- **Published rmse gpa:** 3.58769
-- **Reduced chi square:** 5.25831
-- **Dataset identifiers:** iron\_carbide\_fe7c3\_prescher\_2015\_table\_s4\_compression
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.692448
+- **Published rmse gpa:** 0.776259
+- **Reduced chi square:** 9.46136
+- **Parameter covariance:** \[\["1.09713", "-4.09489", "0.121066"\], \["-4.09489", "16.8929", "-0.530987"\], \["0.121066", "-0.530987", "0.0174793"\]\]
+- **Covariance convention:** inverse(J.T J) times weighted residual sum of squares / 25; reconstructed convention
+- **Dataset identifiers:** iron\_carbide\_fe7c3\_prescher\_2015\_author\_fit\_input
+- **Reproduction report:** docs/literature-reproductions/iron-carbide-fe7c3-prescher-2015.md
 
 </details>
 
 Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
-Single-crystal X-ray compression fit for orthorhombic Fe7C3 from 4 to 158 GPa. The structure was additionally observed after high-pressure, high-temperature synthesis to 205 GPa, outside the fitted EoS interval.
+Single-crystal X-ray compression fit for orthorhombic Fe7C3 from 4 to 158 GPa. The structure was additionally observed after high-pressure, high-temperature synthesis to 205 GPa, outside the fitted EoS interval. Parameter parity uses the recovered 28-row author fit input, not Table S4. Table S4 should not be used for scientific calculations, EOS fitting or pressure calibration. Retained for provenance only: its CIF-derived cell values differ from the recovered author EOS fit inputs, and matching CrysAlis logs and exports contain inconsistent cell representations. See docs/literature-reproductions/iron-carbide-fe7c3-prescher-2015.md.
 
 Parameter covariance is not supplied.
 
@@ -170,10 +178,11 @@ Parameter covariance is not supplied.
     - **File:** iron\_carbide\_fe7c3.json
 - **Primary data check:**
     - **Status:** bundled
-    - **Audit date:** 2026-09-03
-    - **Dataset identifiers:** iron\_carbide\_fe7c3\_prescher\_2015\_table\_s4\_compression
-    - **Source locations:** Supplementary Table S4
-    - **Finding:** All 27 high-pressure orthorhombic Fe7C3 single-crystal observations from Supplementary Table S4.
+    - **Audit date:** 2026-10-25
+    - **Dataset identifiers:** iron\_carbide\_fe7c3\_prescher\_2015\_author\_fit\_input
+    - **Archival dataset identifiers:** iron\_carbide\_fe7c3\_prescher\_2015\_table\_s4\_compression
+    - **Source locations:** Author archive: Fe7C3 EOS V-P data without b.txt; EOS parameters whole data.txt; Workbook series a new / series d new; gesamt\_sync new!E4:H31; Supplementary Table S4 (archival only)
+    - **Finding:** All 28 archived author fit inputs and printed coordinate widths recovered. Numerical reconstruction matches all three archived coefficients and errors at printed precision. The 27 published Table S4 rows are preserved separately and should not be used for scientific calculations, EOS fitting or pressure calibration because their cell representations are inconsistent with the revised fit inputs.
 
 </details>
 
@@ -203,7 +212,7 @@ Parameter covariance is not supplied.
 
 ### iron\_carbide\_fe7c3\_prescher\_2015\_table\_s4\_compression
 
-- **Description:** All 27 high-pressure orthorhombic Fe7C3 single-crystal observations from Supplementary Table S4.
+- **Description:** Published 27-row Supplementary Table S4 structural observations, retained verbatim for provenance only; not suitable for scientific use.
 - **Kind:** single\_crystal\_pressure\_volume\_lattice\_parameters
 - **Reference:**
     - **Authors:** Prescher; Dubrovinsky; Bykova; Kupenko; Glazyrin; Kantor; McCammon; Mookherjee; Nakajima; Miyajima; Sinmyo; Cerantola; Dubrovinskaia; Prakapenka; Rüffer; Chumakov; Hanfland
@@ -213,8 +222,32 @@ Parameter covariance is not supplied.
     - **Locator:** 220-223
     - **DOI:** 10.1038/ngeo2370
 - **Source location:** Supplementary Table S4
-- **Associated EOS records:** iron\_carbide\_fe7c3\_prescher\_2015\_bm3\_1
-- **Notes:** Parenthesized last-digit uncertainties are separated from the printed values without assigning a confidence level. The 140.3 GPa row has no printed uncertainty for b.
+- **Associated EOS records:** None declared
+- **Notes:** Parenthesized last-digit uncertainties are separated from the printed values without assigning a confidence level. The 140.3 GPa row has no printed uncertainty for b. Table S4 should not be used for scientific calculations, EOS fitting or pressure calibration. Retained for provenance only: its CIF-derived cell values differ from the recovered author EOS fit inputs, and matching CrysAlis logs and exports contain inconsistent cell representations.
 
 [Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/iron-carbide-fe7c3-prescher-2015-table-s4-compression.csv)
 — SHA-256 `744fc747827c776d347dcc7f221782a23dbd17534357cafd817952fab686617e`.
+
+### iron\_carbide\_fe7c3\_prescher\_2015\_author\_fit\_input
+
+- **Description:** Recovered original 28-row author EOS input; nine series-a and 19 series-d observations, excluding series b. Used for numerical parameter parity; distinct from the published Table S4 structural dataset.
+- **Kind:** single\_crystal\_pressure\_volume
+- **Reference:**
+    - **Authors:** Prescher; Dubrovinsky; Bykova; Kupenko; Glazyrin; Kantor; McCammon; Mookherjee; Nakajima; Miyajima; Sinmyo; Cerantola; Dubrovinskaia; Prakapenka; Rüffer; Chumakov; Hanfland
+    - **Year:** 2015
+    - **Title:** High Poisson's ratio of Earth's inner core explained by carbon alloying
+    - **Source:** Nature Geosci.
+    - **Volume:** 8
+    - **Locator:** 220-223
+    - **DOI:** 10.1038/ngeo2370
+- **Source location:** Author-provided Fe7C3 archive, X-ray diffraction/Final plots and tables/EOS Fit/Fe7C3 EOS V-P data without b.txt; workbook gesamt\_sync new!E4:H31; recovered 2026-10-25.
+- **Associated EOS records:** iron\_carbide\_fe7c3\_prescher\_2015\_bm3\_1
+- **Uncertainty:**
+    - **Reported as:** Original author P\_err and V\_err widths; source confidence unknown.
+    - **Pressure:** Includes before/after half-differences; printed zeros retained.
+    - **Covariance:** not\_reported
+    - **Fit use:** Reconstructed effective pressure variance sP^2+(K(V)\*sV/V)^2, with residual-scaled covariance; original solver implementation unrecovered.
+- **Notes:** All original numeric tokens and row order are preserved. Pressure widths include half-differences between before/after readings, including printed zeros; these are not assumed exact pressure measurements or established statistical standard deviations. Original confidence and covariance semantics are unknown. Values are angstrom cubed per conventional cell (Z=8).
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/iron-carbide-fe7c3-prescher-2015-author-fit.csv)
+— SHA-256 `3567879576199164d75ee828c03850c7a38d2f8379f7d7c379b3bcec7f24fd5c`.

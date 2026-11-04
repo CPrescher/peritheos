@@ -1,0 +1,1242 @@
+{
+  "runtime": {
+    "python": "3.9.6 (default, Aug 17 2026, 12:07:42) \n[Clang 21.0.0 (clang-2100.3.34.1)]",
+    "numpy": "2.0.2",
+    "scipy": "1.13.1"
+  },
+  "scope": "Diagnostic reproduction audit only; no new EOS or catalog assessment change.",
+  "source_coefficients": {
+    "V0_a3": 155.26,
+    "K0_gpa": 175.4,
+    "K0_prime_body": 5.1,
+    "K0_prime_abstract": 5.2,
+    "printed_errors": [
+      0.14,
+      3.5,
+      0.3
+    ]
+  },
+  "source_fixed_v0_status": "Ambient volume measured independently; fixed/free constraint not explicitly stated in inspected final article.",
+  "original_input_sha256": "bf198807ec30f0b978d73e6d31791e07677ba8c8d393ff706e5875d6039e5b19",
+  "source_pdf_sha256": "abca7f6489523e6c6148cc721e3a79fa942fd444bae873bd9abd1c52871ae7e9",
+  "resolved_bars_original_rows_zero_based": [
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    13,
+    14,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "cases": {
+    "original_equal_pressure_fixed_v0": {
+      "parameters": {
+        "K0_gpa": 161.34142326424862,
+        "K0_prime": 6.044124356941149
+      },
+      "fixed_V0_a3": 155.26,
+      "errors_residual_scaled": [
+        8.597974791328184,
+        0.6355732638383017
+      ],
+      "covariance_residual_scaled": [
+        [
+          73.92517051231492,
+          -5.38341750091249
+        ],
+        [
+          -5.38341750091249,
+          0.40395337370607143
+        ]
+      ],
+      "correlation_K0_K0_prime": -0.9851361925948321,
+      "dof": 19,
+      "objective_sse": 50.57065288126658,
+      "pressure_rms_gpa": 1.5518138830669614,
+      "source_pressure_rms_gpa": 1.6574243208274009,
+      "volume_rms_a3": 0.6137225428019579,
+      "max_curve_delta_a3_0_to_73p2_gpa": 0.44187249391558225,
+      "central_pair_within_printed_widths": false,
+      "optimizer_success": true,
+      "observations": 21,
+      "objective": "pressure",
+      "unscaled_inverse_normal_covariance": null,
+      "uncertainty_qualification": "Conditional inverse-normal-matrix errors. No source error confidence or inter-row covariance recovered; graphical widths are not established measurement sigmas."
+    },
+    "original_equal_volume_fixed_v0": {
+      "parameters": {
+        "K0_gpa": 168.0310885921626,
+        "K0_prime": 5.5558911915239735
+      },
+      "fixed_V0_a3": 155.26,
+      "errors_residual_scaled": [
+        7.181940195710498,
+        0.5340675458017586
+      ],
+      "covariance_residual_scaled": [
+        [
+          51.58026497476214,
+          -3.702678105254535
+        ],
+        [
+          -3.702678105254535,
+          0.28522814347871356
+        ]
+      ],
+      "correlation_K0_K0_prime": -0.9653348519537299,
+      "dof": 19,
+      "objective_sse": 7.543992889709265,
+      "pressure_rms_gpa": 1.5778735146581986,
+      "source_pressure_rms_gpa": 1.6574243208274009,
+      "volume_rms_a3": 0.5993644606187642,
+      "max_curve_delta_a3_0_to_73p2_gpa": 0.2380160860895444,
+      "central_pair_within_printed_widths": false,
+      "optimizer_success": true,
+      "observations": 21,
+      "objective": "volume",
+      "unscaled_inverse_normal_covariance": null,
+      "uncertainty_qualification": "Conditional inverse-normal-matrix errors. No source error confidence or inter-row covariance recovered; graphical widths are not established measurement sigmas."
+    },
+    "original_equal_pressure_free_v0": {
+      "parameters": {
+        "K0_gpa": 145.0716046937152,
+        "K0_prime": 6.761604541788991,
+        "V0_a3": 156.12150712716928
+      },
+      "fixed_V0_a3": null,
+      "errors_residual_scaled": [
+        20.34333997341124,
+        1.138485989824837,
+        1.016618870101712
+      ],
+      "covariance_residual_scaled": [
+        [
+          413.85148127379165,
+          -22.365026080050544,
+          -18.89130833053417
+        ],
+        [
+          -22.365026080050544,
+          1.2961503490274389,
+          0.9079072876897496
+        ],
+        [
+          -18.89130833053417,
+          0.9079072876897496,
+          1.0335139270468818
+        ]
+      ],
+      "correlation_K0_K0_prime": -0.9656493697610242,
+      "dof": 18,
+      "objective_sse": 48.249178305932986,
+      "pressure_rms_gpa": 1.5157770018476142,
+      "source_pressure_rms_gpa": 1.6574243208274009,
+      "volume_rms_a3": 0.623541192226253,
+      "max_curve_delta_a3_0_to_73p2_gpa": 0.8615071271692898,
+      "central_pair_within_printed_widths": false,
+      "optimizer_success": true,
+      "observations": 21,
+      "objective": "pressure",
+      "unscaled_inverse_normal_covariance": null,
+      "uncertainty_qualification": "Conditional inverse-normal-matrix errors. No source error confidence or inter-row covariance recovered; graphical widths are not established measurement sigmas."
+    },
+    "original_equal_volume_free_v0": {
+      "parameters": {
+        "K0_gpa": 161.09444814473892,
+        "K0_prime": 5.8664598617807355,
+        "V0_a3": 155.5519642767937
+      },
+      "fixed_V0_a3": null,
+      "errors_residual_scaled": [
+        12.48923574845939,
+        0.7454530989548824,
+        0.4224603517958054
+      ],
+      "covariance_residual_scaled": [
+        [
+          155.98100958059595,
+          -8.882646055249976,
+          -4.332107418797613
+        ],
+        [
+          -8.882646055249976,
+          0.5557003227414377,
+          0.20572952405518669
+        ],
+        [
+          -4.332107418797613,
+          0.20572952405518669,
+          0.17847274883943565
+        ]
+      ],
+      "correlation_K0_K0_prime": -0.9540830255688172,
+      "dof": 18,
+      "objective_sse": 7.337188863765769,
+      "pressure_rms_gpa": 1.548016406722342,
+      "source_pressure_rms_gpa": 1.6574243208274009,
+      "volume_rms_a3": 0.5910921636205373,
+      "max_curve_delta_a3_0_to_73p2_gpa": 0.2919642767937205,
+      "central_pair_within_printed_widths": false,
+      "optimizer_success": true,
+      "observations": 21,
+      "objective": "volume",
+      "unscaled_inverse_normal_covariance": null,
+      "uncertainty_qualification": "Conditional inverse-normal-matrix errors. No source error confidence or inter-row covariance recovered; graphical widths are not established measurement sigmas."
+    },
+    "resolved_bars_subset_equal_pressure": {
+      "parameters": {
+        "K0_gpa": 161.39874683572964,
+        "K0_prime": 6.093035500018543
+      },
+      "fixed_V0_a3": 155.26,
+      "errors_residual_scaled": [
+        11.556217990115506,
+        0.8435717449029986
+      ],
+      "covariance_residual_scaled": [
+        [
+          133.54617423506926,
+          -9.615266175468044
+        ],
+        [
+          -9.615266175468044,
+          0.7116132887986897
+        ]
+      ],
+      "correlation_K0_K0_prime": -0.9863329934913081,
+      "dof": 11,
+      "objective_sse": 42.3534143626133,
+      "pressure_rms_gpa": 1.8049805957323346,
+      "source_pressure_rms_gpa": 1.9417045354638067,
+      "volume_rms_a3": 0.7139407975576945,
+      "max_curve_delta_a3_0_to_73p2_gpa": 0.42178171630595784,
+      "central_pair_within_printed_widths": false,
+      "optimizer_success": true,
+      "observations": 13,
+      "objective": "pressure",
+      "unscaled_inverse_normal_covariance": null,
+      "uncertainty_qualification": "Conditional inverse-normal-matrix errors. No source error confidence or inter-row covariance recovered; graphical widths are not established measurement sigmas."
+    },
+    "resolved_bars_subset_pressure_widths": {
+      "parameters": {
+        "K0_gpa": 171.98241671998323,
+        "K0_prime": 5.274764750896316
+      },
+      "fixed_V0_a3": 155.26,
+      "errors_residual_scaled": [
+        10.33427026194935,
+        0.7569950650156652
+      ],
+      "covariance_residual_scaled": [
+        [
+          106.79714184701066,
+          -7.543521215897129
+        ],
+        [
+          -7.543521215897129,
+          0.5730415284580711
+        ]
+      ],
+      "correlation_K0_K0_prime": -0.9642757671712727,
+      "dof": 11,
+      "objective_sse": 3.1774793231631606,
+      "pressure_rms_gpa": 1.9213491149762876,
+      "source_pressure_rms_gpa": 1.9417045354638067,
+      "volume_rms_a3": 0.7254242119101711,
+      "max_curve_delta_a3_0_to_73p2_gpa": 0.12455603895145373,
+      "central_pair_within_printed_widths": true,
+      "optimizer_success": true,
+      "observations": 13,
+      "objective": "pressure",
+      "unscaled_inverse_normal_covariance": [
+        [
+          369.71713765477557,
+          -26.11464149269856
+        ],
+        [
+          -26.11464149269856,
+          1.9837916071043793
+        ]
+      ],
+      "uncertainty_qualification": "Conditional inverse-normal-matrix errors. No source error confidence or inter-row covariance recovered; graphical widths are not established measurement sigmas."
+    },
+    "resolved_bars_subset_coordinate_widths": {
+      "parameters": {
+        "K0_gpa": 166.7568216137062,
+        "K0_prime": 5.636933252618894
+      },
+      "fixed_V0_a3": 155.26,
+      "errors_residual_scaled": [
+        10.850485819883598,
+        0.8246286583980789
+      ],
+      "covariance_residual_scaled": [
+        [
+          117.73304252749504,
+          -8.679118016228063
+        ],
+        [
+          -8.679118016228063,
+          0.6800124242514155
+        ]
+      ],
+      "correlation_K0_K0_prime": -0.969991628898155,
+      "dof": 11,
+      "objective_sse": 1.9897168797386857,
+      "pressure_rms_gpa": 1.8530002089106814,
+      "source_pressure_rms_gpa": 1.9417045354638067,
+      "volume_rms_a3": 0.7138076618030295,
+      "max_curve_delta_a3_0_to_73p2_gpa": 0.28014285634611724,
+      "central_pair_within_printed_widths": false,
+      "optimizer_success": true,
+      "observations": 13,
+      "objective": "coordinate_widths",
+      "unscaled_inverse_normal_covariance": [
+        [
+          650.8782636314214,
+          -47.9818506596009
+        ],
+        [
+          -47.9818506596009,
+          3.759397501692781
+        ]
+      ],
+      "uncertainty_qualification": "Conditional inverse-normal-matrix errors. No source error confidence or inter-row covariance recovered; graphical widths are not established measurement sigmas."
+    },
+    "refined_pixels_equal_pressure_fixed_v0": {
+      "parameters": {
+        "K0_gpa": 160.95093135695632,
+        "K0_prime": 6.225915647871706
+      },
+      "fixed_V0_a3": 155.26,
+      "errors_residual_scaled": [
+        8.5787260077342,
+        0.6480040600838869
+      ],
+      "covariance_residual_scaled": [
+        [
+          73.59453991577516,
+          -5.478509811097293
+        ],
+        [
+          -5.478509811097293,
+          0.4199092618852017
+        ]
+      ],
+      "correlation_K0_K0_prime": -0.9855120060721898,
+      "dof": 19,
+      "objective_sse": 49.91519557195146,
+      "pressure_rms_gpa": 1.541724383557201,
+      "source_pressure_rms_gpa": 1.7231170448084436,
+      "volume_rms_a3": 0.5987132533363074,
+      "max_curve_delta_a3_0_to_73p2_gpa": 0.5104884051825422,
+      "central_pair_within_printed_widths": false,
+      "optimizer_success": true,
+      "observations": 21,
+      "objective": "pressure",
+      "unscaled_inverse_normal_covariance": null,
+      "uncertainty_qualification": "Conditional inverse-normal-matrix errors. No source error confidence or inter-row covariance recovered; graphical widths are not established measurement sigmas."
+    },
+    "refined_pixels_equal_volume_fixed_v0": {
+      "parameters": {
+        "K0_gpa": 167.1131169830645,
+        "K0_prime": 5.765792618732933
+      },
+      "fixed_V0_a3": 155.26,
+      "errors_residual_scaled": [
+        7.145527824631422,
+        0.546664787952515
+      ],
+      "covariance_residual_scaled": [
+        [
+          51.05856789258186,
+          -3.7736682043506415
+        ],
+        [
+          -3.7736682043506415,
+          0.2988423903871682
+        ]
+      ],
+      "correlation_K0_K0_prime": -0.9660693354430608,
+      "dof": 19,
+      "objective_sse": 7.228384277217149,
+      "pressure_rms_gpa": 1.563715768564678,
+      "source_pressure_rms_gpa": 1.7231170448084436,
+      "volume_rms_a3": 0.5866930842489781,
+      "max_curve_delta_a3_0_to_73p2_gpa": 0.37896592642680105,
+      "central_pair_within_printed_widths": false,
+      "optimizer_success": true,
+      "observations": 21,
+      "objective": "volume",
+      "unscaled_inverse_normal_covariance": null,
+      "uncertainty_qualification": "Conditional inverse-normal-matrix errors. No source error confidence or inter-row covariance recovered; graphical widths are not established measurement sigmas."
+    },
+    "omit_ambient_equal_pressure": {
+      "parameters": {
+        "K0_gpa": 161.3414237588502,
+        "K0_prime": 6.044124319286132
+      },
+      "fixed_V0_a3": 155.26,
+      "errors_residual_scaled": [
+        8.833579604635712,
+        0.6529894723003663
+      ],
+      "covariance_residual_scaled": [
+        [
+          78.03212863143602,
+          -5.682496561483988
+        ],
+        [
+          -5.682496561483988,
+          0.4263952509351109
+        ]
+      ],
+      "correlation_K0_K0_prime": -0.985136193180089,
+      "dof": 18,
+      "objective_sse": 50.570652881266504,
+      "pressure_rms_gpa": 1.5901360457719727,
+      "source_pressure_rms_gpa": 1.6983545413822403,
+      "volume_rms_a3": 0.6288784658592141,
+      "max_curve_delta_a3_0_to_73p2_gpa": 0.44187247878545577,
+      "central_pair_within_printed_widths": false,
+      "optimizer_success": true,
+      "observations": 20,
+      "objective": "pressure",
+      "unscaled_inverse_normal_covariance": null,
+      "uncertainty_qualification": "Conditional inverse-normal-matrix errors. No source error confidence or inter-row covariance recovered; graphical widths are not established measurement sigmas."
+    },
+    "original_relative_pressure": {
+      "parameters": {
+        "K0_gpa": 177.85566837322588,
+        "K0_prime": 4.784075611844065
+      },
+      "fixed_V0_a3": 155.26,
+      "errors_residual_scaled": [
+        4.2659603855284125,
+        0.3414312599820826
+      ],
+      "covariance_residual_scaled": [
+        [
+          18.198418010897722,
+          -1.2865761720823667
+        ],
+        [
+          -1.2865761720823667,
+          0.11657530529295249
+        ]
+      ],
+      "correlation_K0_K0_prime": -0.883314592053537,
+      "dof": 18,
+      "objective_sse": 0.04541015122832142,
+      "pressure_rms_gpa": 1.845933909910134,
+      "source_pressure_rms_gpa": 1.6983545413822403,
+      "volume_rms_a3": 0.6585629771020379,
+      "max_curve_delta_a3_0_to_73p2_gpa": 0.39138424768997027,
+      "central_pair_within_printed_widths": false,
+      "optimizer_success": true,
+      "observations": 20,
+      "objective": "pressure",
+      "unscaled_inverse_normal_covariance": [
+        [
+          7213.618878940421,
+          -509.98225002693187
+        ],
+        [
+          -509.98225002693187,
+          46.208951930652056
+        ]
+      ],
+      "uncertainty_qualification": "Conditional inverse-normal-matrix errors. No source error confidence or inter-row covariance recovered; graphical widths are not established measurement sigmas."
+    },
+    "refined_relative_pressure": {
+      "parameters": {
+        "K0_gpa": 173.6247458602908,
+        "K0_prime": 5.213867796850001
+      },
+      "fixed_V0_a3": 155.26,
+      "errors_residual_scaled": [
+        4.180135413491652,
+        0.35633219440121233
+      ],
+      "covariance_residual_scaled": [
+        [
+          17.47353207512703,
+          -1.319759207783179
+        ],
+        [
+          -1.319759207783179,
+          0.1269726327667834
+        ]
+      ],
+      "correlation_K0_K0_prime": -0.8860317559520203,
+      "dof": 18,
+      "objective_sse": 0.04475277054023942,
+      "pressure_rms_gpa": 1.7379363252224438,
+      "source_pressure_rms_gpa": 1.7653471586790692,
+      "volume_rms_a3": 0.6219597955891862,
+      "max_curve_delta_a3_0_to_73p2_gpa": 0.054224180665869426,
+      "central_pair_within_printed_widths": true,
+      "optimizer_success": true,
+      "observations": 20,
+      "objective": "pressure",
+      "unscaled_inverse_normal_covariance": [
+        [
+          7028.024713452833,
+          -530.8200018306651
+        ],
+        [
+          -530.8200018306651,
+          51.06962903552728
+        ]
+      ],
+      "uncertainty_qualification": "Conditional inverse-normal-matrix errors. No source error confidence or inter-row covariance recovered; graphical widths are not established measurement sigmas."
+    },
+    "fixed_v0_155.12": {
+      "parameters": {
+        "K0_gpa": 164.0776204671075,
+        "K0_prime": 5.934986991481912
+      },
+      "fixed_V0_a3": 155.12,
+      "errors_residual_scaled": [
+        8.733899730879797,
+        0.6314668593962695
+      ],
+      "covariance_residual_scaled": [
+        [
+          76.28100450906217,
+          -5.431506015513912
+        ],
+        [
+          -5.431506015513912,
+          0.398750394515788
+        ]
+      ],
+      "correlation_K0_K0_prime": -0.9848305229710098,
+      "dof": 19,
+      "objective_sse": 51.4845433446885,
+      "pressure_rms_gpa": 1.5657729468782,
+      "source_pressure_rms_gpa": 1.6574243208274009,
+      "volume_rms_a3": 0.6258469015368822,
+      "max_curve_delta_a3_0_to_73p2_gpa": 0.4562614053909897,
+      "central_pair_within_printed_widths": false,
+      "optimizer_success": true,
+      "observations": 21,
+      "objective": "pressure",
+      "unscaled_inverse_normal_covariance": null,
+      "uncertainty_qualification": "Conditional inverse-normal-matrix errors. No source error confidence or inter-row covariance recovered; graphical widths are not established measurement sigmas."
+    },
+    "fixed_v0_155.4": {
+      "parameters": {
+        "K0_gpa": 158.6294904380088,
+        "K0_prime": 6.15536122816397
+      },
+      "fixed_V0_a3": 155.4,
+      "errors_residual_scaled": [
+        8.477374817537376,
+        0.640906869037123
+      ],
+      "covariance_residual_scaled": [
+        [
+          71.86588379701686,
+          -5.354097557402452
+        ],
+        [
+          -5.354097557402452,
+          0.41076161477896794
+        ]
+      ],
+      "correlation_K0_K0_prime": -0.9854395049534023,
+      "dof": 19,
+      "objective_sse": 49.828232856904094,
+      "pressure_rms_gpa": 1.5403807948640198,
+      "source_pressure_rms_gpa": 1.6574243208274009,
+      "volume_rms_a3": 0.6054351846939432,
+      "max_curve_delta_a3_0_to_73p2_gpa": 0.4337268357583639,
+      "central_pair_within_printed_widths": false,
+      "optimizer_success": true,
+      "observations": 21,
+      "objective": "pressure",
+      "unscaled_inverse_normal_covariance": null,
+      "uncertainty_qualification": "Conditional inverse-normal-matrix errors. No source error confidence or inter-row covariance recovered; graphical widths are not established measurement sigmas."
+    },
+    "original_plus_quenched_equal_pressure": {
+      "parameters": {
+        "K0_gpa": 162.90624295935336,
+        "K0_prime": 5.933704937672659
+      },
+      "fixed_V0_a3": 155.26,
+      "errors_residual_scaled": [
+        8.148473224586246,
+        0.5928606432670046
+      ],
+      "covariance_residual_scaled": [
+        [
+          66.39761589179898,
+          -4.752284192464321
+        ],
+        [
+          -4.752284192464321,
+          0.35148374233496654
+        ]
+      ],
+      "correlation_K0_K0_prime": -0.9837246191461427,
+      "dof": 20,
+      "objective_sse": 51.733618116170845,
+      "pressure_rms_gpa": 1.5334693007000773,
+      "source_pressure_rms_gpa": 1.6211291616706698,
+      "volume_rms_a3": 0.6072167110786222,
+      "max_curve_delta_a3_0_to_73p2_gpa": 0.39131994210498533,
+      "central_pair_within_printed_widths": false,
+      "optimizer_success": true,
+      "observations": 22,
+      "objective": "pressure",
+      "unscaled_inverse_normal_covariance": null,
+      "uncertainty_qualification": "Conditional inverse-normal-matrix errors. No source error confidence or inter-row covariance recovered; graphical widths are not established measurement sigmas."
+    },
+    "refined_plus_quenched_equal_pressure": {
+      "parameters": {
+        "K0_gpa": 162.44002122517986,
+        "K0_prime": 6.118447550729339
+      },
+      "fixed_V0_a3": 155.26,
+      "errors_residual_scaled": [
+        8.121033148106589,
+        0.6042708056077806
+      ],
+      "covariance_residual_scaled": [
+        [
+          65.95117939264603,
+          -4.82950354673185
+        ],
+        [
+          -4.82950354673185,
+          0.3651432065098762
+        ]
+      ],
+      "correlation_K0_K0_prime": -0.9841461405189152,
+      "dof": 20,
+      "objective_sse": 50.95700370613031,
+      "pressure_rms_gpa": 1.5219157142193327,
+      "source_pressure_rms_gpa": 1.6852425113000333,
+      "volume_rms_a3": 0.5920405731409965,
+      "max_curve_delta_a3_0_to_73p2_gpa": 0.4906584583037841,
+      "central_pair_within_printed_widths": false,
+      "optimizer_success": true,
+      "observations": 22,
+      "objective": "pressure",
+      "unscaled_inverse_normal_covariance": null,
+      "uncertainty_qualification": "Conditional inverse-normal-matrix errors. No source error confidence or inter-row covariance recovered; graphical widths are not established measurement sigmas."
+    }
+  },
+  "peritheos_implementation_check": {
+    "generic_reader_pressure_sigma": null,
+    "generic_reader_volume_sigma": null,
+    "max_pressure_formula_difference_gpa": 1.7763568394002505e-13,
+    "linear_power_solution": [
+      161.3414242272204,
+      6.044124284085523
+    ],
+    "absolute_sigma_true_parameters": {
+      "V0": 155.26,
+      "K0": 161.34142422435633,
+      "K0_prime": 6.044124284317963
+    },
+    "absolute_sigma_true_covariance": [
+      [
+        73.92517431235267,
+        -5.3834177617532335
+      ],
+      [
+        -5.3834177617532335,
+        0.4039533916432366
+      ]
+    ],
+    "absolute_sigma_false_covariance": [
+      [
+        73.92517431235267,
+        -5.3834177617532335
+      ],
+      [
+        -5.3834177617532335,
+        0.4039533916432366
+      ]
+    ]
+  },
+  "additional_published_fit_checks": {
+    "original_equal_pressure": {
+      "bm2_K0_gpa": 193.87388024384182,
+      "K0_vs_fixed_Kp_linear_regression": {
+        "intercept_gpa": 263.7818786464819,
+        "slope_gpa": -16.963793706989076
+      },
+      "fixed_Kp_grid": [
+        2.5,
+        2.6,
+        2.7,
+        2.8,
+        2.9,
+        3.0,
+        3.1,
+        3.2,
+        3.3,
+        3.4,
+        3.5,
+        3.6,
+        3.7,
+        3.8,
+        3.9000000000000004,
+        4.0,
+        4.1,
+        4.2,
+        4.3,
+        4.4,
+        4.5,
+        4.6,
+        4.7,
+        4.800000000000001,
+        4.9,
+        5.0,
+        5.1,
+        5.2,
+        5.300000000000001,
+        5.4,
+        5.5,
+        5.6,
+        5.7,
+        5.800000000000001,
+        5.9,
+        6.0,
+        6.1,
+        6.2,
+        6.300000000000001,
+        6.4,
+        6.5,
+        6.6000000000000005,
+        6.7,
+        6.8,
+        6.9,
+        7.0
+      ],
+      "constrained_K0_gpa": [
+        226.94135674976954,
+        224.41141736544182,
+        221.93380551241867,
+        219.50703603406427,
+        217.12967342874592,
+        214.80033019009562,
+        212.5176651783627,
+        210.28038202659118,
+        208.0872275845205,
+        205.93699040240693,
+        203.82849925635975,
+        201.76062171628186,
+        199.73226275707637,
+        197.7423634134244,
+        195.7898994781377,
+        193.87388024384182,
+        191.99334728754113,
+        190.14737329744824,
+        188.3350609413241,
+        186.55554177546713,
+        184.80797519340518,
+        183.09154741327544,
+        181.4054705028336,
+        179.74898144099575,
+        178.12134121479528,
+        176.52183395062679,
+        174.94976607864345,
+        173.40446552917928,
+        171.88528096007772,
+        170.391581013822,
+        168.9227536033807,
+        167.47820522570532,
+        166.05736030183962,
+        164.65966054262626,
+        163.28456433902562,
+        161.931546176089,
+        160.60009606965784,
+        159.28971902489153,
+        157.99993451575529,
+        156.73027598462988,
+        155.4802903612354,
+        154.2495376000894,
+        153.03759023575043,
+        151.84403295512456,
+        150.66846218614197,
+        149.51048570213678
+      ]
+    },
+    "resolved_bars_pressure_widths": {
+      "bm2_K0_gpa": 190.40986143261998,
+      "K0_vs_fixed_Kp_linear_regression": {
+        "intercept_gpa": 249.4219186685344,
+        "slope_gpa": -14.406110074904053
+      },
+      "fixed_Kp_grid": [
+        2.5,
+        2.6,
+        2.7,
+        2.8,
+        2.9,
+        3.0,
+        3.1,
+        3.2,
+        3.3,
+        3.4,
+        3.5,
+        3.6,
+        3.7,
+        3.8,
+        3.9000000000000004,
+        4.0,
+        4.1,
+        4.2,
+        4.3,
+        4.4,
+        4.5,
+        4.6,
+        4.7,
+        4.800000000000001,
+        4.9,
+        5.0,
+        5.1,
+        5.2,
+        5.300000000000001,
+        5.4,
+        5.5,
+        5.6,
+        5.7,
+        5.800000000000001,
+        5.9,
+        6.0,
+        6.1,
+        6.2,
+        6.300000000000001,
+        6.4,
+        6.5,
+        6.6000000000000005,
+        6.7,
+        6.8,
+        6.9,
+        7.0
+      ],
+      "constrained_K0_gpa": [
+        217.1675646174528,
+        215.18140282351226,
+        213.22659319587254,
+        211.30254500214747,
+        209.40867531797082,
+        207.54440940860223,
+        205.70918104826893,
+        203.9024327835767,
+        202.12361614673839,
+        200.37219182382407,
+        198.6476297827566,
+        196.9494093653263,
+        195.27701934710245,
+        193.6299579687489,
+        192.0077329419208,
+        190.40986143261998,
+        188.83587002460794,
+        187.28529466523256,
+        185.75768059579332,
+        184.25258226836831,
+        182.7695632508389,
+        181.30819612167855,
+        179.86806235591862,
+        178.4487522035666,
+        177.04986456162095,
+        175.67100684071826,
+        174.31179482733845,
+        172.97185254240244,
+        171.65081209700995,
+        170.34831354598626,
+        169.06400473983794,
+        167.7975411756523,
+        166.54858584741694,
+        165.31680909618427,
+        164.1018884604572,
+        162.90350852712965,
+        161.72136078327605,
+        160.555143469048,
+        159.40456143190684,
+        158.26932598238778,
+        157.14915475156886,
+        156.04377155039236,
+        154.95290623096636,
+        153.87629454995212,
+        152.81367803413028,
+        151.76480384821917
+      ]
+    },
+    "original_relative_pressure": {
+      "bm2_K0_gpa": 186.81400663945573,
+      "K0_vs_fixed_Kp_linear_regression": {
+        "intercept_gpa": 231.75542398921908,
+        "slope_gpa": -11.08727257200382
+      },
+      "fixed_Kp_grid": [
+        2.5,
+        2.6,
+        2.7,
+        2.8,
+        2.9,
+        3.0,
+        3.1,
+        3.2,
+        3.3,
+        3.4,
+        3.5,
+        3.6,
+        3.7,
+        3.8,
+        3.9000000000000004,
+        4.0,
+        4.1,
+        4.2,
+        4.3,
+        4.4,
+        4.5,
+        4.6,
+        4.7,
+        4.800000000000001,
+        4.9,
+        5.0,
+        5.1,
+        5.2,
+        5.300000000000001,
+        5.4,
+        5.5,
+        5.6,
+        5.7,
+        5.800000000000001,
+        5.9,
+        6.0,
+        6.1,
+        6.2,
+        6.300000000000001,
+        6.4,
+        6.5,
+        6.6000000000000005,
+        6.7,
+        6.8,
+        6.9,
+        7.0
+      ],
+      "constrained_K0_gpa": [
+        205.64702264613777,
+        204.3246220029702,
+        203.01133920183582,
+        201.7073126440515,
+        200.41266642256056,
+        199.1275111047183,
+        197.85194447897032,
+        196.5860522667789,
+        195.32990880113348,
+        194.08357767295226,
+        192.8471123466568,
+        191.62055674616985,
+        190.40394581255475,
+        189.1973060344824,
+        188.00065595267688,
+        186.81400663945573,
+        185.6373621544467,
+        184.47071997752533,
+        183.31407141998426,
+        182.16740201490686,
+        181.03069188768615,
+        179.90391610759204,
+        178.7870450212565,
+        177.68004456891373,
+        176.5828765841982,
+        175.4954990782714,
+        174.4178665090165,
+        173.34993003601076,
+        172.29163776195293,
+        171.2429349611982,
+        170.20376429602044,
+        169.17406602119877,
+        168.15377817749635,
+        167.14283677457513,
+        166.14117596386686,
+        165.1487282018948,
+        164.16542440452105,
+        163.19119409256967,
+        162.225965529258,
+        161.26966584984538,
+        160.3222211838924,
+        159.38355677050325,
+        158.4535970669059,
+        157.53226585071133,
+        156.61948631617142,
+        155.7151811647451
+      ]
+    },
+    "refined_relative_pressure": {
+      "bm2_K0_gpa": 186.91617589329735,
+      "K0_vs_fixed_Kp_linear_regression": {
+        "intercept_gpa": 230.76908996762552,
+        "slope_gpa": -10.82646394664934
+      },
+      "fixed_Kp_grid": [
+        2.5,
+        2.6,
+        2.7,
+        2.8,
+        2.9,
+        3.0,
+        3.1,
+        3.2,
+        3.3,
+        3.4,
+        3.5,
+        3.6,
+        3.7,
+        3.8,
+        3.9000000000000004,
+        4.0,
+        4.1,
+        4.2,
+        4.3,
+        4.4,
+        4.5,
+        4.6,
+        4.7,
+        4.800000000000001,
+        4.9,
+        5.0,
+        5.1,
+        5.2,
+        5.300000000000001,
+        5.4,
+        5.5,
+        5.6,
+        5.7,
+        5.800000000000001,
+        5.9,
+        6.0,
+        6.1,
+        6.2,
+        6.300000000000001,
+        6.4,
+        6.5,
+        6.6000000000000005,
+        6.7,
+        6.8,
+        6.9,
+        7.0
+      ],
+      "constrained_K0_gpa": [
+        205.19061182400424,
+        203.9120706736984,
+        202.64162996985323,
+        201.37944414133804,
+        200.12565356806493,
+        198.88038531365385,
+        197.64375382589685,
+        196.4158616061393,
+        195.19679984868606,
+        193.986649051324,
+        192.7854795980375,
+        191.59335231497195,
+        190.41031900067964,
+        189.23642293165864,
+        188.07169934417033,
+        186.91617589329735,
+        185.76987309017318,
+        184.6328047182925,
+        183.5049782297799,
+        182.38639512246755,
+        181.27705129860783,
+        180.17693740601268,
+        179.08603916239102,
+        178.00433766362264,
+        176.93180967668275,
+        175.86842791790437,
+        174.81416131723904,
+        173.7689752691514,
+        172.73283187075748,
+        171.7056901477936,
+        170.68750626897727,
+        169.6782337492998,
+        168.67782364276715,
+        167.6862247250849,
+        166.7033836667606,
+        165.7292451970777,
+        164.76375225937616,
+        163.80684615805401,
+        162.85846669768762,
+        161.91855231464996,
+        160.98704020158974,
+        160.06386642511814,
+        159.14896603703292,
+        158.24227317939716,
+        157.3437211837724,
+        156.45324266489504
+      ]
+    }
+  },
+  "drawn_curve_equation_check": {
+    "samples": 23,
+    "drawn_pressure_range_gpa": [
+      19.928710763271113,
+      77.5647634584013
+    ],
+    "qualification": "Visually selected isolated portions of the continuous third-order line, avoiding stems and dashed BM2. Correlated drawing samples, not experimental observations; BM3 and Vinet are indistinguishable in the caption.",
+    "source_comparison": {
+      "published": {
+        "rms_x_pixels": 1.0740159789547605,
+        "max_abs_x_pixels": 2.9423448412798217
+      },
+      "original_equal_pressure": {
+        "rms_x_pixels": 5.186266858336532,
+        "max_abs_x_pixels": 7.737080062514532
+      }
+    },
+    "conditional_curve_fit": {
+      "parameters": {
+        "K0_gpa": 173.2662500933248,
+        "K0_prime": 5.212033713561306
+      },
+      "fixed_V0_a3": 155.26,
+      "errors_residual_scaled": [
+        0.4979097262458636,
+        0.027880961434936097
+      ],
+      "covariance_residual_scaled": [
+        [
+          0.24791409549023083,
+          -0.013537638354693496
+        ],
+        [
+          -0.013537638354693496,
+          0.0007773480105363939
+        ]
+      ],
+      "correlation_K0_K0_prime": -0.975179476286531,
+      "dof": 21,
+      "objective_sse": 0.050156328644483,
+      "pressure_rms_gpa": 0.13367517757983735,
+      "source_pressure_rms_gpa": 0.16963693753760054,
+      "volume_rms_a3": 0.04669807213434489,
+      "max_curve_delta_a3_0_to_73p2_gpa": 0.07581488457228147,
+      "central_pair_within_printed_widths": true,
+      "optimizer_success": true,
+      "observations": 23,
+      "objective": "volume",
+      "unscaled_inverse_normal_covariance": null,
+      "uncertainty_qualification": "Conditional inverse-normal-matrix errors. No source error confidence or inter-row covariance recovered; graphical widths are not established measurement sigmas."
+    }
+  },
+  "normalized_stress_equal_weight_diagnostic": {
+    "K0_gpa": 178.07992839113246,
+    "K0_prime": 4.83599356211939,
+    "qualification": "Equal F weights, not the authors' recovered regression."
+  },
+  "visible_pressure_bar_relative_widths": {
+    "minimum": 0.09335288626300808,
+    "maximum": 0.1443306302461232,
+    "median": 0.10695002673750668,
+    "qualification": "Motivates testing relative-pressure loss, without establishing that original errors were proportional to pressure."
+  },
+  "published_tradeoff_gpa": {
+    "intercept": 226.7,
+    "slope": -9.97,
+    "bm2_K0": 186.5,
+    "grid_in_source": "Kp from 2.5 to 7; original spacing unknown"
+  },
+  "digitization_sensitivity": {
+    "one_native_pixel": {
+      "coordinate_halfwidths_volume_a3_pressure_gpa": [
+        0.06017829457364341,
+        0.14492753623188406
+      ],
+      "samples": 2000,
+      "parameter_min": [
+        159.0973514985409,
+        5.883973833507659
+      ],
+      "parameter_max": [
+        163.49093130230224,
+        6.21978877771099
+      ],
+      "central_95_percent_sensitivity_envelope": [
+        [
+          160.11209921462375,
+          5.944970217759919
+        ],
+        [
+          162.65729597994695,
+          6.140669159886629
+        ]
+      ],
+      "qualification": "Independent uniform coordinate perturbations with fixed axes; illustrative sensitivity, not experimental confidence or a posterior probability."
+    },
+    "three_native_pixels": {
+      "coordinate_halfwidths_volume_a3_pressure_gpa": [
+        0.1805348837209302,
+        0.43478260869565216
+      ],
+      "samples": 2000,
+      "parameter_min": [
+        154.64790715149584,
+        5.553766382374565
+      ],
+      "parameter_max": [
+        167.7865443622253,
+        6.570317945021937
+      ],
+      "central_95_percent_sensitivity_envelope": [
+        [
+          157.51291311531554,
+          5.7535300623114125
+        ],
+        [
+          165.26318181816646,
+          6.351174116429921
+        ]
+      ],
+      "qualification": "Independent uniform coordinate perturbations with fixed axes; illustrative sensitivity, not experimental confidence or a posterior probability."
+    },
+    "archived_digitization_bounds": {
+      "coordinate_halfwidths_volume_a3_pressure_gpa": [
+        0.54341,
+        0.8
+      ],
+      "samples": 2000,
+      "parameter_min": [
+        145.2815796835079,
+        4.855652526900029
+      ],
+      "parameter_max": [
+        179.0923061410284,
+        7.56119785827487
+      ],
+      "central_95_percent_sensitivity_envelope": [
+        [
+          151.60483502183493,
+          5.302240538104436
+        ],
+        [
+          171.57945994344615,
+          6.836139083472454
+        ]
+      ],
+      "qualification": "Independent uniform coordinate perturbations with fixed axes; illustrative sensitivity, not experimental confidence or a posterior probability."
+    }
+  },
+  "graphical_stationarity_test": {
+    "minimum_common_pixel_bound_linearized": 2.3836549248067223,
+    "nonlinear_fit_after_linearized_adversarial_movements": [
+      175.69481163402045,
+      5.07914513335331
+    ],
+    "qualification": "Local score linearization; adversarial coordinate movements, not experimental uncertainty, a probability, or recovered source observations. The ambient point is allowed to move. Independent movements omit shared calibration errors."
+  }
+}

@@ -7,7 +7,7 @@ No numerical coefficients, uncertainty values, observations, validation statuses
 or existing explicit lookups are changed by this grouping.
 
 The [machine-readable inventory](../data/pressure-scale-variants.json) contains
-51 reference variants in 27 source/model groups across 19 materials. Regenerate
+52 reference variants in 28 source/model groups across 20 materials. Regenerate
 with `python scripts/audit_pressure_scale_variants.py`; `--check` detects drift.
 
 | Study | Materials | Source selection | Reference variants |
@@ -19,6 +19,8 @@ with `python scripts/audit_pressure_scale_variants.py`; `--check` detects drift.
 | Sakai (2014), Tables 3–4, DOI 10.1016/j.pepi.2013.12.010 | hcp Fe and Fe0.9Ni0.1 | p1 BM3 and Vinet; p2–p6 use the alternative NaCl-B2 pressure reductions of the same data | 20 |
 | [Tateno (2019)](../literature-reproductions/kcl-tateno-campbell-source-gaps.md), Table 1 | B2 KCl | Sokolova-Pt for each of the MGD and linear thermal forms | 2 |
 | Ono (2006), DOI 10.2138/am.2006.2118, Tables 2–3 | MgSiO3 post-perovskite | Existing first-listed Anderson-Au BM2; Jamieson and Dewaele alternatives retained as references | 2 |
+
+| [Takahashi (2019)](../literature-reproductions/takahashi-2019-parity.md) | Fe3C | KBr-calibrated BM3–MGD; the MgO pressure reduction of the same observations remains a reference | 1 |
 
 These source selections organize literature results; they do not rank the
 accuracy of the pressure standards or change the material's recommended default.

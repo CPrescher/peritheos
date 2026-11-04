@@ -15,7 +15,7 @@ The 54 Dewaele (2008) PAW records are retained in a separate
 [research collection](../research/dewaele-2008-paw/README.md), excluded from
 main database discovery. The paper's 13 experimental EOS remain here.
 
-This directory contains 233 curated material documents with 679 EOS records. The
+This directory contains 234 curated material documents with 685 EOS records. The
 collection began with the 120-material, 147-EOS-record Dioptas 0.10.0 database,
 tag commit
 `5a8bfd81d10bfab3499039603380aae34576d60a`. Its project source is
@@ -49,10 +49,14 @@ taken from beamline files and cited publications. Dataset-specific licenses are
 recorded where known. Otherwise, a source citation records scientific provenance
 rather than a copyright license.
 
+See the [installed licensing guide](../LICENSING.md) for the distinction between
+MIT code, explicitly licensed source datasets, contributor-only CC0 notices and
+unspecified third-party terms, with an index of standalone dataset notices.
+
 The migration preserves supported Dioptas crystallographic and EOS data and adds
 stable identifiers plus explicit migration provenance. It does **not** make
 Dioptas the scientific authority for an EOS record. The primary-source audit
-with dispositions through 2026-10-30 classifies 658 of 679 bundled records as
+with dispositions through 2026-11-01 classifies 664 of 685 bundled records as
 `primary_source_validated`. The Campbell fcc-Fe and FeO records are retained
 as `deferred` source evidence because of unresolved coefficient-refit
 discrepancies; they are not exposed by the executable catalog. The Morard
@@ -153,7 +157,7 @@ CC0 is limited to transcription, normalization and metadata rights.
 ## Reference titles
 
 The 2026-09-23 bibliographic review added missing `reference.title` fields to
-185 EOS records citing 115 distinct publications. All 679 records now carry
+185 EOS records citing 115 distinct publications. All 685 records now carry
 an explicit publication title; `reference.source` retains the journal or
 book name. Previously, the catalog fell back to that source name when a
 title was absent.
@@ -220,7 +224,7 @@ O6 correction and official 2014 H2 erratum; the original archive CIF is retained
 The source audit documents equation typos, calibration qualifications and held
 branches, separately from the Al-bearing Xu (2024) investigation.
 
-The current bundle contains 400 distinct datasets with 28,094 retained rows, represented by 440 material-document links to 537 EOS records.
+The current bundle contains 409 distinct datasets with 28,271 retained rows, represented by 449 material-document links to 543 EOS records.
 Chen (2010) contributes 80 Brillouin-derived density positions, 262 separately
 identified published-fit curve vertices, and 14 reported constants. These
 supporting assets do not validate the source-author Chen EOS. A separate

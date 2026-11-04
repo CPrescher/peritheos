@@ -99,8 +99,8 @@ def test_table3_preserves_liquid_markers_and_does_not_fill_blank_cells():
     ]
 
 
-def test_fitted_300k_branches_remain_distinct_from_full_model_output():
-    audit = reproduce()
+def test_fitted_300k_branches_remain_distinct_from_full_model_output(reproduce_once):
+    audit = reproduce_once(reproduce)
     branches = audit["branches"]
     assert branches["gold_yokoo_2009_bm3_300k"][
         "max_abs_fit_minus_full_model_table3_300k_gpa"
@@ -127,7 +127,7 @@ def test_fitted_300k_branches_remain_distinct_from_full_model_output():
         assert outcomes[identifier]["observations"] == 0
 
 
-def test_au_phonon_law_is_integrated_but_not_a_complete_thermal_eos():
+def test_au_phonon_law_is_integrated_but_not_a_complete_thermal_eos(reproduce_once):
     assert gamma_theta(1) == pytest.approx((2.96, 170.0))
     for ratio in [1, 0.8, 0.6]:
         delta = 1e-5
@@ -137,14 +137,16 @@ def test_au_phonon_law_is_integrated_but_not_a_complete_thermal_eos():
         ) / (2 * delta)
         assert derivative == pytest.approx(-gamma_theta(ratio)[0], rel=1e-8)
     assert phonon_pressure(1, 0) == 0
-    endpoint = reproduce()["table3_thermal_term_diagnostic"][-1]
+    endpoint = reproduce_once(reproduce)["table3_thermal_term_diagnostic"][-1]
     assert endpoint["volume_ratio"] == "0.60"
     assert endpoint["temperature_k"] == "3000"
     # A rounded-table residual cannot become an exact electronic fit coefficient.
     assert endpoint["table_total_minus_0k_minus_phonon_gpa"] < -0.04
 
 
-def test_shock_regression_and_simultaneous_volumes_keep_their_source_roles():
+def test_shock_regression_and_simultaneous_volumes_keep_their_source_roles(
+    reproduce_once,
+):
     shock = shock_relation_checkpoints()
     assert all(
         s["kind"] == "derived_shock_regression_output_not_observation" for s in shock
@@ -152,7 +154,7 @@ def test_shock_regression_and_simultaneous_volumes_keep_their_source_roles():
     assert shock[0]["pressure_increment_gpa"] == 0
     assert shock[-1]["particle_velocity_km_s"] == 3.5
     assert shock[-1]["shock_velocity_km_s"] == pytest.approx(8.62125)
-    pairs = reproduce()["dewaele_simultaneous_volume_pairs"]
+    pairs = reproduce_once(reproduce)["dewaele_simultaneous_volume_pairs"]
     assert len(pairs) == 36
     assert all(p["role"] == "comparison_only_not_yokoo_fit_target" for p in pairs)
     assert pairs[0]["original_revised_ruby_pressure_gpa"] == 2.27
@@ -160,15 +162,15 @@ def test_shock_regression_and_simultaneous_volumes_keep_their_source_roles():
     assert pairs[-1]["gold_csv_row_one_based"] == 37
 
 
-def test_saved_audit_and_source_hashes_are_reproducible():
-    audit = reproduce()
+def test_saved_audit_and_source_hashes_are_reproducible(reproduce_once):
+    audit = reproduce_once(reproduce)
     check_saved(json.loads(OUTPUT.read_text(encoding="utf-8")), audit)
     for filename, digest in audit["input_sha256"].items():
         assert hashlib.sha256((DATA / filename).read_bytes()).hexdigest() == digest
 
 
-def test_electronic_source_preserves_original_and_erratum_values():
-    audit = reproduce()
+def test_electronic_source_preserves_original_and_erratum_values(reproduce_once):
+    audit = reproduce_once(reproduce)
     nodes = audit["electronic_source_nodes"]
     assert len(nodes) == 51
     changed = [n for n in nodes if n["gold_erratum_applied"] == "1"]

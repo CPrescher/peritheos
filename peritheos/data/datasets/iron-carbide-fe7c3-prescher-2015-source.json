@@ -1,0 +1,1005 @@
+{
+  "format": "peritheos.prescher-2015-author-input-provenance",
+  "recovered_on": "2026-10-25",
+  "citation": {
+    "authors": [
+      "Prescher",
+      "Dubrovinsky",
+      "Bykova",
+      "Kupenko",
+      "Glazyrin",
+      "Kantor",
+      "McCammon",
+      "Mookherjee",
+      "Nakajima",
+      "Miyajima",
+      "Sinmyo",
+      "Cerantola",
+      "Dubrovinskaia",
+      "Prakapenka",
+      "Rüffer",
+      "Chumakov",
+      "Hanfland"
+    ],
+    "year": 2015,
+    "title": "High Poisson's ratio of Earth's inner core explained by carbon alloying",
+    "source": "Nature Geosci.",
+    "volume": "8",
+    "locator": "220-223",
+    "doi": "10.1038/ngeo2370"
+  },
+  "author_input": {
+    "path": "datasets/iron-carbide-fe7c3-prescher-2015-author-input.txt",
+    "sha256": "7b14c3206be122cb517309b2eca10d23e64dacba7dc4e259a957ea1553ced225",
+    "media_type": "text/plain"
+  },
+  "author_fit_export": {
+    "path": "datasets/iron-carbide-fe7c3-prescher-2015-author-fit-export.txt",
+    "sha256": "ff47e11c6b4425c34472ebf64148cf7c51700850bd8049a9f0a722f55b45bdca",
+    "media_type": "text/plain"
+  },
+  "normalized_csv": {
+    "path": "datasets/iron-carbide-fe7c3-prescher-2015-author-fit.csv",
+    "sha256": "3567879576199164d75ee828c03850c7a38d2f8379f7d7c379b3bcec7f24fd5c",
+    "media_type": "text/csv"
+  },
+  "observations": [
+    {
+      "author_row": 1,
+      "run_id": "a_p1",
+      "source_line": 2,
+      "original_tokens": [
+        "3.92",
+        "0.05",
+        "732.3",
+        "0.4"
+      ]
+    },
+    {
+      "author_row": 2,
+      "run_id": "a_p1_rot",
+      "source_line": 3,
+      "original_tokens": [
+        "3.92",
+        "0.05",
+        "731.9",
+        "0.4"
+      ]
+    },
+    {
+      "author_row": 3,
+      "run_id": "a_p2",
+      "source_line": 4,
+      "original_tokens": [
+        "6.55",
+        "0.05",
+        "723.5",
+        "0.4"
+      ]
+    },
+    {
+      "author_row": 4,
+      "run_id": "a_p3",
+      "source_line": 5,
+      "original_tokens": [
+        "11.1",
+        "0.1",
+        "708.7",
+        "0.3"
+      ]
+    },
+    {
+      "author_row": 5,
+      "run_id": "a_p4",
+      "source_line": 6,
+      "original_tokens": [
+        "13.4",
+        "0.1",
+        "701.7",
+        "0.3"
+      ]
+    },
+    {
+      "author_row": 6,
+      "run_id": "a_p5",
+      "source_line": 7,
+      "original_tokens": [
+        "16.95",
+        "0.05",
+        "691.6",
+        "0.3"
+      ]
+    },
+    {
+      "author_row": 7,
+      "run_id": "a_p6",
+      "source_line": 8,
+      "original_tokens": [
+        "22.2",
+        "0.1",
+        "678.62",
+        "0.16"
+      ]
+    },
+    {
+      "author_row": 8,
+      "run_id": "a_p7",
+      "source_line": 9,
+      "original_tokens": [
+        "27.3",
+        "0.1",
+        "667.26",
+        "0.1"
+      ]
+    },
+    {
+      "author_row": 9,
+      "run_id": "a_p8",
+      "source_line": 10,
+      "original_tokens": [
+        "34.2",
+        "0.05",
+        "653.52",
+        "0.11"
+      ]
+    },
+    {
+      "author_row": 10,
+      "run_id": "d_p1",
+      "source_line": 11,
+      "original_tokens": [
+        "20.51",
+        "0.02",
+        "680.64",
+        "0.15"
+      ]
+    },
+    {
+      "author_row": 11,
+      "run_id": "d_p2",
+      "source_line": 12,
+      "original_tokens": [
+        "46.03",
+        "0.27",
+        "634.6",
+        "0.2"
+      ]
+    },
+    {
+      "author_row": 12,
+      "run_id": "d_p5",
+      "source_line": 13,
+      "original_tokens": [
+        "61.895",
+        "0.105",
+        "612.4",
+        "0.3"
+      ]
+    },
+    {
+      "author_row": 13,
+      "run_id": "d_p7",
+      "source_line": 14,
+      "original_tokens": [
+        "83.15",
+        "0.15",
+        "588.6",
+        "0.2"
+      ]
+    },
+    {
+      "author_row": 14,
+      "run_id": "d_p7_90",
+      "source_line": 15,
+      "original_tokens": [
+        "84",
+        "0",
+        "588.4",
+        "0.3"
+      ]
+    },
+    {
+      "author_row": 15,
+      "run_id": "d_p9",
+      "source_line": 16,
+      "original_tokens": [
+        "101.215",
+        "0.015",
+        "571.8",
+        "0.3"
+      ]
+    },
+    {
+      "author_row": 16,
+      "run_id": "d_p9_90",
+      "source_line": 17,
+      "original_tokens": [
+        "101",
+        "0.1",
+        "571.3",
+        "0.2"
+      ]
+    },
+    {
+      "author_row": 17,
+      "run_id": "d_p11",
+      "source_line": 18,
+      "original_tokens": [
+        "110.95",
+        "0.05",
+        "563",
+        "0.2"
+      ]
+    },
+    {
+      "author_row": 18,
+      "run_id": "d_p11_90",
+      "source_line": 19,
+      "original_tokens": [
+        "111.675",
+        "0.075",
+        "562.4",
+        "0.3"
+      ]
+    },
+    {
+      "author_row": 19,
+      "run_id": "d_p12",
+      "source_line": 20,
+      "original_tokens": [
+        "124",
+        "0",
+        "554.48",
+        "0.19"
+      ]
+    },
+    {
+      "author_row": 20,
+      "run_id": "d_p12_90",
+      "source_line": 21,
+      "original_tokens": [
+        "125.15",
+        "0.05",
+        "553.38",
+        "0.19"
+      ]
+    },
+    {
+      "author_row": 21,
+      "run_id": "d_p14",
+      "source_line": 22,
+      "original_tokens": [
+        "134.185",
+        "0.215",
+        "548.2",
+        "0.2"
+      ]
+    },
+    {
+      "author_row": 22,
+      "run_id": "d_p14_90",
+      "source_line": 23,
+      "original_tokens": [
+        "134.1",
+        "0.2",
+        "547",
+        "0.2"
+      ]
+    },
+    {
+      "author_row": 23,
+      "run_id": "d_p16",
+      "source_line": 24,
+      "original_tokens": [
+        "139.75",
+        "0.05",
+        "543",
+        "0.2"
+      ]
+    },
+    {
+      "author_row": 24,
+      "run_id": "d_p16_90",
+      "source_line": 25,
+      "original_tokens": [
+        "140.335",
+        "0.135",
+        "543.47",
+        "0.17"
+      ]
+    },
+    {
+      "author_row": 25,
+      "run_id": "d_p18",
+      "source_line": 26,
+      "original_tokens": [
+        "151.55",
+        "0.15",
+        "535.47",
+        "0.19"
+      ]
+    },
+    {
+      "author_row": 26,
+      "run_id": "d_p18_90",
+      "source_line": 27,
+      "original_tokens": [
+        "153.43",
+        "0.43",
+        "534.7",
+        "0.2"
+      ]
+    },
+    {
+      "author_row": 27,
+      "run_id": "d_p20",
+      "source_line": 28,
+      "original_tokens": [
+        "158.04",
+        "0.04",
+        "532.1",
+        "0.19"
+      ]
+    },
+    {
+      "author_row": 28,
+      "run_id": "d_p20_90",
+      "source_line": 29,
+      "original_tokens": [
+        "157.86",
+        "0",
+        "531.5",
+        "0.2"
+      ]
+    }
+  ],
+  "lineage": {
+    "author_workbook": {
+      "path": "X-ray diffraction/SXRD results/Fe7C3 EOS V-P data.xlsx",
+      "sha256": "75b93cac2a5a912af33ddd7e9f10a4195b942b95f18d4044fa75cfdfec0c4b8b"
+    },
+    "author_input": {
+      "path": "X-ray diffraction/Final plots and tables/EOS Fit/Fe7C3 EOS V-P data without b.txt",
+      "sha256": "7b14c3206be122cb517309b2eca10d23e64dacba7dc4e259a957ea1553ced225"
+    },
+    "table_s4_bundled": {
+      "path": "peritheos/data/datasets/iron-carbide-fe7c3-prescher-2015-table-s4-compression.csv",
+      "sha256": "744fc747827c776d347dcc7f221782a23dbd17534357cafd817952fab686617e"
+    },
+    "cif_derived_table": {
+      "path": "X-ray diffraction/Final plots and tables/Lattice parameter and Atom position table/data_table.txt",
+      "sha256": "b8d7118d572e3dfc2b8b29e9067c787db13bed05060557976a78901547d6081c"
+    },
+    "all_28_input_rows_match_workbook_gesamt_sync_new_E4_H31": true,
+    "all_28_rows_match_series_a_new_and_series_d_new": true,
+    "all_27_s4_volume_and_lattice_rows_match_cif_derived_table": true,
+    "extra_author_run": "a_p1_rot, V=731.9 A^3 at P=3.92 GPa; absent from the 27-row structural table",
+    "logs": [
+      {
+        "run": "p9",
+        "source": {
+          "path": "X-ray diffraction/Single Crystal Diffraction Data/ESRF_OCT2011/Fe7C3d_p9/log/REDLOGThu-Mar-14-15-44-03-2013.txt",
+          "sha256": "d4889199bc1159d1c01e0da1bdef9e83d76686b35bfb3379980ff5d8b3244e12"
+        },
+        "orthorhombic_refined_cell": {
+          "first_line": 2340,
+          "text": "unit cell:\n       4.0637(6) 11.013(7) 12.778(5)       \n      90.0       90.0      90.0      \n      V = 571.8(3) "
+        },
+        "reduction_cell": {
+          "first_line": 576,
+          "text": "direct cell (a,b,c), (alpha,beta,gamma): (4.047600 10.959100 12.731100), (90.000000 90.000000 90.000000)\nVolume from B-matrix: 564.726811"
+        }
+      },
+      {
+        "run": "p9_90",
+        "source": {
+          "path": "X-ray diffraction/Single Crystal Diffraction Data/ESRF_OCT2011/Fe7C3d_p9_90/log/REDLOGThu-Mar-14-15-47-55-2013.txt",
+          "sha256": "f7b8a6d5675763770e7dabc959fb0eb2e761bb29f3a3b81095f88e37004f2115"
+        },
+        "orthorhombic_refined_cell": {
+          "first_line": 2040,
+          "text": "unit cell:\n       4.0663(7) 11.017(6) 12.754(4)       \n      90.0       90.0      90.0      \n      V = 571.3(2) "
+        },
+        "reduction_cell": {
+          "first_line": 571,
+          "text": "direct cell (a,b,c), (alpha,beta,gamma): (4.058700 10.959000 12.751900), (90.000000 90.000000 90.000000)\nVolume from B-matrix: 567.195500"
+        }
+      },
+      {
+        "run": "p2",
+        "source": {
+          "path": "X-ray diffraction/Single Crystal Diffraction Data/ESRF_OCT2011/Fe7C3d_p2/log/REDLOGThu-Mar-14-15-18-57-2013.txt",
+          "sha256": "9eb25d63ea9f6981f34e1cd5161b24e13e4d6e19ddb3154506f9beed04fe9219"
+        },
+        "orthorhombic_refined_cell": {
+          "first_line": 3062,
+          "text": "unit cell:\n       4.2285(4) 11.397(4) 13.167(3)       \n      90.0       90.0      90.0      \n      V = 634.6(2) "
+        },
+        "reduction_cell": {
+          "first_line": 679,
+          "text": "direct cell (a,b,c), (alpha,beta,gamma): (4.230000 11.403300 13.172600), (90.000000 90.000000 90.000000)\nVolume from B-matrix: 635.392994"
+        }
+      },
+      {
+        "run": "p11_90",
+        "source": {
+          "path": "X-ray diffraction/Single Crystal Diffraction Data/ESRF_OCT2011/Fe7C3d_p11_90/log/REDLOGThu-Mar-14-16-03-20-2013.txt",
+          "sha256": "e04ce5280743030f146ac8cbb808cfa6d5e781a8efe487a064e17eb78b0686e5"
+        },
+        "orthorhombic_refined_cell": {
+          "first_line": 2818,
+          "text": "unit cell:\n       4.0454(8) 10.946(6) 12.700(5)       \n      90.0       90.0      90.0      \n      V = 562.4(3) "
+        },
+        "reduction_cell": {
+          "first_line": 588,
+          "text": "direct cell (a,b,c), (alpha,beta,gamma): (4.047800 10.947100 12.716400), (90.000000 90.000000 90.000000)\nVolume from B-matrix: 563.484938"
+        }
+      }
+    ],
+    "cif_internal_cell_comparisons": [
+      {
+        "run": "p9",
+        "source": {
+          "path": "X-ray diffraction/Single Crystal Diffraction Data/ESRF_OCT2011/Fe7C3d_p9/Fe7C3d_p9.cif",
+          "sha256": "4eb9a48b8be149a08d36427f51236498cc45e16d7caab6d64ebce6e51c6f7d4a"
+        },
+        "listed_volume_a3": 564.7,
+        "ub_wavelength": 0.4149,
+        "volume_from_ub_a3": 571.5746409649772,
+        "method": "V=lambda^3/abs(det(UB)); CrysAlis wavelength-scaled reciprocal matrix convention, independently checked against the matching logged cells"
+      },
+      {
+        "run": "p9_90",
+        "source": {
+          "path": "X-ray diffraction/Single Crystal Diffraction Data/ESRF_OCT2011/Fe7C3d_p9_90/Fe7C3d_p9_90.cif",
+          "sha256": "e928b0d845fbde3d6166380fa2bab0ae9c8f451208ef85ff6c108610a1958b6c"
+        },
+        "listed_volume_a3": 567.19,
+        "ub_wavelength": 0.4149,
+        "volume_from_ub_a3": 571.051769781604,
+        "method": "V=lambda^3/abs(det(UB)); CrysAlis wavelength-scaled reciprocal matrix convention, independently checked against the matching logged cells"
+      },
+      {
+        "run": "p2",
+        "source": {
+          "path": "X-ray diffraction/Single Crystal Diffraction Data/ESRF_OCT2011/Fe7C3d_p2/Fe7C3d_p2.cif",
+          "sha256": "ba2efc7cc91be5ffd6c65119ac1c67db4a3542f611eeb50eb81321984ef89c14"
+        },
+        "listed_volume_a3": 635.4,
+        "ub_wavelength": 0.4149,
+        "volume_from_ub_a3": 634.8140864876473,
+        "method": "V=lambda^3/abs(det(UB)); CrysAlis wavelength-scaled reciprocal matrix convention, independently checked against the matching logged cells"
+      },
+      {
+        "run": "p11_90",
+        "source": {
+          "path": "X-ray diffraction/Single Crystal Diffraction Data/ESRF_OCT2011/Fe7C3d_p11_90/Fe7C3d_p11_90.cif",
+          "sha256": "a6bca4bc97a8b1e376859344a6d6f9155c16500257c4eac9d1444fcbe8a0d9a8"
+        },
+        "listed_volume_a3": 563.5,
+        "ub_wavelength": 0.4149,
+        "volume_from_ub_a3": 562.4920970718764,
+        "method": "V=lambda^3/abs(det(UB)); CrysAlis wavelength-scaled reciprocal matrix convention, independently checked against the matching logged cells"
+      }
+    ],
+    "scope": "The log and export cell representations diverge. This does not identify the software defect or user action responsible, nor validate one reduction physically."
+  },
+  "historical_table_s4_diagnostic": {
+    "status": "similar",
+    "scope": "parameter_agreement",
+    "source_status": "similar",
+    "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+    "qualifications": [
+      "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+    ],
+    "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/iron_carbide_fe7c3/#record-iron_carbide_fe7c3_prescher_2015_bm3_1",
+    "report_path": "docs/reconstruction-reports/iron_carbide_fe7c3.md#record-iron_carbide_fe7c3_prescher_2015_bm3_1",
+    "parameters": [
+      {
+        "parameter": "V0",
+        "published": 748.0,
+        "published_error": 1.0,
+        "refit": 745.1135701757014,
+        "refit_error": 2.2768709979303035,
+        "difference": -2.8864298242986024,
+        "relative_difference": 0.00385886340146872,
+        "similar": true,
+        "within_combined_2sigma": true
+      },
+      {
+        "parameter": "K0",
+        "published": 168.0,
+        "published_error": 4.0,
+        "refit": 188.419106297367,
+        "refit_error": 8.086973545704451,
+        "difference": 20.419106297366994,
+        "relative_difference": 0.12154229938908925,
+        "similar": true,
+        "within_combined_2sigma": false
+      },
+      {
+        "parameter": "K0_prime",
+        "published": 6.1,
+        "published_error": 0.1,
+        "refit": 5.228073491488005,
+        "refit_error": 0.18927563125718905,
+        "difference": -0.8719265085119945,
+        "relative_difference": 0.1429387718872122,
+        "similar": true,
+        "within_combined_2sigma": false
+      }
+    ],
+    "fit": {
+      "fit_kind": "isothermal_pv",
+      "objective": "errors_in_variables",
+      "selection": "all rows",
+      "columns": {
+        "pressure": "pressure_gpa",
+        "temperature": null,
+        "volume": "unit_cell_volume_a3"
+      },
+      "absolute_sigma": true,
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "fixed_parameters": [],
+      "observations": 27,
+      "observed_pressure_range_gpa": [
+        3.92,
+        158.0
+      ],
+      "observed_temperature_range_k": null,
+      "observed_volume_range": [
+        529.64,
+        732.3
+      ],
+      "degrees_of_freedom": 24,
+      "solver_success": true,
+      "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+      "rmse_gpa": 2.0496307327449954,
+      "published_rmse_gpa": 3.5876930836693948,
+      "reduced_chi_square": 5.258308020252146,
+      "dataset_identifiers": [
+        "iron_carbide_fe7c3_prescher_2015_table_s4_compression"
+      ]
+    },
+    "report": "docs/data/primary-eos-refits.json"
+  },
+  "table_s4_usage": "Table S4 should not be used for scientific calculations, EOS fitting or pressure calibration. Retained for provenance only: its CIF-derived cell values differ from the recovered author EOS fit inputs, and matching CrysAlis logs and exports contain inconsistent cell representations.",
+  "source_terms": "Original archive source terms unspecified; no rights in third-party publication text or publisher files are asserted. This resource preserves factual author-provided observations and numerical provenance.",
+  "limits": "Effective-variance and covariance conventions are reconstructed from numerical export agreement. Original solver identity, complete author workflow, reason for each cell revision, and physical preference among reductions remain unresolved.",
+  "historical_material_document": {
+    "format_version": 4,
+    "identifier": "iron_carbide_fe7c3",
+    "name": "Iron carbide (orthorhombic Fe7C3)",
+    "formula": "Fe7C3",
+    "units": {
+      "pressure": "GPa",
+      "temperature": "K",
+      "volume": "angstrom^3/conventional_unit_cell"
+    },
+    "formula_units_per_cell": 8,
+    "eos_records": [
+      {
+        "identifier": "iron_carbide_fe7c3_prescher_2015_bm3_1",
+        "label": "Prescher et al. (2015), orthorhombic Fe7C3 BM3",
+        "model": "BM3",
+        "temperature_ref": 300.0,
+        "parameters": {
+          "V0": {
+            "value": 748.0,
+            "error": 1.0
+          },
+          "K0": {
+            "value": 168.0,
+            "error": 4.0
+          },
+          "K0_prime": {
+            "value": 6.1,
+            "error": 0.1
+          }
+        },
+        "experimental_pressure_range_gpa": [
+          4.0,
+          158.0
+        ],
+        "experimental_temperature_range_k": [
+          300.0,
+          300.0
+        ],
+        "determination_method": "experimental",
+        "notes": "Single-crystal X-ray compression fit for orthorhombic Fe7C3 from 4 to 158 GPa. The structure was additionally observed after high-pressure, high-temperature synthesis to 205 GPa, outside the fitted EoS interval.",
+        "reference": {
+          "authors": [
+            "Prescher",
+            "Dubrovinsky",
+            "Bykova",
+            "Kupenko",
+            "Glazyrin",
+            "Kantor",
+            "McCammon",
+            "Mookherjee",
+            "Nakajima",
+            "Miyajima",
+            "Sinmyo",
+            "Cerantola",
+            "Dubrovinskaia",
+            "Prakapenka",
+            "Rüffer",
+            "Chumakov",
+            "Hanfland"
+          ],
+          "year": 2015,
+          "title": "High Poisson's ratio of Earth's inner core explained by carbon alloying",
+          "source": "Nature Geosci.",
+          "volume": "8",
+          "locator": "220-223",
+          "doi": "10.1038/ngeo2370"
+        },
+        "pressure_calibration": {
+          "status": "unresolved",
+          "methods": [],
+          "recalculation": {
+            "status": "not_possible",
+            "notes": "The primary-source EOS audit is complete, but the accessible evidence did not identify an exact pressure-calibration equation unambiguously enough to encode it."
+          },
+          "audit_date": "2026-09-03",
+          "notes": "No reference EOS is inferred from experimental apparatus, pressure medium, author, or publication era."
+        },
+        "evidence": {
+          "reproduction": {
+            "assessment": {
+              "status": "similar",
+              "scope": "parameter_agreement",
+              "source_status": "similar",
+              "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+              "qualifications": [
+                "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+              ],
+              "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/iron_carbide_fe7c3/#record-iron_carbide_fe7c3_prescher_2015_bm3_1",
+              "report_path": "docs/reconstruction-reports/iron_carbide_fe7c3.md#record-iron_carbide_fe7c3_prescher_2015_bm3_1",
+              "parameters": [
+                {
+                  "parameter": "V0",
+                  "published": 748.0,
+                  "published_error": 1.0,
+                  "refit": 745.1135701757014,
+                  "refit_error": 2.2768709979303035,
+                  "difference": -2.8864298242986024,
+                  "relative_difference": 0.00385886340146872,
+                  "similar": true,
+                  "within_combined_2sigma": true
+                },
+                {
+                  "parameter": "K0",
+                  "published": 168.0,
+                  "published_error": 4.0,
+                  "refit": 188.419106297367,
+                  "refit_error": 8.086973545704451,
+                  "difference": 20.419106297366994,
+                  "relative_difference": 0.12154229938908925,
+                  "similar": true,
+                  "within_combined_2sigma": false
+                },
+                {
+                  "parameter": "K0_prime",
+                  "published": 6.1,
+                  "published_error": 0.1,
+                  "refit": 5.228073491488005,
+                  "refit_error": 0.18927563125718905,
+                  "difference": -0.8719265085119945,
+                  "relative_difference": 0.1429387718872122,
+                  "similar": true,
+                  "within_combined_2sigma": false
+                }
+              ],
+              "fit": {
+                "fit_kind": "isothermal_pv",
+                "objective": "errors_in_variables",
+                "selection": "all rows",
+                "columns": {
+                  "pressure": "pressure_gpa",
+                  "temperature": null,
+                  "volume": "unit_cell_volume_a3"
+                },
+                "absolute_sigma": true,
+                "free_parameters": [
+                  "V0",
+                  "K0",
+                  "K0_prime"
+                ],
+                "fixed_parameters": [],
+                "observations": 27,
+                "observed_pressure_range_gpa": [
+                  3.92,
+                  158.0
+                ],
+                "observed_temperature_range_k": null,
+                "observed_volume_range": [
+                  529.64,
+                  732.3
+                ],
+                "degrees_of_freedom": 24,
+                "solver_success": true,
+                "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
+                "rmse_gpa": 2.0496307327449954,
+                "published_rmse_gpa": 3.5876930836693948,
+                "reduced_chi_square": 5.258308020252146,
+                "dataset_identifiers": [
+                  "iron_carbide_fe7c3_prescher_2015_table_s4_compression"
+                ]
+              },
+              "report": "docs/data/primary-eos-refits.json"
+            }
+          },
+          "scientific_validation": {
+            "status": "primary_source_validated",
+            "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+            "audit_date": "2026-09-01",
+            "verified_fields": [
+              "equation",
+              "parameters",
+              "units",
+              "reference_state",
+              "phase",
+              "published_uncertainties",
+              "validity"
+            ],
+            "primary_source_check": {
+              "access_url": "https://doi.org/10.1038/ngeo2370",
+              "locations": [
+                "Main text",
+                "Figure 1 caption and EOS fit"
+              ],
+              "doi": "10.1038/ngeo2370"
+            },
+            "migration_source": {
+              "project": "Dioptas",
+              "version": "0.10.0",
+              "commit": "5a8bfd81d10bfab3499039603380aae34576d60a",
+              "file": "iron_carbide_fe7c3.json"
+            },
+            "primary_data_check": {
+              "status": "bundled",
+              "audit_date": "2026-09-03",
+              "dataset_identifiers": [
+                "iron_carbide_fe7c3_prescher_2015_table_s4_compression"
+              ],
+              "source_locations": [
+                "Supplementary Table S4"
+              ],
+              "finding": "All 27 high-pressure orthorhombic Fe7C3 single-crystal observations from Supplementary Table S4."
+            }
+          },
+          "parameter_provenance": {
+            "determination_method": "Measurements or their experimental reduction determine this EOS; source: Main text; Figure 1 caption and EOS fit."
+          }
+        }
+      }
+    ],
+    "aliases": [
+      "o-Fe7C3",
+      "Pbca Fe7C3"
+    ],
+    "symmetry": "ORTHORHOMBIC",
+    "space_group": "Pbca",
+    "space_group_number": 61,
+    "lattice": {
+      "a": 11.9926302306,
+      "b": 4.5269682888,
+      "c": 13.7777992441,
+      "alpha": 90.0,
+      "beta": 90.0,
+      "gamma": 90.0
+    },
+    "atom_sites": [
+      {
+        "element": "Fe",
+        "wyckoff": "8c",
+        "x": 0.8129,
+        "y": 0.0562,
+        "z": 0.71645,
+        "occupancy": 1.0
+      },
+      {
+        "element": "Fe",
+        "wyckoff": "8c",
+        "x": 0.6267,
+        "y": 0.056,
+        "z": 0.62535,
+        "occupancy": 1.0
+      },
+      {
+        "element": "Fe",
+        "wyckoff": "8c",
+        "x": 0.8111,
+        "y": 0.0646,
+        "z": 0.53232,
+        "occupancy": 1.0
+      },
+      {
+        "element": "Fe",
+        "wyckoff": "8c",
+        "x": 0.9173,
+        "y": 0.2409,
+        "z": 0.87325,
+        "occupancy": 1.0
+      },
+      {
+        "element": "Fe",
+        "wyckoff": "8c",
+        "x": 0.0229,
+        "y": 0.2324,
+        "z": 0.71595,
+        "occupancy": 1.0
+      },
+      {
+        "element": "Fe",
+        "wyckoff": "8c",
+        "x": 0.5231,
+        "y": 0.2503,
+        "z": 0.46853,
+        "occupancy": 1.0
+      },
+      {
+        "element": "Fe",
+        "wyckoff": "8c",
+        "x": 0.7081,
+        "y": 0.248,
+        "z": 0.87498,
+        "occupancy": 1.0
+      },
+      {
+        "element": "C",
+        "wyckoff": "8c",
+        "x": 0.8414,
+        "y": 0.464,
+        "z": 0.7669,
+        "occupancy": 1.0
+      },
+      {
+        "element": "C",
+        "wyckoff": "8c",
+        "x": 0.563,
+        "y": 0.46,
+        "z": 0.619,
+        "occupancy": 1.0
+      },
+      {
+        "element": "C",
+        "wyckoff": "8c",
+        "x": 0.8456,
+        "y": 0.471,
+        "z": 0.484,
+        "occupancy": 1.0
+      }
+    ],
+    "peaks": [],
+    "notes": "Pbca structure and fractional coordinates from Prescher et al., Nature Geosci. 8, 220-223 (2015); the reported axial ratios are normalized to the fitted V0.",
+    "datasets": [
+      {
+        "identifier": "iron_carbide_fe7c3_prescher_2015_table_s4_compression",
+        "kind": "single_crystal_pressure_volume_lattice_parameters",
+        "description": "All 27 high-pressure orthorhombic Fe7C3 single-crystal observations from Supplementary Table S4.",
+        "source_location": "Supplementary Table S4",
+        "source_url": "https://www.nature.com/articles/ngeo2370",
+        "columns": [
+          {
+            "name": "pressure_gpa",
+            "quantity": "pressure",
+            "unit": "GPa",
+            "role": "value"
+          },
+          {
+            "name": "pressure_uncertainty_gpa",
+            "quantity": "pressure",
+            "unit": "GPa",
+            "role": "bound",
+            "of": "pressure_gpa"
+          },
+          {
+            "name": "lattice_a_angstrom",
+            "quantity": "lattice_parameter_a",
+            "unit": "angstrom",
+            "role": "value"
+          },
+          {
+            "name": "lattice_a_uncertainty_angstrom",
+            "quantity": "lattice_parameter_a",
+            "unit": "angstrom",
+            "role": "bound",
+            "of": "lattice_a_angstrom"
+          },
+          {
+            "name": "lattice_b_angstrom",
+            "quantity": "lattice_parameter_b",
+            "unit": "angstrom",
+            "role": "value"
+          },
+          {
+            "name": "lattice_b_uncertainty_angstrom",
+            "quantity": "lattice_parameter_b",
+            "unit": "angstrom",
+            "role": "bound",
+            "of": "lattice_b_angstrom"
+          },
+          {
+            "name": "lattice_c_angstrom",
+            "quantity": "lattice_parameter_c",
+            "unit": "angstrom",
+            "role": "value"
+          },
+          {
+            "name": "lattice_c_uncertainty_angstrom",
+            "quantity": "lattice_parameter_c",
+            "unit": "angstrom",
+            "role": "bound",
+            "of": "lattice_c_angstrom"
+          },
+          {
+            "name": "unit_cell_volume_a3",
+            "quantity": "conventional_unit_cell_volume",
+            "unit": "angstrom^3",
+            "role": "value"
+          },
+          {
+            "name": "unit_cell_volume_uncertainty_a3",
+            "quantity": "conventional_unit_cell_volume",
+            "unit": "angstrom^3",
+            "role": "bound",
+            "of": "unit_cell_volume_a3"
+          },
+          {
+            "name": "independent_reflections",
+            "quantity": "independent_reflection_count",
+            "unit": "1",
+            "role": "flag"
+          },
+          {
+            "name": "r1_percent",
+            "quantity": "r1_factor",
+            "unit": "percent",
+            "role": "value"
+          }
+        ],
+        "resource": {
+          "path": "datasets/iron-carbide-fe7c3-prescher-2015-table-s4-compression.csv",
+          "sha256": "744fc747827c776d347dcc7f221782a23dbd17534357cafd817952fab686617e",
+          "media_type": "text/csv"
+        },
+        "notes": "Parenthesized last-digit uncertainties are separated from the printed values without assigning a confidence level. The 140.3 GPa row has no printed uncertainty for b.",
+        "reference": {
+          "authors": [
+            "Prescher",
+            "Dubrovinsky",
+            "Bykova",
+            "Kupenko",
+            "Glazyrin",
+            "Kantor",
+            "McCammon",
+            "Mookherjee",
+            "Nakajima",
+            "Miyajima",
+            "Sinmyo",
+            "Cerantola",
+            "Dubrovinskaia",
+            "Prakapenka",
+            "Rüffer",
+            "Chumakov",
+            "Hanfland"
+          ],
+          "year": 2015,
+          "source": "Nature Geosci.",
+          "volume": "8",
+          "locator": "220-223",
+          "doi": "10.1038/ngeo2370"
+        },
+        "used_by_eos_records": [
+          "iron_carbide_fe7c3_prescher_2015_bm3_1"
+        ]
+      }
+    ]
+  }
+}

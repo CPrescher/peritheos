@@ -51,7 +51,7 @@ def test_vinet_source_branch_reconstructs_and_roundtrips():
     )
 
 
-def test_table5_is_derived_output_and_retains_phase_annotations():
+def test_table5_is_derived_output_and_retains_phase_annotations(reproduce_once):
     rows = table_rows()
     assert len(rows) == 168
     assert len({r["volume_ratio"] for r in rows}) == 21
@@ -60,7 +60,7 @@ def test_table5_is_derived_output_and_retains_phase_annotations():
         ("1.00", "3000"),
         ("0.98", "3000"),
     ]
-    audit = reproduce()
+    audit = reproduce_once(reproduce)
     assert audit["max_abs_vinet_minus_full_model_300k_table_gpa"] == pytest.approx(
         6.00925735085, abs=1e-8
     )
@@ -73,7 +73,7 @@ def test_table5_is_derived_output_and_retains_phase_annotations():
     assert ledger_outcome({"identifier": RECORD})["observations"] == 0
 
 
-def test_phonon_law_has_integrated_gamma_and_requires_additional_term():
+def test_phonon_law_has_integrated_gamma_and_requires_additional_term(reproduce_once):
     for ratio in [1, 0.8, 0.6]:
         delta = 1e-5
         derivative = (
@@ -82,7 +82,7 @@ def test_phonon_law_has_integrated_gamma_and_requires_additional_term():
         ) / (2 * delta)
         assert derivative == pytest.approx(-gamma_theta(ratio)[0], rel=1e-8)
     assert phonon_pressure(1, 0) == 0
-    audit = reproduce()
+    audit = reproduce_once(reproduce)
     endpoint = audit["table5_thermal_term_diagnostic"][-1]
     assert float(endpoint["temperature_k"]) == 3000
     assert endpoint["table_total_minus_0k_minus_phonon_gpa"] > 1.9
@@ -93,8 +93,8 @@ def test_phonon_law_has_integrated_gamma_and_requires_additional_term():
     )
 
 
-def test_saved_audit_and_inputs_remain_reproducible():
-    audit = reproduce()
+def test_saved_audit_and_inputs_remain_reproducible(reproduce_once):
+    audit = reproduce_once(reproduce)
     saved = json.loads(OUTPUT.read_text(encoding="utf-8"))
     check_saved(saved, audit)
     assert saved["input_sha256"] == audit["input_sha256"]
@@ -128,8 +128,8 @@ def test_sakai_2018_links_the_vinet_branch_without_claiming_paired_data():
     assert get_eos_record(RECORD).pressure(V0) == pytest.approx(0)
 
 
-def test_paired_volumes_retain_original_pressure_calibration():
-    pairs = reproduce()["dewaele_simultaneous_volume_pairs"]
+def test_paired_volumes_retain_original_pressure_calibration(reproduce_once):
+    pairs = reproduce_once(reproduce)["dewaele_simultaneous_volume_pairs"]
     assert len(pairs) == 36
     assert pairs[0]["gold_atomic_volume_a3"] == 16.716
     assert pairs[0]["platinum_atomic_volume_a3"] == 14.979

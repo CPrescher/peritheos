@@ -1,7 +1,7 @@
 {
   "format_version": 4,
   "identifier": "mg075fe025o",
-  "name": "(Mg0.75Fe0.25)O B1 ferropericlase",
+  "name": "Ferropericlase B1",
   "formula": "Mg0.75Fe0.25O",
   "phase": "B1 ferropericlase",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
@@ -935,7 +935,15 @@
       }
     }
   ],
-  "aliases": ["(Mg0.75,Fe0.25)O", "Fe25 ferropericlase"],
+  "aliases": [
+    "(Mg0.75,Fe0.25)O",
+    "Fe25 ferropericlase",
+    "(Mg0.75Fe0.25)O B1 ferropericlase",
+    "ferropericlase",
+    "magnesiowustite",
+    "magnesiowüstite",
+    "Mg–Fe monoxide B1"
+  ],
   "family_id": "mg_fe_monoxide",
   "cell_contents": "Four Mg0.75Fe0.25O formula units per conventional rocksalt cell.",
   "symmetry": "CUBIC",

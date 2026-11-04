@@ -126,6 +126,62 @@ def observations(document, record, fit):
         return np.array([float(row[name]) for row in rows])
 
     molar_to_cell = float(document.get("formula_units_per_cell") or 1) / 0.602214076
+    if rid == "cementite_nonmagnetic_sata_2010_bm3":
+        from scripts.audit_sata_2010_fe3c import selected_rows
+
+        rows = selected_rows()
+        return direct(
+            column(rows, "pressure_gpa"),
+            column(rows, "volume_a3"),
+            column(rows, "temperature_k"),
+            column(rows, "error_pressure_gpa"),
+            column(rows, "error_volume_a3"),
+        )
+    if rid == "ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction":
+        from scripts.finger_1979_ringwoodite import observations as finger_rows
+
+        rows, pressure, volume, volume_sigma = finger_rows()
+        return direct(
+            pressure[1:],
+            volume[1:],
+            np.full(2, 296.15),
+            np.array([float(r["pressure_esd_kbar"]) / 10 for r in rows[1:]]),
+            volume_sigma[1:],
+        )
+    if rid == "cementite_li_2002_bm3":
+        from scripts.reproduce_li_2002_fe3c import arrays as li_arrays
+
+        _, (p, v, sp, sv) = li_arrays()
+        return direct(p, v, pressure_sigma=sp, volume_sigma=sv)
+    if rid.startswith("cementite_prescher_2012_"):
+        from scripts.prescher_2012_catalog import IDS, selected_rows
+
+        side = next(side for side, identifier in IDS.items() if identifier == rid)
+        p, v = selected_rows(side)
+        return direct(p, v)
+    if rid.startswith("cementite_nonmagnetic_takahashi_2019_"):
+        rows = table_rows("cementite-takahashi-2019-table-s1.csv")
+        scale = "kbr" if "_kbr_" in rid else "mgo"
+        return direct(
+            [
+                float(row[f"pressure_{scale}_gpa"] or row["pressure_sio2_gpa"])
+                for row in rows
+            ],
+            column(rows, "volume_a3"),
+            column(rows, "temperature_k"),
+        )
+    if rid == "iron_carbide_fe7c3_prescher_2015_bm3_1" and identifiers == [
+        "iron_carbide_fe7c3_prescher_2015_author_fit_input"
+    ]:
+        from scripts.reproduce_prescher_2015_fe7c3 import observations as author_rows
+
+        rows = author_rows()
+        return direct(
+            rows["pressure_gpa"],
+            rows["unit_cell_volume_a3"],
+            pressure_sigma=rows["pressure_uncertainty_gpa"],
+            volume_sigma=rows["unit_cell_volume_uncertainty_a3"],
+        )
     if rid == "argon_fcc_finger_1981_murnaghan2_debye":
         from peritheos.eos.finger1981 import CELL_TO_MOLAR
 
@@ -689,6 +745,15 @@ def curve_comparison(
         # at observed coordinates and is not relabelled as the optimizer statistic.
         source_check = source_rmse
         note = ""
+        if record["identifier"] == "cementite_nonmagnetic_sata_2010_bm3":
+            note = "Nine original Sata Fe3C/MgO states and the three source-named Li (2002) rows above 25 GPa, at 300 K. Original source pressures are retained on their distinct MgO versus ruby/neon bases. The reconstructed curve fixes printed V0=149.456 A^3; this diagnostic constraint and equal pressure weights are not a recovered author workflow. The later Litasov (2013) Vinet recalibration is excluded."
+        if (
+            record["identifier"]
+            == "ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction"
+        ):
+            note = "Two compressed Table 2 states at 296.15 K; the separate measured ambient volume fixes V0=558.7 A^3. The K0-only equal-pressure reconstruction is a conditional diagnostic, not recovery of the original author fit or a replacement catalog coefficient. Published K0=196(6) GPa is unchanged. Validity is 0–4 GPa only."
+        if record["identifier"] == "coesite_i_iii_bykova_2018_300k_bm3":
+            note = "The 22 audit inputs contain 21 measured entries and one derived ambient EOS anchor (export point 15), not 22 independent measurements. The fit uses sigma_P only; displayed sigma_V is preserved but not propagated. Published rounded coefficients and the reconstructed coefficients are evaluated on the same literal author-export coordinates."
         if record["identifier"] == "ca_perovskite_noguchi_2013_bm2_mgd_1":
             from scripts.reproduce_noguchi_2013_casio3 import (
                 SOURCE_TABLE_PATH,

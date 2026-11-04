@@ -67,6 +67,8 @@ Both fits use the same 2 recovered audit input rows. Residual = P(model) − P(i
 
 **Volume coordinate:** audit volume in record units. **Row selection:** Two compressed Table 2 states; ambient row defines fixed V0 and is excluded from regression/RMS..
 
+Two compressed Table 2 states at 296.15 K; the separate measured ambient volume fixes V0=558.7 A^3. The K0-only equal-pressure reconstruction is a conditional diagnostic, not recovery of the original author fit or a replacement catalog coefficient. Published K0=196(6) GPa is unchanged. Validity is 0–4 GPa only.
+
 Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
 
 ### Source versus reconstruction

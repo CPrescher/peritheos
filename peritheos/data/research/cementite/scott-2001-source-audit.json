@@ -1,0 +1,47 @@
+{
+  "audit_date": "2026-10-30",
+  "scope": "Scott (2001) only; source investigation, not catalog integration",
+  "doi": "10.1029/2000GL012606",
+  "authority": {
+    "file": "output/cementite-eos-audit-2026-10-25/sources/scott-2001.pdf",
+    "sha256": "abca7f6489523e6c6148cc721e3a79fa942fd444bae873bd9abd1c52871ae7e9",
+    "version": "Final institutional journal copy, pages 1875-1878",
+    "source_terms": "Publisher copyright; no third-party article or figure rights are relicensed by this audit"
+  },
+  "source_locations": {
+    "1875_abstract": "K0=175 +/- 4 GPa, K0-prime=5.2 +/- 0.3; maximum 73 GPa",
+    "1875_experimental": "Ambient conventional orthorhombic cell contains 12 Fe and 4 C, Z=4. a=5.088 +/- 0.002 A, b=6.742 +/- 0.003 A, c=4.526 +/- 0.003 A; V0=155.26 +/- 0.14 A^3. 16:3:1 methanol-ethanol-water medium; external heating to about 500 K between measurements above 15.4 GPa. Ruby fluorescence cites Mao et al. (1978), not Mao (1986). Separate laser-heated runs had no medium.",
+    "1876_eos_paragraph": "Weighted least squares; BM3 K0=175.4 +/- 3.5 GPa, K0-prime=5.1 +/- 0.3; Vinet 175.1 +/- 3.6 and 5.3 +/- 0.3; BM2 186.5 +/- 2.9 GPa. Fixed-K0-prime fits from 2.5 to 7 summarized by K0=226.7 - 9.97 K0-prime GPa. No fixed/free V0 declaration, numerical P-V table, confidence definition, row weights or residual direction found.",
+    "1876_figure1": "Highest diffraction pattern labelled 73.2 GPa, distinct from rounded title/abstract maximum",
+    "1877_figure3_caption": "Pressure-volume data from two runs; weighted fits; third-order BM and Vinet drawing indistinguishable. Open circle is temperature-quenched from >1500 K at 16 GPa. Caption does not explicitly declare its fit inclusion/exclusion or identify run membership point by point.",
+    "1878_references_and_end": "Mao, Bell, Shaner and Steinberg (1978), J. Appl. Phys. 49, 3276-3283; no data table or supplement/correction notice in inspected final article"
+  },
+  "public_recovery_checks": [
+    {
+      "url": "https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2000GL012606",
+      "finding": "Live full-page fetch inaccessible through web tool. Official abstract indexed in search supports abstract values. Direct abstract fetch returned 403; inability to inspect live page is not evidence of absent supplements. Complete local final PDF inspected."
+    },
+    {
+      "url": "https://api.crossref.org/works/10.1029/2000GL012606",
+      "finding": "Metadata fetched and saved to output/scott-2001-parity-2026-10-30/crossref.json. Empty relation object and no update-to field; links identify Wiley version-of-record PDF/TDM, with no separately identified data or correction. Metadata absence does not prove no correction exists."
+    },
+    {
+      "queries": [
+        "\"10.1029/2000GL012606\" data supporting information Scott",
+        "\"2000GL012606\" supplement correction data",
+        "\"2000GL012606\" \"Correction\"",
+        "\"2000GL012606\" \"Supporting\"",
+        "\"Scott\" \"Williams\" \"2001\" \"Fe3C\" site:iusb.edu",
+        "\"Stability and equation of state of Fe3C\" filetype:pdf"
+      ],
+      "finding": "No original numerical inputs, official supplement, correction, or distinct primary source version recovered. Secondary mentions and citing papers were leads only. No author contact."
+    }
+  ],
+  "remaining_inputs": [
+    "Original numerical P-V rows and run IDs, including ambient and quenched-point membership",
+    "Fixed/free V0 constraint and role of the independently measured ambient volume",
+    "Residual variable or transformed equation, numerical weights, coordinate-error convention, and any covariance",
+    "Source parameter confidence/scaling convention and parameter covariance",
+    "Ruby readings if pressure calibration itself is to be replayed; no recalibration performed here"
+  ]
+}

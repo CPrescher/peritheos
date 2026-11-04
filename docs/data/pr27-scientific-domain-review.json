@@ -1,0 +1,218 @@
+{
+  "reviewed_revision": "55dadf85c9b83ba9511875e799a69ed941782549",
+  "checks": [
+    {
+      "check": "Ono/Mibe final PDF Table 1",
+      "comparisons": 70,
+      "finding": "matched",
+      "details": "All 14 pressure and lattice/volume rows match original printed tokens; missing pressure widths remain missing."
+    },
+    {
+      "check": "Li final PDF Table 1",
+      "comparisons": 155,
+      "finding": "matched",
+      "details": "All 14 rows and every central/error token match, including adopted reference-card row, measured ambient anchor and ten neon observations."
+    },
+    {
+      "check": "Sata preserved manuscript Table 1",
+      "comparisons": 72,
+      "finding": "matched",
+      "details": "All nine Fe3C/MgO rows and 72 numeric/error tokens match. Final publisher HTML Table 1 was independently checked against the same rows; manuscript is not relabeled as publication of record."
+    },
+    {
+      "check": "Prescher final Supplementary Table S1",
+      "comparisons": 38,
+      "finding": "matched",
+      "details": "All nineteen numbered pressures and volumes match the final supplement, including p16=133.25 A3; no ambient row or three extra graph markers are introduced."
+    },
+    {
+      "check": "Coesite author DAT and workbook",
+      "comparisons": 1337,
+      "finding": "matched",
+      "details": "22 input rows and 100 calculated curve rows are separate; every retained workbook value, formula and number format matches original OOXML. Workbook not recalculated or saved."
+    },
+    {
+      "check": "Hu official PANGAEA workbook",
+      "comparisons": 70,
+      "finding": "matched",
+      "details": "Every retained header and shot cell matches original cached XML, including six shots, individual initial densities and calculated temperatures. All published Us/up errors retain their tokens."
+    },
+    {
+      "check": "Takahashi official supplementary workbook",
+      "comparisons": 3720,
+      "finding": "matched",
+      "details": "All raw transcribed cell values and formats match original OOXML; all 60 normalized rows retain their reported central values. P5 is displayed 0.00, so Q5 (8) means 0.08 A3, not 0.8."
+    },
+    {
+      "check": "Fe7C3 preserved original author input",
+      "comparisons": 112,
+      "finding": "matched",
+      "details": "All 28 original input rows and zero pressure widths are identical to normalized CSV; original wider workbook/instrument archive was not present at its historical path and is not recertified by this check."
+    },
+    {
+      "check": "Fe7C3 preserved workbook cell extraction",
+      "comparisons": 112,
+      "finding": "matched",
+      "details": "All E4:H31 cached values match the 28-row author input. The archived extraction identifies the original workbook SHA256; this is a review of the preserved extraction, not fresh access to the missing original XLSX or instrument logs."
+    },
+    {
+      "check": "Independent Fe7C3 effective-variance numerical replay",
+      "comparisons": 6,
+      "finding": "matched",
+      "details": {
+        "parameters": [
+          748.0876757391966,
+          168.1541121090742,
+          6.0632941375443
+        ],
+        "formal_errors": [
+          1.0474408821587153,
+          4.110102239749204,
+          0.13220935150171503
+        ],
+        "scope": "Matches six archived printed values; effective-variance model and residual scaling remain reconstructed, not authenticated original workflow."
+      }
+    },
+    {
+      "check": "Original catalog scientific fields vs PR base",
+      "comparisons": 3395,
+      "finding": "matched",
+      "details": {
+        "common_records": 679,
+        "source_arrays_resources_and_column_definitions": "unchanged",
+        "fingerprint_exceptions_used": false
+      }
+    }
+  ],
+  "source_files": {
+    "output/ono-mibe-2010-fe3c-2026-11-01/sources/ono-mibe-2010.pdf": {
+      "sha256": "3d254d8de9bcf45e50eec1665f3b2edf7f424c057af780a574937bec5dea7f5a",
+      "bytes": 552527
+    },
+    "output/li-2002-fe3c-audit/sources/li-2002.pdf": {
+      "sha256": "3b4761baa81a3e4bd419f8e93d5e453d7c5d7c2b64b400514d0f468dbcb211af",
+      "bytes": 117927
+    },
+    "output/sata-2010-fe3c-2026-11-01/sources/sata-2010-manuscript.pdf": {
+      "sha256": "9e4c8e5267449512a54331ee58a0102998c2d1a2fbc4851365351eca01e4b81d",
+      "bytes": 2460680
+    },
+    "output/prescher-2012-fe3c-supplement-2026-10-25/supplement.pdf": {
+      "sha256": "ef63531041dd2ee4feac3990c267192c052ad71c155ec640915638f165f8e237",
+      "bytes": 1015379
+    },
+    "output/cementite-eos-audit-2026-10-25/sources/takahashi-2019.pdf": {
+      "sha256": "4d814c8a44be5b6c310254825eae4f3770e7361697e88bbec17fd35da27c3c44",
+      "bytes": 505892
+    },
+    "output/material-candidates/ferrous-ringwoodite/sources/finger-1979-alt.pdf": {
+      "sha256": "88ceb1574ffe6800545ff0516bc1a962dc57dd6dc9e0352dd0a7c4cc97f9dd63",
+      "bytes": 570146
+    },
+    "output/material-candidates/ferrous-ringwoodite/sources/finger-1979-3.png": {
+      "sha256": "1b89f80f49e8c5c57315c158134aac9334e9d1880f55b8e16d7c56376ee8e28c",
+      "bytes": 202254
+    },
+    "output/material-candidates/ferrous-ringwoodite/sources/finger-1979-4.png": {
+      "sha256": "a5e2ea2a4761fe0ae469b0cb9e94f0e6a0e338aaea5dba776138929c3b6acceb",
+      "bytes": 200065
+    },
+    "output/bykova-2018-author-files-2026-10-25/coeII-plot.dat": {
+      "sha256": "dbe88e69780a1dff041dadd3a9547a1e95bc2bf4bf8d5fcf10c4da76af8ca560",
+      "bytes": 5020
+    },
+    "output/bykova-2018-author-files-2026-10-25/coesite_final.xlsx": {
+      "sha256": "a451c3cc7728f66d33b8a14bac27c53bca8a20f38e964f1975db6c6474fc76ab",
+      "bytes": 137646
+    },
+    "peritheos/data/research/cementite/hu-2019-pangaea-table1.xlsx": {
+      "sha256": "6c62a6012b7e48d2a9bed6ae0e34b58d28096ca8af3db03ad1f92740b4da7aa7",
+      "bytes": 39081
+    },
+    "output/cementite-eos-audit-2026-10-25/sources/minerals-630318-supplementary.xlsx": {
+      "sha256": "45db30d8d78f529a53bd2bc50911949c4c0efe05c999b98faa4879afdb0b52cb",
+      "bytes": 22452
+    },
+    "peritheos/data/datasets/iron-carbide-fe7c3-prescher-2015-author-input.txt": {
+      "sha256": "7b14c3206be122cb517309b2eca10d23e64dacba7dc4e259a957ea1553ced225",
+      "bytes": 634
+    },
+    "peritheos/data/datasets/iron-carbide-fe7c3-prescher-2015-author-fit-export.txt": {
+      "sha256": "ff47e11c6b4425c34472ebf64148cf7c51700850bd8049a9f0a722f55b45bdca",
+      "bytes": 106
+    },
+    "output/prescher-2015-fe7c3-author-audit/extracted/index.json": {
+      "sha256": "a5a8434011549c6a777042fc26985d51276fdff4920aae9277de1cb70b459d5e",
+      "bytes": 75371
+    },
+    "output/prescher-2015-fe7c3-author-audit/extracted/628f7279b2e8.txt": {
+      "sha256": "058b0b5d93423b4bc2a0a3dadb1382fd324aad38ddc2410ad805c5401ccb734a",
+      "bytes": 21691
+    }
+  },
+  "scope_limitations": [
+    "Original author solver implementations and confidence semantics remain unrecovered.",
+    "Fe7C3 wider workbook and instrument archive is unavailable at the historical path; preserved author input and fit export were checked directly.",
+    "Author communication text for the Coesite objective is preserved as user-supplied provenance, not independently authenticated correspondence."
+  ],
+  "review_date": "2026-11-04",
+  "catalog_scientific_sha256": "ad4faddd0d53dafefd997f662d86e846ad53fc1690152444ed384bb80fa97934",
+  "source_preservation": "Snapshot covers literal coefficients/errors/fixed flags, thermal conventions, units, reference states, source arrays/resource bytes, observation views and uncertainty semantics. No merged fingerprint exceptions are used for this check.",
+  "checks_total": 9087,
+  "notes": "Source comparisons are a scoped review, not authentication of author communications, exact-workflow recovery, or physical validation. Current record-level restrictions remain unchanged.",
+  "independent_coesite_replay": {
+    "literal_DAT": [
+      34.204032989540025,
+      102.72949804575437,
+      3.0244807551462998
+    ],
+    "workbook_cached_precision": [
+      34.20378290195175,
+      102.96677925395535,
+      2.99690043050365
+    ],
+    "reported_saved_curve": [
+      34.2038,
+      102.75,
+      3.023
+    ],
+    "reported_DAT_replay": [
+      34.204,
+      102.73,
+      3.024
+    ],
+    "documented_precision_reconstruction": [
+      34.203782983788116,
+      102.75060469897154,
+      3.0229277143666047
+    ],
+    "qualification": "Current-study V/Z is rounded to one decimal as demonstrated by the author DAT; pressure/pressure-width and literature volume retain workbook precision. Using all full-precision workbook volumes is a distinct negative control and does not reproduce the saved curve."
+  },
+  "source_files_unchanged_after_review": true,
+  "base_revision": "e2d4b163fb5187ede29aa872c1b4cdf584bbd2d2",
+  "structural_identity_review": {
+    "existing_documents_unchanged": 233,
+    "compared_fields": [
+      "formula",
+      "formula_units_per_cell",
+      "units",
+      "symmetry",
+      "lattice",
+      "space_group",
+      "space_group_number",
+      "atom_sites",
+      "peaks"
+    ],
+    "new_material": "cementite_nonmagnetic",
+    "source": "Prescher (2012) final Table S1 p19 at 47.4 GPa and 293 K",
+    "axis_mapping": "(a,b,c)=(b,c,a)_source; (x,y,z)=(y,z,x)_source; no origin shift",
+    "matched_lattice_values": 3,
+    "matched_fractional_coordinates": 9,
+    "ideal_cell_contents": {
+      "Fe": 12,
+      "C": 4,
+      "Z": 4
+    },
+    "qualification": "Full occupancies express ideal stoichiometry, not source-refined occupancy or an EOS ambient volume."
+  }
+}

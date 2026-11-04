@@ -1,5 +1,7 @@
 # Chen et al. (2018): tetragonal CaSiO3 perovskite
 
+**Uncertainty follow-up, 25 October 2026:** The [record-by-record uncertainty reconstruction](uncertainty-reconstruction.md) supplies the current conditional errors and numerical labels for the selected records from this source. The earlier reconstruction descriptions below retain their original scientific qualifications; statements about missing reconstruction errors or their former ledger labels describe the assessment before that follow-up. Source coefficients, observations, calibration limits and use restrictions are unchanged.
+
 Primary source: H. Chen, S.-H. Shim, K. Leinenweber, V. Prakapenka, Y. Meng, and C. Prescher, “Crystal structure of CaSiO3 perovskite at 28–62 GPa and 300 K under quasi-hydrostatic stress conditions,” *American Mineralogist* **103**, 462–468 (2018), <https://doi.org/10.2138/am-2018-6087>.
 
 ## Fundamental correction

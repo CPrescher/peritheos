@@ -48,8 +48,57 @@ def verify_sources():
         )
         for record in document["eos_records"]:
             record.get("evidence", {}).get("reproduction", {}).pop("assessment", None)
+        if material == "iron_carbide_fe7c3":
+            # The later author-input recovery supersedes this cohort's Table
+            # S4 diagnostic. Pin the new document and verify the old cohort
+            # against its preserved predecessor instead of rewriting history.
+            if semantic_digest(document) != (
+                "be98ff11894fbbd549f9aee04e0405ca762b24544c708c3e6e7d5eac35135e8b"
+            ):
+                raise ValueError("Scientific source document changed: " + material)
+            source = json.loads(
+                (
+                    ROOT
+                    / "peritheos/data/datasets/iron-carbide-fe7c3-prescher-2015-source.json"
+                ).read_text()
+            )
+            document = copy.deepcopy(source["historical_material_document"])
+            for record in document["eos_records"]:
+                record.get("evidence", {}).get("reproduction", {}).pop(
+                    "assessment", None
+                )
         if semantic_digest(document) != expected:
-            raise ValueError("Scientific source document changed: " + material)
+            updates = json.loads(
+                (
+                    ROOT / "docs/data/similar-parameter-review-source-updates.json"
+                ).read_text()
+            )["materials"]
+            update = updates.get(material, {})
+            reviewed_ids = {
+                row["record_identifier"]
+                for row in inputs["records"]
+                if row["material_identifier"] == material
+            }
+            reviewed_scope = {
+                "records": [
+                    row
+                    for row in document["eos_records"]
+                    if row["identifier"] in reviewed_ids
+                ],
+                "datasets": document.get("datasets", []),
+            }
+            from scripts.merge_source_bindings import accepts_merge_binding
+
+            if not accepts_merge_binding(
+                "similar_document", material, expected, semantic_digest(document)
+            ) and not (
+                update.get("original_whole_document_sha256") == expected
+                and update.get("current_whole_document_sha256")
+                == semantic_digest(document)
+                and update.get("reviewed_scope_sha256")
+                == semantic_digest(reviewed_scope)
+            ):
+                raise ValueError("Scientific source document changed: " + material)
     for path, expected in inputs["source_resources_sha256"].items():
         if hashlib.sha256((ROOT / path).read_bytes()).hexdigest() != expected:
             raise ValueError("Source resource changed: " + path)
@@ -355,7 +404,7 @@ def render_report(report):
         "",
         "The source-width criterion compares central values with each positive printed source width; it is a numerical criterion even where reconstruction covariance remains unavailable. The combined-width criterion requires both finite positive errors and the numerical similarity guard. Verified printed precision is a separate nonstatistical criterion, never a substitute error bar. Fixed values are identified explicitly and are not counted as recovered free parameters.",
         "",
-        "Source coefficients, printed errors, observations, calibration reductions, models, fit masks, defaults, source-validation findings and use holds are unchanged. Only reconstruction assessments and the derived ledger/report are updated. Original ledger findings are frozen in [the review inputs](../data/similar-parameter-review-inputs.json); source-document and dataset hashes protect them.",
+        "Source coefficients, printed errors, observations, calibration reductions, models, fit masks, defaults, source-validation findings and use holds are unchanged. Only reconstruction assessments and the derived ledger/report are updated. Original ledger findings are frozen in [the review inputs](../data/similar-parameter-review-inputs.json); source-document and dataset hashes protect them. Subsequent display-name and unrelated-record recommendation edits are pinned separately in [source compatibility evidence](../data/similar-parameter-review-source-updates.json). The complete reviewed records and dataset declarations match the named historical revision; the original whole-document hashes remain unchanged.",
         "",
         "## Recovered information",
         "",
@@ -426,6 +475,14 @@ def saved_review():
 def augment_outcome(record, outcome):
     case = saved_review().get(record["identifier"])
     if case is None:
+        return outcome
+    if (
+        record["identifier"] == "iron_carbide_fe7c3_prescher_2015_bm3_1"
+        and "iron_carbide_fe7c3_prescher_2015_author_fit_input"
+        in record.get("fit_datasets", [])
+    ):
+        # The recovered author-input audit supersedes the cohort's historical
+        # Table S4 diagnostic. Keep that diagnostic in the frozen input/report.
         return outcome
     if case["status"] == "similar":
         baseline = next(

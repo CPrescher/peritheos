@@ -1,0 +1,112 @@
+{
+  "reference": {
+    "authors": [
+      "Ono, S.",
+      "Mibe, K."
+    ],
+    "year": 2010,
+    "title": "Magnetic transition of iron carbide at high pressures",
+    "source": "Physics of the Earth and Planetary Interiors",
+    "volume": "180",
+    "locator": "1-6",
+    "doi": "10.1016/j.pepi.2010.03.008"
+  },
+  "source_version": "Final six-page Elsevier article; PEPI 180 (2010) 1-6; accepted 18 March 2010",
+  "source_pdf_sha256": "3d254d8de9bcf45e50eec1665f3b2edf7f424c057af780a574937bec5dea7f5a",
+  "local_authority_path": "/Volumes/personal_folder/Projects/Iron Carbides/Fe3C/Paper/Ono & Mibe 2010 Magnetic transition of iron carbide at high pressures.pdf",
+  "local_review_copy": "output/ono-mibe-2010-fe3c-2026-11-01/sources/ono-mibe-2010.pdf",
+  "source_locations": [
+    "Table 1 and Figure 4, p. 3",
+    "BM3 pressure equation and separate E-V calculation, p. 4",
+    "Table 3 experimental row e and theoretical rows h/i, p. 5",
+    "Methods and room-temperature post-anneal measurement, p. 2"
+  ],
+  "transcription_resource": "datasets/cementite-ono-mibe-2010-table1-tokens.csv",
+  "transcription_sha256": "d6be77a00d0d003a526e0ae4dd9fa3061a272222e81c79621f7ae9154e28caae",
+  "source_rights": "Elsevier 2010 article copyright; source numerical license unspecified. Article text, figures and PDF are not relicensed.",
+  "contributor_rights": "CC0-1.0 only for contributor-held transcription, normalization, metadata and arrangement rights.",
+  "source_curve_check": {
+    "source": "Figure 4 dashed experimental BM3, p. 3; manual curve readings, not observations",
+    "source_image_sha256": "416d2b579379daff74c33ad37ecca9d294e4968454a014c6180ab41546706cbd",
+    "image_dimensions_px": [
+      632,
+      517
+    ],
+    "axis_calibration": {
+      "x_px": [
+        90,
+        615
+      ],
+      "pressure_gpa": [
+        0,
+        100
+      ],
+      "y_px": [
+        11,
+        403
+      ],
+      "volume_a3": [
+        160,
+        120
+      ]
+    },
+    "pixel_checkpoints": [
+      [
+        142.5,
+        131.0
+      ],
+      [
+        195.0,
+        186.0
+      ],
+      [
+        247.5,
+        229.0
+      ]
+    ],
+    "pressure_gpa": [
+      10.0,
+      20.0,
+      30.0
+    ],
+    "read_volume_a3": [
+      147.75510204081633,
+      142.14285714285714,
+      137.75510204081633
+    ],
+    "predicted_volume_a3": [
+      147.7325179185038,
+      142.14732931808788,
+      137.7399338029339
+    ],
+    "difference_a3": [
+      -0.022584122312537147,
+      0.004472175230745279,
+      -0.015168237882420499
+    ],
+    "tolerance_a3": 0.41,
+    "tolerance_basis": "Four source-image pixels in volume, rounded up; includes dashed-line thickness, axis/readout and pressure-location ambiguity. Not a measurement uncertainty.",
+    "passed": true
+  },
+  "pressure_standards": [
+    {
+      "authors": [
+        "Brown, J. M."
+      ],
+      "year": 1999,
+      "title": "The NaCl pressure standard",
+      "source": "Journal of Applied Physics 86, 5801-5808"
+    },
+    {
+      "authors": [
+        "Ono, S.",
+        "Kikegawa, T.",
+        "Ohishi, Y."
+      ],
+      "year": 2006,
+      "title": "Structural property of CsCl-type sodium chloride under pressure",
+      "source": "Solid State Communications 137, 517-521"
+    }
+  ],
+  "separation": "Original experimental BM3 retained; later Litasov Vinet comparison and 0 K P-V/E-V calculations are separate. All 14 original observations preserved; no pressure recalculation."
+}

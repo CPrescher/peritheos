@@ -1,7 +1,7 @@
 {
   "format_version": 4,
   "identifier": "mg087fe013sio3_bridgmanite",
-  "name": "13% Fe-bearing bridgmanite",
+  "name": "Bridgmanite",
   "formula": "Mg0.87Fe0.13SiO3",
   "phase": "ferrous iron-bearing bridgmanite, orthorhombic Pbnm",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
@@ -282,7 +282,12 @@
       }
     }
   ],
-  "aliases": ["(Mg0.87Fe0.13)SiO3 bridgmanite", "13% Fe bridgmanite", "13% Fe magnesium silicate perovskite"],
+  "aliases": [
+    "(Mg0.87Fe0.13)SiO3 bridgmanite",
+    "13% Fe bridgmanite",
+    "13% Fe magnesium silicate perovskite",
+    "13% Fe-bearing bridgmanite"
+  ],
   "family_id": "bridgmanite",
   "cell_contents": "Four Mg0.87Fe0.13SiO3 formula units per conventional orthorhombic Pbnm cell (Mg3.48Fe0.52Si4O12; Z=4)",
   "symmetry": "ORTHORHOMBIC",

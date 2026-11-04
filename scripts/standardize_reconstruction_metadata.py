@@ -267,6 +267,10 @@ def standardize_document(
                 f"Historical reproduction metadata is not an object: {identifier}"
             )
         existing = reproduction.get("assessment")
+        if existing == assessment:
+            # Retain an already correct assessment's field order. Replacing it
+            # would produce spurious file changes after merging equal findings.
+            continue
         # Add navigation to an otherwise identical existing assessment. Never
         # overwrite scientific findings or an explicitly different report link.
         previous = {

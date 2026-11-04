@@ -46,7 +46,7 @@ def test_primary_tange_table5_checkpoint(model):
     )
 
 
-def test_derived_pressures_preserve_sources_and_native_calibration():
+def test_derived_pressures_preserve_sources_and_native_calibration(reproduce_once):
     original, data, hashes = read_data()
     rows, text = derived_rows(original, data)
     check_csv(
@@ -81,7 +81,7 @@ def test_derived_pressures_preserve_sources_and_native_calibration():
             assert derived["pressure_temperature_covariance_gpa_k"] == ""
     assert rows[15 + 26]["volume_error_a3"] == ""
     assert rows[15 + 75]["conditional_pressure_error_gpa"] == ""
-    report = reproduce()
+    report = reproduce_once(reproduce)
     assert report["original_csv_sha256"] == hashes
     assert report["derived_csv_sha256"] == hashlib.sha256(text.encode()).hexdigest()
     ds = next(
@@ -165,8 +165,8 @@ def test_refit_is_selectable_with_errors_covariance_and_lossless_export():
         assert r["scientific_validation"]["status"] == "not_reproduced"
 
 
-def test_reproduction_covariance_multistart_and_ledger_meaning():
-    report = reproduce()
+def test_reproduction_covariance_multistart_and_ledger_meaning(reproduce_once):
+    report = reproduce_once(reproduce)
     stored = json.loads(REPORT.read_text(encoding="utf-8"))
     primary = report["primary"]
     assert primary["solver_success"]

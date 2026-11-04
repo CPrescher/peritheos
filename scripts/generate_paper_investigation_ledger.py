@@ -48,6 +48,52 @@ CITATION_OVERRIDES = {
 
 
 PAPER_SCOPE_NOTES = {
+    "10.1007/s00269-001-0224-4": (
+        "Conditional K0/K0-prime parameter parity on all 12 nonambient Table 1 "
+        "rows with fixed measured V0. Published coefficients/errors and all "
+        "14 source rows are preserved. Five graphical source-curve checks pass. "
+        "Original weights, confidence, covariance and ruby/neon reduction "
+        "workflow remain unrecovered. See the [Li audit and integration]"
+        "(literature-reproductions/li-2002-fe3c.md)."
+    ),
+    "10.1103/physrevb.85.140402": (
+        "Only the full-range published BM3 is offered in the catalog. Its K0, "
+        "K0-prime agree at printed precision with the 19-numbered-row "
+        "conditional replay at fixed, graph-derived V0; the K0 formal error "
+        "is not reproduced. Published coefficients "
+        "and errors are unchanged. Retired split fits remain audit evidence. "
+        "Original V0 constraints, inputs, weighting and confidence convention "
+        "remain unresolved. See the [integration and comparisons]"
+        "(literature-reproductions/prescher-2012-recovery.md#database-integration-full-range-only)."
+    ),
+    "10.3390/min9120744": (
+        "Independent source-equation density benchmarks pass at declared printed "
+        "and graphical precision. Both equal-pressure-weight, all-60-row coefficient "
+        "reconstructions remain similar, with central-value differences beyond "
+        "printed source widths. Source weights and exact fit mask are unknown; "
+        "author-workflow reproduction and experimental accuracy are not established. "
+        "The two pressure-scale variants describe the same experiment."
+    ),
+    "10.1029/2000gl012606": (
+        "Qualified similarity of 21 digitized observations, not coefficient parity "
+        "or author-workflow reproduction. The source reports weighted least squares; "
+        "the reconstruction uses equal pressure weights because plotted errors are "
+        "incomplete. K0 differs by 8% and K0-prime by 19%; both lie outside their "
+        "printed source error widths despite broader uncertainty overlap. Published "
+        "coefficients and observations are unchanged. See the [Fe3C audit]"
+        "(literature-reproductions/cementite.md)."
+    ),
+    "10.1038/s41467-018-07265-z": (
+        "Coesite-I/II/III central-coefficient parity is achieved; the author's fit "
+        "values are reproduced at reported precision using the original files. "
+        "The recovered 22-row author export contains 21 measured "
+        "entries plus a derived literature ambient EOS anchor. The pressure-only "
+        "weights effectively pin V0; volume errors, original EoSFit settings and "
+        "covariance are not reproduced. The earlier 24-row unweighted failure "
+        "is preserved as a historical diagnostic. Published coefficients are "
+        "unchanged. See the [author-file audit]"
+        "(literature-reproductions/bykova-2018-author-fit.md)."
+    ),
     "10.1016/j.jallcom.2020.156179": (
         "Corrected Fedotenko Pd weighting retains all 14 printed positive-pressure "
         "coordinate errors with explicit ambient-datum handling. Both Pd fits "

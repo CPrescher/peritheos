@@ -1,8 +1,8 @@
 {
   "policy": "One source per study/model/data selection; published pressure-scale alternatives remain explicit reference variants. No coefficients or calibration routes are inferred by grouping.",
-  "source_groups": 27,
-  "reference_variants": 51,
-  "materials": 19,
+  "source_groups": 28,
+  "reference_variants": 52,
+  "materials": 20,
   "groups": [
     {
       "material": "aluminum",
@@ -54,6 +54,30 @@
         "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
         "source": "Minerals",
         "doi": "10.3390/min9110684"
+      }
+    },
+    {
+      "material": "cementite_nonmagnetic",
+      "source_eos_record": "cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd",
+      "reference_variants": [
+        "cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd"
+      ],
+      "primary_reference": {
+        "authors": [
+          "Takahashi",
+          "Ohtani",
+          "Ikuta",
+          "Kamada",
+          "Sakamaki",
+          "Hirao",
+          "Ohishi"
+        ],
+        "year": 2019,
+        "doi": "10.3390/min9120744",
+        "title": "Thermal Equation of State of Fe3C to 327 GPa and Carbon in the Core",
+        "source": "Minerals",
+        "volume": "9",
+        "locator": "744"
       }
     },
     {
@@ -386,24 +410,19 @@
     },
     {
       "material": "nickel",
-      "source_eos_record": "nickel_dewaele_2008_vinet_1",
+      "source_eos_record": "nickel_dewaele_2019_mao_vinet",
       "reference_variants": [
-        "nickel_dewaele_2019_dor_vinet",
-        "nickel_dewaele_2019_mao_vinet"
+        "nickel_dewaele_2008_vinet_1",
+        "nickel_dewaele_2019_dor_vinet"
       ],
       "primary_reference": {
         "authors": [
-          "Dewaele",
-          "Torrent",
-          "Loubeyre",
-          "Mezouar"
+          "Dewaele"
         ],
-        "year": 2008,
-        "title": "Compression curves of transition metals in the Mbar range: Experiments and projector augmented-wave calculations",
-        "source": "Phys. Rev. B",
-        "volume": "78",
-        "locator": "104102",
-        "doi": "10.1103/PhysRevB.78.104102"
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
       }
     },
     {
@@ -440,24 +459,19 @@
     },
     {
       "material": "silver",
-      "source_eos_record": "silver_dewaele_2008_vinet_1",
+      "source_eos_record": "silver_dewaele_2019_mao_vinet",
       "reference_variants": [
-        "silver_dewaele_2019_dor_vinet",
-        "silver_dewaele_2019_mao_vinet"
+        "silver_dewaele_2008_vinet_1",
+        "silver_dewaele_2019_dor_vinet"
       ],
       "primary_reference": {
         "authors": [
-          "Dewaele",
-          "Torrent",
-          "Loubeyre",
-          "Mezouar"
+          "Dewaele"
         ],
-        "year": 2008,
-        "title": "Compression curves of transition metals in the Mbar range: Experiments and projector augmented-wave calculations",
-        "source": "Phys. Rev. B",
-        "volume": "78",
-        "locator": "104102",
-        "doi": "10.1103/PhysRevB.78.104102"
+        "year": 2019,
+        "title": "Equations of State of Simple Solids (Including Pb, NaCl and LiF) Compressed in Helium or Neon in the Mbar Range",
+        "source": "Minerals",
+        "doi": "10.3390/min9110684"
       }
     },
     {

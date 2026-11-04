@@ -182,6 +182,7 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 ### Detailed evidence and existing plots
 
 - [Supporting source report: coesite-iv-v-bykova-2018-experimental](../literature-reproductions/coesite-iv-v-bykova-2018-experimental.md).
+- [Related illustrated report explicitly naming this EOS: sata-2010-fe3c](../literature-reproductions/sata-2010-fe3c.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 

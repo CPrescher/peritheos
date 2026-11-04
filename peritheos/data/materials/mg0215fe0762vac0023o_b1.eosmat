@@ -1,7 +1,7 @@
 {
   "format_version": 4,
   "identifier": "mg0215fe0762vac0023o_b1",
-  "name": "Mw78 defect-bearing magnesiowustite",
+  "name": "Ferropericlase B1 defect-bearing Mw78",
   "formula": "Mg0.215Fe0.762□0.023O",
   "phase": "defect-bearing B1 magnesiowustite, metrically cubic average structure",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
@@ -520,7 +520,17 @@
       }
     }
   ],
-  "aliases": ["Mw78", "(Mg0.215Fe0.762□0.023)O", "(Mg0.22Fe0.78)O", "iron-rich ferropericlase"],
+  "aliases": [
+    "Mw78",
+    "(Mg0.215Fe0.762□0.023)O",
+    "(Mg0.22Fe0.78)O",
+    "iron-rich ferropericlase",
+    "Mw78 defect-bearing magnesiowustite",
+    "ferropericlase",
+    "magnesiowustite",
+    "magnesiowüstite",
+    "Mg–Fe monoxide B1 defect-bearing Mw78"
+  ],
   "family_id": "mg_fe_monoxide",
   "cell_contents": "Four defect-normalized Mg0.215Fe0.762□0.023O formula units per conventional average rocksalt cell (Z=4). The average diffraction model does not resolve the tetrahedral Fe3+-vacancy defect clusters seen by room-pressure Mossbauer spectroscopy and diffuse scattering.",
   "symmetry": "CUBIC",

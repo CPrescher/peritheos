@@ -77,6 +77,7 @@ Automatic selection for equilibrium calculations.
     - **Url:** https://hazen.carnegiescience.edu/sites/default/files/043-FH-SiSpinels.pdf
 - **Reference temperature (K):** 296.15
 - **Reported pressure coverage (GPa):** \[0.0001, 4.0\]
+- **Coverage provenance:** reported\_exactly
 - **Reported temperature coverage (K):** \[296.15, 296.15\]
 - **Validity:**
     - **Pressure gpa:** \[0.0, 4.0\]
@@ -176,6 +177,8 @@ Parameter covariance is not supplied.
     - **Author fit reproduced:** False
     - **Source check:** Calculated1.867379GPa at553.5A3 versus2.0(1)GPa;4.055608GPa at547.7A3 versus4.0(1)GPa. Differences are inside combined printed coordinate uncertainties.
 - **Unresolved:** Original author fit objective, weights, covariance and exact intercept constraint unavailable.; Exact pressure-scale equation and paired marker readings not recovered.
+- **Note:** Reviewed for static-only integration on 1 November 2026. Primary source BM2 and K0 verified on pp. 1004–1005; all three Table 2 Fe rows and source esds preserved. The adopted measured ambient volume is an explicitly derived choice, not recovered original fit V0. Thermal candidate excluded.
+- **Integration date:** 2026-11-01
 
 </details>
 

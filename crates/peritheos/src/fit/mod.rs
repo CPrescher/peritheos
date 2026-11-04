@@ -633,7 +633,7 @@ fn standard_normal_values(rng: &mut StdRng, count: usize) -> Vec<f64> {
     while values.len() < count {
         let first = rng.gen_range(f64::MIN_POSITIVE..1.0);
         let second = rng.gen_range(0.0..1.0);
-        let radius = (-2.0 * first.ln()).sqrt();
+        let radius = (-2.0_f64 * first.ln()).sqrt();
         let angle = std::f64::consts::TAU * second;
         values.push(radius * angle.cos());
         if values.len() < count {

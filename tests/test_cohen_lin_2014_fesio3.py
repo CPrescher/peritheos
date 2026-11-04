@@ -73,8 +73,8 @@ def test_cohen_lin_table_i_structures_preserve_composition_and_cell_volume():
     assert ppv_ii_volume / 4.0 == pytest.approx(34.49, abs=0.05)
 
 
-def test_cohen_lin_reproduction_matches_independent_100_gpa_checkpoints():
-    result = reproduce()
+def test_cohen_lin_reproduction_matches_independent_100_gpa_checkpoints(reproduce_once):
+    result = reproduce_once(reproduce)
     assert result["pressure_gpa"] == 100.0
     for phase in result["phases"].values():
         differences = phase["absolute_differences"]
@@ -83,8 +83,8 @@ def test_cohen_lin_reproduction_matches_independent_100_gpa_checkpoints():
         assert differences["K100_prime"] < 0.004
 
 
-def test_cohen_lin_arxiv_v1_explains_final_table_rounding():
-    result = reproduce()["arxiv_v1_rounding_diagnostic"]
+def test_cohen_lin_arxiv_v1_explains_final_table_rounding(reproduce_once):
+    result = reproduce_once(reproduce)["arxiv_v1_rounding_diagnostic"]
     for phase in result.values():
         calculated = phase["calculated"]
         published = phase["published"]
@@ -97,8 +97,10 @@ def test_cohen_lin_arxiv_v1_explains_final_table_rounding():
         )
 
 
-def test_cohen_lin_plot_reading_stays_an_approximate_non_dataset_diagnostic():
-    result = reproduce()["figure_3_approximate_diagnostic"]
+def test_cohen_lin_plot_reading_stays_an_approximate_non_dataset_diagnostic(
+    reproduce_once,
+):
+    result = reproduce_once(reproduce)["figure_3_approximate_diagnostic"]
     assert result["classification"] == (
         "approximate_plot_diagnostic_not_primary_observations"
     )
@@ -138,8 +140,8 @@ def test_cohen_lin_plot_reading_stays_an_approximate_non_dataset_diagnostic():
         )
 
 
-def test_cohen_lin_table_i_lattice_products_confirm_100_gpa_volumes():
-    result = reproduce()["table_i_structure_diagnostic"]
+def test_cohen_lin_table_i_lattice_products_confirm_100_gpa_volumes(reproduce_once):
+    result = reproduce_once(reproduce)["table_i_structure_diagnostic"]
     assert set(result) == {"PPv", "PPv-II"}
     for phase in result.values():
         assert phase["absolute_difference_a3_per_formula"] < 0.05

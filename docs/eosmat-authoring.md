@@ -37,6 +37,16 @@ metadata to create an EOS for your own calculations.
 | What do the errors mean? | Each parameter's `error`/`fixed`, then confidence convention and covariance if available |
 | Where may I use it, and was it reconstructed? | `validity` and `evidence.reproduction`; measured coverage is separate |
 
+For catalog display names, put the mineral family first and keep useful sample,
+structure, spin or model qualifiers after it. Store the exact composition in
+`formula`; applications may append it to `name` for display. For example,
+`name: Bridgmanite natural` and `formula: Mg0.90Fe0.09Al0.005Ca0.005SiO3`
+describe the existing natural sample without embedding its formula twice.
+Retain previous names and useful composition descriptions in material-level
+`aliases`. See the [catalog naming conventions](catalog.md) for mixed Mg–Fe
+oxide synonyms. Display changes must preserve stable identifiers and scientific
+content.
+
 Start with one of these complete, editable files:
 
 - [Basic material](examples/simple-material.eosmat): one EOS, explicit units,

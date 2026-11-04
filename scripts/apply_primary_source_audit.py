@@ -3563,7 +3563,10 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
         if reproduction is not None:
             result["scientific_validation"]["reproduction"] = reproduction
 
-    if result["identifier"] == "e_feooh_gleason_2008_bm2_1":
+    if result["identifier"] in {
+        "e_feooh_gleason_2008_bm2_1",
+        "coesite_i_iii_bykova_2018_300k_bm3",
+    }:
         result["scientific_validation"]["note"] = previous["note"]
         result["scientific_validation"]["audit_date"] = previous["audit_date"]
         result["scientific_validation"]["verified_fields"] = previous["verified_fields"]

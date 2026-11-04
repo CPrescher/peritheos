@@ -1,7 +1,7 @@
 {
   "format_version": 4,
   "identifier": "ferropericlase_fe27",
-  "name": "Fe27 ferropericlase",
+  "name": "Ferropericlase B1 cation-deficient Fe27",
   "formula": "Mg0.725Fe0.268O",
   "phase": "cation-deficient rocksalt ferropericlase, cubic Fm-3m",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
@@ -213,7 +213,15 @@
       }
     }
   ],
-  "aliases": ["Fe27", "(Mg0.725Fe0.268 vacancy0.007)O"],
+  "aliases": [
+    "Fe27",
+    "(Mg0.725Fe0.268 vacancy0.007)O",
+    "Fe27 ferropericlase",
+    "ferropericlase",
+    "magnesiowustite",
+    "magnesiowüstite",
+    "Mg–Fe monoxide B1 cation-deficient Fe27"
+  ],
   "family_id": "mg_fe_monoxide",
   "cell_contents": "Mg2.900Fe1.072 vacancy0.028O4 in the conventional rocksalt cell; composition is normalized to one oxygen and Z=4 on that basis.",
   "symmetry": "CUBIC",

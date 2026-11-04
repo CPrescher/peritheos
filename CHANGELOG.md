@@ -5,6 +5,69 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+## [0.17.3] - 2026-11-04
+
+### Added
+
+- Add six published cementite EOS records: Li (2002) and Ono–Mibe (2010)
+  experimental BM3, both Takahashi (2019) nonmagnetic BM3–MGD pressure-scale
+  variants, Sata (2010) nonmagnetic BM3, and Hu (2019)'s six-shot principal
+  Hugoniot through 245 GPa. Preserve original coefficients, errors, measured
+  and adopted reference volumes, source observations and calibration lineage.
+  Keep calculated shock temperatures, porous precursor normalization, possible
+  high-pressure melting and unresolved author workflows explicit.
+- Bundle the recovered Bykova (2018) Coesite fit export and Prescher (2015)
+  Fe7C3 author inputs separately from earlier tabulated-data diagnostics.
+  Coesite's 22 inputs contain 21 measured entries and a derived ambient
+  anchor; its literal-DAT and workbook-precision reconstructions remain
+  distinct. Fe7C3's 28-row numerical replay reproduces the six saved
+  coefficient/error values at printed precision; Table S4 remains preserved
+  under its provenance-only use restriction.
+- Add a source-by-source domain review with checks against preserved article
+  tables, official supplements and author artifacts. Keep unavailable original
+  workbook/instrument-file access and unauthenticated correspondence explicit.
+  Add an independent scientific-value/source-array fingerprint alongside the
+  existing historical release and merge-metadata proofs.
+
+### Fixed
+
+- Retain Scott (2001)'s scoped similarity finding and correct current Prescher
+  (2012) summaries: the primary comparison uses 19 numbered Table S1 states,
+  agrees in central coefficients, and does not reproduce the K0 error. The
+  earlier 22-marker comparison and split fits remain historical audit evidence;
+  only the full-range published Prescher record is installed.
+- Update source/refit ledgers, observation views, reconstruction reports and
+  discovery inventories for 234 documents and 685 records: 231 executable
+  materials, 630 source choices and 682 records including reference variants.
+  Preserve all 679 pre-existing source coefficient sets and original datasets.
+- Standardize material display names while retaining historical search aliases.
+  Preserve conditional uncertainty findings, source-use restrictions and
+  unresolved investigations, including the wadsleyite source-model gap.
+- Reload the explicitly written Brown NaCl refit instead of a cached artifact;
+  retain checksum-bound CSV bytes and the field order of unchanged assessments.
+
+### Development and compatibility
+
+- Incorporate Roland Mas's explicit sampler `f64` annotation and allow `1e-9`
+  absolute variation when replaying the saved brucite optimizer objective across
+  numerical backends. Preserve the stricter residual-consistency check, source
+  inputs and scientific findings. Keep Rust 1.83 support and existing dependencies.
+
+- Ship an installed code/data licensing guide, dataset notice index and complete
+  Creative Commons texts in both distribution formats. Replace the Python
+  distribution's blanket MIT metadata with an explicit component-scope reference;
+  library code remains MIT and unspecified third-party source terms stay explicit.
+
+- Separate routine CI from the complete release compatibility matrix and share
+  unchanged numerical audit results through isolated test copies. Preserve
+  fresh calculations for mutation, solver-patching and repeatability tests.
+- Keep model equations, public APIs and published EOS coefficients unchanged. Source
+  checks and conditional numerical agreement do not establish physical
+  validation or complete reproduction of an author's original workflow.
+- The finite-reference EOS, pressure-scale views and native EOSMAT interfaces
+  are unchanged from their earlier releases. Locally preserved research backups
+  and publisher full texts remain separate from curated package evidence.
+
 ## [0.17.2] - 2026-10-30
 
 ### Added
@@ -1435,7 +1498,8 @@ qualified outcomes and links to individual reproductions.
   and out-of-domain states.
 - Project naming and release metadata were standardized.
 
-[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.17.2...HEAD
+[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.17.3...HEAD
+[0.17.3]: https://github.com/CPrescher/peritheos/compare/v0.17.2...v0.17.3
 [0.17.2]: https://github.com/CPrescher/peritheos/compare/v0.17.1...v0.17.2
 [0.17.1]: https://github.com/CPrescher/peritheos/compare/v0.17.0...v0.17.1
 [0.17.0]: https://github.com/CPrescher/peritheos/compare/v0.16.1...v0.17.0

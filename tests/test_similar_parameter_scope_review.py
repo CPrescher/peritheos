@@ -91,7 +91,15 @@ def test_native_assessments_roundtrip_and_unpromoted_ledger_findings_are_unchang
                 continue
             case = saved_review()[rid]
             if case["status"] == "similar":
-                assert ledger[rid] == original[rid]
+                if rid == "iron_carbide_fe7c3_prescher_2015_bm3_1":
+                    # The current author-input audit supersedes this frozen
+                    # Table S4 diagnostic; both input sets remain preserved.
+                    assert ledger[rid]["status"] == "parity"
+                    assert ledger[rid]["dataset_identifiers"] == [
+                        "iron_carbide_fe7c3_prescher_2015_author_fit_input"
+                    ]
+                else:
+                    assert ledger[rid] == original[rid]
                 continue
             assessment = record["evidence"]["reproduction"]["assessment"]
             assert assessment == roundtrip["evidence"]["reproduction"]["assessment"]

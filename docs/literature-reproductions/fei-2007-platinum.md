@@ -1,5 +1,7 @@
 # Fei et al. (2007): Pt thermal pressure scale and joint-fit audit
 
+**Uncertainty follow-up, 25 October 2026:** The [record-by-record uncertainty reconstruction](uncertainty-reconstruction.md) supplies the current conditional errors and numerical labels for the selected records from this source. The earlier reconstruction descriptions below retain their original scientific qualifications; statements about missing reconstruction errors or their former ledger labels describe the assessment before that follow-up. Source coefficients, observations, calibration limits and use restrictions are unchanged.
+
 ## Investigation disposition
 
 On 2026-10-09 the user paused further Fei Pt investigation pending a reply

@@ -241,8 +241,8 @@ def test_catalog_audit_preserves_distinct_experiments_and_all_coefficients():
         for r in list_eos_records(include_reference_variants=True)
         if r.is_reference_variant
     ]
-    assert len(references) == 51
-    assert len({r.pressure_scale_variant_of for r in references}) == 27
+    assert len(references) == 52
+    assert len({r.pressure_scale_variant_of for r in references}) == 28
     for identifier in (
         "mgo_jacobsen_2008_bm3_kcl_mao1978",
         "mgo_jacobsen_2008_bm3_helium_mao1986",

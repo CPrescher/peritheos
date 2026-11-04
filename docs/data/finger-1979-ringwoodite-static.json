@@ -1,0 +1,53 @@
+{
+  "record_identifier": "ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction",
+  "source_sha256": "4c25f6e674342aabd492f7ed51495cbeaad6404e38831da6af72031bc190a909",
+  "temperature_ref_k": 296.15,
+  "validity_pressure_gpa": [
+    0.0,
+    4.0
+  ],
+  "source_checks": [
+    {
+      "source_row": 1,
+      "pressure_gpa": 0.0001,
+      "volume_a3": 558.7,
+      "pressure_error_gpa": null,
+      "volume_esd_a3": 0.2,
+      "calculated_pressure_gpa": 0.0,
+      "pressure_difference_gpa": -0.0001,
+      "combined_coordinate_error_gpa": null,
+      "within_combined_coordinate_error": null,
+      "role": "adopted ambient anchor"
+    },
+    {
+      "source_row": 2,
+      "pressure_gpa": 2.0,
+      "volume_a3": 553.5,
+      "pressure_error_gpa": 0.1,
+      "volume_esd_a3": 0.7,
+      "calculated_pressure_gpa": 1.8673790404533532,
+      "pressure_difference_gpa": -0.13262095954664677,
+      "combined_coordinate_error_gpa": 0.27603173805325265,
+      "within_combined_coordinate_error": true,
+      "role": "compressed state"
+    },
+    {
+      "source_row": 3,
+      "pressure_gpa": 4.0,
+      "volume_a3": 547.7,
+      "pressure_error_gpa": 0.1,
+      "volume_esd_a3": 0.8,
+      "calculated_pressure_gpa": 4.055607673803572,
+      "pressure_difference_gpa": 0.05560767380357223,
+      "combined_coordinate_error_gpa": 0.32549909942719096,
+      "within_combined_coordinate_error": true,
+      "role": "compressed state"
+    }
+  ],
+  "diagnostic_K0_gpa": 196.2175873043206,
+  "diagnostic_K0_standard_error_gpa": 6.309138397400374,
+  "source_compressed_pressure_rms_gpa": 0.10168709922334743,
+  "diagnostic_compressed_pressure_rms_gpa": 0.10162667992777438,
+  "author_fit_reproduced": false,
+  "qualification": "Derived BM2 ambient-cell reconstruction at 296.15 K and 0–4 GPa: measured V0=558.7(2) A^3 is adopted and fixed; published K0=196(6) GPa and implicit K0-prime=4 are preserved. V0 error is a measurement esd, not a fit error; K0 error confidence and covariance are unspecified. The two compressed states agree within their combined coordinate error widths. The K0-only equal-pressure diagnostic is conditional on the adopted ambient volume; its error is RSS/dof-scaled and excludes V0/calibration uncertainty. This reconstructs the declared static curve, not the authors' original fit intercept, objective, weighting or pressure reduction. The separate 2011 thermal candidate remains staged and is not installed or validated here."
+}

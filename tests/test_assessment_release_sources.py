@@ -1,4 +1,4 @@
-"""The assessment release preserves the complete published scientific baseline."""
+"""Frozen release sources and explicitly reviewed integration fingerprints."""
 
 import copy
 import hashlib
@@ -6,11 +6,12 @@ import json
 from pathlib import Path
 
 from peritheos import load_eosmat
+from scripts.merge_source_bindings import accepts_merge_binding
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_all_published_material_sources_and_resources_are_unchanged():
+def test_sources_match_frozen_release_or_reviewed_merge_fingerprints():
     proof = json.loads(
         (ROOT / "docs/data/assessment-release-source-bindings.json").read_text()
     )
@@ -21,7 +22,8 @@ def test_all_published_material_sources_and_resources_are_unchanged():
         if document["identifier"] == "cementite":
             # Version 0.17.2 adds this one reviewed source and two datasets.
             # Project only those additions out before checking the frozen
-            # 0.17.0 source baseline; all existing fields/resources stay exact.
+            # 0.17.0 source baseline; reviewed integration differences require
+            # explicit original-to-merged fingerprint pairs below.
             added_record = "cementite_prescher_2012_full_range_bm3"
             added_datasets = {
                 "cementite_prescher_2012_table_s1",
@@ -43,8 +45,11 @@ def test_all_published_material_sources_and_resources_are_unchanged():
         actual = hashlib.sha256(
             json.dumps(document, sort_keys=True, separators=(",", ":")).encode()
         ).hexdigest()
-        assert actual == expected, relative
+        assert actual == expected or accepts_merge_binding(
+            "release_document", relative, expected, actual
+        ), relative
     for relative, expected in proof["source_resources"].items():
-        assert hashlib.sha256((ROOT / relative).read_bytes()).hexdigest() == expected, (
-            relative
-        )
+        actual = hashlib.sha256((ROOT / relative).read_bytes()).hexdigest()
+        assert actual == expected or accepts_merge_binding(
+            "release_resource", relative, expected, actual
+        ), relative

@@ -57,8 +57,8 @@ def test_fcc_identity_and_lossless_source_tables():
     ] == [136.7, 0.3, 47.26, 0.10]
 
 
-def test_source_reproduction_and_diagnostics(assert_audit_close):
-    result = reproduce()
+def test_source_reproduction_and_diagnostics(assert_audit_close, reproduce_once):
+    result = reproduce_once(reproduce)
     assert_audit_close(result, json.loads(REPORT.read_text()))
     for key in ("dewaele_2021", "ono_2020"):
         audit = result[key]
@@ -152,8 +152,8 @@ def test_absolute_baseline_rejects_invalid_choices_and_preserves_default():
             absolute.pressure(1.4, temperature)
 
 
-def test_wittlinger_diagnostic_compares_original_observation_residuals():
-    audit = reproduce()["wittlinger_1997"]
+def test_wittlinger_diagnostic_compares_original_observation_residuals(reproduce_once):
+    audit = reproduce_once(reproduce)["wittlinger_1997"]
     assert audit["published_rmse_gpa"] == pytest.approx(0.772262, abs=1e-6)
     fit = audit["errors_in_variables"]
     assert 0.44 < fit["original_coordinate_rmse_gpa"] < 0.46

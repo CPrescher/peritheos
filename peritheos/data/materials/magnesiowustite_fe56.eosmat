@@ -1,7 +1,7 @@
 {
   "format_version": 4,
   "identifier": "magnesiowustite_fe56",
-  "name": "Fe56 magnesiowustite",
+  "name": "Ferropericlase B1 cation-deficient Fe56",
   "formula": "Mg0.423Fe0.541O",
   "phase": "cation-deficient rocksalt magnesiowustite, cubic Fm-3m",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
@@ -213,7 +213,16 @@
       }
     }
   ],
-  "aliases": ["Fe56", "(Mg0.423Fe0.541 vacancy0.036)O", "magnesiowüstite Fe56"],
+  "aliases": [
+    "Fe56",
+    "(Mg0.423Fe0.541 vacancy0.036)O",
+    "magnesiowüstite Fe56",
+    "Fe56 magnesiowustite",
+    "ferropericlase",
+    "magnesiowustite",
+    "magnesiowüstite",
+    "Mg–Fe monoxide B1 cation-deficient Fe56"
+  ],
   "family_id": "mg_fe_monoxide",
   "cell_contents": "Mg1.692Fe2.164 vacancy0.144O4 in the conventional rocksalt cell; composition is normalized to one oxygen and Z=4 on that basis.",
   "symmetry": "CUBIC",

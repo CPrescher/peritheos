@@ -1,7 +1,7 @@
 {
   "format_version": 4,
   "identifier": "mg09al02si09o3_bridgmanite",
-  "name": "Mg0.9Al0.2Si0.9O3 aluminous bridgmanite",
+  "name": "Bridgmanite en90G3",
   "formula": "Mg0.9Al0.2Si0.9O3",
   "phase": "orthorhombic aluminous silicate perovskite, synthesis run en90G3",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
@@ -412,7 +412,12 @@
       }
     }
   ],
-  "aliases": ["Mg0.9Al0.2Si0.9O3 perovskite", "10 mol% Al2O3 silicate perovskite", "aluminous bridgmanite en90G3"],
+  "aliases": [
+    "Mg0.9Al0.2Si0.9O3 perovskite",
+    "10 mol% Al2O3 silicate perovskite",
+    "aluminous bridgmanite en90G3",
+    "Mg0.9Al0.2Si0.9O3 aluminous bridgmanite"
+  ],
   "family_id": "bridgmanite",
   "cell_contents": "Four nominal Mg0.9Al0.2Si0.9O3 formula units per conventional orthorhombic Pbnm cell (Z=4). The source establishes the composition, lattice, and space group but publishes neither fractional coordinates nor Al site occupancies. The stored atom_sites are therefore an explicitly identified MgSiO3 Pbnm positional-topology proxy and do not encode the specimen composition or an experimentally determined Al distribution.",
   "symmetry": "ORTHORHOMBIC",

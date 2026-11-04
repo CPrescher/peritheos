@@ -111,8 +111,8 @@ def test_highest_pressure_primary_benchmark_and_supported_domain():
         record.volume(45, 300, check_validity=True)
 
 
-def test_refit_and_unresolved_source_differences():
-    result = reproduce()
+def test_refit_and_unresolved_source_differences(reproduce_once):
+    result = reproduce_once(reproduce)
     rt = result["rt_refit"]
     assert rt["parameters"] == pytest.approx(
         {"K0": 120.224213, "K0_prime": 3.572214}, rel=1e-7
@@ -170,10 +170,10 @@ def test_thermal_source_variants_are_evidence_only_and_refit_is_opt_in():
     assert reloaded.pressure(247.82, 1673) == pytest.approx(32.3574785491)
 
 
-def test_thermal_mapping_covariance_and_inversion_on_primary_states():
+def test_thermal_mapping_covariance_and_inversion_on_primary_states(reproduce_once):
     record = get_eos_record(THERMAL_RECORD)
     data = observations()
-    result = reproduce()["thermal_joint_refit"]
+    result = reproduce_once(reproduce)["thermal_joint_refit"]
     stored = get_material_document("siderite_fe095mn005")
     raw = next(r for r in stored["eos_records"] if r["identifier"] == THERMAL_RECORD)
     params = {**raw["eos"]["parameters"], **raw["thermal"]["parameters"]}
@@ -305,7 +305,7 @@ def test_refit_parity_requires_pressure_agreement_as_well_as_coefficients(monkey
     assert outcome["status"] == "parity_not_achieved"
 
 
-def test_native_joint_fit_recovers_the_independent_reference_result():
+def test_native_joint_fit_recovers_the_independent_reference_result(reproduce_once):
     data = observations()
     result = fit_joint_eos(
         ThermalReferenceStateEOS,
@@ -328,7 +328,7 @@ def test_native_joint_fit_recovers_the_independent_reference_result():
         max_nfev=5000,
     )
     assert result.success
-    expected = reproduce()["thermal_joint_refit"]["parameters"]
+    expected = reproduce_once(reproduce)["thermal_joint_refit"]["parameters"]
     for name, value in expected.items():
         key = f"rt_eos.{name}" if name in {"K0", "K0_prime"} else name
         assert result.parameters[key] == pytest.approx(value, rel=5e-4)

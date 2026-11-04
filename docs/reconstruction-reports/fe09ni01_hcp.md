@@ -1517,6 +1517,7 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 
 - [Earlier detailed record investigation](../primary-eos-refits.md#investigation-fe09ni01_hcp_sakai_2014_type1_thermal).
 - [Supporting source report: eos-recommendation-dispositions-2026-10-17](../research/eos-recommendation-dispositions-2026-10-17.md).
+- [Related illustrated report explicitly naming this EOS: bykova-2018-author-fit](../literature-reproductions/bykova-2018-author-fit.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 

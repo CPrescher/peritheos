@@ -18,6 +18,7 @@
       },
       "experimental_pressure_range_gpa": [0.0001, 4.0],
       "experimental_temperature_range_k": [296.15, 296.15],
+      "pressure_range_status": "reported_exactly",
       "validity": {
         "pressure_gpa": [0.0, 4.0],
         "temperature_k": [296.15, 296.15],
@@ -158,7 +159,9 @@
           "unresolved": [
             "Original author fit objective, weights, covariance and exact intercept constraint unavailable.",
             "Exact pressure-scale equation and paired marker readings not recovered."
-          ]
+          ],
+          "note": "Reviewed for static-only integration on 1 November 2026. Primary source BM2 and K0 verified on pp. 1004–1005; all three Table 2 Fe rows and source esds preserved. The adopted measured ambient volume is an explicitly derived choice, not recovered original fit V0. Thermal candidate excluded.",
+          "integration_date": "2026-11-01"
         },
         "parameter_provenance": {
           "determination_method": "Single-crystal XRD experiment; no theoretical thermal coefficient.",

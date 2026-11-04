@@ -1521,7 +1521,7 @@ Displayed uncertainties use two significant digits for leading 1/2, otherwise on
 
 Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
-Authors' preferred static fit using NaCl pressures; separate from the T0133 Au experiment. K0=210 GPa is fixed. All ten 298 K observations are retained, including the printed -0.05 GPa recovered point. Wang's thermal fits additionally use external zero-pressure expansion data and are not represented as reproduced records here. Unweighted pressure residuals reproduce the free coefficients within printed errors; the source does not supply a complete optimizer/weighting protocol or covariance. Published coefficients are retained; this non-default record does not replace the Dorogokupets synthesis.
+Authors' preferred static fit using NaCl pressures; separate from the T0133 Au experiment. K0=210 GPa is fixed. All ten 298 K observations are retained, including the printed -0.05 GPa recovered point. Wang's thermal fits additionally use external zero-pressure expansion data and are not represented as reproduced records here. Unweighted pressure residuals reproduce the free coefficients within printed errors, with conditional reconstructed standard errors and covariance; numerical parameter parity uses the printed-error-width criterion. The source does not supply a complete optimizer/weighting protocol, confidence convention or covariance. Published coefficients are retained; this non-default record does not replace the Dorogokupets synthesis.
 
 Parameter covariance is not supplied.
 

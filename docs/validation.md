@@ -59,10 +59,10 @@ the ledger after a mechanical Dioptas migration.
 
 Primary-source traceability is complemented by the independent
 [primary EOS refit campaign](primary-eos-refits.md). It attempts a Peritheos
-fit for every record with sufficient direct observations and documents all 679
+fit for every record with sufficient direct observations and documents all 685
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 351 scoped numerical parity matches and 72 additional numerically similar results.
+diagnostics. The current campaign finds 357 scoped numerical parity matches and 72 additional numerically similar results.
 The Crichton–Ross (2000) phase E fit achieves parity within reported parameter
 errors: all three coefficient shifts are below 0.123 reported error widths,
 and the largest pressure-curve difference is about 0.0096 GPa. Its published
@@ -82,7 +82,7 @@ error widths, with comparable refit standard errors and an unspecified source
 confidence convention. Sakai (2011) contributes eight conditional fixed-V0
 parity matches within printed error widths, with weighting and marker-averaging
 qualifications retained in its [audit](literature-reproductions/sakai-2011-nacl-b2.md).
-[62 direct refits](primary-eos-refits.md#parity-not-achieved) do not
+[61 direct refits](primary-eos-refits.md#parity-not-achieved) do not
 recover at least one published coefficient, while 177 records cannot be
 directly refitted because row-level inputs or an executable source reduction
 are unavailable. Seventeen further records have source reconstructions without an independent

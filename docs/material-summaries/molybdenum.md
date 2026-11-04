@@ -1578,6 +1578,25 @@ Parameter covariance is not supplied.
 [Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/dorfman-2012-tables-s1-s6-cocompression.csv)
 — SHA-256 `c65d843d31085e72b63cc3377042b2e855ea83d958e34846c78c862e3a25246c`.
 
+### molybdenum\_dewaele\_2008\_source\_table
+
+- **Description:** Complete source table rows, including excluded observations and gauge flags; selection belongs to each fit.
+- **Kind:** pressure\_volume\_lattice\_parameters\_with\_calibrant
+- **Reference:**
+    - **Authors:** Dewaele; Torrent; Loubeyre; Mezouar
+    - **Year:** 2008
+    - **Title:** Compression curves of transition metals in the Mbar range: Experiments and projector augmented-wave calculations
+    - **Source:** Physical Review B
+    - **Volume:** 78
+    - **Locator:** 104102
+    - **DOI:** 10.1103/PhysRevB.78.104102
+- **Source location:** Table II
+- **Associated EOS records:** molybdenum\_dewaele\_2008\_table4\_vinet; molybdenum\_dewaele\_2008\_table4\_us\_k0\_261\_vinet
+- **Notes:** Source tokens, run identities, reported lattice data and mixed-gauge markings retained. Common Table II volume uncertainty 0.01 A3/atom is reported without an explicit confidence convention; pressure precision endpoints do not supply rowwise errors. No rowwise uncertainty array is synthesized.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/molybdenum-dewaele-2008-source-table2.csv)
+— SHA-256 `21171d3ccd613f806b8ac369d9654feeb5727a59dfe9eb0c92990545ae2c4f02`.
+
 ### molybdenum\_sakai\_2025\_table\_s5\_measured\_pairs
 
 - **Description:** All 48 measured molybdenum–tungsten cell-volume pairs on source Table S5. Pressure is calculated from the calibrant during an explicitly conditional audit; it is not an independently measured column. Missing source errors remain blank.
@@ -1597,22 +1616,3 @@ Parameter covariance is not supplied.
 
 [Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/molybdenum-sakai-2025-table-s5-measured-pairs.csv)
 — SHA-256 `85a170737a05c65e06989eb1e90a6d944a2eb669f7ff5fed2829778427018156`.
-
-### molybdenum\_dewaele\_2008\_source\_table
-
-- **Description:** Complete source table rows, including excluded observations and gauge flags; selection belongs to each fit.
-- **Kind:** pressure\_volume\_lattice\_parameters\_with\_calibrant
-- **Reference:**
-    - **Authors:** Dewaele; Torrent; Loubeyre; Mezouar
-    - **Year:** 2008
-    - **Title:** Compression curves of transition metals in the Mbar range: Experiments and projector augmented-wave calculations
-    - **Source:** Physical Review B
-    - **Volume:** 78
-    - **Locator:** 104102
-    - **DOI:** 10.1103/PhysRevB.78.104102
-- **Source location:** Table II
-- **Associated EOS records:** molybdenum\_dewaele\_2008\_table4\_vinet; molybdenum\_dewaele\_2008\_table4\_us\_k0\_261\_vinet
-- **Notes:** Source tokens, run identities, reported lattice data and mixed-gauge markings retained. Common Table II volume uncertainty 0.01 A3/atom is reported without an explicit confidence convention; pressure precision endpoints do not supply rowwise errors. No rowwise uncertainty array is synthesized.
-
-[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/molybdenum-dewaele-2008-source-table2.csv)
-— SHA-256 `21171d3ccd613f806b8ac369d9654feeb5727a59dfe9eb0c92990545ae2c4f02`.

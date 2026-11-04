@@ -1,0 +1,940 @@
+{
+  "citation": "J. Li, H. K. Mao, Y. Fei, E. Gregoryanz, M. Eremets, C. S. Zha (2002), Phys Chem Minerals 29:166-169, doi:10.1007/s00269-001-0224-4",
+  "scope": "Direct numerical source audit; the separate catalog mapping preserves original coefficients. This replay does not mutate the catalog or assess recommendations.",
+  "verdict": {
+    "volumetric_bm3_source_equation": "parity_against_five_independent_graphical_checkpoints",
+    "volumetric_bm3_parameter_agreement": "conditional_parity_inside_printed_error_widths",
+    "axial_bm3_parameter_agreement": "conditional_printed_precision_parity_for_all_three_axes",
+    "uncertainty_reproduction": "conditional_absolute_widths_compatible_but_source_confidence_unknown",
+    "author_workflow": "not_recovered",
+    "calibration_replay": "unavailable_original_ruby_wavelengths_and_separate_pressure_arrays_missing",
+    "catalog": "published_original_coefficients_integrated_as_cementite_li_2002_bm3_with_conditional_parameter_parity"
+  },
+  "source_parameters": {
+    "V0_a3_fixed": 155.28,
+    "V0_measured_error_width_a3": 0.11,
+    "K0_gpa": 174,
+    "K0_error_width_gpa": 6,
+    "K0_prime": 4.8,
+    "K0_prime_error_width": 0.8,
+    "temperature_k": 300,
+    "room_temperature_width_k": 1,
+    "confidence_convention": null,
+    "source_covariance": null
+  },
+  "selection": {
+    "all_table_rows": 14,
+    "measured_rows": 13,
+    "fit_row_ids": [
+      "T1-03",
+      "T1-04",
+      "T1-05",
+      "T1-06",
+      "T1-07",
+      "T1-08",
+      "T1-09",
+      "T1-10",
+      "T1-11",
+      "T1-12",
+      "T1-13",
+      "T1-14"
+    ],
+    "reference_card_excluded": "T1-01 (PDF no. 35-0772)",
+    "fixed_anchor": "T1-02; no fitted parameters obtain leverage from it",
+    "all_12_nonambient_rows_used_in_every_volumetric_fit": true
+  },
+  "normalized_rows": [
+    {
+      "row_id": "T1-01",
+      "kind": "reference_card",
+      "footnote": "a",
+      "pressure_gpa": 0.0001,
+      "pressure_gpa_error_width": null,
+      "a_a": 5.091,
+      "a_a_error_width": null,
+      "b_a": 6.7434,
+      "b_a_error_width": null,
+      "c_a": 4.526,
+      "c_a_error_width": null,
+      "volume_a3": 155.4,
+      "volume_a3_error_width": null,
+      "neon_a_a": null,
+      "neon_a_a_error_width": null,
+      "calculated_abc_a3": 155.38051918440001,
+      "calculated_neon_cell_a3": null
+    },
+    {
+      "row_id": "T1-02",
+      "kind": "measured_anchor",
+      "footnote": "b",
+      "pressure_gpa": 0.0001,
+      "pressure_gpa_error_width": 1e-06,
+      "a_a": 5.087,
+      "a_a_error_width": 0.001,
+      "b_a": 6.752,
+      "b_a_error_width": 0.002,
+      "c_a": 4.521,
+      "c_a_error_width": 0.001,
+      "volume_a3": 155.28,
+      "volume_a3_error_width": 0.11,
+      "neon_a_a": null,
+      "neon_a_a_error_width": null,
+      "calculated_abc_a3": 155.28470390399997,
+      "calculated_neon_cell_a3": null
+    },
+    {
+      "row_id": "T1-03",
+      "kind": "measured",
+      "footnote": "",
+      "pressure_gpa": 2.5,
+      "pressure_gpa_error_width": 0.2,
+      "a_a": 5.063,
+      "a_a_error_width": 0.001,
+      "b_a": 6.72,
+      "b_a_error_width": 0.002,
+      "c_a": 4.498,
+      "c_a_error_width": 0.001,
+      "volume_a3": 153.04,
+      "volume_a3_error_width": 0.11,
+      "neon_a_a": null,
+      "neon_a_a_error_width": null,
+      "calculated_abc_a3": 153.03707328,
+      "calculated_neon_cell_a3": null
+    },
+    {
+      "row_id": "T1-04",
+      "kind": "measured",
+      "footnote": "",
+      "pressure_gpa": 4.9,
+      "pressure_gpa_error_width": 0.2,
+      "a_a": 5.044,
+      "a_a_error_width": 0.001,
+      "b_a": 6.697,
+      "b_a_error_width": 0.002,
+      "c_a": 4.481,
+      "c_a_error_width": 0.001,
+      "volume_a3": 151.37,
+      "volume_a3_error_width": 0.11,
+      "neon_a_a": null,
+      "neon_a_a_error_width": null,
+      "calculated_abc_a3": 151.366692308,
+      "calculated_neon_cell_a3": null
+    },
+    {
+      "row_id": "T1-05",
+      "kind": "measured",
+      "footnote": "",
+      "pressure_gpa": 7.9,
+      "pressure_gpa_error_width": 0.3,
+      "a_a": 5.022,
+      "a_a_error_width": 0.001,
+      "b_a": 6.658,
+      "b_a_error_width": 0.002,
+      "c_a": 4.456,
+      "c_a_error_width": 0.001,
+      "volume_a3": 148.99,
+      "volume_a3_error_width": 0.11,
+      "neon_a_a": 3.652,
+      "neon_a_a_error_width": 0.001,
+      "calculated_abc_a3": 148.99293705600005,
+      "calculated_neon_cell_a3": 48.70710380800001
+    },
+    {
+      "row_id": "T1-06",
+      "kind": "measured",
+      "footnote": "",
+      "pressure_gpa": 10.9,
+      "pressure_gpa_error_width": 0.4,
+      "a_a": 5.0,
+      "a_a_error_width": 0.001,
+      "b_a": 6.621,
+      "b_a_error_width": 0.002,
+      "c_a": 4.436,
+      "c_a_error_width": 0.001,
+      "volume_a3": 146.85,
+      "volume_a3_error_width": 0.11,
+      "neon_a_a": 3.563,
+      "neon_a_a_error_width": 0.001,
+      "calculated_abc_a3": 146.85378000000003,
+      "calculated_neon_cell_a3": 45.23217454700001
+    },
+    {
+      "row_id": "T1-07",
+      "kind": "measured",
+      "footnote": "",
+      "pressure_gpa": 13.4,
+      "pressure_gpa_error_width": 0.6,
+      "a_a": 4.982,
+      "a_a_error_width": 0.001,
+      "b_a": 6.604,
+      "b_a_error_width": 0.002,
+      "c_a": 4.421,
+      "c_a_error_width": 0.001,
+      "volume_a3": 145.46,
+      "volume_a3_error_width": 0.11,
+      "neon_a_a": 3.504,
+      "neon_a_a_error_width": 0.001,
+      "calculated_abc_a3": 145.455886888,
+      "calculated_neon_cell_a3": 43.022168064
+    },
+    {
+      "row_id": "T1-08",
+      "kind": "measured",
+      "footnote": "",
+      "pressure_gpa": 17.2,
+      "pressure_gpa_error_width": 0.8,
+      "a_a": 4.96,
+      "a_a_error_width": 0.001,
+      "b_a": 6.574,
+      "b_a_error_width": 0.002,
+      "c_a": 4.399,
+      "c_a_error_width": 0.001,
+      "volume_a3": 143.44,
+      "volume_a3_error_width": 0.11,
+      "neon_a_a": 3.436,
+      "neon_a_a_error_width": 0.001,
+      "calculated_abc_a3": 143.43836896,
+      "calculated_neon_cell_a3": 40.565745856
+    },
+    {
+      "row_id": "T1-09",
+      "kind": "measured",
+      "footnote": "",
+      "pressure_gpa": 19.5,
+      "pressure_gpa_error_width": 0.9,
+      "a_a": 4.94,
+      "a_a_error_width": 0.002,
+      "b_a": 6.556,
+      "b_a_error_width": 0.004,
+      "c_a": 4.378,
+      "c_a_error_width": 0.002,
+      "volume_a3": 141.79,
+      "volume_a3_error_width": 0.21,
+      "neon_a_a": 3.4,
+      "neon_a_a_error_width": 0.001,
+      "calculated_abc_a3": 141.78870992,
+      "calculated_neon_cell_a3": 39.303999999999995
+    },
+    {
+      "row_id": "T1-10",
+      "kind": "measured",
+      "footnote": "",
+      "pressure_gpa": 22.1,
+      "pressure_gpa_error_width": 0.9,
+      "a_a": 4.924,
+      "a_a_error_width": 0.001,
+      "b_a": 6.526,
+      "b_a_error_width": 0.004,
+      "c_a": 4.365,
+      "c_a_error_width": 0.001,
+      "volume_a3": 140.27,
+      "volume_a3_error_width": 0.15,
+      "neon_a_a": 3.366,
+      "neon_a_a_error_width": 0.001,
+      "calculated_abc_a3": 140.26501476,
+      "calculated_neon_cell_a3": 38.136631896000004
+    },
+    {
+      "row_id": "T1-11",
+      "kind": "measured",
+      "footnote": "",
+      "pressure_gpa": 24.3,
+      "pressure_gpa_error_width": 1.0,
+      "a_a": 4.91,
+      "a_a_error_width": 0.001,
+      "b_a": 6.516,
+      "b_a_error_width": 0.002,
+      "c_a": 4.356,
+      "c_a_error_width": 0.001,
+      "volume_a3": 139.36,
+      "volume_a3_error_width": 0.1,
+      "neon_a_a": 3.34,
+      "neon_a_a_error_width": 0.001,
+      "calculated_abc_a3": 139.36394736,
+      "calculated_neon_cell_a3": 37.25970399999999
+    },
+    {
+      "row_id": "T1-12",
+      "kind": "measured",
+      "footnote": "",
+      "pressure_gpa": 27.2,
+      "pressure_gpa_error_width": 1.1,
+      "a_a": 4.896,
+      "a_a_error_width": 0.001,
+      "b_a": 6.497,
+      "b_a_error_width": 0.004,
+      "c_a": 4.342,
+      "c_a_error_width": 0.001,
+      "volume_a3": 138.12,
+      "volume_a3_error_width": 0.15,
+      "neon_a_a": 3.311,
+      "neon_a_a_error_width": 0.001,
+      "calculated_abc_a3": 138.116032704,
+      "calculated_neon_cell_a3": 36.297569231
+    },
+    {
+      "row_id": "T1-13",
+      "kind": "measured",
+      "footnote": "",
+      "pressure_gpa": 30.3,
+      "pressure_gpa_error_width": 1.2,
+      "a_a": 4.882,
+      "a_a_error_width": 0.002,
+      "b_a": 6.476,
+      "b_a_error_width": 0.004,
+      "c_a": 4.325,
+      "c_a_error_width": 0.001,
+      "volume_a3": 136.74,
+      "volume_a3_error_width": 0.17,
+      "neon_a_a": 3.282,
+      "neon_a_a_error_width": 0.001,
+      "calculated_abc_a3": 136.7384734,
+      "calculated_neon_cell_a3": 35.352141768
+    },
+    {
+      "row_id": "T1-14",
+      "kind": "measured",
+      "footnote": "",
+      "pressure_gpa": 30.5,
+      "pressure_gpa_error_width": 1.2,
+      "a_a": 4.877,
+      "a_a_error_width": 0.001,
+      "b_a": 6.48,
+      "b_a_error_width": 0.002,
+      "c_a": 4.325,
+      "c_a_error_width": 0.001,
+      "volume_a3": 136.68,
+      "volume_a3_error_width": 0.1,
+      "neon_a_a": 3.28,
+      "neon_a_a_error_width": 0.001,
+      "calculated_abc_a3": 136.682802,
+      "calculated_neon_cell_a3": 35.28755199999999
+    }
+  ],
+  "input_sha256": {
+    "docs/data/li-2002-fe3c/figure2-curve-readings.json": "6eeeba34bb308db66f2e95dceb7205535c27547db97109eba8a983463998a452",
+    "docs/data/li-2002-fe3c/source-manifest.json": "c3905d0e971c62c1117e94f1d5579f54522d4e37fe596353d2e1d243a2be3df5",
+    "docs/data/li-2002-fe3c/table1-source-tokens.csv": "cd10b390a7efe1dce6f2222e4519aedda1a459d8534d1580a29ccb284dcb30b5"
+  },
+  "source_pdf_sha256_current": "3b4761baa81a3e4bd419f8e93d5e453d7c5d7c2b64b400514d0f468dbcb211af",
+  "source_metrics": {
+    "rms_pressure_gpa": 0.2633934456555272,
+    "max_abs_pressure_gpa": 0.4983806154328754,
+    "rms_volume_a3": 0.14331884883657262,
+    "max_abs_volume_a3": 0.2834491834037465,
+    "max_abs_curve_volume_difference_from_source_a3": 0.0,
+    "pressure_residuals_gpa": [
+      0.11809347607532672,
+      -0.18221054346651933,
+      0.04668648776980433,
+      0.2071470264302704,
+      -0.09914699209309852,
+      -0.4983806154328754,
+      0.17958480946217747,
+      0.4936239684752266,
+      0.12098934490753166,
+      -0.18406187687171993,
+      -0.2467769776762232,
+      -0.31101809255657287
+    ],
+    "volume_residuals_a3": [
+      0.09709977296486727,
+      -0.14011457095446644,
+      0.032940055258052325,
+      0.13510211989097343,
+      -0.06113117750774677,
+      -0.2834491834037465,
+      0.09662059012492819,
+      0.2513524610537843,
+      0.05928009733119666,
+      -0.08575016538114255,
+      -0.10896240613729447,
+      -0.13693551378560187
+    ],
+    "max_abs_pressure_residual_in_printed_widths": 0.9110527173325966,
+    "effective_sum_squares": 1.8772776821285129
+  },
+  "fits": {
+    "equal_pressure": {
+      "parameters": [
+        171.89467897791405,
+        5.0735947963940315
+      ],
+      "difference_from_source": [
+        -2.1053210220859455,
+        0.2735947963940317
+      ],
+      "difference_in_printed_source_widths": [
+        -0.35088683701432427,
+        0.34199349549253966
+      ],
+      "both_central_values_inside_source_error_widths": true,
+      "conditional_absolute_covariance": [
+        [
+          167.02886891287812,
+          -17.592250202788435
+        ],
+        [
+          -17.59225020278844,
+          1.9248333106567608
+        ]
+      ],
+      "conditional_absolute_widths": [
+        12.923964906826315,
+        1.387383620581114
+      ],
+      "residual_scaled_widths": [
+        3.571351917218285,
+        0.38338351960879363
+      ],
+      "K0_K0_prime_correlation": -0.981135658555991,
+      "dimensionless_jacobian_condition_number": 21.411969283753518,
+      "sum_squared_objective_residuals": 0.7636137752493233,
+      "objective_sum_squares_per_dof": 0.07636137752493233,
+      "optimizer_success": true,
+      "rms_pressure_gpa": 0.2522587585610794,
+      "max_abs_pressure_gpa": 0.5284508699797854,
+      "rms_volume_a3": 0.1403301166498171,
+      "max_abs_volume_a3": 0.2947949475304483,
+      "max_abs_curve_volume_difference_from_source_a3": 0.0674458302036669,
+      "pressure_residuals_gpa": [
+        0.0915518660500787,
+        -0.22306177903669777,
+        -0.005181766488398409,
+        0.15622108351950637,
+        -0.14317992642281396,
+        -0.5224283433554113,
+        0.18164890182639937,
+        0.5284508699797854,
+        0.17979035520745512,
+        -0.08691113901229386,
+        -0.09864280119774094,
+        -0.1604573626801873
+      ],
+      "volume_residuals_a3": [
+        0.07587708797655068,
+        -0.17233397309453835,
+        -0.0036589065524594844,
+        0.10162753332053853,
+        -0.08785662170208752,
+        -0.2947949475304483,
+        0.09676639922167851,
+        0.26591520301874993,
+        0.08694150031720937,
+        -0.03989713471483469,
+        -0.04284536775071501,
+        -0.06948968358193497
+      ]
+    },
+    "pressure_width": {
+      "parameters": [
+        174.1184710484,
+        4.8074315000591
+      ],
+      "difference_from_source": [
+        0.11847104840001066,
+        0.0074315000591003155
+      ],
+      "difference_in_printed_source_widths": [
+        0.01974517473333511,
+        0.009289375073875394
+      ],
+      "both_central_values_inside_source_error_widths": true,
+      "conditional_absolute_covariance": [
+        [
+          29.822678775476554,
+          -3.5092194307884923
+        ],
+        [
+          -3.5092194307884923,
+          0.48667002885715593
+        ]
+      ],
+      "conditional_absolute_widths": [
+        5.461014445638883,
+        0.6976173943195195
+      ],
+      "residual_scaled_widths": [
+        2.6599997415110637,
+        0.33980171761776956
+      ],
+      "K0_K0_prime_correlation": -0.9211278205149037,
+      "dimensionless_jacobian_condition_number": 12.370225073885285,
+      "sum_squared_objective_residuals": 2.372556361589239,
+      "objective_sum_squares_per_dof": 0.2372556361589239,
+      "optimizer_success": true,
+      "rms_pressure_gpa": 0.25990834011429786,
+      "max_abs_pressure_gpa": 0.5174869950024252,
+      "rms_volume_a3": 0.1421508323021022,
+      "max_abs_volume_a3": 0.27391001769441914,
+      "max_abs_curve_volume_difference_from_source_a3": 0.01544562005045691,
+      "pressure_residuals_gpa": [
+        0.12001736707746913,
+        -0.1785517500729803,
+        0.05331552927477734,
+        0.21700598396557247,
+        -0.08687446167893853,
+        -0.4821106104327342,
+        0.1995922314943428,
+        0.5174869950024252,
+        0.14736452461731275,
+        -0.15400086033798388,
+        -0.2122340941298333,
+        -0.27627081654345886
+      ],
+      "volume_residuals_a3": [
+        0.09860705951697923,
+        -0.13718955333104077,
+        0.037583968709981264,
+        0.14139822342551156,
+        -0.053511442175135926,
+        -0.27391001769441914,
+        0.10726863946683807,
+        0.2632078499258341,
+        0.07212025690577661,
+        -0.0716611362220192,
+        -0.09359712482387295,
+        -0.12148989373514496
+      ]
+    },
+    "equal_volume": {
+      "parameters": [
+        172.62922941781454,
+        4.994443119747493
+      ],
+      "difference_from_source": [
+        -1.3707705821854574,
+        0.1944431197474934
+      ],
+      "difference_in_printed_source_widths": [
+        -0.22846176369757623,
+        0.24305389968436675
+      ],
+      "both_central_values_inside_source_error_widths": true,
+      "conditional_absolute_covariance": [
+        [
+          448.41196245753605,
+          -48.60742620367179
+        ],
+        [
+          -48.60742620367179,
+          5.59474633829835
+        ]
+      ],
+      "conditional_absolute_widths": [
+        21.175739950649564,
+        2.365321614135877
+      ],
+      "residual_scaled_widths": [
+        3.24682108658315,
+        0.3626686062081001
+      ],
+      "K0_K0_prime_correlation": -0.9704514877816499,
+      "dimensionless_jacobian_condition_number": 17.747815359988603,
+      "sum_squared_objective_residuals": 0.23509290676604747,
+      "objective_sum_squares_per_dof": 0.023509290676604747,
+      "optimizer_success": true,
+      "rms_pressure_gpa": 0.2528021025677768,
+      "max_abs_pressure_gpa": 0.535604174202529,
+      "rms_volume_a3": 0.13996812338470957,
+      "max_abs_volume_a3": 0.2842338645500604,
+      "max_abs_curve_volume_difference_from_source_a3": 0.05836417184636389,
+      "pressure_residuals_gpa": [
+        0.10113399173372972,
+        -0.20779200201037895,
+        0.01568889036061094,
+        0.17921720972086597,
+        -0.12049448563321086,
+        -0.5028866376906898,
+        0.1959726052584294,
+        0.535604174202529,
+        0.181465604260314,
+        -0.0942474608369821,
+        -0.11827205680805619,
+        -0.18067836929668601
+      ],
+      "volume_residuals_a3": [
+        0.08356679354957919,
+        -0.1602090519574233,
+        0.01106820669872377,
+        0.11659738023359978,
+        -0.0739918224086864,
+        -0.2842338645500604,
+        0.10463010843952247,
+        0.2702683959417982,
+        0.08802948958390289,
+        -0.043422283837657005,
+        -0.05158310434896407,
+        -0.07857134193923798
+      ]
+    },
+    "volume_width": {
+      "parameters": [
+        173.43903705424094,
+        4.934848321812465
+      ],
+      "difference_from_source": [
+        -0.5609629457590586,
+        0.13484832181246542
+      ],
+      "difference_in_printed_source_widths": [
+        -0.09349382429317643,
+        0.16856040226558178
+      ],
+      "both_central_values_inside_source_error_widths": true,
+      "conditional_absolute_covariance": [
+        [
+          5.872546189125574,
+          -0.6342678948376947
+        ],
+        [
+          -0.6342678948376947,
+          0.07357757454415356
+        ]
+      ],
+      "conditional_absolute_widths": [
+        2.42333369330878,
+        0.2712518655127621
+      ],
+      "residual_scaled_widths": [
+        3.041820181239818,
+        0.34048113183665246
+      ],
+      "K0_K0_prime_correlation": -0.9649099274126166,
+      "dimensionless_jacobian_condition_number": 16.330027306567068,
+      "sum_squared_objective_residuals": 15.755806284046562,
+      "objective_sum_squares_per_dof": 1.5755806284046563,
+      "optimizer_success": true,
+      "rms_pressure_gpa": 0.25577245991916275,
+      "max_abs_pressure_gpa": 0.574052726041451,
+      "rms_volume_a3": 0.1411130302587255,
+      "max_abs_volume_a3": 0.289954699403296,
+      "max_abs_curve_volume_difference_from_source_a3": 0.07077699143127347,
+      "pressure_residuals_gpa": [
+        0.11220715952569682,
+        -0.18934816276595523,
+        0.043089111446303896,
+        0.21284615934516005,
+        -0.08389241120113411,
+        -0.46368818394866906,
+        0.2355809020066708,
+        0.574052726041451,
+        0.21844477980561905,
+        -0.06028667180736491,
+        -0.08916365817020022,
+        -0.15181883201840307
+      ],
+      "volume_residuals_a3": [
+        0.09237603722067433,
+        -0.1455654298388538,
+        0.030338271843021403,
+        0.13831038569824727,
+        -0.051481473732764016,
+        -0.2620942740988994,
+        0.12584405816446065,
+        0.289954699403296,
+        0.10610436439125692,
+        -0.02782194807988958,
+        -0.03896787402453583,
+        -0.0661585223543284
+      ]
+    },
+    "effective_variance": {
+      "parameters": [
+        173.78786000842143,
+        4.849721552821546
+      ],
+      "difference_from_source": [
+        -0.21213999157856733,
+        0.04972155282154578
+      ],
+      "difference_in_printed_source_widths": [
+        -0.035356665263094555,
+        0.06215194102693222
+      ],
+      "both_central_values_inside_source_error_widths": true,
+      "conditional_absolute_covariance": [
+        [
+          38.394512623068984,
+          -4.4669606200047935
+        ],
+        [
+          -4.466960620004794,
+          0.600521052960867
+        ]
+      ],
+      "conditional_absolute_widths": [
+        6.196330577290803,
+        0.7749329344923127
+      ],
+      "residual_scaled_widths": [
+        2.6782986402551057,
+        0.3349566003379896
+      ],
+      "K0_K0_prime_correlation": -0.9302794460125685,
+      "dimensionless_jacobian_condition_number": 12.881610605310268,
+      "sum_squared_objective_residuals": 1.8683095880952396,
+      "objective_sum_squares_per_dof": 0.18683095880952397,
+      "optimizer_success": true,
+      "rms_pressure_gpa": 0.2574168421103657,
+      "max_abs_pressure_gpa": 0.5227052169649617,
+      "rms_volume_a3": 0.14124864978937224,
+      "max_abs_volume_a3": 0.2758003598640073,
+      "max_abs_curve_volume_difference_from_source_a3": 0.02594616900893243,
+      "pressure_residuals_gpa": [
+        0.11584520026970857,
+        -0.18498007336268518,
+        0.0451343065443961,
+        0.2089408461995177,
+        -0.09388436389410515,
+        -0.4860318751506014,
+        0.19972087995502363,
+        0.5227052169649617,
+        0.15631003351958128,
+        -0.13908983591640123,
+        -0.18938824681578126,
+        -0.2530472251884248
+      ],
+      "volume_residuals_a3": [
+        0.09529806733655732,
+        -0.14223441033732342,
+        0.0318210517498585,
+        0.1360903779531668,
+        -0.057786448220809916,
+        -0.2758003598640073,
+        0.10717202365063372,
+        0.26537020228730057,
+        0.07634127317658113,
+        -0.06457319907585202,
+        -0.08330685255322123,
+        -0.11098934477666944
+      ]
+    }
+  },
+  "orthogonal_distance_fit": {
+    "parameters": [
+      173.78484494326761,
+      4.850039558485367
+    ],
+    "conditional_absolute_covariance": [
+      [
+        38.40269219467414,
+        -4.4680617612985305
+      ],
+      [
+        -4.4680617612985305,
+        0.6006671770782468
+      ]
+    ],
+    "conditional_absolute_widths": [
+      6.196990575648323,
+      0.7750272105405376
+    ],
+    "residual_scaled_widths": [
+      2.6784274571095246,
+      0.3349777824216888
+    ],
+    "objective_sum_squares_per_dof": 0.18680913324074483,
+    "stop_reason": [
+      "Sum of squares convergence"
+    ],
+    "rms_pressure_gpa": 0.2574048336412378,
+    "max_abs_pressure_gpa": 0.5226748997196715,
+    "rms_volume_a3": 0.14124410255250738,
+    "max_abs_volume_a3": 0.27584434807394587,
+    "max_abs_curve_volume_difference_from_source_a3": 0.02598377416012454,
+    "pressure_residuals_gpa": [
+      0.11580585316939462,
+      -0.18504280062445222,
+      0.04504850272037597,
+      0.20884619661210735,
+      -0.09397784189041403,
+      -0.4861126387753423,
+      0.19966134168756966,
+      0.5226748997196715,
+      0.15630205884415105,
+      -0.13906103757400956,
+      -0.18930926240300394,
+      -0.25296582446637217
+    ],
+    "volume_residuals_a3": [
+      0.09526687313208981,
+      -0.14228384167805075,
+      0.03176067683079964,
+      0.13602869479828428,
+      -0.05784381252090043,
+      -0.27584434807394587,
+      0.10713909601608407,
+      0.26535176564556195,
+      0.07633638411664379,
+      -0.06455886107571018,
+      -0.083270690540445,
+      -0.11095173962547733
+    ]
+  },
+  "independent_linear_pressure_width_fit": [
+    174.11847122342857,
+    4.807431474519602
+  ],
+  "one_bar_reference_sensitivity": {
+    "P0_gpa": 0.0001,
+    "shifted_pressure_width_parameters": [
+      174.1146461357867,
+      4.807765651234468
+    ],
+    "change_from_literal_Eq2_fit": [
+      -0.003825087641871505,
+      0.00033417671486635214
+    ]
+  },
+  "graphical_source_equation_check": {
+    "bound_a3": 0.12,
+    "checkpoints": [
+      {
+        "pressure_gpa": 10.010298661174048,
+        "read_volume_a3": 147.5391304347826,
+        "calculated_volume_a3": 147.5733216328603,
+        "difference_a3": 0.034191198077706986,
+        "passes_reading_bound": true
+      },
+      {
+        "pressure_gpa": 15.015447991761071,
+        "read_volume_a3": 144.38260869565218,
+        "calculated_volume_a3": 144.42224712451167,
+        "difference_a3": 0.039638428859490205,
+        "passes_reading_bound": true
+      },
+      {
+        "pressure_gpa": 19.989701338825952,
+        "read_volume_a3": 141.59130434782608,
+        "calculated_volume_a3": 141.6239834594299,
+        "difference_a3": 0.032679111603812316,
+        "passes_reading_bound": true
+      },
+      {
+        "pressure_gpa": 24.994850669412976,
+        "read_volume_a3": 139.02608695652174,
+        "calculated_volume_a3": 139.08065098317627,
+        "difference_a3": 0.05456402665453197,
+        "passes_reading_bound": true
+      },
+      {
+        "pressure_gpa": 30.0,
+        "read_volume_a3": 136.73043478260868,
+        "calculated_volume_a3": 136.76356044315276,
+        "difference_a3": 0.033125660544072844,
+        "passes_reading_bound": true
+      }
+    ]
+  },
+  "axial_fits": {
+    "a": {
+      "source_beta": 0.00184,
+      "source_width": 2e-05,
+      "fixed_l0_a": 5.087,
+      "fixed_pseudo_volume_K0_prime": 4.8,
+      "fits": {
+        "pressure_width": {
+          "beta_gpa_inverse": 0.0018361026599209623,
+          "conditional_absolute_width": 2.2418078781968736e-05,
+          "residual_scaled_width": 1.24434933674237e-05,
+          "difference_in_source_widths": -0.19486700395188658,
+          "matches_source_central_value_at_printed_precision": true
+        },
+        "effective_variance": {
+          "beta_gpa_inverse": 0.0018362629215646661,
+          "conditional_absolute_width": 2.3540200666996086e-05,
+          "residual_scaled_width": 1.2341917130371557e-05,
+          "difference_in_source_widths": -0.18685392176669666,
+          "matches_source_central_value_at_printed_precision": true
+        }
+      }
+    },
+    "b": {
+      "source_beta": 0.00191,
+      "source_width": 2e-05,
+      "fixed_l0_a": 6.752,
+      "fixed_pseudo_volume_K0_prime": 4.8,
+      "fits": {
+        "pressure_width": {
+          "beta_gpa_inverse": 0.0019096795085486347,
+          "conditional_absolute_width": 2.333222268274002e-05,
+          "residual_scaled_width": 2.4843156867582467e-05,
+          "difference_in_source_widths": -0.01602457256826657,
+          "matches_source_central_value_at_printed_precision": true
+        },
+        "effective_variance": {
+          "beta_gpa_inverse": 0.0019087900228131928,
+          "conditional_absolute_width": 2.6066885177938832e-05,
+          "residual_scaled_width": 2.3993662617737364e-05,
+          "difference_in_source_widths": -0.06049885934036143,
+          "matches_source_central_value_at_printed_precision": true
+        }
+      }
+    },
+    "c": {
+      "source_beta": 0.002,
+      "source_width": 2e-05,
+      "fixed_l0_a": 4.521,
+      "fixed_pseudo_volume_K0_prime": 4.8,
+      "fits": {
+        "pressure_width": {
+          "beta_gpa_inverse": 0.0020043063322508292,
+          "conditional_absolute_width": 2.4471315560105207e-05,
+          "residual_scaled_width": 1.3064544897735747e-05,
+          "difference_in_source_widths": 0.21531661254146037,
+          "matches_source_central_value_at_printed_precision": true
+        },
+        "effective_variance": {
+          "beta_gpa_inverse": 0.002004262098096481,
+          "conditional_absolute_width": 2.5717537811287998e-05,
+          "residual_scaled_width": 1.2573371334902038e-05,
+          "difference_in_source_widths": 0.21310490482405636,
+          "matches_source_central_value_at_printed_precision": true
+        }
+      }
+    }
+  },
+  "bm2_diagnostic_not_a_printed_source_parameterization": {
+    "K0_gpa": 180.1035182744136,
+    "fixed_K0_prime": 4,
+    "rms_pressure_gpa": 0.41919863027818566,
+    "max_abs_pressure_gpa": 0.8324023215300791,
+    "rms_volume_a3": 0.21452816475657735,
+    "max_abs_volume_a3": 0.38709267524919255,
+    "max_abs_curve_volume_difference_from_source_a3": 0.2501571614635907,
+    "pressure_residuals_gpa": [
+      0.1941947374100237,
+      -0.066450483905931,
+      0.18976928618100075,
+      0.34104940757878843,
+      0.009269119193923814,
+      -0.45796458447765076,
+      0.13407277159706865,
+      0.34193472751088194,
+      -0.10778751100277262,
+      -0.5354969967142438,
+      -0.7604567096250925,
+      -0.8324023215300791
+    ],
+    "volume_residuals_a3": [
+      0.15615214884860507,
+      -0.05045323684669256,
+      0.1337647092082932,
+      0.22451575990959327,
+      0.005809399537071158,
+      -0.2673562743804325,
+      0.07453330785028811,
+      0.1810463709268504,
+      -0.055147550112764065,
+      -0.2619298488353934,
+      -0.3545465962405956,
+      -0.38709267524919255
+    ]
+  },
+  "uncertainty_qualification": "Table widths are treated AS IF independent standard errors solely to calculate conditional covariance. Absolute inverse JtJ and residual-scaled widths are both retained; neither establishes source confidence, systematic/shared calibration covariance, or propagation of fixed V0 uncertainty. Equal-weight absolute widths have arbitrary unit-residual scale. Parameter-dependent effective variance uses no log-variance likelihood term. ODR adjusts both coordinates. No arbitrary row masks, scale recalibration, free V0, or replacement EOS were tried.",
+  "software": {
+    "numpy": "2.0.2",
+    "scipy": "1.13.1"
+  }
+}

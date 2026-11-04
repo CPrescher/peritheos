@@ -31,7 +31,7 @@ produce an executable record.
 
 ## Summary
 
-The register covers **371 primary papers**: **267** support the 679 audited catalog records and **104** were investigated without adding a production record.
+The register covers **376 primary papers**: **272** support the 685 audited catalog records and **104** were investigated without adding a production record.
 No numerical refit attempt failed before producing a comparison. The adverse
 outcomes are instead explicit coefficient discrepancies, unavailable direct
 refits, or acceptance-gate holds.
@@ -39,12 +39,12 @@ refits, or acceptance-gate holds.
 | Paper-level outcome | Papers |
 |---|---:|
 | Original unreproduced; independent refit available | 4 |
-| Reproduced | 176 |
-| Partly reproduced | 14 |
-| Mixed: reproduced and discrepant records | 9 |
+| Reproduced | 180 |
+| Partly reproduced | 15 |
+| Mixed: reproduced and discrepant records | 8 |
 | Coefficient parity not achieved | 8 |
 | Direct refit unavailable | 59 |
-| Source reconstruction | 3 |
+| Source reconstruction | 4 |
 | Withheld: could not reproduce | 7 |
 | Deferred: incomplete source/model mapping | 91 |
 
@@ -910,7 +910,7 @@ Evidence: [literature-reproductions/tranche-c-zero-yield-audits.md](literature-r
 
 ## Papers with coefficient discrepancies
 
-These **23 papers** account for all 62 records
+These **22 papers** account for all 61 records
 classified as `parity_not_achieved`. Papers with other successful records
 are marked as mixed in the complete register.
 
@@ -919,7 +919,6 @@ are marked as mixed in the complete register.
 | [Anzellini et al. (2019)](https://doi.org/10.1038/s41598-019-51931-1) | `silicon_vii_anzellini_2019_vinet_1` | K0 96.9 -> 4.845 |
 | [Baty et al. (2024)](https://doi.org/10.1063/5.0179469) | `palladium_baty_2024_bm3_1` | K0 190 -> 152.057 |
 | [Benedict et al. (2014)](https://doi.org/10.1103/physrevb.89.224109) | `diamond_benedict_2014_double_debye_4` | b_a 0.913 -> -0.0067749; a_b 2.78971 -> 1.65621; b_b 0.429 -> 0.560571; alpha0 3.79e-05 -> 6.09924e-05; Ve 0.348381 -> 0.175475; kappa 0 -> 1 |
-| [Bykova et al. (2018)](https://doi.org/10.1038/s41467-018-07265-z) | `coesite_i_iii_bykova_2018_300k_bm3` | K0 103 -> 126.328; K0_prime 3.02 -> 1.69514 |
 | [Campbell et al. (2009)](https://doi.org/10.1016/j.epsl.2009.07.022) | `fe_fcc_campbell_2009_bm3_mgd` | published coefficients were not recovered |
 |  | `feo_campbell_2009_bm3_mgd` | published coefficients were not recovered |
 |  | `nickel_oxide_b1_campbell_2009_bm3_mgd` | rt_eos.K0_prime 5.4 -> 4.31613 |
@@ -1105,7 +1104,7 @@ the primary-source and refit ledgers.
 | [Boffa Ballaran et al. (2007)](https://doi.org/10.2138/am.2007.2715) | Reproduced | 2 | 2 parity | 2 bundled |
 | [Braithwaite (2002), high-pressure solid/melt representations](https://doi.org/10.1063/1.1483512) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Brown et al. (2000)](https://doi.org/10.1063/1.1319320) | Reproduced | 1 | 1 parity | 1 bundled |
-| [Bykova et al. (2018)](https://doi.org/10.1038/s41467-018-07265-z) | Mixed: reproduced and discrepant records | 3 | 1 parity; 1 parity not achieved; 1 source reconstruction | 3 bundled |
+| [Bykova et al. (2018)](https://doi.org/10.1038/s41467-018-07265-z) | Partly reproduced | 3 | 2 parity; 1 source reconstruction; Coesite-I/II/III central-coefficient parity is achieved; the author's fit values are reproduced at reported precision using the original files. The recovered 22-row author export contains 21 measured entries plus a derived literature ambient EOS anchor. The pressure-only weights effectively pin V0; volume errors, original EoSFit settings and covariance are not reproduced. The earlier 24-row unweighted failure is preserved as a historical diagnostic. Published coefficients are unchanged. See the [author-file audit](literature-reproductions/bykova-2018-author-fit.md). | 3 bundled |
 | [Campbell and Heinz (1991)](https://doi.org/10.1016/0022-3697(91)90181-x) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Campbell and Heinz (1993)](https://doi.org/10.1016/0022-3697(93)90106-2) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Campbell and Heinz (1994)](https://doi.org/10.1029/94jb00127) | Reproduced | 2 | 2 parity | 2 bundled |
@@ -1215,6 +1214,7 @@ the primary-source and refit ledgers.
 | [Hirose et al. (2008)](https://doi.org/10.1016/j.pepi.2008.03.002) | Original unreproduced; independent refit available | 4 | 4 parity | 4 bundled |
 | [Holland et al. (2013)](https://doi.org/10.1093/petrology/egt035) | Direct refit unavailable | 7 | 7 direct refit unavailable |  |
 | [Holmes et al. (1989)](https://doi.org/10.1063/1.344177) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 bundled |
+| [Hu et al. (2019)](https://doi.org/10.1029/2019gl084545) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Inbar and Cohen (1995), MgO thermal properties](https://doi.org/10.1029/95GL01086) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Indoor seismology by probing the Earth's interior by using sound velocity measurements at high pressures and temperatures (2007)](https://doi.org/10.1073/pnas.0608609104) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Irifune et al. (2002)](https://doi.org/10.1007/s00269-002-0275-1) | Reproduced | 1 | 1 parity | 1 bundled |
@@ -1257,6 +1257,7 @@ the primary-source and refit ledgers.
 | [Lee and Wan (2008)](https://doi.org/10.1103/physrevb.78.224103) | Direct refit unavailable | 2 | 2 direct refit unavailable | 2 theoretical parameterization only |
 | [Leonov et al. (2017)](https://doi.org/10.1103/physrevb.96.075136) | Direct refit unavailable | 8 | 8 direct refit unavailable |  |
 | [Li and Zeng (2009)](https://doi.org/10.1142/s0129183109014242) | Direct refit unavailable | 6 | 6 direct refit unavailable |  |
+| [Li et al. (2002)](https://doi.org/10.1007/s00269-001-0224-4) | Reproduced | 1 | 1 parity; Conditional K0/K0-prime parameter parity on all 12 nonambient Table 1 rows with fixed measured V0. Published coefficients/errors and all 14 source rows are preserved. Five graphical source-curve checks pass. Original weights, confidence, covariance and ruby/neon reduction workflow remain unrecovered. See the [Li audit and integration](literature-reproductions/li-2002-fe3c.md). |  |
 | [Li et al. (2006)](https://doi.org/10.1029/2005jb004251) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Li-and-Zhang-data elastic refit (2010)](https://doi.org/10.1016/j.pnsc.2009.09.002) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Litasov et al. (2007)](https://doi.org/10.1016/j.pepi.2007.06.003) | Reproduced | 7 | 7 parity | 7 bundled |
@@ -1317,6 +1318,7 @@ the primary-source and refit ledgers.
 | [Oganov and Dorogokupets (2003)](https://doi.org/10.1103/physrevb.67.224110) | Partly reproduced | 11 | 2 similar; 9 direct refit unavailable | 2 partial published table/checkpoints; 9 theoretical parameterization only |
 | [Ono (2013)](https://doi.org/10.3390/e15104300) | Direct refit unavailable | 1 | 1 direct refit unavailable |  |
 | [Ono (2020)](https://doi.org/10.1038/s41598-020-58252-8) | Reproduced | 1 | 1 parity | 1 bundled |
+| [Ono and Mibe (2010)](https://doi.org/10.1016/j.pepi.2010.03.008) | Source reconstruction | 1 | 1 source reconstruction | 1 bundled |
 | [Ono et al. (2000)](https://doi.org/10.1007/s002690000108) | Coefficient parity not achieved | 2 | 2 parity not achieved | 2 bundled |
 | [Ono et al. (2006)](https://doi.org/10.2138/am.2006.2347) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Ono et al. (2006)](https://doi.org/10.1007/s00269-006-0068-z) | Reproduced | 1 | 1 parity | 1 bundled |
@@ -1324,8 +1326,8 @@ the primary-source and refit ledgers.
 | [Pamato et al. (2016), NAL elasticity](https://doi.org/10.1002/2016JB013136) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Pepin et al. (2014)](https://doi.org/10.1103/physrevlett.113.265504) | Reproduced | 2 | 2 parity | 2 plot only/digitized |
 | [Performance of an ab initio equation of state for magnesium oxide (2004)](https://doi.org/10.1088/0953-8984/16/30/006) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
-| [Prescher et al. (2012)](https://doi.org/10.1103/physrevb.85.140402) | Reproduced | 1 | 1 parity |  |
-| [Prescher et al. (2015)](https://doi.org/10.1038/ngeo2370) | Reproduced | 1 | 1 similar | 1 bundled |
+| [Prescher et al. (2012)](https://doi.org/10.1103/physrevb.85.140402) | Reproduced | 1 | 1 parity; Only the full-range published BM3 is offered in the catalog. Its K0, K0-prime agree at printed precision with the 19-numbered-row conditional replay at fixed, graph-derived V0; the K0 formal error is not reproduced. Published coefficients and errors are unchanged. Retired split fits remain audit evidence. Original V0 constraints, inputs, weighting and confidence convention remain unresolved. See the [integration and comparisons](literature-reproductions/prescher-2012-recovery.md#database-integration-full-range-only). |  |
+| [Prescher et al. (2015)](https://doi.org/10.1038/ngeo2370) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Pressure Dependence of Interatomic Separation and Thermal Expansivity for Alkali Halides and Periclase (MgO) (2009)](https://doi.org/10.12693/aphyspola.115.709) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Pressure-Induced Magnetization in FeO: Evidence from Elasticity and Mössbauer Spectroscopy (2004)](https://doi.org/10.1103/physrevlett.93.215502) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Pressure-volume equation of state of the high-pressureB2phase of NaCl (2002)](https://doi.org/10.1103/physrevb.65.104114) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
@@ -1348,13 +1350,14 @@ the primary-source and refit ledgers.
 | [Sakai et al. (2016)](https://doi.org/10.1038/srep22652) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Sakai et al. (2018)](https://doi.org/10.1080/08957959.2018.1448082) | Reproduced | 1 | 1 parity | 1 plot only/digitized |
 | [Sakai et al. (2025)](https://doi.org/10.1038/s43246-025-00792-5) | Partly reproduced | 9 | 1 parity; 8 direct refit unavailable | 7 bundled |
+| [Sata et al. (2010)](https://doi.org/10.1029/2009jb006975) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Sato and Jeanloz (1981)](https://doi.org/10.1029/jb086ib12p11773) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Satta et al. (2025), Fe-bearing delta-AlOOH elasticity](https://doi.org/10.1007/s00269-025-01319-7) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
 | [Saxena et al. (1999)](https://doi.org/10.2138/am-1999-0303) | Reproduced | 1 | 1 similar | 1 bundled |
 | [Schoelmerich et al. (2020), shock-compressed stishovite](https://doi.org/10.1038/s41598-020-66340-y) | Direct refit unavailable | 0 | no production record | investigation evidence only |
 | [Schouwink et al. (2011)](https://doi.org/10.2138/am.2011.3775) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Schulze et al. (2018)](https://doi.org/10.2138/am-2018-6562) | Reproduced | 1 | 1 parity | 1 bundled |
-| [Scott et al. (2001)](https://doi.org/10.1029/2000gl012606) | Reproduced | 1 | 1 parity | 1 plot only/digitized |
+| [Scott et al. (2001)](https://doi.org/10.1029/2000gl012606) | Reproduced | 1 | 1 similar; Qualified similarity of 21 digitized observations, not coefficient parity or author-workflow reproduction. The source reports weighted least squares; the reconstruction uses equal pressure weights because plotted errors are incomplete. K0 differs by 8% and K0-prime by 19%; both lie outside their printed source error widths despite broader uncertainty overlap. Published coefficients and observations are unchanged. See the [Fe3C audit](literature-reproductions/cementite.md). | 1 plot only/digitized |
 | [Shen and Smith (2026)](https://doi.org/10.1103/fxgq-96sg) | Partly reproduced | 10 | Eight phase fits retain conditional coefficient parity. MgO and NaCl-B2 are not_reproduced and not recommended: the published curves give 1.161 and 0.622 GPa pressure RMS, versus 0.476 and 0.293 GPa for direct fixed-V0 diagnostic refits. Table S1 accounts for all 194 published DAC-2 MgO observations and 131 NaCl-B2 observations (125 above 35 GPa). Exact author fit-input completeness remains unconfirmed: the fitting description identifies this study's data, but data availability mentions other author-held data. See the [source-input audit](literature-reproductions/shen-smith-2026-cu-refits.md). | 10 bundled |
 | [Sherman (1993)](https://doi.org/10.1029/93jb02175) | Direct refit unavailable | 1 | 1 direct refit unavailable | 1 parameterization only |
 | [Sherman et al. (1993), stishovite and modified-fluorite SiO2](https://doi.org/10.1029/93JB00783) | Deferred: incomplete source/model mapping | 0 | no production record | investigation evidence only |
@@ -1387,6 +1390,7 @@ the primary-source and refit ledgers.
 | [Sun et al. (2019)](https://doi.org/10.1029/2019jb017853) | Reproduced | 2 | 2 similar | 2 bundled |
 | [Sun et al. (2022)](https://doi.org/10.2138/am-2021-7913) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Suzuki (2016)](https://doi.org/10.2465/jmps.160719c) | Reproduced | 1 | 1 parity | 1 bundled |
+| [Takahashi et al. (2019)](https://doi.org/10.3390/min9120744) | Reproduced | 2 | 2 parity; Independent source-equation density benchmarks pass at declared printed and graphical precision. Both equal-pressure-weight, all-60-row coefficient reconstructions remain similar, with central-value differences beyond printed source widths. Source weights and exact fit mask are unknown; author-workflow reproduction and experimental accuracy are not established. The two pressure-scale variants describe the same experiment. | 2 bundled |
 | [Takemura (2004)](https://doi.org/10.1103/physrevb.70.012101) | Reproduced | 1 | 1 parity | 1 bundled |
 | [Takemura and Dewaele (2008)](https://doi.org/10.1103/physrevb.78.104119) | Reproduced | 1 | 1 parity; Conditional numerical K0-prime parity on both ruby coordinates using all 86 observed rows with V0/K0 fixed. Original weights and uncertainty estimation remain unresolved; no exact author-fit claim. See the [dedicated audit](literature-reproductions/takemura-2008-gold.md). | 1 bundled |
 | [Takemura and Singh (2006)](https://doi.org/10.1103/physrevb.73.224119) | Reproduced | 1 | 1 parity | 1 bundled |

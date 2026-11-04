@@ -1,7 +1,7 @@
 {
   "format_version": 4,
   "identifier": "perovskite_orthorhombic",
-  "name": "(Mg0.88Fe0.12)SiO3 perovskite",
+  "name": "Bridgmanite",
   "formula": "Mg0.88Fe0.12SiO3",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
   "formula_units_per_cell": 4,
@@ -139,6 +139,7 @@
       }
     }
   ],
+  "aliases": ["(Mg0.88Fe0.12)SiO3 perovskite"],
   "family_id": "bridgmanite",
   "symmetry": "ORTHORHOMBIC",
   "space_group": "Pbnm",

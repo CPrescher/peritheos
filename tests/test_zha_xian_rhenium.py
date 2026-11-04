@@ -20,8 +20,10 @@ from scripts.reproduce_zha_2004_xian_2022_rhenium import (
 ROOT = Path(__file__).resolve().parents[1]
 
 
-def test_reproduction_is_current_and_recovers_source_coefficients(assert_audit_close):
-    result = reproduce()
+def test_reproduction_is_current_and_recovers_source_coefficients(
+    assert_audit_close, reproduce_once
+):
+    result = reproduce_once(reproduce)
     assert_audit_close(result, json.loads(OUTPUT.read_text()), rel=1e-10, abs=1e-12)
     fit = result["zha_isochore_refit"]
     assert fit["observations"] == 8
@@ -49,8 +51,8 @@ def test_zha_public_evaluation_and_inversion_follow_equation6():
     assert record.pressure(29.4087, 300) == pytest.approx(0, abs=1e-12)
 
 
-def test_gold_discrepancy_is_preserved_and_not_explained_by_rounding():
-    diagnostic = reproduce()["zha_gold_calibration_diagnostic"]
+def test_gold_discrepancy_is_preserved_and_not_explained_by_rounding(reproduce_once):
+    diagnostic = reproduce_once(reproduce)["zha_gold_calibration_diagnostic"]
     observations = rows("table2-paired-pvt")
     volume = np.array([float(r["au_volume_a3"]) for r in observations])
     temperature = np.array([float(r["temperature_k"]) for r in observations])
@@ -104,7 +106,7 @@ def test_zha_primary_rows_markers_and_derived_branches_are_preserved():
     assert len(dataset["temperature_k"]) == 8
 
 
-def test_xian_unresolved_equations_are_not_promoted_or_sign_corrected():
+def test_xian_unresolved_equations_are_not_promoted_or_sign_corrected(reproduce_once):
     source = json.loads(
         (ROOT / "docs/data/xian-2022-rhenium-source-audit.json").read_text()
     )
@@ -114,7 +116,7 @@ def test_xian_unresolved_equations_are_not_promoted_or_sign_corrected():
         -3.635e-7,
         -1.651e-11,
     ]
-    checks = reproduce()["xian_literal_equations_37_40"]
+    checks = reproduce_once(reproduce)["xian_literal_equations_37_40"]
     assert all(r["zero_pressure_expansivity_per_k"] < 0 for r in checks)
     assert checks[-1]["pressure_at_printed_cold_V0_gpa"] == pytest.approx(
         -7.52618, abs=0.00001

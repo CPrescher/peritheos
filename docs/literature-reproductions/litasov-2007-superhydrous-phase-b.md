@@ -1,5 +1,7 @@
 # Litasov (2007) superhydrous phase B
 
+**Uncertainty follow-up, 25 October 2026:** The [record-by-record uncertainty reconstruction](uncertainty-reconstruction.md) supplies the current conditional errors and numerical labels for the selected records from this source. The earlier reconstruction descriptions below retain their original scientific qualifications; statements about missing reconstruction errors or their former ledger labels describe the assessment before that follow-up. Source coefficients, observations, calibration limits and use restrictions are unchanged.
+
 Seven experimental parameterizations from K. D. Litasov, E. Ohtani, S. Ghosh,
 Y. Nishihara, A. Suzuki and K. Funakoshi, *Physics of the Earth and Planetary
 Interiors* **164**, 142–160 (2007),

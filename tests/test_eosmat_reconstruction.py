@@ -80,6 +80,14 @@ def test_migration_is_additive_idempotent_and_does_not_promote_source_validation
     assert assessment["fit"]["fixed_parameters"] == ["V0", "K0_prime"]
     result["eos_records"][0]["evidence"]["reproduction"]["assessment"] = assessment
     assert standardize_document(result, {row["record_identifier"]: row}) == result
+    # Existing files may order identical assessment fields differently. A
+    # read-only maintenance check must not require rewriting those files.
+    result["eos_records"][0]["evidence"]["reproduction"]["assessment"] = dict(
+        reversed(list(assessment.items()))
+    )
+    assert format_eosmat(
+        standardize_document(result, {row["record_identifier"]: row})
+    ) == format_eosmat(result)
     with pytest.raises(ValueError, match="No existing reconstruction ledger"):
         standardize_document(before, {})
     result["eos_records"][0]["evidence"]["reproduction"]["assessment"]["basis"] = (

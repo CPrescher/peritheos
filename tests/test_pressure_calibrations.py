@@ -173,11 +173,19 @@ def test_every_declared_ruby_calibration_link_is_executable():
         method["reference_calibration_record"] in EXPECTED_RUBY_SCALES
         for method in linked_methods
     )
-    assert all(
-        calibration["status"] in {"partially_resolved", "unresolved"}
-        and calibration["recalculation"]["status"] != "ready"
-        for calibration, _ in unlinked_uses
-    )
+    for calibration, method in unlinked_uses:
+        assert calibration["recalculation"]["status"] != "ready"
+        if calibration["status"] == "resolved":
+            # A fully specified source scale need not be replaced by a registry
+            # approximation. Li (2002) retains the original Zha ruby constants.
+            assert method["parameters"] == {
+                "A_gpa": 1904,
+                "B": 7.715,
+                "reference_wavelength_nm": 694.3,
+            }
+            assert method["equation"] == "P=(A/B)*((1+delta_lambda/lambda0)^B-1)"
+        else:
+            assert calibration["status"] in {"partially_resolved", "unresolved"}
     validate_pressure_calibration_references()
 
 

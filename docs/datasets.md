@@ -1,5 +1,8 @@
 # Loading observation datasets
 
+For reuse and redistribution, see [code and data licensing](licensing.md).
+Dataset source terms are separate from the library's MIT code license.
+
 For explicit sample/phase selection, volume conversion and calibrant-derived
 plot coordinates, see [source observation views](observation-views.md).
 

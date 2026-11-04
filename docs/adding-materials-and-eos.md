@@ -246,6 +246,12 @@ normalization, metadata and arrangement; state that scope separately and keep
 unspecified source terms marked as unspecified. Article text, figures and
 publisher files are not covered by this dedication.
 
+The [licensing guide](licensing.md) explains redistribution scope. Add an
+attributed dataset notice for explicit source terms and include it in the
+installed licensing guide's index. Keep original author code under its own
+terms. Inclusion for scientific reproducibility does not establish compliance
+with a downstream distributor's licensing policy.
+
 Small tables may be embedded in `datasets[].rows`. Larger tables belong in
 `peritheos/data/datasets/` and use a relative resource path, SHA-256 checksum,
 and declared columns. A transcription test should check row count, columns,

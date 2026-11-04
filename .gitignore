@@ -99,3 +99,10 @@ Desktop.ini
 
 # Local literature extraction and rendering scratch
 /tmp/
+
+# Local research downloads, working archives and generated scratch artifacts.
+# Curated source observations and required replay inputs belong in data/docs.
+/output/
+
+# Locally recovered publisher files; retain the provenance manifests.
+/docs/data/fei-2007-gold-follow-up-sources/*.pdf

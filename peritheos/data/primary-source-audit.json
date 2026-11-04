@@ -9,10 +9,10 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 679,
+    "records": 685,
     "deferred": 3,
     "not_reproduced": 18,
-    "primary_source_validated": 658
+    "primary_source_validated": 664
   },
   "records": [
     {
@@ -2524,6 +2524,134 @@
       }
     },
     {
+      "material": "cementite",
+      "file": "cementite.eosmat",
+      "record": "cementite_li_2002_bm3",
+      "label": "Li et al. (2002), 300 K BM3",
+      "doi": "10.1007/s00269-001-0224-4",
+      "status": "primary_source_validated",
+      "note": "Primary equation, original coefficients/errors, fixed measured V0 and original pressure basis verified. Five source-curve checkpoints pass their declared 0.12 A^3 reading bound; conditional K0/K0_prime parity is separate from author-workflow and physical validation.",
+      "primary_source_check": {
+        "doi": "10.1007/s00269-001-0224-4",
+        "access_url": "https://doi.org/10.1007/s00269-001-0224-4",
+        "locations": [
+          "pp. 166-168, abstract, Table 1, Eq. (1)-(2), Figure 2"
+        ],
+        "source_pdf_sha256": "3b4761baa81a3e4bd419f8e93d5e453d7c5d7c2b64b400514d0f468dbcb211af",
+        "finding": "Published BM3 coefficients preserved with measured V0 fixed; direct source-equation and conditional coefficient checks pass. See docs/literature-reproductions/li-2002-fe3c.md"
+      }
+    },
+    {
+      "material": "cementite",
+      "file": "cementite.eosmat",
+      "record": "cementite_ono_mibe_2010_bm3",
+      "label": "Ono and Mibe (2010), original experimental 300 K BM3, below 35 GPa",
+      "doi": "10.1016/j.pepi.2010.03.008",
+      "status": "primary_source_validated",
+      "note": "Original experimental BM3 at 300 K, restricted to the below-35-GPa fit (last measured fit point 34.3 GPa). V0=155.4(2) A^3 is adopted from the measured Table 1 ambient cell and checked against Figure 4; the paper does not explicitly state its V0 fitting constraint. K0=167 GPa and K0_prime=6.7 are the original Table 3 values, without reported coefficient errors. Source-equation agreement is checked at graphical resolution; the separate fixed-anchor equal-pressure refit is diagnostic, not coefficient parity or recovery of author weights. Original pressures and all 14 measurements are preserved. No Litasov recalibration, 0 K DFT branch, high-pressure magnetic transition model or thermal extrapolation is substituted.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.pepi.2010.03.008",
+        "doi": "10.1016/j.pepi.2010.03.008",
+        "locations": [
+          "Table 1 and Figure 4, p. 3",
+          "BM3 pressure equation, p. 4",
+          "Table 3, experimental row e, p. 5",
+          "Methods/Results, p. 2"
+        ],
+        "finding": "Original experimental BM3 at 300 K, restricted to the below-35-GPa fit (last measured fit point 34.3 GPa). V0=155.4(2) A^3 is adopted from the measured Table 1 ambient cell and checked against Figure 4; the paper does not explicitly state its V0 fitting constraint. K0=167 GPa and K0_prime=6.7 are the original Table 3 values, without reported coefficient errors. Source-equation agreement is checked at graphical resolution; the separate fixed-anchor equal-pressure refit is diagnostic, not coefficient parity or recovery of author weights. Original pressures and all 14 measurements are preserved. No Litasov recalibration, 0 K DFT branch, high-pressure magnetic transition model or thermal extrapolation is substituted."
+      },
+      "usage_recommendation": "qualified_use",
+      "recommendation_reason": "Use original experimental curve within 300 K and 0-34.3 GPa; ambient anchor adoption and unavailable author fit details remain explicit."
+    },
+    {
+      "material": "cementite_nonmagnetic",
+      "file": "cementite_nonmagnetic.eosmat",
+      "record": "cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd",
+      "label": "Takahashi et al. (2019), nonmagnetic Fe3C, KBr pressure scale, BM3 + MGD",
+      "doi": "10.3390/min9120744",
+      "status": "primary_source_validated",
+      "note": "Published equations and coefficients traced to the primary article. Independent source density benchmarks pass at declared precision. Complete supplementary observations are bundled; conditional coefficient agreement and original workflow recovery remain separate findings.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.3390/min9120744",
+        "locations": [
+          "Equations 1-6, pages 3-4",
+          "Tables 1-2, page 6",
+          "Figure 3a and Section 4, calculated density benchmarks",
+          "official Supplementary Table S1, worksheet Table S1, rows 4-63"
+        ],
+        "finding": "Source equations 1-6 and Tables 1-2 reproduce independent calculated density benchmarks at 329 GPa and 5000 K; these extrapolated calculated states are not measured observations. See cementite reproduction report for declared print/graphical tolerances."
+      }
+    },
+    {
+      "material": "cementite_nonmagnetic",
+      "file": "cementite_nonmagnetic.eosmat",
+      "record": "cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd",
+      "label": "Takahashi et al. (2019), nonmagnetic Fe3C, MgO pressure scale, BM3 + MGD",
+      "doi": "10.3390/min9120744",
+      "status": "primary_source_validated",
+      "note": "Published equations and coefficients traced to the primary article. Independent source density benchmarks pass at declared precision. Complete supplementary observations are bundled; conditional coefficient agreement and original workflow recovery remain separate findings.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.3390/min9120744",
+        "locations": [
+          "Equations 1-6, pages 3-4",
+          "Tables 1-2, page 6",
+          "Figure 3a and Section 4, calculated density benchmarks",
+          "official Supplementary Table S1, worksheet Table S1, rows 4-63"
+        ],
+        "finding": "Source equations 1-6 and Tables 1-2 reproduce independent calculated density benchmarks at 329 GPa and 5000 K; these extrapolated calculated states are not measured observations. See cementite reproduction report for declared print/graphical tolerances."
+      }
+    },
+    {
+      "material": "cementite_nonmagnetic",
+      "file": "cementite_nonmagnetic.eosmat",
+      "record": "cementite_nonmagnetic_sata_2010_bm3",
+      "label": "Sata et al. (2010), nonmagnetic Fe3C, original-scale 300 K BM3",
+      "doi": "10.1029/2009jb006975",
+      "status": "primary_source_validated",
+      "note": "Final publisher Tables 1/6 and paragraph 15 verified against the original 2009 manuscript for the common Fe3C tokens and fit triplet. Nine new states plus the three explicitly selected Li (2002) rows reproduce Pr/Kr/Kr-prime conditionally. Published coefficients preserved; no Litasov (2013) recalibrated coefficient or pressure is substituted. Source verification and conditional coefficient parity coexist with poor agreement with some quoted coordinate-error estimates. Retained as a nondefault published EOS with explicit error/scatter qualifications; source confidence and covariance remain unspecified.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2009JB006975",
+        "doi": "10.1029/2009JB006975",
+        "locations": [
+          "Tables 1 and 6",
+          "Equations 1–2",
+          "paragraphs 5–6, 12 and 14–15",
+          "Table 4 diffraction spacings",
+          "paragraphs 24–27, pressure-scale consistency"
+        ],
+        "finding": "Final publisher Tables 1/6 and paragraph 15 verified against the original 2009 manuscript for the common Fe3C tokens and fit triplet. Nine new states plus the three explicitly selected Li (2002) rows reproduce Pr/Kr/Kr-prime conditionally. Published coefficients preserved; no Litasov (2013) recalibrated coefficient or pressure is substituted. Source verification and conditional coefficient parity coexist with poor agreement with some quoted coordinate-error estimates. Retained as a nondefault published EOS with explicit error/scatter qualifications; source confidence and covariance remain unspecified."
+      },
+      "usage_recommendation": "qualified_use",
+      "recommendation_date": "2026-11-01",
+      "recommendation_audit": "docs/literature-reproductions/sata-2010-fe3c.md#conditional-fit-replay-and-residuals",
+      "recommendation_reason": "Retain as a nondefault published EOS at 300 K and 27.2–186.6 GPa with explicit uncertainty/data-scatter qualifications. Published coefficients are reproduced conditionally within their reported error widths, but the source confidence convention and covariance are unspecified. Observation scatter exceeds some tabulated coordinate-error estimates. The unchanged curve has pressure RMS 1.106733 GPa and maximum absolute residual 2.591677 GPa on the joint 12-row selection. Six of nine Sata observations exceed their first-order combined P/V error widths; the largest ratio is 9.02 under an uncorrelated-coordinate assumption. These ratios are descriptive, not formal sigma significances. Conditional parameter parity and primary-source verification do not establish the complete experimental uncertainty budget or original-workflow reproduction. The recalculated-pressure refit remains a separate diagnostic."
+    },
+    {
+      "material": "cementite_nonmagnetic",
+      "file": "cementite_nonmagnetic.eosmat",
+      "record": "cementite_nonmagnetic_hu_2019_linear_hugoniot",
+      "label": "Hu et al. (2019), porous-precursor experimental Hugoniot, 85.6-245 GPa",
+      "doi": "10.1029/2019gl084545",
+      "status": "primary_source_validated",
+      "note": "Published six-shot linear Us-up relation retained, with conditional coefficient agreement within both reported error widths under an equal-Us-weight diagnostic. Source confidence, covariance and exact fitting weights are unspecified; this is not recovered author-workflow or uncertainty parity. The published empirical principal Hugoniot is retained over its full experimental range, 85.6-245 GPa. Possible melting at higher pressures; density data do not resolve the phase state. All six shots remain data and source-fit inputs. Mean porous precursor density 7.525(0.010) g/cm3 is explicitly adopted as the common path normalization; individual measured initial densities remain unchanged. V0 is a mass-equivalent bulk volume including approximately 2% porosity, not a diffraction lattice volume or the Sata nonmagnetic V0. The 300 K reference is conventional precursor normalization, not measured shock temperature. The separate thermal reduction and the 7.982 g/cm3 Gruneisen reference are not installed as this Hugoniot.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019GL084545",
+        "doi": "10.1029/2019GL084545",
+        "locations": [
+          "Methods, sample density/porosity and starting-phase XRD",
+          "Results, Us-up and conservation equations",
+          "Table 1 and footnote",
+          "Section 3.1.2, possible melting",
+          "Official PANGAEA.905474 workbook, Sheet1!A1:I8"
+        ],
+        "finding": "Published six-shot linear Us-up relation retained, with conditional coefficient agreement within both reported error widths under an equal-Us-weight diagnostic. Source confidence, covariance and exact fitting weights are unspecified; this is not recovered author-workflow or uncertainty parity. The published empirical principal Hugoniot is retained over its full experimental range, 85.6-245 GPa. Possible melting at higher pressures; density data do not resolve the phase state. All six shots remain data and source-fit inputs. Mean porous precursor density 7.525(0.010) g/cm3 is explicitly adopted as the common path normalization; individual measured initial densities remain unchanged. V0 is a mass-equivalent bulk volume including approximately 2% porosity, not a diffraction lattice volume or the Sata nonmagnetic V0. The 300 K reference is conventional precursor normalization, not measured shock temperature. The separate thermal reduction and the 7.982 g/cm3 Gruneisen reference are not installed as this Hugoniot."
+      },
+      "usage_recommendation": "qualified_use",
+      "recommendation_reason": "Retain the published experimental Hugoniot over 85.6-245 GPa for the porous precursor. Possible melting at higher pressures; density data do not resolve the phase state.",
+      "recommendation_date": "2026-11-02",
+      "recommendation_audit": "docs/literature-reproductions/hu-2019-fe3c.md#full-experimental-range-and-possible-melting"
+    },
+    {
       "material": "cerium_dioxide",
       "file": "cerium_dioxide.eosmat",
       "record": "cerium_dioxide_gerward_2005_bm3_1",
@@ -2697,7 +2825,7 @@
       "label": "Bykova et al. (2018), combined coesite-I/II/III 300 K BM3",
       "doi": "10.1038/s41467-018-07265-z",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "note": "Central-coefficient parity is achieved; the author's fit values are reproduced at reported precision. Published coefficients and errors are preserved. The recovered 22 author inputs contain 21 measured entries and one derived ambient anchor. Uncertainty/covariance parity and every original EoSFit configuration detail remain unverified.",
       "primary_source_check": {
         "access_url": "https://www.nature.com/articles/s41467-018-07265-z",
         "doi": "10.1038/s41467-018-07265-z",
@@ -2706,9 +2834,11 @@
           "Figure 1 caption",
           "Methods: X-ray diffraction",
           "Supplementary Tables 1-2",
-          "Cernok thesis Table 5.1 reproducing the cited 2014 diffraction Table 1"
+          "Cernok thesis Table 5.1 reproducing the cited 2014 diffraction Table 1",
+          "Author-provided coeII-plot.dat Group 1 lines 9-30 and calculated curve",
+          "Author-provided coesite_final.xlsx LIT/SUM, received 2026-10-25"
         ],
-        "finding": "One source-owned BM3 fitted jointly to coesite-I, II, and III pressure-volume data. Twenty-four exact observations can be recovered from Supplementary Table 2 and the cited diffraction table; several current-study coesite-I observations remain plot-only."
+        "finding": "Central-coefficient parity is achieved; the author's fit values are reproduced at reported precision. The original export/workbook establish the selection and rounding; Elena reports pressure-only inverse-variance weighting. The 22 inputs contain 21 measured entries and a derived Cernok fitted ambient anchor. The earlier 24-row unweighted comparison remains historical."
       }
     },
     {

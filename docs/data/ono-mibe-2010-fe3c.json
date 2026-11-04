@@ -1,0 +1,112 @@
+{
+  "record_identifier": "cementite_ono_mibe_2010_bm3",
+  "source_equation_check": {
+    "source": "Figure 4 dashed experimental BM3, p. 3; manual curve readings, not observations",
+    "source_image_sha256": "416d2b579379daff74c33ad37ecca9d294e4968454a014c6180ab41546706cbd",
+    "image_dimensions_px": [
+      632,
+      517
+    ],
+    "axis_calibration": {
+      "x_px": [
+        90,
+        615
+      ],
+      "pressure_gpa": [
+        0,
+        100
+      ],
+      "y_px": [
+        11,
+        403
+      ],
+      "volume_a3": [
+        160,
+        120
+      ]
+    },
+    "pixel_checkpoints": [
+      [
+        142.5,
+        131.0
+      ],
+      [
+        195.0,
+        186.0
+      ],
+      [
+        247.5,
+        229.0
+      ]
+    ],
+    "pressure_gpa": [
+      10.0,
+      20.0,
+      30.0
+    ],
+    "read_volume_a3": [
+      147.75510204081633,
+      142.14285714285714,
+      137.75510204081633
+    ],
+    "predicted_volume_a3": [
+      147.7325179185038,
+      142.14732931808788,
+      137.7399338029339
+    ],
+    "difference_a3": [
+      -0.022584122312537147,
+      0.004472175230745279,
+      -0.015168237882420499
+    ],
+    "tolerance_a3": 0.41,
+    "tolerance_basis": "Four source-image pixels in volume, rounded up; includes dashed-line thickness, axis/readout and pressure-location ambiguity. Not a measurement uncertainty.",
+    "passed": true
+  },
+  "source_observation_comparison": {
+    "source_rows": [
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "pressure_residuals_gpa": [
+      0.6786289062337065,
+      -0.41331684713004435,
+      -0.08885210818112199,
+      0.36598302618309475,
+      0.26061348308383003
+    ],
+    "volume_residuals_a3": [
+      0.3773658071288821,
+      -0.20506841355353345,
+      -0.03929948396864802,
+      0.15071625614862683,
+      0.0956526968168987
+    ],
+    "rms_pressure_gpa": 0.4101525737198119,
+    "max_abs_pressure_gpa": 0.6786289062337065,
+    "max_abs_volume_a3": 0.3773658071288821,
+    "notes": "No pressure errors reported; volume-error confidence unspecified. No chi-square or formal significance inferred."
+  },
+  "independent_diagnostic_refit": {
+    "selection": "Five nonambient Table 1 rows below 35 GPa; measured ambient row supplies fixed V0 only",
+    "fixed_V0_a3": 155.4,
+    "objective": "Equal pressure residuals, no supplied sigmas; author objective and weights unknown",
+    "parameters_K0_K0_prime": [
+      165.92505639321973,
+      6.706574654898619
+    ],
+    "difference_from_published": [
+      -1.0749436067802662,
+      0.006574654898618526
+    ],
+    "rms_pressure_gpa": 0.379858979978203,
+    "solver_success": true,
+    "coefficient_parity_claimed": false,
+    "author_workflow_reproduced": false,
+    "notes": "Published coefficients unchanged. Missing source coefficient errors and unknown constraints preclude an uncertainty-based parameter comparison."
+  },
+  "qualification": "Original experimental BM3 at 300 K, restricted to the below-35-GPa fit (last measured fit point 34.3 GPa). V0=155.4(2) A^3 is adopted from the measured Table 1 ambient cell and checked against Figure 4; the paper does not explicitly state its V0 fitting constraint. K0=167 GPa and K0_prime=6.7 are the original Table 3 values, without reported coefficient errors. Source-equation agreement is checked at graphical resolution; the separate fixed-anchor equal-pressure refit is diagnostic, not coefficient parity or recovery of author weights. Original pressures and all 14 measurements are preserved. No Litasov recalibration, 0 K DFT branch, high-pressure magnetic transition model or thermal extrapolation is substituted."
+}

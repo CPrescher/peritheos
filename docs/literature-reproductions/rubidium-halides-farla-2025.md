@@ -1,5 +1,7 @@
 # Farla 2025 B2 rubidium halides
 
+**Uncertainty follow-up, 25 October 2026:** The [record-by-record uncertainty reconstruction](uncertainty-reconstruction.md) supplies the current conditional errors and numerical labels for the selected records from this source. The earlier reconstruction descriptions below retain their original scientific qualifications; statements about missing reconstruction errors or their former ledger labels describe the assessment before that follow-up. Source coefficients, observations, calibration limits and use restrictions are unchanged.
+
 Initial audit: 2026-10-15; discrepancy follow-up: 2026-10-16.
 Three published preferred BM3-MGD records are added:
 `rbcl_b2_farla_2025_bm3_mgd_cscl`,
@@ -8,7 +10,24 @@ Three published preferred BM3-MGD records are added:
 selection are preserved. RbBr and RbI are separate diffraction-ready B2
 materials. No independent-fit coefficients are substituted into these records.
 
-**Fit parity remains incomplete.** The follow-up recovers historical CsCl
+**Current RbCl parameter assessment (25 October 2026): conditional numerical
+parameter parity.** All four varied coefficients lie within their printed source
+error widths; the largest difference is 0.40 of its source width. This assessment
+conditions on fixed V0/theta0, the analyst row selection, source-reported CsCl
+pressures and frozen diagonal effective P/V/T weights. Calibration replay,
+source benchmark reproduction and original author workflow remain separately
+qualified below. Earlier references to incomplete fit parity concern exact
+publication-digit or author-fit reproduction, rather than this conditional
+parameter-agreement criterion.
+
+The [remaining-similar review](similar-parameter-review.md) also reconstructs
+the missing RbBr/RbI diagnostic covariances at their existing converged
+coefficients, using their own observation rows and final frozen effective
+P/V/T weights. Both meet the combined-width/numerical-similarity criterion
+for conditional parameter parity. This leaves all exact author-workflow,
+historical CsCl calibration and benchmark qualifications below unchanged.
+
+**Exact publication-digit and author-workflow reproduction remain incomplete.** The follow-up recovers historical CsCl
 calibration code and defaults, reproduces 104 of 109 distinct gauge pressures
 within printed pressure/volume rounding, and improves the independent refits
 to within 1.63 reported parameter standard errors. Original EoSFit7 files and

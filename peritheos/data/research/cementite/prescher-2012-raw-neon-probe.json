@@ -1,0 +1,763 @@
+{
+  "status": "preliminary_independent_pressure_estimates_not_recovered_original_ruby_readings",
+  "geometry": "si-geometry-probe.json",
+  "temperature_assumption_k": 300,
+  "phase_hypothesis": "fcc neon, supported by four matching allowed reflection positions and primary paper medium identification",
+  "pressure_scale": "Fei et al. 2007, Table 1, room-temperature Vinet and BM3; DOI 10.1073/pnas.0609013104",
+  "uncertainty": null,
+  "qualifications": [
+    "Transferred provisional Si geometry; detector movement between calibration and sample is unverified.",
+    "Original ruby before/after readings and their differences are not reconstructed.",
+    "No experimental pressure uncertainty assigned. Reflection scatter is a diagnostic, not a calibrated confidence interval.",
+    "Equal weights across independently fitted line positions, no tuning to Fe3C volumes or published pressures.",
+    "Clipped profiles reduce bright single-crystal spot dominance; uncapped profiles are separately fitted as a sensitivity check.",
+    "The uncapped 111 window contains additional strong signal in some runs; the separate 200/220/311 estimate excludes it. This is an overlap diagnostic, not recovery of original selection.",
+    "Actual source diffraction temperature is 293 K; these preliminary conversions use the 300 K reference branch without a thermal correction.",
+    "No change to source observations, public EOS records or parity metadata."
+  ],
+  "series": [
+    {
+      "uncapped_200_220_311_mean_a_a": 3.204079069204432,
+      "uncapped_200_220_311_preliminary_vinet_gpa": 40.7195038545664,
+      "series": "Fe3C_p18",
+      "reflections": [
+        {
+          "hkl": "111",
+          "h2_k2_l2": 3,
+          "clipped": {
+            "q_inverse_a": 3.394889403473902,
+            "a_a": 3.2056408595429424,
+            "gaussian_sigma_inverse_a": 0.011277462349884849,
+            "amplitude": 0.7522982267361638,
+            "solver_success": true
+          },
+          "uncapped": {
+            "q_inverse_a": 3.375932204452839,
+            "a_a": 3.2236418050845184,
+            "gaussian_sigma_inverse_a": 0.007482358982018853,
+            "amplitude": 5.702380774610325,
+            "solver_success": true
+          }
+        },
+        {
+          "hkl": "200",
+          "h2_k2_l2": 4,
+          "clipped": {
+            "q_inverse_a": 3.919703341178578,
+            "a_a": 3.205949410084874,
+            "gaussian_sigma_inverse_a": 0.012803074303516106,
+            "amplitude": 3.562138192866027,
+            "solver_success": true
+          },
+          "uncapped": {
+            "q_inverse_a": 3.920314867227269,
+            "a_a": 3.2054493171991107,
+            "gaussian_sigma_inverse_a": 0.011496343003399008,
+            "amplitude": 4.312167302019865,
+            "solver_success": true
+          }
+        },
+        {
+          "hkl": "220",
+          "h2_k2_l2": 8,
+          "clipped": {
+            "q_inverse_a": 5.548007818956815,
+            "a_a": 3.2032275967439103,
+            "gaussian_sigma_inverse_a": 0.010386368476519097,
+            "amplitude": 0.47584943882546776,
+            "solver_success": true
+          },
+          "uncapped": {
+            "q_inverse_a": 5.547991401642312,
+            "a_a": 3.2032370755608506,
+            "gaussian_sigma_inverse_a": 0.01034477862186264,
+            "amplitude": 0.4782887407128174,
+            "solver_success": true
+          }
+        },
+        {
+          "hkl": "311",
+          "h2_k2_l2": 11,
+          "clipped": {
+            "q_inverse_a": 6.503690587278881,
+            "a_a": 3.2041758248692402,
+            "gaussian_sigma_inverse_a": 0.015327076015159051,
+            "amplitude": 0.276521671392615,
+            "solver_success": true
+          },
+          "uncapped": {
+            "q_inverse_a": 6.504959451733457,
+            "a_a": 3.2035508148533354,
+            "gaussian_sigma_inverse_a": 0.01593007268468467,
+            "amplitude": 0.2894298579850809,
+            "solver_success": true
+          }
+        }
+      ],
+      "mean_a_a": 3.204748422810242,
+      "a_min_max_a": [
+        3.2032275967439103,
+        3.205949410084874
+      ],
+      "fcc_cell_volume_a3": 32.91408811197996,
+      "preliminary_pressure_vinet_gpa": 40.61477883219657,
+      "preliminary_pressure_bm3_gpa": 40.57977043688179,
+      "source_ruby_pressure_gpa": 41.9,
+      "source_frames": [
+        {
+          "file": "Fe3C_p18_001.mar2560",
+          "sha256": "84eb7f958e769a171c34d14be6ab8034e60714682fc7fb44f19d60ce789b0cd4"
+        },
+        {
+          "file": "Fe3C_p18_011.mar2560",
+          "sha256": "a3c1f6bb9c7e0272e4b12c8122226491b00906b20299411863884b08d685430f"
+        },
+        {
+          "file": "Fe3C_p18_022.mar2560",
+          "sha256": "17646deedb6a6b62e09cd682c2ecda4c65f35380784c602ec9260337cdb362ed"
+        },
+        {
+          "file": "Fe3C_p18_033.mar2560",
+          "sha256": "0e8338138659b845656be40d37c80f0843326e142313fcffd38e2b3b52c560eb"
+        },
+        {
+          "file": "Fe3C_p18_044.mar2560",
+          "sha256": "0e125625027b5395a495582d1862afe5d6f0f7131b697d87a45661202393a646"
+        },
+        {
+          "file": "Fe3C_p18_055.mar2560",
+          "sha256": "58bea25ef9cb1635a9278cecdd3e96fd5be6fd4d5cbdeee037c14519cbabd5e5"
+        },
+        {
+          "file": "Fe3C_p18_066.mar2560",
+          "sha256": "c8abcefd9b8e660ef9db97a3b92a020e2635acbf01d0d25191c113e4e85c47fb"
+        },
+        {
+          "file": "Fe3C_p18_077.mar2560",
+          "sha256": "423f5cdc45f93bd5db54f7c5b7408a5d6bb317f2f6e52db4c8b1bf958c757db3"
+        },
+        {
+          "file": "Fe3C_p18_088.mar2560",
+          "sha256": "3338882dbfab7e33006a1509ca1196c9980b77a8a2fee25937e929dcbb2e367f"
+        },
+        {
+          "file": "Fe3C_p18_099.mar2560",
+          "sha256": "88fe8e775ced3ef3615758d643b6db0c48ae59cfa7bc5458d08c559364834195"
+        },
+        {
+          "file": "Fe3C_p18_110.mar2560",
+          "sha256": "42ba6c6fc5ba4919ab587f1dd68353836b026d9fb7befc7a014c635114f8f9ca"
+        },
+        {
+          "file": "Fe3C_p18_rot_001.mar2560",
+          "sha256": "8c40843c817c894151b2b3152d2a0ce59b8a5ed0075e7acad9df1bdff3b2bb6f"
+        }
+      ]
+    },
+    {
+      "uncapped_200_220_311_mean_a_a": 3.1711935276030143,
+      "uncapped_200_220_311_preliminary_vinet_gpa": 46.2006074996927,
+      "series": "Fe3C_p19",
+      "reflections": [
+        {
+          "hkl": "111",
+          "h2_k2_l2": 3,
+          "clipped": {
+            "q_inverse_a": 3.431275326589486,
+            "a_a": 3.17164760900206,
+            "gaussian_sigma_inverse_a": 0.011862587358851304,
+            "amplitude": 0.6458561786906298,
+            "solver_success": true
+          },
+          "uncapped": {
+            "q_inverse_a": 3.393416872928361,
+            "a_a": 3.2070319070506534,
+            "gaussian_sigma_inverse_a": 0.006264119142347048,
+            "amplitude": 3.739259110885898,
+            "solver_success": true
+          }
+        },
+        {
+          "hkl": "200",
+          "h2_k2_l2": 4,
+          "clipped": {
+            "q_inverse_a": 3.9592513858671046,
+            "a_a": 3.173925924283549,
+            "gaussian_sigma_inverse_a": 0.012875892113860449,
+            "amplitude": 3.296699706658917,
+            "solver_success": true
+          },
+          "uncapped": {
+            "q_inverse_a": 3.9599360191606445,
+            "a_a": 3.1733771842664176,
+            "gaussian_sigma_inverse_a": 0.01193333652411193,
+            "amplitude": 3.7807801684270887,
+            "solver_success": true
+          }
+        },
+        {
+          "hkl": "220",
+          "h2_k2_l2": 8,
+          "clipped": {
+            "q_inverse_a": 5.6066414248230885,
+            "a_a": 3.1697286139882266,
+            "gaussian_sigma_inverse_a": 0.009903350553360194,
+            "amplitude": 0.4818923522607662,
+            "solver_success": true
+          },
+          "uncapped": {
+            "q_inverse_a": 5.606640872656433,
+            "a_a": 3.1697289261570436,
+            "gaussian_sigma_inverse_a": 0.009901440391895675,
+            "amplitude": 0.48202682417048565,
+            "solver_success": true
+          }
+        },
+        {
+          "hkl": "311",
+          "h2_k2_l2": 11,
+          "clipped": {
+            "q_inverse_a": 6.573274193256637,
+            "a_a": 3.170256943422019,
+            "gaussian_sigma_inverse_a": 0.008597641365781162,
+            "amplitude": 0.2626447165349041,
+            "solver_success": true
+          },
+          "uncapped": {
+            "q_inverse_a": 6.572823195295629,
+            "a_a": 3.1704744723855818,
+            "gaussian_sigma_inverse_a": 0.008887168268445104,
+            "amplitude": 0.2599599584823276,
+            "solver_success": true
+          }
+        }
+      ],
+      "mean_a_a": 3.1713897726739635,
+      "a_min_max_a": [
+        3.1697286139882266,
+        3.173925924283549
+      ],
+      "fcc_cell_volume_a3": 31.89692843081597,
+      "preliminary_pressure_vinet_gpa": 46.16586412297109,
+      "preliminary_pressure_bm3_gpa": 46.06471257087727,
+      "source_ruby_pressure_gpa": 47.4,
+      "source_frames": [
+        {
+          "file": "Fe3C_p19_001.mar2560",
+          "sha256": "855504a2a9ed23648aff1c5f62d0fbc7582395971dc99829c504d93c3d689f3d"
+        },
+        {
+          "file": "Fe3C_p19_011.mar2560",
+          "sha256": "0e5f7fb1b12e8b68549a49f72f4a4e9bb20ab84b50a9457903a5f9230d027087"
+        },
+        {
+          "file": "Fe3C_p19_022.mar2560",
+          "sha256": "91003fa4bf6ccea7d07ffdffac2fa8635ff7e546a3fb4fe08f6afe73ee9ae473"
+        },
+        {
+          "file": "Fe3C_p19_033.mar2560",
+          "sha256": "c2fc6a743111e9df8ef4e24421892e5a2874ee2691aaf91d3d78e82114685aa9"
+        },
+        {
+          "file": "Fe3C_p19_044.mar2560",
+          "sha256": "58728816d598e0897645713fbd16bd49330760651fd3c28f6c7483a5511b3072"
+        },
+        {
+          "file": "Fe3C_p19_055.mar2560",
+          "sha256": "74349e6e2b4fd5a8a39d4ff70627d8e47666c0b097aa29503c6114b12b697db7"
+        },
+        {
+          "file": "Fe3C_p19_066.mar2560",
+          "sha256": "560e53c01b06e6f8a03e875d843f8873d29a91bffad716f14b70ddacc337d3d7"
+        },
+        {
+          "file": "Fe3C_p19_077.mar2560",
+          "sha256": "b2ebbbdbfa5dcb69e1e050b490f5ec2de0b51e510ac2e4e8d87d200abb58865d"
+        },
+        {
+          "file": "Fe3C_p19_088.mar2560",
+          "sha256": "736bc5b9efdaaf7fae64a7806415825bbba8f9eb7eeb38173324bb4d583bf078"
+        },
+        {
+          "file": "Fe3C_p19_099.mar2560",
+          "sha256": "98c44c7e552d3fd9bea87b7171ae21c01296451d83971e0286310e43becd3e7c"
+        },
+        {
+          "file": "Fe3C_p19_110.mar2560",
+          "sha256": "3f69002d2ebb24d1fdb3e0f614202810ad0effad9c48be4ffbaa82bd20317adc"
+        },
+        {
+          "file": "Fe3C_p19_rot_001.mar2560",
+          "sha256": "9df985832465ca5d76cbc310b3ad0ed6bf9db141fdea34d91eb8de28c154673c"
+        }
+      ]
+    },
+    {
+      "uncapped_200_220_311_mean_a_a": 3.1674969590196658,
+      "uncapped_200_220_311_preliminary_vinet_gpa": 46.85982346510151,
+      "series": "Fe3C_bh",
+      "reflections": [
+        {
+          "hkl": "111",
+          "h2_k2_l2": 3,
+          "clipped": {
+            "q_inverse_a": 3.4342722166095223,
+            "a_a": 3.168879896232956,
+            "gaussian_sigma_inverse_a": 0.006380453399975876,
+            "amplitude": 4.072779164838918,
+            "solver_success": true
+          },
+          "uncapped": {
+            "q_inverse_a": 3.383325585745752,
+            "a_a": 3.2165973713128535,
+            "gaussian_sigma_inverse_a": 0.0020000000000024703,
+            "amplitude": 10.199964818326977,
+            "solver_success": true
+          }
+        },
+        {
+          "hkl": "200",
+          "h2_k2_l2": 4,
+          "clipped": {
+            "q_inverse_a": 3.965360954935117,
+            "a_a": 3.169035746599464,
+            "gaussian_sigma_inverse_a": 0.013547003954005689,
+            "amplitude": 7.4172711189121125,
+            "solver_success": true
+          },
+          "uncapped": {
+            "q_inverse_a": 3.9646802698385315,
+            "a_a": 3.1695798296670614,
+            "gaussian_sigma_inverse_a": 0.01267405636669665,
+            "amplitude": 11.24506205968655,
+            "solver_success": true
+          }
+        },
+        {
+          "hkl": "220",
+          "h2_k2_l2": 8,
+          "clipped": {
+            "q_inverse_a": 5.613281915759731,
+            "a_a": 3.1659788372179367,
+            "gaussian_sigma_inverse_a": 0.00944697552939383,
+            "amplitude": 2.044327591144503,
+            "solver_success": true
+          },
+          "uncapped": {
+            "q_inverse_a": 5.613078277400346,
+            "a_a": 3.1660936966060294,
+            "gaussian_sigma_inverse_a": 0.008573972583247293,
+            "amplitude": 2.1507778434498883,
+            "solver_success": true
+          }
+        },
+        {
+          "hkl": "311",
+          "h2_k2_l2": 11,
+          "clipped": {
+            "q_inverse_a": 6.580395036004892,
+            "a_a": 3.166826313339455,
+            "gaussian_sigma_inverse_a": 0.009931962592020968,
+            "amplitude": 1.4167299002971914,
+            "solver_success": true
+          },
+          "uncapped": {
+            "q_inverse_a": 6.580413659479612,
+            "a_a": 3.1668173507859074,
+            "gaussian_sigma_inverse_a": 0.009848204426364117,
+            "amplitude": 1.4131341070739898,
+            "solver_success": true
+          }
+        }
+      ],
+      "mean_a_a": 3.167680198347453,
+      "a_min_max_a": [
+        3.1659788372179367,
+        3.169035746599464
+      ],
+      "fcc_cell_volume_a3": 31.78512980090921,
+      "preliminary_pressure_vinet_gpa": 46.8269315590265,
+      "preliminary_pressure_bm3_gpa": 46.71892130004253,
+      "source_ruby_pressure_gpa": null,
+      "source_frames": [
+        {
+          "file": "Fe3C_bh_001.mar2560",
+          "sha256": "6b35a7de46aa8bc72a72b8113190a32eb11b543cb3c18d52dd5ace89212367f5"
+        },
+        {
+          "file": "Fe3C_bh_010.mar2560",
+          "sha256": "ae2f7451aec95af6e5ddb5ac342450bbd75506c9f1992b32e87350449885c8b7"
+        },
+        {
+          "file": "Fe3C_bh_019.mar2560",
+          "sha256": "30977c739d752cf950f33e12a8a0de5e7337d38afec712768929b284b84df1af"
+        },
+        {
+          "file": "Fe3C_bh_029.mar2560",
+          "sha256": "ce0c757b91c89928905d072a4d504bffdc5820a1f24e3ae3544b4c1049436e4f"
+        },
+        {
+          "file": "Fe3C_bh_038.mar2560",
+          "sha256": "b60036c5713d68ef570bbf77afbf14b053a0f4b683d58cf0ff0cacd85d81f6c9"
+        },
+        {
+          "file": "Fe3C_bh_048.mar2560",
+          "sha256": "1ba6bcfae017099df0985fe968de671796b82846ff4e5f359a962c246bc114f0"
+        },
+        {
+          "file": "Fe3C_bh_057.mar2560",
+          "sha256": "f491fb7a4463c19e281debbdff1f67873feda7434043fa61469e40143803a2a7"
+        },
+        {
+          "file": "Fe3C_bh_067.mar2560",
+          "sha256": "33efa09b9cd474dd5bbcea143612c5cde32f6c241f1ed8db391ba941f3ed1ac0"
+        },
+        {
+          "file": "Fe3C_bh_076.mar2560",
+          "sha256": "8331a44174ad143fa90b8c349c48329f2a56acee19775ea5e1f46cf9fc847210"
+        },
+        {
+          "file": "Fe3C_bh_086.mar2560",
+          "sha256": "18f2bdb8a59e4b41c0c0560689fda051e0324f8cbcb4b94492bec74103cfb03a"
+        },
+        {
+          "file": "Fe3C_bh_095.mar2560",
+          "sha256": "9d10d1a0c768af88f408b1f10bd75ea2ba7abf60c7aa22d51a9a3f210a8382bf"
+        },
+        {
+          "file": "Fe3C_bh_rot_009.mar2560",
+          "sha256": "4160b740b689dfbc5a162aaedc2d178407c7ae1e2b599273ea10a290039b02be"
+        }
+      ]
+    },
+    {
+      "uncapped_200_220_311_mean_a_a": 3.1725386355165903,
+      "uncapped_200_220_311_preliminary_vinet_gpa": 45.96297793133797,
+      "series": "Fe3C_lh",
+      "reflections": [
+        {
+          "hkl": "111",
+          "h2_k2_l2": 3,
+          "clipped": {
+            "q_inverse_a": 3.422836848232888,
+            "a_a": 3.179466818882641,
+            "gaussian_sigma_inverse_a": 0.012518893518580269,
+            "amplitude": 2.913091863333859,
+            "solver_success": true
+          },
+          "uncapped": {
+            "q_inverse_a": 3.420637661218422,
+            "a_a": 3.1815109529984196,
+            "gaussian_sigma_inverse_a": 0.010733144548771834,
+            "amplitude": 3.9694891834137302,
+            "solver_success": true
+          }
+        },
+        {
+          "hkl": "200",
+          "h2_k2_l2": 4,
+          "clipped": {
+            "q_inverse_a": 3.9585814466616718,
+            "a_a": 3.174463070592263,
+            "gaussian_sigma_inverse_a": 0.013461247877012382,
+            "amplitude": 6.795032649358514,
+            "solver_success": true
+          },
+          "uncapped": {
+            "q_inverse_a": 3.959696183006186,
+            "a_a": 3.1735693936040397,
+            "gaussian_sigma_inverse_a": 0.010129293483896984,
+            "amplitude": 11.393150665813373,
+            "solver_success": true
+          }
+        },
+        {
+          "hkl": "220",
+          "h2_k2_l2": 8,
+          "clipped": {
+            "q_inverse_a": 5.603602472573211,
+            "a_a": 3.1714476249191637,
+            "gaussian_sigma_inverse_a": 0.011268096687833804,
+            "amplitude": 1.454753989983517,
+            "solver_success": true
+          },
+          "uncapped": {
+            "q_inverse_a": 5.60345775155558,
+            "a_a": 3.171529534188046,
+            "gaussian_sigma_inverse_a": 0.01064320761770728,
+            "amplitude": 1.5028186769654273,
+            "solver_success": true
+          }
+        },
+        {
+          "hkl": "311",
+          "h2_k2_l2": 11,
+          "clipped": {
+            "q_inverse_a": 6.568596277995265,
+            "a_a": 3.172514685062769,
+            "gaussian_sigma_inverse_a": 0.010940114528484483,
+            "amplitude": 0.9433873676284639,
+            "solver_success": true
+          },
+          "uncapped": {
+            "q_inverse_a": 6.568591528972328,
+            "a_a": 3.172516978757687,
+            "gaussian_sigma_inverse_a": 0.010917776058168991,
+            "amplitude": 0.9435181912577771,
+            "solver_success": true
+          }
+        }
+      ],
+      "mean_a_a": 3.174473049864209,
+      "a_min_max_a": [
+        3.1714476249191637,
+        3.179466818882641
+      ],
+      "fcc_cell_volume_a3": 31.990051059584,
+      "preliminary_pressure_vinet_gpa": 45.623323372568095,
+      "preliminary_pressure_bm3_gpa": 45.527968618763474,
+      "source_ruby_pressure_gpa": null,
+      "source_frames": [
+        {
+          "file": "Fe3C_lh_001.mar2560",
+          "sha256": "cecd522726416edc28c4fa1662c75064449f1de4a66422f62c2faac37e2d8552"
+        },
+        {
+          "file": "Fe3C_lh_009.mar2560",
+          "sha256": "ceff3629e56be06f4ea76442dd51330ec94f730970534cf55b96a75596cdb82b"
+        },
+        {
+          "file": "Fe3C_lh_018.mar2560",
+          "sha256": "8d01a5a1eeabcc58c143e6a4c919bbc34ac92c2f3bb1588ca67ea5f131906f36"
+        },
+        {
+          "file": "Fe3C_lh_027.mar2560",
+          "sha256": "163c822fa16644b047258d84843180ebf787d6692e5f543fd52e445cf21a557a"
+        },
+        {
+          "file": "Fe3C_lh_035.mar2560",
+          "sha256": "0a8cf0c348f5b4b03ef0bc14ace8defd9a44bea1a79197b62620f8346c3123b9"
+        },
+        {
+          "file": "Fe3C_lh_044.mar2560",
+          "sha256": "35be12692bfa34011c14d22435f1bf13457d81a28d18a57d68f29b6d9fb3dbc0"
+        },
+        {
+          "file": "Fe3C_lh_053.mar2560",
+          "sha256": "a27753b5761101d9f46b490fcc9a58f1f9aad82cf0d3a9ac0d729c9cc4db76e8"
+        },
+        {
+          "file": "Fe3C_lh_062.mar2560",
+          "sha256": "c3bc17877edf0760dfdd48d23e1f95e65d022b8ad3c90bd49d5cf75585b39c0a"
+        },
+        {
+          "file": "Fe3C_lh_070.mar2560",
+          "sha256": "8b0987626de721e659c0f683239478c6daff7317adc8a679e907cb189a23b2b9"
+        },
+        {
+          "file": "Fe3C_lh_079.mar2560",
+          "sha256": "94c3e98f8d7d69a26e03abd429afa7d87fdb07b681672ec519639eb1f9b14ab9"
+        },
+        {
+          "file": "Fe3C_lh_088.mar2560",
+          "sha256": "ce1df90111da1aab7c41d58bd55e4b00e813c80683d49c9aec3c0a3c1f7685b9"
+        },
+        {
+          "file": "Fe3C_lh_rot_001.mar2560",
+          "sha256": "67a810772f1f5c0bf0e02215d32f1d6827fedc2ffacd83f79242db5e2b8f1c5d"
+        }
+      ]
+    },
+    {
+      "uncapped_200_220_311_mean_a_a": 3.1703974134140256,
+      "uncapped_200_220_311_preliminary_vinet_gpa": 46.341813250708654,
+      "series": "Fe3C_lh2",
+      "reflections": [
+        {
+          "hkl": "111",
+          "h2_k2_l2": 3,
+          "clipped": {
+            "q_inverse_a": 3.4288637244501126,
+            "a_a": 3.1738783048750596,
+            "gaussian_sigma_inverse_a": 0.00994135260686669,
+            "amplitude": 4.329085993722508,
+            "solver_success": true
+          },
+          "uncapped": {
+            "q_inverse_a": 3.4267960507073014,
+            "a_a": 3.1757933721089304,
+            "gaussian_sigma_inverse_a": 0.009288964338768704,
+            "amplitude": 4.946219715280261,
+            "solver_success": true
+          }
+        },
+        {
+          "hkl": "200",
+          "h2_k2_l2": 4,
+          "clipped": {
+            "q_inverse_a": 3.9607082030892387,
+            "a_a": 3.172758499239546,
+            "gaussian_sigma_inverse_a": 0.01345818955761014,
+            "amplitude": 8.488321008913706,
+            "solver_success": true
+          },
+          "uncapped": {
+            "q_inverse_a": 3.962451006994692,
+            "a_a": 3.1713630256062384,
+            "gaussian_sigma_inverse_a": 0.009115915507173573,
+            "amplitude": 19.634788971794272,
+            "solver_success": true
+          }
+        },
+        {
+          "hkl": "220",
+          "h2_k2_l2": 8,
+          "clipped": {
+            "q_inverse_a": 5.606436586187456,
+            "a_a": 3.169844424249278,
+            "gaussian_sigma_inverse_a": 0.010426247327624838,
+            "amplitude": 2.1841693888259797,
+            "solver_success": true
+          },
+          "uncapped": {
+            "q_inverse_a": 5.606455962181079,
+            "a_a": 3.1698334692206886,
+            "gaussian_sigma_inverse_a": 0.009964434800958391,
+            "amplitude": 2.4044739024843476,
+            "solver_success": true
+          }
+        },
+        {
+          "hkl": "311",
+          "h2_k2_l2": 11,
+          "clipped": {
+            "q_inverse_a": 6.573849255678044,
+            "a_a": 3.169979617982469,
+            "gaussian_sigma_inverse_a": 0.010648225907978334,
+            "amplitude": 1.7518378241285952,
+            "solver_success": true
+          },
+          "uncapped": {
+            "q_inverse_a": 6.573815811055453,
+            "a_a": 3.1699957454151493,
+            "gaussian_sigma_inverse_a": 0.010640809221326614,
+            "amplitude": 1.7447216727584978,
+            "solver_success": true
+          }
+        }
+      ],
+      "mean_a_a": 3.171615211586588,
+      "a_min_max_a": [
+        3.169844424249278,
+        3.1738783048750596
+      ],
+      "fcc_cell_volume_a3": 31.903731114070872,
+      "preliminary_pressure_vinet_gpa": 46.125983615921264,
+      "preliminary_pressure_bm3_gpa": 46.025253039519086,
+      "source_ruby_pressure_gpa": null,
+      "source_frames": [
+        {
+          "file": "Fe3C_lh2_001.mar2560",
+          "sha256": "905b601af5c69ffd3ca342e0d3bf1d827d94363e614c845f9d813cc05af81529"
+        },
+        {
+          "file": "Fe3C_lh2_009.mar2560",
+          "sha256": "8cc412bc9831d3f6a03c34e2d601dff665149f439f3af28d3f8fa3232f026a5c"
+        },
+        {
+          "file": "Fe3C_lh2_018.mar2560",
+          "sha256": "d66594cddbe70a4e63155997647372eee95cac82ebc6c844ffdb90fe73badf82"
+        },
+        {
+          "file": "Fe3C_lh2_027.mar2560",
+          "sha256": "488564cd29d192920dbf1e5efca2bf18e2605b96bdfdcd68cb171799eecda265"
+        },
+        {
+          "file": "Fe3C_lh2_036.mar2560",
+          "sha256": "8bbe2708a1ab3eb04639186ece56d368c2ddd96c361cf3b85da6b058e8cc915e"
+        },
+        {
+          "file": "Fe3C_lh2_045.mar2560",
+          "sha256": "2af937e7e1e3053b10e5d4822a41a59eb1fc0e0cd46c2eb15580dca53a58d017"
+        },
+        {
+          "file": "Fe3C_lh2_054.mar2560",
+          "sha256": "e237e47f154fec73f11a8491e44f3ea9036a705a180356b64135fc5444592152"
+        },
+        {
+          "file": "Fe3C_lh2_063.mar2560",
+          "sha256": "38691ee6de15a565c2e5f7b5dca3699376b9275b6a466311ef28402d8379eccd"
+        },
+        {
+          "file": "Fe3C_lh2_072.mar2560",
+          "sha256": "95fd061f0b9bb349588b9599e6ace106b5cf8742b402104436afd5836250d68f"
+        },
+        {
+          "file": "Fe3C_lh2_081.mar2560",
+          "sha256": "af404c781cd58cb106da949ab5e5e1fc468d68ec9e229fd496c3014e97bd52b7"
+        },
+        {
+          "file": "Fe3C_lh2_090.mar2560",
+          "sha256": "ae41714ed23f93b24800591b7a76bcdad8281c955e1c3e4b3c7b05e5c4bf2586"
+        },
+        {
+          "file": "Fe3C_lh2_rot_003.mar2560",
+          "sha256": "de5181ba270e197a26b950c8bbdf6ef5bafb6f433799debc4147885e021cf7e2"
+        }
+      ]
+    }
+  ],
+  "format": "peritheos.prescher-2012-raw-neon-probe",
+  "date": "2026-10-30",
+  "raw_archive_root": "/Volumes/personal_folder/Synchrotron Data/_Archive/2011-02 ESRF XRD",
+  "raw_mar_frame_count": 2791,
+  "frames_examined_for_profiles": 60,
+  "primary_paper_evidence": {
+    "doi": "10.1103/PhysRevB.85.140402",
+    "location": "page 140402-1, Experimental Details; page 140402-2, diffraction geometry",
+    "medium": "Neon gas",
+    "pressure_method": "Ruby fluorescence before and after each measurement; reported error calculated from the difference",
+    "wavelength_angstrom": 0.4148,
+    "sample_detector_distance_approx_mm": 310
+  },
+  "local_reproduction_directory": "output/prescher-2012-full-only-2026-10-30/raw-inspection",
+  "scripts": [
+    "probe_series.py",
+    "check_fcc_neon.py"
+  ],
+  "provisional_geometry": {
+    "kind": "diagnostic Si geometry probe, not certified pressure recalibration",
+    "calibration_frame": "si1702_001.mar2560",
+    "wavelength_a": 0.4148,
+    "wavelength_source": "Prescher 2012 experimental section",
+    "pixel_pitch_m": 0.000139,
+    "Si_reference_d_a": [
+      3.13570166,
+      1.92021727,
+      1.63756679,
+      1.35779865,
+      1.24600149,
+      1.10863796,
+      1.04523389,
+      0.96010863
+    ],
+    "Si_reference": "Installed pyFAI Si calibrant; original Si standard certificate not recovered",
+    "parameters_cx_cy_Dbeam_rx_ry": [
+      1307.6978074202443,
+      1532.3041201471337,
+      0.3106170107638773,
+      -0.0032412856485184213,
+      -0.0003634140931122765
+    ],
+    "median_abs_angular_error_degree": 0.0036266262737979942,
+    "qualification": "Exploratory geometry only; ring assignments and transfer to sample frames require validation before reporting Ne pressures.",
+    "source_file": "/Volumes/personal_folder/Synchrotron Data/_Archive/2011-02 ESRF XRD/si1702_001.mar2560",
+    "source_file_sha256": "33ef17bf1465837eae45c6355e122430115c5693708b567a710511dd28932daf"
+  },
+  "local_artifact_hashes": {
+    "probe_series.py": "5b20f6e37c1dbc8925976f7ccde67a9c7b806558a9a75a3c2b9d45a1a65eb0eb",
+    "check_fcc_neon.py": "d905575982214705c77f6d797b81f4ab6eda6b4898f266b3b24f9e82c4655748",
+    "si-geometry-probe.json": "5cd0a1bb82633ef27ed9d05cc38a94ba5ca611b379b6959c2a1b9d4d7b354d65",
+    "sampled-series-survey.json": "872e842bb619d958fdab76720d407332faecb4af63514f0a5a4bdb7980c0a457"
+  }
+}

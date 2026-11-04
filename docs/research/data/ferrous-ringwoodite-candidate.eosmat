@@ -1,0 +1,1233 @@
+{
+ "format": "peritheos.material",
+ "format_version": 3,
+ "identifier": "ferrous_ringwoodite",
+ "name": "Ferrous ringwoodite (Fe2SiO4)",
+ "formula": "Fe2SiO4",
+ "phase": "gamma spinel, Fe endmember",
+ "symmetry": "CUBIC",
+ "units": {
+  "pressure": "GPa",
+  "temperature": "K",
+  "volume": "angstrom^3/conventional_unit_cell"
+ },
+ "formula_units_per_cell": 8,
+ "cell_contents": "Fe16 Si8 O32; eight Fe2SiO4 formula units in the conventional cubic F cell",
+ "space_group": "Fd-3m",
+ "space_group_number": 227,
+ "lattice": {
+  "a": 8.236,
+  "b": 8.236,
+  "c": 8.236,
+  "alpha": 90,
+  "beta": 90,
+  "gamma": 90
+ },
+ "atom_sites": [
+  {
+   "element": "Fe",
+   "wyckoff": "16d",
+   "x": 0.5,
+   "y": 0.5,
+   "z": 0.5,
+   "occupancy": 1.0
+  },
+  {
+   "element": "Si",
+   "wyckoff": "8a",
+   "x": 0.125,
+   "y": 0.125,
+   "z": 0.125,
+   "occupancy": 1.0
+  },
+  {
+   "element": "O",
+   "wyckoff": "32e",
+   "x": 0.2409,
+   "y": 0.2409,
+   "z": 0.2409,
+   "occupancy": 1.0
+  }
+ ],
+ "source": {
+  "structure_reference": {
+   "authors": [
+    "Finger, L. W.",
+    "Hazen, R. M.",
+    "Yagi, T."
+   ],
+   "year": 1979,
+   "title": "Crystal structures and electron densities of nickel and iron silicate spinels at elevated temperature or pressure",
+   "source": "American Mineralogist",
+   "volume": "64",
+   "locator": "1002-1009",
+   "url": "https://hazen.carnegiescience.edu/sites/default/files/043-FH-SiSpinels.pdf"
+  },
+  "structure_locations": [
+   "Table 1, p1004: oxygen u=0.2409(1), room conditions 23 degC and 0.001 kbar; text assumes complete cation ordering after occupancy refinement",
+   "Table 2, p1005: mean cubic a=8.236 angstrom, measured V=558.7(2) angstrom^3"
+  ],
+  "origin_choice": 2,
+  "structure_dataset": "datasets/ferrous-ringwoodite-finger-1979-table2.csv",
+  "structure_notes": "Experimental pure synthetic Fe endmember. Not the partially Mg-Si-disordered Mg2SiO4 structure. Mean cubic cell volume is 558.661848 A^3; record reference cell 558.3396559465342 A^3 differs because it belongs to the later combined EOS."
+ },
+ "notes": "Staged Fe2SiO4 gamma-spinel addition. Default static record is an explicitly derived ambient-cell reconstruction of the primary Finger1979 BM2 at296.15K. A separate2011 thermal candidate remains not_reproduced and requires explicit selection/acceptance. Both preserve published coefficients. Fully ordered synthetic Fe2SiO4 structural model; the2011 specimen has no established hydrogen content or refined valence/site populations. No installed catalog change; see the material-specific integration note.",
+ "eos_records": [
+  {
+   "identifier": "ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction",
+   "label": "Finger et al. (1979), 23 degC BM2, measured ambient-cell reconstruction",
+   "reference": {
+    "authors": [
+     "Finger, L. W.",
+     "Hazen, R. M.",
+     "Yagi, T."
+    ],
+    "year": 1979,
+    "title": "Crystal structures and electron densities of nickel and iron silicate spinels at elevated temperature or pressure",
+    "source": "American Mineralogist",
+    "volume": "64",
+    "locator": "1002-1009",
+    "url": "https://hazen.carnegiescience.edu/sites/default/files/043-FH-SiSpinels.pdf"
+   },
+   "record_kind": "derived",
+   "default": true,
+   "determination_method": "experimental",
+   "temperature_ref": 296.15,
+   "eos": {
+    "type": "BM2",
+    "model": "birch_murnaghan_2",
+    "parameters": {
+     "V0": 558.7,
+     "K0": 196.0
+    }
+   },
+   "parameter_errors": {
+    "V0": 0.2,
+    "K0": 6.0
+   },
+   "fixed_parameters": [
+    "V0"
+   ],
+   "published_constraints": {
+    "K0_prime": 4.0,
+    "original_K0_mbar": 1.96,
+    "original_K0_error_mbar": 0.06,
+    "measured_reference_pressure_kbar": 0.001
+   },
+   "parameter_uncertainty_convention": "V0 uncertainty is the Table2 measurement esd, not an EOS-fit error. K0 uncertainty is the printed1.96(6)Mbar error; its confidence level is not supplied. No covariance is known.",
+   "parameter_provenance": {
+    "determination_method": "Single-crystal XRD experiment; no theoretical thermal coefficient.",
+    "equation": "Primary p1004/p1005 explicitly identifies second-order Birch-Murnaghan with Kprime fixed4 (also called first-order Birch in the source).",
+    "V0": "ADOPTED measured ambient Table2 volume558.7(2)A3, not a recovered author-fitted intercept. This explicitly derived reconstruction fixes V0 to that measured value.",
+    "K0": "Primary p1005:1.96(6)Mbar=196(6)GPa; preserved without refitting.",
+    "temperature_ref": "Primary Tables1/2 and room-condition methods:23degC=296.15K. No correction to300K is invented.",
+    "reference_pressure": "Ambient0.001kbar=0.0001GPa is approximated as the zero-pressure gauge reference; effect is much smaller than printed compressed-state pressure/volume errors."
+   },
+   "experimental_pressure_range_gpa": [
+    0.0001,
+    4.0
+   ],
+   "experimental_temperature_range_k": [
+    296.15,
+    296.15
+   ],
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     4.0
+    ],
+    "temperature_k": [
+     296.15,
+     296.15
+    ],
+    "notes": [
+     "Three measured Fe2SiO4 states only, at room temperature; no thermal correction or equilibrium phase-stability claim.",
+     "Source BM2 coefficients reconstructed with the measured ambient volume; original fit covariance/weights and precise reference-intercept treatment are not recovered.",
+     "Zero-pressure gauge approximation to the1bar measured ambient state is explicit and negligible at the source precision."
+    ]
+   },
+   "pressure_calibration": {
+    "status": "unresolved",
+    "methods": [],
+    "recalculation": {
+     "status": "missing_calibrant_observations",
+     "notes": "No rowwise marker observations in the three-row Table2. The exact gauge scale was not independently resolved in this pass."
+    },
+    "audit_date": "2026-10-16"
+   },
+   "fit_datasets": [
+    "ferrous_ringwoodite_finger_1979_table2"
+   ],
+   "scientific_validation": {
+    "status": "primary_source_validated",
+    "audit_date": "2026-10-16",
+    "verified_fields": [
+     "source_equation",
+     "published_K0_and_fixed_Kprime",
+     "adopted_measured_reference_cell",
+     "units",
+     "phase",
+     "structure",
+     "uncertainty_scope",
+     "temperature_ref",
+     "independent_compressed_state_checks"
+    ],
+    "primary_source_check": {
+     "access_url": "https://hazen.carnegiescience.edu/sites/default/files/043-FH-SiSpinels.pdf",
+     "locations": [
+      "p1004: explicitly second-order Birch-Murnaghan, Kprime fixed4; room-condition crystal refinement",
+      "p1005 Table2: all three Fe cell refinements",
+      "p1005:1.96(6)Mbar Fe spinel bulk modulus"
+     ]
+    },
+    "primary_data_check": {
+     "status": "bundled",
+     "dataset_identifiers": [
+      "ferrous_ringwoodite_finger_1979_table2"
+     ],
+     "finding": "All three original Fe rows and all their triclinic lattice, angle, volume and pressure errors retained."
+    },
+    "numerical_reproduction": {
+     "source_equation_validation": "Explicit source BM2 equation family, coefficient and fixed derivative verified; adopting the independently measured ambient cell is an explicit derived choice.",
+     "conditional_coefficient_agreement": "Holding measuredV0=558.7, an unweighted pressure fit of the two compressed states givesK0=196.2176GPa, within published196(6). This is not the author objective.",
+     "author_fit_reproduced": false,
+     "source_check": "Calculated1.867379GPa at553.5A3 versus2.0(1)GPa;4.055608GPa at547.7A3 versus4.0(1)GPa. Differences are inside combined printed coordinate uncertainties."
+    },
+    "unresolved": [
+     "Original author fit objective, weights, covariance and exact intercept constraint unavailable.",
+     "Exact pressure-scale equation and paired marker readings not recovered."
+    ]
+   },
+   "notes": "Derived ambient-cell reconstruction, not an independently refitted record and not a claim to have recovered the original fit intercept. Default staged static option because2011 thermal mapping remains qualified. PublishedK0 unchanged;Kprime=4 fixed. ReferenceT296.15K; no300K or thermal behavior claimed.",
+   "derivation": {
+    "source_kind": "published_table",
+    "source_identifier": "ferrous_ringwoodite_finger_1979_table2",
+    "method": "Adopt the measured ambient Table2 volume558.7(2)A3 as fixedV0, and preserve the published p1005 BM2 K0=1.96(6)Mbar with fixedKprime4. This reconstruction is not a fit-intercept recovery or new refit. SourceT23degC=296.15K; approximate1bar by zero gauge pressure.",
+    "source_locations": [
+     "Table2 p1005",
+     "BM2 discussion pp1004-1005"
+    ],
+    "assumptions": [
+     "Measured ambient cell substitutes for unreported fitted intercept; its error is a measurement esd.",
+     "At1bar the pressure offset0.0001GPa is negligible relative to source coordinate precision."
+    ],
+    "reproduction_script": "scripts/ferrous_ringwoodite_reproduce.py"
+   }
+  },
+  {
+   "identifier": "ferrous_ringwoodite_armentrout_kavner_2011_bm2_mgd_candidate",
+   "label": "Armentrout and Kavner (2011), qualified BM2-MGD mapping",
+   "reference": {
+    "authors": [
+     "Armentrout, M.",
+     "Kavner, A."
+    ],
+    "year": 2011,
+    "title": "High pressure, high temperature equation of state for Fe2SiO4 ringwoodite and implications for the Earth's transition zone",
+    "source": "Geophysical Research Letters",
+    "volume": "38",
+    "locator": "L08309",
+    "doi": "10.1029/2011GL046949"
+   },
+   "record_kind": "published",
+   "catalog_access": "explicit_selection",
+   "default": false,
+   "determination_method": "hybrid",
+   "temperature_ref": 300.0,
+   "eos": {
+    "type": "BM2",
+    "model": "birch_murnaghan_2",
+    "parameters": {
+     "V0": 558.3396559465342,
+     "K0": 202.0
+    }
+   },
+   "parameter_errors": {
+    "V0": null,
+    "K0": 4.0
+   },
+   "fixed_parameters": [],
+   "parameter_provenance": {
+    "determination_method": "Combined static and P-V-T experiments with an adopted model Debye temperature from Stixrude-Lithgow-Bertelloni 2005; hybrid experimental/model constraints.",
+    "V0": "2011 abstract and paragraph 5: preferred 42.03 cm^3/mol of formula units, converted with exact Avogadro constant and Z=8. No error or original optimization constraint on V0 reported; held fixed only in conditional replay.",
+    "K0": "2011 paragraph 5: 202(4) GPa, static combined-data anchor; parenthesized error confidence convention unspecified.",
+    "K0_prime": "2011 paragraph 5: explicitly fixed at 4; BM3 with Kprime=4 reduces algebraically to BM2. BM family is inferred from supporting author formalism, not explicitly written in the ringwoodite article.",
+    "equation_mapping": "BM2 + gamma0*x^q and theta0*exp[(gamma0/q)*(1-x^q)], Debye energy difference from300K. Recovered DD2007 Eqs14-17 and author dissertation Os Eqs1-5 independently support this constant-q reconstruction. Same-author ringwoodite code/equation declaration remains unavailable; Figure1 alone cannot identify theta law."
+   },
+   "parameter_uncertainty_convention": "Published parentheses retained; confidence level, covariance and weighting unspecified. Missing uncertainty is null, not zero.",
+   "published_constraints": {
+    "V0_cm3_mol": 42.03,
+    "K0_prime": 4.0,
+    "gamma0_q_sensitivity": [
+     {
+      "q": 1,
+      "gamma0": 1.06,
+      "gamma0_error": 0.06
+     },
+     {
+      "q": 2,
+      "gamma0": 1.08,
+      "gamma0_error": 0.06
+     },
+     {
+      "q": 3,
+      "gamma0": 1.1,
+      "gamma0_error": 0.06
+     }
+    ]
+   },
+   "thermal": {
+    "type": "MieGruneisenDebye",
+    "model": "mie_gruneisen_debye",
+    "debye_temperature_law": "integrated_gruneisen",
+    "thermal_pressure_reference": "reference_temperature",
+    "parameters": {
+     "Tr": 300.0,
+     "theta0": 685.0,
+     "gamma0": 1.08,
+     "q": 2.0,
+     "n": 7.0
+    },
+    "parameter_errors": {
+     "Tr": null,
+     "theta0": null,
+     "gamma0": 0.06,
+     "q": null,
+     "n": null
+    },
+    "fixed_parameters": [
+     "Tr",
+     "theta0",
+     "q",
+     "n"
+    ],
+    "parameter_provenance": {
+     "theta0": "2011 paragraph5 adopts685K fixed. Independently recovered SLB2005 TableA1 p631 gives Fe-ringwoodite685(100)K italicized as systematics. Preserve upstream100K separately; it is not a2011 fit error.",
+     "gamma0": "2011 paragraph 5: preferred 1.08(6) for q=2.",
+     "q": "2011 paragraph 5: preferred fixed 2; 1 and 3 alternatives are sensitivity results, not uncertainty bounds.",
+     "n": "Seven atoms per Fe2SiO4 formula unit. Molar convention follows author dissertation generic formalism; no hidden normalization is adopted.",
+     "Tr": "300 K measured static reference; no absolute-zero thermal pressure or zero-point term is added."
+    }
+   },
+   "experimental_pressure_range_gpa": [
+    0.0,
+    24.0
+   ],
+   "validity": {
+    "pressure_gpa": [
+     0.0,
+     24.0
+    ],
+    "temperature_k": [
+     300.0,
+     2000.0
+    ],
+    "notes": [
+     "Qualified numerical evaluation envelope covering the primary plotted isotherms, not a phase stability rectangle or a complete experimental sampling domain.",
+     "New Table S1 accepted rows:9.75-11.48GPa. Two-surface mean temperatures span1148-2515K; all nine heating-cycle2 mean temperatures agree with the rounded labels in official FigureS1. Upstream/downstream readings remain separate.",
+     "Liu 2008 spans 0.71-6.49 GPa and 307-1073 K. Plymate-Stout 1994 reports a 673.15 K isotherm to 24 GPa. Suzuki 1979 Fe values are modeled from Mao 1969, with explicit extrapolations.",
+     "No high-pressure polymorph, magnetic/spin transition, hydration correction, Mg-Fe interpolation, dissociation, or thermal stability boundary is represented."
+    ]
+   },
+   "pressure_calibration": {
+    "status": "partially_resolved",
+    "methods": [
+     {
+      "kind": "equation_of_state",
+      "reference": {
+       "authors": [
+        "Brown, J. M."
+       ],
+       "year": 1999,
+       "title": "The NaCl pressure standard",
+       "doi": "10.1063/1.371596",
+       "source": "Journal of Applied Physics",
+       "volume": "86",
+       "locator": "5801-5808"
+      },
+      "source_location": "2011 paragraph 4 and Table S1; NaCl B1 paired lattice readings; marker temperature halfway between sample temperature and 300 K."
+     },
+     {
+      "kind": "ultrasonic",
+      "reference": {
+       "authors": [
+        "Liu, Q.",
+        "Liu, W.",
+        "Whitaker, M. L.",
+        "Wang, L. P.",
+        "Li, B. S."
+       ],
+       "year": 2008,
+       "title": "Compressional and shear wave velocities of Fe2SiO4 spinel at high pressure and high temperature",
+       "source": "High Pressure Research",
+       "volume": "28",
+       "locator": "405-413",
+       "doi": "10.1080/08957950802296287"
+      },
+      "source_location": "Liu 2008 Eqs 7-12 and Table 1: pressures derived from sample elasticity/finite strain, not a NaCl pressure scale."
+     },
+     {
+      "kind": "ambient_pressure",
+      "reference": {
+       "authors": [
+        "Suzuki, I.",
+        "Ohtani, E.",
+        "Kumazawa, M."
+       ],
+       "year": 1979,
+       "title": "Thermal expansion of gamma-Mg2SiO4",
+       "source": "Journal of Physics of the Earth",
+       "volume": "27",
+       "locator": "53-61",
+       "doi": "10.4294/jpe1952.27.53"
+      },
+      "source_location": "Suzuki 1979 Table 2: ambient-pressure modeled expansion relative to 20 degC."
+     }
+    ],
+    "recalculation": {
+     "status": "reference_eos_not_bundled",
+     "notes": "Runtime calibrant record not bundled; a separate primary-table diagnostic now replays all18 new NaCl readings,14 accepted. TableI/TableII disagree by about0.12GPa locally. Both midpoint-temperature replays reduce but do not remove hot residuals; original temperature/error reduction remains unresolved. Other upstream calibrations/inputs remain incomplete. No alternateNaCl EOS substituted."
+    },
+    "audit_date": "2026-10-16",
+    "diagnostic_replay": {
+     "status": "completed_with_discrepancies",
+     "primary_tables_recovered": true,
+     "all_rows_replayed": 18,
+     "included_rows": 14,
+     "original_reduction_reproduced": false,
+     "report": "output/material-candidates/ferrous-ringwoodite/ferrous-ringwoodite-brown-replay.json",
+     "table2_temperature_extension_measurements": [
+      "Fay025heat",
+      "Fay028heat"
+     ],
+     "hypotheses_report": "output/material-candidates/ferrous-ringwoodite/ferrous-ringwoodite-brown-hypotheses.json",
+     "finding": "Half-sampleT gives close pressure agreement but is not uniquely established; extraE300 subtraction is a competing reduction-error hypothesis. BrownTableII slopes supportn2; offset closely resembles E_ZP/3. Neither author routine recovered nor source values corrected."
+    }
+   },
+   "fit_datasets": [
+    "ferrous_ringwoodite_armentrout_2011_table_s1",
+    "ferrous_ringwoodite_liu_2008_table1",
+    "ferrous_ringwoodite_suzuki_1979_table2_calculated"
+   ],
+   "scientific_validation": {
+    "status": "not_reproduced",
+    "audit_date": "2026-10-16",
+    "verified_fields": [
+     "published_coefficients",
+     "units",
+     "cell_contents",
+     "separate_structure_provenance",
+     "published_constraints",
+     "new_primary_observations",
+     "figure1_graphical_agreement",
+     "upstream_debye_adoption",
+     "constant_q_thermodynamic_consistency",
+     "dissertation_figure9_residual_agreement",
+     "brown_primary_tables_and_paired_nacl_diagnostic_replay"
+    ],
+    "primary_source_check": {
+     "doi": "10.1029/2011GL046949",
+     "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011GL046949",
+     "locations": [
+      "Abstract and paragraphs 3-5",
+      "Official Table S1 and Figures S1/S2",
+      "Official Figure 1",
+      "Armentrout 2012 dissertation chapter pp23-28 and supporting generic formalism pp9-10"
+     ]
+    },
+    "primary_data_check": {
+     "status": "partially_bundled",
+     "finding": "All 18 new primary rows, all 29 Liu rows, ten calculated Suzuki Fe entries and independent Finger structural/compression observations recovered. Full four other upstream observation tables and exact combined row mask/weights remain unavailable."
+    },
+    "numerical_reproduction": {
+     "source_curve_check": "12 independent digitized source-curve checkpoints agree within 0.002 in V/V0. This precision does not uniquely distinguish theta laws.",
+     "source_equation_validation": "primary_citation_supported_reconstruction",
+     "conditional_coefficient_agreement": "See scripts/ferrous_ringwoodite_reproduce.py and material-specific JSON; subset agreement is not historical fit reproduction.",
+     "author_fit_reproduced": false,
+     "temperature_check": "All9 cycle2 FigureS1 temperature labels equal rounded arithmetic means of TableS1 upstream/downstream readings. First-cycle arithmetic means remain a consistent inference; no rowwise uncertainty/temperature covariance recovered.",
+     "published_residual_check": "Two independent digitized dissertation Figure9 residual symbols agree within0.10GPa; same hot-data systematic mismatch is acknowledged by the author.",
+     "pressure_replay": "Both primaryBrown1999 representations evaluated for all18 NaCl readings. Midpoint-temperature replay shifts accepted pressures upward0.24-0.69GPa across the two representations; hottest residuals remain1.09-2.05GPa in magnitude. This is not original reduction or author-fit reproduction.",
+     "atom_count_check": "Published gamma0/q/theta0 and static coefficients heldfixed: all9 thermal Figure1 checkpoints pass0.002V/V0 atn7; none pass atn1,2,4. Conditional graphical calculated-curve check, not physical n fit or original code recovery."
+    },
+    "unresolved": [
+     "Direct2011 ringwoodite equation/code declaration remains missing. CitedDD2007 constant-q limit and same-author Os equations now directly support the reconstructed integrated theta law; Bernoulli truncation is unknown.",
+     "Sato 1977, Wilburn-Bassett 1976, Nestola 2010 and Plymate-Stout 1994 numerical observation tables are not recovered.",
+     "Source fit weights, complete input normalization and covariance not recovered; Suzuki listed in2011 but omitted from dissertation combined-data description. FigureS1 independently confirms rounded two-surface mean temperatures for all nine cycle2 measurements.",
+     "Source Density (cm3/mol) column is inconsistent with measured lattice volumes; preserved verbatim and excluded from replay.",
+     "PrimaryBrown1999 tables recovered and diagnostic replay completed; TableI/TableII offset and exact original temperature/uncertainty reduction remain unresolved. The upstream685(100)K systematics value is now independently verified inSLB2005 TableA1; its error is kept separate from2011 fixed685K.",
+     "2011 sample hydrogen content is unestablished; possible hydration discussed in Wang et al 2025 is a later hypothesis."
+    ]
+   },
+   "notes": "Published coefficients, including the preferred 202(4) GPa rather than 201.5 from the rounded K0-Kprime tradeoff, are unchanged. Conditional diagnostic subset fits exist only in the reproduction report; this is not a new refitted EOS."
+  }
+ ],
+ "datasets": [
+  {
+   "identifier": "ferrous_ringwoodite_armentrout_2011_table_s1_raw",
+   "kind": "pressure_volume_temperature",
+   "source_location": "Official Table S1; all cells, source parentheses and four exclusion flags; density header inconsistent",
+   "reference": {
+    "authors": [
+     "Armentrout, M.",
+     "Kavner, A."
+    ],
+    "year": 2011,
+    "title": "High pressure, high temperature equation of state for Fe2SiO4 ringwoodite and implications for the Earth's transition zone",
+    "source": "Geophysical Research Letters",
+    "volume": "38",
+    "locator": "L08309",
+    "doi": "10.1029/2011GL046949"
+   },
+   "columns": [
+    {
+     "name": "measurement",
+     "quantity": "source_field",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "nacl_b1_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "nacl_b1_a_parentheses",
+     "quantity": "source_parenthesized_digits",
+     "unit": "last_printed_digits",
+     "role": "value"
+    },
+    {
+     "name": "ringwoodite_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "ringwoodite_a_parentheses",
+     "quantity": "source_parenthesized_digits",
+     "unit": "last_printed_digits",
+     "role": "value"
+    },
+    {
+     "name": "upstream_temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "downstream_temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "source_density_column",
+     "quantity": "unresolved_printed_density_field",
+     "unit": "as_printed",
+     "role": "value"
+    },
+    {
+     "name": "source_density_parentheses",
+     "quantity": "source_parenthesized_digits",
+     "unit": "last_printed_digits",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_parentheses",
+     "quantity": "source_parenthesized_digits",
+     "unit": "last_printed_digits",
+     "role": "value"
+    },
+    {
+     "name": "exclusion_footnote",
+     "quantity": "source_field",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/ferrous-ringwoodite-armentrout-2011-table-s1-raw.csv",
+    "sha256": "4ccbb4b88b98d35920112a4c03f3081c65241cebcdba4f35924991f28b415eec",
+    "media_type": "text/csv"
+   },
+   "row_count": 18,
+   "used_by_eos_records": [],
+   "notes": "Factual transcription; source errors and calculated/extrapolated status are preserved. See ferrous-ringwoodite-source.json and ferrous-ringwoodite.LICENSE.md. Linked data do not imply recovery of the complete historical author input or exact row mask."
+  },
+  {
+   "identifier": "ferrous_ringwoodite_armentrout_2011_table_s1",
+   "kind": "pressure_volume_temperature",
+   "source_location": "Official Table S1, 18 rows; reported coordinates/errors retained; 14 rows not flagged for exclusion",
+   "reference": {
+    "authors": [
+     "Armentrout, M.",
+     "Kavner, A."
+    ],
+    "year": 2011,
+    "title": "High pressure, high temperature equation of state for Fe2SiO4 ringwoodite and implications for the Earth's transition zone",
+    "source": "Geophysical Research Letters",
+    "volume": "38",
+    "locator": "L08309",
+    "doi": "10.1029/2011GL046949"
+   },
+   "columns": [
+    {
+     "name": "measurement",
+     "quantity": "source_field",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "nacl_b1_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "nacl_b1_a_sd_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "standard_deviation"
+    },
+    {
+     "name": "ringwoodite_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "ringwoodite_a_sd_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "standard_deviation"
+    },
+    {
+     "name": "upstream_temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "downstream_temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "pressure_reported_uncertainty_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "uncertainty"
+    },
+    {
+     "name": "exclusion_footnote",
+     "quantity": "source_field",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "included_by_table_s1",
+     "quantity": "source_field",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "derived_sample_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "derived_sample_volume_sd_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation"
+    },
+    {
+     "name": "derived_sample_molar_volume_cm3_mol",
+     "quantity": "molar_volume",
+     "unit": "cm^3/mol",
+     "role": "value"
+    },
+    {
+     "name": "derived_nacl_b1_volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "derived_nacl_b1_volume_sd_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation"
+    },
+    {
+     "name": "assumed_mean_sample_temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "assumed_nacl_temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "source_density_column",
+     "quantity": "unresolved_printed_density_field",
+     "unit": "as_printed",
+     "role": "value"
+    },
+    {
+     "name": "source_density_parentheses",
+     "quantity": "source_parenthesized_digits",
+     "unit": "last_printed_digits",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/ferrous-ringwoodite-armentrout-2011-table-s1.csv",
+    "sha256": "220a7ab79b6de9c92b9cd21f6ebc9150ebedbb52e40dd96781e4a2501d58816f",
+    "media_type": "text/csv"
+   },
+   "row_count": 18,
+   "used_by_eos_records": [
+    "ferrous_ringwoodite_armentrout_kavner_2011_bm2_mgd_candidate"
+   ],
+   "notes": "Factual transcription; source errors and calculated/extrapolated status are preserved. See ferrous-ringwoodite-source.json and ferrous-ringwoodite.LICENSE.md. Linked data do not imply recovery of the complete historical author input or exact row mask."
+  },
+  {
+   "identifier": "ferrous_ringwoodite_liu_2008_table1",
+   "kind": "pressure_volume_temperature_elasticity",
+   "source_location": "Table 1, page 408, all 29 rows and all ten columns",
+   "reference": {
+    "authors": [
+     "Liu, Q.",
+     "Liu, W.",
+     "Whitaker, M. L.",
+     "Wang, L. P.",
+     "Li, B. S."
+    ],
+    "year": 2008,
+    "title": "Compressional and shear wave velocities of Fe2SiO4 spinel at high pressure and high temperature",
+    "source": "High Pressure Research",
+    "volume": "28",
+    "locator": "405-413",
+    "doi": "10.1080/08957950802296287"
+   },
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "two_tp_microsecond",
+     "quantity": "two_way_travel_time",
+     "unit": "microsecond",
+     "role": "value"
+    },
+    {
+     "name": "two_ts_microsecond",
+     "quantity": "two_way_travel_time",
+     "unit": "microsecond",
+     "role": "value"
+    },
+    {
+     "name": "sample_length_mm",
+     "quantity": "sample_length",
+     "unit": "mm",
+     "role": "value"
+    },
+    {
+     "name": "density_g_cm3",
+     "quantity": "mass_density",
+     "unit": "g/cm^3",
+     "role": "value"
+    },
+    {
+     "name": "vp_km_s",
+     "quantity": "sound_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "vs_km_s",
+     "quantity": "sound_velocity",
+     "unit": "km/s",
+     "role": "value"
+    },
+    {
+     "name": "ks_gpa",
+     "quantity": "elastic_modulus",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "g_gpa",
+     "quantity": "elastic_modulus",
+     "unit": "GPa",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/ferrous-ringwoodite-liu-2008-table1.csv",
+    "sha256": "1e8434e86f11a3ea0867ffc301a394e24942b9a931bb43411db8356413cc3a52",
+    "media_type": "text/csv"
+   },
+   "row_count": 29,
+   "used_by_eos_records": [
+    "ferrous_ringwoodite_armentrout_kavner_2011_bm2_mgd_candidate"
+   ],
+   "notes": "Factual transcription; source errors and calculated/extrapolated status are preserved. See ferrous-ringwoodite-source.json and ferrous-ringwoodite.LICENSE.md. Linked data do not imply recovery of the complete historical author input or exact row mask."
+  },
+  {
+   "identifier": "ferrous_ringwoodite_suzuki_1979_table2_calculated",
+   "kind": "calculated_thermal_expansion",
+   "source_location": "Table 2, page 56: Fe2SiO4 solution II column only; ten calculated rows, extrapolation parentheses and 95% confidence halfwidths",
+   "reference": {
+    "authors": [
+     "Suzuki, I.",
+     "Ohtani, E.",
+     "Kumazawa, M."
+    ],
+    "year": 1979,
+    "title": "Thermal expansion of gamma-Mg2SiO4",
+    "source": "Journal of Physics of the Earth",
+    "volume": "27",
+    "locator": "53-61",
+    "doi": "10.4294/jpe1952.27.53"
+   },
+   "columns": [
+    {
+     "name": "temperature_c",
+     "quantity": "temperature",
+     "unit": "degC",
+     "role": "value"
+    },
+    {
+     "name": "volume_expansion_percent",
+     "quantity": "volume_expansion",
+     "unit": "percent",
+     "role": "value"
+    },
+    {
+     "name": "volume_expansion_95ci_halfwidth_percent",
+     "quantity": "volume_expansion",
+     "unit": "percent",
+     "role": "uncertainty"
+    },
+    {
+     "name": "alpha_micro_k_inv",
+     "quantity": "thermal_expansion_coefficient",
+     "unit": "10^-6/K",
+     "role": "value"
+    },
+    {
+     "name": "alpha_95ci_halfwidth_micro_k_inv",
+     "quantity": "thermal_expansion_coefficient",
+     "unit": "10^-6/K",
+     "role": "uncertainty"
+    },
+    {
+     "name": "volume_extrapolated",
+     "quantity": "source_field",
+     "unit": "1",
+     "role": "flag"
+    },
+    {
+     "name": "alpha_extrapolated",
+     "quantity": "source_field",
+     "unit": "1",
+     "role": "flag"
+    }
+   ],
+   "resource": {
+    "path": "datasets/ferrous-ringwoodite-suzuki-1979-table2-calculated.csv",
+    "sha256": "ca41f289824ac174012b5e8190d9d6c80c2b3ae1cc77783fcf5c5d23bc0c8f5b",
+    "media_type": "text/csv"
+   },
+   "row_count": 10,
+   "used_by_eos_records": [
+    "ferrous_ringwoodite_armentrout_kavner_2011_bm2_mgd_candidate"
+   ],
+   "notes": "Factual transcription; source errors and calculated/extrapolated status are preserved. See ferrous-ringwoodite-source.json and ferrous-ringwoodite.LICENSE.md. Linked data do not imply recovery of the complete historical author input or exact row mask."
+  },
+  {
+   "identifier": "ferrous_ringwoodite_finger_1979_table2",
+   "kind": "pressure_volume_structure",
+   "source_location": "Table 2, page 1005: all three Fe2SiO4 rows, triclinic lattice refinements and estimated standard deviations",
+   "reference": {
+    "authors": [
+     "Finger, L. W.",
+     "Hazen, R. M.",
+     "Yagi, T."
+    ],
+    "year": 1979,
+    "title": "Crystal structures and electron densities of nickel and iron silicate spinels at elevated temperature or pressure",
+    "source": "American Mineralogist",
+    "volume": "64",
+    "locator": "1002-1009",
+    "url": "https://hazen.carnegiescience.edu/sites/default/files/043-FH-SiSpinels.pdf"
+   },
+   "columns": [
+    {
+     "name": "pressure_kbar",
+     "quantity": "pressure",
+     "unit": "kbar",
+     "role": "value"
+    },
+    {
+     "name": "pressure_esd_kbar",
+     "quantity": "pressure",
+     "unit": "kbar",
+     "role": "standard_deviation"
+    },
+    {
+     "name": "a1_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "a1_esd_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "standard_deviation"
+    },
+    {
+     "name": "a2_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "a2_esd_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "standard_deviation"
+    },
+    {
+     "name": "a3_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    },
+    {
+     "name": "a3_esd_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "standard_deviation"
+    },
+    {
+     "name": "alpha1_deg",
+     "quantity": "lattice_angle",
+     "unit": "degree",
+     "role": "value"
+    },
+    {
+     "name": "alpha1_esd_deg",
+     "quantity": "lattice_angle",
+     "unit": "degree",
+     "role": "standard_deviation"
+    },
+    {
+     "name": "alpha2_deg",
+     "quantity": "lattice_angle",
+     "unit": "degree",
+     "role": "value"
+    },
+    {
+     "name": "alpha2_esd_deg",
+     "quantity": "lattice_angle",
+     "unit": "degree",
+     "role": "standard_deviation"
+    },
+    {
+     "name": "alpha3_deg",
+     "quantity": "lattice_angle",
+     "unit": "degree",
+     "role": "value"
+    },
+    {
+     "name": "alpha3_esd_deg",
+     "quantity": "lattice_angle",
+     "unit": "degree",
+     "role": "standard_deviation"
+    },
+    {
+     "name": "volume_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "value"
+    },
+    {
+     "name": "volume_esd_a3",
+     "quantity": "conventional_unit_cell_volume",
+     "unit": "angstrom^3",
+     "role": "standard_deviation"
+    },
+    {
+     "name": "mean_a_angstrom",
+     "quantity": "lattice_parameter",
+     "unit": "angstrom",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/ferrous-ringwoodite-finger-1979-table2.csv",
+    "sha256": "4c25f6e674342aabd492f7ed51495cbeaad6404e38831da6af72031bc190a909",
+    "media_type": "text/csv"
+   },
+   "row_count": 3,
+   "used_by_eos_records": [
+    "ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction"
+   ],
+   "notes": "Factual transcription; source errors and calculated/extrapolated status are preserved. See ferrous-ringwoodite-source.json and ferrous-ringwoodite.LICENSE.md. Linked data do not imply recovery of the complete historical author input or exact row mask."
+  },
+  {
+   "identifier": "ferrous_ringwoodite_armentrout_2011_figure1_checkpoints",
+   "kind": "digitized_model_curve",
+   "source_location": "Figure 1: 12 raster-digitized curve checkpoints (300,1000,1500,2000 K at 15,20,25 GPa); not observations",
+   "reference": {
+    "authors": [
+     "Armentrout, M.",
+     "Kavner, A."
+    ],
+    "year": 2011,
+    "title": "High pressure, high temperature equation of state for Fe2SiO4 ringwoodite and implications for the Earth's transition zone",
+    "source": "Geophysical Research Letters",
+    "volume": "38",
+    "locator": "L08309",
+    "doi": "10.1029/2011GL046949"
+   },
+   "columns": [
+    {
+     "name": "pressure_gpa",
+     "quantity": "pressure",
+     "unit": "GPa",
+     "role": "value"
+    },
+    {
+     "name": "temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    },
+    {
+     "name": "pixel_x",
+     "quantity": "raster_coordinate",
+     "unit": "pixel",
+     "role": "value"
+    },
+    {
+     "name": "pixel_y",
+     "quantity": "raster_coordinate",
+     "unit": "pixel",
+     "role": "value"
+    },
+    {
+     "name": "digitized_volume_ratio",
+     "quantity": "volume_ratio",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "volume_ratio_tolerance",
+     "quantity": "volume_ratio",
+     "unit": "1",
+     "role": "uncertainty"
+    }
+   ],
+   "resource": {
+    "path": "datasets/ferrous-ringwoodite-armentrout-2011-figure1-checkpoints.csv",
+    "sha256": "348585a167240ba5ceb0f93b2da63b393a51f4bb0406d7eab8b273d84e7f1690",
+    "media_type": "text/csv"
+   },
+   "row_count": 12,
+   "used_by_eos_records": [],
+   "notes": "Factual transcription; source errors and calculated/extrapolated status are preserved. See ferrous-ringwoodite-source.json and ferrous-ringwoodite.LICENSE.md. Linked data do not imply recovery of the complete historical author input or exact row mask."
+  },
+  {
+   "identifier": "ferrous_ringwoodite_armentrout_2011_figure_s1_temperatures",
+   "kind": "published_temperature_checkpoints",
+   "source_location": "Official FigureS1: all9 printed cycle2 temperature labels, visually transcribed from the primary raster figure. Not additional independent temperature measurements.",
+   "reference": {
+    "authors": [
+     "Armentrout, M.",
+     "Kavner, A."
+    ],
+    "year": 2011,
+    "title": "High pressure, high temperature equation of state for Fe2SiO4 ringwoodite and implications for the Earth's transition zone",
+    "source": "Geophysical Research Letters",
+    "volume": "38",
+    "locator": "L08309",
+    "doi": "10.1029/2011GL046949"
+   },
+   "columns": [
+    {
+     "name": "measurement",
+     "quantity": "measurement_identifier",
+     "unit": "1",
+     "role": "value"
+    },
+    {
+     "name": "published_figure_s1_temperature_k",
+     "quantity": "temperature",
+     "unit": "K",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/ferrous-ringwoodite-armentrout-2011-figure-s1-temperatures.csv",
+    "sha256": "ac2159ce41923927218a630e8465767acde9d0b8188dd4645139b70e4ea96e0b",
+    "media_type": "text/csv"
+   },
+   "row_count": 9,
+   "used_by_eos_records": [],
+   "notes": "Source labels confirm the rounded arithmetic mean of upstream/downstream TableS1 temperatures. Rounding of0.5K is upwards; no invented rowwise temperature error."
+  },
+  {
+   "identifier": "ferrous_ringwoodite_stixrude_2005_parameters",
+   "kind": "published_parameters",
+   "reference": {
+    "authors": [
+     "Stixrude, L.",
+     "Lithgow-Bertelloni, C."
+    ],
+    "year": 2005,
+    "title": "Thermodynamics of mantle minerals - I. Physical properties",
+    "doi": "10.1111/j.1365-246X.2005.02642.x",
+    "source": "Geophysical Journal International",
+    "volume": "162",
+    "locator": "610-632"
+   },
+   "source_location": "TableA1 p631 Fe-ringwoodite row; Appendix p630",
+   "columns": [
+    {
+     "name": "parameter",
+     "quantity": "supporting_source_field",
+     "unit": "as_declared_in_resource",
+     "role": "value"
+    },
+    {
+     "name": "value",
+     "quantity": "supporting_source_field",
+     "unit": "as_declared_in_resource",
+     "role": "value"
+    },
+    {
+     "name": "reported_error",
+     "quantity": "supporting_source_field",
+     "unit": "as_declared_in_resource",
+     "role": "value"
+    },
+    {
+     "name": "unit",
+     "quantity": "supporting_source_field",
+     "unit": "as_declared_in_resource",
+     "role": "value"
+    },
+    {
+     "name": "from_systematics",
+     "quantity": "supporting_source_field",
+     "unit": "as_declared_in_resource",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/ferrous-ringwoodite-stixrude-2005-table-a1.csv",
+    "sha256": "7d9cd4824d0c915eb4c0066f23c5fed149b7dc96d9a0520083c2736d499d3530",
+    "media_type": "text/csv"
+   },
+   "row_count": 9,
+   "used_by_eos_records": [],
+   "notes": "Upstream parameters only, never observation rows or2011 substitutes. Reported100K theta uncertainty is retained separately;2011 uses fixed685K."
+  },
+  {
+   "identifier": "ferrous_ringwoodite_armentrout_2012_residual_checkpoints",
+   "kind": "graphical_residual_checkpoints",
+   "reference": {
+    "authors": [
+     "Armentrout, M. M."
+    ],
+    "year": 2012,
+    "title": "High pressure and temperature equations of state: A tool for insight into deep Earth systems",
+    "url": "https://escholarship.org/uc/item/387964f3",
+    "source": "University of California, Los Angeles doctoral dissertation"
+   },
+   "source_location": "Figure9 p31; PDF page40 in repository-cover version",
+   "columns": [
+    {
+     "name": "measurement",
+     "quantity": "supporting_source_field",
+     "unit": "as_declared_in_resource",
+     "role": "value"
+    },
+    {
+     "name": "pixel_x",
+     "quantity": "supporting_source_field",
+     "unit": "as_declared_in_resource",
+     "role": "value"
+    },
+    {
+     "name": "pixel_y",
+     "quantity": "supporting_source_field",
+     "unit": "as_declared_in_resource",
+     "role": "value"
+    },
+    {
+     "name": "digitized_pressure_gpa",
+     "quantity": "supporting_source_field",
+     "unit": "as_declared_in_resource",
+     "role": "value"
+    },
+    {
+     "name": "digitized_residual_gpa",
+     "quantity": "supporting_source_field",
+     "unit": "as_declared_in_resource",
+     "role": "value"
+    },
+    {
+     "name": "residual_tolerance_gpa",
+     "quantity": "supporting_source_field",
+     "unit": "as_declared_in_resource",
+     "role": "value"
+    }
+   ],
+   "resource": {
+    "path": "datasets/ferrous-ringwoodite-armentrout-2012-figure9-checkpoints.csv",
+    "sha256": "36d8ca74b11871ad838b0526734a8f2bdd84f571d1c90236222dd113a9f60696",
+    "media_type": "text/csv"
+   },
+   "row_count": 2,
+   "used_by_eos_records": [],
+   "notes": "Two digitized published residual symbols, not recovered numerical observations; never used for fitting. Tolerance0.10GPa is a declared graphical comparison tolerance."
+  }
+ ],
+ "aliases": [
+  "Fe-ringwoodite",
+  "Ahrensite"
+ ]
+}

@@ -13,7 +13,7 @@ agreement, source verification, author-workflow reproduction and recommendation 
 | EOS record | Recorded outcome | Coefficient comparison |
 | --- | --- | --- |
 | [data from JCPDS and Levien and Prewitt, 1981](#record-coesite_levien_1981_bm3_1) | Numerically similar, with qualifications | Graph and table |
-| [Bykova et al. (2018), combined coesite-I/II/III 300 K BM3](#record-coesite_i_iii_bykova_2018_300k_bm3) | Parity not achieved for this comparison | Graph and table |
+| [Bykova et al. (2018), combined coesite-I/II/III 300 K BM3](#record-coesite_i_iii_bykova_2018_300k_bm3) | Coefficient parity achieved | Graph and table |
 
 <a id="record-coesite_levien_1981_bm3_1"></a>
 
@@ -120,10 +120,10 @@ Supporting reports retain additional source plots and protocol-specific diagnost
 
 Record: `coesite_i_iii_bykova_2018_300k_bm3` · Model: `BM3`
 
-**Outcome: Parity not achieved for this comparison.**
+**Outcome: Coefficient parity achieved.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** Conditional partial reproduction. The 24 exact bundled rows are the complete numerical subset recovered from Bykova et al. Supplementary Table 2 and the exact table in their cited Cernok et al. diffraction work. Several current-study coesite-I points used by the source remain plot-only, and the source does not report its objective or weights. The unweighted pressure-residual diagnostic therefore tests the documented phase selection without claiming recovery of the unavailable full fit.
+**Comparison basis:** Agreement at the source's printed decimal precision.
 
 [Stored EOS coefficients and source](../material-summaries/coesite.md#record-coesite_i_iii_bykova_2018_300k_bm3)
 
@@ -132,15 +132,17 @@ Record: `coesite_i_iii_bykova_2018_300k_bm3` · Model: `BM3`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
+- Central-coefficient parity is achieved; the author's fit values are reproduced at reported precision. Published central coefficients are reproduced on the recovered 22-row EoSFit export: 21 measured entries plus the derived Cernok (2014) fitted ambient anchor, not 22 independent measurements. All three BM3 coefficients vary, but the anchor's tiny sigma\_P effectively pins V0 in the author-communicated pressure-only 1/sigma\_P^2 objective; sigma\_V is preserved but not propagated. Current-study V/Z is rounded to 0.1 A3 per formula unit. Original EoSFit settings, sigma\_V treatment and covariance/uncertainty parity remain unverified. The older 24-row unweighted failure is a separate historical diagnostic, not the source fit-input reconstruction. Published coefficients are unchanged; this finding does not establish physical accuracy or recommendation.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
 
-- **Dataset identifiers:** coesite\_i\_ii\_cernok\_2014\_table1\_pv; coesite\_ii\_iii\_bykova\_2018\_table2\_pv
-- **Observations:** 24
+- **Dataset identifiers:** coesite\_i\_iii\_bykova\_2018\_author\_fit\_export
+- **Observations:** 22
 - **Fit kind:** isothermal\_pv
-- **Selection:** all rows
-- **Objective:** pressure\_residuals
+- **Selection:** All 22 original EoSFit Group 1 inputs: 21 measured entries plus point 15, a derived literature ambient EOS anchor.
+- **Objective:** weighted\_pressure\_residuals
+- **Weighting:** Sum\[(P\_BM3 - P\_export)^2 / sigma\_P\_export^2\]; sigma\_V preserved but not used. Derived anchor sigma\_P=0.0001 GPa effectively pins V0.
 - **Absolute sigma:** True
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
@@ -154,12 +156,14 @@ Unspecified selections, weights, fixed values or error conventions remain unknow
 
 | Fit | Pressure RMS error (GPa) |
 | --- | ---: |
-| Original / source fit | 1.27 |
-| Reconstruction / refit | 0.697 |
+| Original / source fit | 0.498 |
+| Reconstruction / refit | 0.483 |
 
-Both fits use the same 24 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+Both fits use the same 22 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
 
-**Volume coordinate:** volume\_a3\_z16\_equivalent\_cell. **Row selection:** all rows; all rows.
+**Volume coordinate:** volume\_a3\_z16\_equivalent\_cell. **Row selection:** all rows.
+
+The 22 audit inputs contain 21 measured entries and one derived ambient EOS anchor (export point 15), not 22 independent measurements. The fit uses sigma\_P only; displayed sigma\_V is preserved but not propagated. Published rounded coefficients and the reconstructed coefficients are evaluated on the same literal author-export coordinates.
 
 Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
 
@@ -175,9 +179,9 @@ no confidence interval or uncertainty band is inferred. Fixed/adopted values are
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 547.20 | 0.16 | 542.2 | 2.6 | Free |
-| K0 | 103.0 | 2.0 | 126 | 8 | Free |
-| K0\_prime | 3.02 | 0.15 | 1.70 | 0.26 | Free |
+| V0 | 547.20 | 0.16 | 547.265 | Not reported | Free |
+| K0 | 103.0 | 2.0 | 102.729 | Not reported | Free |
+| K0\_prime | 3.02 | 0.15 | 3.02448 | Not reported | Free |
 
 Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
@@ -188,23 +192,24 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 - **Columns:**
     - **Pressure:** pressure\_gpa
     - **Temperature:** Not specified
-    - **Volume:** volume\_a3\_conventional\_cell
-- **Observed pressure range gpa:** 2.42; 36.9
-- **Observed temperature range k:** Not specified
-- **Observed volume range:** 418.4; 534.1
-- **Degrees of freedom:** 21
+    - **Volume:** volume\_a3\_z16\_equivalent\_cell
+- **Observed pressure range gpa:** 0.0001; 36.864
+- **Observed volume range:** 425.6; 547.264
+- **Degrees of freedom:** 19
 - **Solver success:** True
-- **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.69677
-- **Published rmse gpa:** 1.26981
-- **Reduced chi square:** 0.554844
+- **Rmse gpa:** 0.482968
+- **Published rmse gpa:** 0.497815
+- **Parameter covariance:** Not specified
+- **Covariance convention:** Reconstruction errors/covariance and original confidence convention are not established. No combined-two-sigma or uncertainty-parity claim; absolute\_sigma describes the declared pressure weights only.
+- **Comparison scope:** Central-coefficient parity is achieved; the author's fit values are reproduced at reported precision. The recovered 22 author-export inputs include a derived ambient anchor. Uncertainty/covariance parity and every original EoSFit configuration detail remain unverified.
+- **Reproduction report:** docs/literature-reproductions/bykova-2018-author-fit.md
 
 </details>
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-coesite_i_iii_bykova_2018_300k_bm3).
-- [Related illustrated report explicitly naming this EOS: bykova-2018-other-eos-audit](../literature-reproductions/bykova-2018-other-eos-audit.md).
+- [Supporting source report: bykova-2018-author-fit](../literature-reproductions/bykova-2018-author-fit.md).
+- [Supporting source report: bykova-2018-other-eos-audit](../literature-reproductions/bykova-2018-other-eos-audit.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 

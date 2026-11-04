@@ -57,6 +57,70 @@ If the default uv cache is unavailable in a sandbox:
 UV_CACHE_DIR=/tmp/peritheos-uv-cache uv run pytest -q
 ```
 
+## Continuous integration
+
+Routine pushes to `main` and pull requests run four Linux jobs:
+
+- the core compatibility suite on Python 3.13;
+- workspace tests, formatting and Clippy on stable Rust;
+- Python lint and formatting on Python 3.13;
+- typing on Python 3.9, the minimum supported Python version.
+
+The full matrix runs 21 jobs. It runs the complete Python suite on versions
+3.9 through 3.14, with the Python 3.13 run enforcing the 90% coverage floor.
+It adds Rust 1.83, Rust documentation and crate-package verification, the 85%
+Rust coverage floor, dependency license/source policy, strict documentation,
+Linux distribution validation, macOS/Windows tests and installed wheels,
+free-threaded Python 3.14, and minimum direct dependencies on Linux and macOS.
+
+This full matrix runs weekly on Monday at 05:23 UTC on the default branch.
+To run it on a particular branch, open **Actions → CI → Run workflow**, select
+the branch, and enable **Run the full compatibility matrix**. Require this full
+run to pass on the intended release commit before tagging a release. A manual
+run without that option uses the four-job routine matrix. Complete literature
+replays and aggregate coverage are checked in full runs, rather than on every
+push or pull-request update.
+
+In full runs, Python 3.13 coverage also supplies its regular test result, and
+Linux package validation supplies its wheel smoke test, so neither needs a
+duplicate job.
+Rust dependency builds and the pinned coverage tool are cached, with separate
+keys for Python ABIs. Numerical libraries use one thread per process to avoid
+CPU oversubscription on small hosted runners. Superseded runs in the same
+branch and matrix mode are cancelled; a full compatibility run is kept separate
+from routine runs.
+
+### Test selection and profiling
+
+The routine Python job uses the explicit module list in
+`.github/pytest-compatibility.ini`. It covers the public API, isothermal and
+thermal models, native/Python parity, fitting, uncertainty, units, pressure
+calibration, and EOSMAT/catalog/data compatibility. Paper-specific literature
+replays and generated-report checks run in the complete weekly and manual
+matrix, including the Python 3.13 coverage job. Add tests for new
+library interfaces to this module list as part of implementing them.
+
+Run the same core selection locally from the repository root with:
+
+```bash
+uv run pytest -c .github/pytest-compatibility.ini --rootdir=. -q -W error --durations=30
+```
+
+Normal discovery is limited to `tests/`, so retained snapshots in temporary
+directories are not collected. Every CI test job prints its 30 slowest test
+phases. To profile the complete suite and retain per-test timing for comparison:
+
+```bash
+uv run pytest -q -W error --durations=30 --junitxml=/tmp/peritheos-test-profile.xml
+```
+
+Tests can request `reproduce_once` and call `reproduce_once(reproduce)` for an
+unchanged, no-argument audit. It computes a fresh result once per callable per
+session, then returns a deep copy to each consumer so edits cannot leak between
+tests. The cache is held only in test memory; saved reports and production audit
+functions are unchanged. Tests that alter input files, patch a solver, or verify
+repeatability must call their calculation directly instead.
+
 ## Documentation
 
 After editing material documents, keep the readable layout and generated views
@@ -136,8 +200,8 @@ ARM64, macOS Intel and Apple Silicon, and Windows x86-64. It builds the source
 distribution separately and smoke-tests every installed wheel outside the
 checkout before publication.
 
-Pull-request CI also builds and installs a real Python 3.13 wheel outside the
-checkout on Linux, macOS, and Windows. This catches artifact composition,
+The full CI matrix also builds and installs a real Python 3.13 wheel outside
+the checkout on Linux, macOS, and Windows. This catches artifact composition,
 platform tagging, and dynamic-library loading failures that an editable native
 test environment would not expose.
 
@@ -198,11 +262,26 @@ audit.
 Run the development, native, documentation and distribution checks above.
 Smoke-test the installed wheel outside the checkout, and validate both wheel
 and source-distribution metadata with Twine. Commit the completed changes,
-push `main`, and require its CI checks to pass before pushing an annotated
-`v<version>` tag. The tag starts `.github/workflows/publish.yml`, which checks
+push `main`, then manually run **CI** on that branch with **Run the full
+compatibility matrix** enabled. Require that full run to pass on the exact
+release commit before pushing an annotated `v<version>` tag. Routine CI alone
+does not perform the complete pre-release checks. The tag starts
+`.github/workflows/publish.yml`, which checks
 version/changelog consistency, builds and smoke-tests all supported platform
 wheels, publishes them to PyPI, and creates a GitHub release with the changelog
 notes and distribution artifacts. Verify both publication destinations before
 calling the release complete. A failed run can be restarted with the workflow's
 existing-tag `version` input; published version numbers are not reused for
 changed source.
+
+## Local research artifacts
+
+Keep downloaded publications, OCR intermediates, working archives, temporary
+plots and logs under the ignored `output/` directory or an external research
+archive. Ignoring an artifact does not back it up; preserve original evidence
+and its checksums separately.
+
+Version curated observations, provenance manifests, reusable replay scripts,
+audit notes and small deterministic inputs required by tests. Required checks
+must work from a fresh checkout without local publisher PDFs or scratch output.
+Published documentation figures remain versioned alongside their reports.

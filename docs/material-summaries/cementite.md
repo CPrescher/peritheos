@@ -21,8 +21,8 @@ and recommendation for use are distinct assessments.
 | Pressure unit | GPa |
 | Temperature unit | K |
 | Volume unit | Å³ per conventional unit cell |
-| Stored EOS records | 2 |
-| Observation datasets | 3 |
+| Stored EOS records | 4 |
+| Observation datasets | 5 |
 
 Cementite coordinates and ambient axial ratios are from Wood et al., J. Appl. Cryst. 37, 82-90 (2004), doi:10.1107/S0021889803024695. The c axis is normalized to Scott et al.'s EoS V0.
 
@@ -37,6 +37,8 @@ Cementite coordinates and ambient axial ratios are from Wood et al., J. Appl. Cr
 | --- | --- | --- | --- | --- |
 | [Scott et al. (2001), cementite BM3](#record-cementite_scott_2001_bm3_1) | BM3 | 300.0 | primary source validated | Executable |
 | [Prescher et al. (2012), full-range BM3 (adopted V0)](#record-cementite_prescher_2012_full_range_bm3) | BM3 | 293 | primary source validated | Executable |
+| [Li et al. (2002), 300 K BM3](#record-cementite_li_2002_bm3) | BM3 | 300 | primary source validated | Executable |
+| [Ono and Mibe (2010), original experimental 300 K BM3, below 35 GPa](#record-cementite_ono_mibe_2010_bm3) | BM3 | 300 | primary source validated | Executable; see usage qualifications |
 
 ### Reference coefficients
 
@@ -44,6 +46,8 @@ Cementite coordinates and ambient axial ratios are from Wood et al., J. Appl. Cr
 | --- | --- | --- | --- |
 | [Scott et al. (2001), cementite BM3](#record-cementite_scott_2001_bm3_1) | 155.26 ± 0.14 (fixed) | 175.4 ± 3.5 | 5.1 ± 0.3 |
 | [Prescher et al. (2012), full-range BM3 (adopted V0)](#record-cementite_prescher_2012_full_range_bm3) | 154.5678863704812 (fixed) | 161 ± 2 | 5.9 ± 0.2 |
+| [Li et al. (2002), 300 K BM3](#record-cementite_li_2002_bm3) | 155.28 ± 0.11 (fixed) | 174 ± 6 | 4.8 ± 0.8 |
+| [Ono and Mibe (2010), original experimental 300 K BM3, below 35 GPa](#record-cementite_ono_mibe_2010_bm3) | 155.4 ± 0.2 | 167 | 6.7 |
 
 Errors are shown only when supplied, with their source meaning; a bare
 central value does not imply zero uncertainty. A dash means this parameter
@@ -93,17 +97,18 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** parity.
+**Outcome:** similar.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+**Comparison basis:** Qualified similarity of a digitized, equal-weight reconstruction. Both free central coefficients lie outside their printed source error widths; the broad combined-error screen does not establish coefficient parity.
 
 [Open reconstruction report](../reconstruction-reports/cementite.md#record-cementite_scott_2001_bm3_1)
 
-Original audit code: `parity`.
+Original audit code: `similar`.
 
 **Limitations and qualifications:**
 
+- Scott et al. (2001), page 1876 and Figure 3, report weighted least squares on observations from two runs. Only 21 digitized filled-symbol observations are available here; the open temperature-quenched point is excluded. Incomplete digitized coordinate error bars cause the generic row reader to omit both sigma arrays, so this reconstruction uses equal pressure weights. Its retained errors use residual-scaled covariance because no observation sigmas are supplied, even though the generic ledger records absolute\_sigma=True. They are not recovered source weights or a source confidence interval. The original row array, run identities, weights, covariance and precise objective remain unavailable. The source coefficients and digitization are preserved; this finding does not show that the published EOS is incorrect.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -130,6 +135,7 @@ Displayed uncertainties use two significant digits for leading 1/2, otherwise on
     - **Pressure:** pressure\_gpa
     - **Temperature:** Not specified
     - **Volume:** volume\_ratio
+- **Weighting:** Equal pressure weights; incomplete plotted errors are not used as fit sigmas. Refit covariance is scaled by residual variance.
 - **Absolute sigma:** True
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
@@ -143,7 +149,9 @@ Displayed uncertainties use two significant digits for leading 1/2, otherwise on
 - **Rmse gpa:** 1.55181
 - **Published rmse gpa:** 1.65742
 - **Reduced chi square:** 2.66161
+- **Covariance convention:** Residual-scaled inverse normal matrix; no measured sigma arrays supplied. The fitting API scales covariance in that case regardless of absolute\_sigma.
 - **Dataset identifiers:** cementite\_scott\_2001\_figure3\_digitized
+- **Reproduction report:** docs/literature-reproductions/cementite.md
 
 </details>
 
@@ -373,6 +381,331 @@ Parameter covariance is not supplied.
 
 </details>
 
+<a id="record-cementite_li_2002_bm3"></a>
+
+## Li et al. (2002), 300 K BM3
+
+Identifier: `cementite_li_2002_bm3`.
+
+Availability: **Executable**.
+
+
+- **Record kind:** published
+- **Origin of the parameterization:** experimental
+- **Reference:**
+    - **Authors:** J. Li; H. K. Mao; Y. Fei; E. Gregoryanz; M. Eremets; C. S. Zha
+    - **Year:** 2002
+    - **Title:** Compression of Fe3C to 30 GPa at room temperature
+    - **Source:** Physics and Chemistry of Minerals
+    - **Volume:** 29
+    - **Issue:** 3
+    - **Locator:** 166-169
+    - **DOI:** 10.1007/s00269-001-0224-4
+- **Reference temperature (K):** 300
+- **Reported pressure coverage (GPa):** \[0.0001, 30.5\]
+- **Coverage provenance:** reported\_exactly
+- **Reported temperature coverage (K):** \[299, 301\]
+- **Reported error confidence level:** Not specified
+
+| Component | Parameter | Value | Reported error | Fixed |
+| --- | --- | --- | --- | --- |
+| Primary | V0 | 155.28 | 0.11 | Yes |
+| Primary | K0 | 174 | 6 | Not listed |
+| Primary | K0\_prime | 4.8 | 0.8 | Not listed |
+
+Values use the source model's parameter units. Primary `V0` uses
+the conventional-cell volume declared above. Errors retain their reported
+meaning; an absent error is unknown, and absence of covariance does not
+establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
+
+[Open reconstruction report](../reconstruction-reports/cementite.md#record-cementite_li_2002_bm3)
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Conditional parameter parity compares K0 and K0\_prime within the printed source error widths using all 12 nonambient Table 1 observations. Measured V0=155.28(11) A^3 per conventional Pnma Fe3C cell (Z=4) is fixed as in the source, not independently recovered by the fit. Published errors have unspecified confidence. The diagnostic effective-variance objective treats printed pressure and volume widths as if independent standard errors; its unscaled inverse-JtJ covariance is conditional. Original residual direction, weights, covariance, confidence convention and fit project are unavailable. Fixed-V0 uncertainty and shared calibration errors are not propagated. Original ruby wavelengths and separate ruby/neon pressure arrays are missing, so the pressure averaging cannot be replayed. Original-scale published coefficients and observations are preserved; Litasov (2013) recalibrated comparison coefficients are not substituted. This is not author-workflow reproduction, magnetic-phase validation or a recommendation for extrapolation.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 174 | 6 | 174 | 6 | Free |
+| K0\_prime | 4.8 | 0.8 | 4.8 | 0.8 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** effective\_variance\_pressure\_residuals
+- **Selection:** Table 1 rows 3-14; reference-card row 1 excluded; measured ambient row 2 supplies fixed V0 only
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3
+- **Weighting:** rP/sqrt(sP^2+(dP/dV\*sV)^2), parameter-dependent, with printed widths conditionally treated as independent standard errors; no log-variance term
+- **Absolute sigma:** True
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Fixed values:**
+    - **V0:** 155.28
+- **Observations:** 12
+- **Observed pressure range gpa:** 2.5; 30.5
+- **Observed temperature range k:** \[300, 300\]
+- **Observed volume range:** 136.68; 153.04
+- **Degrees of freedom:** 10
+- **Solver success:** True
+- **Rmse gpa:** 0.257417
+- **Published rmse gpa:** 0.263393
+- **Rmse volume a3:** 0.141249
+- **Reduced chi square:** Not specified
+- **Parameter covariance:** \[\["38.3945", "-4.46696"\], \["-4.46696", "0.600521"\]\]
+- **Covariance convention:** Conditional unscaled inverse JtJ for the declared effective-variance residual; source confidence and shared covariance unknown, fixed-V0 uncertainty unpropagated
+- **Comparison scope:** parameter\_agreement
+- **Dataset identifiers:** cementite\_li\_2002\_table1
+- **Reproduction report:** docs/literature-reproductions/li-2002-fe3c.md
+
+</details>
+
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+Conditional parameter parity compares K0 and K0\_prime within the printed source error widths using all 12 nonambient Table 1 observations. Measured V0=155.28(11) A^3 per conventional Pnma Fe3C cell (Z=4) is fixed as in the source, not independently recovered by the fit. Published errors have unspecified confidence. The diagnostic effective-variance objective treats printed pressure and volume widths as if independent standard errors; its unscaled inverse-JtJ covariance is conditional. Original residual direction, weights, covariance, confidence convention and fit project are unavailable. Fixed-V0 uncertainty and shared calibration errors are not propagated. Original ruby wavelengths and separate ruby/neon pressure arrays are missing, so the pressure averaging cannot be replayed. Original-scale published coefficients and observations are preserved; Litasov (2013) recalibrated comparison coefficients are not substituted. This is not author-workflow reproduction, magnetic-phase validation or a recommendation for extrapolation. Eq. (2) approximates the 1-bar reference by zero pressure. The source is a 300 K isotherm; the 299-301 K range records reported room-temperature variation, not a thermal model. No crystallographic transition was observed to 30.5 GPa; the magnetic state was not measured. The material's structural reference cell is independent of this EOS V0.
+
+Parameter covariance is not supplied.
+
+
+<details markdown="1">
+<summary>Scientific validation and usage qualifications</summary>
+
+- **Status:** primary\_source\_validated
+- **Audit date:** 2026-10-30
+- **Note:** Primary equation, original coefficients/errors, fixed measured V0 and original pressure basis verified. Five source-curve checkpoints pass their declared 0.12 A^3 reading bound; conditional K0/K0\_prime parity is separate from author-workflow and physical validation.
+- **Verified fields:** equation; parameters; reported\_errors; fixed\_V0; units; reference\_state; volume\_basis; source\_curve\_checkpoints; primary\_table; pressure\_basis
+- **Primary source check:**
+    - **DOI:** 10.1007/s00269-001-0224-4
+    - **Access URL:** https://doi.org/10.1007/s00269-001-0224-4
+    - **Locations:** pp. 166-168, abstract, Table 1, Eq. (1)-(2), Figure 2
+    - **Source pdf sha256:** 3b4761baa81a3e4bd419f8e93d5e453d7c5d7c2b64b400514d0f468dbcb211af
+    - **Finding:** Published BM3 coefficients preserved with measured V0 fixed; direct source-equation and conditional coefficient checks pass. See docs/literature-reproductions/li-2002-fe3c.md
+- **Primary data check:**
+    - **Status:** primary\_table
+    - **Dataset identifiers:** cementite\_li\_2002\_table1
+    - **Finding:** All 14 Table 1 rows, source tokens and errors retained. Row 1 is a reference card; row 2 is the measured anchor; rows 3-14 are the 12 nonambient fit observations. Ten paired neon lattice parameters retained.
+- **Unresolved:** Conditional parameter parity compares K0 and K0\_prime within the printed source error widths using all 12 nonambient Table 1 observations. Measured V0=155.28(11) A^3 per conventional Pnma Fe3C cell (Z=4) is fixed as in the source, not independently recovered by the fit. Published errors have unspecified confidence. The diagnostic effective-variance objective treats printed pressure and volume widths as if independent standard errors; its unscaled inverse-JtJ covariance is conditional. Original residual direction, weights, covariance, confidence convention and fit project are unavailable. Fixed-V0 uncertainty and shared calibration errors are not propagated. Original ruby wavelengths and separate ruby/neon pressure arrays are missing, so the pressure averaging cannot be replayed. Original-scale published coefficients and observations are preserved; Litasov (2013) recalibrated comparison coefficients are not substituted. This is not author-workflow reproduction, magnetic-phase validation or a recommendation for extrapolation.
+
+</details>
+
+
+<details markdown="1">
+<summary>Pressure calibration</summary>
+
+- **Status:** resolved
+- **Audit date:** 2026-10-30
+- **Methods:**
+    - **Kind:** ruby\_fluorescence
+    - **Source location:** p. 167, Eq. (1)
+    - **Reference:**
+        - **Authors:** Zha; Mao; Hemley
+        - **Year:** 2000
+        - **Title:** Elasticity of MgO and a primary pressure scale to 55 GPa
+        - **Source:** PNAS 97, 13494-13499
+    - **Parameters:**
+        - **A gpa:** 1904
+        - **B:** 7.715
+        - **Reference wavelength nm:** 694.3
+    - **Equation:** P=(A/B)\*((1+delta\_lambda/lambda0)^B-1)
+    - **Notes:** Original Li/Zha constants; no approximate bundled ruby-scale substitution.
+    - **Kind:** equation\_of\_state
+    - **Source location:** p. 167, Results and discussion; paired Ne lattice parameters in Table 1
+    - **Reference:**
+        - **Authors:** Hemley; Zha; Jephcoat; Mao; Finger
+        - **Year:** 1989
+        - **Title:** X-ray diffraction and equation of state of solid neon to 110 GPa
+        - **Source:** Physical Review B 39, 11820-11827
+    - **Scope:** Neon-bearing rows at and above 7.9 GPa
+    - **Notes:** Use original Hemley (1989) calibration in source pressure average; no link to a later Fei-recalibrated or independently refitted neon EOS is asserted.
+- **Recalculation:**
+    - **Status:** missing\_calibrant\_observations
+    - **Notes:** Ne lattice parameters retained, but original ruby wavelengths and separate ruby/neon pressure arrays are absent; no pressure recalculation applied.
+- **Notes:** Neon medium. Source uses the average of neon and ruby pressures where neon diffraction is available. Table 1 retains that original reduced pressure coordinate. Magnetic stability and hydrostatic accuracy are not independently validated.
+
+</details>
+
+
+<details markdown="1">
+<summary>Parameter provenance</summary>
+
+- **Origin of the parameterization:** p. 166-168: polycrystalline XRD compression and least-squares BM3 fit at 300 K; measured ambient V0 constrained.
+- **V0:** Table 1 measured ambient row 2: 155.28(11) A^3; fixed choice stated in abstract and p. 168 beside Eq. (2).
+- **K0:** p. 168, paragraph following Eq. (2), and abstract: 174 +/- 6 GPa.
+- **K0 prime:** p. 168, paragraph following Eq. (2), and abstract: 4.8 +/- 0.8.
+- **Reference state:** 1 bar and 300 K; Eq. (2) sets P(V0)=0 as the negligible-1-bar approximation. Conventional Pnma Fe3C cell, Z=4; no conversion of source cell volumes.
+- **Uncertainty:** Printed widths retained; confidence and source covariance not reported. V0 error is a measured anchor error despite its fixed fit status.
+
+</details>
+
+<a id="record-cementite_ono_mibe_2010_bm3"></a>
+
+## Ono and Mibe (2010), original experimental 300 K BM3, below 35 GPa
+
+Identifier: `cementite_ono_mibe_2010_bm3`.
+
+Availability: **Executable; see usage qualifications**.
+
+**Usage qualification:** qualified\_use
+
+
+- **Record kind:** published
+- **Origin of the parameterization:** experimental
+- **Reference:**
+    - **Authors:** Ono, S.; Mibe, K.
+    - **Year:** 2010
+    - **Title:** Magnetic transition of iron carbide at high pressures
+    - **Source:** Physics of the Earth and Planetary Interiors
+    - **Volume:** 180
+    - **Locator:** 1-6
+    - **DOI:** 10.1016/j.pepi.2010.03.008
+- **Reference temperature (K):** 300
+- **Reported pressure coverage (GPa):** \[0, 34.3\]
+- **Coverage provenance:** reported\_exactly
+- **Reported temperature coverage (K):** \[300, 300\]
+- **Validity:**
+    - **Pressure gpa:** \[0, 34.3\]
+    - **Temperature k:** \[300, 300\]
+    - **Notes:** Source Table 3 says &lt;=35 GPa; actual last fit-domain measurement is 34.3 GPa. All 14 measurements extend to 66.5 GPa but do not validate this branch there.; Source-assigned low-pressure ferromagnetic branch; no magnetic stability boundary is implemented. Annealing at 1500-2000 K precedes room-temperature XRD and is not thermal EOS coverage.
+- **Reported error confidence level:** Not specified
+
+| Component | Parameter | Value | Reported error | Fixed |
+| --- | --- | --- | --- | --- |
+| Primary | V0 | 155.4 | 0.2 | Not listed |
+| Primary | K0 | 167 | Not reported | Not listed |
+| Primary | K0\_prime | 6.7 | Not reported | Not listed |
+
+Values use the source model's parameter units. Primary `V0` uses
+the conventional-cell volume declared above. Errors retain their reported
+meaning; an absent error is unknown, and absence of covariance does not
+establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** source reconstruction.
+**Scope:** source equation.
+
+**Comparison basis:** Source-equation parity against identified graphical checkpoints within declared reading and printed-coefficient bounds; no independent parameter refit or author-workflow reproduction.
+
+[Open reconstruction report](../reconstruction-reports/cementite.md#record-cementite_ono_mibe_2010_bm3)
+
+Original audit code: `source_reconstruction`.
+
+**Limitations and qualifications:**
+
+- Original experimental BM3 at 300 K, restricted to the below-35-GPa fit (last measured fit point 34.3 GPa). V0=155.4(2) A^3 is adopted from the measured Table 1 ambient cell and checked against Figure 4; the paper does not explicitly state its V0 fitting constraint. K0=167 GPa and K0\_prime=6.7 are the original Table 3 values, without reported coefficient errors. Source-equation agreement is checked at graphical resolution; the separate fixed-anchor equal-pressure refit is diagnostic, not coefficient parity or recovery of author weights. Original pressures and all 14 measurements are preserved. No Litasov recalibration, 0 K DFT branch, high-pressure magnetic transition model or thermal extrapolation is substituted. Use original experimental curve within 300 K and 0-34.3 GPa; ambient anchor adoption and unavailable author fit details remain explicit.
+- Use original experimental curve within 300 K and 0-34.3 GPa; ambient anchor adoption and unavailable author fit details remain explicit.
+- Usage recommendation: qualified\_use
+- Original V0 fitting constraint, objective, weights, coefficient errors and covariance are not reported.
+- NaCl readings needed for a fit-domain pressure recalculation are not supplied.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+
+<details markdown="1">
+<summary>Reconstruction protocol and available diagnostics</summary>
+
+- **Fit kind:** source\_curve\_validation\_only
+- **Selection:** Original experimental fit &lt;35 GPa; adopted measured ambient V0; five nonambient rows through 34.3 GPa
+- **Fixed parameters:** None declared
+- **Observations:** 5
+- **Published rmse gpa:** 0.410153
+- **Comparison scope:** source\_equation
+- **Dataset identifiers:** cementite\_ono\_mibe\_2010\_table1
+- **Reproduction report:** docs/literature-reproductions/ono-mibe-2010-fe3c.md
+
+</details>
+
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+Original experimental BM3 at 300 K, restricted to the below-35-GPa fit (last measured fit point 34.3 GPa). V0=155.4(2) A^3 is adopted from the measured Table 1 ambient cell and checked against Figure 4; the paper does not explicitly state its V0 fitting constraint. K0=167 GPa and K0\_prime=6.7 are the original Table 3 values, without reported coefficient errors. Source-equation agreement is checked at graphical resolution; the separate fixed-anchor equal-pressure refit is diagnostic, not coefficient parity or recovery of author weights. Original pressures and all 14 measurements are preserved. No Litasov recalibration, 0 K DFT branch, high-pressure magnetic transition model or thermal extrapolation is substituted.
+
+Parameter covariance is not supplied.
+
+
+<details markdown="1">
+<summary>Scientific validation and usage qualifications</summary>
+
+- **Status:** primary\_source\_validated
+- **Audit date:** 2026-11-01
+- **Report path:** docs/literature-reproductions/ono-mibe-2010-fe3c.md
+- **Note:** Original experimental BM3 at 300 K, restricted to the below-35-GPa fit (last measured fit point 34.3 GPa). V0=155.4(2) A^3 is adopted from the measured Table 1 ambient cell and checked against Figure 4; the paper does not explicitly state its V0 fitting constraint. K0=167 GPa and K0\_prime=6.7 are the original Table 3 values, without reported coefficient errors. Source-equation agreement is checked at graphical resolution; the separate fixed-anchor equal-pressure refit is diagnostic, not coefficient parity or recovery of author weights. Original pressures and all 14 measurements are preserved. No Litasov recalibration, 0 K DFT branch, high-pressure magnetic transition model or thermal extrapolation is substituted.
+- **Usage recommendation:** qualified\_use
+- **Recommendation reason:** Use original experimental curve within 300 K and 0-34.3 GPa; ambient anchor adoption and unavailable author fit details remain explicit.
+- **Primary source check:**
+    - **Access URL:** https://doi.org/10.1016/j.pepi.2010.03.008
+    - **DOI:** 10.1016/j.pepi.2010.03.008
+    - **Locations:** Table 1 and Figure 4, p. 3; BM3 pressure equation, p. 4; Table 3, experimental row e, p. 5; Methods/Results, p. 2
+    - **Finding:** Original experimental BM3 at 300 K, restricted to the below-35-GPa fit (last measured fit point 34.3 GPa). V0=155.4(2) A^3 is adopted from the measured Table 1 ambient cell and checked against Figure 4; the paper does not explicitly state its V0 fitting constraint. K0=167 GPa and K0\_prime=6.7 are the original Table 3 values, without reported coefficient errors. Source-equation agreement is checked at graphical resolution; the separate fixed-anchor equal-pressure refit is diagnostic, not coefficient parity or recovery of author weights. Original pressures and all 14 measurements are preserved. No Litasov recalibration, 0 K DFT branch, high-pressure magnetic transition model or thermal extrapolation is substituted.
+- **Verified fields:** original\_experimental\_coefficients; adopted\_measured\_reference\_volume; BM3\_equation; source\_curve\_checkpoints; all\_Table1\_rows\_and\_errors; phase\_cell\_and\_limits; pressure\_scale\_provenance
+- **Primary data check:**
+    - **Status:** bundled
+    - **Dataset identifiers:** cementite\_ono\_mibe\_2010\_table1
+    - **Finding:** All 14 original Table 1 states and errors retained. Five nonambient rows used for a separate conditional fixed-anchor diagnostic; published curve checked independently against Figure 4.
+- **Unresolved:** Original V0 fitting constraint, objective, weights, coefficient errors and covariance are not reported.; NaCl readings needed for a fit-domain pressure recalculation are not supplied.
+
+</details>
+
+
+<details markdown="1">
+<summary>Pressure calibration</summary>
+
+- **Status:** partially\_resolved
+- **Audit date:** 2026-11-01
+- **Methods:**
+    - **Kind:** equation\_of\_state
+    - **Reference:**
+        - **Authors:** Brown, J. M.
+        - **Year:** 1999
+        - **Title:** The NaCl pressure standard
+        - **Source:** Journal of Applied Physics
+        - **Volume:** 86
+        - **Locator:** 5801-5808
+    - **Source location:** Methods p. 2 and Table 1 footnote: NaCl EOS of Brown (1999) and Ono et al. (2006)
+    - **Notes:** NaCl is the primary calibrant and pressure medium. Exact per-row calibrant observations and phase/scale assignment are not tabulated. No bundled scale substituted.
+- **Recalculation:**
+    - **Status:** missing\_calibrant\_observations
+    - **Notes:** No NaCl cell readings for the five fit-domain states. Figure 2 gives one B2 NaCl a=2.872 A at 58.5 GPa outside this fit, retained as provenance.
+- **Notes:** Preliminary ruby calibration cites Dorogokupets and Oganov (2007); final pressures are NaCl based. Original pressures retained; later Litasov (2013) scale/fit is separate.
+
+</details>
+
+
+<details markdown="1">
+<summary>Parameter provenance</summary>
+
+- **Origin of the parameterization:** Table 3 footnote e and Figure 4: experimental post-anneal XRD at 300 K, BM3 fit below 35 GPa; no theoretical coefficients included.
+- **V0:** Table 1 measured ambient volume 155.4(2) A^3 adopted as reference anchor; independently consistent with Figure 4 dashed curve. Original fit constraint is not explicit, so no fixed=true source claim.
+- **K0:** Table 3, ferromagnetic experimental this-study row e: 167 GPa; no error reported.
+- **K0 prime:** Table 3 same row: 6.7; no error reported.
+- **Equation:** Figure 4 caption: third-order Birch-Murnaghan; explicit pressure-volume expression p. 4 with x=(V/V0)^(1/3), identical to native BM3.
+- **Reference state:** Figure 4: experiment at 300 K. Table 1 ambient cell at P=0; conventional Pnma Fe12C4, Z=4, 16 atoms (p. 2). Existing material structure is separate from this measured EOS anchor.
+
+</details>
+
 ## Observation datasets
 
 ### cementite\_scott\_2001\_figure3\_digitized
@@ -414,6 +747,28 @@ Parameter covariance is not supplied.
 [Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/cementite-prescher-2012-table-s1.csv)
 — SHA-256 `eb0b6ffb6fc0e12bd72e51da27a3b0f71d917aadb59f00651331c58629447843`.
 
+### cementite\_li\_2002\_table1
+
+- **Description:** Complete original-scale Table 1. Row 1 is a reference-card comparison (kind 0), row 2 a measured ambient anchor (kind 1), rows 3-14 measured nonambient observations (kind 2). All printed pressure, lattice, volume and paired neon uncertainties retained; confidence unspecified.
+- **Kind:** pressure\_volume\_lattice\_with\_reference\_card
+- **Reference:**
+    - **Authors:** J. Li; H. K. Mao; Y. Fei; E. Gregoryanz; M. Eremets; C. S. Zha
+    - **Year:** 2002
+    - **Title:** Compression of Fe3C to 30 GPa at room temperature
+    - **Source:** Physics and Chemistry of Minerals
+    - **Volume:** 29
+    - **Issue:** 3
+    - **Locator:** 166-169
+    - **DOI:** 10.1007/s00269-001-0224-4
+- **Source location:** Table 1 and footnotes a-b, printed p. 167, at 300 K
+- **Associated EOS records:** cementite\_li\_2002\_bm3
+- **Uncertainty:**
+    - **Reported as:** parenthetical\_last\_digit\_width\_or\_explicit\_width; confidence\_unspecified
+    - **Covariance:** not\_reported; independence\_not\_established
+    - **Notes:** Widths reflect calibration variation and reproducibility, not established independent standard deviations. Ambient pressure token 0.000100 (1) retained literally.
+
+14 rows embedded in the EOSMAT source.
+
 ### cementite\_prescher\_2012\_figure1\_digitized
 
 - **Description:** Supplementary graphical evidence: all 22 digitized Figure 1 markers, including the ambient marker and two nonambient markers absent from Table S1. The primary numerical series for the full-range comparison is the 19 numbered p1-p19 Table S1 observations. These overlapping datasets are kept separate and do not represent independent additional measurements. Earlier graph-based comparisons remain historical audit evidence.
@@ -434,3 +789,20 @@ Parameter covariance is not supplied.
     - **Coordinate precision:** The drawing has approximately 0.09-point coordinate steps (~0.02 GPa, ~0.02 A3). Original numeric inputs and experimental errors cannot be recovered to this precision. Axis and graphics errors are correlated, not independent experimental sigmas.
 
 22 rows embedded in the EOSMAT source.
+
+### cementite\_ono\_mibe\_2010\_table1
+
+- **Description:** Complete Table 1: 14 measured states at 300 K, including all axes/volume errors and the excluded &gt;35 GPa states. Codes: 0 measured ambient anchor, 1 five nonambient fit-domain states, 2 outside fit domain.
+- **Kind:** pressure\_volume\_lattice
+- **Reference:**
+    - **Authors:** Ono, S.; Mibe, K.
+    - **Year:** 2010
+    - **Title:** Magnetic transition of iron carbide at high pressures
+    - **Source:** Physics of the Earth and Planetary Interiors
+    - **Volume:** 180
+    - **Locator:** 1-6
+    - **DOI:** 10.1016/j.pepi.2010.03.008
+- **Source location:** Table 1, p. 3; Figure 4 caption establishes 300 K
+- **Associated EOS records:** cementite\_ono\_mibe\_2010\_bm3
+
+14 rows embedded in the EOSMAT source.

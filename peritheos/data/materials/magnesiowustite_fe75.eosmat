@@ -1,7 +1,7 @@
 {
   "format_version": 4,
   "identifier": "magnesiowustite_fe75",
-  "name": "Fe75 magnesiowustite",
+  "name": "Ferropericlase B1 cation-deficient Fe75",
   "formula": "Mg0.240Fe0.717O",
   "phase": "cation-deficient rocksalt magnesiowustite, cubic Fm-3m",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
@@ -213,7 +213,16 @@
       }
     }
   ],
-  "aliases": ["Fe75", "(Mg0.240Fe0.717 vacancy0.043)O", "magnesiowüstite Fe75"],
+  "aliases": [
+    "Fe75",
+    "(Mg0.240Fe0.717 vacancy0.043)O",
+    "magnesiowüstite Fe75",
+    "Fe75 magnesiowustite",
+    "ferropericlase",
+    "magnesiowustite",
+    "magnesiowüstite",
+    "Mg–Fe monoxide B1 cation-deficient Fe75"
+  ],
   "family_id": "mg_fe_monoxide",
   "cell_contents": "Mg0.960Fe2.868 vacancy0.172O4 in the conventional rocksalt cell; composition is normalized to one oxygen and Z=4 on that basis.",
   "symmetry": "CUBIC",

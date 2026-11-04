@@ -88,7 +88,7 @@ def test_primary_refit_ledger_covers_every_bundled_record_once():
 
     assert ledger["format"] == "peritheos.primary-eos-refit-validation"
     assert ledger["format_version"] == 1
-    assert len(identifiers) == len(set(identifiers)) == 679
+    assert len(identifiers) == len(set(identifiers)) == 685
     assert set(identifiers) == set(list_eos_record_documents())
 
 
@@ -96,13 +96,13 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     ledger = load_ledger()
     statuses = Counter(item["status"] for item in ledger["records"])
 
-    assert ledger["summary"] == {"total": 679, **dict(sorted(statuses.items()))}
+    assert ledger["summary"] == {"total": 685, **dict(sorted(statuses.items()))}
     assert statuses == {
         "not_refittable": 177,
-        "parity": 351,
-        "parity_not_achieved": 62,
+        "parity": 357,
+        "parity_not_achieved": 61,
         "similar": 72,
-        "source_reconstruction": 17,
+        "source_reconstruction": 18,
     }
     assert all(
         item.get("reason")
@@ -421,16 +421,19 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
         "alpha0": True,
     }
     coesite = by_identifier["coesite_i_iii_bykova_2018_300k_bm3"]
-    assert coesite["status"] == "parity_not_achieved"
-    assert coesite["observations"] == 24
+    assert coesite["status"] == "parity"
+    assert coesite["observations"] == 22
+    assert coesite["measured_entries"] == 21
+    assert coesite["derived_anchor_entries"] == 1
     assert coesite["dataset_identifiers"] == [
-        "coesite_i_ii_cernok_2014_table1_pv",
-        "coesite_ii_iii_bykova_2018_table2_pv",
+        "coesite_i_iii_bykova_2018_author_fit_export"
     ]
     assert [item["refit"] for item in coesite["parameters"]] == pytest.approx(
-        [542.2160125743, 126.3278193724, 1.6951441000]
+        [547.2645278326402, 102.72949806087128, 3.024480753153906]
     )
-    assert "Conditional partial reproduction" in coesite["qualification"]
+    assert coesite["original_author_workflow_parity"] is False
+    assert coesite["historical_diagnostic"]["observations"] == 24
+    assert coesite["historical_diagnostic"]["status"] == "parity_not_achieved"
     fu_bm2 = by_identifier["mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1"]
     fu_bm3 = by_identifier["mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2"]
     assert fu_bm2["status"] == "similar"

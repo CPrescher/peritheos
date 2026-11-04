@@ -98,7 +98,7 @@
             "akimotoite_zhou_2014_300k_bm3"
           ],
           "evidence_kind": "experimental",
-          "notes": "Cell volume is calculated from reported sample density using M=100.387 g/mol and Z=4, treated as exact: V=ZM/(N_A ρ). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. The reported experimental pressure reduction is retained.",
+          "notes": "Cell volume is calculated from reported sample density using M=100.387 g/mol and Z=4, treated as exact: V=ZM/(N_A \u03c1). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. The reported experimental pressure reduction is retained.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -109,7 +109,7 @@
               "column": "density_g_cm3",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 666.7861413455238,
-              "reference": "Cell volume is calculated from reported sample density using M=100.387 g/mol and Z=4, treated as exact: V=ZM/(N_A ρ). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. The reported experimental pressure reduction is retained. Table 1, article pages 100-101",
+              "reference": "Cell volume is calculated from reported sample density using M=100.387 g/mol and Z=4, treated as exact: V=ZM/(N_A \u03c1). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. The reported experimental pressure reduction is retained. Table 1, article pages 100-101",
               "reciprocal": true
             },
             "temperature": {
@@ -1005,7 +1005,7 @@
             "boron_phosphide_le_godec_2014_vinet_1"
           ],
           "evidence_kind": "digitized",
-          "notes": "Fixed source ambient zinc-blende reference volume 93.2061 Å³. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data.",
+          "notes": "Fixed source ambient zinc-blende reference volume 93.2061 \u00c5\u00b3. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -1016,7 +1016,7 @@
               "column": "volume_ratio",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 93.2061,
-              "reference": "Fixed source ambient zinc-blende reference volume 93.2061 Å³. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data. Figure 2"
+              "reference": "Fixed source ambient zinc-blende reference volume 93.2061 \u00c5\u00b3. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data. Figure 2"
             }
           },
           "uncertainties": {
@@ -1042,7 +1042,7 @@
             "bridgmanite_katsura_2009_bm3_k0_fixed"
           ],
           "evidence_kind": "experimental",
-          "notes": "Published Table 1 corrected bridgmanite V/V0 uses the source reference volume 162.38559886687202 Å³. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data.",
+          "notes": "Published Table 1 corrected bridgmanite V/V0 uses the source reference volume 162.38559886687202 \u00c5\u00b3. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -1053,7 +1053,7 @@
               "column": "bridgmanite_v_v0",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 162.38559886687202,
-              "reference": "Published Table 1 corrected bridgmanite V/V0 uses the source reference volume 162.38559886687202 Å³. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data. Corrigendum Table 1 and publisher file grl26199-sup-0001-t01.txt"
+              "reference": "Published Table 1 corrected bridgmanite V/V0 uses the source reference volume 162.38559886687202 \u00c5\u00b3. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data. Corrigendum Table 1 and publisher file grl26199-sup-0001-t01.txt"
             },
             "temperature": {
               "column": "temperature_k"
@@ -1732,7 +1732,7 @@
               "column": "volume_a3",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 1,
-              "reference": "Original source coordinates and units are retained, with explicit conversion to the declared conventional cell. The plotted source pressure scale is not silently replaced by a different target EOS scale. No fit or author-workflow reproduction is implied. Sun Table 1 rows at 1200-2200 K and all cubic Gréaux Figure 3b rows"
+              "reference": "Original source coordinates and units are retained, with explicit conversion to the declared conventional cell. The plotted source pressure scale is not silently replaced by a different target EOS scale. No fit or author-workflow reproduction is implied. Sun Table 1 rows at 1200-2200 K and all cubic Gr\u00e9aux Figure 3b rows"
             },
             "temperature": {
               "column": "temperature_k"
@@ -1762,7 +1762,7 @@
             "ca_perovskite_fu_2023_candidate_data_unweighted_bm3_mgd_refit"
           ],
           "evidence_kind": "experimental",
-          "notes": "Cell volume is calculated from reported sample density using M=116.162 g/mol and Z=1, treated as exact: V=ZM/(N_A ρ). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. The reported experimental pressure reduction is retained.",
+          "notes": "Cell volume is calculated from reported sample density using M=116.162 g/mol and Z=1, treated as exact: V=ZM/(N_A \u03c1). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. The reported experimental pressure reduction is retained.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -1773,7 +1773,7 @@
               "column": "density_g_cm3",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 192.8915391210484,
-              "reference": "Cell volume is calculated from reported sample density using M=116.162 g/mol and Z=1, treated as exact: V=ZM/(N_A ρ). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. The reported experimental pressure reduction is retained. Official source-data workbook, Figure 3b; source_order counts numeric observation rows",
+              "reference": "Cell volume is calculated from reported sample density using M=116.162 g/mol and Z=1, treated as exact: V=ZM/(N_A \u03c1). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. The reported experimental pressure reduction is retained. Official source-data workbook, Figure 3b; source_order counts numeric observation rows",
               "reciprocal": true
             },
             "temperature": {
@@ -1815,7 +1815,7 @@
               "column": "volume_a3",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 1,
-              "reference": "Original source coordinates and units are retained, with explicit conversion to the declared conventional cell. The plotted source pressure scale is not silently replaced by a different target EOS scale. No fit or author-workflow reproduction is implied. Table 1, journal pages 84–85"
+              "reference": "Original source coordinates and units are retained, with explicit conversion to the declared conventional cell. The plotted source pressure scale is not silently replaced by a different target EOS scale. No fit or author-workflow reproduction is implied. Table 1, journal pages 84\u201385"
             },
             "temperature": {
               "column": "temperature_k"
@@ -2170,7 +2170,7 @@
             "cao_b2_richet_1988_bm3_1"
           ],
           "evidence_kind": "experimental",
-          "notes": "Only measured CaO-B2 rows are shown; source cubic volumes are a³. Diamonds identify source fit rows. Pressure bars retain spatial gradients, not regression weights.",
+          "notes": "Only measured CaO-B2 rows are shown; source cubic volumes are a\u00b3. Diamonds identify source fit rows. Pressure bars retain spatial gradients, not regression weights.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -2190,7 +2190,7 @@
                 "beta": 90,
                 "gamma": 90
               },
-              "reference": "Only measured CaO-B2 rows are shown; source cubic volumes are a³. Diamonds identify source fit rows. Pressure bars retain spatial gradients, not regression weights. Table 1, journal page 15280"
+              "reference": "Only measured CaO-B2 rows are shown; source cubic volumes are a\u00b3. Diamonds identify source fit rows. Pressure bars retain spatial gradients, not regression weights. Table 1, journal page 15280"
             }
           },
           "row_selection": [
@@ -2226,7 +2226,7 @@
             "cao_richet_1988_bm3_1"
           ],
           "evidence_kind": "experimental",
-          "notes": "Only measured CaO-B1 rows are shown; source cubic volumes are a³. Diamonds identify source fit rows. Pressure bars retain spatial gradients, not regression weights.",
+          "notes": "Only measured CaO-B1 rows are shown; source cubic volumes are a\u00b3. Diamonds identify source fit rows. Pressure bars retain spatial gradients, not regression weights.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -2246,7 +2246,7 @@
                 "beta": 90,
                 "gamma": 90
               },
-              "reference": "Only measured CaO-B1 rows are shown; source cubic volumes are a³. Diamonds identify source fit rows. Pressure bars retain spatial gradients, not regression weights. Table 1, journal page 15280"
+              "reference": "Only measured CaO-B1 rows are shown; source cubic volumes are a\u00b3. Diamonds identify source fit rows. Pressure bars retain spatial gradients, not regression weights. Table 1, journal page 15280"
             }
           },
           "row_selection": [
@@ -2318,7 +2318,7 @@
             "cementite_scott_2001_bm3_1"
           ],
           "evidence_kind": "digitized",
-          "notes": "Separately measured source ambient cell volume 155.26 Å³. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data.",
+          "notes": "Separately measured source ambient cell volume 155.26 \u00c5\u00b3. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -2329,7 +2329,7 @@
               "column": "volume_ratio",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 155.26,
-              "reference": "Separately measured source ambient cell volume 155.26 Å³. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data. Figure 3, filled-symbol 300 K compression series"
+              "reference": "Separately measured source ambient cell volume 155.26 \u00c5\u00b3. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data. Figure 3, filled-symbol 300 K compression series"
             }
           }
         }
@@ -2417,7 +2417,7 @@
             "cobalt_hcp_fujihisa_1996_vinet_1"
           ],
           "evidence_kind": "digitized",
-          "notes": "Source ambient hcp conventional-cell normalization 22.4685 Å³. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data.",
+          "notes": "Source ambient hcp conventional-cell normalization 22.4685 \u00c5\u00b3. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -2428,7 +2428,7 @@
               "column": "volume_ratio",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 22.4685,
-              "reference": "Source ambient hcp conventional-cell normalization 22.4685 Å³. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data. Figure 3, closed-circle hcp series"
+              "reference": "Source ambient hcp conventional-cell normalization 22.4685 \u00c5\u00b3. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data. Figure 3, closed-circle hcp series"
             }
           },
           "uncertainties": {
@@ -2786,7 +2786,7 @@
             "cscl_campbell_1994_bm3_1"
           ],
           "evidence_kind": "experimental",
-          "notes": "Campbell–Heinz correction explicitly normalizes Yagi ratios to a0=4.123 Å. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data.",
+          "notes": "Campbell\u2013Heinz correction explicitly normalizes Yagi ratios to a0=4.123 \u00c5. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -2797,7 +2797,7 @@
               "column": "volume_ratio_corrected",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 70.08740886700001,
-              "reference": "Campbell–Heinz correction explicitly normalizes Yagi ratios to a0=4.123 Å. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data. Table 1, page 565, CsCl 25 degC column; correction described by Campbell and Heinz (1994), page 11767"
+              "reference": "Campbell\u2013Heinz correction explicitly normalizes Yagi ratios to a0=4.123 \u00c5. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data. Table 1, page 565, CsCl 25 degC column; correction described by Campbell and Heinz (1994), page 11767"
             }
           }
         }
@@ -2858,7 +2858,7 @@
             "diamond_dewaele_2008_vinet_2"
           ],
           "evidence_kind": "experimental",
-          "notes": "The diamond conventional cubic cell uses V=a³ (eight atoms); H05-derived pressures and measured temperatures remain unchanged. Thermal terms from linked theoretical parents do not change the identity of these XRD measurements.",
+          "notes": "The diamond conventional cubic cell uses V=a\u00b3 (eight atoms); H05-derived pressures and measured temperatures remain unchanged. Thermal terms from linked theoretical parents do not change the identity of these XRD measurements.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -2878,7 +2878,7 @@
                 "beta": 90,
                 "gamma": 90
               },
-              "reference": "The diamond conventional cubic cell uses V=a³ (eight atoms); H05-derived pressures and measured temperatures remain unchanged. Thermal terms from linked theoretical parents do not change the identity of these XRD measurements. Table I, diamond aC rows"
+              "reference": "The diamond conventional cubic cell uses V=a\u00b3 (eight atoms); H05-derived pressures and measured temperatures remain unchanged. Thermal terms from linked theoretical parents do not change the identity of these XRD measurements. Table I, diamond aC rows"
             },
             "temperature": {
               "column": "temperature_k"
@@ -3232,7 +3232,7 @@
             "fe_fcc_campbell_2009_bm3_mgd"
           ],
           "evidence_kind": "experimental",
-          "notes": "Selected sample molar volumes convert to cell Å³ with the declared Z and exact Avogadro constant. Original NaCl-derived pressures are retained; no conversion to a later Fe pressure scale is claimed.",
+          "notes": "Selected sample molar volumes convert to cell \u00c5\u00b3 with the declared Z and exact Avogadro constant. Original NaCl-derived pressures are retained; no conversion to a later Fe pressure scale is claimed.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -3243,7 +3243,7 @@
               "column": "iron_molar_volume_cm3_mol",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 6.642156268695387,
-              "reference": "Selected sample molar volumes convert to cell Å³ with the declared Z and exact Avogadro constant. Original NaCl-derived pressures are retained; no conversion to a later Fe pressure scale is claimed. Supplementary Table S2 (mmc2.xls), worksheet Table S2, rows 8-32"
+              "reference": "Selected sample molar volumes convert to cell \u00c5\u00b3 with the declared Z and exact Avogadro constant. Original NaCl-derived pressures are retained; no conversion to a later Fe pressure scale is claimed. Supplementary Table S2 (mmc2.xls), worksheet Table S2, rows 8-32"
             },
             "temperature": {
               "column": "sample_temperature_k"
@@ -3280,7 +3280,7 @@
             "fe_shen_2026_vinet_1"
           ],
           "evidence_kind": "experimental",
-          "notes": "All selected-phase measurements are retained. Pressure is calculated from Cu in the same experiment and run through the full Fratanduono 2020 EOS at 298 K. No 298-to-300 K correction is applied. Sample temperature is unreported. Volume bars are reported standard errors; Cu volume errors and calibration parameter errors are not propagated into pressure bars. No pressure weights or covariance are inferred. Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30–35 GPa coexistence exclusion is used here.",
+          "notes": "All selected-phase measurements are retained. Pressure is calculated from Cu in the same experiment and run through the full Fratanduono 2020 EOS at 298 K. No 298-to-300 K correction is applied. Sample temperature is unreported. Volume bars are reported standard errors; Cu volume errors and calibration parameter errors are not propagated into pressure bars. No pressure weights or covariance are inferred. Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30\u201335 GPa coexistence exclusion is used here.",
           "coordinates": {
             "pressure": {
               "kind": "calibrant_eos",
@@ -3326,7 +3326,7 @@
                 ]
               }
             ],
-            "notes": "Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30–35 GPa coexistence exclusion is used here."
+            "notes": "Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30\u201335 GPa coexistence exclusion is used here."
           },
           "uncertainties": {
             "volume": "unit_cell_volume_standard_error_a3"
@@ -3585,7 +3585,7 @@
               "column": "volume_a3_conventional_cell",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 1,
-              "reference": "Only the selected composition is shown with its sample cell volume. Pressures use the printed P1 column. Table 2, journal pp. 116–117"
+              "reference": "Only the selected composition is shown with its sample cell volume. Pressures use the printed P1 column. Table 2, journal pp. 116\u2013117"
             },
             "temperature": {
               "column": "temperature_k"
@@ -3617,7 +3617,7 @@
             "fe09ni01_hcp_sakai_2014_type2_thermal"
           ],
           "evidence_kind": "experimental",
-          "notes": "Only the selected composition is shown with its sample cell volume. Original printed P1 pressures are shown as source-scale measurements; this record’s different pressure reduction is not tabulated and is not reconstructed.",
+          "notes": "Only the selected composition is shown with its sample cell volume. Original printed P1 pressures are shown as source-scale measurements; this record\u2019s different pressure reduction is not tabulated and is not reconstructed.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -3628,7 +3628,7 @@
               "column": "volume_a3_conventional_cell",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 1,
-              "reference": "Only the selected composition is shown with its sample cell volume. Original printed P1 pressures are shown as source-scale measurements; this record’s different pressure reduction is not tabulated and is not reconstructed. Table 2, journal pp. 116–117"
+              "reference": "Only the selected composition is shown with its sample cell volume. Original printed P1 pressures are shown as source-scale measurements; this record\u2019s different pressure reduction is not tabulated and is not reconstructed. Table 2, journal pp. 116\u2013117"
             },
             "temperature": {
               "column": "temperature_k"
@@ -3669,7 +3669,7 @@
               "column": "volume_a3_conventional_cell",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 1,
-              "reference": "Only the selected composition is shown with its sample cell volume. Pressures use the printed P4 column. Table 2, journal pp. 116–117"
+              "reference": "Only the selected composition is shown with its sample cell volume. Pressures use the printed P4 column. Table 2, journal pp. 116\u2013117"
             },
             "temperature": {
               "column": "temperature_k"
@@ -3707,7 +3707,7 @@
               "column": "volume_a3_conventional_cell",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 1,
-              "reference": "Only the selected composition is shown with its sample cell volume. Pressures use the printed P6 column. Table 2, journal pp. 116–117"
+              "reference": "Only the selected composition is shown with its sample cell volume. Pressures use the printed P6 column. Table 2, journal pp. 116\u2013117"
             },
             "temperature": {
               "column": "temperature_k"
@@ -4159,7 +4159,7 @@
             "feo_fischer_2011_bm3_2"
           ],
           "evidence_kind": "experimental",
-          "notes": "Selected sample molar volumes convert to cell Å³ with the declared Z and exact Avogadro constant. Original NaCl-derived pressures are retained; no conversion to a later Fe pressure scale is claimed.",
+          "notes": "Selected sample molar volumes convert to cell \u00c5\u00b3 with the declared Z and exact Avogadro constant. Original NaCl-derived pressures are retained; no conversion to a later Fe pressure scale is claimed.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -4170,7 +4170,7 @@
               "column": "feo_molar_volume_cm3_mol",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 6.642156268695387,
-              "reference": "Selected sample molar volumes convert to cell Å³ with the declared Z and exact Avogadro constant. Original NaCl-derived pressures are retained; no conversion to a later Fe pressure scale is claimed. Supplementary Table S2 (mmc2.xls), worksheet Table S2, rows 8-32"
+              "reference": "Selected sample molar volumes convert to cell \u00c5\u00b3 with the declared Z and exact Avogadro constant. Original NaCl-derived pressures are retained; no conversion to a later Fe pressure scale is claimed. Supplementary Table S2 (mmc2.xls), worksheet Table S2, rows 8-32"
             },
             "temperature": {
               "column": "sample_temperature_k"
@@ -4662,7 +4662,7 @@
             "forsterite_katsura_2022_bm3_mgd"
           ],
           "evidence_kind": "experimental",
-          "notes": "Author workbook/script reference normalization is fixed at 289.58 Å³; AD mean pressure and corrected U temperature are used. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data.",
+          "notes": "Author workbook/script reference normalization is fixed at 289.58 \u00c5\u00b3; AD mean pressure and corrected U temperature are used. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -4673,7 +4673,7 @@
               "column": "forsterite_volume_ratio",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 289.58,
-              "reference": "Author workbook/script reference normalization is fixed at 289.58 Å³; AD mean pressure and corrected U temperature are used. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data. Zenodo 5644426: Olivine rows 4-54; original column mapping retained in source metadata"
+              "reference": "Author workbook/script reference normalization is fixed at 289.58 \u00c5\u00b3; AD mean pressure and corrected U temperature are used. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data. Zenodo 5644426: Olivine rows 4-54; original column mapping retained in source metadata"
             },
             "temperature": {
               "column": "temperature_corrected_k"
@@ -4808,7 +4808,7 @@
             "gold_sakai_2025_rydberg_stacey_1"
           ],
           "evidence_kind": "experimental",
-          "notes": "The source am(111) parameter is the conventional fcc lattice parameter, giving V=a³. Source DOR-reduced ruby pressures are shown explicitly; a different target EOS scale is not silently substituted.",
+          "notes": "The source am(111) parameter is the conventional fcc lattice parameter, giving V=a\u00b3. Source DOR-reduced ruby pressures are shown explicitly; a different target EOS scale is not silently substituted.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -4828,7 +4828,7 @@
                 "beta": 90,
                 "gamma": 90
               },
-              "reference": "The source am(111) parameter is the conventional fcc lattice parameter, giving V=a³. Source DOR-reduced ruby pressures are shown explicitly; a different target EOS scale is not silently substituted. Table III, all runs; P, P-prime, and am(111) columns"
+              "reference": "The source am(111) parameter is the conventional fcc lattice parameter, giving V=a\u00b3. Source DOR-reduced ruby pressures are shown explicitly; a different target EOS scale is not silently substituted. Table III, all runs; P, P-prime, and am(111) columns"
             }
           }
         }
@@ -5032,7 +5032,7 @@
             "gold_shen_2026_vinet_3"
           ],
           "evidence_kind": "experimental",
-          "notes": "All selected-phase measurements are retained. Pressure is calculated from Cu in the same experiment and run through the full Fratanduono 2020 EOS at 298 K. No 298-to-300 K correction is applied. Sample temperature is unreported. Volume bars are reported standard errors; Cu volume errors and calibration parameter errors are not propagated into pressure bars. No pressure weights or covariance are inferred. Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30–35 GPa coexistence exclusion is used here.",
+          "notes": "All selected-phase measurements are retained. Pressure is calculated from Cu in the same experiment and run through the full Fratanduono 2020 EOS at 298 K. No 298-to-300 K correction is applied. Sample temperature is unreported. Volume bars are reported standard errors; Cu volume errors and calibration parameter errors are not propagated into pressure bars. No pressure weights or covariance are inferred. Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30\u201335 GPa coexistence exclusion is used here.",
           "coordinates": {
             "pressure": {
               "kind": "calibrant_eos",
@@ -5077,7 +5077,7 @@
                 ]
               }
             ],
-            "notes": "Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30–35 GPa coexistence exclusion is used here."
+            "notes": "Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30\u201335 GPa coexistence exclusion is used here."
           },
           "uncertainties": {
             "volume": "unit_cell_volume_standard_error_a3"
@@ -5102,7 +5102,7 @@
             "gold_takemura_2008_vinet_6"
           ],
           "evidence_kind": "experimental",
-          "notes": "The source am(111) parameter is the conventional fcc lattice parameter, giving V=a³. Source DOR-reduced ruby pressures are shown explicitly; a different target EOS scale is not silently substituted.",
+          "notes": "The source am(111) parameter is the conventional fcc lattice parameter, giving V=a\u00b3. Source DOR-reduced ruby pressures are shown explicitly; a different target EOS scale is not silently substituted.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -5122,7 +5122,7 @@
                 "beta": 90,
                 "gamma": 90
               },
-              "reference": "The source am(111) parameter is the conventional fcc lattice parameter, giving V=a³. Source DOR-reduced ruby pressures are shown explicitly; a different target EOS scale is not silently substituted. Table III, all runs; P, P-prime, and am(111) columns"
+              "reference": "The source am(111) parameter is the conventional fcc lattice parameter, giving V=a\u00b3. Source DOR-reduced ruby pressures are shown explicitly; a different target EOS scale is not silently substituted. Table III, all runs; P, P-prime, and am(111) columns"
             }
           }
         }
@@ -5412,7 +5412,7 @@
             "graphite_hanfland_1989_murnaghan_1"
           ],
           "evidence_kind": "digitized",
-          "notes": "Published graphite reference normalization 35.12 Å³. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data.",
+          "notes": "Published graphite reference normalization 35.12 \u00c5\u00b3. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -5423,7 +5423,7 @@
               "column": "volume_ratio",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 35.12,
-              "reference": "Published graphite reference normalization 35.12 Å³. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data. Figure 2, solid-circle experimental series"
+              "reference": "Published graphite reference normalization 35.12 \u00c5\u00b3. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data. Figure 2, solid-circle experimental series"
             }
           },
           "uncertainties": {
@@ -5646,7 +5646,7 @@
             "iridium_anzellini_2025_bm3_1"
           ],
           "evidence_kind": "experimental",
-          "notes": "Ir sample volume uses the conventional fcc cell a³; MgO and KCl lattice columns remain calibrant observations. Original pressures and mean source temperatures are retained.",
+          "notes": "Ir sample volume uses the conventional fcc cell a\u00b3; MgO and KCl lattice columns remain calibrant observations. Original pressures and mean source temperatures are retained.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -5666,7 +5666,7 @@
                 "beta": 90,
                 "gamma": 90
               },
-              "reference": "Ir sample volume uses the conventional fcc cell a³; MgO and KCl lattice columns remain calibrant observations. Original pressures and mean source temperatures are retained. Supplementary Tables 1, 2, and 3"
+              "reference": "Ir sample volume uses the conventional fcc cell a\u00b3; MgO and KCl lattice columns remain calibrant observations. Original pressures and mean source temperatures are retained. Supplementary Tables 1, 2, and 3"
             },
             "temperature": {
               "column": "mean_temperature_k"
@@ -5718,38 +5718,6 @@
       }
     },
     {
-      "material_id": "iron_carbide_fe7c3",
-      "dataset_id": "iron_carbide_fe7c3_prescher_2015_table_s4_compression",
-      "declaration_sha256": "51668fa33bea163c27fd5d560cdf960f889e2929b8621c2b1bf6427b0ed3f72a",
-      "material_identity_sha256": "6fe837cd07d410df80901532b916991e51d22b5ea6732ac773a1b6fc343e964f",
-      "views": [
-        {
-          "identifier": "iron_carbide_fe7c3_prescher_2015_bm3_1_observations",
-          "eos_records": [
-            "iron_carbide_fe7c3_prescher_2015_bm3_1"
-          ],
-          "evidence_kind": "experimental",
-          "notes": "Original source coordinates and units are retained, with explicit conversion to the declared conventional cell. The plotted source pressure scale is not silently replaced by a different target EOS scale. No fit or author-workflow reproduction is implied.",
-          "coordinates": {
-            "pressure": {
-              "kind": "column",
-              "column": "pressure_gpa"
-            },
-            "volume": {
-              "kind": "column",
-              "column": "unit_cell_volume_a3",
-              "unit": "angstrom^3/conventional_unit_cell",
-              "factor": 1,
-              "reference": "Original source coordinates and units are retained, with explicit conversion to the declared conventional cell. The plotted source pressure scale is not silently replaced by a different target EOS scale. No fit or author-workflow reproduction is implied. Supplementary Table S4"
-            }
-          }
-        }
-      ],
-      "record_pressure_calibration_sha256": {
-        "iron_carbide_fe7c3_prescher_2015_bm3_1": "295f9841f325ca51cf366b675dad3edd1c5438a4eecf1cc478d997fda6f9d16e"
-      }
-    },
-    {
       "material_id": "iron",
       "dataset_id": "iron_sakai_2025_table_s9_rs_eos_grid",
       "declaration_sha256": "26db319c33683ed0e40d0a4f4a7b0d8310647e4d3418c280d76f4e8a3b9d2e2d",
@@ -5793,7 +5761,7 @@
             "iron_shen_2026_vinet_2"
           ],
           "evidence_kind": "experimental",
-          "notes": "All selected-phase measurements are retained. Pressure is calculated from Cu in the same experiment and run through the full Fratanduono 2020 EOS at 298 K. No 298-to-300 K correction is applied. Sample temperature is unreported. Volume bars are reported standard errors; Cu volume errors and calibration parameter errors are not propagated into pressure bars. No pressure weights or covariance are inferred. Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30–35 GPa coexistence exclusion is used here.",
+          "notes": "All selected-phase measurements are retained. Pressure is calculated from Cu in the same experiment and run through the full Fratanduono 2020 EOS at 298 K. No 298-to-300 K correction is applied. Sample temperature is unreported. Volume bars are reported standard errors; Cu volume errors and calibration parameter errors are not propagated into pressure bars. No pressure weights or covariance are inferred. Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30\u201335 GPa coexistence exclusion is used here.",
           "coordinates": {
             "pressure": {
               "kind": "calibrant_eos",
@@ -5839,7 +5807,7 @@
                 ]
               }
             ],
-            "notes": "Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30–35 GPa coexistence exclusion is used here."
+            "notes": "Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30\u201335 GPa coexistence exclusion is used here."
           },
           "uncertainties": {
             "volume": "unit_cell_volume_standard_error_a3"
@@ -6001,7 +5969,7 @@
               "column": "volume_a3_conventional_cell",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 1,
-              "reference": "Original source coordinates and units are retained, with explicit conversion to the declared conventional cell. The plotted source pressure scale is not silently replaced by a different target EOS scale. No fit or author-workflow reproduction is implied. Table S1, Sheet1, rows 3–76"
+              "reference": "Original source coordinates and units are retained, with explicit conversion to the declared conventional cell. The plotted source pressure scale is not silently replaced by a different target EOS scale. No fit or author-workflow reproduction is implied. Table S1, Sheet1, rows 3\u201376"
             }
           }
         }
@@ -6035,7 +6003,7 @@
               "column": "volume_a3_conventional_cell",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 1,
-              "reference": "Original source coordinates and units are retained, with explicit conversion to the declared conventional cell. The plotted source pressure scale is not silently replaced by a different target EOS scale. No fit or author-workflow reproduction is implied. Table S2, Sheet1, rows 3–24"
+              "reference": "Original source coordinates and units are retained, with explicit conversion to the declared conventional cell. The plotted source pressure scale is not silently replaced by a different target EOS scale. No fit or author-workflow reproduction is implied. Table S2, Sheet1, rows 3\u201324"
             },
             "temperature": {
               "column": "temperature_k"
@@ -6075,7 +6043,7 @@
               "column": "volume_a3_conventional_cell",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 1,
-              "reference": "Only the selected composition is shown with its sample cell volume. Pressures use the printed P1 column. Table 2, journal pp. 116–117"
+              "reference": "Only the selected composition is shown with its sample cell volume. Pressures use the printed P1 column. Table 2, journal pp. 116\u2013117"
             },
             "temperature": {
               "column": "temperature_k"
@@ -6106,7 +6074,7 @@
             "iron_sakai_2014_p5_vinet"
           ],
           "evidence_kind": "experimental",
-          "notes": "Only the selected composition is shown with its sample cell volume. Original printed P1 pressures are shown as source-scale measurements; this record’s different pressure reduction is not tabulated and is not reconstructed.",
+          "notes": "Only the selected composition is shown with its sample cell volume. Original printed P1 pressures are shown as source-scale measurements; this record\u2019s different pressure reduction is not tabulated and is not reconstructed.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -6117,7 +6085,7 @@
               "column": "volume_a3_conventional_cell",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 1,
-              "reference": "Only the selected composition is shown with its sample cell volume. Original printed P1 pressures are shown as source-scale measurements; this record’s different pressure reduction is not tabulated and is not reconstructed. Table 2, journal pp. 116–117"
+              "reference": "Only the selected composition is shown with its sample cell volume. Original printed P1 pressures are shown as source-scale measurements; this record\u2019s different pressure reduction is not tabulated and is not reconstructed. Table 2, journal pp. 116\u2013117"
             },
             "temperature": {
               "column": "temperature_k"
@@ -6155,7 +6123,7 @@
               "column": "volume_a3_conventional_cell",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 1,
-              "reference": "Only the selected composition is shown with its sample cell volume. Pressures use the printed P4 column. Table 2, journal pp. 116–117"
+              "reference": "Only the selected composition is shown with its sample cell volume. Pressures use the printed P4 column. Table 2, journal pp. 116\u2013117"
             },
             "temperature": {
               "column": "temperature_k"
@@ -6193,7 +6161,7 @@
               "column": "volume_a3_conventional_cell",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 1,
-              "reference": "Only the selected composition is shown with its sample cell volume. Pressures use the printed P6 column. Table 2, journal pp. 116–117"
+              "reference": "Only the selected composition is shown with its sample cell volume. Pressures use the printed P6 column. Table 2, journal pp. 116\u2013117"
             },
             "temperature": {
               "column": "temperature_k"
@@ -6286,7 +6254,7 @@
             "iron_brown_2000_linear_hugoniot"
           ],
           "evidence_kind": "shock",
-          "notes": "Cell volume is calculated from reported sample density using M=55.845 g/mol and Z=2, treated as exact: V=ZM/(N_A ρ). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. Shock states follow a Hugoniot and are not an isothermal compression series.",
+          "notes": "Cell volume is calculated from reported sample density using M=55.845 g/mol and Z=2, treated as exact: V=ZM/(N_A \u03c1). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. Shock states follow a Hugoniot and are not an isothermal compression series.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -6297,7 +6265,7 @@
               "column": "density_g_cm3",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 185.46560841264693,
-              "reference": "Cell volume is calculated from reported sample density using M=55.845 g/mol and Z=2, treated as exact: V=ZM/(N_A ρ). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. Shock states follow a Hugoniot and are not an isothermal compression series. Tables I and II, journal p. 5497",
+              "reference": "Cell volume is calculated from reported sample density using M=55.845 g/mol and Z=2, treated as exact: V=ZM/(N_A \u03c1). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. Shock states follow a Hugoniot and are not an isothermal compression series. Tables I and II, journal p. 5497",
               "reciprocal": true
             }
           },
@@ -6380,7 +6348,7 @@
               "column": "volume_a3",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 1,
-              "reference": "The selected sample volume is kept separate from coexisting minerals and pressure markers. Original reported pressures, temperatures and errors are retained. dataset_hcpFe and MgO.pdf, pages 1–3"
+              "reference": "The selected sample volume is kept separate from coexisting minerals and pressure markers. Original reported pressures, temperatures and errors are retained. dataset_hcpFe and MgO.pdf, pages 1\u20133"
             },
             "temperature": {
               "column": "temperature_k"
@@ -6659,7 +6627,7 @@
             "kcl_campbell_1991_bm2_1"
           ],
           "evidence_kind": "experimental",
-          "notes": "Source explicitly uses the B1 KCl molar V01=37.521 cm³/mol even for B2 observations. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data.",
+          "notes": "Source explicitly uses the B1 KCl molar V01=37.521 cm\u00b3/mol even for B2 observations. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -6670,7 +6638,7 @@
               "column": "normalized_volume",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 62.305086339429906,
-              "reference": "Source explicitly uses the B1 KCl molar V01=37.521 cm³/mol even for B2 observations. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data. Table 1, journal page 496"
+              "reference": "Source explicitly uses the B1 KCl molar V01=37.521 cm\u00b3/mol even for B2 observations. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data. Table 1, journal page 496"
             }
           },
           "uncertainties": {
@@ -8455,7 +8423,7 @@
             "mg092fe008sio3_bridgmanite_gong_2004_adiabatic_bm3"
           ],
           "evidence_kind": "shock",
-          "notes": "Cell volume is calculated from reported sample density using M=102.9102 g/mol and Z=4, treated as exact: V=ZM/(N_A ρ). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. Shock states follow a Hugoniot and are not an isothermal compression series.",
+          "notes": "Cell volume is calculated from reported sample density using M=102.9102 g/mol and Z=4, treated as exact: V=ZM/(N_A \u03c1). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. Shock states follow a Hugoniot and are not an isothermal compression series.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -8466,7 +8434,7 @@
               "column": "hugoniot_density_g_cm3",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 683.545630042696,
-              "reference": "Cell volume is calculated from reported sample density using M=102.9102 g/mol and Z=4, treated as exact: V=ZM/(N_A ρ). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. Shock states follow a Hugoniot and are not an isothermal compression series. Publisher full text, Table 1: Shock Wave Data and Calculated Hugoniot States",
+              "reference": "Cell volume is calculated from reported sample density using M=102.9102 g/mol and Z=4, treated as exact: V=ZM/(N_A \u03c1). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. Shock states follow a Hugoniot and are not an isothermal compression series. Publisher full text, Table 1: Shock Wave Data and Calculated Hugoniot States",
               "reciprocal": true
             }
           },
@@ -8863,7 +8831,7 @@
             "mgfe94o_b1_dobrosavljevic_2019_bm3_1"
           ],
           "evidence_kind": "experimental",
-          "notes": "Only the source-labelled B1 branch is shown. Source atomic volumes/errors multiply by 8, as explicitly declared in this material’s cell_contents; pressure values remain on the reported scale.",
+          "notes": "Only the source-labelled B1 branch is shown. Source atomic volumes/errors multiply by 8, as explicitly declared in this material\u2019s cell_contents; pressure values remain on the reported scale.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -8874,7 +8842,7 @@
               "column": "atomic_volume_angstrom3",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 8,
-              "reference": "Only the source-labelled B1 branch is shown. Source atomic volumes/errors multiply by 8, as explicitly declared in this material’s cell_contents; pressure values remain on the reported scale. Official supplement, Table S1"
+              "reference": "Only the source-labelled B1 branch is shown. Source atomic volumes/errors multiply by 8, as explicitly declared in this material\u2019s cell_contents; pressure values remain on the reported scale. Official supplement, Table S1"
             },
             "temperature": {
               "column": "temperature_k"
@@ -8911,7 +8879,7 @@
             "mgfe94o_rhombohedral_dobrosavljevic_2019_bm3_1"
           ],
           "evidence_kind": "experimental",
-          "notes": "Only the source-labelled rhombohedral branch is shown. Source atomic volumes/errors multiply by 2, as explicitly declared in this material’s cell_contents; pressure values remain on the reported scale.",
+          "notes": "Only the source-labelled rhombohedral branch is shown. Source atomic volumes/errors multiply by 2, as explicitly declared in this material\u2019s cell_contents; pressure values remain on the reported scale.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -8922,7 +8890,7 @@
               "column": "atomic_volume_angstrom3",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 2,
-              "reference": "Only the source-labelled rhombohedral branch is shown. Source atomic volumes/errors multiply by 2, as explicitly declared in this material’s cell_contents; pressure values remain on the reported scale. Official supplement, Table S1"
+              "reference": "Only the source-labelled rhombohedral branch is shown. Source atomic volumes/errors multiply by 2, as explicitly declared in this material\u2019s cell_contents; pressure values remain on the reported scale. Official supplement, Table S1"
             },
             "temperature": {
               "column": "temperature_k"
@@ -9066,7 +9034,7 @@
             "mgo_b1_luo_2023_vinet_thermal_5"
           ],
           "evidence_kind": "shock",
-          "notes": "Cell volume is calculated from reported sample density using M=40.304 g/mol and Z=4, treated as exact: V=ZM/(N_A ρ). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. Shock states follow a Hugoniot and are not an isothermal compression series.",
+          "notes": "Cell volume is calculated from reported sample density using M=40.304 g/mol and Z=4, treated as exact: V=ZM/(N_A \u03c1). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. Shock states follow a Hugoniot and are not an isothermal compression series.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -9077,7 +9045,7 @@
               "column": "density_g_cm3",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 267.70546625349886,
-              "reference": "Cell volume is calculated from reported sample density using M=40.304 g/mol and Z=4, treated as exact: V=ZM/(N_A ρ). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. Shock states follow a Hugoniot and are not an isothermal compression series. Table I, page 5",
+              "reference": "Cell volume is calculated from reported sample density using M=40.304 g/mol and Z=4, treated as exact: V=ZM/(N_A \u03c1). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. Shock states follow a Hugoniot and are not an isothermal compression series. Table I, page 5",
               "reciprocal": true
             },
             "temperature": {
@@ -9107,7 +9075,7 @@
             "mgo_shen_2026_vinet_3"
           ],
           "evidence_kind": "experimental",
-          "notes": "All selected-phase measurements are retained. Pressure is calculated from Cu in the same experiment and run through the full Fratanduono 2020 EOS at 298 K. No 298-to-300 K correction is applied. Sample temperature is unreported. Volume bars are reported standard errors; Cu volume errors and calibration parameter errors are not propagated into pressure bars. No pressure weights or covariance are inferred. Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30–35 GPa coexistence exclusion is used here.",
+          "notes": "All selected-phase measurements are retained. Pressure is calculated from Cu in the same experiment and run through the full Fratanduono 2020 EOS at 298 K. No 298-to-300 K correction is applied. Sample temperature is unreported. Volume bars are reported standard errors; Cu volume errors and calibration parameter errors are not propagated into pressure bars. No pressure weights or covariance are inferred. Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30\u201335 GPa coexistence exclusion is used here.",
           "coordinates": {
             "pressure": {
               "kind": "calibrant_eos",
@@ -9152,7 +9120,7 @@
                 ]
               }
             ],
-            "notes": "Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30–35 GPa coexistence exclusion is used here."
+            "notes": "Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30\u201335 GPa coexistence exclusion is used here."
           },
           "uncertainties": {
             "volume": "unit_cell_volume_standard_error_a3"
@@ -9177,7 +9145,7 @@
             "mgo_li_2006_bm3_absolute_acoustic"
           ],
           "evidence_kind": "experimental",
-          "notes": "Cell volume is calculated from reported sample density using M=40.304 g/mol and Z=4, treated as exact: V=ZM/(N_A ρ). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. The reported experimental pressure reduction is retained.",
+          "notes": "Cell volume is calculated from reported sample density using M=40.304 g/mol and Z=4, treated as exact: V=ZM/(N_A \u03c1). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. The reported experimental pressure reduction is retained.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -9188,7 +9156,7 @@
               "column": "density_g_cm3",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 267.70546625349886,
-              "reference": "Cell volume is calculated from reported sample density using M=40.304 g/mol and Z=4, treated as exact: V=ZM/(N_A ρ). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. The reported experimental pressure reduction is retained. Section 2 paragraph 5 ambient measurements; official tab-delimited Table 1 supplement and article Table 1 footnote",
+              "reference": "Cell volume is calculated from reported sample density using M=40.304 g/mol and Z=4, treated as exact: V=ZM/(N_A \u03c1). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. The reported experimental pressure reduction is retained. Section 2 paragraph 5 ambient measurements; official tab-delimited Table 1 supplement and article Table 1 footnote",
               "reciprocal": true
             }
           },
@@ -9662,7 +9630,7 @@
             "molybdenum_shen_2026_vinet_1"
           ],
           "evidence_kind": "experimental",
-          "notes": "All selected-phase measurements are retained. Pressure is calculated from Cu in the same experiment and run through the full Fratanduono 2020 EOS at 298 K. No 298-to-300 K correction is applied. Sample temperature is unreported. Volume bars are reported standard errors; Cu volume errors and calibration parameter errors are not propagated into pressure bars. No pressure weights or covariance are inferred. Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30–35 GPa coexistence exclusion is used here.",
+          "notes": "All selected-phase measurements are retained. Pressure is calculated from Cu in the same experiment and run through the full Fratanduono 2020 EOS at 298 K. No 298-to-300 K correction is applied. Sample temperature is unreported. Volume bars are reported standard errors; Cu volume errors and calibration parameter errors are not propagated into pressure bars. No pressure weights or covariance are inferred. Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30\u201335 GPa coexistence exclusion is used here.",
           "coordinates": {
             "pressure": {
               "kind": "calibrant_eos",
@@ -9708,7 +9676,7 @@
                 ]
               }
             ],
-            "notes": "Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30–35 GPa coexistence exclusion is used here."
+            "notes": "Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30\u201335 GPa coexistence exclusion is used here."
           },
           "uncertainties": {
             "volume": "unit_cell_volume_standard_error_a3"
@@ -9766,7 +9734,7 @@
             "molybenum_carbide_mo2c_haines_2001_bm3_refit"
           ],
           "evidence_kind": "digitized",
-          "notes": "Measured ambient reference converted to the source equivalent orthorhombic cell, 148.9071 Å³. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data.",
+          "notes": "Measured ambient reference converted to the source equivalent orthorhombic cell, 148.9071 \u00c5\u00b3. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -9777,7 +9745,7 @@
               "column": "volume_ratio",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 148.9071,
-              "reference": "Measured ambient reference converted to the source equivalent orthorhombic cell, 148.9071 Å³. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data. Figure 2"
+              "reference": "Measured ambient reference converted to the source equivalent orthorhombic cell, 148.9071 \u00c5\u00b3. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data. Figure 2"
             }
           },
           "uncertainties": {
@@ -9944,7 +9912,7 @@
             "nacl_b1_shen_2026_vinet_1"
           ],
           "evidence_kind": "experimental",
-          "notes": "All selected-phase measurements are retained. Pressure is calculated from Cu in the same experiment and run through the full Fratanduono 2020 EOS at 298 K. No 298-to-300 K correction is applied. Sample temperature is unreported. Volume bars are reported standard errors; Cu volume errors and calibration parameter errors are not propagated into pressure bars. No pressure weights or covariance are inferred. Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30–35 GPa coexistence exclusion is used here.",
+          "notes": "All selected-phase measurements are retained. Pressure is calculated from Cu in the same experiment and run through the full Fratanduono 2020 EOS at 298 K. No 298-to-300 K correction is applied. Sample temperature is unreported. Volume bars are reported standard errors; Cu volume errors and calibration parameter errors are not propagated into pressure bars. No pressure weights or covariance are inferred. Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30\u201335 GPa coexistence exclusion is used here.",
           "coordinates": {
             "pressure": {
               "kind": "calibrant_eos",
@@ -9989,7 +9957,7 @@
                 ]
               }
             ],
-            "notes": "Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30–35 GPa coexistence exclusion is used here.",
+            "notes": "Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30\u201335 GPa coexistence exclusion is used here.",
             "pressure_below_gpa": 30
           },
           "uncertainties": {
@@ -10045,7 +10013,7 @@
             "nacl_b2_shen_2026_vinet_2"
           ],
           "evidence_kind": "experimental",
-          "notes": "All selected-phase measurements are retained. Pressure is calculated from Cu in the same experiment and run through the full Fratanduono 2020 EOS at 298 K. No 298-to-300 K correction is applied. Sample temperature is unreported. Volume bars are reported standard errors; Cu volume errors and calibration parameter errors are not propagated into pressure bars. No pressure weights or covariance are inferred. Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30–35 GPa coexistence exclusion is used here.",
+          "notes": "All selected-phase measurements are retained. Pressure is calculated from Cu in the same experiment and run through the full Fratanduono 2020 EOS at 298 K. No 298-to-300 K correction is applied. Sample temperature is unreported. Volume bars are reported standard errors; Cu volume errors and calibration parameter errors are not propagated into pressure bars. No pressure weights or covariance are inferred. Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30\u201335 GPa coexistence exclusion is used here.",
           "coordinates": {
             "pressure": {
               "kind": "calibrant_eos",
@@ -10090,7 +10058,7 @@
                 ]
               }
             ],
-            "notes": "Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30–35 GPa coexistence exclusion is used here.",
+            "notes": "Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30\u201335 GPa coexistence exclusion is used here.",
             "pressure_above_gpa": 35
           },
           "uncertainties": {
@@ -10715,7 +10683,7 @@
             "orthoenstatite_angel_2002_bm3_1"
           ],
           "evidence_kind": "digitized",
-          "notes": "Published orthoenstatite source normalization 832.5 Å³. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data.",
+          "notes": "Published orthoenstatite source normalization 832.5 \u00c5\u00b3. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -10726,7 +10694,7 @@
               "column": "volume_ratio",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 832.5,
-              "reference": "Published orthoenstatite source normalization 832.5 Å³. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data. Figure 2b, closed-symbol new compression series"
+              "reference": "Published orthoenstatite source normalization 832.5 \u00c5\u00b3. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data. Figure 2b, closed-symbol new compression series"
             }
           },
           "uncertainties": {
@@ -10851,7 +10819,7 @@
             "pbs_b1_knorr_2003_bm3_1"
           ],
           "evidence_kind": "digitized",
-          "notes": "Source ambient cubic lattice a=5.9240 Å gives the reported 207.8955 Å³ normalization. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data.",
+          "notes": "Source ambient cubic lattice a=5.9240 \u00c5 gives the reported 207.8955 \u00c5\u00b3 normalization. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -10862,7 +10830,7 @@
               "column": "volume_ratio",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 207.8955,
-              "reference": "Source ambient cubic lattice a=5.9240 Å gives the reported 207.8955 Å³ normalization. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data. Figure 2, lower panel, open-circle B1-PbS series"
+              "reference": "Source ambient cubic lattice a=5.9240 \u00c5 gives the reported 207.8955 \u00c5\u00b3 normalization. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data. Figure 2, lower panel, open-circle B1-PbS series"
             }
           },
           "uncertainties": {
@@ -11124,7 +11092,7 @@
             "platinum_shen_2026_vinet_2"
           ],
           "evidence_kind": "experimental",
-          "notes": "All selected-phase measurements are retained. Pressure is calculated from Cu in the same experiment and run through the full Fratanduono 2020 EOS at 298 K. No 298-to-300 K correction is applied. Sample temperature is unreported. Volume bars are reported standard errors; Cu volume errors and calibration parameter errors are not propagated into pressure bars. No pressure weights or covariance are inferred. Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30–35 GPa coexistence exclusion is used here.",
+          "notes": "All selected-phase measurements are retained. Pressure is calculated from Cu in the same experiment and run through the full Fratanduono 2020 EOS at 298 K. No 298-to-300 K correction is applied. Sample temperature is unreported. Volume bars are reported standard errors; Cu volume errors and calibration parameter errors are not propagated into pressure bars. No pressure weights or covariance are inferred. Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30\u201335 GPa coexistence exclusion is used here.",
           "coordinates": {
             "pressure": {
               "kind": "calibrant_eos",
@@ -11169,7 +11137,7 @@
                 ]
               }
             ],
-            "notes": "Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30–35 GPa coexistence exclusion is used here."
+            "notes": "Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30\u201335 GPa coexistence exclusion is used here."
           },
           "uncertainties": {
             "volume": "unit_cell_volume_standard_error_a3"
@@ -12123,7 +12091,7 @@
             "silicon_x_anzellini_2019_vinet_1"
           ],
           "evidence_kind": "experimental",
-          "notes": "Only the selected Si phase is shown, with the source ruby pressure as reported. Volumes use that phase’s explicit cubic or hexagonal cell geometry; no W/Au-to-ruby conversion is inferred.",
+          "notes": "Only the selected Si phase is shown, with the source ruby pressure as reported. Volumes use that phase\u2019s explicit cubic or hexagonal cell geometry; no W/Au-to-ruby conversion is inferred.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -12143,7 +12111,7 @@
                 "beta": 90,
                 "gamma": 90
               },
-              "reference": "Only the selected Si phase is shown, with the source ruby pressure as reported. Volumes use that phase’s explicit cubic or hexagonal cell geometry; no W/Au-to-ruby conversion is inferred. Tables 1, 4, 6, and 7"
+              "reference": "Only the selected Si phase is shown, with the source ruby pressure as reported. Volumes use that phase\u2019s explicit cubic or hexagonal cell geometry; no W/Au-to-ruby conversion is inferred. Tables 1, 4, 6, and 7"
             }
           },
           "row_selection": [
@@ -12173,7 +12141,7 @@
             "silicon_anzellini_2019_vinet_1"
           ],
           "evidence_kind": "experimental",
-          "notes": "Only the selected Si phase is shown, with the source ruby pressure as reported. Volumes use that phase’s explicit cubic or hexagonal cell geometry; no W/Au-to-ruby conversion is inferred.",
+          "notes": "Only the selected Si phase is shown, with the source ruby pressure as reported. Volumes use that phase\u2019s explicit cubic or hexagonal cell geometry; no W/Au-to-ruby conversion is inferred.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -12193,7 +12161,7 @@
                 "beta": 90,
                 "gamma": 90
               },
-              "reference": "Only the selected Si phase is shown, with the source ruby pressure as reported. Volumes use that phase’s explicit cubic or hexagonal cell geometry; no W/Au-to-ruby conversion is inferred. Tables 1, 4, 6, and 7"
+              "reference": "Only the selected Si phase is shown, with the source ruby pressure as reported. Volumes use that phase\u2019s explicit cubic or hexagonal cell geometry; no W/Au-to-ruby conversion is inferred. Tables 1, 4, 6, and 7"
             }
           },
           "row_selection": [
@@ -12447,7 +12415,7 @@
             "sro_b2_sato_1981_bm2_1"
           ],
           "evidence_kind": "experimental",
-          "notes": "Cell volume is calculated from reported sample density using M=103.619 g/mol and Z=1, treated as exact: V=ZM/(N_A ρ). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. The reported experimental pressure reduction is retained.",
+          "notes": "Cell volume is calculated from reported sample density using M=103.619 g/mol and Z=1, treated as exact: V=ZM/(N_A \u03c1). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. The reported experimental pressure reduction is retained.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -12458,7 +12426,7 @@
               "column": "density_mg_m3",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 172.06339760148683,
-              "reference": "Cell volume is calculated from reported sample density using M=103.619 g/mol and Z=1, treated as exact: V=ZM/(N_A ρ). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. The reported experimental pressure reduction is retained. Table 1, page 11774",
+              "reference": "Cell volume is calculated from reported sample density using M=103.619 g/mol and Z=1, treated as exact: V=ZM/(N_A \u03c1). Reported density errors propagate to first order; mass uncertainty and covariance are omitted. The reported experimental pressure reduction is retained. Table 1, page 11774",
               "reciprocal": true
             }
           },
@@ -12554,7 +12522,7 @@
             "tantalum_shen_2026_vinet_2"
           ],
           "evidence_kind": "experimental",
-          "notes": "All selected-phase measurements are retained. Pressure is calculated from Cu in the same experiment and run through the full Fratanduono 2020 EOS at 298 K. No 298-to-300 K correction is applied. Sample temperature is unreported. Volume bars are reported standard errors; Cu volume errors and calibration parameter errors are not propagated into pressure bars. No pressure weights or covariance are inferred. Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30–35 GPa coexistence exclusion is used here.",
+          "notes": "All selected-phase measurements are retained. Pressure is calculated from Cu in the same experiment and run through the full Fratanduono 2020 EOS at 298 K. No 298-to-300 K correction is applied. Sample temperature is unreported. Volume bars are reported standard errors; Cu volume errors and calibration parameter errors are not propagated into pressure bars. No pressure weights or covariance are inferred. Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30\u201335 GPa coexistence exclusion is used here.",
           "coordinates": {
             "pressure": {
               "kind": "calibrant_eos",
@@ -12599,7 +12567,7 @@
                 ]
               }
             ],
-            "notes": "Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30–35 GPa coexistence exclusion is used here."
+            "notes": "Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30\u201335 GPa coexistence exclusion is used here."
           },
           "uncertainties": {
             "volume": "unit_cell_volume_standard_error_a3"
@@ -12894,7 +12862,7 @@
             "tungsten_shen_2026_vinet_3"
           ],
           "evidence_kind": "experimental",
-          "notes": "All selected-phase measurements are retained. Pressure is calculated from Cu in the same experiment and run through the full Fratanduono 2020 EOS at 298 K. No 298-to-300 K correction is applied. Sample temperature is unreported. Volume bars are reported standard errors; Cu volume errors and calibration parameter errors are not propagated into pressure bars. No pressure weights or covariance are inferred. Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30–35 GPa coexistence exclusion is used here.",
+          "notes": "All selected-phase measurements are retained. Pressure is calculated from Cu in the same experiment and run through the full Fratanduono 2020 EOS at 298 K. No 298-to-300 K correction is applied. Sample temperature is unreported. Volume bars are reported standard errors; Cu volume errors and calibration parameter errors are not propagated into pressure bars. No pressure weights or covariance are inferred. Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30\u201335 GPa coexistence exclusion is used here.",
           "coordinates": {
             "pressure": {
               "kind": "calibrant_eos",
@@ -12940,7 +12908,7 @@
                 ]
               }
             ],
-            "notes": "Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30–35 GPa coexistence exclusion is used here."
+            "notes": "Audited fit subset, not the recovered author mask. NaCl B2 Table II says above 33 GPa; approximate 30\u201335 GPa coexistence exclusion is used here."
           },
           "uncertainties": {
             "volume": "unit_cell_volume_standard_error_a3"
@@ -12963,7 +12931,7 @@
             "wadsleyite_katsura_2009_bm3_1"
           ],
           "evidence_kind": "experimental",
-          "notes": "The source explicitly gives recovered-sample V0=538.49 Å³. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data.",
+          "notes": "The source explicitly gives recovered-sample V0=538.49 \u00c5\u00b3. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -12974,7 +12942,7 @@
               "column": "normalized_volume",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 538.49,
-              "reference": "The source explicitly gives recovered-sample V0=538.49 Å³. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data. Table 1, page L11307-3"
+              "reference": "The source explicitly gives recovered-sample V0=538.49 \u00c5\u00b3. The original ratios and reading errors are preserved; rescaling omits normalization-volume uncertainty and covariance and does not refit the data. Table 1, page L11307-3"
             },
             "temperature": {
               "column": "temperature_k"
@@ -13349,7 +13317,7 @@
             "ca_perovskite_tetragonal_chen_2018_vinet"
           ],
           "evidence_kind": "experimental",
-          "notes": "The source I4/mcm conventional cell has Z=4, matching this material. The separate P4/mmm pseudocell is not substituted; Pt–Ye pressures are shown as reported.",
+          "notes": "The source I4/mcm conventional cell has Z=4, matching this material. The separate P4/mmm pseudocell is not substituted; Pt\u2013Ye pressures are shown as reported.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -14180,7 +14148,7 @@
             "perovskite_orthorhombic_knittle_1987_bm3_1"
           ],
           "evidence_kind": "experimental",
-          "notes": "Source post-anneal pressures are paired with the three measured orthorhombic lengths. Picometres convert to ångströms; the selected EOS V0 is not used to scale normalized source volumes.",
+          "notes": "Source post-anneal pressures are paired with the three measured orthorhombic lengths. Picometres convert to \u00e5ngstr\u00f6ms; the selected EOS V0 is not used to scale normalized source volumes.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -14271,7 +14239,7 @@
               "kind": "column",
               "column": "volume_a3",
               "unit": "angstrom^3/conventional_unit_cell",
-              "reference": "Table 2, pp. 144–145; source conventional-cell basis."
+              "reference": "Table 2, pp. 144\u2013145; source conventional-cell basis."
             }
           },
           "phase_reviewed": true,
@@ -14296,7 +14264,7 @@
               "kind": "column",
               "column": "volume_a3",
               "unit": "angstrom^3/conventional_unit_cell",
-              "reference": "Table 2, pp. 144–145; source conventional-cell basis."
+              "reference": "Table 2, pp. 144\u2013145; source conventional-cell basis."
             }
           },
           "phase_reviewed": true,
@@ -14320,7 +14288,7 @@
               "kind": "column",
               "column": "volume_a3",
               "unit": "angstrom^3/conventional_unit_cell",
-              "reference": "Table 2, pp. 144–145; source conventional-cell basis."
+              "reference": "Table 2, pp. 144\u2013145; source conventional-cell basis."
             }
           },
           "phase_reviewed": true,
@@ -14345,7 +14313,7 @@
               "kind": "column",
               "column": "volume_a3",
               "unit": "angstrom^3/conventional_unit_cell",
-              "reference": "Table 2, pp. 144–145; source conventional-cell basis."
+              "reference": "Table 2, pp. 144\u2013145; source conventional-cell basis."
             }
           },
           "phase_reviewed": true,
@@ -14369,7 +14337,7 @@
               "kind": "column",
               "column": "volume_a3",
               "unit": "angstrom^3/conventional_unit_cell",
-              "reference": "Table 2, pp. 144–145; source conventional-cell basis."
+              "reference": "Table 2, pp. 144\u2013145; source conventional-cell basis."
             }
           },
           "phase_reviewed": true,
@@ -14394,7 +14362,7 @@
               "kind": "column",
               "column": "volume_a3",
               "unit": "angstrom^3/conventional_unit_cell",
-              "reference": "Table 2, pp. 144–145; source conventional-cell basis."
+              "reference": "Table 2, pp. 144\u2013145; source conventional-cell basis."
             }
           },
           "phase_reviewed": true,
@@ -14419,7 +14387,7 @@
               "kind": "column",
               "column": "volume_a3",
               "unit": "angstrom^3/conventional_unit_cell",
-              "reference": "Table 2, pp. 144–145; source conventional-cell basis."
+              "reference": "Table 2, pp. 144\u2013145; source conventional-cell basis."
             }
           },
           "phase_reviewed": true,
@@ -14538,7 +14506,7 @@
             "platinum_matsui_2009_vinet_mgd_electronic"
           ],
           "evidence_kind": "shock",
-          "notes": "Source-reported Hugoniot pressure/stress and density reductions are shown as shock states, not static or isothermal P–V observations. Density-to-volume conversion uses the stated nominal composition mass. Missing temperatures and unspecified uncertainty conventions remain unknown.",
+          "notes": "Source-reported Hugoniot pressure/stress and density reductions are shown as shock states, not static or isothermal P\u2013V observations. Density-to-volume conversion uses the stated nominal composition mass. Missing temperatures and unspecified uncertainty conventions remain unknown.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -14549,7 +14517,7 @@
               "column": "density_g_cm3",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 1295.778413522171,
-              "reference": "Nominal formula mass 195.084 g/mol and declared Z; V=Z M/(rho N_A), with rho in g/cm³ (numerically Mg/m³). Mass and Z treated exact; their uncertainty is not added.",
+              "reference": "Nominal formula mass 195.084 g/mol and declared Z; V=Z M/(rho N_A), with rho in g/cm\u00b3 (numerically Mg/m\u00b3). Mass and Z treated exact; their uncertainty is not added.",
               "reciprocal": true
             }
           },
@@ -14575,7 +14543,7 @@
             "mgo_b1_duffy_ahrens_1995_hugoniot_5"
           ],
           "evidence_kind": "shock",
-          "notes": "Source-reported Hugoniot pressure/stress and density reductions are shown as shock states, not static or isothermal P–V observations. Density-to-volume conversion uses the stated nominal composition mass. Missing temperatures and unspecified uncertainty conventions remain unknown.",
+          "notes": "Source-reported Hugoniot pressure/stress and density reductions are shown as shock states, not static or isothermal P\u2013V observations. Density-to-volume conversion uses the stated nominal composition mass. Missing temperatures and unspecified uncertainty conventions remain unknown.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -14586,7 +14554,7 @@
               "column": "shocked_density_g_cm3",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 267.70546625349886,
-              "reference": "Nominal formula mass 40.304 g/mol and declared Z; V=Z M/(rho N_A), with rho in g/cm³ (numerically Mg/m³). Mass and Z treated exact; their uncertainty is not added.",
+              "reference": "Nominal formula mass 40.304 g/mol and declared Z; V=Z M/(rho N_A), with rho in g/cm\u00b3 (numerically Mg/m\u00b3). Mass and Z treated exact; their uncertainty is not added.",
               "reciprocal": true
             }
           },
@@ -14613,7 +14581,7 @@
             "mgsio3_liquid_akins_2004_adiabatic_bm3"
           ],
           "evidence_kind": "shock",
-          "notes": "Source-reported Hugoniot pressure/stress and density reductions are shown as shock states, not static or isothermal P–V observations. Density-to-volume conversion uses the stated nominal composition mass. Missing temperatures and unspecified uncertainty conventions remain unknown.",
+          "notes": "Source-reported Hugoniot pressure/stress and density reductions are shown as shock states, not static or isothermal P\u2013V observations. Density-to-volume conversion uses the stated nominal composition mass. Missing temperatures and unspecified uncertainty conventions remain unknown.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -14624,7 +14592,7 @@
               "column": "shock_density_g_cm3",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 166.69653533638095,
-              "reference": "Nominal formula mass 100.387 g/mol and declared Z; V=Z M/(rho N_A), with rho in g/cm³ (numerically Mg/m³). Mass and Z treated exact; their uncertainty is not added.",
+              "reference": "Nominal formula mass 100.387 g/mol and declared Z; V=Z M/(rho N_A), with rho in g/cm\u00b3 (numerically Mg/m\u00b3). Mass and Z treated exact; their uncertainty is not added.",
               "reciprocal": true
             }
           },
@@ -14651,7 +14619,7 @@
             "mgsio3_liquid_akins_2004_adiabatic_bm3"
           ],
           "evidence_kind": "shock",
-          "notes": "Source-reported Hugoniot pressure/stress and density reductions are shown as shock states, not static or isothermal P–V observations. Density-to-volume conversion uses the stated nominal composition mass. Missing temperatures and unspecified uncertainty conventions remain unknown.",
+          "notes": "Source-reported Hugoniot pressure/stress and density reductions are shown as shock states, not static or isothermal P\u2013V observations. Density-to-volume conversion uses the stated nominal composition mass. Missing temperatures and unspecified uncertainty conventions remain unknown.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -14662,7 +14630,7 @@
               "column": "shock_density_g_cm3",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 166.69653533638095,
-              "reference": "Nominal formula mass 100.387 g/mol and declared Z; V=Z M/(rho N_A), with rho in g/cm³ (numerically Mg/m³). Mass and Z treated exact; their uncertainty is not added.",
+              "reference": "Nominal formula mass 100.387 g/mol and declared Z; V=Z M/(rho N_A), with rho in g/cm\u00b3 (numerically Mg/m\u00b3). Mass and Z treated exact; their uncertainty is not added.",
               "reciprocal": true
             }
           },
@@ -14689,7 +14657,7 @@
             "mgsio3_post_perovskite_mosenfelder_2009_bm3_1"
           ],
           "evidence_kind": "shock",
-          "notes": "Source-reported Hugoniot pressure/stress and density reductions are shown as shock states, not static or isothermal P–V observations. Density-to-volume conversion uses the stated nominal composition mass. Missing temperatures and unspecified uncertainty conventions remain unknown.",
+          "notes": "Source-reported Hugoniot pressure/stress and density reductions are shown as shock states, not static or isothermal P\u2013V observations. Density-to-volume conversion uses the stated nominal composition mass. Missing temperatures and unspecified uncertainty conventions remain unknown.",
           "coordinates": {
             "pressure": {
               "kind": "column",
@@ -14700,7 +14668,7 @@
               "column": "shock_density_mg_m3",
               "unit": "angstrom^3/conventional_unit_cell",
               "factor": 666.7861413455238,
-              "reference": "Nominal formula mass 100.387 g/mol and declared Z; V=Z M/(rho N_A), with rho in g/cm³ (numerically Mg/m³). Mass and Z treated exact; their uncertainty is not added.",
+              "reference": "Nominal formula mass 100.387 g/mol and declared Z; V=Z M/(rho N_A), with rho in g/cm\u00b3 (numerically Mg/m\u00b3). Mass and Z treated exact; their uncertainty is not added.",
               "reciprocal": true
             }
           },

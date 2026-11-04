@@ -116,10 +116,10 @@ def test_akins_hugoniot_is_not_a_direct_bm3_pressure_fit() -> None:
     assert pressure[0] == pytest.approx(177.572, abs=0.001)
 
 
-def test_akins_primary_refit_ledger_uses_bounded_reconstruction() -> None:
+def test_akins_primary_refit_ledger_uses_bounded_reconstruction(reproduce_once) -> None:
     outcome = next(
         item
-        for item in validate_all()["records"]
+        for item in reproduce_once(validate_all)["records"]
         if item["record_identifier"] == "mgsio3_liquid_akins_2004_adiabatic_bm3"
     )
     assert outcome["status"] == "similar"
