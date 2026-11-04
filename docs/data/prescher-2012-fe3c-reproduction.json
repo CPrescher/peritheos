@@ -1,0 +1,672 @@
+{
+  "format": "peritheos.prescher-2012-fe3c-reproduction",
+  "reference_doi": "10.1103/PhysRevB.85.140402",
+  "dataset_identifier": "cementite_prescher_2012_table_s1",
+  "observations": 19,
+  "temperature_k": 293,
+  "qualification": "All 19 Table S1 observations are preserved. The ambient point plotted in Figure 1 is not tabulated here; no numerical ambient anchor or published V0 has been synthesized. K0/K0-prime agreement alone does not recover the complete three-parameter EOS or the author's workflow.",
+  "source_subsets": {
+    "full_range": {
+      "published_parameters": {
+        "V0": null,
+        "K0": 161.0,
+        "K0_prime": 5.9
+      },
+      "published_parameter_errors": {
+        "V0": null,
+        "K0": 2.0,
+        "K0_prime": 0.2
+      },
+      "published_V0_status": "Not stated in inspected main paper or supplied supplement; fixed/shared/refined convention unknown.",
+      "published_curve_replay": "unavailable_without_source_V0",
+      "author_workflow_reproduced": false,
+      "reconstruction_kind": "conditional_diagnostics_not_catalog_refits",
+      "fits": {
+        "equal_pressure_weights": {
+          "parameters": {
+            "V0": 154.19436075805072,
+            "K0": 170.27610593944755,
+            "K0_prime": 5.448014741376809
+          },
+          "parameter_errors": {
+            "V0": 0.24776247419384356,
+            "K0": 6.7741572505947305,
+            "K0_prime": 0.37894272098446796
+          },
+          "source_comparisons": [
+            {
+              "parameter": "K0",
+              "published": 161.0,
+              "published_error": 2.0,
+              "reconstructed": 170.27610593944755,
+              "reconstruction_error": 6.7741572505947305,
+              "difference": 9.276105939447547,
+              "within_printed_source_error_width": false
+            },
+            {
+              "parameter": "K0_prime",
+              "published": 5.9,
+              "published_error": 0.2,
+              "reconstructed": 5.448014741376809,
+              "reconstruction_error": 0.37894272098446796,
+              "difference": -0.45198525862319094,
+              "within_printed_source_error_width": false
+            }
+          ],
+          "K0_and_K0_prime_within_source_widths": false,
+          "observations": 19,
+          "free_parameters": [
+            "V0",
+            "K0",
+            "K0_prime"
+          ],
+          "fixed_parameters": [],
+          "source_rows": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "pressure_range_gpa": [
+            1.8,
+            47.4
+          ],
+          "covariance_order": [
+            "V0",
+            "K0",
+            "K0_prime"
+          ],
+          "covariance": [
+            [
+              0.061386243618654995,
+              -1.559294757409473,
+              0.07615597815039969
+            ],
+            [
+              -1.559294757409473,
+              45.889206455785164,
+              -2.478035712391305
+            ],
+            [
+              0.07615597815039969,
+              -2.478035712391305,
+              0.14359758578711235
+            ]
+          ],
+          "covariance_convention": "Residual-scaled inverse normal matrix, conditional on the stated objective and row selection; not a recovered source confidence convention.",
+          "objective": "pressure_residuals",
+          "weighting": "Equal pressure weights; printed coordinate errors not used.",
+          "pressure_residuals_gpa_at_observed_volumes": [
+            -0.4243673991163701,
+            -0.48135237928580565,
+            0.3149536409856717,
+            0.3912940974863961,
+            0.39790919648175027,
+            0.4636538886556707,
+            0.44861726807453906,
+            -0.026101174820304607,
+            0.016895773032377548,
+            -0.3617088415772436,
+            -0.17178216188665374,
+            -0.30488316875527843,
+            -0.4709047180914112,
+            0.06910802483405831,
+            -0.28048046875511545,
+            -0.003618347358262497,
+            -0.054316821969933926,
+            0.06930758678905846,
+            0.40682821342321773
+          ],
+          "pressure_rmse_gpa_at_observed_volumes": 0.32211425515942915,
+          "solver_success": true,
+          "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied."
+        },
+        "reported_coordinate_widths": {
+          "parameters": {
+            "V0": 154.48775066003483,
+            "K0": 160.53548388275308,
+            "K0_prime": 6.031740968316844
+          },
+          "parameter_errors": {
+            "V0": 0.21343608463827876,
+            "K0": 6.341595321378932,
+            "K0_prime": 0.41828331544966074
+          },
+          "source_comparisons": [
+            {
+              "parameter": "K0",
+              "published": 161.0,
+              "published_error": 2.0,
+              "reconstructed": 160.53548388275308,
+              "reconstruction_error": 6.341595321378932,
+              "difference": -0.4645161172469159,
+              "within_printed_source_error_width": true
+            },
+            {
+              "parameter": "K0_prime",
+              "published": 5.9,
+              "published_error": 0.2,
+              "reconstructed": 6.031740968316844,
+              "reconstruction_error": 0.41828331544966074,
+              "difference": 0.13174096831684334,
+              "within_printed_source_error_width": true
+            }
+          ],
+          "K0_and_K0_prime_within_source_widths": true,
+          "observations": 19,
+          "free_parameters": [
+            "V0",
+            "K0",
+            "K0_prime"
+          ],
+          "fixed_parameters": [],
+          "source_rows": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "pressure_range_gpa": [
+            1.8,
+            47.4
+          ],
+          "covariance_order": [
+            "V0",
+            "K0",
+            "K0_prime"
+          ],
+          "covariance": [
+            [
+              0.0455549622257185,
+              -1.2323271245054135,
+              0.07079684680257425
+            ],
+            [
+              -1.2323271245054135,
+              40.21583122013516,
+              -2.5679536869956507
+            ],
+            [
+              0.07079684680257425,
+              -2.5679536869956507,
+              0.17496093198356039
+            ]
+          ],
+          "covariance_convention": "Residual-scaled inverse normal matrix, conditional on the stated objective and row selection; not a recovered source confidence convention.",
+          "objective": "errors_in_variables",
+          "weighting": "Reported last-digit P/V widths treated as numerical coordinate weights; source does not define them as independent standard deviations.",
+          "pressure_residuals_gpa_at_observed_volumes": [
+            -0.178288298952902,
+            -0.34378031977199086,
+            0.3660694001418481,
+            0.3807537822336098,
+            0.3413273468083915,
+            0.37441051844316675,
+            0.32715885141261225,
+            -0.16117212875912657,
+            -0.1294086891108357,
+            -0.5110668152620725,
+            -0.3182910005043986,
+            -0.44278081885214604,
+            -0.595276701335596,
+            -0.02733075948135877,
+            -0.349194226082318,
+            -0.03419388023956316,
+            -0.04077630856800596,
+            0.13039551396870763,
+            0.6034276300171157
+          ],
+          "pressure_rmse_gpa_at_observed_volumes": 0.34450166167168506,
+          "solver_success": true,
+          "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied."
+        }
+      }
+    },
+    "below_22_gpa": {
+      "published_parameters": {
+        "V0": null,
+        "K0": 145.0,
+        "K0_prime": 8.5
+      },
+      "published_parameter_errors": {
+        "V0": null,
+        "K0": 3.0,
+        "K0_prime": 0.7
+      },
+      "published_V0_status": "Not stated in inspected main paper or supplied supplement; fixed/shared/refined convention unknown.",
+      "published_curve_replay": "unavailable_without_source_V0",
+      "author_workflow_reproduced": false,
+      "reconstruction_kind": "conditional_diagnostics_not_catalog_refits",
+      "fits": {
+        "equal_pressure_weights": {
+          "parameters": {
+            "V0": 155.28851954484233,
+            "K0": 121.25412048961586,
+            "K0_prime": 11.255412446050084
+          },
+          "parameter_errors": {
+            "V0": 0.3784311513467849,
+            "K0": 13.225530702071897,
+            "K0_prime": 2.105836587354682
+          },
+          "source_comparisons": [
+            {
+              "parameter": "K0",
+              "published": 145.0,
+              "published_error": 3.0,
+              "reconstructed": 121.25412048961586,
+              "reconstruction_error": 13.225530702071897,
+              "difference": -23.745879510384142,
+              "within_printed_source_error_width": false
+            },
+            {
+              "parameter": "K0_prime",
+              "published": 8.5,
+              "published_error": 0.7,
+              "reconstructed": 11.255412446050084,
+              "reconstruction_error": 2.105836587354682,
+              "difference": 2.7554124460500837,
+              "within_printed_source_error_width": false
+            }
+          ],
+          "K0_and_K0_prime_within_source_widths": false,
+          "observations": 9,
+          "free_parameters": [
+            "V0",
+            "K0",
+            "K0_prime"
+          ],
+          "fixed_parameters": [],
+          "source_rows": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "pressure_range_gpa": [
+            1.8,
+            20.7
+          ],
+          "covariance_order": [
+            "V0",
+            "K0",
+            "K0_prime"
+          ],
+          "covariance": [
+            [
+              0.1432101363096532,
+              -4.780558668627528,
+              0.707751194612805
+            ],
+            [
+              -4.780558668627528,
+              174.91466235144637,
+              -27.364784536600183
+            ],
+            [
+              0.707751194612805,
+              -27.364784536600183,
+              4.434547732641612
+            ]
+          ],
+          "covariance_convention": "Residual-scaled inverse normal matrix, conditional on the stated objective and row selection; not a recovered source confidence convention.",
+          "objective": "pressure_residuals",
+          "weighting": "Equal pressure weights; printed coordinate errors not used.",
+          "pressure_residuals_gpa_at_observed_volumes": [
+            0.17351598540535318,
+            -0.3587141115487711,
+            0.12595496724613398,
+            0.04087516160674731,
+            -0.015372721378623666,
+            0.059913742720022256,
+            0.148493056627224,
+            -0.2133233856755261,
+            0.03867320215231018
+          ],
+          "pressure_rmse_gpa_at_observed_volumes": 0.1663990157764535,
+          "solver_success": true,
+          "solver_message": "`ftol` termination condition is satisfied."
+        },
+        "reported_coordinate_widths": {
+          "parameters": {
+            "V0": 155.1455947977749,
+            "K0": 128.38508764573356,
+            "K0_prime": 9.965158935035518
+          },
+          "parameter_errors": {
+            "V0": 0.3044932890289825,
+            "K0": 12.537168078099326,
+            "K0_prime": 2.0133164906782457
+          },
+          "source_comparisons": [
+            {
+              "parameter": "K0",
+              "published": 145.0,
+              "published_error": 3.0,
+              "reconstructed": 128.38508764573356,
+              "reconstruction_error": 12.537168078099326,
+              "difference": -16.614912354266437,
+              "within_printed_source_error_width": false
+            },
+            {
+              "parameter": "K0_prime",
+              "published": 8.5,
+              "published_error": 0.7,
+              "reconstructed": 9.965158935035518,
+              "reconstruction_error": 2.0133164906782457,
+              "difference": 1.465158935035518,
+              "within_printed_source_error_width": false
+            }
+          ],
+          "K0_and_K0_prime_within_source_widths": false,
+          "observations": 9,
+          "free_parameters": [
+            "V0",
+            "K0",
+            "K0_prime"
+          ],
+          "fixed_parameters": [],
+          "source_rows": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "pressure_range_gpa": [
+            1.8,
+            20.7
+          ],
+          "covariance_order": [
+            "V0",
+            "K0",
+            "K0_prime"
+          ],
+          "covariance": [
+            [
+              0.09271616306368748,
+              -3.5710898488517806,
+              0.5208419441994908
+            ],
+            [
+              -3.5710898488517806,
+              157.18058341851273,
+              -24.66523596580023
+            ],
+            [
+              0.5208419441994908,
+              -24.66523596580023,
+              4.053443291636966
+            ]
+          ],
+          "covariance_convention": "Residual-scaled inverse normal matrix, conditional on the stated objective and row selection; not a recovered source confidence convention.",
+          "objective": "errors_in_variables",
+          "weighting": "Reported last-digit P/V widths treated as numerical coordinate weights; source does not define them as independent standard deviations.",
+          "pressure_residuals_gpa_at_observed_volumes": [
+            0.1343325444936565,
+            -0.3415242741467548,
+            0.17079328372066538,
+            0.08976033927575067,
+            0.021673729208067982,
+            0.07461315608648178,
+            0.1168777307910851,
+            -0.2823188002818213,
+            -0.09101517055443864
+          ],
+          "pressure_rmse_gpa_at_observed_volumes": 0.17625621200402106,
+          "solver_success": true,
+          "solver_message": "`ftol` termination condition is satisfied."
+        }
+      }
+    },
+    "above_22_gpa": {
+      "published_parameters": {
+        "V0": null,
+        "K0": 172.0,
+        "K0_prime": 5.1
+      },
+      "published_parameter_errors": {
+        "V0": null,
+        "K0": 1.0,
+        "K0_prime": 0.1
+      },
+      "published_V0_status": "Not stated in inspected main paper or supplied supplement; fixed/shared/refined convention unknown.",
+      "published_curve_replay": "unavailable_without_source_V0",
+      "author_workflow_reproduced": false,
+      "reconstruction_kind": "conditional_diagnostics_not_catalog_refits",
+      "fits": {
+        "equal_pressure_weights": {
+          "parameters": {
+            "V0": 153.68360137228552,
+            "K0": 189.03804591432592,
+            "K0_prime": 4.440658907464841
+          },
+          "parameter_errors": {
+            "V0": 1.0351329217463343,
+            "K0": 21.989794127537703,
+            "K0_prime": 0.7352195937144592
+          },
+          "source_comparisons": [
+            {
+              "parameter": "K0",
+              "published": 172.0,
+              "published_error": 1.0,
+              "reconstructed": 189.03804591432592,
+              "reconstruction_error": 21.989794127537703,
+              "difference": 17.03804591432592,
+              "within_printed_source_error_width": false
+            },
+            {
+              "parameter": "K0_prime",
+              "published": 5.1,
+              "published_error": 0.1,
+              "reconstructed": 4.440658907464841,
+              "reconstruction_error": 0.7352195937144592,
+              "difference": -0.6593410925351586,
+              "within_printed_source_error_width": false
+            }
+          ],
+          "K0_and_K0_prime_within_source_widths": false,
+          "observations": 10,
+          "free_parameters": [
+            "V0",
+            "K0",
+            "K0_prime"
+          ],
+          "fixed_parameters": [],
+          "source_rows": [
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "pressure_range_gpa": [
+            22.6,
+            47.4
+          ],
+          "covariance_order": [
+            "V0",
+            "K0",
+            "K0_prime"
+          ],
+          "covariance": [
+            [
+              1.0715001656831027,
+              -22.68964419605003,
+              0.7494700021295005
+            ],
+            [
+              -22.68964419605003,
+              483.55104577149166,
+              -16.092225070835717
+            ],
+            [
+              0.7494700021295005,
+              -16.092225070835717,
+              0.5405478509816545
+            ]
+          ],
+          "covariance_convention": "Residual-scaled inverse normal matrix, conditional on the stated objective and row selection; not a recovered source confidence convention.",
+          "objective": "pressure_residuals",
+          "weighting": "Equal pressure weights; printed coordinate errors not used.",
+          "pressure_residuals_gpa_at_observed_volumes": [
+            -0.05348536400625292,
+            0.13215868044789758,
+            -0.017253904751626692,
+            -0.20950864803976899,
+            0.2756905675935428,
+            -0.12864024825966425,
+            0.07265688525134806,
+            -0.06566869710745493,
+            -0.03665076929345901,
+            0.030698010232782735
+          ],
+          "pressure_rmse_gpa_at_observed_volumes": 0.12998031459489215,
+          "solver_success": true,
+          "solver_message": "`ftol` termination condition is satisfied."
+        },
+        "reported_coordinate_widths": {
+          "parameters": {
+            "V0": 153.67937997120242,
+            "K0": 188.63682736322173,
+            "K0_prime": 4.471402711307137
+          },
+          "parameter_errors": {
+            "V0": 1.1001425223505097,
+            "K0": 23.435983250843027,
+            "K0_prime": 0.7906684809106717
+          },
+          "source_comparisons": [
+            {
+              "parameter": "K0",
+              "published": 172.0,
+              "published_error": 1.0,
+              "reconstructed": 188.63682736322173,
+              "reconstruction_error": 23.435983250843027,
+              "difference": 16.636827363221727,
+              "within_printed_source_error_width": false
+            },
+            {
+              "parameter": "K0_prime",
+              "published": 5.1,
+              "published_error": 0.1,
+              "reconstructed": 4.471402711307137,
+              "reconstruction_error": 0.7906684809106717,
+              "difference": -0.6285972886928626,
+              "within_printed_source_error_width": false
+            }
+          ],
+          "K0_and_K0_prime_within_source_widths": false,
+          "observations": 10,
+          "free_parameters": [
+            "V0",
+            "K0",
+            "K0_prime"
+          ],
+          "fixed_parameters": [],
+          "source_rows": [
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19
+          ],
+          "pressure_range_gpa": [
+            22.6,
+            47.4
+          ],
+          "covariance_order": [
+            "V0",
+            "K0",
+            "K0_prime"
+          ],
+          "covariance": [
+            [
+              1.2103135694837415,
+              -25.7047588744974,
+              0.8575546336161548
+            ],
+            [
+              -25.7047588744974,
+              549.2453109337949,
+              -18.451845115955287
+            ],
+            [
+              0.8575546336161548,
+              -18.451845115955287,
+              0.6251566467055891
+            ]
+          ],
+          "covariance_convention": "Residual-scaled inverse normal matrix, conditional on the stated objective and row selection; not a recovered source confidence convention.",
+          "objective": "errors_in_variables",
+          "weighting": "Reported last-digit P/V widths treated as numerical coordinate weights; source does not define them as independent standard deviations.",
+          "pressure_residuals_gpa_at_observed_volumes": [
+            -0.07551508791447503,
+            0.1119475927977156,
+            -0.03572135030995227,
+            -0.22591992846878028,
+            0.26281589055680854,
+            -0.13838075213961076,
+            0.06693539635543999,
+            -0.0669844489798308,
+            -0.03340081869125555,
+            0.046356479171876686
+          ],
+          "pressure_rmse_gpa_at_observed_volumes": 0.13076843939421393,
+          "solver_success": true,
+          "solver_message": "`ftol` termination condition is satisfied."
+        }
+      }
+    }
+  }
+}

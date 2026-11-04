@@ -1,0 +1,857 @@
+{
+  "format": "peritheos.prescher-2012-free-volume-split-check",
+  "date": "2026-10-30",
+  "numpy_version": "2.0.2",
+  "scipy_version": "1.13.1",
+  "input_sha256": {
+    "peritheos/data/datasets/cementite-prescher-2012-table-s1.csv": "eb0b6ffb6fc0e12bd72e51da27a3b0f71d917aadb59f00651331c58629447843",
+    "peritheos/data/research/cementite/prescher-2012-ambient-candidates.json": "9cc3102b1476d15c30b18fac081f5eebec42c3548a09be8e28db7513593c19b0",
+    "peritheos/data/research/cementite/prescher-2012-own-shelx-cells.json": "7ed0aea53599ba97ff5cf39ccc6bb85d58a008120def326d280f06e19036a7d0"
+  },
+  "ambient_input": {
+    "pressure_gpa": 0.0,
+    "volume_a3": 155.08,
+    "stored_volume_error_a3": 0.19,
+    "source": "May 4 CrysAlis log, 148-observation cell fit; see ambient-candidates evidence",
+    "qualification": "P=0 assignment of the ambient candidate is the requested diagnostic assumption; the log does not explicitly attach pressure. The printed volume error is retained but not used as a weight or propagated in this pressure-residual fit."
+  },
+  "protocol": {
+    "equation": "BM3, conventional-cell A^3 and GPa",
+    "free_parameters": [
+      "V0",
+      "K0",
+      "K0_prime"
+    ],
+    "objective": "Equal-weight pressure residuals; all input volumes treated as exact coordinates",
+    "primary_errors": "Linearized conditional one-sigma errors: inverse(J^T J) times SSE/(N-3). Assumes independent homoscedastic pressure residuals; these are estimated from scatter, not propagated experimental coordinate uncertainties.",
+    "secondary_errors": "Prior assumed absolute uniform pressure sigmas 0.2/0.1 GPa retained separately for comparison; not recovered author settings. Central values are unchanged by uniform weighting.",
+    "source_error_confidence": "Unknown; numeric printed-error comparisons do not establish matching confidence conventions.",
+    "primary_selection": "Final Table S1 split at 22 GPa; ambient added only to low. Actual low table pressures 1.8-20.7 GPa; high 22.6-47.4 GPa.",
+    "controls": "Low includes 22.6 GPa; high uses working own/SHELX volumes, including non-final p16 volume. Kept separate from primary fits."
+  },
+  "cases": [
+    {
+      "selection": "low_below_22_with_ambient",
+      "side": "low",
+      "role": "primary",
+      "source_rows": [
+        "archived_ambient_candidate",
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "pressure_gpa": [
+        0.0,
+        1.8,
+        4.7,
+        6.7,
+        9.1,
+        11.4,
+        13.4,
+        16.2,
+        18.4,
+        20.7
+      ],
+      "volume_a3": [
+        155.08,
+        152.98,
+        150.65,
+        148.56,
+        146.85,
+        145.36,
+        144.1,
+        142.5,
+        141.56,
+        140.34
+      ],
+      "parameters": {
+        "V0": 155.14882451756918,
+        "K0": 125.97684269391385,
+        "K0_prime": 10.576932712221957
+      },
+      "fixed_parameters": {},
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "residual_scaled_errors": [
+        0.19479794732138883,
+        7.712570630938923,
+        1.2902592771718828
+      ],
+      "residual_scaled_covariance": [
+        [
+          0.03794624028062658,
+          -1.3143794830945532,
+          0.18466394299100444
+        ],
+        [
+          -1.3143794830945532,
+          59.48374573722162,
+          -9.619921622353473
+        ],
+        [
+          0.18466394299100444,
+          -9.619921622353473,
+          1.6647690023281094
+        ]
+      ],
+      "unscaled_inverse_normal_matrix": [
+        [
+          1.0279739678645825,
+          -35.60689761421066,
+          5.002596431006614
+        ],
+        [
+          -35.60689761421066,
+          1611.430847344278,
+          -260.6062926799583
+        ],
+        [
+          5.002596431006614,
+          -260.6062926799583,
+          45.09904497112754
+        ]
+      ],
+      "conditional_95pct_half_widths": [
+        0.4606239503966497,
+        18.23733155604044,
+        3.0509783776432102
+      ],
+      "correlation": [
+        [
+          1.0,
+          -0.874857341947708,
+          0.7347180982042609
+        ],
+        [
+          -0.874857341947708,
+          1.0000000000000002,
+          -0.9667081699894297
+        ],
+        [
+          0.7347180982042609,
+          -0.9667081699894297,
+          0.9999999999999999
+        ]
+      ],
+      "objective": "equal_pressure",
+      "observations": 10,
+      "degrees_of_freedom": 7,
+      "sum_squared_objective_residuals": 0.2583953390533497,
+      "pressure_rmse_gpa": 0.16074680060683935,
+      "volume_rmse_a3": 0.12835740633112033,
+      "pressure_residuals_gpa": [
+        0.05602739841249299,
+        0.10894458566359133,
+        -0.38408729255275453,
+        0.12611611414747248,
+        0.05407518204188655,
+        0.002660339812040391,
+        0.07677250152654835,
+        0.15618379594150866,
+        -0.21538356450085772,
+        0.018717550686076834
+      ],
+      "volume_residuals_a3": [
+        0.06882451756916907,
+        0.11503483149618887,
+        -0.3394596509928647,
+        0.09833680273607115,
+        0.0376417802052913,
+        0.001681989721902255,
+        0.044909176687809804,
+        0.08285546309684833,
+        -0.10726751544174817,
+        0.008689937210561993
+      ],
+      "success": true,
+      "published_K0_K0prime_errorK0_errorK0prime": [
+        145,
+        8.5,
+        3,
+        0.7
+      ],
+      "residual_scaled_comparisons": {
+        "residual_scaled_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            125.97684269391385,
+            10.576932712221957,
+            7.712570630938923,
+            1.2902592771718828
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            125.97684269391385,
+            10.576932712221957,
+            15.425141261877846,
+            2.5805185543437656
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            125.97684269391385,
+            10.576932712221957,
+            18.23733155604044,
+            3.0509783776432102
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        }
+      },
+      "secondary_assumed_absolute_sigma_gpa": 0.2,
+      "secondary_absolute_errors_V0_K0_K0prime": [
+        0.20277810857570625,
+        8.028526457343714,
+        1.343116407385257
+      ],
+      "verification": "Central parameters agree with independent pressure-polynomial solution; covariance agrees with complex-step derivatives"
+    },
+    {
+      "selection": "high_22_up_final_table",
+      "side": "high",
+      "role": "primary",
+      "source_rows": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "pressure_gpa": [
+        22.6,
+        25.3,
+        27.5,
+        29.7,
+        32.1,
+        34.7,
+        37.0,
+        39.6,
+        41.9,
+        47.4
+      ],
+      "volume_a3": [
+        139.58,
+        138.2,
+        137.26,
+        136.37,
+        135.14,
+        134.24,
+        133.25,
+        132.31,
+        131.45,
+        129.5
+      ],
+      "parameters": {
+        "V0": 153.6836018480499,
+        "K0": 189.03803606838972,
+        "K0_prime": 4.440659225321045
+      },
+      "fixed_parameters": {},
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "residual_scaled_errors": [
+        1.0351332750819167,
+        21.989800694963186,
+        0.7352198317097783
+      ],
+      "residual_scaled_covariance": [
+        [
+          1.0715008971818147,
+          -22.689658771138976,
+          0.749470508630313
+        ],
+        [
+          -22.689658771138976,
+          483.5513346042034,
+          -16.092235135954464
+        ],
+        [
+          0.749470508630313,
+          -16.092235135954464,
+          0.5405482009393547
+        ]
+      ],
+      "unscaled_inverse_normal_matrix": [
+        [
+          44.39513812167865,
+          -940.093039331865,
+          31.05256079232352
+        ],
+        [
+          -940.093039331865,
+          20034.820638169782,
+          -666.7441935197976
+        ],
+        [
+          31.05256079232352,
+          -666.7441935197976,
+          22.396352728443468
+        ]
+      ],
+      "conditional_95pct_half_widths": [
+        2.447701245889365,
+        51.99761601100182,
+        1.7385186443129075
+      ],
+      "correlation": [
+        [
+          0.9999999999999998,
+          -0.9968054457183846,
+          0.9847841851685183
+        ],
+        [
+          -0.9968054457183846,
+          1.0,
+          -0.9953546816215079
+        ],
+        [
+          0.9847841851685183,
+          -0.9953546816215079,
+          1.0
+        ]
+      ],
+      "objective": "equal_pressure",
+      "observations": 10,
+      "degrees_of_freedom": 7,
+      "sum_squared_objective_residuals": 0.16894882182177784,
+      "pressure_rmse_gpa": 0.12998031459485618,
+      "volume_rmse_a3": 0.05523538256631462,
+      "pressure_residuals_gpa": [
+        -0.05348530873081714,
+        0.13215870742472902,
+        -0.017253893379162832,
+        -0.20950864845995198,
+        0.27569055604300274,
+        -0.12864026385115324,
+        0.07265686954672645,
+        -0.06566870841255223,
+        -0.03665077245312176,
+        0.03069804153376765
+      ],
+      "volume_residuals_a3": [
+        -0.026220184847858263,
+        0.061705886983531855,
+        -0.007773542519515786,
+        -0.09121669207883087,
+        0.1151498205768462,
+        -0.05181140768374348,
+        0.028250018833915647,
+        -0.0246306013545734,
+        -0.013314964702374255,
+        0.01036946942727468
+      ],
+      "success": true,
+      "published_K0_K0prime_errorK0_errorK0prime": [
+        172,
+        5.1,
+        1,
+        0.1
+      ],
+      "residual_scaled_comparisons": {
+        "residual_scaled_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            189.03803606838972,
+            4.440659225321045,
+            21.989800694963186,
+            0.7352198317097783
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            189.03803606838972,
+            4.440659225321045,
+            43.97960138992637,
+            1.4704396634195567
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            189.03803606838972,
+            4.440659225321045,
+            51.99761601100182,
+            1.7385186443129075
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        }
+      },
+      "secondary_assumed_absolute_sigma_gpa": 0.1,
+      "secondary_absolute_errors_V0_K0_K0prime": [
+        0.6662967038111165,
+        14.15443928515062,
+        0.47324776617371206
+      ],
+      "verification": "Central parameters agree with independent pressure-polynomial solution; covariance agrees with complex-step derivatives"
+    },
+    {
+      "selection": "low_through_22point6_with_ambient",
+      "side": "low",
+      "role": "selection_control",
+      "source_rows": [
+        "archived_ambient_candidate",
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "pressure_gpa": [
+        0.0,
+        1.8,
+        4.7,
+        6.7,
+        9.1,
+        11.4,
+        13.4,
+        16.2,
+        18.4,
+        20.7,
+        22.6
+      ],
+      "volume_a3": [
+        155.08,
+        152.98,
+        150.65,
+        148.56,
+        146.85,
+        145.36,
+        144.1,
+        142.5,
+        141.56,
+        140.34,
+        139.58
+      ],
+      "parameters": {
+        "V0": 155.1783562077796,
+        "K0": 123.70622182298088,
+        "K0_prime": 11.074208590776612
+      },
+      "fixed_parameters": {},
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "residual_scaled_errors": [
+        0.19097097283296516,
+        7.058494792942317,
+        1.1495724136155983
+      ],
+      "residual_scaled_covariance": [
+        [
+          0.03646991246476912,
+          -1.1951562335409578,
+          0.16585125011852234
+        ],
+        [
+          -1.1951562335409578,
+          49.8223487419938,
+          -7.862624577064875
+        ],
+        [
+          0.16585125011852234,
+          -7.862624577064875,
+          1.3215167341459924
+        ]
+      ],
+      "unscaled_inverse_normal_matrix": [
+        [
+          1.039189564239687,
+          -34.05530207212786,
+          4.725837730095184
+        ],
+        [
+          -34.05530207212786,
+          1419.6596969791499,
+          -224.04104797107652
+        ],
+        [
+          4.725837730095184,
+          -224.04104797107652,
+          37.65587319188872
+        ]
+      ],
+      "conditional_95pct_half_widths": [
+        0.44037985305678007,
+        16.276918180842056,
+        2.650918739514203
+      ],
+      "correlation": [
+        [
+          1.0,
+          -0.8866357159939188,
+          0.7554662295202417
+        ],
+        [
+          -0.8866357159939188,
+          1.0,
+          -0.9689895811963478
+        ],
+        [
+          0.7554662295202417,
+          -0.9689895811963478,
+          1.0000000000000002
+        ]
+      ],
+      "objective": "equal_pressure",
+      "observations": 11,
+      "degrees_of_freedom": 8,
+      "sum_squared_objective_residuals": 0.28075657200389215,
+      "pressure_rmse_gpa": 0.15976021008882832,
+      "volume_rmse_a3": 0.12774247940673222,
+      "pressure_residuals_gpa": [
+        0.07870886106210033,
+        0.10822542763252918,
+        -0.4014501170180802,
+        0.10352851397615925,
+        0.035054469124260024,
+        -0.006780743868381123,
+        0.08061879956761331,
+        0.1844324843221692,
+        -0.16853501281568484,
+        0.09480543284375997,
+        -0.1085667872628413
+      ],
+      "volume_residuals_a3": [
+        0.09835620777957388,
+        0.1154293680667422,
+        -0.3559994783446996,
+        0.08068841334849708,
+        0.02431826743026022,
+        -0.004263106452157217,
+        0.046820358544806595,
+        0.09696378266471584,
+        -0.08309770007983275,
+        0.04352811445150451,
+        -0.04745337086765744
+      ],
+      "success": true,
+      "published_K0_K0prime_errorK0_errorK0prime": [
+        145,
+        8.5,
+        3,
+        0.7
+      ],
+      "residual_scaled_comparisons": {
+        "residual_scaled_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            123.70622182298088,
+            11.074208590776612,
+            7.058494792942317,
+            1.1495724136155983
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            123.70622182298088,
+            11.074208590776612,
+            14.116989585884633,
+            2.2991448272311965
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            123.70622182298088,
+            11.074208590776612,
+            16.276918180842056,
+            2.650918739514203
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        }
+      },
+      "secondary_assumed_absolute_sigma_gpa": 0.2,
+      "secondary_absolute_errors_V0_K0_K0prime": [
+        0.2038813108549734,
+        7.53567438505063,
+        1.2272876349064048
+      ],
+      "verification": "Central parameters agree with independent pressure-polynomial solution; covariance agrees with complex-step derivatives"
+    },
+    {
+      "selection": "high_22_up_working_cells",
+      "side": "high",
+      "role": "selection_control",
+      "source_rows": [
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19
+      ],
+      "pressure_gpa": [
+        22.6,
+        25.3,
+        27.5,
+        29.7,
+        32.1,
+        34.7,
+        37.0,
+        39.6,
+        41.9,
+        47.4
+      ],
+      "volume_a3": [
+        139.58,
+        138.19,
+        137.26,
+        136.38,
+        135.15,
+        134.24,
+        133.58,
+        132.31,
+        131.46,
+        129.5
+      ],
+      "parameters": {
+        "V0": 152.1746588720527,
+        "K0": 224.84893807604388,
+        "K0_prime": 3.369021092399309
+      },
+      "fixed_parameters": {},
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "residual_scaled_errors": [
+        1.422979290079837,
+        36.64513423201774,
+        1.0434744534169318
+      ],
+      "residual_scaled_covariance": [
+        [
+          2.024870059996117,
+          -51.91524253235196,
+          1.45465804898858
+        ],
+        [
+          -51.91524253235196,
+          1342.8658628825985,
+          -38.0042226969389
+        ],
+        [
+          1.45465804898858,
+          -38.0042226969389,
+          1.0888389349337646
+        ]
+      ],
+      "unscaled_inverse_normal_matrix": [
+        [
+          23.47589257898736,
+          -601.893761471246,
+          16.864981497766195
+        ],
+        [
+          -601.893761471246,
+          15568.887785856989,
+          -440.6124951953519
+        ],
+        [
+          16.864981497766195,
+          -440.6124951953519,
+          12.623756149751696
+        ]
+      ],
+      "conditional_95pct_half_widths": [
+        3.3648113388370664,
+        86.65197310790207,
+        2.467424998467202
+      ],
+      "correlation": [
+        [
+          1.0,
+          -0.9955887739228807,
+          0.9796715899496635
+        ],
+        [
+          -0.9955887739228807,
+          1.0000000000000002,
+          -0.9938794624139097
+        ],
+        [
+          0.9796715899496635,
+          -0.9938794624139097,
+          1.0
+        ]
+      ],
+      "objective": "equal_pressure",
+      "observations": 10,
+      "degrees_of_freedom": 7,
+      "sum_squared_objective_residuals": 0.6037721621140687,
+      "pressure_rmse_gpa": 0.24571775721629657,
+      "volume_rmse_a3": 0.09956256747504476,
+      "pressure_residuals_gpa": [
+        -0.15605684509279172,
+        0.16305833750168475,
+        0.05293749852472729,
+        -0.11618041395504264,
+        0.41222622645570084,
+        0.04833672123581323,
+        -0.591734825848377,
+        0.09535928585648179,
+        0.06581916183490222,
+        0.02622164115511083
+      ],
+      "volume_residuals_a3": [
+        -0.07325359311323609,
+        0.07364145133232114,
+        0.02324602668355169,
+        -0.04965862847313929,
+        0.17046587927612222,
+        0.019413883980917035,
+        -0.2321881507857313,
+        0.03617533552869645,
+        0.024340177336966917,
+        0.009142627531531389
+      ],
+      "success": true,
+      "published_K0_K0prime_errorK0_errorK0prime": [
+        172,
+        5.1,
+        1,
+        0.1
+      ],
+      "residual_scaled_comparisons": {
+        "residual_scaled_1sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            224.84893807604388,
+            3.369021092399309,
+            36.64513423201774,
+            1.0434744534169318
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_2sigma": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            224.84893807604388,
+            3.369021092399309,
+            73.29026846403548,
+            2.0869489068338636
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        },
+        "residual_scaled_1sigma_95pct_t_half_width": {
+          "K0_K0prime_errorK0_errorK0prime": [
+            224.84893807604388,
+            3.369021092399309,
+            86.65197310790207,
+            2.467424998467202
+          ],
+          "matches_printed_digits": [
+            false,
+            false,
+            false,
+            false
+          ],
+          "all_four_match": false
+        }
+      },
+      "secondary_assumed_absolute_sigma_gpa": 0.1,
+      "secondary_absolute_errors_V0_K0_K0prime": [
+        0.48451921459424585,
+        12.477532186313693,
+        0.3552991950206246
+      ],
+      "verification": "Central parameters agree with independent pressure-polynomial solution; covariance agrees with complex-step derivatives"
+    }
+  ],
+  "author_workflow_reproduced": false,
+  "catalog_action": "No source coefficients, adopted catalog V0, previous comparisons or Studio records changed."
+}

@@ -1,0 +1,465 @@
+{
+  "format_version": 4,
+  "identifier": "cementite_nonmagnetic",
+  "name": "Cementite, nonmagnetic (Takahashi 2019 source models)",
+  "formula": "Fe3C",
+  "phase": "Pnma cementite, source-assigned nonmagnetic branch",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 4,
+  "recommendation_hold": {
+    "status": "on_hold",
+    "scope": "equilibrium_default",
+    "reason": "Research staging; phase-specific structure integration and original fitting workflow remain unresolved.",
+    "audit": "docs/literature-reproductions/cementite.md",
+    "date": "2026-10-25"
+  },
+  "eos_records": [
+    {
+      "identifier": "cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd",
+      "label": "Takahashi et al. (2019), nonmagnetic Fe3C, kbr pressure scale, BM3 + MGD",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 148.8, "error": 1},
+        "K0": {"value": 311.1, "error": 17.1},
+        "K0_prime": {"value": 3.4, "error": 0.1}
+      },
+      "thermal": {
+        "model": "MieGruneisenDebye",
+        "parameters": {
+          "Tr": {"value": 300, "fixed": true},
+          "theta0": {"value": 314, "fixed": true},
+          "n": {"value": 4, "fixed": true},
+          "gamma0": {"value": 1.06, "error": 0.42},
+          "q": {"value": 1.92, "error": 1.73}
+        },
+        "thermal_pressure_reference": "reference_temperature",
+        "debye_temperature_law": "integrated_gruneisen"
+      },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [70.8, 326.4],
+      "experimental_temperature_range_k": [300, 2600],
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "notes": "Published simultaneous five-parameter fit, with theta0 fixed to Litasov (2013). The workbook includes a 2600 K row despite 2450 K in the article text; both declarations are preserved. High-pressure 300 K SiO2-marker states supplement the KBr/MgO rows. Marginal ranges are not a stability rectangle. No source covariance, confidence convention, exact weights or row mask are given. Source coefficients are preserved even when the conditional equal-weight reconstruction differs.",
+      "reference": {
+        "authors": ["Takahashi", "Ohtani", "Ikuta", "Kamada", "Sakamaki", "Hirao", "Ohishi"],
+        "year": 2019,
+        "doi": "10.3390/min9120744",
+        "title": "Thermal Equation of State of Fe3C to 327 GPa and Carbon in the Core",
+        "source": "Minerals",
+        "volume": "9",
+        "locator": "744"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "basis": "The simultaneous five-parameter, equal-pressure-weight reconstruction on all 60 supplementary rows does not recover every central coefficient within its printed source error width. Source weights and row mask are unknown. Source-equation density checks pass at their stated precision; no author-workflow parity is claimed.",
+            "qualifications": [
+              "Source coefficients are unchanged. Staged outside the material catalog pending phase-specific structure and workflow review."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.V0",
+                "published": 148.8,
+                "published_error": 1,
+                "refit": 152.01005435301042,
+                "refit_error": 2.243166895915836,
+                "difference": 3.210054353010406,
+                "within_printed_source_error_width": false
+              },
+              {
+                "parameter": "rt_eos.K0",
+                "published": 311.1,
+                "published_error": 17.1,
+                "refit": 266.3484583530816,
+                "refit_error": 26.905361015567117,
+                "difference": -44.75154164691844,
+                "within_printed_source_error_width": false
+              },
+              {
+                "parameter": "rt_eos.K0_prime",
+                "published": 3.4,
+                "published_error": 0.1,
+                "refit": 3.6566961651668946,
+                "refit_error": 0.14384704214755847,
+                "difference": 0.25669616516689464,
+                "within_printed_source_error_width": false
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.06,
+                "published_error": 0.42,
+                "refit": 0.9945269626704878,
+                "refit_error": 0.6455354275906069,
+                "difference": -0.06547303732951226,
+                "within_printed_source_error_width": true
+              },
+              {
+                "parameter": "q",
+                "published": 1.92,
+                "published_error": 1.73,
+                "refit": 1.4982056703534212,
+                "refit_error": 2.2066604958575375,
+                "difference": -0.4217943296465787,
+                "within_printed_source_error_width": true
+              }
+            ],
+            "fit": {
+              "observations": 60,
+              "selection": "all 60 Table S1 rows, including 2600 K row and ten SiO2-marker rows",
+              "weighting": "equal pressure weights; source weights and row mask unknown",
+              "free_parameters": ["rt_eos.V0", "rt_eos.K0", "rt_eos.K0_prime", "gamma0", "q"],
+              "fixed_parameters": {"Tr": 300, "theta0": 314, "n": 4},
+              "published_pressure_rmse_gpa": 2.4753104338816434,
+              "refit_pressure_rmse_gpa": 2.222583869820739,
+              "covariance_convention": "Residual-scaled inverse normal matrix; conditional on equal pressure weights. V0 uses molar J/bar."
+            }
+          },
+          "report": "docs/data/cementite-reproduction.json"
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Equation and coefficients traced to primary source; source-equation checks are distinct from unresolved coefficient and author-workflow reproduction. Staged standalone file, not an accepted catalog addition.",
+          "audit_date": "2026-10-25",
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.3390/min9120744",
+            "locations": [
+              "Equations 1-6, pages 3-4",
+              "Tables 1-2, page 6",
+              "Figure 3a and Section 4, calculated density benchmarks",
+              "official Supplementary Table S1, worksheet Table S1, rows 4-63"
+            ]
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "dataset_identifiers": ["cementite_takahashi_2019_table_s1"],
+            "finding": "All 60 workbook rows, original printed errors and paired calibrant cells preserved. Fit mask and weights unknown."
+          }
+        },
+        "parameter_provenance": {
+          "V0_K0_K0_prime": "Table 1 and Section 3.2; conventional Pnma cell, Z=4.",
+          "gamma0_q": "Table 2 and Section 3.2.",
+          "theta0": "Fixed 314 K; Table 2 footnote, adopted from Litasov (2013).",
+          "n": "Four atoms per Fe3C formula unit; Z=4 for the cell-to-molar conversion.",
+          "pressure_calibration": {
+            "source_location": "Takahashi (2019), Section 2.2 and official Table S1 columns E/H/K; marker volumes in Y/AD/AI.",
+            "primary_marker": {
+              "material": "KBr B2",
+              "reference": "Dewaele et al. (2012), Physical Review B 85, 214105, doi:10.1103/PhysRevB.85.214105"
+            },
+            "high_pressure_marker": {
+              "material": "pyrite-type SiO2",
+              "rows": "54-63, both variants",
+              "reference": "Kuwayama et al. (2011), Physics and Chemistry of Minerals 38, 591-597"
+            },
+            "replay_status": "not assessed: exact registry links and independent observation-level re-reduction have not been audited; no conversion route is asserted"
+          }
+        }
+      }
+    },
+    {
+      "identifier": "cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd",
+      "label": "Takahashi et al. (2019), nonmagnetic Fe3C, mgo pressure scale, BM3 + MGD",
+      "model": "BM3",
+      "temperature_ref": 300.0,
+      "parameters": {
+        "V0": {"value": 147.3, "error": 1},
+        "K0": {"value": 323, "error": 16.6},
+        "K0_prime": {"value": 3.43, "error": 0.09}
+      },
+      "thermal": {
+        "model": "MieGruneisenDebye",
+        "parameters": {
+          "Tr": {"value": 300, "fixed": true},
+          "theta0": {"value": 314, "fixed": true},
+          "n": {"value": 4, "fixed": true},
+          "gamma0": {"value": 1.37, "error": 0.33},
+          "q": {"value": 0.98, "error": 1.01}
+        },
+        "thermal_pressure_reference": "reference_temperature",
+        "debye_temperature_law": "integrated_gruneisen"
+      },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [69.3, 326.4],
+      "experimental_temperature_range_k": [300, 2600],
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "notes": "Published simultaneous five-parameter fit, with theta0 fixed to Litasov (2013). The workbook includes a 2600 K row despite 2450 K in the article text; both declarations are preserved. High-pressure 300 K SiO2-marker states supplement the KBr/MgO rows. Marginal ranges are not a stability rectangle. No source covariance, confidence convention, exact weights or row mask are given. Source coefficients are preserved even when the conditional equal-weight reconstruction differs.",
+      "pressure_scale_variant_of": "cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd",
+      "reference": {
+        "authors": ["Takahashi", "Ohtani", "Ikuta", "Kamada", "Sakamaki", "Hirao", "Ohishi"],
+        "year": 2019,
+        "doi": "10.3390/min9120744",
+        "title": "Thermal Equation of State of Fe3C to 327 GPa and Carbon in the Core",
+        "source": "Minerals",
+        "volume": "9",
+        "locator": "744"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "similar",
+            "scope": "parameter_agreement",
+            "basis": "The simultaneous five-parameter, equal-pressure-weight reconstruction on all 60 supplementary rows does not recover every central coefficient within its printed source error width. Source weights and row mask are unknown. Source-equation density checks pass at their stated precision; no author-workflow parity is claimed.",
+            "qualifications": [
+              "Source coefficients are unchanged. Staged outside the material catalog pending phase-specific structure and workflow review."
+            ],
+            "parameters": [
+              {
+                "parameter": "rt_eos.V0",
+                "published": 147.3,
+                "published_error": 1,
+                "refit": 145.7364403875129,
+                "refit_error": 1.2052157674570834,
+                "difference": -1.5635596124870972,
+                "within_printed_source_error_width": false
+              },
+              {
+                "parameter": "rt_eos.K0",
+                "published": 323,
+                "published_error": 16.6,
+                "refit": 350.96595642578154,
+                "refit_error": 20.99233687209721,
+                "difference": 27.965956425781542,
+                "within_printed_source_error_width": false
+              },
+              {
+                "parameter": "rt_eos.K0_prime",
+                "published": 3.43,
+                "published_error": 0.09,
+                "refit": 3.2894076510224255,
+                "refit_error": 0.09547919577717615,
+                "difference": -0.14059234897757467,
+                "within_printed_source_error_width": false
+              },
+              {
+                "parameter": "gamma0",
+                "published": 1.37,
+                "published_error": 0.33,
+                "refit": 1.4391747960747572,
+                "refit_error": 0.4318384934073722,
+                "difference": 0.06917479607475707,
+                "within_printed_source_error_width": true
+              },
+              {
+                "parameter": "q",
+                "published": 0.98,
+                "published_error": 1.01,
+                "refit": 1.3298058245367324,
+                "refit_error": 1.1815920396751851,
+                "difference": 0.34980582453673237,
+                "within_printed_source_error_width": true
+              }
+            ],
+            "fit": {
+              "observations": 60,
+              "selection": "all 60 Table S1 rows, including 2600 K row and ten SiO2-marker rows",
+              "weighting": "equal pressure weights; source weights and row mask unknown",
+              "free_parameters": ["rt_eos.V0", "rt_eos.K0", "rt_eos.K0_prime", "gamma0", "q"],
+              "fixed_parameters": {"Tr": 300, "theta0": 314, "n": 4},
+              "published_pressure_rmse_gpa": 1.9654236493519575,
+              "refit_pressure_rmse_gpa": 1.9063962754546557,
+              "covariance_convention": "Residual-scaled inverse normal matrix; conditional on equal pressure weights. V0 uses molar J/bar."
+            }
+          },
+          "report": "docs/data/cementite-reproduction.json"
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "note": "Equation and coefficients traced to primary source; source-equation checks are distinct from unresolved coefficient and author-workflow reproduction. Staged standalone file, not an accepted catalog addition.",
+          "audit_date": "2026-10-25",
+          "primary_source_check": {
+            "access_url": "https://doi.org/10.3390/min9120744",
+            "locations": [
+              "Equations 1-6, pages 3-4",
+              "Tables 1-2, page 6",
+              "Figure 3a and Section 4, calculated density benchmarks",
+              "official Supplementary Table S1, worksheet Table S1, rows 4-63"
+            ]
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "dataset_identifiers": ["cementite_takahashi_2019_table_s1"],
+            "finding": "All 60 workbook rows, original printed errors and paired calibrant cells preserved. Fit mask and weights unknown."
+          }
+        },
+        "parameter_provenance": {
+          "V0_K0_K0_prime": "Table 1 and Section 3.2; conventional Pnma cell, Z=4.",
+          "gamma0_q": "Table 2 and Section 3.2.",
+          "theta0": "Fixed 314 K; Table 2 footnote, adopted from Litasov (2013).",
+          "n": "Four atoms per Fe3C formula unit; Z=4 for the cell-to-molar conversion.",
+          "pressure_calibration": {
+            "source_location": "Takahashi (2019), Section 2.2 and official Table S1 columns E/H/K; marker volumes in Y/AD/AI.",
+            "primary_marker": {
+              "material": "MgO",
+              "reference": "Kono et al. (2010), Physics of the Earth and Planetary Interiors 183, 196-211"
+            },
+            "high_pressure_marker": {
+              "material": "pyrite-type SiO2",
+              "rows": "54-63, both variants",
+              "reference": "Kuwayama et al. (2011), Physics and Chemistry of Minerals 38, 591-597"
+            },
+            "replay_status": "not assessed: exact registry links and independent observation-level re-reduction have not been audited; no conversion route is asserted"
+          }
+        }
+      }
+    }
+  ],
+  "notes": "Standalone source models staged outside the catalog. No diffraction structure is asserted for this spin-state-specific material. The reference volumes are extrapolated zero-pressure intercepts of the high-pressure nonmagnetic fits, not ambient stable nonmagnetic measurements. Source-equation checks and conditional refits are separate; this file is not a catalog integration or use recommendation.",
+  "datasets": [
+    {
+      "identifier": "cementite_takahashi_2019_table_s1",
+      "kind": "pressure_volume_temperature",
+      "description": "All 60 official workbook rows, including paired KBr, MgO and SiO2 marker volumes and printed errors. source_row locates the exact original worksheet row.",
+      "reference": {
+        "authors": ["Takahashi", "Ohtani", "Ikuta", "Kamada", "Sakamaki", "Hirao", "Ohishi"],
+        "year": 2019,
+        "doi": "10.3390/min9120744",
+        "title": "Thermal Equation of State of Fe3C to 327 GPa and Carbon in the Core",
+        "source": "Minerals",
+        "volume": "9",
+        "locator": "744"
+      },
+      "source_location": "Official supplement, minerals-630318-supplementary.xlsx, sheet Table S1 rows 4-63",
+      "columns": [
+        {"name": "source_row", "quantity": "index", "unit": "dimensionless", "role": "value"},
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {
+          "name": "temperature_k_error",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "uncertainty",
+          "of": "temperature_k"
+        },
+        {"name": "pressure_kbr_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_kbr_gpa_error",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_kbr_gpa"
+        },
+        {"name": "pressure_mgo_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_mgo_gpa_error",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_mgo_gpa"
+        },
+        {"name": "pressure_sio2_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_sio2_gpa_error",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_sio2_gpa"
+        },
+        {"name": "density_g_cm3", "quantity": "density", "unit": "g/cm^3", "role": "value"},
+        {
+          "name": "density_g_cm3_error",
+          "quantity": "density",
+          "unit": "g/cm^3",
+          "role": "uncertainty",
+          "of": "density_g_cm3"
+        },
+        {"name": "volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+        {
+          "name": "volume_a3_error",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "uncertainty",
+          "of": "volume_a3"
+        },
+        {"name": "a_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {
+          "name": "a_angstrom_error",
+          "quantity": "lattice_parameter",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "a_angstrom"
+        },
+        {"name": "b_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {
+          "name": "b_angstrom_error",
+          "quantity": "lattice_parameter",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "b_angstrom"
+        },
+        {"name": "c_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {
+          "name": "c_angstrom_error",
+          "quantity": "lattice_parameter",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "c_angstrom"
+        },
+        {"name": "kbr_volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+        {
+          "name": "kbr_volume_a3_error",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "uncertainty",
+          "of": "kbr_volume_a3"
+        },
+        {"name": "kbr_a_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {
+          "name": "kbr_a_angstrom_error",
+          "quantity": "lattice_parameter",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "kbr_a_angstrom"
+        },
+        {"name": "mgo_volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+        {
+          "name": "mgo_volume_a3_error",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "uncertainty",
+          "of": "mgo_volume_a3"
+        },
+        {"name": "mgo_a_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {
+          "name": "mgo_a_angstrom_error",
+          "quantity": "lattice_parameter",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "mgo_a_angstrom"
+        },
+        {"name": "sio2_volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+        {
+          "name": "sio2_volume_a3_error",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "uncertainty",
+          "of": "sio2_volume_a3"
+        },
+        {"name": "sio2_a_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {
+          "name": "sio2_a_angstrom_error",
+          "quantity": "lattice_parameter",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "sio2_a_angstrom"
+        }
+      ],
+      "resource": {
+        "path": "datasets/cementite-takahashi-2019-table-s1.csv",
+        "sha256": "ad54b8510e2a02f41856ec455e15893fabaca08afe60ff5af6446edf0dea6c01",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd", "cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd"],
+      "uncertainty": {"reported_as": "last-digit errors, confidence unspecified", "covariance": "not_reported"},
+      "provenance": {
+        "type": "primary_table_transcription",
+        "raw_cells": "datasets/cementite-takahashi-2019-table-s1-cells.json",
+        "source_manifest": "research/cementite/sources.json",
+        "normalization": "Error digits use original XLSX number formats, including trailing decimal places. Printed dashes stay missing."
+      }
+    }
+  ]
+}

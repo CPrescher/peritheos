@@ -1,0 +1,249 @@
+{
+  "kind": "conditional_diagnostic_confidence_visualization",
+  "source_refit_report": "docs/data/sata-2010-fe3c-recalculated-pressure-refit.json",
+  "source_sha256": "1e8f97290f5a9740715e129d85d7f1a4ba2363414710a121099b25381da5a649",
+  "temperature_k": 300,
+  "volume_range_a3": [
+    106.449,
+    138.12
+  ],
+  "reference_volume_cell_a3": 149.456,
+  "assumptions": "Existing equal-pressure-weight least squares, independent Gaussian pressure residuals of common unknown variance, RSS/(N-p) covariance scale, fixed measured volumes and fixed V0/Vr. These assumptions define conditional diagnostics; their experimental validity and the source's error convention are not established.",
+  "ellipse_convention": "Local covariance ellipses for the K/Kprime pair: (theta_pair-center)^T C_pair^-1 (theta_pair-center) <= 2 F_(2,nu)(coverage). mBM3 uses the Kr/Krprime submatrix from the full fit with Pr free, not the covariance conditional on fixed Pr. Physical Kprime is a coefficient ratio, so these are locally linearized ellipses.",
+  "band_convention": "Pointwise confidence intervals for the fitted mean P(V): P_hat(V) +/- t_nu((1+coverage)/2) sqrt(J C J^T). Displayed as horizontal P intervals with pressure on x and volume on y. mBM3 propagates full 3x3 covariance including Pr cross terms. Pair-joint ellipse coverage and pointwise mean coverage are different probability statements.",
+  "excluded": "No residual variance term is added for future measurements: these are not prediction intervals or simultaneous curve bands. No V0, measured-volume, pressure-scale/coefficient or systematic uncertainty is added. No source-published covariance or one-/two-sigma convention is invented. Existing catalog, observations, refits, parity and recommendations are unchanged.",
+  "method_reference": "https://itl.nist.gov/div898/handbook/pmd/section5/pmd511.htm",
+  "linearized_region_reference": "https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nistir89-4102.pdf#page=9",
+  "fits": {
+    "original_pressures": {
+      "fixed_V0_BM3": {
+        "parameter_order": [
+          "K0_gpa",
+          "K0_prime"
+        ],
+        "parameters": [
+          290.4945279064714,
+          3.7624951710470658
+        ],
+        "full_covariance": [
+          [
+            17.697612163250806,
+            -0.34650583542933444
+          ],
+          [
+            -0.34650583542933444,
+            0.007093384125357543
+          ]
+        ],
+        "pair_covariance": [
+          [
+            17.697612163250806,
+            -0.34650583542933444
+          ],
+          [
+            -0.34650583542933444,
+            0.007093384125357543
+          ]
+        ],
+        "K_Kprime_correlation": -0.9779721260588589,
+        "residual_degrees_of_freedom": 10,
+        "levels": {
+          "68": {
+            "coverage": 0.6826894921370859,
+            "joint_pair_mahalanobis_squared": 2.580650838249401,
+            "pointwise_mean_t_factor": 1.0525624152573263,
+            "mean_pressure_half_width_range_gpa": [
+              0.3115198301115771,
+              0.7843876398436151
+            ]
+          },
+          "95": {
+            "coverage": 0.95,
+            "joint_pair_mahalanobis_squared": 8.205642030260798,
+            "pointwise_mean_t_factor": 2.2281388519649385,
+            "mean_pressure_half_width_range_gpa": [
+              0.6594472941155028,
+              1.6604474471087431
+            ]
+          }
+        }
+      },
+      "reference_mBM3": {
+        "parameter_order": [
+          "Pr_gpa",
+          "Kr_gpa",
+          "Kr_prime"
+        ],
+        "parameters": [
+          0.011700193281563563,
+          290.4074359891482,
+          3.7637051511058393
+        ],
+        "full_covariance": [
+          [
+            2.2761350389325865,
+            -16.942708539736017,
+            0.23545798584954922
+          ],
+          [
+            -16.942708539736017,
+            145.7791466922046,
+            -2.1378635816605516
+          ],
+          [
+            0.23545798584954922,
+            -2.1378635816605516,
+            0.03224670477545108
+          ]
+        ],
+        "pair_covariance": [
+          [
+            145.7791466922046,
+            -2.1378635816605516
+          ],
+          [
+            -2.1378635816605516,
+            0.03224670477545108
+          ]
+        ],
+        "K_Kprime_correlation": -0.9860288373607385,
+        "residual_degrees_of_freedom": 9,
+        "levels": {
+          "68": {
+            "coverage": 0.6826894921370859,
+            "joint_pair_mahalanobis_squared": 2.6151210920694012,
+            "pointwise_mean_t_factor": 1.0587276657413742,
+            "mean_pressure_half_width_range_gpa": [
+              0.5067270562154474,
+              0.8957858174943822
+            ]
+          },
+          "95": {
+            "coverage": 0.95,
+            "joint_pair_mahalanobis_squared": 8.5129894581875,
+            "pointwise_mean_t_factor": 2.262157162854099,
+            "mean_pressure_half_width_range_gpa": [
+              1.0827111417996733,
+              1.914003354213889
+            ]
+          }
+        }
+      }
+    },
+    "recalculated_Sata_unchanged_Li": {
+      "fixed_V0_BM3": {
+        "parameter_order": [
+          "K0_gpa",
+          "K0_prime"
+        ],
+        "parameters": [
+          290.52446797897795,
+          3.752551645312876
+        ],
+        "full_covariance": [
+          [
+            17.636590196654375,
+            -0.3446718533656486
+          ],
+          [
+            -0.3446718533656486,
+            0.007043854770214258
+          ]
+        ],
+        "pair_covariance": [
+          [
+            17.636590196654375,
+            -0.3446718533656486
+          ],
+          [
+            -0.3446718533656486,
+            0.007043854770214258
+          ]
+        ],
+        "K_Kprime_correlation": -0.9778974440316816,
+        "residual_degrees_of_freedom": 10,
+        "levels": {
+          "68": {
+            "coverage": 0.6826894921370859,
+            "joint_pair_mahalanobis_squared": 2.580650838249401,
+            "pointwise_mean_t_factor": 1.0525624152573263,
+            "mean_pressure_half_width_range_gpa": [
+              0.3109823008901595,
+              0.7830341745531927
+            ]
+          },
+          "95": {
+            "coverage": 0.95,
+            "joint_pair_mahalanobis_squared": 8.205642030260798,
+            "pointwise_mean_t_factor": 2.2281388519649385,
+            "mean_pressure_half_width_range_gpa": [
+              0.6583094140953292,
+              1.6575823356866912
+            ]
+          }
+        }
+      },
+      "reference_mBM3": {
+        "parameter_order": [
+          "Pr_gpa",
+          "Kr_gpa",
+          "Kr_prime"
+        ],
+        "parameters": [
+          0.0339082773502773,
+          290.27206728639857,
+          3.756051272177045
+        ],
+        "full_covariance": [
+          [
+            2.268174253861704,
+            -16.883451395982938,
+            0.2342987113276176
+          ],
+          [
+            -16.88345139598294,
+            145.26928394909706,
+            -2.127549456255649
+          ],
+          [
+            0.23429871132761765,
+            -2.127549456255649,
+            0.03205160102524754
+          ]
+        ],
+        "pair_covariance": [
+          [
+            145.26928394909706,
+            -2.127549456255649
+          ],
+          [
+            -2.127549456255649,
+            0.03205160102524754
+          ]
+        ],
+        "K_Kprime_correlation": -0.985979538555434,
+        "residual_degrees_of_freedom": 9,
+        "levels": {
+          "68": {
+            "coverage": 0.6826894921370859,
+            "joint_pair_mahalanobis_squared": 2.6151210920694012,
+            "pointwise_mean_t_factor": 1.0587276657413742,
+            "mean_pressure_half_width_range_gpa": [
+              0.5058401407910984,
+              0.8942179393858262
+            ]
+          },
+          "95": {
+            "coverage": 0.95,
+            "joint_pair_mahalanobis_squared": 8.5129894581875,
+            "pointwise_mean_t_factor": 2.262157162854099,
+            "mean_pressure_half_width_range_gpa": [
+              1.0808160915946405,
+              1.910653307919152
+            ]
+          }
+        }
+      }
+    }
+  }
+}

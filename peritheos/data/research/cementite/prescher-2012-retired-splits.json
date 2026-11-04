@@ -1,0 +1,703 @@
+{
+  "format": "peritheos.prescher-2012-retired-split-catalog-evidence",
+  "date": "2026-10-30",
+  "reason": "User selected the full-range EOS as the sole public Prescher parameterization; published split coefficients and historical conditional reconstructions remain audit evidence.",
+  "previous_material_sha256": "9d9e47610b6ed7b943ba3ca29168192e4176ca1c6db82a2d1c73b163cea37ff9",
+  "eos_records": [
+    {
+      "identifier": "cementite_prescher_2012_below_22_gpa_bm3",
+      "label": "Prescher et al. (2012), below 22 GPa BM3 (adopted V0)",
+      "model": "BM3",
+      "temperature_ref": 293,
+      "parameters": {
+        "V0": {
+          "value": 154.5678863704812,
+          "fixed": true
+        },
+        "K0": {
+          "value": 145,
+          "error": 3
+        },
+        "K0_prime": {
+          "value": 8.5,
+          "error": 0.7
+        }
+      },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [
+        0,
+        22
+      ],
+      "experimental_temperature_range_k": [
+        293,
+        293
+      ],
+      "pressure_range_status": "reported_qualitatively",
+      "determination_method": "experimental",
+      "notes": "Conditional parameter parity compares only K0 and K0_prime at their published printed precision. V0=154.5678863704812 A^3 per conventional Fe3C cell (Z=4) is adopted from recovery of the Figure 1 full-range calculated curve, and held fixed for catalog evaluation. It is not a printed or author-confirmed reference volume for any of the three fits. No experimental V0 error is available; covariance of correlated drawing vertices is not that error. The source's fixed/shared/refined V0 convention, original fit inputs, objective, weights, confidence and covariance remain unconfirmed. Published K coefficients and their printed errors are retained unchanged; source error confidence is unspecified. This is not author-workflow reproduction or a physical-validation/recommendation claim. The conditional replay uses Table S1 rows 1-10 (P<24 GPa), including 22.6 GPa, and fixed adopted V0 with absolute uniform 0.2 GPa pressure sigmas; volume errors are omitted. The source prose says below 22 GPa, whereas its figure indicates a change near 24 GPa. The source label and nominal 22 GPa limit are preserved. K0 error is not reproduced: 3 GPa published versus 3.670491 GPa in this replay (rounds to 4). This does not establish that the published error is incorrect. The main text rounds the upper limit to 47 GPa; Table S1 reaches 47.4 GPa. The nominal split ranges do not establish separate structural phases or a phase-stability envelope.",
+      "fit_datasets": [
+        "cementite_prescher_2012_table_s1"
+      ],
+      "reference": {
+        "authors": [
+          "Prescher",
+          "Dubrovinsky",
+          "McCammon",
+          "Glazyrin",
+          "Nakajima",
+          "Kantor",
+          "Merlini",
+          "Hanfland"
+        ],
+        "year": 2012,
+        "title": "Structurally hidden magnetic transitions in Fe3C at high pressures",
+        "source": "Physical Review B",
+        "volume": "85",
+        "locator": "140402(R)",
+        "doi": "10.1103/PhysRevB.85.140402"
+      },
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference_calibration_record": "ruby_mao_1986",
+            "reference": {
+              "authors": [
+                "Mao",
+                "Xu",
+                "Bell"
+              ],
+              "year": 1986,
+              "doi": "10.1029/JB091iB05p04673",
+              "source": "Journal of Geophysical Research"
+            },
+            "source_location": "Main article experimental section, reference 13"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Row-wise ruby wavelengths before/after measurement are unavailable; preserve published pressures and widths. No pressure recalibration applied."
+        },
+        "audit_date": "2026-10-30",
+        "notes": "Neon medium. Pressure widths derive from before/after ruby-reading differences, not established independent standard deviations."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Conditional parity of K0 and K0_prime at published printed precision only. V0 is explicitly adopted from the drawn full-range curve; original V0 constraints, source inputs and author workflow remain unresolved. Uncertainty reproduction is assessed separately, including the unreproduced low-pressure K0 error.",
+            "basis_code": "conditional_K0_and_K0_prime_at_published_printed_precision",
+            "qualifications": [
+              "Conditional parameter parity compares only K0 and K0_prime at their published printed precision. V0=154.5678863704812 A^3 per conventional Fe3C cell (Z=4) is adopted from recovery of the Figure 1 full-range calculated curve, and held fixed for catalog evaluation. It is not a printed or author-confirmed reference volume for any of the three fits. No experimental V0 error is available; covariance of correlated drawing vertices is not that error. The source's fixed/shared/refined V0 convention, original fit inputs, objective, weights, confidence and covariance remain unconfirmed. Published K coefficients and their printed errors are retained unchanged; source error confidence is unspecified. This is not author-workflow reproduction or a physical-validation/recommendation claim. The conditional replay uses Table S1 rows 1-10 (P<24 GPa), including 22.6 GPa, and fixed adopted V0 with absolute uniform 0.2 GPa pressure sigmas; volume errors are omitted. The source prose says below 22 GPa, whereas its figure indicates a change near 24 GPa. The source label and nominal 22 GPa limit are preserved. K0 error is not reproduced: 3 GPa published versus 3.670491 GPa in this replay (rounds to 4). This does not establish that the published error is incorrect.",
+              "Conditional parameter parity compares only K0 and K0_prime at their published printed precision. V0=154.5678863704812 A^3 per conventional Fe3C cell (Z=4) is adopted from recovery of the Figure 1 full-range calculated curve, and held fixed for catalog evaluation. It is not a printed or author-confirmed reference volume for any of the three fits. No experimental V0 error is available; covariance of correlated drawing vertices is not that error. The source's fixed/shared/refined V0 convention, original fit inputs, objective, weights, confidence and covariance remain unconfirmed. Published K coefficients and their printed errors are retained unchanged; source error confidence is unspecified. This is not author-workflow reproduction or a physical-validation/recommendation claim.",
+              "The conditional replay uses Table S1 rows 1-10 (P<24 GPa), including 22.6 GPa, and fixed adopted V0 with absolute uniform 0.2 GPa pressure sigmas; volume errors are omitted. The source prose says below 22 GPa, whereas its figure indicates a change near 24 GPa. The source label and nominal 22 GPa limit are preserved. K0 error is not reproduced: 3 GPa published versus 3.670491 GPa in this replay (rounds to 4). This does not establish that the published error is incorrect.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/cementite/#record-cementite_prescher_2012_below_22_gpa_bm3",
+            "report_path": "docs/reconstruction-reports/cementite.md#record-cementite_prescher_2012_below_22_gpa_bm3",
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 145,
+                "published_error": 3,
+                "refit": 144.76159487607103,
+                "refit_error": 3.670491137503694,
+                "difference": -0.2384051239289704,
+                "relative_difference": 0.001644173268475658,
+                "similar": true,
+                "uncertainty_finding": "not_reproduced",
+                "uncertainty_matches_printed_precision": false,
+                "within_combined_2sigma": null,
+                "within_published_printing_precision": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 8.5,
+                "published_error": 0.7,
+                "refit": 8.494393996090439,
+                "refit_error": 0.6811801259268995,
+                "difference": -0.005606003909560897,
+                "relative_difference": 0.0006595298717130468,
+                "similar": true,
+                "uncertainty_finding": "matched_at_printed_precision",
+                "uncertainty_matches_printed_precision": true,
+                "within_combined_2sigma": null,
+                "within_published_printing_precision": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "Table S1 rows 1-10, P<24 GPa; includes 22.6 GPa",
+              "columns": {
+                "pressure": "pressure_gpa",
+                "temperature": null,
+                "volume": "volume_a3"
+              },
+              "weighting": "Absolute uniform sigma_P=0.2 GPa assumed; volume widths omitted",
+              "absolute_sigma": true,
+              "free_parameters": [
+                "K0",
+                "K0_prime"
+              ],
+              "fixed_parameters": [
+                "V0"
+              ],
+              "fixed_values": {
+                "V0": 154.5678863704812
+              },
+              "observations": 10,
+              "observed_pressure_range_gpa": [
+                1.8,
+                22.6
+              ],
+              "observed_temperature_range_k": [
+                293,
+                293
+              ],
+              "observed_volume_range": [
+                139.58,
+                152.98
+              ],
+              "degrees_of_freedom": 8,
+              "solver_success": true,
+              "rmse_gpa": 0.23146743060794756,
+              "published_rmse_gpa": 0.23294776777423618,
+              "reduced_chi_square": 1.674286607257656,
+              "parameter_covariance": [
+                [
+                  13.47250519049316,
+                  -2.461112445175603
+                ],
+                [
+                  -2.461112445175603,
+                  0.4640063639577866
+                ]
+              ],
+              "covariance_convention": "Unscaled inverse normal matrix with assumed absolute pressure sigmas; conditional one-sigma errors, no residual-variance scaling",
+              "comparison_scope": "parameter_agreement",
+              "dataset_identifiers": [
+                "cementite_prescher_2012_table_s1"
+              ],
+              "reproduction_report": "docs/literature-reproductions/prescher-2012-recovery.md"
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          },
+          "conditional": true,
+          "compared_parameters": [
+            "K0",
+            "K0_prime"
+          ],
+          "author_workflow_reproduced": false,
+          "adopted_V0": {
+            "value_kind": "adopted",
+            "source": "Figure 1 full-range calculated curve; independent vector-graphics BM3 recovery",
+            "report": "docs/data/prescher-2012-fe3c-recovery.json",
+            "report_key": "source_drawn_curve_reconstruction.parameters.V0",
+            "source_value_published": false,
+            "source_constraint_recovered": false,
+            "uncertainty": "not recovered; drawing-vertex covariance is not experimental V0 uncertainty",
+            "applies_to": "All three records by explicit adoption; split-fit V0 values were not printed"
+          },
+          "uncertainty_comparisons": [
+            {
+              "parameter": "K0",
+              "published": 3,
+              "reconstructed": 3.670491137503694,
+              "finding": "not_reproduced"
+            },
+            {
+              "parameter": "K0_prime",
+              "published": 0.7,
+              "reconstructed": 0.6811801259268995,
+              "finding": "matched_at_printed_precision"
+            }
+          ]
+        },
+        "parameter_provenance": {
+          "determination_method": "Single-crystal X-ray compression measurements at 293 K; adopted V0 reconstructed from the calculated curve of the same experimental publication.",
+          "V0": {
+            "value_kind": "adopted",
+            "source": "Figure 1 full-range calculated curve; independent vector-graphics BM3 recovery",
+            "report": "docs/data/prescher-2012-fe3c-recovery.json",
+            "report_key": "source_drawn_curve_reconstruction.parameters.V0",
+            "source_value_published": false,
+            "source_constraint_recovered": false,
+            "uncertainty": "not recovered; drawing-vertex covariance is not experimental V0 uncertainty",
+            "applies_to": "All three records by explicit adoption; split-fit V0 values were not printed"
+          },
+          "K0": "page 140402-3, section III; published central coefficient and printed error unchanged",
+          "K0_prime": "page 140402-3, section III; published central coefficient and printed error unchanged",
+          "reference_state": "P_ref=0 GPa, T_ref=293 K; conventional orthorhombic Fe3C cell, Z=4. Reference lattice of the material card is separate from this EOS V0."
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-10-30",
+          "note": "Published BM3 K coefficients/errors, units and reference conventions checked against the primary paper; V0 is an explicitly documented graph-derived adoption, not a published coefficient. Conditional K0/K0_prime parity is separate from uncertainty and author-workflow reproduction.",
+          "verified_fields": [
+            "equation",
+            "published_K0_and_K0_prime",
+            "published_K_errors",
+            "units",
+            "volume_basis",
+            "temperature_ref",
+            "adopted_V0_derivation",
+            "conditional_parameter_parity"
+          ],
+          "primary_source_check": {
+            "doi": "10.1103/PhysRevB.85.140402",
+            "access_url": "https://doi.org/10.1103/PhysRevB.85.140402",
+            "locations": [
+              "page 140402-3, section III",
+              "Figure 1, drawn full-range curve (adopted V0)",
+              "Final supplementary Table S1, pages 1-2"
+            ],
+            "finding": "Published K coefficients/errors preserved. Unprinted V0 supplied by explicit Figure 1 full-curve adoption; source constraint and original workflow unresolved. See docs/literature-reproductions/prescher-2012-recovery.md"
+          },
+          "primary_data_check": {
+            "status": "primary_table",
+            "dataset_identifiers": [
+              "cementite_prescher_2012_table_s1"
+            ],
+            "finding": "All 19 final Table S1 states retained separately from 22 digitized markers and the archived working cells. The named comparison uses its own explicit row selection; these datasets are not asserted to be the original author fit inputs."
+          },
+          "unresolved": [
+            "Conditional parameter parity compares only K0 and K0_prime at their published printed precision. V0=154.5678863704812 A^3 per conventional Fe3C cell (Z=4) is adopted from recovery of the Figure 1 full-range calculated curve, and held fixed for catalog evaluation. It is not a printed or author-confirmed reference volume for any of the three fits. No experimental V0 error is available; covariance of correlated drawing vertices is not that error. The source's fixed/shared/refined V0 convention, original fit inputs, objective, weights, confidence and covariance remain unconfirmed. Published K coefficients and their printed errors are retained unchanged; source error confidence is unspecified. This is not author-workflow reproduction or a physical-validation/recommendation claim.",
+            "The conditional replay uses Table S1 rows 1-10 (P<24 GPa), including 22.6 GPa, and fixed adopted V0 with absolute uniform 0.2 GPa pressure sigmas; volume errors are omitted. The source prose says below 22 GPa, whereas its figure indicates a change near 24 GPa. The source label and nominal 22 GPa limit are preserved. K0 error is not reproduced: 3 GPa published versus 3.670491 GPa in this replay (rounds to 4). This does not establish that the published error is incorrect."
+          ]
+        }
+      }
+    },
+    {
+      "identifier": "cementite_prescher_2012_22_47_gpa_bm3",
+      "label": "Prescher et al. (2012), 22-47 GPa BM3 (adopted V0)",
+      "model": "BM3",
+      "temperature_ref": 293,
+      "parameters": {
+        "V0": {
+          "value": 154.5678863704812,
+          "fixed": true
+        },
+        "K0": {
+          "value": 172,
+          "error": 1
+        },
+        "K0_prime": {
+          "value": 5.1,
+          "error": 0.1
+        }
+      },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [
+        22,
+        47.4
+      ],
+      "experimental_temperature_range_k": [
+        293,
+        293
+      ],
+      "pressure_range_status": "reported_qualitatively",
+      "determination_method": "experimental",
+      "notes": "Conditional parameter parity compares only K0 and K0_prime at their published printed precision. V0=154.5678863704812 A^3 per conventional Fe3C cell (Z=4) is adopted from recovery of the Figure 1 full-range calculated curve, and held fixed for catalog evaluation. It is not a printed or author-confirmed reference volume for any of the three fits. No experimental V0 error is available; covariance of correlated drawing vertices is not that error. The source's fixed/shared/refined V0 convention, original fit inputs, objective, weights, confidence and covariance remain unconfirmed. Published K coefficients and their printed errors are retained unchanged; source error confidence is unspecified. This is not author-workflow reproduction or a physical-validation/recommendation claim. The conditional replay uses archived own/SHELX working volumes p10-p19 paired by run index with Table S1 pressures and absolute uniform 0.1 GPa pressure sigmas, omitting volume errors and fixing adopted V0. Working p16 volume is 133.58 A^3 versus final Table S1 133.25 A^3. Both central coefficients and both errors match printed precision under these assumptions; they are not confirmed source settings. Residual-scaled covariance does not reproduce those printed errors. The main text rounds the upper limit to 47 GPa; Table S1 reaches 47.4 GPa. The nominal split ranges do not establish separate structural phases or a phase-stability envelope.",
+      "fit_datasets": [
+        "cementite_prescher_2012_table_s1",
+        "cementite_prescher_2012_working_cells_with_table_pressures"
+      ],
+      "reference": {
+        "authors": [
+          "Prescher",
+          "Dubrovinsky",
+          "McCammon",
+          "Glazyrin",
+          "Nakajima",
+          "Kantor",
+          "Merlini",
+          "Hanfland"
+        ],
+        "year": 2012,
+        "title": "Structurally hidden magnetic transitions in Fe3C at high pressures",
+        "source": "Physical Review B",
+        "volume": "85",
+        "locator": "140402(R)",
+        "doi": "10.1103/PhysRevB.85.140402"
+      },
+      "pressure_calibration": {
+        "status": "resolved",
+        "methods": [
+          {
+            "kind": "ruby_fluorescence",
+            "reference_calibration_record": "ruby_mao_1986",
+            "reference": {
+              "authors": [
+                "Mao",
+                "Xu",
+                "Bell"
+              ],
+              "year": 1986,
+              "doi": "10.1029/JB091iB05p04673",
+              "source": "Journal of Geophysical Research"
+            },
+            "source_location": "Main article experimental section, reference 13"
+          }
+        ],
+        "recalculation": {
+          "status": "missing_calibrant_observations",
+          "notes": "Row-wise ruby wavelengths before/after measurement are unavailable; preserve published pressures and widths. No pressure recalibration applied."
+        },
+        "audit_date": "2026-10-30",
+        "notes": "Neon medium. Pressure widths derive from before/after ruby-reading differences, not established independent standard deviations."
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Conditional parity of K0 and K0_prime at published printed precision only. V0 is explicitly adopted from the drawn full-range curve; original V0 constraints, source inputs and author workflow remain unresolved. Uncertainty reproduction is assessed separately, including the unreproduced low-pressure K0 error.",
+            "basis_code": "conditional_K0_and_K0_prime_at_published_printed_precision",
+            "qualifications": [
+              "Conditional parameter parity compares only K0 and K0_prime at their published printed precision. V0=154.5678863704812 A^3 per conventional Fe3C cell (Z=4) is adopted from recovery of the Figure 1 full-range calculated curve, and held fixed for catalog evaluation. It is not a printed or author-confirmed reference volume for any of the three fits. No experimental V0 error is available; covariance of correlated drawing vertices is not that error. The source's fixed/shared/refined V0 convention, original fit inputs, objective, weights, confidence and covariance remain unconfirmed. Published K coefficients and their printed errors are retained unchanged; source error confidence is unspecified. This is not author-workflow reproduction or a physical-validation/recommendation claim. The conditional replay uses archived own/SHELX working volumes p10-p19 paired by run index with Table S1 pressures and absolute uniform 0.1 GPa pressure sigmas, omitting volume errors and fixing adopted V0. Working p16 volume is 133.58 A^3 versus final Table S1 133.25 A^3. Both central coefficients and both errors match printed precision under these assumptions; they are not confirmed source settings. Residual-scaled covariance does not reproduce those printed errors.",
+              "Conditional parameter parity compares only K0 and K0_prime at their published printed precision. V0=154.5678863704812 A^3 per conventional Fe3C cell (Z=4) is adopted from recovery of the Figure 1 full-range calculated curve, and held fixed for catalog evaluation. It is not a printed or author-confirmed reference volume for any of the three fits. No experimental V0 error is available; covariance of correlated drawing vertices is not that error. The source's fixed/shared/refined V0 convention, original fit inputs, objective, weights, confidence and covariance remain unconfirmed. Published K coefficients and their printed errors are retained unchanged; source error confidence is unspecified. This is not author-workflow reproduction or a physical-validation/recommendation claim.",
+              "The conditional replay uses archived own/SHELX working volumes p10-p19 paired by run index with Table S1 pressures and absolute uniform 0.1 GPa pressure sigmas, omitting volume errors and fixing adopted V0. Working p16 volume is 133.58 A^3 versus final Table S1 133.25 A^3. Both central coefficients and both errors match printed precision under these assumptions; they are not confirmed source settings. Residual-scaled covariance does not reproduce those printed errors.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/cementite/#record-cementite_prescher_2012_22_47_gpa_bm3",
+            "report_path": "docs/reconstruction-reports/cementite.md#record-cementite_prescher_2012_22_47_gpa_bm3",
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 172,
+                "published_error": 1,
+                "refit": 171.7919916575721,
+                "refit_error": 1.105978898697374,
+                "difference": -0.20800834242788824,
+                "relative_difference": 0.0012093508280691177,
+                "similar": true,
+                "uncertainty_finding": "matched_at_printed_precision",
+                "uncertainty_matches_printed_precision": true,
+                "within_combined_2sigma": null,
+                "within_published_printing_precision": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 5.1,
+                "published_error": 0.1,
+                "refit": 5.0535963521045115,
+                "refit_error": 0.0893425119667291,
+                "difference": -0.04640364789548812,
+                "relative_difference": 0.009098754489311398,
+                "similar": true,
+                "uncertainty_finding": "matched_at_printed_precision",
+                "uncertainty_matches_printed_precision": true,
+                "within_combined_2sigma": null,
+                "within_published_printing_precision": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "pressure_residuals",
+              "selection": "Working own/SHELX p10-p19 volumes with Table S1 pressures, P>=22 GPa",
+              "columns": {
+                "pressure": "pressure_gpa",
+                "temperature": null,
+                "volume": "volume_a3"
+              },
+              "weighting": "Absolute uniform sigma_P=0.1 GPa assumed; volume widths omitted",
+              "absolute_sigma": true,
+              "free_parameters": [
+                "K0",
+                "K0_prime"
+              ],
+              "fixed_parameters": [
+                "V0"
+              ],
+              "fixed_values": {
+                "V0": 154.5678863704812
+              },
+              "observations": 10,
+              "observed_pressure_range_gpa": [
+                22.6,
+                47.4
+              ],
+              "observed_temperature_range_k": [
+                293,
+                293
+              ],
+              "observed_volume_range": [
+                129.5,
+                139.58
+              ],
+              "degrees_of_freedom": 8,
+              "solver_success": true,
+              "rmse_gpa": 0.27487608027016325,
+              "published_rmse_gpa": 0.31673025066920946,
+              "reduced_chi_square": 9.444607438086154,
+              "parameter_covariance": [
+                [
+                  1.2231893243638563,
+                  -0.09780938191922353
+                ],
+                [
+                  -0.09780938191922353,
+                  0.007982084444525132
+                ]
+              ],
+              "covariance_convention": "Unscaled inverse normal matrix with assumed absolute pressure sigmas; conditional one-sigma errors, no residual-variance scaling",
+              "comparison_scope": "parameter_agreement",
+              "dataset_identifiers": [
+                "cementite_prescher_2012_working_cells_with_table_pressures"
+              ],
+              "reproduction_report": "docs/literature-reproductions/prescher-2012-recovery.md"
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          },
+          "conditional": true,
+          "compared_parameters": [
+            "K0",
+            "K0_prime"
+          ],
+          "author_workflow_reproduced": false,
+          "adopted_V0": {
+            "value_kind": "adopted",
+            "source": "Figure 1 full-range calculated curve; independent vector-graphics BM3 recovery",
+            "report": "docs/data/prescher-2012-fe3c-recovery.json",
+            "report_key": "source_drawn_curve_reconstruction.parameters.V0",
+            "source_value_published": false,
+            "source_constraint_recovered": false,
+            "uncertainty": "not recovered; drawing-vertex covariance is not experimental V0 uncertainty",
+            "applies_to": "All three records by explicit adoption; split-fit V0 values were not printed"
+          },
+          "uncertainty_comparisons": [
+            {
+              "parameter": "K0",
+              "published": 1,
+              "reconstructed": 1.105978898697374,
+              "finding": "matched_at_printed_precision"
+            },
+            {
+              "parameter": "K0_prime",
+              "published": 0.1,
+              "reconstructed": 0.0893425119667291,
+              "finding": "matched_at_printed_precision"
+            }
+          ]
+        },
+        "parameter_provenance": {
+          "determination_method": "Single-crystal X-ray compression measurements at 293 K; adopted V0 reconstructed from the calculated curve of the same experimental publication.",
+          "V0": {
+            "value_kind": "adopted",
+            "source": "Figure 1 full-range calculated curve; independent vector-graphics BM3 recovery",
+            "report": "docs/data/prescher-2012-fe3c-recovery.json",
+            "report_key": "source_drawn_curve_reconstruction.parameters.V0",
+            "source_value_published": false,
+            "source_constraint_recovered": false,
+            "uncertainty": "not recovered; drawing-vertex covariance is not experimental V0 uncertainty",
+            "applies_to": "All three records by explicit adoption; split-fit V0 values were not printed"
+          },
+          "K0": "page 140402-3, section III; published central coefficient and printed error unchanged",
+          "K0_prime": "page 140402-3, section III; published central coefficient and printed error unchanged",
+          "reference_state": "P_ref=0 GPa, T_ref=293 K; conventional orthorhombic Fe3C cell, Z=4. Reference lattice of the material card is separate from this EOS V0."
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-10-30",
+          "note": "Published BM3 K coefficients/errors, units and reference conventions checked against the primary paper; V0 is an explicitly documented graph-derived adoption, not a published coefficient. Conditional K0/K0_prime parity is separate from uncertainty and author-workflow reproduction.",
+          "verified_fields": [
+            "equation",
+            "published_K0_and_K0_prime",
+            "published_K_errors",
+            "units",
+            "volume_basis",
+            "temperature_ref",
+            "adopted_V0_derivation",
+            "conditional_parameter_parity"
+          ],
+          "primary_source_check": {
+            "doi": "10.1103/PhysRevB.85.140402",
+            "access_url": "https://doi.org/10.1103/PhysRevB.85.140402",
+            "locations": [
+              "page 140402-3, section III",
+              "Figure 1, drawn full-range curve (adopted V0)",
+              "Final supplementary Table S1, pages 1-2"
+            ],
+            "finding": "Published K coefficients/errors preserved. Unprinted V0 supplied by explicit Figure 1 full-curve adoption; source constraint and original workflow unresolved. See docs/literature-reproductions/prescher-2012-recovery.md"
+          },
+          "primary_data_check": {
+            "status": "primary_table",
+            "dataset_identifiers": [
+              "cementite_prescher_2012_table_s1",
+              "cementite_prescher_2012_working_cells_with_table_pressures"
+            ],
+            "finding": "All 19 final Table S1 states retained separately from 22 digitized markers and the archived working cells. The named comparison uses its own explicit row selection; these datasets are not asserted to be the original author fit inputs."
+          },
+          "unresolved": [
+            "Conditional parameter parity compares only K0 and K0_prime at their published printed precision. V0=154.5678863704812 A^3 per conventional Fe3C cell (Z=4) is adopted from recovery of the Figure 1 full-range calculated curve, and held fixed for catalog evaluation. It is not a printed or author-confirmed reference volume for any of the three fits. No experimental V0 error is available; covariance of correlated drawing vertices is not that error. The source's fixed/shared/refined V0 convention, original fit inputs, objective, weights, confidence and covariance remain unconfirmed. Published K coefficients and their printed errors are retained unchanged; source error confidence is unspecified. This is not author-workflow reproduction or a physical-validation/recommendation claim.",
+            "The conditional replay uses archived own/SHELX working volumes p10-p19 paired by run index with Table S1 pressures and absolute uniform 0.1 GPa pressure sigmas, omitting volume errors and fixing adopted V0. Working p16 volume is 133.58 A^3 versus final Table S1 133.25 A^3. Both central coefficients and both errors match printed precision under these assumptions; they are not confirmed source settings. Residual-scaled covariance does not reproduce those printed errors."
+          ]
+        }
+      }
+    }
+  ],
+  "datasets": [
+    {
+      "identifier": "cementite_prescher_2012_working_cells_with_table_pressures",
+      "kind": "archived_working_volume_with_published_pressure",
+      "description": "The conditional replay uses archived own/SHELX working volumes p10-p19 paired by run index with Table S1 pressures and absolute uniform 0.1 GPa pressure sigmas, omitting volume errors and fixing adopted V0. Working p16 volume is 133.58 A^3 versus final Table S1 133.25 A^3. Both central coefficients and both errors match printed precision under these assumptions; they are not confirmed source settings. Residual-scaled covariance does not reproduce those printed errors.",
+      "reference": {
+        "authors": [
+          "Prescher",
+          "Dubrovinsky",
+          "McCammon",
+          "Glazyrin",
+          "Nakajima",
+          "Kantor",
+          "Merlini",
+          "Hanfland"
+        ],
+        "year": 2012,
+        "title": "Structurally hidden magnetic transitions in Fe3C at high pressures",
+        "source": "Physical Review B",
+        "volume": "85",
+        "locator": "140402(R)",
+        "doi": "10.1103/PhysRevB.85.140402"
+      },
+      "source_location": "Private Fe3C archive, own/SHELX p1-p19 CIFs; paired Table S1 pressures by run index (conditional)",
+      "columns": [
+        {
+          "name": "source_row",
+          "quantity": "index",
+          "unit": "dimensionless",
+          "role": "value"
+        },
+        {
+          "name": "pressure_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "value"
+        },
+        {
+          "name": "volume_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "value"
+        }
+      ],
+      "rows": [
+        [
+          1,
+          1.8,
+          152.97
+        ],
+        [
+          2,
+          4.7,
+          150.67
+        ],
+        [
+          3,
+          6.7,
+          148.56
+        ],
+        [
+          4,
+          9.1,
+          146.85
+        ],
+        [
+          5,
+          11.4,
+          145.37
+        ],
+        [
+          6,
+          13.4,
+          144.11
+        ],
+        [
+          7,
+          16.2,
+          142.5
+        ],
+        [
+          8,
+          18.4,
+          141.57
+        ],
+        [
+          9,
+          20.7,
+          140.33
+        ],
+        [
+          10,
+          22.6,
+          139.58
+        ],
+        [
+          11,
+          25.3,
+          138.19
+        ],
+        [
+          12,
+          27.5,
+          137.26
+        ],
+        [
+          13,
+          29.7,
+          136.38
+        ],
+        [
+          14,
+          32.1,
+          135.15
+        ],
+        [
+          15,
+          34.7,
+          134.24
+        ],
+        [
+          16,
+          37.0,
+          133.58
+        ],
+        [
+          17,
+          39.6,
+          132.31
+        ],
+        [
+          18,
+          41.9,
+          131.46
+        ],
+        [
+          19,
+          47.4,
+          129.5
+        ]
+      ],
+      "used_by_eos_records": [
+        "cementite_prescher_2012_22_47_gpa_bm3"
+      ],
+      "uncertainty": {
+        "pressure": "Experimental errors not recovered; no sigma inferred",
+        "volume": "Experimental errors not recovered; no sigma inferred",
+        "coordinate_precision": "Original CIF tokens and hashes preserved in the linked evidence file"
+      },
+      "provenance": {
+        "type": "working_reduction_not_final_table",
+        "evidence_file": "research/cementite/prescher-2012-own-shelx-cells.json",
+        "normalization": "Conventional Fe3C cell in A^3; source values retained",
+        "pressure_pairing": "Table S1 pressure paired by run index; not confirmed original CIF pressure metadata"
+      },
+      "source_rights": "Unspecified; source figures and author archive are not relicensed.",
+      "contributor_rights": "CC0 applies only to contributor-held transcription, normalization, metadata and arrangement rights."
+    }
+  ]
+}

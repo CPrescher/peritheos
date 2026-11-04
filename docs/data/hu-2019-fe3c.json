@@ -1,0 +1,152 @@
+{
+  "record_identifier": "cementite_nonmagnetic_hu_2019_linear_hugoniot",
+  "published": {
+    "c0_km_s": 4.627,
+    "c0_error_width_km_s": 0.073,
+    "s": 1.614,
+    "s_error_width": 0.028,
+    "confidence": null,
+    "covariance": null
+  },
+  "source_equation_check": {
+    "source": "All six Table 1 Us-up states, independently deposited in PANGAEA",
+    "residual_sign": "Us(model)-Us(source), km/s",
+    "residuals_km_s": [
+      -0.0684060000000013,
+      0.00419000000000036,
+      -0.007303999999999533,
+      0.029731999999999204,
+      -0.0056299999999982475,
+      -0.03939600000000176
+    ],
+    "rms_km_s": 0.03468433578240626,
+    "max_abs_residual_over_reported_Us_width": 0.8445185185185345,
+    "all_within_reported_Us_width": true,
+    "qualification": "Descriptive width comparison at printed up; source confidence and Us-up covariance are unknown. Not a formal sigma or chi-square test."
+  },
+  "independent_diagnostic_refit": {
+    "source_shots": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "objective": "Equal vertical Us residuals on all six shots; source objective/weights unknown",
+    "parameters_c0_s": [
+      4.628196843550288,
+      1.6190724847887306
+    ],
+    "residual_scaled_standard_errors": [
+      0.07105079550568787,
+      0.026484578018163982
+    ],
+    "covariance": [
+      [
+        0.005048215541991074,
+        -0.001835299111681762
+      ],
+      [
+        -0.0018352991116817622,
+        0.0007014328728002148
+      ]
+    ],
+    "covariance_convention": "RSS/(6-2) times inverse normal matrix; conditional on printed up treated as exact. No source confidence inference or initial-state uncertainty propagation.",
+    "residuals_km_s": [
+      -0.054167798057886074,
+      0.013426731940426428,
+      0.004869700633101104,
+      0.04684630081732344,
+      0.010556036100988209,
+      -0.021530971433943336
+    ],
+    "rms_km_s": 0.03137868169797723,
+    "within_published_coefficient_widths": [
+      true,
+      true
+    ],
+    "author_workflow_reproduced": false
+  },
+  "rankine_hugoniot_replay": {
+    "rows": [
+      {
+        "shot": 1,
+        "replayed_pressure_gpa": 171.59977527,
+        "pressure_difference_gpa": -0.00022472999998512933,
+        "replayed_density_g_cm3": 10.63824832642652,
+        "density_difference_g_cm3": 0.0012483264265199523
+      },
+      {
+        "shot": 2,
+        "replayed_pressure_gpa": 85.63730274,
+        "pressure_difference_gpa": 0.03730274000000122,
+        "replayed_density_g_cm3": 9.655082916368833,
+        "density_difference_g_cm3": 8.291636883406284e-05
+      },
+      {
+        "shot": 3,
+        "replayed_pressure_gpa": 132.51674898000002,
+        "pressure_difference_gpa": 0.0167489800000169,
+        "replayed_density_g_cm3": 10.269485996981384,
+        "density_difference_g_cm3": -0.0005140030186154831
+      },
+      {
+        "shot": 4,
+        "replayed_pressure_gpa": 227.51644742399998,
+        "pressure_difference_gpa": 0.016447423999977673,
+        "replayed_density_g_cm3": 11.113373390557937,
+        "density_difference_g_cm3": 0.0033733905579378387
+      },
+      {
+        "shot": 5,
+        "replayed_pressure_gpa": 208.62187118999998,
+        "pressure_difference_gpa": 0.021871189999984608,
+        "replayed_density_g_cm3": 10.950770590972546,
+        "density_difference_g_cm3": -0.0002294090274546079
+      },
+      {
+        "shot": 6,
+        "replayed_pressure_gpa": 244.98989876000002,
+        "pressure_difference_gpa": -0.010101239999983136,
+        "replayed_density_g_cm3": 11.154347695990424,
+        "density_difference_g_cm3": -0.0006523040095753885
+      }
+    ],
+    "max_abs_pressure_difference_gpa": 0.03730274000000122,
+    "max_abs_density_difference_g_cm3": 0.0033733905579378387,
+    "notes": "Each shot uses its own printed initial density; calculated source P/rho are not independent measurements. Printed precision limits exact replay."
+  },
+  "operational_path": {
+    "precursor_density_g_cm3": 7.525,
+    "density_error_width_g_cm3": 0.01,
+    "bulk_mass_equivalent_V0_a3": 158.48140723178494,
+    "formula_units": 4,
+    "formula_molar_mass_g_mol": 179.546,
+    "pressure_gpa": [
+      85.6,
+      245.0
+    ],
+    "particle_velocity_km_s": [
+      1.5836540819,
+      3.286
+    ],
+    "historical_lower_pressure_group_shots": [
+      1,
+      2,
+      3
+    ],
+    "all_source_fit_shots": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ],
+    "interpretation": "Full empirical experimental shock path; Possible melting at higher pressures; density data do not resolve the phase state.",
+    "initial_temperature_k": 300,
+    "initial_temperature_basis": "Conventional ambient normalization; not a reported numeric precursor measurement or a constant shock temperature"
+  },
+  "qualification": "Published six-shot linear Us-up relation retained, with conditional coefficient agreement within both reported error widths under an equal-Us-weight diagnostic. Source confidence, covariance and exact fitting weights are unspecified; this is not recovered author-workflow or uncertainty parity. The published empirical principal Hugoniot is retained over its full experimental range, 85.6-245 GPa. Possible melting at higher pressures; density data do not resolve the phase state. All six shots remain data and source-fit inputs. Mean porous precursor density 7.525(0.010) g/cm3 is explicitly adopted as the common path normalization; individual measured initial densities remain unchanged. V0 is a mass-equivalent bulk volume including approximately 2% porosity, not a diffraction lattice volume or the Sata nonmagnetic V0. The 300 K reference is conventional precursor normalization, not measured shock temperature. The separate thermal reduction and the 7.982 g/cm3 Gruneisen reference are not installed as this Hugoniot."
+}

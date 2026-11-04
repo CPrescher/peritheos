@@ -1,0 +1,84 @@
+{
+  "source_doi": "10.1029/2009JB006975",
+  "authority": "Final publisher HTML: Tables 1, 4 and 6; Equations 1–2; paragraphs 5–6, 12, 14–15, 24–27. Inspected 2026-11-01.",
+  "publisher_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2009JB006975",
+  "access_limits": {
+    "publisher_pdf": "403 Forbidden via web retrieval",
+    "official_tabular_supplements": "Table 1 and Table 6 download routes returned 403; final rendered HTML tables were accessible."
+  },
+  "manuscript": {
+    "rows": 9,
+    "numerical_tokens": 72,
+    "sha256": "9e4c8e5267449512a54331ee58a0102998c2d1a2fbc4851365351eca01e4b81d",
+    "version": "2009 manuscript; corroborates Fe3C tokens only, not the final publication of record",
+    "local_source": "/Volumes/personal_folder/Projects/Iron Carbides/Fe3C/Fe3C Poster/sata_JGR_SE.pdf",
+    "pdf_title": "sata_JGR_5th_last",
+    "pdf_created": "2009-09-11",
+    "pdf_pages": 51,
+    "version_qualification": "2009 manuscript, not final publication. Fe3C Table 1 tokens and mBM3 triplet corroborate final HTML. Its Table 4 coefficient summary corresponds to final Table 6; unrelated FeS entries differ and are not imported."
+  },
+  "normalization": {
+    "formula": "Fe3C",
+    "Z": 4,
+    "atoms_per_cell": 16,
+    "atomic_reference_volume_a3": 9.341,
+    "cell_reference_volume_a3": 149.456,
+    "rounded_cell_volume_in_final_prose_a3": 149.46,
+    "volume_rule": "Preserve atomic 9.341 * 16, not substitute rounded 149.46. No measured ambient V0 exists for this nonmagnetic branch."
+  },
+  "source_variants": {
+    "published_mBM3": {
+      "Vr_atom_a3": 9.341,
+      "Pr_gpa": 0,
+      "Pr_error_gpa": 1.6,
+      "Kr_gpa": 290,
+      "Kr_error_gpa": 13,
+      "Kprime_r": 3.76,
+      "Kprime_r_error": 0.18
+    },
+    "published_Table6_BM3": "Same source curve at printed Pr=0; one catalog record, not an additional independent fit.",
+    "later_Litasov_2013_Vinet": "148.5 A3/cell, 316(6) GPa, 3.5(1) at 298 K; later recalibrated literature comparison. Kept separate and not integrated."
+  },
+  "source_selection": {
+    "sata_table1_rows": 9,
+    "runs": {
+      "1": 2,
+      "2": 7
+    },
+    "li_2002_measured_rows_above_25_gpa": [
+      "T1-12",
+      "T1-13",
+      "T1-14"
+    ],
+    "total": 12,
+    "shared_observations": "Li selected rows are unchanged members of existing cementite_li_2002_table1; no pressure recalibration or new independent measurements.",
+    "missing_identifiers": "Li run and measurement identifiers remain missing, not invented; original T1 row IDs identify the observations."
+  },
+  "uncertainty": "Parenthesized last-digit errors preserved. Source confidence, cross-row/calibrant covariance, original regression weighting and uncertainty scaling unspecified. Missing errors are not zero.",
+  "pressure_basis": {
+    "sata_rows": "Paired B1 MgO, Speziale et al. (2001), source footnote prints 2000; BM3 V0=74.71 A3/cell, K0=160.2 GPa, Kprime=3.99.",
+    "li_rows": "Original Li (2002) ruby/neon pressures; not relabelled as MgO or silently recalibrated.",
+    "limits": "Printed MgO parameters leave up to 0.353 GPa discrepancy. Exact author reducer and raw Li ruby wavelengths unavailable. Table 2 multi-calibrant consistency experiments are separate from paired Fe3C sample measurements."
+  },
+  "structure": "Existing Prescher high-pressure Pnma atomic model retained unchanged. Sata axes = (standard c, standard a, standard b); volume and Z invariant. Table 4 heading says 193 GPa, while paragraph 14/Figure 3 say 187 GPa and Table 1 measurement id193 has P=186.60(33) GPa; retain this discrepancy without replacing the pressure.",
+  "source_rights": "Numerical-data source licensing unspecified; no CC0 claim on publisher text, PDFs or figures.",
+  "license_file": "datasets/cementite-sata-2010.LICENSE.md",
+  "files": {
+    "cementite-sata-2010-table1-tokens.csv": {
+      "sha256": "73d162587a79951c5ca3a1e3184cd92728c14e8f439e178c653bf6a2de1b3f24"
+    },
+    "cementite-sata-2010-table1.csv": {
+      "sha256": "5833c40921b7f854a78e3fd34b4130cf18f7b166baf4adc00d66884c45529b5c"
+    },
+    "cementite-sata-2010-selected-pv.csv": {
+      "sha256": "a5bcd3a278421e64b0db4aed1bfde8d8d2c7395697cfffa334885ed7ffa32e9e"
+    },
+    "cementite-sata-2010-table4-peaks.csv": {
+      "sha256": "c203b52b5ec1fd25ee4b93d7edd7fd26c93f651d6ccfa6ecb38cdbc54c3daf42"
+    }
+  },
+  "li_source_tokens": {
+    "path": "docs/data/li-2002-fe3c/table1-source-tokens.csv",
+    "sha256": "cd10b390a7efe1dce6f2222e4519aedda1a459d8534d1580a29ccb284dcb30b5"
+  }
+}

@@ -4,6 +4,194 @@
   "sources": [
     {
       "authors": [
+        "Scott",
+        "Williams",
+        "Knittle"
+      ],
+      "year": 2001,
+      "doi": "10.1029/2000GL012606",
+      "file": "scott-2001.pdf",
+      "authority": "Final published article, journal pages 1875-1878; local institutional copy",
+      "data": "Figure 3 only; numerical observations, run membership and original weights not recovered",
+      "file_sha256": "abca7f6489523e6c6148cc721e3a79fa942fd444bae873bd9abd1c52871ae7e9"
+    },
+    {
+      "authors": [
+        "Prescher",
+        "Dubrovinsky",
+        "McCammon",
+        "Glazyrin",
+        "Nakajima",
+        "Kantor",
+        "Merlini",
+        "Hanfland"
+      ],
+      "year": 2012,
+      "doi": "10.1103/PhysRevB.85.140402",
+      "file": "prescher-2012.pdf",
+      "url": "https://www.clemensprescher.com/wp-content/uploads/2017/01/Prescher-et-al.-2012-Structurally-hidden-magnetic-transitions-in-Fesub3subC-at-high-pressures.pdf",
+      "authority": "Final published article, author-hosted copy",
+      "published_bm3_fits": [
+        {
+          "selection": "entire diffraction range, 0-47 GPa",
+          "K0": 161,
+          "K0_error": 2,
+          "K0_prime": 5.9,
+          "K0_prime_error": 0.2,
+          "location": "page 140402-2, section III"
+        },
+        {
+          "selection": "below 22 GPa",
+          "K0": 145,
+          "K0_error": 3,
+          "K0_prime": 8.5,
+          "K0_prime_error": 0.7,
+          "location": "page 140402-3, section III"
+        },
+        {
+          "selection": "22-47 GPa",
+          "K0": 172,
+          "K0_error": 1,
+          "K0_prime": 5.1,
+          "K0_prime_error": 0.1,
+          "location": "page 140402-3, section III"
+        }
+      ],
+      "reference_temperature_k": 293,
+      "reference_volume_status": "unresolved: neither the inspected main paper nor the now supplied final supplement states the three source V0 values or fixed/shared/refined convention.",
+      "data": "Final supplement supplied by user. All 19 Table S1 P-V-lattice rows, all printed errors and all 57 xyzU site entries are preserved. Figure 1 includes an ambient point not tabulated in this supplement. No ambient observation, V0 or confidence convention is inferred.",
+      "calibration": "Mao, Xu and Bell (1986) ruby fluorescence, reference 13; neon medium. Pressure errors from before/after measurements, not declared standard deviations.",
+      "qualification": "Litasov Table 2 explicitly recalibrates comparison papers; its V0=154.2 must not be silently assigned to the original Prescher fit. The supplement resolves access to observations and high-pressure structures, but does not resolve the missing published V0 values. Table S1 reports 47.4 GPa maximum and R1=8.2% at 25.3 GPa despite the main text rounding to 47 GPa and stating R1 better than 8%.",
+      "file_sha256": "a908c16fdd1754a447d3959a6bf4d2cb1b46b21dbf08888981c6ab400ab77c12",
+      "supplement": {
+        "file": "Supplementary_materials_final_PRB.pdf",
+        "sha256": "ef63531041dd2ee4feac3990c267192c052ad71c155ec640915638f165f8e237",
+        "delivery": "User supplied on 2026-10-25",
+        "pages": 6,
+        "table_s1_pages": [
+          1,
+          2
+        ],
+        "observations": 19,
+        "pressure_range_gpa": [
+          1.8,
+          47.4
+        ],
+        "atomic_site_entries": 57,
+        "volume_basis": "Angstrom cubed per conventional orthorhombic Fe3C cell; Z=4",
+        "uncertainty": "Parenthesized last-digit widths, confidence unspecified. Main paper defines pressure error from before/after ruby difference.",
+        "no_ambient_row": true,
+        "no_published_V0": true
+      },
+      "access_history": "Table S1 exists but was inaccessible through APS supplemental endpoints (401); link.aps.org redirected to a subscription-required page. Local Zotero and author-site copies contained only the four-page main paper.",
+      "author_archive_investigation": {
+        "date": "2026-10-25",
+        "archive_name": "Fe3C",
+        "evidence_file": "prescher-2012-archive.json",
+        "finding": "Four EOS/diffraction workbooks, two Origin projects and 24 manuscript drafts inspected. Working reductions differ from final Table S1. No final three-fit output or source V0 constraint recovered; published observations and coefficients unchanged.",
+        "source_files_modified": false
+      },
+      "catalog_integration": {
+        "date": "2026-10-30",
+        "records": [
+          "cementite_prescher_2012_full_range_bm3",
+          "cementite_prescher_2012_below_22_gpa_bm3",
+          "cementite_prescher_2012_22_47_gpa_bm3"
+        ],
+        "published_K_coefficients_and_errors_preserved": true,
+        "adopted_V0_a3": 154.5678863704812,
+        "adopted_V0_basis": "Independent recovery of Figure 1 full-range calculated curve; applied to all three records by explicit adoption",
+        "published_V0_and_source_constraints": "unresolved",
+        "reconstruction_status": "parity",
+        "reconstruction_scope": "parameter_agreement",
+        "reconstruction_basis": "K0 and K0_prime at published printed precision under recorded conditions",
+        "low_pressure_K0_uncertainty": {
+          "published_gpa": 3,
+          "conditional_replay_gpa": 3.670491137503694,
+          "finding": "not_reproduced"
+        },
+        "author_workflow_reproduced": false,
+        "report": "docs/literature-reproductions/prescher-2012-recovery.md"
+      }
+    },
+    {
+      "authors": [
+        "Litasov",
+        "Sharygin",
+        "Dorogokupets",
+        "Shatskiy",
+        "Gavryushkin",
+        "Sokolova",
+        "Ohtani",
+        "Li",
+        "Funakoshi"
+      ],
+      "year": 2013,
+      "doi": "10.1002/2013JB010270",
+      "file": "litasov-2013.pdf",
+      "authority": "Final published article, pages 5274-5284; local teaching copy",
+      "table1_rows": 81,
+      "table1_runs": {
+        "1": 29,
+        "2": 9,
+        "3": 8,
+        "4": 11,
+        "5": 8,
+        "6": 11,
+        "7": 5
+      },
+      "uncertainty": "Table 1 footnote: 1-sigma errors; lattice errors <0.001 A not printed; missing MgO ambient cells remain missing. No T errors given.",
+      "calibration": "MgO, Sokolova et al. (2013); table preserves paired MgO volumes and reported P. No recalibration applied.",
+      "source_parameterizations": {
+        "table2_fm_vinet": {
+          "V0": 155.2,
+          "K0": 175,
+          "K0_prime": 5,
+          "K0_prime_fixed": true,
+          "pressure_range_gpa": [
+            0,
+            7.2
+          ]
+        },
+        "table2_pm_vinet_mgd": {
+          "V0": 154.42,
+          "K0": 194,
+          "K0_error": 1,
+          "K0_prime": 4.6,
+          "K0_prime_error": 0.1,
+          "gamma0": 2.15,
+          "gamma0_error": 0.03,
+          "q": -0.03,
+          "q_error": 0.27,
+          "theta0": 314,
+          "theta0_error": 120
+        },
+        "table2_pm_vinet_ht": {
+          "V0": 154.56,
+          "K0": 190,
+          "K0_error": 2,
+          "K0_prime": 4.8,
+          "K0_prime_error": 0.1
+        },
+        "table2_pm_vinet_ke": {
+          "V0": 154.56,
+          "K0": 191,
+          "K0_error": 2,
+          "K0_prime": 4.68,
+          "K0_prime_error": 0.08
+        }
+      },
+      "unresolved": [
+        "Section 4.1 reports FM V0=155.27(5), K0=175(2), fixed Kprime=5, whereas Table 2 gives FM V0=155.2.",
+        "Section 4 paragraph 14 reports HT V0=154.5(1), K0=190(3), Kprime=4.8(2), whereas Table 2 gives 154.56, 190(2), 4.8(1).",
+        "The negative sign of the printed dK/dT and q must be read from the rendered PDF, not text extraction which drops minus signs.",
+        "Exact phase-specific row mask, weighting and source fit project are not recovered. Table 3 is calculated KE output, not measured MGD data."
+      ],
+      "catalog_disposition": "Source investigation; no source values merged or substituted and no executable catalog addition.",
+      "file_sha256": "dc8dde95218786395ca9c9d9a13923505a94d63d4d780c8930c4e8fbd537ffc8"
+    },
+    {
+      "authors": [
         "Takahashi",
         "Ohtani",
         "Ikuta",
@@ -40,8 +228,11 @@
     }
   ],
   "datasets": {
+    "cementite-litasov-2013-table1-tokens.json": "8171286e89547b6684b153a1f3f6a8f7f3f3a4624e2c12e66405ebb844643994",
     "cementite-takahashi-2019-table-s1.csv": "ad54b8510e2a02f41856ec455e15893fabaca08afe60ff5af6446edf0dea6c01",
-    "cementite-takahashi-2019-table-s1-cells.json": "bad636ec15d446d92e1fc97b735f4af28f746302abdf6b99b416498af8aeefd4"
-  },
-  "snapshot_note": "Source qualifications retain the 25 October recovery snapshot; current catalog integration and conditional parity are documented in the two Takahashi EOS records and docs/literature-reproductions/takahashi-2019-parity.md."
+    "cementite-takahashi-2019-table-s1-cells.json": "bad636ec15d446d92e1fc97b735f4af28f746302abdf6b99b416498af8aeefd4",
+    "cementite-litasov-2013-table1.csv": "e0017d735a5f866053caca0e00fcb55beccb9d55a4e2fe2cbe30f25656bc5789",
+    "cementite-prescher-2012-table-s1-tokens.json": "ec9fc163666d236bd539fbcf1d5a01d3f8fcfd540abec04666a1328efe39321c",
+    "cementite-prescher-2012-table-s1.csv": "eb0b6ffb6fc0e12bd72e51da27a3b0f71d917aadb59f00651331c58629447843"
+  }
 }

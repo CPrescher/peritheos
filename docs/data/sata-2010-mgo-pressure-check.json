@@ -1,0 +1,551 @@
+{
+  "scope": "Original Speziale coefficients and Sata MgO pressure-reduction rounding/formulation controls; no catalog or source-data changes.",
+  "source": {
+    "doi": "10.1029/2000JB900318",
+    "url": "https://duffy.princeton.edu/sites/g/files/toruqf616/files/speziale_et_al-2001-jgrse.pdf",
+    "pdf_sha256": "c0431bdddf8f4bc8269a7e0d1b79d30d92a38b4a778d9edddad9cb4c45b1f94b",
+    "locations": "Section 4.2, p.518; Table 2, p.520; section 5.3, pp.520-521; equations 1-2, p.516.",
+    "preferred_BM3": {
+      "V0_a3": 74.71,
+      "V0_error_a3": 0.01,
+      "K0_fixed_gpa": 160.2,
+      "adopted_K0_error_gpa": 0.2,
+      "Kprime": 3.99,
+      "Kprime_error": 0.01
+    },
+    "alternative_qualification": "Vinet and logarithmic coefficients are source-published alternatives; their V0 is not restated in section 5.3, so controls explicitly adopt 74.71 A3. They are not claimed as Sata's specified BM3 reduction."
+  },
+  "source_table_sha256": "73d162587a79951c5ca3a1e3184cd92728c14e8f439e178c653bf6a2de1b3f24",
+  "cases": {
+    "literal_BM3": {
+      "predicted_gpa": [
+        49.835564650845214,
+        69.15073421195028,
+        77.24675581996001,
+        100.66118732431835,
+        124.62637491808587,
+        141.15605999434382,
+        158.86898821286056,
+        177.45152537140575,
+        186.24736101091645
+      ],
+      "rmse_gpa": 0.21017859711072864,
+      "max_abs_gpa": 0.35263898908354463,
+      "residual_gpa": [
+        -0.03443534915478352,
+        -0.059265788049714274,
+        -0.07324418003997835,
+        -0.11881267568165299,
+        -0.18362508191412985,
+        -0.21394000565618398,
+        -0.26101178713943796,
+        -0.31847462859425946,
+        -0.35263898908354463
+      ]
+    },
+    "BM3_from_lattice_a_cubed": {
+      "predicted_gpa": [
+        49.84224064821122,
+        69.15243744176263,
+        77.24536086094572,
+        100.65768258758197,
+        124.6332886342932,
+        141.1568391582223,
+        158.87518098630463,
+        177.45658363396302,
+        186.25478252724324
+      ],
+      "rmse_gpa": 0.20645652842302414,
+      "max_abs_gpa": 0.34521747275675807,
+      "residual_gpa": [
+        -0.02775935178878086,
+        -0.05756255823736467,
+        -0.07463913905426978,
+        -0.12231741241802752,
+        -0.176711365706808,
+        -0.21316084177769312,
+        -0.25481901369536786,
+        -0.3134163660369893,
+        -0.34521747275675807
+      ]
+    },
+    "BM2_Kprime_4_diagnostic": {
+      "predicted_gpa": [
+        49.89066891005834,
+        69.2481254709581,
+        77.3644722281598,
+        100.84529582154055,
+        124.88887078559188,
+        141.47809912428303,
+        159.2593637877063,
+        177.91827663949223,
+        186.75184350263103
+      ],
+      "rmse_gpa": 0.09877331001262755,
+      "max_abs_gpa": 0.15184350263103852,
+      "residual_gpa": [
+        0.020668910058340373,
+        0.038125470958107144,
+        0.04447222815980467,
+        0.06529582154054481,
+        0.07887078559187444,
+        0.10809912428302937,
+        0.1293637877062963,
+        0.1482766394922237,
+        0.15184350263103852
+      ]
+    },
+    "source_unconstrained_BM3": {
+      "predicted_gpa": [
+        49.74170111790564,
+        68.30982135780029,
+        75.98438117024531,
+        97.86249050652205,
+        119.81958660426429,
+        134.73533815116673,
+        150.52931743834355,
+        166.90269597480716,
+        174.5867308719484
+      ],
+      "rmse_gpa": 6.80223948129505,
+      "max_abs_gpa": 12.013269128051604,
+      "residual_gpa": [
+        -0.1282988820943558,
+        -0.9001786421997053,
+        -1.3356188297546794,
+        -2.917509493477951,
+        -4.990413395735715,
+        -6.634661848833275,
+        -8.600682561656441,
+        -10.867304025192851,
+        -12.013269128051604
+      ]
+    },
+    "source_Vinet_Kprime_4_12_adopted_V0": {
+      "predicted_gpa": [
+        49.93968613890072,
+        69.09247428788005,
+        77.07095579995273,
+        99.97568609965056,
+        123.15867838381236,
+        138.99873636371635,
+        155.8407904675059,
+        173.3676824734383,
+        181.6145748742231
+      ],
+      "rmse_gpa": 2.6693971284779385,
+      "max_abs_gpa": 4.985425125776885,
+      "residual_gpa": [
+        0.06968613890072106,
+        -0.11752571211994223,
+        -0.24904420004726546,
+        -0.8043139003494417,
+        -1.6513216161876443,
+        -2.3712636362836577,
+        -3.289209532494084,
+        -4.402317526561717,
+        -4.985425125776885
+      ]
+    },
+    "Vinet_same_BM3_coefficients_diagnostic": {
+      "predicted_gpa": [
+        49.29737914344769,
+        67.99189310726854,
+        75.75642652446368,
+        97.98370305790854,
+        120.3993813807247,
+        135.67487740214798,
+        151.88497444634712,
+        168.7228099244045,
+        176.63523018837301
+      ],
+      "rmse_gpa": 5.75038526819669,
+      "max_abs_gpa": 9.96476981162698,
+      "residual_gpa": [
+        -0.5726208565523052,
+        -1.2181068927314556,
+        -1.563573475536316,
+        -2.796296942091459,
+        -4.410618619275297,
+        -5.69512259785202,
+        -7.24502555365288,
+        -9.047190075595523,
+        -9.96476981162698
+      ]
+    },
+    "source_logarithmic_Kprime_4_21_adopted_V0": {
+      "predicted_gpa": [
+        49.80552077832167,
+        68.67066042747632,
+        76.48762318183333,
+        98.80165467855439,
+        121.2108692643484,
+        136.43039332381747,
+        152.53799285862362,
+        169.2250444350299,
+        177.0517977831385
+      ],
+      "rmse_gpa": 5.2693473306987,
+      "max_abs_gpa": 9.548202216861483,
+      "residual_gpa": [
+        -0.06447922167832587,
+        -0.5393395725236729,
+        -0.8323768181666651,
+        -1.978345321445616,
+        -3.599130735651599,
+        -4.939606676182535,
+        -6.592007141376371,
+        -8.54495556497011,
+        -9.548202216861483
+      ]
+    },
+    "Kprime_only_diagnostic": {
+      "predicted_gpa": [
+        49.87306829470734,
+        69.2170181461737,
+        77.32687293455143,
+        100.78649051522247,
+        124.805028105168,
+        141.37523798550774,
+        159.1346755978386,
+        177.7691936166644,
+        186.59070891131677
+      ],
+      "rmse_gpa": 0.0058597009203117745,
+      "max_abs_gpa": 0.009291088683227144,
+      "residual_gpa": [
+        0.003068294707340158,
+        0.007018146173706441,
+        0.006872934551438448,
+        0.006490515222466797,
+        -0.004971894831996337,
+        0.005237985507733356,
+        0.004675597838598833,
+        -0.0008063833356004579,
+        -0.009291088683227144
+      ]
+    }
+  },
+  "source_rows": [
+    {
+      "run": 1,
+      "measurement_id": 29,
+      "volume_a3": 60.797,
+      "published_pressure_gpa": 49.87,
+      "literal_pressure_gpa": 49.835564650845214,
+      "data_rounding_bound_gpa": 0.007809392905575692,
+      "coefficient_and_volume_rounding_low_gpa": 49.76683143896593,
+      "coefficient_and_volume_rounding_high_gpa": 49.90438609989323
+    },
+    {
+      "run": 1,
+      "measurement_id": 45,
+      "volume_a3": 57.732,
+      "published_pressure_gpa": 69.21,
+      "literal_pressure_gpa": 69.15073421195028,
+      "data_rounding_bound_gpa": 0.008523084873435779,
+      "coefficient_and_volume_rounding_low_gpa": 69.04977384220281,
+      "coefficient_and_volume_rounding_high_gpa": 69.2518245461921
+    },
+    {
+      "run": 2,
+      "measurement_id": 56,
+      "volume_a3": 56.63,
+      "published_pressure_gpa": 77.32,
+      "literal_pressure_gpa": 77.24675581996001,
+      "data_rounding_bound_gpa": 0.008828556383979277,
+      "coefficient_and_volume_rounding_low_gpa": 77.13101427169035,
+      "coefficient_and_volume_rounding_high_gpa": 77.36264627339693
+    },
+    {
+      "run": 2,
+      "measurement_id": 83,
+      "volume_a3": 53.883,
+      "published_pressure_gpa": 100.78,
+      "literal_pressure_gpa": 100.66118732431835,
+      "data_rounding_bound_gpa": 0.009731961785424233,
+      "coefficient_and_volume_rounding_low_gpa": 100.49896020727688,
+      "coefficient_and_volume_rounding_high_gpa": 100.82362240606201
+    },
+    {
+      "run": 2,
+      "measurement_id": 111,
+      "volume_a3": 51.575,
+      "published_pressure_gpa": 124.81,
+      "literal_pressure_gpa": 124.62637491808587,
+      "data_rounding_bound_gpa": 0.01068567720094393,
+      "coefficient_and_volume_rounding_low_gpa": 124.411431943071,
+      "coefficient_and_volume_rounding_high_gpa": 124.84159222348369
+    },
+    {
+      "run": 2,
+      "measurement_id": 130,
+      "volume_a3": 50.201,
+      "published_pressure_gpa": 141.37,
+      "literal_pressure_gpa": 141.15605999434382,
+      "data_rounding_bound_gpa": 0.011359617427960985,
+      "coefficient_and_volume_rounding_low_gpa": 140.90205407258605,
+      "coefficient_and_volume_rounding_high_gpa": 141.4103891530839
+    },
+    {
+      "run": 2,
+      "measurement_id": 151,
+      "volume_a3": 48.883,
+      "published_pressure_gpa": 159.13,
+      "literal_pressure_gpa": 158.86898821286056,
+      "data_rounding_bound_gpa": 0.012095685823259147,
+      "coefficient_and_volume_rounding_low_gpa": 158.5708830489556,
+      "coefficient_and_volume_rounding_high_gpa": 159.1674716295816
+    },
+    {
+      "run": 2,
+      "measurement_id": 172,
+      "volume_a3": 47.641,
+      "published_pressure_gpa": 177.77,
+      "literal_pressure_gpa": 177.45152537140575,
+      "data_rounding_bound_gpa": 0.012882680578802593,
+      "coefficient_and_volume_rounding_low_gpa": 177.10483700589208,
+      "coefficient_and_volume_rounding_high_gpa": 177.79865241804384
+    },
+    {
+      "run": 2,
+      "measurement_id": 193,
+      "volume_a3": 47.096,
+      "published_pressure_gpa": 186.6,
+      "literal_pressure_gpa": 186.24736101091645,
+      "data_rounding_bound_gpa": 0.013260295450895684,
+      "coefficient_and_volume_rounding_low_gpa": 185.8768935736235,
+      "coefficient_and_volume_rounding_high_gpa": 186.61829665079955
+    }
+  ],
+  "rounding": {
+    "fixed_coefficient_data_rounding_max_gpa": 0.013260295450895684,
+    "all_targets_in_separate_row_coefficient_boxes": true,
+    "common_coefficient_set": {
+      "coefficient_box_V0_K0_Kprime": [
+        [
+          74.705,
+          74.71499999999999
+        ],
+        [
+          160.14999999999998,
+          160.25
+        ],
+        [
+          3.9850000000000003,
+          3.995
+        ]
+      ],
+      "volume_half_digit_a3": 0.0005,
+      "pressure_half_digit_gpa": 0.005,
+      "parameters_at_best_bound": [
+        74.71166162024355,
+        160.24999999999997,
+        3.995
+      ],
+      "remaining_max_interval_gap_gpa": 0.011560307640793036,
+      "multistart_gap_spread_gpa": 2.3742119381608973e-13,
+      "qualification": "Nearest rounding only; independent closed coefficient bounds are deliberately liberal, including K0 although source K0 is fixed. No probability, confidence interval or recovered author coefficients."
+    },
+    "interpretation": "Coefficient display precision can generate the mismatch's magnitude pointwise, but a common nearest-rounding box does not replay all nine rows at input/output display precision. Statistical coefficient widths are distinct from rounding bounds."
+  },
+  "thermal_controls_at_300K_max_difference_gpa": 0.0,
+  "recalculated_fe3c_coordinates": {
+    "kind": "recalculated_pressure_coordinates",
+    "scope": "Nine Sata Fe3C points only, using measured paired MgO volumes, fixed published Speziale BM3 coefficients and unchanged Fe3C volumes at 300 K. Li points are not recalculated.",
+    "qualification": "Shown alongside original observations. Recalculated pressures are derived quantities, not independently measured pressures or established corrections to the publication. No total recalculated-pressure uncertainties are inferred; source widths remain identified with their original quantities. No Fe3C refit, coefficient replacement or change to catalog recommendation/parity.",
+    "csv": "docs/data/sata-2010-fe3c-recalculated-points.csv",
+    "rows": [
+      {
+        "source_row": 1,
+        "run": 1,
+        "measurement_id": 29,
+        "temperature_k": 300.0,
+        "fe3c_volume_a3": 130.804,
+        "fe3c_volume_reported_width_a3": 0.03,
+        "mgo_volume_a3": 60.797,
+        "mgo_volume_reported_width_a3": 0.05,
+        "published_pressure_gpa": 49.87,
+        "published_pressure_reported_width_gpa": 0.28,
+        "recalculated_pressure_gpa": 49.835564650845214,
+        "recalculated_minus_published_pressure_gpa": -0.03443534915478352,
+        "published_fe3c_curve_pressure_gpa": 49.64044929931498,
+        "published_pressure_residual_gpa": -0.22955070068501726,
+        "recalculated_pressure_residual_gpa": -0.19511535153023374
+      },
+      {
+        "source_row": 2,
+        "run": 1,
+        "measurement_id": 45,
+        "temperature_k": 300.0,
+        "fe3c_volume_a3": 125.238,
+        "fe3c_volume_reported_width_a3": 0.03,
+        "mgo_volume_a3": 57.732,
+        "mgo_volume_reported_width_a3": 0.055,
+        "published_pressure_gpa": 69.21,
+        "published_pressure_reported_width_gpa": 0.39,
+        "recalculated_pressure_gpa": 69.15073421195028,
+        "recalculated_minus_published_pressure_gpa": -0.059265788049714274,
+        "published_fe3c_curve_pressure_gpa": 71.41048715856284,
+        "published_pressure_residual_gpa": 2.2004871585628507,
+        "recalculated_pressure_residual_gpa": 2.259752946612565
+      },
+      {
+        "source_row": 3,
+        "run": 2,
+        "measurement_id": 56,
+        "temperature_k": 300.0,
+        "fe3c_volume_a3": 124.076,
+        "fe3c_volume_reported_width_a3": 0.03,
+        "mgo_volume_a3": 56.63,
+        "mgo_volume_reported_width_a3": 0.026000000000000002,
+        "published_pressure_gpa": 77.32,
+        "published_pressure_reported_width_gpa": 0.2,
+        "recalculated_pressure_gpa": 77.24675581996001,
+        "recalculated_minus_published_pressure_gpa": -0.07324418003997835,
+        "published_fe3c_curve_pressure_gpa": 76.49639120256789,
+        "published_pressure_residual_gpa": -0.8236087974321009,
+        "recalculated_pressure_residual_gpa": -0.7503646173921226
+      },
+      {
+        "source_row": 4,
+        "run": 2,
+        "measurement_id": 83,
+        "temperature_k": 300.0,
+        "fe3c_volume_a3": 119.583,
+        "fe3c_volume_reported_width_a3": 0.033,
+        "mgo_volume_a3": 53.883,
+        "mgo_volume_reported_width_a3": 0.024,
+        "published_pressure_gpa": 100.78,
+        "published_pressure_reported_width_gpa": 0.23,
+        "recalculated_pressure_gpa": 100.66118732431835,
+        "recalculated_minus_published_pressure_gpa": -0.11881267568165299,
+        "published_fe3c_curve_pressure_gpa": 98.18832304028238,
+        "published_pressure_residual_gpa": -2.591676959717617,
+        "recalculated_pressure_residual_gpa": -2.472864284035964
+      },
+      {
+        "source_row": 5,
+        "run": 2,
+        "measurement_id": 111,
+        "temperature_k": 300.0,
+        "fe3c_volume_a3": 114.794,
+        "fe3c_volume_reported_width_a3": 0.027,
+        "mgo_volume_a3": 51.575,
+        "mgo_volume_reported_width_a3": 0.023,
+        "published_pressure_gpa": 124.81,
+        "published_pressure_reported_width_gpa": 0.26,
+        "recalculated_pressure_gpa": 124.62637491808587,
+        "recalculated_minus_published_pressure_gpa": -0.18362508191412985,
+        "published_fe3c_curve_pressure_gpa": 125.37847249899278,
+        "published_pressure_residual_gpa": 0.5684724989927759,
+        "recalculated_pressure_residual_gpa": 0.7520975809069057
+      },
+      {
+        "source_row": 6,
+        "run": 2,
+        "measurement_id": 130,
+        "temperature_k": 300.0,
+        "fe3c_volume_a3": 112.311,
+        "fe3c_volume_reported_width_a3": 0.027,
+        "mgo_volume_a3": 50.201,
+        "mgo_volume_reported_width_a3": 0.022,
+        "published_pressure_gpa": 141.37,
+        "published_pressure_reported_width_gpa": 0.28,
+        "recalculated_pressure_gpa": 141.15605999434382,
+        "recalculated_minus_published_pressure_gpa": -0.21394000565618398,
+        "published_fe3c_curve_pressure_gpa": 141.40709102459576,
+        "published_pressure_residual_gpa": 0.0370910245957532,
+        "recalculated_pressure_residual_gpa": 0.2510310302519372
+      },
+      {
+        "source_row": 7,
+        "run": 2,
+        "measurement_id": 151,
+        "temperature_k": 300.0,
+        "fe3c_volume_a3": 109.874,
+        "fe3c_volume_reported_width_a3": 0.026000000000000002,
+        "mgo_volume_a3": 48.883,
+        "mgo_volume_reported_width_a3": 0.022,
+        "published_pressure_gpa": 159.13,
+        "published_pressure_reported_width_gpa": 0.3,
+        "recalculated_pressure_gpa": 158.86898821286056,
+        "recalculated_minus_published_pressure_gpa": -0.26101178713943796,
+        "published_fe3c_curve_pressure_gpa": 158.6009922722683,
+        "published_pressure_residual_gpa": -0.5290077277317096,
+        "recalculated_pressure_residual_gpa": -0.2679959405922716
+      },
+      {
+        "source_row": 8,
+        "run": 2,
+        "measurement_id": 172,
+        "temperature_k": 300.0,
+        "fe3c_volume_a3": 107.347,
+        "fe3c_volume_reported_width_a3": 0.027,
+        "mgo_volume_a3": 47.641,
+        "mgo_volume_reported_width_a3": 0.021,
+        "published_pressure_gpa": 177.77,
+        "published_pressure_reported_width_gpa": 0.32,
+        "recalculated_pressure_gpa": 177.45152537140575,
+        "recalculated_minus_published_pressure_gpa": -0.31847462859425946,
+        "published_fe3c_curve_pressure_gpa": 178.12687025810743,
+        "published_pressure_residual_gpa": 0.35687025810742057,
+        "recalculated_pressure_residual_gpa": 0.67534488670168
+      },
+      {
+        "source_row": 9,
+        "run": 2,
+        "measurement_id": 193,
+        "temperature_k": 300.0,
+        "fe3c_volume_a3": 106.449,
+        "fe3c_volume_reported_width_a3": 0.025,
+        "mgo_volume_a3": 47.096,
+        "mgo_volume_reported_width_a3": 0.021,
+        "published_pressure_gpa": 186.6,
+        "published_pressure_reported_width_gpa": 0.33,
+        "recalculated_pressure_gpa": 186.24736101091645,
+        "recalculated_minus_published_pressure_gpa": -0.35263898908354463,
+        "published_fe3c_curve_pressure_gpa": 185.517457813795,
+        "published_pressure_residual_gpa": -1.0825421862049893,
+        "recalculated_pressure_residual_gpa": -0.7299031971214447
+      }
+    ],
+    "published_curve_on_original_nine": {
+      "rmse_gpa": 1.255813062971792,
+      "max_abs_gpa": 2.591676959717617,
+      "residual_gpa": [
+        -0.22955070068501726,
+        2.2004871585628507,
+        -0.8236087974321009,
+        -2.591676959717617,
+        0.5684724989927759,
+        0.0370910245957532,
+        -0.5290077277317096,
+        0.35687025810742057,
+        -1.0825421862049893
+      ]
+    },
+    "published_curve_on_recalculated_nine": {
+      "rmse_gpa": 1.2252889352272605,
+      "max_abs_gpa": 2.472864284035964,
+      "residual_gpa": [
+        -0.19511535153023374,
+        2.259752946612565,
+        -0.7503646173921226,
+        -2.472864284035964,
+        0.7520975809069057,
+        0.2510310302519372,
+        -0.2679959405922716,
+        0.67534488670168,
+        -0.7299031971214447
+      ]
+    }
+  },
+  "Kprime_only_diagnostic": {
+    "value": 3.9968059428431975,
+    "inside_source_error_width": true,
+    "inside_nearest_rounding_half_digit": false,
+    "all_rows_overlap_P_V_display_rounding": true,
+    "qualification": "Fit to Sata reduction targets with V0/K0 fixed; demonstrates sensitivity and consistency, not historical coefficients, a replacement MgO EOS or a pressure recalibration."
+  }
+}

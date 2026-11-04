@@ -108,11 +108,11 @@
                 "refit_error": 1.0221452226031977,
                 "difference": 0.03277631128844405,
                 "relative_difference": 0.00022027090919653257,
-                "within_printed_source_error_width": true,
-                "within_combined_2sigma": null,
-                "similar": true,
                 "central_value_matches_printed_precision": true,
-                "error_matches_printed_precision": true
+                "error_matches_printed_precision": true,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_printed_source_error_width": true
               },
               {
                 "parameter": "rt_eos.K0",
@@ -122,11 +122,11 @@
                 "refit_error": 17.08110826696227,
                 "difference": 0.047913213811057176,
                 "relative_difference": 0.00015401225911622362,
-                "within_printed_source_error_width": true,
-                "within_combined_2sigma": null,
-                "similar": true,
                 "central_value_matches_printed_precision": true,
-                "error_matches_printed_precision": true
+                "error_matches_printed_precision": true,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_printed_source_error_width": true
               },
               {
                 "parameter": "rt_eos.K0_prime",
@@ -136,11 +136,11 @@
                 "refit_error": 0.09867288497596867,
                 "difference": 0.004396192967735857,
                 "relative_difference": 0.0012929979316870168,
-                "within_printed_source_error_width": true,
-                "within_combined_2sigma": null,
-                "similar": true,
                 "central_value_matches_printed_precision": true,
-                "error_matches_printed_precision": true
+                "error_matches_printed_precision": true,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_printed_source_error_width": true
               },
               {
                 "parameter": "gamma0",
@@ -150,11 +150,11 @@
                 "refit_error": 0.4195250395794209,
                 "difference": -6.356413692665264e-05,
                 "relative_difference": 5.996616691193645e-05,
-                "within_printed_source_error_width": true,
-                "within_combined_2sigma": null,
-                "similar": true,
                 "central_value_matches_printed_precision": true,
-                "error_matches_printed_precision": true
+                "error_matches_printed_precision": true,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_printed_source_error_width": true
               },
               {
                 "parameter": "q",
@@ -164,23 +164,23 @@
                 "refit_error": 1.7348122051278916,
                 "difference": 0.002087524757639958,
                 "relative_difference": 0.0010872524779374781,
-                "within_printed_source_error_width": true,
-                "within_combined_2sigma": null,
-                "similar": true,
                 "central_value_matches_printed_precision": true,
-                "error_matches_printed_precision": true
+                "error_matches_printed_precision": true,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_printed_source_error_width": true
               }
             ],
             "fit": {
               "fit_kind": "joint_pvt",
               "objective": "iteratively_reweighted_pressure_residuals",
               "selection": "all 60 Table S1 rows, including 2600 K row and ten SiO2-marker rows",
-              "columns": {"pressure": "pressure_kbr_gpa|pressure_sio2_gpa", "volume": "volume_a3", "temperature": "temperature_k"},
+              "columns": {"pressure": "pressure_kbr_gpa|pressure_sio2_gpa", "temperature": "temperature_k", "volume": "volume_a3"},
               "weighting": "Effective variance: sP^2 + (dP/dV*sV)^2 + (dP/dT*sT)^2 from printed widths; freeze during each solve, update to convergence. Missing 300 K T widths leave T fixed.",
               "absolute_sigma": true,
               "free_parameters": ["rt_eos.V0", "rt_eos.K0", "rt_eos.K0_prime", "gamma0", "q"],
               "fixed_parameters": ["Tr", "theta0", "n"],
-              "fixed_values": {"Tr": 300, "theta0": 314, "n": 4},
+              "fixed_values": {"Tr": 300, "n": 4, "theta0": 314},
               "observations": 60,
               "observed_pressure_range_gpa": [70.8, 326.4],
               "observed_temperature_range_k": [300, 2600],
@@ -463,11 +463,11 @@
                 "refit_error": 0.8118285504116703,
                 "difference": 0.060800395471630964,
                 "relative_difference": 0.00041276575337156115,
-                "within_printed_source_error_width": true,
-                "within_combined_2sigma": null,
-                "similar": true,
                 "central_value_matches_printed_precision": false,
-                "error_matches_printed_precision": false
+                "error_matches_printed_precision": false,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_printed_source_error_width": true
               },
               {
                 "parameter": "rt_eos.K0",
@@ -477,11 +477,11 @@
                 "refit_error": 14.347683441064028,
                 "difference": -1.5125837282218981,
                 "relative_difference": 0.004682921759200923,
-                "within_printed_source_error_width": true,
-                "within_combined_2sigma": null,
-                "similar": true,
                 "central_value_matches_printed_precision": false,
-                "error_matches_printed_precision": false
+                "error_matches_printed_precision": false,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_printed_source_error_width": true
               },
               {
                 "parameter": "rt_eos.K0_prime",
@@ -491,11 +491,11 @@
                 "refit_error": 0.08587177804900412,
                 "difference": 0.008092266537532922,
                 "relative_difference": 0.002359261381204933,
-                "within_printed_source_error_width": true,
-                "within_combined_2sigma": null,
-                "similar": true,
                 "central_value_matches_printed_precision": false,
-                "error_matches_printed_precision": true
+                "error_matches_printed_precision": true,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_printed_source_error_width": true
               },
               {
                 "parameter": "gamma0",
@@ -505,11 +505,11 @@
                 "refit_error": 0.29534688141187926,
                 "difference": -0.003896160398319637,
                 "relative_difference": 0.0028439126995033846,
-                "within_printed_source_error_width": true,
-                "within_combined_2sigma": null,
-                "similar": true,
                 "central_value_matches_printed_precision": true,
-                "error_matches_printed_precision": false
+                "error_matches_printed_precision": false,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_printed_source_error_width": true
               },
               {
                 "parameter": "q",
@@ -519,23 +519,23 @@
                 "refit_error": 0.9085093812253474,
                 "difference": -0.03957878354139799,
                 "relative_difference": 0.04038651381775305,
-                "within_printed_source_error_width": true,
-                "within_combined_2sigma": null,
-                "similar": true,
                 "central_value_matches_printed_precision": false,
-                "error_matches_printed_precision": false
+                "error_matches_printed_precision": false,
+                "similar": true,
+                "within_combined_2sigma": null,
+                "within_printed_source_error_width": true
               }
             ],
             "fit": {
               "fit_kind": "joint_pvt",
               "objective": "iteratively_reweighted_pressure_residuals",
               "selection": "all 60 Table S1 rows, including 2600 K row and ten SiO2-marker rows",
-              "columns": {"pressure": "pressure_mgo_gpa|pressure_sio2_gpa", "volume": "volume_a3", "temperature": "temperature_k"},
+              "columns": {"pressure": "pressure_mgo_gpa|pressure_sio2_gpa", "temperature": "temperature_k", "volume": "volume_a3"},
               "weighting": "Effective variance: sP^2 + (dP/dV*sV)^2 + (dP/dT*sT)^2 from printed widths; freeze during each solve, update to convergence. Missing 300 K T widths leave T fixed.",
               "absolute_sigma": true,
               "free_parameters": ["rt_eos.V0", "rt_eos.K0", "rt_eos.K0_prime", "gamma0", "q"],
               "fixed_parameters": ["Tr", "theta0", "n"],
-              "fixed_values": {"Tr": 300, "theta0": 314, "n": 4},
+              "fixed_values": {"Tr": 300, "n": 4, "theta0": 314},
               "observations": 60,
               "observed_pressure_range_gpa": [69.3, 326.4],
               "observed_temperature_range_k": [300, 2600],
@@ -723,6 +723,721 @@
           "determination_method": "Experimental P-V-T diffraction data determine the five fitted parameters; theta0=314 K is fixed to Litasov (2013), n=4 is stoichiometric, and Tr=300 K defines the reference state."
         }
       }
+    },
+    {
+      "identifier": "cementite_nonmagnetic_sata_2010_bm3",
+      "label": "Sata et al. (2010), nonmagnetic Fe3C, original-scale 300 K BM3",
+      "model": "BM3",
+      "temperature_ref": 300,
+      "parameters": {
+        "V0": {"value": 149.456, "error": null},
+        "K0": {"value": 290.0, "error": 13.0},
+        "K0_prime": {"value": 3.76, "error": 0.18}
+      },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [27.2, 186.6],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [27.2, 186.6],
+        "temperature_k": [300, 300],
+        "notes": [
+          "Source-assigned nonmagnetic branch. Combined coverage includes three Li (2002) points above 25 GPa; Sata's nine new states span 49.87–186.60 GPa.",
+          "V0 is an extrapolated branch parameter, not a measured stable ambient nonmagnetic cell. No thermal extrapolation or magnetic-phase diagram.",
+          "Minor Fe7C3 and Re peaks occur at the highest pressure; Fe3C peaks were refined separately. Existing Prescher Pnma structure is a distinct experiment."
+        ]
+      },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "default": false,
+      "notes": "Conditional parameter agreement for the published Sata (2010) 300 K BM3 curve, using all nine Table 1 Fe3C states plus the three Li (2002) measured states above 25 GPa explicitly named in paragraph 15. The catalog retains V0=9.341 A^3/atom (149.456 A^3/cell), K0=290(13) GPa and K0-prime=3.76(18). The common comparison fixes the printed V0 and refines only K0/K0-prime; the separate literal mBM3 replay refines Pr/Kr/Kr-prime at the selected Vr. Original weights, confidence and covariance are unspecified. Diagnostic errors are RSS/dof-scaled and omit fixed-input and calibration uncertainty. Source MgO and Li ruby/neon pressure bases remain distinct; no pressure column is recalibrated. The printed MgO coefficients miss Sata pressures by up to 0.353 GPa, so the exact pressure reducer is unverified. This is neither author-workflow reproduction nor independent pressure-scale validation. Litasov's later 298 K Vinet recalibration is not this EOS. Retain as a nondefault published EOS at 300 K and 27.2–186.6 GPa with explicit uncertainty/data-scatter qualifications. Published coefficients are reproduced conditionally within their reported error widths, but the source confidence convention and covariance are unspecified. Observation scatter exceeds some tabulated coordinate-error estimates. The unchanged curve has pressure RMS 1.106733 GPa and maximum absolute residual 2.591677 GPa on the joint 12-row selection. Six of nine Sata observations exceed their first-order combined P/V error widths; the largest ratio is 9.02 under an uncorrelated-coordinate assumption. These ratios are descriptive, not formal sigma significances. Conditional parameter parity and primary-source verification do not establish the complete experimental uncertainty budget or original-workflow reproduction. The recalculated-pressure refit remains a separate diagnostic.",
+      "range_provenance": {
+        "pressure": "Final Table 1 nine rows plus paragraph 15's Li measured rows >25 GPa: 27.2, 30.3 and 30.5 GPa.",
+        "temperature": "Final paragraph 6: XRD after thermal annealing at room temperature; Table 6/figures use 300 K. Annealing temperatures are not PVT observations."
+      },
+      "published_reference_fit": {
+        "model": "mBM3",
+        "reference_volume_atom_a3": 9.341,
+        "reference_volume_cell_a3": 149.456,
+        "Pr_gpa": 0.0,
+        "Pr_error_gpa": 1.6,
+        "Kr_gpa": 290.0,
+        "Kr_error_gpa": 13.0,
+        "Kprime_r": 3.76,
+        "Kprime_r_error": 0.18,
+        "confidence": null,
+        "covariance": null,
+        "note": "Vr is selected; Pr is a fitted output, not a source-fixed zero. The catalog executes the publication's Table 6 BM3 representation at printed Pr=0."
+      },
+      "parameter_uncertainty_convention": "Parenthetical source widths retained; confidence/covariance unspecified. V0 has no reported error. Reference-fit Pr error is retained separately, not silently assigned as a V0 error. Diagnostic V0 fixing is not a source constraint.",
+      "fit_datasets": ["cementite_sata_2010_selected_pv"],
+      "reference": {
+        "authors": ["Sata, N.", "Hirose, K.", "Shen, G.", "Nakajima, Y.", "Ohishi, Y.", "Hirao, N."],
+        "year": 2010,
+        "title": "Compression of FeSi, Fe3C, Fe0.95O, and FeS under the core pressures and implication for light element in the Earth's core",
+        "source": "Journal of Geophysical Research: Solid Earth",
+        "volume": "115",
+        "locator": "B09204",
+        "doi": "10.1029/2009JB006975"
+      },
+      "pressure_calibration": {
+        "status": "partially_resolved",
+        "audit_date": "2026-11-01",
+        "methods": [
+          {
+            "kind": "equation_of_state",
+            "reference_eos_record": "mgo_speziale_2001_bm3_2",
+            "reference": {
+              "authors": ["Speziale", "Zha", "Duffy", "Hemley", "Mao"],
+              "year": 2001,
+              "doi": "10.1029/2000JB900318",
+              "source": "Journal of Geophysical Research: Solid Earth"
+            },
+            "scope": "All nine new Sata Fe3C Table 1 rows only",
+            "source_location": "Final paragraphs 5–6, Table 1 footnote b (prints 2000), paragraph 26. Paired observed MgO a and V retained.",
+            "notes": "Source BM3 74.71 A3/cell,160.2 GPa,3.99 replay differs by up to 0.353 GPa. Exact pressure reduction not recovered; printed pressures are unchanged."
+          },
+          {
+            "kind": "ruby_fluorescence",
+            "source_location": "Sata (2010), paragraph 15; Li (2002), Table 1 and footnote b, original pressure calibration described in the Li source audit.",
+            "reference": {
+              "authors": ["Li", "Mao", "Fei", "Gregoryanz", "Eremets", "Zha"],
+              "year": 2002,
+              "doi": "10.1007/s00269-001-0224-4",
+              "source": "Physics and Chemistry of Minerals"
+            },
+            "scope": "Three Li (2002) rows >25 GPa; ruby/neon calibration and reported pressure widths remain the original Li values.",
+            "notes": "No MgO or Litasov recalibration is applied. The existing Li audit retains its paired neon cells and missing raw ruby wavelengths."
+          }
+        ],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "Partial MgO equation replay is available on all nine paired cells. A complete exact author-pressure replay also needs the actual reducer/precision and Li ruby input/combination settings. No observation-level source pressure has been replaced."
+        }
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
+            "qualifications": [
+              "Conditional parameter agreement for the published Sata (2010) 300 K BM3 curve, using all nine Table 1 Fe3C states plus the three Li (2002) measured states above 25 GPa explicitly named in paragraph 15. The catalog retains V0=9.341 A^3/atom (149.456 A^3/cell), K0=290(13) GPa and K0-prime=3.76(18). The common comparison fixes the printed V0 and refines only K0/K0-prime; the separate literal mBM3 replay refines Pr/Kr/Kr-prime at the selected Vr. Original weights, confidence and covariance are unspecified. Diagnostic errors are RSS/dof-scaled and omit fixed-input and calibration uncertainty. Source MgO and Li ruby/neon pressure bases remain distinct; no pressure column is recalibrated. The printed MgO coefficients miss Sata pressures by up to 0.353 GPa, so the exact pressure reducer is unverified. This is neither author-workflow reproduction nor independent pressure-scale validation. Litasov's later 298 K Vinet recalibration is not this EOS. Retain as a nondefault published EOS at 300 K and 27.2–186.6 GPa with explicit uncertainty/data-scatter qualifications. Published coefficients are reproduced conditionally within their reported error widths, but the source confidence convention and covariance are unspecified. Observation scatter exceeds some tabulated coordinate-error estimates. The unchanged curve has pressure RMS 1.106733 GPa and maximum absolute residual 2.591677 GPa on the joint 12-row selection. Six of nine Sata observations exceed their first-order combined P/V error widths; the largest ratio is 9.02 under an uncorrelated-coordinate assumption. These ratios are descriptive, not formal sigma significances. Conditional parameter parity and primary-source verification do not establish the complete experimental uncertainty budget or original-workflow reproduction. The recalculated-pressure refit remains a separate diagnostic.",
+              "Retain as a nondefault published EOS at 300 K and 27.2–186.6 GPa with explicit uncertainty/data-scatter qualifications. Published coefficients are reproduced conditionally within their reported error widths, but the source confidence convention and covariance are unspecified. Observation scatter exceeds some tabulated coordinate-error estimates. The unchanged curve has pressure RMS 1.106733 GPa and maximum absolute residual 2.591677 GPa on the joint 12-row selection. Six of nine Sata observations exceed their first-order combined P/V error widths; the largest ratio is 9.02 under an uncorrelated-coordinate assumption. These ratios are descriptive, not formal sigma significances. Conditional parameter parity and primary-source verification do not establish the complete experimental uncertainty budget or original-workflow reproduction. The recalculated-pressure refit remains a separate diagnostic.",
+              "Usage recommendation: qualified_use",
+              "Original objective, weights, confidence, covariance and unrounded fit output unavailable.",
+              "Printed MgO reduction leaves up to 0.353 GPa discrepancy; exact reducer and complete Li pressure replay unavailable.",
+              "Final Table 4 heading says 193 GPa, versus 187 GPa in text/Figure 3 and 186.60 GPa for measurement 193; preserved as a source discrepancy.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/cementite_nonmagnetic/#record-cementite_nonmagnetic_sata_2010_bm3",
+            "report_path": "docs/reconstruction-reports/cementite_nonmagnetic.md#record-cementite_nonmagnetic_sata_2010_bm3",
+            "parameters": [
+              {
+                "parameter": "K0",
+                "published": 290.0,
+                "published_error": 13.0,
+                "refit": 290.4945279064714,
+                "refit_error": 4.206852999957428,
+                "difference": 0.4945279064713759,
+                "relative_difference": 0.0017052686430047445,
+                "within_reported_error": true,
+                "within_combined_2sigma": null,
+                "similar": true
+              },
+              {
+                "parameter": "K0_prime",
+                "published": 3.76,
+                "published_error": 0.18,
+                "refit": 3.7624951710470658,
+                "refit_error": 0.08422223058882698,
+                "difference": 0.0024951710470659805,
+                "relative_difference": 0.0006636093210281864,
+                "within_reported_error": true,
+                "within_combined_2sigma": null,
+                "similar": true
+              }
+            ],
+            "fit": {
+              "fit_kind": "isothermal_pv",
+              "objective": "equal pressure residuals at measured volumes",
+              "selection": "All nine Sata Table 1 Fe3C rows and all three measured Li (2002) Table 1 rows with P>25 GPa; original pressures retained.",
+              "weighting": "Equal pressure weights; no source weights recovered",
+              "absolute_sigma": false,
+              "free_parameters": ["K0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "fixed_values": {"V0": 149.456},
+              "observations": 12,
+              "observed_pressure_range_gpa": [27.2, 186.6],
+              "observed_temperature_range_k": [300, 300],
+              "degrees_of_freedom": 10,
+              "solver_success": true,
+              "rmse_gpa": 1.0804053589834126,
+              "published_rmse_gpa": 1.1067331454897185,
+              "parameter_covariance": [
+                [17.697612163250806, -0.34650583542933444],
+                [-0.34650583542933444, 0.007093384125357543]
+              ],
+              "covariance_convention": "RSS/(12-2) scaled inverse normal matrix, conditional on fixed printed V0; excludes calibration and predictor uncertainty. No source confidence or covariance inferred.",
+              "dataset_identifiers": ["cementite_sata_2010_selected_pv"],
+              "reproduction_report": "docs/data/sata-2010-fe3c-audit.json",
+              "coefficient_comparison_status": "parity",
+              "data_agreement_status": "poor",
+              "published_max_abs_pressure_residual_gpa": 2.591676959717617,
+              "pressure_rmse_coordinates": "Original measured volumes for published and diagnostic curves; joint 12-row selection."
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "report_path": "docs/literature-reproductions/sata-2010-fe3c.md",
+          "audit_date": "2026-11-01",
+          "note": "Final publisher Tables 1/6 and paragraph 15 verified against the original 2009 manuscript for the common Fe3C tokens and fit triplet. Nine new states plus the three explicitly selected Li (2002) rows reproduce Pr/Kr/Kr-prime conditionally. Published coefficients preserved; no Litasov (2013) recalibrated coefficient or pressure is substituted. Source verification and conditional coefficient parity coexist with poor agreement with some quoted coordinate-error estimates. Retained as a nondefault published EOS with explicit error/scatter qualifications; source confidence and covariance remain unspecified.",
+          "data_agreement_status": "poor",
+          "usage_recommendation": "qualified_use",
+          "recommendation_date": "2026-11-01",
+          "recommendation_audit": "docs/literature-reproductions/sata-2010-fe3c.md#conditional-fit-replay-and-residuals",
+          "recommendation_reason": "Retain as a nondefault published EOS at 300 K and 27.2–186.6 GPa with explicit uncertainty/data-scatter qualifications. Published coefficients are reproduced conditionally within their reported error widths, but the source confidence convention and covariance are unspecified. Observation scatter exceeds some tabulated coordinate-error estimates. The unchanged curve has pressure RMS 1.106733 GPa and maximum absolute residual 2.591677 GPa on the joint 12-row selection. Six of nine Sata observations exceed their first-order combined P/V error widths; the largest ratio is 9.02 under an uncorrelated-coordinate assumption. These ratios are descriptive, not formal sigma significances. Conditional parameter parity and primary-source verification do not establish the complete experimental uncertainty budget or original-workflow reproduction. The recalculated-pressure refit remains a separate diagnostic.",
+          "warning": "Some quoted point errors are smaller than the overall experimental scatter. Retain the published EOS within 300 K and 27.2–186.6 GPa; the separate refit is diagnostic.",
+          "primary_source_check": {
+            "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2009JB006975",
+            "doi": "10.1029/2009JB006975",
+            "locations": [
+              "Tables 1 and 6",
+              "Equations 1–2",
+              "paragraphs 5–6, 12 and 14–15",
+              "Table 4 diffraction spacings",
+              "paragraphs 24–27, pressure-scale consistency"
+            ],
+            "finding": "Final publisher Tables 1/6 and paragraph 15 verified against the original 2009 manuscript for the common Fe3C tokens and fit triplet. Nine new states plus the three explicitly selected Li (2002) rows reproduce Pr/Kr/Kr-prime conditionally. Published coefficients preserved; no Litasov (2013) recalibrated coefficient or pressure is substituted. Source verification and conditional coefficient parity coexist with poor agreement with some quoted coordinate-error estimates. Retained as a nondefault published EOS with explicit error/scatter qualifications; source confidence and covariance remain unspecified."
+          },
+          "verified_fields": [
+            "original_Fe3C_rows_and_paired_MgO",
+            "source_BM3_and_mBM3_equivalence_at_printed_Pr_zero",
+            "atomic_to_cell_volume",
+            "published_parameters_and_errors",
+            "source_joint_selection",
+            "conditional_parameter_parity",
+            "source_pressure_scale_provenance",
+            "temperature_and_pressure_limits"
+          ],
+          "primary_data_check": {
+            "status": "bundled",
+            "dataset_identifiers": ["cementite_sata_2010_table1", "cementite_sata_2010_selected_pv"],
+            "finding": "All nine original Fe3C/MgO rows and the unchanged three explicitly cited Li rows >25 GPa retained. Table 4 measured/calculated spacings are provenance only. Conditional source-width parameter agreement coexists with poor data agreement: six of nine Sata rows exceed first-order combined P/V coordinate widths. Published EOS retained with explicit uncertainty/data-scatter qualifications; exact weights/calibration workflow remain unresolved."
+          },
+          "numerical_reproduction": {
+            "reproduction_report": "docs/data/sata-2010-fe3c-audit.json",
+            "author_fit_reproduced": false,
+            "mBM3_joint_equal_pressure_coefficients": [0.011700193281563563, 290.4074359891482, 3.7637051511058393],
+            "notes": "Source-equation and conditional parameter checks, not independent physical/calibration validation or recovery of original weights.",
+            "data_agreement": {
+              "status": "poor",
+              "coordinates": "Published pressure evaluated at each original measured volume; P(model)-P(observed), GPa.",
+              "combined_width_expression": "sqrt(sP^2 + (K(V)*sV/V)^2)",
+              "qualification": "First-order propagation assuming uncorrelated P/V coordinate errors. Source confidence, coordinate/calibration covariance and fitted-parameter covariance are unavailable. No formal sigma significance, reduced chi-square or predictive confidence band is inferred; coefficients are held at their printed central values.",
+              "rows": [
+                {
+                  "source": 0,
+                  "source_row": 1,
+                  "pressure_gpa": 49.87,
+                  "pressure_residual_gpa": -0.22955070068501726,
+                  "reported_pressure_width_gpa": 0.28,
+                  "volume_width_as_pressure_gpa": 0.10671590143938375,
+                  "combined_coordinate_width_gpa": 0.29964693160454736,
+                  "absolute_residual_over_pressure_width": 0.8198239310179187,
+                  "absolute_residual_over_combined_width": 0.7660705866595087
+                },
+                {
+                  "source": 0,
+                  "source_row": 2,
+                  "pressure_gpa": 69.21,
+                  "pressure_residual_gpa": 2.2004871585628507,
+                  "reported_pressure_width_gpa": 0.39,
+                  "volume_width_as_pressure_gpa": 0.12872189951442267,
+                  "combined_coordinate_width_gpa": 0.4106937148467227,
+                  "absolute_residual_over_pressure_width": 5.642274765545771,
+                  "absolute_residual_over_combined_width": 5.357976221730364
+                },
+                {
+                  "source": 0,
+                  "source_row": 3,
+                  "pressure_gpa": 77.32,
+                  "pressure_residual_gpa": -0.8236087974321009,
+                  "reported_pressure_width_gpa": 0.2,
+                  "volume_width_as_pressure_gpa": 0.1339277815107065,
+                  "combined_coordinate_width_gpa": 0.24070033373549682,
+                  "absolute_residual_over_pressure_width": 4.118043987160505,
+                  "absolute_residual_over_combined_width": 3.4217185520696303
+                },
+                {
+                  "source": 0,
+                  "source_row": 4,
+                  "pressure_gpa": 100.78,
+                  "pressure_residual_gpa": -2.591676959717617,
+                  "reported_pressure_width_gpa": 0.23,
+                  "volume_width_as_pressure_gpa": 0.17204206181298473,
+                  "combined_coordinate_width_gpa": 0.2872254707244169,
+                  "absolute_residual_over_pressure_width": 11.268160694424422,
+                  "absolute_residual_over_combined_width": 9.023144615904357
+                },
+                {
+                  "source": 0,
+                  "source_row": 5,
+                  "pressure_gpa": 124.81,
+                  "pressure_residual_gpa": 0.5684724989927759,
+                  "reported_pressure_width_gpa": 0.26,
+                  "volume_width_as_pressure_gpa": 0.16665717227016197,
+                  "combined_coordinate_width_gpa": 0.3088278048833791,
+                  "absolute_residual_over_pressure_width": 2.186432688433753,
+                  "absolute_residual_over_combined_width": 1.8407426080285905
+                },
+                {
+                  "source": 0,
+                  "source_row": 6,
+                  "pressure_gpa": 141.37,
+                  "pressure_residual_gpa": 0.0370910245957532,
+                  "reported_pressure_width_gpa": 0.28,
+                  "volume_width_as_pressure_gpa": 0.1821952512596318,
+                  "combined_coordinate_width_gpa": 0.3340585421472715,
+                  "absolute_residual_over_pressure_width": 0.13246794498483283,
+                  "absolute_residual_over_combined_width": 0.11103151069671321
+                },
+                {
+                  "source": 0,
+                  "source_row": 7,
+                  "pressure_gpa": 159.13,
+                  "pressure_residual_gpa": -0.5290077277317096,
+                  "reported_pressure_width_gpa": 0.3,
+                  "volume_width_as_pressure_gpa": 0.19170696793133143,
+                  "combined_coordinate_width_gpa": 0.35602185544348897,
+                  "absolute_residual_over_pressure_width": 1.7633590924390319,
+                  "absolute_residual_over_combined_width": 1.4858855422590158
+                },
+                {
+                  "source": 0,
+                  "source_row": 8,
+                  "pressure_gpa": 177.77,
+                  "pressure_residual_gpa": 0.35687025810742057,
+                  "reported_pressure_width_gpa": 0.32,
+                  "volume_width_as_pressure_gpa": 0.2185204287900997,
+                  "combined_coordinate_width_gpa": 0.38749345516874095,
+                  "absolute_residual_over_pressure_width": 1.1152195565856893,
+                  "absolute_residual_over_combined_width": 0.9209710598905858
+                },
+                {
+                  "source": 0,
+                  "source_row": 9,
+                  "pressure_gpa": 186.6,
+                  "pressure_residual_gpa": -1.0825421862049893,
+                  "reported_pressure_width_gpa": 0.33,
+                  "volume_width_as_pressure_gpa": 0.20921325982071212,
+                  "combined_coordinate_width_gpa": 0.39073032654864254,
+                  "absolute_residual_over_pressure_width": 3.2804308672878464,
+                  "absolute_residual_over_combined_width": 2.770560953809717
+                },
+                {
+                  "source": 1,
+                  "source_row": 12,
+                  "pressure_gpa": 27.2,
+                  "pressure_residual_gpa": -0.6733483837245764,
+                  "reported_pressure_width_gpa": 1.1,
+                  "volume_width_as_pressure_gpa": 0.41924151988881786,
+                  "combined_coordinate_width_gpa": 1.1771845445802822,
+                  "absolute_residual_over_pressure_width": 0.6121348942950694,
+                  "absolute_residual_over_combined_width": 0.5719990011970931
+                },
+                {
+                  "source": 1,
+                  "source_row": 13,
+                  "pressure_gpa": 30.3,
+                  "pressure_residual_gpa": 0.17189393225546823,
+                  "reported_pressure_width_gpa": 1.2,
+                  "volume_width_as_pressure_gpa": 0.4970543682321813,
+                  "combined_coordinate_width_gpa": 1.2988699107218908,
+                  "absolute_residual_over_pressure_width": 0.14324494354622352,
+                  "absolute_residual_over_combined_width": 0.13234114581954737
+                },
+                {
+                  "source": 1,
+                  "source_row": 14,
+                  "pressure_gpa": 30.5,
+                  "pressure_residual_gpa": 0.1474972946216262,
+                  "reported_pressure_width_gpa": 1.2,
+                  "volume_width_as_pressure_gpa": 0.29295982317421887,
+                  "combined_coordinate_width_gpa": 1.2352430764810096,
+                  "absolute_residual_over_pressure_width": 0.1229144121846885,
+                  "absolute_residual_over_combined_width": 0.11940750563995879
+                }
+              ],
+              "all_12": {
+                "rmse_gpa": 1.1067331454897185,
+                "max_abs_gpa": 2.591676959717617,
+                "residual_gpa": [
+                  -0.22955070068501726,
+                  2.2004871585628507,
+                  -0.8236087974321009,
+                  -2.591676959717617,
+                  0.5684724989927759,
+                  0.0370910245957532,
+                  -0.5290077277317096,
+                  0.35687025810742057,
+                  -1.0825421862049893,
+                  -0.6733483837245764,
+                  0.17189393225546823,
+                  0.1474972946216262
+                ],
+                "outside_combined_width": 6,
+                "max_absolute_residual_over_combined_width": 9.023144615904357
+              },
+              "sata_9": {
+                "rmse_gpa": 1.255813062971792,
+                "max_abs_gpa": 2.591676959717617,
+                "residual_gpa": [
+                  -0.22955070068501726,
+                  2.2004871585628507,
+                  -0.8236087974321009,
+                  -2.591676959717617,
+                  0.5684724989927759,
+                  0.0370910245957532,
+                  -0.5290077277317096,
+                  0.35687025810742057,
+                  -1.0825421862049893
+                ],
+                "outside_pressure_width": 7,
+                "outside_combined_width": 6
+              },
+              "usage_recommendation": "qualified_use",
+              "recommendation_reason": "Retain as a nondefault published EOS at 300 K and 27.2–186.6 GPa with explicit uncertainty/data-scatter qualifications. Published coefficients are reproduced conditionally within their reported error widths, but the source confidence convention and covariance are unspecified. Observation scatter exceeds some tabulated coordinate-error estimates. The unchanged curve has pressure RMS 1.106733 GPa and maximum absolute residual 2.591677 GPa on the joint 12-row selection. Six of nine Sata observations exceed their first-order combined P/V error widths; the largest ratio is 9.02 under an uncorrelated-coordinate assumption. These ratios are descriptive, not formal sigma significances. Conditional parameter parity and primary-source verification do not establish the complete experimental uncertainty budget or original-workflow reproduction. The recalculated-pressure refit remains a separate diagnostic."
+            }
+          },
+          "unresolved": [
+            "Original objective, weights, confidence, covariance and unrounded fit output unavailable.",
+            "Printed MgO reduction leaves up to 0.353 GPa discrepancy; exact reducer and complete Li pressure replay unavailable.",
+            "Final Table 4 heading says 193 GPa, versus 187 GPa in text/Figure 3 and 186.60 GPa for measurement 193; preserved as a source discrepancy."
+          ]
+        },
+        "parameter_provenance": {
+          "determination_method": "Experimental room-temperature XRD compression of Fe3C with measured MgO cells plus separately calibrated Li (2002) measurements.",
+          "equation": "Final Eq. 1 mBM3 at selected Vr; at the printed Pr=0, it equals Eq. 2 BM3. Final Table 6 prints the zero-pressure BM3 representation. These are one curve, not separate source models.",
+          "V0": "Final Table 6 gives 9.341 A3/atom. Z=4 and four atoms/formula give 16 atoms/cell: 149.456 A3/cell. The paragraph's 149.46 is rounded. No V0 error or original ordinary-BM3 fixed-V0 constraint is reported; fixed_parameters is not inferred from the conditional diagnostic.",
+          "K0": "Final paragraph 15: Kr=290 +/-13 GPa at Vr=9.341 A3/atom and fitted Pr=0.0 +/-1.6 GPa; Table 6 retains 290 GPa.",
+          "K0_prime": "Final paragraph 15: Kr-prime=3.76 +/-0.18; final Table 6.",
+          "normalization": "Table 1 Fe3C has Z=4. The whole conventional P cell contains Fe12C4. Source (a,b,c)=(standard c, standard a, standard b); volume is invariant. Existing structure/sites are unchanged."
+        }
+      }
+    },
+    {
+      "identifier": "cementite_nonmagnetic_hu_2019_linear_hugoniot",
+      "label": "Hu et al. (2019), porous-precursor experimental Hugoniot, 85.6-245 GPa",
+      "model": "LinearUsUpHugoniot",
+      "temperature_ref": 300,
+      "parameters": {
+        "V0": {"value": 158.48140723178494, "error": null, "fixed": true},
+        "rho0": {"value": 7.525, "error": 0.01, "fixed": true},
+        "c0": {"value": 4.627, "error": 0.073},
+        "s": {"value": 1.614, "error": 0.028},
+        "P0": {"value": 0, "error": null, "fixed": true}
+      },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [85.6, 245.0],
+      "experimental_temperature_range_k": [300, 300],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [85.6, 245.0],
+        "temperature_k": [300, 300],
+        "notes": [
+          "Possible melting at higher pressures; density data do not resolve the phase state.",
+          "Temperature bounds denote conventional precursor normalization only. Actual shock temperatures vary and are source-calculated, not measured.",
+          "Approximately 2% porous precursor. Bulk mass-equivalent volumes must not be used as dense-crystal diffraction lattice volumes."
+        ]
+      },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "hugoniot",
+      "default_for": "hugoniot",
+      "loading_path": "principal",
+      "branch_kind": "transformed",
+      "initial_state": {
+        "phase": "ferromagnetic Pnma cementite, approximately 2% porous",
+        "material_identifier": "cementite",
+        "temperature_k": 300,
+        "temperature_basis": "Conventional normalization of ambient precursor; exact numeric temperature not reported",
+        "pressure_gpa": 0,
+        "density_g_cm3": 7.525,
+        "density_error_width_g_cm3": 0.01,
+        "density_basis": "Explicitly adopted source-average Archimedes bulk density; per-shot densities retained, no porosity correction"
+      },
+      "volume_basis": {
+        "kind": "formula_units",
+        "formula_units": 4,
+        "molar_mass_g_mol": 179.546,
+        "notes": "Operational four-formula mass basis including pore volume, not the Pnma crystal lattice. Standard Fe=55.845 and C=12.011 g/mol; exact Avogadro constant."
+      },
+      "branch_domain": {
+        "particle_velocity_km_s": [1.5836540819, 3.286],
+        "kind": "experimental_coverage",
+        "boundary_status": "inferred",
+        "notes": [
+          "Domain encloses all six measured particle velocities and the source pressure extrema inverted with the adopted mean bulk density. Bounds are rounded outwards to 10 decimals for inclusive inversion. This is experimental path coverage, not a phase-stability boundary."
+        ]
+      },
+      "notes": "Published six-shot linear Us-up relation retained, with conditional coefficient agreement within both reported error widths under an equal-Us-weight diagnostic. Source confidence, covariance and exact fitting weights are unspecified; this is not recovered author-workflow or uncertainty parity. The published empirical principal Hugoniot is retained over its full experimental range, 85.6-245 GPa. Possible melting at higher pressures; density data do not resolve the phase state. All six shots remain data and source-fit inputs. Mean porous precursor density 7.525(0.010) g/cm3 is explicitly adopted as the common path normalization; individual measured initial densities remain unchanged. V0 is a mass-equivalent bulk volume including approximately 2% porosity, not a diffraction lattice volume or the Sata nonmagnetic V0. The 300 K reference is conventional precursor normalization, not measured shock temperature. The separate thermal reduction and the 7.982 g/cm3 Gruneisen reference are not installed as this Hugoniot.",
+      "range_provenance": {
+        "pressure": "All six Table 1 shots span 85.6-245 GPa and enter the published fit. Section 3.1.2 discusses possible melting at higher pressures; it does not impose a 171.6 GPa fit limit.",
+        "temperature": "Ambient precursor normalized to 300 K; no constant-T shock path or measured 1190-5530 K PVT dataset implied."
+      },
+      "source_fit_domain": {
+        "source_shots": [1, 2, 3, 4, 5, 6],
+        "pressure_gpa": [85.6, 245],
+        "particle_velocity_km_s": [1.585, 3.286],
+        "calculated_temperature_k": [1190, 5530],
+        "installed_shots": [1, 2, 3, 4, 5, 6]
+      },
+      "path_interpretation": "Empirical experimental shock path; Possible melting at higher pressures; density data do not resolve the phase state.",
+      "scope_history": [
+        {
+          "date": "2026-11-02",
+          "superseded_pressure_restriction_gpa": [85.6, 171.6],
+          "current_pressure_gpa": [85.6, 245.0],
+          "reason": "The former solid-only restriction was a catalog interpretation, not a source-fit limit. Full published experimental coverage retained with the possible-melting caveat; source values and diagnostic refit unchanged."
+        }
+      ],
+      "fit_datasets": ["cementite_hu_2019_table1_hugoniot"],
+      "reference": {
+        "authors": ["Hu, X.", "Fei, Y.", "Yang, J.", "Cai, Y.", "Ye, S.", "Qi, M.", "Liu, F.", "Zhang, M."],
+        "year": 2019,
+        "title": "Phase Stability and Thermal Equation of State of Iron Carbide Fe3C to 245 GPa",
+        "source": "Geophysical Research Letters",
+        "volume": "46",
+        "issue": "20",
+        "locator": "11018-11024",
+        "doi": "10.1029/2019GL084545"
+      },
+      "pressure_calibration": {
+        "status": "not_applicable",
+        "audit_date": "2026-11-01",
+        "methods": [
+          {
+            "kind": "shock_wave",
+            "reference": {
+              "authors": ["Hu, X.", "Fei, Y.", "Yang, J.", "Cai, Y.", "Ye, S.", "Qi, M.", "Liu, F.", "Zhang, M."],
+              "year": 2019,
+              "title": "Phase Stability and Thermal Equation of State of Iron Carbide Fe3C to 245 GPa",
+              "source": "Geophysical Research Letters",
+              "volume": "46",
+              "issue": "20",
+              "locator": "11018-11024",
+              "doi": "10.1029/2019GL084545"
+            },
+            "source_location": "Methods and Results; Table 1",
+            "notes": "P=rho0*Us*up, using individual shot densities for source-row replay. Impact velocity and Us measured; Cu/Ta impactors retained. Full source reduction of up from the impact configuration is not recovered. No static MgO/NaCl pressure scale is substituted."
+          }
+        ],
+        "recalculation": {
+          "status": "not_applicable",
+          "notes": "No static pressure recalibration. Algebraic per-shot Rankine-Hugoniot P/rho replay is retained separately; full author raw timing/impactor reduction unavailable."
+        }
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
+            "qualifications": [
+              "Published six-shot linear Us-up relation retained, with conditional coefficient agreement within both reported error widths under an equal-Us-weight diagnostic. Source confidence, covariance and exact fitting weights are unspecified; this is not recovered author-workflow or uncertainty parity. The published empirical principal Hugoniot is retained over its full experimental range, 85.6-245 GPa. Possible melting at higher pressures; density data do not resolve the phase state. All six shots remain data and source-fit inputs. Mean porous precursor density 7.525(0.010) g/cm3 is explicitly adopted as the common path normalization; individual measured initial densities remain unchanged. V0 is a mass-equivalent bulk volume including approximately 2% porosity, not a diffraction lattice volume or the Sata nonmagnetic V0. The 300 K reference is conventional precursor normalization, not measured shock temperature. The separate thermal reduction and the 7.982 g/cm3 Gruneisen reference are not installed as this Hugoniot. Retain the published experimental Hugoniot over 85.6-245 GPa for the porous precursor. Possible melting at higher pressures; density data do not resolve the phase state.",
+              "Retain the published experimental Hugoniot over 85.6-245 GPa for the porous precursor. Possible melting at higher pressures; density data do not resolve the phase state.",
+              "Usage recommendation: qualified_use",
+              "Source coefficient/error confidence, covariance and exact fitting weights unspecified.",
+              "No in-situ diffraction or direct temperature measurement during shock; possible high-pressure melting is not resolved.",
+              "Exact porous-to-dense correction and full impedance/timing reduction are not supplied; none is invented.",
+              "Separate thermal model and its 7.982 g/cm3 reference, gamma law and transformation energy are not represented by this linear path.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/cementite_nonmagnetic/#record-cementite_nonmagnetic_hu_2019_linear_hugoniot",
+            "report_path": "docs/reconstruction-reports/cementite_nonmagnetic.md#record-cementite_nonmagnetic_hu_2019_linear_hugoniot",
+            "parameters": [
+              {
+                "parameter": "c0",
+                "published": 4.627,
+                "published_error": 0.073,
+                "refit": 4.628196843550288,
+                "refit_error": 0.07105079550568787,
+                "difference": 0.0011968435502884844,
+                "relative_difference": 0.0002586651286553554,
+                "within_published_error_width": true,
+                "similar": true,
+                "within_combined_2sigma": null
+              },
+              {
+                "parameter": "s",
+                "published": 1.614,
+                "published_error": 0.028,
+                "refit": 1.6190724847887306,
+                "refit_error": 0.026484578018163982,
+                "difference": 0.005072484788730458,
+                "relative_difference": 0.0031428034626583834,
+                "within_published_error_width": true,
+                "similar": true,
+                "within_combined_2sigma": null
+              }
+            ],
+            "fit": {
+              "fit_kind": "linear_us_up_hugoniot",
+              "objective": "equal_shock_velocity_residuals",
+              "selection": "All six original Table 1 shots over the full experimental Hugoniot, 85.6-245 GPa",
+              "columns": {
+                "particle_velocity": "particle_velocity_km_s",
+                "shock_velocity": "shock_velocity_km_s",
+                "particle_velocity_sigma": "particle_velocity_km_s_error_width",
+                "shock_velocity_sigma": "shock_velocity_km_s_error_width"
+              },
+              "weighting": "Equal Us weights; printed Up treated as exact only for this diagnostic. Both quoted velocity widths are retained in the plot, not used as statistical sigmas.",
+              "absolute_sigma": false,
+              "free_parameters": ["c0", "s"],
+              "fixed_parameters": ["V0", "rho0", "P0"],
+              "observations": 6,
+              "degrees_of_freedom": 4,
+              "solver_success": true,
+              "rmse_shock_velocity_km_s": 0.03137868169797723,
+              "reduced_chi_square": null,
+              "parameter_covariance": [
+                [0.005048215541991074, -0.001835299111681762],
+                [-0.0018352991116817622, 0.0007014328728002148]
+              ],
+              "covariance_convention": "RSS/(6-2) times inverse normal matrix; conditional on printed up treated as exact. No source confidence inference or initial-state uncertainty propagation.",
+              "comparison_scope": "parameter_agreement",
+              "dataset_identifiers": ["cementite_hu_2019_table1_hugoniot"],
+              "reproduction_report": "docs/literature-reproductions/hu-2019-fe3c.md"
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          },
+          "author_workflow_reproduced": false,
+          "source_equation_check": {
+            "source": "All six Table 1 Us-up states, independently deposited in PANGAEA",
+            "residual_sign": "Us(model)-Us(source), km/s",
+            "residuals_km_s": [
+              -0.0684060000000013,
+              0.00419000000000036,
+              -0.007303999999999533,
+              0.029731999999999204,
+              -0.0056299999999982475,
+              -0.03939600000000176
+            ],
+            "rms_km_s": 0.03468433578240626,
+            "max_abs_residual_over_reported_Us_width": 0.8445185185185345,
+            "all_within_reported_Us_width": true,
+            "qualification": "Descriptive width comparison at printed up; source confidence and Us-up covariance are unknown. Not a formal sigma or chi-square test."
+          },
+          "rankine_hugoniot_replay": {
+            "rows": [
+              {
+                "shot": 1,
+                "replayed_pressure_gpa": 171.59977527,
+                "pressure_difference_gpa": -0.00022472999998512933,
+                "replayed_density_g_cm3": 10.63824832642652,
+                "density_difference_g_cm3": 0.0012483264265199523
+              },
+              {
+                "shot": 2,
+                "replayed_pressure_gpa": 85.63730274,
+                "pressure_difference_gpa": 0.03730274000000122,
+                "replayed_density_g_cm3": 9.655082916368833,
+                "density_difference_g_cm3": 8.291636883406284e-05
+              },
+              {
+                "shot": 3,
+                "replayed_pressure_gpa": 132.51674898000002,
+                "pressure_difference_gpa": 0.0167489800000169,
+                "replayed_density_g_cm3": 10.269485996981384,
+                "density_difference_g_cm3": -0.0005140030186154831
+              },
+              {
+                "shot": 4,
+                "replayed_pressure_gpa": 227.51644742399998,
+                "pressure_difference_gpa": 0.016447423999977673,
+                "replayed_density_g_cm3": 11.113373390557937,
+                "density_difference_g_cm3": 0.0033733905579378387
+              },
+              {
+                "shot": 5,
+                "replayed_pressure_gpa": 208.62187118999998,
+                "pressure_difference_gpa": 0.021871189999984608,
+                "replayed_density_g_cm3": 10.950770590972546,
+                "density_difference_g_cm3": -0.0002294090274546079
+              },
+              {
+                "shot": 6,
+                "replayed_pressure_gpa": 244.98989876000002,
+                "pressure_difference_gpa": -0.010101239999983136,
+                "replayed_density_g_cm3": 11.154347695990424,
+                "density_difference_g_cm3": -0.0006523040095753885
+              }
+            ],
+            "max_abs_pressure_difference_gpa": 0.03730274000000122,
+            "max_abs_density_difference_g_cm3": 0.0033733905579378387,
+            "notes": "Each shot uses its own printed initial density; calculated source P/rho are not independent measurements. Printed precision limits exact replay."
+          }
+        },
+        "parameter_provenance": {
+          "determination_method": "Six experimental shock Us-up pairs and source sample bulk density; no theoretical thermal or transition-energy coefficient enters the installed path.",
+          "c0": "Abstract/Results and Figure 1: 4.627 +/-0.073 km/s",
+          "s": "Same original linear relation: 1.614 +/-0.028",
+          "rho0": "Methods: mean sample Archimedes density 7.525(0.010) g/cm3, explicitly adopted here as common path normalization. Source Table 1 shot densities vary 7.478-7.546 and are preserved separately.",
+          "V0": "Derived 4*M/(rho0*NA)*1e24 A3; four Fe3C formula units, M=179.546 g/mol. Includes pore volume; not Sata V0=149.456 A3 or measured diffraction V0.",
+          "P0": "Ambient pressure approximated by zero in source shock conservation equations",
+          "structure": "Source precursor XRD: Pnma Z=4; shock response is source-assigned nonmagnetic, with possible melting at higher pressures. Existing independent Prescher structure is representative solid evidence, not in-situ Hu shock diffraction or proof that the full path remains solid."
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-11-01",
+          "report_path": "docs/literature-reproductions/hu-2019-fe3c.md",
+          "note": "Published six-shot linear Us-up relation retained, with conditional coefficient agreement within both reported error widths under an equal-Us-weight diagnostic. Source confidence, covariance and exact fitting weights are unspecified; this is not recovered author-workflow or uncertainty parity. The published empirical principal Hugoniot is retained over its full experimental range, 85.6-245 GPa. Possible melting at higher pressures; density data do not resolve the phase state. All six shots remain data and source-fit inputs. Mean porous precursor density 7.525(0.010) g/cm3 is explicitly adopted as the common path normalization; individual measured initial densities remain unchanged. V0 is a mass-equivalent bulk volume including approximately 2% porosity, not a diffraction lattice volume or the Sata nonmagnetic V0. The 300 K reference is conventional precursor normalization, not measured shock temperature. The separate thermal reduction and the 7.982 g/cm3 Gruneisen reference are not installed as this Hugoniot.",
+          "usage_recommendation": "qualified_use",
+          "recommendation_reason": "Retain the published experimental Hugoniot over 85.6-245 GPa for the porous precursor. Possible melting at higher pressures; density data do not resolve the phase state.",
+          "recommendation_date": "2026-11-02",
+          "recommendation_audit": "docs/literature-reproductions/hu-2019-fe3c.md#full-experimental-range-and-possible-melting",
+          "warning": "Possible melting at higher pressures; density data do not resolve the phase state.",
+          "primary_source_check": {
+            "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019GL084545",
+            "doi": "10.1029/2019GL084545",
+            "locations": [
+              "Methods, sample density/porosity and starting-phase XRD",
+              "Results, Us-up and conservation equations",
+              "Table 1 and footnote",
+              "Section 3.1.2, possible melting",
+              "Official PANGAEA.905474 workbook, Sheet1!A1:I8"
+            ],
+            "finding": "Published six-shot linear Us-up relation retained, with conditional coefficient agreement within both reported error widths under an equal-Us-weight diagnostic. Source confidence, covariance and exact fitting weights are unspecified; this is not recovered author-workflow or uncertainty parity. The published empirical principal Hugoniot is retained over its full experimental range, 85.6-245 GPa. Possible melting at higher pressures; density data do not resolve the phase state. All six shots remain data and source-fit inputs. Mean porous precursor density 7.525(0.010) g/cm3 is explicitly adopted as the common path normalization; individual measured initial densities remain unchanged. V0 is a mass-equivalent bulk volume including approximately 2% porosity, not a diffraction lattice volume or the Sata nonmagnetic V0. The 300 K reference is conventional precursor normalization, not measured shock temperature. The separate thermal reduction and the 7.982 g/cm3 Gruneisen reference are not installed as this Hugoniot."
+          },
+          "verified_fields": [
+            "original_linear_shock_coefficients_and_errors",
+            "all_six_source_shots_and_reported_errors",
+            "source_equation_against_velocity_observations",
+            "conditional_parameter_agreement",
+            "per_shot_Rankine_Hugoniot_replay",
+            "porous_initial_state_and_operational_mass_basis",
+            "full_experimental_shock_path_and_phase_caveat"
+          ],
+          "primary_data_check": {
+            "status": "bundled",
+            "dataset_identifiers": ["cementite_hu_2019_table1_hugoniot"],
+            "finding": "All six deposited Table 1 shots match the publisher table; all source widths, impactors, per-shot initial densities and calculated temperatures retained. All six belong to the installed experimental Hugoniot and its source-fit comparison."
+          },
+          "unresolved": [
+            "Source coefficient/error confidence, covariance and exact fitting weights unspecified.",
+            "No in-situ diffraction or direct temperature measurement during shock; possible high-pressure melting is not resolved.",
+            "Exact porous-to-dense correction and full impedance/timing reduction are not supplied; none is invented.",
+            "Separate thermal model and its 7.982 g/cm3 reference, gamma law and transformation energy are not represented by this linear path."
+          ]
+        }
+      }
     }
   ],
   "symmetry": "ORTHORHOMBIC",
@@ -887,6 +1602,384 @@
         "source_manifest": "research/cementite/sources.json",
         "normalization": "Error digits use original XLSX number formats, including trailing decimal places. Printed dashes stay missing."
       }
+    },
+    {
+      "identifier": "cementite_sata_2010_table1",
+      "kind": "pressure_volume_temperature",
+      "description": "All nine Fe3C Table 1 observations, all lattice/volume/pressure error widths and paired MgO readings; source a,b,c setting retained.",
+      "source_location": "Sata (2010) final Table 1 and paragraph 15; Li (2002) Table 1 rows T1-12/T1-13/T1-14 for source=1 in the selected input.",
+      "reference": {
+        "authors": ["Sata, N.", "Hirose, K.", "Shen, G.", "Nakajima, Y.", "Ohishi, Y.", "Hirao, N."],
+        "year": 2010,
+        "title": "Compression of FeSi, Fe3C, Fe0.95O, and FeS under the core pressures and implication for light element in the Earth's core",
+        "source": "Journal of Geophysical Research: Solid Earth",
+        "volume": "115",
+        "locator": "B09204",
+        "doi": "10.1029/2009JB006975"
+      },
+      "row_count": 9,
+      "columns": [
+        {"name": "source_row", "quantity": "source_order", "unit": "1", "role": "flag"},
+        {"name": "run", "quantity": "source_order", "unit": "1", "role": "flag"},
+        {"name": "measurement_id", "quantity": "source_order", "unit": "1", "role": "flag"},
+        {"name": "a_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {
+          "name": "error_a_angstrom",
+          "quantity": "lattice_parameter",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "a_angstrom"
+        },
+        {"name": "b_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {
+          "name": "error_b_angstrom",
+          "quantity": "lattice_parameter",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "b_angstrom"
+        },
+        {"name": "c_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {
+          "name": "error_c_angstrom",
+          "quantity": "lattice_parameter",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "c_angstrom"
+        },
+        {"name": "volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+        {
+          "name": "error_volume_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "uncertainty",
+          "of": "volume_a3"
+        },
+        {"name": "mgo_a_angstrom", "quantity": "lattice_parameter", "unit": "angstrom", "role": "value"},
+        {
+          "name": "error_mgo_a_angstrom",
+          "quantity": "lattice_parameter",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "mgo_a_angstrom"
+        },
+        {"name": "mgo_volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+        {
+          "name": "error_mgo_volume_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "uncertainty",
+          "of": "mgo_volume_a3"
+        },
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "error_pressure_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {"name": "vc_vfe", "quantity": "ratio", "unit": "1", "role": "value"},
+        {"name": "error_vc_vfe", "quantity": "ratio", "unit": "1", "role": "uncertainty", "of": "vc_vfe"},
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"}
+      ],
+      "resource": {
+        "path": "datasets/cementite-sata-2010-table1.csv",
+        "sha256": "5833c40921b7f854a78e3fd34b4130cf18f7b166baf4adc00d66884c45529b5c",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["cementite_nonmagnetic_sata_2010_bm3"],
+      "uncertainty_convention": "Source last-digit widths; statistical confidence/covariance unspecified. No missing error is zero. Temperature is fixed at the source 300 K isotherm, without invented per-row T error.",
+      "provenance": {
+        "source_tokens": "datasets/cementite-sata-2010-table1-tokens.csv",
+        "source_tokens_sha256": "73d162587a79951c5ca3a1e3184cd92728c14e8f439e178c653bf6a2de1b3f24",
+        "manifest": "datasets/cementite-sata-2010-source.json",
+        "source_flags": {
+          "0": "Sata Table 1, MgO scale",
+          "1": "Li Table 1, original ruby/neon scale; same observations as cementite_li_2002_table1"
+        },
+        "missing_run_ids": "Li has no published run/measurement labels; run and measurement_id remain empty/null. source_row retains the original T1 row."
+      },
+      "license": "Contributor transcription/normalization rights only CC0-1.0; third-party source numerical license unspecified. See cementite-sata-2010.LICENSE.md."
+    },
+    {
+      "identifier": "cementite_sata_2010_selected_pv",
+      "kind": "pressure_volume_temperature",
+      "description": "Source-named joint selection: nine Sata MgO-referenced rows and three Li (2002) ruby/neon rows above 25 GPa; no pressure re-reduction.",
+      "source_location": "Sata (2010) final Table 1 and paragraph 15; Li (2002) Table 1 rows T1-12/T1-13/T1-14 for source=1 in the selected input.",
+      "reference": {
+        "authors": ["Sata, N.", "Hirose, K.", "Shen, G.", "Nakajima, Y.", "Ohishi, Y.", "Hirao, N."],
+        "year": 2010,
+        "title": "Compression of FeSi, Fe3C, Fe0.95O, and FeS under the core pressures and implication for light element in the Earth's core",
+        "source": "Journal of Geophysical Research: Solid Earth",
+        "volume": "115",
+        "locator": "B09204",
+        "doi": "10.1029/2009JB006975"
+      },
+      "row_count": 12,
+      "columns": [
+        {"name": "source", "quantity": "source_order", "unit": "1", "role": "flag"},
+        {"name": "source_row", "quantity": "source_order", "unit": "1", "role": "flag"},
+        {"name": "run", "quantity": "source_order", "unit": "1", "role": "flag"},
+        {"name": "measurement_id", "quantity": "source_order", "unit": "1", "role": "flag"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "error_pressure_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {"name": "volume_a3", "quantity": "conventional_unit_cell_volume", "unit": "angstrom^3", "role": "value"},
+        {
+          "name": "error_volume_a3",
+          "quantity": "conventional_unit_cell_volume",
+          "unit": "angstrom^3",
+          "role": "uncertainty",
+          "of": "volume_a3"
+        },
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"}
+      ],
+      "resource": {
+        "path": "datasets/cementite-sata-2010-selected-pv.csv",
+        "sha256": "a5bcd3a278421e64b0db4aed1bfde8d8d2c7395697cfffa334885ed7ffa32e9e",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["cementite_nonmagnetic_sata_2010_bm3"],
+      "uncertainty_convention": "Source last-digit widths; statistical confidence/covariance unspecified. No missing error is zero. Temperature is fixed at the source 300 K isotherm, without invented per-row T error.",
+      "provenance": {
+        "source_tokens": "datasets/cementite-sata-2010-table1-tokens.csv",
+        "source_tokens_sha256": "73d162587a79951c5ca3a1e3184cd92728c14e8f439e178c653bf6a2de1b3f24",
+        "manifest": "datasets/cementite-sata-2010-source.json",
+        "source_flags": {
+          "0": "Sata Table 1, MgO scale",
+          "1": "Li Table 1, original ruby/neon scale; same observations as cementite_li_2002_table1"
+        },
+        "missing_run_ids": "Li has no published run/measurement labels; run and measurement_id remain empty/null. source_row retains the original T1 row."
+      },
+      "license": "Contributor transcription/normalization rights only CC0-1.0; third-party source numerical license unspecified. See cementite-sata-2010.LICENSE.md."
+    },
+    {
+      "identifier": "cementite_sata_2010_table4_diffraction",
+      "kind": "diffraction_structure",
+      "description": "All 12 observed and calculated Table 4 d-spacings; indexed Fe3C phase check, not EOS fit inputs.",
+      "reference": {
+        "authors": ["Sata, N.", "Hirose, K.", "Shen, G.", "Nakajima, Y.", "Ohishi, Y.", "Hirao, N."],
+        "year": 2010,
+        "title": "Compression of FeSi, Fe3C, Fe0.95O, and FeS under the core pressures and implication for light element in the Earth's core",
+        "source": "Journal of Geophysical Research: Solid Earth",
+        "volume": "115",
+        "locator": "B09204",
+        "doi": "10.1029/2009JB006975"
+      },
+      "source_location": "Final Table 4. Its heading says 193 GPa; text/Figure 3 say 187 GPa. No pressure correction inferred.",
+      "columns": [
+        {"name": "h", "quantity": "miller_index", "unit": "1", "role": "value"},
+        {"name": "k", "quantity": "miller_index", "unit": "1", "role": "value"},
+        {"name": "l", "quantity": "miller_index", "unit": "1", "role": "value"},
+        {"name": "d_observed_angstrom", "quantity": "d_spacing", "unit": "angstrom", "role": "value"},
+        {
+          "name": "error_d_angstrom",
+          "quantity": "d_spacing",
+          "unit": "angstrom",
+          "role": "uncertainty",
+          "of": "d_observed_angstrom"
+        },
+        {"name": "d_calculated_source_angstrom", "quantity": "d_spacing", "unit": "angstrom", "role": "value"},
+        {"name": "delta_d_source_angstrom", "quantity": "d_spacing", "unit": "angstrom", "role": "value"}
+      ],
+      "rows": [
+        [1, 1, 1, 2.66086, 0.0006100000000000001, 2.662, -0.00114],
+        [2, 0, 0, 1.97283, 0.0005200000000000001, 1.97328, -0.00046],
+        [1, 2, 0, 1.96541, 0.0005200000000000001, 1.96529, 0.00012],
+        [1, 2, 1, 1.86532, 6.000000000000001e-05, 1.86616, -0.00084],
+        [1, 0, 3, 1.77224, 0.00013000000000000002, 1.77234, -0.0001],
+        [2, 1, 1, 1.73097, 5e-05, 1.73102, -5e-05],
+        [1, 1, 3, 1.65046, 0.00017, 1.65064, -0.00017],
+        [1, 2, 2, 1.64002, 0.00015000000000000001, 1.63987, 0.00015],
+        [2, 1, 2, 1.54669, 4e-05, 1.5459, 0.00079],
+        [2, 2, 1, 1.44366, 0.00027, 1.44374, -8e-05],
+        [1, 3, 0, 1.41117, 0.00018, 1.41099, 0.00018],
+        [1, 3, 1, 1.37298, 0.00021, 1.37292, 6e-05]
+      ],
+      "row_count": 12,
+      "used_by_eos_records": [],
+      "provenance_only": true,
+      "notes": "Measured and source-calculated d are separate; retain rounded source delta-d literally. Source axes/hkl are not relabelled as the existing Prescher Pnma structure. No observed diffraction intensity is supplied.",
+      "source_resource": "datasets/cementite-sata-2010-table4-peaks.csv",
+      "source_sha256": "c203b52b5ec1fd25ee4b93d7edd7fd26c93f651d6ccfa6ecb38cdbc54c3daf42"
+    },
+    {
+      "identifier": "cementite_hu_2019_table1_hugoniot",
+      "kind": "shock_hugoniot",
+      "description": "Complete six-shot Table 1, with per-shot porous initial densities, Cu/Ta impactors (codes 0/1), impact velocity, Us/up, derived P/rho and model-calculated temperatures. All error tokens retained. The contributor solid_subset flag preserves the former lower-pressure grouping for provenance only; it does not limit the full experimental path or identify phase states.",
+      "reference": {
+        "authors": ["Hu, X.", "Fei, Y.", "Yang, J.", "Cai, Y.", "Ye, S.", "Qi, M.", "Liu, F.", "Zhang, M."],
+        "year": 2019,
+        "title": "Phase Stability and Thermal Equation of State of Iron Carbide Fe3C to 245 GPa",
+        "source": "Geophysical Research Letters",
+        "volume": "46",
+        "issue": "20",
+        "locator": "11018-11024",
+        "doi": "10.1029/2019GL084545"
+      },
+      "source_location": "Final Table 1 and footnote; official PANGAEA Sheet1!A3:I8",
+      "row_count": 6,
+      "columns": [
+        {"name": "shot", "quantity": "index", "unit": "1", "role": "flag"},
+        {"name": "impactor_code", "quantity": "index", "unit": "1", "role": "flag"},
+        {"name": "initial_density_g_cm3", "quantity": "density", "unit": "g/cm^3", "role": "value"},
+        {
+          "name": "initial_density_g_cm3_error_width",
+          "quantity": "density",
+          "unit": "g/cm^3",
+          "role": "uncertainty",
+          "of": "initial_density_g_cm3"
+        },
+        {"name": "impact_velocity_km_s", "quantity": "velocity", "unit": "km/s", "role": "value"},
+        {
+          "name": "impact_velocity_km_s_error_width",
+          "quantity": "velocity",
+          "unit": "km/s",
+          "role": "uncertainty",
+          "of": "impact_velocity_km_s"
+        },
+        {"name": "shock_velocity_km_s", "quantity": "velocity", "unit": "km/s", "role": "value"},
+        {
+          "name": "shock_velocity_km_s_error_width",
+          "quantity": "velocity",
+          "unit": "km/s",
+          "role": "uncertainty",
+          "of": "shock_velocity_km_s"
+        },
+        {"name": "particle_velocity_km_s", "quantity": "velocity", "unit": "km/s", "role": "value"},
+        {
+          "name": "particle_velocity_km_s_error_width",
+          "quantity": "velocity",
+          "unit": "km/s",
+          "role": "uncertainty",
+          "of": "particle_velocity_km_s"
+        },
+        {"name": "density_g_cm3", "quantity": "density", "unit": "g/cm^3", "role": "value"},
+        {
+          "name": "density_g_cm3_error_width",
+          "quantity": "density",
+          "unit": "g/cm^3",
+          "role": "uncertainty",
+          "of": "density_g_cm3"
+        },
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_gpa_error_width",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {"name": "calculated_hugoniot_temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {
+          "name": "calculated_hugoniot_temperature_k_error_width",
+          "quantity": "temperature",
+          "unit": "K",
+          "role": "uncertainty",
+          "of": "calculated_hugoniot_temperature_k"
+        },
+        {"name": "solid_subset", "quantity": "index", "unit": "1", "role": "flag"}
+      ],
+      "rows": [
+        [1, 0, 7.546, 0.01, 5.07, null, 8.845, 0.081, 2.571, 0.016, 10.637, 0.05, 171.6, 1.9, 3210.0, 100.0, 1],
+        [2, 0, 7.524, 0.01, 3.121, null, 7.181, 0.034, 1.585, 0.009, 9.655, 0.023, 85.6, 0.6, 1190.0, 50.0, 1],
+        [3, 0, 7.535, 0.01, 4.26, null, 8.127, 0.113, 2.164, 0.016, 10.27, 0.061, 132.5, 2.1, 2185.0, 55.0, 1],
+        [4, 1, 7.504, 0.01, 5.348, null, 9.662, 0.036, 3.138, 0.029, 11.11, 0.055, 227.5, 2.3, 4928.0, 162.0, 0],
+        [5, 1, 7.509, 0.01, 5.038, null, 9.402, 0.122, 2.955, 0.029, 10.951, 0.083, 208.6, 3.7, 4320.0, 135.0, 0],
+        [6, 1, 7.478, 0.01, 5.61, null, 9.97, 0.055, 3.286, 0.03, 11.155, 0.061, 245.0, 2.7, 5530.0, 190.0, 0]
+      ],
+      "source_tokens": [
+        {
+          "shot": "1",
+          "initial_density_g_cm3": "7.546",
+          "impactor": "Cu",
+          "impact_velocity_km_s": "5.07",
+          "shock_velocity_km_s": "8.845(0.081)",
+          "particle_velocity_km_s": "2.571(0.016)",
+          "density_g_cm3": "10.637(0.050)",
+          "pressure_gpa": "171.6(1.9)",
+          "calculated_hugoniot_temperature_k": "3210(100)"
+        },
+        {
+          "shot": "2",
+          "initial_density_g_cm3": "7.524",
+          "impactor": "Cu",
+          "impact_velocity_km_s": "3.121",
+          "shock_velocity_km_s": "7.181(0.034)",
+          "particle_velocity_km_s": "1.585(0.009)",
+          "density_g_cm3": "9.655(0.023)",
+          "pressure_gpa": "85.6(0.6)",
+          "calculated_hugoniot_temperature_k": "1190(50)"
+        },
+        {
+          "shot": "3",
+          "initial_density_g_cm3": "7.535",
+          "impactor": "Cu",
+          "impact_velocity_km_s": "4.26",
+          "shock_velocity_km_s": "8.127(0.113)",
+          "particle_velocity_km_s": "2.164(0.016)",
+          "density_g_cm3": "10.270(0.061)",
+          "pressure_gpa": "132.5(2.1)",
+          "calculated_hugoniot_temperature_k": "2185(55)"
+        },
+        {
+          "shot": "4",
+          "initial_density_g_cm3": "7.504",
+          "impactor": "Ta",
+          "impact_velocity_km_s": "5.348",
+          "shock_velocity_km_s": "9.662(0.036)",
+          "particle_velocity_km_s": "3.138(0.029)",
+          "density_g_cm3": "11.110(0.055)",
+          "pressure_gpa": "227.5(2.3)",
+          "calculated_hugoniot_temperature_k": "4928(162)"
+        },
+        {
+          "shot": "5",
+          "initial_density_g_cm3": "7.509",
+          "impactor": "Ta",
+          "impact_velocity_km_s": "5.038",
+          "shock_velocity_km_s": "9.402(0.122)",
+          "particle_velocity_km_s": "2.955(0.029)",
+          "density_g_cm3": "10.951(0.083)",
+          "pressure_gpa": "208.6(3.7)",
+          "calculated_hugoniot_temperature_k": "4320(135)"
+        },
+        {
+          "shot": "6",
+          "initial_density_g_cm3": "7.478",
+          "impactor": "Ta",
+          "impact_velocity_km_s": "5.61",
+          "shock_velocity_km_s": "9.970(0.055)",
+          "particle_velocity_km_s": "3.286(0.030)",
+          "density_g_cm3": "11.155(0.061)",
+          "pressure_gpa": "245.0(2.7)",
+          "calculated_hugoniot_temperature_k": "5530(190)"
+        }
+      ],
+      "used_by_eos_records": ["cementite_nonmagnetic_hu_2019_linear_hugoniot"],
+      "uncertainty_convention": "Parentheses give explicit absolute uncertainty widths, not last-digit counts. Confidence and coordinate covariance unspecified. Initial density width 0.010 g/cm3 from Table 1 footnote; impact velocity accuracy 0.2% is not labelled a standard deviation. Missing impact-velocity error remains null.",
+      "quantity_origins": {
+        "initial_density_g_cm3": "Archimedes measurement, separately for each shot",
+        "impact_velocity_km_s": "Measured magnetic flyer velocity; quoted accuracy 0.2%",
+        "shock_velocity_km_s": "Electric-pin shock measurement",
+        "particle_velocity_km_s": "Source-reduced shock coordinate; full impactor/reduction settings not recovered",
+        "density_g_cm3": "Calculated Rankine-Hugoniot mass conservation",
+        "pressure_gpa": "Calculated Rankine-Hugoniot momentum conservation",
+        "calculated_hugoniot_temperature_k": "Source thermal-model output from Eq. 3; NOT measured temperature. Error considers fitted C0/S uncertainties."
+      },
+      "provenance": {
+        "source_manifest": "datasets/cementite-hu-2019-source.json",
+        "source_tokens_resource": "datasets/cementite-hu-2019-table1-tokens.csv",
+        "source_tokens_sha256": "6b754a8081a457d148bcf9355484fe119dc8c15861f665838fac3250b2f1b7d9",
+        "source_dataset_doi": "10.1594/PANGAEA.905474"
+      },
+      "license": "CC-BY-4.0",
+      "source_attribution": "Fei, Yingwei (2019): Shockwave hugoniot data for Fe3C [dataset]. PANGAEA, doi:10.1594/PANGAEA.905474; supplement to Hu et al. (2019), doi:10.1029/2019GL084545."
     }
   ],
   "structure_provenance": {
@@ -902,6 +1995,7 @@
     "reported_volume_a3": 129.5,
     "axis_mapping": "(a,b,c)_Pnma=(b,c,a)_table; (x,y,z)_Pnma=(y,z,x)_table. No origin shift.",
     "occupancy_basis": "Ideal stoichiometric Fe3C: full occupancy on Fe 8d/4c and C 4c. Occupancies are not reported as refined values in Table S1.",
+    "raw_structures": "../research/cementite/prescher-2012-structures.json",
     "phase_assignment": "High-pressure nonmagnetic branch assigned by the main paper; this is a structural state, not a measurement of either thermal EOS reference volume."
   }
 }

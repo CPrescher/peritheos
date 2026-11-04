@@ -1,7 +1,8 @@
-"""Scoped Takahashi (2019) source replay; repository maintenance only."""
+"""Scoped Fe3C source checks; repository maintenance, not a replacement EOS fit."""
 
 from __future__ import annotations
 
+import copy
 import csv
 import json
 from pathlib import Path
@@ -10,13 +11,121 @@ from typing import Any
 import numpy as np
 from scipy.constants import Avogadro
 
+from peritheos import get_material_document
 from peritheos.eos.rt import BM3
 from peritheos.eos.thermal import MieGruneisenDebye
-from peritheos.fitting import fit_joint_eos
+from peritheos.fitting import fit_joint_eos, fit_rt_eos
 
 ROOT = Path(__file__).resolve().parents[1]
-CELL_TO_MOLAR = Avogadro * 1e-25 / 4
+RESEARCH = ROOT / "peritheos/data/research/cementite"
 REPORT = ROOT / "docs/data/cementite-reproduction.json"
+CELL_TO_MOLAR = Avogadro * 1e-25 / 4
+SCOTT_ID = "cementite_scott_2001_bm3_1"
+SCOTT_BASIS = (
+    "Qualified similarity of a digitized, equal-weight reconstruction. Both free "
+    "central coefficients lie outside their printed source error widths; the "
+    "broad combined-error screen does not establish coefficient parity."
+)
+SCOTT_QUALIFICATION = (
+    "Scott et al. (2001), page 1876 and Figure 3, report weighted least squares "
+    "on observations from two runs. Only 21 digitized filled-symbol observations "
+    "are available here; the open temperature-quenched point is excluded. "
+    "Incomplete digitized coordinate error bars cause the generic row reader to "
+    "omit both sigma arrays, so this reconstruction uses equal pressure weights. "
+    "Its retained errors use residual-scaled covariance because no observation "
+    "sigmas are supplied, even though the generic ledger records "
+    "absolute_sigma=True. They are not recovered source weights or a source "
+    "confidence interval. The original row array, run identities, "
+    "weights, covariance and precise objective remain unavailable. The source "
+    "coefficients and digitization are preserved; this finding does not show "
+    "that the published EOS is incorrect."
+)
+
+
+def qualify_scott(outcome: dict[str, Any]) -> dict[str, Any]:
+    """Prevent broad uncertainty overlap from overstating this partial replay.
+
+    The dedicated central-value criterion is one printed source error width for
+    every free coefficient. This is a numerical screen, not a confidence test:
+    Scott does not specify the confidence convention. Missing widths cannot pass.
+    Preserve the generic comparison flags and numerical fit without alteration.
+    """
+    result = copy.deepcopy(outcome)
+    comparisons = result.get("parameters", [])
+    agreement = bool(comparisons) and all(
+        p.get("published_error") is not None
+        and p["published_error"] > 0
+        and abs(p["refit"] - p["published"]) <= p["published_error"]
+        for p in comparisons
+    )
+    result["source_parameter_widths_agreement"] = agreement
+    if result["status"] == "parity" and not agreement:
+        result["status"] = "similar"
+    result["parity_basis"] = (
+        "Every free central coefficient lies within its printed source error width; "
+        "this conditional numerical comparison does not establish the source's "
+        "confidence convention or weighted fitting workflow."
+        if agreement
+        else SCOTT_BASIS
+    )
+    result["qualification"] = SCOTT_QUALIFICATION
+    result["weighting"] = (
+        "Equal pressure weights; incomplete plotted errors are not used as fit "
+        "sigmas. Refit covariance is scaled by residual variance."
+    )
+    result["covariance_convention"] = (
+        "Residual-scaled inverse normal matrix; no measured sigma arrays supplied. "
+        "The fitting API scales covariance in that case regardless of absolute_sigma."
+    )
+    result["original_author_workflow_parity"] = False
+    result["reproduction_report"] = "docs/literature-reproductions/cementite.md"
+    return result
+
+
+def reproduce_scott() -> dict[str, Any]:
+    from scripts.validate_primary_eos_refits import _fit_record, _series
+
+    document = get_material_document("cementite")
+    record = document["eos_records"][0]
+    dataset = document["datasets"][0]
+    series = _series(document, record, dataset)
+    outcome = _fit_record(document, record, dataset)
+    result = fit_rt_eos(
+        BM3,
+        series.volume,
+        series.pressure,
+        initial={"K0": 175.4, "K0_prime": 5.1},
+        fixed={"V0": 155.26},
+        bounds={"K0": (8.77, 877.0), "K0_prime": (0, 20)},
+        absolute_sigma=True,
+        max_nfev=5000,
+    )
+    source = BM3(V0=155.26, K0=175.4, K0_prime=5.1)
+    pressures = np.linspace(0, 73.2, 1001)
+    original = source.volume(pressures)
+    reconstructed = result.model.volume(pressures)
+    covariance = np.asarray(result.covariance)
+    return {
+        **outcome,
+        "pressure_sigmas_used": series.pressure_sigma is not None,
+        "volume_sigmas_used": series.volume_sigma is not None,
+        "covariance_order": list(result.free_parameters),
+        "covariance": covariance.tolist(),
+        "K0_K0_prime_correlation": float(
+            covariance[0, 1] / np.sqrt(covariance[0, 0] * covariance[1, 1])
+        ),
+        "curve_comparison": {
+            "pressure_range_gpa": [0, 73.2],
+            "grid_states": 1001,
+            "max_abs_volume_difference_a3": float(
+                np.max(np.abs(reconstructed - original))
+            ),
+            "max_abs_relative_volume_difference": float(
+                np.max(np.abs(reconstructed / original - 1))
+            ),
+            "basis": "Calculated curves, not independent measured observations.",
+        },
+    }
 
 
 def reproduce_takahashi() -> dict[str, Any]:
@@ -124,6 +233,15 @@ def reproduce_takahashi() -> dict[str, Any]:
     return results
 
 
+def reproduce() -> dict[str, Any]:
+    return {
+        "format": "peritheos.cementite-reproduction",
+        "source_manifest": "peritheos/data/research/cementite/sources.json",
+        "scott_2001": reproduce_scott(),
+        "takahashi_2019": reproduce_takahashi(),
+    }
+
+
 def takahashi_equal_pressure_ledger_outcome(record: dict[str, Any]) -> dict[str, Any]:
     """Preserve the earlier equal-pressure diagnostic, separately from parity."""
     identifier = record["identifier"]
@@ -208,14 +326,9 @@ def takahashi_ledger_outcome(record: dict[str, Any]) -> dict[str, Any]:
     )
 
 
-def reproduce() -> dict[str, Any]:
-    return {
-        "format": "peritheos.cementite-reproduction",
-        "source_manifest": "peritheos/data/research/cementite/sources.json",
-        "takahashi_2019": reproduce_takahashi(),
-    }
-
-
 if __name__ == "__main__":
-    REPORT.write_text(json.dumps(reproduce(), indent=2, allow_nan=False) + "\n")
-    print("Replayed both Takahashi source models; no source coefficients replaced.")
+    report = reproduce()
+    REPORT.write_text(json.dumps(report, indent=2, allow_nan=False) + "\n")
+    print(
+        "Replayed Scott and both Takahashi source models; no source coefficients replaced."
+    )

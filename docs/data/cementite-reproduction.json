@@ -1,6 +1,99 @@
 {
   "format": "peritheos.cementite-reproduction",
   "source_manifest": "peritheos/data/research/cementite/sources.json",
+  "scott_2001": {
+    "status": "similar",
+    "dataset_identifiers": [
+      "cementite_scott_2001_figure3_digitized"
+    ],
+    "observations": 21,
+    "selection": "all rows",
+    "observed_pressure_range_gpa": [
+      0.0,
+      72.7536
+    ],
+    "observed_volume_range": [
+      123.42564485999999,
+      155.26
+    ],
+    "observed_temperature_range_k": null,
+    "columns": {
+      "pressure": "pressure_gpa",
+      "volume": "volume_ratio",
+      "temperature": null
+    },
+    "fit_kind": "isothermal_pv",
+    "objective": "pressure_residuals",
+    "absolute_sigma": true,
+    "free_parameters": [
+      "K0",
+      "K0_prime"
+    ],
+    "parameters": [
+      {
+        "parameter": "K0",
+        "published": 175.4,
+        "published_error": 3.5,
+        "refit": 161.34142422435633,
+        "refit_error": 8.597975012312647,
+        "difference": -14.058575775643675,
+        "relative_difference": 0.08015151525452494,
+        "within_combined_2sigma": true,
+        "similar": true
+      },
+      {
+        "parameter": "K0_prime",
+        "published": 5.1,
+        "published_error": 0.3,
+        "refit": 6.044124284317963,
+        "refit_error": 0.6355732779493145,
+        "difference": 0.9441242843179634,
+        "relative_difference": 0.18512240868979676,
+        "within_combined_2sigma": true,
+        "similar": true
+      }
+    ],
+    "published_rmse_gpa": 1.6574243208273791,
+    "rmse_gpa": 1.5518138830669295,
+    "reduced_chi_square": 2.6616133095402374,
+    "degrees_of_freedom": 19,
+    "solver_success": true,
+    "solver_message": "`ftol` termination condition is satisfied.",
+    "source_parameter_widths_agreement": false,
+    "parity_basis": "Qualified similarity of a digitized, equal-weight reconstruction. Both free central coefficients lie outside their printed source error widths; the broad combined-error screen does not establish coefficient parity.",
+    "qualification": "Scott et al. (2001), page 1876 and Figure 3, report weighted least squares on observations from two runs. Only 21 digitized filled-symbol observations are available here; the open temperature-quenched point is excluded. Incomplete digitized coordinate error bars cause the generic row reader to omit both sigma arrays, so this reconstruction uses equal pressure weights. Its retained errors use residual-scaled covariance because no observation sigmas are supplied, even though the generic ledger records absolute_sigma=True. They are not recovered source weights or a source confidence interval. The original row array, run identities, weights, covariance and precise objective remain unavailable. The source coefficients and digitization are preserved; this finding does not show that the published EOS is incorrect.",
+    "weighting": "Equal pressure weights; incomplete plotted errors are not used as fit sigmas. Refit covariance is scaled by residual variance.",
+    "covariance_convention": "Residual-scaled inverse normal matrix; no measured sigma arrays supplied. The fitting API scales covariance in that case regardless of absolute_sigma.",
+    "original_author_workflow_parity": false,
+    "reproduction_report": "docs/literature-reproductions/cementite.md",
+    "pressure_sigmas_used": false,
+    "volume_sigmas_used": false,
+    "covariance_order": [
+      "K0",
+      "K0_prime"
+    ],
+    "covariance": [
+      [
+        73.92517431235267,
+        -5.3834177617532335
+      ],
+      [
+        -5.3834177617532335,
+        0.4039533916432366
+      ]
+    ],
+    "K0_K0_prime_correlation": -0.985136193135363,
+    "curve_comparison": {
+      "pressure_range_gpa": [
+        0,
+        73.2
+      ],
+      "grid_states": 1001,
+      "max_abs_volume_difference_a3": 0.44187246437587646,
+      "max_abs_relative_volume_difference": 0.0030838208859144123,
+      "basis": "Calculated curves, not independent measured observations."
+    }
+  },
   "takahashi_2019": {
     "kbr": {
       "coefficient_reconstruction": "similar",

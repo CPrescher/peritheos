@@ -1,0 +1,6727 @@
+{
+  "format": "peritheos.prescher-2012-private-archive-investigation",
+  "investigation_date": "2026-10-25",
+  "archive_name": "Fe3C",
+  "authority": "User-identified working archive, separate from the final published article and supplement. File names or timestamps do not establish final publication inputs.",
+  "published_V0_status": "Unresolved: no saved final EOS coefficient vector or V0 constraints recovered in the inspected archive files.",
+  "published_fit_constraints": null,
+  "catalog_action": "No Prescher source EOS added; published Table S1 remains unchanged. Archive reductions are retained as research evidence only.",
+  "workbooks": [
+    {
+      "file": "ESRF single crystal/Fe3C_up_p19.XLS",
+      "sha256": "039f717747869d84e49f781c8d30f633a4e585d8703acc80742461195f4e0d63",
+      "read_mode": "Original XLS stored/cached values; formula text not recovered.",
+      "sheets": [
+        {
+          "name": "Fe3C_up_p19",
+          "rows": 21,
+          "columns": 22,
+          "cells": [
+            {
+              "address": "A1",
+              "value": "Run #",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B1",
+              "value": "P, GPa",
+              "xlrd_type": 1
+            },
+            {
+              "address": "C1",
+              "value": "a",
+              "xlrd_type": 1
+            },
+            {
+              "address": "D1",
+              "value": "err a",
+              "xlrd_type": 1
+            },
+            {
+              "address": "E1",
+              "value": "b",
+              "xlrd_type": 1
+            },
+            {
+              "address": "F1",
+              "value": "err b",
+              "xlrd_type": 1
+            },
+            {
+              "address": "G1",
+              "value": "c",
+              "xlrd_type": 1
+            },
+            {
+              "address": "H1",
+              "value": "err c",
+              "xlrd_type": 1
+            },
+            {
+              "address": "I1",
+              "value": "Vol",
+              "xlrd_type": 1
+            },
+            {
+              "address": "J1",
+              "value": "b/a",
+              "xlrd_type": 1
+            },
+            {
+              "address": "K1",
+              "value": "c/a",
+              "xlrd_type": 1
+            },
+            {
+              "address": "L1",
+              "value": "Fe-1_coor-x",
+              "xlrd_type": 1
+            },
+            {
+              "address": "M1",
+              "value": "Fe-1_coor-y",
+              "xlrd_type": 1
+            },
+            {
+              "address": "N1",
+              "value": "Fe-1_coor-z",
+              "xlrd_type": 1
+            },
+            {
+              "address": "O1",
+              "value": "Fe-2_coor-x",
+              "xlrd_type": 1
+            },
+            {
+              "address": "P1",
+              "value": "Fe-2_coor-y",
+              "xlrd_type": 1
+            },
+            {
+              "address": "Q1",
+              "value": "Fe-2_coor-z",
+              "xlrd_type": 1
+            },
+            {
+              "address": "R1",
+              "value": "C_coor-x",
+              "xlrd_type": 1
+            },
+            {
+              "address": "S1",
+              "value": "C_coor-y",
+              "xlrd_type": 1
+            },
+            {
+              "address": "T1",
+              "value": "C_coor-z",
+              "xlrd_type": 1
+            },
+            {
+              "address": "A2",
+              "value": "p0",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B2",
+              "value": 0.0,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C2",
+              "value": 4.5954,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D2",
+              "value": 0.0006,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E2",
+              "value": 5.174,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F2",
+              "value": 0.003,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G2",
+              "value": 6.8724,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H2",
+              "value": 0.0012,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I2",
+              "value": 163.40230309104,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J2",
+              "value": 1.1259085172128651,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K2",
+              "value": 1.4954954954954955,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A3",
+              "value": "p1",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B3",
+              "value": 1.8,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C3",
+              "value": 4.502,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D3",
+              "value": 0.0001,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E3",
+              "value": 5.0689,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F3",
+              "value": 0.0002,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G3",
+              "value": 6.732,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H3",
+              "value": 0.0011,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I3",
+              "value": 153.6255042696,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J3",
+              "value": 1.1259218125277655,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K3",
+              "value": 1.4953354064860063,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L3",
+              "value": 0.33508,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M3",
+              "value": 0.17956,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N3",
+              "value": 0.06646,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O3",
+              "value": 0.8398,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P3",
+              "value": 0.03683,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q3",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R3",
+              "value": 0.44155,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S3",
+              "value": 0.88008,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T3",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "U3",
+              "value": 0.0005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "V3",
+              "value": 0.005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A4",
+              "value": "p2",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B4",
+              "value": 4.7,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C4",
+              "value": 4.4844,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D4",
+              "value": 0.0001,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E4",
+              "value": 5.0492,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F4",
+              "value": 0.0002,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G4",
+              "value": 6.7037,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H4",
+              "value": 0.0009,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I4",
+              "value": 151.789415356176,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J4",
+              "value": 1.125947729908126,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K4",
+              "value": 1.494893408259745,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L4",
+              "value": 0.33624,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M4",
+              "value": 0.18065,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N4",
+              "value": 0.06656,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O4",
+              "value": 0.84131,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P4",
+              "value": 0.03647,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q4",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R4",
+              "value": 0.44055,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S4",
+              "value": 0.87663,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T4",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "U4",
+              "value": 0.0005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "V4",
+              "value": 0.005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A5",
+              "value": "p3",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B5",
+              "value": 6.8,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C5",
+              "value": 4.4555,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D5",
+              "value": 0.0001,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E5",
+              "value": 5.0151,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F5",
+              "value": 0.0002,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G5",
+              "value": 6.6674,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H5",
+              "value": 0.0007,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I5",
+              "value": 148.98157317057002,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J5",
+              "value": 1.1255975760296264,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K5",
+              "value": 1.4964425990349006,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L5",
+              "value": 0.33726,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M5",
+              "value": 0.18177,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N5",
+              "value": 0.06635,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O5",
+              "value": 0.84242,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P5",
+              "value": 0.03609,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q5",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R5",
+              "value": 0.44183,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S5",
+              "value": 0.86981,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T5",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "U5",
+              "value": 0.0005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "V5",
+              "value": 0.005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A6",
+              "value": "p4",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B6",
+              "value": 9.1,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C6",
+              "value": 4.4386,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D6",
+              "value": 0.0001,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E6",
+              "value": 4.9996,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F6",
+              "value": 0.0002,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G6",
+              "value": 6.6444,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H6",
+              "value": 0.0008,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I6",
+              "value": 147.447372466464,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J6",
+              "value": 1.1263912044338305,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K6",
+              "value": 1.4969585004280628,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L6",
+              "value": 0.3377,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M6",
+              "value": 0.1821,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N6",
+              "value": 0.06618,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O6",
+              "value": 0.84385,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P6",
+              "value": 0.03577,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q6",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R6",
+              "value": 0.44478,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S6",
+              "value": 0.8742,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T6",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "U6",
+              "value": 0.0005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "V6",
+              "value": 0.005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A7",
+              "value": "p5",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B7",
+              "value": 11.4,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C7",
+              "value": 4.4262,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D7",
+              "value": 0.0001,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E7",
+              "value": 4.9891,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F7",
+              "value": 0.0002,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G7",
+              "value": 6.6291,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H7",
+              "value": 0.0009,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I7",
+              "value": 146.39,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J7",
+              "value": 1.1271745515340472,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K7",
+              "value": 1.4976955401924903,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L7",
+              "value": 0.33826,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M7",
+              "value": 0.18308,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N7",
+              "value": 0.06556,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O7",
+              "value": 0.8443,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P7",
+              "value": 0.03552,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q7",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R7",
+              "value": 0.44362,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S7",
+              "value": 0.86762,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T7",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "U7",
+              "value": 0.0005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "V7",
+              "value": 0.005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A8",
+              "value": "p6",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B8",
+              "value": 13.5,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C8",
+              "value": 4.4169,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D8",
+              "value": 0.0002,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E8",
+              "value": 4.9805,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F8",
+              "value": 0.0003,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G8",
+              "value": 6.6144,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H8",
+              "value": 0.0014,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I8",
+              "value": 145.51,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J8",
+              "value": 1.127600805995155,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K8",
+              "value": 1.4975208856890578,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L8",
+              "value": 0.33831,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M8",
+              "value": 0.18362,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N8",
+              "value": 0.06511,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O8",
+              "value": 0.84515,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P8",
+              "value": 0.03554,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q8",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R8",
+              "value": 0.44376,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S8",
+              "value": 0.86513,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T8",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "U8",
+              "value": 0.0005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "V8",
+              "value": 0.005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A9",
+              "value": "p7",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B9",
+              "value": 16.2,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C9",
+              "value": 4.391,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D9",
+              "value": 0.0002,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E9",
+              "value": 4.9551,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F9",
+              "value": 0.0003,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G9",
+              "value": 6.5837,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H9",
+              "value": 0.0014,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I9",
+              "value": 143.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J9",
+              "value": 1.1284673195171941,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K9",
+              "value": 1.4993623320428149,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L9",
+              "value": 0.33889,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M9",
+              "value": 0.1838,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N9",
+              "value": 0.065,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O9",
+              "value": 0.84605,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P9",
+              "value": 0.03505,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q9",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R9",
+              "value": 0.4436,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S9",
+              "value": 0.86911,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T9",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "U9",
+              "value": 0.0005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "V9",
+              "value": 0.005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A10",
+              "value": "p8",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B10",
+              "value": 18.4,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C10",
+              "value": 4.3911,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D10",
+              "value": 0.0003,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E10",
+              "value": 4.9574,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F10",
+              "value": 0.0006,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G10",
+              "value": 6.579,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H10",
+              "value": 0.002,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I10",
+              "value": 143.21,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J10",
+              "value": 1.128965407301132,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K10",
+              "value": 1.4982578397212545,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L10",
+              "value": 0.33954,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M10",
+              "value": 0.18409,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N10",
+              "value": 0.06431,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O10",
+              "value": 0.84633,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P10",
+              "value": 0.03512,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q10",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R10",
+              "value": 0.4376,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S10",
+              "value": 0.86866,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T10",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "U10",
+              "value": 0.0005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "V10",
+              "value": 0.005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A11",
+              "value": "p9",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B11",
+              "value": 20.7,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C11",
+              "value": 4.375,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D11",
+              "value": 0.0004,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E11",
+              "value": 4.941,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F11",
+              "value": 0.0008,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G11",
+              "value": 6.556,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H11",
+              "value": 0.003,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I11",
+              "value": 141.72,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J11",
+              "value": 1.1293714285714285,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K11",
+              "value": 1.4985142857142857,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L11",
+              "value": 0.33982,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M11",
+              "value": 0.18427,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N11",
+              "value": 0.06443,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O11",
+              "value": 0.84746,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P11",
+              "value": 0.03462,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q11",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R11",
+              "value": 0.44158,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S11",
+              "value": 0.8653,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T11",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "U11",
+              "value": 0.0005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "V11",
+              "value": 0.005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A12",
+              "value": "p10",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B12",
+              "value": 22.6,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C12",
+              "value": 4.383,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D12",
+              "value": 0.0006,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E12",
+              "value": 4.9527,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F12",
+              "value": 0.001,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G12",
+              "value": 6.573,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H12",
+              "value": 0.004,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I12",
+              "value": 142.68,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J12",
+              "value": 1.1299794661190965,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K12",
+              "value": 1.4996577686516086,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L12",
+              "value": 0.34005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M12",
+              "value": 0.18391,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N12",
+              "value": 0.0649,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O12",
+              "value": 0.84749,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P12",
+              "value": 0.0343,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q12",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R12",
+              "value": 0.44273,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S12",
+              "value": 0.86758,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T12",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "U12",
+              "value": 0.0005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "V12",
+              "value": 0.005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A13",
+              "value": "p11",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B13",
+              "value": 25.3,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C13",
+              "value": 4.3459,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D13",
+              "value": 0.0006,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E13",
+              "value": 4.9132,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F13",
+              "value": 0.0012,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G13",
+              "value": 6.515,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H13",
+              "value": 0.004,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I13",
+              "value": 139.11,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J13",
+              "value": 1.1305368278147219,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K13",
+              "value": 1.4991141075496444,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L13",
+              "value": 0.34079,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M13",
+              "value": 0.18453,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N13",
+              "value": 0.06416,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O13",
+              "value": 0.84859,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P13",
+              "value": 0.03455,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q13",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R13",
+              "value": 0.43484,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S13",
+              "value": 0.87229,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T13",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "U13",
+              "value": 0.0005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "V13",
+              "value": 0.005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A14",
+              "value": "p12",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B14",
+              "value": 27.5,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C14",
+              "value": 4.3357,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D14",
+              "value": 0.0006,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E14",
+              "value": 4.9047,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F14",
+              "value": 0.0011,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G14",
+              "value": 6.494,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H14",
+              "value": 0.004,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I14",
+              "value": 138.1,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J14",
+              "value": 1.131236017252116,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K14",
+              "value": 1.4977973568281937,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L14",
+              "value": 0.34105,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M14",
+              "value": 0.18446,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N14",
+              "value": 0.06452,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O14",
+              "value": 0.8488,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P14",
+              "value": 0.03377,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q14",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R14",
+              "value": 0.44297,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S14",
+              "value": 0.86841,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T14",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "U14",
+              "value": 0.0005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "V14",
+              "value": 0.005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A15",
+              "value": "p13",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B15",
+              "value": 29.7,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C15",
+              "value": 4.3281,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D15",
+              "value": 0.0006,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E15",
+              "value": 4.8983,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F15",
+              "value": 0.0013,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G15",
+              "value": 6.485,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H15",
+              "value": 0.004,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I15",
+              "value": 137.48,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J15",
+              "value": 1.1317437212633719,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K15",
+              "value": 1.4983480048982234,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L15",
+              "value": 0.34155,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M15",
+              "value": 0.18486,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N15",
+              "value": 0.06416,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O15",
+              "value": 0.84958,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P15",
+              "value": 0.03393,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q15",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R15",
+              "value": 0.4346,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S15",
+              "value": 0.87035,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T15",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "U15",
+              "value": 0.0005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "V15",
+              "value": 0.005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A16",
+              "value": "p14",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B16",
+              "value": 32.1,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C16",
+              "value": 4.3,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D16",
+              "value": 0.0006,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E16",
+              "value": 4.8745,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F16",
+              "value": 0.0011,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G16",
+              "value": 6.457,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H16",
+              "value": 0.003,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I16",
+              "value": 135.34,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J16",
+              "value": 1.1336046511627909,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K16",
+              "value": 1.5016279069767442,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L16",
+              "value": 0.34088,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M16",
+              "value": 0.1847,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N16",
+              "value": 0.06398,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O16",
+              "value": 0.84868,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P16",
+              "value": 0.0341,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q16",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R16",
+              "value": 0.426,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S16",
+              "value": 0.87307,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T16",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "U16",
+              "value": 0.0005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "V16",
+              "value": 0.005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A17",
+              "value": "p15",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B17",
+              "value": 34.7,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C17",
+              "value": 4.2893,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D17",
+              "value": 0.0007,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E17",
+              "value": 4.8631,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F17",
+              "value": 0.0013,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G17",
+              "value": 6.448,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H17",
+              "value": 0.004,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I17",
+              "value": 134.5,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J17",
+              "value": 1.1337747417993613,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K17",
+              "value": 1.5032755927540626,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L17",
+              "value": 0.34202,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M17",
+              "value": 0.18475,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N17",
+              "value": 0.06349,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O17",
+              "value": 0.84912,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P17",
+              "value": 0.03418,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q17",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R17",
+              "value": 0.43124,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S17",
+              "value": 0.87737,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T17",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "U17",
+              "value": 0.0005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "V17",
+              "value": 0.005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A18",
+              "value": "p16",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B18",
+              "value": 37.05,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C18",
+              "value": 4.2779,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D18",
+              "value": 0.0007,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E18",
+              "value": 4.8534,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F18",
+              "value": 0.0013,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G18",
+              "value": 6.429,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H18",
+              "value": 0.004,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I18",
+              "value": 133.48,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J18",
+              "value": 1.1345286238575,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K18",
+              "value": 1.5028401785923,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L18",
+              "value": 0.34185,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M18",
+              "value": 0.18534,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N18",
+              "value": 0.06384,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O18",
+              "value": 0.84961,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P18",
+              "value": 0.03506,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q18",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R18",
+              "value": 0.42117,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S18",
+              "value": 0.8662,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T18",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "U18",
+              "value": 0.0005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "V18",
+              "value": 0.005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A19",
+              "value": "p17",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B19",
+              "value": 39.6,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C19",
+              "value": 4.2665,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D19",
+              "value": 0.0007,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E19",
+              "value": 4.8506,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F19",
+              "value": 0.0015,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G19",
+              "value": 6.42,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H19",
+              "value": 0.004,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I19",
+              "value": 132.86,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J19",
+              "value": 1.1369037853041135,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K19",
+              "value": 1.5047462791515294,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L19",
+              "value": 0.34225,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M19",
+              "value": 0.18516,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N19",
+              "value": 0.06304,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O19",
+              "value": 0.85013,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P19",
+              "value": 0.03404,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q19",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R19",
+              "value": 0.42792,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S19",
+              "value": 0.87327,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T19",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "U19",
+              "value": 0.0005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "V19",
+              "value": 0.005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A20",
+              "value": "p18",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B20",
+              "value": 41.9,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C20",
+              "value": 4.2533,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D20",
+              "value": 0.0009,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E20",
+              "value": 4.8375,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F20",
+              "value": 0.0018,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G20",
+              "value": 6.402,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H20",
+              "value": 0.005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I20",
+              "value": 131.72,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J20",
+              "value": 1.1373521736063763,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K20",
+              "value": 1.5051842099076012,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L20",
+              "value": 0.34207,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M20",
+              "value": 0.1851,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N20",
+              "value": 0.06289,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O20",
+              "value": 0.85068,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P20",
+              "value": 0.03367,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q20",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R20",
+              "value": 0.43041,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S20",
+              "value": 0.8808,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T20",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "U20",
+              "value": 0.0005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A21",
+              "value": "p19",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B21",
+              "value": 47.4,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C21",
+              "value": 4.2237,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D21",
+              "value": 0.001,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E21",
+              "value": 4.815,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F21",
+              "value": 0.002,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G21",
+              "value": 6.365,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H21",
+              "value": 0.006,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I21",
+              "value": 129.45,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J21",
+              "value": 1.1399957383336885,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K21",
+              "value": 1.5069725596041386,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L21",
+              "value": 0.3425,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M21",
+              "value": 0.18533,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N21",
+              "value": 0.06265,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O21",
+              "value": 0.85096,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P21",
+              "value": 0.03387,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q21",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R21",
+              "value": 0.42802,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S21",
+              "value": 0.87315,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T21",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "U21",
+              "value": 0.0005,
+              "xlrd_type": 2
+            }
+          ]
+        },
+        {
+          "name": "Sheet1",
+          "rows": 21,
+          "columns": 20,
+          "cells": [
+            {
+              "address": "A1",
+              "value": "Run #",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B1",
+              "value": "P, GPa",
+              "xlrd_type": 1
+            },
+            {
+              "address": "C1",
+              "value": "a",
+              "xlrd_type": 1
+            },
+            {
+              "address": "D1",
+              "value": "err a",
+              "xlrd_type": 1
+            },
+            {
+              "address": "E1",
+              "value": "b",
+              "xlrd_type": 1
+            },
+            {
+              "address": "F1",
+              "value": "err b",
+              "xlrd_type": 1
+            },
+            {
+              "address": "G1",
+              "value": "c",
+              "xlrd_type": 1
+            },
+            {
+              "address": "H1",
+              "value": "err c",
+              "xlrd_type": 1
+            },
+            {
+              "address": "I1",
+              "value": "Vol",
+              "xlrd_type": 1
+            },
+            {
+              "address": "J1",
+              "value": "b/a",
+              "xlrd_type": 1
+            },
+            {
+              "address": "K1",
+              "value": "c/a",
+              "xlrd_type": 1
+            },
+            {
+              "address": "L1",
+              "value": "Fe-1_coor-x",
+              "xlrd_type": 1
+            },
+            {
+              "address": "M1",
+              "value": "Fe-1_coor-y",
+              "xlrd_type": 1
+            },
+            {
+              "address": "N1",
+              "value": "Fe-1_coor-z",
+              "xlrd_type": 1
+            },
+            {
+              "address": "O1",
+              "value": "Fe-2_coor-x",
+              "xlrd_type": 1
+            },
+            {
+              "address": "P1",
+              "value": "Fe-2_coor-y",
+              "xlrd_type": 1
+            },
+            {
+              "address": "Q1",
+              "value": "Fe-2_coor-z",
+              "xlrd_type": 1
+            },
+            {
+              "address": "R1",
+              "value": "C_coor-x",
+              "xlrd_type": 1
+            },
+            {
+              "address": "S1",
+              "value": "C_coor-y",
+              "xlrd_type": 1
+            },
+            {
+              "address": "T1",
+              "value": "C_coor-z",
+              "xlrd_type": 1
+            },
+            {
+              "address": "A2",
+              "value": "p0",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B2",
+              "value": 0.0,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A3",
+              "value": "p1",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B3",
+              "value": 1.8,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C3",
+              "value": 4.50284,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D3",
+              "value": 0.00013,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E3",
+              "value": 5.0697,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F3",
+              "value": 0.0002,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G3",
+              "value": 6.7339,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H3",
+              "value": 0.0011,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A4",
+              "value": "p2",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B4",
+              "value": 4.7,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A5",
+              "value": "p3",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B5",
+              "value": 6.8,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A6",
+              "value": "p4",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B6",
+              "value": 9.1,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A7",
+              "value": "p5",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B7",
+              "value": 11.4,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A8",
+              "value": "p6",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B8",
+              "value": 13.5,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A9",
+              "value": "p7",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B9",
+              "value": 16.2,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A10",
+              "value": "p8",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B10",
+              "value": 18.4,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A11",
+              "value": "p9",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B11",
+              "value": 20.7,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A12",
+              "value": "p10",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B12",
+              "value": 22.6,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A13",
+              "value": "p11",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B13",
+              "value": 25.3,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A14",
+              "value": "p12",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B14",
+              "value": 27.5,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A15",
+              "value": "p13",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B15",
+              "value": 29.7,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A16",
+              "value": "p14",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B16",
+              "value": 32.1,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A17",
+              "value": "p15",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B17",
+              "value": 34.7,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A18",
+              "value": "p16",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B18",
+              "value": 37.05,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A19",
+              "value": "p17",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B19",
+              "value": 39.6,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A20",
+              "value": "p18",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B20",
+              "value": 41.9,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A21",
+              "value": "p19",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B21",
+              "value": 47.4,
+              "xlrd_type": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "ESRF single crystal/Fe3C_HP.XLS",
+      "sha256": "47d7ef35bccae86fa812d9a442ba50dfce88de228d41b678a0abe1fc62dd4148",
+      "read_mode": "Original XLS stored/cached values; formula text not recovered.",
+      "sheets": [
+        {
+          "name": "Sheet 1",
+          "rows": 14,
+          "columns": 20,
+          "cells": [
+            {
+              "address": "A1",
+              "value": "Run #",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B1",
+              "value": "P, GPa",
+              "xlrd_type": 1
+            },
+            {
+              "address": "C1",
+              "value": "a",
+              "xlrd_type": 1
+            },
+            {
+              "address": "D1",
+              "value": "err a",
+              "xlrd_type": 1
+            },
+            {
+              "address": "E1",
+              "value": "b",
+              "xlrd_type": 1
+            },
+            {
+              "address": "F1",
+              "value": "err b",
+              "xlrd_type": 1
+            },
+            {
+              "address": "G1",
+              "value": "c",
+              "xlrd_type": 1
+            },
+            {
+              "address": "H1",
+              "value": "err c",
+              "xlrd_type": 1
+            },
+            {
+              "address": "I1",
+              "value": "Vol",
+              "xlrd_type": 1
+            },
+            {
+              "address": "J1",
+              "value": "b/a",
+              "xlrd_type": 1
+            },
+            {
+              "address": "K1",
+              "value": "c/a",
+              "xlrd_type": 1
+            },
+            {
+              "address": "L1",
+              "value": "Fe-1_coor-x",
+              "xlrd_type": 1
+            },
+            {
+              "address": "M1",
+              "value": "Fe-1_coor-y",
+              "xlrd_type": 1
+            },
+            {
+              "address": "N1",
+              "value": "Fe-1_coor-z",
+              "xlrd_type": 1
+            },
+            {
+              "address": "O1",
+              "value": "Fe-2_coor-x",
+              "xlrd_type": 1
+            },
+            {
+              "address": "P1",
+              "value": "Fe-2_coor-y",
+              "xlrd_type": 1
+            },
+            {
+              "address": "Q1",
+              "value": "Fe-2_coor-z",
+              "xlrd_type": 1
+            },
+            {
+              "address": "R1",
+              "value": "C_coor-x",
+              "xlrd_type": 1
+            },
+            {
+              "address": "S1",
+              "value": "C_coor-y",
+              "xlrd_type": 1
+            },
+            {
+              "address": "T1",
+              "value": "C_coor-z",
+              "xlrd_type": 1
+            },
+            {
+              "address": "A2",
+              "value": "p1",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B2",
+              "value": 1.8,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C2",
+              "value": 4.502,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D2",
+              "value": 0.0001,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E2",
+              "value": 5.0689,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F2",
+              "value": 0.0002,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G2",
+              "value": 6.732,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H2",
+              "value": 0.0011,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I2",
+              "value": 153.63,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J2",
+              "value": 1.1259218125277655,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K2",
+              "value": 1.4953354064860063,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L2",
+              "value": 0.33508,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M2",
+              "value": 0.17956,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N2",
+              "value": 0.06646,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O2",
+              "value": 0.8398,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P2",
+              "value": 0.03683,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q2",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R2",
+              "value": 0.44155,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S2",
+              "value": 0.88008,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T2",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A3",
+              "value": "p2",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B3",
+              "value": 4.7,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C3",
+              "value": 4.4844,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D3",
+              "value": 0.0001,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E3",
+              "value": 5.0492,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F3",
+              "value": 0.0002,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G3",
+              "value": 6.7037,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H3",
+              "value": 0.0009,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I3",
+              "value": 151.79,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J3",
+              "value": 1.125947729908126,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K3",
+              "value": 1.494893408259745,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L3",
+              "value": 0.33624,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M3",
+              "value": 0.18065,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N3",
+              "value": 0.06656,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O3",
+              "value": 0.84131,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P3",
+              "value": 0.03647,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q3",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R3",
+              "value": 0.44055,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S3",
+              "value": 0.87663,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T3",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A4",
+              "value": "p3",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B4",
+              "value": 6.8,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C4",
+              "value": 4.4555,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D4",
+              "value": 0.0001,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E4",
+              "value": 5.0151,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F4",
+              "value": 0.0002,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G4",
+              "value": 6.6674,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H4",
+              "value": 0.0007,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I4",
+              "value": 148.98,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J4",
+              "value": 1.1255975760296264,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K4",
+              "value": 1.4964425990349006,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L4",
+              "value": 0.33726,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M4",
+              "value": 0.18177,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N4",
+              "value": 0.06635,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O4",
+              "value": 0.84242,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P4",
+              "value": 0.03609,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q4",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R4",
+              "value": 0.44183,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S4",
+              "value": 0.86981,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T4",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A5",
+              "value": "p4",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B5",
+              "value": 9.1,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C5",
+              "value": 4.4386,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D5",
+              "value": 0.0001,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E5",
+              "value": 4.9996,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F5",
+              "value": 0.0002,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G5",
+              "value": 6.6444,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H5",
+              "value": 0.0008,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I5",
+              "value": 147.45,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J5",
+              "value": 1.1263912044338305,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K5",
+              "value": 1.4969585004280628,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L5",
+              "value": 0.3377,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M5",
+              "value": 0.1821,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N5",
+              "value": 0.06618,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O5",
+              "value": 0.84385,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P5",
+              "value": 0.03577,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q5",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R5",
+              "value": 0.44478,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S5",
+              "value": 0.8742,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T5",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A6",
+              "value": "p5",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B6",
+              "value": 11.4,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C6",
+              "value": 4.4262,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D6",
+              "value": 0.0001,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E6",
+              "value": 4.9891,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F6",
+              "value": 0.0002,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G6",
+              "value": 6.6291,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H6",
+              "value": 0.0009,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I6",
+              "value": 146.39,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J6",
+              "value": 1.1271745515340472,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K6",
+              "value": 1.4976955401924903,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L6",
+              "value": 0.33826,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M6",
+              "value": 0.18308,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N6",
+              "value": 0.06556,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O6",
+              "value": 0.8443,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P6",
+              "value": 0.03552,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q6",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R6",
+              "value": 0.44362,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S6",
+              "value": 0.86762,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T6",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A7",
+              "value": "p6",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B7",
+              "value": 13.5,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C7",
+              "value": 4.4169,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D7",
+              "value": 0.0002,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E7",
+              "value": 4.9805,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F7",
+              "value": 0.0003,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G7",
+              "value": 6.6144,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H7",
+              "value": 0.0014,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I7",
+              "value": 145.51,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J7",
+              "value": 1.127600805995155,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K7",
+              "value": 1.4975208856890578,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L7",
+              "value": 0.33831,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M7",
+              "value": 0.18362,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N7",
+              "value": 0.06511,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O7",
+              "value": 0.84515,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P7",
+              "value": 0.03554,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q7",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R7",
+              "value": 0.44376,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S7",
+              "value": 0.86513,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T7",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A8",
+              "value": "p7",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B8",
+              "value": 16.2,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C8",
+              "value": 4.391,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D8",
+              "value": 0.0002,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E8",
+              "value": 4.9551,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F8",
+              "value": 0.0003,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G8",
+              "value": 6.5837,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H8",
+              "value": 0.0014,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I8",
+              "value": 143.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J8",
+              "value": 1.1284673195171941,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K8",
+              "value": 1.4993623320428149,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L8",
+              "value": 0.33889,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M8",
+              "value": 0.1838,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N8",
+              "value": 0.065,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O8",
+              "value": 0.84605,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P8",
+              "value": 0.03505,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q8",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R8",
+              "value": 0.4436,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S8",
+              "value": 0.86911,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T8",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A9",
+              "value": "p8",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B9",
+              "value": 18.4,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C9",
+              "value": 4.3911,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D9",
+              "value": 0.0003,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E9",
+              "value": 4.9574,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F9",
+              "value": 0.0006,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G9",
+              "value": 6.579,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H9",
+              "value": 0.002,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I9",
+              "value": 143.21,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J9",
+              "value": 1.128965407301132,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K9",
+              "value": 1.4982578397212545,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L9",
+              "value": 0.33954,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M9",
+              "value": 0.18409,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N9",
+              "value": 0.06431,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O9",
+              "value": 0.84633,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P9",
+              "value": 0.03512,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q9",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R9",
+              "value": 0.4376,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S9",
+              "value": 0.86866,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T9",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A10",
+              "value": "p9",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B10",
+              "value": 20.7,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C10",
+              "value": 4.375,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D10",
+              "value": 0.0004,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E10",
+              "value": 4.941,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F10",
+              "value": 0.0008,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G10",
+              "value": 6.556,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H10",
+              "value": 0.003,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I10",
+              "value": 141.72,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J10",
+              "value": 1.1293714285714285,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K10",
+              "value": 1.4985142857142857,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L10",
+              "value": 0.33982,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M10",
+              "value": 0.18427,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N10",
+              "value": 0.06443,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O10",
+              "value": 0.84746,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P10",
+              "value": 0.03462,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q10",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R10",
+              "value": 0.44158,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S10",
+              "value": 0.8653,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T10",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A11",
+              "value": "p10",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B11",
+              "value": 22.6,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C11",
+              "value": 4.383,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D11",
+              "value": 0.0006,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E11",
+              "value": 4.9527,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F11",
+              "value": 0.001,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G11",
+              "value": 6.573,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H11",
+              "value": 0.004,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I11",
+              "value": 142.68,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J11",
+              "value": 1.1299794661190965,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K11",
+              "value": 1.4996577686516086,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L11",
+              "value": 0.34005,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M11",
+              "value": 0.18391,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N11",
+              "value": 0.0649,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O11",
+              "value": 0.84749,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P11",
+              "value": 0.0343,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q11",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R11",
+              "value": 0.44273,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S11",
+              "value": 0.86758,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T11",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A12",
+              "value": "p11",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B12",
+              "value": 25.3,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C12",
+              "value": 4.3459,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D12",
+              "value": 0.0006,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E12",
+              "value": 4.9132,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F12",
+              "value": 0.0012,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G12",
+              "value": 6.515,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H12",
+              "value": 0.004,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I12",
+              "value": 139.11,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J12",
+              "value": 1.1305368278147219,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K12",
+              "value": 1.4991141075496444,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L12",
+              "value": 0.34079,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M12",
+              "value": 0.18453,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N12",
+              "value": 0.06416,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O12",
+              "value": 0.84859,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P12",
+              "value": 0.03455,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q12",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R12",
+              "value": 0.43484,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S12",
+              "value": 0.87229,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T12",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A13",
+              "value": "p12",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B13",
+              "value": 27.5,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C13",
+              "value": 4.3357,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D13",
+              "value": 0.0006,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E13",
+              "value": 4.9047,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F13",
+              "value": 0.0011,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G13",
+              "value": 6.494,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H13",
+              "value": 0.004,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I13",
+              "value": 138.1,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J13",
+              "value": 1.131236017252116,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K13",
+              "value": 1.4977973568281937,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L13",
+              "value": 0.34105,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M13",
+              "value": 0.18446,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N13",
+              "value": 0.06452,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O13",
+              "value": 0.8488,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P13",
+              "value": 0.03377,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q13",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R13",
+              "value": 0.44297,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S13",
+              "value": 0.86841,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T13",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A14",
+              "value": "p13",
+              "xlrd_type": 1
+            },
+            {
+              "address": "B14",
+              "value": 29.7,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C14",
+              "value": 4.3281,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D14",
+              "value": 0.0006,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E14",
+              "value": 4.8983,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F14",
+              "value": 0.0013,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G14",
+              "value": 6.485,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H14",
+              "value": 0.004,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I14",
+              "value": 137.48,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J14",
+              "value": 1.1317437212633719,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K14",
+              "value": 1.4983480048982234,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L14",
+              "value": 0.34155,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M14",
+              "value": 0.18486,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N14",
+              "value": 0.06416,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O14",
+              "value": 0.84958,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P14",
+              "value": 0.03393,
+              "xlrd_type": 2
+            },
+            {
+              "address": "Q14",
+              "value": 0.25,
+              "xlrd_type": 2
+            },
+            {
+              "address": "R14",
+              "value": 0.4346,
+              "xlrd_type": 2
+            },
+            {
+              "address": "S14",
+              "value": 0.87035,
+              "xlrd_type": 2
+            },
+            {
+              "address": "T14",
+              "value": 0.25,
+              "xlrd_type": 2
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "APS single crystal/eos.xls",
+      "sha256": "c25890b069c10bbbce4e5b33cc01465a1e077f217edfc64a3ad803c1883a5241",
+      "read_mode": "Original XLS stored/cached values; formula text not recovered.",
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 10,
+          "columns": 10,
+          "cells": [
+            {
+              "address": "A1",
+              "value": 0.0,
+              "xlrd_type": 2
+            },
+            {
+              "address": "B1",
+              "value": 0.0,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C1",
+              "value": 6.741,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D1",
+              "value": 5.092,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E1",
+              "value": 4.527,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I1",
+              "value": 155.39005364399998,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A2",
+              "value": 1.0,
+              "xlrd_type": 2
+            },
+            {
+              "address": "B2",
+              "value": 1.3,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C2",
+              "value": 6.74163,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D2",
+              "value": 5.08134,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E2",
+              "value": 4.51496,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F2",
+              "value": 0.003,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G2",
+              "value": 0.0006,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H2",
+              "value": 0.001,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I2",
+              "value": 154.66679128109564,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J2",
+              "value": 0.1076429629206,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A3",
+              "value": 2.0,
+              "xlrd_type": 2
+            },
+            {
+              "address": "B3",
+              "value": 3.0,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C3",
+              "value": 6.72204,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D3",
+              "value": 5.06695,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E3",
+              "value": 4.49732,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F3",
+              "value": 0.0023,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G3",
+              "value": 0.00066,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H3",
+              "value": 0.00082,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I3",
+              "value": 153.17980115625096,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J3",
+              "value": 0.09484402745732799,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A4",
+              "value": 3.0,
+              "xlrd_type": 2
+            },
+            {
+              "address": "B4",
+              "value": 9.5,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C4",
+              "value": 6.65561,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D4",
+              "value": 5.01143,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E4",
+              "value": 4.45164,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F4",
+              "value": 0.0036,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G4",
+              "value": 0.0008,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H4",
+              "value": 0.0011,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I4",
+              "value": 148.48055088197557,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J4",
+              "value": 0.13069869874088,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A5",
+              "value": 4.0,
+              "xlrd_type": 2
+            },
+            {
+              "address": "B5",
+              "value": 11.0,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C5",
+              "value": 6.63116,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D5",
+              "value": 4.99176,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E5",
+              "value": 4.43246,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F5",
+              "value": 0.00379705,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G5",
+              "value": 0.00122532,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H5",
+              "value": 0.00178683,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I5",
+              "value": 146.71956429202234,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J5",
+              "value": 0.16058722829676014,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A6",
+              "value": 5.0,
+              "xlrd_type": 2
+            },
+            {
+              "address": "B6",
+              "value": 13.1,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C6",
+              "value": 6.6099,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D6",
+              "value": 4.97903,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E6",
+              "value": 4.41822,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F6",
+              "value": 0.00233659,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G6",
+              "value": 0.000513197,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H6",
+              "value": 0.000744727,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I6",
+              "value": 145.4075541698333,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J6",
+              "value": 0.08327852960947596,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A7",
+              "value": 6.0,
+              "xlrd_type": 2
+            },
+            {
+              "address": "B7",
+              "value": 15.3,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C7",
+              "value": 6.59076,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D7",
+              "value": 4.96321,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E7",
+              "value": 4.39825,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F7",
+              "value": 0.0030753,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G7",
+              "value": 0.000638837,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H7",
+              "value": 0.00091013,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I7",
+              "value": 143.8725893138457,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J7",
+              "value": 0.1065477628725508,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A8",
+              "value": 7.0,
+              "xlrd_type": 2
+            },
+            {
+              "address": "B8",
+              "value": 16.9,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C8",
+              "value": 6.58202,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D8",
+              "value": 4.95681,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E8",
+              "value": 4.39144,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F8",
+              "value": 0.0035134,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G8",
+              "value": 0.000592332,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H8",
+              "value": 0.00100635,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I8",
+              "value": 143.27434220619892,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J8",
+              "value": 0.11292445913767615,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A9",
+              "value": 8.0,
+              "xlrd_type": 2
+            },
+            {
+              "address": "B9",
+              "value": 18.6,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C9",
+              "value": 6.57126,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D9",
+              "value": 4.94502,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E9",
+              "value": 4.38421,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F9",
+              "value": 0.0045478,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G9",
+              "value": 0.00095789,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H9",
+              "value": 0.00135267,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I9",
+              "value": 142.4649571094231,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J9",
+              "value": 0.15731958287031092,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A10",
+              "value": 9.0,
+              "xlrd_type": 2
+            },
+            {
+              "address": "B10",
+              "value": 7.1,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C10",
+              "value": 6.66852,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D10",
+              "value": 5.0225,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E10",
+              "value": 4.46289,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F10",
+              "value": 0.00239364,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G10",
+              "value": 0.000530796,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H10",
+              "value": 0.000699884,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I10",
+              "value": 149.473975716513,
+              "xlrd_type": 2
+            },
+            {
+              "address": "J10",
+              "value": 0.08722782916381154,
+              "xlrd_type": 2
+            }
+          ]
+        },
+        {
+          "name": "new",
+          "rows": 10,
+          "columns": 16,
+          "cells": [
+            {
+              "address": "B1",
+              "value": "P",
+              "xlrd_type": 1
+            },
+            {
+              "address": "C1",
+              "value": "a",
+              "xlrd_type": 1
+            },
+            {
+              "address": "D1",
+              "value": "b",
+              "xlrd_type": 1
+            },
+            {
+              "address": "E1",
+              "value": "c",
+              "xlrd_type": 1
+            },
+            {
+              "address": "F1",
+              "value": "error",
+              "xlrd_type": 1
+            },
+            {
+              "address": "I1",
+              "value": "Volume",
+              "xlrd_type": 1
+            },
+            {
+              "address": "J1",
+              "value": "error",
+              "xlrd_type": 1
+            },
+            {
+              "address": "A2",
+              "value": 1.0,
+              "xlrd_type": 2
+            },
+            {
+              "address": "B2",
+              "value": 1.3,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C2",
+              "value": 6.73453,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D2",
+              "value": 5.07899,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E2",
+              "value": 4.50994,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F2",
+              "value": 0.00238347,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G2",
+              "value": 0.000632125,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H2",
+              "value": 0.000859974,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I2",
+              "value": 154.26074118976553,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A3",
+              "value": 2.0,
+              "xlrd_type": 2
+            },
+            {
+              "address": "B3",
+              "value": 3.3,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C3",
+              "value": 6.71296,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D3",
+              "value": 5.0646,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E3",
+              "value": 4.49094,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F3",
+              "value": 0.00276898,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G3",
+              "value": 0.000713249,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H3",
+              "value": 0.000986008,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I3",
+              "value": 152.68503144962304,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A4",
+              "value": 3.0,
+              "xlrd_type": 2
+            },
+            {
+              "address": "B4",
+              "value": 8.5,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C4",
+              "value": 6.65249,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D4",
+              "value": 5.00731,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E4",
+              "value": 4.44317,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F4",
+              "value": 0.00310946,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G4",
+              "value": 0.000717291,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H4",
+              "value": 0.000955063,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I4",
+              "value": 148.00678999909107,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A5",
+              "value": 4.0,
+              "xlrd_type": 2
+            },
+            {
+              "address": "B5",
+              "value": 10.5,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C5",
+              "value": 6.62637,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D5",
+              "value": 4.98848,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E5",
+              "value": 4.42372,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F5",
+              "value": 0.00252687,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G5",
+              "value": 0.000627726,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H5",
+              "value": 0.000794629,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I5",
+              "value": 146.22833935468148,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A6",
+              "value": 5.0,
+              "xlrd_type": 2
+            },
+            {
+              "address": "B6",
+              "value": 13.0,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C6",
+              "value": 6.61342,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D6",
+              "value": 4.97474,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E6",
+              "value": 4.4101,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F6",
+              "value": 0.00338095,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G6",
+              "value": 0.000608928,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H6",
+              "value": 0.00094933,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I6",
+              "value": 145.09248850212907,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A7",
+              "value": 6.0,
+              "xlrd_type": 2
+            },
+            {
+              "address": "B7",
+              "value": 15.2,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C7",
+              "value": 6.57383,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D7",
+              "value": 4.95506,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E7",
+              "value": 4.3872,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F7",
+              "value": 0.0025596,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G7",
+              "value": 0.000501767,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H7",
+              "value": 0.000723654,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I7",
+              "value": 142.90743350849857,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A8",
+              "value": 7.0,
+              "xlrd_type": 2
+            },
+            {
+              "address": "B8",
+              "value": 16.8,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C8",
+              "value": 6.58081,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D8",
+              "value": 4.9582,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E8",
+              "value": 4.39202,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F8",
+              "value": 0.011784,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G8",
+              "value": 0.00190593,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H8",
+              "value": 0.00295498,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I8",
+              "value": 143.3070982271068,
+              "xlrd_type": 2
+            },
+            {
+              "address": "K8",
+              "value": 6.61331,
+              "xlrd_type": 2
+            },
+            {
+              "address": "L8",
+              "value": 4.998837,
+              "xlrd_type": 2
+            },
+            {
+              "address": "M8",
+              "value": 4.42068,
+              "xlrd_type": 2
+            },
+            {
+              "address": "N8",
+              "value": 2.7484e-06,
+              "xlrd_type": 2
+            },
+            {
+              "address": "O8",
+              "value": 4.7875e-07,
+              "xlrd_type": 2
+            },
+            {
+              "address": "P8",
+              "value": 7.38916e-07,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A9",
+              "value": 8.0,
+              "xlrd_type": 2
+            },
+            {
+              "address": "B9",
+              "value": 18.3,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C9",
+              "value": 6.56657,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D9",
+              "value": 4.94162,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E9",
+              "value": 4.37443,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F9",
+              "value": 0.00309602,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G9",
+              "value": 0.000600084,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H9",
+              "value": 0.000863625,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I9",
+              "value": 141.94803847849826,
+              "xlrd_type": 2
+            },
+            {
+              "address": "A10",
+              "value": 9.0,
+              "xlrd_type": 2
+            },
+            {
+              "address": "B10",
+              "value": 7.1,
+              "xlrd_type": 2
+            },
+            {
+              "address": "C10",
+              "value": 6.67417,
+              "xlrd_type": 2
+            },
+            {
+              "address": "D10",
+              "value": 5.02091,
+              "xlrd_type": 2
+            },
+            {
+              "address": "E10",
+              "value": 4.45613,
+              "xlrd_type": 2
+            },
+            {
+              "address": "F10",
+              "value": 0.00313752,
+              "xlrd_type": 2
+            },
+            {
+              "address": "G10",
+              "value": 0.000629177,
+              "xlrd_type": 2
+            },
+            {
+              "address": "H10",
+              "value": 0.000833409,
+              "xlrd_type": 2
+            },
+            {
+              "address": "I10",
+              "value": 149.32672947567949,
+              "xlrd_type": 2
+            }
+          ]
+        },
+        {
+          "name": "Sheet3",
+          "rows": 0,
+          "columns": 0,
+          "cells": []
+        }
+      ]
+    },
+    {
+      "file": "APS single crystal/eos.xlsx",
+      "sha256": "e4d95ae0a6ff47c3f3fa9cea5186126c6fcaea8961e2ee83e5667aa350e05961",
+      "read_mode": "Original XLSX formulas, cached values and number formats; no recalculation.",
+      "sheets": [
+        {
+          "name": "Sheet1",
+          "rows": 10,
+          "columns": 10,
+          "cells": [
+            {
+              "address": "A1",
+              "value": 0,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0
+            },
+            {
+              "address": "B1",
+              "value": 0,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0
+            },
+            {
+              "address": "C1",
+              "value": 6.741,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 6.741
+            },
+            {
+              "address": "D1",
+              "value": 5.092,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 5.092
+            },
+            {
+              "address": "E1",
+              "value": 4.527,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.527
+            },
+            {
+              "address": "I1",
+              "value": "=C1*D1*E1",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 155.39005364399998
+            },
+            {
+              "address": "A2",
+              "value": 1,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 1
+            },
+            {
+              "address": "B2",
+              "value": 1.3,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 1.3
+            },
+            {
+              "address": "C2",
+              "value": 6.74163,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 6.74163
+            },
+            {
+              "address": "D2",
+              "value": 5.08134,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 5.08134
+            },
+            {
+              "address": "E2",
+              "value": 4.51496,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.51496
+            },
+            {
+              "address": "F2",
+              "value": 0.003,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.003
+            },
+            {
+              "address": "G2",
+              "value": 0.0006,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.0006
+            },
+            {
+              "address": "H2",
+              "value": 0.001,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.001
+            },
+            {
+              "address": "I2",
+              "value": "=C2*D2*E2",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 154.66679128109564
+            },
+            {
+              "address": "J2",
+              "value": "=D2*E2*F2+C2*E2*G2+C2*D2*G2",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 0.1076429629206
+            },
+            {
+              "address": "A3",
+              "value": 2,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 2
+            },
+            {
+              "address": "B3",
+              "value": 3,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 3
+            },
+            {
+              "address": "C3",
+              "value": 6.72204,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 6.72204
+            },
+            {
+              "address": "D3",
+              "value": 5.06695,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 5.06695
+            },
+            {
+              "address": "E3",
+              "value": 4.49732,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.49732
+            },
+            {
+              "address": "F3",
+              "value": 0.0023,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.0023
+            },
+            {
+              "address": "G3",
+              "value": 0.00066,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.00066
+            },
+            {
+              "address": "H3",
+              "value": 0.00082,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.00082
+            },
+            {
+              "address": "I3",
+              "value": "=C3*D3*E3",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 153.17980115625096
+            },
+            {
+              "address": "J3",
+              "value": "=D3*E3*F3+C3*E3*G3+C3*D3*G3",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 0.09484402745732799
+            },
+            {
+              "address": "A4",
+              "value": 3,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 3
+            },
+            {
+              "address": "B4",
+              "value": 9.5,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 9.5
+            },
+            {
+              "address": "C4",
+              "value": 6.65561,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 6.65561
+            },
+            {
+              "address": "D4",
+              "value": 5.01143,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 5.01143
+            },
+            {
+              "address": "E4",
+              "value": 4.45164,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.45164
+            },
+            {
+              "address": "F4",
+              "value": 0.0036,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.0036
+            },
+            {
+              "address": "G4",
+              "value": 0.0008,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.0008
+            },
+            {
+              "address": "H4",
+              "value": 0.0011,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.0011
+            },
+            {
+              "address": "I4",
+              "value": "=C4*D4*E4",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 148.48055088197557
+            },
+            {
+              "address": "J4",
+              "value": "=D4*E4*F4+C4*E4*G4+C4*D4*G4",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 0.13069869874088
+            },
+            {
+              "address": "A5",
+              "value": 4,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4
+            },
+            {
+              "address": "B5",
+              "value": 11,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 11
+            },
+            {
+              "address": "C5",
+              "value": 6.63116,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 6.63116
+            },
+            {
+              "address": "D5",
+              "value": 4.99176,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.99176
+            },
+            {
+              "address": "E5",
+              "value": 4.43246,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.43246
+            },
+            {
+              "address": "F5",
+              "value": 0.00379705,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.00379705
+            },
+            {
+              "address": "G5",
+              "value": 0.00122532,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.00122532
+            },
+            {
+              "address": "H5",
+              "value": 0.00178683,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.00178683
+            },
+            {
+              "address": "I5",
+              "value": "=C5*D5*E5",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 146.71956429202234
+            },
+            {
+              "address": "J5",
+              "value": "=D5*E5*F5+C5*E5*G5+C5*D5*G5",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 0.16058722829676014
+            },
+            {
+              "address": "A6",
+              "value": 5,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 5
+            },
+            {
+              "address": "B6",
+              "value": 13.1,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 13.1
+            },
+            {
+              "address": "C6",
+              "value": 6.6099,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 6.6099
+            },
+            {
+              "address": "D6",
+              "value": 4.97903,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.97903
+            },
+            {
+              "address": "E6",
+              "value": 4.41822,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.41822
+            },
+            {
+              "address": "F6",
+              "value": 0.00233659,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.00233659
+            },
+            {
+              "address": "G6",
+              "value": 0.000513197,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.000513197
+            },
+            {
+              "address": "H6",
+              "value": 0.000744727,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.000744727
+            },
+            {
+              "address": "I6",
+              "value": "=C6*D6*E6",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 145.4075541698333
+            },
+            {
+              "address": "J6",
+              "value": "=D6*E6*F6+C6*E6*G6+C6*D6*G6",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 0.08327852960947596
+            },
+            {
+              "address": "A7",
+              "value": 6,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 6
+            },
+            {
+              "address": "B7",
+              "value": 15.3,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 15.3
+            },
+            {
+              "address": "C7",
+              "value": 6.59076,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 6.59076
+            },
+            {
+              "address": "D7",
+              "value": 4.96321,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.96321
+            },
+            {
+              "address": "E7",
+              "value": 4.39825,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.39825
+            },
+            {
+              "address": "F7",
+              "value": 0.0030753,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.0030753
+            },
+            {
+              "address": "G7",
+              "value": 0.000638837,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.000638837
+            },
+            {
+              "address": "H7",
+              "value": 0.00091013,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.00091013
+            },
+            {
+              "address": "I7",
+              "value": "=C7*D7*E7",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 143.8725893138457
+            },
+            {
+              "address": "J7",
+              "value": "=D7*E7*F7+C7*E7*G7+C7*D7*G7",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 0.1065477628725508
+            },
+            {
+              "address": "A8",
+              "value": 7,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 7
+            },
+            {
+              "address": "B8",
+              "value": 16.9,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 16.9
+            },
+            {
+              "address": "C8",
+              "value": 6.58202,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 6.58202
+            },
+            {
+              "address": "D8",
+              "value": 4.95681,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.95681
+            },
+            {
+              "address": "E8",
+              "value": 4.39144,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.39144
+            },
+            {
+              "address": "F8",
+              "value": 0.0035134,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.0035134
+            },
+            {
+              "address": "G8",
+              "value": 0.000592332,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.000592332
+            },
+            {
+              "address": "H8",
+              "value": 0.00100635,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.00100635
+            },
+            {
+              "address": "I8",
+              "value": "=C8*D8*E8",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 143.27434220619892
+            },
+            {
+              "address": "J8",
+              "value": "=D8*E8*F8+C8*E8*G8+C8*D8*G8",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 0.11292445913767615
+            },
+            {
+              "address": "A9",
+              "value": 8,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 8
+            },
+            {
+              "address": "B9",
+              "value": 18.6,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 18.6
+            },
+            {
+              "address": "C9",
+              "value": 6.57126,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 6.57126
+            },
+            {
+              "address": "D9",
+              "value": 4.94502,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.94502
+            },
+            {
+              "address": "E9",
+              "value": 4.38421,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.38421
+            },
+            {
+              "address": "F9",
+              "value": 0.0045478,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.0045478
+            },
+            {
+              "address": "G9",
+              "value": 0.00095789,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.00095789
+            },
+            {
+              "address": "H9",
+              "value": 0.00135267,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.00135267
+            },
+            {
+              "address": "I9",
+              "value": "=C9*D9*E9",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 142.4649571094231
+            },
+            {
+              "address": "J9",
+              "value": "=D9*E9*F9+C9*E9*G9+C9*D9*G9",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 0.15731958287031092
+            },
+            {
+              "address": "A10",
+              "value": 9,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 9
+            },
+            {
+              "address": "B10",
+              "value": 7.1,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 7.1
+            },
+            {
+              "address": "C10",
+              "value": 6.66852,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 6.66852
+            },
+            {
+              "address": "D10",
+              "value": 5.0225,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 5.0225
+            },
+            {
+              "address": "E10",
+              "value": 4.46289,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.46289
+            },
+            {
+              "address": "F10",
+              "value": 0.00239364,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.00239364
+            },
+            {
+              "address": "G10",
+              "value": 0.000530796,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.000530796
+            },
+            {
+              "address": "H10",
+              "value": 0.000699884,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.000699884
+            },
+            {
+              "address": "I10",
+              "value": "=C10*D10*E10",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 149.473975716513
+            },
+            {
+              "address": "J10",
+              "value": "=D10*E10*F10+C10*E10*G10+C10*D10*G10",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 0.08722782916381154
+            }
+          ]
+        },
+        {
+          "name": "new",
+          "rows": 10,
+          "columns": 16,
+          "cells": [
+            {
+              "address": "B1",
+              "value": "P",
+              "type": "s",
+              "number_format": "General",
+              "cached_value": "P"
+            },
+            {
+              "address": "C1",
+              "value": "a",
+              "type": "s",
+              "number_format": "General",
+              "cached_value": "a"
+            },
+            {
+              "address": "D1",
+              "value": "b",
+              "type": "s",
+              "number_format": "General",
+              "cached_value": "b"
+            },
+            {
+              "address": "E1",
+              "value": "c",
+              "type": "s",
+              "number_format": "General",
+              "cached_value": "c"
+            },
+            {
+              "address": "F1",
+              "value": "error",
+              "type": "s",
+              "number_format": "General",
+              "cached_value": "error"
+            },
+            {
+              "address": "I1",
+              "value": "Volume",
+              "type": "s",
+              "number_format": "General",
+              "cached_value": "Volume"
+            },
+            {
+              "address": "J1",
+              "value": "error",
+              "type": "s",
+              "number_format": "General",
+              "cached_value": "error"
+            },
+            {
+              "address": "A2",
+              "value": 1,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 1
+            },
+            {
+              "address": "B2",
+              "value": 1.3,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 1.3
+            },
+            {
+              "address": "C2",
+              "value": 6.73453,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 6.73453
+            },
+            {
+              "address": "D2",
+              "value": 5.07899,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 5.07899
+            },
+            {
+              "address": "E2",
+              "value": 4.50994,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.50994
+            },
+            {
+              "address": "F2",
+              "value": 0.00238347,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.00238347
+            },
+            {
+              "address": "G2",
+              "value": 0.000632125,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.000632125
+            },
+            {
+              "address": "H2",
+              "value": 0.000859974,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.000859974
+            },
+            {
+              "address": "I2",
+              "value": "=C2*D2*E2",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 154.26074118976553
+            },
+            {
+              "address": "A3",
+              "value": 2,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 2
+            },
+            {
+              "address": "B3",
+              "value": 3.3,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 3.3
+            },
+            {
+              "address": "C3",
+              "value": 6.71296,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 6.71296
+            },
+            {
+              "address": "D3",
+              "value": 5.0646,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 5.0646
+            },
+            {
+              "address": "E3",
+              "value": 4.49094,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.49094
+            },
+            {
+              "address": "F3",
+              "value": 0.00276898,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.00276898
+            },
+            {
+              "address": "G3",
+              "value": 0.000713249,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.000713249
+            },
+            {
+              "address": "H3",
+              "value": 0.000986008,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.000986008
+            },
+            {
+              "address": "I3",
+              "value": "=C3*D3*E3",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 152.68503144962304
+            },
+            {
+              "address": "A4",
+              "value": 3,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 3
+            },
+            {
+              "address": "B4",
+              "value": 8.5,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 8.5
+            },
+            {
+              "address": "C4",
+              "value": 6.65249,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 6.65249
+            },
+            {
+              "address": "D4",
+              "value": 5.00731,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 5.00731
+            },
+            {
+              "address": "E4",
+              "value": 4.44317,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.44317
+            },
+            {
+              "address": "F4",
+              "value": 0.00310946,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.00310946
+            },
+            {
+              "address": "G4",
+              "value": 0.000717291,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.000717291
+            },
+            {
+              "address": "H4",
+              "value": 0.000955063,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.000955063
+            },
+            {
+              "address": "I4",
+              "value": "=C4*D4*E4",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 148.00678999909107
+            },
+            {
+              "address": "A5",
+              "value": 4,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4
+            },
+            {
+              "address": "B5",
+              "value": 10.5,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 10.5
+            },
+            {
+              "address": "C5",
+              "value": 6.62637,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 6.62637
+            },
+            {
+              "address": "D5",
+              "value": 4.98848,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.98848
+            },
+            {
+              "address": "E5",
+              "value": 4.42372,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.42372
+            },
+            {
+              "address": "F5",
+              "value": 0.00252687,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.00252687
+            },
+            {
+              "address": "G5",
+              "value": 0.000627726,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.000627726
+            },
+            {
+              "address": "H5",
+              "value": 0.000794629,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.000794629
+            },
+            {
+              "address": "I5",
+              "value": "=C5*D5*E5",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 146.22833935468148
+            },
+            {
+              "address": "A6",
+              "value": 5,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 5
+            },
+            {
+              "address": "B6",
+              "value": 12.3,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 12.3
+            },
+            {
+              "address": "C6",
+              "value": 6.61342,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 6.61342
+            },
+            {
+              "address": "D6",
+              "value": 4.97474,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.97474
+            },
+            {
+              "address": "E6",
+              "value": 4.4101,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.4101
+            },
+            {
+              "address": "F6",
+              "value": 0.00338095,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.00338095
+            },
+            {
+              "address": "G6",
+              "value": 0.000608928,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.000608928
+            },
+            {
+              "address": "H6",
+              "value": 0.00094933,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.00094933
+            },
+            {
+              "address": "I6",
+              "value": "=C6*D6*E6",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 145.09248850212907
+            },
+            {
+              "address": "A7",
+              "value": 6,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 6
+            },
+            {
+              "address": "B7",
+              "value": 15,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 15
+            },
+            {
+              "address": "C7",
+              "value": 6.58503,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 6.58503
+            },
+            {
+              "address": "D7",
+              "value": 4.96141,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.96141
+            },
+            {
+              "address": "E7",
+              "value": 4.39376,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.39376
+            },
+            {
+              "address": "F7",
+              "value": 0.0025596,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.0025596
+            },
+            {
+              "address": "G7",
+              "value": 0.000501767,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.000501767
+            },
+            {
+              "address": "H7",
+              "value": 0.000723654,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.000723654
+            },
+            {
+              "address": "I7",
+              "value": "=C7*D7*E7",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 143.54868099588006
+            },
+            {
+              "address": "A8",
+              "value": 7,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 7
+            },
+            {
+              "address": "B8",
+              "value": 16.6,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 16.6
+            },
+            {
+              "address": "C8",
+              "value": 6.59679,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 6.59679
+            },
+            {
+              "address": "D8",
+              "value": 4.96488,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.96488
+            },
+            {
+              "address": "E8",
+              "value": 4.39763,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.39763
+            },
+            {
+              "address": "F8",
+              "value": 0.011784,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.011784
+            },
+            {
+              "address": "G8",
+              "value": 0.00190593,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.00190593
+            },
+            {
+              "address": "H8",
+              "value": 0.00295498,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.00295498
+            },
+            {
+              "address": "I8",
+              "value": "=C8*D8*E8",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 144.0323683532376
+            },
+            {
+              "address": "K8",
+              "value": 6.61331,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 6.61331
+            },
+            {
+              "address": "L8",
+              "value": 4.998837,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.998837
+            },
+            {
+              "address": "M8",
+              "value": 4.42068,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.42068
+            },
+            {
+              "address": "N8",
+              "value": 2.7484e-06,
+              "type": "n",
+              "number_format": "0.00E+00",
+              "cached_value": 2.7484e-06
+            },
+            {
+              "address": "O8",
+              "value": 4.7875e-07,
+              "type": "n",
+              "number_format": "0.00E+00",
+              "cached_value": 4.7875e-07
+            },
+            {
+              "address": "P8",
+              "value": 7.38916e-07,
+              "type": "n",
+              "number_format": "0.00E+00",
+              "cached_value": 7.38916e-07
+            },
+            {
+              "address": "A9",
+              "value": 8,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 8
+            },
+            {
+              "address": "B9",
+              "value": 18.6,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 18.6
+            },
+            {
+              "address": "C9",
+              "value": 6.56602,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 6.56602
+            },
+            {
+              "address": "D9",
+              "value": 4.94188,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.94188
+            },
+            {
+              "address": "E9",
+              "value": 4.37452,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.37452
+            },
+            {
+              "address": "F9",
+              "value": 0.00291487,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.00291487
+            },
+            {
+              "address": "G9",
+              "value": 0.000567761,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.000567761
+            },
+            {
+              "address": "H9",
+              "value": 0.000813078,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.000813078
+            },
+            {
+              "address": "I9",
+              "value": "=C9*D9*E9",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 141.94653749269958
+            },
+            {
+              "address": "A10",
+              "value": 9,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 9
+            },
+            {
+              "address": "B10",
+              "value": 7,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 7
+            },
+            {
+              "address": "C10",
+              "value": 6.67425,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 6.67425
+            },
+            {
+              "address": "D10",
+              "value": 5.02083,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 5.02083
+            },
+            {
+              "address": "E10",
+              "value": 4.45613,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 4.45613
+            },
+            {
+              "address": "F10",
+              "value": 0.00313834,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.00313834
+            },
+            {
+              "address": "G10",
+              "value": 0.000630466,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.000630466
+            },
+            {
+              "address": "H10",
+              "value": 0.000833937,
+              "type": "n",
+              "number_format": "General",
+              "cached_value": 0.000833937
+            },
+            {
+              "address": "I10",
+              "value": "=C10*D10*E10",
+              "type": "f",
+              "number_format": "General",
+              "cached_value": 149.32614007584158
+            }
+          ]
+        },
+        {
+          "name": "Sheet3",
+          "rows": 1,
+          "columns": 1,
+          "cells": []
+        }
+      ]
+    }
+  ],
+  "origin_projects": [
+    {
+      "file": "ESRF single crystal/Data.opj",
+      "sha256": "57fb0c39bca0818662fbe87f0a2583374e1f7e5b7ff21641527b258e60b56585",
+      "reader": "liborigin 3.0.4",
+      "reader_repository": "https://github.com/gerlachs/liborigin",
+      "reader_commit": "9ad3aed034b7cc31a5a43dd19b588e5fc2abec9c",
+      "export_precision": "17 significant digits, opj2dat output precision increased without changing parser",
+      "spreadsheets": 1,
+      "datasets": 9,
+      "graphs": 0,
+      "functions": 0,
+      "notes": 0,
+      "finite_observation_rows": [
+        {
+          "source_row": 1,
+          "pressure_gpa": 1.8,
+          "a_angstrom": 4.5017,
+          "a_error_angstrom": 0.0004,
+          "b_angstrom": 5.0725999999999996,
+          "b_error_angstrom": 0.0008,
+          "c_angstrom": 6.699,
+          "c_error_angstrom": 0.004,
+          "volume_a3": 152.98,
+          "volume_error_a3": 0.07
+        },
+        {
+          "source_row": 2,
+          "pressure_gpa": 4.7,
+          "a_angstrom": 4.4782,
+          "a_error_angstrom": 0.0005,
+          "b_angstrom": 5.0464,
+          "b_error_angstrom": 0.0008,
+          "c_angstrom": 6.665,
+          "c_error_angstrom": 0.003,
+          "volume_a3": 150.62,
+          "volume_error_a3": 0.08
+        },
+        {
+          "source_row": 3,
+          "pressure_gpa": 6.8,
+          "a_angstrom": 4.4568,
+          "a_error_angstrom": 0.0005,
+          "b_angstrom": 5.021,
+          "b_error_angstrom": 0.0008,
+          "c_angstrom": 6.639,
+          "c_error_angstrom": 0.003,
+          "volume_a3": 148.56,
+          "volume_error_a3": 0.06
+        },
+        {
+          "source_row": 4,
+          "pressure_gpa": 9.1,
+          "a_angstrom": 4.438,
+          "a_error_angstrom": 0.0004,
+          "b_angstrom": 5.0041,
+          "b_error_angstrom": 0.0007,
+          "c_angstrom": 6.6129999999999995,
+          "c_error_angstrom": 0.003,
+          "volume_a3": 146.86,
+          "volume_error_a3": 0.07
+        },
+        {
+          "source_row": 5,
+          "pressure_gpa": 11.4,
+          "a_angstrom": 4.4212,
+          "a_error_angstrom": 0.0004,
+          "b_angstrom": 4.9881,
+          "b_error_angstrom": 0.0007,
+          "c_angstrom": 6.593,
+          "c_error_angstrom": 0.003,
+          "volume_a3": 145.4,
+          "volume_error_a3": 0.07
+        },
+        {
+          "source_row": 6,
+          "pressure_gpa": 13.5,
+          "a_angstrom": 4.4072,
+          "a_error_angstrom": 0.0004,
+          "b_angstrom": 4.9738,
+          "b_error_angstrom": 0.0008,
+          "c_angstrom": 6.573,
+          "c_error_angstrom": 0.003,
+          "volume_a3": 144.09,
+          "volume_error_a3": 0.08
+        },
+        {
+          "source_row": 7,
+          "pressure_gpa": 16.2,
+          "a_angstrom": 4.3889,
+          "a_error_angstrom": 0.0004,
+          "b_angstrom": 4.9579,
+          "b_error_angstrom": 0.0008,
+          "c_angstrom": 6.549,
+          "c_error_angstrom": 0.003,
+          "volume_a3": 142.51,
+          "volume_error_a3": 0.07
+        },
+        {
+          "source_row": 8,
+          "pressure_gpa": 18.4,
+          "a_angstrom": 4.3788,
+          "a_error_angstrom": 0.0005,
+          "b_angstrom": 4.9483,
+          "b_error_angstrom": 0.0009,
+          "c_angstrom": 6.534,
+          "c_error_angstrom": 0.004,
+          "volume_a3": 141.57,
+          "volume_error_a3": 0.09
+        },
+        {
+          "source_row": 9,
+          "pressure_gpa": 20.7,
+          "a_angstrom": 4.3652,
+          "a_error_angstrom": 0.0006,
+          "b_angstrom": 4.9353,
+          "b_error_angstrom": 0.0011,
+          "c_angstrom": 6.515,
+          "c_error_angstrom": 0.004,
+          "volume_a3": 140.35,
+          "volume_error_a3": 0.09
+        },
+        {
+          "source_row": 10,
+          "pressure_gpa": 22.6,
+          "a_angstrom": 4.3558,
+          "a_error_angstrom": 0.0006,
+          "b_angstrom": 4.9285,
+          "b_error_angstrom": 0.0012,
+          "c_angstrom": 6.502,
+          "c_error_angstrom": 0.005,
+          "volume_a3": 139.58,
+          "volume_error_a3": 0.11
+        }
+      ],
+      "comparison_to_final_table_s1": [
+        {
+          "source_row": 1,
+          "archive_pressure_gpa": 1.8,
+          "published_pressure_gpa": 1.8,
+          "archive_volume_a3": 152.98,
+          "published_volume_a3": 152.98,
+          "archive_minus_published_volume_a3": 0.0
+        },
+        {
+          "source_row": 2,
+          "archive_pressure_gpa": 4.7,
+          "published_pressure_gpa": 4.7,
+          "archive_volume_a3": 150.62,
+          "published_volume_a3": 150.65,
+          "archive_minus_published_volume_a3": -0.030000000000001137
+        },
+        {
+          "source_row": 3,
+          "archive_pressure_gpa": 6.8,
+          "published_pressure_gpa": 6.7,
+          "archive_volume_a3": 148.56,
+          "published_volume_a3": 148.56,
+          "archive_minus_published_volume_a3": 0.0
+        },
+        {
+          "source_row": 4,
+          "archive_pressure_gpa": 9.1,
+          "published_pressure_gpa": 9.1,
+          "archive_volume_a3": 146.86,
+          "published_volume_a3": 146.85,
+          "archive_minus_published_volume_a3": 0.010000000000019327
+        },
+        {
+          "source_row": 5,
+          "archive_pressure_gpa": 11.4,
+          "published_pressure_gpa": 11.4,
+          "archive_volume_a3": 145.4,
+          "published_volume_a3": 145.36,
+          "archive_minus_published_volume_a3": 0.03999999999999204
+        },
+        {
+          "source_row": 6,
+          "archive_pressure_gpa": 13.5,
+          "published_pressure_gpa": 13.4,
+          "archive_volume_a3": 144.09,
+          "published_volume_a3": 144.1,
+          "archive_minus_published_volume_a3": -0.009999999999990905
+        },
+        {
+          "source_row": 7,
+          "archive_pressure_gpa": 16.2,
+          "published_pressure_gpa": 16.2,
+          "archive_volume_a3": 142.51,
+          "published_volume_a3": 142.5,
+          "archive_minus_published_volume_a3": 0.009999999999990905
+        },
+        {
+          "source_row": 8,
+          "archive_pressure_gpa": 18.4,
+          "published_pressure_gpa": 18.4,
+          "archive_volume_a3": 141.57,
+          "published_volume_a3": 141.56,
+          "archive_minus_published_volume_a3": 0.009999999999990905
+        },
+        {
+          "source_row": 9,
+          "archive_pressure_gpa": 20.7,
+          "published_pressure_gpa": 20.7,
+          "archive_volume_a3": 140.35,
+          "published_volume_a3": 140.34,
+          "archive_minus_published_volume_a3": 0.009999999999990905
+        },
+        {
+          "source_row": 10,
+          "archive_pressure_gpa": 22.6,
+          "published_pressure_gpa": 22.6,
+          "archive_volume_a3": 139.58,
+          "published_volume_a3": 139.58,
+          "archive_minus_published_volume_a3": 0.0
+        }
+      ],
+      "allocated_rows": 32,
+      "original_column_names": [
+        "A",
+        "B",
+        "C",
+        "D",
+        "E",
+        "F",
+        "G",
+        "H",
+        "I"
+      ],
+      "column_mapping_basis": "The project columns have generic names A-I. Roles P,a,error(a),b,error(b),c,error(c),V,error(V) and units are inferred from numerical correspondence with final Table S1 and the labelled ESRF workbook; these are not recovered original long-name/unit labels. Error confidence remains unspecified."
+    },
+    {
+      "file": "Analysis/analysis.opj",
+      "sha256": "ea7578db026c8710c9880335eddb380db4985c9fdf947506dc43aeef0ba4afde",
+      "spreadsheets": 7,
+      "datasets": 30,
+      "graphs": 9,
+      "functions": 0,
+      "notes": 0,
+      "sheet_labels": [
+        "BHF data",
+        "CS data",
+        "CS all sixtet",
+        "Cv mag",
+        "FWHM",
+        "line_data",
+        "<v2>"
+      ],
+      "finding": "Recovered project labels identify spectroscopy and magnetic/phonon analyses; no saved EOS fit function or fit note was found."
+    }
+  ],
+  "manuscript_drafts_inspected": [
+    {
+      "source": "Fe3c abstract.doc",
+      "sha256": "30a6e9ed27a682ded4ab33ff2ceae65fe3e4f0ea8b9e392c65396efb95d25bb6",
+      "exit_code": 0
+    },
+    {
+      "source": "Fe3C paper_CP.doc",
+      "sha256": "7753b479a08650e09c4a86dfff6dd91245669655063d2eace3891f4bd2ea1a54",
+      "exit_code": 0
+    },
+    {
+      "source": "Publish or Perish/Fe3C paper_LSD01032011.doc",
+      "sha256": "fec3cd10f9f1d002b9e302669ea91dadf253fbd8e1deeba0bf779601d558ed14",
+      "exit_code": 0
+    },
+    {
+      "source": "Publish or Perish/waste disposal....doc",
+      "sha256": "9022c60e06dbea2423de29420e2203a3081e59d9889efbb4d70f3a9c81eba4a5",
+      "exit_code": 0
+    },
+    {
+      "source": "Publish or Perish/Fe3C paper outline.doc",
+      "sha256": "38e7c06b7b33390a3d5a54e42a9ece929f0c568c683a49d64c56c355042701ae",
+      "exit_code": 0
+    },
+    {
+      "source": "Publish or Perish/abstract Fe3C.doc",
+      "sha256": "cac30fd0d326566374c12bbc62ba7b929d1209ab2938f4dd78a10b4631f6bec6",
+      "exit_code": 0
+    },
+    {
+      "source": "Publish or Perish/paper_ges.doc",
+      "sha256": "324e4646d20de4c235142b9a9f5fbccce01529b93f5b0801c32e300028a0e7f2",
+      "exit_code": 0
+    },
+    {
+      "source": "Publish or Perish/Fe3C paper_CP22032011.doc",
+      "sha256": "afb8cbfec11fce73e1632001e2e686e8a1e932255888a94e59fb4a807ab3b033",
+      "exit_code": 0
+    },
+    {
+      "source": "Publish or Perish/Fe3C paper_CP21032011_CM.doc",
+      "sha256": "d1d61aaf2924d6ebf9081817609c6ef3d13343df0e6586aef407dc28e3cca000",
+      "exit_code": 0
+    },
+    {
+      "source": "Publish or Perish/abstract Fe3C_CM.doc",
+      "sha256": "da25bc03000c82566fdec91eaec9bc0d90bd110bad29553b832ee4311dea139f",
+      "exit_code": 0
+    },
+    {
+      "source": "Publish or Perish/Introduction.doc",
+      "sha256": "5c0289059311304ec2b5fa441e1847c3841fc94e880b7ddb95579814690f3e7e",
+      "exit_code": 0
+    },
+    {
+      "source": "Publish or Perish/Fe3C paper_CP18032011.doc",
+      "sha256": "506803c900c4c8edb41c322eb5555d2b4901383c8e78b2cbd8983bcaf8f444d3",
+      "exit_code": 0
+    },
+    {
+      "source": "Publish or Perish/Fe3C paper new.doc",
+      "sha256": "82398f602f5c9d7d4c23bc41a88508984e418adc66fb77415d52fab40f70309a",
+      "exit_code": 0
+    },
+    {
+      "source": "Publish or Perish/Fe3C paper_CP21032011.doc",
+      "sha256": "ad19228e55f58c4b3a4834febf581c669b5bf837141c9a9a3fefdda2014246cc",
+      "exit_code": 0
+    },
+    {
+      "source": "Publish or Perish/Experiments.doc",
+      "sha256": "79ca6e1a547ad4ebf35178713c76c6d7a3e8dd1d5762e003542df7929d660f7c",
+      "exit_code": 0
+    },
+    {
+      "source": "Publish or Perish/Fe3C paper_final 30032011.doc",
+      "sha256": "4cdb41442323b688892a1ede9848abd9000092504b158c1449c9584501e53735",
+      "exit_code": 0
+    },
+    {
+      "source": "Publish or Perish/Fe3C submit PRL/Suggested referees.doc",
+      "sha256": "c9d7e413da349311db958b79a04d46fad5487c0cc227c27af50541568f49698f",
+      "exit_code": 0
+    },
+    {
+      "source": "Publish or Perish/Fe3C submit PRL/Magnetic transitions in Fe3C.doc",
+      "sha256": "f918ef895ff98dbf9fed46da7bb48719767321f6c8b83362b990fb062b7b198c",
+      "exit_code": 0
+    },
+    {
+      "source": "Publish or Perish/Fe3C submit PRL/Justification for PRL_CM.doc",
+      "sha256": "317ced74a4afef78b4971959bdd4fda26cf870da22e59abb91697cf532cbb3fb",
+      "exit_code": 0
+    },
+    {
+      "source": "Publish or Perish/Fe3C submit PRL/Justification for PRL_LSD_CM2.doc",
+      "sha256": "f673047b7674877fc4b2aa9e8205fad9e8a554a04ffdecbc41d80b3d070f057d",
+      "exit_code": 0
+    },
+    {
+      "source": "Publish or Perish/Fe3C submit PRL/Justification for PRL.doc",
+      "sha256": "885825ed5b41ebc663bd9ae1bd89b5f24f9f970360f0d2d86aa65fb50611719e",
+      "exit_code": 0
+    },
+    {
+      "source": "Experiments/Synthesis.doc",
+      "sha256": "a59bbb16d4f1dc2ed5b517c24ad53ebba50944f73d244d37911c343714e280fe",
+      "exit_code": 0
+    },
+    {
+      "source": "JahresBericht/Fe3C Jahresbericht.doc",
+      "sha256": "d559aebd4a688dabca10ee2fb6dc07aed46dab4b8fc41f27d9b8d868dd010ecd",
+      "exit_code": 0
+    },
+    {
+      "source": "JahresBericht/Prescher - Magnetic Transitions in Fe3C.doc",
+      "sha256": "f476fdf722a59db35e81c93a1791af5a87b7b3c44e8a1f0a6da3dfffc95156f2",
+      "exit_code": 0
+    }
+  ],
+  "draft_extraction_limit": "macOS textutil gives readable manuscript text but appends binary/object content for several legacy DOC files. No V0 was identified in readable EOS passages; this is not proof that every embedded object was decoded.",
+  "findings": [
+    "ESRF Fe3C_up_p19 workbook has 20 states labelled p0-p19, including p0 at 0 GPa with stored volume 163.40230309104 A3. This is not identified as an EOS fit V0 and is not assigned to any published fit.",
+    "The workbook compression volumes differ materially from final Table S1; the first pressure-state volume is 153.6255042696 versus published 152.98 A3.",
+    "The Origin diffraction project has ten finite states from 1.8 to 22.6 GPa, with small but real changes relative to the final table (maximum absolute volume difference 0.04 A3). Its other allocated rows are blank/missing, not additional observations. No ambient point is present.",
+    "APS EOS workbooks contain separate lower-pressure series and processing variants; neither file name nor zero-pressure row establishes that a series supplied the final three ESRF fits.",
+    "No new fit, pressure recalibration, replacement observation, uncertainty convention or published coefficient was inferred."
+  ],
+  "rights": "Source reuse terms for private working files remain unspecified. Contributor CC0 covers only factual transcription, normalization, metadata and arrangement rights they hold; it does not relicense original workbooks, manuscripts or project files. Original binary archive files are not redistributed in this research record."
+}

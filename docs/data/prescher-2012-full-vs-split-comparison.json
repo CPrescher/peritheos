@@ -1,0 +1,47 @@
+{
+  "format": "peritheos.prescher-2012-full-versus-split-comparison",
+  "date": "2026-10-30",
+  "input_report": "docs/data/prescher-2012-coordinate-error-fits.json",
+  "input_sha256": "260f681e275d78c8938fc76aa19efb22e23661518293748d7474646c243e1e4f",
+  "full": {
+    "EOS_parameters": 3,
+    "weighted_sum_squares": 60.365742692490734,
+    "degrees_of_freedom": 17,
+    "reduced_chi_square": 3.550926040734749
+  },
+  "split": {
+    "EOS_parameters": 6,
+    "weighted_sum_squares": 13.965822061879035,
+    "degrees_of_freedom": 14,
+    "combined_reduced_chi_square": 0.9975587187056453
+  },
+  "weighted_sum_squares_improvement": 46.3999206306117,
+  "curve_comparisons": [
+    {
+      "range": "Low",
+      "pressure_range_gpa": [
+        0,
+        20.7
+      ],
+      "max_absolute_curve_volume_difference_a3": 0.44672874928542683,
+      "relative_percent_at_max_absolute_difference": 0.28801265703350404,
+      "pressure_at_max_difference_gpa": 0.0
+    },
+    {
+      "range": "High",
+      "pressure_range_gpa": [
+        22.6,
+        47.4
+      ],
+      "max_absolute_curve_volume_difference_a3": 0.2356736662484309,
+      "relative_percent_at_max_absolute_difference": 0.16888962989190578,
+      "pressure_at_max_difference_gpa": 22.6
+    }
+  ],
+  "qualifications": [
+    "Comparison uses the same 20 observations and coordinate-error assumptions. The split adds three EOS parameters; no continuity constraint is imposed at 22 GPa.",
+    "Small volume differences do not imply equal agreement at the reported experimental precision. Error confidence and calibration covariance are unconfirmed.",
+    "No structural transition, unique physical mechanism or validated replacement EOS is inferred."
+  ],
+  "figure": "docs/literature-reproductions/figures/prescher-2012-weighted-full-vs-split.png"
+}
