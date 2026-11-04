@@ -56,7 +56,7 @@ def semantic_digest(value):
 
 
 def verify_preserved_sources():
-    inputs = json.loads(INPUT.read_text())
+    inputs = json.loads(INPUT.read_text(encoding="utf-8"))
     for material, digest in inputs["source_dataset_declarations_sha256"].items():
         document = load_eosmat(
             ROOT / "peritheos/data/materials" / (material + ".eosmat")
@@ -365,7 +365,9 @@ def reconstruct(row):
         note = "Cold-stage K0 uncertainty propagated into the thermal stage, including covariance from reuse of the three cold observations; fixed V0, K0-prime and alpha(300) conditioned on."
     elif rid == "kcl_b2_ma_2024_bm3_mgd":
         fitted = json.loads(
-            (ROOT / "docs/data/ma-2024-kcl-reproduction.json").read_text()
+            (ROOT / "docs/data/ma-2024-kcl-reproduction.json").read_text(
+                encoding="utf-8"
+            )
         )["fits"]["reported_errors"]
         transform = np.diag([1 / 0.602214076, 1, 1])
         covariance = transform @ np.array(fitted["diagnostic_covariance"]) @ transform
@@ -487,7 +489,7 @@ def source_bindings(inputs):
 @lru_cache(maxsize=1)
 def saved_followup():
     verify_preserved_sources()
-    report = json.loads(OUTPUT.read_text())
+    report = json.loads(OUTPUT.read_text(encoding="utf-8"))
     for name, digest in report["source_sha256"].items():
         if hashlib.sha256((ROOT / name).read_bytes()).hexdigest() != digest:
             raise ValueError(
@@ -541,7 +543,7 @@ def augment_outcome(record, outcome):
     # Keep old qualification wording explicitly historical, including all source limits.
     baseline = next(
         r
-        for r in json.loads(INPUT.read_text())["records"]
+        for r in json.loads(INPUT.read_text(encoding="utf-8"))["records"]
         if r["record_identifier"] == record["identifier"]
     )
     history = " ".join(
@@ -595,7 +597,7 @@ def main():
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
     verify_preserved_sources()
-    inputs = json.loads(INPUT.read_text())["records"]
+    inputs = json.loads(INPUT.read_text(encoding="utf-8"))["records"]
     if args.record and args.record not in {r["record_identifier"] for r in inputs}:
         parser.error("Unknown record in this bounded follow-up")
     results = []
@@ -629,7 +631,7 @@ def main():
         records=results,
     )
     if args.check:
-        saved = json.loads(OUTPUT.read_text())
+        saved = json.loads(OUTPUT.read_text(encoding="utf-8"))
         if report["source_sha256"] != saved["source_sha256"]:
             raise SystemExit("Source provenance changed")
         stored = {r["record_identifier"]: r for r in saved["records"]}

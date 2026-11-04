@@ -100,7 +100,7 @@ def test_migration_is_additive_idempotent_and_does_not_promote_source_validation
 def test_bundled_outcomes_and_actual_reconstructed_values_match_named_ledger():
     rows = {
         r["record_identifier"]: r
-        for r in json.loads((ROOT / REPORT).read_text())["records"]
+        for r in json.loads((ROOT / REPORT).read_text(encoding="utf-8"))["records"]
     }
     checked = failed = 0
     for path in sorted((ROOT / "peritheos/data/materials").glob("*.eosmat")):
@@ -228,7 +228,9 @@ def test_historical_calibration_fingerprint_ignores_only_added_assessment():
         for r in projected["eos_records"]
         if r["identifier"] == "mgo_b1_tange_2009_vinet"
     )
-    report = json.loads((ROOT / "docs/data/miozzi-2020-tange-refit.json").read_text())
+    report = json.loads(
+        (ROOT / "docs/data/miozzi-2020-tange-refit.json").read_text(encoding="utf-8")
+    )
     assert (
         hashlib.sha256(
             json.dumps(record, sort_keys=True, separators=(",", ":")).encode()

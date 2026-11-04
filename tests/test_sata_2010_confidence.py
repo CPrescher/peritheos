@@ -46,7 +46,7 @@ def test_joint_pair_ellipses_have_requested_mahalanobis_radius(calculation):
 
 def test_mean_curve_bands_match_independent_linear_coefficient_propagation(calculation):
     _, _, bands = calculation
-    source = json.loads(FIT_REPORT.read_text())
+    source = json.loads(FIT_REPORT.read_text(encoding="utf-8"))
     measured_v = np.array([r["volume_a3"] for r in source["inputs"]])
 
     def design(v, model):
@@ -106,7 +106,7 @@ def test_mean_curve_bands_match_independent_linear_coefficient_propagation(calcu
 def test_full_physical_parameter_gradients_and_existing_fit_preservation(
     calculation, assert_audit_close
 ):
-    source = json.loads(FIT_REPORT.read_text())
+    source = json.loads(FIT_REPORT.read_text(encoding="utf-8"))
     volumes = np.array([108.0, 120.0, 137.0])
     for model in ("fixed_V0_BM3", "reference_mBM3"):
         parameters, _, _ = fit_state(source, VERSIONS[1], model)
@@ -121,7 +121,7 @@ def test_full_physical_parameter_gradients_and_existing_fit_preservation(
             ) / (2 * h)
             np.testing.assert_allclose(gradient[:, i], finite, rtol=1e-7, atol=1e-8)
     report, _, _ = calculation
-    assert_audit_close(report, json.loads(REPORT.read_text()))
+    assert_audit_close(report, json.loads(REPORT.read_text(encoding="utf-8")))
     assert "full 3x3 covariance" in report["band_convention"]
     assert (
         report["fits"][VERSIONS[1]]["reference_mBM3"]["residual_degrees_of_freedom"]

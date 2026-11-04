@@ -4,6 +4,7 @@ import copy
 import csv
 import json
 from collections import Counter
+from pathlib import Path
 
 import numpy as np
 import pytest
@@ -23,8 +24,18 @@ from scripts.review_similar_parameter_scope import (
 )
 
 
+def test_preserved_source_checks_do_not_depend_on_locale_encoding(monkeypatch):
+    original_read = Path.read_text
+
+    def windows_default(path, encoding=None, errors=None):
+        return original_read(path, encoding=encoding or "cp1252", errors=errors)
+
+    monkeypatch.setattr(Path, "read_text", windows_default)
+    verify_sources()
+
+
 def test_all_96_decisions_are_reproducible_and_sources_preserved():
-    expected = json.loads(OUTPUT.read_text())
+    expected = json.loads(OUTPUT.read_text(encoding="utf-8"))
     check_report(expected, calculate())
     assert len(expected["records"]) == 96
     assert Counter(r["status"] for r in expected["records"]) == {
@@ -72,13 +83,14 @@ def test_all_promotions_meet_their_named_criterion_without_treating_missing_as_z
 
 def test_native_assessments_roundtrip_and_unpromoted_ledger_findings_are_unchanged():
     original = {
-        r["record_identifier"]: r for r in json.loads(INPUT.read_text())["records"]
+        r["record_identifier"]: r
+        for r in json.loads(INPUT.read_text(encoding="utf-8"))["records"]
     }
     ledger = {
         r["record_identifier"]: r
-        for r in json.loads((ROOT / "docs/data/primary-eos-refits.json").read_text())[
-            "records"
-        ]
+        for r in json.loads(
+            (ROOT / "docs/data/primary-eos-refits.json").read_text(encoding="utf-8")
+        )["records"]
     }
     for material in {r["material_identifier"] for r in saved_review().values()}:
         native = load_eosmat(ROOT / "peritheos/data/materials" / (material + ".eosmat"))
@@ -134,7 +146,8 @@ def test_farla_covariance_uses_each_compounds_actual_inputs_and_fixed_weights(
 
 def test_tange_recovers_only_primary_table_2_errors_with_unchanged_estimates():
     original = {
-        r["record_identifier"]: r for r in json.loads(INPUT.read_text())["records"]
+        r["record_identifier"]: r
+        for r in json.loads(INPUT.read_text(encoding="utf-8"))["records"]
     }
     for rid, errors in TANGE_ERRORS.items():
         case = saved_review()[rid]
@@ -195,7 +208,7 @@ def test_missing_error_and_covariance_convention_holds_are_not_waived():
     assert cases["iceviii_besson_1994_bm3_1"]["status"] == "similar"
     original = next(
         r
-        for r in json.loads(INPUT.read_text())["records"]
+        for r in json.loads(INPUT.read_text(encoding="utf-8"))["records"]
         if r["record_identifier"] == "naalsi2o6_zhao_1997_bm3_1"
     )
     altered = copy.deepcopy(original)
@@ -205,7 +218,7 @@ def test_missing_error_and_covariance_convention_holds_are_not_waived():
     # saved fit must not hide a newly failed printed-precision comparison.
     row = next(
         r
-        for r in json.loads(INPUT.read_text())["records"]
+        for r in json.loads(INPUT.read_text(encoding="utf-8"))["records"]
         if r["record_identifier"].endswith("marquardt_2009b_ls_bm3_s1_10")
     )
     changed = copy.deepcopy(row)

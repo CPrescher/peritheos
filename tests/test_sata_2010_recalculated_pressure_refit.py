@@ -98,6 +98,7 @@ def test_linear_refits_match_independent_nonlinear_objective_and_prior_diagnosti
 
 def test_both_pressure_coordinates_and_reference_form_are_compared_without_promotion(
     report,
+    assert_audit_close,
 ):
     cross = report["cross_evaluation"]
     assert cross["published_BM3"]["on_original_pressures"]["rmse_gpa"] == pytest.approx(
@@ -119,4 +120,4 @@ def test_both_pressure_coordinates_and_reference_form_are_compared_without_promo
     )
     assert len(report["residuals"]) == 12
     archived = json.loads(REPORT.read_text())
-    assert report == archived
+    assert_audit_close(report, archived, rel=1e-11, abs=1e-10)

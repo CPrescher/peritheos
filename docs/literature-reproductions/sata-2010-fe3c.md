@@ -496,6 +496,13 @@ table. These are deterministic display bounds, not parameter-confidence or
 measurement-error intervals; the small remaining gap is not a physical
 pressure-scale validation test.
 
+The maintained replay uses complex-step derivatives for the analytic SLSQP
+objective and constraints to avoid finite-difference cancellation on the minimum
+SciPy stack. The objective, bounds and three starting points are unchanged;
+every start must report convergence and satisfy the original feasibility check.
+The archived report is retained, and the replay reproduces its gap within
+`1e-7 GPa`. This numerical portability fix does not recover a source reducer.
+
 The K0′-only diagnostic **3.99680594** lies inside the published ±0.01 error
 width. Its maximum central-value discrepancy is 0.00929 GPa, and every row
 overlaps after allowing P/V display rounding. But this value would normally
