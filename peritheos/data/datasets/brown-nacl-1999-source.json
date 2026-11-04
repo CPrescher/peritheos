@@ -1,0 +1,176 @@
+{
+  "id": "brown-nacl-1999-primary-data-reconstruction",
+  "status": "published_eos_not_reproducible_from_available_material_independent_refit_staged",
+  "recovery_date": "2026-10-16",
+  "report": "docs/research/brown-nacl-1999-primary-data-reproduction.md",
+  "recovery_script": "scripts/brown_nacl_1999_recover.py",
+  "reconstruction_script": "scripts/brown_nacl_1999_reconstruct.py",
+  "source_directory": "output/material-candidates/brown-nacl-1999/sources",
+  "checksums": "output/material-candidates/brown-nacl-1999/recovery-manifest.json",
+  "licensing": "brown-nacl-1999.LICENSE.md; CC0 applies only to contributors' transcription, normalization and metadata, not third-party source rights",
+  "calibration_inputs": [
+    {
+      "file": "brown-nacl-1999-boehler-kennedy-1980-table1.csv",
+      "doi": "10.1016/0022-3697(80)90183-3",
+      "location": "Table 1, pp. 519-520",
+      "kind": "measured_PVT_reduced_using_WC_standard",
+      "rows": 82,
+      "runs": 19,
+      "volume_reference": "1 atm, 25 Celsius, shared within run",
+      "pressure_unit": "kbar",
+      "temperature_unit": "Celsius",
+      "uncertainty": "0.4 percent pressure; 0.7 percent compression/change; 0.3 K temperature; accuracy statements, not independent Gaussian sigmas",
+      "visual_checks": [
+        "bk-3.png",
+        "bk-4.png"
+      ]
+    },
+    {
+      "file": "brown-nacl-1999-fritz-1971-table1.csv",
+      "source": "Fritz, Marsh, Carter and McQueen, NBS Special Publication 326, pp. 201-208",
+      "url": "https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nbsspecialpublication326.pdf",
+      "verified_publication_date": "March 1971",
+      "brown_citation_year": 1972,
+      "location": "Table 1, p. 202, PDF leaf 216",
+      "kind": "experimental_impedance_match_reduction",
+      "rows": 43,
+      "measured_columns": [
+        "shock_velocity_km_s",
+        "standard_shock_velocity_km_s"
+      ],
+      "derived_columns": [
+        "particle_velocity_km_s",
+        "pressure_kbar",
+        "density_g_cm3"
+      ],
+      "visual_checks": [
+        "fritz-216.png",
+        "fritz-217.png"
+      ],
+      "source_values_modified": false
+    },
+    {
+      "file": "brown-nacl-1999-published-coefficients.json",
+      "doi": "10.1063/1.1714229",
+      "location": "Enck-Dommel 1965, pp. 841-842, Eqs. (3), (5)-(7)",
+      "kind": "published_fit_coefficients_to_expansion_measurements",
+      "individual_measurements": 77,
+      "individual_rows_available": false,
+      "generated_fitting_samples_kind": "polynomial_samples_not_observations",
+      "alpha_reference": "DeltaL divided by room-temperature length and DeltaT",
+      "visual_checks": [
+        "enck-polynomials.png"
+      ]
+    }
+  ],
+  "comparison_only": [
+    {
+      "file": "brown-nacl-1999-brown-table1-comparison.csv",
+      "doi": "10.1063/1.371596",
+      "kind": "published_calculated_EOS_properties",
+      "rows": 21,
+      "used_for_fitting": false
+    },
+    {
+      "file": "brown-nacl-1999-brown-table2-comparison.csv",
+      "doi": "10.1063/1.371596",
+      "kind": "published_calculated_pressure_grid",
+      "rows": 63,
+      "populated_pressures": 571,
+      "used_for_fitting": false,
+      "blank_cells_preserved": true
+    },
+    {
+      "file": "brown-nacl-1999-fritz-1971-table4-checkpoints.csv",
+      "kind": "selected_published_calculated_Hugoniot_and_isotherm_states",
+      "rows": 6,
+      "used_for_fitting": false
+    }
+  ],
+  "physical_validation": [
+    {
+      "file": "brown-nacl-1999-yamamoto-1987-table2.csv",
+      "doi": "10.1016/0022-3697(87)90078-3",
+      "location": "Table 2, p. 145",
+      "rows": 16,
+      "kind": "elastic_moduli_from_resonance_and_reproduced_thermodynamic_auxiliary_data",
+      "reported_density_g_cm3_at_294K": 2.16,
+      "printed_first_specific_volume_cm3_g": 0.4701,
+      "volume_density_discrepancy_preserved": true,
+      "cp_unit": "1e6 erg/g/K",
+      "elastic_modulus_unit": "kbar",
+      "alpha_unit": "1e-6/K",
+      "independent_of_calibration": "elastic constants and heat capacities held out; thermal expansion overlaps calibration evidence"
+    },
+    {
+      "file": "brown-nacl-1999-spetzler-1972-table4-ks.csv",
+      "doi": "10.1016/S0022-3697(72)80468-2",
+      "location": "Table 4, pp. 1735-1736",
+      "kind": "thermodynamic_values_calculated_from_ultrasonic_frequency_fits",
+      "rows": 18,
+      "pressure_unit": "kbar",
+      "ks_unit": "GPa",
+      "temperature_unit": "K",
+      "range_note": "10 kbar rows extend beyond 8 kbar measurement range; title says 800 C, experiment/table range is to 800 K"
+    },
+    {
+      "file": "brown-nacl-1999-boehler-1981-table1.csv",
+      "doi": "10.1029/JB086iB08p07159",
+      "location": "Table 1, p. 7160",
+      "kind": "published_polynomial_representation_of_adiabatic_temperature_measurements",
+      "rows": 5,
+      "polynomial_pressure_unit": "kbar",
+      "polynomial_output_unit": "K/kbar"
+    },
+    {
+      "file": "brown-nacl-1999-janaf-1971-nacl-cr-cp.csv",
+      "doi": "10.6028/NBS.NSRDS.37",
+      "location": "PDF leaf 548, ClNa(cr), table dated September 30, 1964",
+      "kind": "evaluated_thermochemical_table",
+      "rows": 17,
+      "historical_molar_mass_g_mol": 58.448,
+      "calorie_joule_conversion": 4.184,
+      "solid_melting_temperature_k": 1073.8,
+      "above_melting_rows": "preserved metastable solid extensions, excluded from ambient physical validation"
+    }
+  ],
+  "non_recovered": [
+    "Enck-Dommel's 77 individual numerical measurements and original traces",
+    "Brown's original source arrays and exact shock selection",
+    "private Fritz extended computer-generated tables supplied to Brown",
+    "Brown cold-curve CSAPS settings, knots, weights and coefficients",
+    "Brown gamma-join numerical parameters",
+    "Brown 1999 thermal calculator, exact affected term and numerical mapping of the author-confirmed mode-factor bug to the Table I/II discrepancy",
+    "full measurement covariance and systematic uncertainty model"
+  ],
+  "published_calculation_status": "author_acknowledged_vibrational_mode_energy_bug",
+  "author_correspondence": {
+    "source": "output/material-candidates/brown-nacl-1999/sources/brown-author-reply-2026-10-16.json",
+    "sha256": "80bef9439c7914a3338293f3d3fdb635611b937dce699a59a0e6e45ebd04c41c",
+    "source_type": "user_supplied_private_author_correspondence",
+    "supplied_in_chat_date": "2026-10-16",
+    "incoming_message_date_header_supplied": false,
+    "author_acknowledges_bug": true,
+    "reported_cause": "Omitted factor of three in an energy term for three vibrational modes per ion; different versions of Debye routines",
+    "exact_erroneous_term_supplied": false,
+    "corrected_equations_tables_or_code_supplied": false,
+    "formal_published_correction_supplied": false,
+    "source_tables_modified": false,
+    "global_thermal_energy_rescaling_adopted": false
+  },
+  "published_eos_reproduction": {
+    "conclusion": "The EOS of Brown (1999) cannot be reproduced from the available published material.",
+    "reason": "Author-acknowledged vibrational-energy error, internally inconsistent calculated tables, and unavailable original numerical inputs and implementation settings.",
+    "corrected_brown_eos_available": false,
+    "tables_used_for_fitting_or_model_selection": false
+  },
+  "independent_reconstruction": {
+    "id": "nacl_b1_historical_data_2026_refit",
+    "label": "NaCl B1 historical-data reconstruction (2026)",
+    "record_kind": "refit",
+    "artifact": "output/material-candidates/brown-nacl-1999/nacl_b1_historical_data_2026_refit.json",
+    "script": "scripts/brown_nacl_1999_independent_eos.py",
+    "status": "staged standalone EOS; not an author-approved correction or a validated replacement pressure standard",
+    "catalog_record_changed": false
+  }
+}
