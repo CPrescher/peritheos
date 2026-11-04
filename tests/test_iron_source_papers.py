@@ -131,8 +131,10 @@ def test_zero_gamma_infinity_is_exact_power_law_and_rejects_negative():
         Dewaele2006(BM3(0.667, 202, 4.5), **{**params, "gamma_inf": -0.01})
 
 
-def test_source_checkpoints_and_explicit_regression_limits(assert_audit_close):
-    report = reproduce()["records"]
+def test_source_checkpoints_and_explicit_regression_limits(
+    assert_audit_close, reproduce_once
+):
+    report = reproduce_once(reproduce)["records"]
     brown = report["iron_brown_2000_linear_hugoniot"]
     assert brown["status"] == "parity"
     assert round(brown["parameters"]["c0"], 3) == 3.935
@@ -165,7 +167,7 @@ def test_source_checkpoints_and_explicit_regression_limits(assert_audit_close):
         "checkpoint_330gpa_6000k_density_g_cm3"
     ] == pytest.approx(13.18, abs=0.025)
     stored = json.loads(REPORT.read_text(encoding="utf-8"))
-    replayed = reproduce()
+    replayed = reproduce_once(reproduce)
     # Compare fitted parameters at solver precision. Their near-zero differences
     # from published values lose relative precision, so validate those against
     # each report's own coefficients before comparing the rest of the reports.

@@ -109,7 +109,7 @@ def test_speziale_derived_pressures_preserve_source_columns_and_holes():
     assert "calibration_record" not in ds["pressure_reconstruction"]
 
 
-def test_speziale_refit_selection_covariance_export_and_native_pressure():
+def test_speziale_refit_selection_covariance_export_and_native_pressure(reproduce_once):
     doc = get_material_document("iron")
     validate_eosmat_document(doc)
     raw = get_eos_record_document(RECORD_ID)
@@ -138,7 +138,7 @@ def test_speziale_refit_selection_covariance_export_and_native_pressure():
         "scientific_validation",
     ):
         assert restored[key] == raw[key]
-    fit = reproduce()["primary"]
+    fit = reproduce_once(reproduce)["primary"]
     errors = [fit["conditional_standard_errors"][name] for name in NAMES]
     covariance = np.array(raw["parameter_covariance"]["matrix"])
     np.testing.assert_allclose(np.diag(covariance), np.array(errors) ** 2, rtol=1e-6)
@@ -169,7 +169,7 @@ def test_speziale_refit_selection_covariance_export_and_native_pressure():
     assert ledger_outcome(raw)["status"] == "parity"
 
 
-def test_speziale_native_staged_fit_matches_independent_least_squares():
+def test_speziale_native_staged_fit_matches_independent_least_squares(reproduce_once):
     _, data, _ = read_data()
     pressure = pressure_column(data, MODEL)[0]
     check = least_squares(
@@ -181,7 +181,7 @@ def test_speziale_native_staged_fit_matches_independent_least_squares():
         xtol=1e-12,
         gtol=1e-12,
     )
-    fit = reproduce()["primary"]
+    fit = reproduce_once(reproduce)["primary"]
     assert check.success
     np.testing.assert_allclose(
         check.x, [fit["parameters"][name] for name in NAMES], rtol=2e-6, atol=2e-6

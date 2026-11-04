@@ -102,8 +102,8 @@ def test_independent_quadrature_native_pressure_inversion_and_validity():
         record.volume(200, 3500, check_validity=True)
 
 
-def test_replay_does_not_hide_failed_published_residual_claim():
-    report = reproduce()
+def test_replay_does_not_hide_failed_published_residual_claim(reproduce_once):
+    report = reproduce_once(reproduce)
     assert (
         json.loads(OUTPUT.read_text(encoding="utf-8"))["source_rows"]
         == report["source_rows"]
@@ -124,8 +124,8 @@ def test_replay_does_not_hide_failed_published_residual_claim():
     )
 
 
-def test_all_final_pressures_reproduce_from_paired_gsas_markers():
-    report = reproduce()["calibration_replay"]
+def test_all_final_pressures_reproduce_from_paired_gsas_markers(reproduce_once):
+    report = reproduce_once(reproduce)["calibration_replay"]
     assert report["matched_rows"] == 146
     assert report["max_abs_pressure_difference_gpa"] < 2e-12
     material = Material.from_eosmat(

@@ -160,7 +160,9 @@ def test_diagnostic_fits_are_stable_and_do_not_claim_published_parity(
     assert checked_report["reconstruction_sha256"] == _sha256(RECONSTRUCTION)
 
 
-def test_material_provenance_and_common_ledger_expose_partial_reconstruction():
+def test_material_provenance_and_common_ledger_expose_partial_reconstruction(
+    reproduce_once,
+):
     reconstruction_hash = _sha256(RECONSTRUCTION)
     provenance_hash = _sha256(PROVENANCE)
     for material_id, (record_id, dataset_id) in TARGETS.items():
@@ -206,7 +208,8 @@ def test_material_provenance_and_common_ledger_expose_partial_reconstruction():
     assert komabayashi["resource"]["sha256"] == _sha256(KOMABAYASHI)
 
     ledger_records = {
-        item["record_identifier"]: item for item in validate_all()["records"]
+        item["record_identifier"]: item
+        for item in reproduce_once(validate_all)["records"]
     }
     for record_id, _dataset_id in TARGETS.values():
         outcome = ledger_records[record_id]

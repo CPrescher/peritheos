@@ -92,8 +92,10 @@ def test_published_coefficients_and_native_evaluation(identifier):
 
 
 @pytest.mark.parametrize("identifier", PUBLISHED)
-def test_independent_source_refits_and_objective_sensitivity(identifier):
-    result = reproduce()["fits"][identifier]
+def test_independent_source_refits_and_objective_sensitivity(
+    identifier, reproduce_once
+):
+    result = reproduce_once(reproduce)["fits"][identifier]
     expected = {
         "stishovite_nisr_2017_dry_bm3": {"K0": 312.1355083},
         "hydrous_stishovite_nisr_2017_bm3": {"K0": 256.9167267},
@@ -128,8 +130,8 @@ def test_independent_source_refits_and_objective_sensitivity(identifier):
     )
 
 
-def test_hydrous_identity_transition_gap_and_diffraction_fallback():
-    water = reproduce()["water_content_audit"]
+def test_hydrous_identity_transition_gap_and_diffraction_fallback(reproduce_once):
+    water = reproduce_once(reproduce)["water_content_audit"]
     assert water["formula_implied_water_wt_percent"] == pytest.approx(2.81, abs=0.01)
     assert water["corrected_table2_volume_expansion_percent"] == pytest.approx(
         1.3507, abs=0.0001

@@ -71,8 +71,8 @@ def test_zero_reference_reduces_to_native_bm3_and_linear_benchmark():
     np.testing.assert_allclose(linear_design(v) @ beta, pressure(v), atol=1e-11)
 
 
-def test_fit_errors_covariance_and_source_replay_remain_qualified():
-    report = reproduce()
+def test_fit_errors_covariance_and_source_replay_remain_qualified(reproduce_once):
+    report = reproduce_once(reproduce)
     saved = json.loads(OUTPUT.read_text(encoding="utf-8"))
     assert report["source_rows"] == saved["source_rows"]
     assert report["published_replay"]["rmse_gpa"] == pytest.approx(1.9860371659)
@@ -113,7 +113,9 @@ def test_direct_eosfit_inputs_preserve_all_rows_units_and_derived_conversions():
                 )
 
 
-def test_direct_console_outputs_are_complete_hashed_and_actually_converged():
+def test_direct_console_outputs_are_complete_hashed_and_actually_converged(
+    reproduce_once,
+):
     folder = ROOT / "docs/data/fes-eosfit7c"
     manifest = json.loads((folder / "manifest.json").read_text(encoding="utf-8"))
     assert manifest["version"] == "7.60"
@@ -148,7 +150,7 @@ def test_direct_console_outputs_are_complete_hashed_and_actually_converged():
     gamma = manifest["cases"]["morard-unit"]["refined_parameters_final_cycle"]["Gamm0"]
     assert gamma == {"value": 2.28211, "esd": 0.03231}
     source_frame = manifest["cases"]["cold-unit"]["sata_fixed_reference_representation"]
-    independent = reproduce()["conditional_refits"]["unweighted_pressure"]
+    independent = reproduce_once(reproduce)["conditional_refits"]["unweighted_pressure"]
     np.testing.assert_allclose(
         source_frame["parameters"], independent["parameters"], atol=1e-3, rtol=0
     )

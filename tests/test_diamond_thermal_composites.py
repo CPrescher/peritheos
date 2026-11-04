@@ -38,8 +38,8 @@ def test_composite_cards_distinguish_derivation_and_h05_calibration():
     )
 
 
-def test_correa_figure_8_validates_published_complete_pressure_model():
-    result = reproduce()["correa_2008"]
+def test_correa_figure_8_validates_published_complete_pressure_model(reproduce_once):
+    result = reproduce_once(reproduce)["correa_2008"]
     validation = result["source_model_pressure_validation"]
 
     assert validation["observations"] == 57
@@ -48,8 +48,8 @@ def test_correa_figure_8_validates_published_complete_pressure_model():
     assert validation["absolute_pressure_max_abs_residual_gpa"] < 7.0
 
 
-def test_benedict_supplement_validates_pressure_and_caloric_model():
-    result = reproduce()["benedict_2014"]
+def test_benedict_supplement_validates_pressure_and_caloric_model(reproduce_once):
+    result = reproduce_once(reproduce)["benedict_2014"]
     pressure = result["source_model_pressure_validation"]
     energy = result["source_model_caloric_validation"]
 
@@ -61,8 +61,10 @@ def test_benedict_supplement_validates_pressure_and_caloric_model():
     assert energy["internal_energy_increment_rmse_ev_per_atom"] < 0.062
 
 
-def test_complete_composites_exactly_preserve_anchor_and_thermal_increments():
-    result = reproduce()
+def test_complete_composites_exactly_preserve_anchor_and_thermal_increments(
+    reproduce_once,
+):
+    result = reproduce_once(reproduce)
 
     assert result["coefficient_optimization_performed"] is False
     for source in ("correa_2008", "benedict_2014"):

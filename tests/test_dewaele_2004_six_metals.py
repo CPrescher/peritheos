@@ -173,8 +173,8 @@ def test_dewaele_records_preserve_cell_normalization_and_source_metadata(
         assert atomic_v0 == pytest.approx(expected_atomic_v0)
 
 
-def test_all_twelve_dewaele_source_fits_reach_uncertainty_parity():
-    ledger = validate_all()
+def test_all_twelve_dewaele_source_fits_reach_uncertainty_parity(reproduce_once):
+    ledger = reproduce_once(validate_all)
     expected_ids = set(NEW_RECORDS | EXISTING_REVISED_RECORDS)
     results = {
         item["record_identifier"]: item

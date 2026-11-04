@@ -135,8 +135,8 @@ def test_complete_primary_table_null_errors_and_independent_csv():
     assert parse_reported("0.0001") == [0.0001, None]
 
 
-def test_source_equation_residual_and_chi_checkpoints():
-    result = reproduce()
+def test_source_equation_residual_and_chi_checkpoints(reproduce_once):
+    result = reproduce_once(reproduce)
     check = result["source_equation_validation"]
     assert check["max_abs_pressure_residual_gpa"] == pytest.approx(0.0236970945293)
     assert check["matches_source_max_residual_at_printed_precision"]
@@ -165,7 +165,7 @@ def test_source_equation_residual_and_chi_checkpoints():
         eos.volume(6.8, check_validity=True)
 
 
-def test_conditional_refits_do_not_replace_published_parameters():
+def test_conditional_refits_do_not_replace_published_parameters(reproduce_once):
     observations = load_observations()
     before = copy.deepcopy(document())
     for mode in [
@@ -188,7 +188,7 @@ def test_conditional_refits_do_not_replace_published_parameters():
     assert without["observations"] == 10
     assert not without["all_within_published_errors"]
     assert document() == before
-    parity = reproduce()["fit_recovery"]
+    parity = reproduce_once(reproduce)["fit_recovery"]
     assert parity["status"] == "parity_within_reported_uncertainty"
     assert parity["max_coefficient_shift_over_published_error"] < 0.13
     assert parity["max_curve_difference_gpa_on_2000_point_volume_grid"] < 0.01
@@ -199,15 +199,16 @@ def test_conditional_refits_do_not_replace_published_parameters():
         ]
         == parity["status"]
     )
-    workflow = reproduce()["exact_author_workflow_reproduction"]
+    workflow = reproduce_once(reproduce)["exact_author_workflow_reproduction"]
     assert workflow["provenance_only"]
     assert workflow["does_not_negate_fit_parity"]
     assert (
-        reproduce()["exact_author_workflow_reproduction"]["status"] == "not_reproduced"
+        reproduce_once(reproduce)["exact_author_workflow_reproduction"]["status"]
+        == "not_reproduced"
     )
 
 
-def test_diffraction_fallback_uses_target_cell_and_separate_provenance():
+def test_diffraction_fallback_uses_target_cell_and_separate_provenance(reproduce_once):
     doc = document()
     source = json.loads(SOURCE.read_text())
     assert doc["atom_sites"] == []
@@ -230,9 +231,11 @@ def test_diffraction_fallback_uses_target_cell_and_separate_provenance():
     assert structure["reference"]["doi"] == "10.1007/BF00202972"
     assert structure["fallback_reference"]["doi"] == "10.2138/am-2000-5-616"
     assert structure["cell_reference"]["doi"] == "10.1180/002646100549427"
-    assert reproduce()["cell_consistency"]["all_within_printed_rounding_bounds"]
+    assert reproduce_once(reproduce)["cell_consistency"][
+        "all_within_printed_rounding_bounds"
+    ]
     # Original structure inconsistencies are retained, not repaired by occupancy edits.
-    checks = reproduce()["structure_site_audit"]
+    checks = reproduce_once(reproduce)["structure_site_audit"]
     assert checks[0]["table1_site_totals"]["Mg"] == pytest.approx(2.031)
     assert checks[1]["table1_site_totals"]["Mg"] == pytest.approx(2.169)
     assert (

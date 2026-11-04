@@ -36,7 +36,7 @@ def test_exact_density_polynomial_and_nonzero_anchor():
         DensityPolynomial3(100, 2, float("nan"), -11.43, 1.5, 0.68)
 
 
-def test_eosmat_roundtrip_and_provenance():
+def test_eosmat_roundtrip_and_provenance(reproduce_once):
     doc = get_material_document("argon_fcc")
     Draft202012Validator(eosmat_schema()).validate(doc)
     material = Material.from_eosmat(doc)
@@ -50,7 +50,9 @@ def test_eosmat_roundtrip_and_provenance():
         == "approximate_internal_consistency_reproduced"
     )
     summary = raw["reproduction"]["equal_weight_consistency"]
-    diagnostic = reproduce()["equal_weight_diagnostics"][summary["selected_diagnostic"]]
+    diagnostic = reproduce_once(reproduce)["equal_weight_diagnostics"][
+        summary["selected_diagnostic"]
+    ]
     assert summary["included_row_count"] == diagnostic["row_count"] == 74
     assert summary["excluded_source_rows"] == [98]
     assert summary["coefficients_c0_to_c3"] == pytest.approx(
@@ -64,8 +66,8 @@ def test_eosmat_roundtrip_and_provenance():
     assert raw["eos"]["parameters"]["c3"] == 0.68
 
 
-def test_source_table_consistency_with_honest_outlier():
-    report = reproduce()
+def test_source_table_consistency_with_honest_outlier(reproduce_once):
+    report = reproduce_once(reproduce)
     assert report["table1_count"] == 98
     assert report["liquid_count"] == 23
     assert report["fcc_count"] == 75
@@ -96,8 +98,8 @@ def test_stable_expansion_inverse_near_spinodal():
         eos.volume(pressure(spinodal) - 1e-8)
 
 
-def test_equal_weight_refits_are_only_derived_data_diagnostics():
-    report = reproduce()
+def test_equal_weight_refits_are_only_derived_data_diagnostics(reproduce_once):
+    report = reproduce_once(reproduce)
     fits = report["equal_weight_diagnostics"]
     all_rows = fits["all_75_solid_rows"]
     sensitivity = fits["sensitivity_without_inconsistent_source_row_98"]

@@ -99,7 +99,9 @@ def test_source_owned_records_preserve_fixed_extrapolated_volume_and_scales():
 
 
 @pytest.mark.parametrize("source", source_records(), ids=lambda r: r["identifier"])
-def test_every_scale_executes_inverts_and_reproduces_primary_measurements(source):
+def test_every_scale_executes_inverts_and_reproduces_primary_measurements(
+    source, reproduce_once
+):
     record = get_eos_record(source["identifier"])
     v0, k0, kp = (source["eos"]["parameters"][k] for k in ("V0", "K0", "K0_prime"))
     assert record.pressure(v0) == pytest.approx(0, abs=1e-10)
@@ -118,7 +120,7 @@ def test_every_scale_executes_inverts_and_reproduces_primary_measurements(source
         record.volume(364, check_validity=True)
     with pytest.raises(ValueError, match="isothermal"):
         record.volume(100, 1500, check_validity=True)
-    result = reproduce()["records"][source["identifier"]]
+    result = reproduce_once(reproduce)["records"][source["identifier"]]
     assert result["table1_points_within_three_printed_volume_error_widths"] == 27
     assert result["catalog_max_difference_from_independent_equation_gpa"] < 1e-10
     assert result["fixed_V0_refit"]["observations"] == 54
@@ -129,8 +131,8 @@ def test_every_scale_executes_inverts_and_reproduces_primary_measurements(source
     assert all(p["within_combined_2sigma"] is None for p in outcome["parameters"])
 
 
-def test_calibration_reduction_and_independent_published_extrapolation():
-    result = reproduce()
+def test_calibration_reduction_and_independent_published_extrapolation(reproduce_once):
+    result = reproduce_once(reproduce)
     for scale in ("matsui", "fei", "do"):
         assert (
             result["calibrant_checks"][scale]["max_abs_pressure_difference_gpa"] < 0.17

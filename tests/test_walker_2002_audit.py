@@ -70,8 +70,10 @@ def test_both_primary_attributions_preserve_coefficients_and_block_replay(
         resolve_dataset_pressure(document, identifier, dataset)
 
 
-def test_actual_temperature_and_volume_inputs_never_claim_complete_replay():
-    result = reproduce()
+def test_actual_temperature_and_volume_inputs_never_claim_complete_replay(
+    reproduce_once,
+):
+    result = reproduce_once(reproduce)
     replay = result["nacl_pressure_replay"]
     assert replay["reference_temperature_k"] == 298.15
     assert replay["status"] == "conditional_run_normalized_replay"
@@ -116,8 +118,10 @@ def test_actual_temperature_and_volume_inputs_never_claim_complete_replay():
     )
 
 
-def test_b1_two_reference_hypothesis_and_measured_temperature_sensitivity():
-    replay = reproduce()["nacl_pressure_replay"]
+def test_b1_two_reference_hypothesis_and_measured_temperature_sensitivity(
+    reproduce_once,
+):
+    replay = reproduce_once(reproduce)["nacl_pressure_replay"]
     summary = replay["table1_replay"]
     assert summary["status"] == "conditional_reference_temperature_hypothesis"
     anchors = summary["calibrant_reference_anchors"]
@@ -144,8 +148,8 @@ def test_b1_two_reference_hypothesis_and_measured_temperature_sensitivity():
             assert row["replay_kind"] == "conditional_b1_reference_temperature"
 
 
-def test_b1_imposed_zeros_keep_the_hypothesis_disagreement_visible():
-    result = reproduce()
+def test_b1_imposed_zeros_keep_the_hypothesis_disagreement_visible(reproduce_once):
+    result = reproduce_once(reproduce)
     replay = result["nacl_pressure_replay"]
     summary = replay["table1_replay"]
     assert summary["imposed_zero_source_row_indices"] == [1, 2]
@@ -180,8 +184,8 @@ def test_b1_reference_selection_rejects_missing_or_misclassified_source():
         b1_pressure_replay(changed)
 
 
-def test_b1_source_objective_and_figure_table_reference_disagreement():
-    result = reproduce()["b1_fit"]
+def test_b1_source_objective_and_figure_table_reference_disagreement(reproduce_once):
+    result = reproduce_once(reproduce)["b1_fit"]
     assert result["observations"] == 23
     fitted = result["joint_fitted_parameters"]
     direct = result["direct_K0_alpha0_solver"]
@@ -203,8 +207,8 @@ def test_b1_source_objective_and_figure_table_reference_disagreement():
     assert abs(literal["K0"] - 17.7) > abs(fitted["K0"] - 17.7)
 
 
-def test_b2_independent_staging_and_published_native_evaluation():
-    result = reproduce()["b2_staged_fit"]["fits"]
+def test_b2_independent_staging_and_published_native_evaluation(reproduce_once):
+    result = reproduce_once(reproduce)["b2_staged_fit"]["fits"]
     eight = result["eight_23_24_celsius_reference_rows"]
     seven = result["seven_exact_23_celsius_rows_sensitivity"]
     assert len(eight["cold_source_row_indices"]) == 8
@@ -220,5 +224,7 @@ def test_b2_independent_staging_and_published_native_evaluation():
     np.testing.assert_allclose(native, independent, rtol=0, atol=1e-12)
 
 
-def test_generated_report_is_current():
-    check_report(reproduce(), json.loads(OUTPUT.read_text(encoding="utf-8")))
+def test_generated_report_is_current(reproduce_once):
+    check_report(
+        reproduce_once(reproduce), json.loads(OUTPUT.read_text(encoding="utf-8"))
+    )

@@ -185,8 +185,10 @@ def test_brucite_source_observations_are_independent_checkpoints(candidate):
         static.volume(22.57, 300, check_validity=True)
 
 
-def test_brucite_conditional_agreement_does_not_claim_exact_reproduction():
-    report = reproduce()
+def test_brucite_conditional_agreement_does_not_claim_exact_reproduction(
+    reproduce_once,
+):
+    report = reproduce_once(reproduce)
     stored = json.loads(REPORT.read_text())
     assert report == stored
     assert (
@@ -295,8 +297,10 @@ def test_catalog_brucite_published_ranges_and_qualified_source_records():
     assert load_eosmat(STAGED.with_name("brucite-diagnostic-archive.eosmat")) == archive
 
 
-def test_brucite_figure_normalization_is_evidence_not_a_silent_correction():
-    report = reproduce()
+def test_brucite_figure_normalization_is_evidence_not_a_silent_correction(
+    reproduce_once,
+):
+    report = reproduce_once(reproduce)
     audit = report["figure6c_audit"]
     assert audit["mean_implied_normalization_volume_a3"] == pytest.approx(
         42.70, abs=0.02

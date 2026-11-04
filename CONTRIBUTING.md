@@ -25,6 +25,22 @@ uv run pytest -q -W error --cov --cov-report=term-missing
 uv run --group docs mkdocs build --strict
 ```
 
+Routine GitHub Actions runs three jobs: the core Python 3.13 compatibility
+suite, stable Rust tests/formatting/Clippy, and Python lint/format/typing checks.
+The complete suite, Python/Rust coverage, documentation, dependency policy,
+packaging and broader compatibility matrix run weekly or on manual request.
+Before a release,
+manually run the **CI** workflow on the intended commit with **Run the full
+compatibility matrix** enabled and require it to pass. See
+[Development](docs/development.md) for the complete CI policy.
+
+Profile test time with `uv run pytest --durations=30`. Unchanged numerical audit
+reports can use the `reproduce_once` fixture to compute once per test session;
+each request receives an isolated copy. Input-mutation, solver-patching, and
+repeatability tests must continue to execute fresh calculations. When adding a
+library interface, update the explicit compatibility selection in
+[.github/pytest-compatibility.ini](.github/pytest-compatibility.ini).
+
 ## Scientific changes
 
 Changes to an equation, constant, unit convention, fitting statistic, or

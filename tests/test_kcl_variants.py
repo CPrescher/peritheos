@@ -76,8 +76,10 @@ def test_official_tateno_pairing_has_correct_marker_and_sample_volume():
     assert all(r["column"].startswith("platinum_") for r in corrections)
 
 
-def test_holmes_pressure_coordinate_is_separate_and_explicitly_qualified():
-    result = reproduce()
+def test_holmes_pressure_coordinate_is_separate_and_explicitly_qualified(
+    reproduce_once,
+):
+    result = reproduce_once(reproduce)
     derived = result["holmes_pressure_coordinate"]
     assert len(derived["rows"]) == 39
     assert any(r["outside_holmes_thermal_approximation"] for r in derived["rows"])
@@ -106,8 +108,10 @@ def test_holmes_pressure_coordinate_is_separate_and_explicitly_qualified():
     )
 
 
-def test_complete_chidester_vinet_fit_and_independent_equation_reproduction():
-    result = reproduce()
+def test_complete_chidester_vinet_fit_and_independent_equation_reproduction(
+    reproduce_once,
+):
+    result = reproduce_once(reproduce)
     c = result[IDS[4]]
     assert c["observations"] == 278
     assert (c["room_temperature_rows"], c["effective_temperature_rows"]) == (123, 155)

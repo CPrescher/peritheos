@@ -1,6 +1,30 @@
-"""Shared assertions for replaying numerical audit reports."""
+"""Shared assertions and isolated results for numerical audit replays."""
+
+import copy
 
 import pytest
+
+
+@pytest.fixture(scope="session")
+def _reproduction_cache():
+    return {}
+
+
+@pytest.fixture
+def reproduce_once(_reproduction_cache):
+    """Compute an unchanged, no-argument audit once; return an isolated copy.
+
+    Use only for fixed source inputs. Tests that modify inputs, patch a solver,
+    or check repeated execution must call the reproduction function directly.
+    Keep this cache in tests: production audits must always read current inputs.
+    """
+
+    def result(reproduce):
+        if reproduce not in _reproduction_cache:
+            _reproduction_cache[reproduce] = reproduce()
+        return copy.deepcopy(_reproduction_cache[reproduce])
+
+    return result
 
 
 @pytest.fixture

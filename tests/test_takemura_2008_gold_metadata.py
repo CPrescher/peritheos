@@ -107,8 +107,10 @@ def test_takemura_independent_equation_and_inverse_match_library_on_observed_sta
     assert volume(p, derivative) == pytest.approx(eos.volume(p), abs=1e-8)
 
 
-def test_takemura_parameter_parity_is_stable_to_pressure_coordinate_and_objective():
-    report = reproduce()
+def test_takemura_parameter_parity_is_stable_to_pressure_coordinate_and_objective(
+    reproduce_once,
+):
+    report = reproduce_once(reproduce)
     expected = {
         "dorogokupets_oganov": (5.9287095121, 5.9292840677),
         "zha": (5.5133984339, 5.5301250915),
@@ -135,8 +137,10 @@ def test_takemura_parameter_parity_is_stable_to_pressure_coordinate_and_objectiv
     assert outcome["rmse_gpa"] == pytest.approx(0.7778728515, abs=1e-9)
 
 
-def test_takemura_dedicated_report_is_reproducible():
-    check_saved(json.loads(OUTPUT.read_text(encoding="utf-8")), reproduce())
+def test_takemura_dedicated_report_is_reproducible(reproduce_once):
+    check_saved(
+        json.loads(OUTPUT.read_text(encoding="utf-8")), reproduce_once(reproduce)
+    )
 
 
 def test_takemura_common_ledger_uses_the_qualified_dedicated_result():

@@ -49,9 +49,9 @@ def _record_and_datasets():
     return record, datasets
 
 
-def test_anderson_reproduction_report_is_current(assert_audit_close):
+def test_anderson_reproduction_report_is_current(assert_audit_close, reproduce_once):
     assert_audit_close(
-        reproduce(),
+        reproduce_once(reproduce),
         json.loads(REPORT.read_text(encoding="utf-8")),
         rel=1e-12,
         abs=1e-12,
@@ -76,8 +76,8 @@ def test_anderson_source_tables_are_complete_and_checksummed():
     assert "fit_datasets" not in record
 
 
-def test_anderson_300k_cp_print_is_preserved_but_not_silently_used():
-    audit = reproduce()["table1_300k_cp_audit"]
+def test_anderson_300k_cp_print_is_preserved_but_not_silently_used(reproduce_once):
+    audit = reproduce_once(reproduce)["table1_300k_cp_audit"]
     assert audit["printed_0p1_j_g_k"] == pytest.approx(1.1288)
     assert audit["equation4_0p1_j_g_k"] == pytest.approx(1.28820, abs=5e-5)
     assert audit["equation12_inverted_0p1_j_g_k"] == pytest.approx(1.28843, abs=5e-5)
@@ -87,8 +87,8 @@ def test_anderson_300k_cp_print_is_preserved_but_not_silently_used():
     )
 
 
-def test_anderson_staged_regressions_recover_published_coefficients():
-    report = reproduce()
+def test_anderson_staged_regressions_recover_published_coefficients(reproduce_once):
+    report = reproduce_once(reproduce)
     ambient = report["table2_ambient_kt_temperature_derivatives"]
     assert ambient["low_temperature"]["slope_gpa_k"] == pytest.approx(
         ambient["low_temperature"]["published_slope_gpa_k"], abs=6e-4
@@ -109,17 +109,17 @@ def test_anderson_staged_regressions_recover_published_coefficients():
     assert trials["5.5"]["slope_gpa_k"] == pytest.approx(-0.0115, abs=2e-5)
 
 
-def test_anderson_equation29_reproduces_every_table5_top_row():
-    report = reproduce()
+def test_anderson_equation29_reproduces_every_table5_top_row(reproduce_once):
+    report = reproduce_once(reproduce)
     table5 = report["table5_equation29_reproduction"]
     assert table5["states"] == 126
     assert table5["max_abs_residual_gpa"] <= table5["rounding_tolerance_gpa"]
     assert table5["rmse_gpa"] < 0.003
 
 
-def test_anderson_global_fit_is_explicitly_not_defined():
+def test_anderson_global_fit_is_explicitly_not_defined(reproduce_once):
     record, _ = _record_and_datasets()
-    report = reproduce()
+    report = reproduce_once(reproduce)
     conclusion = report["conclusion"]
     assert conclusion["global_fit_status"] == "not_defined_by_source"
     assert conclusion["classification"] == "not_refittable"
