@@ -1,0 +1,760 @@
+{
+  "format_version": 4,
+  "identifier": "molybdenum",
+  "name": "Molybdenum",
+  "formula": "Mo",
+  "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
+  "formula_units_per_cell": 2,
+  "eos_records": [
+    {
+      "identifier": "molybdenum_dewaele_2008_paw_lda_static_vinet",
+      "label": "Dewaele et al. (2008), PAW LDA, static lattice, with semicore",
+      "model": "Vinet",
+      "temperature_ref": 0.0,
+      "parameters": {
+        "V0": {"value": 30.126, "error": null},
+        "K0": {"value": 301.0, "error": null},
+        "K0_prime": {"value": 3.99, "error": null}
+      },
+      "parameter_error_confidence": null,
+      "pressure_range_status": "theoretical",
+      "determination_method": "theoretical",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "notes": "Published Vinet fit to PAW calculations with semicore states (Tables V-VI). The parenthesized Table VI numbers are static-lattice coefficients, not errors. The unparenthesized values are independently tabulated fits after addition of the estimated constant 298 K thermal pressure, including zero-point motion; this record is one isotherm, not a continuous thermal EOS. Missing parameter errors and covariance remain unknown. Raw DFT fitting points are not printed; linked Figure 4 vertices are graphical checks, not fitting observations. The paper's experimental comparison rows do not define additional theoretical inputs or new experiments.",
+      "source_thermal_pressure_298k_gpa": 1.6,
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Dewaele", "Torrent", "Loubeyre", "Mezouar"],
+        "year": 2008,
+        "title": "Compression curves of transition metals in the Mbar range: Experiments and projector augmented-wave calculations",
+        "source": "Physical Review B",
+        "volume": "78",
+        "locator": "104102",
+        "doi": "10.1103/PhysRevB.78.104102"
+      },
+      "pressure_calibration": {
+        "status": "not_applicable",
+        "methods": [
+          {
+            "kind": "ab_initio",
+            "source_location": "Sections V-VI, Tables V-VI",
+            "scope": "PAW with semicore states; lda"
+          }
+        ],
+        "recalculation": {
+          "status": "not_applicable",
+          "notes": "No experimental pressure gauge defines the PAW pressure. The 298 K correction is separately stated in Section V."
+        },
+        "audit_date": "2026-10-22"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "source_equation",
+            "source_status": "parity",
+            "basis": "Source-equation parity against identified graphical checkpoints within declared reading and printed-coefficient bounds; no independent parameter refit or author-workflow reproduction.",
+            "basis_code": "source_curve_reading_and_print_precision",
+            "qualifications": [
+              "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/research/dewaele-2008-paw/#record-molybdenum_dewaele_2008_paw_lda_static_vinet",
+            "report_path": "docs/research/dewaele-2008-paw.md#record-molybdenum_dewaele_2008_paw_lda_static_vinet",
+            "fit": {
+              "fit_kind": "source_curve_validation_only",
+              "free_parameters": [],
+              "fixed_parameters": [],
+              "observations": 7,
+              "comparison_scope": "source_equation",
+              "dataset_identifiers": ["molybdenum_dewaele_2008_figure4"]
+            },
+            "report": "reproduction.json"
+          },
+          "source_equation_check": {
+            "passed": true,
+            "source_curve_indices": [274],
+            "checkpoint_count": 7,
+            "max_absolute_volume_difference_a3_per_atom": 0.007389022770855291,
+            "source_thermal_pressure_shift_gpa": 0,
+            "method": "1 GPa pressure reading bound, 0.04 A3/atom volume reading bound, and independent half-last-digit coefficient bounds; no statistical confidence inferred",
+            "independent_paw_refit_available": false,
+            "report": "reproduction.json"
+          },
+          "previous_catalog_report": {
+            "report": "docs/data/primary-eos-refits.json",
+            "report_path": "docs/reconstruction-reports/molybdenum.md#record-molybdenum_dewaele_2008_paw_lda_static_vinet",
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/molybdenum/#record-molybdenum_dewaele_2008_paw_lda_static_vinet"
+          }
+        },
+        "parameter_provenance": {
+          "V0": "Table VI, molybdenum lda, parenthesized static-lattice values, p. 104102-10; atomic V0 multiplied by Z=2",
+          "K0": "Table VI, molybdenum lda, parenthesized static-lattice values, p. 104102-10",
+          "K0_prime": "Table VI, molybdenum lda, parenthesized static-lattice values, p. 104102-10",
+          "determination_method": "PAW static-lattice calculation."
+        },
+        "source_lineage": [
+          {
+            "role": "equation and published coefficients",
+            "doi": "10.1103/PhysRevB.78.104102",
+            "citation": "Equation (1); Table VI, molybdenum lda, parenthesized static-lattice values, p. 104102-10"
+          }
+        ],
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-10-23",
+          "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "fixed_parameters"],
+          "primary_source_check": {
+            "doi": "10.1103/PhysRevB.78.104102",
+            "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+            "locations": ["Equation (1)", "Table VI, molybdenum lda, parenthesized static-lattice values, p. 104102-10"],
+            "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+            "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+          },
+          "primary_data_check": {
+            "status": "parameterization_only",
+            "dataset_identifiers": ["molybdenum_dewaele_2008_figure4"],
+            "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+          }
+        }
+      }
+    },
+    {
+      "identifier": "molybdenum_dewaele_2008_paw_lda_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW LDA, 298 K, with semicore",
+      "model": "Vinet",
+      "temperature_ref": 298.0,
+      "parameters": {
+        "V0": {"value": 30.29, "error": null},
+        "K0": {"value": 295.0, "error": null},
+        "K0_prime": {"value": 4.01, "error": null}
+      },
+      "parameter_error_confidence": null,
+      "pressure_range_status": "theoretical",
+      "determination_method": "hybrid",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "notes": "Published Vinet fit to PAW calculations with semicore states (Tables V-VI). The parenthesized Table VI numbers are static-lattice coefficients, not errors. The unparenthesized values are independently tabulated fits after addition of the estimated constant 298 K thermal pressure, including zero-point motion; this record is one isotherm, not a continuous thermal EOS. Missing parameter errors and covariance remain unknown. Raw DFT fitting points are not printed; linked Figure 4 vertices are graphical checks, not fitting observations. The paper's experimental comparison rows do not define additional theoretical inputs or new experiments.",
+      "source_thermal_pressure_298k_gpa": 1.6,
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Dewaele", "Torrent", "Loubeyre", "Mezouar"],
+        "year": 2008,
+        "title": "Compression curves of transition metals in the Mbar range: Experiments and projector augmented-wave calculations",
+        "source": "Physical Review B",
+        "volume": "78",
+        "locator": "104102",
+        "doi": "10.1103/PhysRevB.78.104102"
+      },
+      "pressure_calibration": {
+        "status": "not_applicable",
+        "methods": [
+          {
+            "kind": "ab_initio",
+            "source_location": "Sections V-VI, Tables V-VI",
+            "scope": "PAW with semicore states; lda"
+          }
+        ],
+        "recalculation": {
+          "status": "not_applicable",
+          "notes": "No experimental pressure gauge defines the PAW pressure. The 298 K correction is separately stated in Section V."
+        },
+        "audit_date": "2026-10-22"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "source_equation",
+            "source_status": "parity",
+            "basis": "Source-equation parity against identified graphical checkpoints within declared reading and printed-coefficient bounds; no independent parameter refit or author-workflow reproduction.",
+            "basis_code": "source_curve_reading_and_print_precision",
+            "qualifications": [
+              "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/research/dewaele-2008-paw/#record-molybdenum_dewaele_2008_paw_lda_298k_vinet",
+            "report_path": "docs/research/dewaele-2008-paw.md#record-molybdenum_dewaele_2008_paw_lda_298k_vinet",
+            "fit": {
+              "fit_kind": "source_curve_validation_only",
+              "free_parameters": [],
+              "fixed_parameters": [],
+              "observations": 7,
+              "comparison_scope": "source_equation",
+              "dataset_identifiers": ["molybdenum_dewaele_2008_figure4"]
+            },
+            "report": "reproduction.json"
+          },
+          "source_equation_check": {
+            "passed": true,
+            "source_curve_indices": [274],
+            "checkpoint_count": 7,
+            "max_absolute_volume_difference_a3_per_atom": 0.009091552204546716,
+            "source_thermal_pressure_shift_gpa": 1.6,
+            "method": "1 GPa pressure reading bound, 0.04 A3/atom volume reading bound, and independent half-last-digit coefficient bounds; no statistical confidence inferred",
+            "independent_paw_refit_available": false,
+            "report": "reproduction.json"
+          },
+          "previous_catalog_report": {
+            "report": "docs/data/primary-eos-refits.json",
+            "report_path": "docs/reconstruction-reports/molybdenum.md#record-molybdenum_dewaele_2008_paw_lda_298k_vinet",
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/molybdenum/#record-molybdenum_dewaele_2008_paw_lda_298k_vinet"
+          }
+        },
+        "parameter_provenance": {
+          "V0": "Table VI, molybdenum lda, unparenthesized 298 K values, p. 104102-10; atomic V0 multiplied by Z=2",
+          "K0": "Table VI, molybdenum lda, unparenthesized 298 K values, p. 104102-10",
+          "K0_prime": "Table VI, molybdenum lda, unparenthesized 298 K values, p. 104102-10",
+          "determination_method": "PAW static-lattice calculation; source 298 K pressure correction uses adopted literature Debye estimates, hence hybrid."
+        },
+        "source_lineage": [
+          {
+            "role": "equation and published coefficients",
+            "doi": "10.1103/PhysRevB.78.104102",
+            "citation": "Equation (1); Table VI, molybdenum lda, unparenthesized 298 K values, p. 104102-10"
+          }
+        ],
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-10-23",
+          "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "fixed_parameters"],
+          "primary_source_check": {
+            "doi": "10.1103/PhysRevB.78.104102",
+            "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+            "locations": ["Equation (1)", "Table VI, molybdenum lda, unparenthesized 298 K values, p. 104102-10"],
+            "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+            "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+          },
+          "primary_data_check": {
+            "status": "parameterization_only",
+            "dataset_identifiers": ["molybdenum_dewaele_2008_figure4"],
+            "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+          }
+        }
+      }
+    },
+    {
+      "identifier": "molybdenum_dewaele_2008_paw_pbe_static_vinet",
+      "label": "Dewaele et al. (2008), PAW PBE, static lattice, with semicore",
+      "model": "Vinet",
+      "temperature_ref": 0.0,
+      "parameters": {
+        "V0": {"value": 31.698, "error": null},
+        "K0": {"value": 262.0, "error": null},
+        "K0_prime": {"value": 4.14, "error": null}
+      },
+      "parameter_error_confidence": null,
+      "pressure_range_status": "theoretical",
+      "determination_method": "theoretical",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "notes": "Published Vinet fit to PAW calculations with semicore states (Tables V-VI). The parenthesized Table VI numbers are static-lattice coefficients, not errors. The unparenthesized values are independently tabulated fits after addition of the estimated constant 298 K thermal pressure, including zero-point motion; this record is one isotherm, not a continuous thermal EOS. Missing parameter errors and covariance remain unknown. Raw DFT fitting points are not printed; linked Figure 4 vertices are graphical checks, not fitting observations. The paper's experimental comparison rows do not define additional theoretical inputs or new experiments.",
+      "source_thermal_pressure_298k_gpa": 1.6,
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Dewaele", "Torrent", "Loubeyre", "Mezouar"],
+        "year": 2008,
+        "title": "Compression curves of transition metals in the Mbar range: Experiments and projector augmented-wave calculations",
+        "source": "Physical Review B",
+        "volume": "78",
+        "locator": "104102",
+        "doi": "10.1103/PhysRevB.78.104102"
+      },
+      "pressure_calibration": {
+        "status": "not_applicable",
+        "methods": [
+          {
+            "kind": "ab_initio",
+            "source_location": "Sections V-VI, Tables V-VI",
+            "scope": "PAW with semicore states; pbe"
+          }
+        ],
+        "recalculation": {
+          "status": "not_applicable",
+          "notes": "No experimental pressure gauge defines the PAW pressure. The 298 K correction is separately stated in Section V."
+        },
+        "audit_date": "2026-10-22"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "source_equation",
+            "source_status": "parity",
+            "basis": "Source-equation parity against identified graphical checkpoints within declared reading and printed-coefficient bounds; no independent parameter refit or author-workflow reproduction.",
+            "basis_code": "source_curve_reading_and_print_precision",
+            "qualifications": [
+              "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/research/dewaele-2008-paw/#record-molybdenum_dewaele_2008_paw_pbe_static_vinet",
+            "report_path": "docs/research/dewaele-2008-paw.md#record-molybdenum_dewaele_2008_paw_pbe_static_vinet",
+            "fit": {
+              "fit_kind": "source_curve_validation_only",
+              "free_parameters": [],
+              "fixed_parameters": [],
+              "observations": 7,
+              "comparison_scope": "source_equation",
+              "dataset_identifiers": ["molybdenum_dewaele_2008_figure4"]
+            },
+            "report": "reproduction.json"
+          },
+          "source_equation_check": {
+            "passed": true,
+            "source_curve_indices": [272],
+            "checkpoint_count": 7,
+            "max_absolute_volume_difference_a3_per_atom": 0.012212509879962141,
+            "source_thermal_pressure_shift_gpa": 0,
+            "method": "1 GPa pressure reading bound, 0.04 A3/atom volume reading bound, and independent half-last-digit coefficient bounds; no statistical confidence inferred",
+            "independent_paw_refit_available": false,
+            "report": "reproduction.json"
+          },
+          "previous_catalog_report": {
+            "report": "docs/data/primary-eos-refits.json",
+            "report_path": "docs/reconstruction-reports/molybdenum.md#record-molybdenum_dewaele_2008_paw_pbe_static_vinet",
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/molybdenum/#record-molybdenum_dewaele_2008_paw_pbe_static_vinet"
+          }
+        },
+        "parameter_provenance": {
+          "V0": "Table VI, molybdenum pbe, parenthesized static-lattice values, p. 104102-10; atomic V0 multiplied by Z=2",
+          "K0": "Table VI, molybdenum pbe, parenthesized static-lattice values, p. 104102-10",
+          "K0_prime": "Table VI, molybdenum pbe, parenthesized static-lattice values, p. 104102-10",
+          "determination_method": "PAW static-lattice calculation."
+        },
+        "source_lineage": [
+          {
+            "role": "equation and published coefficients",
+            "doi": "10.1103/PhysRevB.78.104102",
+            "citation": "Equation (1); Table VI, molybdenum pbe, parenthesized static-lattice values, p. 104102-10"
+          }
+        ],
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-10-23",
+          "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "fixed_parameters"],
+          "primary_source_check": {
+            "doi": "10.1103/PhysRevB.78.104102",
+            "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+            "locations": ["Equation (1)", "Table VI, molybdenum pbe, parenthesized static-lattice values, p. 104102-10"],
+            "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+            "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+          },
+          "primary_data_check": {
+            "status": "parameterization_only",
+            "dataset_identifiers": ["molybdenum_dewaele_2008_figure4"],
+            "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+          }
+        }
+      }
+    },
+    {
+      "identifier": "molybdenum_dewaele_2008_paw_pbe_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW PBE, 298 K, with semicore",
+      "model": "Vinet",
+      "temperature_ref": 298.0,
+      "parameters": {
+        "V0": {"value": 31.894, "error": null},
+        "K0": {"value": 255.0, "error": null},
+        "K0_prime": {"value": 4.17, "error": null}
+      },
+      "parameter_error_confidence": null,
+      "pressure_range_status": "theoretical",
+      "determination_method": "hybrid",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "notes": "Published Vinet fit to PAW calculations with semicore states (Tables V-VI). The parenthesized Table VI numbers are static-lattice coefficients, not errors. The unparenthesized values are independently tabulated fits after addition of the estimated constant 298 K thermal pressure, including zero-point motion; this record is one isotherm, not a continuous thermal EOS. Missing parameter errors and covariance remain unknown. Raw DFT fitting points are not printed; linked Figure 4 vertices are graphical checks, not fitting observations. The paper's experimental comparison rows do not define additional theoretical inputs or new experiments.",
+      "source_thermal_pressure_298k_gpa": 1.6,
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Dewaele", "Torrent", "Loubeyre", "Mezouar"],
+        "year": 2008,
+        "title": "Compression curves of transition metals in the Mbar range: Experiments and projector augmented-wave calculations",
+        "source": "Physical Review B",
+        "volume": "78",
+        "locator": "104102",
+        "doi": "10.1103/PhysRevB.78.104102"
+      },
+      "pressure_calibration": {
+        "status": "not_applicable",
+        "methods": [
+          {
+            "kind": "ab_initio",
+            "source_location": "Sections V-VI, Tables V-VI",
+            "scope": "PAW with semicore states; pbe"
+          }
+        ],
+        "recalculation": {
+          "status": "not_applicable",
+          "notes": "No experimental pressure gauge defines the PAW pressure. The 298 K correction is separately stated in Section V."
+        },
+        "audit_date": "2026-10-22"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "source_equation",
+            "source_status": "parity",
+            "basis": "Source-equation parity against identified graphical checkpoints within declared reading and printed-coefficient bounds; no independent parameter refit or author-workflow reproduction.",
+            "basis_code": "source_curve_reading_and_print_precision",
+            "qualifications": [
+              "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/research/dewaele-2008-paw/#record-molybdenum_dewaele_2008_paw_pbe_298k_vinet",
+            "report_path": "docs/research/dewaele-2008-paw.md#record-molybdenum_dewaele_2008_paw_pbe_298k_vinet",
+            "fit": {
+              "fit_kind": "source_curve_validation_only",
+              "free_parameters": [],
+              "fixed_parameters": [],
+              "observations": 7,
+              "comparison_scope": "source_equation",
+              "dataset_identifiers": ["molybdenum_dewaele_2008_figure4"]
+            },
+            "report": "reproduction.json"
+          },
+          "source_equation_check": {
+            "passed": true,
+            "source_curve_indices": [272],
+            "checkpoint_count": 7,
+            "max_absolute_volume_difference_a3_per_atom": 0.009907762439215873,
+            "source_thermal_pressure_shift_gpa": 1.6,
+            "method": "1 GPa pressure reading bound, 0.04 A3/atom volume reading bound, and independent half-last-digit coefficient bounds; no statistical confidence inferred",
+            "independent_paw_refit_available": false,
+            "report": "reproduction.json"
+          },
+          "previous_catalog_report": {
+            "report": "docs/data/primary-eos-refits.json",
+            "report_path": "docs/reconstruction-reports/molybdenum.md#record-molybdenum_dewaele_2008_paw_pbe_298k_vinet",
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/molybdenum/#record-molybdenum_dewaele_2008_paw_pbe_298k_vinet"
+          }
+        },
+        "parameter_provenance": {
+          "V0": "Table VI, molybdenum pbe, unparenthesized 298 K values, p. 104102-10; atomic V0 multiplied by Z=2",
+          "K0": "Table VI, molybdenum pbe, unparenthesized 298 K values, p. 104102-10",
+          "K0_prime": "Table VI, molybdenum pbe, unparenthesized 298 K values, p. 104102-10",
+          "determination_method": "PAW static-lattice calculation; source 298 K pressure correction uses adopted literature Debye estimates, hence hybrid."
+        },
+        "source_lineage": [
+          {
+            "role": "equation and published coefficients",
+            "doi": "10.1103/PhysRevB.78.104102",
+            "citation": "Equation (1); Table VI, molybdenum pbe, unparenthesized 298 K values, p. 104102-10"
+          }
+        ],
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-10-23",
+          "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "fixed_parameters"],
+          "primary_source_check": {
+            "doi": "10.1103/PhysRevB.78.104102",
+            "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+            "locations": ["Equation (1)", "Table VI, molybdenum pbe, unparenthesized 298 K values, p. 104102-10"],
+            "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+            "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+          },
+          "primary_data_check": {
+            "status": "parameterization_only",
+            "dataset_identifiers": ["molybdenum_dewaele_2008_figure4"],
+            "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+          }
+        }
+      }
+    },
+    {
+      "identifier": "molybdenum_dewaele_2008_paw_pbesol_static_vinet",
+      "label": "Dewaele et al. (2008), PAW PBESOL, static lattice, with semicore",
+      "model": "Vinet",
+      "temperature_ref": 0.0,
+      "parameters": {
+        "V0": {"value": 30.646, "error": null},
+        "K0": {"value": 287.0, "error": null},
+        "K0_prime": {"value": 4.02, "error": null}
+      },
+      "parameter_error_confidence": null,
+      "pressure_range_status": "theoretical",
+      "determination_method": "theoretical",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "notes": "Published Vinet fit to PAW calculations with semicore states (Tables V-VI). The parenthesized Table VI numbers are static-lattice coefficients, not errors. The unparenthesized values are independently tabulated fits after addition of the estimated constant 298 K thermal pressure, including zero-point motion; this record is one isotherm, not a continuous thermal EOS. Missing parameter errors and covariance remain unknown. Raw DFT fitting points are not printed; linked Figure 4 vertices are graphical checks, not fitting observations. The paper's experimental comparison rows do not define additional theoretical inputs or new experiments.",
+      "source_thermal_pressure_298k_gpa": 1.6,
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Dewaele", "Torrent", "Loubeyre", "Mezouar"],
+        "year": 2008,
+        "title": "Compression curves of transition metals in the Mbar range: Experiments and projector augmented-wave calculations",
+        "source": "Physical Review B",
+        "volume": "78",
+        "locator": "104102",
+        "doi": "10.1103/PhysRevB.78.104102"
+      },
+      "pressure_calibration": {
+        "status": "not_applicable",
+        "methods": [
+          {
+            "kind": "ab_initio",
+            "source_location": "Sections V-VI, Tables V-VI",
+            "scope": "PAW with semicore states; pbesol"
+          }
+        ],
+        "recalculation": {
+          "status": "not_applicable",
+          "notes": "No experimental pressure gauge defines the PAW pressure. The 298 K correction is separately stated in Section V."
+        },
+        "audit_date": "2026-10-22"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "source_equation",
+            "source_status": "parity",
+            "basis": "Source-equation parity against identified graphical checkpoints within declared reading and printed-coefficient bounds; no independent parameter refit or author-workflow reproduction.",
+            "basis_code": "source_curve_reading_and_print_precision",
+            "qualifications": [
+              "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/research/dewaele-2008-paw/#record-molybdenum_dewaele_2008_paw_pbesol_static_vinet",
+            "report_path": "docs/research/dewaele-2008-paw.md#record-molybdenum_dewaele_2008_paw_pbesol_static_vinet",
+            "fit": {
+              "fit_kind": "source_curve_validation_only",
+              "free_parameters": [],
+              "fixed_parameters": [],
+              "observations": 7,
+              "comparison_scope": "source_equation",
+              "dataset_identifiers": ["molybdenum_dewaele_2008_figure4"]
+            },
+            "report": "reproduction.json"
+          },
+          "source_equation_check": {
+            "passed": true,
+            "source_curve_indices": [304],
+            "checkpoint_count": 7,
+            "max_absolute_volume_difference_a3_per_atom": 0.009060907490765047,
+            "source_thermal_pressure_shift_gpa": 0,
+            "method": "1 GPa pressure reading bound, 0.04 A3/atom volume reading bound, and independent half-last-digit coefficient bounds; no statistical confidence inferred",
+            "independent_paw_refit_available": false,
+            "report": "reproduction.json"
+          },
+          "previous_catalog_report": {
+            "report": "docs/data/primary-eos-refits.json",
+            "report_path": "docs/reconstruction-reports/molybdenum.md#record-molybdenum_dewaele_2008_paw_pbesol_static_vinet",
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/molybdenum/#record-molybdenum_dewaele_2008_paw_pbesol_static_vinet"
+          }
+        },
+        "parameter_provenance": {
+          "V0": "Table VI, molybdenum pbesol, parenthesized static-lattice values, p. 104102-10; atomic V0 multiplied by Z=2",
+          "K0": "Table VI, molybdenum pbesol, parenthesized static-lattice values, p. 104102-10",
+          "K0_prime": "Table VI, molybdenum pbesol, parenthesized static-lattice values, p. 104102-10",
+          "determination_method": "PAW static-lattice calculation."
+        },
+        "source_lineage": [
+          {
+            "role": "equation and published coefficients",
+            "doi": "10.1103/PhysRevB.78.104102",
+            "citation": "Equation (1); Table VI, molybdenum pbesol, parenthesized static-lattice values, p. 104102-10"
+          }
+        ],
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-10-23",
+          "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "fixed_parameters"],
+          "primary_source_check": {
+            "doi": "10.1103/PhysRevB.78.104102",
+            "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+            "locations": ["Equation (1)", "Table VI, molybdenum pbesol, parenthesized static-lattice values, p. 104102-10"],
+            "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+            "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+          },
+          "primary_data_check": {
+            "status": "parameterization_only",
+            "dataset_identifiers": ["molybdenum_dewaele_2008_figure4"],
+            "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+          }
+        }
+      }
+    },
+    {
+      "identifier": "molybdenum_dewaele_2008_paw_pbesol_298k_vinet",
+      "label": "Dewaele et al. (2008), PAW PBESOL, 298 K, with semicore",
+      "model": "Vinet",
+      "temperature_ref": 298.0,
+      "parameters": {
+        "V0": {"value": 30.82, "error": null},
+        "K0": {"value": 280.0, "error": null},
+        "K0_prime": {"value": 4.05, "error": null}
+      },
+      "parameter_error_confidence": null,
+      "pressure_range_status": "theoretical",
+      "determination_method": "hybrid",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "notes": "Published Vinet fit to PAW calculations with semicore states (Tables V-VI). The parenthesized Table VI numbers are static-lattice coefficients, not errors. The unparenthesized values are independently tabulated fits after addition of the estimated constant 298 K thermal pressure, including zero-point motion; this record is one isotherm, not a continuous thermal EOS. Missing parameter errors and covariance remain unknown. Raw DFT fitting points are not printed; linked Figure 4 vertices are graphical checks, not fitting observations. The paper's experimental comparison rows do not define additional theoretical inputs or new experiments.",
+      "source_thermal_pressure_298k_gpa": 1.6,
+      "parameter_covariance": null,
+      "reference": {
+        "authors": ["Dewaele", "Torrent", "Loubeyre", "Mezouar"],
+        "year": 2008,
+        "title": "Compression curves of transition metals in the Mbar range: Experiments and projector augmented-wave calculations",
+        "source": "Physical Review B",
+        "volume": "78",
+        "locator": "104102",
+        "doi": "10.1103/PhysRevB.78.104102"
+      },
+      "pressure_calibration": {
+        "status": "not_applicable",
+        "methods": [
+          {
+            "kind": "ab_initio",
+            "source_location": "Sections V-VI, Tables V-VI",
+            "scope": "PAW with semicore states; pbesol"
+          }
+        ],
+        "recalculation": {
+          "status": "not_applicable",
+          "notes": "No experimental pressure gauge defines the PAW pressure. The 298 K correction is separately stated in Section V."
+        },
+        "audit_date": "2026-10-22"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "parity",
+            "scope": "source_equation",
+            "source_status": "parity",
+            "basis": "Source-equation parity against identified graphical checkpoints within declared reading and printed-coefficient bounds; no independent parameter refit or author-workflow reproduction.",
+            "basis_code": "source_curve_reading_and_print_precision",
+            "qualifications": [
+              "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/research/dewaele-2008-paw/#record-molybdenum_dewaele_2008_paw_pbesol_298k_vinet",
+            "report_path": "docs/research/dewaele-2008-paw.md#record-molybdenum_dewaele_2008_paw_pbesol_298k_vinet",
+            "fit": {
+              "fit_kind": "source_curve_validation_only",
+              "free_parameters": [],
+              "fixed_parameters": [],
+              "observations": 7,
+              "comparison_scope": "source_equation",
+              "dataset_identifiers": ["molybdenum_dewaele_2008_figure4"]
+            },
+            "report": "reproduction.json"
+          },
+          "source_equation_check": {
+            "passed": true,
+            "source_curve_indices": [304],
+            "checkpoint_count": 7,
+            "max_absolute_volume_difference_a3_per_atom": 0.00774767323451897,
+            "source_thermal_pressure_shift_gpa": 1.6,
+            "method": "1 GPa pressure reading bound, 0.04 A3/atom volume reading bound, and independent half-last-digit coefficient bounds; no statistical confidence inferred",
+            "independent_paw_refit_available": false,
+            "report": "reproduction.json"
+          },
+          "previous_catalog_report": {
+            "report": "docs/data/primary-eos-refits.json",
+            "report_path": "docs/reconstruction-reports/molybdenum.md#record-molybdenum_dewaele_2008_paw_pbesol_298k_vinet",
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/molybdenum/#record-molybdenum_dewaele_2008_paw_pbesol_298k_vinet"
+          }
+        },
+        "parameter_provenance": {
+          "V0": "Table VI, molybdenum pbesol, unparenthesized 298 K values, p. 104102-10; atomic V0 multiplied by Z=2",
+          "K0": "Table VI, molybdenum pbesol, unparenthesized 298 K values, p. 104102-10",
+          "K0_prime": "Table VI, molybdenum pbesol, unparenthesized 298 K values, p. 104102-10",
+          "determination_method": "PAW static-lattice calculation; source 298 K pressure correction uses adopted literature Debye estimates, hence hybrid."
+        },
+        "source_lineage": [
+          {
+            "role": "equation and published coefficients",
+            "doi": "10.1103/PhysRevB.78.104102",
+            "citation": "Equation (1); Table VI, molybdenum pbesol, unparenthesized 298 K values, p. 104102-10"
+          }
+        ],
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-10-23",
+          "note": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction.",
+          "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "fixed_parameters"],
+          "primary_source_check": {
+            "doi": "10.1103/PhysRevB.78.104102",
+            "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+            "locations": ["Equation (1)", "Table VI, molybdenum pbesol, unparenthesized 298 K values, p. 104102-10"],
+            "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+            "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+          },
+          "primary_data_check": {
+            "status": "parameterization_only",
+            "dataset_identifiers": ["molybdenum_dewaele_2008_figure4"],
+            "finding": "Source-equation parity: printed Table VI coefficients pass finite-compression Figure 4 vector checks within the declared reading and printed-coefficient bounds. The 298 K branch is checked against that static curve plus the source's stated constant thermal pressure. Raw PAW fit points, full regression grid and covariance are unavailable; this is graphical equation parity, not parameter-refit or author-workflow reproduction."
+          }
+        }
+      }
+    }
+  ],
+  "symmetry": "CUBIC",
+  "space_group": "Im-3m",
+  "space_group_number": 229,
+  "lattice": {"a": 3.1472, "b": null, "c": null, "alpha": 90.0, "beta": 90.0, "gamma": 90.0},
+  "atom_sites": [
+    {"element": "Mo", "wyckoff": "2a", "x": 0.0, "y": 0.0, "z": 0.0, "occupancy": 1.0}
+  ],
+  "peaks": [],
+  "notes": "Ambient bcc phase reference: JCPDS 42-1120.",
+  "datasets": [
+    {
+      "identifier": "molybdenum_dewaele_2008_figure4",
+      "kind": "literature_reconstruction_diagnostic",
+      "description": "Figure 4 with-semicore static-lattice vector vertices; material and functional columns select the applicable source curve.",
+      "source_location": "Figure 4, p. 104102-9; Section V thermal-pressure estimates",
+      "source_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+      "reference": {
+        "authors": ["Dewaele", "Torrent", "Loubeyre", "Mezouar"],
+        "year": 2008,
+        "title": "Compression curves of transition metals in the Mbar range: Experiments and projector augmented-wave calculations",
+        "source": "Physical Review B",
+        "volume": "78",
+        "locator": "104102",
+        "doi": "10.1103/PhysRevB.78.104102"
+      },
+      "columns": [
+        {"name": "material", "quantity": "material", "unit": "1", "role": "flag"},
+        {"name": "functional", "quantity": "functional", "unit": "1", "role": "flag"},
+        {"name": "curve_index", "quantity": "curve_index", "unit": "1", "role": "flag"},
+        {"name": "vertex", "quantity": "vertex", "unit": "1", "role": "flag"},
+        {"name": "pdf_x_pt", "quantity": "pdf_x_pt", "unit": "1", "role": "flag"},
+        {"name": "pdf_top_pt", "quantity": "pdf_top_pt", "unit": "1", "role": "flag"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "atomic_volume_a3", "quantity": "atomic_volume", "unit": "angstrom^3/atom", "role": "value"},
+        {"name": "volume_reading_halfwidth_a3", "quantity": "volume_reading_halfwidth_a3", "unit": "1", "role": "flag"},
+        {"name": "pressure_reading_halfwidth_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"}
+      ],
+      "resource": {
+        "path": "datasets/molybdenum-dewaele-2008-figure4-vector.csv",
+        "sha256": "af9d65c97470fc144c4c32b191170a73f3e95a28727ad41aed3b6437af24c07d",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": [
+        "molybdenum_dewaele_2008_paw_lda_static_vinet",
+        "molybdenum_dewaele_2008_paw_lda_298k_vinet",
+        "molybdenum_dewaele_2008_paw_pbe_static_vinet",
+        "molybdenum_dewaele_2008_paw_pbe_298k_vinet",
+        "molybdenum_dewaele_2008_paw_pbesol_static_vinet",
+        "molybdenum_dewaele_2008_paw_pbesol_298k_vinet"
+      ],
+      "notes": "Graphical model-curve checkpoints, not raw PAW observations and not fit inputs. Volume and pressure reading halfwidths are diagnostic bounds, not standard deviations. The source's explicit constant PTH is applied only when checking the distinct 298 K coefficient set.",
+      "license": "Factual numerical transcription and vector-coordinate recovery with attribution. No explicit source data licence was found; source article and figures retain third-party rights. No licence grant over the publisher PDF is asserted."
+    }
+  ]
+}

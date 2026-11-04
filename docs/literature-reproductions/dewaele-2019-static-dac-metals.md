@@ -1,5 +1,7 @@
 # Dewaele (2019) static-DAC metal EOS audit
 
+**Uncertainty follow-up, 25 October 2026:** The [record-by-record uncertainty reconstruction](uncertainty-reconstruction.md) supplies the current conditional errors and numerical labels for the selected records from this source. The earlier reconstruction descriptions below retain their original scientific qualifications; statements about missing reconstruction errors or their former ledger labels describe the assessment before that follow-up. Source coefficients, observations, calibration limits and use restrictions are unchanged.
+
 ## Outcome
 
 The 30 catalog records are the 15 metal rows in Table 1 of Dewaele (2019), each reduced once with the Mao et al. (1986) ruby calibration and once with the Dorogokupets--Oganov (2007) calibration. They are alternative reductions of the same observations, not 30 independent experiments.

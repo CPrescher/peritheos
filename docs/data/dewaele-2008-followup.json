@@ -1,0 +1,341 @@
+{
+  "format": "peritheos.dewaele-2008-followup",
+  "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+  "fe_lda": {
+    "comparisons": {
+      "thin_without_semicore_static": {
+        "parameters_atomic_a3_gpa_dimensionless": [
+          9.697,
+          334,
+          4.74
+        ],
+        "source_curve_index": 24,
+        "graph_pressure_range_gpa": [
+          33.819521278031175,
+          193.9084833274865
+        ],
+        "source_thermal_pressure_shift_gpa": 0,
+        "checkpoint_count": 14,
+        "volume_difference_range_a3_per_atom": [
+          0.0003851339450715585,
+          0.0024355144451480015
+        ],
+        "max_absolute_volume_difference_a3_per_atom": 0.0024355144451480015,
+        "pressure_rms_gpa": 0.18107369330665482,
+        "within_0_04_a3_per_atom_graph_reading_bound": true
+      },
+      "thin_without_semicore_298k": {
+        "parameters_atomic_a3_gpa_dimensionless": [
+          9.726,
+          329,
+          4.75
+        ],
+        "source_curve_index": 24,
+        "graph_pressure_range_gpa": [
+          33.819521278031175,
+          193.9084833274865
+        ],
+        "source_thermal_pressure_shift_gpa": 1,
+        "checkpoint_count": 14,
+        "volume_difference_range_a3_per_atom": [
+          -0.001379207699284457,
+          0.0007187952556808597
+        ],
+        "max_absolute_volume_difference_a3_per_atom": 0.001379207699284457,
+        "pressure_rms_gpa": 0.07055239345318284,
+        "within_0_04_a3_per_atom_graph_reading_bound": true
+      },
+      "thick_with_semicore_static": {
+        "parameters_atomic_a3_gpa_dimensionless": [
+          9.697,
+          334,
+          4.74
+        ],
+        "source_curve_index": 25,
+        "graph_pressure_range_gpa": [
+          25.303361488157904,
+          196.85439548083582
+        ],
+        "source_thermal_pressure_shift_gpa": 0,
+        "checkpoint_count": 15,
+        "volume_difference_range_a3_per_atom": [
+          0.10669435773582858,
+          0.16604109423578528
+        ],
+        "max_absolute_volume_difference_a3_per_atom": 0.16604109423578528,
+        "pressure_rms_gpa": 12.477663904947137,
+        "within_0_04_a3_per_atom_graph_reading_bound": false
+      },
+      "thick_with_semicore_298k": {
+        "parameters_atomic_a3_gpa_dimensionless": [
+          9.726,
+          329,
+          4.75
+        ],
+        "source_curve_index": 25,
+        "graph_pressure_range_gpa": [
+          25.303361488157904,
+          196.85439548083582
+        ],
+        "source_thermal_pressure_shift_gpa": 1,
+        "checkpoint_count": 15,
+        "volume_difference_range_a3_per_atom": [
+          0.10381891780326757,
+          0.16516141273541152
+        ],
+        "max_absolute_volume_difference_a3_per_atom": 0.16516141273541152,
+        "pressure_rms_gpa": 12.241514591462032,
+        "within_0_04_a3_per_atom_graph_reading_bound": false
+      }
+    },
+    "finding": "Both Table VI hcp-Fe LDA sets match the thin curve; they fail the thick curve assigned to with-semicore PAW by the source caption. Which source label or coefficient row is wrong remains unresolved.",
+    "catalog_changes": false,
+    "all_electron_check": "Fe triangles in the inspected panel are filled GGA symbols; no independent LDA triangle series is identified."
+  },
+  "ruby_crosscalibration": {
+    "ten_metals": [
+      "Al",
+      "Cu",
+      "Ta",
+      "Au",
+      "Ni",
+      "Ag",
+      "Pt",
+      "Mo",
+      "W",
+      "Co"
+    ],
+    "Zn_excluded": true,
+    "input_scale_table2_check": {
+      "non_helium_material_rows": 147,
+      "within_joint_printed_rounding_bounds": 145,
+      "exceptions": [
+        {
+          "material": "nickel",
+          "run": 6,
+          "mao_pressure_token": "49.0",
+          "revised_pressure_token": "51.0",
+          "computed_revised_pressure_gpa": 50.10366710916306
+        },
+        {
+          "material": "zinc_hcp",
+          "run": 6,
+          "mao_pressure_token": "49.0",
+          "revised_pressure_token": "51.0",
+          "computed_revised_pressure_gpa": 50.10366710916306
+        }
+      ],
+      "qualification": "The two exception material rows share one Ni/Zn pressure pair. Source values are preserved; no correction or cause is inferred."
+    },
+    "input_ruby": {
+      "A_gpa": 1904.0,
+      "B": 9.5,
+      "reference": "2004 revised ruby"
+    },
+    "published_output_ruby": {
+      "A_gpa": 1920.0,
+      "B": 9.61,
+      "correction_at_160_gpa": 1.9474569798275638
+    },
+    "common_range_mean": {
+      "A_gpa": 1909.4802639996688,
+      "B": 10.291217139586266,
+      "solver_success": true,
+      "rms_pressure_residual_gpa": 0.005981191980510187,
+      "published_ruby_rms_pressure_residual_gpa": 0.11167636922653038,
+      "published_vs_fitted_max_pressure_difference_gpa": 0.3022562821640875,
+      "coefficient_uncertainties": null,
+      "author_workflow_reproduced": false,
+      "pressure_range_gpa": [
+        0.0,
+        62.847498785818374
+      ],
+      "objective": "fit the equal-metal mean on 201 uniformly spaced common pressures; linear interpolation; no extrapolation",
+      "mean_correction_at_upper_limit_gpa": 0.9223104953945203
+    },
+    "individual_ranges_pooled": {
+      "A_gpa": 1937.48838387288,
+      "B": 9.34480411595623,
+      "solver_success": true,
+      "rms_pressure_residual_gpa": 0.8513164167846472,
+      "published_ruby_rms_pressure_residual_gpa": 0.8884122006209403,
+      "published_vs_fitted_max_pressure_difference_gpa": 0.33406003078114566,
+      "coefficient_uncertainties": null,
+      "author_workflow_reproduced": false,
+      "objective": "pool 201 uniformly spaced pressures over each metal own plotted range; equal total weight per metal; no extrapolation"
+    },
+    "full_range_graph_continuation": {
+      "A_gpa": 1915.6692549320485,
+      "B": 10.066139912037828,
+      "solver_success": true,
+      "rms_pressure_residual_gpa": 0.028416491673059048,
+      "published_ruby_rms_pressure_residual_gpa": 0.9619326753105589,
+      "published_vs_fitted_max_pressure_difference_gpa": 2.159913676532483,
+      "coefficient_uncertainties": null,
+      "author_workflow_reproduced": false,
+      "objective": "equal-metal mean of graph-derived Vinet-difference continuations, uniform 0\u2013160 GPa grid, 321 pressures",
+      "mean_correction_at_160_gpa": 4.050633036114838,
+      "models": {
+        "Al": {
+          "assumed_dac_shape": {
+            "K0_gpa": 74.3,
+            "K0_prime": 4.47,
+            "catalog_record": "aluminum_dewaele_2004_vinet_1"
+          },
+          "fitted_graph_adjustment": {
+            "log_modulus_ratio": 0.005239466837960207,
+            "derivative_difference": -0.017726100512976614
+          },
+          "plot_pressure_max_gpa": 160.00000000000003,
+          "graph_fit_max_residual_gpa": 0.010656742927216812,
+          "correction_at_160_gpa": 0.05655760571783562,
+          "extrapolated_to_160_gpa": false
+        },
+        "Cu": {
+          "assumed_dac_shape": {
+            "K0_gpa": 132.4,
+            "K0_prime": 5.32,
+            "catalog_record": "copper_dewaele_2004_vinet_1"
+          },
+          "fitted_graph_adjustment": {
+            "log_modulus_ratio": -4.178357229566337e-05,
+            "derivative_difference": 0.030185374287871245
+          },
+          "plot_pressure_max_gpa": 160.00000000000003,
+          "graph_fit_max_residual_gpa": 0.002559731345965245,
+          "correction_at_160_gpa": 0.9422784539359899,
+          "extrapolated_to_160_gpa": false
+        },
+        "Ta": {
+          "assumed_dac_shape": {
+            "K0_gpa": 194,
+            "K0_prime": 3.52,
+            "catalog_record": "tantalum_dewaele_2004_revised_ruby_vinet"
+          },
+          "fitted_graph_adjustment": {
+            "log_modulus_ratio": 0.005142132631520818,
+            "derivative_difference": 0.21001118842421185
+          },
+          "plot_pressure_max_gpa": 96.64983001457016,
+          "graph_fit_max_residual_gpa": 0.0032372823165069953,
+          "correction_at_160_gpa": 7.467492889048893,
+          "extrapolated_to_160_gpa": true
+        },
+        "Au": {
+          "assumed_dac_shape": {
+            "K0_gpa": 167,
+            "K0_prime": 6.0,
+            "catalog_record": "gold_dewaele_2004_vinet_5"
+          },
+          "fitted_graph_adjustment": {
+            "log_modulus_ratio": -0.00012064618867615908,
+            "derivative_difference": -0.058193822725136554
+          },
+          "plot_pressure_max_gpa": 97.76493443419136,
+          "graph_fit_max_residual_gpa": 0.0023293901089658613,
+          "correction_at_160_gpa": -1.5537958918650467,
+          "extrapolated_to_160_gpa": true
+        },
+        "Ni": {
+          "assumed_dac_shape": {
+            "K0_gpa": 183,
+            "K0_prime": 4.99,
+            "catalog_record": "nickel_dewaele_2008_table4_us_k0_183_vinet"
+          },
+          "fitted_graph_adjustment": {
+            "log_modulus_ratio": -3.2518970640849417e-05,
+            "derivative_difference": 0.13012361386671484
+          },
+          "plot_pressure_max_gpa": 160.00000000000003,
+          "graph_fit_max_residual_gpa": 0.0030545790947629214,
+          "correction_at_160_gpa": 3.6215904274151605,
+          "extrapolated_to_160_gpa": false
+        },
+        "Ag": {
+          "assumed_dac_shape": {
+            "K0_gpa": 101,
+            "K0_prime": 5.97,
+            "catalog_record": "silver_dewaele_2008_table4_us_k0_101_vinet"
+          },
+          "fitted_graph_adjustment": {
+            "log_modulus_ratio": -0.0001673805565472721,
+            "derivative_difference": 0.22116782026786838
+          },
+          "plot_pressure_max_gpa": 103.70859640602237,
+          "graph_fit_max_residual_gpa": 0.006250337781334103,
+          "correction_at_160_gpa": 7.52011356779474,
+          "extrapolated_to_160_gpa": true
+        },
+        "Pt": {
+          "assumed_dac_shape": {
+            "K0_gpa": 277,
+            "K0_prime": 5.08,
+            "catalog_record": "platinum_dewaele_2004_revised_ruby_vinet"
+          },
+          "fitted_graph_adjustment": {
+            "log_modulus_ratio": -0.0019280622243765433,
+            "derivative_difference": 0.36616348054320524
+          },
+          "plot_pressure_max_gpa": 99.70859640602231,
+          "graph_fit_max_residual_gpa": 0.020467712606244637,
+          "correction_at_160_gpa": 7.884361957117838,
+          "extrapolated_to_160_gpa": true
+        },
+        "Mo": {
+          "assumed_dac_shape": {
+            "K0_gpa": 261,
+            "K0_prime": 4.06,
+            "catalog_record": "molybdenum_dewaele_2008_table4_us_k0_261_vinet"
+          },
+          "fitted_graph_adjustment": {
+            "log_modulus_ratio": -1.572594538426418e-05,
+            "derivative_difference": 0.11994169610016829
+          },
+          "plot_pressure_max_gpa": 118.35259834871296,
+          "graph_fit_max_residual_gpa": 0.002997000277498607,
+          "correction_at_160_gpa": 2.980995115985391,
+          "extrapolated_to_160_gpa": true
+        },
+        "W": {
+          "assumed_dac_shape": {
+            "K0_gpa": 295.2,
+            "K0_prime": 4.32,
+            "catalog_record": "tungsten_dewaele_2004_vinet_2"
+          },
+          "fitted_graph_adjustment": {
+            "log_modulus_ratio": -2.842010964351415e-05,
+            "derivative_difference": 0.1502293044381662
+          },
+          "plot_pressure_max_gpa": 160.00000000000003,
+          "graph_fit_max_residual_gpa": 0.002419990759499273,
+          "correction_at_160_gpa": 3.395565523377384,
+          "extrapolated_to_160_gpa": false
+        },
+        "Co": {
+          "assumed_dac_shape": {
+            "K0_gpa": 190,
+            "K0_prime": 4.37,
+            "catalog_record": "cobalt_hcp_dewaele_2008_table4_us_k0_190_vinet"
+          },
+          "fitted_graph_adjustment": {
+            "log_modulus_ratio": -3.4348563352194453e-05,
+            "derivative_difference": 0.27941571912971125
+          },
+          "plot_pressure_max_gpa": 62.847498785818374,
+          "graph_fit_max_residual_gpa": 0.002706963311241749,
+          "correction_at_160_gpa": 8.1911707126202,
+          "extrapolated_to_160_gpa": true
+        }
+      },
+      "qualification": "Diagnostic extrapolation only. Uses assumed compression shapes; Au uses a 2004 shape although Figure 2 cites 2007. Fitted graph adjustments are not published shock coefficients. No uncertainties or precision are assigned outside plotted ranges."
+    },
+    "finding": "The published ruby coefficients are not recovered uniquely by these explicit replay choices. Full author-workflow reproduction is unresolved; graph recovery is not independent reconstruction of the reduced-shock inputs.",
+    "missing_inputs": [
+      "original comparison grid or observation/pair selection",
+      "cross-material and within-material weights",
+      "handling of metals beyond their DAC ranges",
+      "complete original reduced-shock calculations and covariance"
+    ],
+    "catalog_changes": false
+  }
+}

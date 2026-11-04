@@ -1,0 +1,713 @@
+{
+  "doi": "10.1103/PhysRevB.78.104102",
+  "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+  "source_version": "Publisher version of record, supplied by user; 13 pages",
+  "tables": {
+    "IV": {
+      "fe": [
+        11.76,
+        171,
+        4.34,
+        11,
+        2.1,
+        [
+          [
+            165,
+            5.47,
+            0.51
+          ]
+        ]
+      ],
+      "cobalt_hcp": [
+        11.096,
+        190.5,
+        4.38,
+        2.9,
+        0.18,
+        [
+          [
+            184,
+            4.73,
+            0.06
+          ],
+          [
+            190,
+            4.37,
+            0.04
+          ]
+        ]
+      ],
+      "nickel": [
+        10.942,
+        176.7,
+        5.23,
+        2.5,
+        0.09,
+        [
+          [
+            183,
+            4.99,
+            0.02
+          ]
+        ]
+      ],
+      "zinc_hcp": [
+        15.213,
+        60.5,
+        5.69,
+        0.9,
+        0.07,
+        [
+          [
+            60,
+            5.73,
+            0.01
+          ]
+        ]
+      ],
+      "molybdenum": [
+        15.558,
+        274.1,
+        3.58,
+        3.2,
+        0.12,
+        [
+          [
+            261,
+            4.06,
+            0.05
+          ]
+        ]
+      ],
+      "silver": [
+        17.021,
+        103.9,
+        5.78,
+        1.4,
+        0.09,
+        [
+          [
+            101,
+            5.97,
+            0.02
+          ]
+        ]
+      ]
+    },
+    "VI": [
+      {
+        "material": "fe",
+        "functional": "lda",
+        "at_298k_tokens": [
+          "10.631",
+          "237",
+          "1.88"
+        ],
+        "static_lattice_tokens": [
+          "10.586",
+          "239",
+          "1.88"
+        ]
+      },
+      {
+        "material": "fe",
+        "functional": "pbe",
+        "at_298k_tokens": [
+          "11.546",
+          "181",
+          "5.31"
+        ],
+        "static_lattice_tokens": [
+          "11.483",
+          "186",
+          "5.27"
+        ]
+      },
+      {
+        "material": "fe",
+        "functional": "pbesol",
+        "at_298k_tokens": [
+          "10.931",
+          "206",
+          "6.56"
+        ],
+        "static_lattice_tokens": [
+          "10.881",
+          "213",
+          "6.50"
+        ]
+      },
+      {
+        "material": "iron",
+        "functional": "lda",
+        "at_298k_tokens": [
+          "9.726",
+          "329",
+          "4.75"
+        ],
+        "static_lattice_tokens": [
+          "9.697",
+          "334",
+          "4.74"
+        ]
+      },
+      {
+        "material": "iron",
+        "functional": "pbe",
+        "at_298k_tokens": [
+          "10.532",
+          "224",
+          "5.46"
+        ],
+        "static_lattice_tokens": [
+          "10.486",
+          "229",
+          "5.44"
+        ]
+      },
+      {
+        "material": "iron",
+        "functional": "pbesol",
+        "at_298k_tokens": [
+          "9.913",
+          "297",
+          "4.94"
+        ],
+        "static_lattice_tokens": [
+          "9.880",
+          "301",
+          "4.93"
+        ]
+      },
+      {
+        "material": "cobalt_hcp",
+        "functional": "lda",
+        "at_298k_tokens": [
+          "10.124",
+          "281",
+          "2.85"
+        ],
+        "static_lattice_tokens": [
+          "10.071",
+          "286",
+          "2.84"
+        ]
+      },
+      {
+        "material": "cobalt_hcp",
+        "functional": "pbe",
+        "at_298k_tokens": [
+          "10.992",
+          "208",
+          "4.85"
+        ],
+        "static_lattice_tokens": [
+          "10.914",
+          "215",
+          "4.81"
+        ]
+      },
+      {
+        "material": "cobalt_hcp",
+        "functional": "pbesol",
+        "at_298k_tokens": [
+          "10.542",
+          "243",
+          "4.21"
+        ],
+        "static_lattice_tokens": [
+          "10.478",
+          "249",
+          "4.18"
+        ]
+      },
+      {
+        "material": "nickel",
+        "functional": "lda",
+        "at_298k_tokens": [
+          "10.099",
+          "244",
+          "5.04"
+        ],
+        "static_lattice_tokens": [
+          "10.018",
+          "254",
+          "4.99"
+        ]
+      },
+      {
+        "material": "nickel",
+        "functional": "pbe",
+        "at_298k_tokens": [
+          "11.008",
+          "184",
+          "5.24"
+        ],
+        "static_lattice_tokens": [
+          "10.893",
+          "195",
+          "5.17"
+        ]
+      },
+      {
+        "material": "nickel",
+        "functional": "pbesol",
+        "at_298k_tokens": [
+          "10.477",
+          "217",
+          "5.13"
+        ],
+        "static_lattice_tokens": [
+          "10.383",
+          "227",
+          "5.08"
+        ]
+      },
+      {
+        "material": "zinc_hcp",
+        "functional": "lda",
+        "at_298k_tokens": [
+          "13.805",
+          "82",
+          "5.90"
+        ],
+        "static_lattice_tokens": [
+          "13.585",
+          "89",
+          "5.80"
+        ]
+      },
+      {
+        "material": "zinc_hcp",
+        "functional": "pbe",
+        "at_298k_tokens": [
+          "15.760",
+          "50",
+          "6.19"
+        ],
+        "static_lattice_tokens": [
+          "15.365",
+          "57",
+          "6.04"
+        ]
+      },
+      {
+        "material": "zinc_hcp",
+        "functional": "pbesol",
+        "at_298k_tokens": [
+          "14.468",
+          "71",
+          "5.91"
+        ],
+        "static_lattice_tokens": [
+          "14.205",
+          "79",
+          "5.80"
+        ]
+      },
+      {
+        "material": "molybdenum",
+        "functional": "lda",
+        "at_298k_tokens": [
+          "15.145",
+          "295",
+          "4.01"
+        ],
+        "static_lattice_tokens": [
+          "15.063",
+          "301",
+          "3.99"
+        ]
+      },
+      {
+        "material": "molybdenum",
+        "functional": "pbe",
+        "at_298k_tokens": [
+          "15.947",
+          "255",
+          "4.17"
+        ],
+        "static_lattice_tokens": [
+          "15.849",
+          "262",
+          "4.14"
+        ]
+      },
+      {
+        "material": "molybdenum",
+        "functional": "pbesol",
+        "at_298k_tokens": [
+          "15.410",
+          "280",
+          "4.05"
+        ],
+        "static_lattice_tokens": [
+          "15.323",
+          "287",
+          "4.02"
+        ]
+      },
+      {
+        "material": "silver",
+        "functional": "lda",
+        "at_298k_tokens": [
+          "16.178",
+          "131",
+          "5.93"
+        ],
+        "static_lattice_tokens": [
+          "16.046",
+          "137",
+          "5.87"
+        ]
+      },
+      {
+        "material": "silver",
+        "functional": "pbe",
+        "at_298k_tokens": [
+          "18.137",
+          "82",
+          "6.23"
+        ],
+        "static_lattice_tokens": [
+          "17.907",
+          "88",
+          "6.13"
+        ]
+      },
+      {
+        "material": "silver",
+        "functional": "pbesol",
+        "at_298k_tokens": [
+          "16.856",
+          "110",
+          "6.05"
+        ],
+        "static_lattice_tokens": [
+          "16.694",
+          "116",
+          "5.98"
+        ]
+      },
+      {
+        "material": "platinum",
+        "functional": "lda",
+        "at_298k_tokens": [
+          "14.898",
+          "293",
+          "5.65"
+        ],
+        "static_lattice_tokens": [
+          "14.823",
+          "302",
+          "5.61"
+        ]
+      },
+      {
+        "material": "platinum",
+        "functional": "pbe",
+        "at_298k_tokens": [
+          "15.899",
+          "219",
+          "6.20"
+        ],
+        "static_lattice_tokens": [
+          "15.793",
+          "228",
+          "6.14"
+        ]
+      },
+      {
+        "material": "platinum",
+        "functional": "pbesol",
+        "at_298k_tokens": [
+          "15.204",
+          "274",
+          "5.64"
+        ],
+        "static_lattice_tokens": [
+          "15.123",
+          "282",
+          "5.60"
+        ]
+      },
+      {
+        "material": "gold",
+        "functional": "lda",
+        "at_298k_tokens": [
+          "16.724",
+          "187",
+          "5.92"
+        ],
+        "static_lattice_tokens": [
+          "16.603",
+          "195",
+          "5.85"
+        ]
+      },
+      {
+        "material": "gold",
+        "functional": "pbe",
+        "at_298k_tokens": [
+          "18.173",
+          "132",
+          "6.15"
+        ],
+        "static_lattice_tokens": [
+          "17.988",
+          "140",
+          "6.07"
+        ]
+      },
+      {
+        "material": "gold",
+        "functional": "pbesol",
+        "at_298k_tokens": [
+          "17.261",
+          "169",
+          "5.69"
+        ],
+        "static_lattice_tokens": [
+          "17.122",
+          "176",
+          "5.62"
+        ]
+      }
+    ]
+  },
+  "table4_reduced_shock_wave_comparisons": {
+    "cobalt_hcp": [
+      [
+        184,
+        4.93,
+        0.04,
+        42
+      ],
+      [
+        190,
+        4.67,
+        0.03,
+        42
+      ]
+    ],
+    "nickel": [
+      [
+        183,
+        5.13,
+        0.01,
+        42
+      ]
+    ],
+    "molybdenum": [
+      [
+        261,
+        4.18,
+        0.02,
+        43
+      ]
+    ],
+    "silver": [
+      [
+        101,
+        6.19,
+        0.01,
+        42
+      ]
+    ],
+    "column_order": [
+      "K0_fixed_gpa",
+      "K0_prime",
+      "K0_prime_error_95pct",
+      "source_reference_number"
+    ],
+    "zinc_hcp": {
+      "K0_fixed_gpa": 60,
+      "K0_prime_range": [
+        5.6,
+        5.95
+      ],
+      "source_references": [
+        45,
+        42
+      ]
+    },
+    "status": "source comparison values preserved; not promoted to independently validated executable records; exact reduced-shock inputs and graph benchmark not recovered"
+  },
+  "calibration_lineage": {
+    "table4_input": "ruby_dewaele_2004",
+    "new_calibration_output": "ruby_dewaele_2008",
+    "ruby_output_parameters": {
+      "A_gpa": 1920,
+      "B": 9.61
+    },
+    "ten_metal_comparison": [
+      "Co",
+      "Ni",
+      "Mo",
+      "Ag",
+      "Al",
+      "Cu",
+      "Pt",
+      "Ta",
+      "W",
+      "Au"
+    ],
+    "excluded_metal": {
+      "symbol": "Zn",
+      "reason": "uncertain reduced shock EOS, melting and thermal reduction"
+    },
+    "network_reproduction": "not reproduced: exact complete comparison grid, weights, covariances and reduced-shock inputs unavailable",
+    "warning": "The calibration produced by this paper is not the input calibration for its Table IV fits."
+  },
+  "figure4_axes": {
+    "iron": [
+      129.164,
+      240.335,
+      72.705,
+      171.203,
+      250,
+      7,
+      12,
+      {
+        "lda": 25,
+        "pbe": 23,
+        "pbesol": 93
+      }
+    ],
+    "fe": [
+      129.164,
+      240.335,
+      72.705,
+      171.203,
+      250,
+      7,
+      12,
+      {
+        "pbe": 1,
+        "pbesol": 90
+      }
+    ],
+    "cobalt_hcp": [
+      259.779,
+      370.951,
+      72.705,
+      171.203,
+      140,
+      7.5,
+      11.5,
+      {
+        "lda": 119,
+        "pbe": 116,
+        "pbesol": 117
+      }
+    ],
+    "nickel": [
+      390.394,
+      501.565,
+      72.705,
+      171.203,
+      200,
+      7,
+      11,
+      {
+        "lda": 153,
+        "pbe": 149,
+        "pbesol": 151
+      }
+    ],
+    "zinc_hcp": [
+      129.164,
+      240.335,
+      188.427,
+      286.926,
+      175,
+      8.5,
+      15.5,
+      {
+        "lda": 219,
+        "pbe": 217,
+        "pbesol": 263
+      }
+    ],
+    "molybdenum": [
+      259.779,
+      370.951,
+      188.427,
+      286.926,
+      150,
+      11,
+      16,
+      {
+        "lda": 274,
+        "pbe": 272,
+        "pbesol": 304
+      }
+    ],
+    "silver": [
+      390.394,
+      501.565,
+      188.427,
+      286.926,
+      175,
+      10.5,
+      18.5,
+      {
+        "lda": 312,
+        "pbe": 311,
+        "pbesol": 347
+      }
+    ],
+    "platinum": [
+      128.218,
+      240.335,
+      304.149,
+      402.866,
+      150,
+      11.5,
+      16,
+      {
+        "lda": 361,
+        "pbe": 359,
+        "pbesol": 397
+      }
+    ],
+    "gold": [
+      259.779,
+      370.951,
+      304.149,
+      402.648,
+      150,
+      12,
+      18.5,
+      {
+        "lda": 412,
+        "pbe": 408,
+        "pbesol": 410
+      }
+    ]
+  },
+  "figure4_note": "Vector path vertices of with-semicore static-lattice calculations; not measured or raw DFT observations. Axis mappings and styles visually checked. Reading halfwidths are diagnostic bounds, not standard errors.",
+  "files": {
+    "dewaele-2008-figure4-vector.csv": "6186e3e56f6020d862821e30d149b7a7c4edea946e62a88a1b91879fd632e795",
+    "dewaele-2008-table3-fe.csv": "9c186cba5817cf9f873cbf310721028adcfec3dd370341c96709343f4b0780d9",
+    "dewaele-2008-table2-complete.csv": "d94ec72325d92be0fa0cbbcb12976afab048bb12da1dd4fed4f85212f5dea130"
+  },
+  "thermal_pressure_298k_gpa": {
+    "fe": 1.0,
+    "iron": 1.0,
+    "cobalt_hcp": 1.5,
+    "nickel": 2.0,
+    "zinc_hcp": 1.4,
+    "molybdenum": 1.6,
+    "silver": 1.1,
+    "platinum": 1.5,
+    "gold": 1.4
+  },
+  "qualifications": [
+    "Table IV V0 is fixed after a separate 0-5 GPa determination; exact low-pressure weighting unavailable.",
+    "Table II preserves run-2 Ag/Mo rows above 100 GPa but excludes them from Table IV replay.",
+    "Tables IV and VI have inconsistent alpha-Fe V0 (11.760 versus 11.770); Table VI also rounds Co/Ni comparison volumes differently. Comparison rows do not overwrite Table IV.",
+    "Table VI parentheses are static-lattice coefficients, not uncertainties; 298 K correction includes zero-point motion.",
+    "Alpha-Fe LDA has no separately identifiable with-semicore finite-compression curve in Figure 4; preserve its two theory coefficient sets as deferred candidates pending an independent benchmark."
+  ]
+}
