@@ -55,6 +55,11 @@ All notable changes to Peritheos are documented here. The project follows
 - Decode research JSON as UTF-8, serialize report paths with forward slashes,
   and preserve the author Coesite DAT bytes on Windows without changing source
   fingerprints, observations or stored reports.
+- Match the minimum-dependency CI plotting parser to the declared development
+  floor; retain the NumPy 1.22.0 and SciPy 1.9.3 library dependency checks.
+- Use complex-step derivatives for the existing Sata rounding-box diagnostic
+  so all three starts converge on the minimum SciPy stack, retaining its
+  objective, bounds, convergence/feasibility checks and archived findings.
 
 - Incorporate Roland Mas's explicit sampler `f64` annotation and allow `1e-9`
   absolute variation when replaying the saved brucite optimizer objective across

@@ -105,6 +105,10 @@ def rounding_minimax(volume, published):
             lambda z: z[3],
             start,
             method="SLSQP",
+            # The pressure and interval expressions are analytic. Complex-step
+            # derivatives avoid cancellation at the tight rounding-box optimum
+            # on older SciPy builds, without changing the objective or bounds.
+            jac="cs",
             bounds=[(-1, 1)] * 3 + [(-1, 2)],
             constraints={"type": "ineq", "fun": interval_constraints},
             options={"ftol": 1e-12, "maxiter": 1000},
