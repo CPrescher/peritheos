@@ -216,7 +216,9 @@ def assert_pressure_refit_report_close(assert_audit_close):
     """Preserve measured inputs, fixed anchors and decisions in pressure refits."""
 
     def compare(actual, expected):
-        paths = ["report.diagnostic_input_pressure_range_gpa[[]*]"]
+        # The lower endpoint is the unchanged Li observation at 27.2 GPa;
+        # only the recalculated Sata upper endpoint is a numerical output.
+        paths = ["report.diagnostic_input_pressure_range_gpa[1]"]
         for section, fields in (
             (
                 "fixed_V0_BM3",

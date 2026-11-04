@@ -136,6 +136,7 @@ def test_both_pressure_coordinates_and_reference_form_are_compared_without_promo
         ("reference_mBM3_check", "fixed_Vr_cell_a3"),
         ("fixed_V0_BM3", "original_pressures", "fixed_values", "V0_cell_a3"),
         ("original_pressure_range_gpa", 1),
+        ("diagnostic_input_pressure_range_gpa", 0),
     ],
 )
 def test_report_replay_rejects_changed_observations_and_fixed_anchors(
@@ -158,4 +159,5 @@ def test_report_replay_accepts_only_calculated_pressure_roundoff(
     changed = copy.deepcopy(archived)
     changed["inputs"][0]["fit_pressure_gpa"] += 1e-12
     changed["residuals"][0]["fit_pressure_gpa"] += 1e-12
+    changed["diagnostic_input_pressure_range_gpa"][1] += 1e-12
     assert_pressure_refit_report_close(changed, archived)
