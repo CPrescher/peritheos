@@ -7,6 +7,10 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Fixed
 
+- Inventory every file in the 36 published 0.17.3 archives, all dataset/EOS/
+  structure components and the normal/build Rust dependency closure. Record
+  exact archive hashes, source terms, limited grants and unresolved actions
+  without changing scientific source values or claiming blanket clearance.
 - Record maintainer-confirmed CC BY 4.0 permissions for the named Coesite,
   Fe7C3 and Morard FeS author files and their numerical extractions. Preserve
   third-party source terms, original bytes and scientific use restrictions.
