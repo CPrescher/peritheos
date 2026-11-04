@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-12",
+  "doi": "10.1029/2012JB009292",
+  "scope": "User-requested unweighted first-approximation diagnostic for Au, using the existing coupled system. Published record coefficients are not modified.",
+  "status": "unweighted_baseline_also_does_not_reproduce_published_au_coefficients",
+  "dataset": {
+    "path": "peritheos/data/datasets/dorfman-2012-tables-s1-s6-cocompression.csv",
+    "sha256": "c65d843d31085e72b63cc3377042b2e855ea83d958e34846c78c862e3a25246c",
+    "aligned_rows": 165,
+    "pair_count": 241,
+    "missing_run": "AN012; original fit inclusion unknown"
+  },
+  "objective": "sum_i (P_a(V_a,i; theta_a) - P_b(V_b,i; theta_b))**2",
+  "residual": "P_a - P_b in GPa; each available unordered pair has weight 1",
+  "difference_from_equation_3": "Remove the mean-pressure denominator only; keep the same input rows, pair inventory, Vinet functions, fixed V0 and MgO anchor, and both source-defined metal-K0 constraint modes.",
+  "fixed_mgo": {
+    "V0": 74.698,
+    "K0": 160.6,
+    "K0_prime": 4.37
+  },
+  "implementation": {
+    "existing_module": "scripts/reproduce_dorfman_2012_cocompression.py",
+    "module_sha256": "1be6ae66fde1042cefe9acc99b3bdd8db35221b0297bdccd7b3957474a65d08a",
+    "functions_reused": [
+      "load_dataset",
+      "_pairs",
+      "_fit_parameters",
+      "vinet_pressure"
+    ],
+    "parameter_order": "MATERIAL_ORDER excluding MgO; K0 then K0_prime when K0 is free, otherwise K0_prime only",
+    "initial_parameters": "REFERENCE_PARAMETERS in fixed mode; PUBLISHED_FREE_PARAMETERS in free mode",
+    "optimizer": "scipy.optimize.least_squares",
+    "method": "lm",
+    "ftol": 1e-12,
+    "xtol": 1e-12,
+    "gtol": 1e-12,
+    "max_nfev": 10000,
+    "python": "3.9.6",
+    "numpy": "2.0.2",
+    "scipy": "1.13.1"
+  },
+  "fits": {
+    "fixed": {
+      "success": true,
+      "termination": "`ftol` termination condition is satisfied.",
+      "objective_gpa2": 1301.4783976726742,
+      "objective_at_published_coefficients_gpa2": 1991.6389766114569,
+      "au_parameters": {
+        "V0": 67.85,
+        "K0": 167.0,
+        "K0_prime": 5.8561721905484525
+      },
+      "au_published_parameters": {
+        "V0": 67.85,
+        "K0": 167.0,
+        "K0_prime": 5.88
+      },
+      "maximum_absolute_gradient": 3.469156240498705e-05
+    },
+    "free": {
+      "success": true,
+      "termination": "`ftol` termination condition is satisfied.",
+      "objective_gpa2": 1181.2822197053183,
+      "objective_at_published_coefficients_gpa2": 1519.3741310496816,
+      "au_parameters": {
+        "V0": 67.85,
+        "K0": 173.75091109304665,
+        "K0_prime": 5.638940034042979
+      },
+      "au_published_parameters": {
+        "V0": 67.85,
+        "K0": 167.0,
+        "K0_prime": 5.84
+      },
+      "maximum_absolute_gradient": 9.517798048364057e-06
+    }
+  },
+  "limits": [
+    "No new observations were recovered. AN012 remains absent from the input.",
+    "Pair inventory remains the replay interpretation, not an author-confirmed original input list.",
+    "Objective values in GPa squared cannot be directly compared to the pressure-weighted Equation (3) values.",
+    "This is a simultaneous-system diagnostic, not an independent Au fit, an AN012 reconstruction, or proof of the cause of the published discrepancy."
+  ]
+}

@@ -1,0 +1,274 @@
+{
+  "schema_version": 1,
+  "audit_date": "2026-10-12",
+  "doi": "10.1038/s43246-025-00792-5",
+  "scope": "Au and its observed calibration ancestors only; Table S9 unchanged and separate",
+  "sources": {
+    "supplementary_data_1": {
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs43246-025-00792-5/MediaObjects/43246_2025_792_MOESM5_ESM.xlsx",
+      "sha256": "c559b29fea9c793831e4bc6deef4d62712b5e78821fc420969f709cbd1060ff9",
+      "sheets_archived": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S5",
+        "S6",
+        "S7",
+        "S8",
+        "S14"
+      ],
+      "raw_archive": "datasets/sakai-2025-au-workbook-cells.json",
+      "context_only": [
+        "S5 Mo-W",
+        "S6 Fe-W",
+        "S8 downstream Mo/NaCl/Fe"
+      ]
+    },
+    "supplementary_information": {
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs43246-025-00792-5/MediaObjects/43246_2025_792_MOESM2_ESM.pdf",
+      "sha256": "63c62c71de8a332dda23b0dbe4da3bd745766fa2a6fbe2c0dfd443b64b0321cb",
+      "selection_evidence": "Fig. S6 Au caption: Dewaele2018 points below 200 GPa excluded"
+    },
+    "dewaele_2018_supplement": {
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-018-05294-2/MediaObjects/41467_2018_5294_MOESM1_ESM.pdf",
+      "sha256": "38e8a84c98d7b72a12f092873b6e11e7a338fb05bd46f0a08eff5886da160515",
+      "tables": [
+        4,
+        5
+      ],
+      "pages": [
+        9,
+        10
+      ],
+      "run_counts": {
+        "1": 36,
+        "2": 31,
+        "3": 17
+      },
+      "fixed_re_c_over_a": {
+        "1": "1.604",
+        "2": "1.609",
+        "3": "1.613 below 250 GPa; 1.606 above"
+      },
+      "au_volume_selection": "least stress-sensitive Au111; Au200 retained as observed",
+      "row_errors": "not printed"
+    },
+    "shen_2020_ruby": {
+      "doi": "10.1080/08957959.2020.1791107",
+      "url": "https://www.osti.gov/servlets/purl/1861244",
+      "sha256": "068c476c733a6966622cb21afa9160418a6213f4f08f7335b9b01893080eec08",
+      "equation": "Eq. 3: P=1870*s*(1+5.63*s) GPa, s=delta_lambda/lambda0"
+    },
+    "dorogokupets_oganov_2007_ruby": {
+      "doi": "10.1103/PhysRevB.75.024115",
+      "equation": "Eq. 16: P=1884*s*(1+5.5*s) GPa"
+    }
+  },
+  "products": {
+    "sakai-2025-au-calibration-paired-volumes.csv": {
+      "path": "datasets/sakai-2025-au-calibration-paired-volumes.csv",
+      "sha256": "2edda47994f2e8a176d40859b75a1a52c380e90b74f329b72a2b6d5e1a42dc36"
+    },
+    "gold-sakai-2025-table-s4-au-w-volumes.csv": {
+      "path": "datasets/gold-sakai-2025-table-s4-au-w-volumes.csv",
+      "sha256": "18b5c9c2be46eccf657aaf5616f746497460b15fbfc5da5a94de3c13390b4622"
+    },
+    "gold-dewaele-2018-tables-4-5-au-re.csv": {
+      "path": "datasets/gold-dewaele-2018-tables-4-5-au-re.csv",
+      "sha256": "5346dee968a9202685bf3aa3fe4702254d901d7f6171f28894b15980b2b0a31c"
+    },
+    "sakai-2025-table-s8-calibration-lineage.csv": {
+      "path": "datasets/sakai-2025-table-s8-calibration-lineage.csv",
+      "sha256": "810504e57349dd7e38ca00d8e77a97b8c7cc06a61c8d8057615b8366ba11e8e6"
+    },
+    "sakai-2025-table-s14-cu-anchor-calculated.csv": {
+      "path": "datasets/sakai-2025-table-s14-cu-anchor-calculated.csv",
+      "sha256": "8fe53fd7360840834745acd45b19e050be4c4bb34f156530c3b3618324f3f3c5"
+    },
+    "sakai-2025-au-workbook-cells.json": {
+      "path": "datasets/sakai-2025-au-workbook-cells.json",
+      "sha256": "9d282f5b891a248acb92d8a1e31b93c9f3cde71375169bb274523205610faad0"
+    }
+  },
+  "existing_au_sources": {
+    "gold_dewaele_2004_table1_compression": {
+      "resource": {
+        "path": "datasets/gold-dewaele-2004-table1-compression.csv",
+        "sha256": "c3a52a211b94cef2cd46198577e18efe4fc66befd7d38aa4f20063d290e97438",
+        "media_type": "text/csv"
+      },
+      "reference": {
+        "authors": [
+          "Dewaele",
+          "Loubeyre",
+          "Mezouar"
+        ],
+        "year": 2004,
+        "source": "Phys. Rev. B",
+        "volume": "70",
+        "locator": "094112",
+        "doi": "10.1103/PhysRevB.70.094112"
+      },
+      "source_location": "Table I, journal page 094112-4",
+      "source_provenance": {
+        "type": "direct_table_transcription",
+        "method": "Manual transcription from the publisher PDF with source row order and printed decimal precision retained.",
+        "source_artifact": {
+          "url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevB.70.094112/fulltext",
+          "media_type": "application/pdf",
+          "sha256": "1f9e02e4a77f49a868b1a6261290465bdb00597b1660691b1790c7502ec9aeeb"
+        }
+      }
+    },
+    "gold_takemura_2008_table3_compression": {
+      "resource": {
+        "path": "datasets/gold-takemura-2008-table3-compression.csv",
+        "sha256": "04e2015f65f5203d89966ebf4b08eb3000d9a3fb7bfc7e3fd032e253e72b3858",
+        "media_type": "text/csv"
+      },
+      "reference": {
+        "authors": [
+          "Takemura",
+          "Dewaele"
+        ],
+        "year": 2008,
+        "source": "Phys. Rev. B",
+        "volume": "78",
+        "locator": "104119",
+        "doi": "10.1103/PhysRevB.78.104119"
+      },
+      "source_location": "Table III, all runs; P, P-prime, and am(111) columns",
+      "source_provenance": null
+    },
+    "gold_hirose_2008_table1": {
+      "resource": {
+        "path": "datasets/gold-hirose-2008-table1.csv",
+        "sha256": "f1586c78f200d06bdfa35ce7d4c00da270706d44202f142b1b5ca56f832102b9",
+        "media_type": "text/csv"
+      },
+      "reference": {
+        "authors": [
+          "Hirose",
+          "Sata",
+          "Komabayashi",
+          "Ohishi"
+        ],
+        "year": 2008,
+        "title": "Simultaneous volume measurements of Au and MgO to 140 GPa and thermal equation of state of Au based on the MgO pressure scale",
+        "source": "Physics of the Earth and Planetary Interiors",
+        "volume": "167",
+        "locator": "149-154",
+        "doi": "10.1016/j.pepi.2008.03.002"
+      },
+      "source_location": "Table 1, page 150",
+      "source_provenance": {
+        "type": "transcribed_from_primary_source_table",
+        "zotero_item_key": "RCISM6W3",
+        "source_artifact_sha256": "83c61450294d40e0ae6fed9a3dbbd4fdb5ef52c54a642f9c13ab540c32ba8d91"
+      }
+    }
+  },
+  "existing_ancestor_resources": [
+    {
+      "path": "datasets/rhenium-anzellini-2014-table3-compression.csv",
+      "sha256": "6ea5f5036862f9131d489d0589ce075848a1a140234d3a3b49239064d8ffc11f",
+      "scope": "Available upstream evidence; not asserted to reproduce the authors original stage objective"
+    },
+    {
+      "path": "datasets/rhenium-sakai-2018-figure10.csv",
+      "sha256": "d0e39a8e2259fab3f39423de5cc73012c801444abc793fb800ff937adb3de30a",
+      "scope": "Available upstream evidence; not asserted to reproduce the authors original stage objective"
+    },
+    {
+      "path": "datasets/copper-dewaele-2004-table1-compression.csv",
+      "sha256": "0f4535c7e29960690c098408711f63ae559be1d73bba18da73047d75f266120e",
+      "scope": "Available upstream evidence; not asserted to reproduce the authors original stage objective"
+    },
+    {
+      "path": "datasets/tungsten-dewaele-2004-table1-compression.csv",
+      "sha256": "d73f1d9114c974be80175c6ade256bf17cb4a529e911480e6cd1e337394ef523",
+      "scope": "Available upstream evidence; not asserted to reproduce the authors original stage objective"
+    },
+    {
+      "path": "datasets/platinum-dewaele-2004-table1-compression.csv",
+      "sha256": "b0230e9fdd1f8a36cecc35cb79a6d56bd4ee170007a465f1842ef76544c47273",
+      "scope": "Available upstream evidence; not asserted to reproduce the authors original stage objective"
+    },
+    {
+      "path": "datasets/dorfman-2012-tables-s1-s6-cocompression.csv",
+      "sha256": "c65d843d31085e72b63cc3377042b2e855ea83d958e34846c78c862e3a25246c",
+      "scope": "Available upstream evidence; not asserted to reproduce the authors original stage objective"
+    },
+    {
+      "path": "datasets/mgo-dewaele-2000-table2-pvt.csv",
+      "sha256": "22c993b8a0ae8ddbe77ef533ecf442a502b591e569bc10cd2ddaf50f6cc4d0ed",
+      "scope": "Available upstream evidence; not asserted to reproduce the authors original stage objective"
+    }
+  ],
+  "normalization": {
+    "volumes": "angstrom^3 conventional cell; fcc=4 atoms, hcp=2, bcc=2, MgO B1=4 formula units",
+    "errors": "reported generic err. values; blank is missing, not zero or imputed sigma",
+    "source_tokens": "literal OOXML tokens, cell coordinates and formula caches in JSON; PDF literal printed tokens in source_tokens_json",
+    "paired_rows_by_table": {
+      "S1": 139,
+      "S2": 33,
+      "S3": 54,
+      "S4": 19,
+      "S7": 81
+    },
+    "calculated_quantities": "c/a and uniaxial stress retained as source-calculated; pressures reconstructed separately",
+    "source_family_coverage": "19 Sakai Au-W + 84 Dewaele2018 Au-Re + 37 Dewaele2004 Au + 86 Takemura2008 Au + 21 Hirose2008 Au-MgO = 247 rows retained across all five Au families; 235 RT rows; 210 diagnostic fit rows after 25 exclusions",
+    "overlap": "S4 subset is contained in 326-row network resource; source aliases reuse existing files; do not count these as additional measurements"
+  },
+  "calibration_paths": [
+    "Cu -> W -> Au",
+    "Cu -> Re -> Au",
+    "Cu -> Re -> Pt -> MgO -> Au",
+    "IPPS-Ruby2020 -> Au",
+    "W -> Re supplementary constraint (Anzellini2014)"
+  ],
+  "full_sequential_calibration_reproduced": false,
+  "author_weights_recovered": false,
+  "author_covariance_recovered": false,
+  "author_fit_parity": false,
+  "reconstruction_report": "docs/data/sakai-2025-gold-reconstruction.json",
+  "rights": {
+    "peritheos_contribution": "CC0-1.0 only for contributors transcription, normalization code and metadata; no grant of third-party source rights",
+    "sakai_source": "Article CC BY-NC-ND 4.0, https://creativecommons.org/licenses/by-nc-nd/4.0/; source material and third-party exclusions retain their rights",
+    "dewaele_2018_source": "Article CC BY 4.0, https://creativecommons.org/licenses/by/4.0/; source attribution preserved",
+    "other_sources": "Reuse their existing source-rights declarations. No blanket license for all third-party numerical material is asserted"
+  },
+  "recovery_code": {
+    "scripts/recover_sakai_2025_gold.py": "04da4d23f24aa53f8910a3fdbfaa7d2bdff781961cb81b38a8b5b5f686e23865",
+    "scripts/reproduce_sakai_2025_gold.py": "c308cb72ea380c33c8e583318f7cb759f606a19ac0979ed814e2639e9abf2784"
+  },
+  "reconstruction_report_sha256": "c16f7e84f3cfeaf8a2d2970747d380d41c720f26b74de4730da95e958672b5bc",
+  "conditional_numerical_parity_achieved": true,
+  "uncertainty_parity_achieved": false,
+  "reconstruction_assessment": {
+    "status": "conditional_numerical_parity_achieved",
+    "conditional_numerical_parity_achieved": true,
+    "scope": "Au K0_prime central value at published precision",
+    "criterion": "Successful independently refitted K0_prime rounds to Table 2 at three decimal places",
+    "fitted_parameter": "K0_prime",
+    "published_value": 5.78,
+    "reconstructed_value": 5.780096584423864,
+    "difference": 9.658442386406563e-05,
+    "published_decimal_places": 3,
+    "rows": 210,
+    "assumed_residual": "equal_pressure_residuals",
+    "fixed_parameters_from_paper": {
+      "V0": 67.716,
+      "K0": 167.0,
+      "K_infinity_prime": 1.6666666666666667
+    },
+    "calibrants": "published rounded Sakai Table 2 W, MgO, Re; reconstructed IPPS-Ruby2020",
+    "uncertainty_parity_achieved": false,
+    "full_sequential_calibration_reproduced": false,
+    "author_fit_parity": false,
+    "author_fit_parity_scope": "exact original fitting procedure and uncertainty",
+    "original_weights_recovered": false,
+    "original_covariance_recovered": false
+  }
+}

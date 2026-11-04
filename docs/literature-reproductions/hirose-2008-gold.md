@@ -1,5 +1,7 @@
 # Hirose et al. (2008): gold EOS and Au–MgO cross-calibration
 
+**Uncertainty follow-up, 25 October 2026:** The [record-by-record uncertainty reconstruction](uncertainty-reconstruction.md) supplies the current conditional errors and numerical labels for the selected records from this source. The earlier reconstruction descriptions below retain their original scientific qualifications; statements about missing reconstruction errors or their former ledger labels describe the assessment before that follow-up. Source coefficients, observations, calibration limits and use restrictions are unchanged.
+
 Hirose, K., Sata, N., Komabayashi, T., and Ohishi, Y., *Physics of the Earth
 and Planetary Interiors* **167**, 149–154,
 [doi:10.1016/j.pepi.2008.03.002](https://doi.org/10.1016/j.pepi.2008.03.002).

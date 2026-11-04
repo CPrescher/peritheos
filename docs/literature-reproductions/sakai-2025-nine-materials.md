@@ -63,11 +63,20 @@ as new independent measurements.
 
 ## Data and numerical reproduction
 
-Supplementary Tables S1-S8 contain the inter-material volume ratios used to
-build the mutually consistent pressure network.  The final regression also
-uses prior studies and sequential constraints, so the publication does not
-provide one flat independent P-V table or the complete least-squares
-covariance needed for a faithful coefficient refit.
+Supplementary Tables S1-S7 contain simultaneous measured cell volumes used
+to build the mutually consistent pressure network. Table S8 indexes the
+earlier studies and pressure calibrants; it does not contain their numerical
+observations. The final regressions also use those prior studies and
+sequential constraints. Original weights and complete covariance are not
+published. This does not preclude reconstructing individual calibration
+stages from recoverable paired volumes and pressure-scale reductions.
+
+The [Au recovery](sakai-2025-gold.md) now bundles all 19 Au-W rows, 307
+upstream paired rows, and all five Au input families indexed in Table S8.
+Its conditional 210-state Au replay gives K0'=5.7800966 with explicitly
+assumed equal pressure residuals, achieving conditional numerical parity for
+the Au K0' central value at published precision. Published coefficients are
+preserved; uncertainty and full sequential-calibration parity remain unverified.
 
 Supplementary Table S9 is an official 26-point calculated grid for each final
 EOS.  Peritheos bundles those nine grids as `derived_output_only`: they are
@@ -93,6 +102,7 @@ simultaneous-volume experiments for the remaining materials reach roughly
 0.31-0.43 TPa.  The records preserve those distinctions in their range and
 calibration metadata.
 
-No source row was rejected.  No extra curves were created from citations,
-plots, rounded table values, or alternate fits not explicitly reported by the
-authors.
+No recovered source row is discarded from the archive. The Au replay
+preserves source-stated fit exclusions separately. Table S9 grids remain
+official calculated output; diagnostic refits in the Au recovery report do
+not replace the accepted source parameterizations.
