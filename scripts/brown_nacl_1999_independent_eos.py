@@ -222,7 +222,7 @@ def build():
             pressure_at_v03709_t300_gpa=float(m.pressure(0.3709, 300)),
         )
     DEST.write_text(json.dumps(record, indent=2, allow_nan=False) + "\n")
-    saved = load_eos()
+    saved = load_eos(DEST)
     with DEST.with_suffix(".pvt.csv").open("w", newline="") as f:
         writer = csv.writer(f)
         writer.writerow(["P_GPa", "T_K", "v_cm3_g", "KT_GPa", "KS_GPa", "Cp_J_g_K"])
