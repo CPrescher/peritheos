@@ -52,10 +52,19 @@ def verify_sources():
             # The later author-input recovery supersedes this cohort's Table
             # S4 diagnostic. Pin the new document and verify the old cohort
             # against its preserved predecessor instead of rewriting history.
-            if semantic_digest(document) != (
+            original = (
                 "be98ff11894fbbd549f9aee04e0405ca762b24544c708c3e6e7d5eac35135e8b"
-            ):
-                raise ValueError("Scientific source document changed: " + material)
+            )
+            if semantic_digest(document) != original:
+                from scripts.merge_source_bindings import accepts_merge_binding
+
+                if not accepts_merge_binding(
+                    "similar_author_document",
+                    material,
+                    original,
+                    semantic_digest(document),
+                ):
+                    raise ValueError("Scientific source document changed: " + material)
             source = json.loads(
                 (
                     ROOT

@@ -1,0 +1,119 @@
+{
+  "format": "peritheos.license-metadata-source-bindings",
+  "reviewed_on": "2026-11-04",
+  "base_release": "v0.17.3",
+  "base_commit": "61d38dda1397bfcbe5f9ba96f6829a16e242b012",
+  "purpose": "Exact licensing-only source-declaration updates. Original release, merge and cohort pins remain unchanged. Reversing only the listed exact license fields must recover the previous whole-document digest; scientific changes cannot be accepted through these bindings.",
+  "license_fields": [
+    "license",
+    "license_notice",
+    "license_scope",
+    "license_url"
+  ],
+  "materials": {
+    "coesite": {
+      "path": "peritheos/data/materials/coesite.eosmat",
+      "previous_document_sha256": "f43c65c2dfa4943edc8f9dd18c69ac66d2e90dde4464b0a9c14b84cebd984e1b",
+      "licensed_document_sha256": "d7edf55f0a0e88abb0f62b36a59f6c7fdd46a62824dec793a11dc69f12bb5113",
+      "dataset_edits": [
+        {
+          "dataset_id": "coesite_i_iii_bykova_2018_author_fit_export",
+          "before": {},
+          "after": {
+            "license": "CC-BY-4.0",
+            "license_notice": "datasets/coesite-bykova-2018-author-inputs.LICENSE.md",
+            "license_scope": "Author-held rights only, as confirmed by Clemens Prescher on 2026-11-04; third-party sources and separate scientific use restrictions remain unchanged.",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        }
+      ]
+    },
+    "fes_vi": {
+      "path": "peritheos/data/materials/fes_vi.eosmat",
+      "previous_document_sha256": "24285f4fcf08e5bc9ecc69a0d96390cd0035ef06299435ed31bedf5669a9a917",
+      "licensed_document_sha256": "e4f536c5035b7c007f0ba25974fda304168bc2a5ac7f813d8e79c6ffac1d8bfa",
+      "dataset_edits": [
+        {
+          "dataset_id": "fes_morard_2026_author_without_additional_cold_pvt",
+          "before": {
+            "license": "unspecified"
+          },
+          "after": {
+            "license": "CC-BY-4.0",
+            "license_notice": "datasets/fes-morard-2026-author-inputs.LICENSE.md",
+            "license_scope": "Author-held rights only, as confirmed by Clemens Prescher on 2026-11-04; third-party literature inputs retain their source terms.",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        },
+        {
+          "dataset_id": "fes_morard_2026_author_literature_cold_pv",
+          "before": {
+            "license": "unspecified"
+          },
+          "after": {
+            "license": "CC-BY-4.0",
+            "license_notice": "datasets/fes-morard-2026-author-inputs.LICENSE.md",
+            "license_scope": "Author-held rights only, as confirmed by Clemens Prescher on 2026-11-04; third-party literature inputs retain their source terms.",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        }
+      ]
+    },
+    "iron_carbide_fe7c3": {
+      "path": "peritheos/data/materials/iron_carbide_fe7c3.eosmat",
+      "previous_document_sha256": "be98ff11894fbbd549f9aee04e0405ca762b24544c708c3e6e7d5eac35135e8b",
+      "licensed_document_sha256": "59b2ac560258aa79f7f845a03a532b8c4c8874171062cfe133010bcb822bdd43",
+      "dataset_edits": [
+        {
+          "dataset_id": "iron_carbide_fe7c3_prescher_2015_author_fit_input",
+          "before": {},
+          "after": {
+            "license": "CC-BY-4.0",
+            "license_notice": "datasets/iron-carbide-fe7c3-prescher-2015-author-inputs.LICENSE.md",
+            "license_scope": "Author-held rights only, as confirmed by Clemens Prescher on 2026-11-04; third-party sources and separate scientific use restrictions remain unchanged.",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/"
+          }
+        }
+      ]
+    }
+  },
+  "bindings": {
+    "release_document": {
+      "peritheos/data/materials/coesite.eosmat": {
+        "historical_sha256": "d95633580e72f4eddb3890f338e109bdc42a1bea35a5a1be060aa17989b9e590",
+        "previous_reviewed_sha256": "f43c65c2dfa4943edc8f9dd18c69ac66d2e90dde4464b0a9c14b84cebd984e1b",
+        "licensed_sha256": "d7edf55f0a0e88abb0f62b36a59f6c7fdd46a62824dec793a11dc69f12bb5113"
+      },
+      "peritheos/data/materials/fes_vi.eosmat": {
+        "historical_sha256": "24285f4fcf08e5bc9ecc69a0d96390cd0035ef06299435ed31bedf5669a9a917",
+        "previous_reviewed_sha256": "24285f4fcf08e5bc9ecc69a0d96390cd0035ef06299435ed31bedf5669a9a917",
+        "licensed_sha256": "e4f536c5035b7c007f0ba25974fda304168bc2a5ac7f813d8e79c6ffac1d8bfa"
+      },
+      "peritheos/data/materials/iron_carbide_fe7c3.eosmat": {
+        "historical_sha256": "32c10663463c2d851d6ee3f9847390d8e96a393325e5da50bb64b617cab9f865",
+        "previous_reviewed_sha256": "be98ff11894fbbd549f9aee04e0405ca762b24544c708c3e6e7d5eac35135e8b",
+        "licensed_sha256": "59b2ac560258aa79f7f845a03a532b8c4c8874171062cfe133010bcb822bdd43"
+      }
+    },
+    "similar_document": {
+      "coesite": {
+        "historical_sha256": "d95633580e72f4eddb3890f338e109bdc42a1bea35a5a1be060aa17989b9e590",
+        "previous_reviewed_sha256": "f43c65c2dfa4943edc8f9dd18c69ac66d2e90dde4464b0a9c14b84cebd984e1b",
+        "licensed_sha256": "d7edf55f0a0e88abb0f62b36a59f6c7fdd46a62824dec793a11dc69f12bb5113"
+      },
+      "fes_vi": {
+        "historical_sha256": "24285f4fcf08e5bc9ecc69a0d96390cd0035ef06299435ed31bedf5669a9a917",
+        "previous_reviewed_sha256": "24285f4fcf08e5bc9ecc69a0d96390cd0035ef06299435ed31bedf5669a9a917",
+        "licensed_sha256": "e4f536c5035b7c007f0ba25974fda304168bc2a5ac7f813d8e79c6ffac1d8bfa"
+      }
+    },
+    "similar_author_document": {
+      "iron_carbide_fe7c3": {
+        "historical_sha256": "be98ff11894fbbd549f9aee04e0405ca762b24544c708c3e6e7d5eac35135e8b",
+        "previous_reviewed_sha256": "be98ff11894fbbd549f9aee04e0405ca762b24544c708c3e6e7d5eac35135e8b",
+        "licensed_sha256": "59b2ac560258aa79f7f845a03a532b8c4c8874171062cfe133010bcb822bdd43"
+      }
+    }
+  },
+  "scientific_sha256": "ad4faddd0d53dafefd997f662d86e846ad53fc1690152444ed384bb80fa97934"
+}

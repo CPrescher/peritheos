@@ -31,6 +31,7 @@ they have no separate CSV.
 | [Rust components](../data/license-inventory/cargo-components.csv) | 47 normal/build dependency packages, declared licenses, source URLs and hashes of available license texts. |
 | [Archive receipt and totals](../data/license-inventory/summary.json) | All archive URLs, digests, coverage counts, status totals, wheel comparisons and limitations. |
 | [Reviewed scopes](../data/license-inventory-scopes.json) | Explicit file-level interpretations and evidence; these do not grant permissions or replace original notices. |
+| [License-only source bindings](../data/license-metadata-source-bindings.json) | Exact before/after licensing fields and whole-document digest chains; previous release/merge/cohort snapshots remain unchanged. |
 
 The `release` state describes what shipped in 0.17.3. The `local` overlay
 records the author-file declarations and Ma DOCX exclusion introduced in
@@ -151,6 +152,14 @@ literal citations, complete archive coverage and inline catalog components.
 Independent scientific-source preservation checks also pass; this does not
 establish redistribution rights. No source observations, coefficients,
 original artifacts or historical findings are rewritten by the generator.
+
+Historical audit fingerprints include licensing metadata. The six new exact
+bindings retain their historical and previous-reviewed digests and bind the
+licensed declarations separately. Tests reverse only the four named license
+fields in four datasets and recover the three previous whole documents.
+A coefficient mutation still fails even if its new digest is repinned.
+Catalog coverage changes only its material-file fingerprint, not any count,
+scientific classification or ledger finding.
 
 Repository-only reproduction, using the committed archive receipt:
 

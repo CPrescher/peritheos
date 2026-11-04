@@ -1,8 +1,10 @@
-"""Repository-only compatibility pins for the reviewed origin/main integration.
+"""Repository-only compatibility pins for reviewed source-metadata changes.
 
 The original release and cohort fingerprints remain immutable. The supplemental
 file records both parent revisions and exact merged fingerprints; it does not
 replace source coefficients, resource checksums, or historical audit inputs.
+The separate licensing ledger chains exact license-only updates to those
+existing predecessors; tests recover the previous complete declarations.
 """
 
 from __future__ import annotations
@@ -13,6 +15,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 PROOF = ROOT / "docs/data/merged-source-bindings.json"
+LICENSE_PROOF = ROOT / "docs/data/license-metadata-source-bindings.json"
 
 
 @lru_cache(maxsize=1)
@@ -20,12 +23,26 @@ def merge_bindings():
     return json.loads(PROOF.read_text(encoding="utf-8"))["bindings"]
 
 
+@lru_cache(maxsize=1)
+def license_metadata_bindings():
+    return json.loads(LICENSE_PROOF.read_text(encoding="utf-8"))["bindings"]
+
+
 def accepts_merge_binding(
     context: str, identifier: str, expected: str, actual: str
 ) -> bool:
-    """Accept only the explicitly reviewed original-to-merged fingerprint pair."""
+    """Accept exact reviewed pairs, retaining the historical/predecessor chain."""
     entry = merge_bindings().get(context, {}).get(identifier, {})
-    return (
+    if entry and (
         entry.get("historical_sha256") == expected
         and entry.get("merged_sha256") == actual
+    ):
+        return True
+    review = license_metadata_bindings().get(context, {}).get(identifier, {})
+    return bool(review) and (
+        review.get("historical_sha256") == expected
+        and review.get("licensed_sha256") == actual
+        and (not entry or entry.get("historical_sha256") == expected)
+        and review.get("previous_reviewed_sha256")
+        == (entry["merged_sha256"] if entry else expected)
     )

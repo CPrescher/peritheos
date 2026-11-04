@@ -20,6 +20,8 @@ All notable changes to Peritheos are documented here. The project follows
   third-party source terms, original bytes and scientific use restrictions.
   Refresh observation-view declaration bindings for these metadata-only
   updates, preserving observation arrays and model selections.
+  Retain historical audit snapshots through exact license-only digest chains
+  and refresh only the coverage report's material-file fingerprint.
 - Exclude Ma (2024)'s publisher supporting DOCX from wheels and source
   distributions, correcting its inadvertent inclusion in 0.17.3. Preserve the
   original repository audit evidence and scientific findings. Continue to
