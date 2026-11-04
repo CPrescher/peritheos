@@ -18,14 +18,24 @@ transcriptions attributed to:
   137-143. `brucite-zigan-1967-cod-1000054.cif` preserves the
   [COD archival file](https://qiserver.ugr.es/cod/1000054.cif) verbatim, including
   its statement that data were placed in the public domain by contributors.
-  That archive statement does not establish the rights in the original paper.
+  COD's current CC0 data declaration is documented separately in
+  `cod-cif-sources.LICENSE.md` and `cif-license-review.json`. These archive/data
+  statements do not establish the rights in the original paper.
 - He, Xuejing (2023), *Hydrogen-bonding configurations of magnesium
   hydroxyfluoride and fluorine-doped magnesium hydroxide under high pressure*,
   doctoral thesis, University of Tokyo, Table 4.3, pp. 81-82,
   [institutional repository](https://doi.org/10.15083/0002012205).
   `brucite-he-2023-table43.cif` is a contributor transcription of the
   fluorine-free, hydrogenated sample. The thesis became public in 2025;
-  source numerical-data terms remain **unspecified**.
+  source numerical-data terms remain **unspecified**. In the 4 November 2026
+  license review, the indexed institutional record showed no populated file
+  license, while live record/API/file-detail requests failed (HTTP 503;
+  browser record request HTTP 429). No fresh thesis/table reuse grant was
+  established. These access failures do not prove that no grant exists.
+  The current COD CC0 declaration does not apply to this separate thesis
+  transcription. Exact review scope and failed retrieval URLs are retained in
+  `cif-license-review.json`. A rights-holder grant or a downstream-accepted
+  numerical-facts assessment is still needed to resolve source terms.
 - Duffy et al. (1995), *American Mineralogist* **80**, 222-230,
   [doi:10.2138/am-1995-3-403](https://doi.org/10.2138/am-1995-3-403),
   for phase annotations; source numerical-data terms unspecified.

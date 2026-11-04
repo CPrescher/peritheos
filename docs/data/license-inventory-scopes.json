@@ -8,7 +8,8 @@
     "The source archive contains historical reports and generated plots with mixed provenance. MIT covers contributor narrative/code, not automatically every embedded source element.",
     "Rust inventory covers the all-target normal/build dependency graph from Cargo.lock. Build tools are included; dev-only packages excluded. This is not an exact linked-code or Rust standard-library inventory for every wheel.",
     "External Python dependencies are installed separately, not bundled by virtue of Requires-Dist; native dependency notice compliance remains a separate recorded action.",
-    "This inventory records the immutable published 0.17.3 release plus current data/rights overlays. Author declarations and Ma DOCX exclusion shipped in 0.17.4. Subsequent Fei image removal, numerical plot replacements, and Tateno workbook/Chidester ZIP exclusions apply only to later builds; 0.17.4 archives remain unchanged. Inventory tooling and reports were added after 0.17.3 and are not claimed to be files in its archived distributions."
+    "This inventory records the immutable published 0.17.3 release plus current data/rights overlays. Author declarations and Ma DOCX exclusion shipped in 0.17.4. Subsequent Fei image removal, numerical plot replacements, and Tateno workbook/Chidester ZIP exclusions apply only to later builds; 0.17.4 archives remain unchanged. Inventory tooling and reports were added after 0.17.3 and are not claimed to be files in its archived distributions.",
+    "The subsequent CIF review records current COD CC0 declarations against matched source files without rewriting their legacy headers. He (2023) thesis/table reuse terms remain unresolved; failed live repository requests are not licensing evidence. Historical release-state classifications are retained."
   ],
   "local_distribution_exclusions": [
     "peritheos/data/datasets/ma_2024_sources/supporting-information.docx",
@@ -103,6 +104,40 @@
       "scope": "Redundant original MSA AM-18-56212 ZIP, containing two CSV tables and filesystem metadata. Removed from the current source tree and excluded from future distributions after 0.17.4. Both byte-identical extracted CSVs remain; their numerical-data rights are not determined by removing the container.",
       "action": "Preserve original ZIP privately and retain its SHA-256/retrieval URL; retain and verify both original extracted CSVs and assess their source terms separately.",
       "local_only": false
+    },
+    {
+      "id": "cod-cif-current-review",
+      "files": [
+        "peritheos/data/datasets/vanadium-james-1960-9012770.cif",
+        "peritheos/data/datasets/superhydrous-phase-b-koch-muller-2005-mkm0105.cif",
+        "peritheos/data/datasets/brucite-zigan-1967-cod-1000054.cif"
+      ],
+      "status": "open_source_declared",
+      "declared_license": "CC0-1.0 (COD data declaration)",
+      "evidence": [
+        "peritheos/data/datasets/cod-cif-sources.LICENSE.md",
+        "peritheos/data/datasets/cif-license-review.json",
+        "https://www.crystallography.net/cod/#license"
+      ],
+      "scope": "Only the three named COD CIF resources. Vanadium matches the COD mirror exactly and superhydrous phase B matches primary COD exactly; primary/mirror variants differ only in SVN Date/URL comments. Brucite retains its existing archival public-domain basis. Original article rights are separate. CIF bytes are unchanged.",
+      "action": "Retain COD identifiers, original scientific attribution, full CC0 text and the installed review receipt; do not extend the data grant to publications or the He thesis CIF.",
+      "local_only": true
+    },
+    {
+      "id": "he-2023-cif-reviewed-unresolved",
+      "files": [
+        "peritheos/data/datasets/brucite-he-2023-table43.cif"
+      ],
+      "status": "limited_or_unspecified_source",
+      "declared_license": "Contributor-only CC0; original thesis/table source grant not established",
+      "evidence": [
+        "peritheos/data/datasets/brucite.LICENSE.md",
+        "peritheos/data/datasets/cif-license-review.json",
+        "https://repository.dl.itc.u-tokyo.ac.jp/records/2012205"
+      ],
+      "scope": "Factual Table 4.3 contributor transcription only; no verified source reuse grant for the thesis/table. Live institutional record/API/file-detail requests failed, so public availability and the incomplete indexed metadata are not treated as permission.",
+      "action": "Keep original source terms unresolved; obtain a source-specific grant or a documented numerical-facts/rights assessment accepted downstream. No inference that every numerical fact is protected.",
+      "local_only": true
     },
     {
       "id": "legacy-cod-cif-terms",

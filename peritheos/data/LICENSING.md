@@ -45,6 +45,7 @@ file lists and qualifications control; a family name is not a blanket grant.
 | Cementite Sata/Li | [Unspecified source terms; contributor CC0](datasets/cementite-sata-2010.LICENSE.md) |
 | Cementite Takahashi, Litasov and Prescher | [Separate source scopes](datasets/cementite-sources.LICENSE.md) |
 | Coesite Bykova author inputs | [Maintainer-declared author CC BY 4.0; third-party inputs separate](datasets/coesite-bykova-2018-author-inputs.LICENSE.md) |
+| COD CIFs: vanadium, superhydrous phase B and archival brucite | [Scoped COD CC0 source declaration](datasets/cod-cif-sources.LICENSE.md) |
 | Diopside | [Unspecified source terms; contributor CC0](datasets/diopside.LICENSE.md) |
 | Dorfman co-compression tables | [Contributor-only CC0 scope](datasets/dorfman-2012-tables-s1-s6-cocompression.LICENSE.md) |
 | Ferrous ringwoodite | [Source terms and contributor CC0](datasets/ferrous-ringwoodite.LICENSE.md) |
@@ -63,6 +64,12 @@ For resources without a standalone notice or explicit metadata grant, source
 reuse terms remain **unspecified**. Do not infer MIT or CC0 from their directory,
 file format or the absence of another notice. This also applies to inline EOS
 and structural data and to author inputs with limited provenance-only use.
+
+The installed [CIF license review](datasets/cif-license-review.json) records
+source URLs, hashes and the current COD data declaration for the three named
+COD CIFs. It preserves legacy headers and structural values. The He (2023)
+thesis-derived brucite CIF remains a separate unresolved source-rights case;
+its contributor-only CC0 notice is not a thesis reuse grant.
 
 ## Installed packages and downstream redistribution
 

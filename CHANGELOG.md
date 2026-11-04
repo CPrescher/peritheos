@@ -20,6 +20,12 @@ All notable changes to Peritheos are documented here. The project follows
   Keep numerical KCl replay available; make fresh workbook inspection an
   explicit checksum-verified operation with a separately supplied original.
 
+- Verify the current COD CC0 source declaration against the bundled vanadium
+  and superhydrous-phase-B CIF payloads. Add an installed, scoped CIF notice
+  and source/hash review receipt; retain all CIF bytes and legacy headers.
+  Keep He (2023) thesis-derived brucite source terms explicitly unresolved,
+  including the limitations of failed live repository requests.
+
 ## [0.17.4] - 2026-11-04
 
 ### Fixed

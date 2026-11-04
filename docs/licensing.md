@@ -17,6 +17,12 @@ The original Tateno KCl workbook and redundant Chidester supplement ZIP have
 also been moved to private evidence storage and excluded from both package
 formats. Their source manifests, checksums and unchanged numerical CSVs remain.
 
+The [CIF license review](research/license-inventory.md#specific-findings-and-actions)
+records matched COD files and the current CC0 source declaration for the named
+vanadium, superhydrous-phase-B and archival brucite CIFs. He (2023)'s separate
+thesis-derived brucite CIF still has unresolved source reuse terms. Original
+CIF bytes, headers and structural values are unchanged.
+
 Peritheos implementation code and contributor-written research scripts use
 the MIT (Expat) license. Bundled scientific data have source-specific terms.
 Article citations in scripts identify scientific sources; they do not change

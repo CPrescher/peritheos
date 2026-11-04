@@ -1,0 +1,106 @@
+{
+  "schema": "peritheos.cif-license-review.v1",
+  "reviewed_on": "2026-11-04",
+  "scope": "File-level source-license review only. CIF bytes, structural values, material declarations and historical scientific findings are unchanged. No publication-wide rights grant is inferred.",
+  "cod_policy": {
+    "url": "https://www.crystallography.net/cod/",
+    "retrieved_sha256": "59957a39a570af7b9194b2c703ebdb0a20310af20b3445f5baf49c2f63f22cbd",
+    "source_license": "CC0-1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "scope": "COD states that its data and database are dedicated to the public domain under CC0; original research articles are separate."
+  },
+  "cif_comparison_method": "Remove only complete comment lines beginning #$Date: or #$URL:, preserving every other byte and line ending. Exact SHA-256 values are also retained for each original/served file.",
+  "files": [
+    {
+      "file": "vanadium-james-1960-9012770.cif",
+      "cod_id": "9012770",
+      "local_sha256": "3f81e29961c91b096d22f3dc3313b08dd87e56bd1449e0b7a24eb2dc01e41548",
+      "cif_payload_sha256_ignoring_only_svn_date_url": "205652ada5cf5b21c82d31beb3666378ed43347f0e0b022606839b11657618af",
+      "status": "open_source_declared",
+      "source_license": "CC0-1.0, as declared by COD for its data/database",
+      "source_versions": [
+        {
+          "url": "https://www.crystallography.net/cod/9012770.cif",
+          "sha256": "2ec59554ad83dfa80b2e2de0271d53b8ffd98af5c28cd1aab5ef83a55a5f049f",
+          "bytes": 3376,
+          "exact_byte_match": false,
+          "cif_payload_match_ignoring_only_svn_date_url": true
+        },
+        {
+          "url": "https://qiserver.ugr.es/cod/9012770.cif",
+          "sha256": "3f81e29961c91b096d22f3dc3313b08dd87e56bd1449e0b7a24eb2dc01e41548",
+          "bytes": 3352,
+          "exact_byte_match": true,
+          "cif_payload_match_ignoring_only_svn_date_url": true
+        }
+      ],
+      "qualification": "Only SVN Date and URL comment lines differ between primary/mirror variants. All other CIF bytes, including legacy headers, are identical. Original journal articles are outside this data grant."
+    },
+    {
+      "file": "superhydrous-phase-b-koch-muller-2005-mkm0105.cif",
+      "cod_id": "9007379",
+      "local_sha256": "9118860e2e0e65a8a8fac0743d2ad154d5611d80f40b53e2444715dfad12adf3",
+      "cif_payload_sha256_ignoring_only_svn_date_url": "cae2eaec25da35af3c5ca5331522b3f03c66b15d18470f4ec1de6b70250bf50d",
+      "status": "open_source_declared",
+      "source_license": "CC0-1.0, as declared by COD for its data/database",
+      "source_versions": [
+        {
+          "url": "https://www.crystallography.net/cod/9007379.cif",
+          "sha256": "9118860e2e0e65a8a8fac0743d2ad154d5611d80f40b53e2444715dfad12adf3",
+          "bytes": 2862,
+          "exact_byte_match": true,
+          "cif_payload_match_ignoring_only_svn_date_url": true
+        },
+        {
+          "url": "https://qiserver.ugr.es/cod/9007379.cif",
+          "sha256": "03859e81d4e6063c9ab6522c3b79e656571feea42e3d6b4522da3e607e933722",
+          "bytes": 2838,
+          "exact_byte_match": false,
+          "cif_payload_match_ignoring_only_svn_date_url": true
+        }
+      ],
+      "qualification": "Only SVN Date and URL comment lines differ between primary/mirror variants. All other CIF bytes, including legacy headers, are identical. Original journal articles are outside this data grant."
+    },
+    {
+      "file": "brucite-zigan-1967-cod-1000054.cif",
+      "cod_id": "1000054",
+      "local_sha256": "1defd6b791e80c0ce967ea13a4457559e46d23028fb6f9796c5215871542eba1",
+      "status": "open_source_declared",
+      "source_license": "Original archival public-domain header; current COD CC0 data declaration",
+      "source_url": "https://qiserver.ugr.es/cod/1000054.cif",
+      "qualification": "Existing archival provenance is retained. This entry was not downloaded again in this review."
+    },
+    {
+      "file": "brucite-he-2023-table43.cif",
+      "local_sha256": "9983ea18cf364ef6b7378b44b0b0a20e28b29c4d08b6c76399e9d79605b915ff",
+      "status": "limited_or_unspecified_source",
+      "contributor_scope": "CC0-1.0 only for contributor-held transcription/normalization/metadata rights",
+      "source_license": "No separately verified thesis/table reuse grant established",
+      "source_doi": "10.15083/0002012205",
+      "source_url": "https://repository.dl.itc.u-tokyo.ac.jp/records/2012205",
+      "source_location": "He Xuejing (2023), Table 4.3, printed pp. 81-82; fluorine-free hydrogenated sample",
+      "previously_inspected_pdf_sha256": "c32fc2f616d638fb4c4e474d06583ba3cf58526a3f2f95402f67d0e9079203be",
+      "fresh_pdf_inspection_performed": false,
+      "repository_checks": [
+        {
+          "url": "https://repository.dl.itc.u-tokyo.ac.jp/api/records/2012205",
+          "result": "HTTP Error 503: Service Temporarily Unavailable"
+        },
+        {
+          "url": "https://repository.dl.itc.u-tokyo.ac.jp/records/2012205",
+          "result": "HTTP Error 503: Service Temporarily Unavailable"
+        },
+        {
+          "url": "https://repository.dl.itc.u-tokyo.ac.jp/records/2012205/file_details/A40857.pdf?file_order=0&filename=A40857.pdf",
+          "result": "HTTP Error 503: Service Temporarily Unavailable"
+        }
+      ],
+      "qualification": "The indexed institutional record displays the thesis with an unpopulated license column; that incomplete observation is not evidence that no grant exists. Live record/API/file-detail requests returned HTTP 503 (browser record request returned 429), so no fresh source license could be verified. Public availability and a contributor dedication do not establish original thesis rights. This is not a finding that factual numerical values are copyrighted or non-free.",
+      "required_action": "Obtain a dataset-specific grant from the relevant rights holder, or a documented numerical-facts/rights assessment accepted by the downstream reviewer."
+    }
+  ],
+  "limits": [
+    "COD grants are recorded as source declarations, not independent authentication of every underlying contributor right.",
+    "HTTP failures at the thesis repository are access limitations, not licensing evidence. Unverified source terms remain unspecified."
+  ]
+}

@@ -31,6 +31,7 @@ they have no separate CSV.
 | [Rust components](../data/license-inventory/cargo-components.csv) | 47 normal/build dependency packages, declared licenses, source URLs and hashes of available license texts. |
 | [Archive receipt and totals](../data/license-inventory/summary.json) | All archive URLs, digests, coverage counts, status totals, wheel comparisons and limitations. |
 | [Reviewed scopes](../data/license-inventory-scopes.json) | Explicit file-level interpretations and evidence; these do not grant permissions or replace original notices. |
+| [CIF license review](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/cif-license-review.json) | Exact COD source-file comparisons, current CC0 declaration and unresolved He thesis-source terms; installed with the package. |
 | [License-only source bindings](../data/license-metadata-source-bindings.json) | Exact before/after licensing fields and whole-document digest chains; previous release/merge/cohort snapshots remain unchanged. |
 
 The `release` state describes what shipped in 0.17.3. The `local` overlay
@@ -128,11 +129,30 @@ This removal does not settle the separate question of rights in numerical
 transcriptions. Both 0.17.3 and 0.17.4 source archives contain the original
 rasters and overlays; the correction applies to subsequent builds only.
 
-**Legacy COD/AMCSD CIFs.** The vanadium and superhydrous-phase-B CIFs state
-use within the scientific community with attribution. Unlike brucite COD
-1000054, these preserved files do not contain the same public-domain
-declaration. Check whether a current grant covers those specific legacy
-entries; do not assign CC0 solely from a database name.
+**COD/AMCSD CIFs: current source declaration verified.** The vanadium
+COD 9012770 copy is byte-identical to the Granada COD mirror; the
+superhydrous-phase-B COD 9007379 copy is byte-identical to the primary COD
+server. Primary/mirror variants differ only in SVN date/URL comments, with all
+other bytes matching. COD's [current CC0 data declaration](https://www.crystallography.net/cod/#license)
+is now recorded for these two named resources and the existing COD 1000054
+brucite resource. This establishes a recorded source declaration for the CIF
+data, not a publication-wide grant or independent authentication of every
+underlying right. All CIF bytes and old attribution headers remain unchanged.
+The `release` inventory retains the earlier unresolved legacy-header review;
+the `local` overlay records this subsequent clarification. The installed
+[notice](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/cod-cif-sources.LICENSE.md) and
+[review receipt](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/cif-license-review.json) retain
+exact URLs, original/served hashes and the comparison method.
+
+**He (2023) brucite CIF: source terms still unresolved.** This is a Peritheos
+transcription of thesis Table 4.3, not a COD input. The indexed institutional
+record has no populated file license; live institutional record/API/file-detail
+requests returned HTTP 503 (browser record request HTTP 429). No fresh source
+reuse grant was established. Failed access and public availability are not
+permission evidence, nor proof that no grant exists. Keep the contributor CC0
+scope separate from original thesis/table rights and seek a dataset-specific
+grant or a documented downstream rights assessment. The existing scientific
+inspection, original thesis hash and all CIF values remain preserved.
 
 **Contributor-only CC0 and missing terms.** The Brown, brucite, Ca-perovskite,
 several cementite, diopside, Dorfman, ferrous-ringwoodite, Katsura-2009, phase-E

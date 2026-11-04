@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Check an installed wheel from a directory outside the source checkout."""
 
+import hashlib
 import json
 from collections import Counter
 from importlib import resources
@@ -66,6 +67,12 @@ def main():
         "chidester_2018_sources/6212_supp2.csv",
     ):
         assert data.joinpath("datasets", resource).is_file(), resource
+    cif_review = json.loads(
+        data.joinpath("datasets", "cif-license-review.json").read_text(encoding="utf-8")
+    )
+    for item in cif_review["files"]:
+        payload = data.joinpath("datasets", item["file"]).read_bytes()
+        assert hashlib.sha256(payload).hexdigest() == item["local_sha256"], item["file"]
     guide = data.joinpath("LICENSING.md").read_text(encoding="utf-8")
     datasets = data.joinpath("datasets")
     notices = [path for path in datasets.iterdir() if path.name.endswith(".LICENSE.md")]
