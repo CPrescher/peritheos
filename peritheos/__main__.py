@@ -167,7 +167,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                 format_version=args.format_version,
             )
         payload = format_eosmat(document)
-        with args.path.open("x", encoding="utf-8") as stream:
+        with args.path.open("x", encoding="utf-8", newline="\n") as stream:
             stream.write(payload)
     except (ValueError, TypeError, OSError) as error:
         cause: BaseException = error

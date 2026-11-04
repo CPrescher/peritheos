@@ -12,12 +12,12 @@ import numpy as np
 from scripts.brucite_reproduce import (
     COLUMNS,
     DATA,
+    REPORT,
     ROOT,
     STAGED,
     TABLES,
     parse_number,
     reference_volume,
-    reproduce,
     source,
 )
 from scripts.eosmat_io import render_material
@@ -27,7 +27,7 @@ def staged_document():
     original = source()
     fukui = original["sources"]["fukui_2003"]
     structure = original["sources"]["structure"]
-    report = reproduce()
+    report = json.loads(REPORT.read_text(encoding="utf-8"))
     reference = {
         "authors": ["Fukui", "Ohtaka", "Suzuki", "Funakoshi"],
         "year": 2003,
@@ -354,11 +354,11 @@ def main():
             else json.dumps(document, indent=2, allow_nan=False) + "\n"
         )
         if args.check:
-            if path.read_text() != payload:
+            if path.read_text(encoding="utf-8") != payload:
                 raise SystemExit(f"Staged brucite card is outdated: {path}")
         else:
             path.parent.mkdir(parents=True, exist_ok=True)
-            path.write_text(payload)
+            path.write_text(payload, encoding="utf-8")
         print(path.relative_to(ROOT))
 
 
@@ -435,7 +435,7 @@ def conditional_thermal_document():
 def audit_document():
     """Preserve published coefficients and historical refits as audit evidence."""
     document = staged_document()
-    report = reproduce()
+    report = json.loads(REPORT.read_text(encoding="utf-8"))
     phase_note = (
         "Layered brucite lattice-average empirical volume EOS, including H rearrangement; "
         "not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. "

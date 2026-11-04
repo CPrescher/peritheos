@@ -480,11 +480,12 @@ def main():
     report = reproduce()
     payload = json.dumps(report, indent=2, allow_nan=False) + "\n"
     if args.check:
-        if REPORT.read_text() != payload:
-            raise SystemExit("Brucite V0 audit report is stale")
+        from scripts.brucite_replay_checks import check_report
+
+        check_report(report, json.loads(REPORT.read_text(encoding="utf-8")))
         print("Brucite V0 audit report is current.")
     else:
-        REPORT.write_text(payload)
+        REPORT.write_text(payload, encoding="utf-8")
     if args.plot:
         plot(report)
     for r in report["isotherms"]:

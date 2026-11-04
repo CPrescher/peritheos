@@ -4,11 +4,7 @@ use peritheos::{load_eosmat, load_eosmat_str};
 
 #[test]
 fn forsterite_final_table_loads_evaluates_inverts_and_preserves_source_metadata() {
-    let path = Path::new(env!("CARGO_MANIFEST_DIR"))
-        .join("../../peritheos/data/materials/forsterite.eosmat");
-    if !path.is_file() {
-        return; // The separately published Rust crate need not contain the catalog.
-    }
+    let path = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/data/forsterite.eosmat");
     let material = load_eosmat(path).unwrap();
     assert_eq!(
         material.eos_records[0].identifier,
@@ -37,11 +33,7 @@ fn forsterite_final_table_loads_evaluates_inverts_and_preserves_source_metadata(
 
 #[test]
 fn forsterite_author_script_preserves_the_full_precision_coefficient_vector() {
-    let path = Path::new(env!("CARGO_MANIFEST_DIR"))
-        .join("../../peritheos/data/materials/forsterite.eosmat");
-    if !path.is_file() {
-        return;
-    }
+    let path = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/data/forsterite.eosmat");
     let material = load_eosmat(path).unwrap();
     let record = material
         .record("forsterite_katsura_2022_author_script_bm3_mgd")

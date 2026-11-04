@@ -1,7 +1,5 @@
 # Litasov et al. (2013): natural siderite
 
-**Uncertainty follow-up, 25 October 2026:** The [record-by-record uncertainty reconstruction](uncertainty-reconstruction.md) supplies the current conditional errors and numerical labels for the selected records from this source. The earlier reconstruction descriptions below retain their original scientific qualifications; statements about missing reconstruction errors or their former ledger labels describe the assessment before that follow-up. Source coefficients, observations, calibration limits and use restrictions are unchanged.
-
 The 300 K BM3 record **`siderite_fe095mn005_litasov_2013_bm3`** is accepted.
 Both published thermal versions remain non-executable because their expansion
 intercepts disagree. A separate **`siderite_fe095mn005_litasov_2013_joint_thermal_refit`**
@@ -150,11 +148,10 @@ The original RT coefficients give 0.22958 GPa RMSE. The thermal Table 1
 and abstract variants give 0.23256 and 0.29937 GPa, respectively, across all
 111 observations. None reproduces the manuscript's stated 0.11–0.17 GPa RMS
 range. A lower residual alone cannot identify the intended coefficient.
-RT coefficient recovery now has **conditional numerical parameter parity**:
-both varied coefficients lie within the source's printed errors for all 27 cold
-rows with fixed V0 and equal pressure-residual weights. The RMS discrepancy,
-unresolved pressure-scale realization and missing source objective remain
-separate findings; original-fit reproduction is not claimed.
+RT coefficient recovery now qualifies as **conditional parameter parity**
+within the reported source widths. The RMS discrepancy remains a separate
+qualification, and original author-workflow reproduction is not established.
+See the [uncertainty review](uncertainty-reconstruction.md).
 The all-cold-row axial diagnostics give Ka = 219.263, K′a = 4.94465 and
 Kc = 61.7153, K′c = 2.65811; their disagreement with the printed axial fits
 is preserved. No axial material record has been added.

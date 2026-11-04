@@ -39,7 +39,17 @@ place. For example, `25.447259 ± 0.091348` is displayed as `25.45 ± 0.09`, and
 carry (`0.099` becomes `0.10`). Values without a positive reported error use at
 most six significant digits; this display limit does not estimate uncertainty.
 Missing errors must be labelled; a reported zero does not mean an exact value.
-Preserve full source and computed precision in EOSMAT and numerical evidence.
+Preserve full source and computed precision in EOSMAT and numerical evidence. A reconstruction
+comparison may explicitly record `display_decimal_places` when an audited
+printed-precision comparison requires the same decimal place on both source and
+refit values/errors. This affects report display only: retain unrounded values,
+error confidence and any uncertainty mismatch. The usual rounding convention
+continues to apply when that optional field is absent.
+The repository audit ledger may retain explicit `assessment_basis` and
+`assessment_qualifications` prose when the reviewed finding is more specific
+than the organizer's default wording. These fields preserve that narrative
+verbatim; numerical comparisons, status, scope and constraints remain separate.
+
 
 The repository-only maintenance command
 `uv run --group docs python -m scripts.generate_reconstruction_reports` replays
@@ -51,6 +61,12 @@ Pressure RMS is evaluated at observed coordinates and may differ from an
 errors-in-variables objective evaluated at fitted latent coordinates. Thermal
 curves are separate labelled isotherms; residuals use every row's temperature.
 Do not connect mixed-temperature observations as one fitted curve.
+
+Curve SVGs retain an integrity-checked, full-precision input snapshot. Freshness
+checks allow only cross-platform numerical roundoff (relative and absolute
+tolerance `1e-9` in the displayed coordinates); labels, selection sizes, renderer
+code and SVG body integrity must still match. This cache tolerance does not
+round stored observations, coefficients, model evaluations or reported errors.
 
 Specialized adapters replay the audit's equations in their actual coordinates:
 Us–up, density–velocity, bulk/shear modulus, energy-balanced shock paths and
@@ -298,6 +314,13 @@ Failure to achieve parameter parity is evidence to investigate and disclose;
 it is not permission to develop a replacement model as part of curation.
 
 ### Stopping rule: unresolved reproduction discrepancies
+
+For Morard (2026) FeS, the maintainer explicitly accepted staged parameter
+agreement within reported uncertainties on 2026-10-19. Its separate failure to
+reproduce the stated complete ±3 GPa residual envelope is informational and does
+not block catalog use. Preserve that discrepancy and the `similar` reconstruction
+label; this scoped acceptance does not establish exact author-workflow or formal
+uncertainty parity. See the [Morard audit](literature-reproductions/morard-2026-fes.md).
 
 If the published EOS or its reported agreement with the source data cannot be
 reproduced within justified tolerances after checking transcription, equation

@@ -1,0 +1,11 @@
+material,a_km_s,b,c_s_km,up_range_km_s,pressure_range_GPa,source_assignment
+Cu,3.933,1.500,0.0,u<=3.7,P<=314,Mitchell_Nellis_1981
+Cu,3.899,1.520,-0.0071,u>=3.7,314<=P<=976,Altshuler_1981
+Ta,3.43,1.19,0.0,u<=0.7,P<=55,Marsh_1980
+Ta,3.291,1.308,0.0,0.7<=u<=4.0,55<=P<=560,Holmes_1989
+Ta,3.431,1.159,0.0248,u>=4.0,560<=P<=1097,Altshuler_1981
+Mo,5.122,1.245,0.0,u<=4.4,P<=476,Hixson_Fritz_1992
+Mo,5.100,1.266,0.0,u>=4.4,476<=P<=1020,Altshuler_1981
+Pt,3.641,1.541,0.0,0.7<=u<=4.0,P<=660,Holmes_1989
+Au,3.07,1.54,0.0,u<=1.8,P<=200,Marsh_1980
+Au,3.15,1.47,0.0,u>=1.8,200<=P<=513,Altshuler_1958

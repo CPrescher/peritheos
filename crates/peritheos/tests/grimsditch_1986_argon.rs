@@ -28,7 +28,7 @@ fn native_material_loader_accepts_published_density_refit() {
         .find(|r| r.document["identifier"] == "argon_fcc_grimsditch_1986_density_polynomial")
         .unwrap();
     assert_eq!(
-        record.document["reproduction"]["fit_status"],
+        record.document["evidence"]["reproduction"]["fit_status"],
         "not_reproduced"
     );
 }

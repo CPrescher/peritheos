@@ -79,9 +79,9 @@ def conditional_ambient_mgd(joint_parameters, dataset):
         "solver_success": bool(fit.success),
         "multistart_sse": [float(result.fun @ result.fun) for result in results],
         "active_bounds": {
-            NAMES["mgd"][i]: int(mask)
+            NAMES["mgd"][i]: int(mask) if mask else -1
             for i, mask in zip(FREE_INDICES, fit.active_mask)
-            if mask
+            if mask or (i == 5 and np.isclose(parameters[i], 10.0, rtol=0, atol=1e-5))
         },
         "bounds_for_free_parameters": {
             "V0_a3": [40, 42],
@@ -113,7 +113,7 @@ def curve_values(key, temperature, report):
 
 
 def reproduce():
-    joint = json.loads(JOINT_REPORT.read_text())
+    joint = json.loads(JOINT_REPORT.read_text(encoding="utf-8"))
     for name, checksum in joint["source_file_sha256"].items():
         if (
             hashlib.sha256(
@@ -390,10 +390,10 @@ def main():
     report = reproduce()
     payload = json.dumps(report, indent=2, allow_nan=False) + "\n"
     if args.check:
-        if REPORT.read_text() != payload:
+        if REPORT.read_text(encoding="utf-8") != payload:
             raise SystemExit("Brucite ambient comparison is stale")
     else:
-        REPORT.write_text(payload)
+        REPORT.write_text(payload, encoding="utf-8")
     if args.plot:
         write_plot(report)
     print("Brucite ambient comparison is current.")

@@ -4,11 +4,7 @@ use peritheos::{load_eosmat, load_eosmat_str};
 
 #[test]
 fn nacl_thermal_refit_matches_independent_quadrature_and_round_trips() {
-    let path =
-        Path::new(env!("CARGO_MANIFEST_DIR")).join("../../peritheos/data/materials/nacl_b2.eosmat");
-    if !path.is_file() {
-        return; // The material bundle is not included in the standalone Rust crate.
-    }
+    let path = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/data/nacl_b2.eosmat");
     let material = load_eosmat(path).unwrap();
     let refit_id = "nacl_b2_fei_2007_staged_thermal_refit";
     let record = material.record(refit_id).unwrap();

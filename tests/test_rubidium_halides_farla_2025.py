@@ -43,7 +43,9 @@ def test_fixed_debye_temperatures_match_supplemental_elastic_inputs(compound):
 
 @pytest.mark.parametrize("compound,count", [("rbcl", 125), ("rbbr", 126), ("rbi", 125)])
 def test_complete_source_table_transcription_and_checksum(compound, count, tmp_path):
-    raw = json.loads((DATA / f"{PREFIX}-source-tables.json").read_text())
+    raw = json.loads(
+        (DATA / f"{PREFIX}-source-tables.json").read_text(encoding="utf-8")
+    )
     assert raw["source_sha256"] == (
         "2c56d355b97e7fd9dfdc1062e32e0c01eaccef2927e51a92e38ee5de4dc430bf"
     )
@@ -83,7 +85,9 @@ def test_complete_source_table_transcription_and_checksum(compound, count, tmp_p
 
 
 def test_source_irregularities_and_calibrants_are_retained():
-    raw = json.loads((DATA / f"{PREFIX}-source-tables.json").read_text())
+    raw = json.loads(
+        (DATA / f"{PREFIX}-source-tables.json").read_text(encoding="utf-8")
+    )
     assert raw["tables"][0][3][4] == "1.19(0"
     br = observation_rows(raw["tables"], "rbbr")
     assert br[0]["pressure_gpa_source_token"] == "1.19(0"
@@ -211,7 +215,7 @@ def test_independent_refit_discloses_selection_and_parity_limit(compound, count)
 
 
 def test_source_manifest_checks_every_bundled_product():
-    manifest = json.loads((DATA / f"{PREFIX}-source.json").read_text())
+    manifest = json.loads((DATA / f"{PREFIX}-source.json").read_text(encoding="utf-8"))
     for product in manifest["products"]:
         path = ROOT / "peritheos/data" / product["path"]
         assert hashlib.sha256(path.read_bytes()).hexdigest() == product["sha256"]

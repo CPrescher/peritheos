@@ -1,6 +1,6 @@
 material_identifier,material_name,formula,represented_phase_or_polymorph,phase_identity_source,symmetry,space_group,formula_units_per_cell,equation_kinds,eos_record_count,input_file
 akimotoite,Akimotoite,MgSiO3,ilmenite-type (akimotoite),top-level phase field,TRIGONAL,R-3,6,isothermal,11,peritheos/data/materials/akimotoite.eosmat
-al2o3_perovskite,Al2O3 perovskite model crystal,Al2O3,hypothetical orthorhombic Pbnm perovskite model crystal,top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,2,peritheos/data/materials/al2o3_perovskite.eosmat
+al2o3_perovskite,Bridgmanite hypothetical perovskite model crystal,Al2O3,hypothetical orthorhombic Pbnm perovskite model crystal,top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,2,peritheos/data/materials/al2o3_perovskite.eosmat
 al2o3_post_perovskite,Al2O3 post-perovskite model crystal,Al2O3,hypothetical CaIrO3-type Cmcm post-perovskite model crystal,top-level phase field,ORTHORHOMBIC,Cmcm,4,isothermal,1,peritheos/data/materials/al2o3_post_perovskite.eosmat
 al_bearing_phase_d,Al-bearing phase D,Mg0.90Al0.64Si1.29H3.10O6,"Al-bearing trigonal phase D, P-31m",top-level phase field,HEXAGONAL,P-31m,1,isothermal,1,peritheos/data/materials/al_bearing_phase_d.eosmat
 almandine,Almandine,Fe3Al2Si3O12,Almandine,material name plus crystal structure,CUBIC,Ia-3d,8,isothermal,1,peritheos/data/materials/almandine.eosmat
@@ -55,7 +55,7 @@ fe,Fe,Fe,Fe,material name plus crystal structure,CUBIC,Im-3m,2,isothermal,3,peri
 fe073si027_d03,Fe–16 wt% Si (D03),Fe0.73Si0.27,d03,top-level phase field,CUBIC,Fm-3m,16,thermal,1,peritheos/data/materials/fe073si027_d03.eosmat
 fe084si016_d03,Fe–9 wt% Si (d03),Fe0.84Si0.16,d03,top-level phase field,CUBIC,Fm-3m,16,isothermal,2,peritheos/data/materials/fe084si016_d03.eosmat
 fe084si016_hcp,Fe–9 wt% Si (hcp),Fe0.84Si0.16,hcp,top-level phase field,HEXAGONAL,P63/mmc,2,thermal,2,peritheos/data/materials/fe084si016_hcp.eosmat
-fe088sio3_bridgmanite,A-site-deficient iron bridgmanite,Fe0.88SiO3,ferric-iron-stabilized Pbnm bridgmanite,top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/fe088sio3_bridgmanite.eosmat
+fe088sio3_bridgmanite,Bridgmanite A-site-deficient,Fe0.88SiO3,ferric-iron-stabilized Pbnm bridgmanite,top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/fe088sio3_bridgmanite.eosmat
 fe093o_rhombohedral,Fe0.93O (rhombohedrally distorted B1),Fe0.93O,"rhombohedrally distorted B1 Fe0.93O, equivalent hexagonal cell",top-level phase field,TRIGONAL,,3,isothermal,1,peritheos/data/materials/fe093o_rhombohedral.eosmat
 fe09ni01_hcp,Fe0.9Ni0.1 alloy (hcp),Fe0.9Ni0.1,hcp,top-level phase field,HEXAGONAL,P63/mmc,2,isothermal;thermal,21,peritheos/data/materials/fe09ni01_hcp.eosmat
 fe2o3,Fe2O3,Fe2O3,Fe2O3,material name plus crystal structure,HEXAGONAL,R-3c,6,isothermal,1,peritheos/data/materials/fe2o3.eosmat
@@ -65,15 +65,15 @@ fe_bearing_al_phase_d,Fe-bearing Al-phase D,Al1.53Fe0.22Si0.86O6H3.33,"partially
 fe_fcc,Iron (fcc),Fe,fcc,top-level phase field,CUBIC,Fm-3m,4,thermal,1,peritheos/data/materials/fe_fcc.eosmat
 feh2,FeH2,FeH2,FeH2,material name plus crystal structure,TETRAGONAL,I4/mmm,4,isothermal,1,peritheos/data/materials/feh2.eosmat
 feh3,FeH3,FeH3,FeH3,material name plus crystal structure,CUBIC,Pm-3m,1,isothermal,1,peritheos/data/materials/feh3.eosmat
-feo,FeO (B1),FeO,FeO (B1),material name plus crystal structure,CUBIC,Fm-3m,4,thermal;isothermal,5,peritheos/data/materials/feo.eosmat
+feo,Wüstite B1,FeO,Wüstite B1,material name plus crystal structure,CUBIC,Fm-3m,4,thermal;isothermal,5,peritheos/data/materials/feo.eosmat
 feo_b8_2,FeO (B8),FeO,FeO (B8),material name plus crystal structure,HEXAGONAL,P63/mmc,2,thermal,1,peritheos/data/materials/feo_b8_2.eosmat
-ferropericlase_fe27,Fe27 ferropericlase,Mg0.725Fe0.268O,"cation-deficient rocksalt ferropericlase, cubic Fm-3m",top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/ferropericlase_fe27.eosmat
+ferropericlase_fe27,Ferropericlase B1 cation-deficient Fe27,Mg0.725Fe0.268O,"cation-deficient rocksalt ferropericlase, cubic Fm-3m",top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/ferropericlase_fe27.eosmat
 ferrous_ringwoodite,Ferrous ringwoodite (Fe2SiO4),Fe2SiO4,"gamma spinel, Fe endmember",top-level phase field,CUBIC,Fd-3m,8,isothermal,1,peritheos/data/materials/ferrous_ringwoodite.eosmat
 fes,FeS-VI,FeS,FeS-VI,material name plus crystal structure,ORTHORHOMBIC,Pnma,4,isothermal,1,peritheos/data/materials/fes.eosmat
 fes_vi,Iron sulfide FeS-VI,FeS,nonmagnetic MnP-type FeS-VI,top-level phase field,ORTHORHOMBIC,Pnma,4,thermal,1,peritheos/data/materials/fes_vi.eosmat
 fesi_b2,FeSi (B2; Peritheos refits),FeSi,b2,top-level phase field,CUBIC,Pm-3m,1,thermal,2,peritheos/data/materials/fesi_b2.eosmat
 fesi_b20,FeSi (B20),FeSi,b20,top-level phase field,CUBIC,P213,4,isothermal,2,peritheos/data/materials/fesi_b20.eosmat
-fesio3_bridgmanite,Iron silicate perovskite,FeSiO3,"orthorhombic perovskite (Pv), high-spin antiferromagnetic",top-level phase field,ORTHORHOMBIC,,4,isothermal,2,peritheos/data/materials/fesio3_bridgmanite.eosmat
+fesio3_bridgmanite,Bridgmanite high-spin antiferromagnetic,FeSiO3,"orthorhombic perovskite (Pv), high-spin antiferromagnetic",top-level phase field,ORTHORHOMBIC,,4,isothermal,2,peritheos/data/materials/fesio3_bridgmanite.eosmat
 fesio3_liquid,Liquid iron silicate,FeSiO3,FeSiO3 liquid,top-level phase field,,,1,isothermal,1,peritheos/data/materials/fesio3_liquid.eosmat
 fesio3_post_perovskite,Iron silicate post-perovskite,FeSiO3,"CaIrO3-type post-perovskite (PPv), high-spin antiferromagnetic",top-level phase field,ORTHORHOMBIC,Cmcm,4,isothermal,1,peritheos/data/materials/fesio3_post_perovskite.eosmat
 fesio3_post_perovskite_ii,Iron silicate post-perovskite II,FeSiO3,"Cmmm post-perovskite-II (PPv-II), high-spin antiferromagnetic",top-level phase field,ORTHORHOMBIC,Cmmm,4,isothermal,1,peritheos/data/materials/fesio3_post_perovskite_ii.eosmat
@@ -96,66 +96,66 @@ kbr_b2,Potassium bromide (B2),KBr,Potassium bromide (B2),material name plus crys
 kcl,Potassium chloride (B2),KCl,Potassium chloride (B2),material name plus crystal structure,CUBIC,Pm-3m,1,isothermal;thermal,10,peritheos/data/materials/kcl.eosmat
 kcl_b1,Potassium chloride (B1),KCl,Potassium chloride (B1),material name plus crystal structure,CUBIC,Fm-3m,4,isothermal;thermal,2,peritheos/data/materials/kcl_b1.eosmat
 klb1_ca_perovskite,KLB-1 Ca-perovskite,CaSiO3,Ca-perovskite separated from KLB-1 pyrolite,top-level phase field,CUBIC,Pm-3m,1,thermal,1,peritheos/data/materials/klb1_ca_perovskite.eosmat
-klb1_ferropericlase,KLB-1 ferropericlase,"(Mg,Fe)O",B1 ferropericlase separated from KLB-1 pyrolite,top-level phase field,CUBIC,Fm-3m,4,thermal;isothermal,2,peritheos/data/materials/klb1_ferropericlase.eosmat
-klb1_mg_perovskite,KLB-1 Mg-perovskite,"(Mg,Fe,Al)(Si,Al)O3",orthorhombic bridgmanite separated from KLB-1 pyrolite,top-level phase field,ORTHORHOMBIC,Pbnm,4,thermal,1,peritheos/data/materials/klb1_mg_perovskite.eosmat
+klb1_ferropericlase,Ferropericlase B1 KLB-1,"(Mg,Fe)O",B1 ferropericlase separated from KLB-1 pyrolite,top-level phase field,CUBIC,Fm-3m,4,thermal;isothermal,2,peritheos/data/materials/klb1_ferropericlase.eosmat
+klb1_mg_perovskite,Bridgmanite KLB-1,"(Mg,Fe,Al)(Si,Al)O3",orthorhombic bridgmanite separated from KLB-1 pyrolite,top-level phase field,ORTHORHOMBIC,Pbnm,4,thermal,1,peritheos/data/materials/klb1_mg_perovskite.eosmat
 larnite,Larnite,Ca2SiO4,monoclinic beta-Ca2SiO4 larnite,top-level phase field,MONOCLINIC,P21/c,4,isothermal,1,peritheos/data/materials/larnite.eosmat
 lead_fcc,Lead (fcc),Pb,"face-centered cubic lead, ambient-pressure phase",top-level phase field,CUBIC,Fm-3m,4,isothermal,2,peritheos/data/materials/lead_fcc.eosmat
 lead_hcp,Lead (hcp),Pb,"hexagonal close-packed lead, high-pressure phase",top-level phase field,HEXAGONAL,P63/mmc,2,isothermal,3,peritheos/data/materials/lead_hcp.eosmat
 li_bcc,Li,Li,bcc structure; EOS fit spans bcc and fcc Li,top-level phase field,CUBIC,Im-3m,2,isothermal,1,peritheos/data/materials/li_bcc.eosmat
 lif_b1,Lithium fluoride (B1),LiF,Lithium fluoride (B1),material name plus crystal structure,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/lif_b1.eosmat
-magnesiowustite_fe56,Fe56 magnesiowustite,Mg0.423Fe0.541O,"cation-deficient rocksalt magnesiowustite, cubic Fm-3m",top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/magnesiowustite_fe56.eosmat
-magnesiowustite_fe75,Fe75 magnesiowustite,Mg0.240Fe0.717O,"cation-deficient rocksalt magnesiowustite, cubic Fm-3m",top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/magnesiowustite_fe75.eosmat
+magnesiowustite_fe56,Ferropericlase B1 cation-deficient Fe56,Mg0.423Fe0.541O,"cation-deficient rocksalt magnesiowustite, cubic Fm-3m",top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/magnesiowustite_fe56.eosmat
+magnesiowustite_fe75,Ferropericlase B1 cation-deficient Fe75,Mg0.240Fe0.717O,"cation-deficient rocksalt magnesiowustite, cubic Fm-3m",top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/magnesiowustite_fe75.eosmat
 magnesite,Magnesite,MgCO3,"magnesite, rhombohedral R-3c",top-level phase field,HEXAGONAL,R-3c,6,isothermal;thermal,3,peritheos/data/materials/magnesite.eosmat
 magnesium_bcc,Magnesium (bcc),Mg,Magnesium (bcc),material name plus crystal structure,CUBIC,Im-3m,2,isothermal,1,peritheos/data/materials/magnesium_bcc.eosmat
 magnesium_hcp,Magnesium (hcp),Mg,Magnesium (hcp),material name plus crystal structure,HEXAGONAL,P63/mmc,2,isothermal,1,peritheos/data/materials/magnesium_hcp.eosmat
 majorite,Majorite (MgSiO3 tetragonal garnet),MgSiO3,"tetragonal MgSiO3 garnet (majorite), I41/a",top-level phase field,TETRAGONAL,I41/a,32,isothermal,1,peritheos/data/materials/majorite.eosmat
 manganese_alpha,Manganese (alpha),Mn,Manganese (alpha),material name plus crystal structure,CUBIC,I-43m,58,isothermal,1,peritheos/data/materials/manganese_alpha.eosmat
-mg0125fe0875o,(Mg0.125Fe0.875)O B1 magnesiowustite,Mg0.125Fe0.875O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/mg0125fe0875o.eosmat
-mg0215fe0762vac0023o_b1,Mw78 defect-bearing magnesiowustite,Mg0.215Fe0.762□0.023O,"defect-bearing B1 magnesiowustite, metrically cubic average structure",top-level phase field,CUBIC,Fm-3m,4,isothermal,2,peritheos/data/materials/mg0215fe0762vac0023o_b1.eosmat
-mg025fe075o,(Mg0.25Fe0.75)O B1 magnesiowustite,Mg0.25Fe0.75O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/mg025fe075o.eosmat
-mg0375fe0625o,(Mg0.375Fe0.625)O B1 magnesiowustite,Mg0.375Fe0.625O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/mg0375fe0625o.eosmat
-mg042fe058o,(Mg0.42Fe0.58)O B1 magnesiowustite,Mg0.42Fe0.58O,high-spin B1 magnesiowustite,top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/mg042fe058o.eosmat
-mg0490fe0483ti0027o,(Mg0.490Fe0.483Ti0.027)O B1 ferropericlase (Fp48),Mg0.490Fe0.483Ti0.027O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,2,peritheos/data/materials/mg0490fe0483ti0027o.eosmat
-mg05fe05al05si05o3_bridgmanite,FA50 bridgmanite,Mg0.5Fe0.5Al0.5Si0.5O3,orthorhombic Pbnm Fe3+-Al-bearing bridgmanite (FA50),top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,4,peritheos/data/materials/mg05fe05al05si05o3_bridgmanite.eosmat
-mg05fe05o,(Mg0.5Fe0.5)O B1 ferropericlase,Mg0.5Fe0.5O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/mg05fe05o.eosmat
-mg061fe039o,(Mg0.61Fe0.39)O B1 ferropericlase,Mg0.61Fe0.39O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,7,peritheos/data/materials/mg061fe039o.eosmat
-mg0625fe0375o,(Mg0.625Fe0.375)O B1 ferropericlase,Mg0.625Fe0.375O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/mg0625fe0375o.eosmat
-mg065fe035o,(Mg0.65Fe0.35)O B1 ferropericlase,Mg0.65Fe0.35O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,2,peritheos/data/materials/mg065fe035o.eosmat
-mg073fe027o,(Mg0.73Fe0.27)O magnesiowustite,Mg0.73Fe0.27O,cubic B1 magnesiowustite,top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/mg073fe027o.eosmat
-mg075fe025o,(Mg0.75Fe0.25)O B1 ferropericlase,Mg0.75Fe0.25O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,thermal;isothermal,6,peritheos/data/materials/mg075fe025o.eosmat
-mg075fe025sio3_bridgmanite,25 mol.% FeSiO3 bridgmanite model,Mg0.75Fe0.25SiO3,Pbnm perovskite model crystal,top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,2,peritheos/data/materials/mg075fe025sio3_bridgmanite.eosmat
-mg080fe020o,(Mg0.80Fe0.20)O B1 ferropericlase,Mg0.80Fe0.20O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,4,peritheos/data/materials/mg080fe020o.eosmat
-mg080fe020sio3_bridgmanite,(Mg0.8Fe0.2)SiO3 bridgmanite,Mg0.8Fe0.2SiO3,orthorhombic Fe-bearing bridgmanite,top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/mg080fe020sio3_bridgmanite.eosmat
-mg083fe017o,(Mg0.83Fe0.17)O high-spin ferropericlase,Mg0.83Fe0.17O,high-spin B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,thermal;isothermal,3,peritheos/data/materials/mg083fe017o.eosmat
-mg0875fe0125o,(Mg0.875Fe0.125)O B1 ferropericlase,Mg0.875Fe0.125O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/mg0875fe0125o.eosmat
-mg087fe013sio3_bridgmanite,13% Fe-bearing bridgmanite,Mg0.87Fe0.13SiO3,"ferrous iron-bearing bridgmanite, orthorhombic Pbnm",top-level phase field,ORTHORHOMBIC,Pbnm,4,thermal,1,peritheos/data/materials/mg087fe013sio3_bridgmanite.eosmat
-mg088fe010al014si090o3_bridgmanite,Fe10-Al14 bridgmanite,Mg0.88Fe0.10Al0.14Si0.90O3,"Pbnm (Al,Fe)-bearing bridgmanite, synthesis run 5K2667",top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,4,peritheos/data/materials/mg088fe010al014si090o3_bridgmanite.eosmat
-mg090fe009al0005ca0005sio3_bridgmanite,Natural Fe9 bridgmanite,Mg0.90Fe0.09Al0.005Ca0.005SiO3,"orthorhombic perovskite (bridgmanite), Pbnm",top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/mg090fe009al0005ca0005sio3_bridgmanite.eosmat
+mg0125fe0875o,Ferropericlase B1,Mg0.125Fe0.875O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/mg0125fe0875o.eosmat
+mg0215fe0762vac0023o_b1,Ferropericlase B1 defect-bearing Mw78,Mg0.215Fe0.762□0.023O,"defect-bearing B1 magnesiowustite, metrically cubic average structure",top-level phase field,CUBIC,Fm-3m,4,isothermal,2,peritheos/data/materials/mg0215fe0762vac0023o_b1.eosmat
+mg025fe075o,Ferropericlase B1,Mg0.25Fe0.75O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/mg025fe075o.eosmat
+mg0375fe0625o,Ferropericlase B1,Mg0.375Fe0.625O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/mg0375fe0625o.eosmat
+mg042fe058o,Ferropericlase B1 high-spin,Mg0.42Fe0.58O,high-spin B1 magnesiowustite,top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/mg042fe058o.eosmat
+mg0490fe0483ti0027o,Ferropericlase B1 Fp48,Mg0.490Fe0.483Ti0.027O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,2,peritheos/data/materials/mg0490fe0483ti0027o.eosmat
+mg05fe05al05si05o3_bridgmanite,Bridgmanite FA50,Mg0.5Fe0.5Al0.5Si0.5O3,orthorhombic Pbnm Fe3+-Al-bearing bridgmanite (FA50),top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,4,peritheos/data/materials/mg05fe05al05si05o3_bridgmanite.eosmat
+mg05fe05o,Ferropericlase B1,Mg0.5Fe0.5O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/mg05fe05o.eosmat
+mg061fe039o,Ferropericlase B1,Mg0.61Fe0.39O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,7,peritheos/data/materials/mg061fe039o.eosmat
+mg0625fe0375o,Ferropericlase B1,Mg0.625Fe0.375O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/mg0625fe0375o.eosmat
+mg065fe035o,Ferropericlase B1,Mg0.65Fe0.35O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,2,peritheos/data/materials/mg065fe035o.eosmat
+mg073fe027o,Ferropericlase B1,Mg0.73Fe0.27O,cubic B1 magnesiowustite,top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/mg073fe027o.eosmat
+mg075fe025o,Ferropericlase B1,Mg0.75Fe0.25O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,thermal;isothermal,6,peritheos/data/materials/mg075fe025o.eosmat
+mg075fe025sio3_bridgmanite,Bridgmanite model crystal,Mg0.75Fe0.25SiO3,Pbnm perovskite model crystal,top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,2,peritheos/data/materials/mg075fe025sio3_bridgmanite.eosmat
+mg080fe020o,Ferropericlase B1,Mg0.80Fe0.20O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,4,peritheos/data/materials/mg080fe020o.eosmat
+mg080fe020sio3_bridgmanite,Bridgmanite,Mg0.8Fe0.2SiO3,orthorhombic Fe-bearing bridgmanite,top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/mg080fe020sio3_bridgmanite.eosmat
+mg083fe017o,Ferropericlase B1 high-spin,Mg0.83Fe0.17O,high-spin B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,thermal;isothermal,3,peritheos/data/materials/mg083fe017o.eosmat
+mg0875fe0125o,Ferropericlase B1,Mg0.875Fe0.125O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/mg0875fe0125o.eosmat
+mg087fe013sio3_bridgmanite,Bridgmanite,Mg0.87Fe0.13SiO3,"ferrous iron-bearing bridgmanite, orthorhombic Pbnm",top-level phase field,ORTHORHOMBIC,Pbnm,4,thermal,1,peritheos/data/materials/mg087fe013sio3_bridgmanite.eosmat
+mg088fe010al014si090o3_bridgmanite,Bridgmanite 5K2667,Mg0.88Fe0.10Al0.14Si0.90O3,"Pbnm (Al,Fe)-bearing bridgmanite, synthesis run 5K2667",top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,4,peritheos/data/materials/mg088fe010al014si090o3_bridgmanite.eosmat
+mg090fe009al0005ca0005sio3_bridgmanite,Bridgmanite natural,Mg0.90Fe0.09Al0.005Ca0.005SiO3,"orthorhombic perovskite (bridgmanite), Pbnm",top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/mg090fe009al0005ca0005sio3_bridgmanite.eosmat
 mg090fe009al0005ca0005sio3_post_perovskite,Natural Fe9 post-perovskite,Mg0.90Fe0.09Al0.005Ca0.005SiO3,"orthorhombic CaIrO3-type post-perovskite, Cmcm",top-level phase field,ORTHORHOMBIC,Cmcm,4,isothermal,2,peritheos/data/materials/mg090fe009al0005ca0005sio3_post_perovskite.eosmat
-mg090fe010o,(Mg0.90Fe0.10)O B1 ferropericlase,Mg0.90Fe0.10O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,15,peritheos/data/materials/mg090fe010o.eosmat
-mg092fe008o,(Mg0.92Fe0.08)O B1 ferropericlase,Mg0.92Fe0.08O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/mg092fe008o.eosmat
-mg092fe008sio3_bridgmanite,(Mg0.92Fe0.08)SiO3 bridgmanite,Mg0.92Fe0.08SiO3,orthorhombic Pbnm/Pnma Fe-bearing silicate perovskite,top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/mg092fe008sio3_bridgmanite.eosmat
-mg09375al0125si09375o3_bridgmanite,6.25 mol.% charge-coupled Al bridgmanite model,Mg0.9375Al0.125Si0.9375O3,orthorhombic Pbnm perovskite model crystal,top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/mg09375al0125si09375o3_bridgmanite.eosmat
+mg090fe010o,Ferropericlase B1,Mg0.90Fe0.10O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,15,peritheos/data/materials/mg090fe010o.eosmat
+mg092fe008o,Ferropericlase B1,Mg0.92Fe0.08O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/mg092fe008o.eosmat
+mg092fe008sio3_bridgmanite,Bridgmanite,Mg0.92Fe0.08SiO3,orthorhombic Pbnm/Pnma Fe-bearing silicate perovskite,top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/mg092fe008sio3_bridgmanite.eosmat
+mg09375al0125si09375o3_bridgmanite,Bridgmanite charge-coupled Al model,Mg0.9375Al0.125Si0.9375O3,orthorhombic Pbnm perovskite model crystal,top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/mg09375al0125si09375o3_bridgmanite.eosmat
 mg09375al0125si09375o3_post_perovskite,6.25 mol.% charge-coupled Al post-perovskite model,Mg0.9375Al0.125Si0.9375O3,CaIrO3-type Cmcm post-perovskite model crystal,top-level phase field,ORTHORHOMBIC,Cmcm,4,isothermal,1,peritheos/data/materials/mg09375al0125si09375o3_post_perovskite.eosmat
-mg09375fe00625o,(Mg0.9375Fe0.0625)O B1 ferropericlase,Mg0.9375Fe0.0625O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,6,peritheos/data/materials/mg09375fe00625o.eosmat
-mg09375fe00625sio3_bridgmanite,6.25 mol.% Fe2+ bridgmanite,Mg0.9375Fe0.0625SiO3,"orthorhombic Pbnm ferrous bridgmanite, high- and low-spin model configurations",top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,6,peritheos/data/materials/mg09375fe00625sio3_bridgmanite.eosmat
-mg095al010si095o3_bridgmanite,Mg0.95Al0.10Si0.95O3 aluminous bridgmanite (Al.05-Pv),Mg0.95Al0.10Si0.95O3,"orthorhombic aluminous silicate perovskite, Al.05-Pv specimen",top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,2,peritheos/data/materials/mg095al010si095o3_bridgmanite.eosmat
-mg096875fe003125o,(Mg0.96875Fe0.03125)O B1 ferropericlase,Mg0.96875Fe0.03125O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,2,peritheos/data/materials/mg096875fe003125o.eosmat
+mg09375fe00625o,Ferropericlase B1,Mg0.9375Fe0.0625O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,6,peritheos/data/materials/mg09375fe00625o.eosmat
+mg09375fe00625sio3_bridgmanite,Bridgmanite high- and low-spin model configurations,Mg0.9375Fe0.0625SiO3,"orthorhombic Pbnm ferrous bridgmanite, high- and low-spin model configurations",top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,6,peritheos/data/materials/mg09375fe00625sio3_bridgmanite.eosmat
+mg095al010si095o3_bridgmanite,Bridgmanite Al.05-Pv,Mg0.95Al0.10Si0.95O3,"orthorhombic aluminous silicate perovskite, Al.05-Pv specimen",top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,2,peritheos/data/materials/mg095al010si095o3_bridgmanite.eosmat
+mg096875fe003125o,Ferropericlase B1,Mg0.96875Fe0.03125O,B1 ferropericlase,top-level phase field,CUBIC,Fm-3m,4,isothermal,2,peritheos/data/materials/mg096875fe003125o.eosmat
 mg0991fe0008mn0001co3_magnesite,Natural magnesite (Harwood 2212),Mg0.991Fe0.008Mn0.001CO3,"rhombohedral magnesite, R-3c",top-level phase field,HEXAGONAL,R-3c,6,isothermal,2,peritheos/data/materials/mg0991fe0008mn0001co3_magnesite.eosmat
-mg09al02si09o3_bridgmanite,Mg0.9Al0.2Si0.9O3 aluminous bridgmanite,Mg0.9Al0.2Si0.9O3,"orthorhombic aluminous silicate perovskite, synthesis run en90G3",top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,2,peritheos/data/materials/mg09al02si09o3_bridgmanite.eosmat
-mg09fe01sio3_bridgmanite,(Mg0.9Fe0.1)SiO3 bridgmanite (Pv10),Mg0.9Fe0.1SiO3,"orthorhombic Pbnm Fe-bearing bridgmanite, Pv10 sample",top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,2,peritheos/data/materials/mg09fe01sio3_bridgmanite.eosmat
+mg09al02si09o3_bridgmanite,Bridgmanite en90G3,Mg0.9Al0.2Si0.9O3,"orthorhombic aluminous silicate perovskite, synthesis run en90G3",top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,2,peritheos/data/materials/mg09al02si09o3_bridgmanite.eosmat
+mg09fe01sio3_bridgmanite,Bridgmanite Pv10,Mg0.9Fe0.1SiO3,"orthorhombic Pbnm Fe-bearing bridgmanite, Pv10 sample",top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,2,peritheos/data/materials/mg09fe01sio3_bridgmanite.eosmat
 mg7si2o8,Phase A,Mg7Si2O14H6,Phase A,material name plus crystal structure,HEXAGONAL,P63,2,isothermal,1,peritheos/data/materials/mg7si2o8.eosmat
-mgal00625h00625si09375o3_bridgmanite,3.125 mol.% hydrous Al bridgmanite model,MgAl0.0625H0.0625Si0.9375O3,hydrous AlH-substituted Pbnm perovskite model crystal,top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/mgal00625h00625si09375o3_bridgmanite.eosmat
+mgal00625h00625si09375o3_bridgmanite,Bridgmanite hydrous Al model,MgAl0.0625H0.0625Si0.9375O3,hydrous AlH-substituted Pbnm perovskite model crystal,top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/mgal00625h00625si09375o3_bridgmanite.eosmat
 mgal00625h00625si09375o3_post_perovskite,3.125 mol.% hydrous Al post-perovskite model,MgAl0.0625H0.0625Si0.9375O3,hydrous AlH-substituted CaIrO3-type Cmcm post-perovskite model crystal,top-level phase field,ORTHORHOMBIC,Cmcm,4,isothermal,1,peritheos/data/materials/mgal00625h00625si09375o3_post_perovskite.eosmat
-mgal0125si0875o29375_bridgmanite,6.25 mol.% oxygen-vacancy Al bridgmanite model,MgAl0.125Si0.875O2.9375,oxygen-vacancy Pbnm perovskite model crystal,top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/mgal0125si0875o29375_bridgmanite.eosmat
+mgal0125si0875o29375_bridgmanite,Bridgmanite oxygen-vacancy Al model,MgAl0.125Si0.875O2.9375,oxygen-vacancy Pbnm perovskite model crystal,top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/mgal0125si0875o29375_bridgmanite.eosmat
 mgal0125si0875o29375_post_perovskite,6.25 mol.% oxygen-vacancy Al post-perovskite model,MgAl0.125Si0.875O2.9375,oxygen-vacancy CaIrO3-type Cmcm post-perovskite model crystal,top-level phase field,ORTHORHOMBIC,Cmcm,4,isothermal,1,peritheos/data/materials/mgal0125si0875o29375_post_perovskite.eosmat
 mgal2o4_cafe2o4,MgAl2O4 calcium-ferrite phase,MgAl2O4,"calcium-ferrite-type orthorhombic phase, Pbnm",top-level phase field,ORTHORHOMBIC,Pbnm,4,isothermal;thermal,4,peritheos/data/materials/mgal2o4_cafe2o4.eosmat
 mgal2o4_cati2o4,MgAl2O4 calcium-titanate phase,MgAl2O4,"calcium-titanate-type orthorhombic phase, Cmcm",top-level phase field,ORTHORHOMBIC,Cmcm,4,isothermal,2,peritheos/data/materials/mgal2o4_cati2o4.eosmat
-mgfe60o,(Mg0.4Fe0.6)O (MW60),Mg0.4Fe0.6O,"rocksalt magnesiowustite, cubic Fm-3m",top-level phase field,CUBIC,Fm-3m,4,isothermal,3,peritheos/data/materials/mgfe60o.eosmat
-mgfe94o_b1,Mw94 magnesiowustite B1,Mg0.058Fe0.942O,cubic B1 Mw94 before the rhombohedral distortion,top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/mgfe94o_b1.eosmat
-mgfe94o_rhombohedral,Mw94 rhombohedral magnesiowustite,Mg0.058Fe0.942O,rhombohedrally distorted Mw94,top-level phase field,RHOMBOHEDRAL,,1,isothermal,1,peritheos/data/materials/mgfe94o_rhombohedral.eosmat
+mgfe60o,Ferropericlase B1 MW60,Mg0.4Fe0.6O,"rocksalt magnesiowustite, cubic Fm-3m",top-level phase field,CUBIC,Fm-3m,4,isothermal,3,peritheos/data/materials/mgfe60o.eosmat
+mgfe94o_b1,Ferropericlase B1 Mw94,Mg0.058Fe0.942O,cubic B1 Mw94 before the rhombohedral distortion,top-level phase field,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/mgfe94o_b1.eosmat
+mgfe94o_rhombohedral,Ferropericlase rhombohedral Mw94,Mg0.058Fe0.942O,rhombohedrally distorted Mw94,top-level phase field,RHOMBOHEDRAL,,1,isothermal,1,peritheos/data/materials/mgfe94o_rhombohedral.eosmat
 mggeo3_post_perovskite,MgGeO3 post-perovskite,MgGeO3,"post-perovskite, CaIrO3-type orthorhombic Cmcm",top-level phase field,ORTHORHOMBIC,Cmcm,4,isothermal,4,peritheos/data/materials/mggeo3_post_perovskite.eosmat
-mgo,MgO,MgO,B1 (periclase),top-level phase field,CUBIC,Fm-3m,4,isothermal;thermal;hugoniot,37,peritheos/data/materials/mgo.eosmat
+mgo,Periclase B1,MgO,B1 (periclase),top-level phase field,CUBIC,Fm-3m,4,isothermal;thermal;hugoniot,37,peritheos/data/materials/mgo.eosmat
 mgo_b2,B2 MgO,MgO,B2 cesium-chloride-type MgO,top-level phase field,CUBIC,Pm-3m,1,isothermal,1,peritheos/data/materials/mgo_b2.eosmat
 mgo_liquid,Liquid MgO,MgO,MgO liquid,top-level phase field,,,1,isothermal,1,peritheos/data/materials/mgo_liquid.eosmat
 mgsio3_liquid,Liquid MgSiO3,MgSiO3,MgSiO3 liquid,top-level phase field,,,1,isothermal,1,peritheos/data/materials/mgsio3_liquid.eosmat
@@ -181,7 +181,7 @@ orthoenstatite,Orthoenstatite,MgSiO3,Orthoenstatite,material name plus crystal s
 osmium,Osmium,Os,Osmium,material name plus crystal structure,HEXAGONAL,P63/mmc,2,isothermal,1,peritheos/data/materials/osmium.eosmat
 palladium,Palladium,Pd,Palladium,material name plus crystal structure,CUBIC,Fm-3m,4,isothermal,7,peritheos/data/materials/palladium.eosmat
 pbs_b1,PbS_B1,PbS,PbS_B1,material name plus crystal structure,CUBIC,Fm-3m,4,isothermal,1,peritheos/data/materials/pbs_b1.eosmat
-perovskite_orthorhombic,(Mg0.88Fe0.12)SiO3 perovskite,Mg0.88Fe0.12SiO3,(Mg0.88Fe0.12)SiO3 perovskite,material name plus crystal structure,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/perovskite_orthorhombic.eosmat
+perovskite_orthorhombic,Bridgmanite,Mg0.88Fe0.12SiO3,Bridgmanite,material name plus crystal structure,ORTHORHOMBIC,Pbnm,4,isothermal,1,peritheos/data/materials/perovskite_orthorhombic.eosmat
 phase_d,PHASE D,Mg1.11Si1.89H2.22O6,Fe-bearing hexagonal phase D derived from antigorite,top-level phase field,HEXAGONAL,P-31m,1,isothermal,2,peritheos/data/materials/phase_d.eosmat
 phase_e_fe0072,"Phase E (Fe-bearing, Crichton–Ross 2000)",Mg1.96Fe0.072Si1.04H3.7O6,"dense hydrous magnesium silicate phase E, Fe-bearing cation-disordered R-3m",top-level phase field,HEXAGONAL,R-3m,1,isothermal,1,peritheos/data/materials/phase_e_fe0072.eosmat
 phase_egg,Phase Egg,Al0.98Si0.92H1.39O4,"monoclinic Al-bearing hydrous phase Egg, sample S5050",top-level phase field,MONOCLINIC,P21/n,4,isothermal,3,peritheos/data/materials/phase_egg.eosmat

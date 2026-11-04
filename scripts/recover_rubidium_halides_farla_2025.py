@@ -165,8 +165,8 @@ def main() -> None:
         "source_license": "CC BY 4.0 (AIP Figshare metadata, version 1)",
         "tables": tables,
     }
-    (args.output_dir / f"{PREFIX}-source-tables.json").write_text(
-        json.dumps(raw, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    args.output_dir / f"{PREFIX}-source-tables.json".write_bytes(
+        (json.dumps(raw, ensure_ascii=False, indent=2) + "\n").encode("utf-8")
     )
     for compound in COMPOUNDS:
         write_csv(

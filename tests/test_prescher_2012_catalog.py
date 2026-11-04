@@ -50,9 +50,17 @@ def test_published_parameters_and_explicit_adoption_survive_public_loading(
     assessment = record["evidence"]["reproduction"]["assessment"]
     assert assessment["status"] == "parity"
     assert assessment["scope"] == "parameter_agreement"
-    assert "confidence" in assessment["basis"].lower()
-    outcome = ledger_outcome(record)
-    assert assessment == assessment_for_record(
+    assert "uncertainty is not reproduced" in assessment["basis"].lower()
+    assert "confidence" in json.dumps(assessment).lower()
+    # Exact serialization checks use the saved audit, not a fresh regression:
+    # supported NumPy/SciPy builds can differ in insignificant optimizer bits.
+    ledger = json.loads((ROOT / "docs/data/primary-eos-refits.json").read_text())
+    outcome = next(
+        row
+        for row in ledger["records"]
+        if row["record_identifier"] == record["identifier"]
+    )
+    organized = assessment_for_record(
         record,
         {
             **outcome,
@@ -60,6 +68,7 @@ def test_published_parameters_and_explicit_adoption_survive_public_loading(
             "material_identifier": "cementite",
         },
     )
+    assert assessment == organized
     replay = {p["parameter"]: p for p in assessment["parameters"]}
     for name in ("K0", "K0_prime"):
         assert replay[name]["within_published_printing_precision"] is True
@@ -67,14 +76,17 @@ def test_published_parameters_and_explicit_adoption_survive_public_loading(
     assert outcome["author_workflow_reproduced"] is False
     assert replay["V0"]["compared_for_parity"] is False
     assert replay["V0"]["refit"] == V0
-    assert replay["K0"]["refit_error"] == pytest.approx(2.3533646687)
-    assert replay["K0_prime"]["refit_error"] == pytest.approx(0.2198430461)
-    assert all(
-        replay[k]["uncertainty_matches_printed_precision"] for k in ("K0", "K0_prime")
+    assert replay["K0"]["refit_error"] == pytest.approx(2.5321927447246857)
+    assert replay["K0_prime"]["refit_error"] == pytest.approx(0.24086704947871293)
+    assert replay["K0"]["uncertainty_matches_printed_precision"] is False
+    assert replay["K0"]["uncertainty_finding"] == "not_reproduced"
+    assert replay["K0_prime"]["uncertainty_matches_printed_precision"] is True
+    assert assessment["basis_code"] == (
+        "conditional_K0_and_K0_prime_at_published_printed_precision"
     )
     assert [replay[k]["display_decimal_places"] for k in ("K0", "K0_prime")] == [0, 1]
     assert assessment["fit"]["fixed_values"] == {"V0": V0}
-    assert assessment["fit"]["degrees_of_freedom"] == 20
+    assert assessment["fit"]["degrees_of_freedom"] == 17
     model = get_eos_record(IDS[side])
     pressures = np.linspace(*record["experimental_pressure_range_gpa"], 9)
     volumes = model.volume(pressures)
@@ -178,14 +190,57 @@ def test_adopted_v0_is_the_saved_drawn_curve_recovery_not_an_ambient_measurement
     assert np.all(abs(central - pressure) < bounds + 0.04)
 
 
-def test_published_comparison_precision_matches_both_source_and_replay():
+def test_published_comparison_precision_exposes_the_remaining_k0_error_mismatch():
     from scripts.report_numbers import value_error
 
-    assert (
-        value_error(161, 2, 0) == value_error(160.757426, 2.353365, 0) == ("161", "2")
+    assert value_error(161, 2, 0) == ("161", "2")
+    assert value_error(160.994011, 2.532193, 0) == ("161", "3")
+    assert value_error(5.919478, 0.240867, 1) == ("5.9", "0.2")
+    assert value_error(5.9, 0.2, 1) == ("5.9", "0.2")
+
+
+def test_numbered_primary_fit_replays_the_preserved_ledger_at_recorded_precision():
+    from scripts.validate_primary_eos_refits import check_ledger_values
+
+    record = next(
+        r
+        for r in get_material_document("cementite", format_version=4)["eos_records"]
+        if r["identifier"] == IDS["full"]
     )
-    assert (
-        value_error(5.9, 0.2, 1) == value_error(5.942125, 0.219843, 1) == ("5.9", "0.2")
+    ledger = json.loads((ROOT / "docs/data/primary-eos-refits.json").read_text())
+    stored = next(
+        row for row in ledger["records"] if row["record_identifier"] == IDS["full"]
     )
-    # The usual report convention remains available when no source place is specified.
-    assert value_error(160.757426, 2.353365) == ("160.8", "2.4")
+    replay = ledger_outcome(record)
+    check_ledger_values({key: stored[key] for key in replay}, replay)
+    expected = {row["parameter"]: row for row in stored["parameters"]}
+    actual = {row["parameter"]: row for row in replay["parameters"]}
+    for name in ("K0", "K0_prime"):
+        for key in ("refit", "refit_error"):
+            assert actual[name][key] == pytest.approx(
+                expected[name][key], rel=1e-7, abs=1e-8
+            )
+
+
+@pytest.mark.parametrize(
+    "changes",
+    [
+        {"assessment_basis": ""},
+        {"assessment_qualifications": []},
+        {"assessment_qualifications": ["Reviewed context", 2]},
+    ],
+)
+def test_explicit_assessment_narrative_rejects_missing_or_nonprose_values(changes):
+    record = next(
+        r
+        for r in get_material_document("cementite", format_version=4)["eos_records"]
+        if r["identifier"] == IDS["full"]
+    )
+    row = {
+        **ledger_outcome(record),
+        "record_identifier": record["identifier"],
+        "material_identifier": "cementite",
+        **changes,
+    }
+    with pytest.raises(ValueError, match="basis|qualifications"):
+        assessment_for_record(record, row)

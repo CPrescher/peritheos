@@ -253,7 +253,7 @@
         290
       ],
       "fixed_parameters": [],
-      "label": "Chen (2010) — Peritheos BM3 refit of digitized Brillouin densities",
+      "label": "Chen (2010) \u2014 Peritheos BM3 refit of digitized Brillouin densities",
       "material_identifier": "argon_fcc",
       "model": "BM3",
       "observations": 80,
@@ -448,7 +448,7 @@
       "reproduction_status": "independent_digitized_data_refit_reproduced",
       "source_notes": "Independent Peritheos refit; source publication EOS remains not_reproduced. Nominal error-in-variables weighting does not resolve unknown covariance or confidence levels. Parameter errors unavailable. Unadjusted residuals and weighting/deletion/systematic-coordinate sensitivities are reported. Do not extrapolate from fitted range or interpret near-coincident PDF positions as statistically independent. Comparison and source discrepancy: docs/literature-reproductions/chen-2010-argon.md.",
       "status": "similar",
-      "usage_recommendation": "Reproducible BM3 approximation to80 digitized Brillouin-integrated density positions at nominal290 K, qualified only over1.23–26.06 GPa. This does not validate the original EOS or independently establish elastic properties. Zero-pressure density1.6895 g/cm3 disagrees with Chen's1.52±0.05 extrapolation and1.564 comparison estimate; no statistical parameter uncertainties are claimed."
+      "usage_recommendation": "Reproducible BM3 approximation to80 digitized Brillouin-integrated density positions at nominal290 K, qualified only over1.23\u201326.06 GPa. This does not validate the original EOS or independently establish elastic properties. Zero-pressure density1.6895 g/cm3 disagrees with Chen's1.52\u00b10.05 extrapolation and1.564 comparison estimate; no statistical parameter uncertainties are claimed."
     },
     {
       "absolute_sigma": true,
@@ -1895,7 +1895,7 @@
         "eos.K0_prime",
         "thermal.gamma0"
       ],
-      "label": "Morard et al. (2026), FeS BM3-MGD, source replay unresolved",
+      "label": "Morard et al. (2026), FeS BM3-MGD",
       "material_identifier": "fes_vi",
       "model": "BM3",
       "objective": "EosFit pressure residuals with supplied P/V/T uncertainty weights",
@@ -2519,15 +2519,15 @@
         }
       },
       "published_rmse_gpa": 1.916099083712202,
-      "qualification": "Classified similar: staged reproduced-cold coefficients are compatible within reported uncertainty intervals, and the equal-weight control puts all four central estimates inside published error widths. Exact GUI output and the complete +/-3 GPa residual envelope are separate unresolved findings. Published coefficients are preserved; this is not an automatic replacement EOS or a formal independent uncertainty-parity claim.",
-      "reason": "Fit reproduction is classified similar: the reproduced-cold staged coefficients are compatible with reported parameter uncertainties. The supplied Table S1 and recovered author inputs are bundled separately. The selected author input contains 146 thermal plus 21 literature cold rows. The 11 unsuitable quenched rows are excluded on the basis of user-reported author personal communication and are not database datasets. FeS6.eos confirms full BM3-MGD with q=1 and Tref=298 K, but differs from the printed parameters and was saved in March 2024. Actual EosFit replay gives thermal RMS 1.632 GPa, maximum 5.058 GPa and 14 rows beyond +/-3 GPa. Conditional cold refits closely recover the saved cold coefficients. Candidate-input refits converge. The user confirms the supplied files are the complete author-used inputs; the selected rows are confirmed by author communication. Exact GUI regression controls and agreement with printed coefficients and residuals remain unresolved. Published coefficients stay unchanged and deferred. Selected-data, cold-then-thermal EosFit fits at Tr=300 K give gamma0=2.29252(3829) for fixed published cold coefficients and 2.46418(3953) for fixed weighted-reproduced cold coefficients; both exceed the +/-3 GPa residual bound. Both reproduced-cold staged fits have cold coefficients within published error widths; equal-weight gamma0 is also within the published width, and weighted gamma0 error intervals overlap the published interval. Parameter agreement is compatible within reported uncertainties; exact source-output and residual-envelope reproduction are separate. See docs/literature-reproductions/fes-eosfit-direct.md.",
+      "qualification": "Accepted on parameter agreement under the 2026-10-19 maintainer decision: staged reproduced-cold coefficients are compatible within reported uncertainty intervals, and the equal-weight control puts all four central estimates inside published error widths. The numerical label remains similar, without asserting formal independent uncertainty parity or exact author-workflow reproduction. The unreproduced +/-3 GPa residual envelope is informational and does not gate catalog use. Published coefficients are preserved.",
+      "reason": "Published BM3-MGD coefficients accepted unchanged on parameter agreement, following the 2026-10-19 maintainer decision. The confirmed selected author input has 21 literature cold and 146 thermal rows, excluding all 11 unsuitable quenched rows. Weighted and equal-weight cold-then-thermal EosFit fits recover all three cold coefficients within published error widths; equal-weight gamma0 is inside the published width and the weighted gamma0 interval overlaps it. Actual distributed-GUI fits agree closely with the console. Reconstruction remains classified similar: source error confidence and cross-fit covariance are unspecified and thermal errors condition on fixed cold coefficients. The staged weighted GUI thermal replay has RMS 1.63 GPa, maximum 5.29 GPa, and 12/146 rows outside +/-3 GPa. This residual-reporting discrepancy does not block use; exact original author-workflow reproduction is not claimed. See docs/literature-reproductions/fes-gui-replay.md and docs/literature-reproductions/fes-eosfit-direct.md.",
       "record_identifier": "fes_vi_morard_2026_bm3_mgd",
       "reduced_chi_square": 0.6274,
       "reproduction_status": "similar",
       "residual_claim_reproduction_status": "not_reproduced",
       "rmse_gpa": 1.6336098214363033,
       "rmse_scope": "146 thermal observations; published replay uses printed cold coefficients and gamma0 at Tr=300 K, refit uses reproduced weighted cold coefficients",
-      "source_notes": "One published common volume relation fitted across FeS-VI, IV and IX. This card supplies a FeS-VI Pnma diffraction structure only; it does not supply IV/IX coordinates, phase transitions, anisotropic thermal expansion or a stability map. The structural cell is measured at 56 GPa/300 K and is distinct from extrapolated EOS V0. Reported parameter errors have unspecified confidence and no covariance. The deferred integrated-MGD implementation is available only by explicitly loading this record with require_primary_validation=False; it is excluded from the normal catalog.",
+      "source_notes": "One published common volume relation fitted across FeS-VI, IV and IX. This card supplies a FeS-VI Pnma diffraction structure only; it does not supply IV/IX coordinates, phase transitions, anisotropic thermal expansion or a stability map. The structural cell is measured at 56 GPa/300 K and is distinct from extrapolated EOS V0. Reported parameter errors have unspecified confidence and no covariance. Accepted on staged parameter agreement within reported uncertainties. The residual-envelope discrepancy is informational; exact author workflow is unverified. Use the common EOS within the paper's 40-150 GPa scope and observed thermal coverage; this is not a phase-stability guarantee.",
       "stage_observations": {
         "cold": 21,
         "quenched": 0,
@@ -2536,7 +2536,7 @@
       "staged_manifest": "docs/data/fes-author-staged/manifest.json",
       "staged_manifest_sha256": "b744c494c67c5cccaf83d2a71c9233c78e2757514a91af2776f1295fbef8d1b3",
       "status": "similar",
-      "usage_recommendation": "Retain as source evidence; do not use for pressure calibration or prediction until the final source model and residual mismatch are resolved."
+      "usage_recommendation": "Accepted for use as the unchanged published common FeS volume relation within the paper's 40-150 GPa scope and observed thermal coverage, with phase, reference-temperature and uncertainty qualifications. The +/-3 GPa envelope is not reproduced and must not be assumed as a prediction-error bound."
     },
     {
       "absolute_sigma": true,
@@ -6266,7 +6266,7 @@
       "selection": "all rows",
       "solver_message": "`ftol` termination condition is satisfied.",
       "solver_success": true,
-      "source_notes": "Source-reported free BM3 alternative to all nine Table 3 decompression observations. It is retained as an explicit same-data sensitivity fit and is non-default. The source publishes no covariance or fitting objective. Parenthetical errors are copied as ± values without an inferred confidence level.",
+      "source_notes": "Source-reported free BM3 alternative to all nine Table 3 decompression observations. It is retained as an explicit same-data sensitivity fit and is non-default. The source publishes no covariance or fitting objective. Parenthetical errors are copied as \u00b1 values without an inferred confidence level.",
       "status": "similar"
     },
     {
@@ -9107,15 +9107,15 @@
     "ca_perovskite": "3ad3aaac77b47dc304068cef20671fd4fed4361505a66a706fc659a7faa5e4dd",
     "calcium_carbonate_post_aragonite": "457907fc891b32fd988453a629629b08ca09448ad4a14271fc3483afa37f2d60",
     "cerium_dioxide": "5db97db873e07999622b7eb789d5c2debbd19924222cb7d6510281257f798365",
-    "coesite": "f43c65c2dfa4943edc8f9dd18c69ac66d2e90dde4464b0a9c14b84cebd984e1b",
+    "coesite": "d95633580e72f4eddb3890f338e109bdc42a1bea35a5a1be060aa17989b9e590",
     "cu_handbook_1972_legacy": "1f05e3b9243be5f426a0f9a26486a7e516397d6db3336318d85bd8b41e1fb0e9",
     "fe3s": "186f6016652f220f3e1ab31d641288bf5f7f8228d4abbbb09f8cfe4652a543e3",
     "fe_bearing_al_phase_d": "09f32d6748a13ccec01712c6729064407ab1f1044d3391756fb9b28f7da1609b",
-    "fes_vi": "930a2e30479c987b683510554959319eb582b62950cd310219cff6e037f278f8",
+    "fes_vi": "24285f4fcf08e5bc9ecc69a0d96390cd0035ef06299435ed31bedf5669a9a917",
     "geo2_rutile": "4e71792aee331922464dd8bdd2e0b966f8a08b9c400cc7d4cc01f119801829f1",
     "ice_vii": "5ea843c1a2e92ee6c80b67c0e1e2f7e3ab61894eb01f07de618a520561f63eaf",
     "iceviii": "bd51a4db5ba929ab677eeaddd535de885a2245d4f0540f8fe536c9ef2cfde1b6",
-    "iron": "55da9119965cd9f785779da6e0af23bdf1de697960bf124902b806f31ab2bde5",
+    "iron": "f81c6fb2bafd9d69f64fc83f4b109455039f2bc3988f73c0ea97646665afb6ea",
     "iron_carbide_fe7c3": "32c10663463c2d851d6ee3f9847390d8e96a393325e5da50bb64b617cab9f865",
     "kbr_b1": "225bde84c71f167aa9ebd767bc035868544ae571cfe331a6aa970b6df5ca20ef",
     "kbr_b2": "7d16a86a79180a97303939adfc310657a6e6ceb7cd1f0518afbb515e7bc54b43",
@@ -9136,21 +9136,21 @@
     "mg0991fe0008mn0001co3_magnesite": "433d482d15a5a818c98ab247993602febcbe15dc5bd779bd377a582ae18a20e2",
     "mg09fe01sio3_bridgmanite": "f812e0d8a502bdb42d7c4b28a900459ed364f5944a73267c363a7447821a6a8a",
     "mggeo3_post_perovskite": "ace5cbd8070c862dabb2e002f2700ee1c64ac86e1a6fd899a885412e9f95a3f0",
-    "mgo": "4537bd63e1f8a0aad5636b891e56b9a6d74e65cb3b135e2f0eb221a03cc6bdc7",
+    "mgo": "3d3b785a534109ae7edad9714e9b2497aa3a6ea14d570d9163ddeef84f3459e3",
     "mgsio3_liquid": "89dde32d236b0f6753bda2e2f85d43707fd20804ba8cb101f1f03eeb58512308",
     "mgsioh6_365a_phase": "ab2b21a8e69c9dd064289c282b8360ce430fd69e20e13dc601939712f063d439",
     "molybenum_carbide_mo2c": "088d07f937c94b8a4075e0b742f39cfd2a4f16453f53164326cf0ae890206acc",
     "naalsi2o6": "0d66dda0954b7b43fc37830d285147e863d8d8e854b30cdb902da2cce20e24e9",
     "namg2al5sio12_cf": "1e1bc88aa4e5d2ead3e38c8318688aa8aeb11612409467c55fd8c0da6ad67c19",
     "namg2al5sio12_nal": "05f1af4a219ecd4e2f58596d0691c0e2d59e75819fe5a14e18f4aab3cf05e3cb",
-    "nickel": "5d8a8aa1573a8edec7edc7b2134d57a3b34fbc4349342bfb5ecec84248704527",
+    "nickel": "32a29021cc5dc7c284c158a8450aa30cec48f3b5bee41078ab461ec68b018e1d",
     "nickel_oxide": "9520bcc5fc787b26227ad0cb90db23eee5b5795e07719a298096c94573bb43da",
     "palladium": "769863caf5a3b22111a610da781f0e28c22621c7b07ea67a6200278fb31e56d2",
     "perovskite_orthorhombic": "33d1adb76acd6f903b48870e67de5a5b066f421b235408057406a1241524658e",
     "phase_egg": "4c37526b88ec10472b5dd16df1dee5892f7cc50e17642d9fdac82d84c4917323",
     "rbbr": "58a3575aea23d09722672fdad477a0a2eab7c7d662d783e42665bf669ef1d1b5",
     "rbi": "01b1eec73d261374bdf33b85d371f0e87090b9b6a9b1efb1ff07eee5b1c61c93",
-    "rhenium": "0431282c31c01500b0ddae6cf411309e2a8b93325312c557d80fc5d53484eec2",
+    "rhenium": "4e1d1debd20e03ab8c89e6f381a5d418c2d1ae7216d96d6841568117ded51c30",
     "ruthenium": "508948c84bffa23d92b5cde60f357da9ce3252b58046af8264d8ef6cb26112e3",
     "seifertite": "ea2ce56b333d1444deec3b3a7b57075e44c938a0083c76f9a64aef46d436851e",
     "silica_cacl2": "abd3d890bf98ad7c74278d3b0e8d27ae34023af0ae9b92f447087945c8eb50e0",
@@ -9324,16 +9324,9 @@
     "peritheos/data/datasets/srsio3-xiao-2013-table1-pv.csv": "2cbdb31c1e4f5bd4ce8da0c4ea070055faafe8e05c11a53c0de0242e7ebbdb8c",
     "peritheos/data/datasets/zinc-oxide-rocksalt-hanna-2011-figure4-bulk-digitized.csv": "cd5b8389d9b4435d8c7f74e9ddd2aa60709d128c3e655a67ada42ee7613b6fb9"
   },
-  "source_document_update_notes": {
-    "coesite": {
-      "date": "2026-10-25",
-      "previous_source_document_sha256": "d95633580e72f4eddb3890f338e109bdc42a1bea35a5a1be060aa17989b9e590",
-      "reason": "Authorized Bykova I/II/III author-file integration adds a dataset and updates source/reconstruction evidence. The reviewed Levien EOS and every original dataset are unchanged; all 96 review inputs and findings are preserved.",
-      "central_parity_wording_update": {
-        "date": "2026-10-25",
-        "previous_source_document_sha256": "71cb8ba35fe90aec57f2fa1fc0f2e52dd550da736e5b202229e1d4813c81533c",
-        "reason": "Clarify achieved central-coefficient parity and reproduction of the author's fit values; all coefficients, uncertainties, datasets, historical assessments and Levien findings unchanged."
-      }
-    }
+  "release_rebase": {
+    "base_commit": "239b47be50e1d65064b118d5cae76e055a3e7ae6",
+    "previous_local_input_sha256": "6697b430b812c2d3782c6cacfdf58a82600f95dc009be6379d4bb65d818b9cfa",
+    "note": "Rebased onto published Peritheos 0.17.0. Every original numerical comparison is identical; newer source metadata, extra records, observations and use decisions are preserved. Source bindings now protect the published baseline."
   }
 }

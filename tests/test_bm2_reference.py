@@ -147,6 +147,6 @@ def test_vector_curve_and_observations_have_separate_validation_claims():
     assert obs["largest_residual_source_row"] == 13
     assert result["author_workflow_reproduced"] is False
     assert result["diagnostic_refit"]["adopted_as_replacement"] is False
-    from scripts.validate_primary_eos_refits import check_ledger_values
+    from scripts.bykova_replay_checks import check_report
 
-    check_ledger_values(json.loads(audit.RESULT.read_text()), result)
+    check_report(json.loads(audit.RESULT.read_text()), result)

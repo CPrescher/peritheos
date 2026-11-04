@@ -186,7 +186,9 @@ def test_t0150_covariance_matches_independent_bm3_finite_differences():
         static_pressure_uncertainty(np.repeat(250.0, 10), values, residual)
 
 
-def test_t0150_uncertainty_assessment_round_trips_without_replacing_source():
+def test_t0150_uncertainty_assessment_round_trips_without_replacing_source(
+    assert_audit_close,
+):
     from peritheos import convert_eosmat, load_eosmat
     from scripts.generate_reconstruction_reports import ROOT, explicit_reports
     from scripts.standardize_reconstruction_metadata import assessment_for_record
@@ -198,8 +200,26 @@ def test_t0150_uncertainty_assessment_round_trips_without_replacing_source():
     native = load_eosmat(DATA.parent / "materials/akimotoite.eosmat")
     record = next(r for r in native["eos_records"] if r["identifier"] == IDS[1])
     translated = _mgsio3_primary_outcome(record, fit)
-    for key, value in translated.items():
-        assert row[key] == value
+    saved = copy.deepcopy({key: row[key] for key in translated})
+    replay = copy.deepcopy(translated)
+    # Cancellation magnifies relative solver roundoff in small differences;
+    # compare the coefficients and uncertainties, then check each stored identity.
+    for outcome in (saved, replay):
+        for parameter in outcome["parameters"]:
+            difference = parameter.pop("difference")
+            assert difference == pytest.approx(
+                parameter["refit"] - parameter["published"], abs=1e-12
+            )
+            relative = parameter.pop("relative_difference")
+            assert relative == pytest.approx(
+                abs(difference / parameter["published"]), abs=1e-12
+            )
+    # This separate, inverse-volume sensitivity solve is numerically less stable
+    # than the analytic OLS covariance; it never supplies the parity criterion.
+    sensitivity_saved = saved["covariance"].pop("volume_weighting_sensitivity")
+    sensitivity_replay = replay["covariance"].pop("volume_weighting_sensitivity")
+    assert_audit_close(sensitivity_saved, sensitivity_replay, rel=3e-4)
+    assert_audit_close(saved, replay)
     expected = assessment_for_record(record, row)
     assert record["evidence"]["reproduction"]["assessment"] == expected
     assert expected["scope"] == "parameter_agreement"

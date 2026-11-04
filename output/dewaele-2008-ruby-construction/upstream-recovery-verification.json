@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-23",
+  "pdf_sha256": {
+    "hixson-1992.pdf": "ea920df3a1d80ccb992e6077d760d5b2a93e564079d61bb0c5f0c14a0ba14eb6",
+    "holmes-1989.pdf": "4b51ba86f70dfee95777fa0ac874a21d37d6b45a9bbfbc5514a9ba7943399248"
+  },
+  "counts": {
+    "published_PVT_calculations": 410,
+    "subset_at_300K": 41,
+    "published_293K_density_points": 62,
+    "Mo_W_shock_states": 14,
+    "Pt_shock_states_with_2sigma": 7
+  },
+  "checks": [
+    "PDF hashes fixed",
+    "Tables visually inspected against rendered source pages",
+    "Dimensions and pressure monotonicity checked",
+    "Source calculated tables kept separate from measured shock states",
+    "No Dewaele fit or calibration changed"
+  ],
+  "OCR_readings_corrected_against_pixels": [
+    {
+      "table": "VI",
+      "eta": 0.02,
+      "T_K": 800,
+      "OCR": "7.14",
+      "printed": "7.74"
+    },
+    {
+      "table": "VII",
+      "eta": 0.18,
+      "T_K": 500,
+      "OCR": "91.88",
+      "printed": "91.84"
+    },
+    {
+      "table": "V",
+      "P_GPa": 180.0,
+      "column": "rho_293K",
+      "OCR": "26.3!7",
+      "printed": "26.357"
+    }
+  ],
+  "scope": "Source-table recovery; no original reduction integration or Dewaele calibration workflow reproduction claimed"
+}

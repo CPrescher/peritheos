@@ -65,13 +65,11 @@ cap an outcome, or use an explicitly documented alternative criterion. Its
 recorded basis and qualification take precedence over this generic description.
 See the [record-by-record ledger](primary-eos-refits.md) for actual comparisons.
 
-The [Scott (2001) cementite audit](literature-reproductions/cementite.md)
-retains **similarity** despite passing the broad combined-error screen: its
-digitized, equal-weight reconstruction differs by 8% in K0 and 19% in K0′,
-and both central coefficients lie outside their printed source error widths.
-The dedicated coefficient-parity criterion requires those source-width checks
-as well. Strong coefficient covariance explains the closer curves; it does not
-recover the paper's numerical inputs or weighted fitting workflow.
+The original [Wang T0150 follow-up](literature-reproductions/wang-zhou-komabayashi-mgsio3.md#t0150-uncertainty-reconstruction)
+also establishes conditional parameter parity within printed source widths, with
+analytic BM3 covariance under residual-scaled, unweighted pressure residuals.
+Its fixed K0, unknown source confidence and unrecovered author weighting remain
+explicit. This is separate from the 159 subsequent comparisons below.
 
 The [25 October 2026 uncertainty follow-up](literature-reproductions/uncertainty-reconstruction.md)
 uses an explicit printed-source-error-width criterion for 61 conditional
@@ -149,12 +147,6 @@ retains actual reconstructed coefficients and reported errors even when parity
 failed. The main EOS coefficients remain unchanged. Fixed constraints and the
 available protocol are in `fit`; they do not become independently recovered
 coefficients. See [reconstructed coefficients in EOSMAT](eosmat-v4.md#actual-reconstructed-coefficients).
-
-A comparison row may record an audited `display_decimal_places` value to show
-source and reconstructed values/errors at the publication's same decimal
-places. This is a presentation hint, not a confidence convention or a change
-to stored precision. Numeric comparisons use the unrounded values, and the
-complete reconstructed errors/covariance remain available in the evidence.
 
 Use the [EOS reconstruction reports](reconstruction-reports/index.md) to open each
 record's explanation and available coefficient graph. A report's existence, or a

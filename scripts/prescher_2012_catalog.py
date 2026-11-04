@@ -11,7 +11,7 @@ from pathlib import Path
 
 import numpy as np
 
-from scripts.recover_prescher_2012_fe3c import SOURCE, VECTORS, bm3, fit
+from scripts.recover_prescher_2012_fe3c import SOURCE, TABLE, VECTORS, bm3, fit
 
 ROOT = Path(__file__).resolve().parents[1]
 V0 = 154.5678863704812
@@ -20,7 +20,8 @@ REPORT = "docs/literature-reproductions/prescher-2012-recovery.md"
 PREFIX = "cementite_prescher_2012_"
 IDS = {"full": PREFIX + "full_range_bm3"}
 RETIRED_IDS = {PREFIX + "below_22_gpa_bm3", PREFIX + "22_47_gpa_bm3"}
-DATASETS = {"full": PREFIX + "figure1_digitized"}
+DATASETS = {"full": PREFIX + "table_s1"}
+GRAPH_DATASET = PREFIX + "figure1_digitized"
 REFERENCE = {
     "authors": [
         "Prescher",
@@ -39,48 +40,24 @@ REFERENCE = {
     "locator": "140402(R)",
     "doi": DOI,
 }
-COMMON = (
-    "Conditional numerical parity reproduces K0, K0_prime and both error values "
-    "at published printed precision, with V0 held fixed. V0=154.5678863704812 A^3 "
-    "per conventional Fe3C cell (Z=4) is adopted from the Figure 1 full-range "
-    "calculated curve; it is not a printed or author-confirmed reference volume. "
-    "Published K coefficients and errors are preserved. The source confidence "
-    "convention, original fit inputs, weighting and fixed/free V0 choice remain "
-    "unconfirmed. Matching conditional residual-based errors does not establish "
-    "the original experimental uncertainty calculation, author-workflow "
-    "reproduction or a physical-validation/recommendation claim."
-)
+COMMON = "Conditional coefficient parity compares K0 and K0_prime at the published printed precision, with adopted V0=154.5678863704812 A^3 per conventional Fe3C cell (Z=4) held fixed. Published K0=161 +/-2 GPa and K0_prime=5.9 +/-0.2 are retained unchanged. V0 is adopted from the published calculated full-range curve, not a printed source coefficient or the ambient measurement. Its uncertainty and the original fixed/free V0 convention are unrecovered. Numerical coefficient agreement does not establish uncertainty agreement, author-workflow reproduction or physical validation."
 QUALIFICATIONS = {
-    "full": (
-        "The reconstruction uses all 22 digitized Figure 1 markers, including the "
-        "ambient marker, with equal pressure weights and adopted V0 fixed. K0 and "
-        "K0_prime are free. Covariance is inverse(J^T J) times SSE/(22-2); its errors "
-        "condition on exact V0 and omit V0 uncertainty. The result is K0=160.757426 "
-        "+/-2.353365 GPa and K0_prime=5.942125 +/-0.219843, which round to 161+/-2 "
-        "and 5.9+/-0.2. Digitization/calibration errors are correlated and original "
-        "experimental errors are unknown. The 19 final Table S1 rows remain a "
-        "separate complete numeric dataset; three graph markers are absent from it. "
-        "Published low/high split fits are retained only in the research audit, "
-        "not offered as public EOS records."
-    )
+    "full": "The primary experimental dataset is all 19 numbered p1-p19 points from final Table S1, with published ruby pressures and reported widths, spanning 1.8-47.4 GPa at nominal 293 K. The recorded comparison uses equal pressure weights with V0 fixed and K0/K0_prime free. It gives K0=160.994011 +/-2.532193 GPa and K0_prime=5.919478 +/-0.240867, displayed as 161 +/-3 and 5.9 +/-0.2 at the paper precision. The K0 uncertainty is not reproduced: 2.532193 GPa rounds to 3, not the published 2 GPa. Covariance is inverse(J^T J)*SSE/(19-2), conditional on exact V0 and exact input volumes. Source coordinate widths are preserved but are not the weights in this comparison; source confidence and calibration covariance are unknown. The 22 digitized Figure 1 markers remain separate supplementary evidence, not the primary dataset. No ambient or p20-p22 point is added. For p16, the final source volume is 133.25 A^3, not the alternate SHELX cell 133.58 A^3. Published split fits remain audit-only."
 }
 
 
 def selected_rows(side="full"):
-    """Return all graph markers without modifying their recovered coordinates."""
+    """Return all final numeric p1-p19 rows without changing source coordinates."""
     if side != "full":
         raise ValueError(
             "Split fits are audit-only; the catalog exposes the full range"
         )
-    rows = json.loads(VECTORS.read_text())["markers"]
-    return (
-        np.array([r["pressure_gpa"] for r in rows]),
-        np.array([r["volume_a3"] for r in rows]),
-    )
+    rows = np.genfromtxt(TABLE, delimiter=",", names=True)
+    return rows["pressure_gpa"], rows["volume_a3"]
 
 
 def ledger_outcome(record):
-    """Replay the full-range fixed-V0 coefficient and printed-error comparison."""
+    """Replay the numbered-data fixed-V0 coefficient comparison and error mismatch."""
     if record["identifier"] != IDS["full"]:
         raise ValueError("Only the full-range Prescher EOS is in the catalog")
     p, v = selected_rows()
@@ -105,7 +82,7 @@ def ledger_outcome(record):
         tolerance = (0.5, 0.05)[i]
         matched = abs(value - published[i]) < tolerance
         error_matches = abs(error - errors[i]) < tolerance
-        if not (matched and error_matches):
+        if not matched:
             raise AssertionError(f"Prescher printed agreement diverged: {key}")
         comparisons.append(
             {
@@ -120,27 +97,35 @@ def ledger_outcome(record):
                 "similar": matched,
                 "within_combined_2sigma": None,
                 "uncertainty_matches_printed_precision": error_matches,
-                "uncertainty_finding": "matched_at_printed_precision",
+                "uncertainty_finding": "matched_at_printed_precision"
+                if error_matches
+                else "not_reproduced",
                 "display_decimal_places": i,
             }
         )
     return {
         "status": "parity",
-        "parity_basis": "conditional_coefficients_and_errors_at_published_precision_fixed_V0",
+        "parity_basis": "conditional_K0_and_K0_prime_at_published_printed_precision",
         "comparison_scope": "parameter_agreement",
+        "assessment_basis": "Conditional agreement of K0 and K0_prime at published printed precision for the 19 numbered p1-p19 observations, with adopted curve-derived V0 held fixed. K0 uncertainty is not reproduced: 2.532193 GPa rounds to 3, while the published error is 2 GPa.",
+        "assessment_qualifications": [
+            COMMON,
+            QUALIFICATIONS["full"],
+            "This is a conditional coefficient comparison, not recovery of source confidence, calibration covariance or the author fitting workflow.",
+        ],
         "conditional": True,
         "compared_parameters": ["K0", "K0_prime"],
         "author_workflow_reproduced": False,
         "dataset_identifiers": [DATASETS["full"]],
         "fit_kind": "isothermal_pv",
         "objective": "pressure_residuals",
-        "selection": "All 22 Figure 1 digitized markers, including ambient",
+        "selection": "All 19 numbered p1-p19 final Table S1 rows; no ambient point",
         "columns": {
             "pressure": "pressure_gpa",
             "volume": "volume_a3",
             "temperature": None,
         },
-        "weighting": "Equal pressure weights; no experimental sigmas recovered",
+        "weighting": "Equal pressure weights; reported coordinate widths retained but not used as weights",
         "absolute_sigma": False,
         "free_parameters": ["K0", "K0_prime"],
         "fixed_parameters": ["V0"],
@@ -158,10 +143,10 @@ def ledger_outcome(record):
             np.sqrt(np.mean((bm3(v, V0, *published) - p) ** 2))
         ),
         "parameter_covariance": result["residual_scaled_covariance"],
-        "covariance_convention": "Conditional residual-scaled one-sigma covariance: inverse(J^T J)*SSE/(22-2), V0 exact. Not recovered experimental uncertainty or confidence convention.",
+        "covariance_convention": "Conditional residual-scaled one-sigma covariance: inverse(J^T J)*SSE/(19-2), V0 exact. Not recovered experimental uncertainty or confidence convention.",
         "reduced_chi_square": None,
         "qualification": COMMON + " " + QUALIFICATIONS["full"],
-        "reproduction_report": REPORT,
+        "reproduction_report": "docs/literature-reproductions/prescher-2012-numbered-full-range-fit.md",
     }
 
 
@@ -225,9 +210,7 @@ def catalog_records():
                 + " "
                 + QUALIFICATIONS[side]
                 + " The main text rounds the upper limit to 47 GPa; Table S1 reaches 47.4 GPa. The nominal split ranges do not establish separate structural phases or a phase-stability envelope.",
-                "fit_datasets": [PREFIX + "table_s1", DATASETS[side]]
-                if side != "low"
-                else [DATASETS[side]],
+                "fit_datasets": [DATASETS[side]],
                 "pressure_calibration": {
                     "status": "resolved",
                     "methods": [
@@ -255,7 +238,7 @@ def catalog_records():
                     "scientific_validation": {
                         "status": "primary_source_validated",
                         "audit_date": "2026-10-30",
-                        "note": "Published BM3 K coefficients/errors, units and reference conventions checked against the primary paper; V0 is an explicitly documented graph-derived adoption, not a published coefficient. Conditional agreement includes both printed error values; original confidence and author workflow remain unconfirmed.",
+                        "note": "Published BM3 K coefficients/errors, units and reference conventions checked against the primary paper; V0 is an explicitly documented graph-derived adoption, not a published coefficient. Conditional agreement covers central K coefficients only; the K0 uncertainty mismatch is explicit and original confidence/workflow remain unconfirmed.",
                         "verified_fields": [
                             "equation",
                             "published_K0_and_K0_prime",
@@ -279,10 +262,9 @@ def catalog_records():
                         },
                         "primary_data_check": {
                             "status": "primary_table",
-                            "dataset_identifiers": [PREFIX + "table_s1", DATASETS[side]]
-                            if side != "low"
-                            else [DATASETS[side]],
-                            "finding": "All 19 final Table S1 states retained separately from all 22 digitized graph markers. Split diagnostics remain outside the public catalog. The named comparison uses its own explicit row selection; these datasets are not asserted to be the original author fit inputs.",
+                            "dataset_identifiers": [DATASETS[side]],
+                            "digitized_dataset_identifiers": [GRAPH_DATASET],
+                            "finding": "The primary dataset is all 19 numbered p1-p19 final Table S1 states with published ruby pressures. All 22 digitized graph markers remain separate supplementary evidence. Original author input selection and constraints remain unrecovered.",
                         },
                         "unresolved": [COMMON, QUALIFICATIONS[side]],
                     },
@@ -322,11 +304,11 @@ def supporting_datasets():
         ]
         datasets.append(
             {
-                "identifier": DATASETS[side],
+                "identifier": GRAPH_DATASET,
                 "kind": "pressure_volume_digitized"
                 if side == "full"
                 else "archived_working_volume_with_published_pressure",
-                "description": QUALIFICATIONS[side],
+                "description": "Supplementary evidence: all 22 digitized Figure 1 markers. Primary numerical dataset is final Table S1, numbered p1-p19; source/graph observations are not merged.",
                 "reference": REFERENCE,
                 "source_location": "Figure 1 main panel, all 22 markers"
                 if side == "full"

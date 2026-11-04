@@ -5,30 +5,12 @@ parameter comparisons, uncertainties, calibration, selection holds and source
 qualifications. These sheets are generated from the complete EOSMAT documents.
 
 Peritheos exposes the main curated library through the normal executable
-API. `list_materials()` returns 230 `Material` objects and
-`list_eos_records()` returns their 629 `EOSRecord` objects. Both are ordered by
+API. `list_materials()` returns 231 `Material` objects and
+`list_eos_records()` returns 630 `EOSRecord` choices. Pass
+`include_reference_variants=True` to include all 682 executable records. Both
+material and EOS listings are ordered by
 stable identifier and constructed from the same `.eosmat` files returned by
 the advanced `get_material_document()` API.
-
-Material names put the mineral family first. Bridgmanite compositions use
-`Bridgmanite`, followed by useful sample or model qualifiers such as `natural`,
-`KLB-1` or `oxygen-vacancy Al model`. Mixed Mg–Fe oxides use the
-family label `Ferropericlase`, followed by the structure and any sample,
-defect or spin qualifier. Pure MgO and FeO endmembers retain distinct names:
-`Periclase B1 (MgO)` and `Wüstite B1 (FeO)` when displayed with their formulas.
-B2 MgO and B8 FeO remain separate entries.
-The browsing folder is also labelled `Ferropericlase`; its stable family ID
-remains `mg_fe_monoxide`. These browsing labels do not merge compositions,
-structures or EOS records.
-
-The exact stored composition remains in `formula`, including analytical
-precision, minor elements and vacancies. A consumer that combines name and
-formula can display `Bridgmanite natural (Mg0.90Fe0.09Al0.005Ca0.005SiO3)`
-or `Ferropericlase B1 high-spin (Mg0.83Fe0.17O)` without repeating the formula.
-Previous names remain searchable aliases; every mixed Mg–Fe oxide also has
-`ferropericlase`, `magnesiowustite` and `magnesiowüstite` aliases. These shared
-aliases return multiple results through `search_materials()` and
-`search_eos_records()`; use stable identifiers to select a specific material.
 
 Thorianite and cotunnite-type ThO2 have separate experimental thermal records
 from Chidester et al. (2018); see the [source audit](literature-reproductions/chidester-2018-tho2.md)
@@ -38,41 +20,6 @@ The [coverage overview](catalog-coverage.md) reports current material-level
 static/thermal/Hugoniot coverage, calibration readiness and ledger differences.
 The [material backlog](material-eos-candidates.md) separates open gaps,
 completed additions and evidence-dependent holds.
-
-Cementite (`cementite`) also includes the original Ono–Mibe (2010) experimental
-BM3 as `cementite_ono_mibe_2010_bm3`, a nondefault source at **300 K and
-0–34.3 GPa**. All 14 Table 1 observations are retained through 66.5 GPa; the
-higher-pressure rows are outside this fit's validity. The measured ambient
-reference volume is explicitly adopted, and the original fitting constraints
-and weights remain unknown. The 0 K calculations and Litasov recalibration
-are separate. See the [source audit](literature-reproductions/ono-mibe-2010-fe3c.md).
-
-Nonmagnetic cementite (`cementite_nonmagnetic`) includes the original Sata
-(2010) **300 K static BM3** as a qualified nondefault source EOS,
-limited to 27.2–186.6 GPa. Published coefficients are reproduced conditionally;
-some quoted point errors are smaller than the overall experimental scatter.
-The recalculated-pressure refit remains a separate diagnostic.
-`get_eos_record("cementite_nonmagnetic_sata_2010_bm3")` selects the source explicitly;
-its uncertainty and data-scatter qualifications should accompany its use.
-Its published 9.341 Å³/atom, 290 GPa and 3.76 coefficients remain separate
-from Litasov's later recalibrated Vinet comparison. The [source audit](literature-reproductions/sata-2010-fe3c.md)
-documents the joint Li/Sata selection, conditional parameter parity, poor data agreement and
-unresolved MgO reducer precision. The existing Takahashi default is unchanged.
-
-Hu et al. (2019) supplies the full **85.6–245 GPa experimental Hugoniot** as
-`cementite_nonmagnetic_hu_2019_linear_hugoniot`, retaining all six shots and the
-approximately 2% porous precursor. **Possible melting at higher pressures;
-density data do not resolve the phase state.** The refit remains a separate
-diagnostic. Calculated shock temperatures are not measured P–V–T points; the
-300 K metadata describe the normalized precursor. The separate thermal reduction
-is not installed. See the [Hu audit](literature-reproductions/hu-2019-fe3c.md).
-
-Ferrous ringwoodite (`ferrous_ringwoodite`, Fe2SiO4) supplies the Finger (1979)
-derived static ambient-cell reconstruction at **296.15 K and 0–4 GPa** only.
-It preserves the published K0=196(6) GPa and adopts the measured V0=558.7(2) Å³;
-the V0 error is a measurement esd, not an EOS-fit error. The separate 2011
-thermal candidate remains staged and is not installed. See the
-[static integration and thermal qualifications](research/ferrous-ringwoodite-armentrout-2011-integration.md).
 
 Fe-bearing phase E (`phase_e_fe0072`) preserves the Crichton–Ross (2000)
 measured composition and published static BM3. Its independent refit achieves
@@ -444,8 +391,7 @@ tests the unreproduced analytical PVT independently of the fitted corrections.
 
 ## Research collections
 
-The [Dewaele (2008) PAW collection](research/dewaele-2008-paw.md) preserves 54
-published computational parameterizations, provenance and graphical checks in
-standalone EOSMAT files. It is excluded from the main database, ordinary searches,
-and catalog record listings. Explicitly opening a research file does not register
-it in the database. The paper's 13 experimental EOS remain in the main catalog.
+The [Dewaele (2008) PAW collection](research/dewaele-2008-paw.md) preserves all
+54 published computational parameterizations, provenance and graphical checks
+outside the main database. Its records are absent from catalog listings, searches
+and default selection. The paper's 13 experimental Table IV EOS remain in the catalog.

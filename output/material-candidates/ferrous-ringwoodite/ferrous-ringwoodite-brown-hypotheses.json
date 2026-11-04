@@ -1,0 +1,2182 @@
+{
+  "audit_date": "2026-10-16",
+  "brown_source_doi": "10.1063/1.371596",
+  "normalization": "Per mole of NaCl: n=2 and V_m=v*58.44cm3/mol. Per mole of conventional B1 cells: n=8 and volume4*V_m gives exactly the same pressure. Wrong n means an inconsistent atom/volume basis, not merely use of8. Fe2SiO4 similarly has n=7 per formula or56 per conventional cell with8times the formula molar volume.",
+  "brown_tables": {
+    "scope": "All571 populated calculated pressure cells; equal weight per cell. Pressure differences are prediction minus TableII, GPa; no original experimental refit.",
+    "wrong_n_only": {
+      "1": {
+        "count": 571,
+        "mean_gpa": -1.0111286617305475,
+        "rms_gpa": 1.0846268147424905,
+        "maximum_abs_gpa": 1.7334506768287579
+      },
+      "2": {
+        "count": 571,
+        "mean_gpa": -0.12309670873245981,
+        "rms_gpa": 0.12464313636684235,
+        "maximum_abs_gpa": 0.1618487029086224
+      },
+      "4": {
+        "count": 571,
+        "mean_gpa": 1.6529671972637157,
+        "rms_gpa": 1.8356744947351318,
+        "maximum_abs_gpa": 3.1362356601035564
+      },
+      "7": {
+        "count": 571,
+        "mean_gpa": 4.317063056257979,
+        "rms_gpa": 4.7529735625613725,
+        "maximum_abs_gpa": 7.988006386317428
+      },
+      "8": {
+        "count": 571,
+        "mean_gpa": 5.205095009256066,
+        "rms_gpa": 5.725532797234508,
+        "maximum_abs_gpa": 9.605931925694216
+      }
+    },
+    "n_from_within_volume_temperature_slopes": 2.000738594474558,
+    "n_only_fitted_with_fixed_table1_p0": {
+      "n": 2.113580870369853,
+      "count": 571,
+      "mean_gpa": -0.022233266594696748,
+      "rms_gpa": 0.05772429637604775,
+      "maximum_abs_gpa": 0.13270220046756437
+    },
+    "required_n_by_temperature_at_one_volume": [
+      {
+        "volume_cm3_g": 0.3709,
+        "temperature_k": 300,
+        "required_n_if_no_offset": 2.482322822106086
+      },
+      {
+        "volume_cm3_g": 0.3709,
+        "temperature_k": 600,
+        "required_n_if_no_offset": 2.185879870242051
+      },
+      {
+        "volume_cm3_g": 0.3709,
+        "temperature_k": 1200,
+        "required_n_if_no_offset": 2.077135687746827
+      }
+    ],
+    "fixed_one_third_zero_point": {
+      "count": 571,
+      "mean_gpa": -0.0009542730186051948,
+      "rms_gpa": 0.01097072460073802,
+      "maximum_abs_gpa": 0.03264494795713491
+    },
+    "fixed_full_zero_point": {
+      "count": 571,
+      "mean_gpa": 0.2433305984091041,
+      "rms_gpa": 0.24535387763262106,
+      "maximum_abs_gpa": 0.2939245000876629
+    },
+    "fitted_constant_pressure_offset": {
+      "offset_gpa": 0.12309670873245981,
+      "count": 571,
+      "mean_gpa": -6.066367490070907e-17,
+      "rms_gpa": 0.019573240472624966,
+      "maximum_abs_gpa": 0.06742565056825445
+    },
+    "fitted_constant_molar_energy_offset": {
+      "offset_j_mol": 2218.534089266974,
+      "count": 571,
+      "mean_gpa": -0.000912113716140776,
+      "rms_gpa": 0.023950992189465167,
+      "maximum_abs_gpa": 0.06837564067930657
+    },
+    "fitted_zero_point_fraction_at_n2": {
+      "fraction": 0.33623741923138917,
+      "count": 571,
+      "mean_gpa": 0.00010986335672719301,
+      "rms_gpa": 0.010918184092109115,
+      "maximum_abs_gpa": 0.03374717309811226
+    },
+    "joint_n_and_offset_diagnostic": {
+      "n": 1.9993658657556859,
+      "fraction_of_n2_zero_point": 0.3377251583801023,
+      "count": 571,
+      "mean_gpa": 9.1880135277991e-05,
+      "rms_gpa": 0.010914584786147265,
+      "maximum_abs_gpa": 0.03337722619000649
+    },
+    "temperature_holdout": {
+      "training_temperature_max_k": 700,
+      "test_temperature_min_k": 800,
+      "fitted_n": 2.000539507314611,
+      "fitted_fraction_of_n2_zero_point": 0.33509135427031245,
+      "test": {
+        "count": 302,
+        "mean_gpa": 0.0002674805211492759,
+        "rms_gpa": 0.01158320720767862,
+        "maximum_abs_gpa": 0.034107335760120705
+      }
+    },
+    "independent_series_checks": {
+      "normalized_series_minus_quadrature_max_gpa": 1.1090017792980689e-12,
+      "altered_linear_term_minus_added_zpe_third_max_gpa": 1.1088630014199907e-12
+    },
+    "interpretation": "TableII temperature slopes support n=2. An added E_ZP/3, E_ZP=9*n*R*theta/8, reproduces the offset closely and is algebraically equivalent to changing D3's linear coefficient from-3/8 to-1/4. This is a numerical signature, not recovered Brown code or a justified correction. Eq1/TableI define a zero-K baseline, so adding zero-point pressure needs a consistent redefinition of that baseline."
+  },
+  "table_s1": {
+    "scope": "All18 rows retained; all objectives/summaries use14 accepted rows only, unweighted GPa residuals, no fitted EOS coefficients. No temperature uncertainty/covariance or significance inferred.",
+    "hypothesis_definitions": "Names with half_kelvin use Tsample/2 for heating only; cold preheat/quench states stay300K. n1_full_sample uses one atom per formula with the formula molar volume, intentionally a mismatched basis. minus_E300 subtracts a300K thermal energy from an already zero-K P0 and is deliberately an error hypothesis. TableII reconstructions keep its offset; TableI cases keep its printed baseline. Celsius halving means(Tsample-273.15)/2+273.15. ZPE/3 cases are diagnostics, not corrections.",
+    "accepted_statistics": {
+      "table1_n2_midpoint": {
+        "count": 14,
+        "mean_gpa": 0.4451659389150922,
+        "rms_gpa": 0.4559698883386433,
+        "maximum_abs_gpa": 0.5698668792949526
+      },
+      "table1_n2_half_kelvin_heating": {
+        "count": 14,
+        "mean_gpa": 0.038017513965250646,
+        "rms_gpa": 0.10548218467206508,
+        "maximum_abs_gpa": 0.16671231327176628
+      },
+      "table1_n1_full_sample": {
+        "count": 14,
+        "mean_gpa": 0.21253587487491465,
+        "rms_gpa": 0.23498385432510355,
+        "maximum_abs_gpa": 0.3400671696423867
+      },
+      "table1_n1_midpoint": {
+        "count": 14,
+        "mean_gpa": -0.7353532853106455,
+        "rms_gpa": 0.7755316539699348,
+        "maximum_abs_gpa": 1.2682441799811084
+      },
+      "table1_n4_midpoint": {
+        "count": 14,
+        "mean_gpa": 2.806204387366568,
+        "rms_gpa": 2.864035463772963,
+        "maximum_abs_gpa": 3.962397819960122
+      },
+      "table1_n7_midpoint": {
+        "count": 14,
+        "mean_gpa": 6.347762060043783,
+        "rms_gpa": 6.492269677751285,
+        "maximum_abs_gpa": 9.193039819901355
+      },
+      "table1_n8_midpoint": {
+        "count": 14,
+        "mean_gpa": 7.52828128426952,
+        "rms_gpa": 7.701932821553135,
+        "maximum_abs_gpa": 10.936587153215097
+      },
+      "table1_n2_midpoint_minus_E300_global": {
+        "count": 14,
+        "mean_gpa": -0.05494986574639756,
+        "rms_gpa": 0.11379151140899885,
+        "maximum_abs_gpa": 0.2623363742463205
+      },
+      "table1_n2_midpoint_minus_E300_heating_only": {
+        "count": 14,
+        "mean_gpa": -0.05494986574639756,
+        "rms_gpa": 0.11379151140899885,
+        "maximum_abs_gpa": 0.2623363742463205
+      },
+      "table1_n2_half_celsius_heating": {
+        "count": 14,
+        "mean_gpa": 0.40867243753573373,
+        "rms_gpa": 0.42041220996828893,
+        "maximum_abs_gpa": 0.5333573493965353
+      },
+      "table1_n2_half_kelvin_plus_ZPE_third": {
+        "count": 14,
+        "mean_gpa": 0.16629923089702078,
+        "rms_gpa": 0.19330096636774174,
+        "maximum_abs_gpa": 0.2908256898582273
+      },
+      "table2_n2_midpoint": {
+        "count": 14,
+        "mean_gpa": 0.5570544943295943,
+        "rms_gpa": 0.5663752982987835,
+        "maximum_abs_gpa": 0.6850446417250211
+      },
+      "table2_n2_half_kelvin_heating": {
+        "count": 14,
+        "mean_gpa": 0.15138485691602543,
+        "rms_gpa": 0.1821196560827685,
+        "maximum_abs_gpa": 0.27984013171119315
+      }
+    },
+    "conditional_unweighted_fits": {
+      "n_at_stated_midpoint": {
+        "parameters": [
+          1.6344385782462656
+        ],
+        "training": {
+          "count": 14,
+          "mean_gpa": 0.013613652899515978,
+          "rms_gpa": 0.11096876594157772,
+          "maximum_abs_gpa": 0.21442683316715616
+        },
+        "leave_one_row_out": {
+          "count": 14,
+          "mean_gpa": 0.012207919126544604,
+          "rms_gpa": 0.12104602191557835,
+          "maximum_abs_gpa": 0.23621958319953862
+        }
+      },
+      "temperature_fraction_without_intercept": {
+        "parameters": [
+          0.49044752222001603
+        ],
+        "training": {
+          "count": 14,
+          "mean_gpa": -0.0057450380021468106,
+          "rms_gpa": 0.09542431246232573,
+          "maximum_abs_gpa": 0.20164730208574966
+        },
+        "leave_one_row_out": {
+          "count": 14,
+          "mean_gpa": -0.005383926372780782,
+          "rms_gpa": 0.10219000070641986,
+          "maximum_abs_gpa": 0.21073578783721203
+        }
+      },
+      "offset_with_fixed_half_slope_k": {
+        "parameters": [
+          -14.081078541247589
+        ],
+        "training": {
+          "count": 14,
+          "mean_gpa": -0.00012093046136004862,
+          "rms_gpa": 0.0983481225906084,
+          "maximum_abs_gpa": 0.20478657630040686
+        },
+        "leave_one_row_out": {
+          "count": 14,
+          "mean_gpa": -0.00011029920213991216,
+          "rms_gpa": 0.10592658924965881,
+          "maximum_abs_gpa": 0.22048174313753677
+        }
+      },
+      "temperature_fraction_and_intercept_k": {
+        "parameters": [
+          0.46701770920967045,
+          41.77206220527463
+        ],
+        "training": {
+          "count": 14,
+          "mean_gpa": 5.712955894056547e-05,
+          "rms_gpa": 0.09199703050627117,
+          "maximum_abs_gpa": 0.18443215662312262
+        },
+        "leave_one_row_out": {
+          "count": 14,
+          "mean_gpa": -0.002952701313317263,
+          "rms_gpa": 0.10438519348867298,
+          "maximum_abs_gpa": 0.2069740497140682
+        }
+      }
+    },
+    "rows": [
+      {
+        "measurement": "Fay008heat",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n2_midpoint",
+        "source_pressure_gpa": 9.35,
+        "predicted_pressure_gpa": 10.05926306460559,
+        "predicted_minus_source_gpa": 0.7092630646055902
+      },
+      {
+        "measurement": "Fay008heat",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n2_half_kelvin_heating",
+        "source_pressure_gpa": 9.35,
+        "predicted_pressure_gpa": 9.662789812858474,
+        "predicted_minus_source_gpa": 0.3127898128584743
+      },
+      {
+        "measurement": "Fay008heat",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n1_full_sample",
+        "source_pressure_gpa": 9.35,
+        "predicted_pressure_gpa": 9.819789894762383,
+        "predicted_minus_source_gpa": 0.46978989476238375
+      },
+      {
+        "measurement": "Fay008heat",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n1_midpoint",
+        "source_pressure_gpa": 9.35,
+        "predicted_pressure_gpa": 9.486708966179892,
+        "predicted_minus_source_gpa": 0.13670896617989214
+      },
+      {
+        "measurement": "Fay008heat",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n4_midpoint",
+        "source_pressure_gpa": 9.35,
+        "predicted_pressure_gpa": 11.204371261456982,
+        "predicted_minus_source_gpa": 1.8543712614569827
+      },
+      {
+        "measurement": "Fay008heat",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n7_midpoint",
+        "source_pressure_gpa": 9.35,
+        "predicted_pressure_gpa": 12.922033556734073,
+        "predicted_minus_source_gpa": 3.5720335567340733
+      },
+      {
+        "measurement": "Fay008heat",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n8_midpoint",
+        "source_pressure_gpa": 9.35,
+        "predicted_pressure_gpa": 13.49458765515977,
+        "predicted_minus_source_gpa": 4.14458765515977
+      },
+      {
+        "measurement": "Fay008heat",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n2_midpoint_minus_E300_global",
+        "source_pressure_gpa": 9.35,
+        "predicted_pressure_gpa": 9.562904704225591,
+        "predicted_minus_source_gpa": 0.2129047042255916
+      },
+      {
+        "measurement": "Fay008heat",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n2_midpoint_minus_E300_heating_only",
+        "source_pressure_gpa": 9.35,
+        "predicted_pressure_gpa": 9.562904704225591,
+        "predicted_minus_source_gpa": 0.2129047042255916
+      },
+      {
+        "measurement": "Fay008heat",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n2_half_celsius_heating",
+        "source_pressure_gpa": 9.35,
+        "predicted_pressure_gpa": 10.023486132499105,
+        "predicted_minus_source_gpa": 0.6734861324991055
+      },
+      {
+        "measurement": "Fay008heat",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n2_half_kelvin_plus_ZPE_third",
+        "source_pressure_gpa": 9.35,
+        "predicted_pressure_gpa": 9.791547264866676,
+        "predicted_minus_source_gpa": 0.44154726486667606
+      },
+      {
+        "measurement": "Fay008heat",
+        "included_by_table_s1": 0,
+        "hypothesis": "table2_n2_midpoint",
+        "source_pressure_gpa": 9.35,
+        "predicted_pressure_gpa": 10.180524175242008,
+        "predicted_minus_source_gpa": 0.8305241752420081
+      },
+      {
+        "measurement": "Fay008heat",
+        "included_by_table_s1": 0,
+        "hypothesis": "table2_n2_half_kelvin_heating",
+        "source_pressure_gpa": 9.35,
+        "predicted_pressure_gpa": 9.785609595515645,
+        "predicted_minus_source_gpa": 0.43560959551564515
+      },
+      {
+        "measurement": "Fay009heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint",
+        "source_pressure_gpa": 9.77,
+        "predicted_pressure_gpa": 10.21727886802405,
+        "predicted_minus_source_gpa": 0.4472788680240498
+      },
+      {
+        "measurement": "Fay009heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_heating",
+        "source_pressure_gpa": 9.77,
+        "predicted_pressure_gpa": 9.81340856188896,
+        "predicted_minus_source_gpa": 0.043408561888959696
+      },
+      {
+        "measurement": "Fay009heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_full_sample",
+        "source_pressure_gpa": 9.77,
+        "predicted_pressure_gpa": 9.981005844739887,
+        "predicted_minus_source_gpa": 0.21100584473988704
+      },
+      {
+        "measurement": "Fay009heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_midpoint",
+        "source_pressure_gpa": 9.77,
+        "predicted_pressure_gpa": 9.405375415027862,
+        "predicted_minus_source_gpa": -0.36462458497213746
+      },
+      {
+        "measurement": "Fay009heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n4_midpoint",
+        "source_pressure_gpa": 9.77,
+        "predicted_pressure_gpa": 11.841085774016427,
+        "predicted_minus_source_gpa": 2.071085774016428
+      },
+      {
+        "measurement": "Fay009heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n7_midpoint",
+        "source_pressure_gpa": 9.77,
+        "predicted_pressure_gpa": 14.276796133004993,
+        "predicted_minus_source_gpa": 4.506796133004993
+      },
+      {
+        "measurement": "Fay009heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n8_midpoint",
+        "source_pressure_gpa": 9.77,
+        "predicted_pressure_gpa": 15.08869958600118,
+        "predicted_minus_source_gpa": 5.3186995860011805
+      },
+      {
+        "measurement": "Fay009heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_global",
+        "source_pressure_gpa": 9.77,
+        "predicted_pressure_gpa": 9.71796018286043,
+        "predicted_minus_source_gpa": -0.05203981713956907
+      },
+      {
+        "measurement": "Fay009heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_heating_only",
+        "source_pressure_gpa": 9.77,
+        "predicted_pressure_gpa": 9.71796018286043,
+        "predicted_minus_source_gpa": -0.05203981713956907
+      },
+      {
+        "measurement": "Fay009heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_celsius_heating",
+        "source_pressure_gpa": 9.77,
+        "predicted_pressure_gpa": 10.181015538277796,
+        "predicted_minus_source_gpa": 0.41101553827779647
+      },
+      {
+        "measurement": "Fay009heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_plus_ZPE_third",
+        "source_pressure_gpa": 9.77,
+        "predicted_pressure_gpa": 9.941819907827847,
+        "predicted_minus_source_gpa": 0.17181990782784773
+      },
+      {
+        "measurement": "Fay009heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_midpoint",
+        "source_pressure_gpa": 9.77,
+        "predicted_pressure_gpa": 10.338301666891319,
+        "predicted_minus_source_gpa": 0.568301666891319
+      },
+      {
+        "measurement": "Fay009heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_half_kelvin_heating",
+        "source_pressure_gpa": 9.77,
+        "predicted_pressure_gpa": 9.932982230273588,
+        "predicted_minus_source_gpa": 0.16298223027358816
+      },
+      {
+        "measurement": "Fay010heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint",
+        "source_pressure_gpa": 9.75,
+        "predicted_pressure_gpa": 10.130215434948333,
+        "predicted_minus_source_gpa": 0.3802154349483331
+      },
+      {
+        "measurement": "Fay010heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_heating",
+        "source_pressure_gpa": 9.75,
+        "predicted_pressure_gpa": 9.724967549548579,
+        "predicted_minus_source_gpa": -0.02503245045142144
+      },
+      {
+        "measurement": "Fay010heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_full_sample",
+        "source_pressure_gpa": 9.75,
+        "predicted_pressure_gpa": 9.893776105966081,
+        "predicted_minus_source_gpa": 0.14377610596608115
+      },
+      {
+        "measurement": "Fay010heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_midpoint",
+        "source_pressure_gpa": 9.75,
+        "predicted_pressure_gpa": 9.268053959022122,
+        "predicted_minus_source_gpa": -0.48194604097787774
+      },
+      {
+        "measurement": "Fay010heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n4_midpoint",
+        "source_pressure_gpa": 9.75,
+        "predicted_pressure_gpa": 11.854538386800755,
+        "predicted_minus_source_gpa": 2.104538386800755
+      },
+      {
+        "measurement": "Fay010heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n7_midpoint",
+        "source_pressure_gpa": 9.75,
+        "predicted_pressure_gpa": 14.441022814579387,
+        "predicted_minus_source_gpa": 4.691022814579387
+      },
+      {
+        "measurement": "Fay010heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n8_midpoint",
+        "source_pressure_gpa": 9.75,
+        "predicted_pressure_gpa": 15.303184290505598,
+        "predicted_minus_source_gpa": 5.553184290505598
+      },
+      {
+        "measurement": "Fay010heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_global",
+        "source_pressure_gpa": 9.75,
+        "predicted_pressure_gpa": 9.629206668410243,
+        "predicted_minus_source_gpa": -0.12079333158975736
+      },
+      {
+        "measurement": "Fay010heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_heating_only",
+        "source_pressure_gpa": 9.75,
+        "predicted_pressure_gpa": 9.629206668410243,
+        "predicted_minus_source_gpa": -0.12079333158975736
+      },
+      {
+        "measurement": "Fay010heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_celsius_heating",
+        "source_pressure_gpa": 9.75,
+        "predicted_pressure_gpa": 10.093846161855598,
+        "predicted_minus_source_gpa": 0.34384616185559835
+      },
+      {
+        "measurement": "Fay010heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_plus_ZPE_third",
+        "source_pressure_gpa": 9.75,
+        "predicted_pressure_gpa": 9.853136475967263,
+        "predicted_minus_source_gpa": 0.10313647596726305
+      },
+      {
+        "measurement": "Fay010heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_midpoint",
+        "source_pressure_gpa": 9.75,
+        "predicted_pressure_gpa": 10.241134980054008,
+        "predicted_minus_source_gpa": 0.49113498005400835
+      },
+      {
+        "measurement": "Fay010heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_half_kelvin_heating",
+        "source_pressure_gpa": 9.75,
+        "predicted_pressure_gpa": 9.840492155748708,
+        "predicted_minus_source_gpa": 0.0904921557487075
+      },
+      {
+        "measurement": "Fay011heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint",
+        "source_pressure_gpa": 9.81,
+        "predicted_pressure_gpa": 10.151515768382541,
+        "predicted_minus_source_gpa": 0.34151576838254094
+      },
+      {
+        "measurement": "Fay011heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_heating",
+        "source_pressure_gpa": 9.81,
+        "predicted_pressure_gpa": 9.745814831156293,
+        "predicted_minus_source_gpa": -0.06418516884370717
+      },
+      {
+        "measurement": "Fay011heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_full_sample",
+        "source_pressure_gpa": 9.81,
+        "predicted_pressure_gpa": 9.91530461367868,
+        "predicted_minus_source_gpa": 0.10530461367867971
+      },
+      {
+        "measurement": "Fay011heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_midpoint",
+        "source_pressure_gpa": 9.81,
+        "predicted_pressure_gpa": 9.262251551996599,
+        "predicted_minus_source_gpa": -0.5477484480034018
+      },
+      {
+        "measurement": "Fay011heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n4_midpoint",
+        "source_pressure_gpa": 9.81,
+        "predicted_pressure_gpa": 11.930044201154427,
+        "predicted_minus_source_gpa": 2.1200442011544265
+      },
+      {
+        "measurement": "Fay011heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n7_midpoint",
+        "source_pressure_gpa": 9.81,
+        "predicted_pressure_gpa": 14.597836850312255,
+        "predicted_minus_source_gpa": 4.787836850312255
+      },
+      {
+        "measurement": "Fay011heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n8_midpoint",
+        "source_pressure_gpa": 9.81,
+        "predicted_pressure_gpa": 15.487101066698198,
+        "predicted_minus_source_gpa": 5.677101066698198
+      },
+      {
+        "measurement": "Fay011heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_global",
+        "source_pressure_gpa": 9.81,
+        "predicted_pressure_gpa": 9.650214107007814,
+        "predicted_minus_source_gpa": -0.15978589299218626
+      },
+      {
+        "measurement": "Fay011heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_heating_only",
+        "source_pressure_gpa": 9.81,
+        "predicted_pressure_gpa": 9.650214107007814,
+        "predicted_minus_source_gpa": -0.15978589299218626
+      },
+      {
+        "measurement": "Fay011heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_celsius_heating",
+        "source_pressure_gpa": 9.81,
+        "predicted_pressure_gpa": 10.115113924051487,
+        "predicted_minus_source_gpa": 0.3051139240514864
+      },
+      {
+        "measurement": "Fay011heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_plus_ZPE_third",
+        "source_pressure_gpa": 9.81,
+        "predicted_pressure_gpa": 9.873938056047507,
+        "predicted_minus_source_gpa": 0.06393805604750646
+      },
+      {
+        "measurement": "Fay011heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_midpoint",
+        "source_pressure_gpa": 9.81,
+        "predicted_pressure_gpa": 10.26015733400045,
+        "predicted_minus_source_gpa": 0.45015733400044944
+      },
+      {
+        "measurement": "Fay011heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_half_kelvin_heating",
+        "source_pressure_gpa": 9.81,
+        "predicted_pressure_gpa": 9.859663283685233,
+        "predicted_minus_source_gpa": 0.04966328368523243
+      },
+      {
+        "measurement": "Fay012heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint",
+        "source_pressure_gpa": 9.91,
+        "predicted_pressure_gpa": 10.150121621932476,
+        "predicted_minus_source_gpa": 0.24012162193247555
+      },
+      {
+        "measurement": "Fay012heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_heating",
+        "source_pressure_gpa": 9.91,
+        "predicted_pressure_gpa": 9.743287686728234,
+        "predicted_minus_source_gpa": -0.16671231327176628
+      },
+      {
+        "measurement": "Fay012heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_full_sample",
+        "source_pressure_gpa": 9.91,
+        "predicted_pressure_gpa": 9.914128979280509,
+        "predicted_minus_source_gpa": 0.0041289792805088155
+      },
+      {
+        "measurement": "Fay012heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_midpoint",
+        "source_pressure_gpa": 9.91,
+        "predicted_pressure_gpa": 9.196042442203394,
+        "predicted_minus_source_gpa": -0.713957557796606
+      },
+      {
+        "measurement": "Fay012heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n4_midpoint",
+        "source_pressure_gpa": 9.91,
+        "predicted_pressure_gpa": 12.058279981390639,
+        "predicted_minus_source_gpa": 2.1482799813906386
+      },
+      {
+        "measurement": "Fay012heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n7_midpoint",
+        "source_pressure_gpa": 9.91,
+        "predicted_pressure_gpa": 14.920517520577881,
+        "predicted_minus_source_gpa": 5.010517520577881
+      },
+      {
+        "measurement": "Fay012heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n8_midpoint",
+        "source_pressure_gpa": 9.91,
+        "predicted_pressure_gpa": 15.874596700306963,
+        "predicted_minus_source_gpa": 5.964596700306963
+      },
+      {
+        "measurement": "Fay012heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_global",
+        "source_pressure_gpa": 9.91,
+        "predicted_pressure_gpa": 9.64766362575368,
+        "predicted_minus_source_gpa": -0.2623363742463205
+      },
+      {
+        "measurement": "Fay012heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_heating_only",
+        "source_pressure_gpa": 9.91,
+        "predicted_pressure_gpa": 9.64766362575368,
+        "predicted_minus_source_gpa": -0.2623363742463205
+      },
+      {
+        "measurement": "Fay012heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_celsius_heating",
+        "source_pressure_gpa": 9.91,
+        "predicted_pressure_gpa": 10.113634280648858,
+        "predicted_minus_source_gpa": 0.20363428064885802
+      },
+      {
+        "measurement": "Fay012heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_plus_ZPE_third",
+        "source_pressure_gpa": 9.91,
+        "predicted_pressure_gpa": 9.87121996598575,
+        "predicted_minus_source_gpa": -0.03878003401425012
+      },
+      {
+        "measurement": "Fay012heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_midpoint",
+        "source_pressure_gpa": 9.91,
+        "predicted_pressure_gpa": 10.253767573649366,
+        "predicted_minus_source_gpa": 0.34376757364936594
+      },
+      {
+        "measurement": "Fay012heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_half_kelvin_heating",
+        "source_pressure_gpa": 9.91,
+        "predicted_pressure_gpa": 9.848397922187313,
+        "predicted_minus_source_gpa": -0.06160207781268667
+      },
+      {
+        "measurement": "Fay013heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint",
+        "source_pressure_gpa": 9.85,
+        "predicted_pressure_gpa": 10.358650778506375,
+        "predicted_minus_source_gpa": 0.5086507785063752
+      },
+      {
+        "measurement": "Fay013heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_heating",
+        "source_pressure_gpa": 9.85,
+        "predicted_pressure_gpa": 9.950870785491778,
+        "predicted_minus_source_gpa": 0.10087078549177875
+      },
+      {
+        "measurement": "Fay013heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_full_sample",
+        "source_pressure_gpa": 9.85,
+        "predicted_pressure_gpa": 10.123891854100172,
+        "predicted_minus_source_gpa": 0.2738918541001727
+      },
+      {
+        "measurement": "Fay013heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_midpoint",
+        "source_pressure_gpa": 9.85,
+        "predicted_pressure_gpa": 9.29668151519335,
+        "predicted_minus_source_gpa": -0.553318484806649
+      },
+      {
+        "measurement": "Fay013heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n4_midpoint",
+        "source_pressure_gpa": 9.85,
+        "predicted_pressure_gpa": 12.482589305132421,
+        "predicted_minus_source_gpa": 2.632589305132422
+      },
+      {
+        "measurement": "Fay013heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n7_midpoint",
+        "source_pressure_gpa": 9.85,
+        "predicted_pressure_gpa": 15.66849709507149,
+        "predicted_minus_source_gpa": 5.818497095071491
+      },
+      {
+        "measurement": "Fay013heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n8_midpoint",
+        "source_pressure_gpa": 9.85,
+        "predicted_pressure_gpa": 16.73046635838451,
+        "predicted_minus_source_gpa": 6.880466358384512
+      },
+      {
+        "measurement": "Fay013heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_global",
+        "source_pressure_gpa": 9.85,
+        "predicted_pressure_gpa": 9.856129237839262,
+        "predicted_minus_source_gpa": 0.006129237839262558
+      },
+      {
+        "measurement": "Fay013heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_heating_only",
+        "source_pressure_gpa": 9.85,
+        "predicted_pressure_gpa": 9.856129237839262,
+        "predicted_minus_source_gpa": 0.006129237839262558
+      },
+      {
+        "measurement": "Fay013heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_celsius_heating",
+        "source_pressure_gpa": 9.85,
+        "predicted_pressure_gpa": 10.322097970522707,
+        "predicted_minus_source_gpa": 0.4720979705227073
+      },
+      {
+        "measurement": "Fay013heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_plus_ZPE_third",
+        "source_pressure_gpa": 9.85,
+        "predicted_pressure_gpa": 10.078792089205331,
+        "predicted_minus_source_gpa": 0.22879208920533145
+      },
+      {
+        "measurement": "Fay013heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_midpoint",
+        "source_pressure_gpa": 9.85,
+        "predicted_pressure_gpa": 10.467816419787491,
+        "predicted_minus_source_gpa": 0.6178164197874914
+      },
+      {
+        "measurement": "Fay013heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_half_kelvin_heating",
+        "source_pressure_gpa": 9.85,
+        "predicted_pressure_gpa": 10.05100844920671,
+        "predicted_minus_source_gpa": 0.2010084492067108
+      },
+      {
+        "measurement": "Fay014quench",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n2_midpoint",
+        "source_pressure_gpa": 8.62,
+        "predicted_pressure_gpa": 8.533616264802577,
+        "predicted_minus_source_gpa": -0.0863837351974226
+      },
+      {
+        "measurement": "Fay014quench",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n2_half_kelvin_heating",
+        "source_pressure_gpa": 8.62,
+        "predicted_pressure_gpa": 8.533616264802577,
+        "predicted_minus_source_gpa": -0.0863837351974226
+      },
+      {
+        "measurement": "Fay014quench",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n1_full_sample",
+        "source_pressure_gpa": 8.62,
+        "predicted_pressure_gpa": 8.281464551466769,
+        "predicted_minus_source_gpa": -0.33853544853323037
+      },
+      {
+        "measurement": "Fay014quench",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n1_midpoint",
+        "source_pressure_gpa": 8.62,
+        "predicted_pressure_gpa": 8.281464551466769,
+        "predicted_minus_source_gpa": -0.33853544853323037
+      },
+      {
+        "measurement": "Fay014quench",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n4_midpoint",
+        "source_pressure_gpa": 8.62,
+        "predicted_pressure_gpa": 9.037919691474194,
+        "predicted_minus_source_gpa": 0.4179196914741947
+      },
+      {
+        "measurement": "Fay014quench",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n7_midpoint",
+        "source_pressure_gpa": 8.62,
+        "predicted_pressure_gpa": 9.79437483148162,
+        "predicted_minus_source_gpa": 1.1743748314816216
+      },
+      {
+        "measurement": "Fay014quench",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n8_midpoint",
+        "source_pressure_gpa": 8.62,
+        "predicted_pressure_gpa": 10.046526544817429,
+        "predicted_minus_source_gpa": 1.4265265448174294
+      },
+      {
+        "measurement": "Fay014quench",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n2_midpoint_minus_E300_global",
+        "source_pressure_gpa": 8.62,
+        "predicted_pressure_gpa": 8.02931283813096,
+        "predicted_minus_source_gpa": -0.5906871618690399
+      },
+      {
+        "measurement": "Fay014quench",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n2_midpoint_minus_E300_heating_only",
+        "source_pressure_gpa": 8.62,
+        "predicted_pressure_gpa": 8.533616264802577,
+        "predicted_minus_source_gpa": -0.0863837351974226
+      },
+      {
+        "measurement": "Fay014quench",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n2_half_celsius_heating",
+        "source_pressure_gpa": 8.62,
+        "predicted_pressure_gpa": 8.533616264802577,
+        "predicted_minus_source_gpa": -0.0863837351974226
+      },
+      {
+        "measurement": "Fay014quench",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n2_half_kelvin_plus_ZPE_third",
+        "source_pressure_gpa": 8.62,
+        "predicted_pressure_gpa": 8.661209794124254,
+        "predicted_minus_source_gpa": 0.04120979412425463
+      },
+      {
+        "measurement": "Fay014quench",
+        "included_by_table_s1": 0,
+        "hypothesis": "table2_n2_midpoint",
+        "source_pressure_gpa": 8.62,
+        "predicted_pressure_gpa": 8.650286589939228,
+        "predicted_minus_source_gpa": 0.030286589939228392
+      },
+      {
+        "measurement": "Fay014quench",
+        "included_by_table_s1": 0,
+        "hypothesis": "table2_n2_half_kelvin_heating",
+        "source_pressure_gpa": 8.62,
+        "predicted_pressure_gpa": 8.650286589939228,
+        "predicted_minus_source_gpa": 0.030286589939228392
+      },
+      {
+        "measurement": "Fay019preheat",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n2_midpoint",
+        "source_pressure_gpa": 10.6,
+        "predicted_pressure_gpa": 10.551676989116206,
+        "predicted_minus_source_gpa": -0.048323010883793316
+      },
+      {
+        "measurement": "Fay019preheat",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n2_half_kelvin_heating",
+        "source_pressure_gpa": 10.6,
+        "predicted_pressure_gpa": 10.551676989116206,
+        "predicted_minus_source_gpa": -0.048323010883793316
+      },
+      {
+        "measurement": "Fay019preheat",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n1_full_sample",
+        "source_pressure_gpa": 10.6,
+        "predicted_pressure_gpa": 10.308783084544055,
+        "predicted_minus_source_gpa": -0.2912169154559443
+      },
+      {
+        "measurement": "Fay019preheat",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n1_midpoint",
+        "source_pressure_gpa": 10.6,
+        "predicted_pressure_gpa": 10.308783084544055,
+        "predicted_minus_source_gpa": -0.2912169154559443
+      },
+      {
+        "measurement": "Fay019preheat",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n4_midpoint",
+        "source_pressure_gpa": 10.6,
+        "predicted_pressure_gpa": 11.037464798260505,
+        "predicted_minus_source_gpa": 0.4374647982605051
+      },
+      {
+        "measurement": "Fay019preheat",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n7_midpoint",
+        "source_pressure_gpa": 10.6,
+        "predicted_pressure_gpa": 11.766146511976954,
+        "predicted_minus_source_gpa": 1.1661465119769545
+      },
+      {
+        "measurement": "Fay019preheat",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n8_midpoint",
+        "source_pressure_gpa": 10.6,
+        "predicted_pressure_gpa": 12.009040416549103,
+        "predicted_minus_source_gpa": 1.4090404165491037
+      },
+      {
+        "measurement": "Fay019preheat",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n2_midpoint_minus_E300_global",
+        "source_pressure_gpa": 10.6,
+        "predicted_pressure_gpa": 10.065889179971908,
+        "predicted_minus_source_gpa": -0.5341108200280917
+      },
+      {
+        "measurement": "Fay019preheat",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n2_midpoint_minus_E300_heating_only",
+        "source_pressure_gpa": 10.6,
+        "predicted_pressure_gpa": 10.551676989116206,
+        "predicted_minus_source_gpa": -0.048323010883793316
+      },
+      {
+        "measurement": "Fay019preheat",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n2_half_celsius_heating",
+        "source_pressure_gpa": 10.6,
+        "predicted_pressure_gpa": 10.551676989116206,
+        "predicted_minus_source_gpa": -0.048323010883793316
+      },
+      {
+        "measurement": "Fay019preheat",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n2_half_kelvin_plus_ZPE_third",
+        "source_pressure_gpa": 10.6,
+        "predicted_pressure_gpa": 10.681313032370737,
+        "predicted_minus_source_gpa": 0.08131303237073695
+      },
+      {
+        "measurement": "Fay019preheat",
+        "included_by_table_s1": 0,
+        "hypothesis": "table2_n2_midpoint",
+        "source_pressure_gpa": 10.6,
+        "predicted_pressure_gpa": 10.690179959170788,
+        "predicted_minus_source_gpa": 0.09017995917078814
+      },
+      {
+        "measurement": "Fay019preheat",
+        "included_by_table_s1": 0,
+        "hypothesis": "table2_n2_half_kelvin_heating",
+        "source_pressure_gpa": 10.6,
+        "predicted_pressure_gpa": 10.690179959170788,
+        "predicted_minus_source_gpa": 0.09017995917078814
+      },
+      {
+        "measurement": "Fay020heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint",
+        "source_pressure_gpa": 10.48,
+        "predicted_pressure_gpa": 10.882614610221609,
+        "predicted_minus_source_gpa": 0.40261461022160816
+      },
+      {
+        "measurement": "Fay020heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_heating",
+        "source_pressure_gpa": 10.48,
+        "predicted_pressure_gpa": 10.478026978265335,
+        "predicted_minus_source_gpa": -0.0019730217346651813
+      },
+      {
+        "measurement": "Fay020heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_full_sample",
+        "source_pressure_gpa": 10.48,
+        "predicted_pressure_gpa": 10.650410313233635,
+        "predicted_minus_source_gpa": 0.17041031323363498
+      },
+      {
+        "measurement": "Fay020heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_midpoint",
+        "source_pressure_gpa": 10.48,
+        "predicted_pressure_gpa": 9.905912209133694,
+        "predicted_minus_source_gpa": -0.5740877908663062
+      },
+      {
+        "measurement": "Fay020heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n4_midpoint",
+        "source_pressure_gpa": 10.48,
+        "predicted_pressure_gpa": 12.83601941239744,
+        "predicted_minus_source_gpa": 2.3560194123974387
+      },
+      {
+        "measurement": "Fay020heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n7_midpoint",
+        "source_pressure_gpa": 10.48,
+        "predicted_pressure_gpa": 15.766126615661182,
+        "predicted_minus_source_gpa": 5.286126615661182
+      },
+      {
+        "measurement": "Fay020heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n8_midpoint",
+        "source_pressure_gpa": 10.48,
+        "predicted_pressure_gpa": 16.7428290167491,
+        "predicted_minus_source_gpa": 6.262829016749098
+      },
+      {
+        "measurement": "Fay020heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_global",
+        "source_pressure_gpa": 10.48,
+        "predicted_pressure_gpa": 10.386396667390581,
+        "predicted_minus_source_gpa": -0.093603332609419
+      },
+      {
+        "measurement": "Fay020heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_heating_only",
+        "source_pressure_gpa": 10.48,
+        "predicted_pressure_gpa": 10.386396667390581,
+        "predicted_minus_source_gpa": -0.093603332609419
+      },
+      {
+        "measurement": "Fay020heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_celsius_heating",
+        "source_pressure_gpa": 10.48,
+        "predicted_pressure_gpa": 10.846333240669578,
+        "predicted_minus_source_gpa": 0.3663332406695776
+      },
+      {
+        "measurement": "Fay020heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_plus_ZPE_third",
+        "source_pressure_gpa": 10.48,
+        "predicted_pressure_gpa": 10.606798878809782,
+        "predicted_minus_source_gpa": 0.12679887880978136
+      },
+      {
+        "measurement": "Fay020heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_midpoint",
+        "source_pressure_gpa": 10.48,
+        "predicted_pressure_gpa": 10.998000789501917,
+        "predicted_minus_source_gpa": 0.518000789501917
+      },
+      {
+        "measurement": "Fay020heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_half_kelvin_heating",
+        "source_pressure_gpa": 10.48,
+        "predicted_pressure_gpa": 10.592928569089494,
+        "predicted_minus_source_gpa": 0.11292856908949389
+      },
+      {
+        "measurement": "Fay021heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint",
+        "source_pressure_gpa": 10.8,
+        "predicted_pressure_gpa": 11.358222970299877,
+        "predicted_minus_source_gpa": 0.5582229702998767
+      },
+      {
+        "measurement": "Fay021heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_heating",
+        "source_pressure_gpa": 10.8,
+        "predicted_pressure_gpa": 10.950929188088054,
+        "predicted_minus_source_gpa": 0.15092918808805322
+      },
+      {
+        "measurement": "Fay021heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_full_sample",
+        "source_pressure_gpa": 10.8,
+        "predicted_pressure_gpa": 11.128354203518843,
+        "predicted_minus_source_gpa": 0.3283542035188418
+      },
+      {
+        "measurement": "Fay021heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_midpoint",
+        "source_pressure_gpa": 10.8,
+        "predicted_pressure_gpa": 10.057530195756904,
+        "predicted_minus_source_gpa": -0.7424698042430968
+      },
+      {
+        "measurement": "Fay021heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n4_midpoint",
+        "source_pressure_gpa": 10.8,
+        "predicted_pressure_gpa": 13.959608519385828,
+        "predicted_minus_source_gpa": 3.159608519385827
+      },
+      {
+        "measurement": "Fay021heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n7_midpoint",
+        "source_pressure_gpa": 10.8,
+        "predicted_pressure_gpa": 17.861686843014752,
+        "predicted_minus_source_gpa": 7.061686843014751
+      },
+      {
+        "measurement": "Fay021heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n8_midpoint",
+        "source_pressure_gpa": 10.8,
+        "predicted_pressure_gpa": 19.162379617557725,
+        "predicted_minus_source_gpa": 8.362379617557725
+      },
+      {
+        "measurement": "Fay021heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_global",
+        "source_pressure_gpa": 10.8,
+        "predicted_pressure_gpa": 10.860403635963403,
+        "predicted_minus_source_gpa": 0.060403635963401925
+      },
+      {
+        "measurement": "Fay021heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_heating_only",
+        "source_pressure_gpa": 10.8,
+        "predicted_pressure_gpa": 10.860403635963403,
+        "predicted_minus_source_gpa": 0.060403635963401925
+      },
+      {
+        "measurement": "Fay021heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_celsius_heating",
+        "source_pressure_gpa": 10.8,
+        "predicted_pressure_gpa": 11.321737938898638,
+        "predicted_minus_source_gpa": 0.521737938898637
+      },
+      {
+        "measurement": "Fay021heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_plus_ZPE_third",
+        "source_pressure_gpa": 10.8,
+        "predicted_pressure_gpa": 11.07952660300261,
+        "predicted_minus_source_gpa": 0.27952660300260845
+      },
+      {
+        "measurement": "Fay021heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_midpoint",
+        "source_pressure_gpa": 10.8,
+        "predicted_pressure_gpa": 11.47346789591961,
+        "predicted_minus_source_gpa": 0.6734678959196092
+      },
+      {
+        "measurement": "Fay021heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_half_kelvin_heating",
+        "source_pressure_gpa": 10.8,
+        "predicted_pressure_gpa": 11.068228876134793,
+        "predicted_minus_source_gpa": 0.26822887613479196
+      },
+      {
+        "measurement": "Fay022heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint",
+        "source_pressure_gpa": 10.82,
+        "predicted_pressure_gpa": 11.389866879294953,
+        "predicted_minus_source_gpa": 0.5698668792949526
+      },
+      {
+        "measurement": "Fay022heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_heating",
+        "source_pressure_gpa": 10.82,
+        "predicted_pressure_gpa": 10.982272907514501,
+        "predicted_minus_source_gpa": 0.16227290751450063
+      },
+      {
+        "measurement": "Fay022heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_full_sample",
+        "source_pressure_gpa": 10.82,
+        "predicted_pressure_gpa": 11.160067169642387,
+        "predicted_minus_source_gpa": 0.3400671696423867
+      },
+      {
+        "measurement": "Fay022heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_midpoint",
+        "source_pressure_gpa": 10.82,
+        "predicted_pressure_gpa": 10.052863490537254,
+        "predicted_minus_source_gpa": -0.7671365094627465
+      },
+      {
+        "measurement": "Fay022heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n4_midpoint",
+        "source_pressure_gpa": 10.82,
+        "predicted_pressure_gpa": 14.063873656810351,
+        "predicted_minus_source_gpa": 3.243873656810351
+      },
+      {
+        "measurement": "Fay022heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n7_midpoint",
+        "source_pressure_gpa": 10.82,
+        "predicted_pressure_gpa": 18.07488382308345,
+        "predicted_minus_source_gpa": 7.25488382308345
+      },
+      {
+        "measurement": "Fay022heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n8_midpoint",
+        "source_pressure_gpa": 10.82,
+        "predicted_pressure_gpa": 19.411887211841147,
+        "predicted_minus_source_gpa": 8.591887211841147
+      },
+      {
+        "measurement": "Fay022heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_global",
+        "source_pressure_gpa": 10.82,
+        "predicted_pressure_gpa": 10.891669436187877,
+        "predicted_minus_source_gpa": 0.07166943618787691
+      },
+      {
+        "measurement": "Fay022heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_heating_only",
+        "source_pressure_gpa": 10.82,
+        "predicted_pressure_gpa": 10.891669436187877,
+        "predicted_minus_source_gpa": 0.07166943618787691
+      },
+      {
+        "measurement": "Fay022heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_celsius_heating",
+        "source_pressure_gpa": 10.82,
+        "predicted_pressure_gpa": 11.353357349396536,
+        "predicted_minus_source_gpa": 0.5333573493965353
+      },
+      {
+        "measurement": "Fay022heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_plus_ZPE_third",
+        "source_pressure_gpa": 10.82,
+        "predicted_pressure_gpa": 11.110825689858228,
+        "predicted_minus_source_gpa": 0.2908256898582273
+      },
+      {
+        "measurement": "Fay022heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_midpoint",
+        "source_pressure_gpa": 10.82,
+        "predicted_pressure_gpa": 11.505044641725021,
+        "predicted_minus_source_gpa": 0.6850446417250211
+      },
+      {
+        "measurement": "Fay022heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_half_kelvin_heating",
+        "source_pressure_gpa": 10.82,
+        "predicted_pressure_gpa": 11.099840131711193,
+        "predicted_minus_source_gpa": 0.27984013171119315
+      },
+      {
+        "measurement": "Fay023heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint",
+        "source_pressure_gpa": 10.36,
+        "predicted_pressure_gpa": 10.908058009963362,
+        "predicted_minus_source_gpa": 0.5480580099633627
+      },
+      {
+        "measurement": "Fay023heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_heating",
+        "source_pressure_gpa": 10.36,
+        "predicted_pressure_gpa": 10.500786463217395,
+        "predicted_minus_source_gpa": 0.1407864632173954
+      },
+      {
+        "measurement": "Fay023heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_full_sample",
+        "source_pressure_gpa": 10.36,
+        "predicted_pressure_gpa": 10.676085711201758,
+        "predicted_minus_source_gpa": 0.3160857112017581
+      },
+      {
+        "measurement": "Fay023heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_midpoint",
+        "source_pressure_gpa": 10.36,
+        "predicted_pressure_gpa": 9.745221781633063,
+        "predicted_minus_source_gpa": -0.6147782183669364
+      },
+      {
+        "measurement": "Fay023heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n4_midpoint",
+        "source_pressure_gpa": 10.36,
+        "predicted_pressure_gpa": 13.233730466623962,
+        "predicted_minus_source_gpa": 2.8737304666239627
+      },
+      {
+        "measurement": "Fay023heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n7_midpoint",
+        "source_pressure_gpa": 10.36,
+        "predicted_pressure_gpa": 16.722239151614865,
+        "predicted_minus_source_gpa": 6.362239151614865
+      },
+      {
+        "measurement": "Fay023heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n8_midpoint",
+        "source_pressure_gpa": 10.36,
+        "predicted_pressure_gpa": 17.885075379945164,
+        "predicted_minus_source_gpa": 7.525075379945164
+      },
+      {
+        "measurement": "Fay023heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_global",
+        "source_pressure_gpa": 10.36,
+        "predicted_pressure_gpa": 10.408638440565685,
+        "predicted_minus_source_gpa": 0.04863844056568567
+      },
+      {
+        "measurement": "Fay023heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_heating_only",
+        "source_pressure_gpa": 10.36,
+        "predicted_pressure_gpa": 10.408638440565685,
+        "predicted_minus_source_gpa": 0.04863844056568567
+      },
+      {
+        "measurement": "Fay023heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_celsius_heating",
+        "source_pressure_gpa": 10.36,
+        "predicted_pressure_gpa": 10.871563203256795,
+        "predicted_minus_source_gpa": 0.5115632032567952
+      },
+      {
+        "measurement": "Fay023heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_plus_ZPE_third",
+        "source_pressure_gpa": 10.36,
+        "predicted_pressure_gpa": 10.629184359391726,
+        "predicted_minus_source_gpa": 0.26918435939172625
+      },
+      {
+        "measurement": "Fay023heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_midpoint",
+        "source_pressure_gpa": 10.36,
+        "predicted_pressure_gpa": 11.025643005114768,
+        "predicted_minus_source_gpa": 0.6656430051147684
+      },
+      {
+        "measurement": "Fay023heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_half_kelvin_heating",
+        "source_pressure_gpa": 10.36,
+        "predicted_pressure_gpa": 10.620817632894662,
+        "predicted_minus_source_gpa": 0.2608176328946623
+      },
+      {
+        "measurement": "Fay024heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint",
+        "source_pressure_gpa": 10.4,
+        "predicted_pressure_gpa": 10.92737727949044,
+        "predicted_minus_source_gpa": 0.5273772794904392
+      },
+      {
+        "measurement": "Fay024heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_heating",
+        "source_pressure_gpa": 10.4,
+        "predicted_pressure_gpa": 10.520004465028489,
+        "predicted_minus_source_gpa": 0.12000446502848838
+      },
+      {
+        "measurement": "Fay024heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_full_sample",
+        "source_pressure_gpa": 10.4,
+        "predicted_pressure_gpa": 10.695492661331167,
+        "predicted_minus_source_gpa": 0.29549266133116703
+      },
+      {
+        "measurement": "Fay024heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_midpoint",
+        "source_pressure_gpa": 10.4,
+        "predicted_pressure_gpa": 9.751187763842923,
+        "predicted_minus_source_gpa": -0.6488122361570774
+      },
+      {
+        "measurement": "Fay024heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n4_midpoint",
+        "source_pressure_gpa": 10.4,
+        "predicted_pressure_gpa": 13.279756310785473,
+        "predicted_minus_source_gpa": 2.8797563107854725
+      },
+      {
+        "measurement": "Fay024heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n7_midpoint",
+        "source_pressure_gpa": 10.4,
+        "predicted_pressure_gpa": 16.808324857728024,
+        "predicted_minus_source_gpa": 6.408324857728024
+      },
+      {
+        "measurement": "Fay024heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n8_midpoint",
+        "source_pressure_gpa": 10.4,
+        "predicted_pressure_gpa": 17.98451437337554,
+        "predicted_minus_source_gpa": 7.584514373375539
+      },
+      {
+        "measurement": "Fay024heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_global",
+        "source_pressure_gpa": 10.4,
+        "predicted_pressure_gpa": 10.427890556387695,
+        "predicted_minus_source_gpa": 0.027890556387694332
+      },
+      {
+        "measurement": "Fay024heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_heating_only",
+        "source_pressure_gpa": 10.4,
+        "predicted_pressure_gpa": 10.427890556387695,
+        "predicted_minus_source_gpa": 0.027890556387694332
+      },
+      {
+        "measurement": "Fay024heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_celsius_heating",
+        "source_pressure_gpa": 10.4,
+        "predicted_pressure_gpa": 10.890874772790763,
+        "predicted_minus_source_gpa": 0.49087477279076275
+      },
+      {
+        "measurement": "Fay024heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_plus_ZPE_third",
+        "source_pressure_gpa": 10.4,
+        "predicted_pressure_gpa": 10.64839333755603,
+        "predicted_minus_source_gpa": 0.24839333755602944
+      },
+      {
+        "measurement": "Fay024heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_midpoint",
+        "source_pressure_gpa": 10.4,
+        "predicted_pressure_gpa": 11.04468883650381,
+        "predicted_minus_source_gpa": 0.6446888365038088
+      },
+      {
+        "measurement": "Fay024heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_half_kelvin_heating",
+        "source_pressure_gpa": 10.4,
+        "predicted_pressure_gpa": 10.639754694034663,
+        "predicted_minus_source_gpa": 0.2397546940346622
+      },
+      {
+        "measurement": "Fay025heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint",
+        "source_pressure_gpa": 11.48,
+        "predicted_pressure_gpa": 11.955303153332636,
+        "predicted_minus_source_gpa": 0.47530315333263573
+      },
+      {
+        "measurement": "Fay025heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_heating",
+        "source_pressure_gpa": 11.48,
+        "predicted_pressure_gpa": 11.54574767336527,
+        "predicted_minus_source_gpa": 0.06574767336526932
+      },
+      {
+        "measurement": "Fay025heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_full_sample",
+        "source_pressure_gpa": 11.48,
+        "predicted_pressure_gpa": 11.726689663041192,
+        "predicted_minus_source_gpa": 0.24668966304119166
+      },
+      {
+        "measurement": "Fay025heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_midpoint",
+        "source_pressure_gpa": 11.48,
+        "predicted_pressure_gpa": 10.211755820018892,
+        "predicted_minus_source_gpa": -1.2682441799811084
+      },
+      {
+        "measurement": "Fay025heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n4_midpoint",
+        "source_pressure_gpa": 11.48,
+        "predicted_pressure_gpa": 15.442397819960123,
+        "predicted_minus_source_gpa": 3.962397819960122
+      },
+      {
+        "measurement": "Fay025heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n7_midpoint",
+        "source_pressure_gpa": 11.48,
+        "predicted_pressure_gpa": 20.673039819901355,
+        "predicted_minus_source_gpa": 9.193039819901355
+      },
+      {
+        "measurement": "Fay025heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n8_midpoint",
+        "source_pressure_gpa": 11.48,
+        "predicted_pressure_gpa": 22.416587153215097,
+        "predicted_minus_source_gpa": 10.936587153215097
+      },
+      {
+        "measurement": "Fay025heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_global",
+        "source_pressure_gpa": 11.48,
+        "predicted_pressure_gpa": 11.454851936716791,
+        "predicted_minus_source_gpa": -0.02514806328320951
+      },
+      {
+        "measurement": "Fay025heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_heating_only",
+        "source_pressure_gpa": 11.48,
+        "predicted_pressure_gpa": 11.454851936716791,
+        "predicted_minus_source_gpa": -0.02514806328320951
+      },
+      {
+        "measurement": "Fay025heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_celsius_heating",
+        "source_pressure_gpa": 11.48,
+        "predicted_pressure_gpa": 11.918633747215367,
+        "predicted_minus_source_gpa": 0.4386337472153663
+      },
+      {
+        "measurement": "Fay025heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_plus_ZPE_third",
+        "source_pressure_gpa": 11.48,
+        "predicted_pressure_gpa": 11.674000593656665,
+        "predicted_minus_source_gpa": 0.19400059365666422
+      },
+      {
+        "measurement": "Fay025heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_midpoint",
+        "source_pressure_gpa": 11.48,
+        "predicted_pressure_gpa": 12.064494040048901,
+        "predicted_minus_source_gpa": 0.5844940400489005
+      },
+      {
+        "measurement": "Fay025heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_half_kelvin_heating",
+        "source_pressure_gpa": 11.48,
+        "predicted_pressure_gpa": 11.654938560081535,
+        "predicted_minus_source_gpa": 0.17493856008153408
+      },
+      {
+        "measurement": "Fay026heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint",
+        "source_pressure_gpa": 10.7,
+        "predicted_pressure_gpa": 10.988193894182908,
+        "predicted_minus_source_gpa": 0.28819389418290875
+      },
+      {
+        "measurement": "Fay026heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_heating",
+        "source_pressure_gpa": 10.7,
+        "predicted_pressure_gpa": 10.578821787191153,
+        "predicted_minus_source_gpa": -0.12117821280884655
+      },
+      {
+        "measurement": "Fay026heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_full_sample",
+        "source_pressure_gpa": 10.7,
+        "predicted_pressure_gpa": 10.756222476361868,
+        "predicted_minus_source_gpa": 0.056222476361869056
+      },
+      {
+        "measurement": "Fay026heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_midpoint",
+        "source_pressure_gpa": 10.7,
+        "predicted_pressure_gpa": 9.613265640159804,
+        "predicted_minus_source_gpa": -1.0867343598401948
+      },
+      {
+        "measurement": "Fay026heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n4_midpoint",
+        "source_pressure_gpa": 10.7,
+        "predicted_pressure_gpa": 13.738050402229113,
+        "predicted_minus_source_gpa": 3.038050402229114
+      },
+      {
+        "measurement": "Fay026heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n7_midpoint",
+        "source_pressure_gpa": 10.7,
+        "predicted_pressure_gpa": 17.862835164298424,
+        "predicted_minus_source_gpa": 7.162835164298425
+      },
+      {
+        "measurement": "Fay026heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n8_midpoint",
+        "source_pressure_gpa": 10.7,
+        "predicted_pressure_gpa": 19.237763418321528,
+        "predicted_minus_source_gpa": 8.537763418321529
+      },
+      {
+        "measurement": "Fay026heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_global",
+        "source_pressure_gpa": 10.7,
+        "predicted_pressure_gpa": 10.485704116792599,
+        "predicted_minus_source_gpa": -0.21429588320740045
+      },
+      {
+        "measurement": "Fay026heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_heating_only",
+        "source_pressure_gpa": 10.7,
+        "predicted_pressure_gpa": 10.485704116792599,
+        "predicted_minus_source_gpa": -0.21429588320740045
+      },
+      {
+        "measurement": "Fay026heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_celsius_heating",
+        "source_pressure_gpa": 10.7,
+        "predicted_pressure_gpa": 10.951527443018273,
+        "predicted_minus_source_gpa": 0.2515274430182739
+      },
+      {
+        "measurement": "Fay026heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_plus_ZPE_third",
+        "source_pressure_gpa": 10.7,
+        "predicted_pressure_gpa": 10.706748583362403,
+        "predicted_minus_source_gpa": 0.006748583362403693
+      },
+      {
+        "measurement": "Fay026heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_midpoint",
+        "source_pressure_gpa": 10.7,
+        "predicted_pressure_gpa": 11.090620031349228,
+        "predicted_minus_source_gpa": 0.3906200313492292
+      },
+      {
+        "measurement": "Fay026heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_half_kelvin_heating",
+        "source_pressure_gpa": 10.7,
+        "predicted_pressure_gpa": 10.685665973802324,
+        "predicted_minus_source_gpa": -0.014334026197674987
+      },
+      {
+        "measurement": "Fay027heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint",
+        "source_pressure_gpa": 10.61,
+        "predicted_pressure_gpa": 11.063270771977606,
+        "predicted_minus_source_gpa": 0.453270771977607
+      },
+      {
+        "measurement": "Fay027heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_heating",
+        "source_pressure_gpa": 10.61,
+        "predicted_pressure_gpa": 10.654626462406654,
+        "predicted_minus_source_gpa": 0.044626462406654355
+      },
+      {
+        "measurement": "Fay027heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_full_sample",
+        "source_pressure_gpa": 10.61,
+        "predicted_pressure_gpa": 10.831812309751694,
+        "predicted_minus_source_gpa": 0.22181230975169441
+      },
+      {
+        "measurement": "Fay027heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_midpoint",
+        "source_pressure_gpa": 10.61,
+        "predicted_pressure_gpa": 9.736411524684467,
+        "predicted_minus_source_gpa": -0.8735884753155325
+      },
+      {
+        "measurement": "Fay027heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n4_midpoint",
+        "source_pressure_gpa": 10.61,
+        "predicted_pressure_gpa": 13.716989266563887,
+        "predicted_minus_source_gpa": 3.106989266563888
+      },
+      {
+        "measurement": "Fay027heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n7_midpoint",
+        "source_pressure_gpa": 10.61,
+        "predicted_pressure_gpa": 17.697567008443308,
+        "predicted_minus_source_gpa": 7.087567008443308
+      },
+      {
+        "measurement": "Fay027heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n8_midpoint",
+        "source_pressure_gpa": 10.61,
+        "predicted_pressure_gpa": 19.024426255736447,
+        "predicted_minus_source_gpa": 8.414426255736448
+      },
+      {
+        "measurement": "Fay027heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_global",
+        "source_pressure_gpa": 10.61,
+        "predicted_pressure_gpa": 10.562294645841966,
+        "predicted_minus_source_gpa": -0.04770535415803323
+      },
+      {
+        "measurement": "Fay027heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_heating_only",
+        "source_pressure_gpa": 10.61,
+        "predicted_pressure_gpa": 10.562294645841966,
+        "predicted_minus_source_gpa": -0.04770535415803323
+      },
+      {
+        "measurement": "Fay027heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_celsius_heating",
+        "source_pressure_gpa": 10.61,
+        "predicted_pressure_gpa": 11.026666567826862,
+        "predicted_minus_source_gpa": 0.4166665678268622
+      },
+      {
+        "measurement": "Fay027heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_plus_ZPE_third",
+        "source_pressure_gpa": 10.61,
+        "predicted_pressure_gpa": 10.782800414674687,
+        "predicted_minus_source_gpa": 0.17280041467468799
+      },
+      {
+        "measurement": "Fay027heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_midpoint",
+        "source_pressure_gpa": 10.61,
+        "predicted_pressure_gpa": 11.172747704910321,
+        "predicted_minus_source_gpa": 0.562747704910322
+      },
+      {
+        "measurement": "Fay027heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_half_kelvin_heating",
+        "source_pressure_gpa": 10.61,
+        "predicted_pressure_gpa": 10.768548643755182,
+        "predicted_minus_source_gpa": 0.15854864375518218
+      },
+      {
+        "measurement": "Fay028heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint",
+        "source_pressure_gpa": 11.13,
+        "predicted_pressure_gpa": 11.621633104254126,
+        "predicted_minus_source_gpa": 0.49163310425412554
+      },
+      {
+        "measurement": "Fay028heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_heating",
+        "source_pressure_gpa": 11.13,
+        "predicted_pressure_gpa": 11.212679855622817,
+        "predicted_minus_source_gpa": 0.08267985562281588
+      },
+      {
+        "measurement": "Fay028heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_full_sample",
+        "source_pressure_gpa": 11.13,
+        "predicted_pressure_gpa": 11.392260342400933,
+        "predicted_minus_source_gpa": 0.262260342400932
+      },
+      {
+        "measurement": "Fay028heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n1_midpoint",
+        "source_pressure_gpa": 11.13,
+        "predicted_pressure_gpa": 10.072500696440635,
+        "predicted_minus_source_gpa": -1.057499303559366
+      },
+      {
+        "measurement": "Fay028heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n4_midpoint",
+        "source_pressure_gpa": 11.13,
+        "predicted_pressure_gpa": 14.719897919881111,
+        "predicted_minus_source_gpa": 3.5898979198811105
+      },
+      {
+        "measurement": "Fay028heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n7_midpoint",
+        "source_pressure_gpa": 11.13,
+        "predicted_pressure_gpa": 19.367295143321588,
+        "predicted_minus_source_gpa": 8.237295143321587
+      },
+      {
+        "measurement": "Fay028heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n8_midpoint",
+        "source_pressure_gpa": 11.13,
+        "predicted_pressure_gpa": 20.91642755113508,
+        "predicted_minus_source_gpa": 9.786427551135079
+      },
+      {
+        "measurement": "Fay028heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_global",
+        "source_pressure_gpa": 11.13,
+        "predicted_pressure_gpa": 11.121678621832409,
+        "predicted_minus_source_gpa": -0.00832137816759193
+      },
+      {
+        "measurement": "Fay028heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_midpoint_minus_E300_heating_only",
+        "source_pressure_gpa": 11.13,
+        "predicted_pressure_gpa": 11.121678621832409,
+        "predicted_minus_source_gpa": -0.00832137816759193
+      },
+      {
+        "measurement": "Fay028heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_celsius_heating",
+        "source_pressure_gpa": 11.13,
+        "predicted_pressure_gpa": 11.585011987071017,
+        "predicted_minus_source_gpa": 0.45501198707101587
+      },
+      {
+        "measurement": "Fay028heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table1_n2_half_kelvin_plus_ZPE_third",
+        "source_pressure_gpa": 11.13,
+        "predicted_pressure_gpa": 11.341004277212464,
+        "predicted_minus_source_gpa": 0.21100427721246362
+      },
+      {
+        "measurement": "Fay028heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_midpoint",
+        "source_pressure_gpa": 11.13,
+        "predicted_pressure_gpa": 11.732878001158111,
+        "predicted_minus_source_gpa": 0.6028780011581105
+      },
+      {
+        "measurement": "Fay028heat",
+        "included_by_table_s1": 1,
+        "hypothesis": "table2_n2_half_kelvin_heating",
+        "source_pressure_gpa": 11.13,
+        "predicted_pressure_gpa": 11.32612087421896,
+        "predicted_minus_source_gpa": 0.19612087421895907
+      },
+      {
+        "measurement": "Fay029quench",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n2_midpoint",
+        "source_pressure_gpa": 10.94,
+        "predicted_pressure_gpa": 10.858371464221376,
+        "predicted_minus_source_gpa": -0.0816285357786235
+      },
+      {
+        "measurement": "Fay029quench",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n2_half_kelvin_heating",
+        "source_pressure_gpa": 10.94,
+        "predicted_pressure_gpa": 10.858371464221376,
+        "predicted_minus_source_gpa": -0.0816285357786235
+      },
+      {
+        "measurement": "Fay029quench",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n1_full_sample",
+        "source_pressure_gpa": 10.94,
+        "predicted_pressure_gpa": 10.616789532317094,
+        "predicted_minus_source_gpa": -0.3232104676829053
+      },
+      {
+        "measurement": "Fay029quench",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n1_midpoint",
+        "source_pressure_gpa": 10.94,
+        "predicted_pressure_gpa": 10.616789532317094,
+        "predicted_minus_source_gpa": -0.3232104676829053
+      },
+      {
+        "measurement": "Fay029quench",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n4_midpoint",
+        "source_pressure_gpa": 10.94,
+        "predicted_pressure_gpa": 11.341535328029938,
+        "predicted_minus_source_gpa": 0.4015353280299383
+      },
+      {
+        "measurement": "Fay029quench",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n7_midpoint",
+        "source_pressure_gpa": 10.94,
+        "predicted_pressure_gpa": 12.066281123742781,
+        "predicted_minus_source_gpa": 1.1262811237427819
+      },
+      {
+        "measurement": "Fay029quench",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n8_midpoint",
+        "source_pressure_gpa": 10.94,
+        "predicted_pressure_gpa": 12.307863055647063,
+        "predicted_minus_source_gpa": 1.3678630556470637
+      },
+      {
+        "measurement": "Fay029quench",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n2_midpoint_minus_E300_global",
+        "source_pressure_gpa": 10.94,
+        "predicted_pressure_gpa": 10.375207600412812,
+        "predicted_minus_source_gpa": -0.5647923995871871
+      },
+      {
+        "measurement": "Fay029quench",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n2_midpoint_minus_E300_heating_only",
+        "source_pressure_gpa": 10.94,
+        "predicted_pressure_gpa": 10.858371464221376,
+        "predicted_minus_source_gpa": -0.0816285357786235
+      },
+      {
+        "measurement": "Fay029quench",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n2_half_celsius_heating",
+        "source_pressure_gpa": 10.94,
+        "predicted_pressure_gpa": 10.858371464221376,
+        "predicted_minus_source_gpa": -0.0816285357786235
+      },
+      {
+        "measurement": "Fay029quench",
+        "included_by_table_s1": 0,
+        "hypothesis": "table1_n2_half_kelvin_plus_ZPE_third",
+        "source_pressure_gpa": 10.94,
+        "predicted_pressure_gpa": 10.988236134126783,
+        "predicted_minus_source_gpa": 0.048236134126783625
+      },
+      {
+        "measurement": "Fay029quench",
+        "included_by_table_s1": 0,
+        "hypothesis": "table2_n2_midpoint",
+        "source_pressure_gpa": 10.94,
+        "predicted_pressure_gpa": 10.986514888858403,
+        "predicted_minus_source_gpa": 0.046514888858403936
+      },
+      {
+        "measurement": "Fay029quench",
+        "included_by_table_s1": 0,
+        "hypothesis": "table2_n2_half_kelvin_heating",
+        "source_pressure_gpa": 10.94,
+        "predicted_pressure_gpa": 10.986514888858403,
+        "predicted_minus_source_gpa": 0.046514888858403936
+      }
+    ],
+    "interpretation": "Half-Kelvin n2 is favored among tested fixed-temperature/n alternatives, but the extra300K-reference subtraction is comparably close. The pressure table does not uniquely identify the historical workflow. A fitted noninteger n is a diagnostic scaling parameter, not a revised atom count. Cold excluded rows disfavor applying extra300K subtraction globally, but cannot rule out a separate heating routine. No source code recovered."
+  },
+  "ringwoodite_n_curve_check": {
+    "scope": "Nine digitized calculated thermal curves, not experimental observations. Published gamma0=1.08,q=2,theta0=685K and static parameters held fixed. Conditional check under integrated theta reconstruction, not recovered author code or an independent physical measurement of n.",
+    "by_n": {
+      "1": {
+        "thermal_checkpoints": 9,
+        "within_volume_ratio_tolerance_0_002": 0,
+        "maximum_absolute_volume_ratio_difference": 0.022519352735559384
+      },
+      "2": {
+        "thermal_checkpoints": 9,
+        "within_volume_ratio_tolerance_0_002": 0,
+        "maximum_absolute_volume_ratio_difference": 0.01885134609578476
+      },
+      "4": {
+        "thermal_checkpoints": 9,
+        "within_volume_ratio_tolerance_0_002": 0,
+        "maximum_absolute_volume_ratio_difference": 0.011202015981143676
+      },
+      "7": {
+        "thermal_checkpoints": 9,
+        "within_volume_ratio_tolerance_0_002": 9,
+        "maximum_absolute_volume_ratio_difference": 0.0011659102187905335
+      }
+    }
+  },
+  "source_search": "Brown's public institutional Publications/Papers lists, four tool/example ZIPs plusExamples.zip, and public jmichaelb repository trees were checked. No1999 NaCl Debye calculator found; author2020 supplement only corroborates literalTableI P0/V/K/Kprime. No author contacted.",
+  "historical_temperature_convention_confirmed": false,
+  "brown_offset_cause_confirmed": false,
+  "source_pressures_or_eos_coefficients_changed": false
+}

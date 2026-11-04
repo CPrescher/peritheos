@@ -104,11 +104,11 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
         - **Gamma0:** 2.07161; 2.31342
         - **Q:** 1.23745; 1.59839
     - **Residual variance:** 2.17524
-    - **Max abs residual jacobian cosine:** 4.48648e-09
+    - **Max abs residual jacobian cosine:** 4.55546e-09
     - **Residual sum squares:** 254.503
     - **Residual count:** 121
     - **Scaled jacobian condition number:** 195.758
-    - **Derivative step halving relative change:** 2.2017e-12
+    - **Derivative step halving relative change:** 2.09924e-12
     - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 - **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 - **Comparison scope:** Compared free coefficients: K0, K0\_prime, gamma0, q; scope=parameter\_agreement

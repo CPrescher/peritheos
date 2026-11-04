@@ -5,9 +5,7 @@ from __future__ import annotations
 import hashlib
 import inspect
 import io
-import json
-import re
-from xml.etree import ElementTree
+from dataclasses import asdict
 
 import numpy as np
 
@@ -15,6 +13,7 @@ from scripts.diagnostic_figures import diagnostic_signature, diagnostic_svg
 from scripts.reconstruction_diagnostics import DiagnosticComparison
 from scripts.reconstruction_plot_data import CurveComparison
 from scripts.report_numbers import number
+from scripts.report_plot_cache import current_svg, finish_svg
 
 
 def plot_arrays(comparison: CurveComparison):
@@ -39,9 +38,9 @@ def plot_arrays(comparison: CurveComparison):
     return volume, temperatures, curves
 
 
-def signature(c: CurveComparison | DiagnosticComparison) -> str:
+def plot_inputs(c: CurveComparison | DiagnosticComparison):
     if isinstance(c, DiagnosticComparison):
-        return diagnostic_signature(c)
+        return asdict(c)
     volume, temperatures, curves = plot_arrays(c)
     arrays = [
         c.series.pressure,
@@ -55,32 +54,22 @@ def signature(c: CurveComparison | DiagnosticComparison) -> str:
         temperatures,
         *curves,
     ]
+    return [arrays, c.volume_unit, c.independent_refit, c.source_rmse, c.refit_rmse]
+
+
+def signature(c: CurveComparison | DiagnosticComparison) -> str:
+    if isinstance(c, DiagnosticComparison):
+        return diagnostic_signature(c)
     payload = (
-        json.dumps(
-            [None if value is None else np.asarray(value).tolist() for value in arrays],
-            allow_nan=False,
-        )
-        + c.volume_unit
-        + str(c.independent_refit)
-        + inspect.getsource(curve_svg)
+        inspect.getsource(curve_svg)
+        + inspect.getsource(plot_arrays)
         + inspect.getsource(number)
     )
     return hashlib.sha256(payload.encode()).hexdigest()
 
 
 def current_curve(payload: bytes, c: CurveComparison | DiagnosticComparison) -> bool:
-    marker = re.search(
-        rb"<!-- peritheos-curves data=([a-f0-9]{64}) body=([a-f0-9]{64}) -->\n", payload
-    )
-    if not marker or marker[1].decode() != signature(c):
-        return False
-    original = payload[: marker.start()] + payload[marker.end() :]
-    if hashlib.sha256(original).hexdigest() != marker[2].decode():
-        return False
-    try:
-        return ElementTree.fromstring(payload).tag == "{http://www.w3.org/2000/svg}svg"
-    except ElementTree.ParseError:
-        return False
+    return current_svg(payload, plot_inputs(c), signature(c))
 
 
 def curve_svg(c: CurveComparison | DiagnosticComparison) -> bytes:
@@ -180,6 +169,4 @@ def curve_svg(c: CurveComparison | DiagnosticComparison) -> bytes:
     payload = buffer.getvalue().replace(
         b"'DejaVu Sans'", b"'DejaVu Sans', Arial, sans-serif"
     )
-    payload = b"\n".join(line.rstrip() for line in payload.splitlines()) + b"\n"
-    marker = f"<!-- peritheos-curves data={signature(c)} body={hashlib.sha256(payload).hexdigest()} -->\n".encode()
-    return payload.replace(b"?>\n", b"?>\n" + marker, 1)
+    return finish_svg(payload, plot_inputs(c), signature(c))

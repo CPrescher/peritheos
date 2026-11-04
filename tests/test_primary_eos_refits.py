@@ -44,6 +44,44 @@ def test_ledger_check_tolerates_only_small_calculated_roundoff():
             check_ledger_values(saved, current)
 
 
+def test_fixed_name_order_does_not_change_values_or_ordered_numerical_arrays():
+    check_ledger_values(
+        {"fixed_parameters": ["Tr", "beta", "anharmonic_a"]},
+        {"fixed_parameters": ["Tr", "anharmonic_a", "beta"]},
+    )
+    with pytest.raises(ValueError):
+        check_ledger_values(
+            {"fixed_parameters": ["V0", "K0"]}, {"fixed_parameters": ["V0", "q"]}
+        )
+    with pytest.raises(ValueError):
+        check_ledger_values({"parameters": [1.0, 2.0]}, {"parameters": [2.0, 1.0]})
+
+
+def test_freshness_check_retains_document_precision_within_numerical_tolerance(
+    tmp_path, monkeypatch
+):
+    import scripts.validate_primary_eos_refits as campaign
+
+    saved = load_ledger()
+    current = json.loads(json.dumps(saved))
+    row = next(r for r in current["records"] if r.get("parameters"))
+    parameter = row["parameters"][0]
+    parameter["refit"] *= 1.000005
+    document = campaign.render_markdown(saved)
+    assert campaign.render_markdown(current) != document
+    numerical = tmp_path / "ledger.json"
+    markdown = tmp_path / "ledger.md"
+    numerical.write_text(json.dumps(saved), encoding="utf-8")
+    markdown.write_text(document, encoding="utf-8")
+    monkeypatch.setattr(campaign, "validate_all", lambda: current)
+    monkeypatch.setattr(
+        "sys.argv",
+        ["validate", "--check", "--json", str(numerical), "--markdown", str(markdown)],
+    )
+    assert campaign.main() == 0
+    assert markdown.read_text(encoding="utf-8") == document
+
+
 def test_primary_refit_ledger_covers_every_bundled_record_once():
     ledger = load_ledger()
     identifiers = [item["record_identifier"] for item in ledger["records"]]
@@ -61,10 +99,10 @@ def test_primary_refit_summary_and_results_are_internally_consistent():
     assert ledger["summary"] == {"total": 685, **dict(sorted(statuses.items()))}
     assert statuses == {
         "not_refittable": 177,
-        "parity": 356,
+        "parity": 357,
         "parity_not_achieved": 61,
         "similar": 72,
-        "source_reconstruction": 19,
+        "source_reconstruction": 18,
     }
     assert all(
         item.get("reason")
@@ -384,18 +422,18 @@ def test_primary_refit_regression_examples_and_documentation_coverage():
     }
     coesite = by_identifier["coesite_i_iii_bykova_2018_300k_bm3"]
     assert coesite["status"] == "parity"
-    assert coesite["parity_basis"] == "published_decimal_precision"
     assert coesite["observations"] == 22
+    assert coesite["measured_entries"] == 21
+    assert coesite["derived_anchor_entries"] == 1
     assert coesite["dataset_identifiers"] == [
-        "coesite_i_iii_bykova_2018_author_fit_export",
+        "coesite_i_iii_bykova_2018_author_fit_export"
     ]
     assert [item["refit"] for item in coesite["parameters"]] == pytest.approx(
         [547.2645278326402, 102.72949806087128, 3.024480753153906]
     )
-    assert "derived" in coesite["qualification"]
     assert coesite["original_author_workflow_parity"] is False
-    assert coesite["uncertainty_parity_achieved"] is False
     assert coesite["historical_diagnostic"]["observations"] == 24
+    assert coesite["historical_diagnostic"]["status"] == "parity_not_achieved"
     fu_bm2 = by_identifier["mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1"]
     fu_bm3 = by_identifier["mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2"]
     assert fu_bm2["status"] == "similar"
@@ -822,3 +860,31 @@ def test_chen_independent_refit_does_not_promote_source_author_coefficients():
     assert row["original_publication_reproduction_status"] == "not_reproduced"
     assert row["observations"] == 80
     assert row["refit"]["pressure_rms_original_coordinates_gpa"] < 0.12
+
+
+def test_successful_stop_conditions_preserve_source_values_and_scientific_verdicts():
+    from copy import deepcopy
+
+    from scripts.validate_primary_eos_refits import check_ledger_values
+
+    saved = {
+        "status": "parity",
+        "solver_success": True,
+        "solver_message": "`ftol` termination condition is satisfied.",
+        "parameters": [{"published": 160.0, "refit": 159.99}],
+    }
+    current = deepcopy(saved)
+    current["solver_message"] = "`xtol` termination condition is satisfied."
+    check_ledger_values(saved, current)
+    for field, value in [
+        ("status", "similar"),
+        ("solver_success", False),
+        ("solver_message", "Maximum evaluations exceeded"),
+    ]:
+        changed = deepcopy(current)
+        changed[field] = value
+        with pytest.raises(ValueError):
+            check_ledger_values(saved, changed)
+    current["parameters"][0]["published"] = 160.000001
+    with pytest.raises(ValueError):
+        check_ledger_values(saved, current)

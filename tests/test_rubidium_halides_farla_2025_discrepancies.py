@@ -31,7 +31,7 @@ def audit():
 
 
 def test_executed_historical_code_agrees_with_independent_reference():
-    replay = json.loads(BURNMAN_REPLAY.read_text())
+    replay = json.loads(BURNMAN_REPLAY.read_text(encoding="utf-8"))
     rows = [r for r in read_rows("rbcl", "observations") if r["source_table"] != "S1"]
     reference = cscl_pressure(
         np.array([float(r["cscl_volume_a3"]) for r in rows]),
@@ -70,7 +70,14 @@ def test_no_single_reference_lattice_or_temperature_shift_fixes_all_rows(audit):
 def test_only_the_5gpa_1500k_omission_restores_common_vector_consistency(audit):
     result = audit["rbcl_benchmark_diagnostics"]
     assert len(result["leave_one_out"]) == 54
-    assert all(r["optimizer_success"] for r in result["leave_one_out"])
+    assert all(r["optimizer_success"] for r in result["leave_one_out"]), [
+        (
+            r["omitted_index"],
+            r["half_last_digits"],
+        )
+        for r in result["leave_one_out"]
+        if not r["optimizer_success"]
+    ]
     assert result["single_omissions_with_compatible_remaining_table"] == [3]
     local = result["localized_candidate"]
     assert local["retained_rows"] == 53
@@ -89,7 +96,11 @@ def test_only_the_5gpa_1500k_omission_restores_common_vector_consistency(audit):
 def test_reference_convention_sensitivities_do_not_restore_literal_table(audit):
     cases = audit["rbcl_benchmark_diagnostics"]["full_table_cases"]
     assert len(cases) == 5
-    assert all(r["optimizer_success"] for r in cases.values())
+    assert all(r["optimizer_success"] for r in cases.values()), {
+        name: (r["optimizer_message"], r["minimum_scaled_constraint"])
+        for name, r in cases.items()
+        if not r["optimizer_success"]
+    }
     assert all(r["minimum_scaled_constraint"] > -1e-7 for r in cases.values())
     assert all(r["minimax_half_last_digits"] > 1.07 for r in cases.values())
     assert all(not r["all_retained_within_ratio_rounding"] for r in cases.values())
@@ -98,7 +109,7 @@ def test_reference_convention_sensitivities_do_not_restore_literal_table(audit):
 def test_omitted_ratio_extrema_both_round_to_the_same_alternative(audit):
     result = audit["rbcl_benchmark_diagnostics"]["omitted_prediction_range"]
     low, high = result["minimization"], result["maximization"]
-    assert low["optimizer_success"] and high["optimizer_success"]
+    assert low["optimizer_success"] and high["optimizer_success"], (low, high)
     assert 0.92825 < low["ratio"] < high["ratio"] < 0.92835
     assert low["minimum_scaled_constraint"] > -1e-7
     assert high["minimum_scaled_constraint"] > -1e-7
@@ -115,3 +126,51 @@ def test_one_cell_alternative_is_explicitly_a_diagnostic(audit):
     assert not audit["author_fit_parity"]
     assert not audit["original_input_files_recovered"]
     assert audit["author_contact"] == "none"
+
+
+@pytest.mark.parametrize(
+    "retry_outcome", ["converged", "stalled", "infeasible", "worse_objective"]
+)
+@pytest.mark.parametrize("diagnostic", ["minimax", "extrema"])
+def test_rounding_retry_requires_convergence_feasibility_and_consistent_objective(
+    monkeypatch, retry_outcome, diagnostic
+):
+    from scripts import audit_rubidium_halides_farla_2025_discrepancies as module
+
+    real_minimize = module.minimize
+    calls = []
+    localized = module.rbcl_minimax(exclude=(3,))
+
+    def numerical_stall(*args, **kwargs):
+        fit = real_minimize(*args, **kwargs)
+        calls.append(kwargs["options"])
+        if len(calls) % 2 == 1:
+            fit.success = False
+            fit.status = 8
+        elif retry_outcome == "stalled":
+            fit.success = False
+        elif retry_outcome == "infeasible":
+            fit.x[:] = 1
+            if diagnostic == "minimax":
+                fit.x[-1] = 0
+            assert min(kwargs["constraints"][0]["fun"](fit.x)) < -1e-7
+        elif retry_outcome == "worse_objective":
+            fit.fun += 1
+        return fit
+
+    monkeypatch.setattr(module, "minimize", numerical_stall)
+    if diagnostic == "minimax":
+        results = [module.rbcl_minimax(exclude=(3,))]
+    else:
+        interval = module.rbcl_omitted_prediction_range(localized)
+        results = [interval["minimization"], interval["maximization"]]
+    assert len(calls) == 2 * len(results)
+    assert all(call["ftol"] == 1e-9 for call in calls[1::2])
+    for result in results:
+        assert result["optimizer_success"] is (retry_outcome == "converged")
+        if retry_outcome == "converged":
+            assert result["minimum_scaled_constraint"] >= -1e-7
+            if diagnostic == "minimax":
+                assert result["all_retained_within_ratio_rounding"]
+            else:
+                assert 0.92825 < result["ratio"] < 0.92835

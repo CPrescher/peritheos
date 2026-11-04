@@ -73,7 +73,7 @@ def test_diopside_observed_structure_cell_contents_and_provenance():
         hashlib.sha256(resource.read_bytes()).hexdigest()
         == source["structure_dataset_sha256"]
     )
-    with resource.open(newline="") as stream:
+    with resource.open(newline="", encoding="utf-8") as stream:
         sites = list(csv.DictReader(stream))
     assert len(sites) == 6
     assert sites[0]["y_error"] == "0.000097"
@@ -97,12 +97,14 @@ def test_diopside_original_observations_errors_and_inconsistencies_are_retained(
         )
         if dataset["identifier"] != "diopside_zhao_1998_table1_corrected_pvt":
             assert normalized_csv(resource.stem).encode() == resource.read_bytes()
-        rows = list(csv.DictReader(resource.read_text().splitlines()))
+        rows = list(csv.DictReader(resource.read_text(encoding="utf-8").splitlines()))
         assert len(rows) == count
         assert list(rows[0]) == [c["name"] for c in dataset["columns"]]
     rows = list(
         csv.DictReader(
-            (DATA / "diopside-zhao-1998-table1.csv").read_text().splitlines()
+            (DATA / "diopside-zhao-1998-table1.csv")
+            .read_text(encoding="utf-8")
+            .splitlines()
         )
     )
     assert rows[0]["cell_volume_a3"] == rows[-1]["cell_volume_a3"] == "438.67"
@@ -183,7 +185,9 @@ def test_diopside_reference_temperature_law_inversion_and_modulus():
 
 def test_diopside_diagnostic_refits_and_reproducibility_qualifications():
     result = reproduce()
-    stored = json.loads((ROOT / "docs/data/diopside-reproduction.json").read_text())
+    stored = json.loads(
+        (ROOT / "docs/data/diopside-reproduction.json").read_text(encoding="utf-8")
+    )
     assert result["resources"] == stored["resources"]
     zhao = result["zhao_1998"]
     assert zhao["published_curve_all_rows"]["pressure_rmse_gpa"] == pytest.approx(
@@ -238,7 +242,7 @@ def test_diopside_calibrations_and_rights_scope():
             record["pressure_calibration"]["recalculation"]["status"]
             == "missing_calibrant_observations"
         )
-    license_text = (DATA / "diopside.LICENSE.md").read_text()
+    license_text = (DATA / "diopside.LICENSE.md").read_text(encoding="utf-8")
     assert "contributor rights alone" in license_text
     assert "Source rights remain unspecified" in license_text
 
@@ -247,8 +251,21 @@ def test_diopside_plot_evidence_supports_table_error_without_rewriting_observati
     from scripts.diopside_check_plots import inspect_plots
 
     result = inspect_plots()
-    stored = json.loads((ROOT / "docs/data/diopside-plot-check.json").read_text())
-    assert result["row15"] == stored["row15"]
+    stored = json.loads(
+        (ROOT / "docs/data/diopside-plot-check.json").read_text(encoding="utf-8")
+    )
+    calculated = {
+        "digitized_pressure_gpa",
+        "digitized_volume_a3",
+        "published_eos_pressure_gpa",
+    }
+    for key in calculated:
+        assert result["row15"][key] == pytest.approx(
+            stored["row15"][key], rel=0, abs=1e-10
+        )
+    assert {k: v for k, v in result["row15"].items() if k not in calculated} == {
+        k: v for k, v in stored["row15"].items() if k not in calculated
+    }
     parity = result["parity_assessment"]
     assert parity["parameter_parity_with_documented_table_error"] is True
     assert parity["published_curves_agree_at_graphical_resolution"] is True
@@ -294,7 +311,9 @@ def test_diopside_plot_evidence_supports_table_error_without_rewriting_observati
         )
     rows = list(
         csv.DictReader(
-            (DATA / "diopside-zhao-1998-table1.csv").read_text().splitlines()
+            (DATA / "diopside-zhao-1998-table1.csv")
+            .read_text(encoding="utf-8")
+            .splitlines()
         )
     )
     assert rows[14]["pressure_gpa"] == "6.95"
@@ -311,10 +330,12 @@ def test_diopside_corrected_dataset_is_reusable_and_preserves_correction_provena
         OUTPUT.read_bytes()
         == corrected_csv(report["row15"]["digitized_pressure_gpa"]).encode()
     )
-    corrected = list(csv.DictReader(OUTPUT.read_text().splitlines()))
+    corrected = list(csv.DictReader(OUTPUT.read_text(encoding="utf-8").splitlines()))
     original = list(
         csv.DictReader(
-            (DATA / "diopside-zhao-1998-table1.csv").read_text().splitlines()
+            (DATA / "diopside-zhao-1998-table1.csv")
+            .read_text(encoding="utf-8")
+            .splitlines()
         )
     )
     assert len(corrected) == len(original) == 32
@@ -357,3 +378,22 @@ def test_diopside_corrected_dataset_is_reusable_and_preserves_correction_provena
     assert metadata["used_by_eos_records"] == []
     assert document["eos_records"][1]["recommended_refit_dataset"] == IDENTIFIER
     assert document["eos_records"][1]["fit_datasets"] == ["diopside_zhao_1998_table1"]
+
+
+def test_corrected_dataset_writer_preserves_canonical_bytes(tmp_path, monkeypatch):
+    import sys
+
+    from scripts import diopside_correct_dataset as correction
+
+    target = tmp_path / "corrected.csv"
+    monkeypatch.setattr(correction, "OUTPUT", target)
+    monkeypatch.setattr(sys, "argv", ["diopside_correct_dataset"])
+    correction.main()
+    saved = json.loads(
+        (ROOT / "docs/data/diopside-plot-check.json").read_text(encoding="utf-8")
+    )
+    expected = correction.corrected_csv(saved["row15"]["digitized_pressure_gpa"])
+    assert target.read_bytes() == expected.encode("utf-8")
+    assert b"\r" not in target.read_bytes()
+    monkeypatch.setattr(sys, "argv", ["diopside_correct_dataset", "--check"])
+    correction.main()

@@ -91,6 +91,25 @@ def digitized_csv() -> str:
     return stream.getvalue()
 
 
+def check_digitized_csv() -> None:
+    """Keep archived pixels exact; compare their calculated coordinates numerically."""
+    from scripts.bykova_replay_checks import check_report
+
+    saved = list(csv.DictReader(io.StringIO(FIGURE.read_text())))
+    current = digitized_rows()
+    if len(saved) != len(current) or not saved:
+        raise ValueError("Digitized CSV row count differs")
+    identities = {"marker", "figure_x_pixel", "figure_y_pixel", "table10_counterpart"}
+    for index, (left, right) in enumerate(zip(saved, current)):
+        if left.keys() != right.keys():
+            raise ValueError("Digitized CSV columns differ")
+        typed = {
+            key: int(value) if key in identities else float(value)
+            for key, value in left.items()
+        }
+        check_report(typed, right, f"digitized_rows[{index}]", calculated=True)
+
+
 def reproduce() -> dict[str, Any]:
     table = np.genfromtxt(TABLE, names=True, delimiter=",")
     p = table["pressure_gpa"]
@@ -347,11 +366,10 @@ def main() -> int:
     result = reproduce()
     text = json.dumps(result, indent=2, allow_nan=False) + "\n"
     if args.check:
-        from scripts.validate_primary_eos_refits import check_ledger_values
+        from scripts.bykova_replay_checks import check_report
 
-        check_ledger_values(json.loads(RESULT.read_text()), result)
-        if FIGURE.read_text() != digitized_csv():
-            raise ValueError("Digitized CSV differs from archived pixel readings")
+        check_report(json.loads(RESULT.read_text()), result)
+        check_digitized_csv()
     else:
         RESULT.write_text(text)
         FIGURE.write_text(digitized_csv())

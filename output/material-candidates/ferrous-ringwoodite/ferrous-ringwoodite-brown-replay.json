@@ -1,0 +1,3466 @@
+{
+  "audit_date": "2026-10-16",
+  "source_doi": "10.1063/1.371596",
+  "scope": "All18 TableS1 readings retained,14 accepted; original pressures, mask and fixed2011 EOS coefficients unchanged. No coefficient fitting.",
+  "methods": {
+    "conversion": "v=a^3*1e-24*N_A/(4*M), cm3/g; B1 Z=4, M=58.44g/mol, N_A=6.02214076e23/mol; no assumed ambient lattice parameter.",
+    "table1": "Brown Eqs1-4, TableI p5804, MATLAB SPLINE prescription: not-a-knot cubic splines of P0,gamma,theta; P=P0+gamma*E_D/(v*M)/1000, E_D=18RT*(T/theta)^3*integral_0^(theta/T)[z^3/(exp(z)-1)]dz, J/molNaCl. No zero-point term added to the stated zero-K pressure.",
+    "table2": "Published TableII p5805 directly interpolated by not-a-knot cubic splines in specific volume and temperature. Above1200K explicitly extend from1200K with TableI gamma/theta Debye energy increment. Below300K inverse-temperature diagnostics extend analogously from300K. No volume extrapolation.",
+    "temperature": "Tsample=(Tu+Td)/2; Tmarker=(Tsample+300)/2 from2011 paragraph4. Cycle2 sample means confirmed byFigureS1; first-cycle averaging remains inferred.",
+    "uncertainty": "Only lattice SD propagated by local dP/da. No rowwise temperature uncertainty, calibration covariance or joint sample/marker covariance recovered. Source pressure parentheses have unspecified confidence. These are descriptive central-value comparisons, not significance tests.",
+    "half_temperature_diagnostic": "For heated rows only, Tmarker=Tsample/2,150K below the stated midpoint. Numerical hypothesis only; neither adopted nor claimed as author workflow. Quenched/preheat states kept at300K.",
+    "inverse_temperatures": "Solve Brown(VNaCl,Tmarker)=Psource or fixedPmodel over1-4000K; null means no root in that interval. Fractions are null for300K sample states. These are model-conditional diagnostics, not measured gradients. Whole-sample-T scenario is also a diagnostic, not a proposed correction."
+  },
+  "constants": {
+    "nacl_molar_mass_g_mol": 58.44,
+    "atoms_per_formula": 2,
+    "formula_units_per_cell": 4,
+    "gas_constant_j_mol_k": 8.31446261815324
+  },
+  "primary_table_consistency": {
+    "table1_rows": 21,
+    "table2_rows": 63,
+    "table2_pressure_cells_checked": 571,
+    "maximum_abs_table1_minus_table2_gpa": 0.16184870290862108,
+    "maximum_abs_300k_anchored_thermal_increment_difference_gpa": 0.01586452353925072,
+    "assessment": "TableI plus normalized Debye energy fails to reproduce TableII at its printed precision: a mostly temperature-independent pressure offset remains. Thermal increments agree within0.016GPa over complete rows. Cause unresolved; preserve both, do not repair either published table or claim exact author calculator recovery.",
+    "checks": [
+      {
+        "specific_volume_cm3_g": 0.3143,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.1430657745145858
+      },
+      {
+        "specific_volume_cm3_g": 0.3143,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.14020372726986352
+      },
+      {
+        "specific_volume_cm3_g": 0.3143,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.13973643687782555
+      },
+      {
+        "specific_volume_cm3_g": 0.3143,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.14532540469874533
+      },
+      {
+        "specific_volume_cm3_g": 0.3143,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.13861771179001536
+      },
+      {
+        "specific_volume_cm3_g": 0.3143,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.140458526773255
+      },
+      {
+        "specific_volume_cm3_g": 0.3143,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.1413247676348135
+      },
+      {
+        "specific_volume_cm3_g": 0.3143,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.14150550353889813
+      },
+      {
+        "specific_volume_cm3_g": 0.3143,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.14118597738841032
+      },
+      {
+        "specific_volume_cm3_g": 0.3143,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.1504903062846239
+      },
+      {
+        "specific_volume_cm3_g": 0.3166,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.15301665675811904
+      },
+      {
+        "specific_volume_cm3_g": 0.3166,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.14902621160033647
+      },
+      {
+        "specific_volume_cm3_g": 0.3166,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.15750423437797423
+      },
+      {
+        "specific_volume_cm3_g": 0.3166,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.15207877013693505
+      },
+      {
+        "specific_volume_cm3_g": 0.3166,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.15438070933571169
+      },
+      {
+        "specific_volume_cm3_g": 0.3166,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.15524659725016932
+      },
+      {
+        "specific_volume_cm3_g": 0.3166,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.1551483784082457
+      },
+      {
+        "specific_volume_cm3_g": 0.3166,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.15437206503393952
+      },
+      {
+        "specific_volume_cm3_g": 0.3166,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.15310092232289918
+      },
+      {
+        "specific_volume_cm3_g": 0.3166,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.16145773323334112
+      },
+      {
+        "specific_volume_cm3_g": 0.3188,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.12738991425199586
+      },
+      {
+        "specific_volume_cm3_g": 0.3188,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.13235293880955012
+      },
+      {
+        "specific_volume_cm3_g": 0.3188,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.12985170230728826
+      },
+      {
+        "specific_volume_cm3_g": 0.3188,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.13348367433069797
+      },
+      {
+        "specific_volume_cm3_g": 0.3188,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.13486497341615689
+      },
+      {
+        "specific_volume_cm3_g": 0.3188,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.1348242837566076
+      },
+      {
+        "specific_volume_cm3_g": 0.3188,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.13382901829979232
+      },
+      {
+        "specific_volume_cm3_g": 0.3188,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.1321624048147818
+      },
+      {
+        "specific_volume_cm3_g": 0.3188,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.14000590746591257
+      },
+      {
+        "specific_volume_cm3_g": 0.3188,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.13748109443992362
+      },
+      {
+        "specific_volume_cm3_g": 0.3211,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.1451310381515185
+      },
+      {
+        "specific_volume_cm3_g": 0.3211,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.14902898899751804
+      },
+      {
+        "specific_volume_cm3_g": 0.3211,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.14553028490255215
+      },
+      {
+        "specific_volume_cm3_g": 0.3211,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.1482016254861236
+      },
+      {
+        "specific_volume_cm3_g": 0.3211,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.14864428793922357
+      },
+      {
+        "specific_volume_cm3_g": 0.3211,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.1476790650684201
+      },
+      {
+        "specific_volume_cm3_g": 0.3211,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.14576882301267347
+      },
+      {
+        "specific_volume_cm3_g": 0.3211,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.1431939966094724
+      },
+      {
+        "specific_volume_cm3_g": 0.3211,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.15013424389687557
+      },
+      {
+        "specific_volume_cm3_g": 0.3211,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.14670991504027953
+      },
+      {
+        "specific_volume_cm3_g": 0.3233,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.1298245723614535
+      },
+      {
+        "specific_volume_cm3_g": 0.3233,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.122726635346595
+      },
+      {
+        "specific_volume_cm3_g": 0.3233,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.12829473416487858
+      },
+      {
+        "specific_volume_cm3_g": 0.3233,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.130066995863249
+      },
+      {
+        "specific_volume_cm3_g": 0.3233,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.1296309393083348
+      },
+      {
+        "specific_volume_cm3_g": 0.3233,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.12780004802405287
+      },
+      {
+        "specific_volume_cm3_g": 0.3233,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.12503297883606024
+      },
+      {
+        "specific_volume_cm3_g": 0.3233,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.13160758178664267
+      },
+      {
+        "specific_volume_cm3_g": 0.3233,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.12770184374821625
+      },
+      {
+        "specific_volume_cm3_g": 0.3233,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.1334349880548018
+      },
+      {
+        "specific_volume_cm3_g": 0.3256,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.13680795177063487
+      },
+      {
+        "specific_volume_cm3_g": 0.3256,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.13868767922838288
+      },
+      {
+        "specific_volume_cm3_g": 0.3256,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.14329758996703745
+      },
+      {
+        "specific_volume_cm3_g": 0.3256,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.14414653256401522
+      },
+      {
+        "specific_volume_cm3_g": 0.3256,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.1428079521235439
+      },
+      {
+        "specific_volume_cm3_g": 0.3256,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.14008786188542643
+      },
+      {
+        "specific_volume_cm3_g": 0.3256,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.13644061885527492
+      },
+      {
+        "specific_volume_cm3_g": 0.3256,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.1421414335707567
+      },
+      {
+        "specific_volume_cm3_g": 0.3256,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.13736658674862312
+      },
+      {
+        "specific_volume_cm3_g": 0.3256,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.1422341514819827
+      },
+      {
+        "specific_volume_cm3_g": 0.3279,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.1535193348405386
+      },
+      {
+        "specific_volume_cm3_g": 0.3279,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.15439084044122708
+      },
+      {
+        "specific_volume_cm3_g": 0.3279,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.1480559462103983
+      },
+      {
+        "specific_volume_cm3_g": 0.3279,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.14799451139204933
+      },
+      {
+        "specific_volume_cm3_g": 0.3279,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.15576607214853055
+      },
+      {
+        "specific_volume_cm3_g": 0.3279,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.1521692658484497
+      },
+      {
+        "specific_volume_cm3_g": 0.3279,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.14765420634543247
+      },
+      {
+        "specific_volume_cm3_g": 0.3279,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.1524935003701806
+      },
+      {
+        "specific_volume_cm3_g": 0.3279,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.1568617459589987
+      },
+      {
+        "specific_volume_cm3_g": 0.3279,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.15087588198280244
+      },
+      {
+        "specific_volume_cm3_g": 0.3301,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.13088378507689313
+      },
+      {
+        "specific_volume_cm3_g": 0.3301,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.13079939520287098
+      },
+      {
+        "specific_volume_cm3_g": 0.3301,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.13356923453892833
+      },
+      {
+        "specific_volume_cm3_g": 0.3301,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.13264540390583335
+      },
+      {
+        "specific_volume_cm3_g": 0.3301,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.12957414647158316
+      },
+      {
+        "specific_volume_cm3_g": 0.3301,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.13514705715227393
+      },
+      {
+        "specific_volume_cm3_g": 0.3301,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.12981020073051397
+      },
+      {
+        "specific_volume_cm3_g": 0.3301,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.13383370011800366
+      },
+      {
+        "specific_volume_cm3_g": 0.3301,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.13739054860259614
+      },
+      {
+        "specific_volume_cm3_g": 0.3301,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.1305966035514068
+      },
+      {
+        "specific_volume_cm3_g": 0.3324,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.13902592580026862
+      },
+      {
+        "specific_volume_cm3_g": 0.3324,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.1479462198019732
+      },
+      {
+        "specific_volume_cm3_g": 0.3324,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.14978478226392156
+      },
+      {
+        "specific_volume_cm3_g": 0.3324,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.14796434607556108
+      },
+      {
+        "specific_volume_cm3_g": 0.3324,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.14401711875382972
+      },
+      {
+        "specific_volume_cm3_g": 0.3324,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.14872726681619497
+      },
+      {
+        "specific_volume_cm3_g": 0.3324,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.14253658658618207
+      },
+      {
+        "specific_volume_cm3_g": 0.3324,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.14571258356047423
+      },
+      {
+        "specific_volume_cm3_g": 0.3324,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.1484265603962882
+      },
+      {
+        "specific_volume_cm3_g": 0.3324,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.15079323528481936
+      },
+      {
+        "specific_volume_cm3_g": 0.3347,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.15801300541800245
+      },
+      {
+        "specific_volume_cm3_g": 0.3347,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.15593723103187074
+      },
+      {
+        "specific_volume_cm3_g": 0.3347,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.15684513751342521
+      },
+      {
+        "specific_volume_cm3_g": 0.3347,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.15412940755719262
+      },
+      {
+        "specific_volume_cm3_g": 0.3347,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.15930791760705176
+      },
+      {
+        "specific_volume_cm3_g": 0.3347,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.1531572576015492
+      },
+      {
+        "specific_volume_cm3_g": 0.3347,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.15611487299290872
+      },
+      {
+        "specific_volume_cm3_g": 0.3347,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.15844560239717254
+      },
+      {
+        "specific_volume_cm3_g": 0.3347,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.16031902635973694
+      },
+      {
+        "specific_volume_cm3_g": 0.3347,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.16184870290862108
+      },
+      {
+        "specific_volume_cm3_g": 0.3369,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.14120703281945524
+      },
+      {
+        "specific_volume_cm3_g": 0.3369,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.13817331368938568
+      },
+      {
+        "specific_volume_cm3_g": 0.3369,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.13818778918074415
+      },
+      {
+        "specific_volume_cm3_g": 0.3369,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.1346134520302229
+      },
+      {
+        "specific_volume_cm3_g": 0.3369,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.1389540500722788
+      },
+      {
+        "specific_volume_cm3_g": 0.3369,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.14197871187791478
+      },
+      {
+        "specific_volume_cm3_g": 0.3369,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.1441206009218412
+      },
+      {
+        "specific_volume_cm3_g": 0.3369,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.13564193223685805
+      },
+      {
+        "specific_volume_cm3_g": 0.3369,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.13671059268451913
+      },
+      {
+        "specific_volume_cm3_g": 0.3369,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.13743899950629768
+      },
+      {
+        "specific_volume_cm3_g": 0.3392,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.14384032952913373
+      },
+      {
+        "specific_volume_cm3_g": 0.3392,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.14979856007681747
+      },
+      {
+        "specific_volume_cm3_g": 0.3392,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.14887493841124666
+      },
+      {
+        "specific_volume_cm3_g": 0.3392,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.14440020516130758
+      },
+      {
+        "specific_volume_cm3_g": 0.3392,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.14786279459245577
+      },
+      {
+        "specific_volume_cm3_g": 0.3392,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.15002375726604456
+      },
+      {
+        "specific_volume_cm3_g": 0.3392,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.151311623852731
+      },
+      {
+        "specific_volume_cm3_g": 0.3392,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.15198577204428787
+      },
+      {
+        "specific_volume_cm3_g": 0.3392,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.15221225754897816
+      },
+      {
+        "specific_volume_cm3_g": 0.3392,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.15210226448036224
+      },
+      {
+        "specific_volume_cm3_g": 0.3414,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.13313525111351687
+      },
+      {
+        "specific_volume_cm3_g": 0.3414,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.1281344199458978
+      },
+      {
+        "specific_volume_cm3_g": 0.3414,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.1363206933379928
+      },
+      {
+        "specific_volume_cm3_g": 0.3414,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.13099295948974898
+      },
+      {
+        "specific_volume_cm3_g": 0.3414,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.13362456362436248
+      },
+      {
+        "specific_volume_cm3_g": 0.3414,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.1349686059946542
+      },
+      {
+        "specific_volume_cm3_g": 0.3414,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.13544906080170804
+      },
+      {
+        "specific_volume_cm3_g": 0.3414,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.13532251635757575
+      },
+      {
+        "specific_volume_cm3_g": 0.3414,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.13475322870161577
+      },
+      {
+        "specific_volume_cm3_g": 0.3414,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.13385117027646132
+      },
+      {
+        "specific_volume_cm3_g": 0.3437,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.14140212220002368
+      },
+      {
+        "specific_volume_cm3_g": 0.3437,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.14541909965793742
+      },
+      {
+        "specific_volume_cm3_g": 0.3437,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.14269681269442636
+      },
+      {
+        "specific_volume_cm3_g": 0.3437,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.14650007288484446
+      },
+      {
+        "specific_volume_cm3_g": 0.3437,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.1382861206161028
+      },
+      {
+        "specific_volume_cm3_g": 0.3437,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.13879958070330822
+      },
+      {
+        "specific_volume_cm3_g": 0.3437,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.13845957328848968
+      },
+      {
+        "specific_volume_cm3_g": 0.3437,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.1475197164437354
+      },
+      {
+        "specific_volume_cm3_g": 0.3437,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.14614235042931156
+      },
+      {
+        "specific_volume_cm3_g": 0.3437,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.14443615812042765
+      },
+      {
+        "specific_volume_cm3_g": 0.346,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.15295713667288346
+      },
+      {
+        "specific_volume_cm3_g": 0.346,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.1460279320150839
+      },
+      {
+        "specific_volume_cm3_g": 0.346,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.1524340346486568
+      },
+      {
+        "specific_volume_cm3_g": 0.346,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.15540567607436628
+      },
+      {
+        "specific_volume_cm3_g": 0.346,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.1563837934771488
+      },
+      {
+        "specific_volume_cm3_g": 0.346,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.15610444238608778
+      },
+      {
+        "specific_volume_cm3_g": 0.346,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.1549818386605324
+      },
+      {
+        "specific_volume_cm3_g": 0.346,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.15326660077825238
+      },
+      {
+        "specific_volume_cm3_g": 0.346,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.15111913489168316
+      },
+      {
+        "specific_volume_cm3_g": 0.346,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.14864682226104975
+      },
+      {
+        "specific_volume_cm3_g": 0.3482,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.13499158707894665
+      },
+      {
+        "specific_volume_cm3_g": 0.3482,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.1372048675337787
+      },
+      {
+        "specific_volume_cm3_g": 0.3482,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.13282505476736262
+      },
+      {
+        "specific_volume_cm3_g": 0.3482,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.13504911420697852
+      },
+      {
+        "specific_volume_cm3_g": 0.3482,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.13530233664783609
+      },
+      {
+        "specific_volume_cm3_g": 0.3482,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.13431256351036325
+      },
+      {
+        "specific_volume_cm3_g": 0.3482,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.14248931296662448
+      },
+      {
+        "specific_volume_cm3_g": 0.3482,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.1400803315586714
+      },
+      {
+        "specific_volume_cm3_g": 0.3482,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.13724417421406088
+      },
+      {
+        "specific_volume_cm3_g": 0.3482,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.13408697663001945
+      },
+      {
+        "specific_volume_cm3_g": 0.3505,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.14540832256383318
+      },
+      {
+        "specific_volume_cm3_g": 0.3505,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.1467781837471005
+      },
+      {
+        "specific_volume_cm3_g": 0.3505,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.14162930292820164
+      },
+      {
+        "specific_volume_cm3_g": 0.3505,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.143124038982819
+      },
+      {
+        "specific_volume_cm3_g": 0.3505,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.14267144176202606
+      },
+      {
+        "specific_volume_cm3_g": 0.3505,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.15099083603826635
+      },
+      {
+        "specific_volume_cm3_g": 0.3505,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.14848687248205295
+      },
+      {
+        "specific_volume_cm3_g": 0.3505,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.14540432313855867
+      },
+      {
+        "specific_volume_cm3_g": 0.3505,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.15189982615118858
+      },
+      {
+        "specific_volume_cm3_g": 0.3505,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.148078227808087
+      },
+      {
+        "specific_volume_cm3_g": 0.3528,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.15015026542948107
+      },
+      {
+        "specific_volume_cm3_g": 0.3528,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.1506919568667744
+      },
+      {
+        "specific_volume_cm3_g": 0.3528,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.1547874476380251
+      },
+      {
+        "specific_volume_cm3_g": 0.3528,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.15556529321242962
+      },
+      {
+        "specific_volume_cm3_g": 0.3528,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.1544187020109522
+      },
+      {
+        "specific_volume_cm3_g": 0.3528,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.15205869777669534
+      },
+      {
+        "specific_volume_cm3_g": 0.3528,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.15888518897173576
+      },
+      {
+        "specific_volume_cm3_g": 0.3528,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.15514005051957902
+      },
+      {
+        "specific_volume_cm3_g": 0.3528,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.160978053996768
+      },
+      {
+        "specific_volume_cm3_g": 0.3528,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.1565027902345033
+      },
+      {
+        "specific_volume_cm3_g": 0.355,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.13775960410726995
+      },
+      {
+        "specific_volume_cm3_g": 0.355,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.13747837015078268
+      },
+      {
+        "specific_volume_cm3_g": 0.355,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.14081738874306993
+      },
+      {
+        "specific_volume_cm3_g": 0.355,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.140874237208525
+      },
+      {
+        "specific_volume_cm3_g": 0.355,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.1390276130801702
+      },
+      {
+        "specific_volume_cm3_g": 0.355,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.14598093818373492
+      },
+      {
+        "specific_volume_cm3_g": 0.355,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.14212977882405475
+      },
+      {
+        "specific_volume_cm3_g": 0.355,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.14771335746902103
+      },
+      {
+        "specific_volume_cm3_g": 0.355,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.14288473688108283
+      },
+      {
+        "specific_volume_cm3_g": 0.355,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.14774635859686214
+      },
+      {
+        "specific_volume_cm3_g": 0.3573,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.15156725699393903
+      },
+      {
+        "specific_volume_cm3_g": 0.3573,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.15034748772442086
+      },
+      {
+        "specific_volume_cm3_g": 0.3573,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.15281317444953046
+      },
+      {
+        "specific_volume_cm3_g": 0.3573,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.15203151219520983
+      },
+      {
+        "specific_volume_cm3_g": 0.3573,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.14936695864182248
+      },
+      {
+        "specific_volume_cm3_g": 0.3573,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.14551547377083018
+      },
+      {
+        "specific_volume_cm3_g": 0.3573,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.1508683611407413
+      },
+      {
+        "specific_volume_cm3_g": 0.3573,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.15566223904940557
+      },
+      {
+        "specific_volume_cm3_g": 0.3573,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.15004849245748808
+      },
+      {
+        "specific_volume_cm3_g": 0.3573,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.15412843442029533
+      },
+      {
+        "specific_volume_cm3_g": 0.3595,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.12942087520597134
+      },
+      {
+        "specific_volume_cm3_g": 0.3595,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.12718612734171053
+      },
+      {
+        "specific_volume_cm3_g": 0.3595,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.12869406606577272
+      },
+      {
+        "specific_volume_cm3_g": 0.3595,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.13698525663128436
+      },
+      {
+        "specific_volume_cm3_g": 0.3595,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.13341165340141714
+      },
+      {
+        "specific_volume_cm3_g": 0.3595,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.13866265885729767
+      },
+      {
+        "specific_volume_cm3_g": 0.3595,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.1331258286144621
+      },
+      {
+        "specific_volume_cm3_g": 0.3595,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.13703549060159936
+      },
+      {
+        "specific_volume_cm3_g": 0.3595,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.140541553848605
+      },
+      {
+        "specific_volume_cm3_g": 0.3595,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.13374433856278145
+      },
+      {
+        "specific_volume_cm3_g": 0.3618,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.13217035141318512
+      },
+      {
+        "specific_volume_cm3_g": 0.3618,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.13872750483777097
+      },
+      {
+        "specific_volume_cm3_g": 0.3618,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.13908146222973805
+      },
+      {
+        "specific_volume_cm3_g": 0.3618,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.1362476641507513
+      },
+      {
+        "specific_volume_cm3_g": 0.3618,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.13156623491060593
+      },
+      {
+        "specific_volume_cm3_g": 0.3618,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.13572036407918553
+      },
+      {
+        "specific_volume_cm3_g": 0.3618,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.13909405350461768
+      },
+      {
+        "specific_volume_cm3_g": 0.3618,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.14191945833960595
+      },
+      {
+        "specific_volume_cm3_g": 0.3618,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.1343450869976106
+      },
+      {
+        "specific_volume_cm3_g": 0.3618,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.13647031728057257
+      },
+      {
+        "specific_volume_cm3_g": 0.3641,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.14013230113594055
+      },
+      {
+        "specific_volume_cm3_g": 0.3641,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.13538396943068776
+      },
+      {
+        "specific_volume_cm3_g": 0.3641,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.13448312150367592
+      },
+      {
+        "specific_volume_cm3_g": 0.3641,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.14042169838463714
+      },
+      {
+        "specific_volume_cm3_g": 0.3641,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.13452874208694432
+      },
+      {
+        "specific_volume_cm3_g": 0.3641,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.13748161761786903
+      },
+      {
+        "specific_volume_cm3_g": 0.3641,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.13966099378781394
+      },
+      {
+        "specific_volume_cm3_g": 0.3641,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.13129698739118112
+      },
+      {
+        "specific_volume_cm3_g": 0.3641,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.1325367926415595
+      },
+      {
+        "specific_volume_cm3_g": 0.3641,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.1334789029708876
+      },
+      {
+        "specific_volume_cm3_g": 0.3663,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.11635966380273821
+      },
+      {
+        "specific_volume_cm3_g": 0.3663,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.12033685663031157
+      },
+      {
+        "specific_volume_cm3_g": 0.3663,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.11820953722453176
+      },
+      {
+        "specific_volume_cm3_g": 0.3663,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.11294737213112427
+      },
+      {
+        "specific_volume_cm3_g": 0.3663,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.11586890779803838
+      },
+      {
+        "specific_volume_cm3_g": 0.3663,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.11764599550500598
+      },
+      {
+        "specific_volume_cm3_g": 0.3663,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.11865614973220318
+      },
+      {
+        "specific_volume_cm3_g": 0.3663,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.11912755853583512
+      },
+      {
+        "specific_volume_cm3_g": 0.3663,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.11920617275083778
+      },
+      {
+        "specific_volume_cm3_g": 0.3663,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.11898964916715826
+      },
+      {
+        "specific_volume_cm3_g": 0.3686,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.1189763935561281
+      },
+      {
+        "specific_volume_cm3_g": 0.3686,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.12166108556314015
+      },
+      {
+        "specific_volume_cm3_g": 0.3686,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.11829369638264531
+      },
+      {
+        "specific_volume_cm3_g": 0.3686,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.12181950120733198
+      },
+      {
+        "specific_volume_cm3_g": 0.3686,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.11354559011447662
+      },
+      {
+        "specific_volume_cm3_g": 0.3686,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.11413780551153785
+      },
+      {
+        "specific_volume_cm3_g": 0.3686,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.11397022746433727
+      },
+      {
+        "specific_volume_cm3_g": 0.3686,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.11326894526820297
+      },
+      {
+        "specific_volume_cm3_g": 0.3686,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.1121785573134364
+      },
+      {
+        "specific_volume_cm3_g": 0.3686,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.11079581061868105
+      },
+      {
+        "specific_volume_cm3_g": 0.3709,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.12046787268871739
+      },
+      {
+        "specific_volume_cm3_g": 0.3709,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.121967663484849
+      },
+      {
+        "specific_volume_cm3_g": 0.3709,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.11747276830359255
+      },
+      {
+        "specific_volume_cm3_g": 0.3709,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.119901656357845
+      },
+      {
+        "specific_volume_cm3_g": 0.3709,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.1205488888189219
+      },
+      {
+        "specific_volume_cm3_g": 0.3709,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.12007375275988252
+      },
+      {
+        "specific_volume_cm3_g": 0.3709,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.11884658681499083
+      },
+      {
+        "specific_volume_cm3_g": 0.3709,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.11709119596551609
+      },
+      {
+        "specific_volume_cm3_g": 0.3709,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.11495070748794589
+      },
+      {
+        "specific_volume_cm3_g": 0.3709,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.11252087923366005
+      },
+      {
+        "specific_volume_cm3_g": 0.3731,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.11502620369126682
+      },
+      {
+        "specific_volume_cm3_g": 0.3731,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.10554008288120009
+      },
+      {
+        "specific_volume_cm3_g": 0.3731,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.11012052536423056
+      },
+      {
+        "specific_volume_cm3_g": 0.3731,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.11165727644612211
+      },
+      {
+        "specific_volume_cm3_g": 0.3731,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.1014315407629578
+      },
+      {
+        "specific_volume_cm3_g": 0.3731,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.1000956350378086
+      },
+      {
+        "specific_volume_cm3_g": 0.3731,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.10801592556779482
+      },
+      {
+        "specific_volume_cm3_g": 0.3731,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.10541379435821163
+      },
+      {
+        "specific_volume_cm3_g": 0.3731,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.10243080928470683
+      },
+      {
+        "specific_volume_cm3_g": 0.3731,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.09916168015201698
+      },
+      {
+        "specific_volume_cm3_g": 0.3754,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.11676937616018712
+      },
+      {
+        "specific_volume_cm3_g": 0.3754,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.11639129910589396
+      },
+      {
+        "specific_volume_cm3_g": 0.3754,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.11014921060831462
+      },
+      {
+        "specific_volume_cm3_g": 0.3754,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.11090019537991402
+      },
+      {
+        "specific_volume_cm3_g": 0.3754,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.1099103304475495
+      },
+      {
+        "specific_volume_cm3_g": 0.3754,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.10782405358790292
+      },
+      {
+        "specific_volume_cm3_g": 0.3754,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.10500324616416457
+      },
+      {
+        "specific_volume_cm3_g": 0.3754,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.11166655656621671
+      },
+      {
+        "specific_volume_cm3_g": 0.3754,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.10795379423075246
+      },
+      {
+        "specific_volume_cm3_g": 0.3754,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.10395848756995285
+      },
+      {
+        "specific_volume_cm3_g": 0.3776,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.10234562853670504
+      },
+      {
+        "specific_volume_cm3_g": 0.3776,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.10121758746811693
+      },
+      {
+        "specific_volume_cm3_g": 0.3776,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.10429525130394346
+      },
+      {
+        "specific_volume_cm3_g": 0.3776,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.10440283104500558
+      },
+      {
+        "specific_volume_cm3_g": 0.3776,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.10279122145725061
+      },
+      {
+        "specific_volume_cm3_g": 0.3776,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.10009696458589978
+      },
+      {
+        "specific_volume_cm3_g": 0.3776,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.09667745119613258
+      },
+      {
+        "specific_volume_cm3_g": 0.3776,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.1027485941270907
+      },
+      {
+        "specific_volume_cm3_g": 0.3776,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.09844844379601803
+      },
+      {
+        "specific_volume_cm3_g": 0.3776,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.0938693471509282
+      },
+      {
+        "specific_volume_cm3_g": 0.3799,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.11391498394609378
+      },
+      {
+        "specific_volume_cm3_g": 0.3799,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.1120801288104385
+      },
+      {
+        "specific_volume_cm3_g": 0.3799,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.11452543594425002
+      },
+      {
+        "specific_volume_cm3_g": 0.3799,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.11403994551406704
+      },
+      {
+        "specific_volume_cm3_g": 0.3799,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.11185834461395494
+      },
+      {
+        "specific_volume_cm3_g": 0.3799,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.10860875573733964
+      },
+      {
+        "specific_volume_cm3_g": 0.3799,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.11464378429481492
+      },
+      {
+        "specific_volume_cm3_g": 0.3799,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.11017642925119198
+      },
+      {
+        "specific_volume_cm3_g": 0.3799,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.1053428678794166
+      },
+      {
+        "specific_volume_cm3_g": 0.3799,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.11023418926970052
+      },
+      {
+        "specific_volume_cm3_g": 0.3822,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.12492123700834146
+      },
+      {
+        "specific_volume_cm3_g": 0.3822,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.12242783003946034
+      },
+      {
+        "specific_volume_cm3_g": 0.3822,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.12428879822932792
+      },
+      {
+        "specific_volume_cm3_g": 0.3822,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.12325807923367016
+      },
+      {
+        "specific_volume_cm3_g": 0.3822,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.12055421104543917
+      },
+      {
+        "specific_volume_cm3_g": 0.3822,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.11679693429489646
+      },
+      {
+        "specific_volume_cm3_g": 0.3822,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.12233409289256514
+      },
+      {
+        "specific_volume_cm3_g": 0.3822,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.11737578740665633
+      },
+      {
+        "specific_volume_cm3_g": 0.3822,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.12205633233357815
+      },
+      {
+        "specific_volume_cm3_g": 0.3822,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.1164655660685785
+      },
+      {
+        "specific_volume_cm3_g": 0.3844,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.11069777297217254
+      },
+      {
+        "specific_volume_cm3_g": 0.3844,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.11758993579613986
+      },
+      {
+        "specific_volume_cm3_g": 0.3844,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.10890570186873738
+      },
+      {
+        "specific_volume_cm3_g": 0.3844,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.11736623353406195
+      },
+      {
+        "specific_volume_cm3_g": 0.3844,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.11417500782298173
+      },
+      {
+        "specific_volume_cm3_g": 0.3844,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.10994395300978077
+      },
+      {
+        "specific_volume_cm3_g": 0.3844,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.11501647661812697
+      },
+      {
+        "specific_volume_cm3_g": 0.3844,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.10959997934563681
+      },
+      {
+        "specific_volume_cm3_g": 0.3844,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.11382704077799488
+      },
+      {
+        "specific_volume_cm3_g": 0.3844,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.10778633459843867
+      },
+      {
+        "specific_volume_cm3_g": 0.3867,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.12108962948583901
+      },
+      {
+        "specific_volume_cm3_g": 0.3867,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.11731850009122802
+      },
+      {
+        "specific_volume_cm3_g": 0.3867,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.11804056222324455
+      },
+      {
+        "specific_volume_cm3_g": 0.3867,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.11594401413403865
+      },
+      {
+        "specific_volume_cm3_g": 0.3867,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.12221719549050825
+      },
+      {
+        "specific_volume_cm3_g": 0.3867,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.11746418542912362
+      },
+      {
+        "specific_volume_cm3_g": 0.3867,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.12202393516760957
+      },
+      {
+        "specific_volume_cm3_g": 0.3867,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.11610113379274445
+      },
+      {
+        "specific_volume_cm3_g": 0.3867,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.11982661860394472
+      },
+      {
+        "specific_volume_cm3_g": 0.3867,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.12328789370218196
+      },
+      {
+        "specific_volume_cm3_g": 0.3889,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.10766058396327693
+      },
+      {
+        "specific_volume_cm3_g": 0.3889,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.11319905999209201
+      },
+      {
+        "specific_volume_cm3_g": 0.3889,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.11329393177636682
+      },
+      {
+        "specific_volume_cm3_g": 0.3889,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.11060345270792737
+      },
+      {
+        "specific_volume_cm3_g": 0.3889,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.11630221418470832
+      },
+      {
+        "specific_volume_cm3_g": 0.3889,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.11098716729893354
+      },
+      {
+        "specific_volume_cm3_g": 0.3889,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.11499321664901352
+      },
+      {
+        "specific_volume_cm3_g": 0.3889,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.11852258911813784
+      },
+      {
+        "specific_volume_cm3_g": 0.3889,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.1117045400235206
+      },
+      {
+        "specific_volume_cm3_g": 0.3889,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.1146255115204653
+      },
+      {
+        "specific_volume_cm3_g": 0.3912,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.1185928467710653
+      },
+      {
+        "specific_volume_cm3_g": 0.3912,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.11331372162594011
+      },
+      {
+        "specific_volume_cm3_g": 0.3912,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.12265288072995162
+      },
+      {
+        "specific_volume_cm3_g": 0.3912,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.11923926408412999
+      },
+      {
+        "specific_volume_cm3_g": 0.3912,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.11423399985287741
+      },
+      {
+        "specific_volume_cm3_g": 0.3912,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.11822705769634645
+      },
+      {
+        "specific_volume_cm3_g": 0.3912,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.12154937845912617
+      },
+      {
+        "specific_volume_cm3_g": 0.3912,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.12440077710353137
+      },
+      {
+        "specific_volume_cm3_g": 0.3912,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.11690895921287137
+      },
+      {
+        "specific_volume_cm3_g": 0.3912,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.1191593266166695
+      },
+      {
+        "specific_volume_cm3_g": 0.3935,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.12005845156871686
+      },
+      {
+        "specific_volume_cm3_g": 0.3935,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.12382638211090669
+      },
+      {
+        "specific_volume_cm3_g": 0.3935,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.12226956569267244
+      },
+      {
+        "specific_volume_cm3_g": 0.3935,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.12798998132816308
+      },
+      {
+        "specific_volume_cm3_g": 0.3935,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.12213636133003813
+      },
+      {
+        "specific_volume_cm3_g": 0.3935,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.12529224410927498
+      },
+      {
+        "specific_volume_cm3_g": 0.3935,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.12778491804918612
+      },
+      {
+        "specific_volume_cm3_g": 0.3935,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.12981197519710808
+      },
+      {
+        "specific_volume_cm3_g": 0.3935,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.121499692665191
+      },
+      {
+        "specific_volume_cm3_g": 0.3935,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.12293251327466592
+      },
+      {
+        "specific_volume_cm3_g": 0.3957,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.10983901935217233
+      },
+      {
+        "specific_volume_cm3_g": 0.3957,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.11255225014061043
+      },
+      {
+        "specific_volume_cm3_g": 0.3957,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.10999057791402755
+      },
+      {
+        "specific_volume_cm3_g": 0.3957,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.11473242124679839
+      },
+      {
+        "specific_volume_cm3_g": 0.3957,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.11791566328642933
+      },
+      {
+        "specific_volume_cm3_g": 0.3957,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.12011820935133599
+      },
+      {
+        "specific_volume_cm3_g": 0.3957,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.1116641472509583
+      },
+      {
+        "specific_volume_cm3_g": 0.3957,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.11274912059838371
+      },
+      {
+        "specific_volume_cm3_g": 0.3957,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.11349815418391795
+      },
+      {
+        "specific_volume_cm3_g": 0.3957,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.11399484996679199
+      },
+      {
+        "specific_volume_cm3_g": 0.4003,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.11854092422964779
+      },
+      {
+        "specific_volume_cm3_g": 0.4003,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.11886261578875423
+      },
+      {
+        "specific_volume_cm3_g": 0.4003,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.12400821967431686
+      },
+      {
+        "specific_volume_cm3_g": 0.4003,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.1265094463126175
+      },
+      {
+        "specific_volume_cm3_g": 0.4003,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.12748266994625723
+      },
+      {
+        "specific_volume_cm3_g": 0.4003,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.11749462816646616
+      },
+      {
+        "specific_volume_cm3_g": 0.4003,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.12686306366001876
+      },
+      {
+        "specific_volume_cm3_g": 0.4003,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.12577975732258828
+      },
+      {
+        "specific_volume_cm3_g": 0.4003,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.12436725127357917
+      },
+      {
+        "specific_volume_cm3_g": 0.4003,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.12270748051370717
+      },
+      {
+        "specific_volume_cm3_g": 0.4048,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.12185864424009463
+      },
+      {
+        "specific_volume_cm3_g": 0.4048,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.12011409609243984
+      },
+      {
+        "specific_volume_cm3_g": 0.4048,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.12329978548024023
+      },
+      {
+        "specific_volume_cm3_g": 0.4048,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.11389696590410381
+      },
+      {
+        "specific_volume_cm3_g": 0.4048,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.12299889152522336
+      },
+      {
+        "specific_volume_cm3_g": 0.4048,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.12116032603140159
+      },
+      {
+        "specific_volume_cm3_g": 0.4048,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.11869221903409777
+      },
+      {
+        "specific_volume_cm3_g": 0.4048,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.11578221993908233
+      },
+      {
+        "specific_volume_cm3_g": 0.4048,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.11255021716596225
+      },
+      {
+        "specific_volume_cm3_g": 0.4048,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.1190763647444415
+      },
+      {
+        "specific_volume_cm3_g": 0.4093,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.11380558667428442
+      },
+      {
+        "specific_volume_cm3_g": 0.4093,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.11065134484906114
+      },
+      {
+        "specific_volume_cm3_g": 0.4093,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.11255476701620637
+      },
+      {
+        "specific_volume_cm3_g": 0.4093,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.11193632254343022
+      },
+      {
+        "specific_volume_cm3_g": 0.4093,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.11986159454494771
+      },
+      {
+        "specific_volume_cm3_g": 0.4093,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.116871063614024
+      },
+      {
+        "specific_volume_cm3_g": 0.4093,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.11326759208760873
+      },
+      {
+        "specific_volume_cm3_g": 0.4093,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.11923391693211371
+      },
+      {
+        "specific_volume_cm3_g": 0.4093,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.11488677395461888
+      },
+      {
+        "specific_volume_cm3_g": 0.4093,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.1203042026720027
+      },
+      {
+        "specific_volume_cm3_g": 0.4138,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.10635043969176339
+      },
+      {
+        "specific_volume_cm3_g": 0.4138,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.11198554166937225
+      },
+      {
+        "specific_volume_cm3_g": 0.4138,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.11281112707733687
+      },
+      {
+        "specific_volume_cm3_g": 0.4138,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.11118415962736439
+      },
+      {
+        "specific_volume_cm3_g": 0.4138,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.11814139780565203
+      },
+      {
+        "specific_volume_cm3_g": 0.4138,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.11420846647205618
+      },
+      {
+        "specific_volume_cm3_g": 0.4138,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.11967982408192146
+      },
+      {
+        "specific_volume_cm3_g": 0.4138,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.11473310582732754
+      },
+      {
+        "specific_volume_cm3_g": 0.4138,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.11948177470254429
+      },
+      {
+        "specific_volume_cm3_g": 0.4138,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.11400167571829112
+      },
+      {
+        "specific_volume_cm3_g": 0.4184,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.12078154883560366
+      },
+      {
+        "specific_volume_cm3_g": 0.4184,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.11474015258703352
+      },
+      {
+        "specific_volume_cm3_g": 0.4184,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.11401012527069332
+      },
+      {
+        "specific_volume_cm3_g": 0.4184,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.12089063966835578
+      },
+      {
+        "specific_volume_cm3_g": 0.4184,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.11639221791743548
+      },
+      {
+        "specific_volume_cm3_g": 0.4184,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.1210269619665505
+      },
+      {
+        "specific_volume_cm3_g": 0.4184,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.12508168005158282
+      },
+      {
+        "specific_volume_cm3_g": 0.4184,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.11872936301092718
+      },
+      {
+        "specific_volume_cm3_g": 0.4184,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.12208049442073232
+      },
+      {
+        "specific_volume_cm3_g": 0.4184,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.1252089214952674
+      },
+      {
+        "specific_volume_cm3_g": 0.4229,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.11075735228584227
+      },
+      {
+        "specific_volume_cm3_g": 0.4229,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.11260977358230528
+      },
+      {
+        "specific_volume_cm3_g": 0.4229,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.1098761226136844
+      },
+      {
+        "specific_volume_cm3_g": 0.4229,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.11480657617622114
+      },
+      {
+        "specific_volume_cm3_g": 0.4229,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.11838939298404405
+      },
+      {
+        "specific_volume_cm3_g": 0.4229,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.11112519488467232
+      },
+      {
+        "specific_volume_cm3_g": 0.4229,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.11329429397259805
+      },
+      {
+        "specific_volume_cm3_g": 0.4229,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.11506573675487175
+      },
+      {
+        "specific_volume_cm3_g": 0.4229,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.11654747620321881
+      },
+      {
+        "specific_volume_cm3_g": 0.4229,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.11781166255615538
+      },
+      {
+        "specific_volume_cm3_g": 0.4274,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.10885368143521568
+      },
+      {
+        "specific_volume_cm3_g": 0.4274,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.10866260934361494
+      },
+      {
+        "specific_volume_cm3_g": 0.4274,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.11398767789532238
+      },
+      {
+        "specific_volume_cm3_g": 0.4274,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.10703014826378654
+      },
+      {
+        "specific_volume_cm3_g": 0.4274,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.10875610082780174
+      },
+      {
+        "specific_volume_cm3_g": 0.4274,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.10965473420365335
+      },
+      {
+        "specific_volume_cm3_g": 0.4274,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.10999990087295863
+      },
+      {
+        "specific_volume_cm3_g": 0.4274,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.10995672689056146
+      },
+      {
+        "specific_volume_cm3_g": 0.4274,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.10963065068980171
+      },
+      {
+        "specific_volume_cm3_g": 0.4274,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.10909213666471107
+      },
+      {
+        "specific_volume_cm3_g": 0.4319,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.107527434971872
+      },
+      {
+        "specific_volume_cm3_g": 0.4319,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.10578092475799661
+      },
+      {
+        "specific_volume_cm3_g": 0.4319,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.10966321667150636
+      },
+      {
+        "specific_volume_cm3_g": 0.4319,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.11132147522805047
+      },
+      {
+        "specific_volume_cm3_g": 0.4319,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.11169735717825313
+      },
+      {
+        "specific_volume_cm3_g": 0.4319,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.11126750893437487
+      },
+      {
+        "specific_volume_cm3_g": 0.4319,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.11029869410364634
+      },
+      {
+        "specific_volume_cm3_g": 0.4319,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.10895173994417506
+      },
+      {
+        "specific_volume_cm3_g": 0.4319,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.10732932924527372
+      },
+      {
+        "specific_volume_cm3_g": 0.4319,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.10550007965739994
+      },
+      {
+        "specific_volume_cm3_g": 0.4364,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.10774880386886476
+      },
+      {
+        "specific_volume_cm3_g": 0.4364,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.10495000729520343
+      },
+      {
+        "specific_volume_cm3_g": 0.4364,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.10789920201089842
+      },
+      {
+        "specific_volume_cm3_g": 0.4364,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.10868616317639246
+      },
+      {
+        "specific_volume_cm3_g": 0.4364,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.10822672796607868
+      },
+      {
+        "specific_volume_cm3_g": 0.4364,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.10698429725839897
+      },
+      {
+        "specific_volume_cm3_g": 0.4364,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.10521816226295133
+      },
+      {
+        "specific_volume_cm3_g": 0.4364,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.10308462200138546
+      },
+      {
+        "specific_volume_cm3_g": 0.4364,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.10068345791498778
+      },
+      {
+        "specific_volume_cm3_g": 0.4364,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.10808134392248814
+      },
+      {
+        "specific_volume_cm3_g": 0.4432,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.1079005916496174
+      },
+      {
+        "specific_volume_cm3_g": 0.4432,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.11425853655291984
+      },
+      {
+        "specific_volume_cm3_g": 0.4432,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.11654255885234632
+      },
+      {
+        "specific_volume_cm3_g": 0.4432,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.11675646395224604
+      },
+      {
+        "specific_volume_cm3_g": 0.4432,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.11577753762858789
+      },
+      {
+        "specific_volume_cm3_g": 0.4432,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.11404943752339047
+      },
+      {
+        "specific_volume_cm3_g": 0.4432,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.11182032808419962
+      },
+      {
+        "specific_volume_cm3_g": 0.4432,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.10923976997385898
+      },
+      {
+        "specific_volume_cm3_g": 0.4432,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.11640322913885459
+      },
+      {
+        "specific_volume_cm3_g": 0.4432,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.1133744892970645
+      },
+      {
+        "specific_volume_cm3_g": 0.45,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.11525031970715882
+      },
+      {
+        "specific_volume_cm3_g": 0.45,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.11112805200420839
+      },
+      {
+        "specific_volume_cm3_g": 0.45,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.11310261077201234
+      },
+      {
+        "specific_volume_cm3_g": 0.45,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.11309520211440782
+      },
+      {
+        "specific_volume_cm3_g": 0.45,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.11194616938617008
+      },
+      {
+        "specific_volume_cm3_g": 0.45,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.12008027715776382
+      },
+      {
+        "specific_volume_cm3_g": 0.45,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.11773505100778348
+      },
+      {
+        "specific_volume_cm3_g": 0.45,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.11505361213500453
+      },
+      {
+        "specific_volume_cm3_g": 0.45,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.12212730391816828
+      },
+      {
+        "specific_volume_cm3_g": 0.45,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.11901714980409706
+      },
+      {
+        "specific_volume_cm3_g": 0.4568,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.10776307017015824
+      },
+      {
+        "specific_volume_cm3_g": 0.4568,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.1130246893467452
+      },
+      {
+        "specific_volume_cm3_g": 0.4568,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.11455041106848529
+      },
+      {
+        "specific_volume_cm3_g": 0.4568,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.1141804143055325
+      },
+      {
+        "specific_volume_cm3_g": 0.4568,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.11271886428233735
+      },
+      {
+        "specific_volume_cm3_g": 0.4568,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.11057203988488751
+      },
+      {
+        "specific_volume_cm3_g": 0.4568,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.1079670627782563
+      },
+      {
+        "specific_volume_cm3_g": 0.4568,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.11504075908647993
+      },
+      {
+        "specific_volume_cm3_g": 0.4568,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.11188044301541566
+      },
+      {
+        "specific_volume_cm3_g": 0.4568,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.11854444073275072
+      },
+      {
+        "specific_volume_cm3_g": 0.4613,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.10568799635892187
+      },
+      {
+        "specific_volume_cm3_g": 0.4613,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.11064710633464597
+      },
+      {
+        "specific_volume_cm3_g": 0.4613,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.10198213652015398
+      },
+      {
+        "specific_volume_cm3_g": 0.4613,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.10147902376581242
+      },
+      {
+        "specific_volume_cm3_g": 0.4613,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.10991775913897417
+      },
+      {
+        "specific_volume_cm3_g": 0.4613,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.10769228141011178
+      },
+      {
+        "specific_volume_cm3_g": 0.4613,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.10502277112986391
+      },
+      {
+        "specific_volume_cm3_g": 0.4613,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.10204185614759798
+      },
+      {
+        "specific_volume_cm3_g": 0.4613,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.10883416424625025
+      },
+      {
+        "specific_volume_cm3_g": 0.4613,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.10545622353235862
+      },
+      {
+        "specific_volume_cm3_g": 0.4636,
+        "temperature_k": 300,
+        "table1_minus_table2_gpa": -0.10145763378726122
+      },
+      {
+        "specific_volume_cm3_g": 0.4636,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.10636207038659046
+      },
+      {
+        "specific_volume_cm3_g": 0.4636,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.10770051922470358
+      },
+      {
+        "specific_volume_cm3_g": 0.4636,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.10723070686134917
+      },
+      {
+        "specific_volume_cm3_g": 0.4636,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.1057200689950788
+      },
+      {
+        "specific_volume_cm3_g": 0.4636,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.10355613988351142
+      },
+      {
+        "specific_volume_cm3_g": 0.4636,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.10095549917940039
+      },
+      {
+        "specific_volume_cm3_g": 0.4636,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.10804859735989036
+      },
+      {
+        "specific_volume_cm3_g": 0.4636,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.10491866919835457
+      },
+      {
+        "specific_volume_cm3_g": 0.4636,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.10162131056651758
+      },
+      {
+        "specific_volume_cm3_g": 0.4681,
+        "temperature_k": 400,
+        "table1_minus_table2_gpa": -0.1024311663613763
+      },
+      {
+        "specific_volume_cm3_g": 0.4681,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.10407965096415861
+      },
+      {
+        "specific_volume_cm3_g": 0.4681,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.10397920127632343
+      },
+      {
+        "specific_volume_cm3_g": 0.4681,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.10287230606741271
+      },
+      {
+        "specific_volume_cm3_g": 0.4681,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.10113378417692509
+      },
+      {
+        "specific_volume_cm3_g": 0.4681,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.09897306945210005
+      },
+      {
+        "specific_volume_cm3_g": 0.4681,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.09651629279415941
+      },
+      {
+        "specific_volume_cm3_g": 0.4681,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.09384392603257408
+      },
+      {
+        "specific_volume_cm3_g": 0.4681,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.10100971628790534
+      },
+      {
+        "specific_volume_cm3_g": 0.4726,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.09817375541827172
+      },
+      {
+        "specific_volume_cm3_g": 0.4726,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.0989803340409291
+      },
+      {
+        "specific_volume_cm3_g": 0.4726,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.0988152986300671
+      },
+      {
+        "specific_volume_cm3_g": 0.4726,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.09804057540788269
+      },
+      {
+        "specific_volume_cm3_g": 0.4726,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.09685835758902539
+      },
+      {
+        "specific_volume_cm3_g": 0.4726,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.09539040103387708
+      },
+      {
+        "specific_volume_cm3_g": 0.4726,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.09371437996497733
+      },
+      {
+        "specific_volume_cm3_g": 0.4726,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.09188216994822174
+      },
+      {
+        "specific_volume_cm3_g": 0.4772,
+        "temperature_k": 500,
+        "table1_minus_table2_gpa": -0.10499965179941217
+      },
+      {
+        "specific_volume_cm3_g": 0.4772,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.09738977998157292
+      },
+      {
+        "specific_volume_cm3_g": 0.4772,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.09884400152271283
+      },
+      {
+        "specific_volume_cm3_g": 0.4772,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.09971101527082626
+      },
+      {
+        "specific_volume_cm3_g": 0.4772,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.10018559071597877
+      },
+      {
+        "specific_volume_cm3_g": 0.4772,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.10038499996512562
+      },
+      {
+        "specific_volume_cm3_g": 0.4772,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.10038405095870773
+      },
+      {
+        "specific_volume_cm3_g": 0.4772,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.1002327021684497
+      },
+      {
+        "specific_volume_cm3_g": 0.4817,
+        "temperature_k": 600,
+        "table1_minus_table2_gpa": -0.10010764203092373
+      },
+      {
+        "specific_volume_cm3_g": 0.4817,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.09364878368236451
+      },
+      {
+        "specific_volume_cm3_g": 0.4817,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.09662429974716047
+      },
+      {
+        "specific_volume_cm3_g": 0.4817,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.09922182886229314
+      },
+      {
+        "specific_volume_cm3_g": 0.4817,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.09155433781272748
+      },
+      {
+        "specific_volume_cm3_g": 0.4817,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.09369388299782888
+      },
+      {
+        "specific_volume_cm3_g": 0.4817,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.0956885828635603
+      },
+      {
+        "specific_volume_cm3_g": 0.4862,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.0967483559092223
+      },
+      {
+        "specific_volume_cm3_g": 0.4862,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.09214065185077736
+      },
+      {
+        "specific_volume_cm3_g": 0.4862,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.09716884721315455
+      },
+      {
+        "specific_volume_cm3_g": 0.4862,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.09194177045511387
+      },
+      {
+        "specific_volume_cm3_g": 0.4862,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.09652883368306497
+      },
+      {
+        "specific_volume_cm3_g": 0.4862,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.0909763872865057
+      },
+      {
+        "specific_volume_cm3_g": 0.493,
+        "temperature_k": 700,
+        "table1_minus_table2_gpa": -0.0961643776686946
+      },
+      {
+        "specific_volume_cm3_g": 0.493,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.09544828748357881
+      },
+      {
+        "specific_volume_cm3_g": 0.493,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.09438798185761421
+      },
+      {
+        "specific_volume_cm3_g": 0.493,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.09308636141633053
+      },
+      {
+        "specific_volume_cm3_g": 0.493,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.09160905122588892
+      },
+      {
+        "specific_volume_cm3_g": 0.493,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.09999986988142817
+      },
+      {
+        "specific_volume_cm3_g": 0.4988,
+        "temperature_k": 800,
+        "table1_minus_table2_gpa": -0.06345487591974205
+      },
+      {
+        "specific_volume_cm3_g": 0.4988,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.05567105816420534
+      },
+      {
+        "specific_volume_cm3_g": 0.4988,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.057657356745049626
+      },
+      {
+        "specific_volume_cm3_g": 0.4988,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.0594762945254228
+      },
+      {
+        "specific_volume_cm3_g": 0.4988,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.06116961636185558
+      },
+      {
+        "specific_volume_cm3_g": 0.5088,
+        "temperature_k": 900,
+        "table1_minus_table2_gpa": -0.08307416183257774
+      },
+      {
+        "specific_volume_cm3_g": 0.5088,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.0804418352200334
+      },
+      {
+        "specific_volume_cm3_g": 0.5088,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.0876559919776026
+      },
+      {
+        "specific_volume_cm3_g": 0.5088,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.08475492945796059
+      },
+      {
+        "specific_volume_cm3_g": 0.5179,
+        "temperature_k": 1000,
+        "table1_minus_table2_gpa": -0.07699287615365406
+      },
+      {
+        "specific_volume_cm3_g": 0.5179,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.07896359878420547
+      },
+      {
+        "specific_volume_cm3_g": 0.5179,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.07082791855684212
+      },
+      {
+        "specific_volume_cm3_g": 0.5269,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.07933386285524978
+      },
+      {
+        "specific_volume_cm3_g": 0.5269,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.07574998624878093
+      },
+      {
+        "specific_volume_cm3_g": 0.536,
+        "temperature_k": 1100,
+        "table1_minus_table2_gpa": -0.0783730159184663
+      },
+      {
+        "specific_volume_cm3_g": 0.536,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.07923640600761754
+      },
+      {
+        "specific_volume_cm3_g": 0.5405,
+        "temperature_k": 1200,
+        "table1_minus_table2_gpa": -0.07246419922587612
+      }
+    ]
+  },
+  "accepted_14_statistics_gpa": {
+    "table1_minus_source_gpa": {
+      "mean": 0.4451659389150922,
+      "rms": 0.4559698883386433,
+      "minimum": 0.24012162193247555,
+      "maximum": 0.5698668792949526
+    },
+    "table2_minus_source_gpa": {
+      "mean": 0.5570544943295943,
+      "rms": 0.5663752982987835,
+      "minimum": 0.34376757364936594,
+      "maximum": 0.6850446417250211
+    },
+    "source_minus_ringwoodite_gpa": {
+      "mean": -0.5933157025621145,
+      "rms": 0.9830903893680879,
+      "minimum": -2.5245972749938446,
+      "maximum": 0.4120370548353893
+    },
+    "table1_minus_ringwoodite_gpa": {
+      "mean": -0.1481497636470223,
+      "rms": 0.7604954194980525,
+      "minimum": -2.049294121661209,
+      "maximum": 0.7922524897837224
+    },
+    "table2_minus_ringwoodite_gpa": {
+      "mean": -0.03626120823252015,
+      "rms": 0.7476564496383091,
+      "minimum": -1.940103234944944,
+      "maximum": 0.9031720348893977
+    },
+    "half_sample_temperature_table1_minus_source_gpa": {
+      "mean": 0.038017513965250646,
+      "rms": 0.10548218467206508,
+      "minimum": -0.16671231327176628,
+      "maximum": 0.16227290751450063
+    },
+    "half_sample_temperature_table2_minus_source_gpa": {
+      "mean": 0.15138485691602543,
+      "rms": 0.1821196560827685,
+      "minimum": -0.06160207781268667,
+      "maximum": 0.27984013171119315
+    }
+  },
+  "table2_temperature_extension_measurements": [
+    "Fay025heat",
+    "Fay028heat"
+  ],
+  "calibration_explains_hot_residuals": false,
+  "author_reduction_reproduced": false,
+  "rows": [
+    {
+      "measurement": "Fay008heat",
+      "included_by_table_s1": 0,
+      "exclusion_footnote": "1",
+      "nacl_specific_volume_cm3_g": 0.3689427727199831,
+      "sample_temperature_k": 796.0,
+      "midpoint_marker_temperature_k": 548.0,
+      "marker_above_published_table2_temperature_grid": 0,
+      "source_pressure_gpa": 9.35,
+      "source_pressure_uncertainty_gpa": 0.44,
+      "brown_table1_pressure_gpa": 10.05926306460559,
+      "brown_table2_pressure_gpa": 10.180524175242008,
+      "table1_minus_source_gpa": 0.7092630646055902,
+      "table2_minus_source_gpa": 0.8305241752420081,
+      "fixed_ringwoodite_model_pressure_gpa": 7.991543920421487,
+      "source_minus_ringwoodite_gpa": 1.358456079578513,
+      "table1_minus_ringwoodite_gpa": 2.067719144184103,
+      "table2_minus_ringwoodite_gpa": 2.188980254820521,
+      "table2_lattice_only_pressure_sd_gpa": 0.5469622029940702,
+      "table2_dp_dt_gpa_k": 0.0027314611890538743,
+      "marker_temperature_matching_source_table1_k": 275.8823527678347,
+      "marker_temperature_matching_source_table2_k": 226.73833637617597,
+      "marker_temperature_matching_ringwoodite_table2_k": null,
+      "marker_fraction_matching_ringwoodite_table2": null,
+      "half_sample_temperature_diagnostic_k": 398.0,
+      "half_sample_temperature_table1_minus_source_gpa": 0.3127898128584743,
+      "half_sample_temperature_table2_minus_source_gpa": 0.43560959551564515,
+      "table2_whole_sample_temperature_minus_ringwoodite_gpa": 2.849536588689146
+    },
+    {
+      "measurement": "Fay009heat",
+      "included_by_table_s1": 1,
+      "exclusion_footnote": "0",
+      "nacl_specific_volume_cm3_g": 0.37076512762511543,
+      "sample_temperature_k": 1148.0,
+      "midpoint_marker_temperature_k": 724.0,
+      "marker_above_published_table2_temperature_grid": 0,
+      "source_pressure_gpa": 9.77,
+      "source_pressure_uncertainty_gpa": 0.3,
+      "brown_table1_pressure_gpa": 10.21727886802405,
+      "brown_table2_pressure_gpa": 10.338301666891319,
+      "table1_minus_source_gpa": 0.4472788680240498,
+      "table2_minus_source_gpa": 0.568301666891319,
+      "fixed_ringwoodite_model_pressure_gpa": 9.551207632256368,
+      "source_minus_ringwoodite_gpa": 0.21879236774363164,
+      "table1_minus_ringwoodite_gpa": 0.6660712357676815,
+      "table2_minus_ringwoodite_gpa": 0.7870940346349506,
+      "table2_lattice_only_pressure_sd_gpa": 0.24356691117429108,
+      "table2_dp_dt_gpa_k": 0.002699763472602257,
+      "marker_temperature_matching_source_table1_k": 557.7968503119517,
+      "marker_temperature_matching_source_table2_k": 513.709643754484,
+      "marker_temperature_matching_ringwoodite_table2_k": 430.0505238578476,
+      "marker_fraction_matching_ringwoodite_table2": 0.15336146681349955,
+      "half_sample_temperature_diagnostic_k": 574.0,
+      "half_sample_temperature_table1_minus_source_gpa": 0.043408561888959696,
+      "half_sample_temperature_table2_minus_source_gpa": 0.16298223027358816,
+      "table2_whole_sample_temperature_minus_ringwoodite_gpa": 1.9315306802618952
+    },
+    {
+      "measurement": "Fay010heat",
+      "included_by_table_s1": 1,
+      "exclusion_footnote": "0",
+      "nacl_specific_volume_cm3_g": 0.37184865569731274,
+      "sample_temperature_k": 1219.5,
+      "midpoint_marker_temperature_k": 759.75,
+      "marker_above_published_table2_temperature_grid": 0,
+      "source_pressure_gpa": 9.75,
+      "source_pressure_uncertainty_gpa": 0.23,
+      "brown_table1_pressure_gpa": 10.130215434948333,
+      "brown_table2_pressure_gpa": 10.241134980054008,
+      "table1_minus_source_gpa": 0.3802154349483331,
+      "table2_minus_source_gpa": 0.49113498005400835,
+      "fixed_ringwoodite_model_pressure_gpa": 9.33796294516461,
+      "source_minus_ringwoodite_gpa": 0.4120370548353893,
+      "table1_minus_ringwoodite_gpa": 0.7922524897837224,
+      "table2_minus_ringwoodite_gpa": 0.9031720348893977,
+      "table2_lattice_only_pressure_sd_gpa": 0.14633163885141798,
+      "table2_dp_dt_gpa_k": 0.0027055236545336925,
+      "marker_temperature_matching_source_table1_k": 619.0472281549343,
+      "marker_temperature_matching_source_table2_k": 576.0442749978425,
+      "marker_temperature_matching_ringwoodite_table2_k": 422.3238086804167,
+      "marker_fraction_matching_ringwoodite_table2": 0.1330329621320464,
+      "half_sample_temperature_diagnostic_k": 609.75,
+      "half_sample_temperature_table1_minus_source_gpa": -0.02503245045142144,
+      "half_sample_temperature_table2_minus_source_gpa": 0.0904921557487075,
+      "table2_whole_sample_temperature_minus_ringwoodite_gpa": 2.150167579392239
+    },
+    {
+      "measurement": "Fay011heat",
+      "included_by_table_s1": 1,
+      "exclusion_footnote": "0",
+      "nacl_specific_volume_cm3_g": 0.3720400853979016,
+      "sample_temperature_k": 1259.0,
+      "midpoint_marker_temperature_k": 779.5,
+      "marker_above_published_table2_temperature_grid": 0,
+      "source_pressure_gpa": 9.81,
+      "source_pressure_uncertainty_gpa": 0.25,
+      "brown_table1_pressure_gpa": 10.151515768382541,
+      "brown_table2_pressure_gpa": 10.26015733400045,
+      "table1_minus_source_gpa": 0.34151576838254094,
+      "table2_minus_source_gpa": 0.45015733400044944,
+      "fixed_ringwoodite_model_pressure_gpa": 9.774864418971031,
+      "source_minus_ringwoodite_gpa": 0.0351355810289693,
+      "table1_minus_ringwoodite_gpa": 0.37665134941151024,
+      "table2_minus_ringwoodite_gpa": 0.48529291502941874,
+      "table2_lattice_only_pressure_sd_gpa": 0.12276445697153804,
+      "table2_dp_dt_gpa_k": 0.0027267228648319985,
+      "marker_temperature_matching_source_table1_k": 653.2961304935245,
+      "marker_temperature_matching_source_table2_k": 610.7958451694714,
+      "marker_temperature_matching_ringwoodite_table2_k": 597.6227792230253,
+      "marker_fraction_matching_ringwoodite_table2": 0.3103470064890775,
+      "half_sample_temperature_diagnostic_k": 629.5,
+      "half_sample_temperature_table1_minus_source_gpa": -0.06418516884370717,
+      "half_sample_temperature_table2_minus_source_gpa": 0.04966328368523243,
+      "table2_whole_sample_temperature_minus_ringwoodite_gpa": 1.7877450731867839
+    },
+    {
+      "measurement": "Fay012heat",
+      "included_by_table_s1": 1,
+      "exclusion_footnote": "0",
+      "nacl_specific_volume_cm3_g": 0.3728064611938643,
+      "sample_temperature_k": 1352.5,
+      "midpoint_marker_temperature_k": 826.25,
+      "marker_above_published_table2_temperature_grid": 0,
+      "source_pressure_gpa": 9.91,
+      "source_pressure_uncertainty_gpa": 0.26,
+      "brown_table1_pressure_gpa": 10.150121621932476,
+      "brown_table2_pressure_gpa": 10.253767573649366,
+      "table1_minus_source_gpa": 0.24012162193247555,
+      "table2_minus_source_gpa": 0.34376757364936594,
+      "fixed_ringwoodite_model_pressure_gpa": 9.701633988609824,
+      "source_minus_ringwoodite_gpa": 0.20836601139017574,
+      "table1_minus_ringwoodite_gpa": 0.4484876333226513,
+      "table2_minus_ringwoodite_gpa": 0.5521335850395417,
+      "table2_lattice_only_pressure_sd_gpa": 0.11066424736076996,
+      "table2_dp_dt_gpa_k": 0.002806005088018537,
+      "marker_temperature_matching_source_table1_k": 737.8081724422816,
+      "marker_temperature_matching_source_table2_k": 699.8328387119218,
+      "marker_temperature_matching_ringwoodite_table2_k": 619.7799091841322,
+      "marker_fraction_matching_ringwoodite_table2": 0.30382889233646765,
+      "half_sample_temperature_diagnostic_k": 676.25,
+      "half_sample_temperature_table1_minus_source_gpa": -0.16671231327176628,
+      "half_sample_temperature_table2_minus_source_gpa": -0.06160207781268667,
+      "table2_whole_sample_temperature_minus_ringwoodite_gpa": 1.9847371564544911
+    },
+    {
+      "measurement": "Fay013heat",
+      "included_by_table_s1": 1,
+      "exclusion_footnote": "0",
+      "nacl_specific_volume_cm3_g": 0.372849068458098,
+      "sample_temperature_k": 1511.0,
+      "midpoint_marker_temperature_k": 905.5,
+      "marker_above_published_table2_temperature_grid": 0,
+      "source_pressure_gpa": 9.85,
+      "source_pressure_uncertainty_gpa": 0.24,
+      "brown_table1_pressure_gpa": 10.358650778506375,
+      "brown_table2_pressure_gpa": 10.467816419787491,
+      "table1_minus_source_gpa": 0.5086507785063752,
+      "table2_minus_source_gpa": 0.6178164197874914,
+      "fixed_ringwoodite_model_pressure_gpa": 10.052045669210104,
+      "source_minus_ringwoodite_gpa": -0.20204566921010425,
+      "table1_minus_ringwoodite_gpa": 0.30660510929627094,
+      "table2_minus_ringwoodite_gpa": 0.4157707505773871,
+      "table2_lattice_only_pressure_sd_gpa": 0.10918063227052244,
+      "table2_dp_dt_gpa_k": 0.00274322438178487,
+      "marker_temperature_matching_source_table1_k": 718.2973206874242,
+      "marker_temperature_matching_source_table2_k": 679.6956726356586,
+      "marker_temperature_matching_ringwoodite_table2_k": 755.8830139939369,
+      "marker_fraction_matching_ringwoodite_table2": 0.3764517043715416,
+      "half_sample_temperature_diagnostic_k": 755.5,
+      "half_sample_temperature_table1_minus_source_gpa": 0.10087078549177875,
+      "half_sample_temperature_table2_minus_source_gpa": 0.2010084492067108,
+      "table2_whole_sample_temperature_minus_ringwoodite_gpa": 2.060924451182858
+    },
+    {
+      "measurement": "Fay014quench",
+      "included_by_table_s1": 0,
+      "exclusion_footnote": "2",
+      "nacl_specific_volume_cm3_g": 0.37406474058907574,
+      "sample_temperature_k": 300.0,
+      "midpoint_marker_temperature_k": 300.0,
+      "marker_above_published_table2_temperature_grid": 0,
+      "source_pressure_gpa": 8.62,
+      "source_pressure_uncertainty_gpa": 0.21,
+      "brown_table1_pressure_gpa": 8.533616264802577,
+      "brown_table2_pressure_gpa": 8.650286589939228,
+      "table1_minus_source_gpa": -0.0863837351974226,
+      "table2_minus_source_gpa": 0.030286589939228392,
+      "fixed_ringwoodite_model_pressure_gpa": 8.531385535949548,
+      "source_minus_ringwoodite_gpa": 0.08861446405045115,
+      "table1_minus_ringwoodite_gpa": 0.002230728853028552,
+      "table2_minus_ringwoodite_gpa": 0.11890105398967954,
+      "table2_lattice_only_pressure_sd_gpa": 0.09807279880885034,
+      "table2_dp_dt_gpa_k": 0.002496172228738658,
+      "marker_temperature_matching_source_table1_k": 333.6138132611294,
+      "marker_temperature_matching_source_table2_k": 288.08984177014685,
+      "marker_temperature_matching_ringwoodite_table2_k": 252.73922839048114,
+      "marker_fraction_matching_ringwoodite_table2": null,
+      "half_sample_temperature_diagnostic_k": 300,
+      "half_sample_temperature_table1_minus_source_gpa": -0.0863837351974226,
+      "half_sample_temperature_table2_minus_source_gpa": 0.030286589939228392,
+      "table2_whole_sample_temperature_minus_ringwoodite_gpa": 0.11890105398967954
+    },
+    {
+      "measurement": "Fay019preheat",
+      "included_by_table_s1": 0,
+      "exclusion_footnote": "2",
+      "nacl_specific_volume_cm3_g": 0.3627161413248346,
+      "sample_temperature_k": 300.0,
+      "midpoint_marker_temperature_k": 300.0,
+      "marker_above_published_table2_temperature_grid": 0,
+      "source_pressure_gpa": 10.6,
+      "source_pressure_uncertainty_gpa": 0.13,
+      "brown_table1_pressure_gpa": 10.551676989116206,
+      "brown_table2_pressure_gpa": 10.690179959170788,
+      "table1_minus_source_gpa": -0.048323010883793316,
+      "table2_minus_source_gpa": 0.09017995917078814,
+      "fixed_ringwoodite_model_pressure_gpa": 11.730770877845817,
+      "source_minus_ringwoodite_gpa": -1.1307708778458174,
+      "table1_minus_ringwoodite_gpa": -1.1790938887296107,
+      "table2_minus_ringwoodite_gpa": -1.0405909186750293,
+      "table2_lattice_only_pressure_sd_gpa": 0.10837148084796411,
+      "table2_dp_dt_gpa_k": 0.002524106796730763,
+      "marker_temperature_matching_source_table1_k": 319.31898125865064,
+      "marker_temperature_matching_source_table2_k": 263.37398573721816,
+      "marker_temperature_matching_ringwoodite_table2_k": 700.7128192299418,
+      "marker_fraction_matching_ringwoodite_table2": null,
+      "half_sample_temperature_diagnostic_k": 300,
+      "half_sample_temperature_table1_minus_source_gpa": -0.048323010883793316,
+      "half_sample_temperature_table2_minus_source_gpa": 0.09017995917078814,
+      "table2_whole_sample_temperature_minus_ringwoodite_gpa": -1.0405909186750293
+    },
+    {
+      "measurement": "Fay020heat",
+      "included_by_table_s1": 1,
+      "exclusion_footnote": "0",
+      "nacl_specific_volume_cm3_g": 0.36885815767009306,
+      "sample_temperature_k": 1397.5,
+      "midpoint_marker_temperature_k": 848.75,
+      "marker_above_published_table2_temperature_grid": 0,
+      "source_pressure_gpa": 10.48,
+      "source_pressure_uncertainty_gpa": 0.59,
+      "brown_table1_pressure_gpa": 10.882614610221609,
+      "brown_table2_pressure_gpa": 10.998000789501917,
+      "table1_minus_source_gpa": 0.40261461022160816,
+      "table2_minus_source_gpa": 0.518000789501917,
+      "fixed_ringwoodite_model_pressure_gpa": 10.606177469391547,
+      "source_minus_ringwoodite_gpa": -0.12617746939154628,
+      "table1_minus_ringwoodite_gpa": 0.2764371408300619,
+      "table2_minus_ringwoodite_gpa": 0.3918233201103707,
+      "table2_lattice_only_pressure_sd_gpa": 0.3443231531193191,
+      "table2_dp_dt_gpa_k": 0.002693657388874726,
+      "marker_temperature_matching_source_table1_k": 699.4833606118965,
+      "marker_temperature_matching_source_table2_k": 655.30611254332,
+      "marker_temperature_matching_ringwoodite_table2_k": 703.7729359086305,
+      "marker_fraction_matching_ringwoodite_table2": 0.36790244729715765,
+      "half_sample_temperature_diagnostic_k": 698.75,
+      "half_sample_temperature_table1_minus_source_gpa": -0.0019730217346651813,
+      "half_sample_temperature_table2_minus_source_gpa": 0.11292856908949389,
+      "table2_whole_sample_temperature_minus_ringwoodite_gpa": 1.876478936753216
+    },
+    {
+      "measurement": "Fay021heat",
+      "included_by_table_s1": 1,
+      "exclusion_footnote": "0",
+      "nacl_specific_volume_cm3_g": 0.36983201214425887,
+      "sample_temperature_k": 1872.0,
+      "midpoint_marker_temperature_k": 1086.0,
+      "marker_above_published_table2_temperature_grid": 0,
+      "source_pressure_gpa": 10.8,
+      "source_pressure_uncertainty_gpa": 0.39,
+      "brown_table1_pressure_gpa": 11.358222970299877,
+      "brown_table2_pressure_gpa": 11.47346789591961,
+      "table1_minus_source_gpa": 0.5582229702998767,
+      "table2_minus_source_gpa": 0.6734678959196092,
+      "fixed_ringwoodite_model_pressure_gpa": 11.84926945355885,
+      "source_minus_ringwoodite_gpa": -1.0492694535588498,
+      "table1_minus_ringwoodite_gpa": -0.49104648325897315,
+      "table2_minus_ringwoodite_gpa": -0.3758015576392406,
+      "table2_lattice_only_pressure_sd_gpa": 0.2604208748321568,
+      "table2_dp_dt_gpa_k": 0.002699671551020799,
+      "marker_temperature_matching_source_table1_k": 880.324897388785,
+      "marker_temperature_matching_source_table2_k": 836.1706643385505,
+      "marker_temperature_matching_ringwoodite_table2_k": 1224.9918625936648,
+      "marker_fraction_matching_ringwoodite_table2": 0.588417215390372,
+      "half_sample_temperature_diagnostic_k": 936.0,
+      "half_sample_temperature_table1_minus_source_gpa": 0.15092918808805322,
+      "half_sample_temperature_table2_minus_source_gpa": 0.26822887613479196,
+      "table2_whole_sample_temperature_minus_ringwoodite_gpa": 1.7636257152833394
+    },
+    {
+      "measurement": "Fay022heat",
+      "included_by_table_s1": 1,
+      "exclusion_footnote": "0",
+      "nacl_specific_volume_cm3_g": 0.3700651440648249,
+      "sample_temperature_k": 1924.5,
+      "midpoint_marker_temperature_k": 1112.25,
+      "marker_above_published_table2_temperature_grid": 0,
+      "source_pressure_gpa": 10.82,
+      "source_pressure_uncertainty_gpa": 0.28,
+      "brown_table1_pressure_gpa": 11.389866879294953,
+      "brown_table2_pressure_gpa": 11.505044641725021,
+      "table1_minus_source_gpa": 0.5698668792949526,
+      "table2_minus_source_gpa": 0.6850446417250211,
+      "fixed_ringwoodite_model_pressure_gpa": 11.982641961600509,
+      "source_minus_ringwoodite_gpa": -1.1626419616005084,
+      "table1_minus_ringwoodite_gpa": -0.5927750823055558,
+      "table2_minus_ringwoodite_gpa": -0.47759731987548726,
+      "table2_lattice_only_pressure_sd_gpa": 0.28962354899952913,
+      "table2_dp_dt_gpa_k": 0.0026991408525134375,
+      "marker_temperature_matching_source_table1_k": 902.4399289167337,
+      "marker_temperature_matching_source_table2_k": 858.2999978321528,
+      "marker_temperature_matching_ringwoodite_table2_k": 1288.3848320739366,
+      "marker_fraction_matching_ringwoodite_table2": 0.6084240271307705,
+      "half_sample_temperature_diagnostic_k": 962.25,
+      "half_sample_temperature_table1_minus_source_gpa": 0.16227290751450063,
+      "half_sample_temperature_table2_minus_source_gpa": 0.27984013171119315,
+      "table2_whole_sample_temperature_minus_ringwoodite_gpa": 1.7349986183621446
+    },
+    {
+      "measurement": "Fay023heat",
+      "included_by_table_s1": 1,
+      "exclusion_footnote": "0",
+      "nacl_specific_volume_cm3_g": 0.37082880622786596,
+      "sample_temperature_k": 1665.5,
+      "midpoint_marker_temperature_k": 982.75,
+      "marker_above_published_table2_temperature_grid": 0,
+      "source_pressure_gpa": 10.36,
+      "source_pressure_uncertainty_gpa": 0.33,
+      "brown_table1_pressure_gpa": 10.908058009963362,
+      "brown_table2_pressure_gpa": 11.025643005114768,
+      "table1_minus_source_gpa": 0.5480580099633627,
+      "table2_minus_source_gpa": 0.6656430051147684,
+      "fixed_ringwoodite_model_pressure_gpa": 10.801654259290896,
+      "source_minus_ringwoodite_gpa": -0.4416542592908961,
+      "table1_minus_ringwoodite_gpa": 0.10640375067246666,
+      "table2_minus_ringwoodite_gpa": 0.2239887458238723,
+      "table2_lattice_only_pressure_sd_gpa": 0.3493352703293339,
+      "table2_dp_dt_gpa_k": 0.002700951159795295,
+      "marker_temperature_matching_source_table1_k": 780.7827345325577,
+      "marker_temperature_matching_source_table2_k": 736.1455025426545,
+      "marker_temperature_matching_ringwoodite_table2_k": 899.7956375010579,
+      "marker_fraction_matching_ringwoodite_table2": 0.43924982607181096,
+      "half_sample_temperature_diagnostic_k": 832.75,
+      "half_sample_temperature_table1_minus_source_gpa": 0.1407864632173954,
+      "half_sample_temperature_table2_minus_source_gpa": 0.2608176328946623,
+      "table2_whole_sample_temperature_minus_ringwoodite_gpa": 2.0809000966291276
+    },
+    {
+      "measurement": "Fay024heat",
+      "included_by_table_s1": 1,
+      "exclusion_footnote": "0",
+      "nacl_specific_volume_cm3_g": 0.370871262680089,
+      "sample_temperature_k": 1685.0,
+      "midpoint_marker_temperature_k": 992.5,
+      "marker_above_published_table2_temperature_grid": 0,
+      "source_pressure_gpa": 10.4,
+      "source_pressure_uncertainty_gpa": 0.32,
+      "brown_table1_pressure_gpa": 10.92737727949044,
+      "brown_table2_pressure_gpa": 11.04468883650381,
+      "table1_minus_source_gpa": 0.5273772794904392,
+      "table2_minus_source_gpa": 0.6446888365038088,
+      "fixed_ringwoodite_model_pressure_gpa": 10.957707867102492,
+      "source_minus_ringwoodite_gpa": -0.5577078671024918,
+      "table1_minus_ringwoodite_gpa": -0.03033058761205254,
+      "table2_minus_ringwoodite_gpa": 0.08698096940131705,
+      "table2_lattice_only_pressure_sd_gpa": 0.3574009224005792,
+      "table2_dp_dt_gpa_k": 0.0027004075148440165,
+      "marker_temperature_matching_source_table1_k": 798.2225922200278,
+      "marker_temperature_matching_source_table2_k": 753.7070466558497,
+      "marker_temperature_matching_ringwoodite_table2_k": 960.2900679544338,
+      "marker_fraction_matching_ringwoodite_table2": 0.47674373137504245,
+      "half_sample_temperature_diagnostic_k": 842.5,
+      "half_sample_temperature_table1_minus_source_gpa": 0.12000446502848838,
+      "half_sample_temperature_table2_minus_source_gpa": 0.2397546940346622,
+      "table2_whole_sample_temperature_minus_ringwoodite_gpa": 1.9709048655617298
+    },
+    {
+      "measurement": "Fay025heat",
+      "included_by_table_s1": 1,
+      "exclusion_footnote": "0",
+      "nacl_specific_volume_cm3_g": 0.37148724544608047,
+      "sample_temperature_k": 2515.0,
+      "midpoint_marker_temperature_k": 1407.5,
+      "marker_above_published_table2_temperature_grid": 1,
+      "source_pressure_gpa": 11.48,
+      "source_pressure_uncertainty_gpa": 0.54,
+      "brown_table1_pressure_gpa": 11.955303153332636,
+      "brown_table2_pressure_gpa": 12.064494040048901,
+      "table1_minus_source_gpa": 0.47530315333263573,
+      "table2_minus_source_gpa": 0.5844940400489005,
+      "fixed_ringwoodite_model_pressure_gpa": 14.004597274993845,
+      "source_minus_ringwoodite_gpa": -2.5245972749938446,
+      "table1_minus_ringwoodite_gpa": -2.049294121661209,
+      "table2_minus_ringwoodite_gpa": -1.940103234944944,
+      "table2_lattice_only_pressure_sd_gpa": 0.3545189945896254,
+      "table2_dp_dt_gpa_k": 0.0027315197678845493,
+      "marker_temperature_matching_source_table1_k": 1233.4064331690447,
+      "marker_temperature_matching_source_table2_k": 1193.2960103969397,
+      "marker_temperature_matching_ringwoodite_table2_k": 2116.92487742535,
+      "marker_fraction_matching_ringwoodite_table2": 0.820282111704447,
+      "half_sample_temperature_diagnostic_k": 1257.5,
+      "half_sample_temperature_table1_minus_source_gpa": 0.06574767336526932,
+      "half_sample_temperature_table2_minus_source_gpa": 0.17493856008153408,
+      "table2_whole_sample_temperature_minus_ringwoodite_gpa": 1.089764451099656
+    },
+    {
+      "measurement": "Fay026heat",
+      "included_by_table_s1": 1,
+      "exclusion_footnote": "0",
+      "nacl_specific_volume_cm3_g": 0.37282776442021326,
+      "sample_temperature_k": 1970.0,
+      "midpoint_marker_temperature_k": 1135.0,
+      "marker_above_published_table2_temperature_grid": 0,
+      "source_pressure_gpa": 10.7,
+      "source_pressure_uncertainty_gpa": 0.67,
+      "brown_table1_pressure_gpa": 10.988193894182908,
+      "brown_table2_pressure_gpa": 11.090620031349228,
+      "table1_minus_source_gpa": 0.28819389418290875,
+      "table2_minus_source_gpa": 0.3906200313492292,
+      "fixed_ringwoodite_model_pressure_gpa": 11.467958802574696,
+      "source_minus_ringwoodite_gpa": -0.7679588025746966,
+      "table1_minus_ringwoodite_gpa": -0.47976490839178787,
+      "table2_minus_ringwoodite_gpa": -0.37733877122546744,
+      "table2_lattice_only_pressure_sd_gpa": 0.19523064646520538,
+      "table2_dp_dt_gpa_k": 0.0027059395825368426,
+      "marker_temperature_matching_source_table1_k": 1029.429712272981,
+      "marker_temperature_matching_source_table2_k": 990.3587207981526,
+      "marker_temperature_matching_ringwoodite_table2_k": 1273.9612368824255,
+      "marker_fraction_matching_ringwoodite_table2": 0.5832103214864823,
+      "half_sample_temperature_diagnostic_k": 985.0,
+      "half_sample_temperature_table1_minus_source_gpa": -0.12117821280884655,
+      "half_sample_temperature_table2_minus_source_gpa": -0.014334026197674987,
+      "table2_whole_sample_temperature_minus_ringwoodite_gpa": 1.9061345803294483
+    },
+    {
+      "measurement": "Fay027heat",
+      "included_by_table_s1": 1,
+      "exclusion_footnote": "0",
+      "nacl_specific_volume_cm3_g": 0.37182738978491175,
+      "sample_temperature_k": 1903.0,
+      "midpoint_marker_temperature_k": 1101.5,
+      "marker_above_published_table2_temperature_grid": 0,
+      "source_pressure_gpa": 10.61,
+      "source_pressure_uncertainty_gpa": 0.82,
+      "brown_table1_pressure_gpa": 11.063270771977606,
+      "brown_table2_pressure_gpa": 11.172747704910321,
+      "table1_minus_source_gpa": 0.453270771977607,
+      "table2_minus_source_gpa": 0.562747704910322,
+      "fixed_ringwoodite_model_pressure_gpa": 11.269008144803678,
+      "source_minus_ringwoodite_gpa": -0.6590081448036784,
+      "table1_minus_ringwoodite_gpa": -0.2057373728260714,
+      "table2_minus_ringwoodite_gpa": -0.09626043989335642,
+      "table2_lattice_only_pressure_sd_gpa": 0.3453401296122571,
+      "table2_dp_dt_gpa_k": 0.002706233440541439,
+      "marker_temperature_matching_source_table1_k": 935.0996860713954,
+      "marker_temperature_matching_source_table2_k": 892.8963528559183,
+      "marker_temperature_matching_ringwoodite_table2_k": 1137.0837338176332,
+      "marker_fraction_matching_ringwoodite_table2": 0.5221982119885422,
+      "half_sample_temperature_diagnostic_k": 951.5,
+      "half_sample_temperature_table1_minus_source_gpa": 0.044626462406654355,
+      "half_sample_temperature_table2_minus_source_gpa": 0.15854864375518218,
+      "table2_whole_sample_temperature_minus_ringwoodite_gpa": 2.091700046354857
+    },
+    {
+      "measurement": "Fay028heat",
+      "included_by_table_s1": 1,
+      "exclusion_footnote": "0",
+      "nacl_specific_volume_cm3_g": 0.37116854858533915,
+      "sample_temperature_k": 2231.5,
+      "midpoint_marker_temperature_k": 1265.75,
+      "marker_above_published_table2_temperature_grid": 1,
+      "source_pressure_gpa": 11.13,
+      "source_pressure_uncertainty_gpa": 0.49,
+      "brown_table1_pressure_gpa": 11.621633104254126,
+      "brown_table2_pressure_gpa": 11.732878001158111,
+      "table1_minus_source_gpa": 0.49163310425412554,
+      "table2_minus_source_gpa": 0.6028780011581105,
+      "fixed_ringwoodite_model_pressure_gpa": 12.819689948341153,
+      "source_minus_ringwoodite_gpa": -1.6896899483411527,
+      "table1_minus_ringwoodite_gpa": -1.1980568440870272,
+      "table2_minus_ringwoodite_gpa": -1.0868119471830422,
+      "table2_lattice_only_pressure_sd_gpa": 0.1841025398965357,
+      "table2_dp_dt_gpa_k": 0.0027279578358907486,
+      "marker_temperature_matching_source_table1_k": 1085.398847653767,
+      "marker_temperature_matching_source_table2_k": 1043.1398018914567,
+      "marker_temperature_matching_ringwoodite_table2_k": 1663.7309284323524,
+      "marker_fraction_matching_ringwoodite_table2": 0.7060475943216942,
+      "half_sample_temperature_diagnostic_k": 1115.75,
+      "half_sample_temperature_table1_minus_source_gpa": 0.08267985562281588,
+      "half_sample_temperature_table2_minus_source_gpa": 0.19612087421895907,
+      "table2_whole_sample_temperature_minus_ringwoodite_gpa": 1.5527073447375503
+    },
+    {
+      "measurement": "Fay029quench",
+      "included_by_table_s1": 0,
+      "exclusion_footnote": "2",
+      "nacl_specific_volume_cm3_g": 0.36112879487589833,
+      "sample_temperature_k": 300.0,
+      "midpoint_marker_temperature_k": 300.0,
+      "marker_above_published_table2_temperature_grid": 0,
+      "source_pressure_gpa": 10.94,
+      "source_pressure_uncertainty_gpa": 0.13,
+      "brown_table1_pressure_gpa": 10.858371464221376,
+      "brown_table2_pressure_gpa": 10.986514888858403,
+      "table1_minus_source_gpa": -0.0816285357786235,
+      "table2_minus_source_gpa": 0.046514888858403936,
+      "fixed_ringwoodite_model_pressure_gpa": 12.993168318509145,
+      "source_minus_ringwoodite_gpa": -2.0531683185091456,
+      "table1_minus_ringwoodite_gpa": -2.134796854287769,
+      "table2_minus_ringwoodite_gpa": -2.0066534296507417,
+      "table2_lattice_only_pressure_sd_gpa": 0.5249491011528917,
+      "table2_dp_dt_gpa_k": 0.0025363972937064716,
+      "marker_temperature_matching_source_table1_k": 332.6528809441287,
+      "marker_temperature_matching_source_table2_k": 281.14542129486824,
+      "marker_temperature_matching_ringwoodite_table2_k": 1059.5521278838062,
+      "marker_fraction_matching_ringwoodite_table2": null,
+      "half_sample_temperature_diagnostic_k": 300,
+      "half_sample_temperature_table1_minus_source_gpa": -0.0816285357786235,
+      "half_sample_temperature_table2_minus_source_gpa": 0.046514888858403936,
+      "table2_whole_sample_temperature_minus_ringwoodite_gpa": -2.0066534296507417
+    }
+  ],
+  "source_pdf_transcription_check": {
+    "table1_rows": 21,
+    "table1_numeric_cells": 126,
+    "table2_rows": 63,
+    "table2_populated_pressure_cells": 571,
+    "all_source_cells_and_blanks_match": true
+  }
+}

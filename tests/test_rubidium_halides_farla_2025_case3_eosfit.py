@@ -3,7 +3,7 @@
 import hashlib
 import json
 import re
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 import numpy as np
 import pytest
@@ -20,7 +20,7 @@ from scripts.run_rubidium_halides_farla_2025_eosfit import covariance, prepare_i
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "docs/data/rubidium-halides-farla-2025-case3-eosfit7c"
-REPORT = json.loads((OUTPUT / "manifest.json").read_text())
+REPORT = json.loads((OUTPUT / "manifest.json").read_text(encoding="utf-8"))
 
 
 @pytest.mark.parametrize("variant", VARIANTS)
@@ -32,17 +32,19 @@ def test_native_case3_models_keep_four_anchors_fixed_and_preserve_evidence(
     case = REPORT["variants"][variant]["cases"][name]
     source = VARIANTS[variant]
     data, mapping = prepare_input(source["compound"], **CASES[name])
-    assert (folder / "input.dat").read_text() == data
-    assert json.loads((folder / "row-map.json").read_text()) == mapping
-    archived = (folder / "run.mcr").read_text()
-    original_folder = Path(archived.splitlines()[0].removeprefix("log ")).parent
+    assert (folder / "input.dat").read_text(encoding="utf-8") == data
+    assert json.loads((folder / "row-map.json").read_text(encoding="utf-8")) == mapping
+    archived = (folder / "run.mcr").read_text(encoding="utf-8")
+    original_folder = PurePosixPath(
+        archived.splitlines()[0].removeprefix("log ")
+    ).parent
     assert commands(variant, original_folder, CASES[name]) == archived
     for filename, digest in case["files_sha256"].items():
         assert hashlib.sha256((folder / filename).read_bytes()).hexdigest() == digest
     assert case["converged"] and case["convergence_messages"] == 2
     assert set(case["refined_parameters_final_cycle"]) == set(PARAMETERS)
     for filename in ("initial.eos", "fitted.eos"):
-        text = (folder / filename).read_text()
+        text = (folder / filename).read_text(encoding="utf-8")
         params = {
             int(k): float(v) for k, v in re.findall(r"Param\s*=\s*(\d+)\s+(\S+)", text)
         }

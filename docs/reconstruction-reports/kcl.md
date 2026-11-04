@@ -636,11 +636,11 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
         - **Gamma0:** 1.51313; 2.35423
         - **Q:** 0.229743; 1.22458
     - **Residual variance:** 0.59865
-    - **Max abs residual jacobian cosine:** 1.10378e-08
+    - **Max abs residual jacobian cosine:** 1.11231e-08
     - **Residual sum squares:** 20.9527
     - **Residual count:** 39
     - **Scaled jacobian condition number:** 619.554
-    - **Derivative step halving relative change:** 2.55456e-12
+    - **Derivative step halving relative change:** 2.55357e-12
     - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
     - **Previous assessment:**
         - **Status:** similar
@@ -999,11 +999,11 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
         - **Gamma0:** 2.63642; 4.13817
         - **Q:** 0.730867; 1.2393
     - **Residual variance:** 1.5952
-    - **Max abs residual jacobian cosine:** 2.43861e-08
+    - **Max abs residual jacobian cosine:** 2.43351e-08
     - **Residual sum squares:** 435.489
     - **Residual count:** 278
     - **Scaled jacobian condition number:** 853.988
-    - **Derivative step halving relative change:** 3.04529e-12
+    - **Derivative step halving relative change:** 3.06676e-12
     - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
     - **Previous assessment:**
         - **Status:** similar

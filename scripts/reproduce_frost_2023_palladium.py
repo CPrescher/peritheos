@@ -14,10 +14,19 @@ import csv
 import hashlib
 import json
 import re
+
+# Retain the archived ODRPACK cross-check without changing its numerical method.
+# SciPy 1.17+ warns on import; migration is required before SciPy 1.19 removes it.
+import warnings
 from pathlib import Path
 
 import numpy as np
-from scipy import odr
+
+with warnings.catch_warnings():
+    warnings.filterwarnings(
+        "ignore", message=r"`scipy\.odr` is deprecated.*", category=DeprecationWarning
+    )
+    from scipy import odr
 from scipy.optimize import brentq, least_squares
 
 from peritheos.eos.rt import BM3, Vinet
@@ -58,7 +67,7 @@ def slope(kind, parameters, volume):
 
 
 def verify_source(text_path):
-    text = text_path.read_text()
+    text = text_path.read_text(encoding="utf-8")
     # Rh Table IV is excluded. Retain every printed Pd row and original token.
     text = text.split("B.   Rhodium in Neon")[0]
     rows = [
@@ -85,7 +94,7 @@ def observations():
     assert hashlib.sha256(DATA.read_bytes()).hexdigest() == DATA_HASH
     with DATA.open() as stream:
         rows = list(csv.DictReader(stream))
-    source = json.loads(SOURCE_ROWS.read_text())["rows"]
+    source = json.loads(SOURCE_ROWS.read_text(encoding="utf-8"))["rows"]
     assert len(rows) == len(source) == 93
     for row, original in zip(rows, source):
         for stored, printed in (

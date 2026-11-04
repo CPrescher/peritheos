@@ -103,7 +103,9 @@ def test_mean_curve_bands_match_independent_linear_coefficient_propagation(calcu
                 )
 
 
-def test_full_physical_parameter_gradients_and_existing_fit_preservation(calculation):
+def test_full_physical_parameter_gradients_and_existing_fit_preservation(
+    calculation, assert_audit_close
+):
     source = json.loads(FIT_REPORT.read_text())
     volumes = np.array([108.0, 120.0, 137.0])
     for model in ("fixed_V0_BM3", "reference_mBM3"):
@@ -119,7 +121,7 @@ def test_full_physical_parameter_gradients_and_existing_fit_preservation(calcula
             ) / (2 * h)
             np.testing.assert_allclose(gradient[:, i], finite, rtol=1e-7, atol=1e-8)
     report, _, _ = calculation
-    assert report == json.loads(REPORT.read_text())
+    assert_audit_close(report, json.loads(REPORT.read_text()))
     assert "full 3x3 covariance" in report["band_convention"]
     assert (
         report["fits"][VERSIONS[1]]["reference_mBM3"]["residual_degrees_of_freedom"]

@@ -124,7 +124,7 @@ def render_research_report():
                 *[f"- {x}" for x in assessment["qualifications"]],
                 "",
             ]
-    RESEARCH_REPORT.write_text("\n".join(lines) + "\n")
+    RESEARCH_REPORT.write_text("\n".join(lines).rstrip() + "\n")
 
 
 def move():

@@ -125,7 +125,7 @@ establish statistical independence.
 **Outcome:** not refittable.
 **Scope:** parameter agreement.
 
-**Comparison basis:** The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
+**Comparison basis:** Conditional measured-pair subset regressions are replayable. The complete source multi-stage regression and uncertainty remain unreproduced; subset coefficient differences do not establish failure of the full published fit.
 
 [Open reconstruction report](../reconstruction-reports/nacl_b2.md#record-nacl_b2_sakai_2025_rydberg_stacey_1)
 

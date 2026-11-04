@@ -14,6 +14,10 @@ and official supplementary workbooks found the other eight scientifically
 equivalent Table 2 rows.  All nine are retained so that the pressure-scale
 network is represented without material-selection bias.
 
+## Sequential measured-pair follow-up (2026-10-19)
+
+[Eight conditional subset stages are now replayable](sakai-2025-network.md): Re, W, Pt, Au, Mo, Fe, MgO and a historical NaCl subset. All 393 measured S1–S7 pairs are recovered, including the distinct Fe–W layout. The six newly exposed material-specific paired tables load through the public dataset API. Published-upstream and propagated sequential controls have curves, residuals and conditional parameter errors. Omitted historical constraints, original weights and covariance keep full-network workflow parity unresolved. These diagnostics preserve all catalog coefficients and the existing full five-family Au result.
+
 ## Primary sources
 
 Takeshi Sakai, Hirokazu Kadobayashi, Yuki Nakamoto, Haruhiko Dekura, Naoki

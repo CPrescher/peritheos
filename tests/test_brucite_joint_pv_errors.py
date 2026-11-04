@@ -15,6 +15,7 @@ from scripts.brucite_joint_pv_errors import (
     reproduce,
     residual,
 )
+from scripts.brucite_replay_checks import check_report
 from scripts.brucite_staged_continuous import runtime_model
 
 
@@ -41,7 +42,7 @@ def test_analytic_jacobian_for_both_coordinate_errors():
 
 
 def test_all_rows_fixed_ambient_law_and_exact_chi_square(report):
-    staged = json.loads(STAGED_REPORT.read_text())
+    staged = json.loads(STAGED_REPORT.read_text(encoding="utf-8"))
     assert report["fixed_ambient_law"] == staged["stage1_ambient"]
     assert report["source_rows"] == list(range(1, 38))
     assert [group["observations"] for group in report["per_temperature"]] == [
@@ -118,9 +119,7 @@ def test_public_native_fit_agrees_and_evaluation_preserves_ambient_volumes(repor
         assert eos.pressure(volume, t) == pytest.approx(10, abs=1e-9)
 
 
-def test_different_objectives_and_comparators_remain_distinct(
-    report, assert_audit_close
-):
+def test_different_objectives_and_comparators_remain_distinct(report):
     weighted = report["fits"]["joint_pv_errors"]
     baseline = report["fits"]["unweighted_joint"]
     assert weighted["projection"]["chi_square"] < baseline["projection"]["chi_square"]
@@ -130,17 +129,4 @@ def test_different_objectives_and_comparators_remain_distinct(
         assert len(fit["row_pressure_residuals_gpa"]) == 37
         assert len(fit["row_volume_residuals_a3"]) == 37
         assert len(fit["projection"]["adjusted_volume_a3"]) == 37
-    # Solver stopping diagnostics vary by platform; their scientific agreement
-    # is tested above through objective, covariance and independent model bounds.
-    assert_audit_close(
-        report,
-        json.loads(REPORT.read_text()),
-        rel=5e-5,
-        abs=1e-9,
-        ignore_keys={
-            "nfev",
-            "solver_message",
-            "optimality",
-            "maximum_parameter_difference_in_native_standard_errors",
-        },
-    )
+    check_report(report, json.loads(REPORT.read_text(encoding="utf-8")))

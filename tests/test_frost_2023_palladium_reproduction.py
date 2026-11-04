@@ -19,11 +19,11 @@ def test_complete_source_transcription_and_independent_fit_replay():
     assert len(p) == 93
     assert (min(p), max(p)) == (2.99, 181.79)
     assert np.all(sv > 0) and np.all(sp == 0.1)
-    rows = json.loads(SOURCE_ROWS.read_text())["rows"]
+    rows = json.loads(SOURCE_ROWS.read_text(encoding="utf-8"))["rows"]
     assert Counter(r["loading"] for r in rows) == {"BX18": 26, "BX32": 20, "HP": 47}
     assert len(v) == len(rows)
     report = replay()  # Includes literal equations/native and independent ODR checks.
-    saved = json.loads(OUTPUT.read_text())
+    saved = json.loads(OUTPUT.read_text(encoding="utf-8"))
     for kind, expected in saved["models"].items():
         current = report["models"][kind]
         assert current["orthogonal_refit"] == pytest.approx(

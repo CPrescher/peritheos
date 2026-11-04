@@ -28,12 +28,16 @@ NODES, WEIGHTS = roots_legendre(48)
 NODES = (NODES + 1) / 2
 WEIGHTS = WEIGHTS / 2
 QUALIFICATION = (
-    "The 146 supplied Table S1 rows are available, but the complete Sata (2008) "
-    "and Ohfuji (2007) cold-fit inputs, final row selection, EosFit file, weights "
-    "and explicit Debye-temperature law are unavailable. Gamma-only fits hold "
-    "the printed cold coefficients fixed and are conditional diagnostics. "
-    "Neither thermal convention reproduces the stated +/-3 GPa bound. "
-    "The source record is deferred; no diagnostic replaces its coefficients."
+    "The 146 Table S1 rows and the confirmed selected 167-row author input, "
+    "including 21 literature cold rows, are bundled. The saved author EOS "
+    "confirms full integrated MGD. These Table-S1-only gamma fits hold the "
+    "printed cold coefficients fixed and remain conditional diagnostics. "
+    "Catalog acceptance instead uses the separately archived cold-then-thermal "
+    "parameter comparison: all four coefficients agree within reported "
+    "uncertainties. The unreproduced +/-3 GPa residual envelope is an "
+    "informational qualification, not an acceptance gate, under the "
+    "2026-10-19 maintainer decision. Published coefficients are unchanged; "
+    "exact author workflow and formal uncertainty parity are not established."
 )
 
 
@@ -329,7 +333,7 @@ def ledger_outcome(record):
         "rmse_gpa": fit["thermal_residual_summary"]["rmse_gpa"],
         "rmse_scope": "146 thermal observations; published replay uses printed cold coefficients and gamma0 at Tr=300 K, refit uses reproduced weighted cold coefficients",
         "reduced_chi_square": fit["thermal_stage"]["eosfit_weighted_chi2_per_dof"],
-        "qualification": "Classified similar: staged reproduced-cold coefficients are compatible within reported uncertainty intervals, and the equal-weight control puts all four central estimates inside published error widths. Exact GUI output and the complete +/-3 GPa residual envelope are separate unresolved findings. Published coefficients are preserved; this is not an automatic replacement EOS or a formal independent uncertainty-parity claim.",
+        "qualification": "Accepted on parameter agreement under the 2026-10-19 maintainer decision: staged reproduced-cold coefficients are compatible within reported uncertainty intervals, and the equal-weight control puts all four central estimates inside published error widths. The numerical label remains similar, without asserting formal independent uncertainty parity or exact author-workflow reproduction. The unreproduced +/-3 GPa residual envelope is informational and does not gate catalog use. Published coefficients are preserved.",
         "reason": record.get("scientific_validation", {}).get("note", QUALIFICATION),
         "author_input_followup": record.get("author_input_followup", {}),
         "staged_manifest": path.relative_to(ROOT).as_posix(),

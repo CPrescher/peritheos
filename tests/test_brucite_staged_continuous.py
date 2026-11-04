@@ -5,6 +5,7 @@ import json
 import numpy as np
 import pytest
 
+from scripts.brucite_replay_checks import check_report
 from scripts.brucite_reproduce import bm3, observations
 from scripts.brucite_staged_comparison import REPORT as STAGED_REPORT
 from scripts.brucite_staged_continuous import (
@@ -22,7 +23,7 @@ def report():
 
 
 def test_fixed_ambient_law_and_regressed_intercepts(report):
-    staged = json.loads(STAGED_REPORT.read_text())
+    staged = json.loads(STAGED_REPORT.read_text(encoding="utf-8"))
     assert report["fixed_ambient_law"] == staged["stage1_ambient"]
     parameters = report["linear_moduli"]["parameters"]
     assert parameters == pytest.approx(
@@ -105,5 +106,5 @@ def test_all37_residuals_preserve_rows_and_report_the_loss_of_slice_agreement(re
     assert report["all37_assessment"]["continuous"]["volume_rmse_a3"] == pytest.approx(
         0.123518423, abs=1e-8
     )
-    saved = json.loads(REPORT.read_text())
-    assert report == saved
+    saved = json.loads(REPORT.read_text(encoding="utf-8"))
+    check_report(report, saved)

@@ -3,7 +3,7 @@
 import hashlib
 import json
 import re
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 import numpy as np
 import pytest
@@ -26,7 +26,7 @@ from scripts.run_rubidium_halides_farla_2025_eosfit import (
 )
 
 OUTPUT = Path(__file__).resolve().parents[1] / "docs/data" / f"{PREFIX}-eosfit7c"
-REPORT = json.loads((OUTPUT / "manifest.json").read_text())
+REPORT = json.loads((OUTPUT / "manifest.json").read_text(encoding="utf-8"))
 
 
 @pytest.mark.parametrize("compound", SOURCE)
@@ -36,19 +36,21 @@ def test_native_inputs_row_selection_model_covariance_and_file_hashes(compound, 
     case = REPORT["cases"][compound][name]
     options = CASES[name]
     data, mapping = prepare_input(compound, **options)
-    assert data == (folder / "input.dat").read_text()
-    assert mapping == json.loads((folder / "row-map.json").read_text())
+    assert data == (folder / "input.dat").read_text(encoding="utf-8")
+    assert mapping == json.loads((folder / "row-map.json").read_text(encoding="utf-8"))
     assert len(mapping) == case["observations"]
     # Archived macros name their original absolute checkout, including on clones.
-    archived_macro = (folder / "run.mcr").read_text()
-    original_folder = Path(archived_macro.splitlines()[0].removeprefix("log ")).parent
+    archived_macro = (folder / "run.mcr").read_text(encoding="utf-8")
+    original_folder = PurePosixPath(
+        archived_macro.splitlines()[0].removeprefix("log ")
+    ).parent
     assert macro(compound, original_folder, **options) == archived_macro
     for filename, digest in case["files_sha256"].items():
         assert hashlib.sha256((folder / filename).read_bytes()).hexdigest() == digest
     assert case["converged"]
     assert case["convergence_messages"] == 2
     assert set(case["refined_parameters_final_cycle"]) == set(PARAMETERS)
-    model = (folder / "fitted.eos").read_text()
+    model = (folder / "fitted.eos").read_text(encoding="utf-8")
     assert "Model =  2," in model and "Order =  3" in model
     assert "Thermal =  7," in model and "Type = Volume" in model
     assert "Pscale =GPa" in model and "Vscale =cm^3/mol" in model
@@ -68,7 +70,7 @@ def test_native_inputs_row_selection_model_covariance_and_file_hashes(compound, 
     np.testing.assert_allclose(np.sqrt(np.diag(matrix)), errors, atol=1e-5)
     final = (
         (folder / "stdout.txt")
-        .read_text(errors="replace")
+        .read_text(errors="replace", encoding="utf-8")
         .split("RESULTS AFTER FINAL REFINEMENT CYCLE")[-1]
     )
     weights = [

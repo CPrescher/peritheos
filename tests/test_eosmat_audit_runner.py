@@ -22,13 +22,15 @@ def test_audit_uses_temporary_legacy_file_and_restores_native_state(tmp_path, ou
 
     def main():
         assert module.MATERIAL != path
-        document = json.loads(module.MATERIAL.read_text())
+        document = json.loads(module.MATERIAL.read_text(encoding="utf-8"))
         assert document["format_version"] == 3
         assert sys.argv == ["historical_audit", "--check"]
         if outcome == "check":
             return
         document["audit_extension"] = {"ordered": [3, 1, 2]}
-        module.MATERIAL.write_text(json.dumps(document))
+        module.MATERIAL.write_text(
+            json.dumps(document, ensure_ascii=False), encoding="utf-8"
+        )
         if outcome == "failure":
             raise RuntimeError("Audit failed")
         if outcome == "concurrent":

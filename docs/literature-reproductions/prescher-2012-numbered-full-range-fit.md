@@ -20,7 +20,7 @@ Primary weighted SSE/(19-3) = 3.34023. Residual-scaled formal errors are V0 +/- 
 
 Fixed-V0 errors condition on exact adopted curve V0 and exclude its uncertainty. The source does not print V0 or recoverably specify whether it was fixed. The old 22-marker parity comparison uses digitized graph coordinates and equal pressure weights; it remains a separate conditional comparison.
 
-Independent ODRPACK and linear-pressure checks pass. Numerical comparison does not reproduce the author's input set, weighting, covariance or confidence convention. Published coefficients, observations and database/Studio assessments remain unchanged.
+Independent ODRPACK and linear-pressure checks pass. Numerical comparison does not reproduce the author's input set, weighting, covariance or confidence convention. Published coefficients and observations remain unchanged. This Studio snapshot adopts the fixed-V0 equal-pressure control as its recorded coefficient comparison, retaining the K0 uncertainty mismatch.
 
 Complete numeric evidence: `docs/data/prescher-2012-numbered-full-range-fit.json`.
 

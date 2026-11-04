@@ -1530,10 +1530,11 @@ pub fn material_from_value(document: Value) -> Result<Material, EosmatError> {
         let normalized = native_v4::expand(&document)?;
         validate_document_structure(&normalized)?;
         let mut material = construct_material(normalized)?;
-        let source_records = document["eos_records"]
-            .as_array()
-            .ok_or_else(|| invalid_document("eos_records must be an array"))?;
-        for (record, source) in material.eos_records.iter_mut().zip(source_records) {
+        for (record, source) in material.eos_records.iter_mut().zip(
+            document["eos_records"]
+                .as_array()
+                .ok_or_else(|| invalid_document("eos_records must be an array"))?,
+        ) {
             record.document = source.clone();
         }
         material.document = document;

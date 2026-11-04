@@ -53,9 +53,9 @@ class DiagnosticComparison:
 def ledger():
     return {
         r["record_identifier"]: r
-        for r in json.loads((ROOT / "docs/data/primary-eos-refits.json").read_text())[
-            "records"
-        ]
+        for r in json.loads(
+            (ROOT / "docs/data/primary-eos-refits.json").read_text(encoding="utf-8")
+        )["records"]
     }
 
 
@@ -170,7 +170,9 @@ def dorfman_comparison(record):
 
     mode = "fixed" if "_k0_fixed_" in record["identifier"] else "free"
     report = json.loads(
-        (ROOT / "docs/data/dorfman-2012-cocompression-refit.json").read_text()
+        (ROOT / "docs/data/dorfman-2012-cocompression-refit.json").read_text(
+            encoding="utf-8"
+        )
     )
     fit = report["fits"][mode]
     source = REFERENCE_PARAMETERS if mode == "fixed" else PUBLISHED_FREE_PARAMETERS
@@ -379,7 +381,7 @@ def fu_comparison(record):
     )
 
     report = json.loads(
-        (ROOT / "docs/data/fu-2023-casio3-refit-audit.json").read_text()
+        (ROOT / "docs/data/fu-2023-casio3-refit-audit.json").read_text(encoding="utf-8")
     )
     fitted = next(
         f

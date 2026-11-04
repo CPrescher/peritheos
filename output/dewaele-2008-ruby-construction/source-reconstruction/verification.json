@@ -1,0 +1,30 @@
+{
+  "vinet_inverse_max_error_GPa": 3.0411229090532288e-12,
+  "independent_equal_K0_ratio_identity_max_error_GPa": 3.211653165635653e-12,
+  "published_2008_formula_vs_Figure3_max_error_GPa": 0.01068517065200325,
+  "321_vs_1601_grid_max_calibration_change_GPa": 0.0002947234624457451,
+  "dense_grid_fit": {
+    "A_GPa": 1916.9160597720283,
+    "B": 10.152766536275148,
+    "target_mean_RMSE_GPa": 0.03289421084889321,
+    "target_mean_max_abs_residual_GPa": 0.06635895881242959,
+    "fit_coordinate_2004_range_GPa": [
+      0.0,
+      160.0
+    ],
+    "grid_points": 1601
+  },
+  "source_hashes": {
+    "output/dewaele-2008-ruby-construction/aip-1972-table4d12-co-ni-ag-isotherms.csv": "cf942d812882de136939310f28031fb4da1823c202d5ff634792b5b23de634e7",
+    "output/dewaele-2008-ruby-construction/hixson-1992-293K-density-isotherms.csv": "96a4e8821006d07e874f51788d0ad8983fe5fbac91de05d3de753a7293562c37",
+    "output/dewaele-2008-ruby-construction/hixson-1992-300K-isotherms.csv": "5f3fe2540e4f57c71f4a684feedbba1dfc7eb98d970a34fcdef32357a94a0c75",
+    "output/dewaele-2008-ruby-construction/wang-2002-table2-generalized-eos.csv": "0ad5a1d7c1db755ec4b9d59bd5ee54f43255b1d2d4377a6953d54a02dc652e26",
+    "output/dewaele-2008-ruby-construction/dewaele-2004-table2-vinet-branches.csv": "fea5bdde21bd26706a028721eebcf82dace84b0a51e987441eb25b18cac1e344",
+    "output/dewaele-2008-ruby-construction/source-table4-vinet-pairs.csv": "22611524e18b772fd19327c22e896780f6c02d9f7cbf9ea0bc66896800b37574",
+    "output/dewaele-2008-ruby-construction/holmes-1989-300K-parameterization.json": "7607fa88cd2a0e0883b78099bf473faed65f6dbcea51778ec737a217b5450051",
+    "output/dewaele-2008-ruby-construction/dewaele-loubeyre-2007-stress-correction.json": "27b40ef2dc05f13427e858a51c20041b89a0f296c12f9fce84eb9c147279be14",
+    "output/dewaele-2008-ruby-construction/pressure-volume-input-inventory.csv": "0448d7e9543421725f0989a3cf3f3c5f4c409c4aa3c7bcc5cf9532f19dc1141b",
+    "output/dewaele-2008-ruby-construction/figure3-source.json": "d38bacc57c6a6bdaee881510715dafa00a8a704b1520d36101e0f2ad8015d4c7",
+    "docs/data/dewaele-2008-followup-source.json": "2e35bea5f2a67d310f6ab0d01c345a04f9364c07a1aaa8d4e397f56a5ae14326"
+  }
+}

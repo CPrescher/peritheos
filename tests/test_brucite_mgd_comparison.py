@@ -58,7 +58,7 @@ def test_inversion_against_bracketed_roots(report):
 def test_matched_rows_objectives_and_conditional_covariance(report):
     import json
 
-    saved = json.loads(REPORT.read_text())
+    saved = json.loads(REPORT.read_text(encoding="utf-8"))
     assert saved["source_file_sha256"] == report["source_file_sha256"]
     assert len(report["row_order"]) == 48
     assert report["row_order"][:37] == [

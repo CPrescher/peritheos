@@ -12,7 +12,7 @@ agreement, source verification, author-workflow reproduction and recommendation 
 
 | EOS record | Recorded outcome | Coefficient comparison |
 | --- | --- | --- |
-| [Finger et al. (1979), 23 degC BM2, measured ambient-cell reconstruction](#record-ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction) | Source calculation reconstructed | Graph and table |
+| [Finger et al. (1979), 23 degC BM2, measured ambient-cell reconstruction](#record-ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction) | Coefficient parity achieved | Graph and table |
 
 <a id="record-ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction"></a>
 
@@ -20,10 +20,10 @@ agreement, source verification, author-workflow reproduction and recommendation 
 
 Record: `ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction` · Model: `BM2`
 
-**Outcome: Source calculation reconstructed.**
+**Outcome: Coefficient parity achieved.**
 
-**Scope:** Reconstruction of a source equation or calculation.
-**Comparison basis:** Derived BM2 ambient-cell reconstruction at 296.15 K and 0–4 GPa: measured V0=558.7(2) A^3 is adopted and fixed; published K0=196(6) GPa and implicit K0-prime=4 are preserved. V0 error is a measurement esd, not a fit error; K0 error confidence and covariance are unspecified. The two compressed states agree within their combined coordinate error widths. The K0-only equal-pressure diagnostic is conditional on the adopted ambient volume; its error is RSS/dof-scaled and excludes V0/calibration uncertainty. This reconstructs the declared static curve, not the authors' original fit intercept, objective, weighting or pressure reduction. The separate 2011 thermal candidate remains staged and is not installed or validated here.
+**Scope:** Comparison with the source parameterization.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Stored EOS coefficients and source](../material-summaries/ferrous_ringwoodite.md#record-ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction)
 
@@ -32,6 +32,7 @@ Record: `ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction` · Mod
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
+- Derived ambient-cell reconstruction: published BM2 K0=196(6) GPa, Kprime=4 and measured V0=558.7(2) A3 are preserved. Conditional equal-pressure-residual K0 check uses only the two compressed states, with V0 fixed. Refit covariance is residual-scaled with one degree of freedom and omits V0/coordinate/calibration uncertainty. Original author objective and fitted intercept are not recovered. The ambient row is archived as the reference constraint; no thermal EOS is accepted.
 - Original author fit objective, weights, covariance and exact intercept constraint unavailable.
 - Exact pressure-scale equation and paired marker readings not recovered.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
@@ -40,15 +41,15 @@ Record: `ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction` · Mod
 
 - **Dataset identifiers:** ferrous\_ringwoodite\_finger\_1979\_table2
 - **Observations:** 2
-- **Fit kind:** conditional\_K0\_diagnostic
-- **Selection:** Two compressed Table 2 Fe2SiO4 rows; the separate measured ambient row fixes V0.
-- **Objective:** unweighted pressure residuals at measured volumes
-- **Weighting:** equal pressure weights; source coordinate errors retained separately
+- **Fit kind:** finger\_1979\_fixed\_measured\_v0
+- **Selection:** Two compressed Table 2 states; ambient row defines fixed V0 and is excluded from regression/RMS.
+- **Objective:** equal pressure residuals
 - **Free parameters:** K0
-- **Fixed parameters:** V0; K0\_prime
+- **Fixed parameters:** V0
 - **Fixed values:**
     - **K0 prime:** 4
     - **V0:** 558.7
+- **Validation fixed parameters:** V0; K0\_prime
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
@@ -64,7 +65,7 @@ Unspecified selections, weights, fixed values or error conventions remain unknow
 
 Both fits use the same 2 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
 
-**Volume coordinate:** audit volume in record units. **Row selection:** Two compressed Table 2 Fe2SiO4 rows; the separate measured ambient row fixes V0..
+**Volume coordinate:** audit volume in record units. **Row selection:** Two compressed Table 2 states; ambient row defines fixed V0 and is excluded from regression/RMS..
 
 Two compressed Table 2 states at 296.15 K; the separate measured ambient volume fixes V0=558.7 A^3. The K0-only equal-pressure reconstruction is a conditional diagnostic, not recovery of the original author fit or a replacement catalog coefficient. Published K0=196(6) GPa is unchanged. Validity is 0–4 GPa only.
 
@@ -94,13 +95,15 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 - **Solver success:** True
 - **Rmse gpa:** 0.101627
 - **Published rmse gpa:** 0.101687
-- **Reconstruction kind:** derived\_ambient\_cell\_static\_curve
-- **Reproduction report:** docs/data/finger-1979-ringwoodite-static.json
+- **Parameter covariance:** \[\["39.8052"\]\]
+- **Covariance convention:** conditional residual-scaled covariance, one degree of freedom; fixed V0 uncertainty not propagated
+- **Reproduction report:** docs/research/ferrous-ringwoodite-armentrout-2011-integration.md
 
 </details>
 
 ### Detailed evidence and existing plots
 
+- [Supporting source report: ferrous-ringwoodite-armentrout-2011-integration](../research/ferrous-ringwoodite-armentrout-2011-integration.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 

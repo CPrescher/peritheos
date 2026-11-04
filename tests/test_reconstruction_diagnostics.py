@@ -104,7 +104,9 @@ def test_native_inputs_units_and_partial_scope_without_regression(
 def test_dorfman_joint_objective_and_calculated_baseline_are_distinct(mode):
     c = replay("gold", f"gold_dorfman_2012_tange_mgo_k0_{mode}_vinet")
     report = json.loads(
-        (ROOT / "docs/data/dorfman-2012-cocompression-refit.json").read_text()
+        (ROOT / "docs/data/dorfman-2012-cocompression-refit.json").read_text(
+            encoding="utf-8"
+        )
     )["fits"][mode]
     baseline, pairs, normalized = c.panels
     assert "Calculated" in baseline.observed_label
@@ -140,7 +142,7 @@ def test_native_replays_match_saved_audit_statistics_and_row_scope():
     assert chi_square == pytest.approx(ledger()[rid]["chi_square"])
     c = replay("ca_perovskite", "ca_perovskite_fu_2023_bm3_mgd_refit")
     report = json.loads(
-        (ROOT / "docs/data/fu-2023-casio3-refit-audit.json").read_text()
+        (ROOT / "docs/data/fu-2023-casio3-refit-audit.json").read_text(encoding="utf-8")
     )
     fit = next(
         f
@@ -225,3 +227,24 @@ def test_auxiliary_acoustic_parameters_follow_the_uncertainty_rounding_rule():
     assert display["published"] == "163.5" and display["published_error"] == "1.1"
     assert display["refit"] == "163.5" and display["refit_error"] == "1.4"
     assert row == before
+
+
+def test_plot_cache_accepts_roundoff_but_rejects_changed_values_and_labels():
+    from scripts.report_plot_cache import same_inputs
+
+    assert same_inputs([0.0, 5.0], [2e-11, 5.0 + 2e-10])
+    assert not same_inputs([0.0, 5.0], [1e-6, 5.0])
+    assert not same_inputs([0.0], [0.0, 0.0])
+    assert not same_inputs([True], [1])
+    assert not same_inputs(["5"], [5])
+    assert same_inputs([None], [None])
+    assert same_inputs([[1.0], [2.0, 3.0], None], [[1.0], [2.0, 3.0], None])
+    c = replay("mgo", "mgo_li_2006_bm3_absolute_acoustic")
+    svg = curve_svg(c)
+    c.panels[0].refit[0] += 1e-11
+    assert current_curve(svg, c)
+    c.panels[0].refit[0] += 1e-5
+    assert not current_curve(svg, c)
+    c.panels[0].refit[0] -= 1e-5
+    c.panels[0].unit = "Changed unit"
+    assert not current_curve(svg, c)

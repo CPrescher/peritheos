@@ -24,6 +24,10 @@
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 1, "molar_mass_g_mol": 58.44277},
       "notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
+      "network_reconstruction_audit": {
+        "report": "docs/literature-reproductions/sakai-2025-network.md",
+        "scope": "Conditional historical measured-pair subset plus named Matsui reference constraint; complete source regression and uncertainty not reproduced."
+      },
       "reference": {
         "authors": [
           "Sakai",
@@ -86,7 +90,7 @@
             "status": "not_refittable",
             "scope": "parameter_agreement",
             "source_status": "not_refittable",
-            "basis": "The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.",
+            "basis": "Conditional measured-pair subset regressions are replayable. The complete source multi-stage regression and uncertainty remain unreproduced; subset coefficient differences do not establish failure of the full published fit.",
             "qualifications": [
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
               "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."

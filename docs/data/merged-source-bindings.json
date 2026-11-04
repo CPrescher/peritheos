@@ -1,0 +1,387 @@
+{
+  "purpose": "Exact compatibility fingerprints for the reviewed merge. Original release/cohort fingerprints are preserved in their original files. Current scientific values and source-resource bytes are checked independently against both parents. No new fitting or source classification is performed by these pins.",
+  "branch_parent": "b0a02017235d3b608aa42d95db3cca9261098406",
+  "upstream_parent": "e2d4b163fb5187ede29aa872c1b4cdf584bbd2d2",
+  "bindings": {
+    "release_document": {
+      "peritheos/data/materials/akimotoite.eosmat": {
+        "historical_sha256": "38a1b092c832f2022b9c0f85dd3d618ea1e7efc95c8c7a2082533508e1e3fb3e",
+        "merged_sha256": "7fb598fbae989b18ea89effc1d4620bc7f88d636f48ceed05af43ddc3d69e225"
+      },
+      "peritheos/data/materials/al2o3_perovskite.eosmat": {
+        "historical_sha256": "9e93681975d071fe055ef3a432b1e76ed1052f014742a091e2f0d0b297859487",
+        "merged_sha256": "85b60ac81398c3b35e35f67ac0011ecc9ea116b22d4e23d88e10cf4966ab0115"
+      },
+      "peritheos/data/materials/cementite.eosmat": {
+        "historical_sha256": "80b694da6b37f90d3b643fc1252eb75c579dabbf6af9e65b0935e24cfa7025d2",
+        "merged_sha256": "45b359467c3c9ceda7edafa0c0f8e9b30bf143fdd405ca4017eb27875d750b61"
+      },
+      "peritheos/data/materials/coesite.eosmat": {
+        "historical_sha256": "d95633580e72f4eddb3890f338e109bdc42a1bea35a5a1be060aa17989b9e590",
+        "merged_sha256": "f43c65c2dfa4943edc8f9dd18c69ac66d2e90dde4464b0a9c14b84cebd984e1b"
+      },
+      "peritheos/data/materials/fe088sio3_bridgmanite.eosmat": {
+        "historical_sha256": "a97c717e34024af9029188b06a118c514fee780c0cd5c5c3bd821f03f09465cc",
+        "merged_sha256": "a37f7cc2cd9f22830437e5fe04be0f824582feebd6dcbdf86a289239e5b36be2"
+      },
+      "peritheos/data/materials/feo.eosmat": {
+        "historical_sha256": "424427adeecc824b3d2a4381c1cdc1712926798a9b38950797d5c76934419dc7",
+        "merged_sha256": "6077a29628b2d4b682229ecb55b37ed6f08b8c5f8e40a38fcfdf92e2fbd9ed76"
+      },
+      "peritheos/data/materials/ferropericlase_fe27.eosmat": {
+        "historical_sha256": "2ce9ae4d10eb233a49cf0c4fd73e1438f4cb4aed5308222250f43caf8d53cac8",
+        "merged_sha256": "d8f7b2cba2417d581909f1e935196297516287c69d60eab50cc37121d9157018"
+      },
+      "peritheos/data/materials/ferrous_ringwoodite.eosmat": {
+        "historical_sha256": "404e9189383e94834713116f1fdc3cb383cb319b804b3016f695524e3c8ac356",
+        "merged_sha256": "64957d79784012fb63807ad9a89fac80a9e470191bd1d03dcacc87cec598da10"
+      },
+      "peritheos/data/materials/fesio3_bridgmanite.eosmat": {
+        "historical_sha256": "f916e974abe345136b8ab085b2e550947e9fc0fdfc443ef279b4a9404f3a2524",
+        "merged_sha256": "13ef195a20d0ab98dcc6024213c8bd4d17bbbf9f057aa4693eb8317d432aa823"
+      },
+      "peritheos/data/materials/iron_carbide_fe7c3.eosmat": {
+        "historical_sha256": "32c10663463c2d851d6ee3f9847390d8e96a393325e5da50bb64b617cab9f865",
+        "merged_sha256": "be98ff11894fbbd549f9aee04e0405ca762b24544c708c3e6e7d5eac35135e8b"
+      },
+      "peritheos/data/materials/klb1_ferropericlase.eosmat": {
+        "historical_sha256": "a6a3155972c84ab03c56ecc3d82f3746a1b2b4ed370549848af95c430edcaff2",
+        "merged_sha256": "0c947edb0c644b79567c2cf60e1ab4b154ac753aa8bd488ccab1abb427148d87"
+      },
+      "peritheos/data/materials/klb1_mg_perovskite.eosmat": {
+        "historical_sha256": "1750d1ff0d406c1d1b7f374c4ebbfd34df55142b703d4984247bb9032cf5eadb",
+        "merged_sha256": "a4cafaf12c095c205bcc17700b370942b4ce4d0217401865102a641ce6ba3d04"
+      },
+      "peritheos/data/materials/magnesiowustite_fe56.eosmat": {
+        "historical_sha256": "533d7a3dc1502172eb2d070382679e9bc07217bb13b3767c51bd09b4361e0cd6",
+        "merged_sha256": "1024de1c9e41e4e18ccc0125167c4509fb6496e941dd958e83135295489210fe"
+      },
+      "peritheos/data/materials/magnesiowustite_fe75.eosmat": {
+        "historical_sha256": "db8de72f1a3fec903d0a8d8e78d2501fea2b8a7dbff82764091da89b8911ce66",
+        "merged_sha256": "520a4da839ade7d4e10c261d69b67a9b6f08f0e50572618c6175af48e0f8dab6"
+      },
+      "peritheos/data/materials/mg0125fe0875o.eosmat": {
+        "historical_sha256": "6ca9c65990e97b3a8fd759a7600427016c77913c2bd2244c69fa2897c8dfbc9e",
+        "merged_sha256": "aefde9cf38805306be8ed6e4fc6dd0f74592b748fc872795c172d9233d49d8c4"
+      },
+      "peritheos/data/materials/mg0215fe0762vac0023o_b1.eosmat": {
+        "historical_sha256": "2fc2e39533b07dfc725135a7a70d2d5d259a1279ba2e73c3eaec9ebf8e6963d6",
+        "merged_sha256": "2a99f579eac5a71455ce7b7ae3f7dbde062b3dd5f57701f75f169de982ca830a"
+      },
+      "peritheos/data/materials/mg025fe075o.eosmat": {
+        "historical_sha256": "70719d859696ef6ad29f31ef66d73c778f944de74a5cf86ae0bb790f27b303d6",
+        "merged_sha256": "f0bbc0ae682fff6e841f1d70c32467d2341b526fa01811c85ed945bcdc150aa6"
+      },
+      "peritheos/data/materials/mg0375fe0625o.eosmat": {
+        "historical_sha256": "0d0b773fb3e3bdeb4a5adff3bb391f789f55d0efeb456e1ae2a605667fdd712a",
+        "merged_sha256": "46ec26fec062a7bf4d6a59bb80f30db445575482e7312efd57f5cdedbfb69ec2"
+      },
+      "peritheos/data/materials/mg042fe058o.eosmat": {
+        "historical_sha256": "c3712f1bd635df1009f82a7cc7095041162bfaca807574af2bd8e0eb112534f2",
+        "merged_sha256": "d222f7e9e10dab3d21c79d4867cfe8251b8744b67a230d10609f1d546cfb27cb"
+      },
+      "peritheos/data/materials/mg0490fe0483ti0027o.eosmat": {
+        "historical_sha256": "6ba67236dcf6df420ad68fdc1ac375c93d52985cad27951a2c5229a48cec8be7",
+        "merged_sha256": "1c93d702e8ad91dc940456ed08eac8d8d1a834bc4205d61458ee002ad12fbd3f"
+      },
+      "peritheos/data/materials/mg05fe05al05si05o3_bridgmanite.eosmat": {
+        "historical_sha256": "08b836cdddb9804ba0700bea8ae1b5f072fb661f09c6c416a2851023d8be08eb",
+        "merged_sha256": "4b6a413e99e0abf16ea18b563d08535d5c9a363413a93265e065f3c8454d685e"
+      },
+      "peritheos/data/materials/mg05fe05o.eosmat": {
+        "historical_sha256": "a07b3ca749187e7a64a0db40f7a5836af2b8d661e3c1d8ba368a95624746f3f4",
+        "merged_sha256": "48d04d4a3c70f14ee4328c0838a2193b27ab6e5d3c98ee46f201ae97904220eb"
+      },
+      "peritheos/data/materials/mg061fe039o.eosmat": {
+        "historical_sha256": "45273f07772f9978387cf8328a92ad58cda3b449bc04a079bb63f0a4b1b95ef4",
+        "merged_sha256": "62a9057ed22bbb62fbaba1a0135f818cc992c8309eb13caadb4fb86d2f438ab8"
+      },
+      "peritheos/data/materials/mg0625fe0375o.eosmat": {
+        "historical_sha256": "25e3b39c06b359d80d374c6de8db0deddb03f5981253528cab5025abd2cd074f",
+        "merged_sha256": "125a2e2a5a7dea0653ea307deb05b2eb4d2d0584d66079931372a8836be1577c"
+      },
+      "peritheos/data/materials/mg065fe035o.eosmat": {
+        "historical_sha256": "e97760d10795bcac827c75cca731a35bc0e9a697f624ba5f51dc9126d564334d",
+        "merged_sha256": "06084a1ddd1465cb4f16d57c4312b2e2fbdd70eaa3dd06d8ff9691b8f000b3d1"
+      },
+      "peritheos/data/materials/mg073fe027o.eosmat": {
+        "historical_sha256": "8b9221155af386102bd04e47c348a106faac37b7cbff9f835bdb831ddc7bb8e1",
+        "merged_sha256": "9aeacfc7a4fc6d17ae545d3e4731ffdf46c7824148aa552f0f95035d17954888"
+      },
+      "peritheos/data/materials/mg075fe025o.eosmat": {
+        "historical_sha256": "07b52dfd0b1292f8eb02db6127db3e6df12d8a3dd8cd926ded3a8c58c0094d37",
+        "merged_sha256": "b791a108800c0ddd98ab5b3bef29e0f664abf157b6f66eeb8b3900fcc6e5e122"
+      },
+      "peritheos/data/materials/mg075fe025sio3_bridgmanite.eosmat": {
+        "historical_sha256": "8d2591577f37386a3e9c1a5a52cf9a82530c7842135b7653be58b1d4bae64a2e",
+        "merged_sha256": "1d53c8c1d5502b9f03093554de4ed3a57b9ea482fd21b9d31ad64465ee64a471"
+      },
+      "peritheos/data/materials/mg080fe020o.eosmat": {
+        "historical_sha256": "70194a2fecca3907cf019ca3a96cdb73ae31349ee0e7d30b4779be646e345999",
+        "merged_sha256": "c27eee8efe473d8ce0c13db747585e56cb7a2c0e65352d0d4ef1cc1795b9070e"
+      },
+      "peritheos/data/materials/mg080fe020sio3_bridgmanite.eosmat": {
+        "historical_sha256": "ced8c55fc27c2bf1aec0b2e55b0b36b2351df93103ecdd2fad3883119201b996",
+        "merged_sha256": "21bc5e38b146a3075603ea8fc0caba5a817b239aeee2a4d5662ce73910f81087"
+      },
+      "peritheos/data/materials/mg083fe017o.eosmat": {
+        "historical_sha256": "b5c03b9d6726bbfec5b98164f9f25880682e9893a6f9b6ada437d9a07b8daddf",
+        "merged_sha256": "81b9d811c4da01766353cbd6e9435d83d79a48f736a214429493665811cde2b6"
+      },
+      "peritheos/data/materials/mg0875fe0125o.eosmat": {
+        "historical_sha256": "c181a582741b536f740c53486c5f50709f94b4d43f61cc2d61dc7d0e76f086d4",
+        "merged_sha256": "d84665ce56bb0bdfcac6df28f5f9e0c03308455f967bb3834ed65f68a5aabc25"
+      },
+      "peritheos/data/materials/mg087fe013sio3_bridgmanite.eosmat": {
+        "historical_sha256": "d68acd8b53935227812823ec8839029b8942090c06b3d3c74c8f49198840463c",
+        "merged_sha256": "7e25726b488d265369af9afde35c40ca0a59dd7fd6ca3849f755b626f4a1889a"
+      },
+      "peritheos/data/materials/mg088fe010al014si090o3_bridgmanite.eosmat": {
+        "historical_sha256": "a234950545a05d1809edaa84d56579e8fbcbc3fea1b04414ecd640b36fef4aee",
+        "merged_sha256": "ddd3eb860615b6e84378b11811b68bbea055c91c55d86cd61214a6913e06a24c"
+      },
+      "peritheos/data/materials/mg090fe009al0005ca0005sio3_bridgmanite.eosmat": {
+        "historical_sha256": "dff818b4e100050b008854dc518c1524e6643e116d84e0c134cabbb5e03b8e56",
+        "merged_sha256": "ac559f82e75c5c507044d3862df4ca9d48540f2bd57d844940b62e09e02bc95e"
+      },
+      "peritheos/data/materials/mg090fe010o.eosmat": {
+        "historical_sha256": "581cbe07189b5e929fafeffea902fc2690099704c335a19c0e2d95526796363f",
+        "merged_sha256": "6c21128eec06301b4c6b62ca03ddcbea22d80d07f14f136db44854639e987149"
+      },
+      "peritheos/data/materials/mg092fe008o.eosmat": {
+        "historical_sha256": "e93d5ac6125749643af9f5abc4296b8fe881053e5facdd84265394c1a11b25b9",
+        "merged_sha256": "9cf36421d70b63a45b0923b4893ff6d918d4071400ae9e3cee027fba04095c5e"
+      },
+      "peritheos/data/materials/mg092fe008sio3_bridgmanite.eosmat": {
+        "historical_sha256": "1058e2ffb5dea43eaf4ab86e6485bb8ad552417234cb82d2d853fe97c1f75dc8",
+        "merged_sha256": "b568169a439a037049f3f9b25e61e06772de9053a862c11cb2f791e4b304f6c7"
+      },
+      "peritheos/data/materials/mg09375al0125si09375o3_bridgmanite.eosmat": {
+        "historical_sha256": "bf5bc2c7a1b1d6437ca4fbdc6e277ff2a34072b9b24dd1b9ddf27e2091dade13",
+        "merged_sha256": "addbbe76174200d772de54d9340f35635c15106c9c36e061754faa1de76418df"
+      },
+      "peritheos/data/materials/mg09375fe00625o.eosmat": {
+        "historical_sha256": "c3cb5661980e5fe20f78e91323f968a009a7286b9fe5b8cf7588923b42002698",
+        "merged_sha256": "308d27a5059d313d3eb47b03e71348a30eb311b2d84f14f6bcdff6025dde96db"
+      },
+      "peritheos/data/materials/mg09375fe00625sio3_bridgmanite.eosmat": {
+        "historical_sha256": "4885e5117a6d17d025cdb2cea1a46d4ede41c8102c23a303284c85a7896c33f2",
+        "merged_sha256": "d224de16da23630ae3b276995624533588e5cadb56244285d8793d1d7fa9bbe3"
+      },
+      "peritheos/data/materials/mg095al010si095o3_bridgmanite.eosmat": {
+        "historical_sha256": "8fea28308f7894c665b10fab53503ee211e32f3e986d235050441f12ecbaef4c",
+        "merged_sha256": "2856395e78ee347554324e9e56802c6dd91c429c62d70e4e7d787383b4f2f44a"
+      },
+      "peritheos/data/materials/mg096875fe003125o.eosmat": {
+        "historical_sha256": "c95319ecaa79b4e645ef58b99cc75e70b57df2a6ce6d900a648f92ad97a0c092",
+        "merged_sha256": "46c4d76634f1e36b01cfd85524a2403c7a7fb7bce87093358182c75f3e9aabb2"
+      },
+      "peritheos/data/materials/mg09al02si09o3_bridgmanite.eosmat": {
+        "historical_sha256": "b280196adebb5afe3efd2db97021e62827746f1e11082591794ff6e004da368d",
+        "merged_sha256": "a80dfe5a06eb1a60d374471ca483b5b47e570e5b9d4dcb006c3db930f2af7d1e"
+      },
+      "peritheos/data/materials/mg09fe01sio3_bridgmanite.eosmat": {
+        "historical_sha256": "f812e0d8a502bdb42d7c4b28a900459ed364f5944a73267c363a7447821a6a8a",
+        "merged_sha256": "12c4ee95f555f98f36ec02e407637e1c1d93904028471e446b4ef9423db6af04"
+      },
+      "peritheos/data/materials/mgal00625h00625si09375o3_bridgmanite.eosmat": {
+        "historical_sha256": "53e0bc2ce28fff0754ea0855c232370c4b6c506474a0b6c54fa3c0515be01347",
+        "merged_sha256": "f19889bef6dab5fb51d0b950055421b67874709c94c218a3d53f6b9b1eceb993"
+      },
+      "peritheos/data/materials/mgal0125si0875o29375_bridgmanite.eosmat": {
+        "historical_sha256": "164eddf731730775463b34e28c5288e439e7ac9bd7c81caf264d5763cfd7a8cd",
+        "merged_sha256": "1ba52b680ea42081c02449a677c29950d6f9fb18a4224503fac6aa489e126572"
+      },
+      "peritheos/data/materials/mgfe60o.eosmat": {
+        "historical_sha256": "716bffd68de0f38bcb763de9d1eb9d5da368c4d8b855efed1a68bd3386826e18",
+        "merged_sha256": "2b54be20f11918af687c37ef7455b95f7c357d938d92183f92bbc7bb62485373"
+      },
+      "peritheos/data/materials/mgfe94o_b1.eosmat": {
+        "historical_sha256": "eaf74ae7d74271e89776a79e9af5bd1a155e2da5ed0e68321bd7eb4f1d34be57",
+        "merged_sha256": "8acafc5caf8f592ca8cb3dee6e4645c85374b529aaaeba8815684ae1d28332e2"
+      },
+      "peritheos/data/materials/mgfe94o_rhombohedral.eosmat": {
+        "historical_sha256": "155a3eac2ce6ccb9c5603b3c561974d1c94b3ec859015cd017ac4b2a0e41fbbf",
+        "merged_sha256": "82286a040478f32f4dff158eb66f6f325ea15f4096ca9fbe1086603d0fb686c5"
+      },
+      "peritheos/data/materials/mgo.eosmat": {
+        "historical_sha256": "3d3b785a534109ae7edad9714e9b2497aa3a6ea14d570d9163ddeef84f3459e3",
+        "merged_sha256": "ddf0a6dddedb8fd6998b191e2e65edf5055f7530764ebc5714d03b7b6693a4c7"
+      },
+      "peritheos/data/materials/molybdenum.eosmat": {
+        "historical_sha256": "d2d5337cf8b9d1193ccf9385e8c7c68acc57a58319480d4d354e7eca2630edaf",
+        "merged_sha256": "ea00d8c4a4fd2a5da7574feafb164659bdba88b04a963c10e16d32f26ad2ba28"
+      },
+      "peritheos/data/materials/perovskite_orthorhombic.eosmat": {
+        "historical_sha256": "33d1adb76acd6f903b48870e67de5a5b066f421b235408057406a1241524658e",
+        "merged_sha256": "41bf95cc016069c432512dfde553c356fb035d84060ec72cfd3f78f86fd793fc"
+      }
+    },
+    "similar_document": {
+      "coesite": {
+        "historical_sha256": "d95633580e72f4eddb3890f338e109bdc42a1bea35a5a1be060aa17989b9e590",
+        "merged_sha256": "f43c65c2dfa4943edc8f9dd18c69ac66d2e90dde4464b0a9c14b84cebd984e1b"
+      },
+      "klb1_ferropericlase": {
+        "historical_sha256": "a6a3155972c84ab03c56ecc3d82f3746a1b2b4ed370549848af95c430edcaff2",
+        "merged_sha256": "0c947edb0c644b79567c2cf60e1ab4b154ac753aa8bd488ccab1abb427148d87"
+      },
+      "mg042fe058o": {
+        "historical_sha256": "c3712f1bd635df1009f82a7cc7095041162bfaca807574af2bd8e0eb112534f2",
+        "merged_sha256": "d222f7e9e10dab3d21c79d4867cfe8251b8744b67a230d10609f1d546cfb27cb"
+      },
+      "mg0490fe0483ti0027o": {
+        "historical_sha256": "6ba67236dcf6df420ad68fdc1ac375c93d52985cad27951a2c5229a48cec8be7",
+        "merged_sha256": "1c93d702e8ad91dc940456ed08eac8d8d1a834bc4205d61458ee002ad12fbd3f"
+      },
+      "mg061fe039o": {
+        "historical_sha256": "45273f07772f9978387cf8328a92ad58cda3b449bc04a079bb63f0a4b1b95ef4",
+        "merged_sha256": "62a9057ed22bbb62fbaba1a0135f818cc992c8309eb13caadb4fb86d2f438ab8"
+      },
+      "mg065fe035o": {
+        "historical_sha256": "e97760d10795bcac827c75cca731a35bc0e9a697f624ba5f51dc9126d564334d",
+        "merged_sha256": "06084a1ddd1465cb4f16d57c4312b2e2fbdd70eaa3dd06d8ff9691b8f000b3d1"
+      },
+      "mg080fe020o": {
+        "historical_sha256": "70194a2fecca3907cf019ca3a96cdb73ae31349ee0e7d30b4779be646e345999",
+        "merged_sha256": "c27eee8efe473d8ce0c13db747585e56cb7a2c0e65352d0d4ef1cc1795b9070e"
+      },
+      "mg083fe017o": {
+        "historical_sha256": "b5c03b9d6726bbfec5b98164f9f25880682e9893a6f9b6ada437d9a07b8daddf",
+        "merged_sha256": "81b9d811c4da01766353cbd6e9435d83d79a48f736a214429493665811cde2b6"
+      },
+      "mg088fe010al014si090o3_bridgmanite": {
+        "historical_sha256": "a234950545a05d1809edaa84d56579e8fbcbc3fea1b04414ecd640b36fef4aee",
+        "merged_sha256": "ddd3eb860615b6e84378b11811b68bbea055c91c55d86cd61214a6913e06a24c"
+      },
+      "mg090fe010o": {
+        "historical_sha256": "581cbe07189b5e929fafeffea902fc2690099704c335a19c0e2d95526796363f",
+        "merged_sha256": "6c21128eec06301b4c6b62ca03ddcbea22d80d07f14f136db44854639e987149"
+      },
+      "mg09fe01sio3_bridgmanite": {
+        "historical_sha256": "f812e0d8a502bdb42d7c4b28a900459ed364f5944a73267c363a7447821a6a8a",
+        "merged_sha256": "12c4ee95f555f98f36ec02e407637e1c1d93904028471e446b4ef9423db6af04"
+      },
+      "mgo": {
+        "historical_sha256": "3d3b785a534109ae7edad9714e9b2497aa3a6ea14d570d9163ddeef84f3459e3",
+        "merged_sha256": "ddf0a6dddedb8fd6998b191e2e65edf5055f7530764ebc5714d03b7b6693a4c7"
+      },
+      "perovskite_orthorhombic": {
+        "historical_sha256": "33d1adb76acd6f903b48870e67de5a5b066f421b235408057406a1241524658e",
+        "merged_sha256": "41bf95cc016069c432512dfde553c356fb035d84060ec72cfd3f78f86fd793fc"
+      }
+    },
+    "uncertainty_datasets": {
+      "molybdenum": {
+        "historical_sha256": "c742aafdd66cd0ba1f927edc34057f92e9da9874b641b36665688efa24d63312",
+        "merged_sha256": "0f768e80ec37181601399f25cd11f4717f04bcd5f2b20b89ae416c0da9d72f00"
+      }
+    }
+  },
+  "source_preservation_review": {
+    "compared_fields": [
+      "model",
+      "parameters (values, errors, fixed flags)",
+      "temperature_ref",
+      "thermal_model",
+      "thermal_parameters",
+      "parameter_error_confidence",
+      "units",
+      "formula_units_per_cell"
+    ],
+    "parent_inventory": {
+      "branch": {
+        "documents": 234,
+        "eos_records": 685,
+        "datasets": 443
+      },
+      "upstream": {
+        "documents": 233,
+        "eos_records": 679,
+        "datasets": 440
+      }
+    },
+    "missing_record_or_dataset_identifiers": [],
+    "changed_compared_source_fields": [],
+    "dataset_metadata_resolutions": [
+      {
+        "parent": "branch",
+        "material_file": "peritheos/data/materials/cementite.eosmat",
+        "dataset": "cementite_prescher_2012_table_s1",
+        "changed_fields": [
+          "description"
+        ]
+      },
+      {
+        "parent": "branch",
+        "material_file": "peritheos/data/materials/cementite.eosmat",
+        "dataset": "cementite_prescher_2012_figure1_digitized",
+        "changed_fields": [
+          "description"
+        ]
+      },
+      {
+        "parent": "branch",
+        "material_file": "peritheos/data/materials/cobalt_hcp.eosmat",
+        "dataset": "cobalt_hcp_dewaele_2008_source_table",
+        "changed_fields": [
+          "observation_views"
+        ]
+      },
+      {
+        "parent": "branch",
+        "material_file": "peritheos/data/materials/fe.eosmat",
+        "dataset": "fe_dewaele_2008_source_table",
+        "changed_fields": [
+          "observation_views"
+        ]
+      },
+      {
+        "parent": "branch",
+        "material_file": "peritheos/data/materials/molybdenum.eosmat",
+        "dataset": "molybdenum_dewaele_2008_source_table",
+        "changed_fields": [
+          "observation_views"
+        ]
+      },
+      {
+        "parent": "branch",
+        "material_file": "peritheos/data/materials/nickel.eosmat",
+        "dataset": "nickel_dewaele_2008_source_table",
+        "changed_fields": [
+          "observation_views"
+        ]
+      },
+      {
+        "parent": "branch",
+        "material_file": "peritheos/data/materials/silver.eosmat",
+        "dataset": "silver_dewaele_2008_source_table",
+        "changed_fields": [
+          "observation_views"
+        ]
+      },
+      {
+        "parent": "branch",
+        "material_file": "peritheos/data/materials/zinc_hcp.eosmat",
+        "dataset": "zinc_hcp_dewaele_2008_source_table",
+        "changed_fields": [
+          "observation_views"
+        ]
+      },
+      {
+        "parent": "upstream",
+        "material_file": "peritheos/data/materials/iron_carbide_fe7c3.eosmat",
+        "dataset": "iron_carbide_fe7c3_prescher_2015_table_s4_compression",
+        "changed_fields": [
+          "related_eos_records",
+          "used_by_eos_records",
+          "description",
+          "recommendation_reason",
+          "usage_recommendation",
+          "notes"
+        ]
+      }
+    ],
+    "scope": "All parent record/dataset identifiers and compared scientific fields are retained exactly. Dataset differences are descriptions, added upstream observation views, and the local provenance-only Table S4 qualification; no source numeric arrays or resource bytes are replaced. This is merge preservation, not scientific validation."
+  }
+}

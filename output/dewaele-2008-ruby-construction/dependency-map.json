@@ -1,0 +1,713 @@
+{
+  "nodes": {
+    "ruby2004": {
+      "parents": [
+        "comparison2004"
+      ],
+      "kind": "shared input calibration"
+    },
+    "comparison2004": {
+      "parents": [
+        "RSW2004",
+        "DAC2004_measured_volumes"
+      ],
+      "kind": "upstream six-metal calibration"
+    },
+    "RSW2004": {
+      "parents": [],
+      "kind": "multiple older shock reductions; row lineage incomplete"
+    },
+    "DAC2004_measured_volumes": {
+      "parents": [],
+      "kind": "measured diffraction"
+    },
+    "helium1998": {
+      "parents": [],
+      "kind": "adopted secondary EOS; upstream calibration unresolved here"
+    },
+    "Au_stress2007": {
+      "parents": [],
+      "kind": "corrected diffraction input, numerical correction unrecovered"
+    },
+    "KennedyKeeler1972": {
+      "parents": [],
+      "kind": "shared compilation/reduction source"
+    },
+    "HixsonFritz1992": {
+      "parents": [],
+      "kind": "shared experimental/reduction source"
+    },
+    "Wang2002": {
+      "parents": [],
+      "kind": "shared MFP reduction model/source"
+    },
+    "Holmes1989": {
+      "parents": [],
+      "kind": "Pt shock reduction"
+    },
+    "Al_preliminary2007": {
+      "parents": [
+        "SWDB",
+        "Al_zero_pressure_thermochemistry"
+      ],
+      "kind": "initial fit; final joint Table I not substituted"
+    },
+    "SWDB": {
+      "parents": [],
+      "kind": "shock database; version and selected rows unavailable"
+    },
+    "Al_zero_pressure_thermochemistry": {
+      "parents": [],
+      "kind": "heat capacity, expansion and elasticity"
+    },
+    "Co_elastic_constraint": {
+      "parents": [],
+      "kind": "shared fixed DAC/RSW K0"
+    },
+    "Co_DAC": {
+      "parents": [
+        "ruby2004",
+        "Co_elastic_constraint"
+      ],
+      "kind": "fitted DAC Vinet curve"
+    },
+    "Co_RSW": {
+      "parents": [
+        "KennedyKeeler1972",
+        "Co_elastic_constraint"
+      ],
+      "kind": "fitted reduced-shock representation; full inputs incomplete"
+    },
+    "Co_difference": {
+      "parents": [
+        "Co_DAC",
+        "Co_RSW"
+      ],
+      "kind": "common-volume pressure difference"
+    },
+    "Ni_elastic_constraint": {
+      "parents": [],
+      "kind": "shared fixed DAC/RSW K0"
+    },
+    "Ni_DAC": {
+      "parents": [
+        "ruby2004",
+        "Ni_elastic_constraint",
+        "helium1998"
+      ],
+      "kind": "fitted DAC Vinet curve"
+    },
+    "Ni_RSW": {
+      "parents": [
+        "KennedyKeeler1972",
+        "Ni_elastic_constraint"
+      ],
+      "kind": "fitted reduced-shock representation; full inputs incomplete"
+    },
+    "Ni_difference": {
+      "parents": [
+        "Ni_DAC",
+        "Ni_RSW"
+      ],
+      "kind": "common-volume pressure difference"
+    },
+    "Mo_elastic_constraint": {
+      "parents": [],
+      "kind": "shared fixed DAC/RSW K0"
+    },
+    "Mo_DAC": {
+      "parents": [
+        "ruby2004",
+        "Mo_elastic_constraint"
+      ],
+      "kind": "fitted DAC Vinet curve"
+    },
+    "Mo_RSW": {
+      "parents": [
+        "HixsonFritz1992",
+        "Mo_elastic_constraint"
+      ],
+      "kind": "fitted reduced-shock representation; full inputs incomplete"
+    },
+    "Mo_difference": {
+      "parents": [
+        "Mo_DAC",
+        "Mo_RSW"
+      ],
+      "kind": "common-volume pressure difference"
+    },
+    "Ag_elastic_constraint": {
+      "parents": [],
+      "kind": "shared fixed DAC/RSW K0"
+    },
+    "Ag_DAC": {
+      "parents": [
+        "ruby2004",
+        "Ag_elastic_constraint"
+      ],
+      "kind": "fitted DAC Vinet curve"
+    },
+    "Ag_RSW": {
+      "parents": [
+        "KennedyKeeler1972",
+        "Ag_elastic_constraint"
+      ],
+      "kind": "fitted reduced-shock representation; full inputs incomplete"
+    },
+    "Ag_difference": {
+      "parents": [
+        "Ag_DAC",
+        "Ag_RSW"
+      ],
+      "kind": "common-volume pressure difference"
+    },
+    "Al_elastic_constraint": {
+      "parents": [],
+      "kind": "DAC elastic/reference constraint; older source branch unresolved"
+    },
+    "Al_DAC": {
+      "parents": [
+        "ruby2004",
+        "Al_elastic_constraint"
+      ],
+      "kind": "fitted DAC Vinet curve"
+    },
+    "Al_RSW": {
+      "parents": [
+        "Al_preliminary2007"
+      ],
+      "kind": "fitted reduced-shock representation; full inputs incomplete"
+    },
+    "Al_difference": {
+      "parents": [
+        "Al_DAC",
+        "Al_RSW"
+      ],
+      "kind": "common-volume pressure difference"
+    },
+    "Cu_elastic_constraint": {
+      "parents": [],
+      "kind": "DAC elastic/reference constraint; older source branch unresolved"
+    },
+    "Cu_DAC": {
+      "parents": [
+        "ruby2004",
+        "Cu_elastic_constraint"
+      ],
+      "kind": "fitted DAC Vinet curve"
+    },
+    "Cu_RSW": {
+      "parents": [
+        "Wang2002"
+      ],
+      "kind": "fitted reduced-shock representation; full inputs incomplete"
+    },
+    "Cu_difference": {
+      "parents": [
+        "Cu_DAC",
+        "Cu_RSW"
+      ],
+      "kind": "common-volume pressure difference"
+    },
+    "Pt_elastic_constraint": {
+      "parents": [],
+      "kind": "DAC elastic/reference constraint; older source branch unresolved"
+    },
+    "Pt_DAC": {
+      "parents": [
+        "ruby2004",
+        "Pt_elastic_constraint"
+      ],
+      "kind": "fitted DAC Vinet curve"
+    },
+    "Pt_RSW": {
+      "parents": [
+        "Holmes1989"
+      ],
+      "kind": "fitted reduced-shock representation; full inputs incomplete"
+    },
+    "Pt_difference": {
+      "parents": [
+        "Pt_DAC",
+        "Pt_RSW"
+      ],
+      "kind": "common-volume pressure difference"
+    },
+    "Ta_elastic_constraint": {
+      "parents": [],
+      "kind": "DAC elastic/reference constraint; older source branch unresolved"
+    },
+    "Ta_DAC": {
+      "parents": [
+        "ruby2004",
+        "Ta_elastic_constraint"
+      ],
+      "kind": "fitted DAC Vinet curve"
+    },
+    "Ta_RSW": {
+      "parents": [
+        "Wang2002"
+      ],
+      "kind": "fitted reduced-shock representation; full inputs incomplete"
+    },
+    "Ta_difference": {
+      "parents": [
+        "Ta_DAC",
+        "Ta_RSW"
+      ],
+      "kind": "common-volume pressure difference"
+    },
+    "W_elastic_constraint": {
+      "parents": [],
+      "kind": "DAC elastic/reference constraint; older source branch unresolved"
+    },
+    "W_DAC": {
+      "parents": [
+        "ruby2004",
+        "W_elastic_constraint"
+      ],
+      "kind": "fitted DAC Vinet curve"
+    },
+    "W_RSW": {
+      "parents": [
+        "HixsonFritz1992"
+      ],
+      "kind": "fitted reduced-shock representation; full inputs incomplete"
+    },
+    "W_difference": {
+      "parents": [
+        "W_DAC",
+        "W_RSW"
+      ],
+      "kind": "common-volume pressure difference"
+    },
+    "Au_elastic_constraint": {
+      "parents": [],
+      "kind": "DAC elastic/reference constraint; older source branch unresolved"
+    },
+    "Au_DAC": {
+      "parents": [
+        "ruby2004",
+        "Au_elastic_constraint",
+        "Au_stress2007"
+      ],
+      "kind": "fitted DAC Vinet curve"
+    },
+    "Au_RSW": {
+      "parents": [
+        "Wang2002"
+      ],
+      "kind": "fitted reduced-shock representation; full inputs incomplete"
+    },
+    "Au_difference": {
+      "parents": [
+        "Au_DAC",
+        "Au_RSW"
+      ],
+      "kind": "common-volume pressure difference"
+    },
+    "ruby2008": {
+      "parents": [
+        "Co_difference",
+        "Ni_difference",
+        "Mo_difference",
+        "Ag_difference",
+        "Al_difference",
+        "Cu_difference",
+        "Pt_difference",
+        "Ta_difference",
+        "W_difference",
+        "Au_difference",
+        "ruby2004"
+      ],
+      "kind": "output calibration; averaging and residual norm unresolved"
+    }
+  },
+  "difference_ancestors": {
+    "Co": [
+      "Co_DAC",
+      "Co_RSW",
+      "Co_elastic_constraint",
+      "DAC2004_measured_volumes",
+      "KennedyKeeler1972",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Ni": [
+      "DAC2004_measured_volumes",
+      "KennedyKeeler1972",
+      "Ni_DAC",
+      "Ni_RSW",
+      "Ni_elastic_constraint",
+      "RSW2004",
+      "comparison2004",
+      "helium1998",
+      "ruby2004"
+    ],
+    "Mo": [
+      "DAC2004_measured_volumes",
+      "HixsonFritz1992",
+      "Mo_DAC",
+      "Mo_RSW",
+      "Mo_elastic_constraint",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Ag": [
+      "Ag_DAC",
+      "Ag_RSW",
+      "Ag_elastic_constraint",
+      "DAC2004_measured_volumes",
+      "KennedyKeeler1972",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Al": [
+      "Al_DAC",
+      "Al_RSW",
+      "Al_elastic_constraint",
+      "Al_preliminary2007",
+      "Al_zero_pressure_thermochemistry",
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "SWDB",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Cu": [
+      "Cu_DAC",
+      "Cu_RSW",
+      "Cu_elastic_constraint",
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "Wang2002",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Pt": [
+      "DAC2004_measured_volumes",
+      "Holmes1989",
+      "Pt_DAC",
+      "Pt_RSW",
+      "Pt_elastic_constraint",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Ta": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "Ta_DAC",
+      "Ta_RSW",
+      "Ta_elastic_constraint",
+      "Wang2002",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "W": [
+      "DAC2004_measured_volumes",
+      "HixsonFritz1992",
+      "RSW2004",
+      "W_DAC",
+      "W_RSW",
+      "W_elastic_constraint",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Au": [
+      "Au_DAC",
+      "Au_RSW",
+      "Au_elastic_constraint",
+      "Au_stress2007",
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "Wang2002",
+      "comparison2004",
+      "ruby2004"
+    ]
+  },
+  "shared_ancestors_by_metal_pair": {
+    "Co/Ni": [
+      "DAC2004_measured_volumes",
+      "KennedyKeeler1972",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Co/Mo": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Co/Ag": [
+      "DAC2004_measured_volumes",
+      "KennedyKeeler1972",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Co/Al": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Co/Cu": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Co/Pt": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Co/Ta": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Co/W": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Co/Au": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Ni/Mo": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Ni/Ag": [
+      "DAC2004_measured_volumes",
+      "KennedyKeeler1972",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Ni/Al": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Ni/Cu": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Ni/Pt": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Ni/Ta": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Ni/W": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Ni/Au": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Mo/Ag": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Mo/Al": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Mo/Cu": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Mo/Pt": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Mo/Ta": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Mo/W": [
+      "DAC2004_measured_volumes",
+      "HixsonFritz1992",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Mo/Au": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Ag/Al": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Ag/Cu": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Ag/Pt": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Ag/Ta": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Ag/W": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Ag/Au": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Al/Cu": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Al/Pt": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Al/Ta": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Al/W": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Al/Au": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Cu/Pt": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Cu/Ta": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "Wang2002",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Cu/W": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Cu/Au": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "Wang2002",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Pt/Ta": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Pt/W": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Pt/Au": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Ta/W": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "Ta/Au": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "Wang2002",
+      "comparison2004",
+      "ruby2004"
+    ],
+    "W/Au": [
+      "DAC2004_measured_volumes",
+      "RSW2004",
+      "comparison2004",
+      "ruby2004"
+    ]
+  },
+  "numeric_covariance": null,
+  "qualification": "Common ancestors propagate dependencies, not a numerical correlation coefficient. Incomplete shock genealogy may add further dependencies. The verified Table IV shared elastic constraints occur once per metal, not independently in their two arms. Identical constraints are not asserted for unresolved older branches."
+}

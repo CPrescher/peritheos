@@ -3,8 +3,7 @@ use std::path::Path;
 
 #[test]
 fn source_table_iv_ag_preserves_fixed_volume_scale_and_execution() {
-    let path =
-        Path::new(env!("CARGO_MANIFEST_DIR")).join("../../peritheos/data/materials/silver.eosmat");
+    let path = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/data/dewaele_2008_ag.eosmat");
     let material = load_eosmat(path).unwrap();
     let record = material.record("silver_dewaele_2008_table4_vinet").unwrap();
     let volume: f64 = 4.0 * 12.3348;

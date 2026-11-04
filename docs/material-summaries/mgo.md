@@ -23,7 +23,7 @@ and recommendation for use are distinct assessments.
 | Temperature unit | K |
 | Volume unit | Å³ per conventional unit cell |
 | Stored EOS records | 37 |
-| Observation datasets | 18 |
+| Observation datasets | 19 |
 
 MgO pressure calibrant; the quasi-hydrostatic Speziale et al. (2001) BM3 plus author-confirmed variable-q Debye model is the default. The Duffy et al. (1995) multimegabar, Luo et al. (2023) shock- and sound-velocity-constrained thermal, and Shen and Smith (2026) Cu-referenced fits remain available as alternatives. The Duffy and Ahrens (1995) record is a separate constrained principal Hugoniot path for untransformed B1 MgO, not an equilibrium P-V-T surface.
 
@@ -171,7 +171,7 @@ establish statistical independence.
 **Outcome:** not refittable.
 **Scope:** parameter agreement.
 
-**Comparison basis:** The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
+**Comparison basis:** Conditional measured-pair subset regressions are replayable. The complete source multi-stage regression and uncertainty remain unreproduced; subset coefficient differences do not establish failure of the full published fit.
 
 [Open reconstruction report](../reconstruction-reports/mgo.md#record-mgo_sakai_2025_rydberg_stacey_1)
 
@@ -187,7 +187,7 @@ Original audit code: `not_refittable`.
 <summary>Reconstruction protocol and available diagnostics</summary>
 
 - **Fixed parameters:** V0; K0; K\_infinity\_prime
-- **Dataset identifiers:** None declared
+- **Dataset identifiers:** mgo\_sakai\_2025\_table\_s7\_measured\_pairs
 
 </details>
 
@@ -211,10 +211,11 @@ Parameter covariance is not supplied.
     - **Finding:** The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.
     - **DOI:** 10.1038/s43246-025-00792-5
 - **Primary data check:**
-    - **Status:** derived\_output\_only
+    - **Status:** bundled
     - **Audit date:** 2026-09-05
     - **Source locations:** Supplementary Data 1, Table S9
-    - **Finding:** The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
+    - **Finding:** Table S7 measured paired volumes are bundled alongside the separately calculated Table S9 checkpoints. Conditional subset regressions are replayable; the full Table S8 historical constraint inventory, original weights and covariance are not reproduced.
+    - **Dataset identifiers:** mgo\_sakai\_2025\_table\_s7\_measured\_pairs
 
 </details>
 
@@ -5942,3 +5943,23 @@ Parameter covariance is not supplied.
 
 [Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/mgo-duffy-ahrens-1995-table3-hugoniot.csv)
 — SHA-256 `22a966924d96973ff66c8dcb37f51c7b51e426feb507dbe5b5c4665d075ee31c`.
+
+### mgo\_sakai\_2025\_table\_s7\_measured\_pairs
+
+- **Description:** All 81 measured mgo–platinum cell-volume pairs on source Table S7. Pressure is calculated from the calibrant during an explicitly conditional audit; it is not an independently measured column. Missing source errors remain blank.
+- **Kind:** simultaneous\_xrd\_compression
+- **Reference:**
+    - **Authors:** Sakai; Kadobayashi; Nakamoto; Dekura; Ishimatsu; Kawaguchi-Imada; Seto; Sekizawa; Nitta; Shimizu
+    - **Year:** 2025
+    - **Title:** The equations of state of nine materials up to 0.43 TPa for extreme pressure science
+    - **Source:** Communications Materials
+    - **Volume:** 6
+    - **Locator:** 68
+    - **DOI:** 10.1038/s43246-025-00792-5
+- **Source location:** Supplementary Data 1, Table S7
+- **Associated EOS records:** mgo\_sakai\_2025\_rydberg\_stacey\_1
+- **Uncertainty:**
+    - **Notes:** Source err. fields retain unspecified confidence/standard-deviation semantics. Missing errors remain missing; no covariance or error is imputed.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/mgo-sakai-2025-table-s7-measured-pairs.csv)
+— SHA-256 `d99ad5d2773bc2c9d10a3928785093279c01cb306f03b4d0351d8deae12c8636`.

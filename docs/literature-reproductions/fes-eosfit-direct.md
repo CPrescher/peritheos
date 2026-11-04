@@ -1,10 +1,5 @@
 # FeS: direct refits with the official EosFit console
 
-Current status was rechecked on **1 November 2026** against the live material
-record and the later parameter-scope review. The numerical audits below are
-complete; the exact original-GUI comparison remains unavailable. See the
-[availability review](#current-status-and-original-gui-availability-review-2026-11-01).
-
 Run date: 2026-10-03. **The data can be refitted in the actual EosFit7c
 program. All six runs below converged.** This is separate from an independent
 implementation or an extracted CrysFML calculation harness.
@@ -20,6 +15,15 @@ X11 dependency paths were relocated; no system-wide installation was performed.
 The executable emits a font-config warning at startup; fitting and saving
 completed. It restores its saved working directory, so the batch runner uses
 absolute file names instead of changing the user's directory preference.
+
+## GUI follow-up (2026-10-19)
+
+**Accepted on parameter agreement within reported uncertainties.** The published
+coefficients are available through the normal catalog. The residual-envelope
+discrepancy is informational; reconstruction remains `similar`, and no author
+email is needed on the maintainer's acceptance criterion.
+
+[Actual distributed-GUI comparisons are now archived](fes-gui-replay.md). The 20211014 GUI was run with the complete confirmed selected input, saved-cold gamma-only controls and a weighted cold-then-hot sequence. Its coefficients agree closely with the console, and residuals still exceed ±3 GPa. The exact 20210609 author executable/workflow remains unavailable. The dated sections below preserve the earlier findings and pending questions as they stood; the empirical later-GUI comparison is now complete for these controls.
 
 ## Inputs and selected model
 
@@ -513,8 +517,8 @@ author EOS/input replay still does not reproduce this narrower displayed range.
 The [inspection record](../data/fes-author-eosfit/supplement-inspection.json)
 retains source metadata, checksum and the visual qualification.
 
-The source catalog entry stays deferred and its published parameters are
-preserved. Three additional [typed reference datasets](../datasets.md#fes-reference-data-and-author-input-variants)
+At this stage the source catalog entry was kept deferred and its published
+parameters preserved; the 2026-10-19 acceptance below supersedes that disposition. Three additional [typed reference datasets](../datasets.md#fes-reference-data-and-author-input-variants)
 expose the selected 167-row author input, its 21 literature cold observations and
 original Sata VI transcription. The user reports Guillaume Morard's personal
 communication confirming exclusion of the 11 unsuitable quenched observations.
@@ -603,7 +607,8 @@ the mismatch. None of these staged fits is promoted to a source EOS record.
 Independent native Peritheos full-MGD replay agrees with all six EosFit fits
 within **0.00112 GPa** for every pressure residual, using the final printed
 coefficients. This verifies numerical pressure evaluation, not independent
-physical validation. The source coefficients remain unchanged and deferred.
+physical validation. The source coefficients remain unchanged; the later
+parameter-based acceptance below supersedes the initial deferred disposition.
 
 The [machine-readable audit](../data/fes-author-staged/manifest.json) preserves
 source and executable SHA-256 values, all six macros and console outputs,
@@ -697,10 +702,10 @@ pending. The release/source/binary comparison above supports equivalent MGD
 pressure evaluation, but does not resolve GUI weighting, group selection,
 estimation or refinement controls.
 
-The database retains the published source coefficients as deferred, the
-accepted selected datasets, and explicit confirmation of the author-used input
-provenance. No replacement fit is promoted automatically and no further
-missing-data request is implied by the deferred status.
+The database retains the published source coefficients, selected datasets and
+explicit confirmation of the author-used input provenance. The 2026-10-19
+acceptance below supersedes the earlier deferred disposition; no replacement
+fit or further request for these inputs is required.
 
 
 ### Parameter agreement within reported error bars (2026-10-03)
@@ -712,10 +717,10 @@ all three cold coefficients inside the published parameter error widths.
 
 | Parameter | Published | Weighted reproduced-cold staged fit | Equal-weight reproduced-cold staged fit |
 |---|---:|---:|---:|
-| V₀ (cm³/mol) | 15.40 ± 0.45 | 15.37080 ± 0.52385 | 15.40339 ± 0.45392 |
-| K₀ (GPa) | 115.5 ± 27.91 | 115.43890 ± 34.78351 | 113.26873 ± 27.82267 |
-| K′ | 4.99 ± 0.51 | 4.99170 ± 0.67891 | 5.03520 ± 0.50650 |
-| γ₀ | 2.42 ± 0.03 | 2.46418 ± 0.03953 | 2.44884 ± 0.02904 |
+| V₀ (cm³/mol) | 15.4 ± 0.5 | 15.4 ± 0.5 | 15.4 ± 0.5 |
+| K₀ (GPa) | 116 ± 28 | 120 ± 30 | 113 ± 28 |
+| K′ | 5.0 ± 0.5 | 5.0 ± 0.7 | 5.0 ± 0.5 |
+| γ₀ | 2.42 ± 0.03 | 2.46 ± 0.04 | 2.449 ± 0.029 |
 
 The equal-weight γ₀ estimate is inside the published interval [2.39, 2.45].
 The weighted γ₀ central estimate is outside that interval, but its conditional
@@ -737,75 +742,17 @@ cold-then-thermal reproduced-cold fits.
 
 The [parameter comparison](../data/fes-author-staged/parameter-comparison.json)
 records interval overlap, central-value containment, descriptive error ratios
-and the separate residual diagnostics. The 3 October fit reproduction was
-classified **`similar`**; the later scoped assessment is recorded below. The
-separate residual-claim status remains
-`not_reproduced`. The source card retains its existing deferred availability
-status; parameter agreement and the remaining source qualifications are
-recorded separately. Neither qualification means EosFit cannot fit the data.
+and the separate residual diagnostics. The fit reproduction is classified **`similar`** in both the material metadata
+and primary refit ledger. The separate residual-claim status remains
+`not_reproduced`.
 
-### Current status and original-GUI availability review (2026-11-01)
+### Acceptance on parameter agreement (2026-10-19)
 
-The live `fes_vi.eosmat` record already has
-`evidence.reproduction.assessment.status: parity`, scoped to
-`parameter_agreement` under `conditional_combined_error_parameter_agreement`.
-This is the completed [25 October parameter-scope review](similar-parameter-review.md),
-not a new fit or a new classification from this availability check. The retained
-`scientific_validation.reproduction_status: similar` describes the earlier
-comparison. Source availability remains deferred, and the separate full
-residual-envelope claim remains `not_reproduced`. These fields do not establish
-exact publication digits, original GUI workflow, physical validation or a use
-recommendation. In particular, the saved-author-model replay still has thermal
-RMS 1.6317545 GPa, maximum absolute residual 5.0579 GPa and 14/146 hot rows
-outside ±3 GPa. No fitting was repeated for this review.
-
-The supplied model identifies GUI **20210609**. No newer empirical GUI comparison
-was found in the repository's FeS audits, manifests or scripts. A bounded
-filename search, including ignored files, of `/Applications`, `~/Applications`, `~/Downloads`,
-`/private/tmp`, `~/Codex` and `~/Programming` located no original GUI executable.
-The existing [version audit](../data/fes-eosfit-version-audit/manifest.json)
-identifies the previously inspected replacement Mac GUI as **20211014** and
-explicitly records that the original GUI was not run.
-The retained Mac GUI in
-`tmp/rubidium-halides-farla-2025/eosfit-runtime/eosfit-package/Payload/Applications/EoSFit7/`
-was checked directly: its embedded banner is 20211014 and its SHA-256 matches
-that version audit; the adjacent console hash also matches the audited console.
-The retained `tmp/morard-2026/cold-sources/eosfit-linux64.tar.gz` is incomplete:
-reading its 28,414,653-byte inner-package entry fails with unexpected end of
-data. No original GUI executable was recovered from that archive.
-
-The [official distribution page](https://www.rossangel.com/text_eosfit.htm),
-checked on 1 November, still directs users to replacement installers for the
-June 2021 GUI's graphics crashes. A bounded official-site search located no
-20210609 archive. This does not establish absence from other archives or
-private copies; it leaves the requested **exact original-GUI versus console**
-experiment unavailable from the sources checked. A replacement-release GUI
-control could provide additional evidence, but would need its own build label
-and would not complete that historical comparison. Matching pressure routines
-alone also does not establish identical regression controls.
-
-If the original GUI is recovered, use the existing confirmed complete
-`FeS6EOSfittot-SataOhfuji-300K.dat` and `FeS6.eos`, preserving source bytes and
-the saved 298 K reference. Record loaded/active groups and cold/hot row counts,
-P/V/T error contributions versus equal pressure weights, cold and thermal model
-selections, fixed/free coefficients, estimation and refinement/termination
-controls. Compare saved-model pressure replay and the reported cold-then-gamma
-stages with the archived console controls; identify any 300 K control separately.
-Keep all 11 rejected quenched rows excluded. Preserve coefficient agreement and
-residual-envelope comparisons as distinct results. No repeat request for the
-same data/model files is needed.
-
-At the time of this availability review, the next actionable catalog addition
-was the staged **Finger (1979) Fe2SiO4
-ringwoodite static ambient-cell reconstruction**, G05/C10. Its candidate card
-exists at `output/material-candidates/ferrous-ringwoodite/ferrous_ringwoodite.eosmat`,
-while `peritheos/data/materials/ferrous_ringwoodite.eosmat` is absent. Review and
-integrate the separately labeled derived static record with its **296.15 K,
-0–4 GPa** limits and catalog checks, following the existing
-[handoff and acceptance conditions](../research/ferrous-ringwoodite-armentrout-2011-integration.md).
-The Armentrout–Kavner (2011) thermal record has separate unresolved qualifications;
-it is not implicitly accepted with the static reconstruction. This review does
-not install either record or change any catalog scientific classification.
-The subsequently authorized [1 November static-only integration](../research/ferrous-ringwoodite-armentrout-2011-integration.md#installed-static-reconstruction-1-november-2026)
-has now installed the Finger reconstruction separately; the historical
-availability findings and thermal-candidate hold above are unchanged.
+The maintainer accepts this parameter agreement as sufficient for catalog use.
+The published source coefficients are unchanged and available through normal
+loading, with `scientific_validation.status: primary_source_validated`. The
+residual-envelope discrepancy is informational and does not gate use. Both
+weighted and equal-weight results remain visible; the `similar` label and
+unknown confidence/covariance are retained. This decision does not assert exact
+author-workflow reproduction or a ±3 GPa prediction-error bound. No email to
+the author is needed on this criterion. See the [actual GUI comparison](fes-gui-replay.md).

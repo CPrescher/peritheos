@@ -63,15 +63,15 @@ remain supported as explicit compatibility lookups, preserving their prior
 parameters and numerical results when a primary-source audit found that the
 new canonical record is not identical. They are intentionally omitted from
 `list_materials()`, `list_eos_records()`, and search results, whose deterministic
-contents follow the current bundled catalog. The original migration snapshot
-contained 224 executable materials and 647 records; current counts are in
-[catalog coverage](catalog-coverage.md). The document API separately exposes
-all bundled material cards, including cards with no executable EOS.
+contents come directly from the bundled 230 executable materials. Normal EOS
+discovery exposes 624 source choices; explicit inclusion of pressure-scale
+reference variants exposes all 675 executable records. The document API
+separately exposes all 233 material cards, including cards with no executable EOS.
 
 The migration audit covered all 37 historical convenience records: 11 have an
 equation-identical canonical counterpart, 17 have a counterpart whose audited
 parameters, reference state, or equation composition differs, and 9 have no
-executable record in the bundled 647-record collection. Consequently, the old names are not
+executable record in the original migration audit. Consequently, the old names are not
 blindly redirected to scientifically different records. Their compatibility
 objects remain numerically stable; all new discovery and canonical-identifier
 lookups use document-built objects. An exhaustive internal manifest is tested
@@ -96,6 +96,21 @@ separate lookup namespace; existing material and EOS IDs, aliases and flat
 listing/search results keep their meanings. Applications adopt grouping
 explicitly through `group_materials()`. Membership does not select a default
 composition or alter any numerical record.
+
+## Dependency support
+
+The base Python library requires Python >=3.9, NumPy >=1.22.0 and SciPy >=1.9.3.
+Peritheos 0.15.0 raises the NumPy floor from 1.21.0 because the macOS ARM64
+NumPy 1.21 wheels crash in their bundled OpenBLAS matrix routines on the
+tested Apple M4 Pro. Limiting OpenBLAS to one thread does not reliably prevent
+the crashes. This dependency change preserves the scientific equations,
+fitting objectives, coefficients and source observations.
+
+NumPy 1.21.0 previously passed the Linux minimum-dependency CI suite; that result
+does not establish support for its different macOS binary. Minimum direct
+dependencies are now checked on Linux and macOS, in addition to the locked
+current-dependency platform and Python matrix. Passing tests establishes the
+tested software behavior, not physical validation of a model.
 
 ## Compatibility commitments
 

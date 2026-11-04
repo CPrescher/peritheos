@@ -288,9 +288,9 @@ def main() -> int:
     args = parser.parse_args()
     result = reproduce()
     if args.check:
-        from scripts.validate_primary_eos_refits import check_ledger_values
+        from scripts.bykova_replay_checks import check_report
 
-        check_ledger_values(json.loads(RESULT.read_text()), result)
+        check_report(json.loads(RESULT.read_text()), result)
     else:
         RESULT.write_text(json.dumps(result, indent=2, allow_nan=False) + "\n")
     if args.plot:

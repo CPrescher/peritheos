@@ -28,7 +28,9 @@ PREFIX = "rubidium-halides-farla-2025"
 
 def replay(source):
     facts = json.loads(
-        (ROOT / "peritheos/data/datasets" / f"{PREFIX}-author-inputs.json").read_text()
+        (ROOT / "peritheos/data/datasets" / f"{PREFIX}-author-inputs.json").read_text(
+            encoding="utf-8"
+        )
     )
     provenance = next(s for s in facts["sources"] if s["id"] == "cscl_module")
     digest = hashlib.sha256(source.read_bytes()).hexdigest()
@@ -43,9 +45,9 @@ def replay(source):
     na = facts["cscl_gui_defaults"]["avogadro_used_mol_inverse"]
     a0 = facts["cscl_gui_defaults"]["reference_lattice_a_angstrom"]
     phase.params["V_0"] = na * a0**3 * 1e-30
-    with (
-        ROOT / "peritheos/data/datasets" / f"{PREFIX}-rbcl-observations.csv"
-    ).open() as stream:
+    with (ROOT / "peritheos/data/datasets" / f"{PREFIX}-rbcl-observations.csv").open(
+        encoding="utf-8"
+    ) as stream:
         rows = [r for r in csv.DictReader(stream) if r["source_table"] != "S1"]
     pressures = [
         float(
@@ -77,7 +79,9 @@ def main():
     parser.add_argument("--source", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
-    args.output.write_text(json.dumps(replay(args.source), indent=2) + "\n")
+    args.output.write_text(
+        json.dumps(replay(args.source), indent=2) + "\n", encoding="utf-8"
+    )
 
 
 if __name__ == "__main__":

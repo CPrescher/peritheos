@@ -1,0 +1,62 @@
+{
+  "materials": 232,
+  "records": 663,
+  "all_json_values_unchanged": true,
+  "all_schema_valid": true,
+  "all_catalog_selections_unchanged": true,
+  "protected_ledgers_unchanged": true,
+  "coverage_only_byte_fingerprint_changed": true,
+  "old_lines": 167585,
+  "new_lines": 107826,
+  "new_median_lines": 250.5,
+  "examples": {
+    "gold.eosmat": {
+      "before": 7551,
+      "after": 5006
+    },
+    "mgo.eosmat": {
+      "before": 6827,
+      "after": 4449
+    },
+    "iron.eosmat": {
+      "before": 8560,
+      "after": 5520
+    },
+    "srsio3_6h_perovskite.eosmat": {
+      "before": 129,
+      "after": 79
+    }
+  },
+  "verification_scope": "Initial full-catalog rewrite checked against the pre-format snapshot. Concurrent pressure-scale link edits in NaCl-B2, Ni and Ag were later preserved; the final formatting pass separately verified canonical JSON equality for all 232 files.",
+  "latest_formatting_canonical_contents_preserved": true,
+  "concurrent_scientific_edits_preserved": [
+    "nacl_b2.eosmat",
+    "nickel.eosmat",
+    "silver.eosmat"
+  ],
+  "checks": {
+    "rust_workspace_all_features": "passed",
+    "primary_eos_refit_ledger_check": "passed",
+    "mypy": "passed",
+    "ruff": "passed",
+    "docs_full_notebook_execution": "completed; strict mode rejected seven pre-existing research-note links",
+    "new_readability_tests": 9,
+    "focused_python_tests": "197 passed",
+    "material_summary_browser_preview": "Rendered tables, reference coefficients, source-status labels and collapsed qualifications inspected",
+    "docs_preview": "Build passed with notebook execution disabled; full executed build completed but strict mode failed on seven existing research-note links",
+    "broad_python_run": {
+      "passed": 3043,
+      "failed": 7,
+      "notes": "Started before the catalog rewrite, while other pressure-scale work was active. Five dataset-pressure selection failures were already observed before reformatting; the other failures concern an untouched validation narrative and pressure-scale parent inclusion in material selection."
+    },
+    "latest_consistency_recheck": {
+      "passed": 67,
+      "failed": 2,
+      "remaining": [
+        "tests/test_documentation_consistency.py::test_validation_narrative_matches_primary_refit_ledger",
+        "tests/test_experimental_metal_eos_batch_47.py::test_every_batch_record_is_primary_validated_and_executable"
+      ],
+      "notes": "The five pressure-reduction selection failures no longer reproduce after concurrent work. Remaining failures concern untouched documentation and the existing pressure-scale parent inclusion behavior."
+    }
+  }
+}

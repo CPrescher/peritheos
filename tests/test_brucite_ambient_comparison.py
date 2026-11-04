@@ -20,7 +20,7 @@ def report():
 
 
 def test_joint_curves_reuse_previous_volume_objective_coefficients(report):
-    joint = json.loads(JOINT_REPORT.read_text())
+    joint = json.loads(JOINT_REPORT.read_text(encoding="utf-8"))
     assert (
         report["curves"]["empirical_joint"]["parameters"]
         == joint["fits"]["empirical_volume"]["parameters"]
@@ -54,7 +54,7 @@ def test_conditional_mgd_fixes_mechanics_and_exposes_boundary(report):
 
 
 def test_ambient_residual_denominators_and_pressure_inversion(report):
-    saved = json.loads(REPORT.read_text())
+    saved = json.loads(REPORT.read_text(encoding="utf-8"))
     dataset = data()
     temperature = dataset["temperature"][37:]
     observed = dataset["volume"][37:]

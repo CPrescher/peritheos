@@ -1,28 +1,28 @@
 {
   "format": "peritheos.catalog-coverage",
   "format_version": 1,
-  "material_files_sha256": "b44b238f7e1c3c583cccc2d87aa281ee8bb9a182ed0c0095651fb5e275bfaed0",
+  "material_files_sha256": "59c0abdb189f4fac16547c162cf26e9d66c412b5e26360e92e23390e7ec42d6f",
   "summary": {
     "stored_materials": 234,
     "stored_records": 685,
-    "executable_materials": 230,
-    "executable_records": 681,
-    "source_records": 629,
+    "executable_materials": 231,
+    "executable_records": 682,
+    "source_records": 630,
     "pressure_scale_reference_variants": 52,
-    "materials_with_thermal_eos": 63,
+    "materials_with_thermal_eos": 64,
     "executable_equation_kinds": {
       "hugoniot": 4,
       "isothermal": 542,
-      "thermal": 135
+      "thermal": 136
     },
     "stored_validation": {
-      "deferred": 4,
+      "deferred": 3,
       "not_reproduced": 18,
-      "primary_source_validated": 663
+      "primary_source_validated": 664
     },
     "executable_calibration_status": {
       "not_applicable": 164,
-      "partially_resolved": 190,
+      "partially_resolved": 191,
       "resolved": 240,
       "unresolved": 87
     },
@@ -30,7 +30,7 @@
       "missing_calibrant_observations": 198,
       "not_applicable": 161,
       "not_possible": 126,
-      "ready": 135,
+      "ready": 136,
       "reference_eos_not_bundled": 54,
       "reference_model_not_supported": 7
     },
@@ -40,10 +40,10 @@
   "ledgers": {
     "refit_outcomes": {
       "not_refittable": 177,
-      "parity": 356,
+      "parity": 357,
       "parity_not_achieved": 61,
       "similar": 72,
-      "source_reconstruction": 19
+      "source_reconstruction": 18
     },
     "missing_from_refit_ledger": [],
     "absent_from_catalog_refit_entries": [],
@@ -1196,12 +1196,12 @@
       "family_id": null,
       "input_file": "peritheos/data/materials/fes_vi.eosmat",
       "stored_records": 1,
-      "executable_records": 0,
+      "executable_records": 1,
       "isothermal_records": 0,
-      "thermal_records": 0,
+      "thermal_records": 1,
       "hugoniot_records": 0,
       "validation": {
-        "deferred": 1
+        "primary_source_validated": 1
       },
       "datasets": 5
     },
@@ -1509,7 +1509,7 @@
         "not_reproduced": 3,
         "primary_source_validated": 35
       },
-      "datasets": 14
+      "datasets": 15
     },
     {
       "identifier": "iron_carbide_fe7c3",
@@ -2566,7 +2566,7 @@
         "not_reproduced": 1,
         "primary_source_validated": 36
       },
-      "datasets": 18
+      "datasets": 19
     },
     {
       "identifier": "mgo_b2",
@@ -2662,7 +2662,7 @@
       "validation": {
         "primary_source_validated": 9
       },
-      "datasets": 5
+      "datasets": 6
     },
     {
       "identifier": "molybenum_carbide_mo2c",
@@ -3065,7 +3065,7 @@
         "not_reproduced": 1,
         "primary_source_validated": 20
       },
-      "datasets": 16
+      "datasets": 17
     },
     {
       "identifier": "praseodymium_dioxide",
@@ -3193,7 +3193,7 @@
       "validation": {
         "primary_source_validated": 6
       },
-      "datasets": 7
+      "datasets": 8
     },
     {
       "identifier": "rhodium",
@@ -3641,7 +3641,7 @@
       "validation": {
         "primary_source_validated": 7
       },
-      "datasets": 3
+      "datasets": 4
     },
     {
       "identifier": "vanadium_bcc",
@@ -5815,9 +5815,9 @@
     {
       "identifier": "fes_vi_morard_2026_bm3_mgd",
       "material_identifier": "fes_vi",
-      "executable": false,
-      "equation_kind": null,
-      "scientific_validation": "deferred",
+      "executable": true,
+      "equation_kind": "thermal",
+      "scientific_validation": "primary_source_validated",
       "refit_ledger_present": true,
       "source_audit_present": true
     },

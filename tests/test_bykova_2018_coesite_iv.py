@@ -61,7 +61,11 @@ def test_repeatability_scope_and_covariance_do_not_claim_published_v0():
         **audit.ledger_outcome(legacy["eos_records"][0]),
     }
     assessment = native["eos_records"][0]["evidence"]["reproduction"]["assessment"]
-    assert assessment == assessment_for_record(native["eos_records"][0], row)
+    from scripts.validate_primary_eos_refits import check_ledger_values
+
+    check_ledger_values(
+        assessment, assessment_for_record(native["eos_records"][0], row)
+    )
     assert assessment["scope"] == "independent_refit"
     assert assessment["basis_code"] == "registered_peritheos_refit_reproduced"
     assert assessment["status"] == "parity"
@@ -101,7 +105,7 @@ def test_table_rounding_diagnostic_is_not_a_statistical_confidence_interval():
 
 
 def test_figure_readings_are_independent_checks_and_bounds_are_not_errors():
-    assert audit.FIGURE.read_text() == audit.digitized_csv()
+    audit.check_digitized_csv()
     checks = audit.reproduce()["figure_check"]
     assert checks["coefficients_fitted_to_figure"] is False
     assert checks["all_markers"]["points"] == 8
@@ -151,6 +155,6 @@ def test_bad_figure_readings_fail_validation_without_changing_the_fit(monkeypatc
 
 
 def test_saved_numerical_audit_replays():
-    from scripts.validate_primary_eos_refits import check_ledger_values
+    from scripts.bykova_replay_checks import check_report
 
-    check_ledger_values(json.loads(audit.RESULT.read_text()), audit.reproduce())
+    check_report(json.loads(audit.RESULT.read_text()), audit.reproduce())

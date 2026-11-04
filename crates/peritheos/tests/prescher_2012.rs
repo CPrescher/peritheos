@@ -49,7 +49,12 @@ fn published_fe3c_fits_preserve_adoption_parity_and_uncertainty_qualifications()
         .as_array()
         .unwrap()
     {
-        assert_eq!(parameter["finding"], "matched_at_printed_precision");
+        let expected = if parameter["parameter"] == "K0" {
+            "not_reproduced"
+        } else {
+            "matched_at_printed_precision"
+        };
+        assert_eq!(parameter["finding"], expected);
     }
     let restored = load_eosmat_str(&material.to_json().unwrap()).unwrap();
     assert_eq!(restored.document, material.document);

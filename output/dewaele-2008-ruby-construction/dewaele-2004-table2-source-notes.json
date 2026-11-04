@@ -1,0 +1,46 @@
+{
+  "doi": "10.1103/PhysRevB.70.094112",
+  "V0_unit": "A^3 per atom",
+  "source_model": "Vinet",
+  "uncertainty": "Table caption calls parenthesized values fitting error bars at 95% confidence on last digits; expanded numerically in CSV. Blank intervals are unreported, not zero. Fixed coefficients are flagged. Covariance unavailable.",
+  "RSW_reference_mapping": {
+    "23": "Wang et al. 2002 DOI10.1063/1.1518781",
+    "25": "Hixson and Fritz 1992 DOI10.1063/1.351203",
+    "27": "Nellis et al. 1988 DOI10.1103/PhysRevLett.60.1414"
+  },
+  "source_ambiguity": "Pt Table II RSW reference column prints 23 (Wang), whereas Figure 3 legend labels Pt Holmes. Both are preserved; this recovery does not decide which numerical branch was used.",
+  "temperature_note": "Dewaele discussion describes room-temperature reduction to 298 K, whereas Wang parameterization is explicitly 300 K; no temperature conversion is invented.",
+  "raw_indexed_OCR_superseded": "Earlier tokens such as 277.4,6.6 were a failed extraction across bold type. The source reads 277,4.66. Older diagnostic files remain historical snapshots.",
+  "acoustic_columns_as_printed": {
+    "Au": [
+      "167",
+      "6.2(2)",
+      "20"
+    ],
+    "Pt": [
+      "277",
+      null,
+      "24"
+    ],
+    "Ta": [
+      "194",
+      "3.83(5)",
+      "21"
+    ],
+    "W": [
+      "296-311",
+      "4.3",
+      "22 and 24"
+    ],
+    "Cu": [
+      "133",
+      "5.4(2)",
+      "20 and 26"
+    ],
+    "Al": [
+      "73",
+      "4.42",
+      "18"
+    ]
+  }
+}

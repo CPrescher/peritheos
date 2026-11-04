@@ -111,6 +111,7 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
 
 ### Detailed evidence and existing plots
 
+- [Supporting source report: sakai-2025-network](../literature-reproductions/sakai-2025-network.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 

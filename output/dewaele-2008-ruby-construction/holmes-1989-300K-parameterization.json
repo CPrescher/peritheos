@@ -1,0 +1,24 @@
+{
+  "doi": "10.1063/1.344177",
+  "locations": "pp.2964-2966; Eq.11 and Table IV",
+  "kind": "published_parameterization_of_first_principles_isotherm",
+  "T_K": 300,
+  "P_range_GPa": [
+    0,
+    550
+  ],
+  "V0_atomic_units_cubed": 101.9,
+  "volume_normalization": "per_atom",
+  "equation": "P=P_T*(1-X)/X**2*exp(eta*(1-X)); X=(V/V0)**(1/3)",
+  "printed_coefficients": {
+    "P_T_GPa": 798.31,
+    "eta": 7.2119,
+    "B_T_GPa_rounded": 266,
+    "B_T_prime_rounded": 5.81,
+    "alpha_T_K_inverse": 2.61e-05
+  },
+  "coefficient_convention": "Use P_T and eta for the printed curve; B_T and B_T_prime are separately rounded, not algebraically exact equivalents.",
+  "provenance": "LMTO zero-temperature pressure plus ion and electron thermal terms; Hugoniot checked against shock experiments; McQueen shock-reduced isotherm plotted separately in Fig.5.",
+  "uncertainty": "Authors qualify calculated isotherm accuracy at about 10%; not a pointwise standard deviation.",
+  "not_recovered": "Dewaele low-pressure resampling, ultrasonic-constrained refit, weights and original numerical support"
+}

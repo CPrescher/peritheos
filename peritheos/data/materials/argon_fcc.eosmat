@@ -308,9 +308,9 @@
                 ],
                 "degrees_of_freedom": 16.0,
                 "local_student_t_95_intervals": {
-                  "V0": [133.45203809729895, 290.03781037827474],
-                  "K0": [-0.6189244797360275, 1.5358119731114521],
-                  "K0_prime": [6.849778543751716, 10.479576431941629]
+                  "V0": [133.45203809728997, 290.0378103782837],
+                  "K0": [-0.6189244797361512, 1.535811973111576],
+                  "K0_prime": [6.849778543751508, 10.479576431941837]
                 },
                 "residual_variance": 13.391019374429256,
                 "max_abs_residual_jacobian_cosine": 3.855113343778729e-09,
@@ -816,11 +816,11 @@
                 "published": 6.97,
                 "published_error": 0.11,
                 "refit": 6.903805381444691,
-                "refit_error": 0.10490191209653466,
+                "refit_error": 0.1049019120920322,
                 "difference": -0.06619461855530862,
                 "relative_difference": 0.009497075832899372,
-                "similar": true,
                 "within_combined_2sigma": null,
+                "similar": true,
                 "within_reported_error": true
               },
               {
@@ -828,11 +828,11 @@
                 "published": -0.4,
                 "published_error": 0.1,
                 "refit": -0.33663295964613166,
-                "refit_error": 0.09434158017149612,
+                "refit_error": 0.09434158016748784,
                 "difference": 0.06336704035386836,
                 "relative_difference": 0.1584176008846709,
-                "similar": true,
                 "within_combined_2sigma": null,
+                "similar": true,
                 "within_reported_error": true
               }
             ],
@@ -862,31 +862,31 @@
               "rmse_gpa": 0.09412675921023864,
               "published_rmse_gpa": 0.09535520774523343,
               "parameter_covariance": [
-                [0.011004411161509083, -0.009665184341833647],
-                [-0.009665184341833648, 0.008900333749254828]
+                [0.011004411160564451, -0.009665184341005198],
+                [-0.0096651843410052, 0.008900333748498534]
               ],
               "covariance": {
                 "parameters": ["K0_prime", "K0_double_prime"],
                 "matrix": [
-                  [0.011004411161509083, -0.009665184341833647],
-                  [-0.009665184341833648, 0.008900333749254828]
+                  [0.011004411160564451, -0.009665184341005198],
+                  [-0.0096651843410052, 0.008900333748498534]
                 ],
-                "standard_errors": {"K0_prime": 0.10490191209653466, "K0_double_prime": 0.09434158017149612},
+                "standard_errors": {"K0_prime": 0.1049019120920322, "K0_double_prime": 0.09434158016748784},
                 "correlation_matrix": [
-                  [0.9999999999999999, -0.9766154513430968],
-                  [-0.976615451343097, 0.9999999999999998]
+                  [1.0, -0.9766154513427967],
+                  [-0.9766154513427968, 1.0]
                 ],
                 "degrees_of_freedom": 17.0,
                 "local_student_t_95_intervals": {
-                  "K0_prime": [6.682481693158936, 7.125129069730447],
-                  "K0_double_prime": [-0.5356762951293521, -0.13758962416291123]
+                  "K0_prime": [6.6824816931684206, 7.125129069720962],
+                  "K0_double_prime": [-0.5356762951209081, -0.13758962417135523]
                 },
-                "residual_variance": 0.00990218171700133,
-                "max_abs_residual_jacobian_cosine": 2.1783309885722672e-08,
-                "residual_sum_squares": 0.1683370891890226,
+                "residual_variance": 0.009902181716276378,
+                "max_abs_residual_jacobian_cosine": 2.165324476703796e-08,
+                "residual_sum_squares": 0.16833708917669843,
                 "residual_count": 19,
-                "scaled_jacobian_condition_number": 86.02846706278868,
-                "derivative_step_halving_relative_change": 1.1765578550212321e-11,
+                "scaled_jacobian_condition_number": 86.02846706228031,
+                "derivative_step_halving_relative_change": 1.1704059159321416e-11,
                 "method": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.",
                 "previous_assessment": {
                   "status": "similar",

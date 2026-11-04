@@ -1,0 +1,258 @@
+{
+  "record_kind": "refit",
+  "date": "2026-10-17",
+  "source": {
+    "doi": "10.1063/5.0179469",
+    "table": "Official supplementary Table S1",
+    "data_sha256": "513835bba914f6fa1f02646901e0453edda808c6da7bc425fbb71c8cf1c99829"
+  },
+  "software": {
+    "peritheos": "0.12.0",
+    "numpy": "2.0.2",
+    "scipy": "1.13.1",
+    "matplotlib": "3.9.4"
+  },
+  "dataset": "palladium_baty_2024_table_s1_compression",
+  "source_rows": 78,
+  "model": "BM3",
+  "temperature_k": 300.0,
+  "volume_basis": "angstrom^3/conventional_fcc_cell_with_4_atoms",
+  "observed_pressure_range_gpa": [
+    0.0,
+    73.7963
+  ],
+  "observed_volume_range_a3_cell": [
+    47.24163336,
+    58.89565212
+  ],
+  "source_protocol_reproduced": false,
+  "catalog_integrated": false,
+  "usage": "Provisional descriptive comparison with this dataset only; not recommended as a pressure calibration or precise ambient elastic constants. No thermal or pressure extrapolation.",
+  "objective": "sum((P_BM3(V_observed) - P_observed)^2), equal weight per fitted row",
+  "weights": "No invented row-wise sigmas. Stated global coordinate limits are not treated as statistical weights.",
+  "bounds": {
+    "V0": [
+      50.0,
+      70.0
+    ],
+    "K0": [
+      10.0,
+      500.0
+    ],
+    "K0_prime": [
+      1.0,
+      15.0
+    ]
+  },
+  "published": {
+    "parameters": {
+      "V0": 58.88,
+      "K0": 190.0,
+      "K0_prime": 5.3
+    },
+    "pressure_rmse_gpa": 1.2731181917301864,
+    "mean_pressure_residual_gpa": -0.5923841374667953,
+    "max_absolute_pressure_residual_gpa": 2.718538426093872
+  },
+  "refits": {
+    "free_reference_volume": {
+      "identifier": "palladium_baty_2024_free_reference_volume_bm3_refit",
+      "parameters": {
+        "V0": 59.96030527476279,
+        "K0": 152.0572835175919,
+        "K0_prime": 6.099357222085515
+      },
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "fixed_parameters": {},
+      "selection": "all 78 rows; V0, K0, K0_prime varied",
+      "all_78_row_statistics": {
+        "pressure_rmse_gpa": 0.7043366920848251,
+        "mean_pressure_residual_gpa": 8.247912211107479e-05,
+        "max_absolute_pressure_residual_gpa": 2.8769953419571905
+      },
+      "fitted_rows_statistics": {
+        "pressure_rmse_gpa": 0.7043366920848251,
+        "mean_pressure_residual_gpa": 8.247912211107479e-05,
+        "max_absolute_pressure_residual_gpa": 2.8769953419571905
+      },
+      "conditional_standard_errors": {
+        "V0": 0.17412128205044958,
+        "K0": 7.798166110606747,
+        "K0_prime": 0.326725501677344
+      },
+      "conditional_covariance_parameter_order": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ],
+      "conditional_covariance": [
+        [
+          0.030318220862892216,
+          -1.3306005900834437,
+          0.052837270678413976
+        ],
+        [
+          -1.3306005900834437,
+          60.81139468861556,
+          -2.5033435906096098
+        ],
+        [
+          0.052837270678413976,
+          -2.5033435906096098,
+          0.10674955344631211
+        ]
+      ],
+      "conditional_correlation": [
+        [
+          1.0000000000000002,
+          -0.9799487731959247,
+          0.9287642416050118
+        ],
+        [
+          -0.9799487731959247,
+          1.0,
+          -0.9825280240367176
+        ],
+        [
+          0.9287642416050118,
+          -0.9825280240367176,
+          1.0
+        ]
+      ],
+      "covariance_assumptions": "Local Jacobian; independent equal-variance pressure residuals; SSE/(n_fit-n_free) scaling. For the anchored fit, V0 is conditional/exact in this calculation, not an error-free measurement. These are formal regression errors, not total scientific uncertainties.",
+      "degrees_of_freedom": 75,
+      "pressure_at_measured_ambient_volume_gpa": 2.8769953419571586,
+      "V0_minus_measured_ambient_volume_a3_cell": 1.0646531547627873,
+      "leave_one_out_same_dataset": {
+        "pressure_rmse_gpa": 0.7777973318604792,
+        "mean_pressure_residual_gpa": 0.011240438617142625,
+        "max_absolute_pressure_residual_gpa": 3.812967505997786,
+        "rows": 78,
+        "qualification": "Not independent experimental validation; run identities/calibration systematics unavailable."
+      },
+      "independent_scipy_parameters": {
+        "V0": 59.96030531046054,
+        "K0": 152.05728178369904,
+        "K0_prime": 6.099357297685782
+      },
+      "native_scipy_curve_max_difference_gpa": 6.993664092291851e-08
+    },
+    "ambient_anchored": {
+      "identifier": "palladium_baty_2024_ambient_anchored_bm3_refit",
+      "parameters": {
+        "V0": 58.89565212,
+        "K0": 206.545539446969,
+        "K0_prime": 4.321613772988018
+      },
+      "free_parameters": [
+        "K0",
+        "K0_prime"
+      ],
+      "fixed_parameters": {
+        "V0": 58.89565212
+      },
+      "selection": "77 finite-pressure rows fitted; the ambient row fixes V0",
+      "all_78_row_statistics": {
+        "pressure_rmse_gpa": 0.9635292891891262,
+        "mean_pressure_residual_gpa": -0.14989628357495263,
+        "max_absolute_pressure_residual_gpa": 2.0388917412236722
+      },
+      "fitted_rows_statistics": {
+        "pressure_rmse_gpa": 0.9697657898245033,
+        "mean_pressure_residual_gpa": -0.1518429885564455,
+        "max_absolute_pressure_residual_gpa": 2.0388917412236722
+      },
+      "conditional_standard_errors": {
+        "K0": 2.3718400549926146,
+        "K0_prime": 0.12628249472120665
+      },
+      "conditional_covariance_parameter_order": [
+        "K0",
+        "K0_prime"
+      ],
+      "conditional_covariance": [
+        [
+          5.6256252464673695,
+          -0.290645487640845
+        ],
+        [
+          -0.290645487640845,
+          0.015947268473011585
+        ]
+      ],
+      "conditional_correlation": [
+        [
+          1.0,
+          -0.9703647973687306
+        ],
+        [
+          -0.9703647973687306,
+          1.0
+        ]
+      ],
+      "covariance_assumptions": "Local Jacobian; independent equal-variance pressure residuals; SSE/(n_fit-n_free) scaling. For the anchored fit, V0 is conditional/exact in this calculation, not an error-free measurement. These are formal regression errors, not total scientific uncertainties.",
+      "degrees_of_freedom": 75,
+      "pressure_at_measured_ambient_volume_gpa": 0.0,
+      "V0_minus_measured_ambient_volume_a3_cell": 0.0,
+      "leave_one_out_same_dataset": {
+        "pressure_rmse_gpa": 0.9888704526442753,
+        "mean_pressure_residual_gpa": -0.1563865321256238,
+        "max_absolute_pressure_residual_gpa": 2.0777266439552093,
+        "rows": 77,
+        "qualification": "Not independent experimental validation; run identities/calibration systematics unavailable."
+      },
+      "independent_scipy_parameters": {
+        "V0": 58.89565212,
+        "K0": 206.5455391773232,
+        "K0_prime": 4.321613787496857
+      },
+      "native_scipy_curve_max_difference_gpa": 2.605086990570271e-08
+    }
+  },
+  "ambient_volume_bound_sensitivity": [
+    {
+      "V0_fixed_a3_cell": 58.85565212,
+      "parameters": {
+        "V0": 58.85565212,
+        "K0": 208.93364784925404,
+        "K0_prime": 4.2570928795380025
+      },
+      "fitted_rows_statistics": {
+        "pressure_rmse_gpa": 0.9921709440798566,
+        "mean_pressure_residual_gpa": -0.15888898662705542,
+        "max_absolute_pressure_residual_gpa": 2.081061152792559
+      }
+    },
+    {
+      "V0_fixed_a3_cell": 58.89565212,
+      "parameters": {
+        "V0": 58.89565212,
+        "K0": 206.545539446969,
+        "K0_prime": 4.321613772988018
+      },
+      "fitted_rows_statistics": {
+        "pressure_rmse_gpa": 0.9697657898245063,
+        "mean_pressure_residual_gpa": -0.15184298855643344,
+        "max_absolute_pressure_residual_gpa": 2.038891741223715
+      }
+    },
+    {
+      "V0_fixed_a3_cell": 58.93565212,
+      "parameters": {
+        "V0": 58.93565212,
+        "K0": 204.18584375461919,
+        "K0_prime": 4.386204336529582
+      },
+      "fitted_rows_statistics": {
+        "pressure_rmse_gpa": 0.9481321740214291,
+        "mean_pressure_residual_gpa": -0.14503315141442083,
+        "max_absolute_pressure_residual_gpa": 2.0173205065863584
+      }
+    }
+  ],
+  "ambient_volume_bound_sensitivity_meaning": "Anchor varied by +/- 4*0.01 A^3/cell using the source atomic-volume upper uncertainty limit. Sensitivity bounds, not Gaussian standard deviations or a confidence interval."
+}

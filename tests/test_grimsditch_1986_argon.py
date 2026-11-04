@@ -134,5 +134,5 @@ def test_packaged_rust_fixture_preserves_current_catalog_record():
             / "crates/peritheos/tests/data/argon_fcc.eosmat"
         ).read_text(encoding="utf-8")
     )
-    source = get_material_document("argon_fcc")
+    source = get_material_document("argon_fcc", format_version=4)
     assert fixture == source

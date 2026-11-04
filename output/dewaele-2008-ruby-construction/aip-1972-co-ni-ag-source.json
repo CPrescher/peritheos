@@ -1,0 +1,80 @@
+{
+  "citation": "G. C. Kennedy and R. N. Keeler, Compressibility, in American Institute of Physics Handbook, 3rd ed., D. E. Gray (ed.), McGraw-Hill, 1972",
+  "isbn": "007001485X",
+  "pdf_sha256": "dda86a046830f63d95933b01e5b56bce9a46572a038ba37e68ceee9f2e059dad",
+  "user_supplied_pdf": "/Users/clemens/Downloads/dokumen.pub_american-institute-of-physics-handbook-3nbsped-007001485x-9780070014855.pdf",
+  "pdf_total_pages": 2359,
+  "locations": {
+    "title_and_edition_pdf_page": 4,
+    "copyright_1972_pdf_page": 5,
+    "methods_printed_pages": [
+      "4-96",
+      "4-97",
+      "4-98"
+    ],
+    "methods_pdf_pages": [
+      617,
+      618,
+      619
+    ],
+    "Co_Ni_table_printed_page": "4-100",
+    "Co_Ni_table_pdf_page": 621,
+    "Ag_table_printed_page": "4-101",
+    "Ag_table_pdf_page": 622
+  },
+  "table": "4d-12, Relative volumes of solids at 25 C",
+  "units_and_normalization": "P in kbar; V/V0 dimensionless; GPa=P_kbar/10; T=25 C=298.15 K",
+  "phase_annotation": "Table labels elements only; phase identity not explicitly supplied for these columns. Do not infer a crystallographic model from the table alone.",
+  "kind": "Published calculated isotherms reduced from experimental shock data, not original shock observations or independent static volume measurements",
+  "method": {
+    "shock_data_ancestor": "M. van Thiel, Compendium of Shock Wave Data, UCRL-50108, 1966 (Sec.4d-2 ref.1)",
+    "experimental_laboratories": "Livermore, Los Alamos, Ballistics Research Laboratory and Soviet Union; selected for completeness, accuracy and absence of large error sources (p.4-96)",
+    "equation_4d3": "PH(V)-P=gamma(V)*(EH(V)-E)/V",
+    "equation_4d4": "EH(V)=E0+[PH(V)+P0]*(V0-V)/2",
+    "gamma_law": "Volume-only gamma linked to curvature of the 0 K pressure curve by Eq.4d-6, t=1 (Dugdale-MacDonald); not constant gamma or constant rho*gamma",
+    "thermal_step": "Solve 0 K curve and gamma(V), then add the 25 C thermal energy correction via Eq.4d-7",
+    "strength": "Finite yield-strength corrections neglected for these metals; source applies a strength correction to Al2O3 separately",
+    "phase_limit": "Source warns about phase changes and melting along the Hugoniot; the approximation is not experimental proof of a single phase"
+  },
+  "uncertainty": {
+    "source_accuracy_statement": "p.4-98 estimates calculated 25 C isotherms probably accurate to +/-5 percent in pressure, certainly better than +/-10 percent",
+    "semantics": "Qualitative method-level estimate, not per-row standard deviations, confidence intervals or covariance; no per-cell uncertainty supplied",
+    "OCR_caution": "Printed 5 percent is repeatedly misread as .5 percent in the OCR. Checked visually; do not report 0.5 percent. Likewise printed 25 C can appear as 2.5 C.",
+    "printed_volume_precision": "Three decimals in V/V0; numerical display precision is not a supplied measurement error"
+  },
+  "counts": {
+    "all_printed_cells": 159,
+    "populated": 136,
+    "blank": 23,
+    "populated_by_material": {
+      "Co": 44,
+      "Ni": 44,
+      "Ag": 48
+    }
+  },
+  "P_coverage_GPa": {
+    "Co": [
+      1.5,
+      120
+    ],
+    "Ni": [
+      1.5,
+      120
+    ],
+    "Ag": [
+      1.5,
+      200
+    ]
+  },
+  "visual_checks": [
+    "Complete relevant pages inspected, including table titles and column alignment",
+    "Ag at 400 kbar is 0.811; OCR 0.1811 rejected using printed pixels",
+    "Co/Ni lower 5/10-kbar cells are empty; no zero-pressure anchor synthesized"
+  ],
+  "unrecovered": [
+    "Original selected shock experiments and pointwise reduction arrays from UCRL-50108",
+    "Per-row covariance or statistically defined uncertainties",
+    "Dewaele sample mask, interpolation grid, fitting weights, averaging and original worksheet"
+  ],
+  "scope": "Source recovery only; no new refit, graph correction, EOS recommendation or catalogue change"
+}

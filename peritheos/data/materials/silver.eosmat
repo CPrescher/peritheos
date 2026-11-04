@@ -274,7 +274,7 @@
                 "local_student_t_95_intervals": {
                   "V0": [67.93458331064454, 68.62303705690337],
                   "K0": [94.31377764372766, 106.4627650064835],
-                  "K0_prime": [5.47727001163671, 5.90220157813177]
+                  "K0_prime": [5.477270011636709, 5.902201578131771]
                 },
                 "residual_variance": 0.2403339489722315,
                 "max_abs_residual_jacobian_cosine": 1.713832608809049e-08,
@@ -673,7 +673,7 @@
                 "local_student_t_95_intervals": {
                   "V0": [67.93458331064454, 68.62303705690337],
                   "K0": [94.31377764372766, 106.4627650064835],
-                  "K0_prime": [5.47727001163671, 5.90220157813177]
+                  "K0_prime": [5.477270011636709, 5.902201578131771]
                 },
                 "residual_variance": 0.2403339489722315,
                 "max_abs_residual_jacobian_cosine": 1.713832608809049e-08,
@@ -1161,7 +1161,30 @@
       },
       "used_by_eos_records": ["silver_dewaele_2008_table4_vinet", "silver_dewaele_2008_table4_us_k0_101_vinet"],
       "notes": "Source tokens, run identities, reported lattice data and mixed-gauge markings retained. Common Table II volume uncertainty 0.01 A3/atom is reported without an explicit confidence convention; pressure precision endpoints do not supply rowwise errors. No rowwise uncertainty array is synthesized.",
-      "license": "Factual numerical transcription and vector-coordinate recovery with attribution. No explicit source data licence was found; source article and figures retain third-party rights. No licence grant over the publisher PDF is asserted."
+      "license": "Factual numerical transcription and vector-coordinate recovery with attribution. No explicit source data licence was found; source article and figures retain third-party rights. No licence grant over the publisher PDF is asserted.",
+      "observation_views": [
+        {
+          "identifier": "silver_dewaele_2008_table4_source_view",
+          "eos_records": ["silver_dewaele_2008_table4_vinet", "silver_dewaele_2008_table4_us_k0_101_vinet"],
+          "evidence_kind": "experimental",
+          "notes": "Published revised-pressure column on the 2004 input scale; parenthesized helium-EOS pressures remain as printed. Atomic volumes are converted to the declared conventional cell. No rowwise errors or missing calibration readings are synthesized.",
+          "coordinates": {
+            "pressure": {"kind": "column", "column": "ruby_pressure_dewaele_gpa"},
+            "volume": {
+              "kind": "column",
+              "column": "atomic_volume_a3",
+              "unit": "angstrom^3/conventional_unit_cell",
+              "factor": 4,
+              "reference": "Publication crystal phase and conventional-cell atom count."
+            }
+          },
+          "phase_reviewed": true,
+          "fit_selection": {
+            "notes": "Unweighted pressure-residual Table IV replay; V0 fixed, with source-specific fixed ultrasonic K0 alternatives. The flag excludes only run-2 Ag/Mo rows above 100 GPa, as stated in Section III.",
+            "flag_column": "fit_included"
+          }
+        }
+      ]
     }
   ]
 }

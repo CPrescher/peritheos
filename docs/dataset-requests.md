@@ -14,22 +14,14 @@ complete or contacting the authors would be unhelpful. Some ledger gaps concern
 computed grids, adopted coefficients, or model definitions rather than missing
 experimental observations.
 
-A listed evidence gap is not automatically an active investigation or a planned
-author request. See the [backlog work-status review](material-eos-candidates.md#completed-investigations-with-documented-limitations)
-for completed investigations and their reopening conditions. Scientific
-non-reproduction findings and recommendation holds remain in place when a
-curation investigation is complete.
-
 ## Reviewed requests
 
 | Paper / material | Recommendation | What additional data would enable | Outreach status | Last reviewed |
 |---|---|---|---|---|
-| [Fe3C: Scott, Prescher, Litasov and Takahashi](literature-reproductions/cementite.md) | Recover source fit inputs and clarify reference-volume alternatives | Scott numerical rows/run IDs/weights; Prescher fit V0 values, ambient input and fixed/shared/refined constraints (19 Table S1 states received); Litasov table/prose precision and masks; Takahashi original mask/weights. Existing recovered tables need not be requested again. | Prescher supplement and complete working archive supplied by user. Three source fits integrated with explicit graph-derived V0 adoption and conditional coefficient parity; original constraints and low-pressure K0 error calculation remain open. Final fit output not recovered. No external contact | 2026-10-25 |
 | [Shen and Smith (2026), MgO and NaCl-B2](#shen-and-smith-2026-mgo-and-nacl-b2) | Exact author-used inputs needed to resolve both fit holds | Establish whether additional observations or unpublished processing entered Table II; replay Cu reduction and regression | Not contacted | 2026-10-17 |
 | [Frost et al. (2023), Pd](#frost-et-al-2023-palladium) | Recover original regression inputs/settings to resolve the recommendation hold | Reconcile both published fits with all 93 verified observations and the stated coordinate errors | Not contacted | 2026-10-17 |
-| [Morard et al. (2026), FeS](#morard-et-al-2026-fes) | Completed source-input/numerical audit; exact original-GUI control experiment awaits a located 20210609 executable | Preserve conditional parameter parity separately from the unresolved ±3 GPa residual-envelope claim | User supplied complete author-used inputs, communication, supplement and EOS; no repeat file request | 2026-11-01 |
-| [Miozzi et al. (2020), hcp iron](#miozzi-et-al-2020-hcp-iron) | Completed curation/refit investigation; exact publication replay is an optional reopening task | Recover the original pressure reducer, selected input, weights/error handling and session; the dominant normalization issue is already clarified and independent refits are integrated | User relayed author clarification on 2026-10-03; no new outreach planned | 2026-10-30 |
-| [Katsura et al. (2009), wadsleyite](#katsura-et-al-2009-wadsleyite) | Completed calibration/model-mapping audit; original thermal-model consistency remains unresolved | Recover the actual thermal calculator and Figure 2 prescription, Inoue ambient joint-fit inputs/weights, and paired MgO cells/reducer for a separate calibration test | User reports email sent to Tomoo Katsura; reply awaited. Exact text and attachments not recorded | 2026-11-01 |
+| [Morard et al. (2026), FeS](#morard-et-al-2026-fes) | Accepted on parameter agreement; no author email needed | GUI and console agree; residual-envelope discrepancy retained as informational | User supplied author communication, supplement, EOS and selected input | 2026-10-03 |
+| [Miozzi et al. (2020), hcp iron](#miozzi-et-al-2020-hcp-iron) | Author clarification would resolve a substantial source-fit discrepancy | Replay the actual pressure reduction and EosFit-7c objective; verify thermal normalization | Not contacted | 2026-10-02 |
 | [Chen et al. (2010), fcc argon](literature-reproductions/chen-2010-argon.md) | Original coefficients and data needed to resolve source inconsistency | Reconcile the 2 GPa elastic constants with Figure 5 and the extrapolated density; reproduce integration and fit | Not contacted; user requested no outreach | 2026-09-24 |
 | [Crichton et al. (2016), bcc vanadium](#crichton-et-al-2016-bcc-vanadium) | Contact authors; high priority for original-fit verification | Refit the complete 62-state experiment; resolve the two incomplete fixed-K′ alternatives | Not contacted; historical contact route available | 2026-09-19 |
 | [Nisr et al. (2017), hydrous silica](#nisr-et-al-2017-hydrous-silica) | Optional follow-up for exact regression and calibration replay; published coefficients already reproduced | Resolve the original fit objective, weights and Au pressure reduction | Not contacted | 2026-09-19 |
@@ -110,7 +102,7 @@ or authorized by this audit.
 ### Morard et al. (2026): FeS
 
 Paper: [FeS phase diagram and thermal Equation of State under high pressure](https://doi.org/10.1103/h4pj-rvxx).
-Record: `fes_vi_morard_2026_bm3_mgd` (deferred).
+Record: `fes_vi_morard_2026_bm3_mgd` (accepted on parameter agreement, 2026-10-19).
 Evidence: [source audit](literature-reproductions/morard-2026-fes.md).
 
 All 146 supplied Table S1 observations are bundled. Standard integrated MGD
@@ -135,15 +127,12 @@ outside ±3 GPa. See the [author-input follow-up](literature-reproductions/fes-e
 
 The user subsequently confirmed that the supplied files are all inputs used by
 Guillaume Morard. They are therefore treated as the complete author-used inputs;
-a new request for the same data/EOS files is not the next step. The remaining
-numerical task is an empirical GUI replay with those files and controlled
-weighting, groups and cold/thermal selections. The original 20210609 GUI itself
-has not been run and was not located in the bounded 1 November availability
-check. The live record already has conditional parameter-agreement `parity`
-from the 25 October scoped review; exact publication digits, GUI workflow and
-the full residual envelope remain unresolved separately. No completed fitting
-is reopened. See the [availability review and next actionable addition](literature-reproductions/fes-eosfit-direct.md#current-status-and-original-gui-availability-review-2026-11-01).
-This audit has not contacted the author; the user supplied the personal communication.
+a new request for the same data/EOS files is not needed. The distributed
+20211014 GUI comparison is complete and agrees closely with the console.
+On 2026-10-19 the maintainer accepted staged parameter agreement within reported
+uncertainties as sufficient for catalog use. The ±3 GPa envelope discrepancy
+is informational; exact original workflow remains unverified. No email is
+needed on this criterion and no author outreach was performed by this audit.
 
 ### Crichton et al. (2016): bcc vanadium
 
@@ -319,69 +308,23 @@ Paper: *A New Reference for the Thermal Equation of State of Iron*,
 [DOI 10.3390/min10020100](https://doi.org/10.3390/min10020100).
 Evidence: [source audit and reproduction](literature-reproductions/miozzi-2020-iron.md).
 
-**Work status reviewed 2026-10-30: completed curation and independent-refit
-investigation, with a documented original-publication discrepancy.** All 131
-published supplementary rows, reported coordinate errors and paired MgO volumes
-are bundled. User-relayed author communication on 2026-10-03 confirmed full
-MGD, n=2 at approximately 6.87 cm³/mol Fe, theta0=420 K fixed, and V0 free in
-the final fitting stage. The atom-count/volume mismatch explains the dominant
-near-factor-of-two thermal-gamma discrepancy; it is no longer an unknown
-normalization setting requiring a new request.
+All 131 published supplementary rows, reported coordinate errors and paired MgO
+volumes are bundled. The preferred thermal coefficients give 6.98 GPa RMS
+pressure residual under standard MGD normalization, exceeding the stated
+−3 to +3 GPa interval; both printed room-temperature fits also miss the supplied
+MgO-series pressures. Three records retain explicit-selection not-reproduced
+status. This finding does not establish a mistake in the authors' measurements.
 
-The unchanged published coefficients with the author-reported n=2 give
-2.49886 GPa RMS on the printed-pressure observations, while the earlier
-physical n=1 interpretation gave 6.98261 GPa. Exact original-fit replay is
-still unresolved. Separate physically normalized n=1 Peritheos refits on
-reconstructed Speziale and Tange pressures are integrated. The Speziale refit
-has RMS 0.928127 GPa and full conditional five-parameter covariance; its
-reproducibility does not establish publication parity or a complete uncertainty
-budget. The original three published records retain explicit-selection
-`not_reproduced` status. [Registered records and comparison](literature-reproductions/miozzi-2020-iron.md#registered-published-n2-record-and-speziale-n1-refit-2026-10-03).
+**Minimum clarification:** the actual EosFit-7c input files with original row
+selection, the exact Speziale MgO pressure coefficients/implementation, the
+intended energy/molar-volume normalization, and the preferred thermal reference
+volume (22.80 versus 22.81 A³ versus 6.87 cm³/mol).
 
-**Only if exact publication replay is reopened:** obtain the actual EosFit-7c
-input/session, original row selection, exact pressure-reduction implementation,
-weights and missing/zero-error treatment, and unrounded reference-volume
-settings. Parameter covariance/confidence definitions and paired ruby/Sr gauge
-readings would enable additional uncertainty/calibration checks. The
-nonpreferred joint fits additionally need their Dewaele (2006) selection.
-These are retained evidence gaps, not pending work or new outreach. They do
-not imply that the authors' measurements are wrong.
+**Additional useful inputs:** original regression weights and error handling,
+parameter covariance/confidence definitions, and paired ruby/Sr gauge readings
+for the helium series. The nonpreferred joint fits additionally need their
+Dewaele (2006) row selection. No author contact has been made.
 
-### Katsura et al. (2009): wadsleyite
+### Morard GUI follow-up, 2026-10-19
 
-Paper: *P-V-T relations of wadsleyite determined by in situ X-ray diffraction
-in a large-volume high-pressure apparatus*,
-[DOI 10.1029/2009GL038107](https://doi.org/10.1029/2009GL038107).
-Evidence: [calibration versus thermal-model audit](literature-reproductions/wadsleyite-katsura-2009.md).
-
-**Work status: completed investigation, 2026-10-30.** All 85 Table 1 observations
-and printed errors were rechecked against the final PDF. The cold stage gives
-K′=4.108 with the source V0/K0 fixed, within 4.1(1). The physically consistent
-seven-atom MGD calculation gives 1.894 GPa RMS on all rows and also misses the
-paper's own Figure 2 thermal curves and reported mean ambient expansivity.
-Native/Python pressure evaluation and formula/cell scaling agree. Changing
-experimental pressure calibration alone cannot explain the source-output
-inconsistency. The five-atom diagnostic is much closer but is unphysical for
-Mg2SiO4 and does not reproduce all source curves; no author setting or correction
-is inferred. The original catalog record and deferred hold are unchanged.
-
-**Minimum evidence to reopen the thermal question:** actual author calculator,
-code/spreadsheet or saved fit project identifying the numeric atom count and
-molar-volume basis, gamma/theta volume arguments, 300 K subtraction, full-precision
-coefficients and generation of Figure 2. Exact author-fit reproduction also needs
-the Inoue (2004) ambient-pressure expansion rows explicitly used by the paper,
-their normalization/selection and relative weights, plus the objective, fit order
-and uncertainty/covariance convention. The 85 high-pressure rows alone are not
-the full reported joint fit input.
-
-**Separate calibration evidence:** measured paired MgO lattice parameters/cell
-volumes and errors, row/run identities, temperatures and the exact pressure
-reducer. The inherited methods identify Matsui et al. (2000) MgO, but no
-observation-level calibration replay is possible from the published sample-only
-table. Inverting the printed pressures would not recover independent gauge
-measurements.
-
-**Contact status (reported 1 November 2026):** Clemens reports that he sent
-the email to Tomoo Katsura; a reply is awaited. The exact message text and
-attachments sent are not recorded here. This contact update does not reopen
-the completed investigation or change its scientific disposition.
+The [actual distributed-GUI comparison](literature-reproductions/fes-gui-replay.md) has been completed for saved-cold and cold-then-hot controls on the complete confirmed selected input. The GUI agrees closely with the console and retains residuals above ±3 GPa. The exact 20210609 executable/workflow remains unverified. The author-used input files are complete; do not request them again. The maintainer accepts the parameter agreement for catalog use; residual-envelope non-parity is informational and no email is needed on this criterion.

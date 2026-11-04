@@ -25,6 +25,8 @@ def value_error(
     Match the value's last decimal place to that of the error. Decimal avoids
     binary tie artefacts; retain the selected place when rounding carries.
     Missing/zero errors do not license extra precision or an exact-value claim.
+    An explicitly audited decimal place keeps source/refit comparisons at the
+    paper's precision; it does not change stored numbers or confidence semantics.
     """
     if (
         isinstance(error, bool)

@@ -1,18 +1,13 @@
 # Bykova (2018): audit of the other silica EOSs
 
-Initial audit: 24 October 2026. Author follow-up recorded: 25 October 2026.
-**The initial 24 October investigation was audit only.** The authorized
-25 October follow-up integrates the recovered coesite-I/II/III input set and
-achieved central-coefficient parity and reproduction of the author's fit values
-at reported precision, preserving published coefficients.
-The combined experimental
+Audit date: 24 October 2026. **Audit only: no material, observation, shared
+ledger, model, API or schema was changed.** The combined experimental
 coesite-IV/V BM2 at 32.7 GPa is owned by the original chat and is excluded
 from this investigation.
 
 The experimental coesite-I/II/III coefficients are faithfully transcribed
-and reproduce the published Figure 1 curve. The historical 24-row diagnostic
-does not recover those coefficients; the recovered 22-row pressure-weighted
-reconstruction does, at published precision. Coesite-IV retains its qualified conditional
+and reproduce the published Figure 1 curve. The existing partial refit does
+not recover those coefficients. Coesite-IV retains its qualified conditional
 refit finding. The held coesite-V diagnostic agrees with the smooth source
 curve at the declared graphical resolution, but does not pass through all
 calculated markers. One transformed Table 10 state has a much larger pressure
@@ -20,110 +15,6 @@ discrepancy with that diagnostic and needs clarification. Two additional
 source-owned AM05 results, stishovite/CaCl2 and seifertite, were omitted from
 the earlier inventory; neither has enough published inputs for a complete
 executable EOS.
-
-**Original-file verification completed on 25 October:** the recovered 22-row
-export reproduces all three published experimental central coefficients at
-their printing precision. A reconstruction using the workbook's underlying
-precision and demonstrated current-study volume rounding also agrees with
-all 100 saved curve rows. The extra literature point is the previously fitted
-ambient volume, not an independent measurement. See the
-[verified author-file audit](bykova-2018-author-fit.md) for the source mask,
-rounding, pressure weighting, anchor dependence and remaining original-settings/
-uncertainty limits. The older 24-row diagnostic below is preserved with its
-original scope. Central-coefficient parity is achieved and the author's fit
-values are reproduced at reported precision. Uncertainty/covariance parity and
-every original software-configuration detail remain unverified.
-
-## Author follow-up: 25 October 2026
-
-The user supplied a reply from Elena Bykova. This section records the initial
-communication; the original files were subsequently supplied and independently
-inspected in the [dedicated follow-up](bykova-2018-author-fit.md). Elena explicitly describes the numerical reconstruction in her
-reply as AI-assisted and says she does not remember every original fitting
-decision. Her recovered-file descriptions, current recollections and reported
-refit must therefore remain distinguishable from an independently replayed
-author workflow.
-
-Elena reports recovering `coeII-plot.dat`, an original EosFit plot export
-containing experimental points and a fitted curve, and `Coesite_final.xlsx`,
-containing the underlying data. She reports the following coefficients:
-
-| Quantity | Published rounded values | Reported saved curve | Reported new weighted replay |
-| --- | ---: | ---: | ---: |
-| V0/Z, Å³ per SiO2 | 34.20 | 34.2038 | 34.2040 |
-| K0, GPa | 103 | 102.75 | 102.73 |
-| K0′ | 3.02 | 3.023 | 3.024 |
-
-The reported fit contains **22 points: eight literature coesite-I, four
-current-study coesite-II and ten current-study coesite-III**. Compared with
-the 24-row audit diagnostic, the communicated selection omits:
-
-- The coesite-III state at P = 35.9246 GPa, V/Z = 26.1504 Å³, corresponding
-  to the printed 35.9(7) GPa / 627.6(7) Å³ source-cell row. This is the largest
-  positive published-curve pressure residual in the 24-row diagnostic.
-- Both literature coesite-II observations at 27.52 and 30.94 GPa, although
-  they appear in the figure.
-
-The communicated replay minimizes **sum[(P_model − P_data)² / sigma_P²]**
-with V0, K0 and K0′ all free. This differs from the earlier unweighted
-24-row pressure objective. Elena also reports current-study II/III volumes
-rounded to 0.1 Å³ in the fitting file. The coordinate to which that rounding
-applies (source cell, normalized volume, or another exported coordinate) must
-be checked in the actual file; it is not inferred here. The quoted unrounded
-35.9246 GPa / 26.1504 Å³ values are author-communicated values, not extra
-precision recovered from the printed supplement.
-
-These are specific, source-supported explanations to test for the earlier
-parameter discrepancy. At this initial communication stage their separate
-numerical effects had not been isolated and the replay had not been reproduced
-locally; the subsequent file verification is documented in the follow-up.
-In particular, its agreement supports K0′ near 3 **under the communicated
-selection and weighting**; it does not establish that a low K0′ is inherently
-unphysical or that the 24-row diagnostic should replace the published EOS.
-
-### Initial verification checklist and its scope
-
-The original files have now resolved the row identities and rounding and
-supported the declared numerical replay. This checklist records what needed
-checking when only the reply was available; original optimization settings,
-sigma_V treatment and covariance remain incompletely established.
-
-1. Inspect and checksum both original files; identify experimental rows,
-   calculated fitted-curve rows, uncertainties, units and phase assignments.
-   Do not use the fitted-curve export as independent measured fit input.
-2. Resolve the **eighth literature coesite-I row**. The existing audit contains
-   seven measured literature coesite-I rows. Removing the three specified
-   observations from 24 leaves 21, so the reported 22-row selection includes
-   one additional row. The cited 2014 table's ambient entry is fitted EOS
-   output. Check whether that is the eighth row or whether another measured
-   observation was used. Do not assume its identity or silently treat a
-   derived ambient anchor as an independent measurement. If such an anchor
-   entered the original fit, preserve that fact in the source-protocol replay
-   and qualify the independent-evidence claim accordingly.
-3. Reproduce the actual file's rounding and pressure-uncertainty weighting,
-   retaining all original rows and an explicit inclusion/exclusion mask.
-   A reported modern pressure-weighted replay is not by itself proof that
-   precisely the same objective/settings were used in the 2018 EosFit run.
-4. Compare with both the saved curve and published coefficients at their
-   respective precision. Keep parameter errors/covariance separate: neither
-   has been reproduced by the central-value comparison in this message.
-
-Elena clearly recalls heavily twinned, symmetry-related and pseudohexagonal
-crystals that complicated refinement. She suspects anomalous volumes motivated
-exclusions but does not recall the reason for every exclusion. Record that
-explanation as her current recollection, not verified per-row rejection flags
-from the original project.
-
-**Updated evidence status:** the author-reported central-value reproduction of
-the 22-point workflow is now **independently reproduced at published printing
-precision**, with the derived-anchor qualification documented in the follow-up.
-The old failed 24-row unweighted comparison remains a historical diagnostic;
-it does not test this newly communicated selection and weighting. The numerical
-JSON and comparison figure below continue to document the 24 October audit
-and have not been regenerated into a 22-point dataset. Material coefficients
-remain unchanged; the current assessment and shared ledgers now refer to the
-separate, original-file-derived 22-row dataset: central-coefficient parity is
-achieved and the author's fit values are reproduced at reported precision.
 
 ## Sources and reproducibility
 
@@ -290,8 +181,7 @@ not supply missing source weights or make the displayed diagnostic coefficient
 errors a reproduced author covariance. Preserve those historical fields, but
 correct their presentation in any separately authorized integration.
 
-**24 October assessment, before the author follow-up above:**
-source-equation/curve agreement is supported; full author-fit
+**Assessment:** source-equation/curve agreement is supported; full author-fit
 reproduction is not established; the existing partial parameter comparison
 remains `not_reproduced` / `parity_not_achieved`. Retain a recommendation hold
 for that unresolved reconstruction. This is not evidence that the printed
@@ -472,11 +362,7 @@ Minimum useful author inputs are the actual I/II/III fit table with phase/run
 mask, pressure scale and objective/weights; the fitted AM05 V0 and normalization
 for each Table 11 row; the DFT E–P–V grid and branch labels; and clarification
 of the 55 GPa transformed Table 10 state. Uncertainty/covariance and original
-VASP inputs would enable stronger reproduction. No author had been contacted
-at the initial audit. On 25 October the user supplied Elena's reply, recorded
-above; the original files were subsequently inspected and the qualified
-central-value replay verified in the linked follow-up. No message was sent
-by the agent.
+VASP inputs would enable stronger reproduction. No author was contacted.
 
 This report and its dedicated evidence/script are new local files. Shared
 scientific classifications and generated ledgers remain untouched. No commit,

@@ -4,12 +4,7 @@ use peritheos::{load_eosmat, load_eosmat_str};
 
 #[test]
 fn diopside_published_records_load_evaluate_invert_and_preserve_metadata() {
-    let path = Path::new(env!("CARGO_MANIFEST_DIR"))
-        .join("../../peritheos/data/materials/diopside.eosmat");
-    if !path.is_file() {
-        // The Python resource tree is not included in the standalone Rust crate.
-        return;
-    }
+    let path = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/data/diopside.eosmat");
     let material = load_eosmat(path).unwrap();
     material.validate().unwrap();
     assert_eq!(material.eos_records.len(), 2);

@@ -33,7 +33,7 @@ def recover(pdf: Path) -> tuple[list[dict], dict]:
     with tempfile.TemporaryDirectory(prefix="forsterite-2009-") as temp:
         text = Path(temp) / "article.txt"
         subprocess.run(["pdftotext", "-layout", str(pdf), str(text)], check=True)
-        source = text.read_text()
+        source = text.read_text(encoding="utf-8")
     section = source.split(
         "Pressure, temperature, lattice parameter, and unit cell volume of forsterite"
     )[1].split("bulk modulus, Ks")[0]
@@ -60,7 +60,9 @@ def recover(pdf: Path) -> tuple[list[dict], dict]:
             row[name + "_source_token"] = token
         rows.append(row)
     assert len(rows) == 52
-    with (DATA / "forsterite-katsura-2022-olivine-pvt.csv").open(newline="") as stream:
+    with (DATA / "forsterite-katsura-2022-olivine-pvt.csv").open(
+        newline="", encoding="utf-8"
+    ) as stream:
         workbook = list(csv.DictReader(stream))
     unlisted = []
     for observation in workbook:
@@ -113,8 +115,10 @@ def main() -> None:
     writer = csv.DictWriter(out, fieldnames=list(rows[0]), lineterminator="\n")
     writer.writeheader()
     writer.writerows(rows)
-    (DATA / f"{PREFIX}-table1.csv").write_text(out.getvalue())
-    (DATA / f"{PREFIX}-source.json").write_text(json.dumps(metadata, indent=2) + "\n")
+    (DATA / f"{PREFIX}-table1.csv").write_text(out.getvalue(), encoding="utf-8")
+    (DATA / f"{PREFIX}-source.json").write_text(
+        json.dumps(metadata, indent=2) + "\n", encoding="utf-8"
+    )
     print(json.dumps(metadata, indent=2))
 
 

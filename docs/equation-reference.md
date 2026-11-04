@@ -21,11 +21,8 @@ publications are collected under [References](references.md).
 
 ## Notation and reference state
 
-For the standard zero-pressure forms of an isothermal equation of state (EOS),
-$V_0$ is the volume at zero model pressure and $K_0$ is the isothermal bulk
-modulus there. Models with an explicit reference pressure, such as
-[`BM2Reference`](#finite-pressure-bm2-reference), define their volume and modulus
-at that pressure instead. For the zero-pressure forms, Peritheos uses
+For an isothermal equation of state (EOS), $V_0$ is the volume at zero model
+pressure and $K_0$ is the isothermal bulk modulus there. Peritheos uses
 
 \[
 K_T=-V\left(\frac{\partial P}{\partial V}\right)_T,
@@ -46,36 +43,16 @@ GPa. Every model requires $V>0$, with additional domains noted below.
 
 #### Finite-pressure BM2 reference
 
-Some published EOS fits describe a material around a chosen high-pressure state.
-Their reference volume and bulk modulus belong to that pressure. `BM2Reference`
-represents a second-order Birch–Murnaghan pressure change relative to this
-explicit reference state.
-
-To make the reference state clear, write its pressure as $P_{\rm ref}$, its
-volume as $V_{\rm ref}$, and its bulk modulus as $K_{\rm ref}$. The equation is
+`BM2Reference(V0, K0, P0)` explicitly represents
 
 \[
-P(V)=P_{\rm ref}+\frac32 K_{\rm ref}
-\left[\left(\frac{V_{\rm ref}}{V}\right)^{7/3}
--\left(\frac{V_{\rm ref}}{V}\right)^{5/3}\right].
+P(V)=P_0+\frac32 K_0[(V_0/V)^{7/3}-(V_0/V)^{5/3}].
 \]
 
-The constructor `BM2Reference(V0, K0, P0)` maps these quantities to the API names:
-
-| Physical quantity | API parameter | Meaning |
-| --- | --- | --- |
-| $P_{\rm ref}$ | `P0` | Pressure of the reference state, in GPa |
-| $V_{\rm ref}$ | `V0` | Volume at `P0`, in the same volume unit as `V` |
-| $K_{\rm ref}$ | `K0` | Isothermal bulk modulus at `P0`, in GPa |
-
-For this model, the `0` in `V0` and `K0` labels the **reference state**; it does
-not imply zero pressure. They are ambient-pressure quantities only when
-`P0 = 0`. The reference pressure is required and finite. At the reference
-volume, $P(V_{\rm ref})=P_{\rm ref}$, $K(V_{\rm ref})=K_{\rm ref}$, and
-$(dK/dP)_{\rm ref}=4$.
-
-Bulk modulus is the usual BM2 derivative, since the pressure offset is
-independent of volume. The molar reference-energy
+V0 and K0 denote volume and bulk modulus **at P0**, not ambient values unless
+P0=0. The reference pressure is required, finite, and uses the same units as
+K0. P(V0)=P0, K(V0)=K0 and dK/dP at V0 is 4. Bulk modulus is the usual BM2
+derivative, since the offset is independent of V. The molar reference-energy
 integral includes `-P0*(V-V0)*1e4` in the library's J/bar/mol volume convention.
 Thermal reference-volume/modulus transformations retain P0.
 
@@ -98,13 +75,9 @@ also be documented when they differ, such as V32.7 and K32.7 for
 ```python
 from peritheos.eos.rt import BM2Reference
 
-p_ref = 32.7  # GPa
-v_ref = 375.04  # angstrom^3 per conventional cell, at p_ref
-k_ref = 254.0  # GPa, at p_ref
-
-eos = BM2Reference(V0=v_ref, K0=k_ref, P0=p_ref)
-assert eos.pressure(v_ref) == p_ref
-assert eos.volume(p_ref) == v_ref
+eos = BM2Reference(V0=375.04, K0=254.0, P0=32.7)
+assert eos.pressure(375.04) == 32.7
+assert eos.volume(32.7) == 375.04
 ```
 
 #### Standard zero-pressure forms

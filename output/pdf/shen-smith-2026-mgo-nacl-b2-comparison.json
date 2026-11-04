@@ -1,0 +1,40 @@
+{
+  "source_csv_sha256": "1e8841829f67a7bdbcd654d3a4b87dcdbbaa81bc700b73e9c1800ae71d989f36",
+  "residual_convention": "P_EOS(V_observed) - P_Cu",
+  "records": [
+    {
+      "phase": "MgO",
+      "shown": 194,
+      "fitted": 194,
+      "excluded": 0,
+      "fixed_V0_a3": 74.636,
+      "published": {
+        "K0_gpa": 161.9,
+        "K0_prime": 4.08
+      },
+      "refit": {
+        "K0_gpa": 161.82743443412534,
+        "K0_prime": 3.953583037503
+      },
+      "published_rms_gpa": 1.1612409415497185,
+      "refit_rms_gpa": 0.475878558607834
+    },
+    {
+      "phase": "NaCl-B2",
+      "shown": 131,
+      "fitted": 125,
+      "excluded": 6,
+      "fixed_V0_a3": 41.35,
+      "published": {
+        "K0_gpa": 24.92,
+        "K0_prime": 5.63
+      },
+      "refit": {
+        "K0_gpa": 25.447259684838897,
+        "K0_prime": 5.582768009512782
+      },
+      "published_rms_gpa": 0.6223809764451989,
+      "refit_rms_gpa": 0.29322873435057556
+    }
+  ]
+}

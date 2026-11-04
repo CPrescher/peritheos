@@ -117,7 +117,9 @@ def observations(document, record, fit):
         )
 
     def table_rows(filename):
-        with (ROOT / "peritheos/data/datasets" / filename).open(newline="") as stream:
+        with (ROOT / "peritheos/data/datasets" / filename).open(
+            newline="", encoding="utf-8"
+        ) as stream:
             return list(csv.DictReader(stream))
 
     def column(rows, name):
@@ -201,6 +203,14 @@ def observations(document, record, fit):
         return direct(
             column(rows, pressure_name),
             column(rows, "atomic_volume_a3") * document["formula_units_per_cell"],
+        )
+    if fit.get("fit_kind") == "finger_1979_fixed_measured_v0":
+        rows = table_rows("ferrous-ringwoodite-finger-1979-table2.csv")[1:]
+        return direct(
+            column(rows, "pressure_kbar") / 10,
+            column(rows, "volume_a3"),
+            pressure_sigma=column(rows, "pressure_esd_kbar") / 10,
+            volume_sigma=column(rows, "volume_esd_a3"),
         )
     if fit.get("fit_kind") == "partial_298k_rydberg_stacey_diagnostic":
         phase = (
@@ -477,7 +487,7 @@ def observations(document, record, fit):
     }:
         from scripts.forsterite_reproduce_katsura_2022 import FIT_INPUT
 
-        with FIT_INPUT.open(newline="") as stream:
+        with FIT_INPUT.open(newline="", encoding="utf-8") as stream:
             rows = list(csv.DictReader(stream))
         return direct(
             column(rows, "pressure_gpa"),
@@ -526,7 +536,9 @@ def observations(document, record, fit):
         )
     if rid == "gold_sakai_2025_rydberg_stacey_1":
         report = json.loads(
-            (ROOT / "docs/data/sakai-2025-gold-reconstruction.json").read_text()
+            (ROOT / "docs/data/sakai-2025-gold-reconstruction.json").read_text(
+                encoding="utf-8"
+            )
         )
         rows = [r for r in report["pressure_reductions"] if r["included_in_diagnostic"]]
         return direct(
@@ -560,7 +572,7 @@ def observations(document, record, fit):
     if rid in {"nacl_b2_fei_2007", "nacl_b2_fei_2007_staged_thermal_refit"}:
         from scripts.reproduce_fei_2007_nacl_b2 import SOURCE, subset
 
-        source = json.loads(SOURCE.read_text())
+        source = json.loads(SOURCE.read_text(encoding="utf-8"))
         cold, hot = subset(source, 3, 300), subset(source, 4, 1000)
         volume, temperature, pressure = [
             np.concatenate(values) for values in zip(cold, hot)

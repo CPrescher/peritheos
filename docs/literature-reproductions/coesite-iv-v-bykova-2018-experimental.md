@@ -149,3 +149,11 @@ volume = record.volume(50.0)  # conventional-cell Å³
 [Full numerical comparison](../data/coesite-iv-v-bykova-2018-experimental.json) ·
 [Separate theoretical-refit audit](coesite-iv-bykova-2018.md) ·
 [Material parameters and source data](../material-summaries/coesite_iv.md)
+
+Replay checks preserve the archived source bytes and compare source coefficients,
+pixel readings, hashes, row identities, counts and conclusions exactly. Calculated
+graphical coordinates, bounds, residuals and rounding intervals allow only
+`1e-12` relative / `1e-10` absolute numerical roundoff in their stated units.
+Optimized diagnostic results allow `1e-5` relative / `1e-10` absolute drift;
+fixed reference pressures remain exact. These tolerances do not change the
+archived values or the scientific reading bounds.

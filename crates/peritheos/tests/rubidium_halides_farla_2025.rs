@@ -5,11 +5,8 @@ use peritheos::{load_eosmat, load_eosmat_str};
 #[test]
 fn farla_b2_halides_load_preserve_metadata_and_execute_in_rust() {
     for (compound, source_ratio) in [("rbcl", 0.8149), ("rbbr", 0.7886), ("rbi", 0.7558)] {
-        let path = Path::new(env!("CARGO_MANIFEST_DIR"))
-            .join(format!("../../peritheos/data/materials/{compound}.eosmat"));
-        if !path.is_file() {
-            continue; // Bundled data are not included in a standalone Rust crate package.
-        }
+        let path =
+            Path::new(env!("CARGO_MANIFEST_DIR")).join(format!("tests/data/{compound}.eosmat"));
         let material = load_eosmat(path).unwrap();
         let identifier = format!("{compound}_b2_farla_2025_bm3_mgd_cscl");
         let record = material.record(&identifier).unwrap();

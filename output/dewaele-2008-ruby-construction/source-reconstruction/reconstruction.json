@@ -1,0 +1,130 @@
+{
+  "status": "conditional_source_based_reconstruction; author workflow not reproduced",
+  "published_ruby": {
+    "A_GPa": 1920,
+    "B": 9.61
+  },
+  "fits": {
+    "source_stated_range": {
+      "A_GPa": 1916.930165655635,
+      "B": 10.15256632971911,
+      "target_mean_RMSE_GPa": 0.032941301162216274,
+      "target_mean_max_abs_residual_GPa": 0.06574193844539877,
+      "fit_coordinate_2004_range_GPa": [
+        0.0,
+        160.0
+      ],
+      "grid_points": 321,
+      "delta_at_published_160_GPa": 2.6894887032304666,
+      "max_abs_delta_0_to_160_GPa": 2.6894887032304666,
+      "comparison_axis": "published2008 pressure at identical wavelength ratio"
+    },
+    "source_Co_full_table": {
+      "A_GPa": 1915.138083602523,
+      "B": 10.056142938365753,
+      "target_mean_RMSE_GPa": 0.027830054977849947,
+      "target_mean_max_abs_residual_GPa": 0.05556237028795863,
+      "fit_coordinate_2004_range_GPa": [
+        0.0,
+        160.0
+      ],
+      "grid_points": 321,
+      "delta_at_published_160_GPa": 2.009448350392148,
+      "max_abs_delta_0_to_160_GPa": 2.009448350392148,
+      "comparison_axis": "published2008 pressure at identical wavelength ratio"
+    },
+    "literal_published_pairs": {
+      "A_GPa": 1911.0264385047385,
+      "B": 9.792774790259651,
+      "target_mean_RMSE_GPa": 0.015282949389796501,
+      "target_mean_max_abs_residual_GPa": 0.029958474522317147,
+      "fit_coordinate_2004_range_GPa": [
+        0.0,
+        160.0
+      ],
+      "grid_points": 321,
+      "delta_at_published_160_GPa": 0.23373464805678168,
+      "max_abs_delta_0_to_160_GPa": 0.23373464805678168,
+      "comparison_axis": "published2008 pressure at identical wavelength ratio"
+    },
+    "common_DAC_support": {
+      "A_GPa": 1909.933484976177,
+      "B": 10.401493123460185,
+      "target_mean_RMSE_GPa": 0.006915032000636009,
+      "target_mean_max_abs_residual_GPa": 0.01503838960371695,
+      "fit_coordinate_2004_range_GPa": [
+        0.0,
+        65.2
+      ],
+      "grid_points": 321,
+      "delta_at_published_160_GPa": 3.465023547837717,
+      "max_abs_delta_0_to_160_GPa": 3.465023547837717,
+      "comparison_axis": "published2008 pressure at identical wavelength ratio"
+    },
+    "source_Hixson_300K": {
+      "A_GPa": 1917.0594599196243,
+      "B": 10.162622938301936,
+      "target_mean_RMSE_GPa": 0.03335822540296782,
+      "target_mean_max_abs_residual_GPa": 0.06660849311205652,
+      "fit_coordinate_2004_range_GPa": [
+        0.0,
+        160.0
+      ],
+      "grid_points": 321,
+      "delta_at_published_160_GPa": 2.7557058156668006,
+      "max_abs_delta_0_to_160_GPa": 2.7557058156668006,
+      "comparison_axis": "published2008 pressure at identical wavelength ratio"
+    },
+    "source_Pt_Wang": {
+      "A_GPa": 1916.8710805313992,
+      "B": 10.148393973976408,
+      "target_mean_RMSE_GPa": 0.03275896722221756,
+      "target_mean_max_abs_residual_GPa": 0.06536931339823582,
+      "fit_coordinate_2004_range_GPa": [
+        0.0,
+        160.0
+      ],
+      "grid_points": 321,
+      "delta_at_published_160_GPa": 2.661563407484522,
+      "max_abs_delta_0_to_160_GPa": 2.661563407484522,
+      "comparison_axis": "published2008 pressure at identical wavelength ratio"
+    },
+    "source_Co190": {
+      "A_GPa": 1916.5755372921371,
+      "B": 10.146229170310846,
+      "target_mean_RMSE_GPa": 0.03215429636836139,
+      "target_mean_max_abs_residual_GPa": 0.0643207466599165,
+      "fit_coordinate_2004_range_GPa": [
+        0.0,
+        160.0
+      ],
+      "grid_points": 321,
+      "delta_at_published_160_GPa": 2.6246005712935983,
+      "max_abs_delta_0_to_160_GPa": 2.6246005712935983,
+      "comparison_axis": "published2008 pressure at identical wavelength ratio"
+    }
+  },
+  "protocol": {
+    "fixed_V0": "Each reduced isotherm normalized to its own source V0, then matched to DAC V/V0; reference normalization assumption explicit",
+    "DAC": "Published ultrasonic-constrained Vinet branches; Au corrected2007; Co184 baseline",
+    "RSW": "Recovered room-temperature data refit to fixed-K0 Vinet in stated ranges; Al adopted preliminary pair; Pt Holmes exact analytic curve",
+    "source_refit_objective": "Unweighted squared pressure residuals; no missing pointwise errors invented",
+    "analytic_sampling": "321 uniform pressure points over0-160GPa for Wang/Holmes; convergence checked at1601",
+    "final_averaging": "Arithmetic mean of ten pressures at identical DAC volumes and a common P2004 coordinate; equal total weight per metal",
+    "ruby_objective": "Unweighted squared pressure residual of ruby power law relative to that mean on321 uniform P2004 points",
+    "coverage": "All-ten numerical extension to160GPa requires continuation of Co DAC above65.2, Mo/Ag above97.9, Pt/Ta/Au above93.6; Ni source table ends120GPa",
+    "temperatures": "Handbook298.15K, Hixson293K baseline/300K alternative, Wang/Holmes300K; no unreported temperature conversion",
+    "fit_uncertainty": "No statistical interval on A/B; source model errors, shared ancestors and covariance unavailable"
+  },
+  "limitations": [
+    "Exact author objective, grid and weights remain undocumented",
+    "Co full-table alternative is a declared range change, not a proven author selection",
+    "Pt literal2004 table is preserved, not corrected to agree with graph",
+    "Corrected Au observations unavailable; corrected source EOS used",
+    "Al preliminary shock reduction not independently replayed",
+    "Original shock-to-isotherm reductions not rerun from incomplete thermal/electronic inputs",
+    "No new pressure standard or catalogue replacement"
+  ],
+  "common_DAC_P2004_end_GPa": 65.2,
+  "common_DAC_end_on_published2008_axis_GPa": 65.86025898041768
+}

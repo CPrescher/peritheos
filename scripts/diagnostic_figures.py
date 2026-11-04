@@ -5,23 +5,20 @@ from __future__ import annotations
 import hashlib
 import inspect
 import io
-import json
 import textwrap
 from dataclasses import asdict
 
+from scripts.reconstruction_diagnostics import DiagnosticPanel
 from scripts.report_numbers import number
+from scripts.report_plot_cache import finish_svg
 
 
 def diagnostic_signature(comparison):
-    payload = json.dumps(
-        asdict(comparison),
-        default=lambda a: a.tolist(),
-        allow_nan=False,
-        sort_keys=True,
-    )
     return hashlib.sha256(
         (
-            payload + inspect.getsource(diagnostic_svg) + inspect.getsource(number)
+            inspect.getsource(diagnostic_svg)
+            + inspect.getsource(DiagnosticPanel.rms)
+            + inspect.getsource(number)
         ).encode()
     ).hexdigest()
 
@@ -145,6 +142,4 @@ def diagnostic_svg(c):
     payload = buffer.getvalue().replace(
         b"'DejaVu Sans'", b"'DejaVu Sans', Arial, sans-serif"
     )
-    payload = b"\n".join(line.rstrip() for line in payload.splitlines()) + b"\n"
-    marker = f"<!-- peritheos-curves data={diagnostic_signature(c)} body={hashlib.sha256(payload).hexdigest()} -->\n".encode()
-    return payload.replace(b"?>\n", b"?>\n" + marker, 1)
+    return finish_svg(payload, asdict(c), diagnostic_signature(c))

@@ -1,7 +1,7 @@
 {
   "format": "peritheos.similar-parameter-scope-review",
   "format_version": 1,
-  "input_sha256": "0051704cce35a767e95250a7a0f7b3c60dc5c04f6eb331984372a23bd3e395ee",
+  "input_sha256": "14eb1ff2db603f32e57a56f0154d7097fce632dd30dff3a22936153b6345381c",
   "policy": "The remaining-similar parameter-scope review separates numerical parameter agreement, published decimal precision and registered-refit replay from calibration, benchmark, data-agreement, author-workflow and recommendation findings. Published source widths are never inferred from reconstruction errors. A source-width-only central-value comparison may retain unknown reconstruction covariance. Explicit fixed constraints are excluded from free-coefficient recovery. Missing uncertainty is not zero; no favorable covariance rescaling is selected to obtain parity.",
   "records": [
     {
@@ -1017,14 +1017,14 @@
     {
       "record_identifier": "fes_vi_morard_2026_bm3_mgd",
       "material_identifier": "fes_vi",
-      "label": "Iron sulfide FeS-VI: Morard et al. (2026), FeS BM3-MGD, source replay unresolved",
+      "label": "Iron sulfide FeS-VI: Morard et al. (2026), FeS BM3-MGD",
       "original_status": "similar",
       "status": "parity",
       "scope": "parameter_agreement",
       "parity_basis": "conditional_combined_error_parameter_agreement",
       "decision": "Every compared free coefficient meets both the combined-two-width diagnostic and numerical similarity screen. Source confidence and shared-data covariance are not inferred.",
       "qualifications": [
-        "Conditional staged cold-then-thermal parameter agreement under the stored EosFit diagnostic and reported widths, whose confidence is unspecified. GUI publication digits, cold-fit pressure scales and the full +/-3 GPa residual envelope remain unresolved separately. All existing diagnostic/deferred status, loading restrictions and recommendation holds remain."
+        "Conditional staged cold-then-thermal parameter agreement under the stored EosFit diagnostic and reported widths, whose confidence is unspecified. GUI publication digits, cold-fit pressure scales and the full +/-3 GPa residual envelope remain separate qualifications. Use remains limited to the source's 40-150 GPa scope and observed thermal coverage; coefficient agreement does not establish phase stability or independently change the source-use assessment."
       ],
       "parameters": [
         {
@@ -4495,7 +4495,7 @@
           "published": 16.28,
           "published_error": 0.04,
           "refit": 16.31593787701798,
-          "refit_error": 0.04081346325818725,
+          "refit_error": 0.04081346325817082,
           "relative_difference": 0.0022074863033156506,
           "similar": true,
           "within_combined_2sigma": null,
@@ -4507,7 +4507,7 @@
           "published": 5.28,
           "published_error": 0.02,
           "refit": 5.255871185051541,
-          "refit_error": 0.015146627552632609,
+          "refit_error": 0.015146627552626538,
           "relative_difference": 0.004569851315996039,
           "similar": true,
           "within_combined_2sigma": null,
@@ -4519,7 +4519,7 @@
           "published": 2.18,
           "published_error": 0.14,
           "refit": 2.166479029403295,
-          "refit_error": 0.13949171300034763,
+          "refit_error": 0.1394917129988145,
           "relative_difference": 0.0062022800902316435,
           "similar": true,
           "within_combined_2sigma": null,
@@ -4531,7 +4531,7 @@
           "published": 1.52,
           "published_error": 0.24,
           "refit": 1.4741843779781867,
-          "refit_error": 0.24366894807266049,
+          "refit_error": 0.24366894806981407,
           "relative_difference": 0.030141856593298242,
           "similar": true,
           "within_combined_2sigma": null,
@@ -4555,87 +4555,87 @@
         ],
         "matrix": [
           [
-            0.0016657387831274005,
-            -0.000589270421719247,
-            -0.0003077441155692513,
-            -0.00021208755744796552
+            0.0016657387831260596,
+            -0.0005892704217187733,
+            -0.0003077441155638969,
+            -0.00021208755744526033
           ],
           [
-            -0.000589270421719247,
-            0.0002294203262181693,
-            0.00014166186607971672,
-            0.0001797298480654952
+            -0.0005892704217187733,
+            0.0002294203262179854,
+            0.00014166186607728,
+            0.00017972984806283835
           ],
           [
-            -0.0003077441155692513,
-            0.00014166186607971674,
-            0.019457937995771352,
-            0.03224527834008959
+            -0.0003077441155638969,
+            0.00014166186607728,
+            0.01945793799534363,
+            0.03224527833935071
           ],
           [
-            -0.00021208755744796544,
-            0.0001797298480654952,
-            0.03224527834008959,
-            0.05937455625483691
+            -0.00021208755744526033,
+            0.00017972984806283835,
+            0.032245278339350716,
+            0.05937455625344974
           ]
         ],
         "standard_errors": {
-          "K0": 0.04081346325818725,
-          "K0_prime": 0.015146627552632609,
-          "gamma0": 0.13949171300034763,
-          "q": 0.24366894807266049
+          "K0": 0.04081346325817082,
+          "K0_prime": 0.015146627552626538,
+          "gamma0": 0.1394917129988145,
+          "q": 0.24366894806981407
         },
         "correlation_matrix": [
           [
-            0.9999999999999999,
-            -0.953224611872291,
-            -0.05405525260103937,
-            -0.021326105499445615
+            1.0000000000000002,
+            -0.9532246118722907,
+            -0.05405525260071474,
+            -0.021326105499431303
           ],
           [
-            -0.953224611872291,
+            -0.9532246118722907,
             1.0,
-            0.0670484286728433,
-            0.04869720913491436
+            0.0670484286724538,
+            0.048697209134782884
           ],
           [
-            -0.05405525260103937,
-            0.06704842867284332,
-            1.0,
-            0.9486751706588872
+            -0.05405525260071474,
+            0.0670484286724538,
+            0.9999999999999998,
+            0.9486751706586575
           ],
           [
-            -0.021326105499445604,
-            0.04869720913491436,
-            0.9486751706588872,
+            -0.021326105499431303,
+            0.048697209134782884,
+            0.9486751706586577,
             1.0
           ]
         ],
         "degrees_of_freedom": 119.0,
         "local_student_t_95_intervals": {
           "K0": [
-            16.235123143463927,
-            16.396752610572033
+            16.235123143462697,
+            16.396752610573262
           ],
           "K0_prime": [
-            5.225879349706303,
-            5.285863020396779
+            5.225879349705846,
+            5.285863020397236
           ],
           "gamma0": [
-            1.890271505728855,
-            2.4426865530777353
+            1.8902715057275756,
+            2.4426865530790147
           ],
           "q": [
-            0.9916955240106569,
-            1.9566732319457165
+            0.9916955240087554,
+            1.9566732319476179
           ]
         },
-        "residual_variance": 17.538551259679878,
-        "max_abs_residual_jacobian_cosine": 6.06128703507373e-09,
-        "residual_sum_squares": 2087.0875999019054,
+        "residual_variance": 17.53855125966413,
+        "max_abs_residual_jacobian_cosine": 6.138967970781485e-09,
+        "residual_sum_squares": 2087.0875999000314,
         "residual_count": 123,
-        "scaled_jacobian_condition_number": 309.4233125762264,
-        "derivative_step_halving_relative_change": 5.833848200331989e-12,
+        "scaled_jacobian_condition_number": 309.4233125727041,
+        "derivative_step_halving_relative_change": 5.838056204737877e-12,
         "method": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step."
       },
       "remaining_numerical_limits": []
@@ -4659,7 +4659,7 @@
           "published": 13.69,
           "published_error": 0.04,
           "refit": 13.755110367011111,
-          "refit_error": 0.03243182338784891,
+          "refit_error": 0.0324318233874689,
           "relative_difference": 0.004756053105267491,
           "similar": true,
           "within_combined_2sigma": null,
@@ -4671,7 +4671,7 @@
           "published": 4.95,
           "published_error": 0.01,
           "refit": 4.933891030363035,
-          "refit_error": 0.011065740023532592,
+          "refit_error": 0.011065740023403069,
           "relative_difference": 0.00325433730039705,
           "similar": true,
           "within_combined_2sigma": null,
@@ -4683,7 +4683,7 @@
           "published": 2.21,
           "published_error": 0.07,
           "refit": 2.1925146881765416,
-          "refit_error": 0.06105115550956803,
+          "refit_error": 0.061051155508693195,
           "relative_difference": 0.007911905802469846,
           "similar": true,
           "within_combined_2sigma": null,
@@ -4695,7 +4695,7 @@
           "published": 1.42,
           "published_error": 0.1,
           "refit": 1.4179206722481745,
-          "refit_error": 0.09112557094148631,
+          "refit_error": 0.09112557094027024,
           "relative_difference": 0.001464315318186901,
           "similar": true,
           "within_combined_2sigma": null,
@@ -4719,87 +4719,87 @@
         ],
         "matrix": [
           [
-            0.0010518231682606237,
-            -0.00034922927145086705,
-            -0.0002635800244909477,
-            -6.476301628621195e-05
+            0.001051823168235975,
+            -0.0003492292714426915,
+            -0.0002635800244818986,
+            -6.476301628543673e-05
           ],
           [
-            -0.00034922927145086716,
-            0.00012245060226841108,
-            0.00010393745836563301,
-            6.469729517739187e-05
+            -0.00034922927144269157,
+            0.00012245060226554456,
+            0.00010393745836205666,
+            6.469729517550336e-05
           ],
           [
-            -0.0002635800244909477,
-            0.000103937458365633,
-            0.003727243589053459,
-            0.005282780250593297
+            -0.0002635800244818986,
+            0.00010393745836205666,
+            0.003727243588946639,
+            0.0052827802504507885
           ],
           [
-            -6.476301628621198e-05,
-            6.469729517739187e-05,
-            0.005282780250593298,
-            0.008303869679411855
+            -6.476301628543673e-05,
+            6.469729517550335e-05,
+            0.005282780250450788,
+            0.008303869679190223
           ]
         ],
         "standard_errors": {
-          "K0": 0.03243182338784891,
-          "K0_prime": 0.011065740023532592,
-          "gamma0": 0.06105115550956803,
-          "q": 0.09112557094148631
+          "K0": 0.0324318233874689,
+          "K0_prime": 0.011065740023403069,
+          "gamma0": 0.061051155508693195,
+          "q": 0.09112557094027024
         },
         "correlation_matrix": [
           [
             1.0,
-            -0.9731029941415121,
-            -0.1331212047837055,
-            -0.021913686220838592
+            -0.9731029941415235,
+            -0.13312120478260264,
+            -0.021913686221125488
           ],
           [
-            -0.9731029941415125,
+            -0.9731029941415237,
             1.0,
-            0.15385008538946615,
-            0.06416015422363926
+            0.15385008538817777,
+            0.06416015422337364
           ],
           [
-            -0.1331212047837055,
-            0.15385008538946612,
-            1.0000000000000002,
-            0.9495730820566703
+            -0.13312120478260264,
+            0.15385008538817777,
+            0.9999999999999999,
+            0.9495730820573336
           ],
           [
-            -0.021913686220838603,
-            0.06416015422363926,
-            0.9495730820566705,
-            1.0000000000000002
+            -0.021913686221125488,
+            0.06416015422337362,
+            0.9495730820573334,
+            1.0
           ]
         ],
         "degrees_of_freedom": 117.0,
         "local_student_t_95_intervals": {
           "K0": [
-            13.690880840262814,
-            13.819339893759409
+            13.690880840262475,
+            13.819339893759748
           ],
           "K0_prime": [
-            4.911975912106147,
-            4.9558061486199225
+            4.911975912106032,
+            4.955806148620038
           ],
           "gamma0": [
-            2.0716060738528266,
-            2.3134233025002566
+            2.0716060738525033,
+            2.31342330250058
           ],
           "q": [
-            1.2374512541015223,
-            1.5983900903948267
+            1.2374512541008622,
+            1.5983900903954869
           ]
         },
-        "residual_variance": 2.175241866430815,
-        "max_abs_residual_jacobian_cosine": 4.486483845679618e-09,
-        "residual_sum_squares": 254.50329837240534,
+        "residual_variance": 2.1752418663783097,
+        "max_abs_residual_jacobian_cosine": 4.555456420712915e-09,
+        "residual_sum_squares": 254.50329836626221,
         "residual_count": 121,
-        "scaled_jacobian_condition_number": 195.7584357755871,
-        "derivative_step_halving_relative_change": 2.2016976464122294e-12,
+        "scaled_jacobian_condition_number": 195.75843577503048,
+        "derivative_step_halving_relative_change": 2.099236949217679e-12,
         "method": "Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step."
       },
       "remaining_numerical_limits": []

@@ -10,11 +10,19 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import warnings
 from decimal import Decimal
 from pathlib import Path
 
 import numpy as np
-from scipy import odr
+
+# Preserve the archived ODRPACK cross-check and its numerical method.
+# SciPy 1.17 deprecates this import; migrate before removal in SciPy 1.19.
+with warnings.catch_warnings():
+    warnings.filterwarnings(
+        "ignore", message=r"`scipy\.odr` is deprecated.*", category=DeprecationWarning
+    )
+    from scipy import odr
 from scipy.optimize import brentq, least_squares
 
 ROOT = Path(__file__).resolve().parents[1]

@@ -1,0 +1,268 @@
+{
+  "unweighted_baseline": {
+    "rms": {
+      "BK": 0.020160814482314004,
+      "ED_polynomial": 0.005604705679801575,
+      "shock": 0.16450814712842432
+    },
+    "comparison": {
+      "table1_pressure_rms_gpa": 0.21310474775779614,
+      "table1_kt_rms_gpa": 9.691186711442816,
+      "table1_kprime_rms": 6.5395351873905705,
+      "table1_gamma_rms": 0.010200338943704926,
+      "table1_theta_rms_k": 0.4680285110137933,
+      "table2_cells_in_fitted_volume_range": 563,
+      "table2_rms_gpa": 0.1425171546971903,
+      "table_arithmetic_cells": 571,
+      "table1_standard_to_table2_rms_gpa": 0.12464313636684256,
+      "table1_zp3_signature_to_table2_rms_gpa": 0.010970724600738106
+    }
+  },
+  "regularized": {
+    "rms": {
+      "BK": 0.02006748157925552,
+      "ED_polynomial": 0.006235218888879103,
+      "shock": 0.17036598014351448
+    },
+    "comparison": {
+      "table1_pressure_rms_gpa": 0.18896646074949894,
+      "table1_kt_rms_gpa": 3.898412397278895,
+      "table1_kprime_rms": 3.7850514834127695,
+      "table1_gamma_rms": 0.010200338943704926,
+      "table1_theta_rms_k": 0.4680285110137933,
+      "table2_cells_in_fitted_volume_range": 563,
+      "table2_rms_gpa": 0.10977875806500664,
+      "table_arithmetic_cells": 571,
+      "table1_standard_to_table2_rms_gpa": 0.12464313636684256,
+      "table1_zp3_signature_to_table2_rms_gpa": 0.010970724600738106
+    }
+  },
+  "junction_downweight": {
+    "rms": {
+      "BK": 0.02351594002364065,
+      "ED_polynomial": 0.005913397663882017,
+      "shock": 0.16982471026703133
+    },
+    "comparison": {
+      "table1_pressure_rms_gpa": 0.19039984718068947,
+      "table1_kt_rms_gpa": 3.8920191266836666,
+      "table1_kprime_rms": 3.7009986033145355,
+      "table1_gamma_rms": 0.010200338943704926,
+      "table1_theta_rms_k": 0.4680285110137933,
+      "table2_cells_in_fitted_volume_range": 563,
+      "table2_rms_gpa": 0.11077780672879368,
+      "table_arithmetic_cells": 571,
+      "table1_standard_to_table2_rms_gpa": 0.12464313636684256,
+      "table1_zp3_signature_to_table2_rms_gpa": 0.010970724600738106
+    }
+  },
+  "smooth_gamma_join": {
+    "rms": {
+      "BK": 0.01727930545079756,
+      "ED_polynomial": 0.0021362324935134415,
+      "shock": 0.17041622884133595
+    },
+    "comparison": {
+      "table1_pressure_rms_gpa": 0.19248915348094897,
+      "table1_kt_rms_gpa": 3.8995498896390877,
+      "table1_kprime_rms": 3.765296385725962,
+      "table1_gamma_rms": 0.004228967499838639,
+      "table1_theta_rms_k": 0.2919019021044846,
+      "table2_cells_in_fitted_volume_range": 563,
+      "table2_rms_gpa": 0.11021878765096267,
+      "table_arithmetic_cells": 571,
+      "table1_standard_to_table2_rms_gpa": 0.12464313636684256,
+      "table1_zp3_signature_to_table2_rms_gpa": 0.010970724600738106
+    }
+  },
+  "natural_smoothing": {
+    "rms": {
+      "BK": 0.013399388011240153,
+      "ED_polynomial": 0.0017490854937351826,
+      "shock": 0.13279137592433363
+    },
+    "comparison": {
+      "table1_pressure_rms_gpa": 0.20790349691196167,
+      "table1_kt_rms_gpa": 8.485943614288432,
+      "table1_kprime_rms": 14.189815239993887,
+      "table1_gamma_rms": 0.004228967499838639,
+      "table1_theta_rms_k": 0.2919019021044846,
+      "table2_cells_in_fitted_volume_range": 563,
+      "table2_rms_gpa": 0.12786845907825942,
+      "table_arithmetic_cells": 571,
+      "table1_standard_to_table2_rms_gpa": 0.12464313636684256,
+      "table1_zp3_signature_to_table2_rms_gpa": 0.010970724600738106
+    }
+  },
+  "published_shock_representations": {
+    "rms": {
+      "BK": 0.008902498147506654,
+      "ED_polynomial": 0.0024494822169504192,
+      "shock": 0.01316684900442469
+    },
+    "comparison": {
+      "table1_pressure_rms_gpa": 0.18959369583741453,
+      "table1_kt_rms_gpa": 2.436046182892481,
+      "table1_kprime_rms": 0.6933962516728907,
+      "table1_gamma_rms": 0.004228967499838639,
+      "table1_theta_rms_k": 0.2919019021044846,
+      "table2_cells_in_fitted_volume_range": 563,
+      "table2_rms_gpa": 0.08486599275169544,
+      "table_arithmetic_cells": 571,
+      "table1_standard_to_table2_rms_gpa": 0.12464313636684256,
+      "table1_zp3_signature_to_table2_rms_gpa": 0.010970724600738106
+    }
+  },
+  "q1": {
+    "rms": {
+      "BK": 0.022767445718011474,
+      "ED_polynomial": 0.006450829979212484,
+      "shock": 0.16363726896416186
+    },
+    "comparison": {
+      "table1_pressure_rms_gpa": 0.14480110924581652,
+      "table1_kt_rms_gpa": 3.6699637955595956,
+      "table1_kprime_rms": 3.754949561636374,
+      "table1_gamma_rms": 0.09992513696849584,
+      "table1_theta_rms_k": 7.418562268976867,
+      "table2_cells_in_fitted_volume_range": 563,
+      "table2_rms_gpa": 0.1442637615606038,
+      "table_arithmetic_cells": 571,
+      "table1_standard_to_table2_rms_gpa": 0.12464313636684256,
+      "table1_zp3_signature_to_table2_rms_gpa": 0.010970724600738106
+    }
+  },
+  "q2": {
+    "rms": {
+      "BK": 0.02155568574310376,
+      "ED_polynomial": 0.006010906686571408,
+      "shock": 0.1773078900842451
+    },
+    "comparison": {
+      "table1_pressure_rms_gpa": 0.3735674595453076,
+      "table1_kt_rms_gpa": 4.906529229852849,
+      "table1_kprime_rms": 3.870795257486421,
+      "table1_gamma_rms": 0.10546176721952599,
+      "table1_theta_rms_k": 7.238764454919914,
+      "table2_cells_in_fitted_volume_range": 563,
+      "table2_rms_gpa": 0.1909055175606207,
+      "table_arithmetic_cells": 571,
+      "table1_standard_to_table2_rms_gpa": 0.12464313636684256,
+      "table1_zp3_signature_to_table2_rms_gpa": 0.010970724600738106
+    }
+  },
+  "theta285": {
+    "rms": {
+      "BK": 0.01989451128482733,
+      "ED_polynomial": 0.006025149867650782,
+      "shock": 0.1703686553854173
+    },
+    "comparison": {
+      "table1_pressure_rms_gpa": 0.19699048545659054,
+      "table1_kt_rms_gpa": 3.898725282381651,
+      "table1_kprime_rms": 3.7847752703851953,
+      "table1_gamma_rms": 0.010200338943704926,
+      "table1_theta_rms_k": 11.338455596555848,
+      "table2_cells_in_fitted_volume_range": 563,
+      "table2_rms_gpa": 0.10932300949572225,
+      "table_arithmetic_cells": 571,
+      "table1_standard_to_table2_rms_gpa": 0.12464313636684256,
+      "table1_zp3_signature_to_table2_rms_gpa": 0.010970724600738106
+    }
+  },
+  "missing_initial_thermal_energy": {
+    "rms": {
+      "BK": 0.06406175478562252,
+      "ED_polynomial": 0.005759729700735907,
+      "shock": 0.21224374733144474
+    },
+    "comparison": {
+      "table1_pressure_rms_gpa": 0.6405285523908559,
+      "table1_kt_rms_gpa": 6.667211411463616,
+      "table1_kprime_rms": 6.6476982978588905,
+      "table1_gamma_rms": 0.010200338943704926,
+      "table1_theta_rms_k": 0.4680285110137933,
+      "table2_cells_in_fitted_volume_range": 563,
+      "table2_rms_gpa": 0.6240203820269616,
+      "table_arithmetic_cells": 571,
+      "table1_standard_to_table2_rms_gpa": 0.12464313636684256,
+      "table1_zp3_signature_to_table2_rms_gpa": 0.010970724600738106
+    }
+  },
+  "instantaneous_alpha_interpretation": {
+    "rms": {
+      "BK": 0.020256942367963663,
+      "ED_polynomial": 0.006258436437411039,
+      "shock": 0.1704247189259019
+    },
+    "comparison": {
+      "table1_pressure_rms_gpa": 0.18567349070297157,
+      "table1_kt_rms_gpa": 3.7823775771593646,
+      "table1_kprime_rms": 4.089815676961925,
+      "table1_gamma_rms": 0.009928280876779647,
+      "table1_theta_rms_k": 0.45632185362981476,
+      "table2_cells_in_fitted_volume_range": 566,
+      "table2_rms_gpa": 0.10932006805639209,
+      "table_arithmetic_cells": 571,
+      "table1_standard_to_table2_rms_gpa": 0.12464313636684256,
+      "table1_zp3_signature_to_table2_rms_gpa": 0.010970724600738106
+    }
+  },
+  "shock_linear": {
+    "rms": {
+      "BK": 0.01680919021398339,
+      "ED_polynomial": 0.00600290021095534,
+      "shock": 0.02363962335230144
+    },
+    "comparison": {
+      "table1_pressure_rms_gpa": 0.19897714364526706,
+      "table1_kt_rms_gpa": 2.657795449959506,
+      "table1_kprime_rms": 1.19937826858659,
+      "table1_gamma_rms": 0.010200338943704926,
+      "table1_theta_rms_k": 0.4680285110137933,
+      "table2_cells_in_fitted_volume_range": 563,
+      "table2_rms_gpa": 0.09732918251745877,
+      "table_arithmetic_cells": 571,
+      "table1_standard_to_table2_rms_gpa": 0.12464313636684256,
+      "table1_zp3_signature_to_table2_rms_gpa": 0.010970724600738106
+    }
+  },
+  "shock_quadratic": {
+    "rms": {
+      "BK": 0.013750475984720296,
+      "ED_polynomial": 0.0057780697580181025,
+      "shock": 0.00881304825077088
+    },
+    "comparison": {
+      "table1_pressure_rms_gpa": 0.16278992183076843,
+      "table1_kt_rms_gpa": 0.4805713930829489,
+      "table1_kprime_rms": 0.7178918129470283,
+      "table1_gamma_rms": 0.010200338943704926,
+      "table1_theta_rms_k": 0.4680285110137933,
+      "table2_cells_in_fitted_volume_range": 563,
+      "table2_rms_gpa": 0.06280689933846029,
+      "table_arithmetic_cells": 571,
+      "table1_standard_to_table2_rms_gpa": 0.12464313636684256,
+      "table1_zp3_signature_to_table2_rms_gpa": 0.010970724600738106
+    }
+  },
+  "shock_piecewise": {
+    "rms": {
+      "BK": 0.013754430191792323,
+      "ED_polynomial": 0.005796573889768076,
+      "shock": 0.013120957411477547
+    },
+    "comparison": {
+      "table1_pressure_rms_gpa": 0.18605544808300375,
+      "table1_kt_rms_gpa": 2.436721323270677,
+      "table1_kprime_rms": 0.8336526265832447,
+      "table1_gamma_rms": 0.010200338943704926,
+      "table1_theta_rms_k": 0.4680285110137933,
+      "table2_cells_in_fitted_volume_range": 563,
+      "table2_rms_gpa": 0.08399776306193141,
+      "table_arithmetic_cells": 571,
+      "table1_standard_to_table2_rms_gpa": 0.12464313636684256,
+      "table1_zp3_signature_to_table2_rms_gpa": 0.010970724600738106
+    }
+  }
+}

@@ -492,11 +492,11 @@ Display rounding: errors with leading digit 1 or 2 use two significant digits; o
         - **K0 prime:** 6.68248; 7.12513
         - **K0 double prime:** -0.535676; -0.13759
     - **Residual variance:** 0.00990218
-    - **Max abs residual jacobian cosine:** 2.17833e-08
+    - **Max abs residual jacobian cosine:** 2.16532e-08
     - **Residual sum squares:** 0.168337
     - **Residual count:** 19
     - **Scaled jacobian condition number:** 86.0285
-    - **Derivative step halving relative change:** 1.17656e-11
+    - **Derivative step halving relative change:** 1.17041e-11
     - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
     - **Previous assessment:**
         - **Status:** similar

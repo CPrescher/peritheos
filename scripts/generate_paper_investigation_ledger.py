@@ -58,12 +58,13 @@ PAPER_SCOPE_NOTES = {
     ),
     "10.1103/physrevb.85.140402": (
         "Only the full-range published BM3 is offered in the catalog. Its K0, "
-        "K0-prime and formal errors agree at printed precision with the 22-marker "
-        "conditional replay at fixed, graph-derived V0. Published coefficients "
+        "K0-prime agree at printed precision with the 19-numbered-row "
+        "conditional replay at fixed, graph-derived V0; the K0 formal error "
+        "is not reproduced. Published coefficients "
         "and errors are unchanged. Retired split fits remain audit evidence. "
         "Original V0 constraints, inputs, weighting and confidence convention "
         "remain unresolved. See the [integration and comparisons]"
-        "(literature-reproductions/prescher-2012-recovery.md#database-integration)."
+        "(literature-reproductions/prescher-2012-recovery.md#database-integration-full-range-only)."
     ),
     "10.3390/min9120744": (
         "Independent source-equation density benchmarks pass at declared printed "
@@ -204,11 +205,12 @@ PAPER_SCOPE_NOTES = {
         "modeled. See the [Ma audit](literature-reproductions/ma-2024-kcl.md)."
     ),
     "10.1103/h4pj-rvxx": (
-        "FeS source record deferred from the executable catalog: the standard "
-        "thermal replay exceeds the stated +/-3 GPa bound. Table S1, paired "
+        "FeS source record accepted unchanged on parameter agreement within "
+        "reported uncertainties (maintainer decision, 2026-10-19). Table S1, paired "
         "KCl markers, the selected 167-row author input and the reference cold "
         "datasets are bundled separately. Author-input staged fit reproduction is classified similar; the residual-range discrepancy is retained separately. "
-        "The exact GUI procedure remains untested; see the "
+        "Distributed-GUI fits agree with the console; the residual discrepancy "
+        "is informational. Exact original workflow remains unverified; see the "
         "[source audit](literature-reproductions/morard-2026-fes.md)."
     ),
     "10.1103/physrevb.81.144110": (

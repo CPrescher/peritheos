@@ -24,6 +24,11 @@
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 4, "molar_mass_g_mol": 196.96657},
       "notes": "Table 2 source parameterization. The source fixes most ambient V0 and K0 values from cited primary measurements, fits K0_prime to the internally consistent compression network, and fixes K_infinity_prime=5/3 except for Cu. Table S9 is derived output and is used only as an exact curve checkpoint. Parameter covariance and the confidence convention for printed ± values are not reported.",
+      "network_reconstruction_audit": {
+        "report": "docs/literature-reproductions/sakai-2025-network.md",
+        "data": "docs/data/sakai-2025-network-reconstruction.json",
+        "scope": "Conditional measured subsets, published-upstream and sequential controls; original full-network workflow and uncertainty not reproduced."
+      },
       "reference": {
         "authors": [
           "Sakai",
@@ -3037,9 +3042,9 @@
                 ],
                 "degrees_of_freedom": 9.0,
                 "local_student_t_95_intervals": {
-                  "dK_dT": [-0.034418471750463024, -0.022246519761860387],
-                  "alpha0": [2.855663459213426e-05, 3.497789043211668e-05],
-                  "alpha1": [7.73352436461821e-09, 2.2262733874656707e-08]
+                  "dK_dT": [-0.03441847175031265, -0.02224651976201076],
+                  "alpha0": [2.8556634592213588e-05, 3.497789043203735e-05],
+                  "alpha1": [7.733524364797707e-09, 2.226273387447721e-08]
                 },
                 "residual_variance": 0.20121917787369017,
                 "max_abs_residual_jacobian_cosine": 6.508650599485261e-08,

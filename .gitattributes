@@ -5,6 +5,10 @@
 peritheos/data/datasets/klb1-ricolleau-2009-table-s1.tsv text eol=lf whitespace=-blank-at-eol,-blank-at-eof
 # JSON audit resources have byte-level provenance hashes.
 *.json text eol=lf
+# Generated reconstruction pages are compared with their exact UTF-8 output.
+docs/reconstruction-reports/*.md text eol=lf
+# Coefficient graphs contain a checksum of their exact SVG bytes.
+docs/reconstruction-reports/figures/*.svg -text whitespace=-blank-at-eol,-blank-at-eof
 # Preserve official ThO2 deposit bytes (mixed CSV/TSV and source line endings).
 peritheos/data/datasets/chidester_2018_sources/*.csv -text
 # Crystallographic source archives also have byte-level provenance hashes.
@@ -17,12 +21,37 @@ peritheos/data/datasets/morard_2026_author_sources/** -text whitespace=-blank-at
 # Preserve EosFit inputs, outputs and manual evidence without reformatting.
 docs/data/fes-author-*/** -text whitespace=-blank-at-eol,-blank-at-eof
 docs/data/fes-eosfit*/** -text whitespace=-blank-at-eol,-blank-at-eof
+docs/data/fes-gui-2026-10-19/** -text whitespace=-blank-at-eol,-blank-at-eof
 docs/data/miozzi-2020-eosfit*/** -text whitespace=-blank-at-eol,-blank-at-eof
 # Preserve native rubidium-halide EosFit logs/models and their recorded hashes.
 docs/data/rubidium-halides-farla-2025-eosfit7c/** -text whitespace=-blank-at-eol,-blank-at-eof
 docs/data/rubidium-halides-farla-2025-case3-eosfit7c/** -text whitespace=-blank-at-eol,-blank-at-eof
 
-# Preserve recovered source CSV bytes referenced by audit SHA-256 manifests.
+# Dataset license notes are included in source-resource byte fingerprints.
+peritheos/data/datasets/*.LICENSE.md text eol=lf
+# Diopside source excerpts and correction notes are fingerprinted byte for byte.
+peritheos/data/datasets/diopside-*-original.txt text eol=lf
+peritheos/data/datasets/diopside-zhao-1998-corrected-pvt.README.md text eol=lf
+
+# These newly recovered/source-derived CSVs are fingerprinted as supplied.
+peritheos/data/datasets/brown-nacl-1999-*.csv -text -eol whitespace=cr-at-eol
+peritheos/data/datasets/ferrous-ringwoodite-*.csv -text whitespace=cr-at-eol
+output/material-candidates/brown-nacl-1999/*.csv -text whitespace=cr-at-eol
+output/material-candidates/ferrous-ringwoodite/*.csv -text whitespace=cr-at-eol
+output/palladium-baty-2024-refit-2026-10-17/*.csv -text whitespace=cr-at-eol
+output/palladium-frost-2023-own-data-2026-10-17/*.csv -text whitespace=cr-at-eol
+# Preserve generated research-figure bytes, including Matplotlib path spacing.
+output/**/*.svg -text whitespace=-blank-at-eol,-blank-at-eof
+
+# Preserve recovered Dewaele tables and their recorded byte fingerprints.
+*dewaele-2008*.csv -text -eol whitespace=cr-at-eol
+
+# Preserve numerical investigation archives and generated source-check figures.
+output/dewaele-2008-ruby-construction/*.csv -text -eol whitespace=cr-at-eol
+output/dewaele-2008-ruby-construction/source-reconstruction/*.csv -text -eol whitespace=cr-at-eol
+docs/literature-reproductions/assets/*bykova*.svg -text whitespace=-blank-at-eol,-blank-at-eof
+
+# Preserve additional source resources introduced on this branch.
 peritheos/data/datasets/cementite-takahashi-2019-table-s1.csv -text whitespace=cr-at-eol
 peritheos/data/datasets/brown-nacl-1999-boehler-1981-table1.csv -text whitespace=cr-at-eol
 peritheos/data/datasets/brown-nacl-1999-boehler-kennedy-1980-table1.csv -text whitespace=cr-at-eol

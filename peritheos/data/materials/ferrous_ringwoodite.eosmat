@@ -31,7 +31,7 @@
       "determination_method": "experimental",
       "record_kind": "derived",
       "default": true,
-      "notes": "Derived ambient-cell reconstruction: measured V0 is adopted and fixed, while published K0 and fixed K0-prime=4 are preserved. Valid only at 296.15 K and 0–4 GPa. Original source fit intercept, objective, weights and covariance are not recovered. No thermal behavior or 300 K correction is inferred.",
+      "notes": "Derived ambient-cell reconstruction, not an independently refitted record and not a claim to have recovered the original fit intercept. Static default; the separate 2011 thermal candidate remains staged outside the executable catalog. PublishedK0 unchanged;Kprime=4 fixed. ReferenceT296.15K; no300K or thermal behavior claimed.",
       "published_constraints": {
         "K0_prime": 4.0,
         "original_K0_mbar": 1.96,
@@ -49,7 +49,7 @@
           "Measured ambient cell substitutes for unreported fitted intercept; its error is a measurement esd.",
           "At1bar the pressure offset0.0001GPa is negligible relative to source coordinate precision."
         ],
-        "reproduction_script": "scripts/finger_1979_ringwoodite.py"
+        "reproduction_script": "scripts/ferrous_ringwoodite_reproduce.py"
       },
       "reference": {
         "authors": ["Finger, L. W.", "Hazen, R. M.", "Yagi, T."],
@@ -72,11 +72,13 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "source_reconstruction",
-            "scope": "source_equation",
-            "source_status": "source_reconstruction",
-            "basis": "Derived BM2 ambient-cell reconstruction at 296.15 K and 0–4 GPa: measured V0=558.7(2) A^3 is adopted and fixed; published K0=196(6) GPa and implicit K0-prime=4 are preserved. V0 error is a measurement esd, not a fit error; K0 error confidence and covariance are unspecified. The two compressed states agree within their combined coordinate error widths. The K0-only equal-pressure diagnostic is conditional on the adopted ambient volume; its error is RSS/dof-scaled and excludes V0/calibration uncertainty. This reconstructs the declared static curve, not the authors' original fit intercept, objective, weighting or pressure reduction. The separate 2011 thermal candidate remains staged and is not installed or validated here.",
+            "status": "parity",
+            "scope": "parameter_agreement",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
             "qualifications": [
+              "Derived ambient-cell reconstruction: published BM2 K0=196(6) GPa, Kprime=4 and measured V0=558.7(2) A3 are preserved. Conditional equal-pressure-residual K0 check uses only the two compressed states, with V0 fixed. Refit covariance is residual-scaled with one degree of freedom and omits V0/coordinate/calibration uncertainty. Original author objective and fitted intercept are not recovered. The ambient row is archived as the reference constraint; no thermal EOS is accepted.",
               "Original author fit objective, weights, covariance and exact intercept constraint unavailable.",
               "Exact pressure-scale equation and paired marker readings not recovered.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
@@ -98,21 +100,24 @@
               }
             ],
             "fit": {
-              "fit_kind": "conditional_K0_diagnostic",
-              "objective": "unweighted pressure residuals at measured volumes",
-              "selection": "Two compressed Table 2 Fe2SiO4 rows; the separate measured ambient row fixes V0.",
-              "weighting": "equal pressure weights; source coordinate errors retained separately",
+              "fit_kind": "finger_1979_fixed_measured_v0",
+              "objective": "equal pressure residuals",
+              "selection": "Two compressed Table 2 states; ambient row defines fixed V0 and is excluded from regression/RMS.",
               "free_parameters": ["K0"],
-              "fixed_parameters": ["V0", "K0_prime"],
+              "fixed_parameters": ["V0"],
+              "validation_fixed_parameters": ["V0", "K0_prime"],
               "fixed_values": {"K0_prime": 4.0, "V0": 558.7},
               "observations": 2,
               "degrees_of_freedom": 1,
               "solver_success": true,
               "rmse_gpa": 0.10162667992777438,
               "published_rmse_gpa": 0.10168709922334743,
-              "reconstruction_kind": "derived_ambient_cell_static_curve",
+              "parameter_covariance": [
+                [39.80522731755176]
+              ],
+              "covariance_convention": "conditional residual-scaled covariance, one degree of freedom; fixed V0 uncertainty not propagated",
               "dataset_identifiers": ["ferrous_ringwoodite_finger_1979_table2"],
-              "reproduction_report": "docs/data/finger-1979-ringwoodite-static.json"
+              "reproduction_report": "docs/research/ferrous-ringwoodite-armentrout-2011-integration.md"
             },
             "report": "docs/data/primary-eos-refits.json"
           }
@@ -138,7 +143,7 @@
               "p1005 Table2: all three Fe cell refinements",
               "p1005:1.96(6)Mbar Fe spinel bulk modulus"
             ],
-            "finding": "Reviewed for static-only integration on 1 November 2026. Primary source BM2 and K0 verified on pp. 1004–1005; all three Table 2 Fe rows and source esds preserved. The adopted measured ambient volume is an explicitly derived choice, not recovered original fit V0. Thermal candidate excluded."
+            "finding": "Source BM2 bulk modulus with explicitly adopted measured ambient cell; both compressed states agree within the printed coordinate errors. This is a derived reconstruction, not recovery of the original fitted intercept."
           },
           "primary_data_check": {
             "status": "bundled",
@@ -180,7 +185,7 @@
     {"element": "Si", "wyckoff": "8a", "x": 0.125, "y": 0.125, "z": 0.125, "occupancy": 1.0},
     {"element": "O", "wyckoff": "32e", "x": 0.2409, "y": 0.2409, "z": 0.2409, "occupancy": 1.0}
   ],
-  "notes": "Pure Fe2SiO4 gamma-spinel (ahrensite). The installed EOS is the Finger (1979) derived static ambient-cell reconstruction only, valid at 296.15 K and 0–4 GPa. The distinct Armentrout–Kavner (2011) thermal candidate remains in the staged research card and is not installed.",
+  "notes": "Fe endmember distinct from Mg-ringwoodite and fayalite. Derived static ambient-cell reconstruction only, valid at 296.15 K over 0–4 GPa. The qualified Armentrout–Kavner thermal candidate remains in the staged audit, outside the executable bundle.",
   "datasets": [
     {
       "identifier": "ferrous_ringwoodite_finger_1979_table2",
@@ -245,6 +250,6 @@
     ],
     "origin_choice": 2,
     "structure_dataset": "datasets/ferrous-ringwoodite-finger-1979-table2.csv",
-    "structure_notes": "Fully ordered synthetic Fe2SiO4 structure. The measured cubic mean lattice a=8.236 A gives 558.661848 A^3; the separately refined triclinic Table 2 volume 558.7(2) A^3 is the adopted EOS ambient anchor. Neither value is substituted for the other."
+    "structure_notes": "Experimental pure Fe2SiO4 spinel endmember, with the source conventional F cell and ordered sites. The mean cubic cell a=8.236 Å gives 558.661848 Å³, consistent with the rounded measured Table 2 reference volume 558.7(2) Å³. The separately staged 2011 thermal sample is not an installed EOS."
   }
 }

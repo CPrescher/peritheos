@@ -72,7 +72,9 @@ def test_forsterite_final_table_mapping_and_unchanged_static_default():
     assert script["parameter_errors"]["K0_prime"] is None
     assert script["thermal"]["parameter_errors"]["gamma0"] is None
     assert document["eos_records"][1]["identifier"] == RECORD
-    source = (SOURCES / f"{PREFIX}-author-geotherm.m").read_text(errors="replace")
+    source = (SOURCES / f"{PREFIX}-author-geotherm.m").read_text(
+        errors="replace", encoding="utf-8"
+    )
     for name, expected in {
         "V00_lat_phase": script["eos"]["parameters"]["V0"],
         "KT0_phase": script["eos"]["parameters"]["K0"],
@@ -90,8 +92,10 @@ def test_forsterite_final_table_mapping_and_unchanged_static_default():
 
 def test_forsterite_workbook_recovery_preserves_all_rows_columns_and_formulas():
     text, evidence = extract()
-    assert text == (DATA / f"{PREFIX}-olivine-workbook.csv").read_text()
-    assert evidence == json.loads((DATA / f"{PREFIX}-olivine-cells.json").read_text())
+    assert text == (DATA / f"{PREFIX}-olivine-workbook.csv").read_text(encoding="utf-8")
+    assert evidence == json.loads(
+        (DATA / f"{PREFIX}-olivine-cells.json").read_text(encoding="utf-8")
+    )
     rows = list(csv.DictReader(text.splitlines()))
     assert len(rows) == 51
     assert len(rows[0]) == 42
@@ -153,7 +157,9 @@ def test_forsterite_source_code_equation_and_observation_checkpoints():
 def test_forsterite_mgo_ratio_identity_uses_retained_unadjusted_readings():
     # Workbook AG is the uncorrected-temperature pressure at the central MgO
     # ratio, independently resolving F as calibrant rather than sample V/V0.
-    source = json.loads((DATA / f"{PREFIX}-olivine-cells.json").read_text())["cells"]
+    source = json.loads(
+        (DATA / f"{PREFIX}-olivine-cells.json").read_text(encoding="utf-8")
+    )["cells"]
     marker = get_eos_record("mgo_b1_tange_2009_vinet")
     for index in [4, 54]:
         ratio = float(source[f"F{index}"]["value"])
@@ -209,7 +215,9 @@ def test_forsterite_reference_derivative_inversion_and_metadata_roundtrip():
 
 
 def test_forsterite_candidate_fitting_input_is_source_mapped_and_keeps_missing_sigma_t():
-    with (DATA / f"{PREFIX}-candidate-fitting-input.csv").open(newline="") as handle:
+    with (DATA / f"{PREFIX}-candidate-fitting-input.csv").open(
+        newline="", encoding="utf-8"
+    ) as handle:
         rows = list(csv.DictReader(handle))
     source = load_rows()
     assert len(rows) == len(source) == 51
@@ -224,13 +232,17 @@ def test_forsterite_candidate_fitting_input_is_source_mapped_and_keeps_missing_s
         for target, origin in mapping.items():
             assert row[target] == original[origin]
         assert row["temperature_sigma_k"] == ""
-    metadata = json.loads((DATA / f"{PREFIX}-candidate-fitting-input.json").read_text())
+    metadata = json.loads(
+        (DATA / f"{PREFIX}-candidate-fitting-input.json").read_text(encoding="utf-8")
+    )
     assert metadata["missing"] == ["temperature_sigma_k"]
     assert "not_original_author_export" in metadata["status"]
 
 
 def test_forsterite_2009_complete_primary_table_and_workbook_join():
-    with (DATA / "forsterite-katsura-2009-table1.csv").open(newline="") as stream:
+    with (DATA / "forsterite-katsura-2009-table1.csv").open(
+        newline="", encoding="utf-8"
+    ) as stream:
         rows = list(csv.DictReader(stream))
     assert len(rows) == 52
     assert sum(r["run_label"] == "M371" for r in rows) == 11
@@ -326,10 +338,12 @@ def test_forsterite_global_ledgers_preserve_parity_and_script_recommendation(
     monkeypatch.setattr(validator, "list_material_documents", lambda: ["forsterite"])
     monkeypatch.setattr(validator, "get_material_document", lambda _: document)
     current = validator.validate_all()
-    saved = json.loads((ROOT / "docs/data/primary-eos-refits.json").read_text())
+    saved = json.loads(
+        (ROOT / "docs/data/primary-eos-refits.json").read_text(encoding="utf-8")
+    )
     saved_by_id = {r["record_identifier"]: r for r in saved["records"]}
     for result in current["records"]:
-        assert result == saved_by_id[result["record_identifier"]]
+        validator.check_ledger_values(saved_by_id[result["record_identifier"]], result)
         assert result["status"] == "parity"
         assert result["recommended_thermal_record"] == RECORD
         assert result["original_author_workflow_parity"] is False

@@ -94,7 +94,7 @@ access attempts remain in the source manifest as access history.
 
 The supporting dataset `cementite_prescher_2012_table_s1` is bundled with
 cementite and linked to the three Prescher records added on 30 October 2026;
-these are not Scott inputs. Their [integration note](prescher-2012-recovery.md#database-integration)
+these are not Scott inputs. Their [integration note](prescher-2012-recovery.md#database-integration-full-range-only)
 documents the adopted V0 and conditional coefficient parity separately from
 uncertainty and author-workflow reproduction.
 Raw last-digit widths and atomic tokens are retained. Pressure widths are
@@ -162,7 +162,7 @@ archive inspection. At that stage, the three Prescher EOSs remained pending;
 the inspection added provenance evidence without changing Table S1, its
 conditional diagnostics, Scott's published EOS or the Takahashi source models.
 The 30 October recovery below subsequently supports the explicitly qualified
-[database integration](prescher-2012-recovery.md#database-integration).
+[database integration](prescher-2012-recovery.md#database-integration-full-range-only).
 
 
 ### Follow-up: independent SciPy replay and restored MATLAB files (30 October)
@@ -229,7 +229,7 @@ The low replay includes 22.6 GPa and uses absolute 0.2 GPa pressure errors;
 the high replay uses the archived own/SHELX cells and absolute 0.1 GPa errors.
 Both fix the graph-derived V0. These remain explicit conditions of the parity
 assessment. Original author-workflow reproduction is unconfirmed, and the
-published low K0 error is not declared incorrect. The [detailed assessment](prescher-2012-recovery.md#current-assessment-conditional-parameter-parity)
+published low K0 error is not declared incorrect. The [detailed assessment](prescher-2012-recovery.md#historical-split-assessments-audit-evidence-only)
 separates coefficient parity, uncertainty comparison and source/protocol limits.
 
 ### Exact split-fit follow-up

@@ -4,11 +4,8 @@ use peritheos::{load_eosmat, load_eosmat_str};
 
 #[test]
 fn ferrous_ringwoodite_staged_candidate_loads_round_trips_and_matches_quadrature() {
-    let path = Path::new(env!("CARGO_MANIFEST_DIR"))
-        .join("../../output/material-candidates/ferrous-ringwoodite/ferrous_ringwoodite.eosmat");
-    if !path.is_file() {
-        return; // Staged candidates are intentionally outside the installed catalog.
-    }
+    let path =
+        Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/data/ferrous-ringwoodite-staged.eosmat");
     let material = load_eosmat(path).unwrap();
     let static_record = material
         .record("ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction")

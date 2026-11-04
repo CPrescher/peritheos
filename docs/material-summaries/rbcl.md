@@ -320,11 +320,11 @@ Displayed uncertainties use two significant digits for leading 1/2, otherwise on
         - **Gamma0:** 1.88025; 2.04757
         - **Q:** 0.881554; 1.23692
     - **Residual variance:** 2.46784
-    - **Max abs residual jacobian cosine:** 5.15472e-09
+    - **Max abs residual jacobian cosine:** 4.9233e-09
     - **Residual sum squares:** 291.205
     - **Residual count:** 122
     - **Scaled jacobian condition number:** 233.853
-    - **Derivative step halving relative change:** 3.50921e-12
+    - **Derivative step halving relative change:** 3.52564e-12
     - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
     - **Previous assessment:**
         - **Status:** similar

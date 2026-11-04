@@ -49,7 +49,7 @@ class SavedEOS(base.Model):
 
 
 def load_eos(path=DEST):
-    record = json.loads(Path(path).read_text())
+    record = json.loads(Path(path).read_text(encoding="utf-8"))
     if record["id"] != ID or record["format"] != "peritheos-standalone-refit-v1":
         raise ValueError("Not a supported historical-data NaCl reconstruction")
     expected = dict(

@@ -1,10 +1,18 @@
+# Current Studio snapshot: numbered p1-p19 primary dataset
+
+Conditional coefficient parity compares K0 and K0_prime at the published printed precision, with adopted V0=154.5678863704812 A^3 per conventional Fe3C cell (Z=4) held fixed. Published K0=161 +/-2 GPa and K0_prime=5.9 +/-0.2 are retained unchanged. V0 is adopted from the published calculated full-range curve, not a printed source coefficient or the ambient measurement. Its uncertainty and the original fixed/free V0 convention are unrecovered. Numerical coefficient agreement does not establish uncertainty agreement, author-workflow reproduction or physical validation.
+
+The primary experimental dataset is all 19 numbered p1-p19 points from final Table S1, with published ruby pressures and reported widths, spanning 1.8-47.4 GPa at nominal 293 K. The recorded comparison uses equal pressure weights with V0 fixed and K0/K0_prime free. It gives K0=160.994011 +/-2.532193 GPa and K0_prime=5.919478 +/-0.240867, displayed as 161 +/-3 and 5.9 +/-0.2 at the paper precision. The K0 uncertainty is not reproduced: 2.532193 GPa rounds to 3, not the published 2 GPa. Covariance is inverse(J^T J)*SSE/(19-2), conditional on exact V0 and exact input volumes. Source coordinate widths are preserved but are not the weights in this comparison; source confidence and calibration covariance are unknown. The 22 digitized Figure 1 markers remain separate supplementary evidence, not the primary dataset. No ambient or p20-p22 point is added. For p16, the final source volume is 133.25 A^3, not the alternate SHELX cell 133.58 A^3. Published split fits remain audit-only.
+
+The comparison below describes the preceding 22-marker snapshot and is retained as historical evidence. The current numeric comparison is in `prescher-2012-numbered-full-range-fit.md`.
+
+---
+
 # Prescher (2012): recovery of the three Fe3C BM3 fits
 
 Investigated 30 October 2026. Source:
 [Prescher et al., Physical Review B 85, 140402(R)](https://doi.org/10.1103/PhysRevB.85.140402),
 Figure 1, pages 140402-2–3, and final supplementary Table S1.
-
-<a id="database-integration"></a>
 
 ## Database integration: full range only
 
@@ -47,8 +55,6 @@ from peritheos import get_eos_record
 eos = get_eos_record("cementite_prescher_2012_full_range_bm3")
 volume_a3 = eos.volume(20.0)  # 293 K; conventional-cell Å³
 ```
-
-<a id="current-assessment-conditional-parameter-parity"></a>
 
 ## Historical split assessments: audit evidence only
 
@@ -654,26 +660,13 @@ central-shift calculations.
 
 ## Complete external archive check
 
-**Run-count clarification:** a direct directory inventory confirms indexed
-ESRF run labels **p1–p22**, plus starting and alternate-processing folders.
-The final supplement's 19 tabulated states must not be read as a count of all
-archived measurements. In particular, `Fe3C_p_20_bh`, `Fe3C_p21_lh` and
-`Fe3C_p22_lh2` contain stored cell volumes 130.3077664, 129.7867986 and
-129.8772541 Å³. Their source pressures and correspondence to the two extra
-nonambient graph markers are not yet mapped. Searching 1,646 saved text
-refinement/configuration/log files found no volume match within 0.08 Å³ to
-those two markers; that search does not establish absence of their raw data.
-The [run inventory](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/research/cementite/prescher-2012-esrf-run-inventory.json)
-preserves indexed folders, processing variants, cell entries and checksums.
-
 The user additionally supplied
 `/Volumes/personal_folder/Projects/Iron Carbides/Fe3C`.
 A complete filename inventory contains **15,939 files**. All 30 previously
 inspected source files, including the 24 manuscripts, match their earlier
 checksums; the 12 restored MATLAB files/workspaces also match. The new
 `single crystal/` directory is present but empty. The archive was read
-without alteration. Raw diffraction images were not processed during this
-project-folder inventory; the later beamtime-image probe below is separate.
+without alteration; raw diffraction images were not copied or processed.
 
 The complete inventory contains 18 MATLAB scripts/backups/workspaces and no
 Python files. The six additional files are two `plot_results.m`, two
@@ -705,212 +698,6 @@ read-only inspection helpers are under the dated output folder. These checks
 still leave the original final diffraction EOS code/output and its input
 selection unresolved; they do not establish that the missing workflow never
 existed.
-
-### Raw beamtime images: preliminary neon pressure probe
-
-The subsequently supplied beamtime archive,
-`/Volumes/personal_folder/Synchrotron Data/_Archive/2011-02 ESRF XRD`,
-contains 2,791 Fe3C MAR frames and separate silicon calibration images.
-The primary paper explicitly identifies **neon** as the pressure medium and
-**ruby fluorescence before/after each measurement** as the pressure method.
-`DAC_positions.txt` contains stage positions, not those ruby readings.
-No missing ruby pressure readings were recovered from the inspected files.
-
-The MAR headers retain wavelength 1.54179 Å and distance 400 mm, inconsistent
-with the paper's 0.4148 Å and approximately 310 mm. These defaults were not
-used as experimental geometry. A provisional fit to eight rings in
-`si1702_001.mar2560`, using the installed pyFAI Si reference and the paper's
-wavelength, gives approximately 310.617 mm and median absolute angular
-residual 0.00363 degrees. The original silicon certificate and detector
-position stability between calibration and sample remain unverified.
-
-A diagnostic survey of 12 evenly spaced frames from each of `p18`, `p19`,
-`bh`, `lh` and `lh2` finds peak positions consistent with fcc neon. All four
-111, 200, 220 and 311 candidates are clear in the last three series; 311 is
-weak in the two reference series. Independent Gaussian fits, with a linear
-local background, were made to uncapped radial means and to profiles capped
-at 300 counts to suppress bright single-crystal spots. Some uncapped 111
-windows contain additional strong signal. Excluding 111 gives the following
-**preliminary independent estimates**, using the Fei (2007) 300 K Vinet
-branch, without any Fe3C EOS constraint:
-
-| Raw series | Neon estimate (GPa) | Published ruby pressure (GPa) |
-| --- | ---: | ---: |
-| p18 | 40.7 | 41.9 |
-| p19 | 46.2 | 47.4 |
-| bh | 46.9 | unrecovered |
-| lh | 46.0 | unrecovered |
-| lh2 | 46.3 | unrecovered |
-
-The two reference runs show an approximately 1.2 GPa offset. These estimates
-therefore do not recover the original pressure scale, original ruby readings
-or their uncertainties. Geometry transfer, peak overlap, stress, scale choice
-and the 293 K experiment versus 300 K reference branch still need assessment;
-no experimental pressure error or confidence interval is assigned. They are
-not substituted into source tables, graph observations, EOS fits or parity
-metadata, and do not establish a mapping to the additional graph markers.
-
-The [raw-image probe evidence](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/research/cementite/prescher-2012-raw-neon-probe.json)
-preserves frame hashes, geometry assumptions, individual line positions,
-clipped/uncapped sensitivity and conditional conversions. Diagnostic scripts,
-profiles and plots are local investigation artifacts under
-`output/prescher-2012-full-only-2026-10-30/raw-inspection/`.
-
-### Detailed neon follow-up: original calibration recovered
-
-The original calibration settings have now been recovered from the embedded
-1920 × 1080 PNG screenshots in `si100211.doc`, `si1602001.doc` and
-`si1702001.doc`. In particular, the last screenshot reports distance
-310.4823 mm, wavelength **0.414935 Å**, beam centre (1308.243, 1539.262)
-in Fit2D coordinates, tilt-plane rotation 84.27264 degrees and tilt
-0.170294 degrees. The vertical flip and pixel-centre convention were checked
-against the silicon images, rather than treating those coordinates as FabIO
-array indices. The saved wavelength has more digits than the paper's 0.4148 Å.
-
-Independent fits to eight and fifteen silicon rings, held-out-ring checks
-and a separate pyFAI geometry implementation agree closely. The saved
-settings reproduce the ring positions with median absolute angular residuals
-about 0.003 degrees. Replaying the original February 17 calibration changes
-the three-line neon pressure estimates by only about 0.04 GPa relative to
-the initial geometry. Using the preceding February 16 calibration as a
-drift sensitivity changes the late-run estimates by about 0.5 GPa; it is
-not selected to improve pressure agreement.
-
-The complete `bh`, `lh` and `lh2` series contain **96 frames each**. They were
-integrated separately from scout exposures. This corrects the initial
-12-frame prefix selection, which included a final scout in some series.
-The refined audit uses 200, 220 and 311 for pressure, with 111 retained as
-an overlap/strain diagnostic. Uncapped profiles, caps at 200 and 500 counts,
-time halves and 72 azimuth sectors are preserved. For the three target runs,
-changing intensity treatment changes pressure by at most about 0.12 GPa;
-time-half estimates differ by at most about 0.3 GPa. Individual reflection
-and azimuth results have additional scatter, especially for 111 in `lh`
-and `lh2`; these effects are not converted into a formal confidence interval.
-
-With the saved February 17 geometry and the **assumed 300 K** Fei Vinet
-branch, the approximate independent estimates are **47.0 GPa (`bh`),
-46.0 GPa (`lh`) and 46.2 GPa (`lh2`)**. Extra-run temperature records have
-not been recovered; folder suffixes alone do not establish whether images
-were collected during or after heating. If these were 293 K measurements,
-the source-law correction from the 300 K branch is only about -0.039 GPa.
-
-Seven reference runs pass the same three-line consistency guards. Applying
-the preceding saved calibration to each puts their neon estimates
-approximately **0.9–1.3 GPa below the published ruby pressures**. The
-calibration replay and overlap checks therefore support the approximate
-pressure range but do not establish absolute pressure accuracy at the
-printed ruby-error level. The original ruby readings, original uncertainty
-and a justified absolute error bar remain unrecovered. No pressure offset
-has been fitted to force agreement. Four synthetic multiplet/overlap controls
-recover their known inputs; that checks the analysis code, not experimental
-absolute accuracy.
-
-The later `ah` series and late scout exposures also give approximately
-46–47 GPa on this provisional scale. The starting and low-pressure scouts
-do not yield a verified three-line neon pressure under these guards.
-These results do not map the graph-only markers near 5.93 and 44.53 GPa.
-The 19 final Table S1 pressures remain the existing numeric pressure series;
-the one public full-range source EOS and its conditional graph comparison
-do not depend on assigning these three extra-run pressures.
-
-Detailed source hashes, calibration transcriptions, independent checks,
-individual line fits and qualifications are preserved in
-`peritheos/data/research/cementite/prescher-2012-neon-followup.json`.
-The local report, scripts and overlap/azimuth figures are in
-`output/prescher-2012-neon-followup-2026-10-30/`. Published observations,
-coefficient errors and catalog classifications are unchanged by this audit.
-
-### Complete numbered-run pressure audit
-
-At the user's request, the numbered reductions are now the primary unit
-of the raw-image pressure audit: **p1–p22, covering 2,568 frames**. Raw
-`Fe3C_p1`–`Fe3C_p19` each contain 120 frames; the numbered p20, p21 and p22
-reductions correspond to raw `bh`, `lh` and `lh2`, with 96 frames each.
-Scouts and the separate starting/S1 series are not pooled into those runs.
-
-The source pressure series is available for **all p1–p19** in final Table
-S1. Eighteen final `own/shelx` cell volumes agree with their numbered source
-rows within 0.02 Å³. The exception is p16: its SHELX CIF stores 133.58(9)
-Å³, while Table S1 stores 133.25(7) Å³. The distinct
-`Fe3C_p16_own/Fe3C_p16_red.p4p` export contains volume 133.2500 Å³.
-These processing variants are retained separately; a mother-cell INI or
-the discrepant SHELX version is not silently substituted for the source row.
-
-All 22 numbered CrysAlis `.par` configurations explicitly record **nominal
-293 K**. This updates the temperature-metadata gap in the preliminary
-probe, while leaving actual independent thermometry unrecovered. Original
-before/after ruby readings remain unavailable.
-
-Complete-series neon profiles provide qualified independent pressure
-estimates for **p6–p22**. The 200, 220 and 311 fits must pass the same
-solver, line-consistency and signal-to-residual guards. Uncapped profiles
-are preferred; cap500 and then cap200 are checked when bright spots make
-the raw three-line fit fail. This choice does not use agreement with the
-published pressure. In p15 and p16, the cap500 profile isolates the weak
-311 signal from bright scattering; separate sectors and time halves
-support that selection. All eight blind candidate lattice parameters under
-all three intensity treatments were also reviewed for each of p1–p5;
-none establishes an accepted three-line pressure under these guards.
-Their published ruby pressures remain available.
-
-Using each run's preceding saved silicon calibration and the nominal
-293 K source-law correction, the independent estimates for p6–p19 are
-approximately **0.7–1.4 GPa below the published ruby values**. For the
-three runs without a source ruby assignment, the estimates are about
-**46.9 GPa (p20), 46.0 GPa (p21) and 46.2 GPa (p22)**. No absolute
-pressure accuracy or experimental error bar is established for these neon
-estimates. Neither a fitted offset nor the Fe3C EOS is used to force agreement.
-
-The full 22-row comparison is preserved in
-`peritheos/data/research/cementite/prescher-2012-numbered-pressure-audit.csv`,
-with source widths and independent estimates in distinct columns. The
-adjacent `.json` preserves numbered-folder identities, all reduction
-variants, nominal-temperature records, frame hashes, failed candidate
-fits, selected intensity treatments and spatial/temporal diagnostics.
-The local readable report is
-`output/prescher-2012-neon-followup-2026-10-30/numbered-pressure-audit.md`.
-
-For experimental data use, the primary series remains the numbered
-p1–p19 observations with their published ruby pressures, source cell
-volumes and reported widths. The extra numbered runs are separately
-qualified observations. This does not establish correspondence to the
-two nonambient graph-only markers, replace the graph-based source
-comparison, or change catalog parity classifications.
-
-All **40 short scout exposures** were checked separately as well. Their
-successful neon checks and rejected candidates are retained as auxiliary
-diagnostics; they do not recover the original ruby readings or establish
-the two graph-only point assignments.
-
-### Full-range fit of the numbered p1–p19 series
-
-The requested [full numbered-series refit](prescher-2012-numbered-full-range-fit.md)
-uses all 19 final Table S1 volumes and published ruby pressures, including
-133.25 Å³ for p16. With V0 free and both printed coordinate widths treated
-conditionally as independent absolute one-sigma inputs, the BM3 result is
-**V0=154.48775 ± 0.11678 Å³, K0=160.53550 ± 3.46985 GPa and
-K0′=6.03174 ± 0.22887**. The weighted residual variance is 3.34023;
-residual-scaling the same covariance instead gives errors 0.21344 Å³,
-6.34160 GPa and 0.41828. Neither convention recovers the unspecified source
-confidence or covariance assumptions.
-
-For a direct control against the existing graph comparison, the same
-19 numeric points were also fitted with equal pressure weights and the
-adopted curve V0=154.5678863704812 Å³ held fixed. That gives
-**K0=160.99401 ± 2.53219 GPa, K0′=5.91948 ± 0.24087** using
-residual-scaled formal errors. Both coefficients round to the paper's
-161 and 5.9, while error(K0) rounds to **3, not 2**. Thus the published
-full-range error values are not exactly reproduced by the numbered numeric
-dataset under this protocol. The existing 22-digitized-marker comparison
-remains separately identifiable; no published record or catalog assessment
-was overwritten by this independent fit.
-
-Independent inverse-curve ODRPACK checks agree with both free- and fixed-V0
-coordinate fits and covariances. Independent linear BM3 solutions verify
-the equal-pressure coefficients. Complete inputs, covariance matrices,
-alternative error scaling and the additional protocol controls are in
-`docs/data/prescher-2012-numbered-full-range-fit.json`; the repository-only
-replay is `python -m scripts.check_prescher_2012_numbered_full_range`.
 
 ## Follow-up: matching the split coefficients and reported errors
 

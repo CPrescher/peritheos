@@ -36,7 +36,7 @@ Record: `nacl_b2_sakai_2025_rydberg_stacey_1` · Model: `RydbergStacey`
 **Outcome: Complete independent refit unavailable.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
+**Comparison basis:** Conditional measured-pair subset regressions are replayable. The complete source multi-stage regression and uncertainty remain unreproduced; subset coefficient differences do not establish failure of the full published fit.
 
 [Stored EOS coefficients and source](../material-summaries/nacl_b2.md#record-nacl_b2_sakai_2025_rydberg_stacey_1)
 
@@ -72,6 +72,7 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 
 ### Detailed evidence and existing plots
 
+- [Supporting source report: sakai-2025-network](../literature-reproductions/sakai-2025-network.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 

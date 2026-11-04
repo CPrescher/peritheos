@@ -251,7 +251,7 @@ establish statistical independence.
 **Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Conditional agreement of K0, K0\_prime and both error values at published printed precision with curve-derived V0 held fixed. Errors are residual-based and conditional on exact V0; the source confidence convention and original author workflow remain unconfirmed.
+**Comparison basis:** Conditional agreement of K0 and K0\_prime at published printed precision for the 19 numbered p1-p19 observations, with adopted curve-derived V0 held fixed. K0 uncertainty is not reproduced: 2.532193 GPa rounds to 3, while the published error is 2 GPa.
 
 [Open reconstruction report](../reconstruction-reports/cementite.md#record-cementite_prescher_2012_full_range_bm3)
 
@@ -259,10 +259,9 @@ Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
-- Conditional numerical parity reproduces K0, K0\_prime and both error values at published printed precision, with V0 held fixed. V0=154.5678863704812 A^3 per conventional Fe3C cell (Z=4) is adopted from the Figure 1 full-range calculated curve; it is not a printed or author-confirmed reference volume. Published K coefficients and errors are preserved. The source confidence convention, original fit inputs, weighting and fixed/free V0 choice remain unconfirmed. Matching conditional residual-based errors does not establish the original experimental uncertainty calculation, author-workflow reproduction or a physical-validation/recommendation claim. The reconstruction uses all 22 digitized Figure 1 markers, including the ambient marker, with equal pressure weights and adopted V0 fixed. K0 and K0\_prime are free. Covariance is inverse(J^T J) times SSE/(22-2); its errors condition on exact V0 and omit V0 uncertainty. The result is K0=160.757426 +/-2.353365 GPa and K0\_prime=5.942125 +/-0.219843, which round to 161+/-2 and 5.9+/-0.2. Digitization/calibration errors are correlated and original experimental errors are unknown. The 19 final Table S1 rows remain a separate complete numeric dataset; three graph markers are absent from it. Published low/high split fits are retained only in the research audit, not offered as public EOS records.
-- Conditional numerical parity reproduces K0, K0\_prime and both error values at published printed precision, with V0 held fixed. V0=154.5678863704812 A^3 per conventional Fe3C cell (Z=4) is adopted from the Figure 1 full-range calculated curve; it is not a printed or author-confirmed reference volume. Published K coefficients and errors are preserved. The source confidence convention, original fit inputs, weighting and fixed/free V0 choice remain unconfirmed. Matching conditional residual-based errors does not establish the original experimental uncertainty calculation, author-workflow reproduction or a physical-validation/recommendation claim.
-- The reconstruction uses all 22 digitized Figure 1 markers, including the ambient marker, with equal pressure weights and adopted V0 fixed. K0 and K0\_prime are free. Covariance is inverse(J^T J) times SSE/(22-2); its errors condition on exact V0 and omit V0 uncertainty. The result is K0=160.757426 +/-2.353365 GPa and K0\_prime=5.942125 +/-0.219843, which round to 161+/-2 and 5.9+/-0.2. Digitization/calibration errors are correlated and original experimental errors are unknown. The 19 final Table S1 rows remain a separate complete numeric dataset; three graph markers are absent from it. Published low/high split fits are retained only in the research audit, not offered as public EOS records.
-- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- Conditional coefficient parity compares K0 and K0\_prime at the published printed precision, with adopted V0=154.5678863704812 A^3 per conventional Fe3C cell (Z=4) held fixed. Published K0=161 +/-2 GPa and K0\_prime=5.9 +/-0.2 are retained unchanged. V0 is adopted from the published calculated full-range curve, not a printed source coefficient or the ambient measurement. Its uncertainty and the original fixed/free V0 convention are unrecovered. Numerical coefficient agreement does not establish uncertainty agreement, author-workflow reproduction or physical validation.
+- The primary experimental dataset is all 19 numbered p1-p19 points from final Table S1, with published ruby pressures and reported widths, spanning 1.8-47.4 GPa at nominal 293 K. The recorded comparison uses equal pressure weights with V0 fixed and K0/K0\_prime free. It gives K0=160.994011 +/-2.532193 GPa and K0\_prime=5.919478 +/-0.240867, displayed as 161 +/-3 and 5.9 +/-0.2 at the paper precision. The K0 uncertainty is not reproduced: 2.532193 GPa rounds to 3, not the published 2 GPa. Covariance is inverse(J^T J)\*SSE/(19-2), conditional on exact V0 and exact input volumes. Source coordinate widths are preserved but are not the weights in this comparison; source confidence and calibration covariance are unknown. The 22 digitized Figure 1 markers remain separate supplementary evidence, not the primary dataset. No ambient or p20-p22 point is added. For p16, the final source volume is 133.25 A^3, not the alternate SHELX cell 133.58 A^3. Published split fits remain audit-only.
+- This is a conditional coefficient comparison, not recovery of source confidence, calibration covariance or the author fitting workflow.
 
 <details markdown="1">
 <summary>Source and reconstructed coefficients</summary>
@@ -276,45 +275,45 @@ the named audit; reported errors retain their original meaning.
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
 | V0 | 154.568 | Not reported | 154.568 | Not reported | Fixed/adopted |
-| K0 | 161.0 | 2.0 | 160.8 | 2.4 | Free |
-| K0\_prime | 5.90 | 0.20 | 5.94 | 0.22 | Free |
+| K0 | 161.0 | 2.0 | 161.0 | 2.5 | Free |
+| K0\_prime | 5.90 | 0.20 | 5.92 | 0.24 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
 Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** pressure\_residuals
-- **Selection:** All 22 Figure 1 digitized markers, including ambient
+- **Selection:** All 19 numbered p1-p19 final Table S1 rows; no ambient point
 - **Columns:**
     - **Pressure:** pressure\_gpa
-    - **Temperature:** Not specified
     - **Volume:** volume\_a3
-- **Weighting:** Equal pressure weights; no experimental sigmas recovered
+    - **Temperature:** Not specified
+- **Weighting:** Equal pressure weights; reported coordinate widths retained but not used as weights
 - **Absolute sigma:** False
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Fixed values:**
     - **V0:** 154.568
-- **Observations:** 22
-- **Observed pressure range gpa:** 0.00186216; 47.3486
+- **Observations:** 19
+- **Observed pressure range gpa:** 1.8; 47.4
 - **Observed temperature range k:** \[293, 293\]
-- **Observed volume range:** 129.513; 155.087
-- **Degrees of freedom:** 20
+- **Observed volume range:** 129.5; 152.98
+- **Degrees of freedom:** 17
 - **Solver success:** True
-- **Rmse gpa:** 0.336247
-- **Published rmse gpa:** 0.338175
+- **Rmse gpa:** 0.342195
+- **Published rmse gpa:** 0.343771
 - **Reduced chi square:** Not specified
-- **Parameter covariance:** \[\["5.53833", "-0.507562"\], \["-0.507562", "0.048331"\]\]
-- **Covariance convention:** Conditional residual-scaled one-sigma covariance: inverse(J^T J)\*SSE/(22-2), V0 exact. Not recovered experimental uncertainty or confidence convention.
+- **Parameter covariance:** \[\["6.412", "-0.597809"\], \["-0.597809", "0.0580169"\]\]
+- **Covariance convention:** Conditional residual-scaled one-sigma covariance: inverse(J^T J)\*SSE/(19-2), V0 exact. Not recovered experimental uncertainty or confidence convention.
 - **Comparison scope:** parameter\_agreement
-- **Dataset identifiers:** cementite\_prescher\_2012\_figure1\_digitized
-- **Reproduction report:** docs/literature-reproductions/prescher-2012-recovery.md
+- **Dataset identifiers:** cementite\_prescher\_2012\_table\_s1
+- **Reproduction report:** docs/literature-reproductions/prescher-2012-numbered-full-range-fit.md
 
 </details>
 
 Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
-Conditional numerical parity reproduces K0, K0\_prime and both error values at published printed precision, with V0 held fixed. V0=154.5678863704812 A^3 per conventional Fe3C cell (Z=4) is adopted from the Figure 1 full-range calculated curve; it is not a printed or author-confirmed reference volume. Published K coefficients and errors are preserved. The source confidence convention, original fit inputs, weighting and fixed/free V0 choice remain unconfirmed. Matching conditional residual-based errors does not establish the original experimental uncertainty calculation, author-workflow reproduction or a physical-validation/recommendation claim. The reconstruction uses all 22 digitized Figure 1 markers, including the ambient marker, with equal pressure weights and adopted V0 fixed. K0 and K0\_prime are free. Covariance is inverse(J^T J) times SSE/(22-2); its errors condition on exact V0 and omit V0 uncertainty. The result is K0=160.757426 +/-2.353365 GPa and K0\_prime=5.942125 +/-0.219843, which round to 161+/-2 and 5.9+/-0.2. Digitization/calibration errors are correlated and original experimental errors are unknown. The 19 final Table S1 rows remain a separate complete numeric dataset; three graph markers are absent from it. Published low/high split fits are retained only in the research audit, not offered as public EOS records. The main text rounds the upper limit to 47 GPa; Table S1 reaches 47.4 GPa. The nominal split ranges do not establish separate structural phases or a phase-stability envelope.
+Conditional coefficient parity compares K0 and K0\_prime at the published printed precision, with adopted V0=154.5678863704812 A^3 per conventional Fe3C cell (Z=4) held fixed. Published K0=161 +/-2 GPa and K0\_prime=5.9 +/-0.2 are retained unchanged. V0 is adopted from the published calculated full-range curve, not a printed source coefficient or the ambient measurement. Its uncertainty and the original fixed/free V0 convention are unrecovered. Numerical coefficient agreement does not establish uncertainty agreement, author-workflow reproduction or physical validation. The primary experimental dataset is all 19 numbered p1-p19 points from final Table S1, with published ruby pressures and reported widths, spanning 1.8-47.4 GPa at nominal 293 K. The recorded comparison uses equal pressure weights with V0 fixed and K0/K0\_prime free. It gives K0=160.994011 +/-2.532193 GPa and K0\_prime=5.919478 +/-0.240867, displayed as 161 +/-3 and 5.9 +/-0.2 at the paper precision. The K0 uncertainty is not reproduced: 2.532193 GPa rounds to 3, not the published 2 GPa. Covariance is inverse(J^T J)\*SSE/(19-2), conditional on exact V0 and exact input volumes. Source coordinate widths are preserved but are not the weights in this comparison; source confidence and calibration covariance are unknown. The 22 digitized Figure 1 markers remain separate supplementary evidence, not the primary dataset. No ambient or p20-p22 point is added. For p16, the final source volume is 133.25 A^3, not the alternate SHELX cell 133.58 A^3. Published split fits remain audit-only. The main text rounds the upper limit to 47 GPa; Table S1 reaches 47.4 GPa. The nominal split ranges do not establish separate structural phases or a phase-stability envelope.
 
 Parameter covariance is not supplied.
 
@@ -324,7 +323,7 @@ Parameter covariance is not supplied.
 
 - **Status:** primary\_source\_validated
 - **Audit date:** 2026-10-30
-- **Note:** Published BM3 K coefficients/errors, units and reference conventions checked against the primary paper; V0 is an explicitly documented graph-derived adoption, not a published coefficient. Conditional agreement includes both printed error values; original confidence and author workflow remain unconfirmed.
+- **Note:** Published BM3 K coefficients/errors, units and reference conventions checked against the primary paper; V0 is an explicitly documented graph-derived adoption, not a published coefficient. Conditional agreement covers central K coefficients only; the K0 uncertainty mismatch is explicit and original confidence/workflow remain unconfirmed.
 - **Verified fields:** equation; published\_K0\_and\_K0\_prime; published\_K\_errors; units; volume\_basis; temperature\_ref; adopted\_V0\_derivation; conditional\_parameter\_parity
 - **Primary source check:**
     - **DOI:** 10.1103/PhysRevB.85.140402
@@ -333,9 +332,10 @@ Parameter covariance is not supplied.
     - **Finding:** Published K coefficients/errors preserved. Unprinted V0 supplied by explicit Figure 1 full-curve adoption; source constraint and original workflow unresolved. See docs/literature-reproductions/prescher-2012-recovery.md
 - **Primary data check:**
     - **Status:** primary\_table
-    - **Dataset identifiers:** cementite\_prescher\_2012\_table\_s1; cementite\_prescher\_2012\_figure1\_digitized
-    - **Finding:** All 19 final Table S1 states retained separately from all 22 digitized graph markers. Split diagnostics remain outside the public catalog. The named comparison uses its own explicit row selection; these datasets are not asserted to be the original author fit inputs.
-- **Unresolved:** Conditional numerical parity reproduces K0, K0\_prime and both error values at published printed precision, with V0 held fixed. V0=154.5678863704812 A^3 per conventional Fe3C cell (Z=4) is adopted from the Figure 1 full-range calculated curve; it is not a printed or author-confirmed reference volume. Published K coefficients and errors are preserved. The source confidence convention, original fit inputs, weighting and fixed/free V0 choice remain unconfirmed. Matching conditional residual-based errors does not establish the original experimental uncertainty calculation, author-workflow reproduction or a physical-validation/recommendation claim.; The reconstruction uses all 22 digitized Figure 1 markers, including the ambient marker, with equal pressure weights and adopted V0 fixed. K0 and K0\_prime are free. Covariance is inverse(J^T J) times SSE/(22-2); its errors condition on exact V0 and omit V0 uncertainty. The result is K0=160.757426 +/-2.353365 GPa and K0\_prime=5.942125 +/-0.219843, which round to 161+/-2 and 5.9+/-0.2. Digitization/calibration errors are correlated and original experimental errors are unknown. The 19 final Table S1 rows remain a separate complete numeric dataset; three graph markers are absent from it. Published low/high split fits are retained only in the research audit, not offered as public EOS records.
+    - **Dataset identifiers:** cementite\_prescher\_2012\_table\_s1
+    - **Digitized dataset identifiers:** cementite\_prescher\_2012\_figure1\_digitized
+    - **Finding:** The primary dataset is all 19 numbered p1-p19 final Table S1 states with published ruby pressures. All 22 digitized graph markers remain separate supplementary evidence. Original author input selection and constraints remain unrecovered.
+- **Unresolved:** Conditional coefficient parity compares K0 and K0\_prime at the published printed precision, with adopted V0=154.5678863704812 A^3 per conventional Fe3C cell (Z=4) held fixed. Published K0=161 +/-2 GPa and K0\_prime=5.9 +/-0.2 are retained unchanged. V0 is adopted from the published calculated full-range curve, not a printed source coefficient or the ambient measurement. Its uncertainty and the original fixed/free V0 convention are unrecovered. Numerical coefficient agreement does not establish uncertainty agreement, author-workflow reproduction or physical validation.; The primary experimental dataset is all 19 numbered p1-p19 points from final Table S1, with published ruby pressures and reported widths, spanning 1.8-47.4 GPa at nominal 293 K. The recorded comparison uses equal pressure weights with V0 fixed and K0/K0\_prime free. It gives K0=160.994011 +/-2.532193 GPa and K0\_prime=5.919478 +/-0.240867, displayed as 161 +/-3 and 5.9 +/-0.2 at the paper precision. The K0 uncertainty is not reproduced: 2.532193 GPa rounds to 3, not the published 2 GPa. Covariance is inverse(J^T J)\*SSE/(19-2), conditional on exact V0 and exact input volumes. Source coordinate widths are preserved but are not the weights in this comparison; source confidence and calibration covariance are unknown. The 22 digitized Figure 1 markers remain separate supplementary evidence, not the primary dataset. No ambient or p20-p22 point is added. For p16, the final source volume is 133.25 A^3, not the alternate SHELX cell 133.58 A^3. Published split fits remain audit-only.
 
 </details>
 
@@ -727,7 +727,7 @@ Parameter covariance is not supplied.
 
 ### cementite\_prescher\_2012\_table\_s1
 
-- **Description:** All 19 reported 293 K single-crystal Table S1 states. Supporting observations, not input to Scott (2001). No source V0 or ambient anchor is included. Original lattice/atomic axis setting is retained; full xyzU tokens are in the linked raw transcription.
+- **Description:** Primary experimental dataset for the Prescher (2012) full-range EOS: all 19 numbered p1-p19 final Table S1 states, with published ruby pressures and source coordinate widths at 293 K. No ambient point is included. The p16 source volume is 133.25 A^3; intermediate/alternate archived cells are not substituted. Supporting data for other cementite records, not input to Scott (2001). Original axis setting and raw tokens are retained.
 - **Kind:** pressure\_volume\_structure
 - **Reference:**
     - **Authors:** Prescher; Dubrovinsky; McCammon; Glazyrin; Nakajima; Kantor; Merlini; Hanfland
@@ -771,7 +771,7 @@ Parameter covariance is not supplied.
 
 ### cementite\_prescher\_2012\_figure1\_digitized
 
-- **Description:** The reconstruction uses all 22 digitized Figure 1 markers, including the ambient marker, with equal pressure weights and adopted V0 fixed. K0 and K0\_prime are free. Covariance is inverse(J^T J) times SSE/(22-2); its errors condition on exact V0 and omit V0 uncertainty. The result is K0=160.757426 +/-2.353365 GPa and K0\_prime=5.942125 +/-0.219843, which round to 161+/-2 and 5.9+/-0.2. Digitization/calibration errors are correlated and original experimental errors are unknown. The 19 final Table S1 rows remain a separate complete numeric dataset; three graph markers are absent from it. Published low/high split fits are retained only in the research audit, not offered as public EOS records.
+- **Description:** Supplementary graphical evidence: all 22 digitized Figure 1 markers, including the ambient marker and two nonambient markers absent from Table S1. The primary numerical series for the full-range comparison is the 19 numbered p1-p19 Table S1 observations. These overlapping datasets are kept separate and do not represent independent additional measurements. Earlier graph-based comparisons remain historical audit evidence.
 - **Kind:** pressure\_volume\_digitized
 - **Reference:**
     - **Authors:** Prescher; Dubrovinsky; McCammon; Glazyrin; Nakajima; Kantor; Merlini; Hanfland

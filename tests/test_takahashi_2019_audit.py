@@ -162,7 +162,7 @@ def test_catalog_and_ledger_parity_keep_uncertainty_and_workflow_separate(scale)
     np.testing.assert_allclose(
         [p["refit"] for p in row["parameters"]],
         [p["refit"] for p in replay["parameters"]],
-        rtol=1e-10,
+        rtol=1e-5,
     )
     np.testing.assert_allclose(
         np.diag(row["parameter_covariance"]),

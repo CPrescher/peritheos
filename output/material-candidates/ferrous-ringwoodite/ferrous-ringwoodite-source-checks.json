@@ -1,0 +1,34 @@
+{
+  "table_s1_all_fields_match": true,
+  "table_s1_rows": 18,
+  "liu_table1_all_cells_match": true,
+  "liu_table1_rows": 29,
+  "source_sha256": {
+    "armentrout-2011-table-s1.pdf": "f4341548719bcb651006218e04ae69121618cdcb56d8ff0ea0371c6c4c83deb3",
+    "liu-2008a.pdf": "f9177cdc9c518196982f388b41f343f1da32aa0b96a7f8ce75613152ceb3b8ac",
+    "stixrude-2005.pdf": "e9cf987e8a2fb389eb7c8f40ae74abac46fed7f6c849185b4996843a2ede0366",
+    "brown-1999.pdf": "170763818aed3409107702a1b129fac930e053dfb821335c5e71afdc73c8244a"
+  },
+  "finger_and_suzuki_tables": "Manually transcribed and visually checked; see source manifest.",
+  "stixrude_table_a1_all_values_errors_and_systematics_match": true,
+  "stixrude_table_a1_parameters": 9,
+  "brown_1999": {
+    "table1_rows": 21,
+    "table1_numeric_cells": 126,
+    "table2_rows": 63,
+    "table2_populated_pressure_cells": 571,
+    "all_source_cells_and_blanks_match": true
+  },
+  "brown_2020_table1_corroboration": {
+    "rows": 21,
+    "numeric_cells": 84,
+    "all_match": true
+  },
+  "brown_hypotheses": {
+    "grid_cells": 571,
+    "independent_debye_series_pressure_agreement_gpa": 1.1090017792980689e-12,
+    "zpe_third_algebra_pressure_agreement_gpa": 1.1088630014199907e-12,
+    "ringwoodite_n7_graphical_checks_passed": 9,
+    "historical_workflow_confirmed": false
+  }
+}

@@ -15,7 +15,7 @@ def inventory() -> dict:
     groups = []
     materials = set()
     for path in sorted((ROOT / "peritheos/data/materials").glob("*.eosmat")):
-        document = json.loads(path.read_text())
+        document = json.loads(path.read_text(encoding="utf-8"))
         records = {r["identifier"]: r for r in document["eos_records"]}
         variants = defaultdict(list)
         for record in records.values():
@@ -48,7 +48,7 @@ def main() -> None:
     args = parser.parse_args()
     payload = json.dumps(inventory(), indent=2, ensure_ascii=False) + "\n"
     if args.check:
-        if not OUTPUT.exists() or OUTPUT.read_text() != payload:
+        if not OUTPUT.exists() or OUTPUT.read_text(encoding="utf-8") != payload:
             raise SystemExit("Pressure-scale variant inventory is stale")
     else:
         OUTPUT.write_text(payload)

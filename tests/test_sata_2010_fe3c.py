@@ -70,9 +70,34 @@ def test_all_original_tokens_rows_errors_and_shared_li_selection():
     assert manifest["manuscript"]["version"].startswith("2009 manuscript")
 
 
-def test_literal_mbm3_and_published_bm3_with_independent_joint_refit():
+def test_literal_mbm3_and_published_bm3_with_independent_joint_refit(
+    assert_audit_close,
+):
     report = reproduce()
-    assert report == json.loads(REPORT.read_text())
+    archived = json.loads(REPORT.read_text())
+    assert_audit_close(report, archived, ignore_keys={"effective_variance"})
+    current_effective = report["modified_bm3_replays"]["effective_variance"]
+    archived_effective = archived["modified_bm3_replays"]["effective_variance"]
+    # The finite-difference effective-variance optimum varies slightly across
+    # supported SciPy versions: bound its coefficients and native GPa residuals
+    # separately, retaining exact structure, decisions and archived values.
+    assert_audit_close(
+        current_effective,
+        archived_effective,
+        ignore_keys={"parameters_Pr_Kr_Kprime", "residual_gpa"},
+    )
+    np.testing.assert_allclose(
+        current_effective["parameters_Pr_Kr_Kprime"],
+        archived_effective["parameters_Pr_Kr_Kprime"],
+        rtol=3e-5,
+        atol=1e-10,
+    )
+    np.testing.assert_allclose(
+        current_effective["residual_gpa"],
+        archived_effective["residual_gpa"],
+        rtol=1e-5,
+        atol=1e-5,
+    )
     assert VR == pytest.approx(149.456)
     volume = np.array([r["volume_a3"] for r in selected_rows()])
     np.testing.assert_allclose(

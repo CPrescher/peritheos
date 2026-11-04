@@ -1,16 +1,28 @@
-# Fe2SiO4 ringwoodite: static integration and separate thermal audit
+# Fe2SiO4 ringwoodite: static integration and staged thermal audit
 
-Source audit date: 2026-10-16; **static-only integration: 2026-11-01**.
-The material identifier is `ferrous_ringwoodite`. The installed native v4 card,
-`peritheos/data/materials/ferrous_ringwoodite.eosmat`, contains only the Finger
-(1979) **derived static ambient-cell reconstruction**, valid at **296.15 K and
-0–4 GPa**. It bundles the unchanged three-row Table 2 dataset and its complete
-coordinate errors. The original two-record card remains unchanged at
-[`data/ferrous-ringwoodite-candidate.eosmat`](data/ferrous-ringwoodite-candidate.eosmat).
-This versioned replay input remains outside the installed catalog. Raw source
-PDFs and generated working outputs remain local under `output/`.
-Its distinct 2011 thermal candidate is **not installed** and retains all
-qualifications below.
+Integration update: 2026-10-19. **The derived Finger (1979) static record is now integrated** as `ferrous_ringwoodite`, with its measured ambient cell, unchanged published K0, source structure and all three observations. It is restricted to 296.15 K and 0–4 GPa. The 2011 thermal candidate remains outside the executable catalog. [Parameters](../material-summaries/ferrous_ringwoodite.md) · [Curves, residuals and uncertainty comparison](../reconstruction-reports/ferrous_ringwoodite.md).
+
+The installed package exposes the accepted static record through the public API:
+
+```python
+from peritheos import get_eos_record
+
+static = get_eos_record(
+    "ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction"
+)
+print(static.volume(2.0, 296.15, check_validity=True))  # Å³/conventional cell
+```
+
+The following dated investigation and staged two-record card are preserved as the original handoff.
+
+Audit date: 2026-10-16. The material identifier is `ferrous_ringwoodite`.
+The proposed file is
+`output/material-candidates/ferrous-ringwoodite/ferrous_ringwoodite.eosmat`;
+its eventual destination would be
+`peritheos/data/materials/ferrous_ringwoodite.eosmat`. It is not installed in
+the catalog. The static reconstruction is ready for integration; the 2011
+thermal candidate must retain its qualifications until the acceptance
+conditions below are resolved.
 
 The staged card contains two separate records: a source-validated **derived
 static ambient-cell reconstruction** from Finger et al. (1979), which is the
@@ -18,118 +30,13 @@ default, and an explicitly qualified 2011 thermal research candidate with
 `scientific_validation.status: not_reproduced`,
 `catalog_access: explicit_selection`, and no default designation. Published
 bulk moduli are unchanged. There is no installed or staged independent-refit
-record. The subset fits below are diagnostic results only. Static integration
-updates the material manifest, scientific ledgers, coverage and generated
-reports. It changes no thermal coefficients, calibration registry or runtime
-equations, and does not imply author contact or publication.
-
-## Installed static reconstruction (1 November 2026)
-
-The primary pages 1004–1005 were visually checked again: Table 1 gives 23 °C
-and oxygen u=0.2409(1), Table 2 gives all three Fe2SiO4 states, and the prose
-specifies K′=4 and K0=1.96(6) Mbar. No source observation or coefficient was
-changed. The [static numerical audit](../data/finger-1979-ringwoodite-static.json)
-keeps the source checksum, every pressure residual and uncertainty qualification.
-The missing ambient pressure error remains missing, not zero. Its nominal
-0.0001 GPa pressure is approximated by a zero-pressure reference explicitly.
-The compressed-state comparison combines the printed pressure esd with the
-linearized volume contribution, `(K/V) sigma(V)`, in quadrature, assuming no
-P–V covariance. It excludes parameter and calibration covariance and is a
-descriptive consistency check, not a recovered confidence test.
-
-The shared reconstruction ledger labels this a **source reconstruction** at
-source-equation scope. A separately identified two-compressed-row equal-pressure
-K0 diagnostic gives 196.2176 GPa with the measured V0 fixed; it is neither a new
-catalog refit nor recovery of the authors' original fitting procedure. Its
-conditional residual-scaled error excludes V0 and calibration uncertainty.
-See the generated [coefficient and curve comparison](../reconstruction-reports/ferrous_ringwoodite.md).
-
-This complete example uses the installed package:
-
-```python
-from peritheos import get_material
-
-material = get_material("ferrous_ringwoodite")
-record = material.default_record()
-volume = record.volume(2.0, 296.15, check_validity=True)
-assert abs(record.pressure(volume, 296.15) - 2.0) < 1e-8
-# A 300 K calculation or pressure above 4 GPa is outside this static record.
-```
-
-`get_material("ferrous_ringwoodite")` exposes one static record. It supplies no
-continuous thermal EOS or phase-stability guarantee. The separate research
-candidate requires its staged file and explicit diagnostic acceptance; its
-`not_reproduced` status is unchanged.
-
-Python's public `EOSRecord` rejects a different temperature for this isotherm
-and enforces the pressure range when `check_validity=True`. Existing low-level
-Rust isothermal `pressure`/`volume` methods ignore temperature and do not apply
-catalog validity bounds; Rust callers must honor the preserved reference and
-validity metadata. This integration does not change that API boundary.
-
-Repository-only static replay (no thermal investigation or catalog mutation):
-
-```sh
-uv run python -m scripts.finger_1979_ringwoodite --check
-uv run pytest -q -W error tests/test_finger_1979_ringwoodite.py
-cargo test -p peritheos --test finger_1979_ringwoodite --locked
-```
-
-The script prints the static audit by default; `--write` updates only its
-numerical report. It never changes published coefficients or installs a refit.
-
-### Integration verification and remaining repository checks
-
-On 1 November 2026, **31 static/catalog/documentation tests passed**, including
-the original staged-card tests and the new installed-card source, validity,
-array, inversion, round-trip and plot-row checks. The dedicated Rust static
-integration test passed. A freshly built wheel, installed to a temporary target
-and imported outside the checkout, passed the source-value, three-row dataset,
-0–4 GPa inversion, 296.15 K validity and thermal-separation smoke checks.
-The static audit, catalog coverage, source-audit index, paper ledger and
-validation-summary checks passed. Scoped Ruff, Python 3.9 mypy and the new
-Rust test's formatting checks passed. No commit, release or publication is
-part of this integration.
-
-All pre-existing material files and all 681 pre-existing source/reconstruction
-ledger entries are preserved, including the original reconstruction-record
-array order. Inventory totals now describe the actual checkout: 234 documents,
-682 stored EOS records, 230 executable materials, and 626 ordinary-discovery
-records. The difference from earlier hardcoded expectations includes pre-existing
-inventory drift; the integration itself adds exactly one material, one static
-record and one linked three-row dataset.
-
-Broader verification is **not green**:
-
-- The full Python run was stopped after 579 passing tests and three failures.
-  Its validation/readme inventory failures were corrected and passed on the
-  focused retest. The missing determination-method rationale on the existing
-  `coesite_iv_v_bykova_2018_experimental_bm2_reference` record is unchanged.
-  This was not a completed full-suite or coverage run.
-- Unfiltered reconstruction-figure tests raise existing Pyparsing deprecation
-  warnings under `-W error`. With that warning alone ignored, 50 tests passed
-  and the existing cementite report's column-order freshness check failed.
-  Its page and material summary were restored to their pre-integration bytes.
-  The new static pages, both indexes and light/dark figures pass a scoped
-  generation/fingerprint check.
-- The required full refit-ledger `--check` finds existing regeneration-order
-  drift (`ledger.records[0]: fields differ`): the stored ledger starts with
-  the Dorogokupets akimotoite record, while the generator starts with Karki.
-  Unrelated source-finding wording and fixed-parameter-order differences were
-  also identified. They were not silently substituted for stored evidence.
-- Repository-wide Ruff finds archived-script/notebook issues; its formatting
-  check reports 40 existing files. Rust formatting and Clippy fail in existing
-  EOSMAT/reconstruction code. The broader Rust tests encounter the existing
-  brucite status expectation and DoubleDebye error-message expectation failures.
-- The strict documentation build executes the notebooks but aborts on the
-  existing Litasov Fe3C script link outside the documentation tree.
-
-These limits do not change the static source checks or authorize changes to
-the separate thermal candidate or unrelated scientific findings.
+record. The subset fits below are diagnostic results only. No runtime changes,
+shared ledger edits, calibration registry changes, commits or author contacts
+are part of this addition.
 
 ## Scientific decision
 
-The Fe-endmember is installed with a deliberately labeled static
+The missing Fe-endmember can be added now with a deliberately labeled static
 reconstruction. Finger et al. (1979) explicitly identifies BM2 with K0 prime
 fixed at 4 and reports K0=1.96(6) Mbar. Combining that unchanged coefficient
 with the paper's measured ambient cell gives a reproducible derived record at
@@ -793,9 +700,15 @@ dedication. Source numerical terms remain unspecified where not supplied.
 The limited contributor dedication and source terms are in
 `peritheos/data/datasets/ferrous-ringwoodite.LICENSE.md`.
 
-The historical audit card and its thermal evidence remain at the staged path.
-The 1 November integration adds one material and **one** validated derived
-static record with its 296.15 K/0–4 GPa restrictions and visible reconstruction
-label. It installs no thermal record. Shared manifest, source/reconstruction
-ledgers, coverage, material summary and reconstruction reports include the
-static addition. No Mg-ringwoodite card or Katsura normalization code is changed.
+The material-prefixed CSVs, manifest, license, four scripts, three Python tests, Rust
+test and this note are ready for review. The card remains at the staged path.
+The derived static record can be integrated now as the default with its
+296.15 K/0-4 GPa restrictions and visible reconstruction label. The thermal
+candidate must remain nondefault and explicit-selection; do not promote it to
+source-validated until the acceptance decision changes. If including the full
+card, it adds one material, one validated derived static record and one
+qualified thermal candidate; API loading with primary validation enabled
+exposes only the static record. Shared manifest, audit/refit ledger, coverage
+and navigation updates belong to the parent integration pass. This chat has
+not edited those files. No Mg-ringwoodite card or Katsura normalization code
+has been changed.

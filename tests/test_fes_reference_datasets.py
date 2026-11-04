@@ -103,7 +103,9 @@ def test_sata_original_errors_and_pressure_are_not_replaced_by_author_input(mate
     assert original["pressure_gpa"][2] == 101.1
 
 
-def test_eos_source_parameters_remain_published_and_deferred(material):
+def test_eos_source_parameters_remain_published_with_parameter_based_acceptance(
+    material,
+):
     document = material.to_eosmat()
     source = get_material_document("fes_vi")
     assert document["datasets"] == source["datasets"]
@@ -111,12 +113,11 @@ def test_eos_source_parameters_remain_published_and_deferred(material):
         document["eos_records"][0]["author_input_followup"]
         == source["eos_records"][0]["author_input_followup"]
     )
-    assert (
-        Material.from_eosmat(document, require_primary_validation=False).to_eosmat()
-        == document
-    )
+    assert Material.from_eosmat(document).to_eosmat() == document
     record = document["eos_records"][0]
-    assert record["scientific_validation"]["status"] == "deferred"
+    assert record["scientific_validation"]["status"] == "primary_source_validated"
+    assert record["scientific_validation"]["reproduction_status"] == "similar"
+    assert record["scientific_validation"]["residual_discrepancy_blocks_use"] is False
     assert record["eos"]["parameters"]["K0"] == 115.5
     assert record["thermal"]["parameters"]["gamma0"] == 2.42
     assert record["thermal"]["parameters"]["Tr"] == 300

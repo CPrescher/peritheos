@@ -9,10 +9,18 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import warnings
 
 import numpy as np
 import scipy
-from scipy import odr
+
+# Preserve the archived ODRPACK cross-check and its numerical method.
+# SciPy 1.17 deprecates this import; migrate before removal in SciPy 1.19.
+with warnings.catch_warnings():
+    warnings.filterwarnings(
+        "ignore", message=r"`scipy\.odr` is deprecated.*", category=DeprecationWarning
+    )
+    from scipy import odr
 from scipy.optimize import least_squares
 
 from scripts.recover_prescher_2012_fe3c import (

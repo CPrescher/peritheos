@@ -81,14 +81,16 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
     args = parser.parse_args()
-    report = json.loads((ROOT / "docs/data/diopside-plot-check.json").read_text())
+    report = json.loads(
+        (ROOT / "docs/data/diopside-plot-check.json").read_text(encoding="utf-8")
+    )
     payload = corrected_csv(report["row15"]["digitized_pressure_gpa"])
     if args.check:
         if OUTPUT.read_bytes() != payload.encode("utf-8"):
             raise SystemExit("Corrected diopside P-V-T dataset is stale")
         print("Corrected diopside P-V-T dataset reproduces")
     else:
-        OUTPUT.write_text(payload, encoding="utf-8")
+        OUTPUT.write_bytes((payload).encode("utf-8"))
         print(OUTPUT)
 
 

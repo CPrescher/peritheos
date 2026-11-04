@@ -91,7 +91,7 @@ law. The paper's later scale comparisons and refinements do not recover the
 2004-2007 reducer, Debye-temperature integration or original Au fitting weights.
 Its supplement inventory consists of supporting information and four data
 sets for its own experiments; no historical Fei optimizer is identified there.
-The recovered [publisher version](https://doi.org/10.1002/2016JB013811)
+The recovered [publisher-version PDF](https://www.osti.gov/servlets/purl/1368221)
 is a reference source, never an Au fit input.
 
 ## Diagnostic inference retained without promotion

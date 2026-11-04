@@ -240,11 +240,318 @@ All notable changes to Peritheos are documented here. The project follows
 - Reconcile catalog tests, source links and documentation counts after the first
   material-gap batch.
 
+## [0.17.2] - 2026-10-30
+
+### Added
+
+- Add the published Prescher (2012) Fe3C full-range BM3 parameterization,
+  preserving K0=161 +/-2 GPa and K0-prime=5.9 +/-0.2. Identify the adopted,
+  fixed curve-derived V0=154.5678863704812 A^3 separately from a published
+  coefficient or ambient measurement.
+- Make the complete numbered p1-p19 Table S1 series with published ruby
+  pressures the primary dataset. Retain the 22 digitized Figure 1 markers
+  separately, with source coordinate widths, raw tokens and recovery evidence.
+- Document conditional central-coefficient parity and the remaining K0 error
+  mismatch: the 19-point fixed-V0 comparison gives 160.994011 +/-2.532193 GPa,
+  displayed as 161 +/-3 at the paper precision rather than the published 161 +/-2.
+  Original source confidence, weights and the author V0 constraint remain unknown.
+  Split fits stay audit-only; no additional EOS choice or new default is introduced.
+
+### Compatibility and scientific limits
+
+- Preserve explicitly audited paper precision in repository report comparisons;
+  the optional display setting leaves stored coefficients, errors and default
+  rounding unchanged.
+- Preserve all 678 other released EOS source records and scientific model code.
+  The catalog contains 233 materials and 679 EOS records. Numerical agreement
+  does not establish author-workflow reproduction or physical validation.
+
+## [0.17.1] - 2026-10-25
+
+### Fixed
+
+- Review 160 reconstruction assessments and separate numerical coefficient
+  agreement from calibration replay, source benchmarks, data agreement,
+  author-workflow reproduction and recommendations. Update 88 scoped outcomes:
+  conditional parameter comparisons, registered-refit replays and a calculated
+  source-equation check, each with its explicit criterion and qualifications.
+- Reconstruct or recover missing conditional fitting uncertainties and ordered
+  covariance, including staged/shared-observation propagation and Farla RbBr/RbI.
+  Recover the omitted Tange thermal parameter errors from primary Table 2.
+- Keep verified printed precision separate from statistical uncertainty, retain
+  missing covariance as unknown, and preserve the existing Frost Pd use hold.
+- Preserve every published 0.17.0 material source field, coefficient, observation,
+  calibration reduction, default and use decision. Add complete frozen review
+  inputs, source-preservation checks and human-readable record-by-record reports.
+
+## [0.17.0] - 2026-10-24
+
+### Added
+
+- Add `BM2Reference` in Python, Rust, native fitting and EOSMAT, with explicit
+  nonzero reference pressure, reference volume and reference bulk modulus.
+  Include a complete standalone example and reference-state, energy,
+  inversion, fitting and compatibility checks.
+- Add the joint coesite-IV/V experimental EOS of Bykova (2018), preserving
+  its 32.7 GPa reference and all 16 published observations. Distinguish
+  published-curve checks from observation scatter and the unresolved author
+  regression; this empirical joint-phase curve is not a default pressure calibrant.
+- Document additional Bykova (2018) EOS checks and the diagnostic reconstruction
+  of the Dewaele (2008) multi-metal ruby calibration. Preserve published
+  coefficients and explicitly retain unresolved source and workflow limitations.
+
+### Fixed
+
+- Make the new Bykova audit replays portable across supported numerical
+  libraries: bound calculated digitization and diagnostic roundoff while keeping
+  source coefficients, pixel readings, observations, hashes and findings exact.
+- Identify the coesite-IV Bykova (2018) static entry as a conditional Peritheos
+  refit. Separate refit repeatability, source-author reproduction and graphical
+  checks; preserve all original EOS coefficients and source observations.
+- Retain printed pressure and volume errors in the Fedotenko (2020) Pd audit
+  with an explicit ambient-datum treatment. Record conditional coefficient parity
+  separately from poor data agreement in the fixed-Kprime=4 fit, which remains
+  available for diagnostic selection and is not recommended for quantitative use.
+
+### Compatibility and scientific limits
+
+- `BM2Reference` retains its nonzero reference state in native v4 and explicit
+  v3 exports. Readers without this model must reject it; substituting `BM2`
+  changes the pressure law. Existing BM2 calculations remain unchanged.
+- This release includes the unreleased 0.16.2 Dewaele provenance and dataset
+  corrections listed below. Software checks do not establish physical validation
+  or reproduction of an original author's complete regression workflow.
+
+
+## [0.16.2] - 2026-10-23
+
+### Fixed
+
+- Correct the source attribution and input pressure-scale provenance of the
+  historical Dewaele (2008) Ag and Ni identifiers. Their original numerical
+  coefficients remain unchanged; they identify the matching 2019 Mao-scale
+  parameterizations. Preserve the published pressure-scale alternatives.
+
+### Added
+
+- Add all 13 experimental Table IV Dewaele (2008) Vinet EOS, complete source
+  observations and independently replayed fits. Record conditional parameter
+  parity within the reported 95% intervals, with source-fixed volumes and
+  ultrasonic-modulus alternatives; author-workflow reproduction is not claimed.
+- Preserve all 54 Table VI PAW parameterizations in a separate research EOSMAT
+  collection with source provenance, graphical checkpoints and complete checks.
+  Exclude them from the main database and catalog discovery. Retain the four
+  unresolved Fe LDA qualifications and all published coefficients.
+- Document the distinction between the 2004 ruby scale used by the experimental
+  fits and the 2008 ten-metal calibration proposed as an output. The original
+  ruby optimization remains unreproduced; no calibration coefficients change.
+
+## [0.16.1] - 2026-10-19
+
+### Added
+
+- Integrate the Fe2SiO4 ringwoodite endmember as a derived Finger (1979) static ambient-cell reconstruction, with source structure, all three observations, explicit uncertainty scope and 296.15 K / 0–4 GPa limits. Keep the unresolved 2011 thermal candidate staged.
+- Replay eight conditional Sakai (2025) calibration stages from measured paired volumes, expose six additional source tables through the dataset API, and provide source/refit curves, residuals and conditional errors in light and dark themes. Preserve the published coefficients and full-network limitations.
+- Archive actual EosFit GUI fits on the confirmed Morard FeS inputs, including a cold-then-hot workflow, saved covariance and screenshots. The tested GUI and console agree closely; preserve the separate residual-envelope discrepancy.
+
+### Changed
+
+- Accept the unchanged Morard (2026) FeS source EOS in the executable catalog on staged parameter agreement within reported uncertainties. Retain the `similar` reconstruction label and the unreproduced ±3 GPa envelope as an informational qualification; exact author workflow and formal uncertainty parity remain unverified.
+
+### Fixed
+
+- Keep reconstruction freshness checks portable across equivalent fixed-parameter name ordering and allowed numerical replay roundoff, without changing source values, covariance-array order or retained report precision.
+
+## [0.16.0] - 2026-10-19
+
+### Added
+
+- Show source and reconstructed curves, residuals and RMS errors for all 471
+  stored coefficient comparisons. Replay joint co-compression, acoustic/modulus,
+  coupled mixed-spin and energy-balanced shock objectives in their native units.
+  Explicitly mark the three available-subset plots (Tange MgO and Zhu Au/Pt)
+  as partial replays, with the omitted inputs and limitations beside the plots.
+- Automatically switch reconstruction and coefficient plots between matching
+  light and dark versions with the documentation theme.
+- Display available parameter error widths and round uncertainties to two
+  significant digits for leading 1/2, otherwise one; match parameter precision
+  to the error's decimal place. Preserve full stored precision and all scientific
+  findings, source coefficients and observations.
+
+## [0.15.0] - 2026-10-18
+
+### Added
+
+- Make native EOSMAT v4 the human-readable library format: one model name,
+  adjacent coefficient values/errors/fixed flags, explicit units, consistent
+  thermal blocks and EOS-first ordering. Preserve v2/v3 readers, lossless
+  conversion and explicit v3 compatibility exports in Python and Rust.
+- Add standalone authoring with `create_eosmat()` and `python -m peritheos create`,
+  installed validation/formatting commands, a small complete template and
+  optional file-local shared metadata. New user files remain unaudited and do
+  not require database registration.
+- Migrate all 232 bundled material documents to native v4. Add material summaries,
+  a scientific-label glossary, scoped reconstruction assessments, published/refit
+  coefficient comparisons and direct links to readable reconstruction reports.
+  Available coefficient plots are comparisons, not independent residual tests.
+- Add direct pressure-scale EOS views with route-specific pressure evaluation,
+  volume inversion, thermal limits and provenance. Group 51 published alternatives
+  under 27 source/model entries across 19 materials. Preserve every source record
+  and expose reference variants through explicit listing/search options.
+- Include the staged Brown (1999) NaCl historical-data reconstruction and independent
+  2026 refit, with source transcriptions, uncertainty/normalization qualifications,
+  diagnostic variants, figures and reproducible scripts. It is not a correction
+  endorsed by the original author or a replacement pressure standard.
+- Include the staged ferrous-ringwoodite investigation, source observations,
+  separate static and thermal records, Brown-calibration hypotheses, diagnostics
+  and figures. The unreproduced thermal model remains outside the bundled catalog.
+- Extend Sakai (2025) Au, Fei (2007), Yokoo (2009), Dorfman (2012) and palladium
+  source investigations with their recovered inputs, conditional reproductions,
+  unresolved limitations and documented follow-ups.
+
+### Changed
+
+- Retain only the three individually source-checked Brucite 300/473/673 K
+  isotherms in executable catalog selection. Preserve the unresolved 873 K,
+  continuous thermal models and all diagnostic refits in the audit archive.
+  Published thermal-EOS parity has not been established.
+- Keep recommendation/default holds explicit for unreproduced Fu CaSiO3, Baty
+  and Frost experimental Pd, Sakai Fe-Ni, Shen–Smith MgO/NaCl-B2 and wadsleyite
+  mappings. Preserve published coefficients and observations; missing experimental
+  Pd defaults do not fall back to a separate 0 K DFT calculation.
+- Make B1/B2 explicit in NaCl names and EOS labels, with phase and space-group
+  metadata. Separate source verification, numerical parameter parity,
+  author-workflow reproduction and recommendation for quantitative use.
+
+### Fixed
+
+- Correct scientific audit sample columns, phase/medium selections, thermodynamic
+  paths, ruby re-reductions and coupled spin-fit mappings while retaining source
+  data. Compare Frost Pd published/refit pressure residuals at the same measured
+  volumes and keep adjusted-volume residuals separately labelled.
+- Preserve upstream 0.14.1 observation validation and export fixes, archive-local
+  test fixtures, UTF-8 portability and calculated-fit replay tolerances.
+- Preserve the original Brown source CSV bytes in Git archives so their recorded
+  checksums remain verifiable after a fresh checkout.
+
+### Compatibility and scientific limits
+
+- Require NumPy >=1.22.0 to avoid native OpenBLAS crashes with the old macOS
+  ARM64 NumPy 1.21 wheels. Preserve SciPy >=1.9.3 and all scientific calculations.
+  Exercise minimum dependencies on macOS as well as Linux, and include figure
+  rendering dependencies in the development/test environment.
+- Native v4 is an explicit format version; downstream v3 consumers can request
+  compatibility exports. Standalone files need no database audit metadata.
+- Research candidates retain their staged/diagnostic status. Passing software
+  checks does not establish an original-author fit reproduction or physical
+  validation. Published values are not replaced by independent refits.
+
+## [0.14.1] - 2026-10-17
+
+### Fixed
+
+- Reject unknown observation-view properties and malformed optional coordinate,
+  uncertainty and fit-selection objects before planning or resolving source rows.
+- Trim shared embedded observation links when exporting selected EOS records;
+  retain datasets linked only by an observation view and drop empty views.
+- Read and write coverage/export JSON explicitly as UTF-8 on every platform.
+- Preserve all v0.14.0 numerical sources, coefficients and observation reductions.
+
+## [0.14.0] - 2026-10-17
+
+### Added
+
+- Add source-bound observation views with explicit evidence kind, phase/sample
+  selections, pressure coordinates, volume conversions and uncertainty roles.
+- Resolve paired calibrant pressures through the existing complete EOS evaluator;
+  Shen–Smith NaCl-B1/B2 expose all 67/131 measured sample volumes with Cu pressures.
+- Add a source-preserving catalog migration, coverage census and immutable-revision
+  export for downstream applications. Missing temperatures remain unknown; model
+  grids and source reductions remain distinct from independent measurements.
+
+### Compatibility
+
+- Keep all v0.13.0 EOS coefficients, defaults, source tables and scientific
+  qualifications unchanged. The optional EOSMAT v3 metadata is backward compatible.
+
+## [0.13.0] - 2026-10-17
+
+This release expands thermal EOS coverage for forsterite, diopside, brucite and
+rubidium halides, adds Fe-bearing phase E and an optional NaCl-B2 refit, and
+improves uncertainty propagation and lossless interchange. It contains 672
+stored EOS records in 232 material documents, with 669 executable records
+across 229 materials. Published models and independent refits retain their
+individual scientific qualifications.
+
+### Added
+
+- Add an opt-in NaCl-B2 thermal refit of Fei (2007)'s 24 unique digitized
+  observations, with explicit cold-then-hot fitting and conditional statistics.
+  Preserve published coefficients and the default; original-author thermal-fit
+  parity remains unresolved.
+- Add separate brucite curved-expansion refits: four isotherms retain the
+  published moduli, while a continuous version uses the published slopes and
+  explicit 300 K anchors. Preserve original records/defaults and shared
+  expansion covariance. Correct finite-difference uncertainty steps for very
+  small coefficients, including temperature-dependent expansivity curvature.
+- Add brucite over Fukui (2003)'s measured lattice-average pressure range,
+  with a directly inspected F-free neutron structure. Preserve all published
+  coefficients and observations. Separate Peritheos unweighted 873 K and
+  continuous thermal table-data refits include conditional covariance;
+  the original 873 K normalization mismatch and source-slope reconstruction
+  remain qualified explicit selections.
+- Add the measured Fe-bearing phase E of Crichton and Ross (2000), with the
+  published BM3 coefficients, all eleven primary rows and reported errors,
+  and a documented phase-specific diffraction peak-position fallback. Record
+  fit parity within reported uncertainty, coefficient and curve differences,
+  and the reproducible residual plot; keep exact-workflow provenance separate.
+- Support a linear temperature derivative of `K0_prime` in
+  `ThermalReferenceStateEOS` / `AlphaKT` through optional `dKprime_dT` (K^-1),
+  including native evaluation, fitting, uncertainty propagation and `.eosmat`
+  interchange. Omission retains existing behavior; unsupported reference
+  families reject nonzero shifts.
+- Add two Katsura (2022) forsterite thermal records, retaining the full-precision
+  author-script option and the printed-table alternative with scoped conditional
+  numerical parity. Preserve the static default and original-2009 fit hold.
+- Add diffraction-ready diopside with independent Thompson (2008) static and
+  Zhao (1998) thermal records. Retain original numerical tables and a separate
+  graph-corroborated corrected analysis dataset; exact author workflow is unverified.
+- Add Farla (2025) B2 RbCl/RbBr/RbI thermal records and primary numerical datasets.
+  Retain conditional fit similarity, benchmark precision and composite-CsCl
+  calibration qualifications; preserve the existing RbCl static default.
+- Integrate the optional combined Hirose/Fei Au refit and conditional Sakai
+  (2025) Au central-value replay into the scientific ledgers without claiming
+  original-author uncertainty or complete sequential-calibration parity.
+- Add a generated per-material coverage overview and active material-gap queue.
+
+### Fixed
+
+- Retry stalled RbCl rounding diagnostics at an explicit numerical precision
+  floor, requiring genuine solver convergence, feasibility and a consistent
+  objective before accepting the result. Source observations are unchanged.
+- Correct the siderite uncertainty regression and documentation using independent
+  analytic derivatives; small-coefficient finite differences no longer inflate
+  the conditional pressure error.
+- Preserve archived brucite refit coefficients and run provenance when rebuilding
+  catalog records. Bound numerical replay variation across Python/SciPy versions
+  while retaining exact source facts and strict runtime equation checks.
+- Make brucite regression checks independent of local staging files and include
+  their fixtures in the standalone Rust crate. Keep unfinished Brown NaCl and
+  Fe-ringwoodite investigations outside this release.
+- Preserve UTF-8 source text, archived path syntax and canonical dataset bytes
+  across platforms, including regeneration on Windows.
+- Reconcile source/refit ledgers and the material manifest for all 672 stored
+  records in 232 documents (669 executable records across 229 materials).
+- Preserve small floating-point EOS coefficients through Rust JSON round trips
+  using the exact-rounding reader; retain source numeric values and defaults.
+- Reconcile catalog tests, source links and documentation counts after the first
+  material-gap batch.
+
 ## [0.12.0] - 2026-10-09
 
 This release expands the pressure-scale catalog and its primary-data audits,
 adds explicit pressure-coordinate provenance and recalculation, and documents
-thermal-pressure conventions in detail. The library contains 659 source EOS
+thermal-pressure conventions in detail. The library contains 650 source EOS
 records in 227 material documents; 647 records across 224 materials are
 executable, including seven qualified implementations requiring explicit
 selection. Scientific source validation, equation reconstruction, and
@@ -1363,7 +1670,14 @@ qualified outcomes and links to individual reproductions.
   and out-of-domain states.
 - Project naming and release metadata were standardized.
 
-[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.12.0...HEAD
+[Unreleased]: https://github.com/CPrescher/peritheos/compare/v0.17.2...HEAD
+[0.17.2]: https://github.com/CPrescher/peritheos/compare/v0.17.1...v0.17.2
+[0.17.1]: https://github.com/CPrescher/peritheos/compare/v0.17.0...v0.17.1
+[0.17.0]: https://github.com/CPrescher/peritheos/compare/v0.16.1...v0.17.0
+[0.16.2]: https://github.com/CPrescher/peritheos/compare/v0.16.1...v0.16.2
+[0.16.1]: https://github.com/CPrescher/peritheos/compare/v0.16.0...v0.16.1
+[0.16.0]: https://github.com/CPrescher/peritheos/compare/v0.15.0...v0.16.0
+[0.13.0]: https://github.com/CPrescher/peritheos/compare/v0.12.0...v0.13.0
 [0.12.0]: https://github.com/CPrescher/peritheos/compare/v0.11.0...v0.12.0
 [0.11.0]: https://github.com/CPrescher/peritheos/compare/v0.10.0...v0.11.0
 [0.10.0]: https://github.com/CPrescher/peritheos/compare/v0.9.0...v0.10.0

@@ -80,10 +80,21 @@ def test_record_model_reference_and_capability_discovery():
 
     assert vinet
     assert all(isinstance(record, EOSRecord) for record in vinet)
-    assert len(dewaele) == 13
-    assert "silver_dewaele_2008_table4_vinet" in identifiers(dewaele)
-    assert "nickel_dewaele_2008_table4_vinet" in identifiers(dewaele)
-    assert all(r.reference.year == 2008 for r in dewaele)
+    assert identifiers(dewaele) == (
+        "cobalt_hcp_dewaele_2008_table4_us_k0_184_vinet",
+        "cobalt_hcp_dewaele_2008_table4_us_k0_190_vinet",
+        "cobalt_hcp_dewaele_2008_table4_vinet",
+        "fe_dewaele_2008_table4_us_k0_165_vinet",
+        "fe_dewaele_2008_table4_vinet",
+        "molybdenum_dewaele_2008_table4_us_k0_261_vinet",
+        "molybdenum_dewaele_2008_table4_vinet",
+        "nickel_dewaele_2008_table4_us_k0_183_vinet",
+        "nickel_dewaele_2008_table4_vinet",
+        "silver_dewaele_2008_table4_us_k0_101_vinet",
+        "silver_dewaele_2008_table4_vinet",
+        "zinc_hcp_dewaele_2008_table4_us_k0_60_vinet",
+        "zinc_hcp_dewaele_2008_table4_vinet",
+    )
     assert (
         search_eos_records(doi=" HTTP://DX.DOI.ORG/10.1103/PhysRevB.78.104102 ")
         == dewaele
@@ -92,7 +103,7 @@ def test_record_model_reference_and_capability_discovery():
         search_eos_records(author="Anzellini")
     )
     assert "silver_dewaele_2008_table4_vinet" in identifiers(
-        search_eos_records(reference="Compression curves of transition metals")
+        search_eos_records(reference="PhysRevB.78.104102")
     )
     assert search_eos_records(thermal=True)
     assert search_eos_records(caloric=True)
@@ -183,7 +194,7 @@ def test_validation_status_filter_and_ordering_are_deterministic():
     records = search_eos_records(
         validation_status=("primary_source_validated",), include_reference_variants=True
     )
-    assert len(records) == 663
+    assert len(records) == 664
     assert identifiers(records) == tuple(sorted(identifiers(records)))
     assert search_eos_records(validation_status="deferred") == ()
 

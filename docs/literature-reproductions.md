@@ -1,24 +1,5 @@
 # Literature reproductions
 
-The [Li (2002) Fe3C audit](literature-reproductions/li-2002-fe3c.md)
-integrates the published 300 K BM3 with original coefficients, fixed measured
-V0 and complete Table 1 evidence. Source-curve checks and conditional coefficient
-parity pass; author weights, confidence and calibration replay remain unresolved.
-
-The [Fe3C audit](literature-reproductions/cementite.md) corrects Scott (2001)
-from parity to qualified similarity without replacing published coefficients.
-It preserves 81 Litasov (2013), 60 Takahashi (2019) and 19 supplied Prescher
-(2012) table rows, integrates both Takahashi thermal pressure-scale variants
-as nonmagnetic cementite, and identifies the missing Prescher reference-volume
-evidence and additional primary literature.
-
-The [Prescher (2015) Fe7C3 author-input audit](literature-reproductions/iron-carbide-fe7c3-prescher-2015.md)
-recovers numerical parameter parity on the original 28-row fit input, including
-the archived coefficient errors. Published Table S4 is preserved separately
-for provenance only and should not be used scientifically: its CIF-derived
-cells differ from the revised fit inputs, with the split documented in the
-processing logs and exports.
-
 The [25 October 2026 uncertainty reconstruction](literature-reproductions/uncertainty-reconstruction.md)
 supplies missing conditional errors for 51 records and reviews 12 existing
 qualifications. All 63 reviewed records meet their stated conditional numerical
@@ -33,12 +14,11 @@ checkpoint calculation; 72 retain similarity. Their source uncertainties,
 printed-precision tolerances, fixed masks and separate qualifications are listed
 record by record.
 
-The [Dewaele 2008 metal and calibration audit](literature-reproductions/dewaele-2008-metals.md)
-recovers all 13 Table IV DAC fits in the main catalog, preserves all 54 Table VI
-PAW parameterizations in a [separate research collection](research/dewaele-2008-paw.md),
-and traces the distinction between the input 2004 ruby scale and the output
-2008 ten-metal ruby upgrade. It corrects the historical Ag/Ni attribution
-without changing saved numerical lookups.
+
+The [Dewaele (2008) audit](literature-reproductions/dewaele-2008-metals.md)
+recovers the 13 Table IV experimental EOS and preserves all 54 PAW sets in a
+[separate research collection](research/dewaele-2008-paw.md). The input 2004 ruby
+scale remains distinct from the paper's output calibration.
 
 ## Mosenfelder et al. (2009) MgSiO3 post-perovskite
 

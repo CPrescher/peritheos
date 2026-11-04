@@ -31,10 +31,27 @@ from scripts.ono_mibe_2010_fe3c import (
 from scripts.standardize_reconstruction_metadata import assessment_for_record
 
 
-def test_original_parameters_adopted_anchor_and_strict_scope():
+def test_original_parameters_adopted_anchor_and_strict_scope(assert_audit_close):
     d = get_material_document("cementite", format_version=4)
     r = next(r for r in d["eos_records"] if r["identifier"] == IDENTIFIER)
-    assert r == catalog_record()
+    expected = catalog_record()
+    # Only the independent diagnostic fit is solver-dependent; source fields
+    # and every classification remain exact.
+    actual_evidence = r["evidence"]["reproduction"].copy()
+    expected_evidence = expected["evidence"]["reproduction"].copy()
+    assert_audit_close(
+        actual_evidence.pop("independent_diagnostic_refit"),
+        expected_evidence.pop("independent_diagnostic_refit"),
+    )
+    r_without_fit = {
+        **r,
+        "evidence": {**r["evidence"], "reproduction": actual_evidence},
+    }
+    expected_without_fit = {
+        **expected,
+        "evidence": {**expected["evidence"], "reproduction": expected_evidence},
+    }
+    assert r_without_fit == expected_without_fit
     assert r["parameters"] == {
         "V0": {"value": 155.4, "error": 0.2},
         "K0": {"value": 167, "error": None},
@@ -89,9 +106,9 @@ def test_all_fourteen_literal_rows_and_error_tokens_are_retained():
     )
 
 
-def test_source_curve_check_and_separate_conditional_refit():
+def test_source_curve_check_and_separate_conditional_refit(assert_audit_close):
     r = reproduce()
-    assert json.loads((ROOT / NUMERICAL).read_text()) == r
+    assert_audit_close(r, json.loads((ROOT / NUMERICAL).read_text()))
     c = r["source_equation_check"]
     assert c["passed"]
     assert c["pressure_gpa"] == [10, 20, 30]

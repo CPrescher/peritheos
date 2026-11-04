@@ -131,8 +131,8 @@ qualified criterion used by other dedicated source audits. The assessment uses
 `parity_basis: within_reported_parameter_errors`; `within_combined_2sigma`
 remains unknown because the source confidence convention is unresolved. It does
 not claim a formal combined-two-sigma test, reproduction of the published error
-estimation or recovery of the original author workflow. The other three records'
-classifications are unchanged.
+estimation or recovery of the original author workflow. The other three dedicated reconstructions are unchanged. Their common-ledger
+labels follow the separate [conditional uncertainty review](uncertainty-reconstruction.md).
 
 The primary source was rechecked at section 3.1, page 61 and Table 2, pages 64-65
 in the [authors' institutional PDF](https://millenia.cars.aps.anl.gov/gsecars/LVP/publication/Papers/Wang_et_al_04a.pdf).

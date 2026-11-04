@@ -15,6 +15,7 @@ from scripts.brucite_quadratic_pv_errors import (
     reproduce,
     residual,
 )
+from scripts.brucite_replay_checks import check_report
 from scripts.brucite_reproduce import bm3
 
 
@@ -41,7 +42,7 @@ def test_quadratic_analytic_jacobian_matches_numeric_derivatives():
 
 
 def test_polynomial_conversion_uses_full_squared_term_and_fixed_ambient(report):
-    linear = json.loads(LINEAR_REPORT.read_text())
+    linear = json.loads(LINEAR_REPORT.read_text(encoding="utf-8"))
     assert report["fixed_ambient_law"] == linear["fixed_ambient_law"]
     assert report["fits"]["linear_pv_errors"] == linear["fits"]["joint_pv_errors"]
     fit = report["fits"]["quadratic_pv_errors"]
@@ -113,9 +114,7 @@ def test_profiled_covariance_matches_full_latent_inverse(report):
     np.testing.assert_allclose(fit["covariance"], physical, rtol=3e-6, atol=1e-9)
 
 
-def test_improvement_and_independent_checks_remain_qualified(
-    report, assert_audit_close
-):
+def test_improvement_and_independent_checks_remain_qualified(report):
     quadratic = report["fits"]["quadratic_pv_errors"]
     linear = report["fits"]["linear_pv_errors"]
     assert quadratic["chi_square"] < linear["chi_square"]
@@ -138,17 +137,4 @@ def test_improvement_and_independent_checks_remain_qualified(
     )
     assert control["reduced_chi_square"] > 2
     assert control["chi_square"] < quadratic["chi_square"]
-    # Solver stopping diagnostics vary by platform; their scientific agreement
-    # is tested above through objective, covariance and independent model bounds.
-    assert_audit_close(
-        report,
-        json.loads(REPORT.read_text()),
-        rel=5e-5,
-        abs=1e-9,
-        ignore_keys={
-            "nfev",
-            "solver_message",
-            "optimality",
-            "maximum_parameter_difference_in_native_standard_errors",
-        },
-    )
+    check_report(report, json.loads(REPORT.read_text(encoding="utf-8")))

@@ -37,6 +37,49 @@ REF = {
 }
 
 
+def experimental_observation_view(material, records):
+    """Reviewed Table IV coordinates; retain source rows outside the fit mask."""
+    iron = material == "fe"
+    view = {
+        "identifier": f"{material}_dewaele_2008_table4_source_view",
+        "eos_records": records,
+        "evidence_kind": "experimental",
+        "notes": (
+            "Published revised-pressure column on the 2004 input scale; "
+            "parenthesized helium-EOS pressures remain as printed. Atomic "
+            "volumes are converted to the declared conventional cell. No "
+            "rowwise errors or missing calibration readings are synthesized."
+        ),
+        "coordinates": {
+            "pressure": {
+                "kind": "column",
+                "column": "pressure_revised_gpa"
+                if iron
+                else "ruby_pressure_dewaele_gpa",
+            },
+            "volume": {
+                "kind": "column",
+                "column": "atomic_volume_a3",
+                "unit": "angstrom^3/conventional_unit_cell",
+                "factor": Z[material],
+                "reference": "Publication crystal phase and conventional-cell atom count.",
+            },
+        },
+        "phase_reviewed": True,
+        "fit_selection": {
+            "notes": "Unweighted pressure-residual Table IV replay; V0 fixed, with source-specific fixed ultrasonic K0 alternatives."
+        },
+    }
+    if iron:
+        view["row_selection"] = [{"column": "phase", "values": ["bcc"]}]
+    else:
+        view["fit_selection"]["flag_column"] = "fit_included"
+        view["fit_selection"]["notes"] += (
+            " The flag excludes only run-2 Ag/Mo rows above 100 GPa, as stated in Section III."
+        )
+    return view
+
+
 def dataset(identifier, filename, records, description, location, note):
     path = DATA / filename
     with path.open() as stream:
@@ -52,7 +95,7 @@ def dataset(identifier, filename, records, description, location, note):
         else:
             quantity, unit, role = name, "1", "flag"
         columns.append({"name": name, "quantity": quantity, "unit": unit, "role": role})
-    return {
+    metadata = {
         "identifier": identifier,
         "kind": "literature_reconstruction_diagnostic"
         if "figure4" in identifier
@@ -71,6 +114,12 @@ def dataset(identifier, filename, records, description, location, note):
         "notes": note,
         "license": "Factual numerical transcription and vector-coordinate recovery with attribution. No explicit source data licence was found; source article and figures retain third-party rights. No licence grant over the publisher PDF is asserted.",
     }
+    if identifier.endswith("_dewaele_2008_source_table"):
+        material = identifier.removesuffix("_dewaele_2008_source_table")
+        metadata["observation_views"] = [
+            experimental_observation_view(material, records)
+        ]
+    return metadata
 
 
 def base_record(material, rid, parameters, location, temperature):

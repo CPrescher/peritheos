@@ -26,7 +26,7 @@ and recommendation for use are distinct assessments.
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Pure Fe2SiO4 gamma-spinel (ahrensite). The installed EOS is the Finger (1979) derived static ambient-cell reconstruction only, valid at 296.15 K and 0–4 GPa. The distinct Armentrout–Kavner (2011) thermal candidate remains in the staged research card and is not installed.
+Fe endmember distinct from Mg-ringwoodite and fayalite. Derived static ambient-cell reconstruction only, valid at 296.15 K over 0–4 GPa. The qualified Armentrout–Kavner thermal candidate remains in the staged audit, outside the executable bundle.
 
 ## Automatic selections
 
@@ -97,17 +97,18 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** source reconstruction.
-**Scope:** source equation.
+**Outcome:** parity.
+**Scope:** parameter agreement.
 
-**Comparison basis:** Derived BM2 ambient-cell reconstruction at 296.15 K and 0–4 GPa: measured V0=558.7(2) A^3 is adopted and fixed; published K0=196(6) GPa and implicit K0-prime=4 are preserved. V0 error is a measurement esd, not a fit error; K0 error confidence and covariance are unspecified. The two compressed states agree within their combined coordinate error widths. The K0-only equal-pressure diagnostic is conditional on the adopted ambient volume; its error is RSS/dof-scaled and excludes V0/calibration uncertainty. This reconstructs the declared static curve, not the authors' original fit intercept, objective, weighting or pressure reduction. The separate 2011 thermal candidate remains staged and is not installed or validated here.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Open reconstruction report](../reconstruction-reports/ferrous_ringwoodite.md#record-ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction)
 
-Original audit code: `source_reconstruction`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
+- Derived ambient-cell reconstruction: published BM2 K0=196(6) GPa, Kprime=4 and measured V0=558.7(2) A3 are preserved. Conditional equal-pressure-residual K0 check uses only the two compressed states, with V0 fixed. Refit covariance is residual-scaled with one degree of freedom and omits V0/coordinate/calibration uncertainty. Original author objective and fitted intercept are not recovered. The ambient row is archived as the reference constraint; no thermal EOS is accepted.
 - Original author fit objective, weights, covariance and exact intercept constraint unavailable.
 - Exact pressure-scale equation and paired marker readings not recovered.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
@@ -128,12 +129,12 @@ the named audit; reported errors retain their original meaning.
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
 Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
-- **Fit kind:** conditional\_K0\_diagnostic
-- **Objective:** unweighted pressure residuals at measured volumes
-- **Selection:** Two compressed Table 2 Fe2SiO4 rows; the separate measured ambient row fixes V0.
-- **Weighting:** equal pressure weights; source coordinate errors retained separately
+- **Fit kind:** finger\_1979\_fixed\_measured\_v0
+- **Objective:** equal pressure residuals
+- **Selection:** Two compressed Table 2 states; ambient row defines fixed V0 and is excluded from regression/RMS.
 - **Free parameters:** K0
-- **Fixed parameters:** V0; K0\_prime
+- **Fixed parameters:** V0
+- **Validation fixed parameters:** V0; K0\_prime
 - **Fixed values:**
     - **K0 prime:** 4
     - **V0:** 558.7
@@ -142,15 +143,16 @@ Displayed uncertainties use two significant digits for leading 1/2, otherwise on
 - **Solver success:** True
 - **Rmse gpa:** 0.101627
 - **Published rmse gpa:** 0.101687
-- **Reconstruction kind:** derived\_ambient\_cell\_static\_curve
+- **Parameter covariance:** \[\["39.8052"\]\]
+- **Covariance convention:** conditional residual-scaled covariance, one degree of freedom; fixed V0 uncertainty not propagated
 - **Dataset identifiers:** ferrous\_ringwoodite\_finger\_1979\_table2
-- **Reproduction report:** docs/data/finger-1979-ringwoodite-static.json
+- **Reproduction report:** docs/research/ferrous-ringwoodite-armentrout-2011-integration.md
 
 </details>
 
 Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
 
-Derived ambient-cell reconstruction: measured V0 is adopted and fixed, while published K0 and fixed K0-prime=4 are preserved. Valid only at 296.15 K and 0–4 GPa. Original source fit intercept, objective, weights and covariance are not recovered. No thermal behavior or 300 K correction is inferred.
+Derived ambient-cell reconstruction, not an independently refitted record and not a claim to have recovered the original fit intercept. Static default; the separate 2011 thermal candidate remains staged outside the executable catalog. PublishedK0 unchanged;Kprime=4 fixed. ReferenceT296.15K; no300K or thermal behavior claimed.
 
 Parameter covariance is not supplied.
 
@@ -164,7 +166,7 @@ Parameter covariance is not supplied.
 - **Primary source check:**
     - **Access URL:** https://hazen.carnegiescience.edu/sites/default/files/043-FH-SiSpinels.pdf
     - **Locations:** p1004: explicitly second-order Birch-Murnaghan, Kprime fixed4; room-condition crystal refinement; p1005 Table2: all three Fe cell refinements; p1005:1.96(6)Mbar Fe spinel bulk modulus
-    - **Finding:** Reviewed for static-only integration on 1 November 2026. Primary source BM2 and K0 verified on pp. 1004–1005; all three Table 2 Fe rows and source esds preserved. The adopted measured ambient volume is an explicitly derived choice, not recovered original fit V0. Thermal candidate excluded.
+    - **Finding:** Source BM2 bulk modulus with explicitly adopted measured ambient cell; both compressed states agree within the printed coordinate errors. This is a derived reconstruction, not recovery of the original fitted intercept.
 - **Primary data check:**
     - **Status:** bundled
     - **Dataset identifiers:** ferrous\_ringwoodite\_finger\_1979\_table2

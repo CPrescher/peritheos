@@ -6,7 +6,12 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from peritheos import get_eos_record, get_material_document, search_eos_records
+from peritheos import (
+    get_eos_record,
+    get_material_document,
+    resolve_dataset_observations,
+    search_eos_records,
+)
 from scripts.reproduce_dewaele_2008_metals import (
     experiment_rows,
     reproduce,
@@ -166,6 +171,7 @@ def test_ruby_2008_derivation_does_not_become_table4_input_scale():
 
 
 def test_common_ledger_retains_the_dedicated_source_outcomes():
+    from scripts.reconstruct_similar_eos_uncertainties import augment_outcome
     from scripts.standardize_reconstruction_metadata import assessment_for_record
     from scripts.validate_primary_eos_refits import check_ledger_values
 
@@ -173,7 +179,29 @@ def test_common_ledger_retains_the_dedicated_source_outcomes():
     research = json.loads((RESEARCH / "reproduction.json").read_text())
     rows = {r["record_identifier"]: r for r in common["records"] + research["records"]}
     for rid, expected in reproduce()["records"].items():
-        subset = {key: rows[rid][key] for key in expected}
+        # Preserve source facts and verdicts exactly. Successful SciPy stop
+        # messages can name different satisfied criteria on different builds;
+        # they are diagnostic text, not source evidence or a success flag.
+        expected = json.loads(json.dumps(expected))
+        expected = augment_outcome({"identifier": rid}, expected)
+        subset = json.loads(json.dumps({key: rows[rid][key] for key in expected}))
+        if "solver_message" in expected:
+            for row in (expected, subset):
+                assert row["solver_success"] is True
+                assert "termination condition" in row.pop("solver_message")
+        if "curve_validation" in expected:
+            for replay, original in zip(
+                expected["curve_validation"]["checks"],
+                subset["curve_validation"]["checks"],
+            ):
+                for field in (
+                    "model_atomic_volume_a3",
+                    "volume_difference_a3",
+                    "source_volume_acceptance_interval_a3",
+                ):
+                    assert replay.pop(field) == pytest.approx(
+                        original.pop(field), rel=1e-12, abs=1e-10
+                    )
         check_ledger_values(expected, subset)
         path = (
             ROOT / f"peritheos/data/materials/{expected['material_identifier']}.eosmat"
@@ -196,3 +224,54 @@ def test_common_ledger_retains_the_dedicated_source_outcomes():
             relocate_record_links(temporary)
             expected_assessment = temporary["evidence"]["reproduction"]["assessment"]
         assert native["evidence"]["reproduction"]["assessment"] == expected_assessment
+
+
+@pytest.mark.parametrize("material", ["nickel", "silver"])
+def test_historical_compatibility_views_use_the_published_mao_coordinates(material):
+    document = get_material_document(material)
+    dataset = f"{material}_dewaele_2008_table2_compression"
+    compatibility = resolve_dataset_observations(
+        document, f"{material}_dewaele_2008_vinet_1", dataset
+    )
+    parent = resolve_dataset_observations(
+        document, f"{material}_dewaele_2019_mao_vinet", dataset
+    )
+    with (DATA / f"{material}-dewaele-2008-table2-compression.csv").open() as stream:
+        source = list(csv.DictReader(stream))
+    assert compatibility.pressure_gpa == pytest.approx(
+        [float(row["ruby_pressure_mao_gpa"]) for row in source]
+    )
+    assert np.array_equal(compatibility.pressure_gpa, parent.pressure_gpa)
+    assert np.array_equal(compatibility.volume_a3, parent.volume_a3)
+
+
+def test_table_iv_observation_api_replays_the_reviewed_source_selection():
+    counts = {
+        "fe": (10, 10, 2),
+        "cobalt_hcp": (25, 25, 2),
+        "nickel": (42, 42, 4),
+        "zinc_hcp": (43, 43, 2),
+        "molybdenum": (29, 26, 2),
+        "silver": (34, 31, 4),
+    }
+    for material, rid, *_ in table4_specs():
+        document = get_material_document(material)
+        observed = resolve_dataset_observations(
+            document, rid, f"{material}_dewaele_2008_source_table"
+        )
+        retained, selected, atoms = counts[material]
+        assert len(observed.row_indices) == retained
+        assert sum(observed.selected_for_fit) == selected
+        rows = experiment_rows(material)
+        pressure = (
+            "pressure_revised_gpa" if material == "fe" else "ruby_pressure_dewaele_gpa"
+        )
+        assert observed.pressure_gpa[observed.selected_for_fit] == pytest.approx(
+            [float(row[pressure]) for row in rows]
+        )
+        assert observed.volume_a3[observed.selected_for_fit] == pytest.approx(
+            [float(row["atomic_volume_a3"]) * atoms for row in rows]
+        )
+        # Missing rowwise source errors are never fabricated by coordinate recovery.
+        assert np.isnan(observed.pressure_uncertainty).all()
+        assert np.isnan(observed.volume_uncertainty).all()

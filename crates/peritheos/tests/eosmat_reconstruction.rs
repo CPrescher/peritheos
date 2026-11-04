@@ -36,12 +36,18 @@ fn failed_reconstruction_values_survive_exports_without_changing_the_eos() {
     for volume in [9., 8., 7.] {
         let expected = original.eos_records[0].pressure(volume, 300.).unwrap();
         assert_eq!(
-            native.eos_records[0].pressure(volume, 300.).unwrap(),
-            expected
+            native.eos_records[0]
+                .pressure(volume, 300.)
+                .unwrap()
+                .to_bits(),
+            expected.to_bits()
         );
         assert_eq!(
-            restored.eos_records[0].pressure(volume, 300.).unwrap(),
-            expected
+            restored.eos_records[0]
+                .pressure(volume, 300.)
+                .unwrap()
+                .to_bits(),
+            expected.to_bits()
         );
     }
 }

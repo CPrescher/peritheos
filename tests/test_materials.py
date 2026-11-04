@@ -69,9 +69,9 @@ def test_catalog_listing_lookup_and_material_filter():
     records = list_eos_records()
     materials = list_materials()
 
-    assert len(records) == 629
-    assert len(list_eos_records(include_reference_variants=True)) == 681
-    assert len(materials) == 230
+    assert len(records) == 630
+    assert len(list_eos_records(include_reference_variants=True)) == 682
+    assert len(materials) == 231
     assert all(isinstance(item, EOSRecord) for item in records)
     assert all(isinstance(item, Material) for item in materials)
     assert [item.identifier for item in records] == sorted(

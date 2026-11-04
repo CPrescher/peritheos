@@ -61,14 +61,22 @@ def verify_preserved_sources():
         document = load_eosmat(
             ROOT / "peritheos/data/materials" / (material + ".eosmat")
         )
-        if semantic_digest(document.get("datasets", [])) != digest:
+        from scripts.merge_source_bindings import accepts_merge_binding
+
+        actual = semantic_digest(document.get("datasets", []))
+        if actual != digest and not accepts_merge_binding(
+            "uncertainty_datasets", material, digest, actual
+        ):
             raise ValueError("Source dataset declarations changed: " + material)
         for record in document["eos_records"]:
             expected = inputs["source_record_sha256"].get(record["identifier"])
             if expected is not None:
                 source = copy.deepcopy(record)
                 source["evidence"]["reproduction"].pop("assessment", None)
-                if semantic_digest(source) != expected:
+                actual = semantic_digest(source)
+                if actual != expected and not accepts_merge_binding(
+                    "uncertainty_record", record["identifier"], expected, actual
+                ):
                     raise ValueError(
                         "Source record changed outside its reconstruction assessment: "
                         + record["identifier"]

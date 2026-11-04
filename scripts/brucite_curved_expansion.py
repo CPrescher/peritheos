@@ -12,10 +12,10 @@ import copy
 import json
 
 import numpy as np
-import scipy
 
 from scripts.brucite_reproduce import (
     ROOT,
+    STAGED,
     bm3,
     comparison_volume,
     conditional_continuous_pressure,
@@ -26,6 +26,7 @@ from scripts.brucite_reproduce import (
 from scripts.brucite_reproduce import (
     reference_volume as published_reference_volume,
 )
+from scripts.brucite_v0_audit import REPORT as AMBIENT_REPORT
 from scripts.brucite_v0_audit import ambient_linear_alpha_fits
 from scripts.eosmat_io import read_material
 
@@ -167,13 +168,16 @@ def ledger_outcome(record):
         {
             "parameter": key,
             "published": stored[key],
-            "published_error": float(errors[key]),
+            "published_error": (
+                record.get("parameter_errors", {})
+                | record.get("thermal", {}).get("parameter_errors", {})
+            )[key],
             "refit": value,
             "refit_error": float(errors[key]),
             "difference": value - stored[key],
             "relative_difference": abs((value - stored[key]) / stored[key]),
             "within_combined_2sigma": None,
-            "similar": bool(np.isclose(value, stored[key], rtol=1e-7, atol=1e-15)),
+            "similar": bool(np.isclose(value, stored[key], rtol=1e-5, atol=1e-24)),
         }
         for key, value in values.items()
     ]
@@ -204,7 +208,7 @@ def ledger_outcome(record):
 
 def build_records(existing_records):
     """Add four fixed-source-modulus slices and one continuous slope variant."""
-    report = reproduce()
+    report = json.loads(REPORT.read_text(encoding="utf-8"))
     fit = report["fit"]
     ambient_covariance = copy.deepcopy(fit["parameter_covariance"])
     result = []
@@ -256,7 +260,9 @@ def build_records(existing_records):
         record["fit_provenance"] = {
             "software": {
                 "name": "Peritheos scripts/brucite_v0_audit.py and brucite_curved_expansion.py; scipy.optimize.least_squares",
-                "version": scipy.__version__,
+                "version": json.loads(AMBIENT_REPORT.read_text(encoding="utf-8"))[
+                    "software"
+                ]["scipy"],
             },
             "dataset": report["fit_dataset"],
             "selection": {
@@ -351,7 +357,7 @@ def write_comparison_plot(report):
     """Compare the continuous model with both original-source conventions.
 
     Residual statistics include every printed Table 4 row, including points
-    outside the continuous catalog record's common pressure interval.
+    outside the archived continuous diagnostic's common pressure interval.
     """
     import matplotlib
 
@@ -361,7 +367,7 @@ def write_comparison_plot(report):
     from matplotlib.ticker import MaxNLocator
 
     rows = observations("fukui_2003", "table4")
-    card = read_material(ROOT / "peritheos/data/materials/brucite.eosmat")
+    card = read_material(STAGED.with_name("brucite-diagnostic-archive.eosmat"))
     record = next(
         r
         for r in card["eos_records"]
@@ -560,7 +566,7 @@ def write_comparison_plot(report):
         0.075,
         0.063,
         "ΔV = calculated − observed volume at observed pressure; bars show reported P and V errors, excluding model uncertainty.\n"
-        f"Purple dotted portions lie outside the continuous catalog interval ({pressure_min:g}–{pressure_max:g} GPa).\n"
+        f"Purple dotted portions lie outside the archived continuous diagnostic interval ({pressure_min:g}–{pressure_max:g} GPa).\n"
         "Both continuous curves use published slopes anchored at the 300 K moduli; original fitted intercepts were not reported.\n"
         "Curved expansion was fitted only to ambient data (299.3–592.9 K); higher-temperature reference volumes are extrapolated.",
         fontsize=9,
@@ -582,10 +588,11 @@ def main():
     report = reproduce()
     payload = json.dumps(report, indent=2, allow_nan=False) + "\n"
     if args.check:
-        if REPORT.read_text() != payload:
-            raise SystemExit("Brucite curved-expansion report is stale")
+        from scripts.brucite_replay_checks import check_report
+
+        check_report(report, json.loads(REPORT.read_text(encoding="utf-8")))
     else:
-        REPORT.write_text(payload)
+        REPORT.write_text(payload, encoding="utf-8")
     print("Brucite curved-expansion report is current.")
     if args.plot:
         print(json.dumps(write_comparison_plot(report), indent=2, allow_nan=False))

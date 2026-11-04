@@ -36,8 +36,8 @@ fn local_metadata_is_explicit_preserved_and_numerically_equivalent() {
     );
     let old = material_from_value(legacy).unwrap();
     assert_eq!(
-        old.eos_records[0].pressure(9., 300.).unwrap(),
-        native.eos_records[0].pressure(9., 300.).unwrap()
+        old.eos_records[0].pressure(9., 300.).unwrap().to_bits(),
+        native.eos_records[0].pressure(9., 300.).unwrap().to_bits()
     );
 }
 
@@ -96,8 +96,8 @@ fn documented_thermal_and_curated_examples_use_the_same_native_reader() {
         let legacy = material_from_value(export_eosmat_v3(&value).unwrap()).unwrap();
         for (a, b) in native.eos_records.iter().zip(&legacy.eos_records) {
             assert_eq!(
-                a.pressure(70., 300.).unwrap(),
-                b.pressure(70., 300.).unwrap()
+                a.pressure(70., 300.).unwrap().to_bits(),
+                b.pressure(70., 300.).unwrap().to_bits()
             );
         }
     }
