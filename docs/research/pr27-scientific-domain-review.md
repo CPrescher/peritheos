@@ -32,6 +32,14 @@ No workbook was recalculated or saved.
 | Prescher (2012), DOI [10.1103/PhysRevB.85.140402](https://doi.org/10.1103/PhysRevB.85.140402) | Final user-supplied supplement, all 19 numbered Table S1 pressures/volumes | The 19 states agree, including p16=133.25 A3. There is no measured ambient row in this table. The current primary comparison is the 19-row fixed-adopted-V0 replay; its K0 error is not reproduced. The 22 graphical markers and split-fit diagnostics remain separate historical evidence. |
 | Finger (1979), American Mineralogist 64, 1002–1009 | Preserved scanned article and pages 1004–1005 | Table 2 Fe2SiO4 volumes 558.7(2), 553.5(7), 547.7(8) A3 at 0.001/20(1)/40(1) kbar agree. The text fixes K-prime=4 and gives 1.96(6) Mbar, or 196(6) GPa. The curve remains an explicitly derived static reconstruction with a measured adopted ambient volume; no author-fitted intercept or thermal validation is inferred. |
 
+The new nonmagnetic cementite structure was separately checked against
+Prescher Table S1 p19 (47.4 GPa, 293 K): all three lattice values and nine
+fractional coordinates follow the declared cyclic axis mapping, with no origin
+shift. Ideal full occupancies give Fe12C4 and Z=4; they are not described as
+refined occupancies. The finite-pressure structural volume is not an EOS
+ambient-volume measurement. The structural fields of all 233 pre-existing
+material documents are unchanged.
+
 ## Preservation exceptions and independent protection
 
 The supplemental merge bindings permit exact, reviewed metadata transitions;
@@ -43,7 +51,8 @@ rows, resource declarations and column definitions are unchanged as well.
 Source-resource byte checks remain in the frozen release-source test.
 
 The new `scientific_source_snapshot` maintenance check freezes all current
-scientific coefficients, units, reference-state and thermal conventions,
+scientific coefficients, units, crystallographic identity/coordinates,
+reference-state and thermal conventions,
 source arrays/resource bytes, observation views and uncertainty semantics.
 Its reviewed fingerprint is separate from the merge metadata exceptions.
 Changing a numerical source value cannot be excused by merely accepting a new

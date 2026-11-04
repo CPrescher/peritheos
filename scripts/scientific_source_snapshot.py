@@ -68,6 +68,13 @@ def scientific_snapshot(root: Path = ROOT) -> dict:
                         "formula",
                         "units",
                         "formula_units_per_cell",
+                        "phase",
+                        "symmetry",
+                        "lattice",
+                        "space_group",
+                        "space_group_number",
+                        "atom_sites",
+                        "peaks",
                     )
                 },
                 "eos_records": [

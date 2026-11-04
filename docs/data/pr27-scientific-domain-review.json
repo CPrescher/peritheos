@@ -156,7 +156,7 @@
     "Author communication text for the Coesite objective is preserved as user-supplied provenance, not independently authenticated correspondence."
   ],
   "review_date": "2026-11-04",
-  "catalog_scientific_sha256": "88980660c3af53d10382597ea5919205284c2fd4108b7b47002e2aff0d41d728",
+  "catalog_scientific_sha256": "ad4faddd0d53dafefd997f662d86e846ad53fc1690152444ed384bb80fa97934",
   "source_preservation": "Snapshot covers literal coefficients/errors/fixed flags, thermal conventions, units, reference states, source arrays/resource bytes, observation views and uncertainty semantics. No merged fingerprint exceptions are used for this check.",
   "checks_total": 9087,
   "notes": "Source comparisons are a scoped review, not authentication of author communications, exact-workflow recovery, or physical validation. Current record-level restrictions remain unchanged.",
@@ -189,5 +189,30 @@
     "qualification": "Current-study V/Z is rounded to one decimal as demonstrated by the author DAT; pressure/pressure-width and literature volume retain workbook precision. Using all full-precision workbook volumes is a distinct negative control and does not reproduce the saved curve."
   },
   "source_files_unchanged_after_review": true,
-  "base_revision": "e2d4b163fb5187ede29aa872c1b4cdf584bbd2d2"
+  "base_revision": "e2d4b163fb5187ede29aa872c1b4cdf584bbd2d2",
+  "structural_identity_review": {
+    "existing_documents_unchanged": 233,
+    "compared_fields": [
+      "formula",
+      "formula_units_per_cell",
+      "units",
+      "symmetry",
+      "lattice",
+      "space_group",
+      "space_group_number",
+      "atom_sites",
+      "peaks"
+    ],
+    "new_material": "cementite_nonmagnetic",
+    "source": "Prescher (2012) final Table S1 p19 at 47.4 GPa and 293 K",
+    "axis_mapping": "(a,b,c)=(b,c,a)_source; (x,y,z)=(y,z,x)_source; no origin shift",
+    "matched_lattice_values": 3,
+    "matched_fractional_coordinates": 9,
+    "ideal_cell_contents": {
+      "Fe": 12,
+      "C": 4,
+      "Z": 4
+    },
+    "qualification": "Full occupancies express ideal stoichiometry, not source-refined occupancy or an EOS ambient volume."
+  }
 }
