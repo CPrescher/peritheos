@@ -679,7 +679,9 @@ def main():
             "Selective calculations are read-only; use --record with --check"
         )
     else:
-        OUTPUT.write_text(json.dumps(report, indent=2, allow_nan=False) + "\n")
+        OUTPUT.write_bytes(
+            (json.dumps(report, indent=2, allow_nan=False) + "\n").encode("utf-8")
+        )
 
 
 if __name__ == "__main__":

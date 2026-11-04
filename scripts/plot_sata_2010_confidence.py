@@ -351,7 +351,7 @@ def main():
     }
     if args.write:
         for path, text in outputs.items():
-            path.write_text(text)
+            path.write_bytes(text.encode("utf-8"))
     elif args.check:
         for path, text in outputs.items():
             if path.read_text(encoding="utf-8") != text:
