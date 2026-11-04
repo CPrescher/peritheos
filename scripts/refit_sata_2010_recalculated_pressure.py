@@ -179,7 +179,7 @@ def reproduce():
         "cross_evaluation": cross,
         "residuals": residual_rows,
         "source_sha256": {
-            str(p.relative_to(ROOT)): hashlib.sha256(p.read_bytes()).hexdigest()
+            p.relative_to(ROOT).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
             for p in source_files
         },
     }
@@ -317,7 +317,7 @@ def main():
     elif args.check:
         # Deterministic linear calculations in the same maintained environment.
         for path, content in outputs.items():
-            if path.read_text() != content:
+            if path.read_text(encoding="utf-8") != content:
                 raise SystemExit(
                     f"Recalculated-pressure diagnostic needs regeneration: {path}"
                 )

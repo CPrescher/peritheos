@@ -48,6 +48,14 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Development and compatibility
 
+- Compare recalculated cementite diagnostics within explicit numerical bounds
+  across Python/BLAS builds while keeping source coefficients, fixed values,
+  observation counts and scientific decisions exact. Preserve saved reports
+  and add mutation checks proving source changes cannot pass as refit roundoff.
+- Decode research JSON as UTF-8, serialize report paths with forward slashes,
+  and preserve the author Coesite DAT bytes on Windows without changing source
+  fingerprints, observations or stored reports.
+
 - Incorporate Roland Mas's explicit sampler `f64` annotation and allow `1e-9`
   absolute variation when replaying the saved brucite optimizer objective across
   numerical backends. Preserve the stricter residual-consistency check, source

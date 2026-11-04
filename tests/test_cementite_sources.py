@@ -29,7 +29,9 @@ def audit():
     return reproduce()
 
 
-def test_scott_broad_uncertainty_overlap_cannot_establish_coefficient_parity(audit):
+def test_scott_broad_uncertainty_overlap_cannot_establish_coefficient_parity(
+    audit, assert_parameter_replay_close
+):
     outcome = audit["scott_2001"]
     assert outcome["status"] == "similar"
     assert outcome["source_parameter_widths_agreement"] is False
@@ -54,7 +56,7 @@ def test_scott_broad_uncertainty_overlap_cannot_establish_coefficient_parity(aud
     ledger = json.loads((ROOT / "docs/data/primary-eos-refits.json").read_text())
     row = next(r for r in ledger["records"] if r["record_identifier"] == SCOTT_ID)
     assert row["status"] == "similar"
-    assert row["parameters"] == outcome["parameters"]
+    assert_parameter_replay_close(row["parameters"], outcome["parameters"])
 
 
 def test_litasov_all_rows_errors_and_original_tokens_are_preserved():

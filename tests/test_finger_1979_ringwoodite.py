@@ -66,7 +66,7 @@ def test_static_only_catalog_preserves_source_and_separates_thermal_candidate():
 
 def test_independent_source_checks_uncertainties_and_native_inversion():
     result = reproduce()
-    assert result == json.loads((ROOT / REPORT).read_text())
+    assert result == json.loads((ROOT / REPORT).read_text(encoding="utf-8"))
     assert result["source_sha256"] == hashlib.sha256(DATA.read_bytes()).hexdigest()
     assert result["source_checks"][0]["pressure_error_gpa"] is None
     assert result["source_checks"][0]["combined_coordinate_error_gpa"] is None

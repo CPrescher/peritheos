@@ -17,7 +17,9 @@ from peritheos import (
 )
 
 CASES = json.loads(
-    (Path(__file__).parent / "fixtures/material-display-names.json").read_text()
+    (Path(__file__).parent / "fixtures/material-display-names.json").read_text(
+        encoding="utf-8"
+    )
 )
 MIXED_OXIDES = {
     case["identifier"] for case in CASES if case["family_id"] == "mg_fe_monoxide"

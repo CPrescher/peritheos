@@ -66,9 +66,13 @@ def test_all_source_rows_absolute_error_tokens_and_quantity_origins():
     )
 
 
-def test_published_coefficients_preserved_and_conditional_fit_is_separate():
+def test_published_coefficients_preserved_and_conditional_fit_is_separate(
+    assert_audit_close,
+):
     result = reproduce()
-    assert json.loads((ROOT / NUMERICAL).read_text()) == result
+    assert_audit_close(
+        result, json.loads((ROOT / NUMERICAL).read_text()), rel=1e-12, abs=1e-12
+    )
     assert result["source_equation_check"]["all_within_reported_Us_width"]
     assert result["source_equation_check"]["rms_km_s"] == pytest.approx(0.03468433578)
     refit = result["independent_diagnostic_refit"]
@@ -86,10 +90,12 @@ def test_published_coefficients_preserved_and_conditional_fit_is_separate():
         assert abs(s["density_difference_g_cm3"]) < row["density_g_cm3_error_width"]
 
 
-def test_saved_record_assessment_matches_ledger_and_existing_default():
+def test_saved_record_assessment_matches_ledger_and_existing_default(
+    assert_record_replay_close,
+):
     d = get_material_document("cementite_nonmagnetic", format_version=4)
     r = next(x for x in d["eos_records"] if x["identifier"] == IDENTIFIER)
-    assert r == catalog_record()
+    assert_record_replay_close(r, catalog_record())
     entry = next(
         x
         for x in json.loads((ROOT / "docs/data/primary-eos-refits.json").read_text())[

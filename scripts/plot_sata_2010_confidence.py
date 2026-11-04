@@ -77,7 +77,7 @@ def ellipse_points(center, covariance, level, dof):
 
 
 def build():
-    source = json.loads(FIT_REPORT.read_text())
+    source = json.loads(FIT_REPORT.read_text(encoding="utf-8"))
     measured = np.array([r["volume_a3"] for r in source["inputs"]])
     volume = np.linspace(min(measured), max(measured), 241)
     summary, ellipse_rows, band_rows = {}, [], []
@@ -150,7 +150,7 @@ def build():
             summary[version][model] = entry
     report = {
         "kind": "conditional_diagnostic_confidence_visualization",
-        "source_refit_report": str(FIT_REPORT.relative_to(ROOT)),
+        "source_refit_report": FIT_REPORT.relative_to(ROOT).as_posix(),
         "source_sha256": hashlib.sha256(FIT_REPORT.read_bytes()).hexdigest(),
         "temperature_k": 300,
         "volume_range_a3": [float(min(measured)), float(max(measured))],
@@ -172,7 +172,7 @@ def plot(report, ellipse_rows, band_rows, preview_dir=None):
     matplotlib.use("Agg")
     from matplotlib import pyplot as plt
 
-    source = json.loads(FIT_REPORT.read_text())
+    source = json.loads(FIT_REPORT.read_text(encoding="utf-8"))
     volumes = np.array([r["volume_a3"] for r in source["inputs"]])
     sata = np.array([r["source"] == 0 for r in source["inputs"]])
     colors = ["#245b8a", "#ae4c14"]
@@ -354,7 +354,7 @@ def main():
             path.write_text(text)
     elif args.check:
         for path, text in outputs.items():
-            if path.read_text() != text:
+            if path.read_text(encoding="utf-8") != text:
                 raise SystemExit(f"Confidence diagnostic needs regeneration: {path}")
         print("Sata conditional confidence report and plot-data checks passed")
     elif not args.plot:

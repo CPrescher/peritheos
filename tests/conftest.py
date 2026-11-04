@@ -1,7 +1,9 @@
 """Shared assertions and isolated results for numerical audit replays."""
 
 import copy
+from fnmatch import fnmatchcase
 
+import numpy as np
 import pytest
 
 
@@ -37,8 +39,22 @@ def assert_audit_close():
     """
 
     def compare(
-        actual, expected, *, rel=1e-5, abs=1e-10, path="report", ignore_keys=frozenset()
+        actual,
+        expected,
+        *,
+        rel=1e-5,
+        abs=1e-10,
+        path="report",
+        ignore_keys=frozenset(),
+        float_paths=None,
     ):
+        floating = isinstance(expected, (float, np.floating))
+        if floating and (
+            float_paths is None or any(fnmatchcase(path, p) for p in float_paths)
+        ):
+            assert isinstance(actual, (float, np.floating)), path
+            assert actual == pytest.approx(expected, rel=rel, abs=abs), path
+            return
         assert type(actual) is type(expected), path
         if isinstance(expected, dict):
             assert actual.keys() == expected.keys(), path
@@ -52,6 +68,7 @@ def assert_audit_close():
                     abs=abs,
                     path=f"{path}.{key}",
                     ignore_keys=ignore_keys,
+                    float_paths=float_paths,
                 )
         elif isinstance(expected, list):
             assert len(actual) == len(expected), path
@@ -63,10 +80,80 @@ def assert_audit_close():
                     abs=abs,
                     path=f"{path}[{i}]",
                     ignore_keys=ignore_keys,
+                    float_paths=float_paths,
                 )
-        elif isinstance(expected, float):
-            assert actual == pytest.approx(expected, rel=rel, abs=abs), path
         else:
             assert actual == expected, path
+
+    return compare
+
+
+@pytest.fixture
+def assert_parameter_replay_close(assert_audit_close):
+    """Allow refit variation while keeping published values and decisions exact."""
+
+    def compare(actual, expected):
+        assert_audit_close(
+            actual,
+            expected,
+            float_paths=tuple(
+                f"report*.{key}"
+                for key in ("refit", "refit_error", "difference", "relative_difference")
+            ),
+        )
+
+    return compare
+
+
+@pytest.fixture
+def assert_assessment_close(assert_audit_close, assert_parameter_replay_close):
+    def compare(actual, expected):
+        actual, expected = copy.deepcopy(actual), copy.deepcopy(expected)
+        if "parameters" in expected:
+            assert_parameter_replay_close(
+                actual.pop("parameters"), expected.pop("parameters")
+            )
+        assert_audit_close(
+            actual,
+            expected,
+            float_paths=(
+                "report.fit.rmse_*",
+                "report.fit.published_rmse_*",
+                "report.fit.parameter_covariance*",
+                "report.fit.reduced_chi_square",
+            ),
+        )
+
+    return compare
+
+
+@pytest.fixture
+def assert_record_replay_close(assert_audit_close, assert_assessment_close):
+    """Compare computed evidence separately; all remaining record fields are exact."""
+
+    def compare(actual, expected):
+        actual, expected = copy.deepcopy(actual), copy.deepcopy(expected)
+        left = actual["evidence"]["reproduction"]
+        right = expected["evidence"]["reproduction"]
+        assert_assessment_close(left.pop("assessment"), right.pop("assessment"))
+        for key in (
+            "source_equation",
+            "source_equation_check",
+            "rankine_hugoniot_replay",
+        ):
+            if key in right:
+                assert_audit_close(left.pop(key), right.pop(key), rel=1e-12, abs=1e-10)
+        if "independent_diagnostic_refit" in right:
+            assert_audit_close(
+                left.pop("independent_diagnostic_refit"),
+                right.pop("independent_diagnostic_refit"),
+                abs=2e-7,
+                float_paths=(
+                    "report.parameters_K0_K0_prime*",
+                    "report.difference_from_published*",
+                    "report.rms_pressure_gpa",
+                ),
+            )
+        assert actual == expected
 
     return compare

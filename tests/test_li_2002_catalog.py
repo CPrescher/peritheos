@@ -27,7 +27,9 @@ def record(document):
     return next(r for r in document["eos_records"] if r["identifier"] == IDENTIFIER)
 
 
-def test_published_coefficients_fixed_measured_error_and_source_scope():
+def test_published_coefficients_fixed_measured_error_and_source_scope(
+    assert_assessment_close,
+):
     d = get_material_document("cementite", format_version=4)
     r = record(d)
     assert r["parameters"] == {
@@ -51,7 +53,7 @@ def test_published_coefficients_fixed_measured_error_and_source_scope():
         "material_identifier": "cementite",
         "record_identifier": IDENTIFIER,
     }
-    assert a == assessment_for_record(r, outcome)
+    assert_assessment_close(a, assessment_for_record(r, outcome))
     assert [p["parameter"] for p in a["parameters"]] == ["K0", "K0_prime"]
     assert all(p["within_combined_2sigma"] is None for p in a["parameters"])
     assert (
@@ -133,13 +135,15 @@ def test_schema_and_roundtrip_preserve_every_source_token_and_metadata(
     assert d == before
 
 
-def test_ledger_and_both_curves_replay_the_same_twelve_observations():
+def test_ledger_and_both_curves_replay_the_same_twelve_observations(
+    assert_parameter_replay_close,
+):
     d = get_material_document("cementite")
     r = record(d)
     outcome = ledger_outcome(r)
     stored = json.loads((ROOT / "docs/data/primary-eos-refits.json").read_text())
     saved = next(x for x in stored["records"] if x["record_identifier"] == IDENTIFIER)
-    assert saved["parameters"] == outcome["parameters"]
+    assert_parameter_replay_close(saved["parameters"], outcome["parameters"])
     assert saved["author_workflow_reproduced"] is False
     _, (p, v, _, _) = arrays()
     assert len(p) == 12

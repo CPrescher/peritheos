@@ -41,7 +41,7 @@ REFITS = {
 
 
 def verify_sources():
-    inputs = json.loads(INPUT.read_text())
+    inputs = json.loads(INPUT.read_text(encoding="utf-8"))
     for material, expected in inputs["source_document_sha256"].items():
         document = copy.deepcopy(
             load_eosmat(ROOT / "peritheos/data/materials" / (material + ".eosmat"))
@@ -60,7 +60,7 @@ def verify_sources():
                 (
                     ROOT
                     / "peritheos/data/datasets/iron-carbide-fe7c3-prescher-2015-source.json"
-                ).read_text()
+                ).read_text(encoding="utf-8")
             )
             document = copy.deepcopy(source["historical_material_document"])
             for record in document["eos_records"]:
@@ -71,7 +71,7 @@ def verify_sources():
             updates = json.loads(
                 (
                     ROOT / "docs/data/similar-parameter-review-source-updates.json"
-                ).read_text()
+                ).read_text(encoding="utf-8")
             )["materials"]
             update = updates.get(material, {})
             reviewed_ids = {
@@ -342,7 +342,7 @@ def legacy_document(native):
 
 def calculate():
     verify_sources()
-    inputs = json.loads(INPUT.read_text())
+    inputs = json.loads(INPUT.read_text(encoding="utf-8"))
     return dict(
         format="peritheos.similar-parameter-scope-review",
         format_version=1,
@@ -466,7 +466,7 @@ def render_report(report):
 @lru_cache(maxsize=1)
 def saved_review():
     verify_sources()
-    report = json.loads(OUTPUT.read_text())
+    report = json.loads(OUTPUT.read_text(encoding="utf-8"))
     if report["input_sha256"] != hashlib.sha256(INPUT.read_bytes()).hexdigest():
         raise ValueError("Parameter-scope review input changed")
     return {r["record_identifier"]: r for r in report["records"]}
@@ -487,7 +487,7 @@ def augment_outcome(record, outcome):
     if case["status"] == "similar":
         baseline = next(
             r
-            for r in json.loads(INPUT.read_text())["records"]
+            for r in json.loads(INPUT.read_text(encoding="utf-8"))["records"]
             if r["record_identifier"] == record["identifier"]
         )
         if outcome["status"] != baseline["status"]:
@@ -561,7 +561,7 @@ def augment_outcome(record, outcome):
     updated = copy.deepcopy(outcome)
     baseline = next(
         r
-        for r in json.loads(INPUT.read_text())["records"]
+        for r in json.loads(INPUT.read_text(encoding="utf-8"))["records"]
         if r["record_identifier"] == record["identifier"]
     )
     history = " ".join(
@@ -595,7 +595,7 @@ def integrate():
     from scripts.validate_primary_eos_refits import render_markdown
 
     ledger_path = ROOT / "docs/data/primary-eos-refits.json"
-    ledger = json.loads(ledger_path.read_text())
+    ledger = json.loads(ledger_path.read_text(encoding="utf-8"))
     documents = {}
     for row in ledger["records"]:
         case = saved_review().get(row["record_identifier"])
@@ -618,7 +618,7 @@ def integrate():
     for material, document in documents.items():
         validate_eosmat_document(document)
         path = ROOT / "peritheos/data/materials" / (material + ".eosmat")
-        original, formatted = path.read_text(), format_eosmat(document)
+        original, formatted = path.read_text(encoding="utf-8"), format_eosmat(document)
         for record in document["eos_records"]:
             case = saved_review().get(record["identifier"])
             if not case or case["status"] != "parity":
@@ -655,12 +655,12 @@ def main():
     args = parser.parse_args()
     report = calculate()
     if args.check:
-        previous = json.loads(OUTPUT.read_text())
+        previous = json.loads(OUTPUT.read_text(encoding="utf-8"))
         try:
             check_report(previous, report)
         except AssertionError as error:
             raise SystemExit("Parameter-scope review is stale") from error
-        if REPORT.read_text() != render_report(report):
+        if REPORT.read_text(encoding="utf-8") != render_report(report):
             raise SystemExit("Parameter-scope review documentation is stale")
     else:
         OUTPUT.write_text(json.dumps(report, indent=2, allow_nan=False) + "\n")
