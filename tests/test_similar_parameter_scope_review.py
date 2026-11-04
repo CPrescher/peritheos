@@ -230,3 +230,25 @@ def test_independent_refit_scope_replays_actual_solvers():
     case = saved_review()["cu_sun_2010_low_vn_refit"]
     assert cu["k0_gpa"] == pytest.approx(case["parameters"][0]["published"], rel=1e-6)
     assert cu["k0_prime"] == pytest.approx(case["parameters"][1]["published"], rel=1e-6)
+
+
+@pytest.mark.parametrize("mutation", ["coefficient", "dataset"])
+def test_later_metadata_compatibility_pins_still_reject_scientific_changes(
+    monkeypatch, mutation
+):
+    from scripts import review_similar_parameter_scope as review_module
+
+    original = review_module.load_eosmat
+
+    def edited(path):
+        document = copy.deepcopy(original(path))
+        if path.stem == "klb1_ferropericlase":
+            if mutation == "coefficient":
+                document["eos_records"][0]["parameters"]["K0"]["value"] += 1
+            else:
+                document["datasets"][0]["resource"]["sha256"] = "0" * 64
+        return document
+
+    monkeypatch.setattr(review_module, "load_eosmat", edited)
+    with pytest.raises(ValueError, match="Scientific source document changed"):
+        verify_sources()

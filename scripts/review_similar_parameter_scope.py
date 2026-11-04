@@ -68,7 +68,33 @@ def verify_sources():
                     "assessment", None
                 )
         if semantic_digest(document) != expected:
-            raise ValueError("Scientific source document changed: " + material)
+            updates = json.loads(
+                (
+                    ROOT / "docs/data/similar-parameter-review-source-updates.json"
+                ).read_text()
+            )["materials"]
+            update = updates.get(material, {})
+            reviewed_ids = {
+                row["record_identifier"]
+                for row in inputs["records"]
+                if row["material_identifier"] == material
+            }
+            reviewed_scope = {
+                "records": [
+                    row
+                    for row in document["eos_records"]
+                    if row["identifier"] in reviewed_ids
+                ],
+                "datasets": document.get("datasets", []),
+            }
+            if not (
+                update.get("original_whole_document_sha256") == expected
+                and update.get("current_whole_document_sha256")
+                == semantic_digest(document)
+                and update.get("reviewed_scope_sha256")
+                == semantic_digest(reviewed_scope)
+            ):
+                raise ValueError("Scientific source document changed: " + material)
     for path, expected in inputs["source_resources_sha256"].items():
         if hashlib.sha256((ROOT / path).read_bytes()).hexdigest() != expected:
             raise ValueError("Source resource changed: " + path)
@@ -339,7 +365,7 @@ def render_report(report):
         "",
         "The source-width criterion compares central values with each positive printed source width; it is a numerical criterion even where reconstruction covariance remains unavailable. The combined-width criterion requires both finite positive errors and the numerical similarity guard. Verified printed precision is a separate nonstatistical criterion, never a substitute error bar. Fixed values are identified explicitly and are not counted as recovered free parameters.",
         "",
-        "Source coefficients, printed errors, observations, calibration reductions, models, fit masks, defaults, source-validation findings and use holds are unchanged. Only reconstruction assessments and the derived ledger/report are updated. Original ledger findings are frozen in [the review inputs](../data/similar-parameter-review-inputs.json); source-document and dataset hashes protect them.",
+        "Source coefficients, printed errors, observations, calibration reductions, models, fit masks, defaults, source-validation findings and use holds are unchanged. Only reconstruction assessments and the derived ledger/report are updated. Original ledger findings are frozen in [the review inputs](../data/similar-parameter-review-inputs.json); source-document and dataset hashes protect them. Subsequent display-name and unrelated-record recommendation edits are pinned separately in [source compatibility evidence](../data/similar-parameter-review-source-updates.json). The complete reviewed records and dataset declarations match the named historical revision; the original whole-document hashes remain unchanged.",
         "",
         "## Recovered information",
         "",
