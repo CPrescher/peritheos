@@ -16,7 +16,7 @@ New links become live only after the corresponding documentation is published.
 | Material | EOS records | Coefficient graphs |
 | --- | ---: | ---: |
 | [Akimotoite](akimotoite.md) | 11 | 7 |
-| [Al2O3 perovskite model crystal](al2o3_perovskite.md) | 2 | 0 |
+| [Bridgmanite hypothetical perovskite model crystal](al2o3_perovskite.md) | 2 | 0 |
 | [Al2O3 post-perovskite model crystal](al2o3_post_perovskite.md) | 1 | 0 |
 | [Al-bearing phase D](al_bearing_phase_d.md) | 1 | 1 |
 | [Almandine](almandine.md) | 1 | 1 |
@@ -71,7 +71,7 @@ New links become live only after the corresponding documentation is published.
 | [Fe–16 wt% Si (D03)](fe073si027_d03.md) | 1 | 1 |
 | [Fe–9 wt% Si (d03)](fe084si016_d03.md) | 2 | 2 |
 | [Fe–9 wt% Si (hcp)](fe084si016_hcp.md) | 2 | 2 |
-| [A-site-deficient iron bridgmanite](fe088sio3_bridgmanite.md) | 1 | 0 |
+| [Bridgmanite A-site-deficient](fe088sio3_bridgmanite.md) | 1 | 0 |
 | [Fe0.93O (rhombohedrally distorted B1)](fe093o_rhombohedral.md) | 1 | 1 |
 | [Fe0.9Ni0.1 alloy (hcp)](fe09ni01_hcp.md) | 21 | 17 |
 | [Fe2O3](fe2o3.md) | 1 | 1 |
@@ -81,14 +81,14 @@ New links become live only after the corresponding documentation is published.
 | [Iron (fcc)](fe_fcc.md) | 1 | 1 |
 | [FeH2](feh2.md) | 1 | 1 |
 | [FeH3](feh3.md) | 1 | 1 |
-| [FeO (B1)](feo.md) | 5 | 3 |
+| [Wüstite B1](feo.md) | 5 | 3 |
 | [FeO (B8)](feo_b8_2.md) | 1 | 1 |
-| [Fe27 ferropericlase](ferropericlase_fe27.md) | 1 | 1 |
+| [Ferropericlase B1 cation-deficient Fe27](ferropericlase_fe27.md) | 1 | 1 |
 | [FeS-VI](fes.md) | 1 | 1 |
 | [Iron sulfide FeS-VI](fes_vi.md) | 1 | 1 |
 | [FeSi (B2; Peritheos refits)](fesi_b2.md) | 2 | 2 |
 | [FeSi (B20)](fesi_b20.md) | 2 | 2 |
-| [Iron silicate perovskite](fesio3_bridgmanite.md) | 2 | 0 |
+| [Bridgmanite high-spin antiferromagnetic](fesio3_bridgmanite.md) | 2 | 0 |
 | [Liquid iron silicate](fesio3_liquid.md) | 1 | 0 |
 | [Iron silicate post-perovskite](fesio3_post_perovskite.md) | 1 | 0 |
 | [Iron silicate post-perovskite II](fesio3_post_perovskite_ii.md) | 1 | 0 |
@@ -111,66 +111,66 @@ New links become live only after the corresponding documentation is published.
 | [Potassium chloride (B2)](kcl.md) | 10 | 10 |
 | [Potassium chloride (B1)](kcl_b1.md) | 2 | 2 |
 | [KLB-1 Ca-perovskite](klb1_ca_perovskite.md) | 1 | 1 |
-| [KLB-1 ferropericlase](klb1_ferropericlase.md) | 2 | 2 |
-| [KLB-1 Mg-perovskite](klb1_mg_perovskite.md) | 1 | 1 |
+| [Ferropericlase B1 KLB-1](klb1_ferropericlase.md) | 2 | 2 |
+| [Bridgmanite KLB-1](klb1_mg_perovskite.md) | 1 | 1 |
 | [Larnite](larnite.md) | 1 | 0 |
 | [Lead (fcc)](lead_fcc.md) | 2 | 0 |
 | [Lead (hcp)](lead_hcp.md) | 3 | 2 |
 | [Li](li_bcc.md) | 1 | 1 |
 | [Lithium fluoride (B1)](lif_b1.md) | 1 | 1 |
-| [Fe56 magnesiowustite](magnesiowustite_fe56.md) | 1 | 1 |
-| [Fe75 magnesiowustite](magnesiowustite_fe75.md) | 1 | 1 |
+| [Ferropericlase B1 cation-deficient Fe56](magnesiowustite_fe56.md) | 1 | 1 |
+| [Ferropericlase B1 cation-deficient Fe75](magnesiowustite_fe75.md) | 1 | 1 |
 | [Magnesite](magnesite.md) | 3 | 3 |
 | [Magnesium (bcc)](magnesium_bcc.md) | 1 | 1 |
 | [Magnesium (hcp)](magnesium_hcp.md) | 1 | 1 |
 | [Majorite (MgSiO3 tetragonal garnet)](majorite.md) | 1 | 1 |
 | [Manganese (alpha)](manganese_alpha.md) | 1 | 1 |
-| [(Mg0.125Fe0.875)O B1 magnesiowustite](mg0125fe0875o.md) | 1 | 0 |
-| [Mw78 defect-bearing magnesiowustite](mg0215fe0762vac0023o_b1.md) | 2 | 2 |
-| [(Mg0.25Fe0.75)O B1 magnesiowustite](mg025fe075o.md) | 1 | 0 |
-| [(Mg0.375Fe0.625)O B1 magnesiowustite](mg0375fe0625o.md) | 1 | 0 |
-| [(Mg0.42Fe0.58)O B1 magnesiowustite](mg042fe058o.md) | 1 | 1 |
-| [(Mg0.490Fe0.483Ti0.027)O B1 ferropericlase (Fp48)](mg0490fe0483ti0027o.md) | 2 | 2 |
-| [FA50 bridgmanite](mg05fe05al05si05o3_bridgmanite.md) | 4 | 4 |
-| [(Mg0.5Fe0.5)O B1 ferropericlase](mg05fe05o.md) | 1 | 0 |
-| [(Mg0.61Fe0.39)O B1 ferropericlase](mg061fe039o.md) | 7 | 7 |
-| [(Mg0.625Fe0.375)O B1 ferropericlase](mg0625fe0375o.md) | 1 | 0 |
-| [(Mg0.65Fe0.35)O B1 ferropericlase](mg065fe035o.md) | 2 | 2 |
-| [(Mg0.73Fe0.27)O magnesiowustite](mg073fe027o.md) | 1 | 1 |
-| [(Mg0.75Fe0.25)O B1 ferropericlase](mg075fe025o.md) | 6 | 5 |
-| [25 mol.% FeSiO3 bridgmanite model](mg075fe025sio3_bridgmanite.md) | 2 | 0 |
-| [(Mg0.80Fe0.20)O B1 ferropericlase](mg080fe020o.md) | 4 | 4 |
-| [(Mg0.8Fe0.2)SiO3 bridgmanite](mg080fe020sio3_bridgmanite.md) | 1 | 1 |
-| [(Mg0.83Fe0.17)O high-spin ferropericlase](mg083fe017o.md) | 3 | 1 |
-| [(Mg0.875Fe0.125)O B1 ferropericlase](mg0875fe0125o.md) | 1 | 0 |
-| [13% Fe-bearing bridgmanite](mg087fe013sio3_bridgmanite.md) | 1 | 1 |
-| [Fe10-Al14 bridgmanite](mg088fe010al014si090o3_bridgmanite.md) | 4 | 4 |
-| [Natural Fe9 bridgmanite](mg090fe009al0005ca0005sio3_bridgmanite.md) | 1 | 1 |
+| [Ferropericlase B1](mg0125fe0875o.md) | 1 | 0 |
+| [Ferropericlase B1 defect-bearing Mw78](mg0215fe0762vac0023o_b1.md) | 2 | 2 |
+| [Ferropericlase B1](mg025fe075o.md) | 1 | 0 |
+| [Ferropericlase B1](mg0375fe0625o.md) | 1 | 0 |
+| [Ferropericlase B1 high-spin](mg042fe058o.md) | 1 | 1 |
+| [Ferropericlase B1 Fp48](mg0490fe0483ti0027o.md) | 2 | 2 |
+| [Bridgmanite FA50](mg05fe05al05si05o3_bridgmanite.md) | 4 | 4 |
+| [Ferropericlase B1](mg05fe05o.md) | 1 | 0 |
+| [Ferropericlase B1](mg061fe039o.md) | 7 | 7 |
+| [Ferropericlase B1](mg0625fe0375o.md) | 1 | 0 |
+| [Ferropericlase B1](mg065fe035o.md) | 2 | 2 |
+| [Ferropericlase B1](mg073fe027o.md) | 1 | 1 |
+| [Ferropericlase B1](mg075fe025o.md) | 6 | 5 |
+| [Bridgmanite model crystal](mg075fe025sio3_bridgmanite.md) | 2 | 0 |
+| [Ferropericlase B1](mg080fe020o.md) | 4 | 4 |
+| [Bridgmanite](mg080fe020sio3_bridgmanite.md) | 1 | 1 |
+| [Ferropericlase B1 high-spin](mg083fe017o.md) | 3 | 1 |
+| [Ferropericlase B1](mg0875fe0125o.md) | 1 | 0 |
+| [Bridgmanite](mg087fe013sio3_bridgmanite.md) | 1 | 1 |
+| [Bridgmanite 5K2667](mg088fe010al014si090o3_bridgmanite.md) | 4 | 4 |
+| [Bridgmanite natural](mg090fe009al0005ca0005sio3_bridgmanite.md) | 1 | 1 |
 | [Natural Fe9 post-perovskite](mg090fe009al0005ca0005sio3_post_perovskite.md) | 2 | 2 |
-| [(Mg0.90Fe0.10)O B1 ferropericlase](mg090fe010o.md) | 15 | 14 |
-| [(Mg0.92Fe0.08)O B1 ferropericlase](mg092fe008o.md) | 1 | 0 |
-| [(Mg0.92Fe0.08)SiO3 bridgmanite](mg092fe008sio3_bridgmanite.md) | 1 | 0 |
-| [6.25 mol.% charge-coupled Al bridgmanite model](mg09375al0125si09375o3_bridgmanite.md) | 1 | 0 |
+| [Ferropericlase B1](mg090fe010o.md) | 15 | 14 |
+| [Ferropericlase B1](mg092fe008o.md) | 1 | 0 |
+| [Bridgmanite](mg092fe008sio3_bridgmanite.md) | 1 | 0 |
+| [Bridgmanite charge-coupled Al model](mg09375al0125si09375o3_bridgmanite.md) | 1 | 0 |
 | [6.25 mol.% charge-coupled Al post-perovskite model](mg09375al0125si09375o3_post_perovskite.md) | 1 | 0 |
-| [(Mg0.9375Fe0.0625)O B1 ferropericlase](mg09375fe00625o.md) | 6 | 0 |
-| [6.25 mol.% Fe2+ bridgmanite](mg09375fe00625sio3_bridgmanite.md) | 6 | 0 |
-| [Mg0.95Al0.10Si0.95O3 aluminous bridgmanite (Al.05-Pv)](mg095al010si095o3_bridgmanite.md) | 2 | 2 |
-| [(Mg0.96875Fe0.03125)O B1 ferropericlase](mg096875fe003125o.md) | 2 | 0 |
+| [Ferropericlase B1](mg09375fe00625o.md) | 6 | 0 |
+| [Bridgmanite high- and low-spin model configurations](mg09375fe00625sio3_bridgmanite.md) | 6 | 0 |
+| [Bridgmanite Al.05-Pv](mg095al010si095o3_bridgmanite.md) | 2 | 2 |
+| [Ferropericlase B1](mg096875fe003125o.md) | 2 | 0 |
 | [Natural magnesite (Harwood 2212)](mg0991fe0008mn0001co3_magnesite.md) | 2 | 2 |
-| [Mg0.9Al0.2Si0.9O3 aluminous bridgmanite](mg09al02si09o3_bridgmanite.md) | 2 | 2 |
-| [(Mg0.9Fe0.1)SiO3 bridgmanite (Pv10)](mg09fe01sio3_bridgmanite.md) | 2 | 2 |
+| [Bridgmanite en90G3](mg09al02si09o3_bridgmanite.md) | 2 | 2 |
+| [Bridgmanite Pv10](mg09fe01sio3_bridgmanite.md) | 2 | 2 |
 | [Phase A](mg7si2o8.md) | 1 | 1 |
-| [3.125 mol.% hydrous Al bridgmanite model](mgal00625h00625si09375o3_bridgmanite.md) | 1 | 0 |
+| [Bridgmanite hydrous Al model](mgal00625h00625si09375o3_bridgmanite.md) | 1 | 0 |
 | [3.125 mol.% hydrous Al post-perovskite model](mgal00625h00625si09375o3_post_perovskite.md) | 1 | 0 |
-| [6.25 mol.% oxygen-vacancy Al bridgmanite model](mgal0125si0875o29375_bridgmanite.md) | 1 | 0 |
+| [Bridgmanite oxygen-vacancy Al model](mgal0125si0875o29375_bridgmanite.md) | 1 | 0 |
 | [6.25 mol.% oxygen-vacancy Al post-perovskite model](mgal0125si0875o29375_post_perovskite.md) | 1 | 0 |
 | [MgAl2O4 calcium-ferrite phase](mgal2o4_cafe2o4.md) | 4 | 3 |
 | [MgAl2O4 calcium-titanate phase](mgal2o4_cati2o4.md) | 2 | 1 |
-| [(Mg0.4Fe0.6)O (MW60)](mgfe60o.md) | 3 | 1 |
-| [Mw94 magnesiowustite B1](mgfe94o_b1.md) | 1 | 1 |
-| [Mw94 rhombohedral magnesiowustite](mgfe94o_rhombohedral.md) | 1 | 1 |
+| [Ferropericlase B1 MW60](mgfe60o.md) | 3 | 1 |
+| [Ferropericlase B1 Mw94](mgfe94o_b1.md) | 1 | 1 |
+| [Ferropericlase rhombohedral Mw94](mgfe94o_rhombohedral.md) | 1 | 1 |
 | [MgGeO3 post-perovskite](mggeo3_post_perovskite.md) | 4 | 4 |
-| [MgO](mgo.md) | 37 | 19 |
+| [Periclase B1](mgo.md) | 37 | 19 |
 | [B2 MgO](mgo_b2.md) | 1 | 0 |
 | [Liquid MgO](mgo_liquid.md) | 1 | 0 |
 | [Liquid MgSiO3](mgsio3_liquid.md) | 1 | 1 |
@@ -196,7 +196,7 @@ New links become live only after the corresponding documentation is published.
 | [Osmium](osmium.md) | 1 | 1 |
 | [Palladium](palladium.md) | 7 | 5 |
 | [PbS\_B1](pbs_b1.md) | 1 | 1 |
-| [(Mg0.88Fe0.12)SiO3 perovskite](perovskite_orthorhombic.md) | 1 | 1 |
+| [Bridgmanite](perovskite_orthorhombic.md) | 1 | 1 |
 | [PHASE D](phase_d.md) | 2 | 2 |
 | [Phase E (Fe-bearing, Crichton–Ross 2000)](phase_e_fe0072.md) | 1 | 1 |
 | [Phase Egg](phase_egg.md) | 3 | 3 |

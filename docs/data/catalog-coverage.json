@@ -1,7 +1,7 @@
 {
   "format": "peritheos.catalog-coverage",
   "format_version": 1,
-  "material_files_sha256": "7c31281226ea3f6b67f1b061ab685f73e22029b2a642a6e9c3a9176e0db1bee6",
+  "material_files_sha256": "a020c4129d3168aac8759bc0b46e8ac96197f5e0de876b84b4b17bf1260d82a6",
   "summary": {
     "stored_materials": 233,
     "stored_records": 666,
@@ -67,7 +67,7 @@
     },
     {
       "identifier": "al2o3_perovskite",
-      "name": "Al2O3 perovskite model crystal",
+      "name": "Bridgmanite hypothetical perovskite model crystal",
       "formula": "Al2O3",
       "family_id": "bridgmanite",
       "input_file": "peritheos/data/materials/al2o3_perovskite.eosmat",
@@ -947,7 +947,7 @@
     },
     {
       "identifier": "fe088sio3_bridgmanite",
-      "name": "A-site-deficient iron bridgmanite",
+      "name": "Bridgmanite A-site-deficient",
       "formula": "Fe0.88SiO3",
       "family_id": "bridgmanite",
       "input_file": "peritheos/data/materials/fe088sio3_bridgmanite.eosmat",
@@ -1108,7 +1108,7 @@
     },
     {
       "identifier": "feo",
-      "name": "FeO (B1)",
+      "name": "Wüstite B1",
       "formula": "FeO",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/feo.eosmat",
@@ -1141,7 +1141,7 @@
     },
     {
       "identifier": "ferropericlase_fe27",
-      "name": "Fe27 ferropericlase",
+      "name": "Ferropericlase B1 cation-deficient Fe27",
       "formula": "Mg0.725Fe0.268O",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/ferropericlase_fe27.eosmat",
@@ -1221,7 +1221,7 @@
     },
     {
       "identifier": "fesio3_bridgmanite",
-      "name": "Iron silicate perovskite",
+      "name": "Bridgmanite high-spin antiferromagnetic",
       "formula": "FeSiO3",
       "family_id": "bridgmanite",
       "input_file": "peritheos/data/materials/fesio3_bridgmanite.eosmat",
@@ -1591,7 +1591,7 @@
     },
     {
       "identifier": "klb1_ferropericlase",
-      "name": "KLB-1 ferropericlase",
+      "name": "Ferropericlase B1 KLB-1",
       "formula": "(Mg,Fe)O",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/klb1_ferropericlase.eosmat",
@@ -1607,7 +1607,7 @@
     },
     {
       "identifier": "klb1_mg_perovskite",
-      "name": "KLB-1 Mg-perovskite",
+      "name": "Bridgmanite KLB-1",
       "formula": "(Mg,Fe,Al)(Si,Al)O3",
       "family_id": "bridgmanite",
       "input_file": "peritheos/data/materials/klb1_mg_perovskite.eosmat",
@@ -1703,7 +1703,7 @@
     },
     {
       "identifier": "magnesiowustite_fe56",
-      "name": "Fe56 magnesiowustite",
+      "name": "Ferropericlase B1 cation-deficient Fe56",
       "formula": "Mg0.423Fe0.541O",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/magnesiowustite_fe56.eosmat",
@@ -1719,7 +1719,7 @@
     },
     {
       "identifier": "magnesiowustite_fe75",
-      "name": "Fe75 magnesiowustite",
+      "name": "Ferropericlase B1 cation-deficient Fe75",
       "formula": "Mg0.240Fe0.717O",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/magnesiowustite_fe75.eosmat",
@@ -1815,7 +1815,7 @@
     },
     {
       "identifier": "mg0125fe0875o",
-      "name": "(Mg0.125Fe0.875)O B1 magnesiowustite",
+      "name": "Ferropericlase B1",
       "formula": "Mg0.125Fe0.875O",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/mg0125fe0875o.eosmat",
@@ -1831,7 +1831,7 @@
     },
     {
       "identifier": "mg0215fe0762vac0023o_b1",
-      "name": "Mw78 defect-bearing magnesiowustite",
+      "name": "Ferropericlase B1 defect-bearing Mw78",
       "formula": "Mg0.215Fe0.762□0.023O",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/mg0215fe0762vac0023o_b1.eosmat",
@@ -1847,7 +1847,7 @@
     },
     {
       "identifier": "mg025fe075o",
-      "name": "(Mg0.25Fe0.75)O B1 magnesiowustite",
+      "name": "Ferropericlase B1",
       "formula": "Mg0.25Fe0.75O",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/mg025fe075o.eosmat",
@@ -1863,7 +1863,7 @@
     },
     {
       "identifier": "mg0375fe0625o",
-      "name": "(Mg0.375Fe0.625)O B1 magnesiowustite",
+      "name": "Ferropericlase B1",
       "formula": "Mg0.375Fe0.625O",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/mg0375fe0625o.eosmat",
@@ -1879,7 +1879,7 @@
     },
     {
       "identifier": "mg042fe058o",
-      "name": "(Mg0.42Fe0.58)O B1 magnesiowustite",
+      "name": "Ferropericlase B1 high-spin",
       "formula": "Mg0.42Fe0.58O",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/mg042fe058o.eosmat",
@@ -1895,7 +1895,7 @@
     },
     {
       "identifier": "mg0490fe0483ti0027o",
-      "name": "(Mg0.490Fe0.483Ti0.027)O B1 ferropericlase (Fp48)",
+      "name": "Ferropericlase B1 Fp48",
       "formula": "Mg0.490Fe0.483Ti0.027O",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/mg0490fe0483ti0027o.eosmat",
@@ -1911,7 +1911,7 @@
     },
     {
       "identifier": "mg05fe05al05si05o3_bridgmanite",
-      "name": "FA50 bridgmanite",
+      "name": "Bridgmanite FA50",
       "formula": "Mg0.5Fe0.5Al0.5Si0.5O3",
       "family_id": "bridgmanite",
       "input_file": "peritheos/data/materials/mg05fe05al05si05o3_bridgmanite.eosmat",
@@ -1927,7 +1927,7 @@
     },
     {
       "identifier": "mg05fe05o",
-      "name": "(Mg0.5Fe0.5)O B1 ferropericlase",
+      "name": "Ferropericlase B1",
       "formula": "Mg0.5Fe0.5O",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/mg05fe05o.eosmat",
@@ -1943,7 +1943,7 @@
     },
     {
       "identifier": "mg061fe039o",
-      "name": "(Mg0.61Fe0.39)O B1 ferropericlase",
+      "name": "Ferropericlase B1",
       "formula": "Mg0.61Fe0.39O",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/mg061fe039o.eosmat",
@@ -1959,7 +1959,7 @@
     },
     {
       "identifier": "mg0625fe0375o",
-      "name": "(Mg0.625Fe0.375)O B1 ferropericlase",
+      "name": "Ferropericlase B1",
       "formula": "Mg0.625Fe0.375O",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/mg0625fe0375o.eosmat",
@@ -1975,7 +1975,7 @@
     },
     {
       "identifier": "mg065fe035o",
-      "name": "(Mg0.65Fe0.35)O B1 ferropericlase",
+      "name": "Ferropericlase B1",
       "formula": "Mg0.65Fe0.35O",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/mg065fe035o.eosmat",
@@ -1991,7 +1991,7 @@
     },
     {
       "identifier": "mg073fe027o",
-      "name": "(Mg0.73Fe0.27)O magnesiowustite",
+      "name": "Ferropericlase B1",
       "formula": "Mg0.73Fe0.27O",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/mg073fe027o.eosmat",
@@ -2007,7 +2007,7 @@
     },
     {
       "identifier": "mg075fe025o",
-      "name": "(Mg0.75Fe0.25)O B1 ferropericlase",
+      "name": "Ferropericlase B1",
       "formula": "Mg0.75Fe0.25O",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/mg075fe025o.eosmat",
@@ -2023,7 +2023,7 @@
     },
     {
       "identifier": "mg075fe025sio3_bridgmanite",
-      "name": "25 mol.% FeSiO3 bridgmanite model",
+      "name": "Bridgmanite model crystal",
       "formula": "Mg0.75Fe0.25SiO3",
       "family_id": "bridgmanite",
       "input_file": "peritheos/data/materials/mg075fe025sio3_bridgmanite.eosmat",
@@ -2039,7 +2039,7 @@
     },
     {
       "identifier": "mg080fe020o",
-      "name": "(Mg0.80Fe0.20)O B1 ferropericlase",
+      "name": "Ferropericlase B1",
       "formula": "Mg0.80Fe0.20O",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/mg080fe020o.eosmat",
@@ -2055,7 +2055,7 @@
     },
     {
       "identifier": "mg080fe020sio3_bridgmanite",
-      "name": "(Mg0.8Fe0.2)SiO3 bridgmanite",
+      "name": "Bridgmanite",
       "formula": "Mg0.8Fe0.2SiO3",
       "family_id": "bridgmanite",
       "input_file": "peritheos/data/materials/mg080fe020sio3_bridgmanite.eosmat",
@@ -2071,7 +2071,7 @@
     },
     {
       "identifier": "mg083fe017o",
-      "name": "(Mg0.83Fe0.17)O high-spin ferropericlase",
+      "name": "Ferropericlase B1 high-spin",
       "formula": "Mg0.83Fe0.17O",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/mg083fe017o.eosmat",
@@ -2087,7 +2087,7 @@
     },
     {
       "identifier": "mg0875fe0125o",
-      "name": "(Mg0.875Fe0.125)O B1 ferropericlase",
+      "name": "Ferropericlase B1",
       "formula": "Mg0.875Fe0.125O",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/mg0875fe0125o.eosmat",
@@ -2103,7 +2103,7 @@
     },
     {
       "identifier": "mg087fe013sio3_bridgmanite",
-      "name": "13% Fe-bearing bridgmanite",
+      "name": "Bridgmanite",
       "formula": "Mg0.87Fe0.13SiO3",
       "family_id": "bridgmanite",
       "input_file": "peritheos/data/materials/mg087fe013sio3_bridgmanite.eosmat",
@@ -2119,7 +2119,7 @@
     },
     {
       "identifier": "mg088fe010al014si090o3_bridgmanite",
-      "name": "Fe10-Al14 bridgmanite",
+      "name": "Bridgmanite 5K2667",
       "formula": "Mg0.88Fe0.10Al0.14Si0.90O3",
       "family_id": "bridgmanite",
       "input_file": "peritheos/data/materials/mg088fe010al014si090o3_bridgmanite.eosmat",
@@ -2135,7 +2135,7 @@
     },
     {
       "identifier": "mg090fe009al0005ca0005sio3_bridgmanite",
-      "name": "Natural Fe9 bridgmanite",
+      "name": "Bridgmanite natural",
       "formula": "Mg0.90Fe0.09Al0.005Ca0.005SiO3",
       "family_id": "bridgmanite",
       "input_file": "peritheos/data/materials/mg090fe009al0005ca0005sio3_bridgmanite.eosmat",
@@ -2167,7 +2167,7 @@
     },
     {
       "identifier": "mg090fe010o",
-      "name": "(Mg0.90Fe0.10)O B1 ferropericlase",
+      "name": "Ferropericlase B1",
       "formula": "Mg0.90Fe0.10O",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/mg090fe010o.eosmat",
@@ -2183,7 +2183,7 @@
     },
     {
       "identifier": "mg092fe008o",
-      "name": "(Mg0.92Fe0.08)O B1 ferropericlase",
+      "name": "Ferropericlase B1",
       "formula": "Mg0.92Fe0.08O",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/mg092fe008o.eosmat",
@@ -2199,7 +2199,7 @@
     },
     {
       "identifier": "mg092fe008sio3_bridgmanite",
-      "name": "(Mg0.92Fe0.08)SiO3 bridgmanite",
+      "name": "Bridgmanite",
       "formula": "Mg0.92Fe0.08SiO3",
       "family_id": "bridgmanite",
       "input_file": "peritheos/data/materials/mg092fe008sio3_bridgmanite.eosmat",
@@ -2215,7 +2215,7 @@
     },
     {
       "identifier": "mg09375al0125si09375o3_bridgmanite",
-      "name": "6.25 mol.% charge-coupled Al bridgmanite model",
+      "name": "Bridgmanite charge-coupled Al model",
       "formula": "Mg0.9375Al0.125Si0.9375O3",
       "family_id": "bridgmanite",
       "input_file": "peritheos/data/materials/mg09375al0125si09375o3_bridgmanite.eosmat",
@@ -2247,7 +2247,7 @@
     },
     {
       "identifier": "mg09375fe00625o",
-      "name": "(Mg0.9375Fe0.0625)O B1 ferropericlase",
+      "name": "Ferropericlase B1",
       "formula": "Mg0.9375Fe0.0625O",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/mg09375fe00625o.eosmat",
@@ -2263,7 +2263,7 @@
     },
     {
       "identifier": "mg09375fe00625sio3_bridgmanite",
-      "name": "6.25 mol.% Fe2+ bridgmanite",
+      "name": "Bridgmanite high- and low-spin model configurations",
       "formula": "Mg0.9375Fe0.0625SiO3",
       "family_id": "bridgmanite",
       "input_file": "peritheos/data/materials/mg09375fe00625sio3_bridgmanite.eosmat",
@@ -2279,7 +2279,7 @@
     },
     {
       "identifier": "mg095al010si095o3_bridgmanite",
-      "name": "Mg0.95Al0.10Si0.95O3 aluminous bridgmanite (Al.05-Pv)",
+      "name": "Bridgmanite Al.05-Pv",
       "formula": "Mg0.95Al0.10Si0.95O3",
       "family_id": "bridgmanite",
       "input_file": "peritheos/data/materials/mg095al010si095o3_bridgmanite.eosmat",
@@ -2295,7 +2295,7 @@
     },
     {
       "identifier": "mg096875fe003125o",
-      "name": "(Mg0.96875Fe0.03125)O B1 ferropericlase",
+      "name": "Ferropericlase B1",
       "formula": "Mg0.96875Fe0.03125O",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/mg096875fe003125o.eosmat",
@@ -2327,7 +2327,7 @@
     },
     {
       "identifier": "mg09al02si09o3_bridgmanite",
-      "name": "Mg0.9Al0.2Si0.9O3 aluminous bridgmanite",
+      "name": "Bridgmanite en90G3",
       "formula": "Mg0.9Al0.2Si0.9O3",
       "family_id": "bridgmanite",
       "input_file": "peritheos/data/materials/mg09al02si09o3_bridgmanite.eosmat",
@@ -2343,7 +2343,7 @@
     },
     {
       "identifier": "mg09fe01sio3_bridgmanite",
-      "name": "(Mg0.9Fe0.1)SiO3 bridgmanite (Pv10)",
+      "name": "Bridgmanite Pv10",
       "formula": "Mg0.9Fe0.1SiO3",
       "family_id": "bridgmanite",
       "input_file": "peritheos/data/materials/mg09fe01sio3_bridgmanite.eosmat",
@@ -2375,7 +2375,7 @@
     },
     {
       "identifier": "mgal00625h00625si09375o3_bridgmanite",
-      "name": "3.125 mol.% hydrous Al bridgmanite model",
+      "name": "Bridgmanite hydrous Al model",
       "formula": "MgAl0.0625H0.0625Si0.9375O3",
       "family_id": "bridgmanite",
       "input_file": "peritheos/data/materials/mgal00625h00625si09375o3_bridgmanite.eosmat",
@@ -2407,7 +2407,7 @@
     },
     {
       "identifier": "mgal0125si0875o29375_bridgmanite",
-      "name": "6.25 mol.% oxygen-vacancy Al bridgmanite model",
+      "name": "Bridgmanite oxygen-vacancy Al model",
       "formula": "MgAl0.125Si0.875O2.9375",
       "family_id": "bridgmanite",
       "input_file": "peritheos/data/materials/mgal0125si0875o29375_bridgmanite.eosmat",
@@ -2471,7 +2471,7 @@
     },
     {
       "identifier": "mgfe60o",
-      "name": "(Mg0.4Fe0.6)O (MW60)",
+      "name": "Ferropericlase B1 MW60",
       "formula": "Mg0.4Fe0.6O",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/mgfe60o.eosmat",
@@ -2487,7 +2487,7 @@
     },
     {
       "identifier": "mgfe94o_b1",
-      "name": "Mw94 magnesiowustite B1",
+      "name": "Ferropericlase B1 Mw94",
       "formula": "Mg0.058Fe0.942O",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/mgfe94o_b1.eosmat",
@@ -2503,7 +2503,7 @@
     },
     {
       "identifier": "mgfe94o_rhombohedral",
-      "name": "Mw94 rhombohedral magnesiowustite",
+      "name": "Ferropericlase rhombohedral Mw94",
       "formula": "Mg0.058Fe0.942O",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/mgfe94o_rhombohedral.eosmat",
@@ -2535,7 +2535,7 @@
     },
     {
       "identifier": "mgo",
-      "name": "MgO",
+      "name": "Periclase B1",
       "formula": "MgO",
       "family_id": "mg_fe_monoxide",
       "input_file": "peritheos/data/materials/mgo.eosmat",
@@ -2952,7 +2952,7 @@
     },
     {
       "identifier": "perovskite_orthorhombic",
-      "name": "(Mg0.88Fe0.12)SiO3 perovskite",
+      "name": "Bridgmanite",
       "formula": "Mg0.88Fe0.12SiO3",
       "family_id": "bridgmanite",
       "input_file": "peritheos/data/materials/perovskite_orthorhombic.eosmat",

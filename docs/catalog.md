@@ -10,6 +10,26 @@ API. `list_materials()` returns 229 `Material` objects and
 stable identifier and constructed from the same `.eosmat` files returned by
 the advanced `get_material_document()` API.
 
+Material names put the mineral family first. Bridgmanite compositions use
+`Bridgmanite`, followed by useful sample or model qualifiers such as `natural`,
+`KLB-1` or `oxygen-vacancy Al model`. Mixed Mg–Fe oxides use the
+family label `Ferropericlase`, followed by the structure and any sample,
+defect or spin qualifier. Pure MgO and FeO endmembers retain distinct names:
+`Periclase B1 (MgO)` and `Wüstite B1 (FeO)` when displayed with their formulas.
+B2 MgO and B8 FeO remain separate entries.
+The browsing folder is also labelled `Ferropericlase`; its stable family ID
+remains `mg_fe_monoxide`. These browsing labels do not merge compositions,
+structures or EOS records.
+
+The exact stored composition remains in `formula`, including analytical
+precision, minor elements and vacancies. A consumer that combines name and
+formula can display `Bridgmanite natural (Mg0.90Fe0.09Al0.005Ca0.005SiO3)`
+or `Ferropericlase B1 high-spin (Mg0.83Fe0.17O)` without repeating the formula.
+Previous names remain searchable aliases; every mixed Mg–Fe oxide also has
+`ferropericlase`, `magnesiowustite` and `magnesiowüstite` aliases. These shared
+aliases return multiple results through `search_materials()` and
+`search_eos_records()`; use stable identifiers to select a specific material.
+
 Thorianite and cotunnite-type ThO2 have separate experimental thermal records
 from Chidester et al. (2018); see the [source audit](literature-reproductions/chidester-2018-tho2.md)
 for their phase-dependent data selections and reference-state limits.

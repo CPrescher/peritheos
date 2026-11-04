@@ -1,7 +1,7 @@
 {
   "format_version": 4,
   "identifier": "fesio3_bridgmanite",
-  "name": "Iron silicate perovskite",
+  "name": "Bridgmanite high-spin antiferromagnetic",
   "formula": "FeSiO3",
   "phase": "orthorhombic perovskite (Pv), high-spin antiferromagnetic",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
@@ -248,7 +248,7 @@
       }
     }
   ],
-  "aliases": ["FeSiO3 bridgmanite", "FeSiO3 Pv"],
+  "aliases": ["FeSiO3 bridgmanite", "FeSiO3 Pv", "Iron silicate perovskite"],
   "family_id": "bridgmanite",
   "cell_contents": "Four FeSiO3 formula units (20 atoms) on the conventional orthorhombic EOS basis. The source used a 20-atom calculation cell but did not tabulate its zero-pressure lattice or coordinates.",
   "symmetry": "ORTHORHOMBIC",

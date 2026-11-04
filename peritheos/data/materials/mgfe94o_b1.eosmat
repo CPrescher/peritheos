@@ -1,7 +1,7 @@
 {
   "format_version": 4,
   "identifier": "mgfe94o_b1",
-  "name": "Mw94 magnesiowustite B1",
+  "name": "Ferropericlase B1 Mw94",
   "formula": "Mg0.058Fe0.942O",
   "phase": "cubic B1 Mw94 before the rhombohedral distortion",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
@@ -252,7 +252,16 @@
       }
     }
   ],
-  "aliases": ["Mw94", "B1-(Mg0.058Fe0.942)O", "iron-rich magnesiowustite"],
+  "aliases": [
+    "Mw94",
+    "B1-(Mg0.058Fe0.942)O",
+    "iron-rich magnesiowustite",
+    "Mw94 magnesiowustite B1",
+    "ferropericlase",
+    "magnesiowustite",
+    "magnesiowüstite",
+    "Mg–Fe monoxide B1 Mw94"
+  ],
   "family_id": "mg_fe_monoxide",
   "cell_contents": "Four Mg0.058Fe0.942O formula units (eight atoms) in the conventional rocksalt cell; source atomic volumes and their uncertainties are multiplied by eight for the executable EOS.",
   "symmetry": "CUBIC",

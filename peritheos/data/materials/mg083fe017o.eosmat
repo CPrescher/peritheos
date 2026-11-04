@@ -1,7 +1,7 @@
 {
   "format_version": 4,
   "identifier": "mg083fe017o",
-  "name": "(Mg0.83Fe0.17)O high-spin ferropericlase",
+  "name": "Ferropericlase B1 high-spin",
   "formula": "Mg0.83Fe0.17O",
   "phase": "high-spin B1 ferropericlase",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
@@ -390,7 +390,15 @@
       }
     }
   ],
-  "aliases": ["(Mg0.83,Fe0.17)O", "Fe17 ferropericlase"],
+  "aliases": [
+    "(Mg0.83,Fe0.17)O",
+    "Fe17 ferropericlase",
+    "(Mg0.83Fe0.17)O high-spin ferropericlase",
+    "ferropericlase",
+    "magnesiowustite",
+    "magnesiowüstite",
+    "Mg–Fe monoxide B1 high-spin"
+  ],
   "family_id": "mg_fe_monoxide",
   "cell_contents": "Four Mg0.83Fe0.17O formula units per conventional rocksalt cell.",
   "symmetry": "CUBIC",

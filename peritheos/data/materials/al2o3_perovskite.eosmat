@@ -1,7 +1,7 @@
 {
   "format_version": 4,
   "identifier": "al2o3_perovskite",
-  "name": "Al2O3 perovskite model crystal",
+  "name": "Bridgmanite hypothetical perovskite model crystal",
   "formula": "Al2O3",
   "phase": "hypothetical orthorhombic Pbnm perovskite model crystal",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
@@ -227,7 +227,7 @@
       }
     }
   ],
-  "aliases": ["CCM 100 mol.% Al2O3 perovskite"],
+  "aliases": ["CCM 100 mol.% Al2O3 perovskite", "Al2O3 perovskite model crystal"],
   "family_id": "bridgmanite",
   "cell_contents": "Four Al2O3 formula units on the conventional Pbnm EOS basis; the source end-member calculation used an 80-atom supercell.",
   "symmetry": "ORTHORHOMBIC",

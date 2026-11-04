@@ -1,7 +1,7 @@
 {
   "format_version": 4,
   "identifier": "fe088sio3_bridgmanite",
-  "name": "A-site-deficient iron bridgmanite",
+  "name": "Bridgmanite A-site-deficient",
   "formula": "Fe0.88SiO3",
   "phase": "ferric-iron-stabilized Pbnm bridgmanite",
   "units": {"pressure": "GPa", "temperature": "K", "volume": "angstrom^3/conventional_unit_cell"},
@@ -199,7 +199,11 @@
       }
     }
   ],
-  "aliases": ["(Fe2+0.64Fe3+0.24)SiO3 bridgmanite", "pure-iron bridgmanite of Ismailova et al."],
+  "aliases": [
+    "(Fe2+0.64Fe3+0.24)SiO3 bridgmanite",
+    "pure-iron bridgmanite of Ismailova et al.",
+    "A-site-deficient iron bridgmanite"
+  ],
   "family_id": "bridgmanite",
   "cell_contents": "Four (Fe2+0.64(2)Fe3+0.24(2))Si1.00(3)O3 formula units per conventional orthorhombic cell; approximately 12% vacancies occupy the A site.",
   "symmetry": "ORTHORHOMBIC",
