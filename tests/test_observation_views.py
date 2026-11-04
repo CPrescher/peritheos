@@ -478,3 +478,32 @@ def test_partial_material_export_trims_shared_views_and_keeps_view_only_links():
     )
     assert len(data.row_indices) == 2
     assert document == original
+
+
+def test_provenance_only_table_s4_is_retained_without_an_observation_binding():
+    identifier = "iron_carbide_fe7c3_prescher_2015_table_s4_compression"
+    document = get_material_document("iron_carbide_fe7c3")
+    source = next(d for d in document["datasets"] if d["identifier"] == identifier)
+    assert source["usage_recommendation"] == "do_not_use_for_scientific_calculations"
+    assert source["used_by_eos_records"] == []
+    assert all(
+        e["dataset_id"] != identifier for e in observation_registry()["datasets"]
+    )
+
+
+@pytest.mark.parametrize("material", ["silver", "nickel"])
+def test_historical_metal_alias_retains_its_audited_mao_pressure_coordinate(material):
+    entry = next(
+        e
+        for e in observation_registry()["datasets"]
+        if e["dataset_id"] == f"{material}_dewaele_2008_table2_compression"
+    )
+    view = next(
+        v
+        for v in entry["views"]
+        if v["eos_records"] == [f"{material}_dewaele_2008_vinet_1"]
+    )
+    assert view["coordinates"]["pressure"] == {
+        "kind": "column",
+        "column": "ruby_pressure_mao_gpa",
+    }
