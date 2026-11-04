@@ -313,7 +313,7 @@ def main():
     }
     if args.write:
         for path, content in outputs.items():
-            path.write_text(content)
+            path.write_bytes(content.encode("utf-8"))
     elif args.check:
         # Deterministic linear calculations in the same maintained environment.
         for path, content in outputs.items():

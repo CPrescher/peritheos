@@ -634,17 +634,21 @@ def integrate():
             a, b = bounds(original)
             c, d = bounds(formatted)
             original = original[:a] + formatted[c:d] + original[b:]
-        path.write_text(original)
+        path.write_bytes(original.encode("utf-8"))
     ledger["summary"] = {
         "total": len(ledger["records"]),
         **dict(sorted(Counter(r["status"] for r in ledger["records"]).items())),
     }
     if POLICY not in ledger["policy"]["parity"]:
         ledger["policy"]["parity"] += " " + POLICY
-    ledger_path.write_text(
-        json.dumps(ledger, indent=2, sort_keys=True, allow_nan=False) + "\n"
+    ledger_path.write_bytes(
+        (json.dumps(ledger, indent=2, sort_keys=True, allow_nan=False) + "\n").encode(
+            "utf-8"
+        )
     )
-    (ROOT / "docs/primary-eos-refits.md").write_text(render_markdown(ledger))
+    (ROOT / "docs/primary-eos-refits.md").write_bytes(
+        render_markdown(ledger).encode("utf-8")
+    )
     verify_sources()
 
 
@@ -663,8 +667,10 @@ def main():
         if REPORT.read_text(encoding="utf-8") != render_report(report):
             raise SystemExit("Parameter-scope review documentation is stale")
     else:
-        OUTPUT.write_text(json.dumps(report, indent=2, allow_nan=False) + "\n")
-        REPORT.write_text(render_report(report))
+        OUTPUT.write_bytes(
+            (json.dumps(report, indent=2, allow_nan=False) + "\n").encode("utf-8")
+        )
+        REPORT.write_bytes(render_report(report).encode("utf-8"))
     counts = Counter(r["status"] for r in report["records"])
     print(dict(counts))
     for row in report["records"]:

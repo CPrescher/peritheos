@@ -1,5 +1,6 @@
 """Original experiment, finite scope and preservation of source distinctions."""
 
+import copy
 import json
 
 import numpy as np
@@ -65,6 +66,29 @@ def test_original_parameters_adopted_anchor_and_strict_scope(
     )
 
 
+@pytest.mark.parametrize(
+    "path",
+    [
+        ("pixel_checkpoints", 0, 0),
+        ("tolerance_a3",),
+        ("axis_calibration", "pressure_gpa", 1),
+        ("pressure_gpa", 0),
+        ("read_volume_a3", 0),
+    ],
+)
+def test_source_curve_readings_and_acceptance_threshold_remain_exact(
+    path, assert_record_replay_close
+):
+    original = catalog_record()
+    changed = copy.deepcopy(original)
+    value = changed["evidence"]["reproduction"]["source_equation"]
+    for key in path[:-1]:
+        value = value[key]
+    value[path[-1]] += 1e-12
+    with pytest.raises(AssertionError):
+        assert_record_replay_close(original, changed)
+
+
 def test_all_fourteen_literal_rows_and_error_tokens_are_retained():
     raw, rows = observations()
     assert len(rows) == 14
@@ -96,7 +120,20 @@ def test_source_curve_check_and_separate_conditional_refit(assert_audit_close):
     r = reproduce()
     archived = json.loads((ROOT / NUMERICAL).read_text())
     assert_audit_close(
-        r, archived, rel=1e-12, abs=1e-10, ignore_keys={"independent_diagnostic_refit"}
+        r,
+        archived,
+        rel=1e-12,
+        abs=1e-10,
+        ignore_keys={"independent_diagnostic_refit"},
+        float_paths=(
+            "report.source_equation_check.predicted_volume_a3[[]*]",
+            "report.source_equation_check.difference_a3[[]*]",
+            "report.source_observation_comparison.pressure_residuals_gpa[[]*]",
+            "report.source_observation_comparison.volume_residuals_a3[[]*]",
+            "report.source_observation_comparison.rms_pressure_gpa",
+            "report.source_observation_comparison.max_abs_pressure_gpa",
+            "report.source_observation_comparison.max_abs_volume_a3",
+        ),
     )
     # Subtracting the published K-prime magnifies relative roundoff near zero;
     # bound the diagnostic in coefficient units, keeping its fixed anchor exact.

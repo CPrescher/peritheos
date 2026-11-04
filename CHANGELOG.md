@@ -48,6 +48,11 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Development and compatibility
 
+- Write integrated research documents and reports as UTF-8 bytes with stable
+  line endings. Restrict replay tolerances to named computed fields; keep
+  source readings, fixed normalization and acceptance thresholds exact, with
+  mutation tests and write/read checks under a simulated Windows ANSI locale.
+
 - Compare recalculated cementite diagnostics within explicit numerical bounds
   across Python/BLAS builds while keeping source coefficients, fixed values,
   observation counts and scientific decisions exact. Preserve saved reports

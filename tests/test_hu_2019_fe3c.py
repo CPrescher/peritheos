@@ -67,11 +67,11 @@ def test_all_source_rows_absolute_error_tokens_and_quantity_origins():
 
 
 def test_published_coefficients_preserved_and_conditional_fit_is_separate(
-    assert_audit_close,
+    assert_hugoniot_report_close,
 ):
     result = reproduce()
-    assert_audit_close(
-        result, json.loads((ROOT / NUMERICAL).read_text()), rel=1e-12, abs=1e-12
+    assert_hugoniot_report_close(
+        result, json.loads((ROOT / NUMERICAL).read_text(encoding="utf-8"))
     )
     assert result["source_equation_check"]["all_within_reported_Us_width"]
     assert result["source_equation_check"]["rms_km_s"] == pytest.approx(0.03468433578)
@@ -117,6 +117,40 @@ def test_saved_record_assessment_matches_ledger_and_existing_default(
     assert r["source_fit_domain"]["installed_shots"] == [1, 2, 3, 4, 5, 6]
     assert r["validity"]["pressure_gpa"] == [85.6, 245]
     assert "Possible melting" in r["evidence"]["scientific_validation"]["warning"]
+
+
+@pytest.mark.parametrize(
+    "path",
+    [
+        ("published", "c0_km_s"),
+        ("published", "c0_error_width_km_s"),
+        ("published", "s"),
+        ("published", "s_error_width"),
+        ("operational_path", "precursor_density_g_cm3"),
+        ("operational_path", "density_error_width_g_cm3"),
+        ("operational_path", "bulk_mass_equivalent_V0_a3"),
+        ("operational_path", "formula_molar_mass_g_mol"),
+        ("operational_path", "pressure_gpa", 0),
+    ],
+)
+def test_report_replay_rejects_changed_source_values_and_fixed_normalization(
+    path, assert_hugoniot_report_close
+):
+    archived = json.loads((ROOT / NUMERICAL).read_text(encoding="utf-8"))
+    changed = copy.deepcopy(archived)
+    value = changed
+    for key in path[:-1]:
+        value = value[key]
+    value[path[-1]] += 1e-12
+    with pytest.raises(AssertionError):
+        assert_hugoniot_report_close(archived, changed)
+
+
+def test_report_replay_accepts_computed_shock_roundoff(assert_hugoniot_report_close):
+    archived = json.loads((ROOT / NUMERICAL).read_text(encoding="utf-8"))
+    changed = copy.deepcopy(archived)
+    changed["independent_diagnostic_refit"]["parameters_c0_s"][0] += 5e-13
+    assert_hugoniot_report_close(changed, archived)
 
 
 def test_porous_initial_state_and_full_experimental_path_execution():
