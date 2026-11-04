@@ -5,6 +5,14 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### Fixed
+
+- Exclude Ma (2024)'s publisher supporting DOCX from wheels and source
+  distributions, correcting its inadvertent inclusion in 0.17.3. Preserve the
+  original repository audit evidence and scientific findings. Continue to
+  distribute the separately licensed CC BY 4.0 Mendeley workbook and numerical
+  extractions, and document the repository-only source checks.
+
 ## [0.17.3] - 2026-11-04
 
 ### Added

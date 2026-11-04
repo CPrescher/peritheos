@@ -51,6 +51,9 @@ def main():
     for path in installed_licenses.values():
         assert path.is_file() and path.stat().st_size > 0
     data = package.joinpath("data")
+    assert not data.joinpath(
+        "datasets", "ma_2024_sources", "supporting-information.docx"
+    ).is_file(), "The Ma publisher supplement must not be distributed"
     guide = data.joinpath("LICENSING.md").read_text(encoding="utf-8")
     datasets = data.joinpath("datasets")
     notices = [path for path in datasets.iterdir() if path.name.endswith(".LICENSE.md")]

@@ -12,7 +12,11 @@ The repository specifies Creative Commons Attribution 4.0 International
 and retained worksheet coordinates. Their values are not corrected or refitted.
 The workbook and attributed extractions retain CC BY 4.0 terms.
 
-The associated final article is DOI 10.1029/2024JB028819. No publisher
-article or supporting DOCX is bundled here. No CC0 claim applies to source
-files or these extractions. Repository implementation code has the project's
-separate license.
+The associated final article is DOI 10.1029/2024JB028819. The publisher
+supporting DOCX is retained in the repository as audit evidence, with its
+separate source terms recorded in `manifest.json`. It is excluded from both
+wheels and source distributions; no publisher article is bundled in them.
+This exclusion corrects the inadvertent inclusion of the DOCX in 0.17.3.
+The Mendeley workbook's CC BY 4.0 grant does not cover the publisher DOCX.
+No CC0 claim applies to source files or these extractions. Repository
+implementation code has the project's separate license.

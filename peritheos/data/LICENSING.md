@@ -85,6 +85,12 @@ configuration are not covered by contributor dedications or distributed by
 virtue of being retained locally. Inspect the actual archive being repackaged;
 repository, source-distribution and wheel contents differ.
 
+Ma's publisher supporting DOCX is repository-only audit evidence and is
+excluded from both distribution formats. Its separate source terms are not
+covered by the CC BY 4.0 grant for Ma's Mendeley workbook, which remains
+distributed. The DOCX was inadvertently included in 0.17.3; the exclusion
+applies to subsequent builds.
+
 For Debian-style copyright inventories, record code and data separately and
 retain the individual source notices. An unspecified source license is an
 unresolved packaging question, not a finding that the resource meets Debian's
