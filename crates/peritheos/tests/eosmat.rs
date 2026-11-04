@@ -1457,7 +1457,9 @@ fn double_debye_bm_reference_survives_eosmat_round_trip() {
                     "parameters": {"V0": 10.0, "K0": 160.0, "K0_prime": 4.6}
                 });
                 let error = material_from_value(document).unwrap_err();
-                assert!(error.to_string().contains("Vinet, BM2, BM2Reference, BM3, or BM4"));
+                assert!(error
+                    .to_string()
+                    .contains("Vinet, BM2, BM2Reference, BM3, or BM4"));
             }
         }
     }
@@ -1547,7 +1549,10 @@ fn maltby_published_is_executable_without_claiming_reproduction() {
         .iter()
         .find(|r| r["identifier"] == record.identifier)
         .unwrap();
-    assert_eq!(raw["evidence"]["scientific_validation"]["status"], "not_reproduced");
+    assert_eq!(
+        raw["evidence"]["scientific_validation"]["status"],
+        "not_reproduced"
+    );
     assert_eq!(raw["default"], false);
 }
 

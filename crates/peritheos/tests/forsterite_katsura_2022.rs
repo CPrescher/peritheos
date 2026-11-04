@@ -28,8 +28,11 @@ fn forsterite_final_table_loads_evaluates_inverts_and_preserves_source_metadata(
     }
     let restored = load_eosmat_str(&material.to_json().unwrap()).unwrap();
     assert_eq!(material.document, restored.document);
-    assert_eq!(record.document["thermal"]["parameters"]["theta0"], 768.0);
-    assert_eq!(record.document["thermal"]["parameters"]["n"], 7.0);
+    assert_eq!(
+        record.document["thermal"]["parameters"]["theta0"]["value"],
+        768.0
+    );
+    assert_eq!(record.document["thermal"]["parameters"]["n"]["value"], 7.0);
 }
 
 #[test]
@@ -43,9 +46,12 @@ fn forsterite_author_script_preserves_the_full_precision_coefficient_vector() {
     let record = material
         .record("forsterite_katsura_2022_author_script_bm3_mgd")
         .unwrap();
-    assert_eq!(record.document["thermal"]["parameters"]["theta0"], 760.0);
     assert_eq!(
-        record.document["eos"]["parameters"]["K0_prime"],
+        record.document["thermal"]["parameters"]["theta0"]["value"],
+        760.0
+    );
+    assert_eq!(
+        record.document["parameters"]["K0_prime"]["value"],
         4.211_168_969_885_74
     );
     // Literal geotherm-script polynomial, R and NA at V/V0=.95, T=1700 K.

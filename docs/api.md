@@ -159,7 +159,9 @@ use GPa, kelvin and conventional-cell Å³. The reference temperature is require
 from peritheos import create_eosmat, save_eosmat
 
 document = create_eosmat(
-    "my_material", "X", "BM3",
+    "my_material",
+    "X",
+    "BM3",
     {"V0": 10.0, "K0": 160.0, "K0_prime": 4.0},
     temperature_ref=300,
 )

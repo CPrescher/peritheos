@@ -13,7 +13,9 @@ fn farla_b2_halides_load_preserve_metadata_and_execute_in_rust() {
         let material = load_eosmat(path).unwrap();
         let identifier = format!("{compound}_b2_farla_2025_bm3_mgd_cscl");
         let record = material.record(&identifier).unwrap();
-        let reference_volume = record.document["eos"]["parameters"]["V0"].as_f64().unwrap();
+        let reference_volume = record.document["parameters"]["V0"]["value"]
+            .as_f64()
+            .unwrap();
         let volume = record.volume(10.0, 1500.0).unwrap();
         // S5-S7: coefficient rounding can exceed the last printed ratio digit.
         assert!((volume / reference_volume - source_ratio).abs() < 0.00025);

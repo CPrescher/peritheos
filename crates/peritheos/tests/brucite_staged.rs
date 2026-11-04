@@ -15,7 +15,7 @@ fn brucite_catalog_preserves_only_the_three_retained_published_isotherms() {
         serde_json::json!([0, 22.56])
     );
     assert_eq!(
-        static_record.document["scientific_validation"]["status"],
+        static_record.document["evidence"]["scientific_validation"]["status"],
         "primary_source_validated"
     );
     assert!(material.record("brucite_fukui_2003_873k_bm3").is_none());

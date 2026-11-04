@@ -36,12 +36,12 @@ fn diopside_published_records_load_evaluate_invert_and_preserve_metadata() {
         assert!((static_record.pressure(volume, 300.0).unwrap() - pressure).abs() < 1e-9);
     }
     assert_eq!(
-        thermal.document["scientific_validation"]["numerical_reproduction"]
+        thermal.document["evidence"]["scientific_validation"]["numerical_reproduction"]
             ["author_fit_reproduced"],
         false
     );
     assert_eq!(
-        thermal.document["scientific_validation"]["parity_assessment"]
+        thermal.document["evidence"]["scientific_validation"]["parity_assessment"]
             ["parameter_parity_with_documented_table_error"],
         true
     );

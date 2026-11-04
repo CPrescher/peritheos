@@ -11,7 +11,7 @@ fn sample() -> Value {
                 "report_url":"https://example.org/report/#record-example_bm3",
                 "report_path":"docs/report.md#record-example_bm3",
             "parameters":[{"parameter":"K0","published":160,"published_error":null,
-                "refit":180.12345678901235,"refit_error":2.5,"similar":false}],
+                "refit":180.123_456_789_012_35,"refit_error":2.5,"similar":false}],
             "fit":{"fixed_parameters":["V0","K0_prime"]}
         }}}}]})
 }

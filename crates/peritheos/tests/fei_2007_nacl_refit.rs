@@ -26,7 +26,8 @@ fn nacl_thermal_refit_matches_independent_quadrature_and_round_trips() {
         assert!((record.volume(pressure, temperature).unwrap() - volume).abs() < 1e-8);
     }
     assert_eq!(
-        material.record("nacl_b2_fei_2007").unwrap().document["thermal"]["parameters"]["q"],
+        material.record("nacl_b2_fei_2007").unwrap().document["thermal"]["parameters"]["q"]
+            ["value"],
         0.5
     );
     let restored = load_eosmat_str(&material.to_json().unwrap()).unwrap();
