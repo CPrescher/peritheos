@@ -8,17 +8,16 @@ never measured fitting inputs. No Pt fitting or global regeneration is done.
 from __future__ import annotations
 
 import csv
-import hashlib
 import json
 from pathlib import Path
 
 import numpy as np
-from PIL import Image
 from scipy.constants import N_A, R
 from scipy.integrate import quad
 from scipy.optimize import least_squares
 
 from peritheos import Material, get_material_document
+from scripts.fei_curve_readouts import READOUTS_SHA256, curve_readouts
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "peritheos/data/datasets"
@@ -173,68 +172,54 @@ def diagnostic_fit(
 
 
 def curve_check(source):
-    """Sample clean curve strokes independently of any predicted coordinates."""
+    """Recompute curve comparisons from preserved source-pixel readouts.
+
+    This verifies numerical reconstruction, not fresh source-image extraction.
+    The original image hash and calibration remain in the provenance record.
+    """
     metadata = source["figure5_hot_digitization"]
-    image_path = ROOT / metadata["image_path"]
-    assert (
-        hashlib.sha256(image_path.read_bytes()).hexdigest() == metadata["image_sha256"]
-    )
-    pixels = np.asarray(Image.open(image_path).convert("RGB"), dtype=int)
+    readouts = curve_readouts("neon_2007_figure5")
+    assert readouts["source_image_sha256"] == metadata["image_sha256"]
+    assert readouts["axis_calibration_pixels"] == metadata["axis_calibration_pixels"]
     pc = np.polyfit(*np.array(metadata["axis_calibration_pixels"]["pressure"]).T, 1)
     vc = np.polyfit(*np.array(metadata["axis_calibration_pixels"]["volume"]).T, 1)
-    # Visually inspected clean scanlines, clear of plotted markers/text. These
-    # positions are selected from the raster, never by agreement with a model.
-    scanlines = [550, 610, 650, 740, 910, 1080]
+    scanlines = list(dict.fromkeys(row["y_pixel"] for row in readouts["points"]))
     result = []
-    for y in scanlines:
-        line = pixels[y]
-        masks = {
-            300: (line[:, 2] > 150) & (line[:, 0] < 90) & (line[:, 1] < 110),
-            1000: (line[:, 0] > 150) & (line[:, 1] < 100) & (line[:, 2] < 100),
-            2000: (line[:, 0] > 150) & (line[:, 2] > 150) & (line[:, 1] < 100),
-        }
-        for t, mask in masks.items():
-            xx = np.flatnonzero(
-                mask & (np.arange(len(mask)) > 350) & (np.arange(len(mask)) < 1650)
-            )
-            groups = [
-                g for g in np.split(xx, np.where(np.diff(xx) > 2)[0] + 1) if len(g)
-            ]
-            assert len(groups) == 1, (y, t, groups)
-            lo, hi = int(groups[0][0]), int(groups[0][-1])
-            x = (lo + hi) / 2
-            v = float(np.polyval(vc, y))
-            p = float(np.polyval(pc, x))
-            predicted = {
-                b: {
-                    law: float(source_pressure(v, t, b, law=law))
-                    for law in ("printed", "integrated")
-                }
-                for b in PARAMETERS
+    for row in readouts["points"]:
+        t, x, y = row["temperature_k"], row["x_pixel"], row["y_pixel"]
+        lo, hi = row["stroke_x_span"]
+        v = float(np.polyval(vc, y))
+        p = float(np.polyval(pc, x))
+        predicted = {
+            b: {
+                law: float(source_pressure(v, t, b, law=law))
+                for law in ("printed", "integrated")
             }
-            sensitivity = (
-                (hi - lo) / 2 * abs(pc[0])
-                + abs(pc[0])
-                + max(
-                    abs(
-                        source_pressure(v + sign * abs(vc[0]), t)
-                        - predicted["vinet"]["printed"]
-                    )
-                    for sign in (-1, 1)
+            for b in PARAMETERS
+        }
+        sensitivity = (
+            (hi - lo) / 2 * abs(pc[0])
+            + abs(pc[0])
+            + max(
+                abs(
+                    source_pressure(v + sign * abs(vc[0]), t)
+                    - predicted["vinet"]["printed"]
                 )
+                for sign in (-1, 1)
             )
-            result.append(
-                {
-                    "temperature_k": t,
-                    "x_pixel": x,
-                    "y_pixel": y,
-                    "stroke_x_span": [lo, hi],
-                    "volume_a3": v,
-                    "figure_pressure_gpa": p,
-                    "calculated_pressure_gpa": predicted,
-                    "stroke_plus_one_pixel_axis_sensitivity_gpa": float(sensitivity),
-                }
-            )
+        )
+        result.append(
+            {
+                "temperature_k": t,
+                "x_pixel": x,
+                "y_pixel": y,
+                "stroke_x_span": [lo, hi],
+                "volume_a3": v,
+                "figure_pressure_gpa": p,
+                "calculated_pressure_gpa": predicted,
+                "stroke_plus_one_pixel_axis_sensitivity_gpa": float(sensitivity),
+            }
+        )
     summaries = {}
     for b in PARAMETERS:
         summaries[b] = {}
@@ -291,6 +276,8 @@ def curve_check(source):
                 }
             )
     return {
+        "curve_readouts_sha256": READOUTS_SHA256,
+        "replay_basis": "preserved_numerical_pixel_readouts_source_image_not_bundled",
         "source_image": metadata["image_path"],
         "image_sha256": metadata["image_sha256"],
         "axis_calibration_pixels": metadata["axis_calibration_pixels"],
@@ -557,45 +544,54 @@ def main():
     )
 
 
-def plot_validation(report):
-    """Show source strokes and independently calculated Ne curves/residuals."""
+def plot_validation(report, *, output=None):
+    """Plot numerical readouts and independent Ne curves without source artwork."""
     import matplotlib
 
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
 
     curve = report["curve_check"]
-    pc = np.polyfit(*np.array(curve["axis_calibration_pixels"]["pressure"]).T, 1)
-    vc = np.polyfit(*np.array(curve["axis_calibration_pixels"]["volume"]).T, 1)
     plt.rcParams.update(
         {"font.size": 10, "axes.spines.top": False, "axes.spines.right": False}
     )
     fig = plt.figure(figsize=(16, 9), layout="constrained")
     gs = fig.add_gridspec(2, 2, width_ratios=[1.5, 1])
     ax = fig.add_subplot(gs[:, 0])
-    ax.imshow(plt.imread(ROOT / curve["source_image"]))
     volumes = np.linspace(24.0, 50.0, 600)
+    colors = {300: "#2525cc", 1000: "#c52525", 2000: "#c220bd"}
     for branch, style in (("vinet", "--"), ("bm3", ":")):
-        for temperature in (300, 1000, 2000):
+        for temperature, color in colors.items():
             pressures = source_pressure(volumes, temperature, branch)
-            xx = (pressures - pc[1]) / pc[0]
-            yy = (volumes - vc[1]) / vc[0]
-            inside = (xx >= 190) & (xx <= 1660)
             ax.plot(
-                xx[inside],
-                yy[inside],
+                pressures,
+                volumes,
                 style,
-                color="black",
+                color=color,
                 linewidth=1.0,
-                label=f"Published {branch.upper()} + MGD"
-                if temperature == 300
-                else None,
+                label=f"{branch.upper()} {temperature} K",
             )
-    ax.set_xlim(0, 1683)
-    ax.set_ylim(1275, 0)
-    ax.axis("off")
-    ax.set_title("Figure 5 with independent published-coefficient curves", fontsize=12)
-    ax.legend(loc="lower right", framealpha=0.95, fontsize=9)
+    for temperature, color in colors.items():
+        selected = [r for r in curve["points"] if r["temperature_k"] == temperature]
+        ax.scatter(
+            [r["figure_pressure_gpa"] for r in selected],
+            [r["volume_a3"] for r in selected],
+            marker="o",
+            facecolors="none",
+            edgecolors=color,
+            label=f"Curve readouts {temperature} K",
+        )
+    ax.set(
+        xlabel="Pressure (GPa)",
+        ylabel="Ne cell volume ($\\AA^3$)",
+        xlim=(0, 145),
+        ylim=(24, 50),
+    )
+    ax.set_title(
+        "Preserved Figure 5 numerical readouts; source image omitted", fontsize=12
+    )
+    ax.legend(fontsize=8)
+    ax.grid(alpha=0.15)
     residual_ax = fig.add_subplot(gs[0, 1])
     colors = {300: "#2525cc", 1000: "#c52525", 2000: "#c220bd"}
     for temperature, color in colors.items():
@@ -646,7 +642,9 @@ def plot_validation(report):
         "Printed theta law. Curve samples are validation output, never fitting inputs. Source: DOI 10.1073/pnas.0609013104, Figure 5.",
         fontsize=9,
     )
-    fig.savefig(ROOT / "docs/data/fei-2007-neon-figure5-validation.png", dpi=170)
+    fig.savefig(
+        output or ROOT / "docs/data/fei-2007-neon-figure5-validation.png", dpi=170
+    )
     plt.close(fig)
 
 

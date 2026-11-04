@@ -99,6 +99,23 @@ covered by the CC BY 4.0 grant for Ma's Mendeley workbook, which remains
 distributed. The DOCX was inadvertently included in 0.17.3; the exclusion
 applies to subsequent builds.
 
+The four Fei source raster figures and three historical raster-bearing
+comparison plots were included in the 0.17.4 source distribution. Subsequent
+source builds omit the original rasters and replace those plots with numerical
+readout/calculation plots that contain no source artwork. Original image
+hashes, numerical readouts and scientific findings are retained; the image
+bytes and old overlays are preserved only in the private evidence archive.
+Published 0.17.4 archives remain unchanged. Rights in numerical transcriptions
+remain a separate inventory question.
+
+After 0.17.4, the original Tateno KCl workbook
+`datasets/kcl_variant_sources/6779TableS1 revised.xlsx` and Chidester supplement
+`datasets/chidester_2018_sources/AM-18-56212.zip` are also excluded from both
+source distributions and wheels. Original bytes are preserved privately;
+source manifests and hashes remain. The numerical Tateno CSVs and both
+byte-identical extracted Chidester CSVs remain distributed. Excluding these
+containers does not establish redistribution rights for their numerical data.
+
 For Debian-style copyright inventories, record code and data separately and
 retain the individual source notices. An unspecified source license is an
 unresolved packaging question, not a finding that the resource meets Debian's

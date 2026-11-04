@@ -54,6 +54,18 @@ def main():
     assert not data.joinpath(
         "datasets", "ma_2024_sources", "supporting-information.docx"
     ).is_file(), "The Ma publisher supplement must not be distributed"
+    for source in (
+        ("kcl_variant_sources", "6779TableS1 revised.xlsx"),
+        ("chidester_2018_sources", "AM-18-56212.zip"),
+    ):
+        assert not data.joinpath("datasets", *source).is_file(), source
+    # Removal of containers must not remove the curated numerical resources.
+    for resource in (
+        "kcl-tateno-2019-official-table-s1.csv",
+        "chidester_2018_sources/6212_supp1.csv",
+        "chidester_2018_sources/6212_supp2.csv",
+    ):
+        assert data.joinpath("datasets", resource).is_file(), resource
     guide = data.joinpath("LICENSING.md").read_text(encoding="utf-8")
     datasets = data.joinpath("datasets")
     notices = [path for path in datasets.iterdir() if path.name.endswith(".LICENSE.md")]

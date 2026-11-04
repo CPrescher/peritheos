@@ -7,6 +7,16 @@ data, original author artifacts and third-party code. Its
 lists both recorded grants and unresolved rights. The inventory is evidence
 for downstream review, not a blanket redistribution clearance.
 
+After 0.17.4, the original Fei source images have been removed from the source
+tree and excluded from future distributions. Three plots that embedded those
+images have been replaced with plots of preserved numerical readouts and
+calculations. Source hashes and scientific evidence remain traceable; the
+original artwork is private audit evidence. This correction does not alter
+the already published 0.17.4 archives or resolve numerical-data rights.
+The original Tateno KCl workbook and redundant Chidester supplement ZIP have
+also been moved to private evidence storage and excluded from both package
+formats. Their source manifests, checksums and unchanged numerical CSVs remain.
+
 Peritheos implementation code and contributor-written research scripts use
 the MIT (Expat) license. Bundled scientific data have source-specific terms.
 Article citations in scripts identify scientific sources; they do not change

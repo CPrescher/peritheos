@@ -817,7 +817,8 @@ volume is `45.0463 A^3`.
 
 The authoritative observations are the 39 rows in the
 [official MSA deposit AM-19-56779](http://www.minsocam.org/MSA/AmMin/TOC/2019/May2019_data/AM-19-56779.zip),
-workbook `6779TableS1 revised.xlsx`. The checked-in CSV now follows that
+workbook `6779TableS1 revised.xlsx` (preserved privately and excluded from
+distributions after 0.17.4). The checked-in CSV follows that
 workbook's row alignment and retains the reported Pt pressures, temperatures,
 volumes, and uncertainties.
 

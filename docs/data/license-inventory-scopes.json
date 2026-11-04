@@ -8,10 +8,16 @@
     "The source archive contains historical reports and generated plots with mixed provenance. MIT covers contributor narrative/code, not automatically every embedded source element.",
     "Rust inventory covers the all-target normal/build dependency graph from Cargo.lock. Build tools are included; dev-only packages excluded. This is not an exact linked-code or Rust standard-library inventory for every wheel.",
     "External Python dependencies are installed separately, not bundled by virtue of Requires-Dist; native dependency notice compliance remains a separate recorded action.",
-    "This inventory records the immutable published 0.17.3 release plus current data/rights overlays introduced in 0.17.4. Inventory tooling and reports were added after 0.17.3 and are not claimed to be files in its archived distributions."
+    "This inventory records the immutable published 0.17.3 release plus current data/rights overlays. Author declarations and Ma DOCX exclusion shipped in 0.17.4. Subsequent Fei image removal, numerical plot replacements, and Tateno workbook/Chidester ZIP exclusions apply only to later builds; 0.17.4 archives remain unchanged. Inventory tooling and reports were added after 0.17.3 and are not claimed to be files in its archived distributions."
   ],
   "local_distribution_exclusions": [
-    "peritheos/data/datasets/ma_2024_sources/supporting-information.docx"
+    "peritheos/data/datasets/ma_2024_sources/supporting-information.docx",
+    "docs/data/fei-2007-thermal-source-figures/fei2004-figure4.jpg",
+    "docs/data/fei-2007-thermal-source-figures/figure2.png",
+    "docs/data/fei-2007-thermal-source-figures/figure4.png",
+    "docs/data/fei-2007-thermal-source-figures/figure5.png",
+    "peritheos/data/datasets/kcl_variant_sources/6779TableS1 revised.xlsx",
+    "peritheos/data/datasets/chidester_2018_sources/AM-18-56212.zip"
   ],
   "scopes": [
     {
@@ -29,21 +35,43 @@
       "local_only": false
     },
     {
+      "id": "fei-numerical-replacement-plots",
+      "files": [
+        "docs/data/fei-2004-2007-platinum-refit-curve-comparison.png",
+        "docs/data/fei-2007-platinum-figure2-validation.png",
+        "docs/data/fei-2007-neon-figure5-validation.png"
+      ],
+      "status": "project_mit",
+      "declared_license": "MIT (plot code and rendering); numerical source rights separately assessed",
+      "evidence": [
+        "scripts/plot_fei_2004_2007_platinum_refits.py",
+        "scripts/plot_fei_2007_figure2_validation.py",
+        "scripts/reproduce_fei_2007_neon.py",
+        "docs/data/fei-source-curve-readouts.json"
+      ],
+      "scope": "Current plots are newly rendered from numerical curve readouts and calculations, without source image pixels. This does not establish blanket rights in the underlying numerical transcriptions.",
+      "action": "Retain source attribution and numerical-readout qualifications; assess underlying numerical source rights separately.",
+      "local_only": true
+    },
+    {
       "id": "fei-source-figures",
       "files": [
         "docs/data/fei-2007-thermal-source-figures/fei2004-figure4.jpg",
         "docs/data/fei-2007-thermal-source-figures/figure2.png",
         "docs/data/fei-2007-thermal-source-figures/figure4.png",
-        "docs/data/fei-2007-thermal-source-figures/figure5.png"
+        "docs/data/fei-2007-thermal-source-figures/figure5.png",
+        "docs/data/fei-2004-2007-platinum-refit-curve-comparison.png",
+        "docs/data/fei-2007-platinum-figure2-validation.png",
+        "docs/data/fei-2007-neon-figure5-validation.png"
       ],
       "status": "source_terms_not_recorded",
       "declared_license": "unspecified",
       "evidence": [
-        "scripts/plot_fei_2004_2007_platinum_refits.py",
-        "docs/data/fei-2007-thermal-source-figures/"
+        "docs/research/license-inventory.md#specific-findings-and-actions",
+        "scripts/plot_fei_2004_2007_platinum_refits.py"
       ],
-      "scope": "Original/source figure images, including a Fei 2004 figure crop. Scientific checking is not redistribution permission; no project-MIT fallback.",
-      "action": "Obtain a suitable separate grant or a documented factual-data assessment; otherwise exclude from a cleared source archive. Preserve original audit evidence.",
+      "scope": "Original Fei source images and historical overlays embedding those images. No redistribution grant recorded; no project-MIT fallback for the reproduced source artwork.",
+      "action": "Original rasters removed from the current source tree and excluded from future builds. Historical raster-bearing overlays replaced with numerical plots. Preserve original hashes and private audit evidence; a separate grant is required before reintroducing source artwork.",
       "local_only": false
     },
     {
@@ -57,8 +85,23 @@
         "peritheos/data/datasets/kcl_variant_sources/manifest.json#/sources/0",
         "https://doi.org/10.2138/am-2019-6779"
       ],
-      "scope": "Official MSA supplement AM-19-56779.zip; public availability does not establish CC0.",
-      "action": "Obtain a suitable separate grant or a documented factual-data assessment; otherwise exclude from a cleared source archive. Preserve original audit evidence.",
+      "scope": "Original official MSA AM-19-56779 workbook; public availability does not establish CC0. Removed from the current source tree and excluded from future distributions after 0.17.4; unchanged numerical CSVs and source manifest remain.",
+      "action": "Preserve original workbook privately and retain its SHA-256/source lineage. Fresh workbook inspection requires a separately supplied matching original. Numerical transcription rights remain a separate downstream review.",
+      "local_only": false
+    },
+    {
+      "id": "chidester-source-zip",
+      "files": [
+        "peritheos/data/datasets/chidester_2018_sources/AM-18-56212.zip"
+      ],
+      "status": "source_terms_not_recorded",
+      "declared_license": "No separate ZIP redistribution grant recorded",
+      "evidence": [
+        "peritheos/data/datasets/chidester_2018_sources/manifest.json",
+        "docs/literature-reproductions/chidester-2018-tho2.md"
+      ],
+      "scope": "Redundant original MSA AM-18-56212 ZIP, containing two CSV tables and filesystem metadata. Removed from the current source tree and excluded from future distributions after 0.17.4. Both byte-identical extracted CSVs remain; their numerical-data rights are not determined by removing the container.",
+      "action": "Preserve original ZIP privately and retain its SHA-256/retrieval URL; retain and verify both original extracted CSVs and assess their source terms separately.",
       "local_only": false
     },
     {

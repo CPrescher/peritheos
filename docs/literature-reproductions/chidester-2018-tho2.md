@@ -22,8 +22,10 @@ preserved; diagnostic refits do not create additional executable records.
 - [Official deposit AM-18-56212](http://www.minsocam.org/MSA/AmMin/TOC/2018/May2018_data/AM-18-56212.zip),
   linked by the [May 2018 supplements page](http://www.minsocam.org/MSA/AmMin/TOC/2018/May2018_data/May2018_data.html).
   HTTPS failed; HTTP supplied the publisher's ZIP and two complete CSV tables.
-  Original ZIP and CSV bytes, retrieval URL and SHA-256 hashes are bundled in
-  `peritheos/data/datasets/chidester_2018_sources/`. The publisher states that
+  Both original extracted CSVs, retrieval URL and SHA-256 hashes remain in
+  `peritheos/data/datasets/chidester_2018_sources/`. After 0.17.4 the redundant
+  original ZIP is preserved privately and excluded from source distributions
+  and wheels. The CSV bytes are unchanged and match the original ZIP members. The publisher states that
   pure datasets are not copyrightable and other supplemental content is
   copyrighted by the authors. The article PDF is checksummed, not redistributed.
 - The [author's publication page](https://raf.scholars.harvard.edu/publications/high-pressure-phase-behavior-and-equations-state-tho2-polymorphs)

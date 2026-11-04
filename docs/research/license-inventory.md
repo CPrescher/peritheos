@@ -35,7 +35,9 @@ they have no separate CSV.
 
 The `release` state describes what shipped in 0.17.3. The `local` overlay
 records the author-file declarations and Ma DOCX exclusion introduced in
-0.17.4. It is a source-tree overlay, not an archive inventory of 0.17.4 itself.
+0.17.4, followed by the Fei image removal, numerical plot replacements and
+Tateno workbook/Chidester ZIP exclusions under `Unreleased`. It is a
+source-tree overlay, not an archive inventory of 0.17.4 or later builds. Published 0.17.4 archives have not been rewritten.
 Later declarations are not represented as notices already included in 0.17.3.
 
 ## Dataset findings
@@ -89,14 +91,42 @@ or exclude the affected content from a cleared source archive.
 
 **Tateno KCl workbook.** `kcl_variant_sources/6779TableS1 revised.xlsx` came
 from the official MSA supplement `AM-19-56779.zip`, associated with
-DOI `10.2138/am-2019-6779`. No CC0 declaration was established. Confirm a
-dataset-specific grant or obtain a documented factual-data/rights assessment.
+DOI `10.2138/am-2019-6779`. No CC0 declaration was established. After 0.17.4,
+the original workbook is removed from the current source tree and excluded
+from both distribution formats; it is preserved privately. Original manifests,
+hashes and numerical CSVs remain unchanged. Numerical-data rights still need
+a source-specific grant or a documented rights assessment. Fresh OpenXML
+inspection uses an explicitly supplied original verified against its SHA-256;
+default replay does not repeat that inspection or replace its historical report.
 
-**Retained Fei source figures.** Four files under
-`docs/data/fei-2007-thermal-source-figures/`, including `fei2004-figure4.jpg`,
-are source-image artifacts with no recorded redistribution grant. They are
-distinct from Peritheos's generated comparison plots. Scientific checking
-alone is not redistribution permission.
+**Chidester supplement ZIP (excluded after 0.17.4).**
+`chidester_2018_sources/AM-18-56212.zip` is a redundant source container with two
+CSV tables and filesystem metadata. It is removed from the current source tree
+and excluded from both distribution formats, with original bytes preserved
+privately and the retrieval URL/hash retained in its unchanged manifest. Both
+extracted CSVs remain byte-identical to the archive members. This removes the
+redundant container without claiming to clear or restrict the numerical data.
+Published 0.17.3/0.17.4 archives retain both source containers.
+
+**Removed Fei source figures (after 0.17.4).** The four original images under
+`docs/data/fei-2007-thermal-source-figures/` have been removed from the current
+source tree and excluded from future builds because no redistribution grant
+is recorded. Three comparison plots also embedded these rasters: the Pt
+Figure 2 validation, the 2004/2007 Pt comparison and the Ne Figure 5 validation.
+Their current replacements render numerical readouts and calculated curves
+without source artwork. The historical inventory explicitly flags those old
+overlays as source-bearing content; a generated filename is not evidence that
+an image contains only contributor-owned material.
+
+Original images and overlays are preserved in the private audit archive.
+Their hashes, source citations, axis calibrations, digitized observations and
+curve-readout coordinates remain traceable. The unchanged historical reports
+record the earlier image-based audits. Current numerical replay uses the
+[preserved pixel readouts](../data/fei-source-curve-readouts.json); it does not
+perform a fresh source-image extraction or verify unavailable image bytes.
+This removal does not settle the separate question of rights in numerical
+transcriptions. Both 0.17.3 and 0.17.4 source archives contain the original
+rasters and overlays; the correction applies to subsequent builds only.
 
 **Legacy COD/AMCSD CIFs.** The vanadium and superhydrous-phase-B CIFs state
 use within the scientific community with attribution. Unlike brucite COD

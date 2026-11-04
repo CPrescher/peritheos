@@ -270,7 +270,7 @@ The 2000 K isotherm is calculated extrapolation; measurements support the
 thermal fit only through 1000 K. Figure 5 high-pressure curve samples also
 extend beyond the measured new hot-marker pressure range.
 
-![Figure 5 equation and data validation](../data/fei-2007-neon-figure5-validation.png)
+![Figure 5 numerical readouts, equation and data validation](../data/fei-2007-neon-figure5-validation.png)
 
 ## Reproduction and integration
 
@@ -290,3 +290,10 @@ The shared primary-refit ledger still describes its earlier 34-point Ne
 partial diagnostic. This standalone 54-point audit is the current detailed
 Ne evidence; reconciling that shared ledger belongs to a later coordinated
 integration and must not be mistaken for completed global regeneration.
+
+The source raster and previous raster-bearing overlay are retained only in the
+private audit archive. The current validation plot contains preserved numerical
+curve readouts and calculations, without source artwork. Numerical replay uses
+checksum-bound [pixel readouts](../data/fei-source-curve-readouts.json), retaining
+the original image hash and calibration; it does not repeat image extraction.
+The historical report and source observations are unchanged.

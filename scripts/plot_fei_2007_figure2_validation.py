@@ -23,7 +23,7 @@ INPUT = DATA / "fei-2007-platinum-source-curve-check.json"
 OUTPUT = DATA / "fei-2007-platinum-figure2-validation.png"
 
 
-def main():
+def main(*, write_report=False, output=OUTPUT):
     report = json.loads(INPUT.read_text(encoding="utf-8"))
     pc = np.polyfit(
         report["pressure_axis_ticks"]["x_pixel"],
@@ -101,7 +101,8 @@ def main():
     report["published_coefficients"] = dict(
         zip(("V0", "K0", "K0_prime", "gamma0", "q", "theta0"), PARAMETERS["platinum"])
     )
-    INPUT.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    if write_report:
+        INPUT.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
 
     plt.rcParams.update(
         {"font.size": 11, "axes.spines.top": False, "axes.spines.right": False}
@@ -109,20 +110,30 @@ def main():
     fig = plt.figure(figsize=(15, 8.5), layout="constrained")
     gs = fig.add_gridspec(2, 2, width_ratios=[1.45, 1])
     source_ax = fig.add_subplot(gs[:, 0])
-    source_ax.imshow(plt.imread(ROOT / report["source_image"]))
     volume = np.linspace(47.05, 60.38, 800)
-    for temperature in colors:
+    for temperature, color in colors.items():
         calculated = pressure(volume, temperature, "platinum")
-        x = (calculated - pc[1]) / pc[0]
-        y = (volume - vc[1]) / vc[0]
-        inside = (x >= 216) & (x <= 1780)
-        source_ax.plot(x[inside], y[inside], "k--", linewidth=1.05, dashes=(5, 3))
-    source_ax.set_xlim(0, 1800)
-    source_ax.set_ylim(1400, 0)
-    source_ax.axis("off")
+        source_ax.plot(
+            calculated, volume, color=color, label=f"Calculation {temperature} K"
+        )
+        selected = [r for r in points if r["temperature_k"] == temperature]
+        source_ax.scatter(
+            [r["figure_pressure_gpa"] for r in selected],
+            [r["volume_a3"] for r in selected],
+            facecolors="none",
+            edgecolors=color,
+            label=f"Curve readouts {temperature} K",
+        )
+    source_ax.set(
+        xlabel="Pressure (GPa)",
+        ylabel="Pt cell volume ($\\AA^3$)",
+        xlim=(0, 140),
+        ylim=(47, 61),
+    )
+    source_ax.grid(alpha=0.15)
+    source_ax.legend(fontsize=9)
     source_ax.set_title(
-        "Original Figure 2 + published-coefficient calculation (black dashed)",
-        fontsize=12,
+        "Figure 2 numerical readouts; source image omitted", fontsize=12
     )
 
     residual_ax = fig.add_subplot(gs[0, 1])
@@ -178,7 +189,7 @@ def main():
         "Error bars: line half-width + illustrative 1 pixel per axis; not statistical errors. Source: doi:10.1073/pnas.0609013104",
         fontsize=9,
     )
-    fig.savefig(OUTPUT, dpi=180)
+    fig.savefig(output, dpi=180)
     plt.close(fig)
     print(
         json.dumps(

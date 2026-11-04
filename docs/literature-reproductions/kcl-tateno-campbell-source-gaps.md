@@ -84,7 +84,8 @@ was retrieved and verified against the existing archive hash
 `652fa6bcbd9c00c76d8bb62199750a49f281edf3dc445144ff435ff1afce4210`.
 Its substantive contents are:
 
-- `6779TableS1 revised.xlsx`: the unchanged bundled 39-row source workbook.
+- `6779TableS1 revised.xlsx`: the original 39-row source workbook, now preserved
+  privately and excluded from source distributions and wheels after 0.17.4.
 - `6779_supp.pdf`: one page containing Figure S1, the unrolled diffraction-image
   comparison after annealing and following compression. It has no additional
   thermal equations or regression data.
@@ -139,3 +140,19 @@ source request:
 The Campbell scale identity is closed. Exact statistical reproduction and raw
 ruby recovery remain unavailable. Tateno's exact Holmes reduction and original
 regression remain conditional after checking all identified final-source files.
+
+## Replaying without the original workbook
+
+The numerical CSVs and historical inspection report remain unchanged.
+`python -m scripts.audit_kcl_source_gaps --check` recomputes the numerical
+findings and reports that workbook inspection was not performed. To repeat
+that separate OpenXML inspection, supply the original explicitly:
+
+```bash
+python -m scripts.audit_kcl_source_gaps --check \
+  --tateno-workbook "/path/to/6779TableS1 revised.xlsx"
+```
+
+The script verifies its original SHA-256 before opening the workbook. A fresh
+inspection is compared with the historical sheet/formula/link findings;
+numerical replay alone does not claim to have reverified the private workbook.

@@ -111,10 +111,10 @@ the spacing residual RMS is 0.032 GPa and maximum absolute difference is
 the published thermal coefficients as an interpretation of the drawn curves.
 It does not distinguish the printed and integrated Debye-temperature laws,
 whose pressure differences here are smaller than the raster readout scale.
-The source image, axis calibration, sampled pixels and computed pressures
-are preserved in
+The historical source-image hash, axis calibration, sampled pixels and
+computed pressures are preserved in
 [`fei-2007-platinum-source-curve-check.json`](../data/fei-2007-platinum-source-curve-check.json).
-The overlay and residual panels are generated with
+The numerical comparison and residual panels are generated with
 `python -m scripts.plot_fei_2007_figure2_validation` and saved in
 [`fei-2007-platinum-figure2-validation.png`](../data/fei-2007-platinum-figure2-validation.png).
 The error bars combine observed horizontal half-stroke width with an
@@ -140,11 +140,18 @@ isotherm, published-coefficient pressure differences are at most 0.224 GPa.
 Both the published and diagnostic curves remain visually close over Figure
 4's limited pressure range, despite different fitted coefficients. This
 comparison does not recover the author's fitting protocol or establish
-exact rounded-coefficient/table-output parity. The two source figures,
-published calculations and diagnostic curves are compared in
+exact rounded-coefficient/table-output parity. The preserved numerical curve
+readouts, published calculations and diagnostic curves are compared in
 [`fei-2004-2007-platinum-refit-curve-comparison.png`](../data/fei-2004-2007-platinum-refit-curve-comparison.png);
 the numerical results and source provenance are retained in the
 [comparison report](../data/fei-2004-2007-platinum-refit-curve-comparison.json).
+
+The original source rasters and old raster-bearing overlays are no longer
+bundled; they are preserved in the private audit archive. The current plots
+contain numerical readouts and calculations only. The replay scripts use
+checksum-bound [pixel readouts](../data/fei-source-curve-readouts.json) and do
+not repeat source-image digitization. This packaging change leaves the
+historical numerical reports and scientific conclusions unchanged.
 
 ### Fei 2004 fitting-weight sensitivity
 

@@ -277,14 +277,20 @@ def reproduce():
     hashes[INPUT.relative_to(ROOT).as_posix()] = hashlib.sha256(
         INPUT.read_bytes()
     ).hexdigest()
-    for figure in inputs["figures"].values():
-        digest = hashlib.sha256((ROOT / figure["image_path"]).read_bytes()).hexdigest()
-        assert digest == figure["image_sha256"]
-        hashes[figure["image_path"]] = digest
+    # Preserve the historical image identity without claiming to have verified
+    # pixels that are deliberately absent from the public source distribution.
+    source_images = {
+        figure["image_path"]: {
+            "historical_sha256": figure["image_sha256"],
+            "verification": "not_performed_source_image_not_bundled",
+        }
+        for figure in inputs["figures"].values()
+    }
     return {
         "doi": inputs["doi"],
         "primary_source": inputs["primary_source"],
         "input_sha256": hashes,
+        "source_images": source_images,
         "qualification": "Conditional diagnostics, not a recovery of author fitting procedure. All fits use equal pressure weights; errors are residual-scaled linearized errors conditional on the adopted cold scale, pressure standards and data selection. Calibration covariance, source weights and full experimental uncertainty are unavailable. The printed theta law implies -dln(theta)/dln(V)=gamma*(1+q*ln(V/V0)), so its thermodynamic identity issue is common to all four models. Published coefficients remain unchanged.",
         "materials": results,
     }

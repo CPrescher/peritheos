@@ -1,6 +1,7 @@
 """Recovered primary-method calibration and conditional source regressions."""
 
 import json
+from copy import deepcopy
 from pathlib import Path
 
 import jsonschema
@@ -14,7 +15,11 @@ from peritheos import (
     recalculate_ruby_pressure,
     resolve_dataset_pressure,
 )
-from scripts.audit_kcl_source_gaps import assert_report_equal, audit
+from scripts.audit_kcl_source_gaps import (
+    assert_replay_matches_historical,
+    audit,
+    inspect_tateno_workbook,
+)
 
 ROOT = Path(__file__).resolve().parents[1]
 ID = "kcl_campbell_1991_bm2_1"
@@ -82,11 +87,8 @@ def test_primary_regression_weights_and_precision_gaps_remain_visible():
     ]
     assert c["exact_source_regression_reproduced"] is False
     t = report["tateno_2019"]
-    assert t["workbook_package"] == {
-        "sheets": ["Sheet1"],
-        "formula_cells": 0,
-        "external_links": [],
-    }
+    assert t["workbook_package"] is None
+    assert t["workbook_package_verification"] == "not_performed_workbook_not_bundled"
     assert t["outside_holmes_thermal_approximation_excel_rows"] == [
         25,
         27,
@@ -102,7 +104,7 @@ def test_primary_regression_weights_and_precision_gaps_remain_visible():
     )
     assert t["exact_source_regression_reproduced"] is False
     assert all(f["solver_success"] for f in sensitivity["fits"].values())
-    assert_report_equal(
+    assert_replay_matches_historical(
         report,
         json.loads(
             (ROOT / "docs/data/kcl-source-gaps-audit.json").read_text(encoding="utf-8")
@@ -128,3 +130,25 @@ def test_source_inventory_and_raw_hashes_are_preserved():
     assert {m["kind"] for m in content} == {"workbook", "supplemental_figure_pdf"}
     assert len(content) == 2
     assert len(manifest["tateno_pt_pairing_corrections"]) == 110
+
+
+def test_separately_supplied_workbook_rejects_wrong_source_bytes(tmp_path):
+    wrong = tmp_path / "substitute.xlsx"
+    wrong.write_bytes(b"not the preserved Tateno workbook")
+    with pytest.raises(ValueError, match="SHA-256 differs"):
+        inspect_tateno_workbook(wrong)
+
+
+def test_missing_workbook_does_not_hide_changed_numerical_findings():
+    historical = json.loads(
+        (ROOT / "docs/data/kcl-source-gaps-audit.json").read_text(encoding="utf-8")
+    )
+    replay = deepcopy(historical)
+    replay["tateno_2019"]["workbook_package"] = None
+    replay["tateno_2019"]["workbook_package_verification"] = (
+        "not_performed_workbook_not_bundled"
+    )
+    assert_replay_matches_historical(replay, historical)
+    replay["tateno_2019"]["observations"] += 1
+    with pytest.raises(AssertionError):
+        assert_replay_matches_historical(replay, historical)

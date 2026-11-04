@@ -81,8 +81,10 @@ The existing Sokolova MGD row has K0 uncertainty 0.3 GPa; the linear row's
 coefficients are never used.
 
 The [official MSA AM-19-56779 deposit](http://www.minsocam.org/MSA/AmMin/TOC/2019/May2019_data/AM-19-56779.zip)
-contains `6779TableS1 revised.xlsx`. The workbook is bundled verbatim and a
-39-row CSV preserves its full numerical precision and Excel row numbers.
+contains `6779TableS1 revised.xlsx`. The original workbook is preserved
+privately and excluded from distributions after 0.17.4. Its source manifest
+and SHA-256 remain, and the unchanged 39-row CSV preserves its full numerical
+precision and Excel row numbers.
 Each source row's pressure, T, Pt volume and KCl volume is kept together.
 
 **Additional transcription correction:** the older bundled CSV had correctly

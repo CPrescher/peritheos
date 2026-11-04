@@ -5,6 +5,21 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+### Fixed
+
+- Remove the four Fei publisher/source raster figures from the source tree and
+  future distributions. Replace three plots that embedded them with numerical
+  readout/calculation plots. Preserve original hashes, calibrated pixel readouts,
+  scientific findings and private evidence; numerical replay no longer requires
+  the source rasters and does not claim a fresh source-image verification.
+  Update the licensing inventory without rewriting published release evidence.
+
+- Exclude the original Tateno KCl XLSX and redundant Chidester ThO2 supplement
+  ZIP from the source tree and both distribution formats. Preserve originals
+  privately and retain unchanged numerical CSVs, source hashes and manifests.
+  Keep numerical KCl replay available; make fresh workbook inspection an
+  explicit checksum-verified operation with a separately supplied original.
+
 ## [0.17.4] - 2026-11-04
 
 ### Fixed

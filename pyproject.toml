@@ -100,6 +100,11 @@ exclude = [
     "output/**/email-to-*",
     "output/**/zotero-*",
     "docs/data/fei-2007-gold-follow-up-sources/ye-2017-intercomparison.pdf",
+    # Original Fei source artwork is private evidence, not a distribution input.
+    "docs/data/fei-2007-thermal-source-figures/**",
+    # Original source containers are retained privately; numerical CSVs remain.
+    "peritheos/data/datasets/kcl_variant_sources/6779TableS1 revised.xlsx",
+    "peritheos/data/datasets/chidester_2018_sources/AM-18-56212.zip",
     # The independently licensed Mendeley workbook remains distributed.
     # This publisher supplement is retained only as repository audit evidence.
     "peritheos/data/datasets/ma_2024_sources/supporting-information.docx",

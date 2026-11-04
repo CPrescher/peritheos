@@ -7,6 +7,7 @@ weights, covariance, or pressure reductions. Article PDFs are not redistributed.
 from __future__ import annotations
 
 import argparse
+import copy
 import hashlib
 import json
 import xml.etree.ElementTree as ET
@@ -101,7 +102,30 @@ def campbell_diagnostics():
     }
 
 
-def tateno_precision_diagnostics():
+def inspect_tateno_workbook(path):
+    """Inspect a separately supplied original, rejecting unverified substitutes."""
+    manifest = json.loads((SOURCE / "manifest.json").read_text(encoding="utf-8"))
+    expected = next(
+        item["sha256"]
+        for item in manifest["sources"]
+        if item.get("filename") == "6779TableS1 revised.xlsx"
+    )
+    if hashlib.sha256(path.read_bytes()).hexdigest() != expected:
+        raise ValueError("Tateno workbook SHA-256 differs from the preserved original")
+    with zipfile.ZipFile(path) as archive:
+        ns = {"s": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
+        workbook = ET.fromstring(archive.read("xl/workbook.xml"))
+        sheet = ET.fromstring(archive.read("xl/worksheets/sheet1.xml"))
+        return {
+            "sheets": [
+                s.attrib["name"] for s in workbook.findall("s:sheets/s:sheet", ns)
+            ],
+            "formula_cells": len(sheet.findall(".//s:f", ns)),
+            "external_links": [n for n in archive.namelist() if "externalLink" in n],
+        }
+
+
+def tateno_precision_diagnostics(workbook_path=None):
     data = rows("kcl-tateno-2019-official-table-s1.csv")
     rounded = rows("kcl-tateno-2019-table-s1-pvt.csv")
     v = column(data, "kcl_unit_cell_volume_a3") / A3_PER_MOLAR
@@ -150,20 +174,14 @@ def tateno_precision_diagnostics():
             "rounded_Pt_volume_only_residuals": metrics(model(fit.x), rounded_pressure),
             "solver_success": bool(fit.success),
         }
-    # Inspect the original OpenXML package without evaluating any invented EOS.
-    with zipfile.ZipFile(SOURCE / "6779TableS1 revised.xlsx") as archive:
-        ns = {"s": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
-        workbook = ET.fromstring(archive.read("xl/workbook.xml"))
-        sheet = ET.fromstring(archive.read("xl/worksheets/sheet1.xml"))
-        package = {
-            "sheets": [
-                s.attrib["name"] for s in workbook.findall("s:sheets/s:sheet", ns)
-            ],
-            "formula_cells": len(sheet.findall(".//s:f", ns)),
-            "external_links": [n for n in archive.namelist() if "externalLink" in n],
-        }
+    # Numerical replay uses the unchanged CSVs. Fresh package inspection is a
+    # separate operation requiring the original, which is no longer bundled.
+    package = inspect_tateno_workbook(workbook_path) if workbook_path else None
     return {
         "workbook_package": package,
+        "workbook_package_verification": "verified_original_sha256_and_openxml"
+        if workbook_path
+        else "not_performed_workbook_not_bundled",
         "observations": len(data),
         "coordinate_precision_sensitivity": {
             "maximum_absolute_pressure_shift_gpa": float(
@@ -180,7 +198,7 @@ def tateno_precision_diagnostics():
     }
 
 
-def audit():
+def audit(workbook_path=None):
     return {
         "audit_date": "2026-10-08",
         "resource_sha256": {
@@ -194,7 +212,7 @@ def audit():
             )
         },
         "campbell_1991": campbell_diagnostics(),
-        "tateno_2019": tateno_precision_diagnostics(),
+        "tateno_2019": tateno_precision_diagnostics(workbook_path),
     }
 
 
@@ -213,19 +231,47 @@ def assert_report_equal(actual, expected):
         assert actual == expected
 
 
+def assert_replay_matches_historical(actual, historical):
+    """Compare all numerical findings; report the exact original-inspection scope."""
+    if "workbook_package_verification" in historical["tateno_2019"]:
+        assert_report_equal(actual, historical)
+        return
+    actual = copy.deepcopy(actual)
+    historical = copy.deepcopy(historical)
+    tateno = actual["tateno_2019"]
+    verification = tateno.pop("workbook_package_verification")
+    if verification == "not_performed_workbook_not_bundled":
+        assert tateno.pop("workbook_package") is None
+        historical["tateno_2019"].pop("workbook_package")
+    else:
+        assert verification == "verified_original_sha256_and_openxml"
+    assert_report_equal(actual, historical)
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
+    parser.add_argument(
+        "--tateno-workbook",
+        type=Path,
+        help="Separately supplied original XLSX for checksum-verified OpenXML inspection",
+    )
     args = parser.parse_args()
-    result = audit()
+    result = audit(args.tateno_workbook)
     if args.check:
-        assert_report_equal(result, json.loads(OUTPUT.read_text(encoding="utf-8")))
+        assert_replay_matches_historical(
+            result, json.loads(OUTPUT.read_text(encoding="utf-8"))
+        )
     else:
         OUTPUT.write_text(
             json.dumps(result, indent=2, sort_keys=True, allow_nan=False) + "\n",
             encoding="utf-8",
         )
     print("Campbell calibration resolved; exact source regressions remain conditional.")
+    print(
+        "Tateno workbook inspection:",
+        result["tateno_2019"]["workbook_package_verification"],
+    )
 
 
 if __name__ == "__main__":
