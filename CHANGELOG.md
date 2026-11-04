@@ -48,6 +48,11 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Development and compatibility
 
+- Incorporate Roland Mas's explicit sampler `f64` annotation and allow `1e-9`
+  absolute variation when replaying the saved brucite optimizer objective across
+  numerical backends. Preserve the stricter residual-consistency check, source
+  inputs and scientific findings. Keep Rust 1.83 support and existing dependencies.
+
 - Ship an installed code/data licensing guide, dataset notice index and complete
   Creative Commons texts in both distribution formats. Replace the Python
   distribution's blanket MIT metadata with an explicit component-scope reference;
@@ -56,7 +61,7 @@ All notable changes to Peritheos are documented here. The project follows
 - Separate routine CI from the complete release compatibility matrix and share
   unchanged numerical audit results through isolated test copies. Preserve
   fresh calculations for mutation, solver-patching and repeatability tests.
-- Keep Python/Rust model code and published EOS coefficients unchanged. Source
+- Keep model equations, public APIs and published EOS coefficients unchanged. Source
   checks and conditional numerical agreement do not establish physical
   validation or complete reproduction of an author's original workflow.
 - The finite-reference EOS, pressure-scale views and native EOSMAT interfaces
