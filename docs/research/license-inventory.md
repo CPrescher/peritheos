@@ -33,9 +33,9 @@ they have no separate CSV.
 | [Reviewed scopes](../data/license-inventory-scopes.json) | Explicit file-level interpretations and evidence; these do not grant permissions or replace original notices. |
 
 The `release` state describes what shipped in 0.17.3. The `local` overlay
-includes the new author-file declarations and Ma DOCX exclusion. These changes
-have not been pushed or released. Later declarations are not represented as
-notices already included in the published release.
+records the author-file declarations and Ma DOCX exclusion introduced in
+0.17.4. It is a source-tree overlay, not an archive inventory of 0.17.4 itself.
+Later declarations are not represented as notices already included in 0.17.3.
 
 ## Dataset findings
 
@@ -166,7 +166,8 @@ python scripts/inventory_distribution_licenses.py \
 Use the maintained environment from [Contributing](https://github.com/CPrescher/peritheos/blob/main/CONTRIBUTING.md).
 `--download` retrieves the exact 36 receipt URLs and verifies their digests;
 it does not substitute a newer release. The dependency check requires the
-release-matched `Cargo.lock`. To record a newly reviewed local overlay, omit
+release-matched dependency entries in `Cargo.lock`; workspace-only version
+bumps are allowed. To record a newly reviewed local overlay, omit
 `--check`; only inventory outputs are written. Original evidence is preserved.
 
 Debian maintainers and archive reviewers decide acceptance. This report

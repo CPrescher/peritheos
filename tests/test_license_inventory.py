@@ -13,11 +13,36 @@ from scripts.inventory_distribution_licenses import (
     assertions,
     classify_file,
     declaration_status,
+    dependency_lock_fingerprint,
     digest,
     load_release,
     match_scope,
     source_inventory,
 )
+
+
+def test_release_inventory_allows_workspace_bumps_but_rejects_dependency_drift():
+    original = b"""version = 4
+[[package]]
+name = "peritheos"
+version = "0.17.3"
+[[package]]
+name = "peritheos-python"
+version = "0.17.3"
+[[package]]
+name = "rand"
+version = "0.8.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "original-checksum"
+"""
+    bumped = original.replace(b"0.17.3", b"0.17.4")
+    assert dependency_lock_fingerprint(original) == dependency_lock_fingerprint(bumped)
+    assert dependency_lock_fingerprint(original) != dependency_lock_fingerprint(
+        bumped.replace(b"0.8.8", b"0.10.3")
+    )
+    assert dependency_lock_fingerprint(original) != dependency_lock_fingerprint(
+        bumped.replace(b"original-checksum", b"changed-checksum")
+    )
 
 
 @pytest.mark.parametrize(

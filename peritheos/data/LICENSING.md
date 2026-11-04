@@ -66,6 +66,11 @@ and structural data and to author inputs with limited provenance-only use.
 
 ## Installed packages and downstream redistribution
 
+The [file and catalog license inventory](https://github.com/CPrescher/peritheos/blob/v0.17.4/docs/research/license-inventory.md)
+accounts for the published 0.17.3 archives and records the author-permission
+and packaging updates introduced in 0.17.4. It lists scoped grants and
+unresolved source rights; it is not a blanket redistribution clearance.
+
 This guide and the dataset notices are installed under `peritheos/data/`.
 The distribution's `License-File` metadata also includes these notices, the
 MIT license and complete CC BY 4.0 and CC0 texts. Python package metadata uses

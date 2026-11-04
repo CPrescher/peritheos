@@ -44,6 +44,22 @@ def digest(data):
     return hashlib.sha256(data).hexdigest()
 
 
+def dependency_lock_fingerprint(content):
+    """Allow workspace version bumps without overlooking dependency changes."""
+    blocks = content.split(b"[[package]]")
+    for index, block in enumerate(blocks):
+        if re.search(
+            rb'(?m)^name = "(?:peritheos|peritheos-python)"$', block
+        ) and not re.search(rb"(?m)^source = ", block):
+            blocks[index] = re.sub(
+                rb'(?m)^version = "[^"\n]+"$',
+                b'version = "<workspace>"',
+                block,
+                count=1,
+            )
+    return digest(b"[[package]]".join(blocks))
+
+
 def compact(value):
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
 
@@ -597,9 +613,11 @@ def inventory(directory, cargo_path):
                 f"Inventory exclusion not present in build configuration: {path}"
             )
     metadata, archives, released, variants, wheel_differences = load_release(directory)
-    if released["Cargo.lock"] != (ROOT / "Cargo.lock").read_bytes():
+    if dependency_lock_fingerprint(
+        released["Cargo.lock"]
+    ) != dependency_lock_fingerprint((ROOT / "Cargo.lock").read_bytes()):
         raise ValueError(
-            "Current Cargo.lock differs from the inventoried release; provide release-matched dependency metadata"
+            "Current dependency lock differs from the inventoried release; provide release-matched dependency metadata"
         )
     current = current_payloads(released)
     old_components = components(released, scopes, False)
@@ -643,7 +661,7 @@ def inventory(directory, cargo_path):
                 "evidence": after[2],
                 "required_action": after[3],
                 "local_file_sha256": digest(local.read_bytes())
-                if local.is_file()
+                if name in current and local.is_file()
                 else "",
                 "local_distribution_excluded": str(
                     name in policy["local_distribution_exclusions"]
@@ -708,6 +726,16 @@ def inventory(directory, cargo_path):
         "schema": "peritheos.license-inventory.v1",
         "reviewed_on": policy["reviewed_on"],
         "release_version": metadata["info"]["version"],
+        "overlay_package_version": next(
+            node.value.value
+            for node in ast.parse(
+                (ROOT / "peritheos/__init__.py").read_text(encoding="utf-8")
+            ).body
+            if isinstance(node, ast.Assign)
+            and any(
+                getattr(target, "id", None) == "__version__" for target in node.targets
+            )
+        ),
         "archives": archives,
         "published_wheels_checked": sum(a["kind"] == "bdist_wheel" for a in archives),
         "all_wheel_data_bytes_identical": not wheel_differences,

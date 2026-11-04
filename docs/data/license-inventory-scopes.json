@@ -8,7 +8,7 @@
     "The source archive contains historical reports and generated plots with mixed provenance. MIT covers contributor narrative/code, not automatically every embedded source element.",
     "Rust inventory covers the all-target normal/build dependency graph from Cargo.lock. Build tools are included; dev-only packages excluded. This is not an exact linked-code or Rust standard-library inventory for every wheel.",
     "External Python dependencies are installed separately, not bundled by virtue of Requires-Dist; native dependency notice compliance remains a separate recorded action.",
-    "This inventory records the immutable published release plus current data/rights overlays. Inventory tooling and reports themselves were added after 0.17.3 and are not claimed to be released files."
+    "This inventory records the immutable published 0.17.3 release plus current data/rights overlays introduced in 0.17.4. Inventory tooling and reports were added after 0.17.3 and are not claimed to be files in its archived distributions."
   ],
   "local_distribution_exclusions": [
     "peritheos/data/datasets/ma_2024_sources/supporting-information.docx"
