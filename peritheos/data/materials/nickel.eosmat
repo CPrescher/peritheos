@@ -590,6 +590,7 @@
               "fit_kind": "conditional_bm3_mgd_variable_exponent",
               "objective": "pressure_residuals",
               "selection": "All Table S2 rows for FeO; only its 15 explicitly fcc rows for Fe. For Ni/NiO, retain all 92 heated/MAP Table S3 rows (T>295 K); exclude its nine 293-295 K quenched DAC rows from the main diagnostic. This exclusion follows the Section 2.2 stress warning but is an audit choice: the authors do not publish a regression row mask. All 101 rows are retained in the dataset and tested in a sensitivity refit.",
+      "pressure_scale_variant_of": "nickel_dewaele_2019_mao_vinet",
               "weighting": "unweighted",
               "free_parameters": ["rt_eos.K0", "rt_eos.K0_prime", "gamma0"],
               "fixed_parameters": ["V0", "Tr", "theta0", "n", "q"],

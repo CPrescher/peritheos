@@ -154,6 +154,60 @@ numerically recoverable.
 
 ## Normalizing complete sample EOS records
 
+### One source EOS, selectable output scale
+
+Use one source EOS and evaluate it directly on the requested pressure
+coordinate. This works for any equilibrium EOS with an executable
+calibration route, including paths through calibrant volumes, optical signals,
+and audited links between different calibrants. The route must establish the
+relationship between the calibrants; sharing a nominal pressure is insufficient.
+
+```python
+from peritheos import get_eos_record, list_reference_variants
+
+source = get_eos_record("nacl_b2_sakai_2011_matsui_pt_bm3")
+converted = source.on_pressure_scale("platinum_fei_2007_vinet_300k")
+pressure = converted.pressure([23.0, 22.5], check_validity=True)
+volume = converted.volume(pressure, check_validity=True)
+print(converted.calibration_path)
+print(list_reference_variants(source.identifier))
+```
+
+`PressureScaledEOS(source_identifier, target_node)` constructs the same view.
+The target may be an XRD EOS or optical calibration node. `pressure()` composes
+the source EOS with the calibration transformations, without refitting or
+substituting another published sample EOS. `volume()` reverses the **same route**
+and then inverts the source EOS. Calibration edges with temperature corrections
+are inverted with their corresponding temperature correction. Volume inversion
+requires every traversed edge to be invertible; a one-way route supports pressure
+evaluation only. Sample volumes
+retain their original units and cell convention. `recalculate()` returns the
+full pressure result with the route and intermediate calibrant states.
+
+Temperature arguments describe the source sample. The optional
+`standard_temperature_k` fixes a separate calibrant temperature; otherwise the
+route starts at the source sample temperature, including when omitted and the
+source reference temperature is used. This convention does not supply a
+missing experimental temperature. Request `check_validity=True` to enforce the
+source and linked standard envelopes. An unresolved route raises an error; the
+view never substitutes a stored reference variant. No transformed parameter
+covariance, free energy, or new BM3/Vinet coefficient set is implied.
+
+The same method works for an externally loaded `EOSRecord` when its
+`pressure_calibration.methods` explicitly links to executable calibration nodes.
+The actual loaded coefficients are used. Give a changed calibration a distinct
+record identifier; reusing a bundled identifier with different calibration
+provenance is rejected to avoid applying that identifier's historical routes.
+
+Normal `list_eos_records()` and `search_eos_records()` discovery excludes
+published pressure-scale alternatives. They remain executable by their stable
+identifiers and can be included with `include_reference_variants=True`.
+`Material.source_records` gives the normal choices;
+`Material.reference_variants` gives the published alternatives;
+`Material.eos_records` retains the complete loaded collection for interchange.
+The [catalog-wide audit](research/pressure-scale-variant-audit.md) documents the
+grouping and its limits.
+
 `recalculate_eos_pressure_scale()` starts at sample volume. It evaluates the
 published sample EOS, reads its `pressure_calibration`, and recursively finds
 an executable path to the requested target. The returned
@@ -375,7 +429,7 @@ not qualify.
 | [Chidester et al. (2021)](https://doi.org/10.1103/PhysRevB.104.094107) | B2 KCl and Pt; to 167 GPa and 2400 K | Simultaneous thermal KCl--Pt calibration on Dorogokupets--Oganov Pt | EOS, full KCl P-V-T table, temperature mapping, and direct Pt edge executable |
 | [Eremets et al. (2023)](https://doi.org/10.1038/s41467-023-36429-9) | Diamond Raman edge and Au; to about 500 GPa | Simultaneous optical--XRD calibration on ramp-derived Au | Scale, Au anchor, and edge executable |
 | [Sakai et al. (2025)](https://doi.org/10.1038/s43246-025-00792-5) | Cu, Re, Pt, W, Au, Mo, Fe, MgO, and NaCl; to about 431 GPa | Direct multi-standard volume relations, Cu anchored | Nine member fits and source grids bundled; paired cross-material edge not executable |
-| [Shen and Smith (2026)](https://doi.org/10.1103/fxgq-96sg) | Pt, Cu, Au, Mo, Ta, W, Fe, MgO, and NaCl; 300 K to 140 GPa | Simultaneous paired calibration, Cu anchored | Member fits, same-run volume data, and dedicated 298 K Cu anchor executable; no generic paired cross-material edge |
+| [Shen and Smith (2026)](https://doi.org/10.1103/fxgq-96sg) | Pt, Cu, Au, Mo, Ta, W, Fe, MgO, and NaCl; 300 K, study maximum 140 GPa | Simultaneous paired calibration, Cu anchored | Same-run data and dedicated Cu anchor executable; MgO/NaCl-B2 fits not reproduced and not recommended, explicit diagnostics only; no generic paired cross-material edge |
 
 A simultaneous volume-volume dataset is the strongest cross-material edge
 because the relationship is observed directly. A joint model family is usable
@@ -478,3 +532,6 @@ The Shen–Smith source reconstruction uses `copper_fratanduono_2020_vinet3_298k
 for each same-run Cu volume. The [Cu audit](literature-reproductions/fratanduono-2020-cu.md)
 and [reconstruction audit](literature-reproductions/shen-smith-2026-cu-refits.md)
 document the equation, phase/run selection, and unavailable weighting protocol.
+MgO and NaCl-B2 are not reproduced from the available published inputs and
+are not recommended for pressure calibration. The published table is accounted
+for; completeness of the exact author fit inputs remains unconfirmed.

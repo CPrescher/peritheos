@@ -17,7 +17,7 @@ import copy
 import json
 from collections import deque
 from collections.abc import Iterable, Mapping
-from dataclasses import dataclass
+from dataclasses import InitVar, dataclass, field
 from importlib import resources
 from types import MappingProxyType
 from typing import Any, Union
@@ -1169,6 +1169,51 @@ def recalculate_pressure_calibration_path(
     check_validity: bool = False,
 ) -> CalibrationPathRecalculation:
     """Execute a recursively discovered pressure-calibration path."""
+    return _execute_calibration_path(
+        source_pressure_gpa,
+        source_node,
+        target_node,
+        temperature_k,
+        find_pressure_calibration_path(source_node, target_node),
+        check_validity=check_validity,
+    )
+
+
+def _edge_temperature(temperature: Any, edge: Mapping[str, Any]) -> Any:
+    transformation = edge.get("temperature_transformation")
+    if transformation is None:
+        return temperature
+    if temperature is None:
+        raise ValidationError(
+            f"Calibration edge {edge['identifier']!r} requires temperature_k",
+            field="temperature_k",
+        )
+    scale = float(transformation["scale"])
+    offset = float(transformation["offset_k"])
+    if edge.get("reverse", False):
+        if scale == 0.0:
+            raise ValidationError("Calibration edge has a zero temperature scale")
+        result = (np.asarray(temperature) - offset) / scale
+    else:
+        result = scale * np.asarray(temperature) + offset
+    if not np.all(np.isfinite(result)) or np.any(result <= 0.0):
+        raise ValidationError(
+            f"Calibration edge {edge['identifier']!r} produced an invalid temperature",
+            field="temperature_k",
+        )
+    return result
+
+
+def _execute_calibration_path(
+    source_pressure_gpa: ArrayLike,
+    source_node: str,
+    target_node: str,
+    temperature_k: ArrayLike | None,
+    path: Iterable[Mapping[str, Any]],
+    *,
+    check_validity: bool,
+) -> CalibrationPathRecalculation:
+    path = tuple(path)
     original = _as_finite_array(source_pressure_gpa, "source_pressure_gpa")
     current = np.asarray(original, dtype=float)
     current_temperature = (
@@ -1176,7 +1221,6 @@ def recalculate_pressure_calibration_path(
         if temperature_k is None
         else _as_finite_array(temperature_k, "temperature_k")
     )
-    path = find_pressure_calibration_path(source_node, target_node)
     nodes = [source_node]
     states: list[Mapping[str, Any]] = []
     for edge in path:
@@ -1219,30 +1263,7 @@ def recalculate_pressure_calibration_path(
             )
         temperature_transformation = edge.get("temperature_transformation")
         if temperature_transformation is not None:
-            if current_temperature is None:
-                raise ValidationError(
-                    f"Calibration edge {edge['identifier']!r} requires temperature_k",
-                    field="temperature_k",
-                )
-            scale = float(temperature_transformation["scale"])
-            offset = float(temperature_transformation["offset_k"])
-            if edge.get("reverse", False):
-                if scale == 0.0:  # pragma: no cover - bundled-data validation
-                    raise ValidationError(
-                        f"Calibration edge {edge['identifier']!r} has a zero "
-                        "temperature scale"
-                    )
-                current_temperature = (current_temperature - offset) / scale
-            else:
-                current_temperature = scale * current_temperature + offset
-            if not np.all(np.isfinite(current_temperature)) or np.any(
-                current_temperature <= 0.0
-            ):
-                raise ValidationError(
-                    f"Calibration edge {edge['identifier']!r} produced an invalid "
-                    "temperature",
-                    field="temperature_k",
-                )
+            current_temperature = _edge_temperature(current_temperature, edge)
             state["target_temperature_k"] = _result(current_temperature)
         state["target_pressure_gpa"] = _result(np.asarray(recalculated, dtype=float))
         states.append(MappingProxyType(state))
@@ -1259,6 +1280,194 @@ def recalculate_pressure_calibration_path(
         edge_identifiers=tuple(edge["identifier"] for edge in path),
         intermediate_states=tuple(states),
     )
+
+
+@dataclass(frozen=True, eq=False)
+class PressureScaledEOS:
+    """A source EOS evaluated directly on a reachable pressure coordinate.
+
+    No replacement parameters are fitted. Public volumes retain the source's
+    unit-cell convention. Temperature arguments describe the source sample;
+    an optional fixed standard temperature describes its calibrant. Validity
+    checks cover the sample and each executed calibration edge. The complete
+    result, including virtual calibrant states, is available via ``recalculate``.
+    """
+
+    source_eos_record: str
+    target_node: str
+    standard_temperature_k: float | None = None
+    _record: InitVar[Any | None] = None
+    _source: Any = field(init=False, repr=False, compare=False)
+    _path: tuple[Mapping[str, Any], ...] = field(init=False, repr=False, compare=False)
+
+    def __post_init__(self, _record: Any | None) -> None:
+        from peritheos.catalog import get_eos_record
+
+        source = (
+            _record if _record is not None else get_eos_record(self.source_eos_record)
+        )
+        if source.is_hugoniot:
+            raise ValidationError("Pressure-scale views require an equilibrium EOS")
+        if self.standard_temperature_k is not None:
+            value = np.asarray(self.standard_temperature_k, dtype=float)
+            if value.ndim != 0 or not np.isfinite(value) or value <= 0:
+                raise ValidationError(
+                    "standard_temperature_k must be a positive scalar"
+                )
+        object.__setattr__(self, "source_eos_record", source.identifier)
+        object.__setattr__(self, "_source", source)
+        if _record is None:
+            path = find_pressure_calibration_path(source.identifier, self.target_node)
+        else:
+            try:
+                bundled_source = get_eos_record(source.identifier)
+            except MaterialLookupError:
+                bundled_source = None
+            if bundled_source is not None:
+                if (
+                    source.pressure_calibration != bundled_source.pressure_calibration
+                    or source.volume_unit != bundled_source.volume_unit
+                ):
+                    raise ValidationError(
+                        "An edited calibration requires a distinct source record identifier"
+                    )
+                path = find_pressure_calibration_path(
+                    source.identifier, self.target_node
+                )
+            else:
+                # External sample records enter the same graph solely through
+                # their explicit calibration provenance, never through a fit
+                # to another material or a pressure-scale reference variant.
+                edges = list(_calibration_graph_edges())
+                nodes = {e[k] for e in edges for k in ("source_node", "target_node")}
+                if source.identifier in nodes:
+                    raise ValidationError(
+                        "External source identifier collides with a calibration node"
+                    )
+                for index, method in enumerate(
+                    source.pressure_calibration.get("methods", [])
+                ):
+                    target = method.get("reference_eos_record") or method.get(
+                        "reference_calibration_record"
+                    )
+                    if target not in nodes:
+                        continue
+                    edges.append(
+                        {
+                            "identifier": f"ancestry__{source.identifier}__{index}",
+                            "kind": "calibration_ancestry",
+                            "source_node": source.identifier,
+                            "target_node": target,
+                            "transformation": "pressure_identity",
+                            "bidirectional": True,
+                            "generated": True,
+                        }
+                    )
+                path = _find_pressure_calibration_path(
+                    source.identifier, self.target_node, edges
+                )
+        object.__setattr__(
+            self,
+            "_path",
+            tuple(MappingProxyType(edge) for edge in path),
+        )
+
+    @classmethod
+    def _from_record(
+        cls,
+        source: Any,
+        target_node: str,
+        *,
+        standard_temperature_k: float | None = None,
+    ) -> PressureScaledEOS:
+        return cls(
+            source.identifier, target_node, standard_temperature_k, _record=source
+        )
+
+    @property
+    def calibration_path(self) -> tuple[str, ...]:
+        """Ordered source and calibration-node identifiers."""
+        return (self.source_eos_record, *(e["target_node"] for e in self._path))
+
+    @property
+    def volume_unit(self) -> str:
+        """The source EOS's unchanged public volume unit."""
+        return str(self._source.volume_unit)
+
+    def recalculate(
+        self,
+        volume: ArrayLike,
+        temperature: ArrayLike | None = None,
+        *,
+        check_validity: bool = False,
+    ) -> CalibrationPathRecalculation:
+        """Return converted pressures and the full executed route provenance."""
+        temperatures = self._source._temperature(temperature)
+        pressure = self._source.pressure(
+            volume, temperatures, check_validity=check_validity
+        )
+        return _execute_calibration_path(
+            pressure,
+            self.source_eos_record,
+            self.target_node,
+            temperatures
+            if self.standard_temperature_k is None
+            else self.standard_temperature_k,
+            self._path,
+            check_validity=check_validity,
+        )
+
+    def pressure(
+        self,
+        volume: ArrayLike,
+        temperature: ArrayLike | None = None,
+        *,
+        check_validity: bool = False,
+    ) -> NumericResult:
+        """Evaluate source pressure and convert without a curve refit."""
+        return self.recalculate(
+            volume, temperature, check_validity=check_validity
+        ).target_pressure_gpa
+
+    def volume(
+        self,
+        pressure: ArrayLike,
+        temperature: ArrayLike | None = None,
+        *,
+        check_validity: bool = False,
+    ) -> NumericResult:
+        """Invert the exact forward route, then invert the source sample EOS."""
+        temperatures = self._source._temperature(temperature)
+        standard_temperature = (
+            temperatures
+            if self.standard_temperature_k is None
+            else self.standard_temperature_k
+        )
+        reverse_path = []
+        for edge in self._path:
+            if not edge.get("bidirectional", False):
+                raise ValidationError(
+                    f"Calibration edge {edge['identifier']!r} cannot be inverted"
+                )
+            standard_temperature = _edge_temperature(standard_temperature, edge)
+            reverse = dict(edge)
+            reverse["source_node"], reverse["target_node"] = (
+                edge["target_node"],
+                edge["source_node"],
+            )
+            reverse["reverse"] = not edge.get("reverse", False)
+            reverse_path.append(reverse)
+        result = _execute_calibration_path(
+            pressure,
+            self.target_node,
+            self.source_eos_record,
+            standard_temperature,
+            reversed(reverse_path),
+            check_validity=check_validity,
+        )
+        return self._source.volume(
+            result.target_pressure_gpa, temperatures, check_validity=check_validity
+        )
 
 
 def recalculate_eos_pressure_scale(
@@ -1325,6 +1534,7 @@ __all__ = [
     "CommonPressureCalibrationRoutes",
     "DiamondRamanCalibration",
     "PressureScaleRecalculation",
+    "PressureScaledEOS",
     "RubyFluorescenceCalibration",
     "RubyPressureScaleRecalculation",
     "XrdPressureRecalculation",

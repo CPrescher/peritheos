@@ -329,6 +329,7 @@ def search_eos_records(
     range_semantics: RangeSemantics = "contains",
     uncertainty: bool | None = None,
     validation_status: ValidationStatus | Iterable[ValidationStatus] | None = None,
+    include_reference_variants: bool = False,
 ) -> tuple[EOSRecord, ...]:
     """Search the complete catalog and return executable EOS records.
 
@@ -356,7 +357,9 @@ def search_eos_records(
     material_by_record = _catalog_index().material_by_record
     return tuple(
         record
-        for record in list_eos_records()
+        for record in list_eos_records(
+            include_reference_variants=include_reference_variants
+        )
         if (
             family_id is None
             or material_by_record[record.identifier].family_id == family_id
@@ -405,6 +408,7 @@ def search_materials(
     range_semantics: RangeSemantics = "contains",
     uncertainty: bool | None = None,
     validation_status: ValidationStatus | Iterable[ValidationStatus] | None = None,
+    include_reference_variants: bool = False,
 ) -> tuple[Material, ...]:
     """Search the complete catalog and return executable materials.
 
@@ -424,8 +428,14 @@ def search_materials(
         validation_status=validation_status,
         determination_method=determination_method,
     )
+    _validate_optional_bool(include_reference_variants, "include_reference_variants")
     results = []
     for material in list_materials(family_id=family_id):
+        records = (
+            material.eos_records
+            if include_reference_variants
+            else material.source_records
+        )
         material_text = (
             material.identifier,
             material.name or "",
@@ -444,7 +454,7 @@ def search_materials(
                     *_record_reference_text(record),
                 ),
             )
-            for record in material.eos_records
+            for record in records
         ):
             continue
         if not _matches_text(name, (material.name or "",)):
@@ -488,7 +498,7 @@ def search_materials(
                 statuses=statuses,
                 material=material,
             )
-            for record in material.eos_records
+            for record in records
         ):
             results.append(material)
     return tuple(results)

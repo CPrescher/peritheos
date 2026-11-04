@@ -658,6 +658,7 @@
               },
               {
                 "parameter": "K0",
+      "pressure_scale_variant_of": "iron_dewaele_2019_mao_vinet",
                 "published": 168.4,
                 "published_error": 7.9,
                 "refit": 168.64954836915632,
@@ -3179,6 +3180,7 @@
             "report_path": "docs/reconstruction-reports/iron.md#record-iron_sakai_2014_p2_vinet",
             "fit": {
               "weighting": "unweighted; published coefficient constraints retained",
+      "pressure_scale_variant_of": "iron_sakai_2014_p1_bm3",
               "free_parameters": [],
               "fixed_parameters": ["V0"],
               "tied_parameters": {},
@@ -3287,6 +3289,7 @@
               "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/iron/#record-iron_sakai_2014_p3_bm3",
+      "pressure_scale_variant_of": "iron_sakai_2014_p1_vinet",
             "report_path": "docs/reconstruction-reports/iron.md#record-iron_sakai_2014_p3_bm3",
             "fit": {
               "weighting": "unweighted; published coefficient constraints retained",
@@ -3395,6 +3398,7 @@
             "basis": "Table 2 does not tabulate P3 pressures. Complete scale re-reduction and source g-G V0 regression remain unavailable.",
             "qualifications": [
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+      "pressure_scale_variant_of": "iron_sakai_2014_p1_bm3",
               "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/iron/#record-iron_sakai_2014_p3_vinet",
@@ -3506,6 +3510,7 @@
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/iron/#record-iron_sakai_2014_p4_bm3",
             "report_path": "docs/reconstruction-reports/iron.md#record-iron_sakai_2014_p4_bm3",
+      "pressure_scale_variant_of": "iron_sakai_2014_p1_vinet",
             "parameters": [
               {
                 "parameter": "K0",
@@ -3614,6 +3619,7 @@
             "reference": {
               "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
               "year": 2014,
+      "pressure_scale_variant_of": "iron_sakai_2014_p1_bm3",
               "title": "Equation of state of pure iron and Fe0.9Ni0.1 alloy up to 3 Mbar",
               "source": "Physics of the Earth and Planetary Interiors 228, 114–126",
               "doi": "10.1016/j.pepi.2013.12.010"
@@ -3747,6 +3753,7 @@
         "audit_date": "2026-09-10",
         "methods": [
           {
+      "pressure_scale_variant_of": "iron_sakai_2014_p1_vinet",
             "kind": "equation_of_state",
             "reference": {
               "authors": ["Sakai", "Takahashi", "Nishitani", "Mashino", "Ohtani", "Hirao"],
@@ -3930,6 +3937,7 @@
                 "published": 5.39,
                 "published_error": 0.13,
                 "refit": 5.454658336009669,
+      "pressure_scale_variant_of": "iron_sakai_2014_p1_bm3",
                 "refit_error": null,
                 "relative_difference": 0.011995980706803253,
                 "similar": true,
@@ -4113,6 +4121,7 @@
           "K0": "Tables 1–4; Sections 2 and 3.3–3.4: published fit",
           "K0_prime": "Tables 1–4; Sections 2 and 3.3–3.4: published fit"
         }
+      "pressure_scale_variant_of": "iron_sakai_2014_p1_vinet",
       }
     },
     {
@@ -4293,6 +4302,7 @@
         "authors": [
           "Yamazaki",
           "Ito",
+      "pressure_scale_variant_of": "iron_sakai_2014_p1_bm3",
           "Yoshino",
           "Yoneda",
           "Guo",
@@ -4426,6 +4436,7 @@
               "tied_parameters": {},
               "observations": 207,
               "solver_success": true,
+      "pressure_scale_variant_of": "iron_sakai_2014_p1_vinet",
               "rmse_gpa": 0.6219909101294726,
               "published_rmse_gpa": 0.6607481174454006,
               "published_pressure_rmse_gpa": 0.6607481174454006,
