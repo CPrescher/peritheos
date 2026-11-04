@@ -25,8 +25,9 @@ uv run pytest -q -W error --cov --cov-report=term-missing
 uv run --group docs mkdocs build --strict
 ```
 
-Routine GitHub Actions runs three jobs: the core Python 3.13 compatibility
-suite, stable Rust tests/formatting/Clippy, and Python lint/format/typing checks.
+Routine GitHub Actions runs four jobs: the core Python 3.13 compatibility
+suite, stable Rust tests/formatting/Clippy, Python lint/format checks, and
+the minimum-Python typing check.
 The complete suite, Python/Rust coverage, documentation, dependency policy,
 packaging and broader compatibility matrix run weekly or on manual request.
 Before a release,

@@ -59,25 +59,25 @@ UV_CACHE_DIR=/tmp/peritheos-uv-cache uv run pytest -q
 
 ## Continuous integration
 
-Routine pushes to `main` and pull requests run three Linux jobs:
+Routine pushes to `main` and pull requests run four Linux jobs:
 
 - the core compatibility suite on Python 3.13;
 - workspace tests, formatting and Clippy on stable Rust;
-- Python lint, formatting and typing together, using Python 3.9 for the
-  minimum-supported-Python typing check.
+- Python lint and formatting on Python 3.13;
+- typing on Python 3.9, the minimum supported Python version.
 
-The full matrix runs 19 jobs. It runs the complete Python suite on versions
+The full matrix runs 21 jobs. It runs the complete Python suite on versions
 3.9 through 3.14, with the Python 3.13 run enforcing the 90% coverage floor.
 It adds Rust 1.83, Rust documentation and crate-package verification, the 85%
 Rust coverage floor, dependency license/source policy, strict documentation,
 Linux distribution validation, macOS/Windows tests and installed wheels,
-free-threaded Python 3.14, and minimum direct dependencies on Linux.
+free-threaded Python 3.14, and minimum direct dependencies on Linux and macOS.
 
 This full matrix runs weekly on Monday at 05:23 UTC on the default branch.
 To run it on a particular branch, open **Actions → CI → Run workflow**, select
 the branch, and enable **Run the full compatibility matrix**. Require this full
 run to pass on the intended release commit before tagging a release. A manual
-run without that option uses the three-job routine matrix. Complete literature
+run without that option uses the four-job routine matrix. Complete literature
 replays and aggregate coverage are checked in full runs, rather than on every
 push or pull-request update.
 
