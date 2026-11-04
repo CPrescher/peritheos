@@ -1,47 +1,49 @@
 {
   "format": "peritheos.catalog-coverage",
   "format_version": 1,
-  "material_files_sha256": "a020c4129d3168aac8759bc0b46e8ac96197f5e0de876b84b4b17bf1260d82a6",
+  "material_files_sha256": "5bd83d6dad54bfda03d64afeb2f048fda034ecef97d8b861a635415d7ddf98b3",
   "summary": {
-    "stored_materials": 233,
-    "stored_records": 666,
-    "executable_materials": 229,
-    "executable_records": 662,
+    "stored_materials": 234,
+    "stored_records": 685,
+    "executable_materials": 230,
+    "executable_records": 681,
+    "source_records": 629,
+    "pressure_scale_reference_variants": 52,
     "materials_with_thermal_eos": 63,
     "executable_equation_kinds": {
-      "hugoniot": 3,
-      "isothermal": 524,
+      "hugoniot": 4,
+      "isothermal": 542,
       "thermal": 135
     },
     "stored_validation": {
       "deferred": 4,
-      "not_reproduced": 14,
-      "primary_source_validated": 648
+      "not_reproduced": 18,
+      "primary_source_validated": 663
     },
     "executable_calibration_status": {
-      "not_applicable": 163,
-      "partially_resolved": 184,
-      "resolved": 230,
-      "unresolved": 85
+      "not_applicable": 164,
+      "partially_resolved": 190,
+      "resolved": 240,
+      "unresolved": 87
     },
     "executable_recalculation_status": {
-      "missing_calibrant_observations": 193,
-      "not_applicable": 160,
-      "not_possible": 120,
-      "ready": 124,
-      "reference_eos_not_bundled": 57,
-      "reference_model_not_supported": 8
+      "missing_calibrant_observations": 198,
+      "not_applicable": 161,
+      "not_possible": 126,
+      "ready": 135,
+      "reference_eos_not_bundled": 54,
+      "reference_model_not_supported": 7
     },
     "records_with_covariance": 17,
-    "records_with_known_parameter_error_confidence": 74
+    "records_with_known_parameter_error_confidence": 87
   },
   "ledgers": {
     "refit_outcomes": {
-      "not_refittable": 178,
-      "parity": 249,
-      "parity_not_achieved": 60,
-      "similar": 163,
-      "source_reconstruction": 16
+      "not_refittable": 177,
+      "parity": 356,
+      "parity_not_achieved": 61,
+      "similar": 72,
+      "source_reconstruction": 19
     },
     "missing_from_refit_ledger": [],
     "absent_from_catalog_refit_entries": [],
@@ -601,15 +603,15 @@
       "formula": "Fe3C",
       "family_id": null,
       "input_file": "peritheos/data/materials/cementite.eosmat",
-      "stored_records": 2,
-      "executable_records": 2,
-      "isothermal_records": 2,
+      "stored_records": 4,
+      "executable_records": 4,
+      "isothermal_records": 4,
       "thermal_records": 0,
       "hugoniot_records": 0,
       "validation": {
-        "primary_source_validated": 2
+        "primary_source_validated": 4
       },
-      "datasets": 2
+      "datasets": 5
     },
     {
       "identifier": "cementite_nonmagnetic",
@@ -617,15 +619,15 @@
       "formula": "Fe3C",
       "family_id": null,
       "input_file": "peritheos/data/materials/cementite_nonmagnetic.eosmat",
-      "stored_records": 2,
-      "executable_records": 2,
-      "isothermal_records": 0,
+      "stored_records": 4,
+      "executable_records": 4,
+      "isothermal_records": 1,
       "thermal_records": 2,
-      "hugoniot_records": 0,
+      "hugoniot_records": 1,
       "validation": {
-        "primary_source_validated": 2
+        "primary_source_validated": 4
       },
-      "datasets": 1
+      "datasets": 5
     },
     {
       "identifier": "cerium_dioxide",
@@ -665,15 +667,15 @@
       "formula": "Co",
       "family_id": null,
       "input_file": "peritheos/data/materials/cobalt_hcp.eosmat",
-      "stored_records": 3,
-      "executable_records": 3,
-      "isothermal_records": 3,
+      "stored_records": 6,
+      "executable_records": 6,
+      "isothermal_records": 6,
       "thermal_records": 0,
       "hugoniot_records": 0,
       "validation": {
-        "primary_source_validated": 3
+        "primary_source_validated": 6
       },
-      "datasets": 2
+      "datasets": 3
     },
     {
       "identifier": "coesite",
@@ -689,7 +691,7 @@
       "validation": {
         "primary_source_validated": 2
       },
-      "datasets": 3
+      "datasets": 4
     },
     {
       "identifier": "coesite_iv",
@@ -697,15 +699,15 @@
       "formula": "SiO2",
       "family_id": null,
       "input_file": "peritheos/data/materials/coesite_iv.eosmat",
-      "stored_records": 1,
-      "executable_records": 1,
-      "isothermal_records": 1,
+      "stored_records": 2,
+      "executable_records": 2,
+      "isothermal_records": 2,
       "thermal_records": 0,
       "hugoniot_records": 0,
       "validation": {
-        "primary_source_validated": 1
+        "primary_source_validated": 2
       },
-      "datasets": 1
+      "datasets": 3
     },
     {
       "identifier": "coesite_v",
@@ -887,15 +889,15 @@
       "formula": "Fe",
       "family_id": null,
       "input_file": "peritheos/data/materials/fe.eosmat",
-      "stored_records": 1,
-      "executable_records": 1,
-      "isothermal_records": 1,
+      "stored_records": 3,
+      "executable_records": 3,
+      "isothermal_records": 3,
       "thermal_records": 0,
       "hugoniot_records": 0,
       "validation": {
-        "primary_source_validated": 1
+        "primary_source_validated": 3
       },
-      "datasets": 1
+      "datasets": 2
     },
     {
       "identifier": "fe073si027_d03",
@@ -1156,6 +1158,22 @@
       "datasets": 1
     },
     {
+      "identifier": "ferrous_ringwoodite",
+      "name": "Ferrous ringwoodite (Fe2SiO4)",
+      "formula": "Fe2SiO4",
+      "family_id": null,
+      "input_file": "peritheos/data/materials/ferrous_ringwoodite.eosmat",
+      "stored_records": 1,
+      "executable_records": 1,
+      "isothermal_records": 1,
+      "thermal_records": 0,
+      "hugoniot_records": 0,
+      "validation": {
+        "primary_source_validated": 1
+      },
+      "datasets": 1
+    },
+    {
       "identifier": "fes",
       "name": "FeS-VI",
       "formula": "FeS",
@@ -1346,7 +1364,7 @@
         "not_reproduced": 1,
         "primary_source_validated": 22
       },
-      "datasets": 24
+      "datasets": 29
     },
     {
       "identifier": "graphite",
@@ -1507,7 +1525,7 @@
       "validation": {
         "primary_source_validated": 1
       },
-      "datasets": 1
+      "datasets": 2
     },
     {
       "identifier": "kbr_b1",
@@ -2545,7 +2563,8 @@
       "thermal_records": 6,
       "hugoniot_records": 1,
       "validation": {
-        "primary_source_validated": 37
+        "not_reproduced": 1,
+        "primary_source_validated": 36
       },
       "datasets": 18
     },
@@ -2635,15 +2654,15 @@
       "formula": "Mo",
       "family_id": null,
       "input_file": "peritheos/data/materials/molybdenum.eosmat",
-      "stored_records": 7,
-      "executable_records": 7,
-      "isothermal_records": 6,
+      "stored_records": 9,
+      "executable_records": 9,
+      "isothermal_records": 8,
       "thermal_records": 1,
       "hugoniot_records": 0,
       "validation": {
-        "primary_source_validated": 7
+        "primary_source_validated": 9
       },
-      "datasets": 4
+      "datasets": 5
     },
     {
       "identifier": "molybenum_carbide_mo2c",
@@ -2743,7 +2762,7 @@
     },
     {
       "identifier": "nacl_b2",
-      "name": "NaCl",
+      "name": "NaCl (B2)",
       "formula": "NaCl",
       "family_id": null,
       "input_file": "peritheos/data/materials/nacl_b2.eosmat",
@@ -2753,7 +2772,8 @@
       "thermal_records": 2,
       "hugoniot_records": 0,
       "validation": {
-        "primary_source_validated": 14
+        "not_reproduced": 1,
+        "primary_source_validated": 13
       },
       "datasets": 7
     },
@@ -2811,15 +2831,15 @@
       "formula": "Ni",
       "family_id": null,
       "input_file": "peritheos/data/materials/nickel.eosmat",
-      "stored_records": 4,
-      "executable_records": 4,
-      "isothermal_records": 3,
+      "stored_records": 6,
+      "executable_records": 6,
+      "isothermal_records": 5,
       "thermal_records": 1,
       "hugoniot_records": 0,
       "validation": {
-        "primary_source_validated": 4
+        "primary_source_validated": 6
       },
-      "datasets": 3
+      "datasets": 4
     },
     {
       "identifier": "nickel_oxide",
@@ -2929,8 +2949,8 @@
       "thermal_records": 0,
       "hugoniot_records": 0,
       "validation": {
-        "not_reproduced": 1,
-        "primary_source_validated": 6
+        "not_reproduced": 3,
+        "primary_source_validated": 4
       },
       "datasets": 3
     },
@@ -3373,15 +3393,15 @@
       "formula": "Ag",
       "family_id": null,
       "input_file": "peritheos/data/materials/silver.eosmat",
-      "stored_records": 4,
-      "executable_records": 4,
-      "isothermal_records": 3,
+      "stored_records": 6,
+      "executable_records": 6,
+      "isothermal_records": 5,
       "thermal_records": 1,
       "hugoniot_records": 0,
       "validation": {
-        "primary_source_validated": 4
+        "primary_source_validated": 6
       },
-      "datasets": 1
+      "datasets": 2
     },
     {
       "identifier": "sio2_stv_andr",
@@ -3677,15 +3697,15 @@
       "formula": "Zn",
       "family_id": null,
       "input_file": "peritheos/data/materials/zinc_hcp.eosmat",
-      "stored_records": 2,
-      "executable_records": 2,
-      "isothermal_records": 2,
+      "stored_records": 4,
+      "executable_records": 4,
+      "isothermal_records": 4,
       "thermal_records": 0,
       "hugoniot_records": 0,
       "validation": {
-        "primary_source_validated": 2
+        "primary_source_validated": 4
       },
-      "datasets": 1
+      "datasets": 2
     },
     {
       "identifier": "zinc_oxide_rocksalt",
@@ -4965,7 +4985,25 @@
       "source_audit_present": true
     },
     {
+      "identifier": "cementite_prescher_2012_full_range_bm3",
+      "material_identifier": "cementite",
+      "executable": true,
+      "equation_kind": "isothermal",
+      "scientific_validation": "primary_source_validated",
+      "refit_ledger_present": true,
+      "source_audit_present": true
+    },
+    {
       "identifier": "cementite_li_2002_bm3",
+      "material_identifier": "cementite",
+      "executable": true,
+      "equation_kind": "isothermal",
+      "scientific_validation": "primary_source_validated",
+      "refit_ledger_present": true,
+      "source_audit_present": true
+    },
+    {
+      "identifier": "cementite_ono_mibe_2010_bm3",
       "material_identifier": "cementite",
       "executable": true,
       "equation_kind": "isothermal",
@@ -4987,6 +5025,24 @@
       "material_identifier": "cementite_nonmagnetic",
       "executable": true,
       "equation_kind": "thermal",
+      "scientific_validation": "primary_source_validated",
+      "refit_ledger_present": true,
+      "source_audit_present": true
+    },
+    {
+      "identifier": "cementite_nonmagnetic_sata_2010_bm3",
+      "material_identifier": "cementite_nonmagnetic",
+      "executable": true,
+      "equation_kind": "isothermal",
+      "scientific_validation": "primary_source_validated",
+      "refit_ledger_present": true,
+      "source_audit_present": true
+    },
+    {
+      "identifier": "cementite_nonmagnetic_hu_2019_linear_hugoniot",
+      "material_identifier": "cementite_nonmagnetic",
+      "executable": true,
+      "equation_kind": "hugoniot",
       "scientific_validation": "primary_source_validated",
       "refit_ledger_present": true,
       "source_audit_present": true
@@ -5037,6 +5093,33 @@
       "source_audit_present": true
     },
     {
+      "identifier": "cobalt_hcp_dewaele_2008_table4_vinet",
+      "material_identifier": "cobalt_hcp",
+      "executable": true,
+      "equation_kind": "isothermal",
+      "scientific_validation": "primary_source_validated",
+      "refit_ledger_present": true,
+      "source_audit_present": true
+    },
+    {
+      "identifier": "cobalt_hcp_dewaele_2008_table4_us_k0_184_vinet",
+      "material_identifier": "cobalt_hcp",
+      "executable": true,
+      "equation_kind": "isothermal",
+      "scientific_validation": "primary_source_validated",
+      "refit_ledger_present": true,
+      "source_audit_present": true
+    },
+    {
+      "identifier": "cobalt_hcp_dewaele_2008_table4_us_k0_190_vinet",
+      "material_identifier": "cobalt_hcp",
+      "executable": true,
+      "equation_kind": "isothermal",
+      "scientific_validation": "primary_source_validated",
+      "refit_ledger_present": true,
+      "source_audit_present": true
+    },
+    {
       "identifier": "coesite_levien_1981_bm3_1",
       "material_identifier": "coesite",
       "executable": true,
@@ -5056,6 +5139,15 @@
     },
     {
       "identifier": "coesite_iv_bykova_2018_am05_static_bm3_refit",
+      "material_identifier": "coesite_iv",
+      "executable": true,
+      "equation_kind": "isothermal",
+      "scientific_validation": "primary_source_validated",
+      "refit_ledger_present": true,
+      "source_audit_present": true
+    },
+    {
+      "identifier": "coesite_iv_v_bykova_2018_experimental_bm2_reference",
       "material_identifier": "coesite_iv",
       "executable": true,
       "equation_kind": "isothermal",
@@ -5290,6 +5382,24 @@
     },
     {
       "identifier": "fe_shen_2026_vinet_1",
+      "material_identifier": "fe",
+      "executable": true,
+      "equation_kind": "isothermal",
+      "scientific_validation": "primary_source_validated",
+      "refit_ledger_present": true,
+      "source_audit_present": true
+    },
+    {
+      "identifier": "fe_dewaele_2008_table4_vinet",
+      "material_identifier": "fe",
+      "executable": true,
+      "equation_kind": "isothermal",
+      "scientific_validation": "primary_source_validated",
+      "refit_ledger_present": true,
+      "source_audit_present": true
+    },
+    {
+      "identifier": "fe_dewaele_2008_table4_us_k0_165_vinet",
       "material_identifier": "fe",
       "executable": true,
       "equation_kind": "isothermal",
@@ -5678,6 +5788,15 @@
     {
       "identifier": "ferropericlase_fe27_jacobsen_2002_bm3_1",
       "material_identifier": "ferropericlase_fe27",
+      "executable": true,
+      "equation_kind": "isothermal",
+      "scientific_validation": "primary_source_validated",
+      "refit_ledger_present": true,
+      "source_audit_present": true
+    },
+    {
+      "identifier": "ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction",
+      "material_identifier": "ferrous_ringwoodite",
       "executable": true,
       "equation_kind": "isothermal",
       "scientific_validation": "primary_source_validated",
@@ -7840,7 +7959,7 @@
       "material_identifier": "mgo",
       "executable": true,
       "equation_kind": "isothermal",
-      "scientific_validation": "primary_source_validated",
+      "scientific_validation": "not_reproduced",
       "refit_ledger_present": true,
       "source_audit_present": true
     },
@@ -8349,6 +8468,24 @@
       "source_audit_present": true
     },
     {
+      "identifier": "molybdenum_dewaele_2008_table4_vinet",
+      "material_identifier": "molybdenum",
+      "executable": true,
+      "equation_kind": "isothermal",
+      "scientific_validation": "primary_source_validated",
+      "refit_ledger_present": true,
+      "source_audit_present": true
+    },
+    {
+      "identifier": "molybdenum_dewaele_2008_table4_us_k0_261_vinet",
+      "material_identifier": "molybdenum",
+      "executable": true,
+      "equation_kind": "isothermal",
+      "scientific_validation": "primary_source_validated",
+      "refit_ledger_present": true,
+      "source_audit_present": true
+    },
+    {
       "identifier": "molybenum_carbide_mo2c_haines_2001_bm3_1",
       "material_identifier": "molybenum_carbide_mo2c",
       "executable": true,
@@ -8434,7 +8571,7 @@
       "material_identifier": "nacl_b2",
       "executable": true,
       "equation_kind": "isothermal",
-      "scientific_validation": "primary_source_validated",
+      "scientific_validation": "not_reproduced",
       "refit_ledger_present": true,
       "source_audit_present": true
     },
@@ -8583,6 +8720,15 @@
       "source_audit_present": true
     },
     {
+      "identifier": "nickel_dewaele_2008_table4_vinet",
+      "material_identifier": "nickel",
+      "executable": true,
+      "equation_kind": "isothermal",
+      "scientific_validation": "primary_source_validated",
+      "refit_ledger_present": true,
+      "source_audit_present": true
+    },
+    {
       "identifier": "nickel_dewaele_2008_vinet_1",
       "material_identifier": "nickel",
       "executable": true,
@@ -8614,6 +8760,15 @@
       "material_identifier": "nickel",
       "executable": true,
       "equation_kind": "thermal",
+      "scientific_validation": "primary_source_validated",
+      "refit_ledger_present": true,
+      "source_audit_present": true
+    },
+    {
+      "identifier": "nickel_dewaele_2008_table4_us_k0_183_vinet",
+      "material_identifier": "nickel",
+      "executable": true,
+      "equation_kind": "isothermal",
       "scientific_validation": "primary_source_validated",
       "refit_ledger_present": true,
       "source_audit_present": true
@@ -8731,7 +8886,7 @@
       "material_identifier": "palladium",
       "executable": true,
       "equation_kind": "isothermal",
-      "scientific_validation": "primary_source_validated",
+      "scientific_validation": "not_reproduced",
       "refit_ledger_present": true,
       "source_audit_present": true
     },
@@ -8740,7 +8895,7 @@
       "material_identifier": "palladium",
       "executable": true,
       "equation_kind": "isothermal",
-      "scientific_validation": "primary_source_validated",
+      "scientific_validation": "not_reproduced",
       "refit_ledger_present": true,
       "source_audit_present": true
     },
@@ -9285,6 +9440,15 @@
       "source_audit_present": true
     },
     {
+      "identifier": "silver_dewaele_2008_table4_vinet",
+      "material_identifier": "silver",
+      "executable": true,
+      "equation_kind": "isothermal",
+      "scientific_validation": "primary_source_validated",
+      "refit_ledger_present": true,
+      "source_audit_present": true
+    },
+    {
       "identifier": "silver_dewaele_2008_vinet_1",
       "material_identifier": "silver",
       "executable": true,
@@ -9313,6 +9477,15 @@
     },
     {
       "identifier": "silver_dewaele_2019_dor_vinet",
+      "material_identifier": "silver",
+      "executable": true,
+      "equation_kind": "isothermal",
+      "scientific_validation": "primary_source_validated",
+      "refit_ledger_present": true,
+      "source_audit_present": true
+    },
+    {
+      "identifier": "silver_dewaele_2008_table4_us_k0_101_vinet",
       "material_identifier": "silver",
       "executable": true,
       "equation_kind": "isothermal",
@@ -9718,6 +9891,24 @@
     },
     {
       "identifier": "zinc_hcp_dewaele_2019_dor_vinet",
+      "material_identifier": "zinc_hcp",
+      "executable": true,
+      "equation_kind": "isothermal",
+      "scientific_validation": "primary_source_validated",
+      "refit_ledger_present": true,
+      "source_audit_present": true
+    },
+    {
+      "identifier": "zinc_hcp_dewaele_2008_table4_vinet",
+      "material_identifier": "zinc_hcp",
+      "executable": true,
+      "equation_kind": "isothermal",
+      "scientific_validation": "primary_source_validated",
+      "refit_ledger_present": true,
+      "source_audit_present": true
+    },
+    {
+      "identifier": "zinc_hcp_dewaele_2008_table4_us_k0_60_vinet",
       "material_identifier": "zinc_hcp",
       "executable": true,
       "equation_kind": "isothermal",

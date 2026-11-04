@@ -68,7 +68,10 @@ def main():
         for material in materials
     } == expected
     executable_ids = {identifier for ids in expected.values() for identifier in ids}
-    assert {record.identifier for record in list_eos_records()} == executable_ids
+    assert {
+        record.identifier
+        for record in list_eos_records(include_reference_variants=True)
+    } == executable_ids
     assert sum(len(material.eos_records) for material in materials) == len(
         executable_ids
     )

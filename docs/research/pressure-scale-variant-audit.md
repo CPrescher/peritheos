@@ -7,7 +7,7 @@ No numerical coefficients, uncertainty values, observations, validation statuses
 or existing explicit lookups are changed by this grouping.
 
 The [machine-readable inventory](../data/pressure-scale-variants.json) contains
-51 reference variants in 27 source/model groups across 19 materials. Regenerate
+52 reference variants in 28 source/model groups across 20 materials. Regenerate
 with `python scripts/audit_pressure_scale_variants.py`; `--check` detects drift.
 
 | Study | Materials | Source selection | Reference variants |
@@ -15,7 +15,8 @@ with `python scripts/audit_pressure_scale_variants.py`; `--check` detects drift.
 | [Sakai (2011)](../literature-reproductions/sakai-2011-nacl-b2.md), Table II, plus the explicit Sakai (2014) recalibration | NaCl-B2 | Matsui-Pt BM3 and Vinet; includes the later Yokoo-Pt BM3 re-reduction of the same 2011 observations | 7 |
 | [Dewaele (2004)](../literature-reproductions/dewaele-2004-six-metals.md), Table II | Al, Cu, W | Revised-ruby Vinet; historical Mao fits retained as references | 3 |
 | [Dewaele (2019)](../literature-reproductions/dewaele-2019-static-dac-metals.md), Table 1 | Au, Pt, Cu, Ta, Al, W, Co, Mo, Zn, Re, Fe, Be, Pb | First-listed Mao Vinet for a consistent display baseline; D&O fits retained as references | 13 |
-| Dewaele (2008), Table III, and its Dewaele (2019) pressure recalibrations | Ni, Ag | Original 2008 Vinet sources; both 2019 pressure reductions share the same observations, equation and free-parameter choices | 4 |
+| Dewaele (2019) Ni/Ag pressure recalibrations | Ni, Ag | Mao-scale Vinet sources; alternate reductions and historical identifiers retain their recorded coefficients and corrected attribution | 4 |
+| Takahashi (2019) | Nonmagnetic Fe3C | KBr calibration source; MgO pressure-scale fit retained as a reference variant | 1 |
 | Sakai (2014), Tables 3–4, DOI 10.1016/j.pepi.2013.12.010 | hcp Fe and Fe0.9Ni0.1 | p1 BM3 and Vinet; p2–p6 use the alternative NaCl-B2 pressure reductions of the same data | 20 |
 | [Tateno (2019)](../literature-reproductions/kcl-tateno-campbell-source-gaps.md), Table 1 | B2 KCl | Sokolova-Pt for each of the MGD and linear thermal forms | 2 |
 | Ono (2006), DOI 10.2138/am.2006.2118, Tables 2–3 | MgSiO3 post-perovskite | Existing first-listed Anderson-Au BM2; Jamieson and Dewaele alternatives retained as references | 2 |

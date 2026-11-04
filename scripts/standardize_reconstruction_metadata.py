@@ -28,12 +28,17 @@ STATUS = {
     "source_reconstruction": "source_reconstruction",
 }
 BASIS = {
+    "conditional_coefficients_and_errors_at_published_precision_fixed_V0": "Conditional agreement of K0, K0_prime and both error values at published printed precision with curve-derived V0 held fixed. Errors are residual-based and conditional on exact V0; the source confidence convention and original author workflow remain unconfirmed.",
+    "conditional_K0_and_K0_prime_at_published_printed_precision": "Conditional parity of K0 and K0_prime at published printed precision only. V0 is explicitly adopted from the drawn full-range curve; original V0 constraints, source inputs and author workflow remain unresolved. Uncertainty reproduction is assessed separately, including the unreproduced low-pressure K0 error.",
+    "conditional_reported_widths_and_print_precision": "Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.",
+    "conditional_combined_error_parameter_agreement": "Conditional parameter agreement under both the combined-error comparison and numerical similarity screen; source confidence conventions remain explicit, and unknown source confidence or shared-data covariance does not become a formal confidence test or author-workflow reproduction.",
     "within_reported_parameter_errors": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
     "conditional_fixed_V0_diagnostic_only": "Conditional fixed-V0 comparison under the documented diagnostic protocol; original source weighting and workflow are not established.",
     "registered_peritheos_refit_reproduced": "Reproduction of the registered Peritheos refit's stored coefficients under its declared protocol.",
     "reproduction_of_stored_peritheos_refit": "Reproduction of the stored independent Peritheos refit under its declared protocol.",
     "conditional_central_value_at_published_precision": "Conditional agreement of the fitted central value at published precision; this does not establish uncertainty or calibration-network parity.",
     "published_decimal_precision": "Agreement at the source's printed decimal precision.",
+    "source_curve_reading_and_print_precision": "Source-equation parity against identified graphical checkpoints within declared reading and printed-coefficient bounds; no independent parameter refit or author-workflow reproduction.",
 }
 FIT_FIELDS = (
     "fit_kind",
@@ -120,6 +125,7 @@ def assessment_for_record(
     scope = (
         "source_equation"
         if status == "source_reconstruction"
+        or row.get("fit_kind") == "source_curve_validation_only"
         else "independent_refit"
         if record.get("record_kind") == "refit"
         else "parameter_agreement"
@@ -188,6 +194,22 @@ def assessment_for_record(
             "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
         )
     result["fit"] = {key: copy.deepcopy(row[key]) for key in FIT_FIELDS if key in row}
+    if "data_agreement_status" in row:
+        # A data-agreement assessment retains its distinct coefficient result
+        # and measured-coordinate diagnostics alongside the fitting objective.
+        result["fit"].update(
+            {
+                key: copy.deepcopy(row[key])
+                for key in (
+                    "coefficient_comparison_status",
+                    "data_agreement_status",
+                    "weighted_sum_squares",
+                    "published_max_abs_pressure_residual_gpa",
+                    "pressure_rmse_coordinates",
+                )
+                if key in row
+            }
+        )
     result["report"] = REPORT
     if row.get("material_identifier"):
         result.update(report_links(row["material_identifier"], record["identifier"]))

@@ -11,7 +11,12 @@ file. Scientific values, observations and qualifications are preserved.
 default; pass `format_version=4` for native fields. Older file readers can use
 `python -m peritheos convert native.eosmat compatible.eosmat --format-version 3`.
 
-This directory contains 233 curated material documents with 665 EOS records. The
+The 54 Dewaele (2008) PAW parameterizations are preserved separately in
+[`../research/dewaele-2008-paw`](../research/dewaele-2008-paw/README.md). They are
+excluded from main database discovery. The paper's 13 experimental Table IV
+parameterizations remain here.
+
+This directory contains 234 curated material documents with 685 EOS records. The
 collection began with the 120-material, 147-EOS-record Dioptas 0.10.0 database,
 tag commit
 `5a8bfd81d10bfab3499039603380aae34576d60a`. Its project source is
@@ -19,7 +24,7 @@ tag commit
 
 Every EOS record has an explicit `determination_method` and a rationale under
 `evidence.parameter_provenance.determination_method`. The current collection classifies
-516 records as experimental, 114 as theoretical, 28 as hybrid, and seven as
+536 records as experimental, 114 as theoretical, 28 as hybrid, and seven as
 unknown. These counts include the two deferred Campbell source records and
 the deferred Morard FeS source record.
 The seven unknowns are the Holland et al. (2013) THERMOCALC modified-Tait
@@ -27,6 +32,28 @@ endmembers: the existing source audit verifies the coefficients but does not
 establish each endmember's measurement-versus-calculation constraints.
 They remain explicitly unknown rather than inferring their origin from the
 paper title or `self_consistent` calibration method.
+
+The original Sata (2010) Fe3C static BM3 retains primary-source verification and
+conditional parameter parity, with **poor data agreement** recorded separately.
+It is retained as a qualified nondefault source EOS: some quoted point errors
+are smaller than the overall experimental scatter. Its recalculated-pressure
+refit remains a separate diagnostic. Published coefficients, observations and 300 K / 27.2–186.6 GPa
+limits are unchanged; the existing Takahashi default remains selected.
+
+The original Ono–Mibe (2010) experimental Fe3C BM3 is a nondefault `cementite`
+record at **300 K and 0–34.3 GPa**. All 14 Table 1 states and their errors are
+retained, including higher-pressure observations outside the fit domain.
+The measured ambient V0 is explicitly adopted; original fitting details remain
+unknown. The 0 K theoretical branches and Litasov recalibration are separate.
+See the [source audit](../../../docs/literature-reproductions/ono-mibe-2010-fe3c.md).
+
+Hu (2019) adds a published principal shock path on `cementite_nonmagnetic`,
+retained over the full **85.6–245 GPa** experimental range. Possible melting
+at higher pressures; density data do not resolve the phase state. The mean porous
+precursor density is explicitly adopted; all six shots through 245 GPa and
+reported errors remain data. Its operational volume includes pore volume and
+is not a diffraction cell volume. The thermal reduction remains separate, and
+the Takahashi equilibrium default is unchanged. See the [source audit](../../../docs/literature-reproductions/hu-2019-fe3c.md).
 
 Classification applies to the represented parameter set, including fixed
 coefficients and thermal terms. Thus Ono's experimental CaSiO3 reference plus
@@ -48,7 +75,7 @@ rather than a copyright license.
 The migration preserves supported Dioptas crystallographic and EOS data and adds
 stable identifiers plus explicit migration provenance. It does **not** make
 Dioptas the scientific authority for an EOS record. The primary-source audit
-with dispositions through 2026-10-17 classifies 645 of 663 bundled records as
+classifies 663 of 685 bundled records as
 `primary_source_validated`. The Campbell fcc-Fe and FeO records are retained
 as `deferred` source evidence because of unresolved coefficient-refit
 discrepancies; they are not exposed by the executable catalog. The Morard
@@ -148,7 +175,7 @@ CC0 is limited to transcription, normalization and metadata rights.
 ## Reference titles
 
 The 2026-09-23 bibliographic review added missing `reference.title` fields to
-185 EOS records citing 115 distinct publications. All 663 records now carry
+185 EOS records citing 115 distinct publications. All 685 main-catalog records now carry
 an explicit publication title; `reference.source` retains the journal or
 book name. Previously, the catalog fell back to that source name when a
 title was absent.
@@ -215,17 +242,19 @@ O6 correction and official 2014 H2 erratum; the original archive CIF is retained
 The source audit documents equation typos, calibration qualifications and held
 branches, separately from the Al-bearing Xu (2024) investigation.
 
-The current bundle contains 379 distinct datasets with 26,994 retained rows, represented by
-419 material-document links to 523 EOS records.
+The current bundle contains 403 distinct datasets with 27,897 retained rows, represented by 443 material-document links to 543 EOS records.
+
+The Finger (1979) Fe2SiO4 ringwoodite card adds only a derived static ambient-cell
+reconstruction at **296.15 K and 0–4 GPa**. It preserves K0=196(6) GPa, adopts
+the measured V0=558.7(2) Å³, and retains all three Table 2 states/errors. The
+independent 2011 thermal candidate remains staged and is not part of this
+installed card. See the [integration and qualifications](../../../docs/research/ferrous-ringwoodite-armentrout-2011-integration.md).
 Chen (2010) contributes 80 Brillouin-derived density positions, 262 separately
 identified published-fit curve vertices, and 14 reported constants. These
 supporting assets do not validate the source-author Chen EOS. A separate
 Peritheos BM3 refit uses the digitized density observations with documented
 weighting and measured-range limits; curve vertices and constants are not
 independent measured observations.
-The three Sakai gold source-table aliases reuse the existing Dewaele (2004),
-Takemura (2008), and Hirose (2008) CSVs. Their declarations and rows are counted
-here, but they add no independent measurements or recalibrated pressures.
 This inventory includes source-reported derived grids and diagnostics; dataset
 metadata distinguishes them from independent observations. For Zha et al.
 (2004), eight paired Au/Re observations constrain the continuous thermal EOS,
@@ -307,9 +336,12 @@ from BM2 to its published BM3 parameters with fixed `K0' = 6.5`. It also
 restores model-required `n`/`Z` values
 for Sokolova records, `n` for the Sun silica Debye records, and `Tr` for the
 Bezacier ice records, each with field-level `evidence.audit_corrections` provenance.
-The ten Shen--Smith (2026) Cu-anchored 300 K Vinet fits are validated directly
-against Equation (4), Tables I--II, and the phase-specific range discussion in
-the supplied version of record. Their printed `K0` and `K0'` errors are stored,
+The ten Shen--Smith (2026) Cu-anchored 300 K Vinet parameterizations are traced
+to Equation (4) and Tables I--II. Eight retain conditional coefficient parity;
+MgO and NaCl-B2 are `not_reproduced`, not recommended for quantitative use,
+and retained only for explicit diagnostic selection. The source-input audit
+accounts for all available Table S1 MgO/NaCl-B2 observations, while completeness
+of the actual author fit inputs remains unconfirmed. Their printed `K0` and `K0'` errors are stored,
 but no confidence level or covariance is inferred because the paper states
 neither.
 

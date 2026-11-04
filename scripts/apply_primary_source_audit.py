@@ -3342,10 +3342,16 @@ def deferred_reason(record: dict[str, Any], doi: str | None) -> str:
 def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
     from scripts.apply_eos_recommendation_holds import NOT_RECOMMENDED, WADSLEYITE
 
+    previous_validation = record.get("scientific_validation", {})
     if (
         record["identifier"] in set(NOT_RECOMMENDED) | {WADSLEYITE}
-        and record.get("scientific_validation", {}).get("recommendation_date")
-        == "2026-10-17"
+        and previous_validation.get("recommendation_date") == "2026-10-17"
+    ) or (
+        previous_validation.get("status")
+        in {"not_reproduced", "primary_source_validated"}
+        and previous_validation.get("usage_recommendation")
+        == "not_recommended_for_quantitative_use"
+        and previous_validation.get("recommendation_audit")
     ):
         # A generic transcription re-audit must not undo a reviewed source
         # discrepancy or reactivate a held default without new source evidence.
@@ -3557,7 +3563,10 @@ def audit_record(record: dict[str, Any], material_file: str) -> dict[str, Any]:
         if reproduction is not None:
             result["scientific_validation"]["reproduction"] = reproduction
 
-    if result["identifier"] == "e_feooh_gleason_2008_bm2_1":
+    if result["identifier"] in {
+        "e_feooh_gleason_2008_bm2_1",
+        "coesite_i_iii_bykova_2018_300k_bm3",
+    }:
         result["scientific_validation"]["note"] = previous["note"]
         result["scientific_validation"]["audit_date"] = previous["audit_date"]
         result["scientific_validation"]["verified_fields"] = previous["verified_fields"]

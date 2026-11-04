@@ -4,9 +4,9 @@ Browse the [readable material summaries](material-summaries/index.md) for
 parameter comparisons, uncertainties, calibration, selection holds and source
 qualifications. These sheets are generated from the complete EOSMAT documents.
 
-Peritheos exposes the complete bundled library through the normal executable
-API. `list_materials()` returns 229 `Material` objects and
-`list_eos_records()` returns their 662 `EOSRecord` objects. Both are ordered by
+Peritheos exposes the main curated library through the normal executable
+API. `list_materials()` returns 230 `Material` objects and
+`list_eos_records()` returns their 629 `EOSRecord` objects. Both are ordered by
 stable identifier and constructed from the same `.eosmat` files returned by
 the advanced `get_material_document()` API.
 
@@ -39,6 +39,41 @@ static/thermal/Hugoniot coverage, calibration readiness and ledger differences.
 The [material backlog](material-eos-candidates.md) separates open gaps,
 completed additions and evidence-dependent holds.
 
+Cementite (`cementite`) also includes the original Ono–Mibe (2010) experimental
+BM3 as `cementite_ono_mibe_2010_bm3`, a nondefault source at **300 K and
+0–34.3 GPa**. All 14 Table 1 observations are retained through 66.5 GPa; the
+higher-pressure rows are outside this fit's validity. The measured ambient
+reference volume is explicitly adopted, and the original fitting constraints
+and weights remain unknown. The 0 K calculations and Litasov recalibration
+are separate. See the [source audit](literature-reproductions/ono-mibe-2010-fe3c.md).
+
+Nonmagnetic cementite (`cementite_nonmagnetic`) includes the original Sata
+(2010) **300 K static BM3** as a qualified nondefault source EOS,
+limited to 27.2–186.6 GPa. Published coefficients are reproduced conditionally;
+some quoted point errors are smaller than the overall experimental scatter.
+The recalculated-pressure refit remains a separate diagnostic.
+`get_eos_record("cementite_nonmagnetic_sata_2010_bm3")` selects the source explicitly;
+its uncertainty and data-scatter qualifications should accompany its use.
+Its published 9.341 Å³/atom, 290 GPa and 3.76 coefficients remain separate
+from Litasov's later recalibrated Vinet comparison. The [source audit](literature-reproductions/sata-2010-fe3c.md)
+documents the joint Li/Sata selection, conditional parameter parity, poor data agreement and
+unresolved MgO reducer precision. The existing Takahashi default is unchanged.
+
+Hu et al. (2019) supplies the full **85.6–245 GPa experimental Hugoniot** as
+`cementite_nonmagnetic_hu_2019_linear_hugoniot`, retaining all six shots and the
+approximately 2% porous precursor. **Possible melting at higher pressures;
+density data do not resolve the phase state.** The refit remains a separate
+diagnostic. Calculated shock temperatures are not measured P–V–T points; the
+300 K metadata describe the normalized precursor. The separate thermal reduction
+is not installed. See the [Hu audit](literature-reproductions/hu-2019-fe3c.md).
+
+Ferrous ringwoodite (`ferrous_ringwoodite`, Fe2SiO4) supplies the Finger (1979)
+derived static ambient-cell reconstruction at **296.15 K and 0–4 GPa** only.
+It preserves the published K0=196(6) GPa and adopts the measured V0=558.7(2) Å³;
+the V0 error is a measurement esd, not an EOS-fit error. The separate 2011
+thermal candidate remains staged and is not installed. See the
+[static integration and thermal qualifications](research/ferrous-ringwoodite-armentrout-2011-integration.md).
+
 Fe-bearing phase E (`phase_e_fe0072`) preserves the Crichton–Ross (2000)
 measured composition and published static BM3. Its independent refit achieves
 parity within reported uncertainty; the [audit and residual plot](literature-reproductions/phase-e-crichton-ross-2000.md)
@@ -61,6 +96,12 @@ variants. They remain available only for diagnostic selection, with
 `not_reproduced` status. Wadsleyite's sole EOS is deferred and absent from
 executable discovery; no replacement default is selected. See the
 [recommendation dispositions](research/eos-recommendation-dispositions-2026-10-17.md).
+
+Shen and Smith's MgO and NaCl-B2 records are also `not_reproduced` and not
+recommended for quantitative use, with explicit diagnostic selection only.
+Their published curves disagree with direct fixed-volume fits to the available
+Table S1 observations. Exact author fit inputs remain unconfirmed; see the
+[source-input audit](literature-reproductions/shen-smith-2026-cu-refits.md).
 
 ## EOS record categories
 
@@ -110,7 +151,7 @@ The [primary EOS refit ledger](primary-eos-refits.md) uses these outcomes:
 |---|---|
 | Parity (`parity`) | Recovered free coefficients meet the documented uncertainty and numerical comparison criteria. Conditional or source-specific criteria are stated explicitly. |
 | Similar (`similar`) | The independent result meets documented numerical similarity criteria or a qualified uncertainty comparison. Similarity is not a statistical confidence claim. |
-| Parity not achieved (`parity_not_achieved`) | A fit produced a comparison, but at least one coefficient fails the stated agreement criteria. |
+| Parity not achieved (`parity_not_achieved`) | A fit produced a comparison, but coefficient agreement or a dedicated published-curve reproduction check remains unresolved. |
 | Source reconstruction (`source_reconstruction`) | Source equations, calculations or compositions are checked without independently refitting the complete EOS. |
 | Direct refit unavailable (`not_refittable`) | Available observations or reduction details do not support an independent fit of the complete EOS. |
 | Refit failed (`refit_failed`) | Extraction or numerical fitting failed before a usable comparison was produced. This differs from a completed fit with discrepant coefficients. |
@@ -372,7 +413,11 @@ diamond record remains available through its module-level constant and record
 identifier. The two colliding anchored record identifiers have equation-identical
 canonical counterparts, so their numerical behavior is unchanged.
 
-The NaCl-B2 catalog includes eight [Sakai et al. (2011) experimental fits](literature-reproductions/sakai-2011-nacl-b2.md): BM3 and Vinet on four separate Pt scales. These retain their own reference volumes and uncertainties and are distinct from the 2014 Yokoo-Pt recalibration.
+NaCl materials and EOS labels explicitly distinguish NaCl-B1 (rock-salt,
+Fm-3m) from NaCl-B2 (CsCl-type, Pm-3m). The phase description is also
+available through `Material.phase` and `EOSRecord.phase`.
+
+The NaCl-B2 catalog retains eight [Sakai et al. (2011) published fits](literature-reproductions/sakai-2011-nacl-b2.md). Normal discovery shows the Matsui-Pt BM3 and Vinet sources; the other six fits and the later 2014 Yokoo-Pt recalibration are published pressure-scale reference variants. Use `source.on_pressure_scale(target_node)` to evaluate a source on another reachable scale. `list_reference_variants(source.identifier)` and `include_reference_variants=True` expose the original alternatives. See the [catalog-wide variant audit](research/pressure-scale-variant-audit.md) for other grouped materials and the [conversion interface](pressure-scale-normalization.md#one-source-eos-selectable-output-scale) for pressure and volume calculations.
 
 The [Matsui (2009) Pt audit](literature-reproductions/matsui-2009-platinum.md)
 registers `platinum_matsui_2009_vinet_mgd_electronic` alongside the unchanged
@@ -396,3 +441,11 @@ These explicit-selection diagnostic records have validation status
 empirical residual-pressure correction; exact author-fit reproduction is
 not claimed. The [pressure-convention audit](literature-reproductions/yokoo-2009-pressure-conventions.md)
 tests the unreproduced analytical PVT independently of the fitted corrections.
+
+## Research collections
+
+The [Dewaele (2008) PAW collection](research/dewaele-2008-paw.md) preserves 54
+published computational parameterizations, provenance and graphical checks in
+standalone EOSMAT files. It is excluded from the main database, ordinary searches,
+and catalog record listings. Explicitly opening a research file does not register
+it in the database. The paper's 13 experimental EOS remain in the main catalog.

@@ -6,26 +6,39 @@ equilibrium surface $P(V,T)$. Peritheos makes that distinction explicit with
 `equation_kind="hugoniot"` while keeping the record in the material's common
 `eos_records` collection.
 
-This representation is phase and branch specific. If a shock crosses a phase
-boundary, use a separate EOS record for each independently parameterized stable
-branch. Do not silently extend the low-pressure `Us`-`up` relation into the
-high-pressure phase.
+Phase-resolved records identify their represented phase and branch. If a source
+independently parameterizes different phases, retain those branches separately.
+An empirical experimental path with unresolved phase state, such as Hu Fe3C,
+can retain its full measured range with that qualification explicit. Its range
+does not establish a solid-phase stability field.
 
-## Bundled single-phase records
+## Bundled shock-path records
 
-The initial production set deliberately contains only untransformed principal
-branches:
+The catalog includes phase-specific branches and explicitly qualified empirical
+experimental paths:
 
 - `mgo_b1_duffy_ahrens_1995_hugoniot_5`: published B1 MgO relation over
-  14--133 GPa.
-- `nickel_oxide_noguchi_1999_linear_hugoniot_2`: Peritheos OLS fit to the eight
-  final-state B1 NiO observations over 17.7--147.6 GPa; separately resolved
-  elastic-limit states are excluded.
+  14–133 GPa.
+- `nickel_oxide_noguchi_1999_linear_hugoniot_2`: Peritheos OLS fit to eight
+  final-state B1 NiO observations over 17.7–147.6 GPa, excluding elastic precursors.
+- `iron_brown_2000_linear_hugoniot`: published nominal-iron steel velocity
+  relation, operationally restricted to the solid subset at 39.6–191.8 GPa.
+- `cementite_nonmagnetic_hu_2019_linear_hugoniot`: published six-shot Fe3C
+  velocity relation over the full **85.6–245 GPa** experimental range. Possible
+  melting at higher pressures; density data do not resolve the phase state.
+  The approximately 2% porous precursor, individual initial densities and all
+  six shots through 245 GPa are retained. Bulk mass-equivalent volume includes
+  pores and is not a diffraction lattice volume. The separate thermal reduction
+  is not installed. See the [source audit](literature-reproductions/hu-2019-fe3c.md).
 
-Both records retain their precursor density, phase, branch domain, uncertainty
-provenance, and source-page locations. Transformed, liquid, mixed-phase, and
-phase-pooled candidates remain outside the production library pending an
-explicit phase-transition representation.
+Each record retains its precursor, operational mass/volume basis, branch domain,
+source coefficients and uncertainty semantics. A broad source velocity fit does
+not establish single-phase validity across every source shot: solid subsets are
+explicit usage restrictions where claimed. An empirical full-range shock path
+can retain measurements with unresolved high-pressure phase state when that
+qualification is explicit, as for Hu Fe3C. It does not establish solid-phase
+stability or an equilibrium surface. Reference temperature
+metadata describe the normalized precursor, not a constant shock temperature.
 
 ## Linear shock-velocity relation
 

@@ -272,7 +272,7 @@ commit or documentation version when an exact historical assessment is needed.
 These optional fields do not require standalone user files to have online reports.
 The existing `report` field still identifies the full machine-readable ledger.
 
-The [reconstruction reports](reconstruction-reports/index.md) cover every bundled
+The [reconstruction reports](reconstruction-reports/index.md) cover every main-catalog
 EOS. They explain scope, comparison basis, recorded data/method, fixed constraints
 and limitations. Where numeric comparison pairs exist, a graph shows source/target
 and reconstructed **coefficient central values**, with full values and reported

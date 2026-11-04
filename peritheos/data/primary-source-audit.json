@@ -9,10 +9,10 @@
     "deferred_behavior": "retained for interchange; rejected by Material.from_eosmat"
   },
   "summary": {
-    "records": 666,
+    "records": 685,
     "deferred": 4,
-    "not_reproduced": 14,
-    "primary_source_validated": 648
+    "not_reproduced": 18,
+    "primary_source_validated": 663
   },
   "records": [
     {
@@ -2507,6 +2507,25 @@
     {
       "material": "cementite",
       "file": "cementite.eosmat",
+      "record": "cementite_prescher_2012_full_range_bm3",
+      "label": "Prescher et al. (2012), full-range BM3 (adopted V0)",
+      "doi": "10.1103/physrevb.85.140402",
+      "status": "primary_source_validated",
+      "note": "Published BM3 K coefficients/errors, units and reference conventions checked against the primary paper; V0 is an explicitly documented graph-derived adoption, not a published coefficient. Conditional agreement includes both printed error values; original confidence and author workflow remain unconfirmed.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.85.140402",
+        "access_url": "https://doi.org/10.1103/PhysRevB.85.140402",
+        "locations": [
+          "page 140402-2, section III and Figure 1",
+          "Figure 1, drawn full-range curve (adopted V0)",
+          "Final supplementary Table S1, pages 1-2"
+        ],
+        "finding": "Published K coefficients/errors preserved. Unprinted V0 supplied by explicit Figure 1 full-curve adoption; source constraint and original workflow unresolved. See docs/literature-reproductions/prescher-2012-recovery.md"
+      }
+    },
+    {
+      "material": "cementite",
+      "file": "cementite.eosmat",
       "record": "cementite_li_2002_bm3",
       "label": "Li et al. (2002), 300 K BM3",
       "doi": "10.1007/s00269-001-0224-4",
@@ -2521,6 +2540,28 @@
         "source_pdf_sha256": "3b4761baa81a3e4bd419f8e93d5e453d7c5d7c2b64b400514d0f468dbcb211af",
         "finding": "Published BM3 coefficients preserved with measured V0 fixed; direct source-equation and conditional coefficient checks pass. See docs/literature-reproductions/li-2002-fe3c.md"
       }
+    },
+    {
+      "material": "cementite",
+      "file": "cementite.eosmat",
+      "record": "cementite_ono_mibe_2010_bm3",
+      "label": "Ono and Mibe (2010), original experimental 300 K BM3, below 35 GPa",
+      "doi": "10.1016/j.pepi.2010.03.008",
+      "status": "primary_source_validated",
+      "note": "Original experimental BM3 at 300 K, restricted to the below-35-GPa fit (last measured fit point 34.3 GPa). V0=155.4(2) A^3 is adopted from the measured Table 1 ambient cell and checked against Figure 4; the paper does not explicitly state its V0 fitting constraint. K0=167 GPa and K0_prime=6.7 are the original Table 3 values, without reported coefficient errors. Source-equation agreement is checked at graphical resolution; the separate fixed-anchor equal-pressure refit is diagnostic, not coefficient parity or recovery of author weights. Original pressures and all 14 measurements are preserved. No Litasov recalibration, 0 K DFT branch, high-pressure magnetic transition model or thermal extrapolation is substituted.",
+      "primary_source_check": {
+        "access_url": "https://doi.org/10.1016/j.pepi.2010.03.008",
+        "doi": "10.1016/j.pepi.2010.03.008",
+        "locations": [
+          "Table 1 and Figure 4, p. 3",
+          "BM3 pressure equation, p. 4",
+          "Table 3, experimental row e, p. 5",
+          "Methods/Results, p. 2"
+        ],
+        "finding": "Original experimental BM3 at 300 K, restricted to the below-35-GPa fit (last measured fit point 34.3 GPa). V0=155.4(2) A^3 is adopted from the measured Table 1 ambient cell and checked against Figure 4; the paper does not explicitly state its V0 fitting constraint. K0=167 GPa and K0_prime=6.7 are the original Table 3 values, without reported coefficient errors. Source-equation agreement is checked at graphical resolution; the separate fixed-anchor equal-pressure refit is diagnostic, not coefficient parity or recovery of author weights. Original pressures and all 14 measurements are preserved. No Litasov recalibration, 0 K DFT branch, high-pressure magnetic transition model or thermal extrapolation is substituted."
+      },
+      "usage_recommendation": "qualified_use",
+      "recommendation_reason": "Use original experimental curve within 300 K and 0-34.3 GPa; ambient anchor adoption and unavailable author fit details remain explicit."
     },
     {
       "material": "cementite_nonmagnetic",
@@ -2559,6 +2600,56 @@
         ],
         "finding": "Source equations 1-6 and Tables 1-2 reproduce independent calculated density benchmarks at 329 GPa and 5000 K; these extrapolated calculated states are not measured observations. See cementite reproduction report for declared print/graphical tolerances."
       }
+    },
+    {
+      "material": "cementite_nonmagnetic",
+      "file": "cementite_nonmagnetic.eosmat",
+      "record": "cementite_nonmagnetic_sata_2010_bm3",
+      "label": "Sata et al. (2010), nonmagnetic Fe3C, original-scale 300 K BM3",
+      "doi": "10.1029/2009jb006975",
+      "status": "primary_source_validated",
+      "note": "Final publisher Tables 1/6 and paragraph 15 verified against the original 2009 manuscript for the common Fe3C tokens and fit triplet. Nine new states plus the three explicitly selected Li (2002) rows reproduce Pr/Kr/Kr-prime conditionally. Published coefficients preserved; no Litasov (2013) recalibrated coefficient or pressure is substituted. Source verification and conditional coefficient parity coexist with poor agreement with some quoted coordinate-error estimates. Retained as a nondefault published EOS with explicit error/scatter qualifications; source confidence and covariance remain unspecified.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2009JB006975",
+        "doi": "10.1029/2009JB006975",
+        "locations": [
+          "Tables 1 and 6",
+          "Equations 1–2",
+          "paragraphs 5–6, 12 and 14–15",
+          "Table 4 diffraction spacings",
+          "paragraphs 24–27, pressure-scale consistency"
+        ],
+        "finding": "Final publisher Tables 1/6 and paragraph 15 verified against the original 2009 manuscript for the common Fe3C tokens and fit triplet. Nine new states plus the three explicitly selected Li (2002) rows reproduce Pr/Kr/Kr-prime conditionally. Published coefficients preserved; no Litasov (2013) recalibrated coefficient or pressure is substituted. Source verification and conditional coefficient parity coexist with poor agreement with some quoted coordinate-error estimates. Retained as a nondefault published EOS with explicit error/scatter qualifications; source confidence and covariance remain unspecified."
+      },
+      "usage_recommendation": "qualified_use",
+      "recommendation_date": "2026-11-01",
+      "recommendation_audit": "docs/literature-reproductions/sata-2010-fe3c.md#conditional-fit-replay-and-residuals",
+      "recommendation_reason": "Retain as a nondefault published EOS at 300 K and 27.2–186.6 GPa with explicit uncertainty/data-scatter qualifications. Published coefficients are reproduced conditionally within their reported error widths, but the source confidence convention and covariance are unspecified. Observation scatter exceeds some tabulated coordinate-error estimates. The unchanged curve has pressure RMS 1.106733 GPa and maximum absolute residual 2.591677 GPa on the joint 12-row selection. Six of nine Sata observations exceed their first-order combined P/V error widths; the largest ratio is 9.02 under an uncorrelated-coordinate assumption. These ratios are descriptive, not formal sigma significances. Conditional parameter parity and primary-source verification do not establish the complete experimental uncertainty budget or original-workflow reproduction. The recalculated-pressure refit remains a separate diagnostic."
+    },
+    {
+      "material": "cementite_nonmagnetic",
+      "file": "cementite_nonmagnetic.eosmat",
+      "record": "cementite_nonmagnetic_hu_2019_linear_hugoniot",
+      "label": "Hu et al. (2019), porous-precursor experimental Hugoniot, 85.6-245 GPa",
+      "doi": "10.1029/2019gl084545",
+      "status": "primary_source_validated",
+      "note": "Published six-shot linear Us-up relation retained, with conditional coefficient agreement within both reported error widths under an equal-Us-weight diagnostic. Source confidence, covariance and exact fitting weights are unspecified; this is not recovered author-workflow or uncertainty parity. The published empirical principal Hugoniot is retained over its full experimental range, 85.6-245 GPa. Possible melting at higher pressures; density data do not resolve the phase state. All six shots remain data and source-fit inputs. Mean porous precursor density 7.525(0.010) g/cm3 is explicitly adopted as the common path normalization; individual measured initial densities remain unchanged. V0 is a mass-equivalent bulk volume including approximately 2% porosity, not a diffraction lattice volume or the Sata nonmagnetic V0. The 300 K reference is conventional precursor normalization, not measured shock temperature. The separate thermal reduction and the 7.982 g/cm3 Gruneisen reference are not installed as this Hugoniot.",
+      "primary_source_check": {
+        "access_url": "https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019GL084545",
+        "doi": "10.1029/2019GL084545",
+        "locations": [
+          "Methods, sample density/porosity and starting-phase XRD",
+          "Results, Us-up and conservation equations",
+          "Table 1 and footnote",
+          "Section 3.1.2, possible melting",
+          "Official PANGAEA.905474 workbook, Sheet1!A1:I8"
+        ],
+        "finding": "Published six-shot linear Us-up relation retained, with conditional coefficient agreement within both reported error widths under an equal-Us-weight diagnostic. Source confidence, covariance and exact fitting weights are unspecified; this is not recovered author-workflow or uncertainty parity. The published empirical principal Hugoniot is retained over its full experimental range, 85.6-245 GPa. Possible melting at higher pressures; density data do not resolve the phase state. All six shots remain data and source-fit inputs. Mean porous precursor density 7.525(0.010) g/cm3 is explicitly adopted as the common path normalization; individual measured initial densities remain unchanged. V0 is a mass-equivalent bulk volume including approximately 2% porosity, not a diffraction lattice volume or the Sata nonmagnetic V0. The 300 K reference is conventional precursor normalization, not measured shock temperature. The separate thermal reduction and the 7.982 g/cm3 Gruneisen reference are not installed as this Hugoniot."
+      },
+      "usage_recommendation": "qualified_use",
+      "recommendation_reason": "Retain the published experimental Hugoniot over 85.6-245 GPa for the porous precursor. Possible melting at higher pressures; density data do not resolve the phase state.",
+      "recommendation_date": "2026-11-02",
+      "recommendation_audit": "docs/literature-reproductions/hu-2019-fe3c.md#full-experimental-range-and-possible-melting"
     },
     {
       "material": "cerium_dioxide",
@@ -2652,6 +2743,63 @@
       }
     },
     {
+      "material": "cobalt_hcp",
+      "file": "cobalt_hcp.eosmat",
+      "record": "cobalt_hcp_dewaele_2008_table4_vinet",
+      "label": "Dewaele et al. (2008), Table IV Vinet, K0 fitted",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table IV, third column, p. 104102-5"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
+      }
+    },
+    {
+      "material": "cobalt_hcp",
+      "file": "cobalt_hcp.eosmat",
+      "record": "cobalt_hcp_dewaele_2008_table4_us_k0_184_vinet",
+      "label": "Dewaele et al. (2008), Table IV Vinet, US K0=184 GPa fixed",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table IV, fourth column, p. 104102-5"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
+      }
+    },
+    {
+      "material": "cobalt_hcp",
+      "file": "cobalt_hcp.eosmat",
+      "record": "cobalt_hcp_dewaele_2008_table4_us_k0_190_vinet",
+      "label": "Dewaele et al. (2008), Table IV Vinet, US K0=190 GPa fixed",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table IV, fourth column, p. 104102-5"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
+      }
+    },
+    {
       "material": "coesite",
       "file": "coesite.eosmat",
       "record": "coesite_levien_1981_bm3_1",
@@ -2677,7 +2825,7 @@
       "label": "Bykova et al. (2018), combined coesite-I/II/III 300 K BM3",
       "doi": "10.1038/s41467-018-07265-z",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "note": "Central-coefficient parity is achieved; the author's fit values are reproduced at reported precision. Published coefficients and errors are preserved. The recovered 22 author inputs contain 21 measured entries and one derived ambient anchor. Uncertainty/covariance parity and every original EoSFit configuration detail remain unverified.",
       "primary_source_check": {
         "access_url": "https://www.nature.com/articles/s41467-018-07265-z",
         "doi": "10.1038/s41467-018-07265-z",
@@ -2686,19 +2834,21 @@
           "Figure 1 caption",
           "Methods: X-ray diffraction",
           "Supplementary Tables 1-2",
-          "Cernok thesis Table 5.1 reproducing the cited 2014 diffraction Table 1"
+          "Cernok thesis Table 5.1 reproducing the cited 2014 diffraction Table 1",
+          "Author-provided coeII-plot.dat Group 1 lines 9-30 and calculated curve",
+          "Author-provided coesite_final.xlsx LIT/SUM, received 2026-10-25"
         ],
-        "finding": "One source-owned BM3 fitted jointly to coesite-I, II, and III pressure-volume data. Twenty-four exact observations can be recovered from Supplementary Table 2 and the cited diffraction table; several current-study coesite-I observations remain plot-only."
+        "finding": "Central-coefficient parity is achieved; the author's fit values are reproduced at reported precision. The original export/workbook establish the selection and rounding; Elena reports pressure-only inverse-variance weighting. The 22 inputs contain 21 measured entries and a derived Cernok fitted ambient anchor. The earlier 24-row unweighted comparison remains historical."
       }
     },
     {
       "material": "coesite_iv",
       "file": "coesite_iv.eosmat",
       "record": "coesite_iv_bykova_2018_am05_static_bm3_refit",
-      "label": "Bykova et al. (2018), coesite-IV static AM05 BM3 reconstruction",
+      "label": "Peritheos coesite-IV BM3 refit of Bykova et al. (2018) calculated states",
       "doi": "10.1038/s41467-018-07265-z",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "note": "The source inputs and conditional Peritheos refit are traceable to the primary publication. V0 is not a published coefficient. Independent Figure 6 readings check the unchanged curve at graphical resolution; source-author regression, physical accuracy and total parameter uncertainty are not established.",
       "primary_source_check": {
         "access_url": "https://www.nature.com/articles/s41467-018-07265-z",
         "doi": "10.1038/s41467-018-07265-z",
@@ -2707,8 +2857,29 @@
           "Supplementary Figure 6",
           "Supplementary Tables 10-11"
         ],
-        "finding": "Independent calculated coesite-IV BM3; V0 reconstructed transparently because only K0 and K0' are printed."
+        "finding": "Supplementary Table 11 publishes K0=168.52 GPa and K0_prime=3.34, but no V0. The stored V0 is a conditional Peritheos one-parameter fit, quantitatively checked against Figure 6 without fitting its markers."
       }
+    },
+    {
+      "material": "coesite_iv",
+      "file": "coesite_iv.eosmat",
+      "record": "coesite_iv_v_bykova_2018_experimental_bm2_reference",
+      "label": "Bykova et al. (2018), combined coesite-IV/V experimental BM2 at 32.7 GPa",
+      "doi": "10.1038/s41467-018-07265-z",
+      "status": "primary_source_validated",
+      "note": "Published joint coesite-IV/V room-temperature empirical fit, not a pure-phase EOS. The explicit 32.7 GPa reference-pressure BM2 reproduces Figure 1's red vector curve within its stroke/calibration bounds. All 16 Table 2 observations are retained: pressure RMS 4.04659 GPa; maximum 11.85457 GPa at the 44.5 GPa coesite-V datum. The source acknowledges significant between-run scatter. Original objective, weights, row mask, fixed/free reference-volume choice and covariance are unspecified. The independent equal-weight diagnostic does not recover the source coefficients and is not adopted. Source-equation validation is not author-fit parity or physical validation. See the dedicated experimental audit.",
+      "primary_source_check": {
+        "access_url": "https://www.nature.com/articles/s41467-018-07265-z",
+        "doi": "10.1038/s41467-018-07265-z",
+        "locations": [
+          "Figure 1 caption and red vector curve, PDF page 2",
+          "Supplementary Table 2, PDF page 13",
+          "Supplementary Figure 9"
+        ],
+        "finding": "The published coefficients with an explicit 32.7 GPa reference reproduce the drawn red curve; all observation residuals and unresolved author-fit details are separately retained."
+      },
+      "usage_recommendation": "not_recommended",
+      "recommendation_reason": "Retained for reproduction of the published joint empirical curve. Large observation residuals, unresolved fitting protocol, stress sensitivity and joint-phase scope preclude recommendation for quantitative pure-phase predictions or pressure calibration. Explicit selection only."
     },
     {
       "material": "coo",
@@ -3218,6 +3389,44 @@
         ],
         "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
         "doi": "10.1103/fxgq-96sg"
+      }
+    },
+    {
+      "material": "fe",
+      "file": "fe.eosmat",
+      "record": "fe_dewaele_2008_table4_vinet",
+      "label": "Dewaele et al. (2008), Table IV Vinet, K0 fitted",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table IV, third column, p. 104102-5"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
+      }
+    },
+    {
+      "material": "fe",
+      "file": "fe.eosmat",
+      "record": "fe_dewaele_2008_table4_us_k0_165_vinet",
+      "label": "Dewaele et al. (2008), Table IV Vinet, US K0=165 GPa fixed",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table IV, fourth column, p. 104102-5"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
       }
     },
     {
@@ -4017,6 +4226,24 @@
           "Figures 5-6"
         ],
         "finding": "The source defines a three-free-parameter, error-weighted BM3 fit to all 10 Fe27 observations and gives the Eulerian equation, conventional-cell volume basis, exact sample composition, and quartz pressure calibration."
+      }
+    },
+    {
+      "material": "ferrous_ringwoodite",
+      "file": "ferrous_ringwoodite.eosmat",
+      "record": "ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction",
+      "label": "Finger et al. (1979), 23 degC BM2, measured ambient-cell reconstruction",
+      "doi": null,
+      "status": "primary_source_validated",
+      "note": "Reviewed for static-only integration on 1 November 2026. Primary source BM2 and K0 verified on pp. 1004–1005; all three Table 2 Fe rows and source esds preserved. The adopted measured ambient volume is an explicitly derived choice, not recovered original fit V0. Thermal candidate excluded.",
+      "primary_source_check": {
+        "access_url": "https://hazen.carnegiescience.edu/sites/default/files/043-FH-SiSpinels.pdf",
+        "locations": [
+          "p1004: explicitly second-order Birch-Murnaghan, Kprime fixed4; room-condition crystal refinement",
+          "p1005 Table2: all three Fe cell refinements",
+          "p1005:1.96(6)Mbar Fe spinel bulk modulus"
+        ],
+        "finding": "Reviewed for static-only integration on 1 November 2026. Primary source BM2 and K0 verified on pp. 1004–1005; all three Table 2 Fe rows and source esds preserved. The adopted measured ambient volume is an explicitly derived choice, not recovered original fit V0. Thermal candidate excluded."
       }
     },
     {
@@ -8918,8 +9145,8 @@
       "record": "mgo_shen_2026_vinet_3",
       "label": "Shen and Smith (2026), Cu-referenced Vinet",
       "doi": "10.1103/fxgq-96sg",
-      "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "status": "not_reproduced",
+      "note": "Equation and printed coefficients remain source-checked, but the Table II fit is not reproduced from the available published inputs. The published fixed-V0 MgO Vinet curve gives 1.161241 GPa pressure RMS and residuals up to +2.8032 GPa on all 194 DAC-2 Table S1 observations. A direct unweighted refit gives K0=161.827434 GPa, K0_prime=3.953583 and RMS 0.475879 GPa, versus published 161.9 GPa and 4.08. The source-fit discrepancy is unresolved.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1103/fxgq-96sg",
         "locations": [
@@ -8933,7 +9160,12 @@
         ],
         "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
         "doi": "10.1103/fxgq-96sg"
-      }
+      },
+      "usage_recommendation": "not_recommended_for_quantitative_use",
+      "reproduction_status": "not_reproduced",
+      "recommendation_date": "2026-10-17",
+      "recommendation_audit": "docs/literature-reproductions/shen-smith-2026-cu-refits.md",
+      "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 MgO Vinet curve gives 1.161241 GPa pressure RMS and residuals up to +2.8032 GPa on all 194 DAC-2 Table S1 observations. A direct unweighted refit gives K0=161.827434 GPa, K0_prime=3.953583 and RMS 0.475879 GPa, versus published 161.9 GPa and 4.08. The source-fit discrepancy is unresolved."
     },
     {
       "material": "mgo",
@@ -10011,6 +10243,44 @@
       }
     },
     {
+      "material": "molybdenum",
+      "file": "molybdenum.eosmat",
+      "record": "molybdenum_dewaele_2008_table4_vinet",
+      "label": "Dewaele et al. (2008), Table IV Vinet, K0 fitted",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table IV, third column, p. 104102-5"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
+      }
+    },
+    {
+      "material": "molybdenum",
+      "file": "molybdenum.eosmat",
+      "record": "molybdenum_dewaele_2008_table4_us_k0_261_vinet",
+      "label": "Dewaele et al. (2008), Table IV Vinet, US K0=261 GPa fixed",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table IV, fourth column, p. 104102-5"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
+      }
+    },
+    {
       "material": "molybenum_carbide_mo2c",
       "file": "molybenum_carbide_mo2c.eosmat",
       "record": "molybenum_carbide_mo2c_haines_2001_bm3_1",
@@ -10134,7 +10404,7 @@
       "material": "nacl_b1",
       "file": "nacl_b1.eosmat",
       "record": "nacl_b1_shen_2026_vinet_1",
-      "label": "Shen and Smith (2026), Cu-referenced Vinet",
+      "label": "Shen and Smith (2026), NaCl-B1 Cu-referenced Vinet",
       "doi": "10.1103/fxgq-96sg",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -10177,7 +10447,7 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_heinz_1984_bm2_1",
-      "label": "Heinz and Jeanloz (1984), B2",
+      "label": "Heinz and Jeanloz (1984), NaCl-B2 BM2",
       "doi": "10.1103/physrevb.30.6045",
       "status": "primary_source_validated",
       "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
@@ -10196,10 +10466,10 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_shen_2026_vinet_2",
-      "label": "Shen and Smith (2026), Cu-referenced Vinet",
+      "label": "Shen and Smith (2026), NaCl-B2 Cu-referenced Vinet",
       "doi": "10.1103/fxgq-96sg",
-      "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "status": "not_reproduced",
+      "note": "Equation and printed coefficients remain source-checked, but the Table II fit is not reproduced from the available published inputs. The published fixed-V0 NaCl-B2 Vinet curve gives 0.622381 GPa pressure RMS and mean residual -0.547610 GPa on 125 DAC-2 Table S1 observations above 35 GPa; all 125 residuals are negative. A direct unweighted refit gives K0=25.447259 GPa, K0_prime=5.582768 and RMS 0.293229 GPa, versus published 24.92 GPa and 5.63. The source-fit discrepancy is unresolved; including the above-33-GPa transition rows does not restore agreement.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1103/fxgq-96sg",
         "locations": [
@@ -10213,13 +10483,18 @@
         ],
         "finding": "The ten stored records are the Cu-anchored reduced-300 K Vinet P-V fits. V0 is fixed; the table's quoted K0 and K0' uncertainties are preserved. The official Table S1 workbook supplies the complete simultaneous unit-cell-volume dataset and its row-wise standard errors. Pressures are reproducible from same-run Cu volumes using Fratanduono et al. (2020) Supplemental Eq. (2) and the main-article Table I 298 K coefficients. The article does not state a confidence level, pressure weights, or parameter covariance, so none is inferred.",
         "doi": "10.1103/fxgq-96sg"
-      }
+      },
+      "usage_recommendation": "not_recommended_for_quantitative_use",
+      "reproduction_status": "not_reproduced",
+      "recommendation_date": "2026-10-17",
+      "recommendation_audit": "docs/literature-reproductions/shen-smith-2026-cu-refits.md",
+      "recommendation_reason": "Not recommended for scientific predictions or pressure calibration. Retained only for explicit diagnostic inspection. The published fixed-V0 NaCl-B2 Vinet curve gives 0.622381 GPa pressure RMS and mean residual -0.547610 GPa on 125 DAC-2 Table S1 observations above 35 GPa; all 125 residuals are negative. A direct unweighted refit gives K0=25.447259 GPa, K0_prime=5.582768 and RMS 0.293229 GPa, versus published 24.92 GPa and 5.63. The source-fit discrepancy is unresolved; including the above-33-GPa transition rows does not restore agreement."
     },
     {
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_sakai_2014_yokoo_pt_bm3",
-      "label": "Sakai et al. (2014), yokoo_pt_bm3",
+      "label": "Sakai et al. (2014), NaCl-B2 BM3, Yokoo et al. (2009) Pt scale",
       "doi": "10.1016/j.pepi.2013.12.010",
       "status": "primary_source_validated",
       "note": "Primary publication equations, coefficients and scope checked; regression parity is evaluated separately.",
@@ -10236,7 +10511,7 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_sakai_2011_matsui_pt_bm3",
-      "label": "Sakai et al. (2011), BM3, Matsui et al. (2009) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 BM3, Matsui et al. (2009) Pt scale",
       "doi": "10.1063/1.3573393",
       "status": "primary_source_validated",
       "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
@@ -10269,7 +10544,7 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_sakai_2011_matsui_pt_vinet",
-      "label": "Sakai et al. (2011), Vinet, Matsui et al. (2009) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 Vinet, Matsui et al. (2009) Pt scale",
       "doi": "10.1063/1.3573393",
       "status": "primary_source_validated",
       "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
@@ -10302,7 +10577,7 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_sakai_2011_fei_pt_bm3",
-      "label": "Sakai et al. (2011), BM3, Fei et al. (2007) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 BM3, Fei et al. (2007) Pt scale",
       "doi": "10.1063/1.3573393",
       "status": "primary_source_validated",
       "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
@@ -10335,7 +10610,7 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_sakai_2011_fei_pt_vinet",
-      "label": "Sakai et al. (2011), Vinet, Fei et al. (2007) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 Vinet, Fei et al. (2007) Pt scale",
       "doi": "10.1063/1.3573393",
       "status": "primary_source_validated",
       "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
@@ -10368,7 +10643,7 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_sakai_2011_do_pt_bm3",
-      "label": "Sakai et al. (2011), BM3, Dorogokupets and Oganov (2007) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 BM3, Dorogokupets and Oganov (2007) Pt scale",
       "doi": "10.1063/1.3573393",
       "status": "primary_source_validated",
       "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
@@ -10401,7 +10676,7 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_sakai_2011_do_pt_vinet",
-      "label": "Sakai et al. (2011), Vinet, Dorogokupets and Oganov (2007) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 Vinet, Dorogokupets and Oganov (2007) Pt scale",
       "doi": "10.1063/1.3573393",
       "status": "primary_source_validated",
       "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
@@ -10434,7 +10709,7 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_sakai_2011_holmes_pt_bm3",
-      "label": "Sakai et al. (2011), BM3, Holmes et al. (1989) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 BM3, Holmes et al. (1989) Pt scale",
       "doi": "10.1063/1.3573393",
       "status": "primary_source_validated",
       "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
@@ -10467,7 +10742,7 @@
       "material": "nacl_b2",
       "file": "nacl_b2.eosmat",
       "record": "nacl_b2_sakai_2011_holmes_pt_vinet",
-      "label": "Sakai et al. (2011), Vinet, Holmes et al. (1989) Pt scale",
+      "label": "Sakai et al. (2011), NaCl-B2 Vinet, Holmes et al. (1989) Pt scale",
       "doi": "10.1063/1.3573393",
       "status": "primary_source_validated",
       "note": "Primary tables, equations, scale alternatives, reference volume, stress assessment and numerical reproduction audited independently.",
@@ -10638,18 +10913,38 @@
     {
       "material": "nickel",
       "file": "nickel.eosmat",
-      "record": "nickel_dewaele_2008_vinet_1",
-      "label": "Dewaele et al. (2008), Vinet",
+      "record": "nickel_dewaele_2008_table4_vinet",
+      "label": "Dewaele et al. (2008), Table IV Vinet, K0 fitted",
       "doi": "10.1103/physrevb.78.104102",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
       "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
         "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
         "locations": [
-          "Vinet formulation",
-          "Table II, Ni and Ag rows"
+          "Equation (1)",
+          "Table IV, third column, p. 104102-5"
         ],
-        "doi": "10.1103/physrevb.78.104102"
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
+      }
+    },
+    {
+      "material": "nickel",
+      "file": "nickel.eosmat",
+      "record": "nickel_dewaele_2008_vinet_1",
+      "label": "Dewaele (2019), Mao-scale Vinet; historical 2008 identifier",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
       }
     },
     {
@@ -10706,6 +11001,25 @@
         ],
         "finding": "Four source-owned experimental thermal fits; adopted hcp-Fe and numerical buffer integrations are excluded as new EOS. Source explicitly treats FeO as stoichiometric B1; the exact 295 K variable-exponent thermal law is represented.",
         "source_pdf_sha256": "e48e23a348370b1613f4e9439bd39e5d49b94c01b1e6c3d3d9a797f092ebd9f0"
+      }
+    },
+    {
+      "material": "nickel",
+      "file": "nickel.eosmat",
+      "record": "nickel_dewaele_2008_table4_us_k0_183_vinet",
+      "label": "Dewaele et al. (2008), Table IV Vinet, US K0=183 GPa fixed",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table IV, fourth column, p. 104102-5"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
       }
     },
     {
@@ -10924,10 +11238,10 @@
       "material": "palladium",
       "file": "palladium.eosmat",
       "record": "palladium_fedotenko_2020_bm2_2",
-      "label": "Fedotenko et al. (2020), constrained BM2",
+      "label": "Fedotenko et al. (2020), constrained BM2 (poor fit; diagnostic only)",
       "doi": "10.1016/j.jallcom.2020.156179",
       "status": "primary_source_validated",
-      "note": "Independently checked against the author-provided publication copy embedded in the first author's thesis.",
+      "note": "Source equation, coefficients and units are verified, and the corrected conditional refit achieves coefficient parity. The published BM2 curve fits Table 1 poorly; data agreement and the negative quantitative-use recommendation are separate findings, not failed coefficient reproduction.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1016/j.jallcom.2020.156179",
         "locations": [
@@ -10937,7 +11251,16 @@
         ],
         "finding": "Table 2 explicitly reports the second-order result K0=203(3) GPa with K0'=4. It uses the same Table 1 observations as the BM3 fit.",
         "doi": "10.1016/j.jallcom.2020.156179"
-      }
+      },
+      "usage_recommendation": "not_recommended_for_quantitative_use",
+      "recommendation_reason": "The published fixed-Kprime=4 curve shows systematic poor agreement with Table 1 despite numerical coefficient parity; corrected diagnostic reduced chi-square is about 25 under the documented independent absolute-error assumptions.",
+      "recommendation_date": "2026-10-23",
+      "recommendation_audit": "docs/literature-reproductions/palladium-fedotenko-2020-audit.md",
+      "data_agreement_status": "poor",
+      "source_equation_status": "reproduced",
+      "reproduction_status": "parity",
+      "classification_date": "2026-10-24",
+      "warning": "Do not use this fixed-Kprime=4 fit for quantitative predictions or pressure calibration. Coefficient parity reproduces the published poor fit; it does not establish adequate data agreement."
     },
     {
       "material": "palladium",
@@ -10945,8 +11268,8 @@
       "record": "palladium_frost_2023_vinet_1",
       "label": "Frost et al. (2023), Vinet",
       "doi": "10.1063/5.0161038",
-      "status": "primary_source_validated",
-      "note": "Equation, parameters, uncertainties, fitting method, range, phase, and pressure standards were checked against the complete primary article.",
+      "status": "not_reproduced",
+      "note": "Equation, published coefficients, units and all observations are source-checked against the final article and supplement. The original fit protocol is not fully recovered; uncertainty agreement depends on the assumed covariance convention. The record remains not_reproduced pending protocol clarification, rather than a demonstrated failure of the authors' full protocol.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1063/5.0161038",
         "locations": [
@@ -10960,7 +11283,15 @@
         ],
         "finding": "The paper reports three hydrogen-free Pd-in-neon runs to 182 GPa and fits both Vinet and BM3 forms using pressure and volume uncertainties. Supplementary Tables I-III provide all 93 sample observations; Runs 1 and 2 use tungsten pressure markers and Run 3 uses gold.",
         "doi": "10.1063/5.0161038"
-      }
+      },
+      "reproduction_status": "not_reproduced",
+      "source_equation_status": "reproduced",
+      "fit_reproduction_status": "not_reproduced",
+      "recommendation_date": "2026-10-17",
+      "recommendation_audit": "docs/literature-reproductions/palladium-frost-2023-audit.md",
+      "recommendation_reason": "The original author regression remains unrecovered. The final paper specifies uncertainty-aware Marquardt-Levenberg fitting but not the exact objective, ambient-point inclusion, constraints or covariance convention. Independent refits have similar central coefficients; the combined-two-width comparison fails with absolute-error covariance and passes with residual-scaled covariance. This is not a demonstrated failed replay of the author protocol. Quantitative recommendation and the default remain on hold pending clarification.",
+      "usage_recommendation": "not_recommended_for_quantitative_use",
+      "fit_audit_date": "2026-10-17"
     },
     {
       "material": "palladium",
@@ -10968,8 +11299,8 @@
       "record": "palladium_frost_2023_bm3_2",
       "label": "Frost et al. (2023), BM3",
       "doi": "10.1063/5.0161038",
-      "status": "primary_source_validated",
-      "note": "Equation, parameters, uncertainties, fitting method, range, phase, and pressure standards were checked against the complete primary article.",
+      "status": "not_reproduced",
+      "note": "Equation, published coefficients, units and all observations are source-checked against the final article and supplement. The original fit protocol is not fully recovered; uncertainty agreement depends on the assumed covariance convention. The record remains not_reproduced pending protocol clarification, rather than a demonstrated failure of the authors' full protocol.",
       "primary_source_check": {
         "access_url": "https://doi.org/10.1063/5.0161038",
         "locations": [
@@ -10982,7 +11313,15 @@
         ],
         "finding": "Table I reports the alternative BM3 coefficients for the same three hydrogen-free Pd-in-neon runs to 182 GPa used in the Vinet fit, and supplementary Tables I-III provide all 93 sample observations.",
         "doi": "10.1063/5.0161038"
-      }
+      },
+      "reproduction_status": "not_reproduced",
+      "source_equation_status": "reproduced",
+      "fit_reproduction_status": "not_reproduced",
+      "recommendation_date": "2026-10-17",
+      "recommendation_audit": "docs/literature-reproductions/palladium-frost-2023-audit.md",
+      "recommendation_reason": "The original author regression remains unrecovered. The final paper specifies uncertainty-aware Marquardt-Levenberg fitting but not the exact objective, ambient-point inclusion, constraints or covariance convention. Independent refits have similar central coefficients; the combined-two-width comparison fails with absolute-error covariance and passes with residual-scaled covariance. This is not a demonstrated failed replay of the author protocol. Quantitative recommendation and the default remain on hold pending clarification.",
+      "usage_recommendation": "not_recommended_for_quantitative_use",
+      "fit_audit_date": "2026-10-17"
     },
     {
       "material": "palladium",
@@ -12239,18 +12578,38 @@
     {
       "material": "silver",
       "file": "silver.eosmat",
-      "record": "silver_dewaele_2008_vinet_1",
-      "label": "Dewaele et al. (2008), Vinet",
+      "record": "silver_dewaele_2008_table4_vinet",
+      "label": "Dewaele et al. (2008), Table IV Vinet, K0 fitted",
       "doi": "10.1103/physrevb.78.104102",
       "status": "primary_source_validated",
-      "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
+      "note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
       "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
         "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
         "locations": [
-          "Vinet formulation",
-          "Table II, Ni and Ag rows"
+          "Equation (1)",
+          "Table IV, third column, p. 104102-5"
         ],
-        "doi": "10.1103/physrevb.78.104102"
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
+      }
+    },
+    {
+      "material": "silver",
+      "file": "silver.eosmat",
+      "record": "silver_dewaele_2008_vinet_1",
+      "label": "Dewaele (2019), Mao-scale Vinet; historical 2008 identifier",
+      "doi": "10.3390/min9110684",
+      "status": "primary_source_validated",
+      "note": "Equation, printed coefficients, units, fixed parameters, and reported fitting envelope checked directly against the primary source.",
+      "primary_source_check": {
+        "access_url": "https://www.mdpi.com/2075-163X/9/11/684",
+        "doi": "10.3390/min9110684",
+        "locations": [
+          "Equation (1)",
+          "Table 1"
+        ],
+        "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
       }
     },
     {
@@ -12307,6 +12666,25 @@
           "Table 1"
         ],
         "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "silver",
+      "file": "silver.eosmat",
+      "record": "silver_dewaele_2008_table4_us_k0_101_vinet",
+      "label": "Dewaele et al. (2008), Table IV Vinet, US K0=101 GPa fixed",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table IV, fourth column, p. 104102-5"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
       }
     },
     {
@@ -13199,6 +13577,44 @@
           "Table 1"
         ],
         "finding": "Table 1 prints both pressure-scale reductions, 95% fit errors for the Mao reduction, pressure medium, gauge, and exact data domain."
+      }
+    },
+    {
+      "material": "zinc_hcp",
+      "file": "zinc_hcp.eosmat",
+      "record": "zinc_hcp_dewaele_2008_table4_vinet",
+      "label": "Dewaele et al. (2008), Table IV Vinet, K0 fitted",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table IV, third column, p. 104102-5"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
+      }
+    },
+    {
+      "material": "zinc_hcp",
+      "file": "zinc_hcp.eosmat",
+      "record": "zinc_hcp_dewaele_2008_table4_us_k0_60_vinet",
+      "label": "Dewaele et al. (2008), Table IV Vinet, US K0=60 GPa fixed",
+      "doi": "10.1103/physrevb.78.104102",
+      "status": "primary_source_validated",
+      "note": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.",
+      "primary_source_check": {
+        "doi": "10.1103/PhysRevB.78.104102",
+        "access_url": "https://doi.org/10.1103/PhysRevB.78.104102",
+        "locations": [
+          "Equation (1)",
+          "Table IV, fourth column, p. 104102-5"
+        ],
+        "source_pdf_sha256": "a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf",
+        "finding": "Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow."
       }
     },
     {

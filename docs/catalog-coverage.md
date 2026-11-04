@@ -14,49 +14,51 @@ A missing thermal EOS is a coverage gap, not a defect in a static record.
 
 | Measure | Count |
 |---|---:|
-| Stored material documents | 233 |
-| Stored EOS records | 666 |
-| Executable materials | 229 |
-| Executable EOS records, including qualified explicit-selection records | 662 |
+| Stored material documents | 234 |
+| Stored EOS records | 685 |
+| Executable materials | 230 |
+| Executable EOS records, including references and qualified explicit-selection records | 681 |
+| Source EOS choices in normal discovery | 629 |
+| Published pressure-scale reference variants | 52 |
 | Materials with an executable thermal EOS | 63 |
 | Executable records with parameter covariance | 17 |
-| Executable records with known parameter-error confidence | 74 |
+| Executable records with known parameter-error confidence | 87 |
 
 ## Scientific validation of stored records
 
 | Status | Records |
 |---|---:|
 | `deferred` | 4 |
-| `not_reproduced` | 14 |
-| `primary_source_validated` | 648 |
+| `not_reproduced` | 18 |
+| `primary_source_validated` | 663 |
 
 ## Executable equation kinds
 
 | Status | Records |
 |---|---:|
-| `hugoniot` | 3 |
-| `isothermal` | 524 |
+| `hugoniot` | 4 |
+| `isothermal` | 542 |
 | `thermal` | 135 |
 
 ## Pressure-calibration provenance of executable records
 
 | Status | Records |
 |---|---:|
-| `not_applicable` | 163 |
-| `partially_resolved` | 184 |
-| `resolved` | 230 |
-| `unresolved` | 85 |
+| `not_applicable` | 164 |
+| `partially_resolved` | 190 |
+| `resolved` | 240 |
+| `unresolved` | 87 |
 
 ## Observation pressure-recalculation readiness
 
 | Status | Records |
 |---|---:|
-| `missing_calibrant_observations` | 193 |
-| `not_applicable` | 160 |
-| `not_possible` | 120 |
-| `ready` | 124 |
-| `reference_eos_not_bundled` | 57 |
-| `reference_model_not_supported` | 8 |
+| `missing_calibrant_observations` | 198 |
+| `not_applicable` | 161 |
+| `not_possible` | 126 |
+| `ready` | 135 |
+| `reference_eos_not_bundled` | 54 |
+| `reference_model_not_supported` | 7 |
 
 Readiness values are the recorded assessments. A missing reference can mean a
 genuinely absent scale or a stale/unresolved link to an existing scale. `ready`
@@ -70,11 +72,11 @@ of records missing from that ledger. No scientific classifications are changed h
 
 | Outcome | Records |
 |---|---:|
-| `not_refittable` | 178 |
-| `parity` | 249 |
-| `parity_not_achieved` | 60 |
-| `similar` | 163 |
-| `source_reconstruction` | 16 |
+| `not_refittable` | 177 |
+| `parity` | 356 |
+| `parity_not_achieved` | 61 |
+| `similar` | 72 |
+| `source_reconstruction` | 19 |
 
 **Catalog records absent from the refit ledger:** none.
 
@@ -127,13 +129,13 @@ Multiple temperature slices do not imply a continuous thermal EOS.
 | `cao_b2` | CaO | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `casio2o5_titanite` | CaSi2O5 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 |
 | `casio3_perovskite_tetragonal` | CaSiO3 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
-| `cementite` | Fe3C | 2 | 2 | 2 | 0 | 0 | 0 | 0 | 2 |
-| `cementite_nonmagnetic` | Fe3C | 2 | 2 | 0 | 2 | 0 | 0 | 0 | 1 |
+| `cementite` | Fe3C | 4 | 4 | 4 | 0 | 0 | 0 | 0 | 5 |
+| `cementite_nonmagnetic` | Fe3C | 4 | 4 | 1 | 2 | 1 | 0 | 0 | 5 |
 | `cerium_dioxide` | CeO2 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `chromium` | Cr | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
-| `cobalt_hcp` | Co | 3 | 3 | 3 | 0 | 0 | 0 | 0 | 2 |
-| `coesite` | SiO2 | 2 | 2 | 2 | 0 | 0 | 0 | 0 | 3 |
-| `coesite_iv` | SiO2 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
+| `cobalt_hcp` | Co | 6 | 6 | 6 | 0 | 0 | 0 | 0 | 3 |
+| `coesite` | SiO2 | 2 | 2 | 2 | 0 | 0 | 0 | 0 | 4 |
+| `coesite_iv` | SiO2 | 2 | 2 | 2 | 0 | 0 | 0 | 0 | 3 |
 | `coesite_v` | SiO2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | `coo` | CoO | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `copper` | Cu | 7 | 7 | 6 | 1 | 0 | 0 | 0 | 2 |
@@ -145,7 +147,7 @@ Multiple temperature slices do not imply a continuous thermal EOS.
 | `e_feooh` | FeOOH | 2 | 2 | 1 | 1 | 0 | 0 | 0 | 2 |
 | `e_feooh_hc_low_spin` | FeOOH | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `fayalite` | Fe2SiO4 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
-| `fe` | Fe | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
+| `fe` | Fe | 3 | 3 | 3 | 0 | 0 | 0 | 0 | 2 |
 | `fe073si027_d03` | Fe0.73Si0.27 | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 1 |
 | `fe084si016_d03` | Fe0.84Si0.16 | 2 | 2 | 2 | 0 | 0 | 0 | 0 | 1 |
 | `fe084si016_hcp` | Fe0.84Si0.16 | 2 | 2 | 0 | 2 | 0 | 0 | 0 | 1 |
@@ -162,6 +164,7 @@ Multiple temperature slices do not imply a continuous thermal EOS.
 | `feo` | FeO | 5 | 4 | 3 | 1 | 0 | 0 | 1 | 6 |
 | `feo_b8_2` | FeO | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 2 |
 | `ferropericlase_fe27` | Mg0.725Fe0.268O | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
+| `ferrous_ringwoodite` | Fe2SiO4 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `fes` | FeS | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `fes_vi` | FeS | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 5 |
 | `fesi_b2` | FeSi | 2 | 2 | 0 | 2 | 0 | 0 | 0 | 1 |
@@ -173,7 +176,7 @@ Multiple temperature slices do not imply a continuous thermal EOS.
 | `forsterite` | Mg2SiO4 | 3 | 3 | 1 | 2 | 0 | 0 | 0 | 3 |
 | `geo2_rutile` | GeO2 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `goethite` | FeOOH | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 1 |
-| `gold` | Au | 23 | 23 | 14 | 9 | 0 | 1 | 0 | 24 |
+| `gold` | Au | 23 | 23 | 14 | 9 | 0 | 1 | 0 | 29 |
 | `graphite` | C | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `hydrous_silica_cacl2_nisr_2017` | Si0.954O2H0.184 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 2 |
 | `hydrous_stishovite_nisr_2017` | Si0.954O2H0.184 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 2 |
@@ -183,7 +186,7 @@ Multiple temperature slices do not imply a continuous thermal EOS.
 | `indium_nitride` | InN | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 |
 | `iridium` | Ir | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 2 |
 | `iron` | Fe | 38 | 38 | 26 | 11 | 1 | 3 | 0 | 14 |
-| `iron_carbide_fe7c3` | Fe7C3 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
+| `iron_carbide_fe7c3` | Fe7C3 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 2 |
 | `kbr_b1` | KBr | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `kbr_b2` | KBr | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `kcl` | KCl | 10 | 10 | 1 | 9 | 0 | 0 | 0 | 10 |
@@ -248,31 +251,31 @@ Multiple temperature slices do not imply a continuous thermal EOS.
 | `mgfe94o_b1` | Mg0.058Fe0.942O | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `mgfe94o_rhombohedral` | Mg0.058Fe0.942O | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `mggeo3_post_perovskite` | MgGeO3 | 4 | 4 | 4 | 0 | 0 | 0 | 0 | 2 |
-| `mgo` | MgO | 37 | 37 | 30 | 6 | 1 | 0 | 0 | 18 |
+| `mgo` | MgO | 37 | 37 | 30 | 6 | 1 | 1 | 0 | 18 |
 | `mgo_b2` | MgO | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 |
 | `mgo_liquid` | MgO | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 |
 | `mgsio3_liquid` | MgSiO3 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 2 |
 | `mgsio3_post_perovskite` | MgSiO3 | 14 | 14 | 12 | 2 | 0 | 0 | 0 | 9 |
 | `mgsioh6_365a_phase` | MgSiH6O6 | 3 | 3 | 3 | 0 | 0 | 0 | 0 | 1 |
-| `molybdenum` | Mo | 7 | 7 | 6 | 1 | 0 | 0 | 0 | 4 |
+| `molybdenum` | Mo | 9 | 9 | 8 | 1 | 0 | 0 | 0 | 5 |
 | `molybenum_carbide_mo2c` | Mo2C | 2 | 2 | 2 | 0 | 0 | 0 | 0 | 1 |
 | `na088al099fe013si094o4_calcium_ferrite` | Na0.88Al0.99Fe0.13Si0.94O4 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `na093al102si100o4_calcium_ferrite` | Na0.93Al1.02Si1.00O4 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `naalsi2o6` | NaAlSi2O6 | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 1 |
 | `naalsio4_calcium_ferrite` | NaAlSiO4 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `nacl_b1` | NaCl | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
-| `nacl_b2` | NaCl | 14 | 14 | 12 | 2 | 0 | 0 | 0 | 7 |
+| `nacl_b2` | NaCl | 14 | 14 | 12 | 2 | 0 | 1 | 0 | 7 |
 | `namg2al5sio12_cf` | NaMg2Al5SiO12 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `namg2al5sio12_nal` | NaMg2Al5SiO12 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `neon_fcc` | Ne | 3 | 3 | 1 | 2 | 0 | 0 | 0 | 5 |
-| `nickel` | Ni | 4 | 4 | 3 | 1 | 0 | 0 | 0 | 3 |
+| `nickel` | Ni | 6 | 6 | 5 | 1 | 0 | 0 | 0 | 4 |
 | `nickel_oxide` | NiO | 2 | 2 | 1 | 0 | 1 | 0 | 0 | 1 |
 | `nickel_oxide_b1` | NiO | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 2 |
 | `niobium` | Nb | 2 | 2 | 1 | 1 | 0 | 0 | 0 | 1 |
 | `nis` | NiS | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `orthoenstatite` | MgSiO3 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `osmium` | Os | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
-| `palladium` | Pd | 7 | 7 | 7 | 0 | 0 | 1 | 0 | 3 |
+| `palladium` | Pd | 7 | 7 | 7 | 0 | 0 | 3 | 0 | 3 |
 | `pbs_b1` | PbS | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `perovskite_orthorhombic` | Mg0.88Fe0.12SiO3 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `phase_d` | Mg1.11Si1.89H2.22O6 | 2 | 2 | 2 | 0 | 0 | 0 | 0 | 1 |
@@ -300,7 +303,7 @@ Multiple temperature slices do not imply a continuous thermal EOS.
 | `silicon_v` | Si | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `silicon_vii` | Si | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `silicon_x` | Si | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
-| `silver` | Ag | 4 | 4 | 3 | 1 | 0 | 0 | 0 | 1 |
+| `silver` | Ag | 6 | 6 | 5 | 1 | 0 | 0 | 0 | 2 |
 | `sio2_stv_andr` | SiO2 | 7 | 7 | 6 | 1 | 0 | 0 | 0 | 4 |
 | `sno2` | SnO2 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `sno2_cubic_27gpa` | SnO2 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
@@ -319,7 +322,7 @@ Multiple temperature slices do not imply a continuous thermal EOS.
 | `vanadium_bcc` | V | 1 | 1 | 0 | 1 | 0 | 0 | 0 | 2 |
 | `wadsleyite` | Mg2SiO4 | 1 | 0 | 0 | 0 | 0 | 0 | 1 | 1 |
 | `wollastonite` | CaSiO3 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 0 |
-| `zinc_hcp` | Zn | 2 | 2 | 2 | 0 | 0 | 0 | 0 | 1 |
+| `zinc_hcp` | Zn | 4 | 4 | 4 | 0 | 0 | 0 | 0 | 2 |
 | `zinc_oxide_rocksalt` | ZnO | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `zinc_oxide_wurtzite` | ZnO | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |
 | `zircon` | ZrSiO4 | 1 | 1 | 1 | 0 | 0 | 0 | 0 | 1 |

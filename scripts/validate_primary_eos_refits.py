@@ -204,7 +204,6 @@ UNWEIGHTED_DATASETS = {
 }
 
 COMBINED_FIT_DATASET_RECORDS = {
-    "coesite_i_iii_bykova_2018_300k_bm3",
     "cscl_campbell_1994_bm3_1",
     "neon_fcc_fei_2007_bm3_1",
     "neon_fcc_fei_2007_vinet_2",
@@ -285,7 +284,6 @@ FIT_QUALIFICATIONS = {
         for i in range(1, 13)
     },
     "ca_perovskite_tetragonal_chen_2018_vinet": "Complete source-scope table check with unresolved fitting details: all seven I4/mcm Table 1 rows are used, K0-prime is fixed at 4, and the reported Ye et al. Pt pressures are retained. The source does not publish pressure uncertainties, residual direction, weights, fit software, unrounded inputs, or covariance. The generic fit therefore uses an errors-in-variables objective with one-sigma volume errors propagated from the table's two-sigma lattice errors; the dedicated reproduction also reports unweighted pressure- and volume-residual sensitivity fits. Those diagnostics do not define a replacement EOS, and the classification is capped at similar because statistical parity cannot be established without the source weighting and pressure-error model.",
-    "coesite_i_iii_bykova_2018_300k_bm3": "Conditional partial reproduction. The 24 exact bundled rows are the complete numerical subset recovered from Bykova et al. Supplementary Table 2 and the exact table in their cited Cernok et al. diffraction work. Several current-study coesite-I points used by the source remain plot-only, and the source does not report its objective or weights. The unweighted pressure-residual diagnostic therefore tests the documented phase selection without claiming recovery of the unavailable full fit.",
     "ca_perovskite_wang_weidner_1994_bm2": "Complete plot-scope check: Wang and Weidner state that the BM2 used only the four room-temperature Figure 3 points above 2.0 GPa and fixed K0'=4. All four marker centers are bundled and an unweighted pressure-residual refit recovers V0 and K0 within the published uncertainties. This is not a numerical-table reproduction: the source does not publish the four P-V rows, residual coordinate, weights, covariance, or confidence convention. See the [dedicated Wang-Weidner reproduction](literature-reproductions/wang-weidner-1994-casio3.md).",
     "mgal2o4_cati2o4_ono_2006_bm2_2": "All 14 Table 3 rows, including two recovered ambient cells. Source weights and selection are unspecified; zero-rounded volume errors preclude using those errors as weights. The unweighted diagnostic recovers the printed coefficients; the dedicated Ono reproduction documents the sensitivity to excluding ambient cells.",
     "mgal2o4_cafe2o4_irifune_2002_bm2_2": "Three compressed states only; fixed averaged V0 and implicit K0-prime=4. This unweighted pressure diagnostic differs from the stated normalized-volume objective with unspecified weights. The dedicated reproduction also checks that objective; neither supplies source covariance. The refit error is a residual-scaled diagnostic, not a published uncertainty.",
@@ -310,8 +308,8 @@ FIT_QUALIFICATIONS = {
     "feo_fischer_2011_bm3_2": "Conditional current-study thermal reproduction: all 42 numerical B1 volumes in Fischer Supplementary Table S1 are evaluated at their reported, already 3%-corrected temperatures with Equation (1)'s integrated-Gruneisen Mie-Gruneisen-Debye model. V0, theta0, q, Tr, and n are held fixed exactly as the source specifies. Fischer's published global fit also includes Campbell, Ozawa, and Seagle rows. All identifiable source tables are now bundled, but Campbell's fcc-Fe calibration is retained only as deferred source evidence because of unresolved coefficient-refit discrepancies. It is not an executable calibration; Fischer's final combined row selection remains unresolved. The source also does not state its regression weights, residual variable, covariance, or optimizer; this result remains a current-study-only diagnostic rather than an exact global-fit reproduction. See the [dedicated Fischer reproduction](literature-reproductions/fischer-2011-feo.md).",
     "feo_b8_2_fischer_2011_bm3_1": "Recovered combined thermal reproduction: all 21 numerical B8 volumes in Fischer Supplementary Table S1 are evaluated at their reported, already 3%-corrected temperatures with Equation (1)'s integrated-Gruneisen Mie-Gruneisen-Debye model. One-peak detections have no volume and are excluded; the three two-peak volumes whose errors are unconstrained use Figure 3's explicit +/-0.1 cm^3/mol fallback. All 8 B8 rows in Ozawa's printed Table 2 are added, and K0', theta0, q, Tr, and n are held fixed. The unweighted 29-row fit recovers every free coefficient within its published uncertainty. Fischer does not state its regression weights, residual variable, covariance, or optimizer, so this establishes numerical parameter parity rather than exact procedural identity. See the [dedicated Fischer reproduction](literature-reproductions/fischer-2011-feo.md).",
     "palladium_baty_2024_bm3_1": "Complete-table reproduction with unresolved source-fit discrepancy: all 78 official Table S1 rows and the printed BM3 equation are reproduced, but reasonable pressure-, volume-, and errors-in-variables objectives do not jointly recover the published coefficients. See the [dedicated palladium reproduction](literature-reproductions.md#palladium-baty-2024).",
-    "palladium_frost_2023_vinet_1": "Complete-table reproduction: all 93 Pd rows from supplementary Tables I-III are fitted with the source-stated 0.1 GPa pressure errors and volume errors propagated from the tabulated lattice-parameter errors. The result is numerically similar, but K0' is just outside combined two-sigma parity and the source does not publish enough detail to recover its precise weighting convention. See the [dedicated Frost reproduction](literature-reproductions.md#what-the-frost-paper-and-supplement-resolve).",
-    "palladium_frost_2023_bm3_2": "Complete-table reproduction: the alternative BM3 is fitted to the same 93 supplementary Pd rows with the source-stated pressure and volume uncertainties. The result is numerically similar, but K0' is just outside combined two-sigma parity and the exact source weighting convention is not reported. See the [dedicated Frost reproduction](literature-reproductions.md#what-the-frost-paper-and-supplement-resolve).",
+    "palladium_frost_2023_vinet_1": "All 93 verified source rows are independently fitted using sigma(P)=0.1 GPa and sigma(V)=3a^2 sigma(a). The final paper specifies uncertainty-aware Marquardt-Levenberg but not its exact objective, ambient-point inclusion, constraints or covariance convention. Numerical classification remains similar: the combined-two-width coefficient test fails with absolute-error covariance but passes with residual-scaled covariance. Original author-fit reproduction is unresolved; scientific status not_reproduced and recommendation/default hold pending protocol clarification. This does not establish a failed replay of the authors' protocol. Measured-volume pressure RMS is 0.771992 GPa published and 0.825323 GPa refitted; the earlier 0.276359 GPa used adjusted volumes. See the [Frost audit](literature-reproductions/palladium-frost-2023-audit.md).",
+    "palladium_frost_2023_bm3_2": "Independent refit of all 93 verified rows under explicit orthogonal/effective-variance interpretations of the final paper's uncertainty-aware Marquardt-Levenberg prose. Numerical classification remains similar: absolute-error covariance fails the combined-two-width test, whereas residual-scaled covariance passes. The original objective, ambient treatment, constraints and covariance convention are unrecovered; not_reproduced means original fit not recovered, with quantitative recommendation/default on hold pending clarification. Measured-volume pressure RMS is 0.845419 GPa published and 0.915380 GPa refitted; the earlier 0.293082 GPa used adjusted volumes. See the [Frost audit](literature-reproductions/palladium-frost-2023-audit.md).",
     "neon_fcc_fei_2007_bm3_1": "Conditional partial reproduction: Fei et al. fitted Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and their new observations. The 34 bundled points combine the 13 new Figure 5 observations with all 21 Hemley Table I observations after the source-stated Mao-to-Dewaele ruby recalculation. Finger's low-pressure rows remain unavailable. V0 is held fixed and the available subset is fitted without weights.",
     "neon_fcc_fei_2007_vinet_2": "Conditional partial reference-isotherm reproduction: Fei et al. fitted Hemley et al. (1989, ref. 45), Finger et al. (1981, ref. 47), and their new observations. The 34 bundled points combine the 13 new Figure 5 observations with all 21 Hemley Table I observations after the source-stated Mao-to-Dewaele ruby recalculation. Finger's low-pressure rows remain unavailable. V0 and thermal coefficients are held fixed, and the available subset is fitted without weights.",
     "phase_egg_mookherjee_2019_bm3_lp_1": "Curve-level diagnostic reproduction: Supplementary Table 1 provides all 11 static LP pressure-volume points and they recover the published BM3 coefficients within the printed parameter uncertainties. The publication fitted total energy versus volume, however, and the deposited workbook does not include those energies, row uncertainties, regression weights, objective, covariance, or fit statistic. This pressure-residual refit therefore validates the published pressure curve but cannot reconstruct the source energy-fit protocol exactly. See the dedicated phase-Egg reproduction in literature-reproductions.md.",
@@ -376,10 +374,12 @@ PRESSURE_COLUMNS = {
     "tungsten_dewaele_2004_table1_compression": "ruby_pressure_revised_gpa",
     "tungsten_dewaele_2004_table1_compression#tungsten_dewaele_2004_mao_ruby_vinet": "ruby_pressure_classical_gpa",
     "silver_dewaele_2008_table2_compression": "ruby_pressure_dewaele_gpa",
+    "silver_dewaele_2008_table2_compression#silver_dewaele_2008_vinet_1": "ruby_pressure_mao_gpa",
     "diamond_dewaele_2008_table1_pvt": "pressure_h05_gpa",
     "gold_takemura_2008_table3_compression": "ruby_pressure_dorogokupets_gpa",
     "gold_fratanduono_2021_table_s3_compression": "isotherm_298k_pressure_gpa",
     "nickel_dewaele_2008_table2_compression": "ruby_pressure_dewaele_gpa",
+    "nickel_dewaele_2008_table2_compression#nickel_dewaele_2008_vinet_1": "ruby_pressure_mao_gpa",
     "mgsio3_post_perovskite_sakai_2016_table_s1_pvt": "pressure_bm3_gpa",
     "rhodium_rodrigo_ramon_2024_table2_compression": "pressure_gpa",
     "chromium_anzellini_2022_table2_compression": "pressure_w_gpa",
@@ -434,6 +434,7 @@ VOLUME_COLUMNS = {
     "ca_perovskite_tetragonal_chen_2018_table1_compression": "i4mcm_volume_a3_conventional_cell",
     "coesite_i_ii_cernok_2014_table1_pv": "volume_a3_z16_equivalent_cell",
     "coesite_ii_iii_bykova_2018_table2_pv": "volume_a3_z16_equivalent_cell",
+    "coesite_i_iii_bykova_2018_author_fit_export": "volume_a3_z16_equivalent_cell",
     "coesite_iv_bykova_2018_table10_calc_pv": "volume_a3_conventional_cell",
     "coesite_v_bykova_2018_table10_calc_pv": "volume_a3_conventional_cell",
     "alumina_dewaele_2013_table1_compression": "a_a",
@@ -666,7 +667,11 @@ def _shen_smith_outcome(
     )
     status, comparisons = _compare(record, result, False, 1.0)
     residuals = np.asarray(result.residuals, dtype=float)
-    return {
+    published_residuals = (
+        np.asarray(get_eos_record(record["identifier"]).eos.pressure(series.volume))
+        - series.pressure
+    )
+    outcome = {
         "status": status,
         "dataset_identifiers": [dataset["identifier"]],
         "observations": int(series.pressure.size),
@@ -691,6 +696,12 @@ def _shen_smith_outcome(
         "free_parameters": list(result.free_parameters),
         "parameters": comparisons,
         "rmse_gpa": float(np.sqrt(np.mean(residuals**2))),
+        "published_rmse_gpa": float(np.sqrt(np.mean(published_residuals**2))),
+        "published_mean_residual_gpa": float(np.mean(published_residuals)),
+        "published_residual_range_gpa": [
+            float(np.min(published_residuals)),
+            float(np.max(published_residuals)),
+        ],
         "reduced_chi_square": float(result.reduced_chi_square),
         "degrees_of_freedom": int(result.degrees_of_freedom),
         "solver_success": bool(result.success),
@@ -731,6 +742,31 @@ def _shen_smith_outcome(
             "residuals and does not infer any of them."
         ),
     }
+    validation = record["scientific_validation"]
+    if validation["status"] == "not_reproduced":
+        # A broad coefficient-similarity screen must not override a reviewed
+        # source-curve discrepancy or imply recovery of unavailable fit inputs.
+        outcome.update(
+            status="parity_not_achieved",
+            coefficient_comparison_status=status,
+            reproduction_status="not_reproduced",
+            author_workflow_reproduced=False,
+            source_fit_input_completeness="unconfirmed",
+        )
+        phase = SHEN_SELECTIONS[record["identifier"]][0]
+        phase_rows = [row for row in _load_rows(dataset) if row["phase"] == phase]
+        outcome["source_phase_observations"] = len(phase_rows)
+        outcome["excluded_phase_observations"] = len(phase_rows) - len(series.pressure)
+        outcome["qualification"] += (
+            " The paper identifies Table II as direct fits to this study's "
+            "Cu-referenced P-V data, with earlier literature included for "
+            "comparison. Its data-availability statement also mentions other "
+            "author-held data, so completeness of the actual author fit inputs "
+            "is unconfirmed. No additional experimental fit rows are identified "
+            "by the published fitting description. See the "
+            "[source-input audit](literature-reproductions/shen-smith-2026-cu-refits.md)."
+        )
+    return outcome
 
 
 def _column_map(dataset: dict[str, Any]) -> dict[str, dict[str, Any]]:
@@ -2137,6 +2173,21 @@ def _fit_record(
     document: dict[str, Any], record: dict[str, Any], dataset: dict[str, Any]
 ) -> dict[str, Any]:
     record_id = record["identifier"]
+    if (
+        record_id == "iron_carbide_fe7c3_prescher_2015_bm3_1"
+        and dataset["identifier"] == "iron_carbide_fe7c3_prescher_2015_author_fit_input"
+    ):
+        from scripts.reproduce_prescher_2015_fe7c3 import ledger_outcome
+
+        return ledger_outcome(record)
+    if record_id in {
+        "palladium_fedotenko_2020_bm3_1",
+        "palladium_fedotenko_2020_bm2_2",
+    }:
+        # Keep the 14 printed pressure widths despite the missing ambient one.
+        from scripts.reproduce_fedotenko_2020_palladium import ledger_outcome
+
+        return ledger_outcome(record)
     if record_id == "gold_takemura_2008_vinet_6":
         from scripts.reproduce_takemura_2008_gold import ledger_outcome
 
@@ -2891,6 +2942,12 @@ def _fit_record(
     ):
         status = "parity_not_achieved"
     residuals = np.asarray(result.residuals, dtype=float)
+    frost_adjusted_volume_rmse = None
+    if record_id in {"palladium_frost_2023_vinet_1", "palladium_frost_2023_bm3_2"}:
+        # EIV result.residuals uses fitted latent volumes. A comparison against
+        # the published curve at measured coordinates must use the same inputs.
+        frost_adjusted_volume_rmse = float(np.sqrt(np.mean(residuals**2)))
+        residuals = np.asarray(result.model.pressure(series.volume)) - series.pressure
     if record_id in {
         "feo_fischer_2011_bm3_2",
         "feo_b8_2_fischer_2011_bm3_1",
@@ -2961,6 +3018,10 @@ def _fit_record(
         "solver_success": bool(result.success),
         "solver_message": str(result.message),
     }
+    if record_id == "cementite_scott_2001_bm3_1":
+        from scripts.reproduce_cementite import qualify_scott
+
+        outcome = qualify_scott(outcome)
     if record["reference"].get("doi") == "10.1029/2007GL030712":
         outcome["fit_kind"] = "independent_validation_refit"
         outcome["validation_fixed_parameters"] = static_fixed
@@ -3210,6 +3271,12 @@ def _fit_record(
         }
     if record_id in FIT_QUALIFICATIONS:
         outcome["qualification"] = FIT_QUALIFICATIONS[record_id]
+    if frost_adjusted_volume_rmse is not None:
+        outcome["adjusted_volume_pressure_rmse_gpa"] = frost_adjusted_volume_rmse
+        outcome["pressure_rmse_coordinates"] = "measured volumes for both curves"
+        outcome["reproduction_status"] = "not_reproduced"
+        outcome["source_equation_status"] = "reproduced"
+        outcome["fit_reproduction_status"] = "not_reproduced"
     if record_id in QUALIFIED_STATUS_OVERRIDES:
         outcome["automatic_status"] = outcome["status"]
         outcome["status"] = QUALIFIED_STATUS_OVERRIDES[record_id]
@@ -4212,6 +4279,40 @@ def _sokolova_2013_outcome(
         "independent_eos_refit": False,
         "qualification": reconstruction["qualification"],
     }
+
+
+def _mgsio3_primary_outcome(
+    record: dict[str, Any], refit: dict[str, Any]
+) -> dict[str, Any]:
+    """Keep the dedicated audit's criterion and conditional covariance explicit."""
+    outcome = dict(refit)
+    outcome["dataset_identifiers"] = record["fit_datasets"]
+    outcome["fit_kind"] = "original_scale_source_constrained_bm3"
+    outcome["parameters"] = [
+        {**p, "similar": _similar(p["parameter"], p["published"], p["refit"])}
+        for p in outcome["parameters"]
+    ]
+    agreement = all(
+        p["within_reported_error"] and p["similar"] for p in outcome["parameters"]
+    )
+    if outcome["status"] == "parity":
+        if not (
+            record["identifier"] == "akimotoite_wang_2004_t0150_bm3"
+            and outcome.get("parity_basis") == "within_reported_parameter_errors"
+            and agreement
+            and all(
+                p["refit_error"] is not None and p["refit_error"] > 0
+                for p in outcome["parameters"]
+            )
+            and outcome.get("degrees_of_freedom") == outcome["observations"] - 2
+            and outcome.get("parameter_covariance")
+        ):
+            raise AssertionError(
+                "MgSiO3 parity requires its dedicated uncertainty audit"
+            )
+    elif outcome["status"] != "similar" or not agreement:
+        raise AssertionError("MgSiO3 dedicated refit no longer supports similar status")
+    return outcome
 
 
 def _ricolleau_2009_outcome(
@@ -5317,10 +5418,50 @@ def validate_all() -> dict[str, Any]:
                 from scripts.li_2002_catalog import ledger_outcome
 
                 outcome = ledger_outcome(record)
-            elif record["identifier"].startswith("cementite_nonmagnetic_takahashi_2019_"):
+            elif record["identifier"].startswith("cementite_prescher_2012_"):
+                from scripts.prescher_2012_catalog import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif record["identifier"].startswith(
+                "cementite_nonmagnetic_takahashi_2019_"
+            ):
                 from scripts.reproduce_cementite import takahashi_ledger_outcome
 
                 outcome = takahashi_ledger_outcome(record)
+            elif (
+                "_dewaele_2008_table4_" in record["identifier"]
+                or "_dewaele_2008_paw_" in record["identifier"]
+            ):
+                from scripts.reproduce_dewaele_2008_metals import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif record["identifier"] == "coesite_i_iii_bykova_2018_300k_bm3":
+                from scripts.reproduce_bykova_2018_author_fit import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif record["identifier"] == "coesite_iv_bykova_2018_am05_static_bm3_refit":
+                from scripts.reproduce_bykova_2018_coesite_iv import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif (
+                record["identifier"]
+                == "coesite_iv_v_bykova_2018_experimental_bm2_reference"
+            ):
+                from scripts.reproduce_bykova_2018_experimental import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif record["identifier"] in {
+                "silver_dewaele_2008_vinet_1",
+                "nickel_dewaele_2008_vinet_1",
+            }:
+                outcome = _dewaele_2019_outcome(
+                    document,
+                    record,
+                    dewaele_refits[f"{material_id}_dewaele_2019_mao_vinet"],
+                )
+                outcome["qualification"] += (
+                    " Historical 2008 identifier retained with unchanged coefficients; corrected attribution is the 2019 Table 1 Mao-scale fit."
+                )
             elif material_id == "brucite":
                 from scripts.brucite_reproduce import ledger_outcome
 
@@ -5329,6 +5470,10 @@ def validate_all() -> dict[str, Any]:
                 from scripts.reproduce_phase_e_crichton_ross_2000 import ledger_outcome
 
                 outcome = ledger_outcome(record)
+            elif record["identifier"] == "gold_sakai_2025_rydberg_stacey_1":
+                from scripts.catalog_addition_outcomes import sakai_gold_outcome
+
+                outcome = sakai_gold_outcome(record)
             elif record["identifier"].startswith("diopside_"):
                 from scripts.catalog_addition_outcomes import diopside_outcome
 
@@ -5390,6 +5535,27 @@ def validate_all() -> dict[str, Any]:
                 outcome = miozzi_2020_outcome(record)
             elif record["identifier"] in CAMPBELL_RECORDS.values():
                 outcome = _campbell_2009_outcome(material_id, record)
+            elif (
+                record["identifier"] == "cementite_nonmagnetic_hu_2019_linear_hugoniot"
+            ):
+                from scripts.hu_2019_fe3c import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif record["identifier"] == "cementite_ono_mibe_2010_bm3":
+                from scripts.ono_mibe_2010_fe3c import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif record["identifier"] == "cementite_nonmagnetic_sata_2010_bm3":
+                from scripts.audit_sata_2010_fe3c import ledger_outcome
+
+                outcome = ledger_outcome(record)
+            elif (
+                record["identifier"]
+                == "ferrous_ringwoodite_finger_1979_bm2_ambient_cell_reconstruction"
+            ):
+                from scripts.finger_1979_ringwoodite import ledger_outcome
+
+                outcome = ledger_outcome(record)
             elif record["identifier"] in SOLOMATOVA_RECORD_SOURCES:
                 outcome = _solomatova_outcome(record)
             elif record["identifier"] in dewaele_refits and (
@@ -5422,23 +5588,9 @@ def validate_all() -> dict[str, Any]:
                     record, ricolleau_refits[record["identifier"]]
                 )
             elif record["identifier"] in mgsio3_primary_refits:
-                outcome = dict(mgsio3_primary_refits[record["identifier"]])
-                outcome["dataset_identifiers"] = record["fit_datasets"]
-                outcome["fit_kind"] = "original_scale_source_constrained_bm3"
-                outcome["parameters"] = [
-                    {
-                        **p,
-                        "similar": _similar(p["parameter"], p["published"], p["refit"]),
-                    }
-                    for p in outcome["parameters"]
-                ]
-                if not all(
-                    p["within_reported_error"] and p["similar"]
-                    for p in outcome["parameters"]
-                ):
-                    raise AssertionError(
-                        "MgSiO3 dedicated refit no longer supports similar status"
-                    )
+                outcome = _mgsio3_primary_outcome(
+                    record, mgsio3_primary_refits[record["identifier"]]
+                )
             elif record["identifier"] in DOROGOKUPETS_2015_FIT_BRANCH:
                 outcome = _dorogokupets_2015_outcome(record, dorogokupets_refits)
             elif record["identifier"] in {
@@ -5618,9 +5770,27 @@ def validate_all() -> dict[str, Any]:
                     + " "
                     + record["scientific_validation"]["recommendation_reason"]
                 ).strip()
+            from scripts.reconstruct_similar_eos_uncertainties import augment_outcome
+
+            outcome = augment_outcome(record, outcome)
+            from scripts.review_similar_parameter_scope import (
+                augment_outcome as augment_parameter_scope,
+            )
+
+            outcome = augment_parameter_scope(record, outcome)
             results.append({**base, **outcome})
 
     from scripts.forsterite_reproduce_katsura_2022 import LEDGER_PARITY_POLICY
+    from scripts.reconstruct_similar_eos_uncertainties import (
+        COMBINED_ERROR_POLICY,
+    )
+    from scripts.reconstruct_similar_eos_uncertainties import (
+        PARITY_POLICY as UNCERTAINTY_PARITY_POLICY,
+    )
+    from scripts.reproduce_dewaele_2008_metals import (
+        PARITY_POLICY as DEWAELE_2008_PARITY_POLICY,
+    )
+    from scripts.review_similar_parameter_scope import POLICY as PARAMETER_SCOPE_POLICY
 
     counts = Counter(item["status"] for item in results)
     return {
@@ -5646,11 +5816,27 @@ def validate_all() -> dict[str, Any]:
                 " Diopside parity is conditional agreement within reported error "
                 "widths, including a graph-corroborated corrected Zhao analysis "
                 "dataset; exact original inputs and workflow remain unrecovered."
+                " Sakai 2025 Au parity concerns only the independently fitted "
+                "K0-prime central value at published precision under stated "
+                "calibrants and residuals, not uncertainty or sequential-network parity."
                 " Phase E (Crichton and Ross 2000) achieves fit parity within "
                 "reported parameter error widths, with small pressure-curve "
                 "differences relative to the observation errors. Exact author "
                 "workflow availability is a separate provenance assessment."
-                " " + LEDGER_PARITY_POLICY
+                " Wang 2004 T0150 akimotoite accepts conditional numerical parity "
+                "within printed parameter error widths, with residual-scaled refit "
+                "standard errors and covariance; source confidence and original "
+                "weighting remain unknown, so no formal combined-two-sigma claim is made."
+                " "
+                + LEDGER_PARITY_POLICY
+                + " "
+                + DEWAELE_2008_PARITY_POLICY
+                + " "
+                + UNCERTAINTY_PARITY_POLICY
+                + " "
+                + COMBINED_ERROR_POLICY
+                + " "
+                + PARAMETER_SCOPE_POLICY
             ),
             "similar": (
                 "Every fitted parameter either agrees within combined 2-sigma or "
@@ -5659,7 +5845,8 @@ def validate_all() -> dict[str, Any]:
             "parity_not_achieved": (
                 "At least one fitted parameter is outside both the uncertainty and "
                 "similarity criteria, or a dedicated partial-source audit cannot "
-                "reproduce the published coefficient pair."
+                "reproduce the published coefficient pair. Data agreement and "
+                "recommendation are recorded separately from coefficient parity."
             ),
             "not_refittable": (
                 "Available observations or source reduction/calibration details are "
@@ -5693,9 +5880,21 @@ def _range_text(value: list[float] | None, unit: str) -> str:
 def _investigation_findings(item: dict[str, Any]) -> list[str]:
     parameters = item.get("parameters", [])
     findings = []
+    if item.get("data_agreement_status") == "poor":
+        findings.append(item["reason"])
+        findings.append(item["qualification"])
     if item["status"] == "similar":
         uncertainty_missing = [
-            p["parameter"] for p in parameters if p["within_combined_2sigma"] is None
+            p["parameter"]
+            for p in parameters
+            if p.get("published_error") is None or p.get("refit_error") is None
+        ]
+        comparison_unassessed = [
+            p["parameter"]
+            for p in parameters
+            if p.get("within_combined_2sigma") is None
+            and p.get("published_error") is not None
+            and p.get("refit_error") is not None
         ]
         uncertainty_only = [
             p["parameter"]
@@ -5713,6 +5912,14 @@ def _investigation_findings(item: dict[str, Any]) -> list[str]:
                 "or refit uncertainty is unavailable for "
                 + ", ".join(f"`{name}`" for name in uncertainty_missing)
                 + ". The point estimates nevertheless meet the numerical criterion."
+            )
+        if comparison_unassessed:
+            findings.append(
+                "Source error widths and reconstruction errors are available for "
+                + ", ".join(f"`{name}`" for name in comparison_unassessed)
+                + ", but this audit does not assert a combined-two-sigma comparison. "
+                "Read the declared confidence, objective and source-scope qualifications; "
+                "an unassessed comparison does not mean that its error widths are missing."
             )
         if uncertainty_only:
             findings.append(
@@ -5794,7 +6001,7 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         "## Outcome",
         "",
         f"The campaign covers all **{summary['total']}** EOS records. "
-        f"**{summary.get('parity', 0)}** achieve uncertainty parity, "
+        f"**{summary.get('parity', 0)}** achieve numerical parity under their stated comparison criteria, "
         f"**{summary.get('similar', 0)}** are numerically similar, "
         f"**{summary.get('source_reconstruction', 0)}** have a source "
         "reconstruction without an independent EOS refit, "
@@ -5811,11 +6018,23 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         "25% for gamma0/q/theta0, 30% for thermal-expansion or dK/dT terms, and 20% ",
         "for other coefficients. These broad limits identify broadly reproducible ",
         "published reductions; they are not statistical confidence statements.",
+        "Dewaele (2008) Table IV parity compares experimental refit coefficients ",
+        "with printed 95% widths. Its Table VI parity instead has source-equation ",
+        "scope: identified Figure 4 checkpoints agree within declared graphical ",
+        "reading and printed-coefficient bounds. Those 54 PAW parameterizations ",
+        "and their checks are in the separate [research collection](research/dewaele-2008-paw.md), ",
+        "excluded from this catalog ledger and its counts. They are not independent PAW refits.",
         "For separately registered Peritheos refits, `parity_basis` instead ",
         "identifies numerical reproduction of that explicit analysis. The Fei ",
         "(2007) NaCl-B2 staged thermal refit is reproducible in this sense; its ",
         "published parent remains `parity_not_achieved`, with original-author ",
         "thermal coefficients and uncertainties unreproduced.",
+        "For coesite-IV Bykova (2018), the target is the stored Peritheos V0 ",
+        "refit with the two published moduli fixed. Its `parity` concerns only ",
+        "repeatability at the stored precision; the source publishes no V0. ",
+        "Separate [Figure 6 checks](literature-reproductions/coesite-iv-bykova-2018.md) ",
+        "test the unchanged curve at graphical resolution. Integer-pressure ",
+        "rounding and fixed-modulus uncertainty limit the formal fit error.",
         "The Sakai (2018) rhenium audit accepts numerical `parity` because both ",
         "coefficients agree within the reported parameter error widths and the refit ",
         "standard errors are comparable. Its explicit `parity_basis` preserves this ",
@@ -5851,6 +6070,9 @@ def render_markdown(ledger: dict[str, Any]) -> str:
         "Zhao uses a separate corrected analysis dataset with the graph-corroborated ",
         "row-15 pressure. Original observations and published coefficients remain ",
         "unchanged; exact original author inputs and workflow are not recovered.",
+        "Sakai (2025) Au accepts conditional K0-prime central-value parity at published ",
+        "precision. Fixed coefficients, original weights/covariance and full ",
+        "sequential-calibration parity are not independently recovered.",
         "Phase E (Crichton and Ross 2000) achieves fit parity within reported ",
         "parameter errors on all 11 primary rows. Weighted-refit coefficient ",
         "shifts are below 0.123 reported error widths and the largest curve ",
@@ -6119,8 +6341,9 @@ def render_markdown(ledger: dict[str, Any]) -> str:
             "refit that does not meet the strict `parity` definition. `similar` means ",
             "the difference is numerically acceptable or covered by combined ",
             "uncertainty; `parity_not_achieved` means at least one coefficient is ",
-            "outside both tests or a dedicated partial-source reconstruction does ",
-            "not reproduce the published pair. Causes described as possible remain hypotheses until ",
+            "outside both tests, a dedicated partial-source reconstruction does ",
+            "not reproduce the published pair. Poor data agreement does not itself ",
+            "negate coefficient parity. Causes described as possible remain hypotheses until ",
             "the missing source fit detail is recovered.",
         ]
     )
@@ -6266,6 +6489,9 @@ def check_ledger_values(
                     "difference",
                     "relative_difference",
                     "reduced_chi_square",
+                    "weighted_sum_squares",
+                    "parameter_covariance",
+                    "published_max_abs_pressure_residual_gpa",
                 }
                 or key.startswith("rmse_")
                 or key.endswith("_rmse_gpa")

@@ -16,6 +16,7 @@ from urllib.parse import quote
 
 from peritheos import list_materials
 from peritheos.eosmat import convert_eosmat, load_eosmat
+from scripts.report_numbers import rounded_metadata, value_error
 
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "docs/material-summaries"
@@ -137,16 +138,22 @@ def reconstruction(record: Mapping[str, Any]) -> list[str]:
         if not isinstance(free, (list, Mapping)):
             free = []
         for row in rows:
+            published, published_error = value_error(
+                row["published"], row.get("published_error", row.get("published_sigma"))
+            )
+            refit, refit_error = value_error(
+                row["refit"], row.get("refit_error", row.get("refit_sigma"))
+            )
             lines.append(
                 "| "
                 + " | ".join(
                     text(value)
                     for value in (
                         row["parameter"],
-                        row["published"],
-                        row.get("published_error", row.get("published_sigma")),
-                        row["refit"],
-                        row.get("refit_error", row.get("refit_sigma")),
+                        published,
+                        published_error,
+                        refit,
+                        refit_error,
                         "Fixed/adopted"
                         if row["parameter"] in fixed
                         else "Free"
@@ -160,16 +167,18 @@ def reconstruction(record: Mapping[str, Any]) -> list[str]:
             [
                 "",
                 "Fixed/adopted coefficients are constraints, not independently reconstructed values.",
+                "Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.",
                 "",
             ]
         )
         if assessment.get("fit"):
-            lines.extend(metadata(assessment["fit"]))
+            lines.extend(metadata(rounded_metadata(assessment["fit"])))
         lines.extend(["", "</details>", ""])
     elif assessment.get("fit"):
         lines.extend(
             details(
-                "Reconstruction protocol and available diagnostics", assessment["fit"]
+                "Reconstruction protocol and available diagnostics",
+                rounded_metadata(assessment["fit"]),
             )
         )
     if assessment.get("report"):

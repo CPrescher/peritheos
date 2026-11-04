@@ -63,9 +63,10 @@ remain supported as explicit compatibility lookups, preserving their prior
 parameters and numerical results when a primary-source audit found that the
 new canonical record is not identical. They are intentionally omitted from
 `list_materials()`, `list_eos_records()`, and search results, whose deterministic
-contents are exactly the bundled 224-executable-material/647-record collection.
-The document API separately exposes all 227 material cards, including cards
-with no executable EOS.
+contents follow the current bundled catalog. The original migration snapshot
+contained 224 executable materials and 647 records; current counts are in
+[catalog coverage](catalog-coverage.md). The document API separately exposes
+all bundled material cards, including cards with no executable EOS.
 
 The migration audit covered all 37 historical convenience records: 11 have an
 equation-identical canonical counterpart, 17 have a counterpart whose audited

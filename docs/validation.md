@@ -9,21 +9,25 @@ between a validated equation and a fully reproduced original fitting procedure.
 ## Material-library validation levels
 
 Structural `.eosmat` validation and scientific EOS validation are deliberately
-separate. All 232 bundled material documents and 663 EOS records pass the
-native v4 validator; 228 documents construct executable materials. The
+separate. All 234 bundled material documents and 683 EOS records pass the
+native v4 validator; 230 documents construct executable materials. The
 coesite-V structure card and deferred fcc-Fe, FeS-VI and wadsleyite source cards do not. The collection combines the reviewed Dioptas migration with
 native, primary-sourced records for pressure standards and material EOS models,
 including the MgO, CaSiO3, stishovite, akimotoite, Phase Egg, and Rh2O3(II)
 audits discovered through the LitCurate intake. These structural checks
 establish file and software interoperability only.
 
-The primary-source audit covers all 663 bundled records: 645 are
-`primary_source_validated`, fourteen explicit-selection implementations are
+The primary-source audit covers all 683 bundled records: 661 are
+`primary_source_validated`, eighteen qualified implementations are
 `not_reproduced`, and four records are `deferred`. The seven newly qualified
 records are the published Fu (2023) CaSiO3 thermal EOS, Baty (2024) experimental
 Pd BM3, and five Sakai (2014) Fe-Ni thermal variants; they are explicitly
 not recommended. The earlier Maltby, Chen, Miozzi and Yokoo qualifications
-remain. The deferred records are the two Campbell Fe/FeO records, Morard FeS,
+remain. The two Frost (2023) Pd fits additionally fail strict coefficient
+reproduction and are not recommended; Pd automatic equilibrium default
+selection is on hold. The [Frost audit](literature-reproductions/palladium-frost-2023-audit.md)
+also corrects the earlier comparison of measured-volume and adjusted-volume
+pressure residuals. The deferred records are the two Campbell Fe/FeO records, Morard FeS,
 and the sole wadsleyite EOS, whose default is on hold pending source/model
 mapping review. See the [dispositions and fifteen audit corrections](research/eos-recommendation-dispositions-2026-10-17.md).
 The deferred records preserve source parameters for inspection and are
@@ -36,7 +40,12 @@ phase, published uncertainty convention, and represented data range to the
 cited primary publication or official supplement. Parsing or reproducing
 another library was never sufficient. Explicit refit records instead trace their
 observations and model choices to the source and identify optimized coefficients
-as Peritheos results.
+as Peritheos results. Both Fedotenko (2020) Pd fits have conditional coefficient
+parity. The fixed-K'=4 curve has poor data agreement and is available
+only through explicit diagnostic selection. Its published coefficients are
+preserved. Corrected weighting gives reduced chi-square about 25 under the
+documented independent absolute-error assumptions; see the
+[Fedotenko audit](literature-reproductions/palladium-fedotenko-2020-audit.md).
 
 The package ships the complete record-by-record ledger as
 `peritheos/data/primary-source-audit.json`. Each `.eosmat` record repeats its
@@ -47,10 +56,13 @@ the ledger after a mechanical Dioptas migration.
 
 Primary-source traceability is complemented by the independent
 [primary EOS refit campaign](primary-eos-refits.md). It attempts a Peritheos
-fit for every record with sufficient direct observations and documents all 666
+fit for every record with sufficient direct observations and documents all 685
 records, including selected columns, row count, published and refitted
 coefficients, curve and refit RMSE, uncertainty comparison, and solver
-diagnostics. The current campaign finds 249 parity matches and 163 additional numerically similar results.
+diagnostics. The current campaign finds 356 scoped numerical parity matches and 72 additional numerically similar results.
+The 54 Dewaele (2008) PAW parameterizations and their checks are preserved in a
+[separate research collection](research/dewaele-2008-paw.md), excluded from these
+catalog totals. All 13 experimental Table IV EOS remain in this ledger.
 The Crichton–Ross (2000) phase E fit achieves parity within reported parameter
 errors: all three coefficient shifts are below 0.123 reported error widths,
 and the largest pressure-curve difference is about 0.0096 GPa. Its published
@@ -70,8 +82,8 @@ error widths, with comparable refit standard errors and an unspecified source
 confidence convention. Sakai (2011) contributes eight conditional fixed-V0
 parity matches within printed error widths, with weighting and marker-averaging
 qualifications retained in its [audit](literature-reproductions/sakai-2011-nacl-b2.md).
-[60 direct refits](primary-eos-refits.md#parity-not-achieved) do not
-recover at least one published coefficient, while 178 records cannot be
+[61 direct refits](primary-eos-refits.md#parity-not-achieved) fail coefficient
+recovery under the recorded comparison criteria, while 177 records cannot be
 directly refitted because row-level inputs or an executable source reduction
 are unavailable. Sixteen further records have source reconstructions without an independent
 EOS refit. There are no unresolved extraction or solver failures. The
@@ -245,9 +257,15 @@ Primary-source findings changed or qualified several migrated records:
   The earlier `q=0` boundary came from fitting only the high-temperature rows
   with a different objective. See the
   [Chidester KCl reproduction](literature-reproductions.md#kcl-chidester-2021).
-- Shen and Smith's ten Cu-anchored 300 K records reproduce the phase-specific
-  Vinet fits in Equation (4) and Table II: Pt, Au, Ta, W, Mo, MgO, NaCl B1,
-  NaCl B2, bcc Fe, and hcp Fe. The fixed reference volumes, fitted pressure
+- Shen and Smith's eight Pt, Au, Ta, W, Mo, NaCl-B1, bcc-Fe and hcp-Fe fits
+  retain conditional coefficient parity. **MgO and NaCl-B2 are not reproduced
+  and not recommended for quantitative use**: published-curve pressure RMS is
+  1.161 and 0.622 GPa, versus diagnostic refit RMS 0.476 and 0.293 GPa.
+  All available Table S1 MgO/NaCl-B2 observations are accounted for, but exact
+  author fit-input completeness is unconfirmed because data availability
+  mentions additional author-held data. See the
+  [source-input audit](literature-reproductions/shen-smith-2026-cu-refits.md).
+  The fixed reference volumes, fitted pressure
   intervals, and printed `K0`/`K0'` errors are retained. The article does not
   state the confidence level of those errors or publish their covariance, so
   Peritheos records neither and explicitly assumes independent parameters when

@@ -5,6 +5,41 @@ integrates the published 300 K BM3 with original coefficients, fixed measured
 V0 and complete Table 1 evidence. Source-curve checks and conditional coefficient
 parity pass; author weights, confidence and calibration replay remain unresolved.
 
+The [Fe3C audit](literature-reproductions/cementite.md) corrects Scott (2001)
+from parity to qualified similarity without replacing published coefficients.
+It preserves 81 Litasov (2013), 60 Takahashi (2019) and 19 supplied Prescher
+(2012) table rows, integrates both Takahashi thermal pressure-scale variants
+as nonmagnetic cementite, and identifies the missing Prescher reference-volume
+evidence and additional primary literature.
+
+The [Prescher (2015) Fe7C3 author-input audit](literature-reproductions/iron-carbide-fe7c3-prescher-2015.md)
+recovers numerical parameter parity on the original 28-row fit input, including
+the archived coefficient errors. Published Table S4 is preserved separately
+for provenance only and should not be used scientifically: its CIF-derived
+cells differ from the revised fit inputs, with the split documented in the
+processing logs and exports.
+
+The [25 October 2026 uncertainty reconstruction](literature-reproductions/uncertainty-reconstruction.md)
+supplies missing conditional errors for 51 records and reviews 12 existing
+qualifications. All 63 reviewed records meet their stated conditional numerical
+parameter criterion; selection hypotheses, fixed-parameter assumptions and
+unresolved data/calibration findings remain explicit. Source coefficients,
+observations and use limits are preserved.
+
+The [remaining-similar parameter-scope review](literature-reproductions/similar-parameter-review.md)
+checks the other 96 similar records: 21 achieve conditional parameter agreement,
+two reproduce registered Peritheos refits and one reproduces a source-equation
+checkpoint calculation; 72 retain similarity. Their source uncertainties,
+printed-precision tolerances, fixed masks and separate qualifications are listed
+record by record.
+
+The [Dewaele 2008 metal and calibration audit](literature-reproductions/dewaele-2008-metals.md)
+recovers all 13 Table IV DAC fits in the main catalog, preserves all 54 Table VI
+PAW parameterizations in a [separate research collection](research/dewaele-2008-paw.md),
+and traces the distinction between the input 2004 ruby scale and the output
+2008 ten-metal ruby upgrade. It corrects the historical Ag/Ni attribution
+without changing saved numerical lookups.
+
 ## Mosenfelder et al. (2009) MgSiO3 post-perovskite
 
 The combined Guignot static P-V-T and Mosenfelder PPv shock inversion is now
@@ -2369,43 +2404,43 @@ conversion error.
 
 ### Frost direct refits
 
-Peritheos fits all 93 rows with the source-stated `sigma(P)=0.1 GPa` and the
-propagated volume errors. Both models are **similar**, but not strict
-uncertainty parity because `K0'` is just outside the combined two-sigma
-interval:
+**Updated 17 October 2026:** both published Frost Pd records are
+`not_reproduced` and not recommended for quantitative use or pressure
+calibration. Their numerical screening category remains `similar`, which does
+not establish strict coefficient reproduction. Automatic Pd equilibrium
+default selection is on hold; the separate Baty 0 K DFT record remains
+selectable and does not become an implicit room-temperature replacement.
+See the [complete source replay and acceptance decision](literature-reproductions/palladium-frost-2023-audit.md).
 
-| Model | Published | Peritheos errors-in-variables refit | Published/refit pressure RMSE |
+The final typeset article was additionally recovered from the local library
+and read in full during the protocol recheck. It confirms uncertainty-aware
+Marquardt-Levenberg fitting, but does not specify the exact objective,
+constraints, ambient-point treatment or parameter-covariance convention.
+The official supplement was recovered again and every printed coordinate,
+lattice uncertainty, loading and marker agrees with all 93 bundled rows.
+The accepted manuscript reports uncertainty-aware Marquardt-Levenberg fitting
+with 0.1 GPa pressure errors; the exact objective and covariance convention
+remain unspecified. Independent native orthogonal fitting and SciPy ODR
+agree. A first-order effective-variance replay gives nearly identical
+coefficients, but neither interpretation recovers the published central values.
+
+| Model | Published (cell V0, K0, K0') | Orthogonal replay | Measured-volume pressure RMS, published/replay (GPa) |
 |---|---|---|---:|
-| Vinet | `V0=58.678(73) A^3`, `K0=189.3(3.0) GPa`, `K0'=5.473(63)` | `V0=58.7665(145) A^3`, `K0=184.191(613) GPa`, `K0'=5.60371(1381)` | `0.772 / 0.276 GPa` |
-| BM3 | `V0=58.588(76) A^3`, `K0=197.5(3.3) GPa`, `K0'=4.996(66)` | `V0=58.6846(141) A^3`, `K0=191.477(622) GPa`, `K0'=5.14738(1393)` | `0.845 / 0.293 GPa` |
+| Vinet | (58.678, 189.3, 5.473) | (58.766518, 184.190605, 5.603712) | 0.771992 / 0.825323 |
+| BM3 | (58.588, 197.5, 4.996) | (58.684581, 191.476721, 5.147382) | 0.845419 / 0.915380 |
 
-This difference is not a Peritheos optimizer or EOS-formalism issue. An
-independent SciPy orthogonal-distance regression gives the same coefficients
-as the library to the displayed precision for both Vinet and BM3. An
-unweighted pressure-residual fit instead gives Vinet
-`(58.5924, 193.437, 5.38154)` and BM3 `(58.4774, 202.948, 4.88068)`, placing
-the published coefficients between two ordinary objective conventions rather
-than reproducing either. Adding the separate ambient point moves the fit away
-from the publication, confirming that its omission is not the cause.
-
-The stated point uncertainties also do not describe the complete scatter. The
-standard errors-in-variables fits have reduced chi-square values of 19.0
-(Vinet) and 22.1 (BM3). Separate Vinet fits range from
-`(V0, K0, K0')=(58.730, 190.83, 5.103)` for BX18 through
-`(59.032, 169.07, 6.129)` for BX32 to `(57.860, 226.12, 4.813)` for the Au
-high-pressure loading. Those individual triplets are strongly correlated
-because the runs cover different pressure intervals, but their spread exposes
-run-level/systematic variation that is far larger than the printed point
-errors.
-
-The remaining mismatch is therefore best attributed to an undocumented detail
-of the source regression: weighting/error transformation, treatment of
-run-level scatter, or use of higher-precision pre-publication values. As a
-sensitivity check, scaling the propagated volume errors to roughly 40--45% of
-their tabulated values moves both refits close to the published triplets, but
-the source gives no justification for that scaling and Peritheos does not adopt
-it. Table rounding alone is too small to explain the result. These records are
-accordingly classified as `similar`, not `parity` and not a failed EOS record.
+The earlier 0.276359/0.293082 GPa refit values used adjusted latent volumes,
+whereas the published values used measured volumes. That was not a fair RMS
+comparison; these values are now explicitly separated. The orthogonal replay
+minimizes the joint coordinate objective, not unweighted pressure RMS.
+Its reduced chi square is 19.049 for Vinet and 22.080 for BM3, so the quoted
+coordinate errors alone do not describe the scatter. K0' is outside the
+conditional combined-two-error-width check with absolute-error covariance
+(marginally for Vinet). With residual-scaled covariance, all three coefficients
+pass that same screen for both models. The paper does not settle that choice.
+Thus the author protocol has not been exactly replayed and shown to fail;
+it remains unrecovered, and the recommendation/default hold is pending
+clarification. No diagnostic refit is installed as a replacement.
 
 ### Fedotenko direct refits
 

@@ -160,3 +160,47 @@ def rubidium_outcome(record):
         "reason": qualification,
         "reproduction_report": "docs/data/rubidium-halides-farla-2025-follow-up.json",
     }
+
+
+def sakai_gold_outcome(record):
+    """Report the recovered Au stage without claiming sequential-network parity."""
+    from scripts.reproduce_sakai_2025_gold import reproduce
+
+    report = reproduce()
+    fit = report["conditional_au_fits"][0]
+    if not fit["optimizer_success"] or not fit["conditional_numerical_parity_achieved"]:
+        raise AssertionError("Sakai Au conditional central-value parity is stale")
+    stored = record["eos"]["parameters"]["K0_prime"]
+    comparison = _comparison(
+        "K0_prime", stored, fit["k0_prime"], record["parameter_errors"]["K0_prime"]
+    )
+    qualification = (
+        "Conditional Au K0-prime central-value parity at published three-decimal "
+        "precision under equal pressure residuals and published upstream calibrants. "
+        "V0, K0 and K-infinity-prime are fixed, not independently recovered. Original "
+        "weights, uncertainty/covariance and the full sequential calibration are "
+        "not reproduced. Calculated Table S9 is a checkpoint, never fit observations."
+    )
+    return {
+        "status": "parity",
+        "parity_basis": "conditional_central_value_at_published_precision",
+        "parameters": [comparison],
+        "dataset_identifiers": [
+            "gold_sakai_2025_table_s4_au_w_volumes",
+            "gold_sakai_2025_dewaele_2018_au_re_input",
+            "gold_sakai_2025_dewaele_2004_au_input",
+            "gold_sakai_2025_takemura_2008_au_input",
+            "gold_sakai_2025_hirose_2008_au_mgo_input",
+        ],
+        "observations": fit["rows"],
+        "fit_kind": "conditional_au_published_calibrants",
+        "objective": "equal_pressure_residuals",
+        "rmse_gpa": fit["rmse"],
+        "solver_success": True,
+        "original_author_workflow_parity": False,
+        "uncertainty_parity_achieved": False,
+        "full_sequential_calibration_reproduced": False,
+        "qualification": qualification,
+        "reason": qualification,
+        "reproduction_report": "docs/data/sakai-2025-gold-reconstruction.json",
+    }

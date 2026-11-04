@@ -21,7 +21,10 @@ def render_summary(document: str, summary: dict[str, int]) -> str:
             r"(fit for every record with sufficient direct observations and documents all )\d+(\s+records)",
             summary["total"],
         ),
-        (r"(The current campaign finds )\d+( parity matches)", summary["parity"]),
+        (
+            r"(The current campaign finds )\d+((?: scoped numerical)? parity matches)",
+            summary["parity"],
+        ),
         (
             r"(parity matches and )\d+( additional numerically similar results)",
             summary["similar"],

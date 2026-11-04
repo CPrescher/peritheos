@@ -68,8 +68,6 @@ def test_supplement_rows_errors_and_atomic_tokens_survive_public_loading():
     )
     assert set(support["used_by_eos_records"]) == {
         "cementite_prescher_2012_full_range_bm3",
-        "cementite_prescher_2012_below_22_gpa_bm3",
-        "cementite_prescher_2012_22_47_gpa_bm3",
     }
     errors = [c for c in support["columns"] if c.get("of")]
     assert errors and all(c["role"] == "uncertainty" for c in errors)
@@ -94,7 +92,10 @@ def test_high_pressure_structure_is_independent_of_eos_intercepts():
     provenance = d["structure_provenance"]
     assert provenance["pressure_gpa"] == 47.4 and provenance["temperature_k"] == 293
     assert "not refined occupancies" in d["notes"]
-    assert [r["parameters"]["V0"]["value"] for r in d["eos_records"]] == [148.8, 147.3]
+    # The separate Sata static and Hu shock sources do not redefine the
+    # Takahashi equilibrium intercepts or the measured finite-pressure cell.
+    takahashi = [r for r in d["eos_records"] if "takahashi_2019" in r["identifier"]]
+    assert [r["parameters"]["V0"]["value"] for r in takahashi] == [148.8, 147.3]
 
 
 def test_conditional_coefficient_agreement_does_not_invent_source_v0(result):
@@ -119,7 +120,7 @@ def test_conditional_coefficient_agreement_does_not_invent_source_v0(result):
         for r in get_material_document("cementite", format_version=4)["eos_records"]
         if r["reference"].get("doi") == "10.1103/PhysRevB.85.140402"
     ]
-    assert len(records) == 3
+    assert len(records) == 1
     assert all(
         r["evidence"]["parameter_provenance"]["V0"]["source_value_published"] is False
         for r in records

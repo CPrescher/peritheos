@@ -41,7 +41,7 @@ def test_canonical_catalog_objects_execute_directly_from_normal_api():
 
 
 def test_every_historical_record_has_an_explicit_audited_disposition():
-    canonical = set(identifiers(search_eos_records()))
+    canonical = set(identifiers(search_eos_records(include_reference_variants=True)))
 
     assert set(LEGACY_RECORD_AUDIT) == set(_EOS_RECORD_CATALOG)
     assert Counter(entry.relationship for entry in LEGACY_RECORD_AUDIT.values()) == {
@@ -80,10 +80,10 @@ def test_record_model_reference_and_capability_discovery():
 
     assert vinet
     assert all(isinstance(record, EOSRecord) for record in vinet)
-    assert identifiers(dewaele) == (
-        "nickel_dewaele_2008_vinet_1",
-        "silver_dewaele_2008_vinet_1",
-    )
+    assert len(dewaele) == 13
+    assert "silver_dewaele_2008_table4_vinet" in identifiers(dewaele)
+    assert "nickel_dewaele_2008_table4_vinet" in identifiers(dewaele)
+    assert all(r.reference.year == 2008 for r in dewaele)
     assert (
         search_eos_records(doi=" HTTP://DX.DOI.ORG/10.1103/PhysRevB.78.104102 ")
         == dewaele
@@ -91,8 +91,8 @@ def test_record_model_reference_and_capability_discovery():
     assert "rhenium_anzellini_2014_vinet_1" in identifiers(
         search_eos_records(author="Anzellini")
     )
-    assert "silver_dewaele_2008_vinet_1" in identifiers(
-        search_eos_records(reference="Table II Ni and Ag rows")
+    assert "silver_dewaele_2008_table4_vinet" in identifiers(
+        search_eos_records(reference="Compression curves of transition metals")
     )
     assert search_eos_records(thermal=True)
     assert search_eos_records(caloric=True)
@@ -142,8 +142,11 @@ def test_missing_calibration_ranges_do_not_claim_unbounded_coverage():
     assert "gold_sokolova_2013_holzapfel_4" not in identifiers(
         search_eos_records(pressure_gpa=0.0)
     )
-    assert "gold_fei_2007_vinet_2" not in identifiers(
+    assert "gold_fei_2007_vinet_2" in identifiers(
         search_eos_records(temperature_k=2000.0)
+    )
+    assert "gold_fei_2007_vinet_2" not in identifiers(
+        search_eos_records(temperature_k=2331.0)
     )
     assert search_eos_records(pressure_gpa=1.0e9) == ()
 
@@ -177,8 +180,10 @@ def test_search_rejects_ambiguous_or_invalid_range_options(options, message):
 
 
 def test_validation_status_filter_and_ordering_are_deterministic():
-    records = search_eos_records(validation_status=("primary_source_validated",))
-    assert len(records) == 648
+    records = search_eos_records(
+        validation_status=("primary_source_validated",), include_reference_variants=True
+    )
+    assert len(records) == 663
     assert identifiers(records) == tuple(sorted(identifiers(records)))
     assert search_eos_records(validation_status="deferred") == ()
 

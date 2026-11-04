@@ -41,6 +41,12 @@ fixed constraints and row selection still matter. The ledger rule is not a
 universal 95% confidence claim. Fixed/adopted coefficients do not become
 independently recovered coefficients merely because a comparison keeps them fixed.
 
+A reproduced parameterization can fit its observations poorly. Record coefficient
+parity and poor data agreement separately: reproducing the paper's poor fit is
+still reproduction. Usage recommendations may remain negative. Fedotenko (2020)
+Pd with fixed K'=4 is such a case; see its
+[audit](literature-reproductions/palladium-fedotenko-2020-audit.md).
+
 The generic similarity limits are:
 
 | Coefficient | Numerical similarity limit |
@@ -58,6 +64,43 @@ for every free coefficient. A dedicated source audit can impose stricter limits,
 cap an outcome, or use an explicitly documented alternative criterion. Its
 recorded basis and qualification take precedence over this generic description.
 See the [record-by-record ledger](primary-eos-refits.md) for actual comparisons.
+
+The [Scott (2001) cementite audit](literature-reproductions/cementite.md)
+retains **similarity** despite passing the broad combined-error screen: its
+digitized, equal-weight reconstruction differs by 8% in K0 and 19% in K0′,
+and both central coefficients lie outside their printed source error widths.
+The dedicated coefficient-parity criterion requires those source-width checks
+as well. Strong coefficient covariance explains the closer curves; it does not
+recover the paper's numerical inputs or weighted fitting workflow.
+
+The [25 October 2026 uncertainty follow-up](literature-reproductions/uncertainty-reconstruction.md)
+uses an explicit printed-source-error-width criterion for 61 conditional
+parameter comparisons, and the combined-error/numerical-similarity criterion
+for Chen (2018) and Litasov (2007) HTBM/T03. Chen's source two-sigma widths are
+converted to standard errors for that comparison; Litasov's unspecified-confidence
+widths remain diagnostic comparison quantities. Shared-data cross-fit covariance
+is unknown, so these are conditional numerical comparisons rather than formal
+confidence tests. It retains all calibration/workflow limits.
+Farla (2025) RbCl achieves conditional parameter parity while retaining separate
+unresolved calibration replay, source benchmark and author-workflow findings.
+The Datchi diamond and Fei preliminary Pt comparisons are explicitly conditional
+on a source-unconfirmed selection/weighting hypothesis and a diagnostic fixed-V0
+mask, respectively. Litasov siderite's parameter agreement retains its unresolved
+source-RMS discrepancy. These conditions and findings do not cap the limited
+`parameter_agreement` outcome; no hypothesis, author protocol or recommendation
+is validated by promoting that numerical outcome. All 63 reviewed records meet
+their stated conditional parameter criterion.
+
+The [remaining-similar scope review](literature-reproductions/similar-parameter-review.md)
+checks the other 96 similar findings. It promotes 21 conditional parameter
+comparisons, two registered independent-refit replays and one source-equation
+checkpoint check, while 72 retain similarity. Source-width comparisons can
+establish central-value agreement without a reconstruction covariance; that
+missing covariance stays unknown and no combined-error claim is inferred.
+Verified half-last-digit tolerances establish printed-precision agreement,
+not statistical uncertainty parity. Priors and fixed anchors remain explicit
+conditions rather than independently recovered coefficients. Data-agreement,
+calibration, original-publication and recommendation findings remain separate.
 
 ## Qualified results and comparison scope
 
@@ -83,6 +126,15 @@ For example:
   uncertainty, adopted coefficients, calibration network or original weighting.
 - A cold-branch reconstruction does not establish full thermal-fit reproduction.
 - Reproducing a stored independent refit does not reproduce the original paper.
+- Dewaele (2008) Table VI source-equation parity checks identified Figure 4
+  curves within declared graphical reading and coefficient-printing bounds.
+  It does not claim recovery of the raw PAW fit or parameter-refit parity;
+  the four unresolved Fe LDA sets remain separately qualified.
+
+The [Dewaele PAW research collection](research/dewaele-2008-paw.md) preserves
+its 54 assessments and full checks in its own `reproduction.json`. Those files
+are outside the main catalog and its reconstruction totals; explicit file loading
+does not register them as database records.
 
 Historical records may express these findings through `parity_basis`,
 `reproduction_status`, `summary_status`, scientific-validation notes or dedicated
@@ -97,6 +149,12 @@ retains actual reconstructed coefficients and reported errors even when parity
 failed. The main EOS coefficients remain unchanged. Fixed constraints and the
 available protocol are in `fit`; they do not become independently recovered
 coefficients. See [reconstructed coefficients in EOSMAT](eosmat-v4.md#actual-reconstructed-coefficients).
+
+A comparison row may record an audited `display_decimal_places` value to show
+source and reconstructed values/errors at the publication's same decimal
+places. This is a presentation hint, not a confidence convention or a change
+to stored precision. Numeric comparisons use the unrounded values, and the
+complete reconstructed errors/covariance remain available in the evidence.
 
 Use the [EOS reconstruction reports](reconstruction-reports/index.md) to open each
 record's explanation and available coefficient graph. A report's existence, or a

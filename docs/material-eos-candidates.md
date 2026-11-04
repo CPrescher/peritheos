@@ -1,6 +1,6 @@
 # Candidate material equations of state
 
-Backlog reconciled against the local catalog: 2026-10-16.
+Work-status review against the local catalog and source audits: 2026-11-01.
 Original candidate discovery pass: 2026-09-02.
 
 This is a review backlog, not a set of validated Peritheos records. A candidate
@@ -23,21 +23,77 @@ and records which materials have static, thermal, and Hugoniot coverage. Its
 between the live material files and the scientific ledgers. It includes local
 work and must not be read as the contents of a published release.
 
-The current local catalog contains 233 stored material documents / 666 records,
-229 executable materials / 662 records, and thermal EOS coverage for 63 materials
-(brucite has no accepted thermal EOS). Stored
-assessments are 648 primary-source validated, fourteen qualified `not_reproduced`,
-and four deferred. Both scientific ledgers cover all 666 record identities.
+Current material/record counts and scientific-ledger reconciliation are maintained
+in the generated coverage overview rather than duplicated in this backlog.
 Forsterite, diopside, the rubidium halides, phase E, and the scoped brucite
-addition are integrated. Fe-ringwoodite remains staged pending its own review.
+addition are integrated. Finger (1979) Fe-ringwoodite static is integrated at
+296.15 K and 0–4 GPa; its separate 2011 thermal candidate remains staged.
 Brucite does not yet provide an accepted broad high-pressure thermal or
 disordered-phase EOS; its precise limits are in the source audit.
 
-The [Li (2002) Fe3C EOS](literature-reproductions/li-2002-fe3c.md) is integrated
-with original coefficients, fixed measured V0 and all 14 source Table 1 rows.
-Conditional parameter parity is separate from unresolved author-workflow reproduction.
+## How work status is assigned
+
+An integrated record or a documented non-reproduction finding can complete a
+curation investigation. Under the [curation stopping rule](adding-materials-and-eos.md#stopping-rule-unresolved-reproduction-discrepancies),
+`not_reproduced`, `deferred`, `similar`, or `not_refittable` is not by itself an
+instruction to keep fitting. Work status is separate from scientific validation,
+fit parity, recommendation, and catalog availability; this review changes none
+of those record-level findings.
+
+The active queues below contain additions, integration decisions, or concrete
+checks still to perform. Completed investigations retain their limitations and
+specific reopening conditions separately. Missing exact author-workflow details
+are evidence gaps, not automatically active tasks or author requests. New model
+development and outreach require their own scope; a backlog row does not
+authorize either.
+
+This review covers the listed backlog and the source audits for the catalog's
+currently deferred or `not_reproduced` records. Other numerical-ledger outcomes
+retain their individual comparison scopes; their labels alone do not add them
+to an active queue.
 
 ## Active material-gap queue
+
+### Fe3C expansion, reviewed 1 November 2026
+
+The [cementite investigation](literature-reproductions/cementite.md) reviews
+Prescher (2012), Litasov (2013) and Takahashi (2019). The original
+[Sata (2010) static BM3](literature-reproductions/sata-2010-fe3c.md) is now
+retained as a qualified nondefault source EOS, with conditional parameter parity
+and the simple caveat that some quoted point errors are smaller than the overall
+experimental scatter. The recalculated-pressure refit remains separate.
+[Ono–Mibe (2010)](literature-reproductions/ono-mibe-2010-fe3c.md) is now integrated
+as the original experimental BM3 at 300 K and 0–34.3 GPa, preserving all 14
+observations and keeping the 0 K calculations and later Litasov comparison separate.
+[Hu (2019)](literature-reproductions/hu-2019-fe3c.md) is now integrated as a
+full experimental Hugoniot at 85.6–245 GPa (scope updated 2 November), retaining
+the porous precursor and all six source shots. Possible melting at higher
+pressures remains an explicit phase caveat; the refit and thermal reduction stay separate.
+The existing Scott coefficients remain unchanged; their digitized reconstruction
+is now qualified similarity. All 81 Litasov Table 1 rows, 60 Takahashi Table S1 rows and
+19 user-supplied Prescher Table S1 states are recovered. Both Takahashi thermal
+models are now catalog records of `cementite_nonmagnetic`, with the Prescher
+47.4 GPa structure and distinct pressure-scale provenance. Prescher's published
+full-range EOS is the sole public Prescher choice, with unchanged K coefficients
+and errors and adopted Figure 1 full-curve V0=154.5678863704812 Å³. With V0
+fixed, all 22 digitized graph markers reproduce both K coefficients and formal
+errors at published precision. The complete 19-row table and 22 graph markers
+remain separate public datasets. Split fits are audit-only; original confidence,
+V0 constraints and author workflow remain unresolved. See the
+[integration and comparison](literature-reproductions/prescher-2012-recovery.md#database-integration).
+The separate [Litasov (2013) investigation](literature-reproductions/litasov-2013-fe3c.md)
+is now complete: KE source calculations are reproduced within printed precision,
+the prose HT fit has conditional central-parameter agreement, and body-MGD has
+partial agreement; the other alternatives retain quantified limitations or
+non-parity. No Litasov record is integrated. Selecting an eligible source variant
+and establishing an exact supported model mapping are separate integration
+decisions, not a reason to repeat the completed investigation.
+[Li (2002)](literature-reproductions/li-2002-fe3c.md) is now integrated with
+its original BM3 coefficients, fixed measured V0 and all 14 Table 1 rows.
+Source-curve checks and conditional parameter parity pass; original weights,
+confidence and ruby/neon pressure-reduction replay remain unresolved.
+
+### Open additions and integration decisions
 
 These priorities supersede the historical A/B/C ordering below. Candidate status
 does not establish an executable EOS; the [acceptance requirements](adding-materials-and-eos.md)
@@ -46,12 +102,8 @@ sources, compositions, and pressure standards remain distinguishable.
 
 | Priority | Work item | Current coverage / disposition | Next concrete action |
 |---|---|---|---|
-| G01 | Forsterite thermal EOS | Thermal coverage added via Katsura (2022); both source variants achieve conditional numerical parity. Full-precision author-script values at theta0=760 K are recommended; static default preserved. | [Source audit](literature-reproductions/forsterite-katsura-2009-2022.md). Original Katsura (2009), DOI [10.1016/j.pepi.2008.08.002](https://doi.org/10.1016/j.pepi.2008.08.002), remains a combined-fit input/normalization hold; final article and all 52 Table 1 rows recovered. |
-| G02 | Diopside | Implemented and integrated: Thompson (2008) static default and Zhao (1998) thermal record; conditional parameter parity within reported error widths | [Audit](literature-reproductions/diopside.md). Preserve the original tables and separate corrected refit dataset, including the graph-corroborated row-15 pressure and its non-statistical reading bound. Exact original workflow remains unrecovered. |
-| G03 / C07 | B2 RbCl, RbBr, RbI thermal markers | Implemented and integrated: three published thermal records; RbCl static default preserved; independent fits classified similar | [Audit](literature-reproductions/rubidium-halides-farla-2025.md). Retain coefficient-precision, benchmark and composite-CsCl calibration qualifications; independent EosFit replay is not recovery of the original author project. |
-| G04 / C12 | Brucite | Only published 300/473/673 K isotherms integrated; full thermal EOS not recommended | [Audit](literature-reproductions/brucite.md). Published-data parity not achieved; 873 K normalization and continuous reconstruction unresolved. All Peritheos refits retained only as diagnostics outside executable selection. |
-| G05 / C10 | Fe2SiO4 ringwoodite | Absent from bundle; source audit and staged addition started in a separate chat on 2026-10-16 | Audit Armentrout–Kavner (2011), DOI [10.1029/2011GL046949](https://doi.org/10.1029/2011GL046949), with its adopted constraints and molar/cell conversion; create a separate Fe endmember. |
-| G06 / C11 | Dense hydrous phase E | Implemented and integrated: measured Fe-bearing phase E static BM3, with fit parity within reported uncertainty | [Audit, differences and residual plot](literature-reproductions/phase-e-crichton-ross-2000.md). All 11 source rows/errors retained; phase-specific peak-position fallback. Published coefficients and exact measured composition preserved. |
+| Fe3C | Sata (2010), Ono–Mibe (2010) experiment and Hu (2019) full experimental shock addition completed | Original static records and all observations preserved. Hu’s published six-shot Us–up relation retains the full 85.6–245 GPa experimental path and porous precursor, with a simple caveat about possible melting at higher pressures. The refit and thermal reduction remain separate. | Completed source investigations are not an active refitting queue. The distinct Ono 0 K calculations, Hu thermal reduction and eligible Litasov thermal mapping require separately scoped integration work. Proceed to the next material gap. [Hu audit](literature-reproductions/hu-2019-fe3c.md); [source inventory](literature-reproductions/cementite.md#additional-primary-sources). |
+| G05 / C10 | Fe2SiO4 ringwoodite | Finger (1979) derived static ambient-cell reconstruction integrated 1 November; one installed static record, valid only at 296.15 K / 0–4 GPa | Static addition complete. The Armentrout–Kavner (2011) thermal candidate remains separate in the unchanged staged card, not installed; reopen only for its specific source-equation/calibration evidence. [Integration and thermal acceptance conditions](research/ferrous-ringwoodite-armentrout-2011-integration.md). |
 | G07 | Garnet thermal coverage | Pyrope, almandine and majorite each have one static record; queued literature search | Find source-owned, composition-specific P–V–T parameterizations and primary observations; do not treat this family as a mixing model. |
 | G08 | Akimotoite continuous thermal EOS | Eleven static/temperature-slice records; queued | Review a source-faithful continuous model; separate the Karki temperature slices and partial Dorogokupets synthesis from a complete thermal EOS. |
 | G09 / C16 | Phase-D thermal compositions | Existing Mg-rich, Al-bearing and Fe-bearing cards are static; queued | Review Litasov et al. (2008), DOI [10.1029/2007JB004937](https://doi.org/10.1029/2007JB004937); add its measured composition separately if it differs from existing cards. |
@@ -59,25 +111,50 @@ sources, compositions, and pressure standards remain distinguishable.
 | G11 / C18 | Hcp-Zn thermal EOS | Two static Dewaele (2019) records; thermal extension remains open | Audit Errandonea et al. (2018), DOI [10.1088/1361-648X/aacac0](https://doi.org/10.1088/1361-648X/aacac0), including its exact thermal formulation and axial behavior. |
 | G12 / C19 | Independent experimental Mo thermal scale | Existing thermal coverage is the Sokolova synthesis; alternate scale open | Audit Huang et al. (2016), DOI [10.1038/srep19923](https://doi.org/10.1038/srep19923), as a separate experimental record. |
 
-## Existing-record and infrastructure queue
+## Existing-record verification and maintenance queue
 
 | Work item | Current disposition | Next action / reopening condition |
 |---|---|---|
-| Coverage and backlog maintenance | Accepted additions reconcile all 663 stored records across coverage and both scientific ledgers | Run `python -m scripts.generate_catalog_coverage` after additions; use `--check` to detect drift. Reconcile shared ledgers after reviewing parallel additions. |
-| Catalog integration checks | Catalog-count and Fei Au range expectations reconciled; Rust floating-point JSON round-trip fixed | Keep coverage and ledger checks synchronized with accepted additions. Staged second-batch candidates do not change bundled totals. |
+| Coverage and integration maintenance | Routine checks after accepted additions; earlier catalog-count expectations and Rust floating-point JSON round-trip issue are resolved | Run repository maintenance command `python -m scripts.generate_catalog_coverage --check`; regenerate coverage after additions and reconcile both scientific ledgers. Use the generated overview for current totals. |
 | Calibration dependencies | See the generated coverage overview for current `reference_eos_not_bundled` and `reference_model_not_supported` totals | Check for stale metadata/links first, then audit genuinely missing standards (including Tsuchiya Au and historical NaCl/Pt formulations). These status counts do not establish that every cited scale is absent. |
-| Sakai (2025) nine-material network | All nine published RT records retained; source calibration replay remains separately qualified | Extend source reconstruction to the remaining sequential calibration stages using measured paired volumes. Keep calculated Table S9 outputs separate. [Audit](literature-reproductions/sakai-2025-nine-materials.md). |
-| Morard (2026) FeS-VI | Deferred availability; reproduced-cold staged coefficients classified `similar`; residual-envelope claim unresolved | Replay the original GUI workflow with the already confirmed complete author-used files. Do not request those files again. [Audit](literature-reproductions/fes-eosfit-direct.md). |
-| Miozzi (2020) hcp-Fe | Three qualified published records; separate independent refit available | Reconcile original pressure reduction and workflow, retaining the already registered author-reported n=2 setting. [Audit](literature-reproductions/miozzi-2020-iron.md). |
-| Campbell (2009) FeO / fcc-Fe | Both published records deferred | Recover the exact combined reduction, row selection and fit controls; fcc recalibration alone does not address the dominant FeO residuals. [Audit](literature-reproductions/campbell-2009-mismatch.md). |
-| Fei (2007) NaCl-B2 | Published equation checked; digitized hot-data diagnostic lacks q parity | Recover original numerical measurements, paired Pt readings, uncertainties and fit procedure. [Audit](literature-reproductions/fei-2007-nacl-b2.md). |
-| Dorfman (2012) Au–Mo–Pt | Six published records; coupled fit lacks coefficient parity | Recover original pair/row inventory, constraints and AN012 observations. AN012's relevance to the discrepancy is unproven. [Audit](literature-reproductions/dorfman-2012-cocompression.md). |
-| Katsura (2004) Mg-ringwoodite thermal / C05 | Withheld after numerical audit; existing static record remains | Require authoritative atom-count, Debye-law and energy/volume normalization evidence; do not adopt the diagnostic n=5 workaround. |
-| Fei (2007) Pt | Investigation paused by the user pending author reply | Preserve published coefficients and the hold; resume only after the response is available and the user resumes this investigation. [Disposition](literature-reproductions/fei-2007-platinum.md). |
-| Yokoo (2009) Au/Pt PVT | Qualified diagnostic output reconstructions; published analytical PVT unresolved | Require authoritative pressure code/specification or correction addressing the established mismatch. More fitting to calculated outputs is insufficient. [Source audit](literature-reproductions/yokoo-2009-gold.md). |
-| Chen (2010) / Maltby (2024) argon | Qualified diagnostic / unresolved implementation; lower priority | Resolve original equation/sample-state evidence; retain Chen's no-outreach instruction. [Requests](dataset-requests.md). |
+| Sakai (2025) nine-material network | All nine published RT records accepted; Au conditional central-value parity integrated in the common ledger | Extend source reconstruction to the remaining sequential calibration stages using measured paired volumes. Keep calculated Table S9 outputs separate. [Audit](literature-reproductions/sakai-2025-nine-materials.md). |
+| Morard (2026) FeS-VI | Reviewed 1 November: numerical/source-input audit complete; live conditional parameter assessment is `parity`, while the residual-envelope finding and deferred availability remain. Original 20210609 GUI comparison awaits a located executable; no newer completed comparison found | If the original executable becomes available, compare the confirmed complete selected inputs and saved model, including weighting, groups, cold/thermal selections and refinement controls. Current replacement-release downloads do not establish historical GUI parity. Do not repeat fits or input requests. The subsequently authorized G05/C10 Finger static addition is now integrated separately. [Availability review](literature-reproductions/fes-eosfit-direct.md#current-status-and-original-gui-availability-review-2026-11-01). |
 | Uncertainty coverage | See generated coverage for covariance and error-confidence availability; source confidence is often unspecified | Preserve missing errors as missing; distinguish conditional refit covariance, fixed-input uncertainty, and shared calibrant systematics. |
 | Continuous spin crossover and liquids | Bounded branch/reference curves exist; general coverage remains limited | Treat continuous crossover and broad liquid thermal models as separately designed model work. |
+
+## Completed investigations with documented limitations
+
+These are completed reviews of the available evidence, not claims of full
+author-workflow reproduction or unrestricted scientific use. Their retained
+source discrepancies are findings. Reopen only for the specific evidence or
+separately scoped integration/model task below; no new outreach is planned by
+this review. The linked audits retain the quantitative comparisons and source
+provenance.
+
+| Investigation | Completed finding / current catalog disposition | Reopening condition or separate task |
+|---|---|---|
+| Miozzi (2020) hcp-Fe | Dominant near-factor-of-two thermal-gamma discrepancy explained by author-reported n=2 at per-mole-Fe volume. Physically normalized n=1 Speziale and Tange independent refits are integrated; the original three published records remain `not_reproduced`. [Audit and registered refit](literature-reproductions/miozzi-2020-iron.md#registered-published-n2-record-and-speziale-n1-refit-2026-10-03). | Exact publication replay would need the actual pressure reducer, selected input, weights/error handling and original session. Those residual gaps do not keep the completed curation/refit task active. |
+| Wadsleyite, Katsura (2009) | Calibration/model-mapping investigation completed 30 October. All 85 source rows verified; cold-stage K′=4.108 agrees with 4.1(1). Standard n=7 thermal calculation misses both hot observations and source-calculated curves; pressure recalibration alone cannot reconcile this internal source discrepancy. Native/Python and consistent cell conversions agree. The n=5 diagnostic is unphysical and not adopted; existing deferred hold remains. User reports on 1 November that the email to Tomoo Katsura was sent; reply awaited. [Audit](literature-reproductions/wadsleyite-katsura-2009.md). | Original thermal/pressure calculator or saved project resolving normalization, volume arguments, reference subtraction and Figure 2; Inoue ambient joint-fit inputs/weights; measured paired MgO cells for an independent calibration test. No replacement EOS or new outreach is implied. |
+| G04 / C12, brucite | Three source-checked isotherms integrated; published 873 K/continuous thermal EOS not reproduced or recommended. Historical refits remain diagnostics. The audit explicitly ends further fitting under the curation scope. [Disposition](literature-reproductions/brucite.md). | Authoritative source correction or original implementation resolving the discrepancy; a replacement thermal model would be a separate research request. |
+| Litasov (2013) Fe3C | Independent equation/fit investigation complete on 30 October: KE calculations reproduced within printed precision, prose HT conditional parameter agreement, body-MGD partial agreement, and scoped non-parity/limitations for other alternatives. No catalog addition. [Complete verdicts](literature-reproductions/litasov-2013-fe3c.md). | An explicit integration decision and exact supported model mapping for an eligible variant; full workflow recovery additionally needs original masks, constraints, objective and thermochemical inputs. Do not repeat the completed source replay or integrate all alternatives as a batch. |
+| Campbell (2009) FeO / fcc-Fe | Combined-data and thermal-correction diagnostics completed; hcp-calibrated Seagle rows dominate the FeO mismatch. Both affected published records remain deferred. [Audit](literature-reproductions/campbell-2009-mismatch.md). | Original combined/recalibrated input table and reduction/fit controls; fcc recalibration alone is insufficient. |
+| Fei (2007) NaCl-B2 | Published equation and figure-data replay completed; original coefficient parity unresolved. Separate staged digitized-data refit is integrated with its uncertainty limitations. [Audit and refit](literature-reproductions/fei-2007-nacl-b2.md#available-independent-thermal-refit). | Original unrounded measurements, measured Pt cells, errors, weights and calibration/covariance procedure for exact source replay. This does not resume the paused Pt investigation. |
+| Dorfman (2012) Au–Mo–Pt | Coupled-fit, constraint-mode and input-recovery audits completed; six published records retain their non-parity qualifications. AN012's role in the mismatch is unproven. [Audit](literature-reproductions/dorfman-2012-cocompression.md). | Additional primary input/code identifying the actual pairs, masks and constraints. The inaccessible dissertation is a possible source-recovery lead, not established missing fit evidence or an automatic new task. |
+| Katsura (2004) Mg-ringwoodite thermal / C05 | Thermal normalization discrepancy quantified; source thermal addition withheld, existing static record preserved. The n=5 diagnostic is not a permissible correction. [Audit](literature-reproductions.md#ringwoodite-katsura-2004). | Authoritative numeric atom count, Debye-temperature law and energy/volume normalization or original code. |
+| Yokoo (2009) Au/Pt PVT | Qualified diagnostic reconstructions retained; analytical PVT unresolved. The convention investigation is closed pending author evidence; Au follow-up found no evidence satisfying its reopening conditions. [Evidence checklist](literature-reproductions/yokoo-2009-au-follow-up.md). | Provenance-confirmed pressure code, complete specification or correction addressing the established mismatch. More fitting to calculated outputs is insufficient. |
+| Chen (2010) argon | Original-constant reconstruction and separate digitized-data refit completed; source parameterization discrepancy documented. Diagnostic original-constant record remains not recommended. [Audit](literature-reproductions/chen-2010-argon.md). | Original source equation, numerical coefficients/inputs or correction; preserve the user's no-outreach instruction. |
+| Maltby (2024) argon | Equation, neighbour-table, cutoff, rounding and constrained-refit investigations completed. Original sample-state mismatch persists; exploratory replacement remains research-only. [Source audit](literature-reproductions/argon-maltby-2024.md), [follow-up](literature-reproductions/argon-maltby-2024-refit.md). | Author implementation and sample-state/neighbour-table clarification, or a separate explicit model-development request. |
+| Frost (2023) Pd | Source/protocol audit complete; all 93 observations verified. Coefficient comparison depends on an unspecified covariance convention, so a failed replay of the full author protocol is not established. Recommendation remains on hold. [Audit](literature-reproductions/palladium-frost-2023-audit.md). | Original objective, row/ambient-point treatment, constraints, uncertainty convention and saved fit project; no repeated request for the already recovered table. |
+| Shen and Smith (2026) MgO / NaCl-B2 | Source transcription, Cu pressure reduction, fixed-volume fits and source-input/software searches completed. Two published fits remain `not_reproduced` and not recommended; other phase fits retain their scoped conditional parity. [Audit](literature-reproductions/shen-smith-2026-cu-refits.md). | Exact unrounded author inputs, NaCl coexistence mask, any additional processed observations, Cu reducer and actual fitting code/project. Available-input non-parity does not establish failure of the unrecovered author workflow. |
+| Baty (2024) experimental Pd | Source equation, all 78 observations and source-fit discrepancy audited; affected experimental record remains `not_reproduced` and not recommended. Separate DFT records are unaffected. [Audit](literature-reproductions.md#palladium-baty-2024). | Author-supported input/constraint/weighting or reduction evidence addressing the experimental-fit mismatch. |
+| Fu (2023) CaSiO3 thermal fit | Source/input-study reconstruction, joint-fit attempt and normalization audit completed; published thermal discrepancy retained, with a separately identified independent refit available. [Audit](literature-reproductions/fu-2023-eos.md). | Actual source selection, objective/weights and thermal implementation or correction; no further normalization tuning as routine curation. |
+| Sakai (2014) Fe0.9Ni0.1 thermal variants | Five source equations and extrapolation checkpoints independently evaluated; the roughly 7.1 GPa hot-data RMS versus the reported roughly 1.1 GPa is documented. Affected variants remain explicit-selection and not recommended. [Audit](literature-reproductions/iron-fei-input-papers.md). | Original pressure reduction, selected regression inputs and implementation reconciling the hot-data residual claim. This finding is scoped to these five thermal variants. |
+
+## Paused by the user
+
+Fei (2007) Pt remains paused pending an author reply and explicit user resumption.
+Its coefficients and hold are preserved. This backlog review does not resume
+that investigation. [Disposition](literature-reproductions/fei-2007-platinum.md).
 
 ## Completed or partly completed candidates
 
@@ -86,6 +163,10 @@ details remain below, with current status taking precedence.
 
 | Historical item | Reconciled status |
 |---|---|
+| G01, forsterite thermal EOS | Katsura (2022) integration and equation/data/refit investigations complete for both source variants; full-precision author-script values at theta0=760 K recommended, static default preserved. Exact bootstrap recovery is optional. Original Katsura (2009) remains a distinct source hold needing earlier combined-fit inputs/normalization, not a reason to reopen the accepted 2022 addition. [Audit](literature-reproductions/forsterite-katsura-2009-2022.md). |
+| G02, diopside | Thompson (2008) static and Zhao (1998) thermal records integrated with conditional parameter parity. Original tables and the separate corrected row-15 analysis dataset retained. Exact author-workflow recovery is optional, not an acceptance blocker. [Audit](literature-reproductions/diopside.md). |
+| G03 / C07, B2 RbCl/RbBr/RbI | Integration and follow-up completed; all three now meet their scoped conditional parameter-parity criteria. Exact publication digits, historical CsCl replay and benchmark qualifications remain. The user deferred author contact; missing original projects are evidence gaps rather than pending requests. [Decision](literature-reproductions/rubidium-halides-farla-2025.md#assessment-and-follow-up-decision-2026-10-16). |
+| G06 / C11, dense hydrous phase E | Measured Fe-bearing static BM3 integrated with all 11 rows/errors, conditional parameter parity and phase-specific peak-position fallback. Exact original weighting/covariance and paired quartz readings are optional recovery, not unfinished integration. [Audit](literature-reproductions/phase-e-crichton-ross-2000.md). |
 | Sueda (2009), Dewaele (2000) MgO, Wang (2012) stishovite, C01 B4C, C02 c-BN, C03 epsilon-FeOOH, C04 CaSiO3 | Implemented; individual reproduction qualifications remain attached to their records. |
 | C06 vanadium | Main thermal record implemented; incomplete fixed-K′ alternatives withheld. |
 | C08 siderite | Published static record and separate joint thermal refit implemented; the published thermal alternatives remain withheld in its [audit](literature-reproductions/litasov-2013-siderite.md). |
@@ -607,9 +688,11 @@ production EOS record added.**
 
 ## Current review order
 
-Use G01–G12 in the active material-gap queue above. Completed historical items
-must not be reintroduced as missing materials. Evidence-dependent holds remain
-separate from work that can progress using available publications.
+Use the open additions and existing-record verification queues above. G01–G12
+remain stable historical identifiers, not twelve unfinished tasks. Completed
+integrations and completed non-reproduction investigations must not be
+reintroduced as missing materials or active fitting work. Evidence-dependent
+holds remain separate from work that can progress using available inputs.
 
 For each review, the acceptance gate should be: obtain the primary full text
 and supplement; identify exact composition, phase, cell and volume convention;

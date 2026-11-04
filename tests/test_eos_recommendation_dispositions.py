@@ -19,6 +19,7 @@ from scripts.validate_primary_eos_refits import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
+SHEN_NOT_RECOMMENDED = ("mgo_shen_2026_vinet_3", "nacl_b2_shen_2026_vinet_2")
 
 
 def source(identifier):
@@ -30,8 +31,8 @@ def source(identifier):
     raise AssertionError(identifier)
 
 
-@pytest.mark.parametrize("identifier", NOT_RECOMMENDED)
-def test_seven_unreproduced_eos_require_explicit_scientific_acceptance(identifier):
+@pytest.mark.parametrize("identifier", [*NOT_RECOMMENDED, *SHEN_NOT_RECOMMENDED])
+def test_unreproduced_eos_require_explicit_scientific_acceptance(identifier):
     document, raw = source(identifier)
     record = get_eos_record(identifier)
     assert record.scientific_validation_status == "not_reproduced"
@@ -40,9 +41,8 @@ def test_seven_unreproduced_eos_require_explicit_scientific_acceptance(identifie
         == "not_recommended_for_quantitative_use"
     )
     assert raw["catalog_access"] == "explicit_selection"
-    assert (
-        get_material(document["identifier"]).default_record().identifier != identifier
-    )
+    default = get_material(document["identifier"]).default_record()
+    assert default is None or default.identifier != identifier
     strict = Material.from_eosmat(document)
     assert identifier not in {r.identifier for r in strict.eos_records}
     with pytest.raises(MaterialError, match="not_reproduced"):
@@ -185,7 +185,9 @@ def test_fp48_uses_coupled_spin_crossover_audit(branch):
     assert outcome["rmse_volume_a3"] == pytest.approx(0.1198, abs=5e-5)
 
 
-@pytest.mark.parametrize("identifier", [*NOT_RECOMMENDED, WADSLEYITE])
+@pytest.mark.parametrize(
+    "identifier", [*NOT_RECOMMENDED, *SHEN_NOT_RECOMMENDED, WADSLEYITE]
+)
 def test_generic_transcription_reaudit_cannot_undo_reviewed_recommendation(identifier):
     from scripts.apply_primary_source_audit import audit_record
 

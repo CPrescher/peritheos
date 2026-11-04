@@ -67,7 +67,11 @@ def test_migrated_reductions_preserve_rows_scales_and_exports(metal, count, tmp_
         selected = Material.from_eosmat(
             document, record_identifiers=(reduction["eos_record"],)
         ).to_eosmat()
-        assert table(selected)["pressure_reductions"] == [reduction]
+        selected_ids = {r["identifier"] for r in selected["eos_records"]}
+        assert reduction["eos_record"] in selected_ids
+        assert table(selected)["pressure_reductions"] == [
+            r for r in dataset["pressure_reductions"] if r["eos_record"] in selected_ids
+        ]
         jsonschema.validate(selected, eosmat_schema())
         if reduction["status"] == "unresolved":
             continue

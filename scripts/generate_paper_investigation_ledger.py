@@ -56,6 +56,52 @@ PAPER_SCOPE_NOTES = {
         "workflow remain unrecovered. See the [Li audit and integration]"
         "(literature-reproductions/li-2002-fe3c.md)."
     ),
+    "10.1103/physrevb.85.140402": (
+        "Only the full-range published BM3 is offered in the catalog. Its K0, "
+        "K0-prime and formal errors agree at printed precision with the 22-marker "
+        "conditional replay at fixed, graph-derived V0. Published coefficients "
+        "and errors are unchanged. Retired split fits remain audit evidence. "
+        "Original V0 constraints, inputs, weighting and confidence convention "
+        "remain unresolved. See the [integration and comparisons]"
+        "(literature-reproductions/prescher-2012-recovery.md#database-integration)."
+    ),
+    "10.3390/min9120744": (
+        "Independent source-equation density benchmarks pass at declared printed "
+        "and graphical precision. Both equal-pressure-weight, all-60-row coefficient "
+        "reconstructions remain similar, with central-value differences beyond "
+        "printed source widths. Source weights and exact fit mask are unknown; "
+        "author-workflow reproduction and experimental accuracy are not established. "
+        "The two pressure-scale variants describe the same experiment."
+    ),
+    "10.1029/2000gl012606": (
+        "Qualified similarity of 21 digitized observations, not coefficient parity "
+        "or author-workflow reproduction. The source reports weighted least squares; "
+        "the reconstruction uses equal pressure weights because plotted errors are "
+        "incomplete. K0 differs by 8% and K0-prime by 19%; both lie outside their "
+        "printed source error widths despite broader uncertainty overlap. Published "
+        "coefficients and observations are unchanged. See the [Fe3C audit]"
+        "(literature-reproductions/cementite.md)."
+    ),
+    "10.1038/s41467-018-07265-z": (
+        "Coesite-I/II/III central-coefficient parity is achieved; the author's fit "
+        "values are reproduced at reported precision using the original files. "
+        "The recovered 22-row author export contains 21 measured "
+        "entries plus a derived literature ambient EOS anchor. The pressure-only "
+        "weights effectively pin V0; volume errors, original EoSFit settings and "
+        "covariance are not reproduced. The earlier 24-row unweighted failure "
+        "is preserved as a historical diagnostic. Published coefficients are "
+        "unchanged. See the [author-file audit]"
+        "(literature-reproductions/bykova-2018-author-fit.md)."
+    ),
+    "10.1016/j.jallcom.2020.156179": (
+        "Corrected Fedotenko Pd weighting retains all 14 printed positive-pressure "
+        "coordinate errors with explicit ambient-datum handling. Both Pd fits "
+        "achieve conditional coefficient parity; fixed-Kprime=4 has poor data agreement "
+        "(source pressure RMS 0.934246 GPa; corrected diagnostic reduced chi-square "
+        "about 25). The constrained curve is not recommended for quantitative use. "
+        "Published coefficients and observations are unchanged. See the "
+        "[Fedotenko audit](literature-reproductions/palladium-fedotenko-2020-audit.md)."
+    ),
     "10.1007/s00269-003-0353-z": (
         "Full published thermal EOS: parity not achieved, not recommended. "
         "Only individually source-checked 300/473/673 K isotherms remain executable. "
@@ -179,13 +225,21 @@ PAPER_SCOPE_NOTES = {
 # Keep the historical record ledger, but do not turn refit reproducibility
 # into a claim that every published author fit was reproduced.
 PAPER_REPRODUCTION_OVERRIDES = {
+    "10.1103/fxgq-96sg": {
+        "outcome": "partial_reproduction",
+        "summary": "Eight phase fits retain conditional coefficient parity. MgO and NaCl-B2 are not_reproduced and not recommended: the published curves give 1.161 and 0.622 GPa pressure RMS, versus 0.476 and 0.293 GPa for direct fixed-V0 diagnostic refits. Table S1 accounts for all 194 published DAC-2 MgO observations and 131 NaCl-B2 observations (125 above 35 GPa). Exact author fit-input completeness remains unconfirmed: the fitting description identifies this study's data, but data availability mentions other author-held data. See the [source-input audit](literature-reproductions/shen-smith-2026-cu-refits.md).",
+    },
+    "10.1063/5.0161038": {
+        "outcome": "parity_not_achieved",
+        "summary": "Final-paper protocol recheck: both Pd refits remain numerically similar; the two-width uncertainty comparison fails with absolute-error covariance but passes with residual-scaled covariance. Author objective, ambient treatment, constraints and covariance convention remain unrecovered. Scientific status not_reproduced denotes an unrecovered original fit, not a demonstrated failed author-protocol replay. Quantitative recommendation and Pd automatic default remain on hold pending clarification. The earlier adjusted-volume RMS comparison is corrected in the dedicated Frost audit.",
+    },
     "10.2138/am-2022-8435": {
         "outcome": "partial_reproduction",
         "summary": "Bridgmanite fits retained; published CaSiO3 thermal parameterization not reproduced and not recommended. Its historical _refit identifier denotes Fu's published coefficients, not the separately attributed Peritheos refit.",
     },
     "10.1063/5.0179469": {
         "outcome": "partial_reproduction",
-        "summary": "Experimental Pd BM3 fit not reproduced and not recommended; separate 0 K DFT record and current material default preserved.",
+        "summary": "Experimental Pd BM3 fit not reproduced and not recommended; separate 0 K DFT record preserved. Pd automatic default selection is on hold after the separate Frost audit.",
     },
     "10.1016/j.pepi.2013.12.010": {
         "outcome": "partial_reproduction",

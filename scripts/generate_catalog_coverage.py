@@ -22,7 +22,9 @@ DOCS = ROOT / "docs"
 def collect_coverage() -> dict:
     """Join stored records to executable objects without hiding deferred records."""
     materials = {m.identifier: m for m in list_materials()}
-    executable = {r.identifier: r for r in list_eos_records()}
+    executable = {
+        r.identifier: r for r in list_eos_records(include_reference_variants=True)
+    }
     refits = json.loads((DOCS / "data/primary-eos-refits.json").read_text())
     audits = json.loads((ROOT / "peritheos/data/primary-source-audit.json").read_text())
     refit_ids = {r["record_identifier"] for r in refits["records"]}
@@ -100,6 +102,12 @@ def collect_coverage() -> dict:
             "stored_records": len(records),
             "executable_materials": len(materials),
             "executable_records": len(executable),
+            "source_records": sum(
+                not r.is_reference_variant for r in executable.values()
+            ),
+            "pressure_scale_reference_variants": sum(
+                r.is_reference_variant for r in executable.values()
+            ),
             "materials_with_thermal_eos": sum(r["thermal_records"] > 0 for r in rows),
             "executable_equation_kinds": dict(
                 sorted(Counter(r.equation_kind for r in executable.values()).items())
@@ -156,8 +164,13 @@ def render_coverage(data: dict) -> str:
         ("Stored EOS records", "stored_records"),
         ("Executable materials", "executable_materials"),
         (
-            "Executable EOS records, including qualified explicit-selection records",
+            "Executable EOS records, including references and qualified explicit-selection records",
             "executable_records",
+        ),
+        ("Source EOS choices in normal discovery", "source_records"),
+        (
+            "Published pressure-scale reference variants",
+            "pressure_scale_reference_variants",
         ),
         ("Materials with an executable thermal EOS", "materials_with_thermal_eos"),
         ("Executable records with parameter covariance", "records_with_covariance"),
