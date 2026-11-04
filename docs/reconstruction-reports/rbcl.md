@@ -13,7 +13,7 @@ agreement, source verification, author-workflow reproduction and recommendation 
 | EOS record | Recorded outcome | Coefficient comparison |
 | --- | --- | --- |
 | [Campbell and Heinz (1994), RbCl-B2 BM3](#record-rbcl_b2_campbell_1994_bm3_1) | Coefficient parity achieved | Graph and table |
-| [Farla et al. (2025), RbCl-B2 BM3-MGD, CsCl pressures (case 1)](#record-rbcl_b2_farla_2025_bm3_mgd_cscl) | Numerically similar, with qualifications | Graph and table |
+| [Farla et al. (2025), RbCl-B2 BM3-MGD, CsCl pressures (case 1)](#record-rbcl_b2_farla_2025_bm3_mgd_cscl) | Coefficient parity achieved | Graph and table |
 
 <a id="record-rbcl_b2_campbell_1994_bm3_1"></a>
 
@@ -49,21 +49,38 @@ Record: `rbcl_b2_campbell_1994_bm3_1` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for rbcl_b2_campbell_1994_bm3_1](figures/rbcl_b2_campbell_1994_bm3_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for rbcl_b2_campbell_1994_bm3_1](figures/rbcl_b2_campbell_1994_bm3_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.29 |
+| Reconstruction / refit | 0.291 |
+
+Both fits use the same 24 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** lattice\_parameter\_a. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for rbcl_b2_campbell_1994_bm3_1](figures/rbcl_b2_campbell_1994_bm3_1.svg)
+![Source/target and reconstructed central values for rbcl_b2_campbell_1994_bm3_1](figures/rbcl_b2_campbell_1994_bm3_1.svg#only-light)
+![Source/target and reconstructed central values for rbcl_b2_campbell_1994_bm3_1](figures/rbcl_b2_campbell_1994_bm3_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 17.9 | 1.0 | 17.88084365996729 | 1.0581791574892083 | Free |
-| K0\_prime | 5.23 | 0.29 | 5.238151959171043 | 0.3525905442063895 | Free |
+| K0 | 17.9 | 1.0 | 17.9 | 1.1 | Free |
+| K0\_prime | 5.23 | 0.29 | 5.2 | 0.4 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -73,15 +90,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** Not specified
     - **Volume:** lattice\_parameter\_a
-- **Observed pressure range gpa:** \[1.11, 32.3\]
+- **Observed pressure range gpa:** 1.11; 32.3
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[36.929363769900995, 58.406555796399005\]
+- **Observed volume range:** 36.9294; 58.4066
 - **Degrees of freedom:** 22
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.27906464867282704
-- **Published rmse gpa:** 0.28986542659100895
-- **Reduced chi square:** 0.19972537696575704
+- **Rmse gpa:** 0.279065
+- **Published rmse gpa:** 0.289865
+- **Reduced chi square:** 0.199725
 
 </details>
 
@@ -90,7 +107,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `rbcl_b2_campbell_1994_bm3_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/rbcl.eosmat).
@@ -102,10 +119,10 @@ Observation curves and residual plots are provided by the supporting reports whe
 
 Record: `rbcl_b2_farla_2025_bm3_mgd_cscl` · Model: `BM3`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Coefficient parity achieved.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Stored EOS coefficients and source](../material-summaries/rbcl.md#record-rbcl_b2_farla_2025_bm3_mgd_cscl)
 
@@ -114,7 +131,8 @@ Record: `rbcl_b2_farla_2025_bm3_mgd_cscl` · Model: `BM3`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
-- Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Parameter agreement is conditional on fixed V0/theta0, the documented analyst row mask, source-reported CsCl pressures and frozen diagonal effective P/V/T weights. CsCl calibration replay and source benchmark discrepancies remain unresolved as separate findings; neither calibration parity, publication-digit benchmark parity nor author-workflow reproduction is claimed. Final frozen effective P/V/T weights at the existing converged fit, without a pressure floor. Conditional on the analyst row mask and source-reported CsCl pressures; calibration replay and benchmark discrepancies remain unresolved. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications. Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
+- Earlier audit statement, before the conditional uncertainty follow-up: Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
@@ -123,47 +141,96 @@ Record: `rbcl_b2_farla_2025_bm3_mgd_cscl` · Model: `BM3`
 - **Observations:** 122
 - **Fit kind:** iterated\_effective\_variance\_bm3\_mgd
 - **Objective:** iterated frozen diagonal effective P/V/T variance
+- **Weighting:** Final frozen effective P/V/T weights at the existing converged fit, without a pressure floor. Conditional on the analyst row mask and source-reported CsCl pressures; calibration replay and benchmark discrepancies remain unresolved.
+- **Absolute sigma:** False
 - **Fixed parameters:** V0; Tr; theta0; n
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for rbcl_b2_farla_2025_bm3_mgd_cscl](figures/rbcl_b2_farla_2025_bm3_mgd_cscl-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for rbcl_b2_farla_2025_bm3_mgd_cscl](figures/rbcl_b2_farla_2025_bm3_mgd_cscl-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.154 |
+| Reconstruction / refit | 0.155 |
+
+Both fits use the same 122 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** audit volume in record units. **Row selection:** Named source-audit row reader.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for rbcl_b2_farla_2025_bm3_mgd_cscl](figures/rbcl_b2_farla_2025_bm3_mgd_cscl.svg)
+![Source/target and reconstructed central values for rbcl_b2_farla_2025_bm3_mgd_cscl](figures/rbcl_b2_farla_2025_bm3_mgd_cscl.svg#only-light)
+![Source/target and reconstructed central values for rbcl_b2_farla_2025_bm3_mgd_cscl](figures/rbcl_b2_farla_2025_bm3_mgd_cscl-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 19.89 | 0.08 | 19.921940727841257 | Not specified | See protocol |
-| K0\_prime | 5.0 | 0.02 | 4.995184896218001 | Not specified | See protocol |
-| gamma0 | 1.96 | 0.04 | 1.9639111476753601 | Not specified | See protocol |
-| q | 1.05 | 0.09 | 1.0592376167051918 | Not specified | See protocol |
+| K0 | 19.89 | 0.08 | 19.92 | 0.09 | See protocol |
+| K0\_prime | 5.000 | 0.020 | 4.995 | 0.024 | See protocol |
+| gamma0 | 1.96 | 0.04 | 1.96 | 0.04 | See protocol |
+| q | 1.05 | 0.09 | 1.06 | 0.09 | See protocol |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
+- **Degrees of freedom:** 118
 - **Solver success:** True
-- **Rmse gpa:** 0.15516257838688707
-- **Published rmse gpa:** 0.15442869781174814
+- **Rmse gpa:** 0.155163
+- **Published rmse gpa:** 0.154429
+- **Parameter covariance:** \[\["0.00740734", "-0.00203646", "-0.000704195", "7.69657e-05"\], \["-0.00203646", "0.00056798", "0.000201758", "1.25e-05"\], \["-0.000704195", "0.000201758", "0.00178469", "0.00349292"\], \["7.69657e-05", "1.25e-05", "0.00349292", "0.00805087"\]\]
+- **Covariance:**
+    - **Parameters:** K0; K0\_prime; gamma0; q
+    - **Matrix:** \[\["0.00740734", "-0.00203646", "-0.000704195", "7.69657e-05"\], \["-0.00203646", "0.00056798", "0.000201758", "1.25e-05"\], \["-0.000704195", "0.000201758", "0.00178469", "0.00349292"\], \["7.69657e-05", "1.25e-05", "0.00349292", "0.00805087"\]\]
+    - **Standard errors:**
+        - **K0:** 0.0860659
+        - **K0 prime:** 0.0238323
+        - **Gamma0:** 0.0422456
+        - **Q:** 0.0897266
+    - **Correlation matrix:** \[\["1", "-0.992835", "-0.193678", "0.00996654"\], \["-0.992835", "1", "0.200393", "0.00584553"\], \["-0.193678", "0.200393", "1", "0.921481"\], \["0.00996654", "0.00584553", "0.921481", "1"\]\]
+    - **Degrees of freedom:** 118
+    - **Local student t 95 intervals:**
+        - **K0:** 19.7515; 20.0924
+        - **K0 prime:** 4.94799; 5.04238
+        - **Gamma0:** 1.88025; 2.04757
+        - **Q:** 0.881554; 1.23692
+    - **Residual variance:** 2.46784
+    - **Max abs residual jacobian cosine:** 5.15472e-09
+    - **Residual sum squares:** 291.205
+    - **Residual count:** 122
+    - **Scaled jacobian condition number:** 233.853
+    - **Derivative step halving relative change:** 3.50921e-12
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Qualification:** Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications.
+        - **Reason:** Conditional numerical similarity, not source-exact coefficient or workflow parity. Iterated frozen effective-variance weights use diagonal printed P/V/T errors without a pressure floor; all DAC and heated LVP observations are included, cold LVP rows excluded as a documented analyst choice. Fixed V0/theta0 and source-reported CsCl pressures are retained. No full calibration-error covariance or original author row flags are recovered. The independent fit does not round to every published coefficient; source benchmarks and CsCl replay discrepancies remain separate qualifications.
+    - **Assumptions:** Final frozen effective P/V/T weights at the existing converged fit, without a pressure floor. Conditional on the analyst row mask and source-reported CsCl pressures; calibration replay and benchmark discrepancies remain unresolved.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+- **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 - **Reproduction report:** docs/data/rubidium-halides-farla-2025-follow-up.json
 
 </details>
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-rbcl_b2_farla_2025_bm3_mgd_cscl).
 - [Supporting source report: rubidium-halides-farla-2025](../literature-reproductions/rubidium-halides-farla-2025.md).
+- [Supporting source report: uncertainty-reconstruction](../literature-reproductions/uncertainty-reconstruction.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `rbcl_b2_farla_2025_bm3_mgd_cscl`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/rbcl.eosmat).

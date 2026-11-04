@@ -46,6 +46,17 @@ Record: `fesio3_liquid_sun_2019_2500k_bm4_1` · Model: `BM4`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+**Curve/residual comparison unavailable:** No reconstructed coefficient set is recorded; a source/refit residual comparison is unavailable..
+
+| Fit | Recorded pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.641 |
+| Reconstruction / refit | Not reported |
+
+These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+
 ### Why no coefficient graph is shown
 
 No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
@@ -60,10 +71,10 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
     - **Pressure:** pressure\_gpa
     - **Temperature:** temperature\_k
     - **Volume:** volume\_cm3\_mol
-- **Observed pressure range gpa:** \[0.32, 296.11\]
-- **Observed temperature range k:** \[2500.0, 6000.0\]
-- **Observed volume range:** \[27.046860326127614, 87.90229605991475\]
-- **Published rmse gpa:** 0.6409268655910171
+- **Observed pressure range gpa:** 0.32; 296.11
+- **Observed temperature range k:** 2500; 6000
+- **Observed volume range:** 27.0469; 87.9023
+- **Published rmse gpa:** 0.640927
 
 </details>
 
@@ -72,7 +83,7 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `fesio3_liquid_sun_2019_2500k_bm4_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/fesio3_liquid.eosmat).

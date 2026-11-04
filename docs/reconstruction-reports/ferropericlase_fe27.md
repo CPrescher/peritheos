@@ -47,22 +47,39 @@ Record: `ferropericlase_fe27_jacobsen_2002_bm3_1` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for ferropericlase_fe27_jacobsen_2002_bm3_1](figures/ferropericlase_fe27_jacobsen_2002_bm3_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for ferropericlase_fe27_jacobsen_2002_bm3_1](figures/ferropericlase_fe27_jacobsen_2002_bm3_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.00574 |
+| Reconstruction / refit | 0.00545 |
+
+Both fits use the same 10 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** lattice\_a\_angstrom. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for ferropericlase_fe27_jacobsen_2002_bm3_1](figures/ferropericlase_fe27_jacobsen_2002_bm3_1.svg)
+![Source/target and reconstructed central values for ferropericlase_fe27_jacobsen_2002_bm3_1](figures/ferropericlase_fe27_jacobsen_2002_bm3_1.svg#only-light)
+![Source/target and reconstructed central values for ferropericlase_fe27_jacobsen_2002_bm3_1](figures/ferropericlase_fe27_jacobsen_2002_bm3_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 76.336 | 0.002 | 76.3372719637499 | 0.4057749645489165 | Free |
-| K0 | 158.4 | 0.4 | 158.13064123124323 | 72.36350216099802 | Free |
-| K0\_prime | 5.49 | 0.11 | 5.561134592304525 | 16.59016335694912 | Free |
+| V0 | 76.3360 | 0.0020 | 76.3 | 0.4 | Free |
+| K0 | 158.4 | 0.4 | 160 | 70 | Free |
+| K0\_prime | 5.49 | 0.11 | 6 | 17 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -72,15 +89,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** Not specified
     - **Volume:** lattice\_a\_angstrom
-- **Observed pressure range gpa:** \[0.0001, 9.292\]
+- **Observed pressure range gpa:** 0.0001; 9.292
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[72.54353934219797, 76.33509985604168\]
+- **Observed volume range:** 72.5435; 76.3351
 - **Degrees of freedom:** 7
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.0054450996350423955
-- **Published rmse gpa:** 0.005738353912981327
-- **Reduced chi square:** 4.235825871307182e-05
+- **Rmse gpa:** 0.0054451
+- **Published rmse gpa:** 0.00573835
+- **Reduced chi square:** 4.23583e-05
 
 </details>
 
@@ -89,7 +106,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `ferropericlase_fe27_jacobsen_2002_bm3_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/ferropericlase_fe27.eosmat).

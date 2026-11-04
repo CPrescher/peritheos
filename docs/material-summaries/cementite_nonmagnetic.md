@@ -21,15 +21,15 @@ and recommendation for use are distinct assessments.
 | Pressure unit | GPa |
 | Temperature unit | K |
 | Volume unit | Å³ per conventional unit cell |
-| Stored EOS records | 2 |
-| Observation datasets | 1 |
+| Stored EOS records | 4 |
+| Observation datasets | 5 |
 
 High-pressure nonmagnetic Pnma Fe3C. The measured structural cell is Prescher (2012) Table S1 at 47.4 GPa and 293 K, cyclically transformed to standard Pnma axes, without rescaling. Full occupancies express ideal Fe3C stoichiometry, not refined occupancies. Takahashi (2019) thermal EOS V0 values are extrapolated 300 K zero-pressure intercepts and differ from this finite-pressure structural volume. Two pressure scales describe the same experiment. Source-equation benchmarks pass, while conditional P/V/T-coordinate-width refits achieve central-coefficient parity; KBr errors reproduce printed precision while MgO errors do not, and exact source weights and selection remain unconfirmed; no author-workflow reproduction or independent experimental validation is claimed.
 
 ## Automatic selections
 
 - **Equilibrium:** [cementite\_nonmagnetic\_takahashi\_2019\_kbr\_bm3\_mgd](#record-cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd)
-- **Hugoniot:** None
+- **Hugoniot:** [cementite\_nonmagnetic\_hu\_2019\_linear\_hugoniot](#record-cementite_nonmagnetic_hu_2019_linear_hugoniot)
 
 ## EOS comparison
 
@@ -37,6 +37,8 @@ High-pressure nonmagnetic Pnma Fe3C. The measured structural cell is Prescher (2
 | --- | --- | --- | --- | --- |
 | [Takahashi et al. (2019), nonmagnetic Fe3C, KBr pressure scale, BM3 + MGD](#record-cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd) | BM3 + MieGruneisenDebye | 300.0 | primary source validated | Executable |
 | [Takahashi et al. (2019), nonmagnetic Fe3C, MgO pressure scale, BM3 + MGD](#record-cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd) | BM3 + MieGruneisenDebye | 300.0 | primary source validated | Pressure-scale reference variant |
+| [Sata et al. (2010), nonmagnetic Fe3C, original-scale 300 K BM3](#record-cementite_nonmagnetic_sata_2010_bm3) | BM3 | 300 | primary source validated | Executable; see usage qualifications |
+| [Hu et al. (2019), porous-precursor experimental Hugoniot, 85.6-245 GPa](#record-cementite_nonmagnetic_hu_2019_linear_hugoniot) | LinearUsUpHugoniot | 300 | primary source validated | Executable; see usage qualifications |
 
 ### Reference coefficients
 
@@ -44,6 +46,8 @@ High-pressure nonmagnetic Pnma Fe3C. The measured structural cell is Prescher (2
 | --- | --- | --- | --- |
 | [Takahashi et al. (2019), nonmagnetic Fe3C, KBr pressure scale, BM3 + MGD](#record-cementite_nonmagnetic_takahashi_2019_kbr_bm3_mgd) | 148.8 ± 1 | 311.1 ± 17.1 | 3.4 ± 0.1 |
 | [Takahashi et al. (2019), nonmagnetic Fe3C, MgO pressure scale, BM3 + MGD](#record-cementite_nonmagnetic_takahashi_2019_mgo_bm3_mgd) | 147.3 ± 1 | 323 ± 16.6 | 3.43 ± 0.09 |
+| [Sata et al. (2010), nonmagnetic Fe3C, original-scale 300 K BM3](#record-cementite_nonmagnetic_sata_2010_bm3) | 149.456 | 290.0 ± 13.0 | 3.76 ± 0.18 |
+| [Hu et al. (2019), porous-precursor experimental Hugoniot, 85.6-245 GPa](#record-cementite_nonmagnetic_hu_2019_linear_hugoniot) | 158.48140723178494 (fixed) | — | — |
 
 Errors are shown only when supplied, with their source meaning; a bare
 central value does not imply zero uncertainty. A dash means this parameter
@@ -124,40 +128,41 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.V0 | 148.8 | 1.0 | 148.83277631128846 | 1.0221452226031977 | Free |
-| rt\_eos.K0 | 311.1 | 17.1 | 311.1479132138111 | 17.08110826696227 | Free |
-| rt\_eos.K0\_prime | 3.4 | 0.1 | 3.4043961929677358 | 0.09867288497596867 | Free |
-| gamma0 | 1.06 | 0.42 | 1.0599364358630734 | 0.4195250395794209 | Free |
-| q | 1.92 | 1.73 | 1.9220875247576399 | 1.7348122051278916 | Free |
+| rt\_eos.V0 | 148.8 | 1.0 | 148.8 | 1.0 | Free |
+| rt\_eos.K0 | 311 | 17 | 311 | 17 | Free |
+| rt\_eos.K0\_prime | 3.40 | 0.10 | 3.40 | 0.10 | Free |
+| gamma0 | 1.1 | 0.4 | 1.1 | 0.4 | Free |
+| q | 1.9 | 1.7 | 1.9 | 1.7 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** joint\_pvt
 - **Objective:** iteratively\_reweighted\_pressure\_residuals
 - **Selection:** all 60 Table S1 rows, including 2600 K row and ten SiO2-marker rows
 - **Columns:**
     - **Pressure:** pressure\_kbr\_gpa\|pressure\_sio2\_gpa
-    - **Volume:** volume\_a3
     - **Temperature:** temperature\_k
+    - **Volume:** volume\_a3
 - **Weighting:** Effective variance: sP^2 + (dP/dV\*sV)^2 + (dP/dT\*sT)^2 from printed widths; freeze during each solve, update to convergence. Missing 300 K T widths leave T fixed.
 - **Absolute sigma:** True
 - **Free parameters:** rt\_eos.V0; rt\_eos.K0; rt\_eos.K0\_prime; gamma0; q
 - **Fixed parameters:** Tr; theta0; n
 - **Fixed values:**
     - **Tr:** 300
-    - **Theta0:** 314
     - **N:** 4
+    - **Theta0:** 314
 - **Observations:** 60
-- **Observed pressure range gpa:** \[70.8, 326.4\]
+- **Observed pressure range gpa:** 70.8; 326.4
 - **Observed temperature range k:** \[300, 2600\]
-- **Observed volume range:** \[92.5, 126.09\]
+- **Observed volume range:** 92.5; 126.09
 - **Degrees of freedom:** 55
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 2.391991045958338
-- **Published rmse gpa:** 2.4753104338816434
-- **Reduced chi square:** 0.573002358766646
-- **Parameter covariance:** \[\[1.0447808560905405, -17.309506295636883, 0.0954499487969002, -0.2704453328949287, -1.1881496846523085\], \[-17.309506295636883, 291.76425962768684, -1.6471064132309483, 4.320796990715951, 19.491662503203464\], \[0.0954499487969002, -1.6471064132309483, 0.009736338229480744, -0.021876939728861, -0.10151669480280001\], \[-0.2704453328949287, 4.320796990715951, -0.021876939728861, 0.17600125883411466, 0.7126106983105858\], \[-1.1881496846523085, 19.491662503203464, -0.10151669480280001, 0.7126106983105858, 3.0095733870606978\]\]
+- **Rmse gpa:** 2.39199
+- **Published rmse gpa:** 2.47531
+- **Reduced chi square:** 0.573002
+- **Parameter covariance:** \[\["1.04478", "-17.3095", "0.0954499", "-0.270445", "-1.18815"\], \["-17.3095", "291.764", "-1.64711", "4.3208", "19.4917"\], \["0.0954499", "-1.64711", "0.00973634", "-0.0218769", "-0.101517"\], \["-0.270445", "4.3208", "-0.0218769", "0.176001", "0.712611"\], \["-1.18815", "19.4917", "-0.101517", "0.712611", "3.00957"\]\]
 - **Covariance convention:** Unscaled inverse normal matrix at final frozen effective-variance weights, in free\_parameters order with V0 in conventional-cell A3. Printed coordinate widths are assumed absolute independent errors; source confidence and covariance are unconfirmed.
 - **Dataset identifiers:** cementite\_takahashi\_2019\_table\_s1
 - **Reproduction report:** docs/literature-reproductions/takahashi-2019-parity.md
@@ -326,40 +331,41 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.V0 | 147.3 | 1.0 | 147.36080039547164 | 0.8118285504116703 | Free |
-| rt\_eos.K0 | 323.0 | 16.6 | 321.4874162717781 | 14.347683441064028 | Free |
-| rt\_eos.K0\_prime | 3.43 | 0.09 | 3.438092266537533 | 0.08587177804900412 | Free |
-| gamma0 | 1.37 | 0.33 | 1.3661038396016805 | 0.29534688141187926 | Free |
-| q | 0.98 | 1.01 | 0.940421216458602 | 0.9085093812253474 | Free |
+| rt\_eos.V0 | 147.3 | 1.0 | 147.4 | 0.8 | Free |
+| rt\_eos.K0 | 323 | 17 | 321 | 14 | Free |
+| rt\_eos.K0\_prime | 3.43 | 0.09 | 3.44 | 0.09 | Free |
+| gamma0 | 1.4 | 0.3 | 1.37 | 0.30 | Free |
+| q | 1.0 | 1.0 | 0.9 | 0.9 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** joint\_pvt
 - **Objective:** iteratively\_reweighted\_pressure\_residuals
 - **Selection:** all 60 Table S1 rows, including 2600 K row and ten SiO2-marker rows
 - **Columns:**
     - **Pressure:** pressure\_mgo\_gpa\|pressure\_sio2\_gpa
-    - **Volume:** volume\_a3
     - **Temperature:** temperature\_k
+    - **Volume:** volume\_a3
 - **Weighting:** Effective variance: sP^2 + (dP/dV\*sV)^2 + (dP/dT\*sT)^2 from printed widths; freeze during each solve, update to convergence. Missing 300 K T widths leave T fixed.
 - **Absolute sigma:** True
 - **Free parameters:** rt\_eos.V0; rt\_eos.K0; rt\_eos.K0\_prime; gamma0; q
 - **Fixed parameters:** Tr; theta0; n
 - **Fixed values:**
     - **Tr:** 300
-    - **Theta0:** 314
     - **N:** 4
+    - **Theta0:** 314
 - **Observations:** 60
-- **Observed pressure range gpa:** \[69.3, 326.4\]
+- **Observed pressure range gpa:** 69.3; 326.4
 - **Observed temperature range k:** \[300, 2600\]
-- **Observed volume range:** \[92.5, 126.09\]
+- **Observed volume range:** 92.5; 126.09
 - **Degrees of freedom:** 55
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 1.9809872127727486
-- **Published rmse gpa:** 1.9654236493519575
-- **Reduced chi square:** 0.5375476812725855
-- **Parameter covariance:** \[\[0.659065595263514, -11.553980846228999, 0.06536921169491364, -0.144686013308201, -0.46775433093665375\], \[-11.553980846228999, 205.8560201249829, -1.196484209574366, 2.428932825992708, 8.001530833763427\], \[0.06536921169491364, -1.196484209574366, 0.007373962265297425, -0.012375351949583932, -0.04147373853474685\], \[-0.144686013308201, 2.428932825992708, -0.012375351949583932, 0.08722978035972268, 0.262451364840956\], \[-0.46775433093665375, 8.001530833763427, -0.04147373853474685, 0.262451364840956, 0.8253892957744636\]\]
+- **Rmse gpa:** 1.98099
+- **Published rmse gpa:** 1.96542
+- **Reduced chi square:** 0.537548
+- **Parameter covariance:** \[\["0.659066", "-11.554", "0.0653692", "-0.144686", "-0.467754"\], \["-11.554", "205.856", "-1.19648", "2.42893", "8.00153"\], \["0.0653692", "-1.19648", "0.00737396", "-0.0123754", "-0.0414737"\], \["-0.144686", "2.42893", "-0.0123754", "0.0872298", "0.262451"\], \["-0.467754", "8.00153", "-0.0414737", "0.262451", "0.825389"\]\]
 - **Covariance convention:** Unscaled inverse normal matrix at final frozen effective-variance weights, in free\_parameters order with V0 in conventional-cell A3. Printed coordinate widths are assumed absolute independent errors; source confidence and covariance are unconfirmed.
 - **Dataset identifiers:** cementite\_takahashi\_2019\_table\_s1
 - **Reproduction report:** docs/literature-reproductions/takahashi-2019-parity.md
@@ -457,6 +463,532 @@ Parameter covariance is not supplied.
 
 </details>
 
+<a id="record-cementite_nonmagnetic_sata_2010_bm3"></a>
+
+## Sata et al. (2010), nonmagnetic Fe3C, original-scale 300 K BM3
+
+Identifier: `cementite_nonmagnetic_sata_2010_bm3`.
+
+Availability: **Executable; see usage qualifications**.
+
+**Usage qualification:** qualified\_use
+
+
+- **Record kind:** published
+- **Origin of the parameterization:** experimental
+- **Reference:**
+    - **Authors:** Sata, N.; Hirose, K.; Shen, G.; Nakajima, Y.; Ohishi, Y.; Hirao, N.
+    - **Year:** 2010
+    - **Title:** Compression of FeSi, Fe3C, Fe0.95O, and FeS under the core pressures and implication for light element in the Earth's core
+    - **Source:** Journal of Geophysical Research: Solid Earth
+    - **Volume:** 115
+    - **Locator:** B09204
+    - **DOI:** 10.1029/2009JB006975
+- **Reference temperature (K):** 300
+- **Reported pressure coverage (GPa):** \[27.2, 186.6\]
+- **Coverage provenance:** reported\_exactly
+- **Reported temperature coverage (K):** \[300, 300\]
+- **Validity:**
+    - **Pressure gpa:** \[27.2, 186.6\]
+    - **Temperature k:** \[300, 300\]
+    - **Notes:** Source-assigned nonmagnetic branch. Combined coverage includes three Li (2002) points above 25 GPa; Sata's nine new states span 49.87–186.60 GPa.; V0 is an extrapolated branch parameter, not a measured stable ambient nonmagnetic cell. No thermal extrapolation or magnetic-phase diagram.; Minor Fe7C3 and Re peaks occur at the highest pressure; Fe3C peaks were refined separately. Existing Prescher Pnma structure is a distinct experiment.
+- **Reported error confidence level:** Not specified
+
+| Component | Parameter | Value | Reported error | Fixed |
+| --- | --- | --- | --- | --- |
+| Primary | V0 | 149.456 | Not reported | Not listed |
+| Primary | K0 | 290.0 | 13.0 | Not listed |
+| Primary | K0\_prime | 3.76 | 0.18 | Not listed |
+
+Values use the source model's parameter units. Primary `V0` uses
+the conventional-cell volume declared above. Errors retain their reported
+meaning; an absent error is unknown, and absence of covariance does not
+establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
+
+[Open reconstruction report](../reconstruction-reports/cementite_nonmagnetic.md#record-cementite_nonmagnetic_sata_2010_bm3)
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Conditional parameter agreement for the published Sata (2010) 300 K BM3 curve, using all nine Table 1 Fe3C states plus the three Li (2002) measured states above 25 GPa explicitly named in paragraph 15. The catalog retains V0=9.341 A^3/atom (149.456 A^3/cell), K0=290(13) GPa and K0-prime=3.76(18). The common comparison fixes the printed V0 and refines only K0/K0-prime; the separate literal mBM3 replay refines Pr/Kr/Kr-prime at the selected Vr. Original weights, confidence and covariance are unspecified. Diagnostic errors are RSS/dof-scaled and omit fixed-input and calibration uncertainty. Source MgO and Li ruby/neon pressure bases remain distinct; no pressure column is recalibrated. The printed MgO coefficients miss Sata pressures by up to 0.353 GPa, so the exact pressure reducer is unverified. This is neither author-workflow reproduction nor independent pressure-scale validation. Litasov's later 298 K Vinet recalibration is not this EOS. Retain as a nondefault published EOS at 300 K and 27.2–186.6 GPa with explicit uncertainty/data-scatter qualifications. Published coefficients are reproduced conditionally within their reported error widths, but the source confidence convention and covariance are unspecified. Observation scatter exceeds some tabulated coordinate-error estimates. The unchanged curve has pressure RMS 1.106733 GPa and maximum absolute residual 2.591677 GPa on the joint 12-row selection. Six of nine Sata observations exceed their first-order combined P/V error widths; the largest ratio is 9.02 under an uncorrelated-coordinate assumption. These ratios are descriptive, not formal sigma significances. Conditional parameter parity and primary-source verification do not establish the complete experimental uncertainty budget or original-workflow reproduction. The recalculated-pressure refit remains a separate diagnostic.
+- Retain as a nondefault published EOS at 300 K and 27.2–186.6 GPa with explicit uncertainty/data-scatter qualifications. Published coefficients are reproduced conditionally within their reported error widths, but the source confidence convention and covariance are unspecified. Observation scatter exceeds some tabulated coordinate-error estimates. The unchanged curve has pressure RMS 1.106733 GPa and maximum absolute residual 2.591677 GPa on the joint 12-row selection. Six of nine Sata observations exceed their first-order combined P/V error widths; the largest ratio is 9.02 under an uncorrelated-coordinate assumption. These ratios are descriptive, not formal sigma significances. Conditional parameter parity and primary-source verification do not establish the complete experimental uncertainty budget or original-workflow reproduction. The recalculated-pressure refit remains a separate diagnostic.
+- Usage recommendation: qualified\_use
+- Original objective, weights, confidence, covariance and unrounded fit output unavailable.
+- Printed MgO reduction leaves up to 0.353 GPa discrepancy; exact reducer and complete Li pressure replay unavailable.
+- Final Table 4 heading says 193 GPa, versus 187 GPa in text/Figure 3 and 186.60 GPa for measurement 193; preserved as a source discrepancy.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 290 | 13 | 290 | 4 | Free |
+| K0\_prime | 3.76 | 0.18 | 3.76 | 0.08 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** equal pressure residuals at measured volumes
+- **Selection:** All nine Sata Table 1 Fe3C rows and all three measured Li (2002) Table 1 rows with P&gt;25 GPa; original pressures retained.
+- **Weighting:** Equal pressure weights; no source weights recovered
+- **Absolute sigma:** False
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Fixed values:**
+    - **V0:** 149.456
+- **Observations:** 12
+- **Observed pressure range gpa:** 27.2; 186.6
+- **Observed temperature range k:** \[300, 300\]
+- **Degrees of freedom:** 10
+- **Solver success:** True
+- **Rmse gpa:** 1.08041
+- **Published rmse gpa:** 1.10673
+- **Parameter covariance:** \[\["17.6976", "-0.346506"\], \["-0.346506", "0.00709338"\]\]
+- **Covariance convention:** RSS/(12-2) scaled inverse normal matrix, conditional on fixed printed V0; excludes calibration and predictor uncertainty. No source confidence or covariance inferred.
+- **Dataset identifiers:** cementite\_sata\_2010\_selected\_pv
+- **Reproduction report:** docs/data/sata-2010-fe3c-audit.json
+- **Coefficient comparison status:** parity
+- **Data agreement status:** poor
+- **Published max abs pressure residual gpa:** 2.59168
+- **Pressure rmse coordinates:** Original measured volumes for published and diagnostic curves; joint 12-row selection.
+
+</details>
+
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+Conditional parameter agreement for the published Sata (2010) 300 K BM3 curve, using all nine Table 1 Fe3C states plus the three Li (2002) measured states above 25 GPa explicitly named in paragraph 15. The catalog retains V0=9.341 A^3/atom (149.456 A^3/cell), K0=290(13) GPa and K0-prime=3.76(18). The common comparison fixes the printed V0 and refines only K0/K0-prime; the separate literal mBM3 replay refines Pr/Kr/Kr-prime at the selected Vr. Original weights, confidence and covariance are unspecified. Diagnostic errors are RSS/dof-scaled and omit fixed-input and calibration uncertainty. Source MgO and Li ruby/neon pressure bases remain distinct; no pressure column is recalibrated. The printed MgO coefficients miss Sata pressures by up to 0.353 GPa, so the exact pressure reducer is unverified. This is neither author-workflow reproduction nor independent pressure-scale validation. Litasov's later 298 K Vinet recalibration is not this EOS. Retain as a nondefault published EOS at 300 K and 27.2–186.6 GPa with explicit uncertainty/data-scatter qualifications. Published coefficients are reproduced conditionally within their reported error widths, but the source confidence convention and covariance are unspecified. Observation scatter exceeds some tabulated coordinate-error estimates. The unchanged curve has pressure RMS 1.106733 GPa and maximum absolute residual 2.591677 GPa on the joint 12-row selection. Six of nine Sata observations exceed their first-order combined P/V error widths; the largest ratio is 9.02 under an uncorrelated-coordinate assumption. These ratios are descriptive, not formal sigma significances. Conditional parameter parity and primary-source verification do not establish the complete experimental uncertainty budget or original-workflow reproduction. The recalculated-pressure refit remains a separate diagnostic.
+
+Parameter covariance is not supplied.
+
+
+<details markdown="1">
+<summary>Scientific validation and usage qualifications</summary>
+
+- **Status:** primary\_source\_validated
+- **Report path:** docs/literature-reproductions/sata-2010-fe3c.md
+- **Audit date:** 2026-11-01
+- **Note:** Final publisher Tables 1/6 and paragraph 15 verified against the original 2009 manuscript for the common Fe3C tokens and fit triplet. Nine new states plus the three explicitly selected Li (2002) rows reproduce Pr/Kr/Kr-prime conditionally. Published coefficients preserved; no Litasov (2013) recalibrated coefficient or pressure is substituted. Source verification and conditional coefficient parity coexist with poor agreement with some quoted coordinate-error estimates. Retained as a nondefault published EOS with explicit error/scatter qualifications; source confidence and covariance remain unspecified.
+- **Data agreement status:** poor
+- **Usage recommendation:** qualified\_use
+- **Recommendation date:** 2026-11-01
+- **Recommendation audit:** docs/literature-reproductions/sata-2010-fe3c.md#conditional-fit-replay-and-residuals
+- **Recommendation reason:** Retain as a nondefault published EOS at 300 K and 27.2–186.6 GPa with explicit uncertainty/data-scatter qualifications. Published coefficients are reproduced conditionally within their reported error widths, but the source confidence convention and covariance are unspecified. Observation scatter exceeds some tabulated coordinate-error estimates. The unchanged curve has pressure RMS 1.106733 GPa and maximum absolute residual 2.591677 GPa on the joint 12-row selection. Six of nine Sata observations exceed their first-order combined P/V error widths; the largest ratio is 9.02 under an uncorrelated-coordinate assumption. These ratios are descriptive, not formal sigma significances. Conditional parameter parity and primary-source verification do not establish the complete experimental uncertainty budget or original-workflow reproduction. The recalculated-pressure refit remains a separate diagnostic.
+- **Warning:** Some quoted point errors are smaller than the overall experimental scatter. Retain the published EOS within 300 K and 27.2–186.6 GPa; the separate refit is diagnostic.
+- **Primary source check:**
+    - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2009JB006975
+    - **DOI:** 10.1029/2009JB006975
+    - **Locations:** Tables 1 and 6; Equations 1–2; paragraphs 5–6, 12 and 14–15; Table 4 diffraction spacings; paragraphs 24–27, pressure-scale consistency
+    - **Finding:** Final publisher Tables 1/6 and paragraph 15 verified against the original 2009 manuscript for the common Fe3C tokens and fit triplet. Nine new states plus the three explicitly selected Li (2002) rows reproduce Pr/Kr/Kr-prime conditionally. Published coefficients preserved; no Litasov (2013) recalibrated coefficient or pressure is substituted. Source verification and conditional coefficient parity coexist with poor agreement with some quoted coordinate-error estimates. Retained as a nondefault published EOS with explicit error/scatter qualifications; source confidence and covariance remain unspecified.
+- **Verified fields:** original\_Fe3C\_rows\_and\_paired\_MgO; source\_BM3\_and\_mBM3\_equivalence\_at\_printed\_Pr\_zero; atomic\_to\_cell\_volume; published\_parameters\_and\_errors; source\_joint\_selection; conditional\_parameter\_parity; source\_pressure\_scale\_provenance; temperature\_and\_pressure\_limits
+- **Primary data check:**
+    - **Status:** bundled
+    - **Dataset identifiers:** cementite\_sata\_2010\_table1; cementite\_sata\_2010\_selected\_pv
+    - **Finding:** All nine original Fe3C/MgO rows and the unchanged three explicitly cited Li rows &gt;25 GPa retained. Table 4 measured/calculated spacings are provenance only. Conditional source-width parameter agreement coexists with poor data agreement: six of nine Sata rows exceed first-order combined P/V coordinate widths. Published EOS retained with explicit uncertainty/data-scatter qualifications; exact weights/calibration workflow remain unresolved.
+- **Numerical reproduction:**
+    - **Reproduction report:** docs/data/sata-2010-fe3c-audit.json
+    - **Author fit reproduced:** False
+    - **Mbm3 joint equal pressure coefficients:** \[0.011700193281563563, 290.4074359891482, 3.7637051511058393\]
+    - **Notes:** Source-equation and conditional parameter checks, not independent physical/calibration validation or recovery of original weights.
+    - **Data agreement:**
+        - **Status:** poor
+        - **Coordinates:** Published pressure evaluated at each original measured volume; P(model)-P(observed), GPa.
+        - **Combined width expression:** sqrt(sP^2 + (K(V)\*sV/V)^2)
+        - **Qualification:** First-order propagation assuming uncorrelated P/V coordinate errors. Source confidence, coordinate/calibration covariance and fitted-parameter covariance are unavailable. No formal sigma significance, reduced chi-square or predictive confidence band is inferred; coefficients are held at their printed central values.
+        - **Rows:**
+            - **Source:** 0
+            - **Source row:** 1
+            - **Pressure gpa:** 49.87
+            - **Pressure residual gpa:** -0.22955070068501726
+            - **Reported pressure width gpa:** 0.28
+            - **Volume width as pressure gpa:** 0.10671590143938375
+            - **Combined coordinate width gpa:** 0.29964693160454736
+            - **Absolute residual over pressure width:** 0.8198239310179187
+            - **Absolute residual over combined width:** 0.7660705866595087
+            - **Source:** 0
+            - **Source row:** 2
+            - **Pressure gpa:** 69.21
+            - **Pressure residual gpa:** 2.2004871585628507
+            - **Reported pressure width gpa:** 0.39
+            - **Volume width as pressure gpa:** 0.12872189951442267
+            - **Combined coordinate width gpa:** 0.4106937148467227
+            - **Absolute residual over pressure width:** 5.642274765545771
+            - **Absolute residual over combined width:** 5.357976221730364
+            - **Source:** 0
+            - **Source row:** 3
+            - **Pressure gpa:** 77.32
+            - **Pressure residual gpa:** -0.8236087974321009
+            - **Reported pressure width gpa:** 0.2
+            - **Volume width as pressure gpa:** 0.1339277815107065
+            - **Combined coordinate width gpa:** 0.24070033373549682
+            - **Absolute residual over pressure width:** 4.118043987160505
+            - **Absolute residual over combined width:** 3.4217185520696303
+            - **Source:** 0
+            - **Source row:** 4
+            - **Pressure gpa:** 100.78
+            - **Pressure residual gpa:** -2.591676959717617
+            - **Reported pressure width gpa:** 0.23
+            - **Volume width as pressure gpa:** 0.17204206181298473
+            - **Combined coordinate width gpa:** 0.2872254707244169
+            - **Absolute residual over pressure width:** 11.268160694424422
+            - **Absolute residual over combined width:** 9.023144615904357
+            - **Source:** 0
+            - **Source row:** 5
+            - **Pressure gpa:** 124.81
+            - **Pressure residual gpa:** 0.5684724989927759
+            - **Reported pressure width gpa:** 0.26
+            - **Volume width as pressure gpa:** 0.16665717227016197
+            - **Combined coordinate width gpa:** 0.3088278048833791
+            - **Absolute residual over pressure width:** 2.186432688433753
+            - **Absolute residual over combined width:** 1.8407426080285905
+            - **Source:** 0
+            - **Source row:** 6
+            - **Pressure gpa:** 141.37
+            - **Pressure residual gpa:** 0.0370910245957532
+            - **Reported pressure width gpa:** 0.28
+            - **Volume width as pressure gpa:** 0.1821952512596318
+            - **Combined coordinate width gpa:** 0.3340585421472715
+            - **Absolute residual over pressure width:** 0.13246794498483283
+            - **Absolute residual over combined width:** 0.11103151069671321
+            - **Source:** 0
+            - **Source row:** 7
+            - **Pressure gpa:** 159.13
+            - **Pressure residual gpa:** -0.5290077277317096
+            - **Reported pressure width gpa:** 0.3
+            - **Volume width as pressure gpa:** 0.19170696793133143
+            - **Combined coordinate width gpa:** 0.35602185544348897
+            - **Absolute residual over pressure width:** 1.7633590924390319
+            - **Absolute residual over combined width:** 1.4858855422590158
+            - **Source:** 0
+            - **Source row:** 8
+            - **Pressure gpa:** 177.77
+            - **Pressure residual gpa:** 0.35687025810742057
+            - **Reported pressure width gpa:** 0.32
+            - **Volume width as pressure gpa:** 0.2185204287900997
+            - **Combined coordinate width gpa:** 0.38749345516874095
+            - **Absolute residual over pressure width:** 1.1152195565856893
+            - **Absolute residual over combined width:** 0.9209710598905858
+            - **Source:** 0
+            - **Source row:** 9
+            - **Pressure gpa:** 186.6
+            - **Pressure residual gpa:** -1.0825421862049893
+            - **Reported pressure width gpa:** 0.33
+            - **Volume width as pressure gpa:** 0.20921325982071212
+            - **Combined coordinate width gpa:** 0.39073032654864254
+            - **Absolute residual over pressure width:** 3.2804308672878464
+            - **Absolute residual over combined width:** 2.770560953809717
+            - **Source:** 1
+            - **Source row:** 12
+            - **Pressure gpa:** 27.2
+            - **Pressure residual gpa:** -0.6733483837245764
+            - **Reported pressure width gpa:** 1.1
+            - **Volume width as pressure gpa:** 0.41924151988881786
+            - **Combined coordinate width gpa:** 1.1771845445802822
+            - **Absolute residual over pressure width:** 0.6121348942950694
+            - **Absolute residual over combined width:** 0.5719990011970931
+            - **Source:** 1
+            - **Source row:** 13
+            - **Pressure gpa:** 30.3
+            - **Pressure residual gpa:** 0.17189393225546823
+            - **Reported pressure width gpa:** 1.2
+            - **Volume width as pressure gpa:** 0.4970543682321813
+            - **Combined coordinate width gpa:** 1.2988699107218908
+            - **Absolute residual over pressure width:** 0.14324494354622352
+            - **Absolute residual over combined width:** 0.13234114581954737
+            - **Source:** 1
+            - **Source row:** 14
+            - **Pressure gpa:** 30.5
+            - **Pressure residual gpa:** 0.1474972946216262
+            - **Reported pressure width gpa:** 1.2
+            - **Volume width as pressure gpa:** 0.29295982317421887
+            - **Combined coordinate width gpa:** 1.2352430764810096
+            - **Absolute residual over pressure width:** 0.1229144121846885
+            - **Absolute residual over combined width:** 0.11940750563995879
+        - **All 12:**
+            - **Rmse gpa:** 1.1067331454897185
+            - **Max abs gpa:** 2.591676959717617
+            - **Residual gpa:** \[-0.22955070068501726, 2.2004871585628507, -0.8236087974321009, -2.591676959717617, 0.5684724989927759, 0.0370910245957532, -0.5290077277317096, 0.35687025810742057, -1.0825421862049893, -0.6733483837245764, 0.17189393225546823, 0.1474972946216262\]
+            - **Outside combined width:** 6
+            - **Max absolute residual over combined width:** 9.023144615904357
+        - **Sata 9:**
+            - **Rmse gpa:** 1.255813062971792
+            - **Max abs gpa:** 2.591676959717617
+            - **Residual gpa:** \[-0.22955070068501726, 2.2004871585628507, -0.8236087974321009, -2.591676959717617, 0.5684724989927759, 0.0370910245957532, -0.5290077277317096, 0.35687025810742057, -1.0825421862049893\]
+            - **Outside pressure width:** 7
+            - **Outside combined width:** 6
+        - **Usage recommendation:** qualified\_use
+        - **Recommendation reason:** Retain as a nondefault published EOS at 300 K and 27.2–186.6 GPa with explicit uncertainty/data-scatter qualifications. Published coefficients are reproduced conditionally within their reported error widths, but the source confidence convention and covariance are unspecified. Observation scatter exceeds some tabulated coordinate-error estimates. The unchanged curve has pressure RMS 1.106733 GPa and maximum absolute residual 2.591677 GPa on the joint 12-row selection. Six of nine Sata observations exceed their first-order combined P/V error widths; the largest ratio is 9.02 under an uncorrelated-coordinate assumption. These ratios are descriptive, not formal sigma significances. Conditional parameter parity and primary-source verification do not establish the complete experimental uncertainty budget or original-workflow reproduction. The recalculated-pressure refit remains a separate diagnostic.
+- **Unresolved:** Original objective, weights, confidence, covariance and unrounded fit output unavailable.; Printed MgO reduction leaves up to 0.353 GPa discrepancy; exact reducer and complete Li pressure replay unavailable.; Final Table 4 heading says 193 GPa, versus 187 GPa in text/Figure 3 and 186.60 GPa for measurement 193; preserved as a source discrepancy.
+
+</details>
+
+
+<details markdown="1">
+<summary>Pressure calibration</summary>
+
+- **Status:** partially\_resolved
+- **Audit date:** 2026-11-01
+- **Methods:**
+    - **Kind:** equation\_of\_state
+    - **Reference eos record:** mgo\_speziale\_2001\_bm3\_2
+    - **Reference:**
+        - **Authors:** Speziale; Zha; Duffy; Hemley; Mao
+        - **Year:** 2001
+        - **DOI:** 10.1029/2000JB900318
+        - **Source:** Journal of Geophysical Research: Solid Earth
+    - **Scope:** All nine new Sata Fe3C Table 1 rows only
+    - **Source location:** Final paragraphs 5–6, Table 1 footnote b (prints 2000), paragraph 26. Paired observed MgO a and V retained.
+    - **Notes:** Source BM3 74.71 A3/cell,160.2 GPa,3.99 replay differs by up to 0.353 GPa. Exact pressure reduction not recovered; printed pressures are unchanged.
+    - **Kind:** ruby\_fluorescence
+    - **Source location:** Sata (2010), paragraph 15; Li (2002), Table 1 and footnote b, original pressure calibration described in the Li source audit.
+    - **Reference:**
+        - **Authors:** Li; Mao; Fei; Gregoryanz; Eremets; Zha
+        - **Year:** 2002
+        - **DOI:** 10.1007/s00269-001-0224-4
+        - **Source:** Physics and Chemistry of Minerals
+    - **Scope:** Three Li (2002) rows &gt;25 GPa; ruby/neon calibration and reported pressure widths remain the original Li values.
+    - **Notes:** No MgO or Litasov recalibration is applied. The existing Li audit retains its paired neon cells and missing raw ruby wavelengths.
+- **Recalculation:**
+    - **Status:** not\_possible
+    - **Notes:** Partial MgO equation replay is available on all nine paired cells. A complete exact author-pressure replay also needs the actual reducer/precision and Li ruby input/combination settings. No observation-level source pressure has been replaced.
+
+</details>
+
+
+<details markdown="1">
+<summary>Parameter provenance</summary>
+
+- **Origin of the parameterization:** Experimental room-temperature XRD compression of Fe3C with measured MgO cells plus separately calibrated Li (2002) measurements.
+- **Equation:** Final Eq. 1 mBM3 at selected Vr; at the printed Pr=0, it equals Eq. 2 BM3. Final Table 6 prints the zero-pressure BM3 representation. These are one curve, not separate source models.
+- **V0:** Final Table 6 gives 9.341 A3/atom. Z=4 and four atoms/formula give 16 atoms/cell: 149.456 A3/cell. The paragraph's 149.46 is rounded. No V0 error or original ordinary-BM3 fixed-V0 constraint is reported; fixed\_parameters is not inferred from the conditional diagnostic.
+- **K0:** Final paragraph 15: Kr=290 +/-13 GPa at Vr=9.341 A3/atom and fitted Pr=0.0 +/-1.6 GPa; Table 6 retains 290 GPa.
+- **K0 prime:** Final paragraph 15: Kr-prime=3.76 +/-0.18; final Table 6.
+- **Normalization:** Table 1 Fe3C has Z=4. The whole conventional P cell contains Fe12C4. Source (a,b,c)=(standard c, standard a, standard b); volume is invariant. Existing structure/sites are unchanged.
+
+</details>
+
+<a id="record-cementite_nonmagnetic_hu_2019_linear_hugoniot"></a>
+
+## Hu et al. (2019), porous-precursor experimental Hugoniot, 85.6-245 GPa
+
+Identifier: `cementite_nonmagnetic_hu_2019_linear_hugoniot`.
+
+Availability: **Executable; see usage qualifications**.
+
+Automatic selection for hugoniot calculations.
+
+**Usage qualification:** qualified\_use
+
+
+- **Record kind:** published
+- **Origin of the parameterization:** experimental
+- **Equation kind:** hugoniot
+- **Reference:**
+    - **Authors:** Hu, X.; Fei, Y.; Yang, J.; Cai, Y.; Ye, S.; Qi, M.; Liu, F.; Zhang, M.
+    - **Year:** 2019
+    - **Title:** Phase Stability and Thermal Equation of State of Iron Carbide Fe3C to 245 GPa
+    - **Source:** Geophysical Research Letters
+    - **Volume:** 46
+    - **Issue:** 20
+    - **Locator:** 11018-11024
+    - **DOI:** 10.1029/2019GL084545
+- **Reference temperature (K):** 300
+- **Reported pressure coverage (GPa):** \[85.6, 245.0\]
+- **Coverage provenance:** reported\_exactly
+- **Reported temperature coverage (K):** \[300, 300\]
+- **Validity:**
+    - **Pressure gpa:** \[85.6, 245.0\]
+    - **Temperature k:** \[300, 300\]
+    - **Notes:** Possible melting at higher pressures; density data do not resolve the phase state.; Temperature bounds denote conventional precursor normalization only. Actual shock temperatures vary and are source-calculated, not measured.; Approximately 2% porous precursor. Bulk mass-equivalent volumes must not be used as dense-crystal diffraction lattice volumes.
+- **Loading path:** principal
+- **Branch kind:** transformed
+- **Initial state:**
+    - **Phase:** ferromagnetic Pnma cementite, approximately 2% porous
+    - **Material identifier:** cementite
+    - **Temperature k:** 300
+    - **Temperature basis:** Conventional normalization of ambient precursor; exact numeric temperature not reported
+    - **Pressure gpa:** 0
+    - **Density g cm3:** 7.525
+    - **Density error width g cm3:** 0.01
+    - **Density basis:** Explicitly adopted source-average Archimedes bulk density; per-shot densities retained, no porosity correction
+- **Branch domain:**
+    - **Particle velocity km s:** \[1.5836540819, 3.286\]
+    - **Kind:** experimental\_coverage
+    - **Boundary status:** inferred
+    - **Notes:** Domain encloses all six measured particle velocities and the source pressure extrema inverted with the adopted mean bulk density. Bounds are rounded outwards to 10 decimals for inclusive inversion. This is experimental path coverage, not a phase-stability boundary.
+- **Volume basis:**
+    - **Kind:** formula\_units
+    - **Formula units:** 4
+    - **Molar mass g mol:** 179.546
+    - **Notes:** Operational four-formula mass basis including pore volume, not the Pnma crystal lattice. Standard Fe=55.845 and C=12.011 g/mol; exact Avogadro constant.
+- **Reported error confidence level:** Not specified
+
+| Component | Parameter | Value | Reported error | Fixed |
+| --- | --- | --- | --- | --- |
+| Primary | V0 | 158.48140723178494 | Not reported | Yes |
+| Primary | rho0 | 7.525 | 0.01 | Yes |
+| Primary | c0 | 4.627 | 0.073 | Not listed |
+| Primary | s | 1.614 | 0.028 | Not listed |
+| Primary | P0 | 0 | Not reported | Yes |
+
+Values use the source model's parameter units. Primary `V0` uses
+the conventional-cell volume declared above. Errors retain their reported
+meaning; an absent error is unknown, and absence of covariance does not
+establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
+
+[Open reconstruction report](../reconstruction-reports/cementite_nonmagnetic.md#record-cementite_nonmagnetic_hu_2019_linear_hugoniot)
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Published six-shot linear Us-up relation retained, with conditional coefficient agreement within both reported error widths under an equal-Us-weight diagnostic. Source confidence, covariance and exact fitting weights are unspecified; this is not recovered author-workflow or uncertainty parity. The published empirical principal Hugoniot is retained over its full experimental range, 85.6-245 GPa. Possible melting at higher pressures; density data do not resolve the phase state. All six shots remain data and source-fit inputs. Mean porous precursor density 7.525(0.010) g/cm3 is explicitly adopted as the common path normalization; individual measured initial densities remain unchanged. V0 is a mass-equivalent bulk volume including approximately 2% porosity, not a diffraction lattice volume or the Sata nonmagnetic V0. The 300 K reference is conventional precursor normalization, not measured shock temperature. The separate thermal reduction and the 7.982 g/cm3 Gruneisen reference are not installed as this Hugoniot. Retain the published experimental Hugoniot over 85.6-245 GPa for the porous precursor. Possible melting at higher pressures; density data do not resolve the phase state.
+- Retain the published experimental Hugoniot over 85.6-245 GPa for the porous precursor. Possible melting at higher pressures; density data do not resolve the phase state.
+- Usage recommendation: qualified\_use
+- Source coefficient/error confidence, covariance and exact fitting weights unspecified.
+- No in-situ diffraction or direct temperature measurement during shock; possible high-pressure melting is not resolved.
+- Exact porous-to-dense correction and full impedance/timing reduction are not supplied; none is invented.
+- Separate thermal model and its 7.982 g/cm3 reference, gamma law and transformation energy are not represented by this linear path.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| c0 | 4.63 | 0.07 | 4.63 | 0.07 | Free |
+| s | 1.614 | 0.028 | 1.619 | 0.026 | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
+
+- **Fit kind:** linear\_us\_up\_hugoniot
+- **Objective:** equal\_shock\_velocity\_residuals
+- **Selection:** All six original Table 1 shots over the full experimental Hugoniot, 85.6-245 GPa
+- **Columns:**
+    - **Particle velocity:** particle\_velocity\_km\_s
+    - **Shock velocity:** shock\_velocity\_km\_s
+    - **Particle velocity sigma:** particle\_velocity\_km\_s\_error\_width
+    - **Shock velocity sigma:** shock\_velocity\_km\_s\_error\_width
+- **Weighting:** Equal Us weights; printed Up treated as exact only for this diagnostic. Both quoted velocity widths are retained in the plot, not used as statistical sigmas.
+- **Absolute sigma:** False
+- **Free parameters:** c0; s
+- **Fixed parameters:** V0; rho0; P0
+- **Observations:** 6
+- **Degrees of freedom:** 4
+- **Solver success:** True
+- **Rmse shock velocity km s:** 0.0313787
+- **Reduced chi square:** Not specified
+- **Parameter covariance:** \[\["0.00504822", "-0.0018353"\], \["-0.0018353", "0.000701433"\]\]
+- **Covariance convention:** RSS/(6-2) times inverse normal matrix; conditional on printed up treated as exact. No source confidence inference or initial-state uncertainty propagation.
+- **Comparison scope:** parameter\_agreement
+- **Dataset identifiers:** cementite\_hu\_2019\_table1\_hugoniot
+- **Reproduction report:** docs/literature-reproductions/hu-2019-fe3c.md
+
+</details>
+
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+Published six-shot linear Us-up relation retained, with conditional coefficient agreement within both reported error widths under an equal-Us-weight diagnostic. Source confidence, covariance and exact fitting weights are unspecified; this is not recovered author-workflow or uncertainty parity. The published empirical principal Hugoniot is retained over its full experimental range, 85.6-245 GPa. Possible melting at higher pressures; density data do not resolve the phase state. All six shots remain data and source-fit inputs. Mean porous precursor density 7.525(0.010) g/cm3 is explicitly adopted as the common path normalization; individual measured initial densities remain unchanged. V0 is a mass-equivalent bulk volume including approximately 2% porosity, not a diffraction lattice volume or the Sata nonmagnetic V0. The 300 K reference is conventional precursor normalization, not measured shock temperature. The separate thermal reduction and the 7.982 g/cm3 Gruneisen reference are not installed as this Hugoniot.
+
+Parameter covariance is not supplied.
+
+
+<details markdown="1">
+<summary>Scientific validation and usage qualifications</summary>
+
+- **Status:** primary\_source\_validated
+- **Audit date:** 2026-11-01
+- **Report path:** docs/literature-reproductions/hu-2019-fe3c.md
+- **Note:** Published six-shot linear Us-up relation retained, with conditional coefficient agreement within both reported error widths under an equal-Us-weight diagnostic. Source confidence, covariance and exact fitting weights are unspecified; this is not recovered author-workflow or uncertainty parity. The published empirical principal Hugoniot is retained over its full experimental range, 85.6-245 GPa. Possible melting at higher pressures; density data do not resolve the phase state. All six shots remain data and source-fit inputs. Mean porous precursor density 7.525(0.010) g/cm3 is explicitly adopted as the common path normalization; individual measured initial densities remain unchanged. V0 is a mass-equivalent bulk volume including approximately 2% porosity, not a diffraction lattice volume or the Sata nonmagnetic V0. The 300 K reference is conventional precursor normalization, not measured shock temperature. The separate thermal reduction and the 7.982 g/cm3 Gruneisen reference are not installed as this Hugoniot.
+- **Usage recommendation:** qualified\_use
+- **Recommendation reason:** Retain the published experimental Hugoniot over 85.6-245 GPa for the porous precursor. Possible melting at higher pressures; density data do not resolve the phase state.
+- **Recommendation date:** 2026-11-02
+- **Recommendation audit:** docs/literature-reproductions/hu-2019-fe3c.md#full-experimental-range-and-possible-melting
+- **Warning:** Possible melting at higher pressures; density data do not resolve the phase state.
+- **Primary source check:**
+    - **Access URL:** https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2019GL084545
+    - **DOI:** 10.1029/2019GL084545
+    - **Locations:** Methods, sample density/porosity and starting-phase XRD; Results, Us-up and conservation equations; Table 1 and footnote; Section 3.1.2, possible melting; Official PANGAEA.905474 workbook, Sheet1!A1:I8
+    - **Finding:** Published six-shot linear Us-up relation retained, with conditional coefficient agreement within both reported error widths under an equal-Us-weight diagnostic. Source confidence, covariance and exact fitting weights are unspecified; this is not recovered author-workflow or uncertainty parity. The published empirical principal Hugoniot is retained over its full experimental range, 85.6-245 GPa. Possible melting at higher pressures; density data do not resolve the phase state. All six shots remain data and source-fit inputs. Mean porous precursor density 7.525(0.010) g/cm3 is explicitly adopted as the common path normalization; individual measured initial densities remain unchanged. V0 is a mass-equivalent bulk volume including approximately 2% porosity, not a diffraction lattice volume or the Sata nonmagnetic V0. The 300 K reference is conventional precursor normalization, not measured shock temperature. The separate thermal reduction and the 7.982 g/cm3 Gruneisen reference are not installed as this Hugoniot.
+- **Verified fields:** original\_linear\_shock\_coefficients\_and\_errors; all\_six\_source\_shots\_and\_reported\_errors; source\_equation\_against\_velocity\_observations; conditional\_parameter\_agreement; per\_shot\_Rankine\_Hugoniot\_replay; porous\_initial\_state\_and\_operational\_mass\_basis; full\_experimental\_shock\_path\_and\_phase\_caveat
+- **Primary data check:**
+    - **Status:** bundled
+    - **Dataset identifiers:** cementite\_hu\_2019\_table1\_hugoniot
+    - **Finding:** All six deposited Table 1 shots match the publisher table; all source widths, impactors, per-shot initial densities and calculated temperatures retained. All six belong to the installed experimental Hugoniot and its source-fit comparison.
+- **Unresolved:** Source coefficient/error confidence, covariance and exact fitting weights unspecified.; No in-situ diffraction or direct temperature measurement during shock; possible high-pressure melting is not resolved.; Exact porous-to-dense correction and full impedance/timing reduction are not supplied; none is invented.; Separate thermal model and its 7.982 g/cm3 reference, gamma law and transformation energy are not represented by this linear path.
+
+</details>
+
+
+<details markdown="1">
+<summary>Pressure calibration</summary>
+
+- **Status:** not\_applicable
+- **Audit date:** 2026-11-01
+- **Methods:**
+    - **Kind:** shock\_wave
+    - **Reference:**
+        - **Authors:** Hu, X.; Fei, Y.; Yang, J.; Cai, Y.; Ye, S.; Qi, M.; Liu, F.; Zhang, M.
+        - **Year:** 2019
+        - **Title:** Phase Stability and Thermal Equation of State of Iron Carbide Fe3C to 245 GPa
+        - **Source:** Geophysical Research Letters
+        - **Volume:** 46
+        - **Issue:** 20
+        - **Locator:** 11018-11024
+        - **DOI:** 10.1029/2019GL084545
+    - **Source location:** Methods and Results; Table 1
+    - **Notes:** P=rho0\*Us\*up, using individual shot densities for source-row replay. Impact velocity and Us measured; Cu/Ta impactors retained. Full source reduction of up from the impact configuration is not recovered. No static MgO/NaCl pressure scale is substituted.
+- **Recalculation:**
+    - **Status:** not\_applicable
+    - **Notes:** No static pressure recalibration. Algebraic per-shot Rankine-Hugoniot P/rho replay is retained separately; full author raw timing/impactor reduction unavailable.
+
+</details>
+
+
+<details markdown="1">
+<summary>Parameter provenance</summary>
+
+- **Origin of the parameterization:** Six experimental shock Us-up pairs and source sample bulk density; no theoretical thermal or transition-energy coefficient enters the installed path.
+- **C0:** Abstract/Results and Figure 1: 4.627 +/-0.073 km/s
+- **S:** Same original linear relation: 1.614 +/-0.028
+- **Rho0:** Methods: mean sample Archimedes density 7.525(0.010) g/cm3, explicitly adopted here as common path normalization. Source Table 1 shot densities vary 7.478-7.546 and are preserved separately.
+- **V0:** Derived 4\*M/(rho0\*NA)\*1e24 A3; four Fe3C formula units, M=179.546 g/mol. Includes pore volume; not Sata V0=149.456 A3 or measured diffraction V0.
+- **P0:** Ambient pressure approximated by zero in source shock conservation equations
+- **Structure:** Source precursor XRD: Pnma Z=4; shock response is source-assigned nonmagnetic, with possible melting at higher pressures. Existing independent Prescher structure is representative solid evidence, not in-situ Hu shock diffraction or proof that the full path remains solid.
+
+</details>
+
 ## Observation datasets
 
 ### cementite\_takahashi\_2019\_table\_s1
@@ -479,3 +1011,75 @@ Parameter covariance is not supplied.
 
 [Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/cementite-takahashi-2019-table-s1.csv)
 — SHA-256 `ad54b8510e2a02f41856ec455e15893fabaca08afe60ff5af6446edf0dea6c01`.
+
+### cementite\_sata\_2010\_table1
+
+- **Description:** All nine Fe3C Table 1 observations, all lattice/volume/pressure error widths and paired MgO readings; source a,b,c setting retained.
+- **Kind:** pressure\_volume\_temperature
+- **Reference:**
+    - **Authors:** Sata, N.; Hirose, K.; Shen, G.; Nakajima, Y.; Ohishi, Y.; Hirao, N.
+    - **Year:** 2010
+    - **Title:** Compression of FeSi, Fe3C, Fe0.95O, and FeS under the core pressures and implication for light element in the Earth's core
+    - **Source:** Journal of Geophysical Research: Solid Earth
+    - **Volume:** 115
+    - **Locator:** B09204
+    - **DOI:** 10.1029/2009JB006975
+- **Source location:** Sata (2010) final Table 1 and paragraph 15; Li (2002) Table 1 rows T1-12/T1-13/T1-14 for source=1 in the selected input.
+- **Associated EOS records:** cementite\_nonmagnetic\_sata\_2010\_bm3
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/cementite-sata-2010-table1.csv)
+— SHA-256 `5833c40921b7f854a78e3fd34b4130cf18f7b166baf4adc00d66884c45529b5c`.
+
+### cementite\_sata\_2010\_selected\_pv
+
+- **Description:** Source-named joint selection: nine Sata MgO-referenced rows and three Li (2002) ruby/neon rows above 25 GPa; no pressure re-reduction.
+- **Kind:** pressure\_volume\_temperature
+- **Reference:**
+    - **Authors:** Sata, N.; Hirose, K.; Shen, G.; Nakajima, Y.; Ohishi, Y.; Hirao, N.
+    - **Year:** 2010
+    - **Title:** Compression of FeSi, Fe3C, Fe0.95O, and FeS under the core pressures and implication for light element in the Earth's core
+    - **Source:** Journal of Geophysical Research: Solid Earth
+    - **Volume:** 115
+    - **Locator:** B09204
+    - **DOI:** 10.1029/2009JB006975
+- **Source location:** Sata (2010) final Table 1 and paragraph 15; Li (2002) Table 1 rows T1-12/T1-13/T1-14 for source=1 in the selected input.
+- **Associated EOS records:** cementite\_nonmagnetic\_sata\_2010\_bm3
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/cementite-sata-2010-selected-pv.csv)
+— SHA-256 `a5bcd3a278421e64b0db4aed1bfde8d8d2c7395697cfffa334885ed7ffa32e9e`.
+
+### cementite\_sata\_2010\_table4\_diffraction
+
+- **Description:** All 12 observed and calculated Table 4 d-spacings; indexed Fe3C phase check, not EOS fit inputs.
+- **Kind:** diffraction\_structure
+- **Reference:**
+    - **Authors:** Sata, N.; Hirose, K.; Shen, G.; Nakajima, Y.; Ohishi, Y.; Hirao, N.
+    - **Year:** 2010
+    - **Title:** Compression of FeSi, Fe3C, Fe0.95O, and FeS under the core pressures and implication for light element in the Earth's core
+    - **Source:** Journal of Geophysical Research: Solid Earth
+    - **Volume:** 115
+    - **Locator:** B09204
+    - **DOI:** 10.1029/2009JB006975
+- **Source location:** Final Table 4. Its heading says 193 GPa; text/Figure 3 say 187 GPa. No pressure correction inferred.
+- **Associated EOS records:** None declared
+- **Notes:** Measured and source-calculated d are separate; retain rounded source delta-d literally. Source axes/hkl are not relabelled as the existing Prescher Pnma structure. No observed diffraction intensity is supplied.
+
+12 rows embedded in the EOSMAT source.
+
+### cementite\_hu\_2019\_table1\_hugoniot
+
+- **Description:** Complete six-shot Table 1, with per-shot porous initial densities, Cu/Ta impactors (codes 0/1), impact velocity, Us/up, derived P/rho and model-calculated temperatures. All error tokens retained. The contributor solid\_subset flag preserves the former lower-pressure grouping for provenance only; it does not limit the full experimental path or identify phase states.
+- **Kind:** shock\_hugoniot
+- **Reference:**
+    - **Authors:** Hu, X.; Fei, Y.; Yang, J.; Cai, Y.; Ye, S.; Qi, M.; Liu, F.; Zhang, M.
+    - **Year:** 2019
+    - **Title:** Phase Stability and Thermal Equation of State of Iron Carbide Fe3C to 245 GPa
+    - **Source:** Geophysical Research Letters
+    - **Volume:** 46
+    - **Issue:** 20
+    - **Locator:** 11018-11024
+    - **DOI:** 10.1029/2019GL084545
+- **Source location:** Final Table 1 and footnote; official PANGAEA Sheet1!A3:I8
+- **Associated EOS records:** cementite\_nonmagnetic\_hu\_2019\_linear\_hugoniot
+
+6 rows embedded in the EOSMAT source.

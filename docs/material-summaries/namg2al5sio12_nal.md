@@ -125,11 +125,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 178.34189581447112 | Not specified | 178.2328857093995 | 0.005881375392549615 | Free |
-| K0 | 217.7 | Not specified | 217.61858686056965 | 0.18874323307669333 | Free |
-| K0\_prime | 4.08 | Not specified | 4.0856132536505045 | 0.008552205469489078 | Free |
+| V0 | 178.342 | Not reported | 178.233 | 0.006 | Free |
+| K0 | 217.7 | Not reported | 217.62 | 0.19 | Free |
+| K0\_prime | 4.08 | Not reported | 4.086 | 0.009 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** pressure\_residuals
@@ -142,15 +143,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 - **Observations:** 6
-- **Observed pressure range gpa:** \[0.0, 50.0\]
+- **Observed pressure range gpa:** 0; 50
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[151.25007456, 178.235777307\]
+- **Observed volume range:** 151.25; 178.236
 - **Degrees of freedom:** 3
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.005517062972859495
-- **Published rmse gpa:** 0.1959975125525443
-- **Reduced chi square:** 6.0875967692994504e-05
+- **Rmse gpa:** 0.00551706
+- **Published rmse gpa:** 0.195998
+- **Reduced chi square:** 6.0876e-05
 - **Dataset identifiers:** namg2al5sio12\_nal\_kawai\_2012\_figure2c\_vector\_digitized
 
 </details>

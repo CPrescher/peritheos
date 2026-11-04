@@ -113,10 +113,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 179.0 | 1.0 | 178.52347290207555 | 9.488687605806906 | Free |
-| K0\_prime | 3.3 | 0.1 | 3.2667006883095255 | 0.6145790923645787 | Free |
+| K0 | 179.0 | 1.0 | 179 | 9 | Free |
+| K0\_prime | 3.30 | 0.10 | 3.3 | 0.6 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -129,15 +130,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 17
-- **Observed pressure range gpa:** \[0.315, 55.178\]
+- **Observed pressure range gpa:** 0.315; 55.178
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[74.893897533, 93.17627404800001\]
+- **Observed volume range:** 74.8939; 93.1763
 - **Degrees of freedom:** 15
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.07610099505125718
-- **Published rmse gpa:** 0.25942209222935625
-- **Reduced chi square:** 0.020726733157439624
+- **Rmse gpa:** 0.076101
+- **Published rmse gpa:** 0.259422
+- **Reduced chi square:** 0.0207267
 - **Dataset identifiers:** boron\_phosphide\_le\_godec\_2014\_figure2\_digitized
 
 </details>

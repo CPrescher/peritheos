@@ -126,10 +126,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 45.29797155879917 | Not specified | 45.185995019007876 | 16.23987881216223 | Free |
-| K0 | 125.0 | Not specified | 125.46292307750784 | 129.29534947040386 | Free |
+| V0 | 45.298 | Not reported | 45 | 16 | Free |
+| K0 | 125 | Not reported | 130 | 130 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** mie\_gruneisen\_hugoniot\_bounded\_reconstruction
 - **Objective:** unweighted theoretical-minus-reduced Hugoniot pressure residuals
@@ -138,11 +139,11 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0
 - **Fixed parameters:** None declared
 - **Observations:** 3
-- **Observed pressure range gpa:** \[174.0, 204.3\]
+- **Observed pressure range gpa:** 174; 204.3
 - **Degrees of freedom:** 1
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 6.7945426904420545
+- **Rmse gpa:** 6.79454
 - **Dataset identifiers:** mgsio3\_liquid\_akins\_2004\_mosenfelder\_2009\_rereduced\_melt
 
 </details>

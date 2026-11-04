@@ -94,18 +94,19 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** independent refit.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Reproduction of the stored independent Peritheos refit under its declared protocol.
 
 [Open reconstruction report](../reconstruction-reports/cu_handbook_1972_legacy.md#record-cu_sun_2010_low_vn_refit)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
 - This comparison concerns the stored independent Peritheos refit, not recovery of the original publication's coefficients or author workflow.
+- Registered independent refit point estimates reproduce within the declared numerical solver tolerance. Replay of the registered independent Peritheos refit's stored point estimates, with numerical relative tolerance 1e-6 and absolute tolerance 1e-8 in the recorded units. This is solver repeatability, not agreement with source-author coefficients or an uncertainty estimate. Source-data limitations, graphical correlations and original-publication findings remain unchanged. Earlier audit wording (superseded only for the named numerical scope):
 
 <details markdown="1">
 <summary>Source and reconstructed coefficients</summary>
@@ -118,10 +119,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 139.23431084 | Not specified | 139.23431092638697 | Not specified | Free |
-| K0\_prime | 5.00112704 | Not specified | 5.001127035941476 | Not specified | Free |
+| K0 | 139.234 | Not reported | 139.234 | Not reported | Free |
+| K0\_prime | 5.00113 | Not reported | 5.00113 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** eighth\_power\_pressure\_residuals
@@ -134,15 +136,16 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 25
-- **Observed pressure range gpa:** \[1.5, 34.0\]
+- **Observed pressure range gpa:** 1.5; 34
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[10.03071040803769, 11.6965881083125\]
+- **Observed volume range:** 10.0307; 11.6966
 - **Degrees of freedom:** 23
 - **Solver success:** True
 - **Solver message:** Optimization terminated successfully.
-- **Rmse gpa:** 0.07015421358068172
-- **Published rmse gpa:** 0.07015421226530144
+- **Rmse gpa:** 0.0701542
+- **Published rmse gpa:** 0.0701542
 - **Reduced chi square:** Not specified
+- **Comparison scope:** Compared free coefficients: K0, K0\_prime; scope=independent\_refit
 - **Dataset identifiers:** aip\_handbook\_table4d12\_cu
 
 </details>

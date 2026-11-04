@@ -21,8 +21,8 @@ and recommendation for use are distinct assessments.
 | Pressure unit | GPa |
 | Temperature unit | K |
 | Volume unit | Å³ per conventional unit cell |
-| Stored EOS records | 2 |
-| Observation datasets | 1 |
+| Stored EOS records | 4 |
+| Observation datasets | 2 |
 
 Phase-specific card for published hcp-Zn EOS records. No diffraction structure is bundled.
 
@@ -36,7 +36,9 @@ Phase-specific card for published hcp-Zn EOS records. No diffraction structure i
 | Record | Model | Reference temperature (K) | Source status | Availability |
 | --- | --- | --- | --- | --- |
 | [Dewaele (2019), Zn MAO-scale Vinet](#record-zinc_hcp_dewaele_2019_mao_vinet) | Vinet | 300.0 | primary source validated | Executable |
-| [Dewaele (2019), Zn DOR-scale Vinet](#record-zinc_hcp_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Executable |
+| [Dewaele (2019), Zn DOR-scale Vinet](#record-zinc_hcp_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Pressure-scale reference variant |
+| [Dewaele et al. (2008), Table IV Vinet, K0 fitted](#record-zinc_hcp_dewaele_2008_table4_vinet) | Vinet | 300.0 | primary source validated | Executable |
+| [Dewaele et al. (2008), Table IV Vinet, US K0=60 GPa fixed](#record-zinc_hcp_dewaele_2008_table4_us_k0_60_vinet) | Vinet | 300.0 | primary source validated | Executable |
 
 ### Reference coefficients
 
@@ -44,6 +46,8 @@ Phase-specific card for published hcp-Zn EOS records. No diffraction structure i
 | --- | --- | --- | --- |
 | [Dewaele (2019), Zn MAO-scale Vinet](#record-zinc_hcp_dewaele_2019_mao_vinet) | 30.294 ± 0.038 | 64.3 ± 1.2 | 5.3 ± 0.1 |
 | [Dewaele (2019), Zn DOR-scale Vinet](#record-zinc_hcp_dewaele_2019_dor_vinet) | 30.31 ± 0.038 | 62.2 ± 1.2 | 5.705 ± 0.1 |
+| [Dewaele et al. (2008), Table IV Vinet, K0 fitted](#record-zinc_hcp_dewaele_2008_table4_vinet) | 30.426 (fixed) | 60.5 ± 0.9 | 5.69 ± 0.07 |
+| [Dewaele et al. (2008), Table IV Vinet, US K0=60 GPa fixed](#record-zinc_hcp_dewaele_2008_table4_us_k0_60_vinet) | 30.426 (fixed) | 60.0 (fixed) | 5.73 ± 0.01 |
 
 Errors are shown only when supplied, with their source meaning; a bare
 central value does not imply zero uncertainty. A dash means this parameter
@@ -97,18 +101,18 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Open reconstruction report](../reconstruction-reports/zinc_hcp.md#record-zinc_hcp_dewaele_2019_mao_vinet)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
-- Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -122,22 +126,52 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 30.294 | 0.038 | 30.292457843118044 | Not specified | Free |
-| K0 | 64.3 | 1.2 | 64.3338855596799 | Not specified | Free |
-| K0\_prime | 5.3 | 0.1 | 5.297409276246986 | Not specified | Free |
+| V0 | 30.29 | 0.04 | 30.29 | 0.10 | Free |
+| K0 | 64.3 | 1.2 | 64.3 | 1.9 | Free |
+| K0\_prime | 5.30 | 0.10 | 5.30 | 0.07 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** static\_vinet\_with\_explicit\_ruby\_scale\_conversion
 - **Objective:** unweighted pressure residuals
 - **Selection:** complete
+- **Weighting:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.
+- **Absolute sigma:** False
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 - **Observations:** 43
-- **Observed pressure range gpa:** \[0.0, 147.4\]
+- **Observed pressure range gpa:** 0; 147.4
+- **Degrees of freedom:** 40
 - **Solver success:** True
 - **Solver message:** dedicated Dewaele (2019) refit completed
-- **Rmse gpa:** 0.5941302906776338
+- **Rmse gpa:** 0.59413
+- **Parameter covariance:** \[\["0.0102084", "-0.187239", "0.00623988"\], \["-0.187239", "3.74113", "-0.135272"\], \["0.00623988", "-0.135272", "0.00526476"\]\]
+- **Covariance:**
+    - **Parameters:** V0; K0; K0\_prime
+    - **Matrix:** \[\["0.0102084", "-0.187239", "0.00623988"\], \["-0.187239", "3.74113", "-0.135272"\], \["0.00623988", "-0.135272", "0.00526476"\]\]
+    - **Standard errors:**
+        - **V0:** 0.101036
+        - **K0:** 1.9342
+        - **K0 prime:** 0.0725587
+    - **Correlation matrix:** \[\["1", "-0.958112", "0.851155"\], \["-0.958112", "1", "-0.963867"\], \["0.851155", "-0.963867", "1"\]\]
+    - **Degrees of freedom:** 40
+    - **Local student t 95 intervals:**
+        - **V0:** 30.0883; 30.4967
+        - **K0:** 60.4247; 68.2431
+        - **K0 prime:** 5.15076; 5.44406
+    - **Residual variance:** 0.379465
+    - **Max abs residual jacobian cosine:** 6.84464e-09
+    - **Residual sum squares:** 15.1786
+    - **Residual count:** 43
+    - **Scaled jacobian condition number:** 114.558
+    - **Derivative step halving relative change:** 3.10325e-12
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Qualification:** Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.
+    - **Assumptions:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+- **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 - **Dataset identifiers:** zinc\_dewaele\_2008\_table2\_compression
 
 </details>
@@ -211,7 +245,9 @@ Parameter covariance is not supplied.
 
 Identifier: `zinc_hcp_dewaele_2019_dor_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [zinc\_hcp\_dewaele\_2019\_mao\_vinet](#record-zinc_hcp_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -246,18 +282,18 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Open reconstruction report](../reconstruction-reports/zinc_hcp.md#record-zinc_hcp_dewaele_2019_dor_vinet)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
-- Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -271,22 +307,52 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 30.31 | 0.038 | 30.30938831413312 | Not specified | Free |
-| K0 | 62.2 | 1.2 | 62.25517455441376 | Not specified | Free |
-| K0\_prime | 5.705 | 0.1 | 5.7035858793585135 | Not specified | Free |
+| V0 | 30.31 | 0.04 | 30.31 | 0.11 | Free |
+| K0 | 62.2 | 1.2 | 62.3 | 2.1 | Free |
+| K0\_prime | 5.71 | 0.10 | 5.70 | 0.08 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** static\_vinet\_with\_explicit\_ruby\_scale\_conversion
 - **Objective:** unweighted pressure residuals
 - **Selection:** complete
+- **Weighting:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.
+- **Absolute sigma:** False
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 - **Observations:** 43
-- **Observed pressure range gpa:** \[0.0, 158.7461178680547\]
+- **Observed pressure range gpa:** 0; 158.746
+- **Degrees of freedom:** 40
 - **Solver success:** True
 - **Solver message:** dedicated Dewaele (2019) refit completed
-- **Rmse gpa:** 0.6543739589034804
+- **Rmse gpa:** 0.654374
+- **Parameter covariance:** \[\["0.0126493", "-0.227386", "0.0076181"\], \["-0.227386", "4.41427", "-0.159761"\], \["0.0076181", "-0.159761", "0.00622143"\]\]
+- **Covariance:**
+    - **Parameters:** V0; K0; K0\_prime
+    - **Matrix:** \[\["0.0126493", "-0.227386", "0.0076181"\], \["-0.227386", "4.41427", "-0.159761"\], \["0.0076181", "-0.159761", "0.00622143"\]\]
+    - **Standard errors:**
+        - **V0:** 0.112469
+        - **K0:** 2.10102
+        - **K0 prime:** 0.078876
+    - **Correlation matrix:** \[\["1", "-0.962278", "0.858752"\], \["-0.962278", "1", "-0.964041"\], \["0.858752", "-0.964041", "1"\]\]
+    - **Degrees of freedom:** 40
+    - **Local student t 95 intervals:**
+        - **V0:** 30.0821; 30.5367
+        - **K0:** 58.0089; 66.5015
+        - **K0 prime:** 5.54417; 5.863
+    - **Residual variance:** 0.460321
+    - **Max abs residual jacobian cosine:** 3.58661e-09
+    - **Residual sum squares:** 18.4128
+    - **Residual count:** 43
+    - **Scaled jacobian condition number:** 126.157
+    - **Derivative step halving relative change:** 2.3844e-12
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Qualification:** Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.
+    - **Assumptions:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+- **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 - **Dataset identifiers:** zinc\_dewaele\_2008\_table2\_compression
 
 </details>
@@ -354,6 +420,320 @@ Parameter covariance is not supplied.
 
 </details>
 
+<a id="record-zinc_hcp_dewaele_2008_table4_vinet"></a>
+
+## Dewaele et al. (2008), Table IV Vinet, K0 fitted
+
+Identifier: `zinc_hcp_dewaele_2008_table4_vinet`.
+
+Availability: **Executable**.
+
+
+- **Record kind:** published
+- **Origin of the parameterization:** experimental
+- **Equation kind:** isothermal
+- **Reference:**
+    - **Authors:** Dewaele; Torrent; Loubeyre; Mezouar
+    - **Year:** 2008
+    - **Title:** Compression curves of transition metals in the Mbar range: Experiments and projector augmented-wave calculations
+    - **Source:** Physical Review B
+    - **Volume:** 78
+    - **Locator:** 104102
+    - **DOI:** 10.1103/PhysRevB.78.104102
+- **Reference temperature (K):** 300.0
+- **Reported pressure coverage (GPa):** \[0.0, 156.6\]
+- **Coverage provenance:** reported\_qualitatively
+- **Reported error confidence level:** 0.95
+
+| Component | Parameter | Value | Reported error | Fixed |
+| --- | --- | --- | --- | --- |
+| Primary | V0 | 30.426 | Not reported | Yes |
+| Primary | K0 | 60.5 | 0.9 | Not listed |
+| Primary | K0\_prime | 5.69 | 0.07 | Not listed |
+
+Values use the source model's parameter units. Primary `V0` uses
+the conventional-cell volume declared above. Errors retain their reported
+meaning; an absent error is unknown, and absence of covariance does not
+establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
+
+[Open reconstruction report](../reconstruction-reports/zinc_hcp.md#record-zinc_hcp_dewaele_2008_table4_vinet)
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0 | 60.5 | 0.9 | 60.2138 | Not reported | Free |
+| K0\_prime | 5.69 | 0.07 | 5.70941 | Not reported | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** unweighted pressure residuals
+- **Selection:** all rows except run 2 revised pressure &gt;100 GPa
+- **Columns:**
+    - **Pressure:** ruby\_pressure\_dewaele\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** atomic\_volume\_a3
+- **Weighting:** unweighted diagnostic; source weights not specified
+- **Absolute sigma:** Not specified
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Fixed values:**
+    - **V0:** 30.426
+- **Observations:** 43
+- **Observed pressure range gpa:** 0; 156.6
+- **Observed volume range:** 17.1584; 30.425
+- **Degrees of freedom:** 41
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.555467
+- **Published rmse gpa:** 0.558234
+- **Dataset identifiers:** zinc\_hcp\_dewaele\_2008\_source\_table
+
+</details>
+
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 and K0-prime are fitted. All printed rows are retained; run-2 Ag/Mo rows with revised pressure &gt;100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.
+
+Parameter covariance is not supplied.
+
+
+<details markdown="1">
+<summary>Scientific validation and usage qualifications</summary>
+
+- **Status:** primary\_source\_validated
+- **Audit date:** 2026-10-23
+- **Note:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+- **Verified fields:** equation; parameters; units; reference\_state; phase; published\_uncertainties; fixed\_parameters
+- **Primary source check:**
+    - **DOI:** 10.1103/PhysRevB.78.104102
+    - **Access URL:** https://doi.org/10.1103/PhysRevB.78.104102
+    - **Locations:** Equation (1); Table IV, third column, p. 104102-5
+    - **Source pdf sha256:** a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf
+    - **Finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+- **Primary data check:**
+    - **Status:** bundled
+    - **Dataset identifiers:** zinc\_hcp\_dewaele\_2008\_source\_table
+    - **Finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+
+</details>
+
+
+<details markdown="1">
+<summary>Pressure calibration</summary>
+
+- **Status:** partially\_resolved
+- **Methods:**
+    - **Kind:** ruby\_fluorescence
+    - **Reference calibration record:** ruby\_dewaele\_2004
+    - **Source location:** Section IV, Tables II-IV: P\_R-prime from reference 3
+    - **Kind:** equation\_of\_state
+    - **Reference:**
+        - **Authors:** Loubeyre; LeToullec; Hanfland; Ulivi; Datchi; Hausermann
+        - **Year:** 1998
+        - **Source:** Physical Review B
+        - **DOI:** 10.1103/PhysRevB.57.10403
+    - **Source location:** Table II caption, parenthesized run-6 rows; He Vinet V0=24.804 A3/atom, K0=0.165 GPa, K0-prime=7.483
+    - **Notes:** Exact source coefficients retained here as provenance; helium standard not registered as a material EOS. No raw paired He volumes are printed.
+- **Recalculation:**
+    - **Status:** missing\_calibrant\_observations
+    - **Notes:** Revised-scale pressures are tabulated. Ruby-only pressures can be inverted to the corrected wavelength ratio. For parenthesized run-6 rows the pressure came from helium: raw He volumes are absent, so an exact mixed-gauge recalibration is unavailable. No wavelength or helium volume is synthesized.
+- **Audit date:** 2026-10-22
+
+</details>
+
+
+<details markdown="1">
+<summary>Parameter provenance</summary>
+
+- **V0:** Table IV, third column, p. 104102-5; atomic V0 multiplied by Z=2
+- **K0:** Table IV, third column, p. 104102-5
+- **K0 prime:** Table IV, third column, p. 104102-5
+- **Origin of the parameterization:** DAC observations on the 2004 revised ruby scale; V0 fixed from separate 0-5 GPa reduction.
+
+</details>
+
+<a id="record-zinc_hcp_dewaele_2008_table4_us_k0_60_vinet"></a>
+
+## Dewaele et al. (2008), Table IV Vinet, US K0=60 GPa fixed
+
+Identifier: `zinc_hcp_dewaele_2008_table4_us_k0_60_vinet`.
+
+Availability: **Executable**.
+
+
+- **Record kind:** published
+- **Origin of the parameterization:** experimental
+- **Equation kind:** isothermal
+- **Reference:**
+    - **Authors:** Dewaele; Torrent; Loubeyre; Mezouar
+    - **Year:** 2008
+    - **Title:** Compression curves of transition metals in the Mbar range: Experiments and projector augmented-wave calculations
+    - **Source:** Physical Review B
+    - **Volume:** 78
+    - **Locator:** 104102
+    - **DOI:** 10.1103/PhysRevB.78.104102
+- **Reference temperature (K):** 300.0
+- **Reported pressure coverage (GPa):** \[0.0, 156.6\]
+- **Coverage provenance:** reported\_qualitatively
+- **Reported error confidence level:** 0.95
+
+| Component | Parameter | Value | Reported error | Fixed |
+| --- | --- | --- | --- | --- |
+| Primary | V0 | 30.426 | Not reported | Yes |
+| Primary | K0 | 60.0 | Not reported | Yes |
+| Primary | K0\_prime | 5.73 | 0.01 | Not listed |
+
+Values use the source model's parameter units. Primary `V0` uses
+the conventional-cell volume declared above. Errors retain their reported
+meaning; an absent error is unknown, and absence of covariance does not
+establish statistical independence.
+
+
+### Reconstruction
+
+**Outcome:** parity.
+**Scope:** parameter agreement.
+
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
+
+[Open reconstruction report](../reconstruction-reports/zinc_hcp.md#record-zinc_hcp_dewaele_2008_table4_us_k0_60_vinet)
+
+Original audit code: `parity`.
+
+**Limitations and qualifications:**
+
+- Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+<details markdown="1">
+<summary>Source and reconstructed coefficients</summary>
+
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0\_prime | 5.730 | 0.010 | 5.72476 | Not reported | Free |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
+
+- **Fit kind:** isothermal\_pv
+- **Objective:** unweighted pressure residuals
+- **Selection:** all rows except run 2 revised pressure &gt;100 GPa
+- **Columns:**
+    - **Pressure:** ruby\_pressure\_dewaele\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** atomic\_volume\_a3
+- **Weighting:** unweighted diagnostic; source weights not specified
+- **Absolute sigma:** Not specified
+- **Free parameters:** K0\_prime
+- **Fixed parameters:** V0; K0
+- **Fixed values:**
+    - **K0:** 60
+    - **V0:** 30.426
+- **Observations:** 43
+- **Observed pressure range gpa:** 0; 156.6
+- **Observed volume range:** 17.1584; 30.425
+- **Degrees of freedom:** 42
+- **Solver success:** True
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.556866
+- **Published rmse gpa:** 0.563304
+- **Dataset identifiers:** zinc\_hcp\_dewaele\_2008\_source\_table
+
+</details>
+
+Machine-readable comparison: `docs/data/primary-eos-refits.json` (this record's identifier).
+
+Published Table IV coefficients, distinct from the later 2019 all-free-parameter recalibration. V0 is fixed after fitting low-pressure (0-5 GPa) data, not refitted in the full compression regression. K0 is adopted from ultrasound and fixed; its adopted uncertainty is not a fitted parameter error. All printed rows are retained; run-2 Ag/Mo rows with revised pressure &gt;100 GPa are excluded as stated in Section III. Parenthetical errors in Table IV are 95% widths; no covariance is given. The new 2008 ruby upgrade is an output of the later cross-calibration discussion, not the input pressure scale of these fits.
+
+Parameter covariance is not supplied.
+
+
+<details markdown="1">
+<summary>Scientific validation and usage qualifications</summary>
+
+- **Status:** primary\_source\_validated
+- **Audit date:** 2026-10-23
+- **Note:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+- **Verified fields:** equation; parameters; units; reference\_state; phase; published\_uncertainties; fixed\_parameters
+- **Primary source check:**
+    - **DOI:** 10.1103/PhysRevB.78.104102
+    - **Access URL:** https://doi.org/10.1103/PhysRevB.78.104102
+    - **Locations:** Equation (1); Table IV, fourth column, p. 104102-5
+    - **Source pdf sha256:** a06fd5cb9433b99f35b20582be5214b1e805014c150a2907fdf8933776cf6daf
+    - **Finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+- **Primary data check:**
+    - **Status:** bundled
+    - **Dataset identifiers:** zinc\_hcp\_dewaele\_2008\_source\_table
+    - **Finding:** Source-fixed V0 and, for the constrained branch, source-adopted ultrasonic K0 are replayed. Every free coefficient is compared directly with its printed 95% width; no refit covariance or source weighting is inferred. This does not reproduce the original low-pressure V0 determination or author workflow.
+
+</details>
+
+
+<details markdown="1">
+<summary>Pressure calibration</summary>
+
+- **Status:** partially\_resolved
+- **Methods:**
+    - **Kind:** ruby\_fluorescence
+    - **Reference calibration record:** ruby\_dewaele\_2004
+    - **Source location:** Section IV, Tables II-IV: P\_R-prime from reference 3
+    - **Kind:** equation\_of\_state
+    - **Reference:**
+        - **Authors:** Loubeyre; LeToullec; Hanfland; Ulivi; Datchi; Hausermann
+        - **Year:** 1998
+        - **Source:** Physical Review B
+        - **DOI:** 10.1103/PhysRevB.57.10403
+    - **Source location:** Table II caption, parenthesized run-6 rows; He Vinet V0=24.804 A3/atom, K0=0.165 GPa, K0-prime=7.483
+    - **Notes:** Exact source coefficients retained here as provenance; helium standard not registered as a material EOS. No raw paired He volumes are printed.
+- **Recalculation:**
+    - **Status:** missing\_calibrant\_observations
+    - **Notes:** Revised-scale pressures are tabulated. Ruby-only pressures can be inverted to the corrected wavelength ratio. For parenthesized run-6 rows the pressure came from helium: raw He volumes are absent, so an exact mixed-gauge recalibration is unavailable. No wavelength or helium volume is synthesized.
+- **Audit date:** 2026-10-22
+
+</details>
+
+
+<details markdown="1">
+<summary>Parameter provenance</summary>
+
+- **V0:** Table IV, fourth column, p. 104102-5; atomic V0 multiplied by Z=2
+- **K0:** Table IV, fourth column, p. 104102-5
+- **K0 prime:** Table IV, fourth column, p. 104102-5
+- **Origin of the parameterization:** DAC observations on the 2004 revised ruby scale; V0 fixed from separate 0-5 GPa reduction; K0 fixed to adopted ultrasonic value.
+
+</details>
+
 ## Observation datasets
 
 ### zinc\_dewaele\_2008\_table2\_compression
@@ -372,3 +752,22 @@ Parameter covariance is not supplied.
 
 [Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/zinc-dewaele-2008-table2-compression.csv)
 — SHA-256 `9edf4625e61d2fdf4b20fd51c1134b7c45495d99d8070f25b555cebb0b476f11`.
+
+### zinc\_hcp\_dewaele\_2008\_source\_table
+
+- **Description:** Complete source table rows, including excluded observations and gauge flags; selection belongs to each fit.
+- **Kind:** pressure\_volume\_lattice\_parameters\_with\_calibrant
+- **Reference:**
+    - **Authors:** Dewaele; Torrent; Loubeyre; Mezouar
+    - **Year:** 2008
+    - **Title:** Compression curves of transition metals in the Mbar range: Experiments and projector augmented-wave calculations
+    - **Source:** Physical Review B
+    - **Volume:** 78
+    - **Locator:** 104102
+    - **DOI:** 10.1103/PhysRevB.78.104102
+- **Source location:** Table II
+- **Associated EOS records:** zinc\_hcp\_dewaele\_2008\_table4\_vinet; zinc\_hcp\_dewaele\_2008\_table4\_us\_k0\_60\_vinet
+- **Notes:** Source tokens, run identities, reported lattice data and mixed-gauge markings retained. Common Table II volume uncertainty 0.01 A3/atom is reported without an explicit confidence convention; pressure precision endpoints do not supply rowwise errors. No rowwise uncertainty array is synthesized.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/zinc_hcp-dewaele-2008-source-table2.csv)
+— SHA-256 `3ae737fe329c87e70a8b865a574eead927cd98284b24e12d9c165d9b0ff81cd9`.

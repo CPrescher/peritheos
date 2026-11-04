@@ -116,10 +116,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 146.7 | 1.9 | 144.5929609338873 | 2.586747610266589 | Free |
-| K0\_prime | 3.4 | 0.1 | 3.4716122358570867 | 0.11888904427946788 | Free |
+| K0 | 146.7 | 1.9 | 144.6 | 2.6 | Free |
+| K0\_prime | 3.40 | 0.10 | 3.47 | 0.12 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -132,15 +133,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 9
-- **Observed pressure range gpa:** \[49.9, 67.5\]
-- **Observed temperature range k:** \[298.0, 298.0\]
-- **Observed volume range:** \[73.36, 77.55\]
+- **Observed pressure range gpa:** 49.9; 67.5
+- **Observed temperature range k:** 298; 298
+- **Observed volume range:** 73.36; 77.55
 - **Degrees of freedom:** 7
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.06174187449610127
-- **Published rmse gpa:** 0.23539926066074293
-- **Reduced chi square:** 0.6275147397495696
+- **Rmse gpa:** 0.0617419
+- **Published rmse gpa:** 0.235399
+- **Reduced chi square:** 0.627515
 - **Dataset identifiers:** calcium\_carbonate\_post\_aragonite\_lv\_2020\_supplementary\_table\_pvt
 
 </details>
@@ -272,12 +273,13 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.K0 | 151.0 | 4.0 | 145.86922539169947 | 2.4239535716869662 | Free |
-| rt\_eos.K0\_prime | 3.2 | 0.2 | 3.4221699921801916 | 0.10972862838417025 | Free |
-| gamma0 | 1.6 | 0.5 | 1.9709866972164265 | 0.3541053047096985 | Free |
-| q | 1.3 | 0.9 | 1.9929012405528448 | 0.694145219843853 | Free |
+| rt\_eos.K0 | 151 | 4 | 145.9 | 2.4 | Free |
+| rt\_eos.K0\_prime | 3.20 | 0.20 | 3.42 | 0.11 | Free |
+| gamma0 | 1.6 | 0.5 | 2.0 | 0.4 | Free |
+| q | 1.3 | 0.9 | 2.0 | 0.7 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** joint\_pvt
 - **Objective:** errors\_in\_variables
@@ -290,15 +292,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** rt\_eos.K0; rt\_eos.K0\_prime; gamma0; q
 - **Fixed parameters:** V0; Tr; theta0; n
 - **Observations:** 131
-- **Observed pressure range gpa:** \[49.9, 75.0\]
-- **Observed temperature range k:** \[298.0, 2160.0\]
-- **Observed volume range:** \[73.36, 78.49\]
+- **Observed pressure range gpa:** 49.9; 75
+- **Observed temperature range k:** 298; 2160
+- **Observed volume range:** 73.36; 78.49
 - **Degrees of freedom:** 127
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.5272073115307907
-- **Published rmse gpa:** 0.6064708499687894
-- **Reduced chi square:** 0.9552103532874094
+- **Rmse gpa:** 0.527207
+- **Published rmse gpa:** 0.606471
+- **Reduced chi square:** 0.95521
 - **Dataset identifiers:** calcium\_carbonate\_post\_aragonite\_lv\_2020\_supplementary\_table\_pvt
 
 </details>

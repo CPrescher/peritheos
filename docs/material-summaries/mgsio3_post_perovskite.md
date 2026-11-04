@@ -38,8 +38,8 @@ Cmcm structure and fractional coordinates at 121 GPa and 300 K: Murakami et al.,
 | [Mosenfelder et al. (2009), shock-static BM3-MGD](#record-mgsio3_post_perovskite_mosenfelder_2009_bm3_1) | BM3 + MieGruneisenDebye | 300.0 | primary source validated | Executable |
 | [Sakai et al. (2016), experimental multi-megabar BM3](#record-mgsio3_post_perovskite_sakai_2016_bm3_2) | BM3 | 300.0 | primary source validated | Executable |
 | [Ono et al. (2006), Anderson-gold-scale constrained BM3 (BM2)](#record-mgsio3_post_perovskite_ono_2006_anderson_bm2_3) | BM2 | 300.0 | primary source validated | Executable |
-| [Ono et al. (2006), Jamieson-gold-scale constrained BM3 (BM2)](#record-mgsio3_post_perovskite_ono_2006_jamieson_bm2_4) | BM2 | 300.0 | primary source validated | Executable |
-| [Ono et al. (2006), Dewaele-gold-scale constrained BM3 (BM2)](#record-mgsio3_post_perovskite_ono_2006_dewaele_bm2_5) | BM2 | 300.0 | primary source validated | Executable |
+| [Ono et al. (2006), Jamieson-gold-scale constrained BM3 (BM2)](#record-mgsio3_post_perovskite_ono_2006_jamieson_bm2_4) | BM2 | 300.0 | primary source validated | Pressure-scale reference variant |
+| [Ono et al. (2006), Dewaele-gold-scale constrained BM3 (BM2)](#record-mgsio3_post_perovskite_ono_2006_dewaele_bm2_5) | BM2 | 300.0 | primary source validated | Pressure-scale reference variant |
 | [Akber-Knutson et al. (2005), pure-MgSiO3 post-perovskite static GGA BM3](#record-mgsio3_post_perovskite_akber_knutson_2005_gga_bm3) | BM3 | 0 | primary source validated | Executable |
 | [Zhang and Wentzcovitch (2022), PHQ-LDA 300 K BM3](#record-mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_lda_300k_bm3) | BM3 | 300.0 | primary source validated | Executable |
 | [Zhang and Wentzcovitch (2022), PHQ-PBE 300 K BM3](#record-mgsio3_post_perovskite_zhang_wentzcovitch_2022_phq_pbe_300k_bm3) | BM3 | 300.0 | primary source validated | Executable |
@@ -147,14 +147,15 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 225.0 | 2.0 | 224.55806147591343 | 6.109290011661978 | Free |
-| K0\_prime | 4.21 | 0.07 | 4.219878974791161 | 0.17214914953016408 | Free |
-| gamma0 | 2.61 | 0.67 | 2.518342759164278 | 0.9908250185664008 | Free |
-| q | 2.1 | 0.8 | 2.067252896422876 | 1.4473593594602365 | Free |
-| Cvm | 1.035 | 0.05 | 1.0472048589627165 | 0.15062195422333158 | Free |
-| theta0 | 990.0 | 146.0 | 998.6748231557527 | 452.8739714729701 | Free |
+| K0 | 225.0 | 2.0 | 225 | 6 | Free |
+| K0\_prime | 4.21 | 0.07 | 4.22 | 0.17 | Free |
+| gamma0 | 2.6 | 0.7 | 2.5 | 1.0 | Free |
+| q | 2.1 | 0.8 | 2.1 | 1.4 | Free |
+| Cvm | 1.04 | 0.05 | 1.05 | 0.15 | Free |
+| theta0 | 990 | 150 | 1000 | 500 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** joint\_static\_pvt\_shock\_hugoniot\_mgd
 - **Objective:** orthogonal errors in P, V, T, and shock density; source datum-counting chi-square
@@ -165,7 +166,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Degrees of freedom:** 48
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Reduced chi square:** 0.180045660107939
+- **Reduced chi square:** 0.180046
 - **Dataset identifiers:** mgsio3\_post\_perovskite\_guignot\_2007\_table1\_pvt; mgsio3\_post\_perovskite\_mosenfelder\_2009\_table2\_shock
 
 </details>
@@ -299,11 +300,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 158.0 | 1.5 | 157.83800309401317 | 4.339438288383408 | Free |
-| K0 | 292.0 | 22.0 | 288.16810986320655 | 61.60656181083306 | Free |
-| K0\_prime | 3.74 | 0.13 | 3.820667347122245 | 0.3970141258785688 | Free |
+| V0 | 158.0 | 1.5 | 158 | 4 | Free |
+| K0 | 292 | 22 | 290 | 60 | Free |
+| K0\_prime | 3.74 | 0.13 | 3.8 | 0.4 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -316,15 +318,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 - **Observations:** 18
-- **Observed pressure range gpa:** \[119.5, 275.3\]
-- **Observed temperature range k:** \[300.0, 300.0\]
-- **Observed volume range:** \[102.92, 122.61\]
+- **Observed pressure range gpa:** 119.5; 275.3
+- **Observed temperature range k:** 300; 300
+- **Observed volume range:** 102.92; 122.61
 - **Degrees of freedom:** 15
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 1.3705371564194553
-- **Published rmse gpa:** 1.6809570498714588
-- **Reduced chi square:** 0.7233654078916302
+- **Rmse gpa:** 1.37054
+- **Published rmse gpa:** 1.68096
+- **Reduced chi square:** 0.723365
 - **Dataset identifiers:** mgsio3\_post\_perovskite\_sakai\_2016\_table\_s1\_pvt
 
 </details>
@@ -457,9 +459,10 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 237.0 | 1.0 | 237.18460264261063 | 0.6620433655098663 | Free |
+| K0 | 237.0 | 1.0 | 237.2 | 0.7 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -472,15 +475,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0
 - **Fixed parameters:** V0
 - **Observations:** 6
-- **Observed pressure range gpa:** \[116.1, 144.4\]
-- **Observed temperature range k:** \[300.0, 300.0\]
-- **Observed volume range:** \[117.91, 123.26\]
+- **Observed pressure range gpa:** 116.1; 144.4
+- **Observed temperature range k:** 300; 300
+- **Observed volume range:** 117.91; 123.26
 - **Degrees of freedom:** 5
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.21844530160004158
-- **Published rmse gpa:** 1.4316084628771457
-- **Reduced chi square:** 2.1382833738672606
+- **Rmse gpa:** 0.218445
+- **Published rmse gpa:** 1.43161
+- **Reduced chi square:** 2.13828
 - **Dataset identifiers:** mgsio3\_post\_perovskite\_ono\_2006\_table2\_compression
 
 </details>
@@ -581,7 +584,9 @@ Parameter covariance is not supplied.
 
 Identifier: `mgsio3_post_perovskite_ono_2006_jamieson_bm2_4`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [mgsio3\_post\_perovskite\_ono\_2006\_anderson\_bm2\_3](#record-mgsio3_post_perovskite_ono_2006_anderson_bm2_3); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -642,9 +647,10 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 226.0 | 1.0 | 226.81041004774673 | 0.6352257151292431 | Free |
+| K0 | 226.0 | 1.0 | 226.8 | 0.6 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -657,15 +663,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0
 - **Fixed parameters:** V0
 - **Observations:** 6
-- **Observed pressure range gpa:** \[111.5, 137.0\]
-- **Observed temperature range k:** \[300.0, 300.0\]
-- **Observed volume range:** \[117.91, 123.26\]
+- **Observed pressure range gpa:** 111.5; 137
+- **Observed temperature range k:** 300; 300
+- **Observed volume range:** 117.91; 123.26
 - **Degrees of freedom:** 5
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.3064778879039632
-- **Published rmse gpa:** 1.743114881363511
-- **Reduced chi square:** 4.617904642641084
+- **Rmse gpa:** 0.306478
+- **Published rmse gpa:** 1.74311
+- **Reduced chi square:** 4.6179
 - **Dataset identifiers:** mgsio3\_post\_perovskite\_ono\_2006\_table2\_compression
 
 </details>
@@ -763,7 +769,9 @@ Parameter covariance is not supplied.
 
 Identifier: `mgsio3_post_perovskite_ono_2006_dewaele_bm2_5`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [mgsio3\_post\_perovskite\_ono\_2006\_anderson\_bm2\_3](#record-mgsio3_post_perovskite_ono_2006_anderson_bm2_3); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -824,9 +832,10 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 248.0 | 1.0 | 248.044911606159 | 0.6901603541984719 | Free |
+| K0 | 248.0 | 1.0 | 248.0 | 0.7 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -839,15 +848,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0
 - **Fixed parameters:** V0
 - **Observations:** 6
-- **Observed pressure range gpa:** \[121.4, 151.1\]
-- **Observed temperature range k:** \[300.0, 300.0\]
-- **Observed volume range:** \[117.91, 123.26\]
+- **Observed pressure range gpa:** 121.4; 151.1
+- **Observed temperature range k:** 300; 300
+- **Observed volume range:** 117.91; 123.26
 - **Degrees of freedom:** 5
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.20967713990929238
-- **Published rmse gpa:** 1.4859096031659682
-- **Reduced chi square:** 2.070742238663835
+- **Rmse gpa:** 0.209677
+- **Published rmse gpa:** 1.48591
+- **Reduced chi square:** 2.07074
 - **Dataset identifiers:** mgsio3\_post\_perovskite\_ono\_2006\_table2\_compression
 
 </details>
@@ -1856,10 +1865,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 253.7 | Not specified | 246.78336580985842 | Not specified | Free |
-| K0\_prime | 4.03 | Not specified | 4.016202517020296 | Not specified | Free |
+| K0 | 253.7 | Not reported | 246.783 | Not reported | Free |
+| K0\_prime | 4.03 | Not reported | 4.0162 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** partial\_298k\_rydberg\_stacey\_diagnostic
 - **Objective:** unweighted pressure residuals
@@ -1867,11 +1877,11 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0; K\_infinity\_prime
 - **Observations:** 27
-- **Observed pressure range gpa:** \[112.07389686309455, 133.50202034231663\]
+- **Observed pressure range gpa:** 112.074; 133.502
 - **Solver success:** True
 - **Solver message:** dedicated Dorogokupets (2015) slice fit completed
-- **Rmse gpa:** 0.755167673143885
-- **Published rmse gpa:** 3.8441964272841695
+- **Rmse gpa:** 0.755168
+- **Published rmse gpa:** 3.8442
 - **Dataset identifiers:** dorogokupets\_2015\_post\_perovskite\_298k\_reconstruction
 
 </details>
@@ -1985,18 +1995,18 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Open reconstruction report](../reconstruction-reports/mgsio3_post_perovskite.md#record-mgsio3_post_perovskite_komabayashi_2008_thermal_bm3)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
-- All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Cold-stage K0 uncertainty propagated into the thermal stage, including covariance from reuse of the three cold observations; fixed V0, K0-prime and alpha(300) conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -2010,15 +2020,18 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 223.2 | 0.2 | 223.1705607183403 | Not specified | Free |
-| alpha1 | 1.13e-09 | 1.14e-08 | 1.0969956749467245e-09 | Not specified | Free |
-| dK\_dT | -0.0085 | 0.0011 | -0.00841559662832968 | Not specified | Free |
+| K0 | 223.20 | 0.20 | 223.2 | 0.6 | Free |
+| alpha1 | 0.1e-8 | 1.1e-8 | 1.1e-9 | 2.0e-9 | Free |
+| dK\_dT | -0.0085 | 0.0011 | -0.0084 | 0.0022 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** original\_scale\_source\_constrained\_bm3
 - **Objective:** unweighted pressure residuals
 - **Selection:** All 21 Table 1 rows with PPv volume, using original Speziale-MgO pressures; the Pv-only row is excluded
+- **Weighting:** Cold-stage K0 uncertainty propagated into the thermal stage, including covariance from reuse of the three cold observations; fixed V0, K0-prime and alpha(300) conditioned on.
+- **Absolute sigma:** False
 - **Free parameters:** K0; alpha1; dK\_dT
 - **Fixed parameters:** V0; K0\_prime; Tr
 - **Fixed values:**
@@ -2027,17 +2040,46 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
     - **V0:** 163.813
     - **Alpha at 300k:** 1.7e-05
 - **Observations:** 21
-- **Observed pressure range gpa:** \[114.5, 129.7\]
-- **Observed temperature range k:** \[300.0, 2330.0\]
+- **Observed pressure range gpa:** 114.5; 129.7
+- **Observed temperature range k:** 300; 2330
+- **Degrees of freedom:** 18.7705
 - **Solver success:** True
-- **Rmse gpa:** 0.5259626385817813
-- **Published rmse gpa:** 0.5250961715530356
+- **Rmse gpa:** 0.525963
+- **Published rmse gpa:** 0.525096
+- **Parameter covariance:** \[\["0.327383", "9.02087e-10", "-0.00106438"\], \["9.02087e-10", "3.85009e-18", "-4.18811e-12"\], \["-0.00106438", "-4.18811e-12", "4.66758e-06"\]\]
+- **Covariance:**
+    - **Parameters:** K0; alpha1; dK\_dT
+    - **Matrix:** \[\["0.327383", "9.02087e-10", "-0.00106438"\], \["9.02087e-10", "3.85009e-18", "-4.18811e-12"\], \["-0.00106438", "-4.18811e-12", "4.66758e-06"\]\]
+    - **Standard errors:**
+        - **K0:** 0.572174
+        - **Alpha1:** 1.96216e-09
+        - **Dk dt:** 0.00216046
+    - **Correlation matrix:** \[\["1", "0.803499", "-0.861039"\], \["0.803499", "1", "-0.987954"\], \["-0.861039", "-0.987954", "1"\]\]
+    - **Degrees of freedom:** 18.7705
+    - **Local student t 95 intervals:**
+        - **K0:** 221.972; 224.369
+        - **Alpha1:** -3.01326e-09; 5.20725e-09
+        - **Dk dt:** -0.0129412; -0.00388996
+    - **Method:** Linear influence propagation through the cold and thermal stages on shared observations; common independent pressure-residual variance estimated with tr((I-JA)(I-JA)^T) effective residual degrees of freedom.
+    - **Residual count:** 21
+    - **Residual sum squares:** 5.80937
+    - **Residual variance:** 0.309495
+    - **Estimator influence:** \[\["0.591169", "0", "0", "0", "0", "0", "0", "0.614078", "0", "0", "0", "0.575521", "0", "0", "0", "0", "0", "0", "0", "0", "0"\], \["1.62894e-09", "-2.05601e-10", "-3.18369e-10", "-4.56156e-10", "-5.87173e-10", "-6.99165e-10", "-7.84941e-10", "1.69206e-09", "-3.47445e-10", "-5.43853e-10", "-7.01856e-10", "1.58582e-09", "-2.7522e-10", "-4.19896e-10", "-5.44693e-10", "2.42597e-10", "2.21192e-10", "-3.07456e-10", "4.20691e-12", "-2.86272e-10", "9.30053e-10"\], \["-0.001922", "0.000198287", "0.000307675", "0.000442271", "0.000571615", "0.000683753", "0.000771469", "-0.00199648", "0.000335821", "0.000528045", "0.000685318", "-0.00187112", "0.000265796", "0.00040686", "0.000529789", "-5.13877e-05", "-3.2975e-05", "0.000419502", "0.000152637", "0.00040309", "-0.000661481"\]\]
+    - **Prediction jacobian:** \[\["0.558868", "0", "0"\], \["0.552104", "3.14037e+06", "54.1061"\], \["0.547016", "8.30394e+06", "87.5225"\], \["0.539965", "1.97266e+07", "133.911"\], \["0.539385", "3.80099e+07", "186.088"\], \["0.544251", "6.22186e+07", "240.015"\], \["0.549154", "9.07261e+07", "292.15"\], \["0.580526", "0", "0"\], \["0.573579", "9.3123e+06", "95.7877"\], \["0.567729", "2.75832e+07", "164.074"\], \["0.563986", "5.66437e+07", "234.618"\], \["0.544075", "0", "0"\], \["0.536666", "6.19949e+06", "74.5965"\], \["0.529408", "1.67761e+07", "121.764"\], \["0.527434", "3.2692e+07", "169.834"\], \["0.571585", "9.91045e+08", "1017.42"\], \["0.570532", "9.79218e+08", "1009.84"\], \["0.54678", "6.74746e+08", "809.234"\], \["0.55835", "8.53657e+08", "926.861"\], \["0.551639", "6.96317e+08", "827.458"\], \["0.56642", "1.2688e+09", "1149.83"\]\]
+    - **Stage sizes:** \[3, 21\]
+    - **Stage uncertainty propagated:** True
+    - **Input array sha256:** 6c107bd33cd685d31ae21e769cb817de5badc0b5756a131db2fd4edc688f17c8
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Qualification:** All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity.
+    - **Assumptions:** Cold-stage K0 uncertainty propagated into the thermal stage, including covariance from reuse of the three cold observations; fixed V0, K0-prime and alpha(300) conditioned on.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+- **Covariance convention:** Linear influence propagation through the cold and thermal stages on shared observations; common independent pressure-residual variance estimated with tr((I-JA)(I-JA)^T) effective residual degrees of freedom.
 - **Dataset identifiers:** mgsio3\_post\_perovskite\_komabayashi\_2008\_table1\_pvt
 - **Stages:**
     - **Fixed parameters:** V0; K0\_prime
     - **Free parameters:** K0
     - **Observations:** 3
-    - **Rmse gpa:** 0.2286223241885779
+    - **Rmse gpa:** 0.228622
     - **Stage:** 300 K BM3
     - **Dependent parameters:**
         - **Alpha0:** 1.7e-5 - 300\*alpha1

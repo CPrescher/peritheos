@@ -47,21 +47,38 @@ Record: `boron_phosphide_le_godec_2014_vinet_1` · Model: `Vinet`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for boron_phosphide_le_godec_2014_vinet_1](figures/boron_phosphide_le_godec_2014_vinet_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for boron_phosphide_le_godec_2014_vinet_1](figures/boron_phosphide_le_godec_2014_vinet_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.259 |
+| Reconstruction / refit | 0.184 |
+
+Both fits use the same 17 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** volume\_ratio. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for boron_phosphide_le_godec_2014_vinet_1](figures/boron_phosphide_le_godec_2014_vinet_1.svg)
+![Source/target and reconstructed central values for boron_phosphide_le_godec_2014_vinet_1](figures/boron_phosphide_le_godec_2014_vinet_1.svg#only-light)
+![Source/target and reconstructed central values for boron_phosphide_le_godec_2014_vinet_1](figures/boron_phosphide_le_godec_2014_vinet_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 179.0 | 1.0 | 178.52347290207555 | 9.488687605806906 | Free |
-| K0\_prime | 3.3 | 0.1 | 3.2667006883095255 | 0.6145790923645787 | Free |
+| K0 | 179.0 | 1.0 | 179 | 9 | Free |
+| K0\_prime | 3.30 | 0.10 | 3.3 | 0.6 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -71,15 +88,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** Not specified
     - **Volume:** volume\_ratio
-- **Observed pressure range gpa:** \[0.315, 55.178\]
+- **Observed pressure range gpa:** 0.315; 55.178
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[74.893897533, 93.17627404800001\]
+- **Observed volume range:** 74.8939; 93.1763
 - **Degrees of freedom:** 15
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.07610099505125718
-- **Published rmse gpa:** 0.25942209222935625
-- **Reduced chi square:** 0.020726733157439624
+- **Rmse gpa:** 0.076101
+- **Published rmse gpa:** 0.259422
+- **Reduced chi square:** 0.0207267
 
 </details>
 
@@ -88,7 +105,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `boron_phosphide_le_godec_2014_vinet_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/boron_phosphide.eosmat).

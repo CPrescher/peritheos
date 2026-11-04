@@ -112,10 +112,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 187.0 | 8.0 | 183.319829694509 | 3.258820321674154 | Free |
-| K0\_prime | 4.8 | 0.5 | 4.96543733674158 | 0.5270957046148519 | Free |
+| K0 | 187 | 8 | 183 | 3 | Free |
+| K0\_prime | 4.8 | 0.5 | 5.0 | 0.5 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** pressure\_residuals
@@ -128,15 +129,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 18
-- **Observed pressure range gpa:** \[0.3544, 19.557\]
+- **Observed pressure range gpa:** 0.3544; 19.557
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[143.940001, 156.50861\]
+- **Observed volume range:** 143.94; 156.509
 - **Degrees of freedom:** 16
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.10474962508309985
-- **Published rmse gpa:** 0.17776647256228575
-- **Reduced chi square:** 0.30860111123578077
+- **Rmse gpa:** 0.10475
+- **Published rmse gpa:** 0.177766
+- **Reduced chi square:** 0.308601
 - **Dataset identifiers:** praseodymium\_dioxide\_gerward\_2005\_figure3b\_digitized
 
 </details>

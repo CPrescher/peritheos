@@ -132,17 +132,18 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 41.8 | 1.3 | 42.0177360402393 | Not specified | See protocol |
-| K0\_prime | 6.6 | 0.3 | 6.603483849128478 | Not specified | See protocol |
+| K0 | 41.8 | 1.3 | 42.0177 | Not reported | See protocol |
+| K0\_prime | 6.6 | 0.3 | 6.60348 | Not reported | See protocol |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** unweighted\_pressure\_residuals\_fixed\_source\_V0
 - **Fixed parameters:** None declared
 - **Observations:** 13
 - **Solver success:** True
-- **Rmse gpa:** 0.2167608081755301
-- **Published rmse gpa:** 0.22790990500597397
+- **Rmse gpa:** 0.216761
+- **Published rmse gpa:** 0.22791
 - **Dataset identifiers:** brucite\_fukui\_2003\_table1; brucite\_fukui\_2003\_table4
 - **Reproduction report:** docs/data/brucite-reproduction.json
 
@@ -297,17 +298,18 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 32.6 | 2.5 | 33.69147968162089 | Not specified | See protocol |
-| K0\_prime | 8.3 | 1.1 | 8.085231223634171 | Not specified | See protocol |
+| K0 | 32.6 | 2.5 | 33.6915 | Not reported | See protocol |
+| K0\_prime | 8.3 | 1.1 | 8.08523 | Not reported | See protocol |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** unweighted\_pressure\_residuals\_fixed\_source\_V0
 - **Fixed parameters:** V0
 - **Observations:** 8
 - **Solver success:** True
-- **Rmse gpa:** 0.2625605629411442
-- **Published rmse gpa:** 0.33630739972845325
+- **Rmse gpa:** 0.262561
+- **Published rmse gpa:** 0.336307
 - **Dataset identifiers:** brucite\_fukui\_2003\_table1; brucite\_fukui\_2003\_table4
 - **Reproduction report:** docs/data/brucite-reproduction.json
 
@@ -462,17 +464,18 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 28.8 | 2.1 | 29.03221567160922 | Not specified | See protocol |
-| K0\_prime | 9.0 | 1.1 | 8.844925607540013 | Not specified | See protocol |
+| K0 | 28.8 | 2.1 | 29.0322 | Not reported | See protocol |
+| K0\_prime | 9.0 | 1.1 | 8.84493 | Not reported | See protocol |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** unweighted\_pressure\_residuals\_fixed\_source\_V0
 - **Fixed parameters:** V0
 - **Observations:** 8
 - **Solver success:** True
-- **Rmse gpa:** 0.22807386078098604
-- **Published rmse gpa:** 0.23027507836968086
+- **Rmse gpa:** 0.228074
+- **Published rmse gpa:** 0.230275
 - **Dataset identifiers:** brucite\_fukui\_2003\_table1; brucite\_fukui\_2003\_table4
 - **Reproduction report:** docs/data/brucite-reproduction.json
 

@@ -36,7 +36,7 @@ Phase-specific card created for the hcp-Pb compression fits of Dewaele (2019).
 | Record | Model | Reference temperature (K) | Source status | Availability |
 | --- | --- | --- | --- | --- |
 | [Dewaele (2019), Pb MAO-scale Vinet](#record-lead_hcp_dewaele_2019_mao_vinet) | Vinet | 300.0 | primary source validated | Executable |
-| [Dewaele (2019), Pb DOR-scale Vinet](#record-lead_hcp_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Executable |
+| [Dewaele (2019), Pb DOR-scale Vinet](#record-lead_hcp_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Pressure-scale reference variant |
 | [Kuznetsov et al. (2002), 296 K hcp BM3 slice](#record-lead_hcp_kuznetsov_2002_bm3_3) | BM3 | 296.0 | primary source validated | Executable |
 
 ### Reference coefficients
@@ -123,11 +123,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 56.126 | 0.11 | 58.83765142086295 | 0.5423223682041958 | Free |
-| K0 | 71.8 | 2.1 | 63.48664918864778 | 6.106967044629139 | Free |
-| K0\_prime | 4.4 | 0.08 | 3.303771258364891 | 0.3569619004575568 | Free |
+| V0 | 56.13 | 0.11 | 58.8 | 0.5 | Free |
+| K0 | 71.8 | 2.1 | 63 | 6 | Free |
+| K0\_prime | 4.40 | 0.08 | 3.3 | 0.4 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** pressure\_residuals
@@ -140,15 +141,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 - **Observations:** 21
-- **Observed pressure range gpa:** \[10.527, 35.121\]
+- **Observed pressure range gpa:** 10.527; 35.121
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[42.3626, 51.3302\]
+- **Observed volume range:** 42.3626; 51.3302
 - **Degrees of freedom:** 18
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.60172036353428
-- **Published rmse gpa:** 2.336133186552911
-- **Reduced chi square:** 10.564031151343334
+- **Rmse gpa:** 0.60172
+- **Published rmse gpa:** 2.33613
+- **Reduced chi square:** 10.564
 - **Dataset identifiers:** lead\_hcp\_kuznetsov\_2002\_figure3\_digitized
 
 </details>
@@ -214,7 +215,9 @@ Parameter covariance is not supplied.
 
 Identifier: `lead_hcp_dewaele_2019_dor_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [lead\_hcp\_dewaele\_2019\_mao\_vinet](#record-lead_hcp_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -273,11 +276,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 56.116 | 0.11 | 58.83765340033019 | 0.5423226807534997 | Free |
-| K0 | 70.0 | 2.1 | 63.48662685422268 | 6.10696777076789 | Free |
-| K0\_prime | 4.77 | 0.08 | 3.3037725652189245 | 0.356961985762982 | Free |
+| V0 | 56.12 | 0.11 | 58.8 | 0.5 | Free |
+| K0 | 70.0 | 2.1 | 63 | 6 | Free |
+| K0\_prime | 4.77 | 0.08 | 3.3 | 0.4 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** pressure\_residuals
@@ -290,15 +294,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 - **Observations:** 21
-- **Observed pressure range gpa:** \[10.527, 35.121\]
+- **Observed pressure range gpa:** 10.527; 35.121
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[42.3626, 51.3302\]
+- **Observed volume range:** 42.3626; 51.3302
 - **Degrees of freedom:** 18
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.6017203646968212
-- **Published rmse gpa:** 2.4014233818607034
-- **Reduced chi square:** 10.564031151337183
+- **Rmse gpa:** 0.60172
+- **Published rmse gpa:** 2.40142
+- **Reduced chi square:** 10.564
 - **Dataset identifiers:** lead\_hcp\_kuznetsov\_2002\_figure3\_digitized
 
 </details>

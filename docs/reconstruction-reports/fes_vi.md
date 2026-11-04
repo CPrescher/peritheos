@@ -12,7 +12,7 @@ agreement, source verification, author-workflow reproduction and recommendation 
 
 | EOS record | Recorded outcome | Coefficient comparison |
 | --- | --- | --- |
-| [Morard et al. (2026), FeS BM3-MGD, source replay unresolved](#record-fes_vi_morard_2026_bm3_mgd) | Numerically similar, with qualifications | Graph and table |
+| [Morard et al. (2026), FeS BM3-MGD, source replay unresolved](#record-fes_vi_morard_2026_bm3_mgd) | Coefficient parity achieved | Graph and table |
 
 <a id="record-fes_vi_morard_2026_bm3_mgd"></a>
 
@@ -20,10 +20,10 @@ agreement, source verification, author-workflow reproduction and recommendation 
 
 Record: `fes_vi_morard_2026_bm3_mgd` · Model: `BM3`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Coefficient parity achieved.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Conditional parameter agreement under both the combined-error comparison and numerical similarity screen; source confidence conventions remain explicit, and unknown source confidence or shared-data covariance does not become a formal confidence test or author-workflow reproduction.
 
 [Stored EOS coefficients and source](../material-summaries/fes_vi.md#record-fes_vi_morard_2026_bm3_mgd)
 
@@ -32,7 +32,7 @@ Record: `fes_vi_morard_2026_bm3_mgd` · Model: `BM3`
 **Separate source-review status:** deferred.
 **Usage recommendation:** Retain as source evidence; do not use for pressure calibration or prediction until the final source model and residual mismatch are resolved.
 
-- Classified similar: staged reproduced-cold coefficients are compatible within reported uncertainty intervals, and the equal-weight control puts all four central estimates inside published error widths. Exact GUI output and the complete +/-3 GPa residual envelope are separate unresolved findings. Published coefficients are preserved; this is not an automatic replacement EOS or a formal independent uncertainty-parity claim.
+- Every compared free coefficient meets both the combined-two-width diagnostic and numerical similarity screen. Source confidence and shared-data covariance are not inferred. Conditional staged cold-then-thermal parameter agreement under the stored EosFit diagnostic and reported widths, whose confidence is unspecified. GUI publication digits, cold-fit pressure scales and the full +/-3 GPa residual envelope remain unresolved separately. All existing diagnostic/deferred status, loading restrictions and recommendation holds remain. Earlier audit wording (superseded only for the named numerical scope): Classified similar: staged reproduced-cold coefficients are compatible within reported uncertainty intervals, and the equal-weight control puts all four central estimates inside published error widths. Exact GUI output and the complete +/-3 GPa residual envelope are separate unresolved findings. Published coefficients are preserved; this is not an automatic replacement EOS or a formal independent uncertainty-parity claim. Fit reproduction is classified similar: the reproduced-cold staged coefficients are compatible with reported parameter uncertainties. The supplied Table S1 and recovered author inputs are bundled separately. The selected author input contains 146 thermal plus 21 literature cold rows. The 11 unsuitable quenched rows are excluded on the basis of user-reported author personal communication and are not database datasets. FeS6.eos confirms full BM3-MGD with q=1 and Tref=298 K, but differs from the printed parameters and was saved in March 2024. Actual EosFit replay gives thermal RMS 1.632 GPa, maximum 5.058 GPa and 14 rows beyond +/-3 GPa. Conditional cold refits closely recover the saved cold coefficients. Candidate-input refits converge. The user confirms the supplied files are the complete author-used inputs; the selected rows are confirmed by author communication. Exact GUI regression controls and agreement with printed coefficients and residuals remain unresolved. Published coefficients stay unchanged and deferred. Selected-data, cold-then-thermal EosFit fits at Tr=300 K give gamma0=2.29252(3829) for fixed published cold coefficients and 2.46418(3953) for fixed weighted-reproduced cold coefficients; both exceed the +/-3 GPa residual bound. Both reproduced-cold staged fits have cold coefficients within published error widths; equal-weight gamma0 is also within the published width, and weighted gamma0 error intervals overlap the published interval. Parameter agreement is compatible within reported uncertainties; exact source-output and residual-envelope reproduction are separate. See docs/literature-reproductions/fes-eosfit-direct.md.
 - Fit reproduction is classified similar: the reproduced-cold staged coefficients are compatible with reported parameter uncertainties. The supplied Table S1 and recovered author inputs are bundled separately. The selected author input contains 146 thermal plus 21 literature cold rows. The 11 unsuitable quenched rows are excluded on the basis of user-reported author personal communication and are not database datasets. FeS6.eos confirms full BM3-MGD with q=1 and Tref=298 K, but differs from the printed parameters and was saved in March 2024. Actual EosFit replay gives thermal RMS 1.632 GPa, maximum 5.058 GPa and 14 rows beyond +/-3 GPa. Conditional cold refits closely recover the saved cold coefficients. Candidate-input refits converge. The user confirms the supplied files are the complete author-used inputs; the selected rows are confirmed by author communication. Exact GUI regression controls and agreement with printed coefficients and residuals remain unresolved. Published coefficients stay unchanged and deferred. Selected-data, cold-then-thermal EosFit fits at Tr=300 K give gamma0=2.29252(3829) for fixed published cold coefficients and 2.46418(3953) for fixed weighted-reproduced cold coefficients; both exceed the +/-3 GPa residual bound. Both reproduced-cold staged fits have cold coefficients within published error widths; equal-weight gamma0 is also within the published width, and weighted gamma0 error intervals overlap the published interval. Parameter agreement is compatible within reported uncertainties; exact source-output and residual-envelope reproduction are separate. See docs/literature-reproductions/fes-eosfit-direct.md.
 - Usage recommendation: Retain as source evidence; do not use for pressure calibration or prediction until the final source model and residual mismatch are resolved.
 - printed publication coefficients versus the supplied author-used saved model
@@ -52,43 +52,62 @@ Record: `fes_vi_morard_2026_bm3_mgd` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for fes_vi_morard_2026_bm3_mgd](figures/fes_vi_morard_2026_bm3_mgd-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for fes_vi_morard_2026_bm3_mgd](figures/fes_vi_morard_2026_bm3_mgd-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 1.95 |
+| Reconstruction / refit | 1.67 |
+
+Both fits use the same 167 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** molar\_volume\_cm3\_mol. **Row selection:** all rows.
+
+All 21 literature cold rows and 146 thermal rows are shown. The plotted RMS covers all 167 inputs; the audit's separately recorded pressure RMS describes only the 146 thermal rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for fes_vi_morard_2026_bm3_mgd](figures/fes_vi_morard_2026_bm3_mgd.svg)
+![Source/target and reconstructed central values for fes_vi_morard_2026_bm3_mgd](figures/fes_vi_morard_2026_bm3_mgd.svg#only-light)
+![Source/target and reconstructed central values for fes_vi_morard_2026_bm3_mgd](figures/fes_vi_morard_2026_bm3_mgd-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| eos.V0 | 102.28920653790895 | 2.988970320912924 | 102.09525557486305 | 3.4794935613560787 | Free |
-| eos.K0 | 115.5 | 27.91 | 115.4389 | 34.78351 | Free |
-| eos.K0\_prime | 4.99 | 0.51 | 4.9917 | 0.67891 | Free |
-| thermal.gamma0 | 2.42 | 0.03 | 2.46418 | 0.03953 | Free |
+| eos.V0 | 102.3 | 3.0 | 102 | 3 | Free |
+| eos.K0 | 116 | 28 | 120 | 30 | Free |
+| eos.K0\_prime | 5.0 | 0.5 | 5.0 | 0.7 | Free |
+| thermal.gamma0 | 2.42 | 0.03 | 2.46 | 0.04 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
-- **Rmse gpa:** 1.6336098214363033
-- **Published rmse gpa:** 1.916099083712202
+- **Rmse gpa:** 1.63361
+- **Published rmse gpa:** 1.9161
 - **Reduced chi square:** 0.6274
+- **Comparison scope:** Compared free coefficients: eos.V0, eos.K0, eos.K0\_prime, thermal.gamma0; scope=parameter\_agreement
 
 </details>
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-fes_vi_morard_2026_bm3_mgd).
 - [Supporting source report: fes-eosfit-direct](../literature-reproductions/fes-eosfit-direct.md).
 - [Supporting source report: morard-2026-fes](../literature-reproductions/morard-2026-fes.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `fes_vi_morard_2026_bm3_mgd`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/fes_vi.eosmat).

@@ -21,7 +21,7 @@ and recommendation for use are distinct assessments.
 | Temperature unit | K |
 | Volume unit | Å³ per conventional unit cell |
 | Stored EOS records | 23 |
-| Observation datasets | 24 |
+| Observation datasets | 29 |
 
 Gold pressure calibrant with multiple literature EoS records; Fei et al. (2007) is the default.
 
@@ -43,7 +43,7 @@ Gold pressure calibrant with multiple literature EoS records; Fei et al. (2007) 
 | [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-gold_sokolova_2013_holzapfel_4) | Holzapfel + Sokolova2016 | 298.15 | primary source validated | Executable |
 | [Fratanduono et al. (2021), ramp-derived 298 K Vinet](#record-gold_fratanduono_2021_vinet_7) | Vinet | 298.0 | primary source validated | Executable |
 | [Dewaele (2019), Au MAO-scale Vinet](#record-gold_dewaele_2019_mao_vinet) | Vinet | 300.0 | primary source validated | Executable |
-| [Dewaele (2019), Au DOR-scale Vinet](#record-gold_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Executable |
+| [Dewaele (2019), Au DOR-scale Vinet](#record-gold_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Pressure-scale reference variant |
 | [Dewaele et al. (2004), Au mao ruby Vinet](#record-gold_dewaele_2004_mao_ruby_vinet) | Vinet | 298.0 | primary source validated | Executable |
 | [Dorfman et al. (2012), Au K0-fixed Vinet](#record-gold_dorfman_2012_tange_mgo_k0_fixed_vinet) | Vinet | 300.0 | primary source validated | Executable |
 | [Dorfman et al. (2012), Au K0-free Vinet](#record-gold_dorfman_2012_tange_mgo_k0_free_vinet) | Vinet | 300.0 | primary source validated | Executable |
@@ -138,26 +138,44 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** not refittable.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
+**Comparison basis:** Conditional agreement of the fitted central value at published precision; this does not establish uncertainty or calibration-network parity.
 
 [Open reconstruction report](../reconstruction-reports/gold.md#record-gold_sakai_2025_rydberg_stacey_1)
 
-Original audit code: `not_refittable`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
+- Conditional Au K0-prime central-value parity at published three-decimal precision under equal pressure residuals and published upstream calibrants. V0, K0 and K-infinity-prime are fixed, not independently recovered. Original weights, uncertainty/covariance and the full sequential calibration are not reproduced. Calculated Table S9 is a checkpoint, never fit observations.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
-- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
-
 
 <details markdown="1">
-<summary>Reconstruction protocol and available diagnostics</summary>
+<summary>Source and reconstructed coefficients</summary>
 
+These reconstructed values describe the named audit, including failed or
+partial reconstructions. They do not replace the EOS parameters above.
+For an independent-refit assessment, the source column is the stored
+Peritheos refit. Parameter names and volume/temperature conventions follow
+the named audit; reported errors retain their original meaning.
+
+| Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| K0\_prime | 5.780 | 0.004 | 5.7801 | Not reported | See protocol |
+
+Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
+
+- **Fit kind:** conditional\_au\_published\_calibrants
+- **Objective:** equal\_pressure\_residuals
 - **Fixed parameters:** V0; K0; K\_infinity\_prime
-- **Dataset identifiers:** None declared
+- **Observations:** 210
+- **Solver success:** True
+- **Rmse gpa:** 3.1416
+- **Dataset identifiers:** gold\_sakai\_2025\_table\_s4\_au\_w\_volumes; gold\_sakai\_2025\_dewaele\_2018\_au\_re\_input; gold\_sakai\_2025\_dewaele\_2004\_au\_input; gold\_sakai\_2025\_takemura\_2008\_au\_input; gold\_sakai\_2025\_hirose\_2008\_au\_mgo\_input
+- **Reproduction report:** docs/data/sakai-2025-gold-reconstruction.json
 
 </details>
 
@@ -181,10 +199,36 @@ Parameter covariance is not supplied.
     - **Finding:** The stored parameters reproduce every corresponding value in the official 26-row Table S9 compression grid.
     - **DOI:** 10.1038/s43246-025-00792-5
 - **Primary data check:**
-    - **Status:** derived\_output\_only
-    - **Audit date:** 2026-09-05
-    - **Source locations:** Supplementary Data 1, Table S9
-    - **Finding:** The bundled grid is calculated from the reported coefficients. Raw simultaneous-volume observations exist in Tables S1-S8, but the multi-stage fit also incorporates earlier studies and does not publish one flat pressure-volume regression table or covariance.
+    - **Status:** bundled
+    - **Audit date:** 2026-10-12
+    - **Source locations:** Supplementary Data 1, Tables S1-S4, S7, S8 and S14; Dewaele2018 Supplement Tables 4-5; Dewaele2004 Table I; Takemura-Dewaele2008 Table III; Hirose2008 Table 1
+    - **Dataset identifiers:** gold\_sakai\_2025\_calibration\_paired\_volumes; gold\_sakai\_2025\_table\_s4\_au\_w\_volumes; gold\_sakai\_2025\_dewaele\_2018\_au\_re\_input; gold\_sakai\_2025\_table\_s8\_lineage; gold\_sakai\_2025\_table\_s14\_cu\_anchor; gold\_sakai\_2025\_dewaele\_2004\_au\_input; gold\_sakai\_2025\_takemura\_2008\_au\_input; gold\_sakai\_2025\_hirose\_2008\_au\_mgo\_input; gold\_sakai\_2025\_table\_s9\_rs\_eos\_grid
+    - **Finding:** All five Table S8 Au input families are retained: 247 numerical rows, of which 235 are RT and 210 enter the documented conditional Au replay. All 19 S4 Au-W and 307 upstream paired-volume rows are recovered, including literal source tokens and missing errors. Table S8 is a lineage index, not numerical upstream observations. Table S9 remains calculated output. Published calibrants and rounding-limited ruby conversions reproduce K0\_prime=5.7800966 using explicitly assumed equal pressure residuals; equal volume residuals give 5.7877715. Conditional numerical parity is achieved for the independently refitted Au K0\_prime central value at published precision under equal pressure residuals and published upstream calibrants. V0, K0 and K\_infinity\_prime are fixed at the paper values, not independently recovered. Uncertainty parity, original weights/covariance and full sequential calibration remain unverified.
+    - **Source manifest:** datasets/sakai-2025-au-source.json
+    - **Reconstruction report:** docs/data/sakai-2025-gold-reconstruction.json
+    - **Reconstruction assessment:**
+        - **Status:** conditional\_numerical\_parity\_achieved
+        - **Conditional numerical parity achieved:** True
+        - **Scope:** Au K0\_prime central value at published precision
+        - **Criterion:** Successful independently refitted K0\_prime rounds to Table 2 at three decimal places
+        - **Fitted parameter:** K0\_prime
+        - **Published value:** 5.78
+        - **Reconstructed value:** 5.780096584423864
+        - **Difference:** 9.658442386406563e-05
+        - **Published decimal places:** 3
+        - **Rows:** 210
+        - **Assumed residual:** equal\_pressure\_residuals
+        - **Fixed parameters from paper:**
+            - **V0:** 67.716
+            - **K0:** 167.0
+            - **K infinity prime:** 1.6666666666666667
+        - **Calibrants:** published rounded Sakai Table 2 W, MgO, Re; reconstructed IPPS-Ruby2020
+        - **Uncertainty parity achieved:** False
+        - **Full sequential calibration reproduced:** False
+        - **Author fit parity:** False
+        - **Author fit parity scope:** exact original fitting procedure and uncertainty
+        - **Original weights recovered:** False
+        - **Original covariance recovered:** False
 
 </details>
 
@@ -286,9 +330,10 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0\_prime | 6.0 | 0.02 | 5.999042092841824 | 0.037467230325280015 | Free |
+| K0\_prime | 6.000 | 0.020 | 6.00 | 0.04 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -301,15 +346,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0\_prime
 - **Fixed parameters:** V0; K0
 - **Observations:** 37
-- **Observed pressure range gpa:** \[0.0, 93.6\]
+- **Observed pressure range gpa:** 0; 93.6
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[52.12, 67.864\]
+- **Observed volume range:** 52.12; 67.864
 - **Degrees of freedom:** 36
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.2914160655214606
-- **Published rmse gpa:** 0.32104169331744814
-- **Reduced chi square:** 0.09586575721211826
+- **Rmse gpa:** 0.291416
+- **Published rmse gpa:** 0.321042
+- **Reduced chi square:** 0.0958658
 - **Dataset identifiers:** gold\_dewaele\_2004\_table1\_compression
 
 </details>
@@ -432,9 +477,10 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0\_prime | 5.9 | 0.1 | 5.928709512073656 | Not specified | Free |
+| K0\_prime | 5.90 | 0.10 | 5.92871 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** equal\_pressure\_residuals
@@ -447,14 +493,14 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0\_prime
 - **Fixed parameters:** V0; K0
 - **Observations:** 86
-- **Observed pressure range gpa:** \[0.0, 130.8\]
+- **Observed pressure range gpa:** 0; 130.8
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[49.42682244009901, 67.95227543794302\]
+- **Observed volume range:** 49.4268; 67.9523
 - **Degrees of freedom:** 85
 - **Solver success:** True
 - **Solver message:** dedicated equal-pressure refit; volume/scale sensitivities archived
-- **Rmse gpa:** 0.777872851511799
-- **Published rmse gpa:** 0.7999477645481032
+- **Rmse gpa:** 0.777873
+- **Published rmse gpa:** 0.799948
 - **Reduced chi square:** Not specified
 - **Dataset identifiers:** gold\_takemura\_2008\_table3\_compression
 - **Reproduction report:** docs/data/takemura-2008-gold-reproduction.json
@@ -699,7 +745,13 @@ Automatic selection for equilibrium calculations.
     - **Volume:** 104
     - **Locator:** 9182-9186
     - **DOI:** 10.1073/pnas.0609013104
-- **Reported pressure coverage (GPa):** \[0.0, 89.0\]
+- **Reported pressure coverage (GPa):** \[0.0, 117.9\]
+- **Coverage provenance:** reported\_exactly
+- **Reported temperature coverage (K):** \[298.0, 2330.0\]
+- **Validity:**
+    - **Pressure gpa:** \[0.0, 117.9\]
+    - **Temperature k:** \[298.0, 2330.0\]
+    - **Notes:** Marginal envelope of the recovered source measurements, not a validated rectangular P-T domain, an extrapolation limit or a guarantee of phase stability. Conditional replay uses 37 cold and 28 hot rows; the original author selection is not recovered.; Cold anchor: Dewaele (2004) Table I, 37 revised-ruby rows at 298 K spanning 0-93.6 GPa. Fei (2007) defines the EOS reference at 300 K; evaluating these rows at that reference does not relabel their measured temperature.; Hot coverage: Fei (2004) Table 1, 26 reported-MgO rows at 8.64-25.56 GPa and 1273-2173 K, plus Hirose (2006) Table 1 Run 2 points at 106.5 GPa/1340 K and 117.9 GPa/2330 K. The marginal bounds do not fill the pressure gap or provide continuous temperature coverage.; Additional cold evidence: Fei (2007) reports new room-temperature measurements to 89 GPa, recovered only as six digitized Figure 1 markers; Hirose (2006) supplies one 102.8 GPa/300 K MgO-referenced row. These enter cold sensitivities only. The 111 calculated Figure 1 vertices are equation comparisons, never measured coverage.; Fei (2007) supplies no explicit recommended numerical extrapolation range for this Au EOS. Its discussion of core pressures and the numerical PVT verification grid do not extend the measured envelope or establish accuracy outside the observed states.
 - **Reported error confidence level:** Not specified
 
 | Component | Parameter | Value | Reported error | Fixed |
@@ -746,18 +798,19 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0\_prime | 6.0 | 0.02 | 5.995326273385395 | 0.01117901202935827 | Free |
-| q | 0.6 | 0.3 | 0.6191486316881784 | 0.12507788930311625 | Free |
+| K0\_prime | 6.000 | 0.020 | 5.995 | 0.011 | Free |
+| q | 0.6 | 0.3 | 0.62 | 0.13 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** staged\_vinet\_mgd\_conditional\_replay
 - **Objective:** equal\_pressure\_residuals
 - **Free parameters:** K0\_prime; q
 - **Fixed parameters:** V0; K0; gamma0; theta0
 - **Observations:** 65
-- **Rmse gpa:** 0.7107262512275505
-- **Published rmse gpa:** 0.7122682138770043
+- **Rmse gpa:** 0.710726
+- **Published rmse gpa:** 0.712268
 - **Dataset identifiers:** gold\_dewaele\_2004\_table1\_compression; gold\_fei\_2004\_table1; gold\_hirose\_2006\_table1
 - **Reproduction report:** docs/data/fei-2007-gold-reproduction.json
 
@@ -838,11 +891,11 @@ Parameter covariance is not supplied.
         - **Source:** J. Geophys. Res.
     - **Source location:** Fei 2007 Au thermal-refit paragraph; Fei 2004 Table 1 and Hirose 2006 Table 1
     - **Scope:** Hot Au observations
-    - **Notes:** Reported MgO pressures retained. Exact author thermal-pressure reduction implementation is unresolved; the independent variable-q implementation is a sensitivity.
+    - **Notes:** Reported MgO pressures retained. The published Speziale VariableQMieGruneisenDebye model is executable and its Debye-temperature integration is author-confirmed; it does not reproduce the reported Fei/Hirose hot pressures. The exact later reducer is not recovered. Recalculation with the published model is a separate diagnostic, not historical-pressure replay.
 - **Recalculation:**
-    - **Status:** reference\_model\_not\_supported
-    - **Notes:** Cold revised-ruby scale is executable. Exact author MgO thermal reduction is not recovered; paired lattice data support a qualified independent diagnostic.
-- **Audit date:** 2026-10-09
+    - **Status:** not\_possible
+    - **Notes:** Exact historical hot-pressure replay is not possible with the available evidence: the later Fei/Hirose MgO reducer is not recovered, and its reported hot pressures are not reproduced by the executable, author-confirmed published Speziale model. The cold revised-ruby scale remains executable; paired lattice observations support separate diagnostic recalculation. See docs/literature-reproductions/speziale-2001-mgo.md and docs/data/speziale-2001-author-confirmation.json.
+- **Audit date:** 2026-10-12
 
 </details>
 
@@ -918,10 +971,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 167.5 | 0.3 | 167.64150182431797 | 0.2915530235970454 | Free |
-| K0\_prime | 5.85 | 0.01 | 5.843889939885668 | 0.013201109484799772 | Free |
+| K0 | 167.5 | 0.3 | 167.64 | 0.29 | Free |
+| K0\_prime | 5.850 | 0.010 | 5.844 | 0.013 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** fixed\_v0\_vinet\_with\_reconstructed\_cu\_pressure
 - **Objective:** unweighted\_pressure\_residuals
@@ -934,14 +988,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 228
-- **Observed pressure range gpa:** \[3.908992349216304, 137.37695008018062\]
+- **Observed pressure range gpa:** 3.90899; 137.377
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[48.81535, 66.28583\]
+- **Observed volume range:** 48.8154; 66.2858
 - **Degrees of freedom:** 226
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.33474789368557756
-- **Reduced chi square:** 0.1130477996926558
+- **Rmse gpa:** 0.334748
+- **Published rmse gpa:** 0.334931
+- **Reduced chi square:** 0.113048
 - **Pressure reconstruction:**
     - **Density0 g cm3:** 8.939
     - **DOI:** 10.1103/PhysRevLett.124.015701
@@ -954,7 +1009,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
         - **Psi:** 1.65
     - **Reference:** Fratanduono et al. (2020)
     - **Reference eos record:** copper\_fratanduono\_2020\_vinet3\_298k
-    - **Reference unit cell volume a3:** 47.218085048721
+    - **Reference unit cell volume a3:** 47.2181
     - **Source locations:** main article Table I, 298 K isotherm row; Supplemental Material Eq. (2), Section S4
 - **Dataset identifiers:** shen\_smith\_2026\_table\_s1\_simultaneous\_volumes
 
@@ -1095,16 +1150,16 @@ Original audit code: `source_reconstruction`.
 - **Objective:** minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight
 - **Fixed parameters:** n; Z; n
 - **Observations:** 36
-- **Rmse gpa:** 1.7825124933162952
-- **Published rmse gpa:** 1.6701588200282793
+- **Rmse gpa:** 1.78251
+- **Published rmse gpa:** 1.67016
 - **Comparison scope:** shared\_ruby\_calibration
 - **Dataset identifiers:** gold\_dewaele\_2004\_table1\_compression
 - **Published ruby parameters:**
-    - **A gpa:** 1870.0
-    - **M:** 6.0
+    - **A gpa:** 1870
+    - **M:** 6
 - **Sensitivity fit ruby parameters:**
-    - **A gpa:** 1869.3837840502665
-    - **M:** 6.10334763359135
+    - **A gpa:** 1869.38
+    - **M:** 6.10335
 
 </details>
 
@@ -1240,10 +1295,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 170.9 | 0.24 | 170.2984392496678 | 0.5864841090463982 | Free |
-| K0\_prime | 5.88 | 0.005 | 5.892083792353126 | 0.011029134970246695 | Free |
+| K0 | 170.90 | 0.24 | 170.3 | 0.6 | Free |
+| K0\_prime | 5.880 | 0.005 | 5.892 | 0.011 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** pressure\_residuals
@@ -1256,15 +1312,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 119
-- **Observed pressure range gpa:** \[0.0, 1137.6\]
+- **Observed pressure range gpa:** 0; 1137.6
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[30.48, 67.716\]
+- **Observed volume range:** 30.48; 67.716
 - **Degrees of freedom:** 117
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 2.4252190979988573
-- **Published rmse gpa:** 2.4401358758487475
-- **Reduced chi square:** 5.982229342927423
+- **Rmse gpa:** 2.42522
+- **Published rmse gpa:** 2.44014
+- **Reduced chi square:** 5.98223
 - **Dataset identifiers:** gold\_fratanduono\_2021\_table\_s3\_compression
 
 </details>
@@ -1370,18 +1426,18 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Open reconstruction report](../reconstruction-reports/gold.md#record-gold_dewaele_2019_mao_vinet)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
-- Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -1395,22 +1451,52 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 67.932 | 0.08 | 67.93265557205157 | Not specified | Free |
-| K0 | 166.4 | 2.0 | 166.36665153722387 | Not specified | Free |
-| K0\_prime | 5.47 | 0.06 | 5.466130301059161 | Not specified | Free |
+| V0 | 67.93 | 0.08 | 67.93 | 0.09 | Free |
+| K0 | 166.4 | 2.0 | 166 | 3 | Free |
+| K0\_prime | 5.47 | 0.06 | 5.47 | 0.10 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** static\_vinet\_with\_explicit\_ruby\_scale\_conversion
 - **Objective:** unweighted pressure residuals
 - **Selection:** complete
+- **Weighting:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.
+- **Absolute sigma:** False
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 - **Observations:** 86
-- **Observed pressure range gpa:** \[0.0, 122.29180492688037\]
+- **Observed pressure range gpa:** 0; 122.292
+- **Degrees of freedom:** 83
 - **Solver success:** True
 - **Solver message:** dedicated Dewaele (2019) refit completed
-- **Rmse gpa:** 0.7258715907845411
+- **Rmse gpa:** 0.725872
+- **Parameter covariance:** \[\["0.0083291", "-0.290524", "0.0076494"\], \["-0.290524", "11.4671", "-0.333678"\], \["0.0076494", "-0.333678", "0.0105425"\]\]
+- **Covariance:**
+    - **Parameters:** V0; K0; K0\_prime
+    - **Matrix:** \[\["0.0083291", "-0.290524", "0.0076494"\], \["-0.290524", "11.4671", "-0.333678"\], \["0.0076494", "-0.333678", "0.0105425"\]\]
+    - **Standard errors:**
+        - **V0:** 0.0912639
+        - **K0:** 3.38631
+        - **K0 prime:** 0.102677
+    - **Correlation matrix:** \[\["1", "-0.940062", "0.816313"\], \["-0.940062", "1", "-0.959683"\], \["0.816313", "-0.959683", "1"\]\]
+    - **Degrees of freedom:** 83
+    - **Local student t 95 intervals:**
+        - **V0:** 67.7511; 68.1142
+        - **K0:** 159.631; 173.102
+        - **K0 prime:** 5.26191; 5.67035
+    - **Residual variance:** 0.545934
+    - **Max abs residual jacobian cosine:** 1.0845e-09
+    - **Residual sum squares:** 45.3125
+    - **Residual count:** 86
+    - **Scaled jacobian condition number:** 136.251
+    - **Derivative step halving relative change:** 2.4257e-12
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Qualification:** Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.
+    - **Assumptions:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+- **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 - **Dataset identifiers:** gold\_takemura\_2008\_table3\_compression
 
 </details>
@@ -1484,7 +1570,9 @@ Parameter covariance is not supplied.
 
 Identifier: `gold_dewaele_2019_dor_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [gold\_dewaele\_2019\_mao\_vinet](#record-gold_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -1519,18 +1607,18 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Open reconstruction report](../reconstruction-reports/gold.md#record-gold_dewaele_2019_dor_vinet)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
-- Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -1544,22 +1632,52 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 67.944 | 0.08 | 67.94312505523439 | Not specified | Free |
-| K0 | 163.4 | 2.0 | 163.3770385791797 | Not specified | Free |
-| K0\_prime | 6.04 | 0.06 | 6.0298208014166335 | Not specified | Free |
+| V0 | 67.94 | 0.08 | 67.94 | 0.10 | Free |
+| K0 | 163.4 | 2.0 | 163 | 4 | Free |
+| K0\_prime | 6.04 | 0.06 | 6.03 | 0.11 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** static\_vinet\_with\_explicit\_ruby\_scale\_conversion
 - **Objective:** unweighted pressure residuals
 - **Selection:** complete
+- **Weighting:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.
+- **Absolute sigma:** False
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 - **Observations:** 86
-- **Observed pressure range gpa:** \[0.0, 130.8\]
+- **Observed pressure range gpa:** 0; 130.8
+- **Degrees of freedom:** 83
 - **Solver success:** True
 - **Solver message:** dedicated Dewaele (2019) refit completed
-- **Rmse gpa:** 0.7730222728820225
+- **Rmse gpa:** 0.773022
+- **Parameter covariance:** \[\["0.00943946", "-0.326289", "0.00851143"\], \["-0.326289", "12.6479", "-0.363759"\], \["0.00851143", "-0.363759", "0.0113752"\]\]
+- **Covariance:**
+    - **Parameters:** V0; K0; K0\_prime
+    - **Matrix:** \[\["0.00943946", "-0.326289", "0.00851143"\], \["-0.326289", "12.6479", "-0.363759"\], \["0.00851143", "-0.363759", "0.0113752"\]\]
+    - **Standard errors:**
+        - **V0:** 0.0971569
+        - **K0:** 3.55639
+        - **K0 prime:** 0.106655
+    - **Correlation matrix:** \[\["1", "-0.944321", "0.821391"\], \["-0.944321", "1", "-0.959015"\], \["0.821391", "-0.959015", "1"\]\]
+    - **Degrees of freedom:** 83
+    - **Local student t 95 intervals:**
+        - **V0:** 67.7499; 68.1364
+        - **K0:** 156.304; 170.451
+        - **K0 prime:** 5.81769; 6.24195
+    - **Residual variance:** 0.619162
+    - **Max abs residual jacobian cosine:** 4.19873e-09
+    - **Residual sum squares:** 51.3905
+    - **Residual count:** 86
+    - **Scaled jacobian condition number:** 139.448
+    - **Derivative step halving relative change:** 2.43672e-12
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Qualification:** Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.
+    - **Assumptions:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+- **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 - **Dataset identifiers:** gold\_takemura\_2008\_table3\_compression
 
 </details>
@@ -1692,10 +1810,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 172.5 | 1.4 | 172.37746528206796 | 3.186572182097841 | Free |
-| K0\_prime | 5.4 | 0.08 | 5.411095520590663 | 0.17730037584544642 | Free |
+| K0 | 172.5 | 1.4 | 172 | 3 | Free |
+| K0\_prime | 5.40 | 0.08 | 5.41 | 0.18 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -1708,15 +1827,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 37
-- **Observed pressure range gpa:** \[0.0, 90.0\]
+- **Observed pressure range gpa:** 0; 90
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[52.12, 67.864\]
+- **Observed volume range:** 52.12; 67.864
 - **Degrees of freedom:** 35
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.2033594087067835
-- **Published rmse gpa:** 0.22679437079140033
-- **Reduced chi square:** 0.0484740711293025
+- **Rmse gpa:** 0.203359
+- **Published rmse gpa:** 0.226794
+- **Reduced chi square:** 0.0484741
 - **Dataset identifiers:** gold\_dewaele\_2004\_table1\_compression
 
 </details>
@@ -1842,9 +1961,10 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0\_prime | 5.88 | 0.02 | 5.860266508021561 | Not specified | Free |
+| K0\_prime | 5.880 | 0.020 | 5.86027 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** simultaneous\_cocompression\_vinet
 - **Objective:** Dorfman Equation (3)
@@ -1852,7 +1972,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0\_prime
 - **Fixed parameters:** V0; K0
 - **Observations:** 165
-- **Observed pressure range gpa:** \[34.4, 242.6\]
+- **Observed pressure range gpa:** 34.4; 242.6
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
 - **Comparison scope:** joint\_system
@@ -2004,10 +2124,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 167.0 | 3.0 | 178.7131955926287 | Not specified | Free |
-| K0\_prime | 5.84 | 0.02 | 5.468332069803775 | Not specified | Free |
+| K0 | 167 | 3 | 178.713 | Not reported | Free |
+| K0\_prime | 5.840 | 0.020 | 5.46833 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** simultaneous\_cocompression\_vinet
 - **Objective:** Dorfman Equation (3)
@@ -2015,7 +2136,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 165
-- **Observed pressure range gpa:** \[34.4, 242.6\]
+- **Observed pressure range gpa:** 34.4; 242.6
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
 - **Comparison scope:** joint\_system
@@ -2180,9 +2301,10 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0\_prime | 5.897 | 0.022 | 5.896768070200478 | 0.02222069212640481 | Free |
+| K0\_prime | 5.897 | 0.022 | 5.897 | 0.022 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** staged\_cocompression\_vinet\_k0\_prime
 - **Objective:** unweighted pressure differences between co-compressed phases
@@ -2191,10 +2313,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0\_prime
 - **Fixed parameters:** V0; K0
 - **Observations:** 28
-- **Observed pressure range gpa:** \[19.03783589777603, 120.2715154156598\]
+- **Observed pressure range gpa:** 19.0378; 120.272
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.5712382190658275
+- **Rmse gpa:** 0.571238
 - **Dataset identifiers:** ye\_2017\_data\_s1\_au\_mgo\_300k
 
 </details>
@@ -2341,10 +2463,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| gamma0 | 2.93 | 0.18 | 2.9359999606410345 | Not specified | Free |
-| b | 2.7 | 0.7 | 2.6255991244983807 | Not specified | Free |
+| gamma0 | 2.93 | 0.18 | 2.936 | Not reported | Free |
+| b | 2.7 | 0.7 | 2.6256 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** iterative\_robust\_bisquare\_gruneisen\_refit
 - **Objective:** Released v3 energy-balance transformation followed by robust bisquare nonlinear least squares
@@ -2352,10 +2475,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** gamma0; b
 - **Fixed parameters:** V0; K0; K0\_prime; Tr; theta0; a; n; beta0; m
 - **Observations:** 22
-- **Observed pressure range gpa:** \[0.0, 197.039\]
+- **Observed pressure range gpa:** 0; 197.039
 - **Solver success:** True
 - **Solver message:** released v3 robust thermal refit converged in 7 outer iterations
-- **Rmse gpa:** 2.4861289701518188
+- **Rmse gpa:** 2.48613
 - **Dataset identifiers:** zhu\_2025\_au\_shock; zhu\_2025\_au\_zero\_pressure\_thermal\_expansion
 
 </details>
@@ -2493,18 +2616,19 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Open reconstruction report](../reconstruction-reports/gold.md#record-gold_hirose_2008_bm3_fit2)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
-- Complete published PVT selection recovered. Original residual coordinate, weights, covariance and unrounded observations remain unspecified. Weighted sensitivity treats printed pressure errors as relative weights only, not established sigma; it omits Au-volume and temperature uncertainty and correlated calibration errors. Ambient expansivity coefficients are source-fixed, not refitted from unavailable Touloukian data.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Existing reconstructed errors retained; no source confidence convention inferred. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Complete published PVT selection recovered. Original residual coordinate, weights, covariance and unrounded observations remain unspecified. Weighted sensitivity treats printed pressure errors as relative weights only, not established sigma; it omits Au-volume and temperature uncertainty and correlated calibration errors. Ambient expansivity coefficients are source-fixed, not refitted from unavailable Touloukian data. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
+- Earlier audit statement, before the conditional uncertainty follow-up: Complete published PVT selection recovered. Original residual coordinate, weights, covariance and unrounded observations remain unspecified. Weighted sensitivity treats printed pressure errors as relative weights only, not established sigma; it omits Au-volume and temperature uncertainty and correlated calibration errors. Ambient expansivity coefficients are source-fixed, not refitted from unavailable Touloukian data.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -2518,19 +2642,33 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| beta1 | 1.03e-06 | 4.4e-07 | 9.924306426760731e-07 | 4.4515812720505623e-07 | See protocol |
-| beta2 | 3.95e-10 | 3.88e-10 | 4.317111941012275e-10 | 3.914573391230663e-10 | See protocol |
-| beta3 | 1.61e-13 | 9.7e-14 | 1.5138015223907164e-13 | 9.764421605205168e-14 | See protocol |
-| kprime\_log\_coefficient | 0.000361 | 2.2e-05 | 0.0003594895172822541 | 2.2723108298574738e-05 | See protocol |
+| beta1 | 10e-7 | 4e-7 | 10e-7 | 4e-7 | See protocol |
+| beta2 | 4e-10 | 4e-10 | 4e-10 | 4e-10 | See protocol |
+| beta3 | 16e-14 | 10e-14 | 15e-14 | 10e-14 | See protocol |
+| kprime\_log\_coefficient | 36.1e-5 | 2.2e-5 | 35.9e-5 | 2.3e-5 | See protocol |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** diagnostic\_unweighted\_pressure
+- **Weighting:** Existing reconstructed errors retained; no source confidence convention inferred.
 - **Fixed parameters:** V0; K0; K0\_prime; Tr; alpha0; alpha1; dK\_dT
 - **Observations:** 38
 - **Solver success:** True
-- **Rmse gpa:** 0.445141799111663
-- **Published rmse gpa:** 0.4479194129604852
+- **Rmse gpa:** 0.445142
+- **Published rmse gpa:** 0.447919
+- **Covariance:**
+    - **Parameters:** beta1; beta2; beta3; kprime\_log\_coefficient
+    - **Standard errors:**
+        - **Beta1:** 4.45158e-07
+        - **Beta2:** 3.91457e-10
+        - **Beta3:** 9.76442e-14
+        - **Kprime log coefficient:** 2.27231e-05
+    - **Method:** Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Reason:** Complete published PVT selection recovered. Original residual coordinate, weights, covariance and unrounded observations remain unspecified. Weighted sensitivity treats printed pressure errors as relative weights only, not established sigma; it omits Au-volume and temperature uncertainty and correlated calibration errors. Ambient expansivity coefficients are source-fixed, not refitted from unavailable Touloukian data.
+    - **Assumptions:** Existing reconstructed errors retained; no source confidence convention inferred.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
 - **Dataset identifiers:** gold\_hirose\_2008\_table1; gold\_fei\_2004\_table1
 
 </details>
@@ -2587,9 +2725,9 @@ Parameter covariance is not supplied.
     - **Source location:** Section 3 and Table 1 footnote a
     - **Scope:** Speziale et al. MgO scale; Table 1 retains paired MgO lattice parameters and source pressures
 - **Recalculation:**
-    - **Status:** reference\_eos\_not\_bundled
-    - **Notes:** The published Speziale variable-q thermal EOS is now bundled and the 300 K anchor remains executable. The exact Hirose thermal pressure reducer is not recovered and is not identified with the published model; this historical-reference limitation remains.
-- **Audit date:** 2026-09-10
+    - **Status:** not\_possible
+    - **Notes:** Exact historical thermal-pressure replay is not possible with the available evidence: the later Hirose MgO reducer is not recovered. The published Speziale VariableQMieGruneisenDebye model is executable and its Debye-temperature integration is author-confirmed; this does not establish the reducer used by Hirose or reproduce the later Fei/Hirose hot-pressure targets. Preserve reported pressures and paired lattice observations; published-model recalculation is a separate diagnostic and thermal ancestry remains evidence only. See docs/literature-reproductions/speziale-2001-mgo.md and docs/data/speziale-2001-author-confirmation.json.
+- **Audit date:** 2026-10-12
 
 </details>
 
@@ -2666,18 +2804,19 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Open reconstruction report](../reconstruction-reports/gold.md#record-gold_hirose_2008_bm3_fit1)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
-- Published row selection and fixed reference coefficients retained. Unweighted pressure residuals are diagnostic because the source does not specify its objective, weights, or covariance. Published coefficients remain unchanged.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Published row selection and fixed reference coefficients retained. Unweighted pressure residuals are diagnostic because the source does not specify its objective, weights, or covariance. Published coefficients remain unchanged. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
+- Earlier audit statement, before the conditional uncertainty follow-up: Published row selection and fixed reference coefficients retained. Unweighted pressure residuals are diagnostic because the source does not specify its objective, weights, or covariance. Published coefficients remain unchanged.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -2691,19 +2830,49 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| dK\_dT | -0.028 | 0.003 | -0.028332495756161705 | Not specified | Free |
-| alpha0 | 3.179e-05 | 1.39e-06 | 3.176726251212547e-05 | Not specified | Free |
-| alpha1 | 1.477e-08 | 3.1e-09 | 1.499812911963746e-08 | Not specified | Free |
+| dK\_dT | -0.028 | 0.003 | -0.0283 | 0.0027 | Free |
+| alpha0 | 31.8e-6 | 1.4e-6 | 31.8e-6 | 1.4e-6 | Free |
+| alpha1 | 15e-9 | 3e-9 | 15e-9 | 3e-9 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** diagnostic\_unweighted\_pressure
+- **Weighting:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.
+- **Absolute sigma:** False
 - **Free parameters:** dK\_dT; alpha0; alpha1
 - **Fixed parameters:** V0; K0; K0\_prime; Tr
 - **Observations:** 12
+- **Degrees of freedom:** 9
 - **Solver success:** True
-- **Rmse gpa:** 0.38847700498905835
-- **Published rmse gpa:** 0.4595254485710879
+- **Rmse gpa:** 0.388477
+- **Published rmse gpa:** 0.459525
+- **Parameter covariance:** \[\["7.23794e-06", "-1.57361e-09", "-8.07609e-12"\], \["-1.57361e-09", "2.01435e-12", "2.8863e-16"\], \["-8.07609e-12", "2.8863e-16", "1.03128e-17"\]\]
+- **Covariance:**
+    - **Parameters:** dK\_dT; alpha0; alpha1
+    - **Matrix:** \[\["7.23794e-06", "-1.57361e-09", "-8.07609e-12"\], \["-1.57361e-09", "2.01435e-12", "2.8863e-16"\], \["-8.07609e-12", "2.8863e-16", "1.03128e-17"\]\]
+    - **Standard errors:**
+        - **Dk dt:** 0.00269034
+        - **Alpha0:** 1.41928e-06
+        - **Alpha1:** 3.21136e-09
+    - **Correlation matrix:** \[\["1", "-0.412119", "-0.934769"\], \["-0.412119", "1", "0.0633265"\], \["-0.934769", "0.0633265", "1"\]\]
+    - **Degrees of freedom:** 9
+    - **Local student t 95 intervals:**
+        - **Dk dt:** -0.0344185; -0.0222465
+        - **Alpha0:** 2.85566e-05; 3.49779e-05
+        - **Alpha1:** 7.73352e-09; 2.22627e-08
+    - **Residual variance:** 0.201219
+    - **Max abs residual jacobian cosine:** 6.50865e-08
+    - **Residual sum squares:** 1.81097
+    - **Residual count:** 12
+    - **Scaled jacobian condition number:** 94.9257
+    - **Derivative step halving relative change:** 6.7802e-11
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Reason:** Published row selection and fixed reference coefficients retained. Unweighted pressure residuals are diagnostic because the source does not specify its objective, weights, or covariance. Published coefficients remain unchanged.
+    - **Assumptions:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+- **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 - **Dataset identifiers:** gold\_hirose\_2008\_table1
 
 </details>
@@ -2760,9 +2929,9 @@ Parameter covariance is not supplied.
     - **Source location:** Section 3 and Table 1 footnote a
     - **Scope:** Speziale et al. MgO scale; Table 1 retains paired MgO lattice parameters and source pressures
 - **Recalculation:**
-    - **Status:** reference\_eos\_not\_bundled
-    - **Notes:** The published Speziale variable-q thermal EOS is now bundled and the 300 K anchor remains executable. The exact Hirose thermal pressure reducer is not recovered and is not identified with the published model; this historical-reference limitation remains.
-- **Audit date:** 2026-09-10
+    - **Status:** not\_possible
+    - **Notes:** Exact historical thermal-pressure replay is not possible with the available evidence: the later Hirose MgO reducer is not recovered. The published Speziale VariableQMieGruneisenDebye model is executable and its Debye-temperature integration is author-confirmed; this does not establish the reducer used by Hirose or reproduce the later Fei/Hirose hot-pressure targets. Preserve reported pressures and paired lattice observations; published-model recalculation is a separate diagnostic and thermal ancestry remains evidence only. See docs/literature-reproductions/speziale-2001-mgo.md and docs/data/speziale-2001-author-confirmation.json.
+- **Audit date:** 2026-10-12
 
 </details>
 
@@ -2831,18 +3000,19 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Open reconstruction report](../reconstruction-reports/gold.md#record-gold_hirose_2008_bm3_300k)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
-- Published row selection and fixed reference coefficients retained. Unweighted pressure residuals are diagnostic because the source does not specify its objective, weights, or covariance. Published coefficients remain unchanged.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Published row selection and fixed reference coefficients retained. Unweighted pressure residuals are diagnostic because the source does not specify its objective, weights, or covariance. Published coefficients remain unchanged. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
+- Earlier audit statement, before the conditional uncertainty follow-up: Published row selection and fixed reference coefficients retained. Unweighted pressure residuals are diagnostic because the source does not specify its objective, weights, or covariance. Published coefficients remain unchanged.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -2856,17 +3026,43 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0\_prime | 5.58 | 0.02 | 5.583345175577682 | Not specified | Free |
+| K0\_prime | 5.580 | 0.020 | 5.583 | 0.023 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** diagnostic\_unweighted\_pressure
+- **Weighting:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.
+- **Absolute sigma:** False
 - **Free parameters:** K0\_prime
 - **Fixed parameters:** V0; K0
 - **Observations:** 9
+- **Degrees of freedom:** 8
 - **Solver success:** True
-- **Rmse gpa:** 0.6697309596138137
-- **Published rmse gpa:** 0.6706550807731002
+- **Rmse gpa:** 0.669731
+- **Published rmse gpa:** 0.670655
+- **Parameter covariance:** \[\["0.000506512"\]\]
+- **Covariance:**
+    - **Parameters:** K0\_prime
+    - **Matrix:** \[\["0.000506512"\]\]
+    - **Standard errors:**
+        - **K0 prime:** 0.0225058
+    - **Correlation matrix:** \[\["1"\]\]
+    - **Degrees of freedom:** 8
+    - **Local student t 95 intervals:**
+        - **K0 prime:** 5.53145; 5.63524
+    - **Residual variance:** 0.504607
+    - **Max abs residual jacobian cosine:** 5.4578e-09
+    - **Residual sum squares:** 4.03686
+    - **Residual count:** 9
+    - **Scaled jacobian condition number:** 1
+    - **Derivative step halving relative change:** 3.23618e-12
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Reason:** Published row selection and fixed reference coefficients retained. Unweighted pressure residuals are diagnostic because the source does not specify its objective, weights, or covariance. Published coefficients remain unchanged.
+    - **Assumptions:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+- **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 - **Dataset identifiers:** gold\_hirose\_2008\_table1
 
 </details>
@@ -2916,8 +3112,8 @@ Parameter covariance is not supplied.
     - **Reference eos record:** mgo\_speziale\_2001\_bm3\_2
 - **Recalculation:**
     - **Status:** ready
-    - **Notes:** The published Speziale variable-q thermal EOS is now bundled and the 300 K anchor remains executable. The exact Hirose thermal pressure reducer is not recovered and is not identified with the published model; this historical-reference limitation remains.
-- **Audit date:** 2026-09-10
+    - **Notes:** The 300 K Speziale BM3 anchor is executable and reproduces the paired room-temperature MgO pressures within their printed uncertainty widths. This readiness applies to the 300 K calibration only. The bundled, author-confirmed VariableQMieGruneisenDebye model does not establish the unrecovered later Hirose thermal reducer; thermal ancestry remains evidence only.
+- **Audit date:** 2026-10-12
 
 </details>
 
@@ -3011,16 +3207,17 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| q | 0.7 | 0.3 | 0.36269762382732457 | 0.10660429662399096 | See protocol |
+| q | 0.7 | 0.3 | 0.36 | 0.11 | See protocol |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** diagnostic\_unweighted\_pressure
 - **Fixed parameters:** V0; K0; K0\_prime; Tr; theta0; gamma0; n
 - **Observations:** 26
 - **Solver success:** True
-- **Rmse gpa:** 0.3252921712897166
-- **Published rmse gpa:** 0.38380272463080667
+- **Rmse gpa:** 0.325292
+- **Published rmse gpa:** 0.383803
 - **Dataset identifiers:** gold\_fei\_2004\_table1
 
 </details>
@@ -3076,9 +3273,9 @@ Parameter covariance is not supplied.
     - **Source location:** Fei Tables 1-3, Sections 3.1-3.2
     - **Scope:** Au calibrated against simultaneous MgO; Pt calibrated against the revised Au scale, hence indirectly MgO.
 - **Recalculation:**
-    - **Status:** reference\_eos\_not\_bundled
-    - **Notes:** The published Speziale variable-q thermal EOS is now bundled. The exact later author pressure reducer is not recovered and its printed pressures are not reproduced by that model; this historical-reference limitation remains. Preserve source pressures and paired lattice measurements.
-- **Audit date:** 2026-09-10
+    - **Status:** not\_possible
+    - **Notes:** Exact historical thermal-pressure replay is not possible with the available evidence: the later Fei MgO reducer is not recovered, and its printed hot pressures are not reproduced by the executable, author-confirmed published Speziale VariableQMieGruneisenDebye model. Preserve source pressures and paired lattice measurements; published-model recalculation is a separate diagnostic. See docs/literature-reproductions/speziale-2001-mgo.md and docs/data/speziale-2001-author-confirmation.json.
+- **Audit date:** 2026-10-12
 
 </details>
 
@@ -3457,7 +3654,7 @@ Original audit code: `source_reconstruction`.
 
 - **Fixed parameters:** K0; Tr; theta0; n
 - **Observations:** 0
-- **Rmse gpa:** 0.008922681886743658
+- **Rmse gpa:** 0.00892268
 - **Reconstruction kind:** derived\_table\_output\_pressure\_reconstruction
 - **Dataset identifiers:** gold\_yokoo\_2009\_table3\_isochores; tsuchiya\_kawamura\_2002\_table1\_electronic\_pressure
 
@@ -3628,20 +3825,21 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.K0\_prime | 5.581150323572888 | Not specified | 5.581150323572888 | Not specified | See protocol |
-| beta1 | 1.0917527108795146e-06 | Not specified | 1.0917527108795146e-06 | Not specified | See protocol |
-| beta2 | 3.9664802649941097e-10 | Not specified | 3.9664802649941097e-10 | Not specified | See protocol |
-| beta3 | 1.6537830789802096e-13 | Not specified | 1.6537830789802096e-13 | Not specified | See protocol |
-| kprime\_log\_coefficient | 0.0003583216931587801 | Not specified | 0.0003583216931587801 | Not specified | See protocol |
+| rt\_eos.K0\_prime | 5.58115 | Not reported | 5.58115 | Not reported | See protocol |
+| beta1 | 1.09175e-06 | Not reported | 1.09175e-06 | Not reported | See protocol |
+| beta2 | 3.96648e-10 | Not reported | 3.96648e-10 | Not reported | See protocol |
+| beta3 | 1.65378e-13 | Not reported | 1.65378e-13 | Not reported | See protocol |
+| kprime\_log\_coefficient | 0.000358322 | Not reported | 0.000358322 | Not reported | See protocol |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** staged\_cold\_then\_thermal\_bm3\_reference\_state
 - **Objective:** sum of squared pressure residuals with equal weights at each stage
 - **Fixed parameters:** V0; K0; Tr; alpha0; alpha1; dK\_dT
 - **Observations:** 47
 - **Solver success:** True
-- **Rmse gpa:** 0.3964628457007681
+- **Rmse gpa:** 0.396463
 - **Dataset identifiers:** gold\_hirose\_2008\_fei\_2004\_speziale\_2001\_recalculated\_pvt
 
 </details>
@@ -3724,6 +3922,163 @@ Parameter covariance is not supplied.
 </details>
 
 ## Observation datasets
+
+### gold\_sakai\_2025\_calibration\_paired\_volumes
+
+- **Description:** 326 measured paired rows: 307 Au ancestors and 19 direct Au-W inputs. S4 rows are also exposed separately; these two resources overlap and must not be summed.
+- **Kind:** simultaneous\_volume\_calibration\_network
+- **Reference:**
+    - **Authors:** Sakai; Kadobayashi; Nakamoto; Dekura; Ishimatsu; Kawaguchi-Imada; Seto; Sekizawa; Nitta; Shimizu
+    - **Year:** 2025
+    - **Title:** The equations of state of nine materials up to 0.43 TPa for extreme pressure science
+    - **Source:** Communications Materials
+    - **Volume:** 6
+    - **Locator:** 68
+    - **DOI:** 10.1038/s43246-025-00792-5
+- **Source location:** Tables S1, S2, S3, S4, S7
+- **Associated EOS records:** gold\_sakai\_2025\_rydberg\_stacey\_1
+- **Uncertainty:**
+    - **Notes:** Preserve source err. cells as generic reported uncertainty; no standard-deviation or confidence convention is inferred. Missing errors remain blank. Derived stress and c/a values are not additional independent observations.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/sakai-2025-au-calibration-paired-volumes.csv)
+— SHA-256 `2edda47994f2e8a176d40859b75a1a52c380e90b74f329b72a2b6d5e1a42dc36`.
+
+### gold\_sakai\_2025\_table\_s4\_au\_w\_volumes
+
+- **Description:** All 19 Au-W observations at room temperature. All Au errors are blank in the source; W errors are retained. No pressures are observed or imputed.
+- **Kind:** simultaneous\_xrd\_compression
+- **Reference:**
+    - **Authors:** Sakai; Kadobayashi; Nakamoto; Dekura; Ishimatsu; Kawaguchi-Imada; Seto; Sekizawa; Nitta; Shimizu
+    - **Year:** 2025
+    - **Title:** The equations of state of nine materials up to 0.43 TPa for extreme pressure science
+    - **Source:** Communications Materials
+    - **Volume:** 6
+    - **Locator:** 68
+    - **DOI:** 10.1038/s43246-025-00792-5
+- **Source location:** Table S4
+- **Associated EOS records:** gold\_sakai\_2025\_rydberg\_stacey\_1
+- **Uncertainty:**
+    - **Notes:** Preserve source err. cells as generic reported uncertainty; no standard-deviation or confidence convention is inferred. Missing errors remain blank. Derived stress and c/a values are not additional independent observations.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/gold-sakai-2025-table-s4-au-w-volumes.csv)
+— SHA-256 `18b5c9c2be46eccf657aaf5616f746497460b15fbfc5da5a94de3c13390b4622`.
+
+### gold\_sakai\_2025\_dewaele\_2018\_au\_re\_input
+
+- **Description:** All 84 Au-Re observations in runs 1-3. Preserve Au111, Au200, Re a/c, membrane and reported Re pressure, and paired Al values where present. Cell volumes are a111^3 for Au and sqrt(3)\*a\_Re^2\*c\_Re/2 for Re. Source prints no row volume errors. All 25 rows excluded below 200 GPa by Sakai remain archived.
+- **Kind:** simultaneous\_xrd\_compression
+- **Reference:**
+    - **Authors:** Dewaele; Loubeyre; Occelli; Marie; Mezouar
+    - **Year:** 2018
+    - **Title:** Toroidal diamond anvil cell for detailed measurements under extreme static pressures
+    - **Source:** Nature Communications
+    - **Volume:** 9
+    - **Locator:** 2913
+    - **DOI:** 10.1038/s41467-018-05294-2
+- **Source location:** Dewaele et al. (2018), supplementary Tables 4-5, pp. 9-10
+- **Associated EOS records:** gold\_sakai\_2025\_rydberg\_stacey\_1
+- **Uncertainty:**
+    - **Notes:** Preserve source err. cells as generic reported uncertainty; no standard-deviation or confidence convention is inferred. Missing errors remain blank. Derived stress and c/a values are not additional independent observations.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/gold-dewaele-2018-tables-4-5-au-re.csv)
+— SHA-256 `5346dee968a9202685bf3aa3fe4702254d901d7f6171f28894b15980b2b0a31c`.
+
+### gold\_sakai\_2025\_table\_s8\_lineage
+
+- **Description:** All 35 lineage rows. This sheet indexes references and pressure calibrants; it does not supply their numerical observations. Downstream Mo/NaCl/Fe rows are context, not Au input.
+- **Kind:** calibration\_lineage\_index
+- **Reference:**
+    - **Authors:** Sakai; Kadobayashi; Nakamoto; Dekura; Ishimatsu; Kawaguchi-Imada; Seto; Sekizawa; Nitta; Shimizu
+    - **Year:** 2025
+    - **Title:** The equations of state of nine materials up to 0.43 TPa for extreme pressure science
+    - **Source:** Communications Materials
+    - **Volume:** 6
+    - **Locator:** 68
+    - **DOI:** 10.1038/s43246-025-00792-5
+- **Source location:** Table S8
+- **Associated EOS records:** gold\_sakai\_2025\_rydberg\_stacey\_1
+- **Uncertainty:**
+    - **Notes:** Preserve source err. cells as generic reported uncertainty; no standard-deviation or confidence convention is inferred. Missing errors remain blank. Derived stress and c/a values are not additional independent observations.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/sakai-2025-table-s8-calibration-lineage.csv)
+— SHA-256 `810504e57349dd7e38ca00d8e77a97b8c7cc06a61c8d8057615b8366ba11e8e6`.
+
+### gold\_sakai\_2025\_table\_s14\_cu\_anchor
+
+- **Description:** All 36 calculated Cu curve nodes used to test scale conversion. These are external-scale calculations, not measured Cu or Au observations. Observed Cu A/B cells are preserved separately in the raw cell archive.
+- **Kind:** calculated\_scale\_conversion\_input
+- **Reference:**
+    - **Authors:** Sakai; Kadobayashi; Nakamoto; Dekura; Ishimatsu; Kawaguchi-Imada; Seto; Sekizawa; Nitta; Shimizu
+    - **Year:** 2025
+    - **Title:** The equations of state of nine materials up to 0.43 TPa for extreme pressure science
+    - **Source:** Communications Materials
+    - **Volume:** 6
+    - **Locator:** 68
+    - **DOI:** 10.1038/s43246-025-00792-5
+- **Source location:** Table S14, columns E-G
+- **Associated EOS records:** gold\_sakai\_2025\_rydberg\_stacey\_1
+- **Uncertainty:**
+    - **Notes:** Preserve source err. cells as generic reported uncertainty; no standard-deviation or confidence convention is inferred. Missing errors remain blank. Derived stress and c/a values are not additional independent observations.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/sakai-2025-table-s14-cu-anchor-calculated.csv)
+— SHA-256 `8fe53fd7360840834745acd45b19e050be4c4bb34f156530c3b3618324f3f3c5`.
+
+### gold\_sakai\_2025\_dewaele\_2004\_au\_input
+
+- **Description:** Sakai Table S8 Au input: reuses all source rows of gold\_dewaele\_2004\_table1\_compression. Original source coordinates/errors are preserved; computed IPPS-Ruby2020 or MgO pressures are separate in the recovery report.
+- **Kind:** pressure\_volume
+- **Reference:**
+    - **Authors:** Dewaele; Loubeyre; Mezouar
+    - **Year:** 2004
+    - **Source:** Phys. Rev. B
+    - **Volume:** 70
+    - **Locator:** 094112
+    - **DOI:** 10.1103/PhysRevB.70.094112
+- **Source location:** Table I, journal page 094112-4
+- **Associated EOS records:** gold\_sakai\_2025\_rydberg\_stacey\_1
+- **Notes:** Resource alias, not new measurements. Hirose: retain all 21 rows but only nine 300 K rows enter the diagnostic Au isotherm. Ruby conversions use inferred shifts from rounded reported pressures, not recovered spectra.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/gold-dewaele-2004-table1-compression.csv)
+— SHA-256 `c3a52a211b94cef2cd46198577e18efe4fc66befd7d38aa4f20063d290e97438`.
+
+### gold\_sakai\_2025\_takemura\_2008\_au\_input
+
+- **Description:** Sakai Table S8 Au input: reuses all source rows of gold\_takemura\_2008\_table3\_compression. Original source coordinates/errors are preserved; computed IPPS-Ruby2020 or MgO pressures are separate in the recovery report.
+- **Kind:** pressure\_lattice\_parameter
+- **Reference:**
+    - **Authors:** Takemura; Dewaele
+    - **Year:** 2008
+    - **Source:** Phys. Rev. B
+    - **Volume:** 78
+    - **Locator:** 104119
+    - **DOI:** 10.1103/PhysRevB.78.104119
+- **Source location:** Table III, all runs; P, P-prime, and am(111) columns
+- **Associated EOS records:** gold\_sakai\_2025\_rydberg\_stacey\_1
+- **Notes:** Resource alias, not new measurements. Hirose: retain all 21 rows but only nine 300 K rows enter the diagnostic Au isotherm. Ruby conversions use inferred shifts from rounded reported pressures, not recovered spectra.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/gold-takemura-2008-table3-compression.csv)
+— SHA-256 `04e2015f65f5203d89966ebf4b08eb3000d9a3fb7bfc7e3fd032e253e72b3858`.
+
+### gold\_sakai\_2025\_hirose\_2008\_au\_mgo\_input
+
+- **Description:** Sakai Table S8 Au input: reuses all source rows of gold\_hirose\_2008\_table1. Original source coordinates/errors are preserved; computed IPPS-Ruby2020 or MgO pressures are separate in the recovery report.
+- **Kind:** simultaneous\_xrd\_compression
+- **Reference:**
+    - **Authors:** Hirose; Sata; Komabayashi; Ohishi
+    - **Year:** 2008
+    - **Title:** Simultaneous volume measurements of Au and MgO to 140 GPa and thermal equation of state of Au based on the MgO pressure scale
+    - **Source:** Physics of the Earth and Planetary Interiors
+    - **Volume:** 167
+    - **Locator:** 149-154
+    - **DOI:** 10.1016/j.pepi.2008.03.002
+- **Source location:** Table 1, page 150
+- **Associated EOS records:** gold\_sakai\_2025\_rydberg\_stacey\_1
+- **Uncertainty:**
+    - **Notes:** Parenthetical errors are retained; their confidence convention is unspecified. Run 3 lattice errors are absent. Run 3 pressure errors include temperature only; the authors estimate an additional MgO volume contribution up to 0.5 GPa. Temperature spatial variation was below ±10%; this is not a row-wise standard deviation.
+- **Notes:** Resource alias, not new measurements. Hirose: retain all 21 rows but only nine 300 K rows enter the diagnostic Au isotherm. Ruby conversions use inferred shifts from rounded reported pressures, not recovered spectra.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/gold-hirose-2008-table1.csv)
+— SHA-256 `f1586c78f200d06bdfa35ce7d4c00da270706d44202f142b1b5ca56f832102b9`.
 
 ### gold\_sakai\_2025\_table\_s9\_rs\_eos\_grid
 
@@ -4120,60 +4475,3 @@ Parameter covariance is not supplied.
 
 [Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/gold-hirose-2008-fei-2004-speziale-2001-recalculated-pvt.csv)
 — SHA-256 `0cbe94de992f1563bf638c621a5516a3e283144a74920f4834fa0d9062ba4cd7`.
-
-### gold\_sakai\_2025\_dewaele\_2004\_au\_input
-
-- **Description:** Source-table alias for the Sakai et al. (2025) gold observation view; reuses gold\_dewaele\_2004\_table1\_compression in its original reported coordinates.
-- **Kind:** pressure\_volume
-- **Reference:**
-    - **Authors:** Dewaele; Loubeyre; Mezouar
-    - **Year:** 2004
-    - **Source:** Phys. Rev. B
-    - **Volume:** 70
-    - **Locator:** 094112
-    - **DOI:** 10.1103/PhysRevB.70.094112
-- **Source location:** Table I, journal page 094112-4
-- **Associated EOS records:** gold\_sakai\_2025\_rydberg\_stacey\_1
-- **Notes:** Reuses the existing CSV and all source rows. This is not a new measurement series, pressure recalibration, or reproduction of the Sakai fitting workflow. The observation view specifies the displayed coordinates separately from the target EOS pressure scale. Original source-table notes: Table I groups Cu/W/Al in the first two runs and Au/Pt/Ta in the last three runs. Blank metal cells are omitted rather than imputed. P\_R is the classical Mao et al. (1986) reduction (A=1904 GPa, B=7.665); P'\_R is the Dewaele et al. revision (A=1904 GPa, B=9.5). The paper states a common 0.01 angstrom^3/atom volume uncertainty and a pressure uncertainty increasing from 0.05 GPa at 1 GPa to 2 GPa at 150 GPa, but prints neither row-wise pressure errors nor raw R1 wavelengths.
-
-[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/gold-dewaele-2004-table1-compression.csv)
-— SHA-256 `c3a52a211b94cef2cd46198577e18efe4fc66befd7d38aa4f20063d290e97438`.
-
-### gold\_sakai\_2025\_takemura\_2008\_au\_input
-
-- **Description:** Source-table alias for the Sakai et al. (2025) gold observation view; reuses gold\_takemura\_2008\_table3\_compression in its original reported coordinates.
-- **Kind:** pressure\_lattice\_parameter
-- **Reference:**
-    - **Authors:** Takemura; Dewaele
-    - **Year:** 2008
-    - **Source:** Phys. Rev. B
-    - **Volume:** 78
-    - **Locator:** 104119
-    - **DOI:** 10.1103/PhysRevB.78.104119
-- **Source location:** Table III, all runs; P, P-prime, and am(111) columns
-- **Associated EOS records:** gold\_sakai\_2025\_rydberg\_stacey\_1
-- **Notes:** Reuses the existing CSV and all source rows. This is not a new measurement series, pressure recalibration, or reproduction of the Sakai fitting workflow. The observation view specifies the displayed coordinates separately from the target EOS pressure scale. Original source-table notes: The record's EOS was fitted to P-prime versus volume derived from am(111); fcc atomic volume is am(111)^3/4. Other reflection-specific lattice parameters and estimated uniaxial stresses remain available in the printed source table but are not required to reproduce this hydrostatic fit. Pointwise uncertainties are not tabulated.
-
-[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/gold-takemura-2008-table3-compression.csv)
-— SHA-256 `04e2015f65f5203d89966ebf4b08eb3000d9a3fb7bfc7e3fd032e253e72b3858`.
-
-### gold\_sakai\_2025\_hirose\_2008\_au\_mgo\_input
-
-- **Description:** Source-table alias for the Sakai et al. (2025) gold observation view; reuses gold\_hirose\_2008\_table1 in its original reported coordinates.
-- **Kind:** simultaneous\_xrd\_compression
-- **Reference:**
-    - **Authors:** Hirose; Sata; Komabayashi; Ohishi
-    - **Year:** 2008
-    - **Title:** Simultaneous volume measurements of Au and MgO to 140 GPa and thermal equation of state of Au based on the MgO pressure scale
-    - **Source:** Physics of the Earth and Planetary Interiors
-    - **Volume:** 167
-    - **Locator:** 149-154
-    - **DOI:** 10.1016/j.pepi.2008.03.002
-- **Source location:** Table 1, page 150
-- **Associated EOS records:** gold\_sakai\_2025\_rydberg\_stacey\_1
-- **Uncertainty:**
-    - **Notes:** Parenthetical errors are retained; their confidence convention is unspecified. Run 3 lattice errors are absent. Run 3 pressure errors include temperature only; the authors estimate an additional MgO volume contribution up to 0.5 GPa. Temperature spatial variation was below ±10%; this is not a row-wise standard deviation.
-- **Notes:** Reuses the existing CSV and all source rows. This is not a new measurement series, pressure recalibration, or reproduction of the Sakai fitting workflow. The observation view specifies the displayed coordinates separately from the target EOS pressure scale.
-
-[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/gold-hirose-2008-table1.csv)
-— SHA-256 `f1586c78f200d06bdfa35ce7d4c00da270706d44202f142b1b5ca56f832102b9`.

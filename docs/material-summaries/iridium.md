@@ -119,9 +119,10 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| alpha0 | 1.87e-05 | 8e-07 | 1.7740295689829463e-05 | 3.2880224447968415e-07 | Free |
+| alpha0 | 187e-7 | 8e-7 | 177e-7 | 3e-7 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** conditional\_holland\_powell\_thermal\_pressure
 - **Objective:** unweighted\_pressure\_residuals
@@ -134,15 +135,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** alpha0
 - **Fixed parameters:** Tr; theta; n
 - **Observations:** 122
-- **Observed pressure range gpa:** \[22.7, 91.5\]
-- **Observed temperature range k:** \[300.0, 5560.5\]
-- **Observed volume range:** \[47.911251968, 54.958685608\]
+- **Observed pressure range gpa:** 22.7; 91.5
+- **Observed temperature range k:** 300; 5560.5
+- **Observed volume range:** 47.9113; 54.9587
 - **Degrees of freedom:** 121
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 3.0325674077570715
-- **Published rmse gpa:** 3.1375096434286185
-- **Reduced chi square:** 9.272468926248218
+- **Rmse gpa:** 3.03257
+- **Published rmse gpa:** 3.13751
+- **Reduced chi square:** 9.27247
 - **Dataset identifiers:** iridium\_anzellini\_2025\_tables\_s1\_s3\_pvt
 
 </details>

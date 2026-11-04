@@ -48,32 +48,49 @@ Record: `klb1_ca_perovskite_ricolleau_2009_bm2_alphakt` · Model: `BM2`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for klb1_ca_perovskite_ricolleau_2009_bm2_alphakt](figures/klb1_ca_perovskite_ricolleau_2009_bm2_alphakt-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for klb1_ca_perovskite_ricolleau_2009_bm2_alphakt](figures/klb1_ca_perovskite_ricolleau_2009_bm2_alphakt-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 1.73 |
+| Reconstruction / refit | 1.71 |
+
+Both fits use the same 153 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** audit volume in record units. **Row selection:** all 153 Table S1 P-V-T rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for klb1_ca_perovskite_ricolleau_2009_bm2_alphakt](figures/klb1_ca_perovskite_ricolleau_2009_bm2_alphakt.svg)
+![Source/target and reconstructed central values for klb1_ca_perovskite_ricolleau_2009_bm2_alphakt](figures/klb1_ca_perovskite_ricolleau_2009_bm2_alphakt.svg#only-light)
+![Source/target and reconstructed central values for klb1_ca_perovskite_ricolleau_2009_bm2_alphakt](figures/klb1_ca_perovskite_ricolleau_2009_bm2_alphakt-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 244.0 | 1.0 | 243.60592042293598 | 1.08505548207279 | Free |
-| alpha0 | 3.06e-05 | 1.9e-06 | 3.4593130393900144e-05 | 1.7572725346249276e-06 | Free |
-| alpha1 | 8.7e-09 | 1.8e-09 | 5.614233130559202e-09 | 1.5534353650788749e-09 | Free |
-| dK\_dT | -0.035 | 0.002 | -0.03512956471040057 | 0.0013942250325929032 | Free |
+| K0 | 244.0 | 1.0 | 243.6 | 1.1 | Free |
+| alpha0 | 30.6e-6 | 1.9e-6 | 34.6e-6 | 1.8e-6 | Free |
+| alpha1 | 8.7e-9 | 1.8e-9 | 5.6e-9 | 1.6e-9 | Free |
+| dK\_dT | -0.0350 | 0.0020 | -0.0351 | 0.0014 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
-- **Observed pressure range gpa:** \[27.56, 113.0\]
+- **Observed pressure range gpa:** 27.56; 113
 - **Solver success:** True
 - **Solver message:** dedicated Ricolleau et al. (2009) audit completed
-- **Rmse gpa:** 1.7103504794769988
+- **Rmse gpa:** 1.71035
 
 </details>
 
@@ -83,7 +100,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `klb1_ca_perovskite_ricolleau_2009_bm2_alphakt`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/klb1_ca_perovskite.eosmat).

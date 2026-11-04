@@ -39,8 +39,8 @@ Tungsten pressure calibrant; the static-DAC Dewaele et al. (2004) Vinet fit is t
 | [Shen and Smith (2026), Cu-referenced Vinet](#record-tungsten_shen_2026_vinet_3) | Vinet | 300.0 | primary source validated | Executable |
 | [Sokolova et al. (2013), Holzapfel thermal model (2016 workbook)](#record-tungsten_sokolova_2013_holzapfel_4) | Holzapfel + Sokolova2016 | 298.15 | primary source validated | Executable |
 | [Dewaele (2019), W MAO-scale Vinet](#record-tungsten_dewaele_2019_mao_vinet) | Vinet | 300.0 | primary source validated | Executable |
-| [Dewaele (2019), W DOR-scale Vinet](#record-tungsten_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Executable |
-| [Dewaele et al. (2004), W mao ruby Vinet](#record-tungsten_dewaele_2004_mao_ruby_vinet) | Vinet | 298.0 | primary source validated | Executable |
+| [Dewaele (2019), W DOR-scale Vinet](#record-tungsten_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Pressure-scale reference variant |
+| [Dewaele et al. (2004), W mao ruby Vinet](#record-tungsten_dewaele_2004_mao_ruby_vinet) | Vinet | 298.0 | primary source validated | Pressure-scale reference variant |
 
 ### Reference coefficients
 
@@ -256,10 +256,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 295.2 | 3.9 | 295.6708882674571 | 3.104761269038508 | Free |
-| K0\_prime | 4.32 | 0.11 | 4.305452805931812 | 0.09306902574189016 | Free |
+| K0 | 295 | 4 | 296 | 3 | Free |
+| K0\_prime | 4.32 | 0.11 | 4.31 | 0.09 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -272,15 +273,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 42
-- **Observed pressure range gpa:** \[0.0, 153.0\]
+- **Observed pressure range gpa:** 0; 153
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[23.872, 31.704\]
+- **Observed volume range:** 23.872; 31.704
 - **Degrees of freedom:** 40
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.5088342729511246
-- **Published rmse gpa:** 0.6419979768671387
-- **Reduced chi square:** 0.34129209851304815
+- **Rmse gpa:** 0.508834
+- **Published rmse gpa:** 0.641998
+- **Reduced chi square:** 0.341292
 - **Dataset identifiers:** tungsten\_dewaele\_2004\_table1\_compression
 
 </details>
@@ -408,10 +409,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 307.0 | 0.8 | 304.9214484327302 | 1.2622063670984367 | Free |
-| K0\_prime | 4.02 | 0.03 | 4.114318638143665 | 0.04138556465536932 | Free |
+| K0 | 307.0 | 0.8 | 304.9 | 1.3 | Free |
+| K0\_prime | 4.02 | 0.03 | 4.11 | 0.04 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** fixed\_v0\_vinet\_with\_reconstructed\_cu\_pressure
 - **Objective:** unweighted\_pressure\_residuals
@@ -424,14 +426,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 335
-- **Observed pressure range gpa:** \[20.358253289699487, 136.62217040703038\]
+- **Observed pressure range gpa:** 20.3583; 136.622
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[24.35774, 29.93479\]
+- **Observed volume range:** 24.3577; 29.9348
 - **Degrees of freedom:** 333
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 1.1558877160431738
-- **Reduced chi square:** 1.3441008950550573
+- **Rmse gpa:** 1.15589
+- **Published rmse gpa:** 1.18068
+- **Reduced chi square:** 1.3441
 - **Pressure reconstruction:**
     - **Density0 g cm3:** 8.939
     - **DOI:** 10.1103/PhysRevLett.124.015701
@@ -444,7 +447,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
         - **Psi:** 1.65
     - **Reference:** Fratanduono et al. (2020)
     - **Reference eos record:** copper\_fratanduono\_2020\_vinet3\_298k
-    - **Reference unit cell volume a3:** 47.218085048721
+    - **Reference unit cell volume a3:** 47.2181
     - **Source locations:** main article Table I, 298 K isotherm row; Supplemental Material Eq. (2), Section S4
 - **Dataset identifiers:** shen\_smith\_2026\_table\_s1\_simultaneous\_volumes
 
@@ -585,16 +588,16 @@ Original audit code: `source_reconstruction`.
 - **Objective:** minimize the sum over markers of the mean squared residual between Equation (20) and the pointwise mean of the Table 2 Holzapfel and Table 3 Vinet pressures, so each of the eleven markers has equal total weight
 - **Fixed parameters:** n; Z; n
 - **Observations:** 42
-- **Rmse gpa:** 0.8629577273808435
-- **Published rmse gpa:** 0.9017181923505817
+- **Rmse gpa:** 0.862958
+- **Published rmse gpa:** 0.901718
 - **Comparison scope:** shared\_ruby\_calibration
 - **Dataset identifiers:** tungsten\_dewaele\_2004\_table1\_compression
 - **Published ruby parameters:**
-    - **A gpa:** 1870.0
-    - **M:** 6.0
+    - **A gpa:** 1870
+    - **M:** 6
 - **Sensitivity fit ruby parameters:**
-    - **A gpa:** 1869.3837840502665
-    - **M:** 6.10334763359135
+    - **A gpa:** 1869.38
+    - **M:** 6.10335
 
 </details>
 
@@ -707,18 +710,18 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Open reconstruction report](../reconstruction-reports/tungsten.md#record-tungsten_dewaele_2019_mao_vinet)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
-- Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -732,22 +735,52 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 31.724 | 0.032 | 31.72380788852021 | Not specified | Free |
-| K0 | 298.3 | 4.1 | 298.2828928549196 | Not specified | Free |
-| K0\_prime | 3.82 | 0.11 | 3.8151712079835667 | Not specified | Free |
+| V0 | 31.72 | 0.03 | 31.724 | 0.024 | Free |
+| K0 | 298 | 4 | 298 | 4 | Free |
+| K0\_prime | 3.82 | 0.11 | 3.82 | 0.08 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** static\_vinet\_with\_explicit\_ruby\_scale\_conversion
 - **Objective:** unweighted pressure residuals
 - **Selection:** complete
+- **Weighting:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.
+- **Absolute sigma:** False
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 - **Observations:** 42
-- **Observed pressure range gpa:** \[0.0, 144.3\]
+- **Observed pressure range gpa:** 0; 144.3
+- **Degrees of freedom:** 39
 - **Solver success:** True
 - **Solver message:** dedicated Dewaele (2019) refit completed
-- **Rmse gpa:** 0.5773964095092282
+- **Rmse gpa:** 0.577396
+- **Parameter covariance:** \[\["0.000571462", "-0.0842657", "0.00147495"\], \["-0.0842657", "15.6068", "-0.308724"\], \["0.00147495", "-0.308724", "0.00654713"\]\]
+- **Covariance:**
+    - **Parameters:** V0; K0; K0\_prime
+    - **Matrix:** \[\["0.000571462", "-0.0842657", "0.00147495"\], \["-0.0842657", "15.6068", "-0.308724"\], \["0.00147495", "-0.308724", "0.00654713"\]\]
+    - **Standard errors:**
+        - **V0:** 0.0239053
+        - **K0:** 3.95055
+        - **K0 prime:** 0.0809143
+    - **Correlation matrix:** \[\["1", "-0.892278", "0.76253"\], \["-0.892278", "1", "-0.9658"\], \["0.76253", "-0.9658", "1"\]\]
+    - **Degrees of freedom:** 39
+    - **Local student t 95 intervals:**
+        - **V0:** 31.6755; 31.7722
+        - **K0:** 290.292; 306.274
+        - **K0 prime:** 3.65151; 3.97884
+    - **Residual variance:** 0.359032
+    - **Max abs residual jacobian cosine:** 1.54833e-08
+    - **Residual sum squares:** 14.0022
+    - **Residual count:** 42
+    - **Scaled jacobian condition number:** 139
+    - **Derivative step halving relative change:** 3.1071e-12
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Qualification:** Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.
+    - **Assumptions:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+- **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 - **Dataset identifiers:** tungsten\_dewaele\_2004\_table1\_compression
 
 </details>
@@ -821,7 +854,9 @@ Parameter covariance is not supplied.
 
 Identifier: `tungsten_dewaele_2019_dor_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [tungsten\_dewaele\_2019\_mao\_vinet](#record-tungsten_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -856,18 +891,18 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Open reconstruction report](../reconstruction-reports/tungsten.md#record-tungsten_dewaele_2019_dor_vinet)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
-- Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -881,22 +916,52 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 31.716 | 0.032 | 31.715451429377534 | Not specified | Free |
-| K0 | 298.6 | 4.1 | 298.5707930715493 | Not specified | Free |
-| K0\_prime | 4.37 | 0.11 | 4.367303906905507 | Not specified | Free |
+| V0 | 31.72 | 0.03 | 31.715 | 0.024 | Free |
+| K0 | 299 | 4 | 299 | 4 | Free |
+| K0\_prime | 4.37 | 0.11 | 4.37 | 0.08 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** static\_vinet\_with\_explicit\_ruby\_scale\_conversion
 - **Objective:** unweighted pressure residuals
 - **Selection:** complete
+- **Weighting:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.
+- **Absolute sigma:** False
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 - **Observations:** 42
-- **Observed pressure range gpa:** \[0.0, 155.2907483824007\]
+- **Observed pressure range gpa:** 0; 155.291
+- **Degrees of freedom:** 39
 - **Solver success:** True
 - **Solver message:** dedicated Dewaele (2019) refit completed
-- **Rmse gpa:** 0.5794876562451563
+- **Rmse gpa:** 0.579488
+- **Parameter covariance:** \[\["0.000555783", "-0.0826523", "0.00141331"\], \["-0.0826523", "15.2687", "-0.295248"\], \["0.00141331", "-0.295248", "0.00613429"\]\]
+- **Covariance:**
+    - **Parameters:** V0; K0; K0\_prime
+    - **Matrix:** \[\["0.000555783", "-0.0826523", "0.00141331"\], \["-0.0826523", "15.2687", "-0.295248"\], \["0.00141331", "-0.295248", "0.00613429"\]\]
+    - **Standard errors:**
+        - **V0:** 0.023575
+        - **K0:** 3.90752
+        - **K0 prime:** 0.0783217
+    - **Correlation matrix:** \[\["1", "-0.897225", "0.765427"\], \["-0.897225", "1", "-0.964724"\], \["0.765427", "-0.964724", "1"\]\]
+    - **Degrees of freedom:** 39
+    - **Local student t 95 intervals:**
+        - **V0:** 31.6678; 31.7631
+        - **K0:** 290.667; 306.474
+        - **K0 prime:** 4.20888; 4.52572
+    - **Residual variance:** 0.361637
+    - **Max abs residual jacobian cosine:** 6.51855e-09
+    - **Residual sum squares:** 14.1038
+    - **Residual count:** 42
+    - **Scaled jacobian condition number:** 133.535
+    - **Derivative step halving relative change:** 2.84023e-12
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Qualification:** Complete source rows for this material are bundled and the dedicated two-ruby-scale refit recovers every coefficient within the published 95% interval. The common ledger classifies the result as similar, not strict parity, because the dedicated audit does not infer a refit covariance from rounded source rows.
+    - **Assumptions:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+- **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 - **Dataset identifiers:** tungsten\_dewaele\_2004\_table1\_compression
 
 </details>
@@ -970,7 +1035,9 @@ Parameter covariance is not supplied.
 
 Identifier: `tungsten_dewaele_2004_mao_ruby_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [tungsten\_dewaele\_2004\_vinet\_2](#record-tungsten_dewaele_2004_vinet_2); it is not an independent EOS choice.
 
 
 - **Record kind:** published
@@ -1029,10 +1096,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 298.3 | 3.6 | 298.6920450821574 | 3.1874732947699425 | Free |
-| K0\_prime | 3.81 | 0.1 | 3.801931970782946 | 0.09472714981508523 | Free |
+| K0 | 298 | 4 | 299 | 3 | Free |
+| K0\_prime | 3.81 | 0.10 | 3.80 | 0.09 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -1045,15 +1113,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 42
-- **Observed pressure range gpa:** \[0.0, 144.3\]
+- **Observed pressure range gpa:** 0; 144.3
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[23.872, 31.704\]
+- **Observed volume range:** 23.872; 31.704
 - **Degrees of freedom:** 40
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.4761818012430946
-- **Published rmse gpa:** 0.5785375974644915
-- **Reduced chi square:** 0.28770095909695365
+- **Rmse gpa:** 0.476182
+- **Published rmse gpa:** 0.578538
+- **Reduced chi square:** 0.287701
 - **Dataset identifiers:** tungsten\_dewaele\_2004\_table1\_compression
 
 </details>

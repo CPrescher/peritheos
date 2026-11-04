@@ -114,10 +114,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 83.0 | 0.5 | 82.92493146639345 | 0.46638660935677917 | Free |
-| K0\_prime | 3.91 | 0.02 | 3.9084480937961903 | 0.022738304211143447 | Free |
+| K0 | 83.0 | 0.5 | 82.9 | 0.5 | Free |
+| K0\_prime | 3.910 | 0.020 | 3.908 | 0.023 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -130,15 +131,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 71
-- **Observed pressure range gpa:** \[35.3, 240.4\]
+- **Observed pressure range gpa:** 35.3; 240.4
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[21.36, 35.146\]
+- **Observed volume range:** 21.36; 35.146
 - **Degrees of freedom:** 69
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.44882464074024575
-- **Published rmse gpa:** 1.099617811853243
-- **Reduced chi square:** 1.1280206508675192
+- **Rmse gpa:** 0.448825
+- **Published rmse gpa:** 1.09962
+- **Reduced chi square:** 1.12802
 - **Dataset identifiers:** zirconium\_beta\_mchardy\_2026\_table\_s8\_compression
 
 </details>

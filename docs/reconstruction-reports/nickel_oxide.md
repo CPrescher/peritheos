@@ -48,32 +48,49 @@ Record: `nickel_oxide_noguchi_1999_bm3_1` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for nickel_oxide_noguchi_1999_bm3_1](figures/nickel_oxide_noguchi_1999_bm3_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for nickel_oxide_noguchi_1999_bm3_1](figures/nickel_oxide_noguchi_1999_bm3_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 2.22 |
+| Reconstruction / refit | 2.08 |
+
+Both fits use the same 8 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** audit volume in record units. **Row selection:** all eight Table 1 final Hugoniot states; HEL precursor columns excluded; each pressure thermally reduced to 300 K before BM3 fitting.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for nickel_oxide_noguchi_1999_bm3_1](figures/nickel_oxide_noguchi_1999_bm3_1.svg)
+![Source/target and reconstructed central values for nickel_oxide_noguchi_1999_bm3_1](figures/nickel_oxide_noguchi_1999_bm3_1.svg#only-light)
+![Source/target and reconstructed central values for nickel_oxide_noguchi_1999_bm3_1](figures/nickel_oxide_noguchi_1999_bm3_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 191.0 | Not specified | 182.43511253506455 | 11.494590806763085 | Free |
-| K0\_prime | 3.9 | Not specified | 4.124651942331509 | 0.35671288331062556 | Free |
+| K0 | 191 | Not reported | 182 | 11 | Free |
+| K0\_prime | 3.9 | Not reported | 4.1 | 0.4 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
-- **Observed pressure range gpa:** \[17.7, 147.6\]
+- **Observed pressure range gpa:** 17.7; 147.6
 - **Degrees of freedom:** 6
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 2.084318952516954
-- **Reduced chi square:** 5.792513994428496
+- **Rmse gpa:** 2.08432
+- **Reduced chi square:** 5.79251
 
 </details>
 
@@ -83,7 +100,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `nickel_oxide_noguchi_1999_bm3_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/nickel_oxide.eosmat).
@@ -122,21 +139,36 @@ Record: `nickel_oxide_noguchi_1999_linear_hugoniot_2` · Model: `LinearUsUpHugon
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Source and refit curves with native-coordinate residuals for nickel_oxide_noguchi_1999_linear_hugoniot_2](figures/nickel_oxide_noguchi_1999_linear_hugoniot_2-curves.svg#only-light)
+![Source and refit curves with native-coordinate residuals for nickel_oxide_noguchi_1999_linear_hugoniot_2](figures/nickel_oxide_noguchi_1999_linear_hugoniot_2-curves-dark.svg#only-dark)
+
+| Output / replay scope | Points | Residual units | Source RMS | Refit RMS |
+| --- | ---: | --- | ---: | ---: |
+| Shock-velocity fit | 8 | km/s | 0.0556 | 0.0556 |
+
+The fitted quantity is shock velocity, not isothermal pressure. Residual = Us(model) − Us(input). All selected final shock states are retained; HEL precursor columns are excluded. RMS is at observed particle velocities and can differ from an errors-in-variables latent-coordinate statistic. No P–V branch extrapolation is used.
+
+
+Each panel uses the stored source and reconstructed coefficients on the same selected inputs. RMS errors are unweighted descriptive errors in the panel's native units, separate from parameter uncertainties and the weighted fitting objective. Error bars retain the available source widths; missing uncertainty is not zero. No new optimization or uncertainty band is introduced.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for nickel_oxide_noguchi_1999_linear_hugoniot_2](figures/nickel_oxide_noguchi_1999_linear_hugoniot_2.svg)
+![Source/target and reconstructed central values for nickel_oxide_noguchi_1999_linear_hugoniot_2](figures/nickel_oxide_noguchi_1999_linear_hugoniot_2.svg#only-light)
+![Source/target and reconstructed central values for nickel_oxide_noguchi_1999_linear_hugoniot_2](figures/nickel_oxide_noguchi_1999_linear_hugoniot_2-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| c0 | 5.3549770536 | 0.0531157378 | 5.354977053622233 | 0.05311573780318259 | Free |
-| s | 1.2137281492 | 0.02956091343 | 1.2137281492244212 | 0.029560913431890334 | Free |
+| c0 | 5.35 | 0.05 | 5.35 | 0.05 | Free |
+| s | 1.214 | 0.030 | 1.214 | 0.030 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -148,8 +180,8 @@ Values and reported errors are copied without rounding or conversion from the na
 - **Degrees of freedom:** 6
 - **Solver success:** True
 - **Solver message:** \`gtol\` termination condition is satisfied.
-- **Rmse shock velocity km s:** 0.05563671460959945
-- **Reduced chi square:** 0.004127258683400022
+- **Rmse shock velocity km s:** 0.0556367
+- **Reduced chi square:** 0.00412726
 
 </details>
 
@@ -158,7 +190,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `nickel_oxide_noguchi_1999_linear_hugoniot_2`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/nickel_oxide.eosmat).

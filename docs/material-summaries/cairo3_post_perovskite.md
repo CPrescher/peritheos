@@ -129,11 +129,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 226.38 | 0.01 | 226.3777213365444 | 0.011925866007670649 | Free |
-| K0 | 181.0 | 3.0 | 180.75626081227668 | 2.53109820437119 | Free |
-| K0\_prime | 2.3 | 0.8 | 2.4397863633345556 | 0.7654095311885648 | Free |
+| V0 | 226.380 | 0.010 | 226.378 | 0.012 | Free |
+| K0 | 181 | 3 | 180.8 | 2.5 | Free |
+| K0\_prime | 2.3 | 0.8 | 2.4 | 0.8 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -146,15 +147,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 - **Observations:** 11
-- **Observed pressure range gpa:** \[0.0001, 7.79\]
+- **Observed pressure range gpa:** 0.0001; 7.79
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[217.28, 226.376\]
+- **Observed volume range:** 217.28; 226.376
 - **Degrees of freedom:** 8
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.025386928350339906
-- **Published rmse gpa:** 0.02632624666901072
-- **Reduced chi square:** 0.36581007156364914
+- **Rmse gpa:** 0.0253869
+- **Published rmse gpa:** 0.0263262
+- **Reduced chi square:** 0.36581
 - **Dataset identifiers:** cairo3\_post\_perovskite\_boffa\_ballaran\_2007\_table1\_compression
 
 </details>
@@ -321,10 +322,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 226.632 | 0.045 | 226.5992891892828 | 0.01409121111570518 | Free |
-| K0 | 180.2 | 2.8 | 184.03826735513832 | 0.9860554458340353 | Free |
+| V0 | 226.63 | 0.05 | 226.599 | 0.014 | Free |
+| K0 | 180.2 | 2.8 | 184.0 | 1.0 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -337,15 +339,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0
 - **Fixed parameters:** K0\_prime
 - **Observations:** 15
-- **Observed pressure range gpa:** \[0.3, 29.0\]
+- **Observed pressure range gpa:** 0.3; 29
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[200.92, 226.203\]
+- **Observed volume range:** 200.92; 226.203
 - **Degrees of freedom:** 13
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.5599392099935964
-- **Published rmse gpa:** 0.5757951488404711
-- **Reduced chi square:** 3.6409063559035366
+- **Rmse gpa:** 0.559939
+- **Published rmse gpa:** 0.575795
+- **Reduced chi square:** 3.64091
 - **Dataset identifiers:** cairo3\_martin\_2007\_table1a\_compression
 
 </details>

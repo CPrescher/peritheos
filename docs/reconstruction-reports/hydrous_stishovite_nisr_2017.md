@@ -50,30 +50,47 @@ Record: `hydrous_stishovite_nisr_2017_bm3` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for hydrous_stishovite_nisr_2017_bm3](figures/hydrous_stishovite_nisr_2017_bm3-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for hydrous_stishovite_nisr_2017_bm3](figures/hydrous_stishovite_nisr_2017_bm3-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.853 |
+| Reconstruction / refit | 0.853 |
+
+Both fits use the same 7 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** audit volume in record units. **Row selection:** All Table S2 rows, including its ambient row when present; Table S3 coexistence rows excluded..
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for hydrous_stishovite_nisr_2017_bm3](figures/hydrous_stishovite_nisr_2017_bm3.svg)
+![Source/target and reconstructed central values for hydrous_stishovite_nisr_2017_bm3](figures/hydrous_stishovite_nisr_2017_bm3.svg#only-light)
+![Source/target and reconstructed central values for hydrous_stishovite_nisr_2017_bm3](figures/hydrous_stishovite_nisr_2017_bm3-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 257.0 | 9.0 | 256.91672674984903 | 8.220730001966343 | Free |
+| K0 | 257 | 9 | 257 | 8 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
-- **Observed pressure range gpa:** \[0.0, 22.747\]
+- **Observed pressure range gpa:** 0; 22.747
 - **Degrees of freedom:** 6
 - **Solver success:** True
-- **Rmse gpa:** 0.8534500073171926
-- **Published rmse gpa:** 0.8534573050120292
+- **Rmse gpa:** 0.85345
+- **Published rmse gpa:** 0.853457
 
 </details>
 
@@ -83,7 +100,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `hydrous_stishovite_nisr_2017_bm3`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/hydrous_stishovite_nisr_2017.eosmat).

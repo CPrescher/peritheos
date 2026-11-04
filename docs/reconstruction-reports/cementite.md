@@ -12,8 +12,10 @@ agreement, source verification, author-workflow reproduction and recommendation 
 
 | EOS record | Recorded outcome | Coefficient comparison |
 | --- | --- | --- |
-| [Scott et al. (2001), cementite BM3](#record-cementite_scott_2001_bm3_1) | Coefficient parity achieved | Graph and table |
+| [Scott et al. (2001), cementite BM3](#record-cementite_scott_2001_bm3_1) | Numerically similar, with qualifications | Graph and table |
+| [Prescher et al. (2012), full-range BM3 (adopted V0)](#record-cementite_prescher_2012_full_range_bm3) | Coefficient parity achieved | Graph and table |
 | [Li et al. (2002), 300 K BM3](#record-cementite_li_2002_bm3) | Coefficient parity achieved | Graph and table |
+| [Ono and Mibe (2010), original experimental 300 K BM3, below 35 GPa](#record-cementite_ono_mibe_2010_bm3) | Source calculation reconstructed | No numeric coefficient pair recorded |
 
 <a id="record-cementite_scott_2001_bm3_1"></a>
 
@@ -21,10 +23,10 @@ agreement, source verification, author-workflow reproduction and recommendation 
 
 Record: `cementite_scott_2001_bm3_1` · Model: `BM3`
 
-**Outcome: Coefficient parity achieved.**
+**Outcome: Numerically similar, with qualifications.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
+**Comparison basis:** Qualified similarity of a digitized, equal-weight reconstruction. Both free central coefficients lie outside their printed source error widths; the broad combined-error screen does not establish coefficient parity.
 
 [Stored EOS coefficients and source](../material-summaries/cementite.md#record-cementite_scott_2001_bm3_1)
 
@@ -33,6 +35,7 @@ Record: `cementite_scott_2001_bm3_1` · Model: `BM3`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
+- Scott et al. (2001), page 1876 and Figure 3, report weighted least squares on observations from two runs. Only 21 digitized filled-symbol observations are available here; the open temperature-quenched point is excluded. Incomplete digitized coordinate error bars cause the generic row reader to omit both sigma arrays, so this reconstruction uses equal pressure weights. Its retained errors use residual-scaled covariance because no observation sigmas are supplied, even though the generic ledger records absolute\_sigma=True. They are not recovered source weights or a source confidence interval. The original row array, run identities, weights, covariance and precise objective remain unavailable. The source coefficients and digitization are preserved; this finding does not show that the published EOS is incorrect.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
@@ -42,27 +45,45 @@ Record: `cementite_scott_2001_bm3_1` · Model: `BM3`
 - **Fit kind:** isothermal\_pv
 - **Selection:** all rows
 - **Objective:** pressure\_residuals
+- **Weighting:** Equal pressure weights; incomplete plotted errors are not used as fit sigmas. Refit covariance is scaled by residual variance.
 - **Absolute sigma:** True
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for cementite_scott_2001_bm3_1](figures/cementite_scott_2001_bm3_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for cementite_scott_2001_bm3_1](figures/cementite_scott_2001_bm3_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 1.66 |
+| Reconstruction / refit | 1.55 |
+
+Both fits use the same 21 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** volume\_ratio. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for cementite_scott_2001_bm3_1](figures/cementite_scott_2001_bm3_1.svg)
+![Source/target and reconstructed central values for cementite_scott_2001_bm3_1](figures/cementite_scott_2001_bm3_1.svg#only-light)
+![Source/target and reconstructed central values for cementite_scott_2001_bm3_1](figures/cementite_scott_2001_bm3_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 175.4 | 3.5 | 161.34142422435633 | 8.597975012312647 | Free |
-| K0\_prime | 5.1 | 0.3 | 6.044124284317963 | 0.6355732779493145 | Free |
+| K0 | 175 | 4 | 161 | 9 | Free |
+| K0\_prime | 5.1 | 0.3 | 6.0 | 0.6 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -72,26 +93,138 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** Not specified
     - **Volume:** volume\_ratio
-- **Observed pressure range gpa:** \[0.0, 72.7536\]
+- **Observed pressure range gpa:** 0; 72.7536
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[123.42564485999999, 155.26\]
+- **Observed volume range:** 123.426; 155.26
 - **Degrees of freedom:** 19
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 1.5518138830669295
-- **Published rmse gpa:** 1.6574243208273791
-- **Reduced chi square:** 2.6616133095402374
+- **Rmse gpa:** 1.55181
+- **Published rmse gpa:** 1.65742
+- **Reduced chi square:** 2.66161
+- **Covariance convention:** Residual-scaled inverse normal matrix; no measured sigma arrays supplied. The fitting API scales covariance in that case regardless of absolute\_sigma.
+- **Reproduction report:** docs/literature-reproductions/cementite.md
 
 </details>
 
 ### Detailed evidence and existing plots
 
+- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-cementite_scott_2001_bm3_1).
+- [Supporting source report: cementite](../literature-reproductions/cementite.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `cementite_scott_2001_bm3_1`.
+[Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/cementite.eosmat).
+
+
+<a id="record-cementite_prescher_2012_full_range_bm3"></a>
+
+## Prescher et al. (2012), full-range BM3 (adopted V0)
+
+Record: `cementite_prescher_2012_full_range_bm3` · Model: `BM3`
+
+**Outcome: Coefficient parity achieved.**
+
+**Scope:** Comparison with the source parameterization.
+**Comparison basis:** Conditional agreement of K0, K0\_prime and both error values at published printed precision with curve-derived V0 held fixed. Errors are residual-based and conditional on exact V0; the source confidence convention and original author workflow remain unconfirmed.
+
+[Stored EOS coefficients and source](../material-summaries/cementite.md#record-cementite_prescher_2012_full_range_bm3)
+
+### What this result establishes
+
+**Separate source-review status:** primary\_source\_validated.
+**Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
+
+- Conditional numerical parity reproduces K0, K0\_prime and both error values at published printed precision, with V0 held fixed. V0=154.5678863704812 A^3 per conventional Fe3C cell (Z=4) is adopted from the Figure 1 full-range calculated curve; it is not a printed or author-confirmed reference volume. Published K coefficients and errors are preserved. The source confidence convention, original fit inputs, weighting and fixed/free V0 choice remain unconfirmed. Matching conditional residual-based errors does not establish the original experimental uncertainty calculation, author-workflow reproduction or a physical-validation/recommendation claim. The reconstruction uses all 22 digitized Figure 1 markers, including the ambient marker, with equal pressure weights and adopted V0 fixed. K0 and K0\_prime are free. Covariance is inverse(J^T J) times SSE/(22-2); its errors condition on exact V0 and omit V0 uncertainty. The result is K0=160.757426 +/-2.353365 GPa and K0\_prime=5.942125 +/-0.219843, which round to 161+/-2 and 5.9+/-0.2. Digitization/calibration errors are correlated and original experimental errors are unknown. The 19 final Table S1 rows remain a separate complete numeric dataset; three graph markers are absent from it. Published low/high split fits are retained only in the research audit, not offered as public EOS records.
+- Conditional numerical parity reproduces K0, K0\_prime and both error values at published printed precision, with V0 held fixed. V0=154.5678863704812 A^3 per conventional Fe3C cell (Z=4) is adopted from the Figure 1 full-range calculated curve; it is not a printed or author-confirmed reference volume. Published K coefficients and errors are preserved. The source confidence convention, original fit inputs, weighting and fixed/free V0 choice remain unconfirmed. Matching conditional residual-based errors does not establish the original experimental uncertainty calculation, author-workflow reproduction or a physical-validation/recommendation claim.
+- The reconstruction uses all 22 digitized Figure 1 markers, including the ambient marker, with equal pressure weights and adopted V0 fixed. K0 and K0\_prime are free. Covariance is inverse(J^T J) times SSE/(22-2); its errors condition on exact V0 and omit V0 uncertainty. The result is K0=160.757426 +/-2.353365 GPa and K0\_prime=5.942125 +/-0.219843, which round to 161+/-2 and 5.9+/-0.2. Digitization/calibration errors are correlated and original experimental errors are unknown. The 19 final Table S1 rows remain a separate complete numeric dataset; three graph markers are absent from it. Published low/high split fits are retained only in the research audit, not offered as public EOS records.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+
+### Data and reconstruction method
+
+- **Dataset identifiers:** cementite\_prescher\_2012\_figure1\_digitized
+- **Observations:** 22
+- **Fit kind:** isothermal\_pv
+- **Selection:** All 22 Figure 1 digitized markers, including ambient
+- **Objective:** pressure\_residuals
+- **Weighting:** Equal pressure weights; no experimental sigmas recovered
+- **Absolute sigma:** False
+- **Free parameters:** K0; K0\_prime
+- **Fixed parameters:** V0
+- **Fixed values:**
+    - **V0:** 154.568
+
+Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
+
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for cementite_prescher_2012_full_range_bm3](figures/cementite_prescher_2012_full_range_bm3-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for cementite_prescher_2012_full_range_bm3](figures/cementite_prescher_2012_full_range_bm3-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.338 |
+| Reconstruction / refit | 0.336 |
+
+Both fits use the same 22 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** audit volume in record units. **Row selection:** All 22 Figure 1 digitized markers, including ambient.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
+### Source versus reconstruction
+
+![Source/target and reconstructed central values for cementite_prescher_2012_full_range_bm3](figures/cementite_prescher_2012_full_range_bm3.svg#only-light)
+![Source/target and reconstructed central values for cementite_prescher_2012_full_range_bm3](figures/cementite_prescher_2012_full_range_bm3-dark.svg#only-dark)
+
+This is a **coefficient comparison**, not an observation or residual plot.
+Each panel uses its coefficient's audit units and includes zero. Markers show
+stored central values and available recorded error widths (also in the table below);
+no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
+
+| Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
+| --- | --- | --- | --- | --- | --- |
+| V0 | 154.568 | Not reported | 154.568 | Not reported | Fixed/adopted |
+| K0 | 161 | 2 | 161 | 2 | Free |
+| K0\_prime | 5.9 | 0.2 | 5.9 | 0.2 | Free |
+
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
+
+
+<details markdown="1">
+<summary>Recorded diagnostics, covariance and additional protocol</summary>
+
+- **Columns:**
+    - **Pressure:** pressure\_gpa
+    - **Temperature:** Not specified
+    - **Volume:** volume\_a3
+- **Observed pressure range gpa:** 0.00186216; 47.3486
+- **Observed temperature range k:** \[293, 293\]
+- **Observed volume range:** 129.513; 155.087
+- **Degrees of freedom:** 20
+- **Solver success:** True
+- **Rmse gpa:** 0.336247
+- **Published rmse gpa:** 0.338175
+- **Reduced chi square:** Not specified
+- **Parameter covariance:** \[\["5.53833", "-0.507562"\], \["-0.507562", "0.048331"\]\]
+- **Covariance convention:** Conditional residual-scaled one-sigma covariance: inverse(J^T J)\*SSE/(22-2), V0 exact. Not recovered experimental uncertainty or confidence convention.
+- **Comparison scope:** parameter\_agreement
+- **Reproduction report:** docs/literature-reproductions/prescher-2012-recovery.md
+
+</details>
+
+### Detailed evidence and existing plots
+
+- [Supporting source report: prescher-2012-recovery](../literature-reproductions/prescher-2012-recovery.md).
+- [Record-by-record numerical ledger](../primary-eos-refits.md#records).
+- [Source-audit reports](../source-audits.md).
+
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
+
+[Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `cementite_prescher_2012_full_range_bm3`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/cementite.eosmat).
 
 
@@ -132,21 +265,38 @@ Record: `cementite_li_2002_bm3` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for cementite_li_2002_bm3](figures/cementite_li_2002_bm3-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for cementite_li_2002_bm3](figures/cementite_li_2002_bm3-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.263 |
+| Reconstruction / refit | 0.257 |
+
+Both fits use the same 12 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** audit volume in record units. **Row selection:** Table 1 rows 3-14; reference-card row 1 excluded; measured ambient row 2 supplies fixed V0 only.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for cementite_li_2002_bm3](figures/cementite_li_2002_bm3.svg)
+![Source/target and reconstructed central values for cementite_li_2002_bm3](figures/cementite_li_2002_bm3.svg#only-light)
+![Source/target and reconstructed central values for cementite_li_2002_bm3](figures/cementite_li_2002_bm3-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 174.0 | 6.0 | 173.78786000842143 | 6.196330577290803 | Free |
-| K0\_prime | 4.8 | 0.8 | 4.849721552821546 | 0.7749329344923127 | Free |
+| K0 | 174 | 6 | 174 | 6 | Free |
+| K0\_prime | 4.8 | 0.8 | 4.8 | 0.8 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -154,18 +304,18 @@ Values and reported errors are copied without rounding or conversion from the na
 
 - **Columns:**
     - **Pressure:** pressure\_gpa
-    - **Volume:** volume\_a3
     - **Temperature:** Not specified
-- **Observed pressure range gpa:** \[2.5, 30.5\]
+    - **Volume:** volume\_a3
+- **Observed pressure range gpa:** 2.5; 30.5
 - **Observed temperature range k:** \[300, 300\]
-- **Observed volume range:** \[136.68, 153.04\]
+- **Observed volume range:** 136.68; 153.04
 - **Degrees of freedom:** 10
 - **Solver success:** True
-- **Rmse gpa:** 0.2574168421103657
-- **Published rmse gpa:** 0.2633934456555272
-- **Rmse volume a3:** 0.14124864978937224
+- **Rmse gpa:** 0.257417
+- **Published rmse gpa:** 0.263393
+- **Rmse volume a3:** 0.141249
 - **Reduced chi square:** Not specified
-- **Parameter covariance:** \[\[38.394512623068984, -4.4669606200047935\], \[-4.466960620004794, 0.600521052960867\]\]
+- **Parameter covariance:** \[\["38.3945", "-4.46696"\], \["-4.46696", "0.600521"\]\]
 - **Covariance convention:** Conditional unscaled inverse JtJ for the declared effective-variance residual; source confidence and shared covariance unknown, fixed-V0 uncertainty unpropagated
 - **Comparison scope:** parameter\_agreement
 - **Reproduction report:** docs/literature-reproductions/li-2002-fe3c.md
@@ -175,10 +325,85 @@ Values and reported errors are copied without rounding or conversion from the na
 ### Detailed evidence and existing plots
 
 - [Supporting source report: li-2002-fe3c](../literature-reproductions/li-2002-fe3c.md).
+- [Related illustrated report explicitly naming this EOS: cementite](../literature-reproductions/cementite.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `cementite_li_2002_bm3`.
+[Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/cementite.eosmat).
+
+
+<a id="record-cementite_ono_mibe_2010_bm3"></a>
+
+## Ono and Mibe (2010), original experimental 300 K BM3, below 35 GPa
+
+Record: `cementite_ono_mibe_2010_bm3` · Model: `BM3`
+
+**Outcome: Source calculation reconstructed.**
+
+**Scope:** Reconstruction of a source equation or calculation.
+**Comparison basis:** Source-equation parity against identified graphical checkpoints within declared reading and printed-coefficient bounds; no independent parameter refit or author-workflow reproduction.
+
+[Stored EOS coefficients and source](../material-summaries/cementite.md#record-cementite_ono_mibe_2010_bm3)
+
+### What this result establishes
+
+**Separate source-review status:** primary\_source\_validated.
+**Usage recommendation:** qualified\_use
+
+- Original experimental BM3 at 300 K, restricted to the below-35-GPa fit (last measured fit point 34.3 GPa). V0=155.4(2) A^3 is adopted from the measured Table 1 ambient cell and checked against Figure 4; the paper does not explicitly state its V0 fitting constraint. K0=167 GPa and K0\_prime=6.7 are the original Table 3 values, without reported coefficient errors. Source-equation agreement is checked at graphical resolution; the separate fixed-anchor equal-pressure refit is diagnostic, not coefficient parity or recovery of author weights. Original pressures and all 14 measurements are preserved. No Litasov recalibration, 0 K DFT branch, high-pressure magnetic transition model or thermal extrapolation is substituted. Use original experimental curve within 300 K and 0-34.3 GPa; ambient anchor adoption and unavailable author fit details remain explicit.
+- Use original experimental curve within 300 K and 0-34.3 GPa; ambient anchor adoption and unavailable author fit details remain explicit.
+- Usage recommendation: qualified\_use
+- Original V0 fitting constraint, objective, weights, coefficient errors and covariance are not reported.
+- NaCl readings needed for a fit-domain pressure recalculation are not supplied.
+- This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
+- No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred.
+
+### Data and reconstruction method
+
+- **Dataset identifiers:** cementite\_ono\_mibe\_2010\_table1
+- **Observations:** 5
+- **Fit kind:** source\_curve\_validation\_only
+- **Selection:** Original experimental fit &lt;35 GPa; adopted measured ambient V0; five nonambient rows through 34.3 GPa
+- **Fixed parameters:** None declared
+
+Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
+
+### Curves, residuals and fit error
+
+**Curve/residual comparison unavailable:** No reconstructed coefficient set is recorded; a source/refit residual comparison is unavailable..
+
+| Fit | Recorded pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.41 |
+| Reconstruction / refit | Not reported |
+
+These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+
+### Why no coefficient graph is shown
+
+No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
+
+
+<details markdown="1">
+<summary>Recorded diagnostics, covariance and additional protocol</summary>
+
+- **Published rmse gpa:** 0.410153
+- **Comparison scope:** source\_equation
+- **Reproduction report:** docs/literature-reproductions/ono-mibe-2010-fe3c.md
+
+</details>
+
+### Detailed evidence and existing plots
+
+- [Supporting source report: ono-mibe-2010-fe3c](../literature-reproductions/ono-mibe-2010-fe3c.md).
+- [Related illustrated report explicitly naming this EOS: cementite](../literature-reproductions/cementite.md).
+- [Record-by-record numerical ledger](../primary-eos-refits.md#records).
+- [Source-audit reports](../source-audits.md).
+
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
+
+[Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `cementite_ono_mibe_2010_bm3`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/cementite.eosmat).

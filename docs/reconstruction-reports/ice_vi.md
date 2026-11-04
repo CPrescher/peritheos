@@ -48,22 +48,39 @@ Record: `ice_vi_bezacier_2014_bm2_1` · Model: `BM2`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for ice_vi_bezacier_2014_bm2_1](figures/ice_vi_bezacier_2014_bm2_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for ice_vi_bezacier_2014_bm2_1](figures/ice_vi_bezacier_2014_bm2_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.0104 |
+| Reconstruction / refit | 0.0102 |
+
+Both fits use the same 30 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** unit\_cell\_volume\_a3. **Row selection:** source endpoint isotherms.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for ice_vi_bezacier_2014_bm2_1](figures/ice_vi_bezacier_2014_bm2_1.svg)
+![Source/target and reconstructed central values for ice_vi_bezacier_2014_bm2_1](figures/ice_vi_bezacier_2014_bm2_1.svg#only-light)
+![Source/target and reconstructed central values for ice_vi_bezacier_2014_bm2_1](figures/ice_vi_bezacier_2014_bm2_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.V0 | 235.2983858185 | 0.3321078134 | 235.3537684335085 | 0.3884730523499238 | Free |
-| rt\_eos.K0 | 14.05 | 0.23 | 14.015825053757764 | 0.272882340924503 | Free |
-| alpha0 | 0.000146 | 1.4e-05 | 0.00014815262758176244 | 1.833756244128889e-05 | Free |
+| rt\_eos.V0 | 235.3 | 0.3 | 235.4 | 0.4 | Free |
+| rt\_eos.K0 | 14.05 | 0.23 | 14.02 | 0.27 | Free |
+| alpha0 | 14.6e-5 | 1.4e-5 | 14.8e-5 | 1.8e-5 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -73,15 +90,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** temperature\_k
     - **Volume:** unit\_cell\_volume\_a3
-- **Observed pressure range gpa:** \[1.26, 2.81\]
-- **Observed temperature range k:** \[298.7, 340.7\]
-- **Observed volume range:** \[202.779, 217.944\]
+- **Observed pressure range gpa:** 1.26; 2.81
+- **Observed temperature range k:** 298.7; 340.7
+- **Observed volume range:** 202.779; 217.944
 - **Degrees of freedom:** 27
 - **Solver success:** True
 - **Solver message:** \`xtol\` termination condition is satisfied.
-- **Rmse gpa:** 0.010204620341662998
-- **Published rmse gpa:** 0.010440591210967413
-- **Reduced chi square:** 0.13962648236191608
+- **Rmse gpa:** 0.0102046
+- **Published rmse gpa:** 0.0104406
+- **Reduced chi square:** 0.139626
 
 </details>
 
@@ -90,7 +107,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `ice_vi_bezacier_2014_bm2_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/ice_vi.eosmat).

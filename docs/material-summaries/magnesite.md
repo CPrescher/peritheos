@@ -116,11 +116,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 279.41 | 0.08 | 279.37704869613833 | 1.4721499659779278 | Free |
-| K0 | 117.0 | 3.0 | 117.48414966843251 | 48.33234130237619 | Free |
-| K0\_prime | 2.3 | 0.7 | 2.4551582863872063 | 13.012617295708921 | Free |
+| V0 | 279.41 | 0.08 | 279.4 | 1.5 | Free |
+| K0 | 117 | 3 | 120 | 50 | Free |
+| K0\_prime | 2.3 | 0.7 | 2 | 13 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -133,15 +134,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 - **Observations:** 19
-- **Observed pressure range gpa:** \[0.0, 6.88\]
+- **Observed pressure range gpa:** 0; 6.88
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[264.3, 279.28\]
+- **Observed volume range:** 264.3; 279.28
 - **Degrees of freedom:** 16
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.09527656356397574
-- **Published rmse gpa:** 0.0972131635252727
-- **Reduced chi square:** 0.010782540161738907
+- **Rmse gpa:** 0.0952766
+- **Published rmse gpa:** 0.0972132
+- **Reduced chi square:** 0.0107825
 - **Dataset identifiers:** magnesite\_ross\_1997\_table1\_pv
 
 </details>
@@ -245,17 +246,18 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
-**Scope:** parameter agreement.
+**Outcome:** parity.
+**Scope:** source equation.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.
 
 [Open reconstruction report](../reconstruction-reports/magnesite.md#record-magnesite_vocadlo_1999_bm3_2)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
+- Every compared free coefficient meets its printed source error width or the explicitly verified half-last-digit tolerance where source errors are absent. Printing precision is not a confidence interval. Source-equation checkpoint coefficient recovery only: Table 1 pressures are calculated from the BM3 parameterization. Their near-exact refit is circular evidence for author-fit recovery, not an independent fit of measured pressures or the original E-V objective. V0=287.49 A^3 is checked at its 0.01 A^3 printed precision; the K0/K0-prime comparisons retain their source widths. The separately documented E-V fit and Table 1 cell-normalization correction remain distinct. Earlier audit wording (superseded only for the named numerical scope):
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -269,13 +271,14 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 287.49 | Not specified | 287.49000195561416 | 2.279964013858719e-05 | Free |
-| K0 | 99.0 | 0.5 | 98.9999407843886 | 7.843909917808862e-05 | Free |
-| K0\_prime | 4.28 | 0.01 | 4.280003401198884 | 1.7725938705363647e-06 | Free |
+| V0 | 287.49 | Not reported | 28749000.2e-5 | 2.3e-5 | Free |
+| K0 | 99.0 | 0.5 | 9899994e-5 | 8e-5 | Free |
+| K0\_prime | 4.280 | 0.010 | 4280003.4e-6 | 1.8e-6 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
-- **Fit kind:** isothermal\_pv
+- **Fit kind:** source\_curve\_validation\_only
 - **Objective:** pressure\_residuals
 - **Selection:** all rows
 - **Columns:**
@@ -286,15 +289,17 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 - **Observations:** 9
-- **Observed pressure range gpa:** \[-2.41596, 207.419\]
+- **Observed pressure range gpa:** -2.41596; 207.419
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[160.0, 295.0\]
+- **Observed volume range:** 160; 295
 - **Degrees of freedom:** 6
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 1.3718185808392503e-05
-- **Published rmse gpa:** 3.994635008310426e-05
-- **Reduced chi square:** 2.8228293281037224e-10
+- **Rmse gpa:** 1.37182e-05
+- **Published rmse gpa:** 3.99464e-05
+- **Reduced chi square:** 2.82283e-10
+- **Comparison scope:** Compared free coefficients: V0, K0, K0\_prime; scope=source\_equation
+- **Reconstruction kind:** published\_calculated\_pressure\_checkpoints
 - **Dataset identifiers:** magnesite\_vocadlo\_1999\_table1\_energy\_volume
 
 </details>
@@ -434,13 +439,14 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.K0 | 105.0 | 2.0 | 105.639749756634 | 1.423674941797126 | Free |
-| rt\_eos.K0\_prime | 4.49 | 0.05 | 4.477101496490224 | 0.09263344080732626 | Free |
-| theta0 | 850.0 | 200.0 | 657.5651788419018 | 246.67470860439738 | Free |
-| gamma0 | 1.7 | 0.2 | 1.9735760197133156 | 0.21354012202449588 | Free |
-| q | 0.9 | 0.3 | 1.3229206799499658 | 0.37029015111932445 | Free |
+| rt\_eos.K0 | 105.0 | 2.0 | 105.6 | 1.4 | Free |
+| rt\_eos.K0\_prime | 4.49 | 0.05 | 4.48 | 0.09 | Free |
+| theta0 | 850 | 200 | 660 | 250 | Free |
+| gamma0 | 1.70 | 0.20 | 1.97 | 0.21 | Free |
+| q | 0.9 | 0.3 | 1.3 | 0.4 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** joint\_pvt
 - **Objective:** pressure\_residuals
@@ -453,15 +459,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** rt\_eos.K0; rt\_eos.K0\_prime; theta0; gamma0; q
 - **Fixed parameters:** V0; Tr; n
 - **Observations:** 74
-- **Observed pressure range gpa:** \[0.0, 119.0\]
-- **Observed temperature range k:** \[300.0, 2200.0\]
-- **Observed volume range:** \[187.26, 280.71\]
+- **Observed pressure range gpa:** 0; 119
+- **Observed temperature range k:** 300; 2200
+- **Observed volume range:** 187.26; 280.71
 - **Degrees of freedom:** 69
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.6996660457849787
-- **Published rmse gpa:** 1.0304556631424304
-- **Reduced chi square:** 0.5250059506696335
+- **Rmse gpa:** 0.699666
+- **Published rmse gpa:** 1.03046
+- **Reduced chi square:** 0.525006
 - **Dataset identifiers:** magnesite\_yu\_2024\_table\_s1\_pvt
 
 </details>

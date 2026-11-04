@@ -125,9 +125,10 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 255.0 | 5.0 | 254.98119457543956 | 0.9815733034619097 | Free |
+| K0 | 255 | 5 | 255.0 | 1.0 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -140,15 +141,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0
 - **Fixed parameters:** V0; K0\_prime
 - **Observations:** 6
-- **Observed pressure range gpa:** \[19.7, 45.8\]
+- **Observed pressure range gpa:** 19.7; 45.8
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[39.70123, 42.737191\]
+- **Observed volume range:** 39.7012; 42.7372
 - **Degrees of freedom:** 5
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 1.623254953852628
-- **Published rmse gpa:** 2.0239026923473156
-- **Reduced chi square:** 20.524681296199326
+- **Rmse gpa:** 1.62325
+- **Published rmse gpa:** 2.0239
+- **Reduced chi square:** 20.5247
 - **Dataset identifiers:** casio3\_perovskite\_tetragonal\_shim\_2002\_figure2a\_digitized
 
 </details>

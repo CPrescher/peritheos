@@ -64,13 +64,13 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Calcium titanate perovskite](calcium_titanate_perovskite.md) | CaTiO3 | 1 | 1 |
 | [CaO](cao.md) | CaO | 1 | 1 |
 | [CaO-b2](cao_b2.md) | CaO | 1 | 1 |
-| [Cementite](cementite.md) | Fe3C | 2 | 2 |
-| [Cementite, nonmagnetic](cementite_nonmagnetic.md) | Fe3C | 2 | 1 |
+| [Cementite](cementite.md) | Fe3C | 4 | 5 |
+| [Cementite, nonmagnetic](cementite_nonmagnetic.md) | Fe3C | 4 | 5 |
 | [Cerium dioxide (fluorite)](cerium_dioxide.md) | CeO2 | 1 | 1 |
 | [Chromium](chromium.md) | Cr | 1 | 1 |
-| [Cobalt](cobalt_hcp.md) | Co | 3 | 2 |
-| [Coesite](coesite.md) | SiO2 | 2 | 3 |
-| [Coesite-IV](coesite_iv.md) | SiO2 | 1 | 1 |
+| [Cobalt](cobalt_hcp.md) | Co | 6 | 3 |
+| [Coesite](coesite.md) | SiO2 | 2 | 4 |
+| [Coesite-IV](coesite_iv.md) | SiO2 | 2 | 3 |
 | [Coesite-V](coesite_v.md) | SiO2 | 0 | 0 |
 | [CoO](coo.md) | CoO | 1 | 1 |
 | [Copper](copper.md) | Cu | 7 | 2 |
@@ -83,7 +83,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [E-FeOOH](e_feooh.md) | FeOOH | 2 | 2 |
 | [Epsilon-FeOOH, hydrogen-centered low-spin phase](e_feooh_hc_low_spin.md) | FeOOH | 1 | 1 |
 | [Fayalite](fayalite.md) | Fe2SiO4 | 1 | 1 |
-| [Fe](fe.md) | Fe | 1 | 1 |
+| [Fe](fe.md) | Fe | 3 | 2 |
 | [Fe-bearing Al-phase D](fe_bearing_al_phase_d.md) | Al1.53Fe0.22Si0.86O6H3.33 | 2 | 1 |
 | [Fe0.93O (rhombohedrally distorted B1)](fe093o_rhombohedral.md) | Fe0.93O | 1 | 1 |
 | [Fe0.9Ni0.1 alloy (hcp)](fe09ni01_hcp.md) | Fe0.9Ni0.1 | 21 | 1 |
@@ -119,6 +119,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Ferropericlase B1 MW60](mgfe60o.md) | Mg0.4Fe0.6O | 3 | 1 |
 | [Ferropericlase B1 Mw94](mgfe94o_b1.md) | Mg0.058Fe0.942O | 1 | 1 |
 | [Ferropericlase rhombohedral Mw94](mgfe94o_rhombohedral.md) | Mg0.058Fe0.942O | 1 | 1 |
+| [Ferrous ringwoodite (Fe2SiO4)](ferrous_ringwoodite.md) | Fe2SiO4 | 1 | 1 |
 | [FeS-VI](fes.md) | FeS | 1 | 1 |
 | [FeSi (B20)](fesi_b20.md) | FeSi | 2 | 1 |
 | [FeSi (B2; Peritheos refits)](fesi_b2.md) | FeSi | 2 | 1 |
@@ -128,7 +129,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Forsterite](forsterite.md) | Mg2SiO4 | 3 | 3 |
 | [GeO2](geo2_rutile.md) | GeO2 | 1 | 1 |
 | [Goethite](goethite.md) | FeOOH | 1 | 1 |
-| [Gold](gold.md) | Au | 23 | 24 |
+| [Gold](gold.md) | Au | 23 | 29 |
 | [Graphite](graphite.md) | C | 1 | 1 |
 | [Hydrous silica CaCl2 type (Nisr 2017)](hydrous_silica_cacl2_nisr_2017.md) | Si0.954O2H0.184 | 1 | 2 |
 | [Hydrous stishovite (Nisr 2017)](hydrous_stishovite_nisr_2017.md) | Si0.954O2H0.184 | 1 | 2 |
@@ -139,7 +140,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Iridium](iridium.md) | Ir | 1 | 2 |
 | [Iron](iron.md) | Fe | 38 | 14 |
 | [Iron (fcc)](fe_fcc.md) | Fe | 1 | 3 |
-| [Iron carbide (orthorhombic Fe7C3)](iron_carbide_fe7c3.md) | Fe7C3 | 1 | 1 |
+| [Iron carbide (orthorhombic Fe7C3)](iron_carbide_fe7c3.md) | Fe7C3 | 1 | 2 |
 | [Iron silicate post-perovskite](fesio3_post_perovskite.md) | FeSiO3 | 1 | 0 |
 | [Iron silicate post-perovskite II](fesio3_post_perovskite_ii.md) | FeSiO3 | 1 | 0 |
 | [Iron sulfide FeS-VI](fes_vi.md) | FeS | 1 | 5 |
@@ -162,14 +163,14 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [MgGeO3 post-perovskite](mggeo3_post_perovskite.md) | MgGeO3 | 4 | 2 |
 | [MgSi(OH)6 3.65 A phase](mgsioh6_365a_phase.md) | MgSiH6O6 | 3 | 1 |
 | [MgSiO3 post-perovskite](mgsio3_post_perovskite.md) | MgSiO3 | 14 | 9 |
-| [Molybdenum](molybdenum.md) | Mo | 7 | 4 |
+| [Molybdenum](molybdenum.md) | Mo | 9 | 5 |
 | [Molybdenum carbide Mo2C](molybenum_carbide_mo2c.md) | Mo2C | 2 | 1 |
 | [Na0.88Al0.99Fe0.13Si0.94O4 (calcium-ferrite type)](na088al099fe013si094o4_calcium_ferrite.md) | Na0.88Al0.99Fe0.13Si0.94O4 | 1 | 1 |
 | [Na0.93Al1.02Si1.00O4 (calcium-ferrite type)](na093al102si100o4_calcium_ferrite.md) | Na0.93Al1.02Si1.00O4 | 1 | 1 |
 | [NaAlSi2O6](naalsi2o6.md) | NaAlSi2O6 | 1 | 1 |
 | [NaAlSiO4 (calcium-ferrite type)](naalsio4_calcium_ferrite.md) | NaAlSiO4 | 1 | 1 |
-| [NaCl](nacl_b2.md) | NaCl | 14 | 7 |
 | [NaCl (B1)](nacl_b1.md) | NaCl | 1 | 1 |
+| [NaCl (B2)](nacl_b2.md) | NaCl | 14 | 7 |
 | [NaMg2Al5SiO12 calcium-ferrite phase](namg2al5sio12_cf.md) | NaMg2Al5SiO12 | 1 | 1 |
 | [NaMg2Al5SiO12 NAL phase](namg2al5sio12_nal.md) | NaMg2Al5SiO12 | 1 | 1 |
 | [Natural Fe-bearing dolomite](ca0988mg0918fe0078mn0016c2o6_dolomite.md) | Ca0.988Mg0.918Fe0.078Mn0.016C2O6 | 1 | 1 |
@@ -177,7 +178,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Natural Fe9 post-perovskite](mg090fe009al0005ca0005sio3_post_perovskite.md) | Mg0.90Fe0.09Al0.005Ca0.005SiO3 | 2 | 1 |
 | [Natural magnesite (Harwood 2212)](mg0991fe0008mn0001co3_magnesite.md) | Mg0.991Fe0.008Mn0.001CO3 | 2 | 1 |
 | [Neon (fcc)](neon_fcc.md) | Ne | 3 | 5 |
-| [Nickel](nickel.md) | Ni | 4 | 3 |
+| [Nickel](nickel.md) | Ni | 6 | 4 |
 | [Nickel oxide (cubic B1 model)](nickel_oxide_b1.md) | NiO | 1 | 2 |
 | [Nickel oxide (rhombohedral B1)](nickel_oxide.md) | NiO | 2 | 1 |
 | [Niobium](niobium.md) | Nb | 2 | 1 |
@@ -217,7 +218,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Silicon (Si-X, fcc)](silicon_x.md) | Si | 1 | 1 |
 | [Silicon carbide (B1 rock salt)](silicon_carbide_b1.md) | SiC | 1 | 1 |
 | [Silicon carbide (B3 zinc blende)](silicon_carbide_b3.md) | SiC | 1 | 1 |
-| [Silver](silver.md) | Ag | 4 | 1 |
+| [Silver](silver.md) | Ag | 6 | 2 |
 | [SiO2 stishovite](sio2_stv_andr.md) | SiO2 | 7 | 4 |
 | [SnO2](sno2.md) | SnO2 | 1 | 1 |
 | [SnO2 Pa-3 (26.6 GPa pattern)](sno2_cubic_27gpa.md) | SnO2 | 1 | 1 |
@@ -239,7 +240,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Wadsleyite](wadsleyite.md) | Mg2SiO4 | 1 | 1 |
 | [Wollastonite](wollastonite.md) | CaSiO3 | 1 | 0 |
 | [Wüstite B1](feo.md) | FeO | 5 | 6 |
-| [Zinc (hcp)](zinc_hcp.md) | Zn | 2 | 1 |
+| [Zinc (hcp)](zinc_hcp.md) | Zn | 4 | 2 |
 | [Zinc oxide (rocksalt B1)](zinc_oxide_rocksalt.md) | ZnO | 1 | 1 |
 | [Zinc oxide (wurtzite B4)](zinc_oxide_wurtzite.md) | ZnO | 1 | 1 |
 | [Zircon](zircon.md) | ZrSiO4 | 1 | 1 |

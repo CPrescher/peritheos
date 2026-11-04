@@ -113,10 +113,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 47.7 | 0.12 | 47.584632137367684 | 0.036287335848443285 | Free |
-| K0 | 139.0 | 8.0 | 147.3072044437339 | 2.8862571449341208 | Free |
+| V0 | 47.70 | 0.12 | 47.58 | 0.04 | Free |
+| K0 | 139 | 8 | 147.3 | 2.9 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -129,15 +130,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0
 - **Fixed parameters:** None declared
 - **Observations:** 17
-- **Observed pressure range gpa:** \[0.889, 10.0\]
+- **Observed pressure range gpa:** 0.889; 10
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[44.97338, 47.39011\]
+- **Observed volume range:** 44.9734; 47.3901
 - **Degrees of freedom:** 15
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.11492083355820389
-- **Published rmse gpa:** 0.6991335908409241
-- **Reduced chi square:** 9.140757388729764
+- **Rmse gpa:** 0.114921
+- **Published rmse gpa:** 0.699134
+- **Reduced chi square:** 9.14076
 - **Dataset identifiers:** zinc\_oxide\_wurtzite\_hanna\_2011\_figure2\_bulk\_digitized
 
 </details>

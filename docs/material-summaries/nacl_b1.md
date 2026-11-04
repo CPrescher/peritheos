@@ -13,6 +13,7 @@ and recommendation for use are distinct assessments.
 | --- | --- |
 | Identifier | nacl\_b1 |
 | Formula | NaCl |
+| Phase | B1 (rock-salt), cubic Fm-3m |
 | Formula units per cell | 4 |
 | Crystal system | CUBIC |
 | Space group | Fm-3m |
@@ -34,13 +35,13 @@ Rock-salt B1 phase reference: JCPDS 5-0628.
 
 | Record | Model | Reference temperature (K) | Source status | Availability |
 | --- | --- | --- | --- | --- |
-| [Shen and Smith (2026), Cu-referenced Vinet](#record-nacl_b1_shen_2026_vinet_1) | Vinet | 300.0 | primary source validated | Executable |
+| [Shen and Smith (2026), NaCl-B1 Cu-referenced Vinet](#record-nacl_b1_shen_2026_vinet_1) | Vinet | 300.0 | primary source validated | Executable |
 
 ### Reference coefficients
 
 | Record | V0 (Å³ per cell) | K0 (GPa) | K0′ |
 | --- | --- | --- | --- |
-| [Shen and Smith (2026), Cu-referenced Vinet](#record-nacl_b1_shen_2026_vinet_1) | 179.41 (fixed) | 23.5 ± 0.3 | 5.23 ± 0.06 |
+| [Shen and Smith (2026), NaCl-B1 Cu-referenced Vinet](#record-nacl_b1_shen_2026_vinet_1) | 179.41 (fixed) | 23.5 ± 0.3 | 5.23 ± 0.06 |
 
 Errors are shown only when supplied, with their source meaning; a bare
 central value does not imply zero uncertainty. A dash means this parameter
@@ -53,7 +54,7 @@ a joint phase-stability domain or authorize extrapolation.
 
 <a id="record-nacl_b1_shen_2026_vinet_1"></a>
 
-## Shen and Smith (2026), Cu-referenced Vinet
+## Shen and Smith (2026), NaCl-B1 Cu-referenced Vinet
 
 Identifier: `nacl_b1_shen_2026_vinet_1`.
 
@@ -113,10 +114,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 23.5 | 0.3 | 23.474248786791218 | 0.27216361080427626 | Free |
-| K0\_prime | 5.23 | 0.06 | 5.230899182734111 | 0.06419770303779525 | Free |
+| K0 | 23.5 | 0.3 | 23.47 | 0.27 | Free |
+| K0\_prime | 5.23 | 0.06 | 5.23 | 0.06 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** fixed\_v0\_vinet\_with\_reconstructed\_cu\_pressure
 - **Objective:** unweighted\_pressure\_residuals
@@ -129,14 +131,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 55
-- **Observed pressure range gpa:** \[2.786190605963631, 29.97672608654248\]
+- **Observed pressure range gpa:** 2.78619; 29.9767
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[115.96851, 162.26096\]
+- **Observed volume range:** 115.969; 162.261
 - **Degrees of freedom:** 53
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.21166411541792335
-- **Reduced chi square:** 0.04649232785963884
+- **Rmse gpa:** 0.211664
+- **Published rmse gpa:** 0.212471
+- **Reduced chi square:** 0.0464923
 - **Pressure reconstruction:**
     - **Density0 g cm3:** 8.939
     - **DOI:** 10.1103/PhysRevLett.124.015701
@@ -149,7 +152,7 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
         - **Psi:** 1.65
     - **Reference:** Fratanduono et al. (2020)
     - **Reference eos record:** copper\_fratanduono\_2020\_vinet3\_298k
-    - **Reference unit cell volume a3:** 47.218085048721
+    - **Reference unit cell volume a3:** 47.2181
     - **Source locations:** main article Table I, 298 K isotherm row; Supplemental Material Eq. (2), Section S4
 - **Dataset identifiers:** shen\_smith\_2026\_table\_s1\_simultaneous\_volumes
 

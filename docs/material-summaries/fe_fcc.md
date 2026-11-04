@@ -122,11 +122,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.K0 | 133.0 | 3.0 | 116.55375717411255 | 12.762229701390426 | Free |
-| gamma0 | 1.95 | 0.04 | 2.0395821784885335 | 0.06518243718745687 | Free |
-| q | 1.6 | 0.6 | 1.5805202346997658 | 1.792203227105933 | Free |
+| rt\_eos.K0 | 133 | 3 | 117 | 13 | Free |
+| gamma0 | 1.95 | 0.04 | 2.04 | 0.07 | Free |
+| q | 1.6 | 0.6 | 1.6 | 1.8 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** conditional\_bm3\_mgd\_variable\_exponent
 - **Objective:** pressure\_residuals
@@ -135,15 +136,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** rt\_eos.K0; gamma0; q
 - **Fixed parameters:** V0; K0\_prime; Tr; theta0; n
 - **Observations:** 15
-- **Observed pressure range gpa:** \[3.9954833425198, 19.9741252379723\]
-- **Observed temperature range k:** \[873.0, 1812.08\]
+- **Observed pressure range gpa:** 3.99548; 19.9741
+- **Observed temperature range k:** 873; 1812.08
 - **Degrees of freedom:** 12
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.44814451258934346
-- **Published rmse gpa:** 0.7961176429072436
-- **Reduced chi square:** 0.2510418802049253
-- **Covariance:** \[\[162.87450695105198, -0.22600771727261582, 21.7196834245582\], \[-0.22600771727265578, 0.004248750117696759, -0.0028956965481152213\], \[21.719683424557893, -0.002895696548109457, 3.21199240724892\]\]
+- **Rmse gpa:** 0.448145
+- **Published rmse gpa:** 0.796118
+- **Reduced chi square:** 0.251042
+- **Covariance:** \[\["162.875", "-0.226008", "21.7197"\], \["-0.226008", "0.00424875", "-0.0028957"\], \["21.7197", "-0.0028957", "3.21199"\]\]
 - **Covariance convention:** Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors.
 - **Dataset identifiers:** feo\_campbell\_2009\_table\_s2\_pvt
 

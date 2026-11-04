@@ -36,7 +36,7 @@ Phase-specific card for published hcp-Be EOS records. No diffraction structure i
 | Record | Model | Reference temperature (K) | Source status | Availability |
 | --- | --- | --- | --- | --- |
 | [Dewaele (2019), Be MAO-scale Vinet](#record-beryllium_hcp_dewaele_2019_mao_vinet) | Vinet | 300.0 | primary source validated | Executable |
-| [Dewaele (2019), Be DOR-scale Vinet](#record-beryllium_hcp_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Executable |
+| [Dewaele (2019), Be DOR-scale Vinet](#record-beryllium_hcp_dewaele_2019_dor_vinet) | Vinet | 300.0 | primary source validated | Pressure-scale reference variant |
 
 ### Reference coefficients
 
@@ -180,7 +180,9 @@ Parameter covariance is not supplied.
 
 Identifier: `beryllium_hcp_dewaele_2019_dor_vinet`.
 
-Availability: **Executable**.
+Availability: **Pressure-scale reference variant**.
+
+Published pressure-scale alternative of [beryllium\_hcp\_dewaele\_2019\_mao\_vinet](#record-beryllium_hcp_dewaele_2019_mao_vinet); it is not an independent EOS choice.
 
 
 - **Record kind:** published

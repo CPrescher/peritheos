@@ -21,7 +21,7 @@ and recommendation for use are distinct assessments.
 | Temperature unit | K |
 | Volume unit | Å³ per conventional unit cell |
 | Stored EOS records | 2 |
-| Observation datasets | 3 |
+| Observation datasets | 4 |
 
 Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/sio2-coe2.jcpds, JCPDS/current user/CVS/sio2-coe2.jcpds. Ambient coesite coordinates: Levien and Prewitt, American Mineralogist 66, 324-333 (1981).
 
@@ -112,11 +112,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 546.4414 | Not specified | 546.5964858387507 | 5.822449033638128 | Free |
-| K0 | 96.0 | 3.0 | 93.71378327889249 | 87.98300095945046 | Free |
-| K0\_prime | 8.4 | 1.9 | 9.1627406043609 | 40.05716604483446 | Free |
+| V0 | 546.441 | Not reported | 547 | 6 | Free |
+| K0 | 96 | 3 | 90 | 90 | Free |
+| K0\_prime | 8.4 | 1.9 | 10 | 40 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -129,15 +130,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 - **Observations:** 9
-- **Observed pressure range gpa:** \[0.0001, 5.19\]
+- **Observed pressure range gpa:** 0.0001; 5.19
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[522.59, 546.46\]
+- **Observed volume range:** 522.59; 546.46
 - **Degrees of freedom:** 6
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.05640961475040628
-- **Published rmse gpa:** 0.05759570610686654
-- **Reduced chi square:** 0.004780579200274352
+- **Rmse gpa:** 0.0564096
+- **Published rmse gpa:** 0.0575957
+- **Reduced chi square:** 0.00478058
 - **Dataset identifiers:** coesite\_levien\_1981\_table7\_pv
 
 </details>
@@ -245,17 +246,18 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** not reproduced.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Conditional partial reproduction. The 24 exact bundled rows are the complete numerical subset recovered from Bykova et al. Supplementary Table 2 and the exact table in their cited Cernok et al. diffraction work. Several current-study coesite-I points used by the source remain plot-only, and the source does not report its objective or weights. The unweighted pressure-residual diagnostic therefore tests the documented phase selection without claiming recovery of the unavailable full fit.
+**Comparison basis:** Agreement at the source's printed decimal precision.
 
 [Open reconstruction report](../reconstruction-reports/coesite.md#record-coesite_i_iii_bykova_2018_300k_bm3)
 
-Original audit code: `parity_not_achieved`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
+- Central-coefficient parity is achieved; the author's fit values are reproduced at reported precision. Published central coefficients are reproduced on the recovered 22-row EoSFit export: 21 measured entries plus the derived Cernok (2014) fitted ambient anchor, not 22 independent measurements. All three BM3 coefficients vary, but the anchor's tiny sigma\_P effectively pins V0 in the author-communicated pressure-only 1/sigma\_P^2 objective; sigma\_V is preserved but not propagated. Current-study V/Z is rounded to 0.1 A3 per formula unit. Original EoSFit settings, sigma\_V treatment and covariance/uncertainty parity remain unverified. The older 24-row unweighted failure is a separate historical diagnostic, not the source fit-input reconstruction. Published coefficients are unchanged; this finding does not establish physical accuracy or recommendation.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -269,33 +271,36 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 547.2 | 0.16 | 542.2160145294428 | 2.5725077130329166 | Free |
-| K0 | 103.0 | 2.0 | 126.32781341412414 | 7.542236025710828 | Free |
-| K0\_prime | 3.02 | 0.15 | 1.6951442857040346 | 0.26037357376244485 | Free |
+| V0 | 547.20 | 0.16 | 547.265 | Not reported | Free |
+| K0 | 103.0 | 2.0 | 102.729 | Not reported | Free |
+| K0\_prime | 3.02 | 0.15 | 3.02448 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
-- **Objective:** pressure\_residuals
-- **Selection:** all rows
+- **Objective:** weighted\_pressure\_residuals
+- **Selection:** All 22 original EoSFit Group 1 inputs: 21 measured entries plus point 15, a derived literature ambient EOS anchor.
 - **Columns:**
     - **Pressure:** pressure\_gpa
     - **Temperature:** Not specified
-    - **Volume:** volume\_a3\_conventional\_cell
+    - **Volume:** volume\_a3\_z16\_equivalent\_cell
+- **Weighting:** Sum\[(P\_BM3 - P\_export)^2 / sigma\_P\_export^2\]; sigma\_V preserved but not used. Derived anchor sigma\_P=0.0001 GPa effectively pins V0.
 - **Absolute sigma:** True
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
-- **Observations:** 24
-- **Observed pressure range gpa:** \[2.42, 36.9\]
-- **Observed temperature range k:** Not specified
-- **Observed volume range:** \[418.4, 534.1\]
-- **Degrees of freedom:** 21
+- **Observations:** 22
+- **Observed pressure range gpa:** 0.0001; 36.864
+- **Observed volume range:** 425.6; 547.264
+- **Degrees of freedom:** 19
 - **Solver success:** True
-- **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.6967701888903175
-- **Published rmse gpa:** 1.2698145840663828
-- **Reduced chi square:** 0.5548442241442844
-- **Dataset identifiers:** coesite\_i\_ii\_cernok\_2014\_table1\_pv; coesite\_ii\_iii\_bykova\_2018\_table2\_pv
+- **Rmse gpa:** 0.482968
+- **Published rmse gpa:** 0.497815
+- **Parameter covariance:** Not specified
+- **Covariance convention:** Reconstruction errors/covariance and original confidence convention are not established. No combined-two-sigma or uncertainty-parity claim; absolute\_sigma describes the declared pressure weights only.
+- **Comparison scope:** Central-coefficient parity is achieved; the author's fit values are reproduced at reported precision. The recovered 22 author-export inputs include a derived ambient anchor. Uncertainty/covariance parity and every original EoSFit configuration detail remain unverified.
+- **Dataset identifiers:** coesite\_i\_iii\_bykova\_2018\_author\_fit\_export
+- **Reproduction report:** docs/literature-reproductions/bykova-2018-author-fit.md
 
 </details>
 
@@ -308,20 +313,21 @@ Parameter covariance is not supplied.
 <summary>Scientific validation and usage qualifications</summary>
 
 - **Status:** primary\_source\_validated
-- **Note:** Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.
-- **Audit date:** 2026-09-01
+- **Note:** Central-coefficient parity is achieved; the author's fit values are reproduced at reported precision. Published coefficients and errors are preserved. The recovered 22 author inputs contain 21 measured entries and one derived ambient anchor. Uncertainty/covariance parity and every original EoSFit configuration detail remain unverified.
+- **Audit date:** 2026-10-25
 - **Verified fields:** equation; parameters; units; reference\_state; phase; published\_uncertainties; validity
 - **Primary source check:**
     - **Access URL:** https://www.nature.com/articles/s41467-018-07265-z
     - **DOI:** 10.1038/s41467-018-07265-z
-    - **Locations:** Results: Crystal structure of coesite-III; Figure 1 caption; Methods: X-ray diffraction; Supplementary Tables 1-2; Cernok thesis Table 5.1 reproducing the cited 2014 diffraction Table 1
-    - **Finding:** One source-owned BM3 fitted jointly to coesite-I, II, and III pressure-volume data. Twenty-four exact observations can be recovered from Supplementary Table 2 and the cited diffraction table; several current-study coesite-I observations remain plot-only.
+    - **Locations:** Results: Crystal structure of coesite-III; Figure 1 caption; Methods: X-ray diffraction; Supplementary Tables 1-2; Cernok thesis Table 5.1 reproducing the cited 2014 diffraction Table 1; Author-provided coeII-plot.dat Group 1 lines 9-30 and calculated curve; Author-provided coesite\_final.xlsx LIT/SUM, received 2026-10-25
+    - **Finding:** Central-coefficient parity is achieved; the author's fit values are reproduced at reported precision. The original export/workbook establish the selection and rounding; Elena reports pressure-only inverse-variance weighting. The 22 inputs contain 21 measured entries and a derived Cernok fitted ambient anchor. The earlier 24-row unweighted comparison remains historical.
 - **Primary data check:**
     - **Status:** bundled
-    - **Audit date:** 2026-09-08
-    - **Dataset identifiers:** coesite\_i\_ii\_cernok\_2014\_table1\_pv; coesite\_ii\_iii\_bykova\_2018\_table2\_pv
-    - **Source locations:** Bykova et al. (2018), Supplementary Table 2; Cernok et al. (2014), Table 1; author thesis Table 5.1
-    - **Finding:** Twenty-four exact coesite-I/II/III P-V observations are bundled. They are the complete numerical subset recoverable from the article, supplement, deposited crystallographic files, and cited diffraction work; several current-study coesite-I points visible in Figure 1 were not tabulated.
+    - **Audit date:** 2026-10-25
+    - **Dataset identifiers:** coesite\_i\_iii\_bykova\_2018\_author\_fit\_export
+    - **Supporting dataset identifiers:** coesite\_i\_ii\_cernok\_2014\_table1\_pv; coesite\_ii\_iii\_bykova\_2018\_table2\_pv
+    - **Source locations:** Author-provided coeII-plot.dat, Group 1 lines 9-30; coesite\_final.xlsx, LIT!V2:Y16 and AA2:AD9; SUM rows 2-17; Cernok Table 1 / thesis Table 5.1: ambient volume explicitly fitted EOS output
+    - **Finding:** All 22 author-export inputs are bundled with source line/cell references and measured/derived origin. Raw export and calculated curve are checksummed and bundled; original workbook provenance and cached-value transcription remain traceable. Original 24 tabulated observations are preserved as background, not substituted as the source fit mask.
 
 </details>
 
@@ -345,7 +351,7 @@ Parameter covariance is not supplied.
 - **Origin of the parameterization:** Measurements or their experimental reduction determine this EOS; source: Results: Crystal structure of coesite-III; Figure 1 caption; Methods: X-ray diffraction; Supplementary Tables 1-2; Cernok thesis Table 5.1 reproducing the cited 2014 diffraction Table 1.
 - **Equation:** Results, Crystal structure of coesite-III: third-order Birch-Murnaghan.
 - **Parameters:** Results paragraph and Figure 1 caption; V0/Z is multiplied by Z=16 for this conventional-cell material card.
-- **Method:** Combined single-crystal XRD pressure-volume data for coesite-I, II, and III. The exact recoverable subset comprises nine observations from the cited Cernok et al. diffraction work and 15 observations from Supplementary Table 2; current-study coesite-I points remain graphical only.
+- **Method:** Published 300 K joint BM3, unchanged coefficients. Author follow-up supplies 22 EoSFit inputs: 21 measured entries plus a prior fitted ambient anchor. Replay varies all three coefficients with pressure weights 1/sigma\_P^2; current-study V/Z rounded to 0.1 A3 per formula unit. Central-coefficient parity is achieved; the author's fit values are reproduced at reported precision. Uncertainty/covariance parity and every original EoSFit configuration detail remain unverified.
 
 </details>
 
@@ -405,3 +411,23 @@ Parameter covariance is not supplied.
 
 [Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/coesite-ii-iii-bykova-2018-table2-pv.csv)
 — SHA-256 `8aca860f04909fc827fc09ea6e24039d0364dcc21f3c774b07cb03cdcfe945e2`.
+
+### coesite\_i\_iii\_bykova\_2018\_author\_fit\_export
+
+- **Description:** Original author-provided EoSFit Group 1 inputs: 21 measured entries and one explicitly derived literature ambient EOS anchor; not 22 independent measurements.
+- **Kind:** pressure\_volume
+- **Reference:**
+    - **Authors:** Bykova; et al.
+    - **Year:** 2018
+    - **Source:** Nature Communications
+    - **DOI:** 10.1038/s41467-018-07265-z
+- **Source location:** Author-provided coeII-plot.dat, Group 1 lines 9-30; matched to coesite\_final.xlsx LIT/SUM cells; received 2026-10-25.
+- **Associated EOS records:** coesite\_i\_iii\_bykova\_2018\_300k\_bm3
+- **Uncertainty:**
+    - **Reported as:** EoSFit Sigma X and Sigma Y widths; original confidence convention and covariance not supplied.
+    - **Covariance:** not\_reported
+    - **Fit use:** Only exported sigma\_P enters the communicated replay; sigma\_V remains preserved, including the derived anchor's volume width.
+- **Notes:** Point 15 is derived EOS output and must not be presented as an independent measured ambient observation. Current-study V/Z was rounded to 0.1 A3 per formula unit; Sigma Y to 0.01 A3. Plot-export shortening and legacy floating-point tails are preserved. The 100 calculated curve rows in the raw DAT are not fit observations. Earlier 24 tabulated observations remain separately available, without being substituted for this author selection.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/coesite-i-iii-bykova-2018-author-fit-export.csv)
+— SHA-256 `cbe78c94f2b2a5130f3ff0b330e8fb449e48868eda706f0fe7cfe5795b16c0e4`.

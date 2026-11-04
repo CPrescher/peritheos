@@ -129,12 +129,13 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 76.44 | 0.02 | 76.43827898867148 | 0.017711803853117408 | Free |
-| alpha0 | 2.2e-05 | 2e-06 | 2.7597289976043394e-05 | 1.6321859181719822e-06 | Free |
-| alpha1 | 3.61e-08 | 2.7e-09 | 3.087478002503601e-08 | 1.9536510121458086e-09 | Free |
-| dK\_dT | -0.034 | 0.001 | -0.03401873114665049 | 0.0007067326783047755 | Free |
+| V0 | 76.440 | 0.020 | 76.438 | 0.018 | Free |
+| alpha0 | 22.0e-6 | 2.0e-6 | 27.6e-6 | 1.6e-6 | Free |
+| alpha1 | 36.1e-9 | 2.7e-9 | 30.9e-9 | 2.0e-9 | Free |
+| dK\_dT | -0.0340 | 0.0010 | -0.0340 | 0.0007 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** staged\_source\_constrained\_thermal\_bm2\_odr
 - **Objective:** orthogonal distance regression using printed pressure and volume sigmas; temperature held fixed
@@ -143,10 +144,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; alpha0; alpha1; dK\_dT
 - **Fixed parameters:** K0; Tr
 - **Observations:** 136
-- **Observed pressure range gpa:** \[27.56, 113.0\]
+- **Observed pressure range gpa:** 27.56; 113
 - **Solver success:** True
 - **Solver message:** dedicated Ricolleau et al. (2009) audit completed
-- **Rmse gpa:** 1.4791143041717107
+- **Rmse gpa:** 1.47911
 - **Dataset identifiers:** klb1\_ricolleau\_2009\_table\_s1\_ferropericlase\_pvt
 
 </details>
@@ -289,9 +290,10 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 74.04 | 0.02 | 74.04288033963479 | 0.02537519008226588 | Free |
+| V0 | 74.040 | 0.020 | 74.043 | 0.025 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** staged\_source\_constrained\_thermal\_bm2\_odr
 - **Objective:** orthogonal distance regression using printed pressure and volume sigmas; temperature held fixed
@@ -300,10 +302,10 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0
 - **Fixed parameters:** K0
 - **Observations:** 7
-- **Observed pressure range gpa:** \[74.21, 98.36\]
+- **Observed pressure range gpa:** 74.21; 98.36
 - **Solver success:** True
 - **Solver message:** dedicated Ricolleau et al. (2009) audit completed
-- **Rmse gpa:** 1.5775129387527014
+- **Rmse gpa:** 1.57751
 - **Dataset identifiers:** klb1\_ricolleau\_2009\_table\_s1\_ferropericlase\_pvt
 
 </details>

@@ -115,10 +115,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 78.0 | 3.0 | 72.78172096898437 | Not specified | Free |
-| K0 | 6.5 | 1.3 | 8.060302736427957 | Not specified | Free |
+| V0 | 78 | 3 | 72.7817 | Not reported | Free |
+| K0 | 6.5 | 1.3 | 8.0603 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** digitized\_bm2\_errors\_in\_variables
 - **Objective:** P and V residuals with digitization uncertainty combined with plotted volume error
@@ -127,9 +128,9 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Fixed parameters:** None declared
 - **Observations:** 9
 - **Solver success:** True
-- **Rmse gpa:** 0.4510113341777895
-- **Published rmse gpa:** 0.7722620448085159
-- **Reduced chi square:** 0.20254793447243688
+- **Rmse gpa:** 0.451011
+- **Published rmse gpa:** 0.772262
+- **Reduced chi square:** 0.202548
 - **Dataset identifiers:** argon\_hcp\_wittlinger\_1997\_figure3\_digitized
 
 </details>

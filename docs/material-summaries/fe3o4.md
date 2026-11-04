@@ -114,9 +114,10 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 183.0 | 10.0 | 183.3545636138488 | 3.2041147970713055 | Free |
+| K0 | 183 | 10 | 183 | 3 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** pressure\_residuals
@@ -129,15 +130,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0
 - **Fixed parameters:** V0; K0\_prime
 - **Observations:** 13
-- **Observed pressure range gpa:** \[0.0, 32.0\]
+- **Observed pressure range gpa:** 0; 32
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[516.2283852030055, 591.6832804153851\]
+- **Observed volume range:** 516.228; 591.683
 - **Degrees of freedom:** 12
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 1.2664209166186853
-- **Published rmse gpa:** 1.2670669106978538
-- **Reduced chi square:** 1.7374737662200872
+- **Rmse gpa:** 1.26642
+- **Published rmse gpa:** 1.26707
+- **Reduced chi square:** 1.73747
 - **Dataset identifiers:** magnetite\_mao\_1974\_table3\_compression
 
 </details>

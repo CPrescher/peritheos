@@ -20,9 +20,9 @@ agreement, source verification, author-workflow reproduction and recommendation 
 | [Reynard et al. (1996), preferred BM3, ice-VII pressure scale](#record-akimotoite_reynard_1996_bm3_ice_vii_3) | Coefficient parity achieved | Graph and table |
 | [Siersch et al. (2021), BM3](#record-akimotoite_siersch_2021_bm3_1) | Coefficient parity achieved | Graph and table |
 | [Dorogokupets et al. (2015), 298 K generalized Rydberg-Stacey](#record-akimotoite_dorogokupets_2015_298k_rydberg_stacey) | Parity not achieved for this comparison | Graph and table |
-| [Wang et al. (2004), T0133 Au-scale BM3](#record-akimotoite_wang_2004_t0133_bm3) | Numerically similar, with qualifications | Graph and table |
-| [Wang et al. (2004), preferred T0150 NaCl-scale BM3](#record-akimotoite_wang_2004_t0150_bm3) | Numerically similar, with qualifications | Graph and table |
-| [Zhou et al. (2014), 300 K isothermal BM3](#record-akimotoite_zhou_2014_300k_bm3) | Numerically similar, with qualifications | Graph and table |
+| [Wang et al. (2004), T0133 Au-scale BM3](#record-akimotoite_wang_2004_t0133_bm3) | Coefficient parity achieved | Graph and table |
+| [Wang et al. (2004), preferred T0150 NaCl-scale BM3](#record-akimotoite_wang_2004_t0150_bm3) | Coefficient parity achieved | Graph and table |
+| [Zhou et al. (2014), 300 K isothermal BM3](#record-akimotoite_zhou_2014_300k_bm3) | Coefficient parity achieved | Graph and table |
 
 <a id="record-akimotoite_karki_2002_static_bm4_1"></a>
 
@@ -52,6 +52,17 @@ Record: `akimotoite_karki_2002_static_bm4_1` · Model: `BM4`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+**Curve/residual comparison unavailable:** No reconstructed coefficient set is recorded; a source/refit residual comparison is unavailable..
+
+| Fit | Recorded pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | Not reported |
+| Reconstruction / refit | Not reported |
+
+These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+
 ### Why no coefficient graph is shown
 
 No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
@@ -61,7 +72,7 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `akimotoite_karki_2002_static_bm4_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/akimotoite.eosmat).
@@ -95,6 +106,17 @@ Record: `akimotoite_karki_2002_300k_bm4_2` · Model: `BM4`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+**Curve/residual comparison unavailable:** No reconstructed coefficient set is recorded; a source/refit residual comparison is unavailable..
+
+| Fit | Recorded pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | Not reported |
+| Reconstruction / refit | Not reported |
+
+These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+
 ### Why no coefficient graph is shown
 
 No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
@@ -104,7 +126,7 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `akimotoite_karki_2002_300k_bm4_2`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/akimotoite.eosmat).
@@ -138,6 +160,17 @@ Record: `akimotoite_karki_2002_1000k_bm4_3` · Model: `BM4`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+**Curve/residual comparison unavailable:** No reconstructed coefficient set is recorded; a source/refit residual comparison is unavailable..
+
+| Fit | Recorded pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | Not reported |
+| Reconstruction / refit | Not reported |
+
+These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+
 ### Why no coefficient graph is shown
 
 No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
@@ -147,7 +180,7 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `akimotoite_karki_2002_1000k_bm4_3`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/akimotoite.eosmat).
@@ -181,6 +214,17 @@ Record: `akimotoite_karki_2002_2000k_bm4_4` · Model: `BM4`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+**Curve/residual comparison unavailable:** No reconstructed coefficient set is recorded; a source/refit residual comparison is unavailable..
+
+| Fit | Recorded pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | Not reported |
+| Reconstruction / refit | Not reported |
+
+These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+
 ### Why no coefficient graph is shown
 
 No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
@@ -190,7 +234,7 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `akimotoite_karki_2002_2000k_bm4_4`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/akimotoite.eosmat).
@@ -230,21 +274,38 @@ Record: `akimotoite_reynard_1996_bm3_ruby_2` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for akimotoite_reynard_1996_bm3_ruby_2](figures/akimotoite_reynard_1996_bm3_ruby_2-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for akimotoite_reynard_1996_bm3_ruby_2](figures/akimotoite_reynard_1996_bm3_ruby_2-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.634 |
+| Reconstruction / refit | 0.606 |
+
+Both fits use the same 16 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** unit\_cell\_volume\_a3. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for akimotoite_reynard_1996_bm3_ruby_2](figures/akimotoite_reynard_1996_bm3_ruby_2.svg)
+![Source/target and reconstructed central values for akimotoite_reynard_1996_bm3_ruby_2](figures/akimotoite_reynard_1996_bm3_ruby_2.svg#only-light)
+![Source/target and reconstructed central values for akimotoite_reynard_1996_bm3_ruby_2](figures/akimotoite_reynard_1996_bm3_ruby_2-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 262.3 | 0.4 | 262.4214204039353 | 0.4489783454543883 | Free |
-| K0\_prime | 7.5 | 1.0 | 6.9155114755402725 | 1.0539104640910595 | Free |
+| V0 | 262.3 | 0.4 | 262.4 | 0.4 | Free |
+| K0\_prime | 7.5 | 1.0 | 6.9 | 1.1 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -254,15 +315,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** ruby\_pressure\_gpa
     - **Temperature:** Not specified
     - **Volume:** unit\_cell\_volume\_a3
-- **Observed pressure range gpa:** \[0.0, 27.8\]
+- **Observed pressure range gpa:** 0; 27.8
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[239.13, 262.45\]
+- **Observed volume range:** 239.13; 262.45
 - **Degrees of freedom:** 14
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.37775121285160607
-- **Published rmse gpa:** 0.6335359430776666
-- **Reduced chi square:** 0.2579036675887712
+- **Rmse gpa:** 0.377751
+- **Published rmse gpa:** 0.633536
+- **Reduced chi square:** 0.257904
 
 </details>
 
@@ -271,7 +332,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `akimotoite_reynard_1996_bm3_ruby_2`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/akimotoite.eosmat).
@@ -311,21 +372,38 @@ Record: `akimotoite_reynard_1996_bm3_ice_vii_3` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for akimotoite_reynard_1996_bm3_ice_vii_3](figures/akimotoite_reynard_1996_bm3_ice_vii_3-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for akimotoite_reynard_1996_bm3_ice_vii_3](figures/akimotoite_reynard_1996_bm3_ice_vii_3-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.749 |
+| Reconstruction / refit | 0.701 |
+
+Both fits use the same 14 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** unit\_cell\_volume\_a3. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for akimotoite_reynard_1996_bm3_ice_vii_3](figures/akimotoite_reynard_1996_bm3_ice_vii_3.svg)
+![Source/target and reconstructed central values for akimotoite_reynard_1996_bm3_ice_vii_3](figures/akimotoite_reynard_1996_bm3_ice_vii_3.svg#only-light)
+![Source/target and reconstructed central values for akimotoite_reynard_1996_bm3_ice_vii_3](figures/akimotoite_reynard_1996_bm3_ice_vii_3-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 262.3 | 0.4 | 262.5800918920929 | 0.5173624514301168 | Free |
-| K0\_prime | 5.6 | 1.0 | 5.055863026030038 | 1.02741367446667 | Free |
+| V0 | 262.3 | 0.4 | 262.6 | 0.5 | Free |
+| K0\_prime | 5.6 | 1.0 | 5.1 | 1.0 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -335,15 +413,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** ice\_vii\_pressure\_gpa
     - **Temperature:** Not specified
     - **Volume:** unit\_cell\_volume\_a3
-- **Observed pressure range gpa:** \[0.0, 25.2\]
+- **Observed pressure range gpa:** 0; 25.2
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[239.13, 262.45\]
+- **Observed volume range:** 239.13; 262.45
 - **Degrees of freedom:** 12
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.35695092387892463
-- **Published rmse gpa:** 0.7487276925948315
-- **Reduced chi square:** 0.2845940744839172
+- **Rmse gpa:** 0.356951
+- **Published rmse gpa:** 0.748728
+- **Reduced chi square:** 0.284594
 
 </details>
 
@@ -352,7 +430,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `akimotoite_reynard_1996_bm3_ice_vii_3`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/akimotoite.eosmat).
@@ -391,22 +469,39 @@ Record: `akimotoite_siersch_2021_bm3_1` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for akimotoite_siersch_2021_bm3_1](figures/akimotoite_siersch_2021_bm3_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for akimotoite_siersch_2021_bm3_1](figures/akimotoite_siersch_2021_bm3_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.157 |
+| Reconstruction / refit | 0.156 |
+
+Both fits use the same 54 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** unit\_cell\_volume\_a3. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for akimotoite_siersch_2021_bm3_1](figures/akimotoite_siersch_2021_bm3_1.svg)
+![Source/target and reconstructed central values for akimotoite_siersch_2021_bm3_1](figures/akimotoite_siersch_2021_bm3_1.svg#only-light)
+![Source/target and reconstructed central values for akimotoite_siersch_2021_bm3_1](figures/akimotoite_siersch_2021_bm3_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 262.43 | 0.02 | 262.4259132876488 | 0.015020694953473327 | Free |
-| K0 | 205.0 | 1.0 | 205.00895738531347 | 0.8758535920577113 | Free |
-| K0\_prime | 4.9 | 0.2 | 4.923631578425784 | 0.1080137074338277 | Free |
+| V0 | 262.430 | 0.020 | 262.426 | 0.015 | Free |
+| K0 | 205.0 | 1.0 | 205.0 | 0.9 | Free |
+| K0\_prime | 4.90 | 0.20 | 4.92 | 0.11 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -416,15 +511,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** Not specified
     - **Volume:** unit\_cell\_volume\_a3
-- **Observed pressure range gpa:** \[0.0001, 24.86\]
+- **Observed pressure range gpa:** 0.0001; 24.86
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[238.38, 262.42\]
+- **Observed volume range:** 238.38; 262.42
 - **Degrees of freedom:** 51
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.0738523546772139
-- **Published rmse gpa:** 0.1569853972850426
-- **Reduced chi square:** 2.010177381814707
+- **Rmse gpa:** 0.0738524
+- **Published rmse gpa:** 0.156985
+- **Reduced chi square:** 2.01018
 
 </details>
 
@@ -433,7 +528,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `akimotoite_siersch_2021_bm3_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/akimotoite.eosmat).
@@ -472,31 +567,48 @@ Record: `akimotoite_dorogokupets_2015_298k_rydberg_stacey` · Model: `RydbergSta
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for akimotoite_dorogokupets_2015_298k_rydberg_stacey](figures/akimotoite_dorogokupets_2015_298k_rydberg_stacey-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for akimotoite_dorogokupets_2015_298k_rydberg_stacey](figures/akimotoite_dorogokupets_2015_298k_rydberg_stacey-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 1.37 |
+| Reconstruction / refit | 0.844 |
+
+Both fits use the same 39 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** audit volume in record units. **Row selection:** recoverable 298 K literature slice.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for akimotoite_dorogokupets_2015_298k_rydberg_stacey](figures/akimotoite_dorogokupets_2015_298k_rydberg_stacey.svg)
+![Source/target and reconstructed central values for akimotoite_dorogokupets_2015_298k_rydberg_stacey](figures/akimotoite_dorogokupets_2015_298k_rydberg_stacey.svg#only-light)
+![Source/target and reconstructed central values for akimotoite_dorogokupets_2015_298k_rydberg_stacey](figures/akimotoite_dorogokupets_2015_298k_rydberg_stacey-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 215.3 | Not specified | 254.92768974032103 | Not specified | Free |
-| K0\_prime | 4.91 | Not specified | 2.296140025430574 | Not specified | Free |
+| K0 | 215.3 | Not reported | 254.928 | Not reported | Free |
+| K0\_prime | 4.91 | Not reported | 2.29614 | Not reported | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
-- **Observed pressure range gpa:** \[-0.05, 27.8\]
+- **Observed pressure range gpa:** -0.05; 27.8
 - **Solver success:** True
 - **Solver message:** dedicated Dorogokupets (2015) slice fit completed
-- **Rmse gpa:** 0.8443919169328162
-- **Published rmse gpa:** 1.3720558660562725
+- **Rmse gpa:** 0.844392
+- **Published rmse gpa:** 1.37206
 
 </details>
 
@@ -507,7 +619,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `akimotoite_dorogokupets_2015_298k_rydberg_stacey`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/akimotoite.eosmat).
@@ -519,10 +631,10 @@ Observation curves and residual plots are provided by the supporting reports whe
 
 Record: `akimotoite_wang_2004_t0133_bm3` · Model: `BM3`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Coefficient parity achieved.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Stored EOS coefficients and source](../material-summaries/akimotoite.md#record-akimotoite_wang_2004_t0133_bm3)
 
@@ -531,7 +643,7 @@ Record: `akimotoite_wang_2004_t0133_bm3` · Model: `BM3`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
-- All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
@@ -541,6 +653,8 @@ Record: `akimotoite_wang_2004_t0133_bm3` · Model: `BM3`
 - **Fit kind:** original\_scale\_source\_constrained\_bm3
 - **Selection:** All 298 K rows in Table 1, run T0133 (Au)
 - **Objective:** unweighted pressure residuals
+- **Weighting:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.
+- **Absolute sigma:** False
 - **Free parameters:** V0; K0\_prime
 - **Fixed parameters:** K0
 - **Fixed values:**
@@ -548,42 +662,84 @@ Record: `akimotoite_wang_2004_t0133_bm3` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for akimotoite_wang_2004_t0133_bm3](figures/akimotoite_wang_2004_t0133_bm3-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for akimotoite_wang_2004_t0133_bm3](figures/akimotoite_wang_2004_t0133_bm3-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.248 |
+| Reconstruction / refit | 0.239 |
+
+Both fits use the same 13 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** audit volume in record units. **Row selection:** All 298 K rows in Table 1, run T0133 (Au).
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for akimotoite_wang_2004_t0133_bm3](figures/akimotoite_wang_2004_t0133_bm3.svg)
+![Source/target and reconstructed central values for akimotoite_wang_2004_t0133_bm3](figures/akimotoite_wang_2004_t0133_bm3.svg#only-light)
+![Source/target and reconstructed central values for akimotoite_wang_2004_t0133_bm3](figures/akimotoite_wang_2004_t0133_bm3-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 264.2 | 0.2 | 264.32402461766293 | Not specified | Free |
-| K0\_prime | 4.8 | 0.5 | 4.457703040602613 | Not specified | Free |
+| V0 | 264.20 | 0.20 | 264.32 | 0.14 | Free |
+| K0\_prime | 4.8 | 0.5 | 4.5 | 0.4 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
-- **Observed pressure range gpa:** \[0.0, 16.2\]
-- **Observed temperature range k:** \[298.0, 298.0\]
+- **Observed pressure range gpa:** 0; 16.2
+- **Observed temperature range k:** 298; 298
+- **Degrees of freedom:** 11
 - **Solver success:** True
-- **Rmse gpa:** 0.23949576218615048
-- **Published rmse gpa:** 0.24798686381479146
+- **Rmse gpa:** 0.239496
+- **Published rmse gpa:** 0.247987
+- **Parameter covariance:** \[\["0.0201376", "-0.049857"\], \["-0.049857", "0.172083"\]\]
+- **Covariance:**
+    - **Parameters:** V0; K0\_prime
+    - **Matrix:** \[\["0.0201376", "-0.049857"\], \["-0.049857", "0.172083"\]\]
+    - **Standard errors:**
+        - **V0:** 0.141907
+        - **K0 prime:** 0.414829
+    - **Correlation matrix:** \[\["1", "-0.846939"\], \["-0.846939", "1"\]\]
+    - **Degrees of freedom:** 11
+    - **Local student t 95 intervals:**
+        - **V0:** 264.012; 264.636
+        - **K0 prime:** 3.54467; 5.37074
+    - **Residual variance:** 0.067787
+    - **Max abs residual jacobian cosine:** 9.84549e-09
+    - **Residual sum squares:** 0.745657
+    - **Residual count:** 13
+    - **Scaled jacobian condition number:** 326.019
+    - **Derivative step halving relative change:** 3.95336e-12
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Qualification:** All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity.
+    - **Assumptions:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+- **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 - **Stages:** None declared
 
 </details>
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-akimotoite_wang_2004_t0133_bm3).
+- [Supporting source report: uncertainty-reconstruction](../literature-reproductions/uncertainty-reconstruction.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `akimotoite_wang_2004_t0133_bm3`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/akimotoite.eosmat).
@@ -595,10 +751,10 @@ Observation curves and residual plots are provided by the supporting reports whe
 
 Record: `akimotoite_wang_2004_t0150_bm3` · Model: `BM3`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Coefficient parity achieved.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Stored EOS coefficients and source](../material-summaries/akimotoite.md#record-akimotoite_wang_2004_t0150_bm3)
 
@@ -607,7 +763,7 @@ Record: `akimotoite_wang_2004_t0150_bm3` · Model: `BM3`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
-- All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity.
+- Conditional numerical parameter parity: both free coefficients agree within the printed source error widths, with reconstructed local standard errors comparable to those widths. Covariance uses residual-scaled unweighted pressure least squares with K0=210 GPa fixed. The source confidence convention, original weighting and covariance remain unknown; no formal combined-two-sigma or author-workflow reproduction is claimed. See docs/literature-reproductions/wang-zhou-komabayashi-mgsio3.md#t0150-uncertainty-reconstruction for the uncertainty budget.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
@@ -617,6 +773,8 @@ Record: `akimotoite_wang_2004_t0150_bm3` · Model: `BM3`
 - **Fit kind:** original\_scale\_source\_constrained\_bm3
 - **Selection:** All 298 K rows in Table 2, run T0150 (NaCl)
 - **Objective:** unweighted pressure residuals
+- **Weighting:** Equal weight per pressure residual; absolute\_sigma=False; residual variance estimated with n-2 degrees of freedom.
+- **Absolute sigma:** False
 - **Free parameters:** V0; K0\_prime
 - **Fixed parameters:** K0
 - **Fixed values:**
@@ -624,42 +782,88 @@ Record: `akimotoite_wang_2004_t0150_bm3` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for akimotoite_wang_2004_t0150_bm3](figures/akimotoite_wang_2004_t0150_bm3-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for akimotoite_wang_2004_t0150_bm3](figures/akimotoite_wang_2004_t0150_bm3-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.348 |
+| Reconstruction / refit | 0.347 |
+
+Both fits use the same 10 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** audit volume in record units. **Row selection:** All 298 K rows in Table 2, run T0150 (NaCl).
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for akimotoite_wang_2004_t0150_bm3](figures/akimotoite_wang_2004_t0150_bm3.svg)
+![Source/target and reconstructed central values for akimotoite_wang_2004_t0150_bm3](figures/akimotoite_wang_2004_t0150_bm3.svg#only-light)
+![Source/target and reconstructed central values for akimotoite_wang_2004_t0150_bm3](figures/akimotoite_wang_2004_t0150_bm3-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 263.9 | 0.2 | 263.92988199814727 | Not specified | Free |
-| K0\_prime | 5.6 | 0.8 | 5.568904317198652 | Not specified | Free |
+| V0 | 263.90 | 0.20 | 263.93 | 0.23 | Free |
+| K0\_prime | 5.6 | 0.8 | 5.6 | 0.8 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
-- **Observed pressure range gpa:** \[-0.05, 17.044\]
-- **Observed temperature range k:** \[298.0, 298.0\]
+- **Observed pressure range gpa:** -0.05; 17.044
+- **Observed temperature range k:** 298; 298
+- **Degrees of freedom:** 8
 - **Solver success:** True
-- **Rmse gpa:** 0.3471859235046197
-- **Published rmse gpa:** 0.3479117607818186
+- **Rmse gpa:** 0.347186
+- **Published rmse gpa:** 0.347912
+- **Parameter covariance:** \[\["0.052008", "-0.145084"\], \["-0.145084", "0.574891"\]\]
+- **Covariance:**
+    - **Parameters:** V0; K0\_prime
+    - **Parameter units:** angstrom^3 per conventional cell (Z=6); 1
+    - **Matrix:** \[\["0.052008", "-0.145084"\], \["-0.145084", "0.574891"\]\]
+    - **Standard errors:**
+        - **V0:** 0.228053
+        - **K0 prime:** 0.758216
+    - **Correlation matrix:** \[\["1", "-0.839054"\], \["-0.839054", "1"\]\]
+    - **Degrees of freedom:** 8
+    - **Residual variance gpa2:** 0.150673
+    - **Residual standard error gpa:** 0.388166
+    - **Local student t 95 intervals:**
+        - **V0:** 263.404; 264.456
+        - **K0 prime:** 3.82046; 7.31735
+    - **Convention:** s^2 (J^T J)^-1; s^2=sum(pressure residual^2)/(n-2); analytic BM3 Jacobian; errors are local 1-standard-error estimates, not published errors
+    - **Assumptions:** Independent, equal-variance pressure residuals; variance estimated from residual scatter, not supplied pressure errors.; Observed volumes are conditioned on; printed volume errors are not weights in this pressure-residual reconstruction.; K0=210 GPa is fixed; its uncertainty, shared pressure-calibration systematics and correlations between observations are not propagated.; Source confidence convention and original weighting/covariance are unknown; no formal combined-two-sigma comparison is asserted.; Student-t intervals use 8 residual degrees of freedom and a local linear approximation; they are conditional, marginal intervals.
+    - **Volume weighting sensitivity:**
+        - **Objective:** sum(((V\_model(P)-V\_observed)/printed\_V\_error)^2)
+        - **Parameters:**
+            - **V0:** 263.943
+            - **K0 prime:** 6.14414
+        - **Weighted sum squares:** 387.399
+        - **Degrees of freedom:** 8
+        - **Weighted sum squares per dof:** 48.4248
+        - **Solver success:** True
+        - **Qualification:** Sensitivity diagnostic only; source V error confidence is unspecified and P errors are unavailable. The large standardized scatter shows that the printed V widths alone cannot explain the data under exact P. This is not a recovered author objective or a replacement catalog EOS.
+- **Covariance convention:** s^2 (J^T J)^-1; s^2=sum(pressure residual^2)/(n-2); analytic BM3 Jacobian; errors are local 1-standard-error estimates, not published errors
 - **Stages:** None declared
 
 </details>
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-akimotoite_wang_2004_t0150_bm3).
+- [Supporting source report: wang-zhou-komabayashi-mgsio3](../literature-reproductions/wang-zhou-komabayashi-mgsio3.md#t0150-uncertainty-reconstruction).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `akimotoite_wang_2004_t0150_bm3`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/akimotoite.eosmat).
@@ -671,10 +875,10 @@ Observation curves and residual plots are provided by the supporting reports whe
 
 Record: `akimotoite_zhou_2014_300k_bm3` · Model: `BM3`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Coefficient parity achieved.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Stored EOS coefficients and source](../material-summaries/akimotoite.md#record-akimotoite_zhou_2014_300k_bm3)
 
@@ -683,7 +887,7 @@ Record: `akimotoite_zhou_2014_300k_bm3` · Model: `BM3`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
-- All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
@@ -693,6 +897,8 @@ Record: `akimotoite_zhou_2014_300k_bm3` · Model: `BM3`
 - **Fit kind:** original\_scale\_source\_constrained\_bm3
 - **Selection:** All 17 akimotoite 300 K density rows, including three ambient density-only rows; V=6\*M/(N\_A\*rho), M=100.387 g/mol
 - **Objective:** unweighted pressure residuals
+- **Weighting:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.
+- **Absolute sigma:** False
 - **Free parameters:** V0; K0
 - **Fixed parameters:** K0\_prime
 - **Fixed values:**
@@ -700,42 +906,84 @@ Record: `akimotoite_zhou_2014_300k_bm3` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for akimotoite_zhou_2014_300k_bm3](figures/akimotoite_zhou_2014_300k_bm3-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for akimotoite_zhou_2014_300k_bm3](figures/akimotoite_zhou_2014_300k_bm3-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.501 |
+| Reconstruction / refit | 0.497 |
+
+Both fits use the same 17 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** density\_g\_cm3. **Row selection:** all rows; reference-T rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for akimotoite_zhou_2014_300k_bm3](figures/akimotoite_zhou_2014_300k_bm3.svg)
+![Source/target and reconstructed central values for akimotoite_zhou_2014_300k_bm3](figures/akimotoite_zhou_2014_300k_bm3.svg#only-light)
+![Source/target and reconstructed central values for akimotoite_zhou_2014_300k_bm3](figures/akimotoite_zhou_2014_300k_bm3-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 262.45 | 0.26 | 262.40916545730124 | Not specified | Free |
-| K0 | 207 | 3 | 206.7705205901484 | Not specified | Free |
+| V0 | 262.45 | 0.26 | 262.4 | 0.4 | Free |
+| K0 | 207 | 3 | 207 | 5 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
-- **Observed pressure range gpa:** \[0.0, 25.02\]
-- **Observed temperature range k:** \[300.0, 300.0\]
+- **Observed pressure range gpa:** 0; 25.02
+- **Observed temperature range k:** 300; 300
+- **Degrees of freedom:** 15
 - **Solver success:** True
-- **Rmse gpa:** 0.4974197054778039
-- **Published rmse gpa:** 0.5012548583091279
+- **Rmse gpa:** 0.49742
+- **Published rmse gpa:** 0.501255
+- **Parameter covariance:** \[\["0.129762", "-1.53155"\], \["-1.53155", "20.3888"\]\]
+- **Covariance:**
+    - **Parameters:** V0; K0
+    - **Matrix:** \[\["0.129762", "-1.53155"\], \["-1.53155", "20.3888"\]\]
+    - **Standard errors:**
+        - **V0:** 0.360225
+        - **K0:** 4.5154
+    - **Correlation matrix:** \[\["1", "-0.941592"\], \["-0.941592", "1"\]\]
+    - **Degrees of freedom:** 15
+    - **Local student t 95 intervals:**
+        - **V0:** 261.641; 263.177
+        - **K0:** 197.146; 216.395
+    - **Residual variance:** 0.280417
+    - **Max abs residual jacobian cosine:** 6.45385e-09
+    - **Residual sum squares:** 4.20625
+    - **Residual count:** 17
+    - **Scaled jacobian condition number:** 47.4041
+    - **Derivative step halving relative change:** 4.44309e-12
+    - **Method:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Qualification:** All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity.
+    - **Assumptions:** Equal weights on the original pressure residuals; observed volumes and fixed coefficients conditioned on.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
+- **Covariance convention:** Residual-scaled local least-squares covariance: SSE/(n-k) times inverse J^T J; five-point scaled central Jacobian, checked at half step.
 - **Stages:** None declared
 
 </details>
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-akimotoite_zhou_2014_300k_bm3).
+- [Supporting source report: uncertainty-reconstruction](../literature-reproductions/uncertainty-reconstruction.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `akimotoite_zhou_2014_300k_bm3`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/akimotoite.eosmat).

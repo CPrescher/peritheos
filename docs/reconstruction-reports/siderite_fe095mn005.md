@@ -12,7 +12,7 @@ agreement, source verification, author-workflow reproduction and recommendation 
 
 | EOS record | Recorded outcome | Coefficient comparison |
 | --- | --- | --- |
-| [Litasov et al. (2013), natural Fe0.95Mn0.05CO3, 300 K BM3](#record-siderite_fe095mn005_litasov_2013_bm3) | Numerically similar, with qualifications | Graph and table |
+| [Litasov et al. (2013), natural Fe0.95Mn0.05CO3, 300 K BM3](#record-siderite_fe095mn005_litasov_2013_bm3) | Coefficient parity achieved | Graph and table |
 | [Peritheos joint thermal refit of Litasov et al. (2013), Fe0.95Mn0.05CO3](#record-siderite_fe095mn005_litasov_2013_joint_thermal_refit) | Coefficient parity achieved | Graph and table |
 
 <a id="record-siderite_fe095mn005_litasov_2013_bm3"></a>
@@ -21,10 +21,10 @@ agreement, source verification, author-workflow reproduction and recommendation 
 
 Record: `siderite_fe095mn005_litasov_2013_bm3` · Model: `BM3`
 
-**Outcome: Numerically similar, with qualifications.**
+**Outcome: Coefficient parity achieved.**
 
 **Scope:** Comparison with the source parameterization.
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Stored EOS coefficients and source](../material-summaries/siderite_fe095mn005.md#record-siderite_fe095mn005_litasov_2013_bm3)
 
@@ -33,7 +33,7 @@ Record: `siderite_fe095mn005_litasov_2013_bm3` · Model: `BM3`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
-- Point estimates fall within the published errors, but source weighting and covariance are unspecified. All 27 printed 300 K rows are retained; the source RMS range is not recovered. The conflicting thermal coefficient is withheld. See literature-reproductions/litasov-2013-siderite.md.
+- Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Agreement concerns K0 and K0-prime on all 27 printed 300 K rows, conditional on source-fixed V0=293.4 A^3, original printed Au pressures and equal pressure-residual weights. The published-curve pressure RMS remains 0.22958 GPa, outside the manuscript's reported 0.11-0.17 GPa range; that source-data agreement finding is unresolved separately. Exact pressure-scale realization, original objective/weights and author workflow remain unrecovered. No thermal-coefficient conflict or use restriction is resolved by this parameter comparison. Existing reconstructed errors retained; no source confidence convention inferred. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Point estimates fall within the published errors, but source weighting and covariance are unspecified. All 27 printed 300 K rows are retained; the source RMS range is not recovered. The conflicting thermal coefficient is withheld. See literature-reproductions/litasov-2013-siderite.md. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
@@ -42,48 +42,76 @@ Record: `siderite_fe095mn005_litasov_2013_bm3` · Model: `BM3`
 - **Observations:** 27
 - **Fit kind:** fixed\_V0\_linearized\_bm3
 - **Objective:** unweighted\_pressure\_residuals
+- **Weighting:** Existing reconstructed errors retained; no source confidence convention inferred.
 - **Absolute sigma:** False
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for siderite_fe095mn005_litasov_2013_bm3](figures/siderite_fe095mn005_litasov_2013_bm3-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for siderite_fe095mn005_litasov_2013_bm3](figures/siderite_fe095mn005_litasov_2013_bm3-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.23 |
+| Reconstruction / refit | 0.227 |
+
+Both fits use the same 27 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** volume\_a3. **Row selection:** all rows; reference-T rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for siderite_fe095mn005_litasov_2013_bm3](figures/siderite_fe095mn005_litasov_2013_bm3.svg)
+![Source/target and reconstructed central values for siderite_fe095mn005_litasov_2013_bm3](figures/siderite_fe095mn005_litasov_2013_bm3.svg#only-light)
+![Source/target and reconstructed central values for siderite_fe095mn005_litasov_2013_bm3](figures/siderite_fe095mn005_litasov_2013_bm3-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 120.0 | 1.0 | 120.2242130752825 | 1.322686992288662 | Free |
-| K0\_prime | 3.57 | 0.09 | 3.5722139862709232 | 0.13418562510556464 | Free |
+| K0 | 120.0 | 1.0 | 120.2 | 1.3 | Free |
+| K0\_prime | 3.57 | 0.09 | 3.57 | 0.13 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
-- **Observed pressure range gpa:** \[0, 33.01\]
+- **Observed pressure range gpa:** \[0, "33.01"\]
 - **Observed temperature range k:** \[300, 300\]
 - **Solver success:** True
-- **Rmse gpa:** 0.22730866010656467
-- **Published rmse gpa:** 0.22958469054073105
+- **Rmse gpa:** 0.227309
+- **Published rmse gpa:** 0.229585
+- **Covariance:**
+    - **Parameters:** K0; K0\_prime
+    - **Standard errors:**
+        - **K0:** 1.32269
+        - **K0 prime:** 0.134186
+    - **Method:** Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Qualification:** Point estimates fall within the published errors, but source weighting and covariance are unspecified. All 27 printed 300 K rows are retained; the source RMS range is not recovered. The conflicting thermal coefficient is withheld. See literature-reproductions/litasov-2013-siderite.md.
+    - **Assumptions:** Existing reconstructed errors retained; no source confidence convention inferred.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
 
 </details>
 
 ### Detailed evidence and existing plots
 
-- [Earlier detailed record investigation](../primary-eos-refits.md#investigation-siderite_fe095mn005_litasov_2013_bm3).
 - [Supporting source report: litasov-2013-siderite](../literature-reproductions/litasov-2013-siderite.md).
+- [Supporting source report: uncertainty-reconstruction](../literature-reproductions/uncertainty-reconstruction.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `siderite_fe095mn005_litasov_2013_bm3`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/siderite_fe095mn005.eosmat).
@@ -124,34 +152,51 @@ The source/target column below is the stored **Peritheos refit**. Agreement with
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for siderite_fe095mn005_litasov_2013_joint_thermal_refit](figures/siderite_fe095mn005_litasov_2013_joint_thermal_refit-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for siderite_fe095mn005_litasov_2013_joint_thermal_refit](figures/siderite_fe095mn005_litasov_2013_joint_thermal_refit-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Stored Peritheos refit (target) | 0.221 |
+| Reconstruction / refit | 0.221 |
+
+Both fits use the same 111 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** volume\_a3. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for siderite_fe095mn005_litasov_2013_joint_thermal_refit](figures/siderite_fe095mn005_litasov_2013_joint_thermal_refit.svg)
+![Source/target and reconstructed central values for siderite_fe095mn005_litasov_2013_joint_thermal_refit](figures/siderite_fe095mn005_litasov_2013_joint_thermal_refit.svg#only-light)
+![Source/target and reconstructed central values for siderite_fe095mn005_litasov_2013_joint_thermal_refit](figures/siderite_fe095mn005_litasov_2013_joint_thermal_refit-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.K0 | 121.90288040577286 | 0.8855927629328301 | 121.90287687707195 | 0.8855930573905902 | Free |
-| rt\_eos.K0\_prime | 3.427642322450656 | 0.08617420289324854 | 3.427643358874071 | 0.08617420444691092 | Free |
-| alpha0 | 3.587839262956832e-05 | 1.442174904027276e-06 | 3.5878359568313225e-05 | 1.4421765164866188e-06 | Free |
-| alpha1 | 1.0132344225608927e-09 | 1.9588122131294773e-09 | 1.0133103185840319e-09 | 1.958811150464104e-09 | Free |
-| dK\_dT | -0.014597911024728977 | 0.0011884239133985548 | -0.014597941803188182 | 0.0011884224642203412 | Free |
+| rt\_eos.K0 | 121.9 | 0.9 | 121.9 | 0.9 | Free |
+| rt\_eos.K0\_prime | 3.43 | 0.09 | 3.43 | 0.09 | Free |
+| alpha0 | 35.9e-6 | 1.4e-6 | 35.9e-6 | 1.4e-6 | Free |
+| alpha1 | 1.0e-9 | 2.0e-9 | 1.0e-9 | 2.0e-9 | Free |
+| dK\_dT | -0.0146 | 0.0012 | -0.0146 | 0.0012 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
 <summary>Recorded diagnostics, covariance and additional protocol</summary>
 
-- **Observed pressure range gpa:** \[0, 33.01\]
+- **Observed pressure range gpa:** \[0, "33.01"\]
 - **Observed temperature range k:** \[300, 1673\]
 - **Solver success:** True
-- **Rmse gpa:** 0.22121166605654996
-- **Published rmse gpa:** 0.22121166605746373
+- **Rmse gpa:** 0.221212
+- **Published rmse gpa:** 0.221212
 
 </details>
 
@@ -160,7 +205,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `siderite_fe095mn005_litasov_2013_joint_thermal_refit`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/siderite_fe095mn005.eosmat).

@@ -130,13 +130,14 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.V0 | 163.16 | 0.19 | 162.60249726814212 | 0.9892223853928208 | Free |
-| rt\_eos.K0 | 243.8 | 4.3 | 254.1786085606223 | 20.258233450273092 | Free |
-| rt\_eos.K0\_prime | 4.16 | 0.11 | 3.9857458076163974 | 0.38012192157554864 | Free |
-| gamma0 | 1.4 | 0.11 | 1.39320084076452 | 0.16372684916820773 | Free |
-| q | 0.56 | 0.37 | 0.5535850391932572 | 0.5406059438791783 | Free |
+| rt\_eos.V0 | 163.16 | 0.19 | 162.6 | 1.0 | Free |
+| rt\_eos.K0 | 244 | 4 | 254 | 20 | Free |
+| rt\_eos.K0\_prime | 4.16 | 0.11 | 4.0 | 0.4 | Free |
+| gamma0 | 1.40 | 0.11 | 1.39 | 0.16 | Free |
+| q | 0.6 | 0.4 | 0.6 | 0.5 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** joint\_pvt
 - **Objective:** errors\_in\_variables
@@ -149,15 +150,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** rt\_eos.V0; rt\_eos.K0; rt\_eos.K0\_prime; gamma0; q
 - **Fixed parameters:** Tr; theta0; n
 - **Observations:** 153
-- **Observed pressure range gpa:** \[33.15, 132.7\]
-- **Observed temperature range k:** \[300.0, 2455.0\]
-- **Observed volume range:** \[122.42, 146.59\]
+- **Observed pressure range gpa:** 33.15; 132.7
+- **Observed temperature range k:** 300; 2455
+- **Observed volume range:** 122.42; 146.59
 - **Degrees of freedom:** 148
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 1.0712048891019135
-- **Published rmse gpa:** 1.9496990046194926
-- **Reduced chi square:** 0.613916105009841
+- **Rmse gpa:** 1.0712
+- **Published rmse gpa:** 1.9497
+- **Reduced chi square:** 0.613916
 - **Dataset identifiers:** mg087fe013sio3\_bridgmanite\_wolf\_2015\_table1\_pvt
 
 </details>

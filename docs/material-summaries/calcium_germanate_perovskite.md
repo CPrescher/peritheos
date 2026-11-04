@@ -129,11 +129,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 206.49 | 0.017 | 206.48957829870082 | 0.9231858414205946 | Free |
-| K0 | 194.0 | 2.1 | 194.6599516958117 | 100.48595013741318 | Free |
-| K0\_prime | 6.1 | 0.5 | 5.900633035803573 | 24.63583237627187 | Free |
+| V0 | 206.490 | 0.017 | 206.5 | 0.9 | Free |
+| K0 | 194.0 | 2.1 | 190 | 100 | Free |
+| K0\_prime | 6.1 | 0.5 | 6 | 25 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -146,15 +147,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
 - **Observations:** 9
-- **Observed pressure range gpa:** \[0.0001, 8.553\]
+- **Observed pressure range gpa:** 0.0001; 8.553
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[198.577, 206.484\]
+- **Observed volume range:** 198.577; 206.484
 - **Degrees of freedom:** 6
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.018763230068957467
-- **Published rmse gpa:** 0.019110876348061613
-- **Reduced chi square:** 0.0005283309037255345
+- **Rmse gpa:** 0.0187632
+- **Published rmse gpa:** 0.0191109
+- **Reduced chi square:** 0.000528331
 - **Dataset identifiers:** calcium\_germanate\_perovskite\_ross\_1999\_table1\_compression
 
 </details>

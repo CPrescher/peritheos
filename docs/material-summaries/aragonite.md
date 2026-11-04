@@ -116,12 +116,13 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.V0 | 227.5 | 0.8 | 227.0509188911685 | 0.46287683892679543 | Free |
-| rt\_eos.K0 | 64.81 | 3.48 | 65.7594847830113 | 1.6574642736217322 | Free |
-| alpha0 | 6.5e-05 | 1e-06 | 6.616277302577296e-05 | 5.239895204479933e-06 | Free |
-| dK\_dT | -0.018 | 0.002 | -0.01666478438939185 | 0.004169185507704645 | Free |
+| rt\_eos.V0 | 227.5 | 0.8 | 227.1 | 0.5 | Free |
+| rt\_eos.K0 | 65 | 3 | 65.8 | 1.7 | Free |
+| alpha0 | 65.0e-6 | 1.0e-6 | 66e-6 | 5e-6 | Free |
+| dK\_dT | -0.0180 | 0.0020 | -0.017 | 0.004 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** staged\_bm2\_isotherms
 - **Objective:** unweighted pressure residuals followed by linear regressions
@@ -136,8 +137,8 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Observations:** 64
 - **Solver success:** True
 - **Solver message:** eight isotherm fits and two linear regressions completed
-- **Rmse gpa:** 0.20549596467076306
-- **Published rmse gpa:** 0.2591892383500495
+- **Rmse gpa:** 0.205496
+- **Published rmse gpa:** 0.259189
 - **Reduced chi square:** Not specified
 - **Dataset identifiers:** aragonite\_martinez\_1996\_table3\_pvt
 

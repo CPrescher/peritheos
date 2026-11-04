@@ -50,21 +50,38 @@ Record: `mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1` · Model: `BM2`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1](figures/mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1](figures/mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.72 |
+| Reconstruction / refit | 0.421 |
+
+Both fits use the same 22 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** cif\_volume\_a3\_conventional\_cell. **Row selection:** all rows; reference-T rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1](figures/mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1.svg)
+![Source/target and reconstructed central values for mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1](figures/mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1.svg#only-light)
+![Source/target and reconstructed central values for mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1](figures/mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 163.85 | 0.07 | 164.42746280240823 | 0.07192661557636676 | Free |
-| K0 | 242.0 | 3.0 | 236.84799025533596 | 1.386259172014844 | Free |
+| V0 | 163.85 | 0.07 | 164.43 | 0.07 | Free |
+| K0 | 242 | 3 | 236.8 | 1.4 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -74,15 +91,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** temperature\_k
     - **Volume:** cif\_volume\_a3\_conventional\_cell
-- **Observed pressure range gpa:** \[4.2, 64.6\]
-- **Observed temperature range k:** \[293.0, 293.0\]
-- **Observed volume range:** \[136.29, 161.7\]
+- **Observed pressure range gpa:** 4.2; 64.6
+- **Observed temperature range k:** 293; 293
+- **Observed volume range:** 136.29; 161.7
 - **Degrees of freedom:** 20
 - **Solver success:** True
 - **Solver message:** \`xtol\` termination condition is satisfied.
-- **Rmse gpa:** 0.32281215082456644
-- **Published rmse gpa:** 0.7195012695517916
-- **Reduced chi square:** 0.819611673797963
+- **Rmse gpa:** 0.322812
+- **Published rmse gpa:** 0.719501
+- **Reduced chi square:** 0.819612
 
 </details>
 
@@ -92,7 +109,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `mg088fe010al014si090o3_bridgmanite_fu_2024_bm2_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/mg088fe010al014si090o3_bridgmanite.eosmat).
@@ -131,22 +148,39 @@ Record: `mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2](figures/mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2](figures/mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.929 |
+| Reconstruction / refit | 0.357 |
+
+Both fits use the same 22 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** cif\_volume\_a3\_conventional\_cell. **Row selection:** all rows; reference-T rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2](figures/mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2.svg)
+![Source/target and reconstructed central values for mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2](figures/mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2.svg#only-light)
+![Source/target and reconstructed central values for mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2](figures/mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 164.64 | 0.11 | 164.6760952521695 | 0.12458982170747895 | Free |
-| K0 | 228.0 | 5.0 | 224.57925509814584 | 4.938155754753872 | Free |
-| K0\_prime | 4.1 | 0.2 | 4.5444808875842755 | 0.21821952384614782 | Free |
+| V0 | 164.64 | 0.11 | 164.68 | 0.12 | Free |
+| K0 | 228 | 5 | 225 | 5 | Free |
+| K0\_prime | 4.10 | 0.20 | 4.54 | 0.22 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -156,15 +190,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** temperature\_k
     - **Volume:** cif\_volume\_a3\_conventional\_cell
-- **Observed pressure range gpa:** \[4.2, 64.6\]
-- **Observed temperature range k:** \[293.0, 293.0\]
-- **Observed volume range:** \[136.29, 161.7\]
+- **Observed pressure range gpa:** 4.2; 64.6
+- **Observed temperature range k:** 293; 293
+- **Observed volume range:** 136.29; 161.7
 - **Degrees of freedom:** 19
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.2641406271767265
-- **Published rmse gpa:** 0.929084820389755
-- **Reduced chi square:** 0.5004008539633722
+- **Rmse gpa:** 0.264141
+- **Published rmse gpa:** 0.929085
+- **Reduced chi square:** 0.500401
 
 </details>
 
@@ -173,7 +207,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `mg088fe010al014si090o3_bridgmanite_fu_2024_bm3_2`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/mg088fe010al014si090o3_bridgmanite.eosmat).
@@ -212,21 +246,38 @@ Record: `mg088fe010al014si090o3_bridgmanite_fu_2023_bm2` · Model: `BM2`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for mg088fe010al014si090o3_bridgmanite_fu_2023_bm2](figures/mg088fe010al014si090o3_bridgmanite_fu_2023_bm2-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for mg088fe010al014si090o3_bridgmanite_fu_2023_bm2](figures/mg088fe010al014si090o3_bridgmanite_fu_2023_bm2-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.664 |
+| Reconstruction / refit | 0.693 |
+
+Both fits use the same 43 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** volume\_a3. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for mg088fe010al014si090o3_bridgmanite_fu_2023_bm2](figures/mg088fe010al014si090o3_bridgmanite_fu_2023_bm2.svg)
+![Source/target and reconstructed central values for mg088fe010al014si090o3_bridgmanite_fu_2023_bm2](figures/mg088fe010al014si090o3_bridgmanite_fu_2023_bm2.svg#only-light)
+![Source/target and reconstructed central values for mg088fe010al014si090o3_bridgmanite_fu_2023_bm2](figures/mg088fe010al014si090o3_bridgmanite_fu_2023_bm2-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 163.75 | Not specified | 164.00119340319102 | 0.03032198061370463 | Free |
-| K0 | 256.0 | 2.0 | 254.07061857692923 | 0.6949767208406311 | Free |
+| V0 | 163.75 | Not reported | 164.00 | 0.03 | Free |
+| K0 | 256.0 | 2.0 | 254.1 | 0.7 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -236,15 +287,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** Not specified
     - **Volume:** volume\_a3
-- **Observed pressure range gpa:** \[4.3, 72.6\]
+- **Observed pressure range gpa:** 4.3; 72.6
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[134.78, 161.04\]
+- **Observed volume range:** 134.78; 161.04
 - **Degrees of freedom:** 41
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.5462005867286057
-- **Published rmse gpa:** 0.6643037959004271
-- **Reduced chi square:** 9.636300376977069
+- **Rmse gpa:** 0.546201
+- **Published rmse gpa:** 0.664304
+- **Reduced chi square:** 9.6363
 
 </details>
 
@@ -254,7 +305,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `mg088fe010al014si090o3_bridgmanite_fu_2023_bm2`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/mg088fe010al014si090o3_bridgmanite.eosmat).
@@ -293,21 +344,38 @@ Record: `mg088fe010al014si090o3_bridgmanite_fu_2023_bm3` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for mg088fe010al014si090o3_bridgmanite_fu_2023_bm3](figures/mg088fe010al014si090o3_bridgmanite_fu_2023_bm3-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for mg088fe010al014si090o3_bridgmanite_fu_2023_bm3](figures/mg088fe010al014si090o3_bridgmanite_fu_2023_bm3-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.669 |
+| Reconstruction / refit | 0.722 |
+
+Both fits use the same 43 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** volume\_a3. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for mg088fe010al014si090o3_bridgmanite_fu_2023_bm3](figures/mg088fe010al014si090o3_bridgmanite_fu_2023_bm3.svg)
+![Source/target and reconstructed central values for mg088fe010al014si090o3_bridgmanite_fu_2023_bm3](figures/mg088fe010al014si090o3_bridgmanite_fu_2023_bm3.svg#only-light)
+![Source/target and reconstructed central values for mg088fe010al014si090o3_bridgmanite_fu_2023_bm3](figures/mg088fe010al014si090o3_bridgmanite_fu_2023_bm3-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 259.0 | 4.0 | 267.9220317493287 | 0.7400102607042681 | Free |
-| K0\_prime | 3.8 | 0.2 | 3.4306099277128705 | 0.04343520316190236 | Free |
+| K0 | 259 | 4 | 267.9 | 0.7 | Free |
+| K0\_prime | 3.80 | 0.20 | 3.43 | 0.04 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -317,15 +385,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** Not specified
     - **Volume:** volume\_a3
-- **Observed pressure range gpa:** \[4.3, 72.6\]
+- **Observed pressure range gpa:** 4.3; 72.6
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[134.78, 161.04\]
+- **Observed volume range:** 134.78; 161.04
 - **Degrees of freedom:** 41
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.574843714450436
-- **Published rmse gpa:** 0.6691388214459977
-- **Reduced chi square:** 7.484728247934667
+- **Rmse gpa:** 0.574844
+- **Published rmse gpa:** 0.669139
+- **Reduced chi square:** 7.48473
 
 </details>
 
@@ -335,7 +403,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `mg088fe010al014si090o3_bridgmanite_fu_2023_bm3`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/mg088fe010al014si090o3_bridgmanite.eosmat).

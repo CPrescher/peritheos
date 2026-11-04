@@ -99,18 +99,18 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.
 
 [Open reconstruction report](../reconstruction-reports/naalsi2o6.md#record-naalsi2o6_zhao_1997_bm3_1)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
-- Complete conditional reproduction of the preferred K0'=5 thermal BM3 fit. All 31 source-selected hydrostatic Table 1 rows are used with the source-fixed V0=403 A^3 and K0'=5. The paper does not report its EOS residual definition, numerical weights, row-wise pressure/temperature uncertainties, covariance, or confidence convention, so Peritheos uses ordinary pressure residuals. Every varied coefficient is recovered within its published uncertainty; the result is classified similar because the small alpha1 coefficient has a 46% relative shift. See the dedicated \[Zhao jadeite audit\](literature-reproductions/zhao-1997-jadeite.md).
+- Every compared free coefficient lies inside its positive printed source error width. All four varied coefficients are within source widths on all 31 selected hydrostatic rows, with source V0=403 A^3 and K0-prime=5 fixed. The small alpha1 coefficient shifts about 46% but remains inside its printed error; this explicit source-width criterion is narrower in claim than the generic relative-change guard. Original weighting, objective, covariance and confidence remain unspecified. Earlier audit wording (superseded only for the named numerical scope): Complete conditional reproduction of the preferred K0'=5 thermal BM3 fit. All 31 source-selected hydrostatic Table 1 rows are used with the source-fixed V0=403 A^3 and K0'=5. The paper does not report its EOS residual definition, numerical weights, row-wise pressure/temperature uncertainties, covariance, or confidence convention, so Peritheos uses ordinary pressure residuals. Every varied coefficient is recovered within its published uncertainty; the result is classified similar because the small alpha1 coefficient has a 46% relative shift. See the dedicated \[Zhao jadeite audit\](literature-reproductions/zhao-1997-jadeite.md).
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 <details markdown="1">
@@ -124,12 +124,13 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.K0 | 124.5 | 4.0 | 123.76531127225114 | 1.3079217383697208 | Free |
-| alpha0 | 2.56e-05 | 2.2e-06 | 2.6907805461388988e-05 | 2.2631463855223843e-06 | Free |
-| alpha1 | 2.6e-09 | 1.8e-09 | 1.4119785809547507e-09 | 3.3359683548023392e-09 | Free |
-| dK\_dT | -0.0165 | 0.0049 | -0.015274475228462205 | 0.002798352278049637 | Free |
+| rt\_eos.K0 | 125 | 4 | 123.8 | 1.3 | Free |
+| alpha0 | 25.6e-6 | 2.2e-6 | 26.9e-6 | 2.3e-6 | Free |
+| alpha1 | 2.6e-9 | 1.8e-9 | 1e-9 | 3e-9 | Free |
+| dK\_dT | -0.017 | 0.005 | -0.0153 | 0.0028 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** joint\_pvt
 - **Objective:** pressure\_residuals
@@ -142,15 +143,16 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** rt\_eos.K0; alpha0; alpha1; dK\_dT
 - **Fixed parameters:** V0; K0\_prime; Tr
 - **Observations:** 31
-- **Observed pressure range gpa:** \[0.0, 8.16\]
-- **Observed temperature range k:** \[300.0, 1280.0\]
-- **Observed volume range:** \[385.41, 406.7\]
+- **Observed pressure range gpa:** 0; 8.16
+- **Observed temperature range k:** 300; 1280
+- **Observed volume range:** 385.41; 406.7
 - **Degrees of freedom:** 27
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.10057798930809785
-- **Published rmse gpa:** 0.1100101303257055
-- **Reduced chi square:** 0.011614588515965007
+- **Rmse gpa:** 0.100578
+- **Published rmse gpa:** 0.11001
+- **Reduced chi square:** 0.0116146
+- **Comparison scope:** Compared free coefficients: rt\_eos.K0, alpha0, alpha1, dK\_dT; scope=parameter\_agreement
 - **Dataset identifiers:** jadeite\_zhao\_1997\_table1\_pvt
 
 </details>

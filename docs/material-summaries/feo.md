@@ -128,11 +128,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.K0 | 149.4 | 1.0 | 144.50797247416534 | 2.7189032811967384 | Free |
-| rt\_eos.K0\_prime | 3.6 | 0.04 | 3.715623572064788 | 0.07444449208676378 | Free |
-| gamma0 | 1.41 | 0.05 | 1.6301956053980495 | 0.12081598701442424 | Free |
+| rt\_eos.K0 | 149.4 | 1.0 | 144.5 | 2.7 | Free |
+| rt\_eos.K0\_prime | 3.60 | 0.04 | 3.72 | 0.07 | Free |
+| gamma0 | 1.41 | 0.05 | 1.63 | 0.12 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** joint\_pvt
 - **Objective:** errors\_in\_variables
@@ -145,15 +146,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** rt\_eos.K0; rt\_eos.K0\_prime; gamma0
 - **Fixed parameters:** V0; Tr; theta0; q; n
 - **Observations:** 42
-- **Observed pressure range gpa:** \[95.2153318933, 155.982534269\]
-- **Observed temperature range k:** \[1143.9, 3024.73\]
-- **Observed volume range:** \[52.35477716465731, 59.60807743690136\]
+- **Observed pressure range gpa:** 95.2153; 155.983
+- **Observed temperature range k:** 1143.9; 3024.73
+- **Observed volume range:** 52.3548; 59.6081
 - **Degrees of freedom:** 39
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 3.3023324480369616
-- **Published rmse gpa:** 3.319807086654516
-- **Reduced chi square:** 4.525491264672904
+- **Rmse gpa:** 3.30233
+- **Published rmse gpa:** 3.31981
+- **Reduced chi square:** 4.52549
 - **Dataset identifiers:** feo\_fischer\_2011\_table\_s1\_pvt
 
 </details>
@@ -321,10 +322,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 79.41 | 0.04 | 79.43764935328304 | 0.4348013830455283 | Free |
-| K0 | 146.0 | 2.0 | 144.54631340959483 | 11.507025908735983 | Free |
+| V0 | 79.41 | 0.04 | 79.4 | 0.4 | Free |
+| K0 | 146.0 | 2.0 | 145 | 12 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -337,15 +339,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0
 - **Fixed parameters:** K0\_prime
 - **Observations:** 7
-- **Observed pressure range gpa:** \[0.0, 22.8\]
+- **Observed pressure range gpa:** 0; 22.8
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[70.21498, 79.396112\]
+- **Observed volume range:** 70.215; 79.3961
 - **Degrees of freedom:** 5
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.08706907560791009
-- **Published rmse gpa:** 0.11999826697901608
-- **Reduced chi square:** 0.011099816093970271
+- **Rmse gpa:** 0.0870691
+- **Published rmse gpa:** 0.119998
+- **Reduced chi square:** 0.0110998
 - **Dataset identifiers:** jacobsen\_2005\_table1\_compression
 
 </details>
@@ -745,11 +747,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.K0 | 146.9 | 1.3 | 152.01202845372052 | 3.9076006196699993 | Free |
-| gamma0 | 1.42 | 0.04 | 1.3501486472636206 | 0.0458050170730508 | Free |
-| q | 1.3 | 0.3 | 0.7508042230603151 | 0.7228255480427921 | Free |
+| rt\_eos.K0 | 146.9 | 1.3 | 152 | 4 | Free |
+| gamma0 | 1.42 | 0.04 | 1.35 | 0.05 | Free |
+| q | 1.3 | 0.3 | 0.8 | 0.7 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** conditional\_bm3\_mgd\_variable\_exponent
 - **Objective:** pressure\_residuals
@@ -758,15 +761,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** rt\_eos.K0; gamma0; q
 - **Fixed parameters:** V0; K0\_prime; Tr; theta0; n
 - **Observations:** 25
-- **Observed pressure range gpa:** \[3.9954833425198, 57.5614962915957\]
-- **Observed temperature range k:** \[873.0, 2096.29\]
+- **Observed pressure range gpa:** 3.99548; 57.5615
+- **Observed temperature range k:** 873; 2096.29
 - **Degrees of freedom:** 22
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.5149850342799355
-- **Published rmse gpa:** 1.316064100606689
-- **Reduced chi square:** 0.3013745290139844
-- **Covariance:** \[\[15.269342602845363, -0.004944426585140988, 2.6918758626538852\], \[-0.004944426585125659, 0.002098099589062475, 0.007860913931569853\], \[2.691875862653968, 0.007860913931567126, 0.5224767729033628\]\]
+- **Rmse gpa:** 0.514985
+- **Published rmse gpa:** 1.31606
+- **Reduced chi square:** 0.301375
+- **Covariance:** \[\["15.2693", "-0.00494443", "2.69188"\], \["-0.00494443", "0.0020981", "0.00786091"\], \["2.69188", "0.00786091", "0.522477"\]\]
 - **Covariance convention:** Residual-scaled local inverse-Jacobian covariance; audit-only, not source errors.
 - **Dataset identifiers:** feo\_campbell\_2009\_table\_s2\_pvt
 

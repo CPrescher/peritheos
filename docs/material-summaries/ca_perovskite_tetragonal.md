@@ -130,10 +130,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 182.4 | 0.8 | 182.24804798749565 | 0.6317092825607095 | Free |
-| K0 | 229.0 | 4.0 | 228.98385840298772 | 4.159115567561618 | Free |
+| V0 | 182.4 | 0.8 | 182.2 | 0.6 | Free |
+| K0 | 229 | 4 | 229 | 4 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** pressure\_residuals
@@ -146,15 +147,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0
 - **Fixed parameters:** K0\_prime
 - **Observations:** 23
-- **Observed pressure range gpa:** \[21.5, 199.2\]
+- **Observed pressure range gpa:** 21.5; 199.2
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[123.1, 167.0\]
+- **Observed volume range:** 123.1; 167
 - **Degrees of freedom:** 21
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 1.9329913971206174
-- **Published rmse gpa:** 2.0046588369459113
-- **Reduced chi square:** 4.092308669089204
+- **Rmse gpa:** 1.93299
+- **Published rmse gpa:** 2.00466
+- **Reduced chi square:** 4.09231
 - **Dataset identifiers:** ca\_perovskite\_tetragonal\_sun\_2022\_table1\_pv
 
 </details>
@@ -778,18 +779,18 @@ establish statistical independence.
 
 ### Reconstruction
 
-**Outcome:** similar.
+**Outcome:** parity.
 **Scope:** parameter agreement.
 
-**Comparison basis:** Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.
+**Comparison basis:** Conditional parameter agreement under both the combined-error comparison and numerical similarity screen; source confidence conventions remain explicit, and unknown source confidence or shared-data covariance does not become a formal confidence test or author-workflow reproduction.
 
 [Open reconstruction report](../reconstruction-reports/ca_perovskite_tetragonal.md#record-ca_perovskite_tetragonal_chen_2018_vinet)
 
-Original audit code: `similar`.
+Original audit code: `parity`.
 
 **Limitations and qualifications:**
 
-- Complete source-scope table check with unresolved fitting details: all seven I4/mcm Table 1 rows are used, K0-prime is fixed at 4, and the reported Ye et al. Pt pressures are retained. The source does not publish pressure uncertainties, residual direction, weights, fit software, unrounded inputs, or covariance. The generic fit therefore uses an errors-in-variables objective with one-sigma volume errors propagated from the table's two-sigma lattice errors; the dedicated reproduction also reports unweighted pressure- and volume-residual sensitivity fits. Those diagnostics do not define a replacement EOS, and the classification is capped at similar because statistical parity cannot be established without the source weighting and pressure-error model.
+- Every compared free coefficient passes the combined-error comparison and numerical similarity screen. The source explicitly reports two-sigma parameter widths; dividing those widths by two before combining with reconstruction standard errors also passes. The printed-source-width-only cutoff is not required for this parameter-agreement scope. Original weights, calibration covariance and author workflow remain unrecovered; shared-data cross-fit covariance is unknown. Existing reconstructed errors retained; no source confidence convention inferred. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Complete source-scope table check with unresolved fitting details: all seven I4/mcm Table 1 rows are used, K0-prime is fixed at 4, and the reported Ye et al. Pt pressures are retained. The source does not publish pressure uncertainties, residual direction, weights, fit software, unrounded inputs, or covariance. The generic fit therefore uses an errors-in-variables objective with one-sigma volume errors propagated from the table's two-sigma lattice errors; the dedicated reproduction also reports unweighted pressure- and volume-residual sensitivity fits. Those diagnostics do not define a replacement EOS, and the classification is capped at similar because statistical parity cannot be established without the source weighting and pressure-error model. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.
 - Usage recommendation: Use the unchanged published 300 K Vinet parameterization for qualified comparison in its measured 28.824-62.477 GPa range. V0 is an extrapolation and K0' is fixed at 4. Retain the reported 2-sigma lattice and parameter errors without inventing pressure errors or source weights. P4/mmm refinements are parallel structural diagnostics, not additional independent fit observations.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
@@ -804,10 +805,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 185.2 | 0.4 | 185.97809898471897 | 1.1326450488251734 | Free |
-| K0 | 223.0 | 6.0 | 215.29164716721533 | 11.039289818525774 | Free |
+| V0 | 185.2 | 0.4 | 186.0 | 1.1 | Free |
+| K0 | 223 | 6 | 215 | 11 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -816,19 +818,30 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
     - **Pressure:** pressure\_pt\_ye\_gpa
     - **Temperature:** Not specified
     - **Volume:** i4mcm\_volume\_a3\_conventional\_cell
+- **Weighting:** Existing reconstructed errors retained; no source confidence convention inferred.
 - **Absolute sigma:** True
 - **Free parameters:** V0; K0
 - **Fixed parameters:** K0\_prime
 - **Observations:** 7
-- **Observed pressure range gpa:** \[28.824, 62.477\]
+- **Observed pressure range gpa:** 28.824; 62.477
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[152.681825099475, 166.585082642432\]
+- **Observed volume range:** 152.682; 166.585
 - **Degrees of freedom:** 5
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.6341793610514413
-- **Published rmse gpa:** 0.6885283944326519
-- **Reduced chi square:** 0.5633471320594612
+- **Rmse gpa:** 0.634179
+- **Published rmse gpa:** 0.688528
+- **Reduced chi square:** 0.563347
+- **Covariance:**
+    - **Parameters:** V0; K0
+    - **Standard errors:**
+        - **V0:** 1.13265
+        - **K0:** 11.0393
+    - **Method:** Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.
+    - **Previous assessment:**
+        - **Status:** similar
+        - **Qualification:** Complete source-scope table check with unresolved fitting details: all seven I4/mcm Table 1 rows are used, K0-prime is fixed at 4, and the reported Ye et al. Pt pressures are retained. The source does not publish pressure uncertainties, residual direction, weights, fit software, unrounded inputs, or covariance. The generic fit therefore uses an errors-in-variables objective with one-sigma volume errors propagated from the table's two-sigma lattice errors; the dedicated reproduction also reports unweighted pressure- and volume-residual sensitivity fits. Those diagnostics do not define a replacement EOS, and the classification is capped at similar because statistical parity cannot be established without the source weighting and pressure-error model.
+    - **Assumptions:** Existing reconstructed errors retained; no source confidence convention inferred.; Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.; Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.; Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.; Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred.
 - **Dataset identifiers:** ca\_perovskite\_tetragonal\_chen\_2018\_table1\_compression
 
 </details>

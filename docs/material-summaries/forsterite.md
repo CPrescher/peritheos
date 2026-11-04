@@ -116,10 +116,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 130.0 | 0.9 | 130.09172243150562 | 6.4589727076486 | Free |
-| K0\_prime | 4.12 | 0.07 | 4.114352835421328 | 0.47403545557767013 | Free |
+| K0 | 130.0 | 0.9 | 130 | 6 | Free |
+| K0\_prime | 4.12 | 0.07 | 4.1 | 0.5 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -132,15 +133,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** K0; K0\_prime
 - **Fixed parameters:** V0
 - **Observations:** 14
-- **Observed pressure range gpa:** \[0.0, 48.0\]
+- **Observed pressure range gpa:** 0; 48
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[230.6, 290.1\]
+- **Observed volume range:** 230.6; 290.1
 - **Degrees of freedom:** 12
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.12802711386736998
-- **Published rmse gpa:** 0.13231209345082623
-- **Reduced chi square:** 0.019747225742570304
+- **Rmse gpa:** 0.128027
+- **Published rmse gpa:** 0.132312
+- **Reduced chi square:** 0.0197472
 - **Dataset identifiers:** forsterite\_finkelstein\_2014\_table2\_compression
 
 </details>
@@ -276,11 +277,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0\_prime | 4.21116896988574 | Not specified | 4.249220999557795 | Not specified | Free |
-| gamma0 | 0.997258584556838 | Not specified | 0.9992725760819935 | Not specified | Free |
-| q | 2.43854091371459 | Not specified | 2.4677172154907185 | Not specified | Free |
+| K0\_prime | 4.21117 | Not reported | 4.24922 | Not reported | Free |
+| gamma0 | 0.997259 | Not reported | 0.999273 | Not reported | Free |
+| q | 2.43854 | Not reported | 2.46772 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** reconstructed\_input\_conditional\_bm3\_mgd
 - **Objective:** unweighted\_pressure\_residuals
@@ -289,8 +291,8 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Fixed parameters:** V0; K0; Tr; theta0; n; Z
 - **Observations:** 51
 - **Solver success:** True
-- **Rmse gpa:** 0.21282064917509597
-- **Published rmse gpa:** 0.21300125575966772
+- **Rmse gpa:** 0.212821
+- **Published rmse gpa:** 0.213001
 - **Dataset identifiers:** forsterite\_katsura\_2022\_olivine\_pvt
 - **Reproduction report:** docs/data/forsterite-katsura-2022-reproduction.json
 
@@ -458,11 +460,12 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0\_prime | 4.2 | 0.4 | 4.254577305953309 | Not specified | Free |
-| gamma0 | 1.0 | 0.02 | 1.0005027491131544 | Not specified | Free |
-| q | 2.4 | 0.5 | 2.4703460700134214 | Not specified | Free |
+| K0\_prime | 4.2 | 0.4 | 4.25458 | Not reported | Free |
+| gamma0 | 1.000 | 0.020 | 1.0005 | Not reported | Free |
+| q | 2.4 | 0.5 | 2.47035 | Not reported | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** reconstructed\_input\_conditional\_bm3\_mgd
 - **Objective:** unweighted\_pressure\_residuals
@@ -471,8 +474,8 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Fixed parameters:** V0; K0; Tr; theta0; n; Z
 - **Observations:** 51
 - **Solver success:** True
-- **Rmse gpa:** 0.21239522341551
-- **Published rmse gpa:** 0.21249940044126006
+- **Rmse gpa:** 0.212395
+- **Published rmse gpa:** 0.212499
 - **Dataset identifiers:** forsterite\_katsura\_2022\_olivine\_pvt
 - **Reproduction report:** docs/data/forsterite-katsura-2022-reproduction.json
 

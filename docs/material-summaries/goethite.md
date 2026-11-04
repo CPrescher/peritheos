@@ -121,10 +121,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.K0 | 140.3 | 3.7 | 183.33783907350212 | 4.974275177321595 | Free |
-| rt\_eos.K0\_prime | 4.6 | 0.4 | 0.0 | 0.41271534924862147 | Free |
+| rt\_eos.K0 | 140 | 4 | 183 | 5 | Free |
+| rt\_eos.K0\_prime | 4.6 | 0.4 | 0.0 | 0.4 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** joint\_pvt
 - **Objective:** errors\_in\_variables
@@ -137,15 +138,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** rt\_eos.K0; rt\_eos.K0\_prime
 - **Fixed parameters:** V0; Tr; theta0; gamma0; q; n
 - **Observations:** 65
-- **Observed pressure range gpa:** \[0.0, 29.41\]
-- **Observed temperature range k:** \[296.15, 583.15\]
-- **Observed volume range:** \[119.5, 138.75\]
+- **Observed pressure range gpa:** 0; 29.41
+- **Observed temperature range k:** 296.15; 583.15
+- **Observed volume range:** 119.5; 138.75
 - **Degrees of freedom:** 63
 - **Solver success:** True
 - **Solver message:** \`xtol\` termination condition is satisfied.
-- **Rmse gpa:** 2.1363449088924615
-- **Published rmse gpa:** 2.540000975127211
-- **Reduced chi square:** 4.948021225228743
+- **Rmse gpa:** 2.13634
+- **Published rmse gpa:** 2.54
+- **Reduced chi square:** 4.94802
 - **Dataset identifiers:** goethite\_gleason\_2008\_deposit\_table1\_pvt
 
 </details>

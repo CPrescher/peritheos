@@ -50,21 +50,38 @@ Record: `mggeo3_post_perovskite_kubo_2006_bm3_1` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for mggeo3_post_perovskite_kubo_2006_bm3_1](figures/mggeo3_post_perovskite_kubo_2006_bm3_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for mggeo3_post_perovskite_kubo_2006_bm3_1](figures/mggeo3_post_perovskite_kubo_2006_bm3_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 1.39 |
+| Reconstruction / refit | 1.42 |
+
+Both fits use the same 22 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** volume\_a3. **Row selection:** fit\_included=1.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for mggeo3_post_perovskite_kubo_2006_bm3_1](figures/mggeo3_post_perovskite_kubo_2006_bm3_1.svg)
+![Source/target and reconstructed central values for mggeo3_post_perovskite_kubo_2006_bm3_1](figures/mggeo3_post_perovskite_kubo_2006_bm3_1.svg#only-light)
+![Source/target and reconstructed central values for mggeo3_post_perovskite_kubo_2006_bm3_1](figures/mggeo3_post_perovskite_kubo_2006_bm3_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 179.2 | 0.7 | 178.66529189179212 | 0.6144318174627531 | Free |
-| K0 | 207.0 | 5.0 | 210.58067184685015 | 4.293351645284262 | Free |
+| V0 | 179.2 | 0.7 | 178.7 | 0.6 | Free |
+| K0 | 207 | 5 | 211 | 4 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -74,15 +91,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** Not specified
     - **Volume:** volume\_a3
-- **Observed pressure range gpa:** \[47.3, 196.3\]
+- **Observed pressure range gpa:** 47.3; 196.3
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[120.928305, 152.481768\]
+- **Observed volume range:** 120.928; 152.482
 - **Degrees of freedom:** 20
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.8120293208021537
-- **Published rmse gpa:** 1.394506952622881
-- **Reduced chi square:** 1.1509768661620852
+- **Rmse gpa:** 0.812029
+- **Published rmse gpa:** 1.39451
+- **Reduced chi square:** 1.15098
 
 </details>
 
@@ -91,7 +108,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `mggeo3_post_perovskite_kubo_2006_bm3_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/mggeo3_post_perovskite.eosmat).
@@ -130,21 +147,38 @@ Record: `mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2` · Model: `BM2`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2](figures/mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2](figures/mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 1.36 |
+| Reconstruction / refit | 1.38 |
+
+Both fits use the same 22 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** volume\_a3. **Row selection:** fit\_included=1.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2](figures/mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2.svg)
+![Source/target and reconstructed central values for mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2](figures/mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2.svg#only-light)
+![Source/target and reconstructed central values for mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2](figures/mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 175.9 | 0.6 | 175.4561792818427 | 0.5221786996568926 | Free |
-| K0 | 245.0 | 5.0 | 248.67933059047525 | 4.4205463150013795 | Free |
+| V0 | 175.9 | 0.6 | 175.5 | 0.5 | Free |
+| K0 | 245 | 5 | 249 | 4 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -154,15 +188,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** Not specified
     - **Volume:** volume\_a3
-- **Observed pressure range gpa:** \[47.3, 196.3\]
+- **Observed pressure range gpa:** 47.3; 196.3
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[120.928305, 152.481768\]
+- **Observed volume range:** 120.928; 152.482
 - **Degrees of freedom:** 20
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.749396935194924
-- **Published rmse gpa:** 1.3561285588251957
-- **Reduced chi square:** 1.0358363125552295
+- **Rmse gpa:** 0.749397
+- **Published rmse gpa:** 1.35613
+- **Reduced chi square:** 1.03584
 
 </details>
 
@@ -171,7 +205,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `mggeo3_post_perovskite_kubo_2006_bm2_sensitivity_2`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/mggeo3_post_perovskite.eosmat).
@@ -210,21 +244,38 @@ Record: `mggeo3_post_perovskite_hirose_2005_bm3_fixed_1` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for mggeo3_post_perovskite_hirose_2005_bm3_fixed_1](figures/mggeo3_post_perovskite_hirose_2005_bm3_fixed_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for mggeo3_post_perovskite_hirose_2005_bm3_fixed_1](figures/mggeo3_post_perovskite_hirose_2005_bm3_fixed_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.872 |
+| Reconstruction / refit | 0.967 |
+
+Both fits use the same 9 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** volume\_a3. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for mggeo3_post_perovskite_hirose_2005_bm3_fixed_1](figures/mggeo3_post_perovskite_hirose_2005_bm3_fixed_1.svg)
+![Source/target and reconstructed central values for mggeo3_post_perovskite_hirose_2005_bm3_fixed_1](figures/mggeo3_post_perovskite_hirose_2005_bm3_fixed_1.svg#only-light)
+![Source/target and reconstructed central values for mggeo3_post_perovskite_hirose_2005_bm3_fixed_1](figures/mggeo3_post_perovskite_hirose_2005_bm3_fixed_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 183.1 | 0.8 | 183.93533087455035 | 0.4732927919053868 | Free |
-| K0 | 192.0 | 5.0 | 186.78503770450254 | 2.9501265433037833 | Free |
+| V0 | 183.1 | 0.8 | 183.9 | 0.5 | Free |
+| K0 | 192 | 5 | 186.8 | 3.0 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -234,15 +285,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** Not specified
     - **Volume:** volume\_a3
-- **Observed pressure range gpa:** \[6.25, 78.55\]
+- **Observed pressure range gpa:** 6.25; 78.55
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[142.63, 177.45\]
+- **Observed volume range:** 142.63; 177.45
 - **Degrees of freedom:** 7
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.57064955442719
-- **Published rmse gpa:** 0.8717267563770555
-- **Reduced chi square:** 19.322769809486257
+- **Rmse gpa:** 0.57065
+- **Published rmse gpa:** 0.871727
+- **Reduced chi square:** 19.3228
 
 </details>
 
@@ -251,7 +302,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `mggeo3_post_perovskite_hirose_2005_bm3_fixed_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/mggeo3_post_perovskite.eosmat).
@@ -290,22 +341,39 @@ Record: `mggeo3_post_perovskite_hirose_2005_bm3_free_2` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for mggeo3_post_perovskite_hirose_2005_bm3_free_2](figures/mggeo3_post_perovskite_hirose_2005_bm3_free_2-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for mggeo3_post_perovskite_hirose_2005_bm3_free_2](figures/mggeo3_post_perovskite_hirose_2005_bm3_free_2-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.897 |
+| Reconstruction / refit | 1.07 |
+
+Both fits use the same 9 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** volume\_a3. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for mggeo3_post_perovskite_hirose_2005_bm3_free_2](figures/mggeo3_post_perovskite_hirose_2005_bm3_free_2.svg)
+![Source/target and reconstructed central values for mggeo3_post_perovskite_hirose_2005_bm3_free_2](figures/mggeo3_post_perovskite_hirose_2005_bm3_free_2.svg#only-light)
+![Source/target and reconstructed central values for mggeo3_post_perovskite_hirose_2005_bm3_free_2](figures/mggeo3_post_perovskite_hirose_2005_bm3_free_2-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 182.2 | 1.1 | 180.6161469157237 | 0.6872522006206908 | Free |
-| K0 | 210.0 | 20.0 | 241.59451164195318 | 11.10663739985238 | Free |
-| K0\_prime | 3.5 | 0.5 | 2.913612561673377 | 0.1851831458386655 | Free |
+| V0 | 182.2 | 1.1 | 180.6 | 0.7 | Free |
+| K0 | 210 | 20 | 242 | 11 | Free |
+| K0\_prime | 3.5 | 0.5 | 2.91 | 0.19 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -315,15 +383,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** Not specified
     - **Volume:** volume\_a3
-- **Observed pressure range gpa:** \[6.25, 78.55\]
+- **Observed pressure range gpa:** 6.25; 78.55
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[142.63, 177.45\]
+- **Observed volume range:** 142.63; 177.45
 - **Degrees of freedom:** 6
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.44684007349046917
-- **Published rmse gpa:** 0.8967730311392457
-- **Reduced chi square:** 18.544072562225214
+- **Rmse gpa:** 0.44684
+- **Published rmse gpa:** 0.896773
+- **Reduced chi square:** 18.5441
 
 </details>
 
@@ -333,7 +401,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `mggeo3_post_perovskite_hirose_2005_bm3_free_2`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/mggeo3_post_perovskite.eosmat).

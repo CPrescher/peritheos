@@ -113,10 +113,11 @@ the named audit; reported errors retain their original meaning.
 
 | Parameter | Source value | Source error | Reconstruction value | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 307.84 | 0.05 | 307.83148863498826 | 0.1875870524877686 | Free |
-| K0 | 130.4 | 1.4 | 130.41522962996078 | 5.250152975765392 | Free |
+| V0 | 307.84 | 0.05 | 307.83 | 0.19 | Free |
+| K0 | 130.4 | 1.4 | 130 | 5 | Free |
 
 Fixed/adopted coefficients are constraints, not independently reconstructed values.
+Displayed uncertainties use two significant digits for leading 1/2, otherwise one; parameters match their uncertainty's decimal place. Without a reported error, values use at most six significant digits. Full precision remains in EOSMAT and the numerical ledger.
 
 - **Fit kind:** isothermal\_pv
 - **Objective:** errors\_in\_variables
@@ -129,15 +130,15 @@ Fixed/adopted coefficients are constraints, not independently reconstructed valu
 - **Free parameters:** V0; K0
 - **Fixed parameters:** K0\_prime
 - **Observations:** 11
-- **Observed pressure range gpa:** \[-0.02, 4.96\]
-- **Observed temperature range k:** \[301.0, 302.0\]
-- **Observed volume range:** \[297.26, 307.84\]
+- **Observed pressure range gpa:** -0.02; 4.96
+- **Observed temperature range k:** 301; 302
+- **Observed volume range:** 297.26; 307.84
 - **Degrees of freedom:** 9
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.049073666524717646
-- **Published rmse gpa:** 0.05878307470903604
-- **Reduced chi square:** 0.073409331943693
+- **Rmse gpa:** 0.0490737
+- **Published rmse gpa:** 0.0587831
+- **Reduced chi square:** 0.0734093
 - **Dataset identifiers:** fayalite\_bejina\_2021\_table1\_pvt\_elastic
 
 </details>

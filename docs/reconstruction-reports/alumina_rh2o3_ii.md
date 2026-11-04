@@ -47,23 +47,40 @@ Record: `alumina_rh2o3_ii_shi_2022_bm3_mgd_1` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for alumina_rh2o3_ii_shi_2022_bm3_mgd_1](figures/alumina_rh2o3_ii_shi_2022_bm3_mgd_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for alumina_rh2o3_ii_shi_2022_bm3_mgd_1](figures/alumina_rh2o3_ii_shi_2022_bm3_mgd_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 1.14 |
+| Reconstruction / refit | 1.08 |
+
+Both fits use the same 75 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** volume\_a3. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for alumina_rh2o3_ii_shi_2022_bm3_mgd_1](figures/alumina_rh2o3_ii_shi_2022_bm3_mgd_1.svg)
+![Source/target and reconstructed central values for alumina_rh2o3_ii_shi_2022_bm3_mgd_1](figures/alumina_rh2o3_ii_shi_2022_bm3_mgd_1.svg#only-light)
+![Source/target and reconstructed central values for alumina_rh2o3_ii_shi_2022_bm3_mgd_1](figures/alumina_rh2o3_ii_shi_2022_bm3_mgd_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| rt\_eos.V0 | 165.2 | 0.7 | 167.19400527415326 | 1.8127107951351986 | Free |
-| rt\_eos.K0 | 256.0 | 6.0 | 239.41531321837596 | 14.703300185409736 | Free |
-| theta0 | 600.0 | 200.0 | 766.2592031228312 | 572.846246963602 | Free |
-| gamma0 | 1.47 | 0.05 | 1.550212367349021 | 0.16220313626055743 | Free |
+| rt\_eos.V0 | 165.2 | 0.7 | 167.2 | 1.8 | Free |
+| rt\_eos.K0 | 256 | 6 | 239 | 15 | Free |
+| theta0 | 600 | 200 | 800 | 600 | Free |
+| gamma0 | 1.47 | 0.05 | 1.55 | 0.16 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -73,15 +90,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** temperature\_k
     - **Volume:** volume\_a3
-- **Observed pressure range gpa:** \[96.5, 156.7\]
-- **Observed temperature range k:** \[300.0, 3670.0\]
-- **Observed volume range:** \[123.3, 132.4\]
+- **Observed pressure range gpa:** 96.5; 156.7
+- **Observed temperature range k:** 300; 3670
+- **Observed volume range:** 123.3; 132.4
 - **Degrees of freedom:** 71
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.8659771664003755
-- **Published rmse gpa:** 1.1433652954894855
-- **Reduced chi square:** 0.15196005581308814
+- **Rmse gpa:** 0.865977
+- **Published rmse gpa:** 1.14337
+- **Reduced chi square:** 0.15196
 
 </details>
 
@@ -91,7 +108,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `alumina_rh2o3_ii_shi_2022_bm3_mgd_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/alumina_rh2o3_ii.eosmat).

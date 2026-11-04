@@ -47,22 +47,39 @@ Record: `e_feooh_hc_low_spin_thompson_2017_bm3_1` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for e_feooh_hc_low_spin_thompson_2017_bm3_1](figures/e_feooh_hc_low_spin_thompson_2017_bm3_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for e_feooh_hc_low_spin_thompson_2017_bm3_1](figures/e_feooh_hc_low_spin_thompson_2017_bm3_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.108 |
+| Reconstruction / refit | 0.0952 |
+
+Both fits use the same 12 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** unit\_cell\_volume\_a3. **Row selection:** 12 hydrogen-centered rows at 30-140 GPa; HOC/transition rows excluded by the source fit protocol.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for e_feooh_hc_low_spin_thompson_2017_bm3_1](figures/e_feooh_hc_low_spin_thompson_2017_bm3_1.svg)
+![Source/target and reconstructed central values for e_feooh_hc_low_spin_thompson_2017_bm3_1](figures/e_feooh_hc_low_spin_thompson_2017_bm3_1.svg#only-light)
+![Source/target and reconstructed central values for e_feooh_hc_low_spin_thompson_2017_bm3_1](figures/e_feooh_hc_low_spin_thompson_2017_bm3_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 58.62 | 0.05 | 58.612018832577284 | 0.06210522074790147 | Free |
-| K0 | 223.0 | 2.0 | 223.41826498267838 | 2.5871453534956586 | Free |
-| K0\_prime | 4.07 | 0.03 | 4.066535392676584 | 0.037065851740301234 | Free |
+| V0 | 58.62 | 0.05 | 58.61 | 0.06 | Free |
+| K0 | 223.0 | 2.0 | 223.4 | 2.6 | Free |
+| K0\_prime | 4.07 | 0.03 | 4.07 | 0.04 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -72,15 +89,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** Not specified
     - **Volume:** unit\_cell\_volume\_a3
-- **Observed pressure range gpa:** \[30.01, 139.99\]
+- **Observed pressure range gpa:** 30.01; 139.99
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[42.4, 52.64\]
+- **Observed volume range:** 42.4; 52.64
 - **Degrees of freedom:** 9
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.09518132012614243
-- **Published rmse gpa:** 0.10819370267206042
-- **Reduced chi square:** 0.012079311601273606
+- **Rmse gpa:** 0.0951813
+- **Published rmse gpa:** 0.108194
+- **Reduced chi square:** 0.0120793
 
 </details>
 
@@ -89,7 +106,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `e_feooh_hc_low_spin_thompson_2017_bm3_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/e_feooh_hc_low_spin.eosmat).

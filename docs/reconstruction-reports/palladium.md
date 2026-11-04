@@ -15,7 +15,7 @@ agreement, source verification, author-workflow reproduction and recommendation 
 | [Baty et al. (2024), 0 K DFT BM3](#record-palladium_baty_2024_bm3_dft_2) | Complete independent refit unavailable | No numeric coefficient pair recorded |
 | [Guigue et al. (2020), Vinet](#record-palladium_guigue_2020_vinet_1) | Complete independent refit unavailable | No numeric coefficient pair recorded |
 | [Fedotenko et al. (2020), BM3](#record-palladium_fedotenko_2020_bm3_1) | Coefficient parity achieved | Graph and table |
-| [Fedotenko et al. (2020), constrained BM2](#record-palladium_fedotenko_2020_bm2_2) | Coefficient parity achieved | Graph and table |
+| [Fedotenko et al. (2020), constrained BM2 (poor fit; diagnostic only)](#record-palladium_fedotenko_2020_bm2_2) | Coefficient parity achieved; poor data agreement | Graph and table |
 | [Frost et al. (2023), Vinet](#record-palladium_frost_2023_vinet_1) | Numerically similar, with qualifications | Graph and table |
 | [Frost et al. (2023), BM3](#record-palladium_frost_2023_bm3_2) | Numerically similar, with qualifications | Graph and table |
 | [Baty et al. (2024), BM3](#record-palladium_baty_2024_bm3_1) | Parity not achieved for this comparison | Graph and table |
@@ -48,6 +48,17 @@ Record: `palladium_baty_2024_bm3_dft_2` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+**Curve/residual comparison unavailable:** No reconstructed coefficient set is recorded; a source/refit residual comparison is unavailable..
+
+| Fit | Recorded pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | Not reported |
+| Reconstruction / refit | Not reported |
+
+These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+
 ### Why no coefficient graph is shown
 
 No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
@@ -57,7 +68,7 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `palladium_baty_2024_bm3_dft_2`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/palladium.eosmat).
@@ -91,6 +102,17 @@ Record: `palladium_guigue_2020_vinet_1` · Model: `Vinet`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+**Curve/residual comparison unavailable:** No reconstructed coefficient set is recorded; a source/refit residual comparison is unavailable..
+
+| Fit | Recorded pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | Not reported |
+| Reconstruction / refit | Not reported |
+
+These are the named audit's recorded statistics, where available; their coordinates and objective follow that protocol. Missing errors mean unknown, not zero. See the detailed evidence below for the original plot and any required calibration, row-selection or model replay.
+
 ### Why no coefficient graph is shown
 
 No numeric source/reconstruction pair is recorded for this assessment. A graph would require information that is not available here; no values or observations have been invented.
@@ -100,7 +122,7 @@ No numeric source/reconstruction pair is recorded for this assessment. A graph w
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `palladium_guigue_2020_vinet_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/palladium.eosmat).
@@ -124,6 +146,7 @@ Record: `palladium_fedotenko_2020_bm3_1` · Model: `BM3`
 **Separate source-review status:** primary\_source\_validated.
 **Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
 
+- All 14 positive-pressure rows retain their printed 0.2 GPa pressure and 0.003 A^3 volume widths. No uncertainty is invented for ambient pressure. Printed widths are interpreted conditionally as independent absolute standard deviations; source confidence and covariance conventions remain unknown. The exact author constraints and EoSFit7-GUI workflow are not recovered.
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
@@ -131,30 +154,54 @@ Record: `palladium_fedotenko_2020_bm3_1` · Model: `BM3`
 - **Dataset identifiers:** palladium\_fedotenko\_2020\_table1\_compression
 - **Observations:** 15
 - **Fit kind:** isothermal\_pv
-- **Selection:** all rows
-- **Objective:** errors\_in\_variables
+- **Selection:** all 15 Table 1 rows; ambient datum handled separately
+- **Objective:** errors\_in\_variables\_with\_separate\_ambient\_datum
+- **Weighting:**
+    - **Positive pressure rows:** 14
+    - **Pressure sigma gpa:** 0.2
+    - **Volume sigma a3:** 0.003
+    - **Ambient:** ambient volume observation 58.868 +/-0.002 A^3 at reference P=0; V0 free
+    - **Missing ambient pressure sigma:** not imputed
 - **Absolute sigma:** True
 - **Free parameters:** V0; K0; K0\_prime
 - **Fixed parameters:** None declared
+- **Fixed values:**
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for palladium_fedotenko_2020_bm3_1](figures/palladium_fedotenko_2020_bm3_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for palladium_fedotenko_2020_bm3_1](figures/palladium_fedotenko_2020_bm3_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.0885 |
+| Reconstruction / refit | 0.0758 |
+
+Both fits use the same 15 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** volume\_a3\_conventional\_cell. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for palladium_fedotenko_2020_bm3_1](figures/palladium_fedotenko_2020_bm3_1.svg)
+![Source/target and reconstructed central values for palladium_fedotenko_2020_bm3_1](figures/palladium_fedotenko_2020_bm3_1.svg#only-light)
+![Source/target and reconstructed central values for palladium_fedotenko_2020_bm3_1](figures/palladium_fedotenko_2020_bm3_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 58.868 | 0.002 | 58.853666469947484 | 0.33891833156786705 | Free |
-| K0 | 157.0 | 3.0 | 158.6681151821531 | 34.16957310711251 | Free |
-| K0\_prime | 9.9 | 0.4 | 9.783509440958094 | 3.5695353810228267 | Free |
+| V0 | 58.8680 | 0.0020 | 58.8680 | 0.0020 | Free |
+| K0 | 157 | 3 | 157.3 | 2.6 | Free |
+| K0\_prime | 9.9 | 0.4 | 9.9 | 0.4 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -162,26 +209,35 @@ Values and reported errors are copied without rounding or conversion from the na
 
 - **Columns:**
     - **Pressure:** pressure\_gpa
-    - **Temperature:** Not specified
     - **Volume:** volume\_a3\_conventional\_cell
-- **Observed pressure range gpa:** \[0.0, 31.2\]
+    - **Temperature:** Not specified
+- **Observed pressure range gpa:** 0; 31.2
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[52.411, 58.868\]
+- **Observed volume range:** 52.411; 58.868
 - **Degrees of freedom:** 12
 - **Solver success:** True
 - **Solver message:** \`ftol\` termination condition is satisfied.
-- **Rmse gpa:** 0.07495317817507276
-- **Published rmse gpa:** 0.08853265579056052
-- **Reduced chi square:** 0.007024818746604909
+- **Rmse gpa:** 0.0757566
+- **Published rmse gpa:** 0.0885327
+- **Reduced chi square:** 0.177875
+- **Parameter covariance:** \[\["3.99948e-06", "-0.000371104", "3.43374e-05"\], \["-0.000371104", "6.69699", "-1.08356"\], \["3.43374e-05", "-1.08356", "0.180254"\]\]
+- **Covariance convention:** inverse J^T J; absolute independent coordinate widths; no residual scaling
+- **Reproduction report:** docs/literature-reproductions/palladium-fedotenko-2020-audit.md
+- **Coefficient comparison status:** parity
+- **Data agreement status:** consistent\_with\_printed\_widths
+- **Weighted sum squares:** 2.1345
+- **Published max abs pressure residual gpa:** 0.218747
+- **Pressure rmse coordinates:** measured volumes for both curves; all 15 rows
 
 </details>
 
 ### Detailed evidence and existing plots
 
+- [Supporting source report: palladium-fedotenko-2020-audit](../literature-reproductions/palladium-fedotenko-2020-audit.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `palladium_fedotenko_2020_bm3_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/palladium.eosmat).
@@ -189,11 +245,11 @@ Observation curves and residual plots are provided by the supporting reports whe
 
 <a id="record-palladium_fedotenko_2020_bm2_2"></a>
 
-## Fedotenko et al. (2020), constrained BM2
+## Fedotenko et al. (2020), constrained BM2 (poor fit; diagnostic only)
 
 Record: `palladium_fedotenko_2020_bm2_2` · Model: `BM2`
 
-**Outcome: Coefficient parity achieved.**
+**Outcome: Coefficient parity achieved; poor data agreement.**
 
 **Scope:** Comparison with the source parameterization.
 **Comparison basis:** Every compared free coefficient meets both the recorded combined-two-sigma comparison and parameter-specific numerical similarity screen. Error conventions and fit qualifications remain applicable.
@@ -203,8 +259,14 @@ Record: `palladium_fedotenko_2020_bm2_2` · Model: `BM2`
 ### What this result establishes
 
 **Separate source-review status:** primary\_source\_validated.
-**Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
+**Usage recommendation:** not\_recommended\_for\_quantitative\_use
 
+**Warning:** Do not use this fixed-Kprime=4 fit for quantitative predictions or pressure calibration. Coefficient parity reproduces the published poor fit; it does not establish adequate data agreement.
+
+- All 14 positive-pressure rows retain their printed 0.2 GPa pressure and 0.003 A^3 volume widths. No uncertainty is invented for ambient pressure. Printed widths are interpreted conditionally as independent absolute standard deviations; source confidence and covariance conventions remain unknown. The exact author constraints and EoSFit7-GUI workflow are not recovered. V0 fixed at 58.868 A^3 is a diagnostic constraint, not a documented author choice. Using Table 2's isolated 58.863 A^3 does not resolve the misfit. The published fixed-Kprime=4 curve shows systematic poor agreement with Table 1 despite numerical coefficient parity; corrected diagnostic reduced chi-square is about 25 under the documented independent absolute-error assumptions.
+- Poor data agreement despite coefficient parity: the published fixed-K'=4 curve has 0.934246 GPa pressure RMS and 1.438559 GPa maximum residual on Table 1. The correctly weighted diagnostic refit remains poor (reduced chi-square about 25 under independent absolute-error assumptions). Published coefficients are preserved; agreement of K0 does not validate the curve.
+- The published fixed-Kprime=4 curve shows systematic poor agreement with Table 1 despite numerical coefficient parity; corrected diagnostic reduced chi-square is about 25 under the documented independent absolute-error assumptions.
+- Usage recommendation: not\_recommended\_for\_quantitative\_use
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
@@ -212,28 +274,54 @@ Record: `palladium_fedotenko_2020_bm2_2` · Model: `BM2`
 - **Dataset identifiers:** palladium\_fedotenko\_2020\_table1\_compression
 - **Observations:** 15
 - **Fit kind:** isothermal\_pv
-- **Selection:** all rows
-- **Objective:** errors\_in\_variables
+- **Selection:** all 15 Table 1 rows; ambient datum handled separately
+- **Objective:** errors\_in\_variables\_with\_separate\_ambient\_datum
+- **Weighting:**
+    - **Positive pressure rows:** 14
+    - **Pressure sigma gpa:** 0.2
+    - **Volume sigma a3:** 0.003
+    - **Ambient:** V0 fixed diagnostically at 58.868 A^3; ambient row contributes no residual or degree of freedom
+    - **Missing ambient pressure sigma:** not imputed
 - **Absolute sigma:** True
 - **Free parameters:** K0
-- **Fixed parameters:** V0
+- **Fixed parameters:** V0; K0\_prime
+- **Fixed values:**
+    - **V0:** 58.868
+    - **K0 prime:** 4
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for palladium_fedotenko_2020_bm2_2](figures/palladium_fedotenko_2020_bm2_2-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for palladium_fedotenko_2020_bm2_2](figures/palladium_fedotenko_2020_bm2_2-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.934 |
+| Reconstruction / refit | 0.934 |
+
+Both fits use the same 15 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** volume\_a3\_conventional\_cell. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for palladium_fedotenko_2020_bm2_2](figures/palladium_fedotenko_2020_bm2_2.svg)
+![Source/target and reconstructed central values for palladium_fedotenko_2020_bm2_2](figures/palladium_fedotenko_2020_bm2_2.svg#only-light)
+![Source/target and reconstructed central values for palladium_fedotenko_2020_bm2_2](figures/palladium_fedotenko_2020_bm2_2-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| K0 | 203.0 | 3.0 | 202.66732584626578 | 2.6964526193481033 | Free |
+| K0 | 203 | 3 | 202.7 | 0.5 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -241,26 +329,35 @@ Values and reported errors are copied without rounding or conversion from the na
 
 - **Columns:**
     - **Pressure:** pressure\_gpa
-    - **Temperature:** Not specified
     - **Volume:** volume\_a3\_conventional\_cell
-- **Observed pressure range gpa:** \[0.0, 31.2\]
+    - **Temperature:** Not specified
+- **Observed pressure range gpa:** 0; 31.2
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[52.411, 58.868\]
-- **Degrees of freedom:** 14
+- **Observed volume range:** 52.411; 58.868
+- **Degrees of freedom:** 13
 - **Solver success:** True
-- **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.9334901591251806
-- **Published rmse gpa:** 0.9342455220941308
-- **Reduced chi square:** 0.9338601176416805
+- **Solver message:** \`ftol\` termination condition is satisfied.
+- **Rmse gpa:** 0.933704
+- **Published rmse gpa:** 0.934246
+- **Reduced chi square:** 25.0055
+- **Parameter covariance:** \[\["0.292687"\]\]
+- **Covariance convention:** inverse J^T J; absolute independent coordinate widths; no residual scaling
+- **Reproduction report:** docs/literature-reproductions/palladium-fedotenko-2020-audit.md
+- **Coefficient comparison status:** parity
+- **Data agreement status:** poor
+- **Weighted sum squares:** 325.071
+- **Published max abs pressure residual gpa:** 1.43856
+- **Pressure rmse coordinates:** measured volumes for both curves; all 15 rows
 
 </details>
 
 ### Detailed evidence and existing plots
 
+- [Supporting source report: palladium-fedotenko-2020-audit](../literature-reproductions/palladium-fedotenko-2020-audit.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `palladium_fedotenko_2020_bm2_2`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/palladium.eosmat).
@@ -281,10 +378,12 @@ Record: `palladium_frost_2023_vinet_1` · Model: `Vinet`
 
 ### What this result establishes
 
-**Separate source-review status:** primary\_source\_validated.
-**Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
+**Separate source-review status:** not\_reproduced.
+**Usage recommendation:** not\_recommended\_for\_quantitative\_use
 
-- Complete-table reproduction: all 93 Pd rows from supplementary Tables I-III are fitted with the source-stated 0.1 GPa pressure errors and volume errors propagated from the tabulated lattice-parameter errors. The result is numerically similar, but K0' is just outside combined two-sigma parity and the source does not publish enough detail to recover its precise weighting convention. See the \[dedicated Frost reproduction\](literature-reproductions.md#what-the-frost-paper-and-supplement-resolve).
+- All 93 verified source rows are independently fitted using sigma(P)=0.1 GPa and sigma(V)=3a^2 sigma(a). The final paper specifies uncertainty-aware Marquardt-Levenberg but not its exact objective, ambient-point inclusion, constraints or covariance convention. Numerical classification remains similar: the combined-two-width coefficient test fails with absolute-error covariance but passes with residual-scaled covariance. Original author-fit reproduction is unresolved; scientific status not\_reproduced and recommendation/default hold pending protocol clarification. This does not establish a failed replay of the authors' protocol. Measured-volume pressure RMS is 0.771992 GPa published and 0.825323 GPa refitted; the earlier 0.276359 GPa used adjusted volumes. See the \[Frost audit\](literature-reproductions/palladium-frost-2023-audit.md). The original author regression remains unrecovered. The final paper specifies uncertainty-aware Marquardt-Levenberg fitting but not the exact objective, ambient-point inclusion, constraints or covariance convention. Independent refits have similar central coefficients; the combined-two-width comparison fails with absolute-error covariance and passes with residual-scaled covariance. This is not a demonstrated failed replay of the author protocol. Quantitative recommendation and the default remain on hold pending clarification.
+- The original author regression remains unrecovered. The final paper specifies uncertainty-aware Marquardt-Levenberg fitting but not the exact objective, ambient-point inclusion, constraints or covariance convention. Independent refits have similar central coefficients; the combined-two-width comparison fails with absolute-error covariance and passes with residual-scaled covariance. This is not a demonstrated failed replay of the author protocol. Quantitative recommendation and the default remain on hold pending clarification.
+- Usage recommendation: not\_recommended\_for\_quantitative\_use
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
@@ -300,22 +399,39 @@ Record: `palladium_frost_2023_vinet_1` · Model: `Vinet`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for palladium_frost_2023_vinet_1](figures/palladium_frost_2023_vinet_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for palladium_frost_2023_vinet_1](figures/palladium_frost_2023_vinet_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.772 |
+| Reconstruction / refit | 0.825 |
+
+Both fits use the same 93 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** volume\_a3\_conventional\_cell. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for palladium_frost_2023_vinet_1](figures/palladium_frost_2023_vinet_1.svg)
+![Source/target and reconstructed central values for palladium_frost_2023_vinet_1](figures/palladium_frost_2023_vinet_1.svg#only-light)
+![Source/target and reconstructed central values for palladium_frost_2023_vinet_1](figures/palladium_frost_2023_vinet_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 58.678 | 0.073 | 58.766517847521946 | 0.01447584075596417 | Free |
-| K0 | 189.3 | 3.0 | 184.19060495665687 | 0.6128828687022512 | Free |
-| K0\_prime | 5.473 | 0.063 | 5.603711667723233 | 0.013813323627936764 | Free |
+| V0 | 58.68 | 0.07 | 58.767 | 0.014 | Free |
+| K0 | 189 | 3 | 184.2 | 0.6 | Free |
+| K0\_prime | 5.47 | 0.06 | 5.604 | 0.014 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -325,25 +441,26 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** Not specified
     - **Volume:** volume\_a3\_conventional\_cell
-- **Observed pressure range gpa:** \[2.99, 181.79\]
+- **Observed pressure range gpa:** 2.99; 181.79
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[40.50202633, 58.050510848\]
+- **Observed volume range:** 40.502; 58.0505
 - **Degrees of freedom:** 90
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.2763588084645954
-- **Published rmse gpa:** 0.7719918204007176
-- **Reduced chi square:** 19.049086216259077
+- **Rmse gpa:** 0.825323
+- **Published rmse gpa:** 0.771992
+- **Reduced chi square:** 19.0491
 
 </details>
 
 ### Detailed evidence and existing plots
 
 - [Earlier detailed record investigation](../primary-eos-refits.md#investigation-palladium_frost_2023_vinet_1).
+- [Supporting source report: palladium-frost-2023-audit](../literature-reproductions/palladium-frost-2023-audit.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `palladium_frost_2023_vinet_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/palladium.eosmat).
@@ -364,10 +481,12 @@ Record: `palladium_frost_2023_bm3_2` · Model: `BM3`
 
 ### What this result establishes
 
-**Separate source-review status:** primary\_source\_validated.
-**Usage recommendation:** See the stored EOS qualifications; no recommendation is inferred here.
+**Separate source-review status:** not\_reproduced.
+**Usage recommendation:** not\_recommended\_for\_quantitative\_use
 
-- Complete-table reproduction: the alternative BM3 is fitted to the same 93 supplementary Pd rows with the source-stated pressure and volume uncertainties. The result is numerically similar, but K0' is just outside combined two-sigma parity and the exact source weighting convention is not reported. See the \[dedicated Frost reproduction\](literature-reproductions.md#what-the-frost-paper-and-supplement-resolve).
+- Independent refit of all 93 verified rows under explicit orthogonal/effective-variance interpretations of the final paper's uncertainty-aware Marquardt-Levenberg prose. Numerical classification remains similar: absolute-error covariance fails the combined-two-width test, whereas residual-scaled covariance passes. The original objective, ambient treatment, constraints and covariance convention are unrecovered; not\_reproduced means original fit not recovered, with quantitative recommendation/default on hold pending clarification. Measured-volume pressure RMS is 0.845419 GPa published and 0.915380 GPa refitted; the earlier 0.293082 GPa used adjusted volumes. See the \[Frost audit\](literature-reproductions/palladium-frost-2023-audit.md). The original author regression remains unrecovered. The final paper specifies uncertainty-aware Marquardt-Levenberg fitting but not the exact objective, ambient-point inclusion, constraints or covariance convention. Independent refits have similar central coefficients; the combined-two-width comparison fails with absolute-error covariance and passes with residual-scaled covariance. This is not a demonstrated failed replay of the author protocol. Quantitative recommendation and the default remain on hold pending clarification.
+- The original author regression remains unrecovered. The final paper specifies uncertainty-aware Marquardt-Levenberg fitting but not the exact objective, ambient-point inclusion, constraints or covariance convention. Independent refits have similar central coefficients; the combined-two-width comparison fails with absolute-error covariance and passes with residual-scaled covariance. This is not a demonstrated failed replay of the author protocol. Quantitative recommendation and the default remain on hold pending clarification.
+- Usage recommendation: not\_recommended\_for\_quantitative\_use
 - This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.
 
 ### Data and reconstruction method
@@ -383,22 +502,39 @@ Record: `palladium_frost_2023_bm3_2` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for palladium_frost_2023_bm3_2](figures/palladium_frost_2023_bm3_2-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for palladium_frost_2023_bm3_2](figures/palladium_frost_2023_bm3_2-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 0.845 |
+| Reconstruction / refit | 0.915 |
+
+Both fits use the same 93 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** volume\_a3\_conventional\_cell. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for palladium_frost_2023_bm3_2](figures/palladium_frost_2023_bm3_2.svg)
+![Source/target and reconstructed central values for palladium_frost_2023_bm3_2](figures/palladium_frost_2023_bm3_2.svg#only-light)
+![Source/target and reconstructed central values for palladium_frost_2023_bm3_2](figures/palladium_frost_2023_bm3_2-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 58.588 | 0.076 | 58.68458056352506 | 0.0140851237096774 | Free |
-| K0 | 197.5 | 3.3 | 191.47672089799707 | 0.6218647046062601 | Free |
-| K0\_prime | 4.996 | 0.066 | 5.147381675970761 | 0.013925053842452267 | Free |
+| V0 | 58.59 | 0.08 | 58.685 | 0.014 | Free |
+| K0 | 198 | 3 | 191.5 | 0.6 | Free |
+| K0\_prime | 5.00 | 0.07 | 5.147 | 0.014 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -408,25 +544,26 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** Not specified
     - **Volume:** volume\_a3\_conventional\_cell
-- **Observed pressure range gpa:** \[2.99, 181.79\]
+- **Observed pressure range gpa:** 2.99; 181.79
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[40.50202633, 58.050510848\]
+- **Observed volume range:** 40.502; 58.0505
 - **Degrees of freedom:** 90
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.29308201997086736
-- **Published rmse gpa:** 0.8454188587538582
-- **Reduced chi square:** 22.07960671974955
+- **Rmse gpa:** 0.91538
+- **Published rmse gpa:** 0.845419
+- **Reduced chi square:** 22.0796
 
 </details>
 
 ### Detailed evidence and existing plots
 
 - [Earlier detailed record investigation](../primary-eos-refits.md#investigation-palladium_frost_2023_bm3_2).
+- [Supporting source report: palladium-frost-2023-audit](../literature-reproductions/palladium-frost-2023-audit.md).
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `palladium_frost_2023_bm3_2`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/palladium.eosmat).
@@ -467,22 +604,39 @@ Record: `palladium_baty_2024_bm3_1` · Model: `BM3`
 
 Unspecified selections, weights, fixed values or error conventions remain unknown; they have not been inferred for this report.
 
+### Curves, residuals and fit error
+
+![Original/source and refitted curves with pressure residuals for palladium_baty_2024_bm3_1](figures/palladium_baty_2024_bm3_1-curves.svg#only-light)
+![Original/source and refitted curves with pressure residuals for palladium_baty_2024_bm3_1](figures/palladium_baty_2024_bm3_1-curves-dark.svg#only-dark)
+
+| Fit | Pressure RMS error (GPa) |
+| --- | ---: |
+| Original / source fit | 1.27 |
+| Reconstruction / refit | 0.704 |
+
+Both fits use the same 78 recovered audit input rows. Residual = P(model) − P(input), evaluated at each input volume and temperature (isothermal records use their reference temperature). RMS is an unweighted descriptive pressure error, not a parameter uncertainty or the optimizer's weighted/latent-coordinate objective.
+
+**Volume coordinate:** volume\_a3\_conventional\_cell. **Row selection:** all rows.
+
+Curves use full stored coefficients. For thermal data, separate isotherms are labelled; when there are more than five temperatures, the minimum, middle and maximum sampled temperatures are shown. Residuals include every selected row at its own temperature. Coordinate error bars appear only where the row reader can recover all widths; their meaning remains that of the source dataset (including digitization widths). Missing bars do not mean zero error. No uncertainty band is inferred.
+
 ### Source versus reconstruction
 
-![Source/target and reconstructed central values for palladium_baty_2024_bm3_1](figures/palladium_baty_2024_bm3_1.svg)
+![Source/target and reconstructed central values for palladium_baty_2024_bm3_1](figures/palladium_baty_2024_bm3_1.svg#only-light)
+![Source/target and reconstructed central values for palladium_baty_2024_bm3_1](figures/palladium_baty_2024_bm3_1-dark.svg#only-dark)
 
 This is a **coefficient comparison**, not an observation or residual plot.
 Each panel uses its coefficient's audit units and includes zero. Markers show
-stored central values only. Error widths are retained in the table below;
+stored central values and available recorded error widths (also in the table below);
 no confidence interval or uncertainty band is inferred. Fixed/adopted values are constraints.
 
 | Parameter | Source / target | Source error | Reconstruction | Reconstruction error | Fit role |
 | --- | --- | --- | --- | --- | --- |
-| V0 | 58.88 | 0.16 | 59.96030527476279 | 0.17412128205044958 | Free |
-| K0 | 190.0 | 3.0 | 152.0572835175919 | 7.798166110606747 | Free |
-| K0\_prime | 5.3 | 0.2 | 6.099357222085515 | 0.326725501677344 | Free |
+| V0 | 58.88 | 0.16 | 59.96 | 0.17 | Free |
+| K0 | 190 | 3 | 152 | 8 | Free |
+| K0\_prime | 5.30 | 0.20 | 6.1 | 0.3 | Free |
 
-Values and reported errors are copied without rounding or conversion from the named audit. Missing errors mean unknown, not zero. Parameter names and volume conventions follow that audit; error widths do not imply a confidence convention.
+Display rounding: errors with leading digit 1 or 2 use two significant digits; other errors use one. Each parameter is rounded to the same decimal place as its error. Values without a positive reported error use at most six significant digits; this is a display limit, not an uncertainty estimate. Full precision is preserved in EOSMAT and the numerical ledger. Missing errors mean unknown, not zero. Parameter names and volume conventions follow the named audit; error widths do not imply a confidence convention.
 
 
 <details markdown="1">
@@ -492,15 +646,15 @@ Values and reported errors are copied without rounding or conversion from the na
     - **Pressure:** pressure\_gpa
     - **Temperature:** Not specified
     - **Volume:** volume\_a3\_conventional\_cell
-- **Observed pressure range gpa:** \[0.0, 73.7963\]
+- **Observed pressure range gpa:** 0; 73.7963
 - **Observed temperature range k:** Not specified
-- **Observed volume range:** \[47.24163336, 58.89565212\]
+- **Observed volume range:** 47.2416; 58.8957
 - **Degrees of freedom:** 75
 - **Solver success:** True
 - **Solver message:** Both \`ftol\` and \`xtol\` termination conditions are satisfied.
-- **Rmse gpa:** 0.7043366920848168
-- **Published rmse gpa:** 1.2731181917301628
-- **Reduced chi square:** 0.5159337828496612
+- **Rmse gpa:** 0.704337
+- **Published rmse gpa:** 1.27312
+- **Reduced chi square:** 0.515934
 
 </details>
 
@@ -511,7 +665,7 @@ Values and reported errors are copied without rounding or conversion from the na
 - [Record-by-record numerical ledger](../primary-eos-refits.md#records).
 - [Source-audit reports](../source-audits.md).
 
-Observation curves and residual plots are provided by the supporting reports where available. Their absence is not filled by a reconstructed curve presented as measured data.
+Supporting reports retain additional source plots and protocol-specific diagnostics. Calculated checkpoints are not substituted for measured observations.
 
 [Machine-readable comparison ledger](https://github.com/CPrescher/peritheos/blob/main/docs/data/primary-eos-refits.json) — look up `palladium_baty_2024_bm3_1`.
 [Complete native EOSMAT file](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/materials/palladium.eosmat).
