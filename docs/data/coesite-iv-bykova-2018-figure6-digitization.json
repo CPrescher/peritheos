@@ -1,0 +1,25 @@
+{
+  "source_doi": "10.1038/s41467-018-07265-z",
+  "source_location": "Supplementary Figure 6, PDF page 7, yellow coesite-IV calculated diamonds",
+  "source_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-018-07265-z/MediaObjects/41467_2018_7265_MOESM1_ESM.pdf",
+  "source_pdf_sha256": "9d4bcb36ae6a89b19f5bbcc3fc671f3c1bfc6530a76915382c6132d3d907e459",
+  "date": "2026-10-23",
+  "raster_recovery": "Concatenate the two embedded JPEG images on PDF page 7 vertically in page placement order, without rescaling. The upper tile is 1430 by 458 pixels and the lower tile is 1430 by 457 pixels. Pixel origin is the upper left of the resulting 1430 by 915 raster.",
+  "method": "Manually read yellow-diamond centers and axis ticks from the original embedded raster. Fit independent affine pixel-to-coordinate maps to all listed ticks. Exclude purple coesite-V triangles, experimental crosses, connecting lines and legend symbols. Digitized calculated points are graphical checks only, never refit inputs.",
+  "coordinate_bound_pixels": 4,
+  "bound_meaning": "Conservative total coordinate-reading half-width, allowing two pixels for center selection and two for tick calibration, JPEG antialiasing and tile alignment. This is an analyst graphical-resolution bound, not a source uncertainty or standard deviation. Coordinate bounds are propagated through the unchanged nonlinear BM3 equation without statistical quadrature.",
+  "pressure_ticks_gpa_and_x_pixel": [[30, 274], [35, 402], [40, 529], [45, 657], [50, 784], [55, 912], [60, 1039], [65, 1167], [70, 1294]],
+  "volume_ticks_a3_per_formula_unit_and_y_pixel": [[24, 107], [23.5, 205], [23, 304], [22.5, 402], [22, 500], [21.5, 598], [21, 697]],
+  "markers": [
+    {"marker": 1, "x_pixel": 198, "y_pixel": 90, "table10_counterpart": false},
+    {"marker": 2, "x_pixel": 277, "y_pixel": 149, "table10_counterpart": false},
+    {"marker": 3, "x_pixel": 377, "y_pixel": 220, "table10_counterpart": false},
+    {"marker": 4, "x_pixel": 430, "y_pixel": 255, "table10_counterpart": false},
+    {"marker": 5, "x_pixel": 503, "y_pixel": 295, "table10_counterpart": true},
+    {"marker": 6, "x_pixel": 534, "y_pixel": 313, "table10_counterpart": false},
+    {"marker": 7, "x_pixel": 554, "y_pixel": 325, "table10_counterpart": true},
+    {"marker": 8, "x_pixel": 732, "y_pixel": 431, "table10_counterpart": true}
+  ],
+  "counterpart_meaning": "Markers 5, 7 and 8 are apparent graphical counterparts of the Table 10 states at 39, 41 and 48 GPa. They are excluded from the additional-point check to avoid counting fit inputs as independent validation. This identification does not assert exact equality of plotted and tabulated coordinates.",
+  "limitations": "The original numerical E-P-V series, fitted V0, objective, weights and covariance remain unavailable. The plotted calculated markers may have entered the authors' fit. Additional-point agreement checks the stored curve outside the three Peritheos fit inputs; it does not establish author-workflow reproduction, physical accuracy or parameter uncertainty."
+}

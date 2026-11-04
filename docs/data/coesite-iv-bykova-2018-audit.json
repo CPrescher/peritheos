@@ -1,0 +1,224 @@
+{
+  "record_identifier": "coesite_iv_bykova_2018_am05_static_bm3_refit",
+  "source_pdf_sha256": "9d4bcb36ae6a89b19f5bbcc3fc671f3c1bfc6530a76915382c6132d3d907e459",
+  "table_sha256": "f0f2c318a6f54f757f818cbc5e5d7dbc5b1b02c3b53fb0a55598eb79064869e4",
+  "stored_coefficients_unchanged": {
+    "V0": 438.6702,
+    "K0": 168.52,
+    "K0_prime": 3.34
+  },
+  "fit": {
+    "observations": 3,
+    "volume_range_a3": [
+      357.8274,
+      368.5011
+    ],
+    "objective": "unweighted_pressure_residual_least_squares",
+    "free_parameters": [
+      "V0"
+    ],
+    "V0_a3": 438.6702185173588,
+    "formal_V0_standard_error_a3": 0.08425558245083585,
+    "residuals_gpa": [
+      0.10839393269682063,
+      -0.013111849672192477,
+      -0.08758017149949637
+    ],
+    "rmse_gpa": 0.08081140944031408,
+    "stored_curve_rmse_gpa": 0.08081141041630033,
+    "residual_variance_gpa2": 0.009795725843595126,
+    "degrees_of_freedom": 2,
+    "solver_success": true
+  },
+  "rounding_diagnostic": {
+    "assumption": "Nearest-integer pressure rounding +/-0.5 GPa, with printed volumes and moduli held fixed; not a reported uncertainty model.",
+    "per_row_V0_intervals_a3": [
+      [
+        437.73980813427454,
+        439.2672041486377
+      ],
+      [
+        437.93936673647977,
+        439.43806702412644
+      ],
+      [
+        438.08947212677515,
+        439.4953056722768
+      ]
+    ],
+    "intersection_V0_interval_a3": [
+      438.08947212677515,
+      439.2672041486377
+    ],
+    "confidence_interval": false
+  },
+  "figure_check": {
+    "coefficients_fitted_to_figure": false,
+    "all_markers": {
+      "points": 8,
+      "pressure_rmse_gpa": 0.18774096732817255,
+      "max_absolute_pressure_residual_gpa": 0.354423469646747,
+      "all_within_reading_bounds": true
+    },
+    "additional_markers_only": {
+      "points": 5,
+      "pressure_rmse_gpa": 0.2259419082530521,
+      "max_absolute_pressure_residual_gpa": 0.354423469646747,
+      "all_within_reading_bounds": true
+    },
+    "points": [
+      {
+        "marker": 1,
+        "figure_x_pixel": 198,
+        "figure_y_pixel": 90,
+        "pressure_gpa": 27.010906340349823,
+        "volume_a3_per_formula_unit": 24.086479206498428,
+        "volume_a3_conventional_cell": 385.38366730397485,
+        "pressure_digitization_bound_gpa": 0.15686265575197247,
+        "volume_digitization_bound_a3_per_formula_unit": 0.020348794219860713,
+        "table10_counterpart": 0,
+        "model_pressure_gpa": 27.023566601369865,
+        "pressure_residual_gpa": 0.012660261020041474,
+        "residual_interval_gpa": [
+          -0.35730340326912113,
+          0.38333350490735896
+        ],
+        "within_reading_bounds": true
+      },
+      {
+        "marker": 2,
+        "figure_x_pixel": 277,
+        "figure_y_pixel": 149,
+        "pressure_gpa": 30.10894379145128,
+        "volume_a3_per_formula_unit": 23.786334491755483,
+        "volume_a3_conventional_cell": 380.5813518680877,
+        "pressure_digitization_bound_gpa": 0.15686265575197247,
+        "volume_digitization_bound_a3_per_formula_unit": 0.020348794219860713,
+        "table10_counterpart": 0,
+        "model_pressure_gpa": 30.250604182328246,
+        "pressure_residual_gpa": 0.14166039087696447,
+        "residual_interval_gpa": [
+          -0.23903273060320984,
+          0.5231017819572408
+        ],
+        "within_reading_bounds": true
+      },
+      {
+        "marker": 3,
+        "figure_x_pixel": 377,
+        "figure_y_pixel": 220,
+        "pressure_gpa": 34.03051018525059,
+        "volume_a3_per_formula_unit": 23.425143394352958,
+        "volume_a3_conventional_cell": 374.8022943096473,
+        "pressure_digitization_bound_gpa": 0.15686265575197247,
+        "volume_digitization_bound_a3_per_formula_unit": 0.020348794219860713,
+        "table10_counterpart": 0,
+        "model_pressure_gpa": 34.350668711514565,
+        "pressure_residual_gpa": 0.3201585262639739,
+        "residual_interval_gpa": [
+          -0.07422772134637512,
+          0.7153427946989268
+        ],
+        "within_reading_bounds": true
+      },
+      {
+        "marker": 4,
+        "figure_x_pixel": 430,
+        "figure_y_pixel": 255,
+        "pressure_gpa": 36.10894037396423,
+        "volume_a3_per_formula_unit": 23.247091444929175,
+        "volume_a3_conventional_cell": 371.9534631188668,
+        "pressure_digitization_bound_gpa": 0.15686265575197247,
+        "volume_digitization_bound_a3_per_formula_unit": 0.020348794219860713,
+        "table10_counterpart": 0,
+        "model_pressure_gpa": 36.46336384361098,
+        "pressure_residual_gpa": 0.354423469646747,
+        "residual_interval_gpa": [
+          -0.047045115064968,
+          0.7567159656552391
+        ],
+        "within_reading_bounds": true
+      },
+      {
+        "marker": 5,
+        "figure_x_pixel": 503,
+        "figure_y_pixel": 295,
+        "pressure_gpa": 38.971683841437724,
+        "volume_a3_per_formula_unit": 23.04360350273057,
+        "volume_a3_conventional_cell": 368.6976560436891,
+        "pressure_digitization_bound_gpa": 0.15686265575197247,
+        "volume_digitization_bound_a3_per_formula_unit": 0.020348794219860713,
+        "table10_counterpart": 1,
+        "model_pressure_gpa": 38.95524048919756,
+        "pressure_residual_gpa": -0.016443352240166575,
+        "residual_interval_gpa": [
+          -0.4262884020290869,
+          0.3942563644320174
+        ],
+        "within_reading_bounds": true
+      },
+      {
+        "marker": 6,
+        "figure_x_pixel": 534,
+        "figure_y_pixel": 313,
+        "pressure_gpa": 40.18736942351551,
+        "volume_a3_per_formula_unit": 22.952033928741194,
+        "volume_a3_conventional_cell": 367.2325428598591,
+        "pressure_digitization_bound_gpa": 0.15686265575197247,
+        "volume_digitization_bound_a3_per_formula_unit": 0.020348794219860713,
+        "table10_counterpart": 0,
+        "model_pressure_gpa": 40.10428330435783,
+        "pressure_residual_gpa": -0.08308611915768438,
+        "residual_interval_gpa": [
+          -0.4968020310240533,
+          0.3314987200962918
+        ],
+        "within_reading_bounds": true
+      },
+      {
+        "marker": 7,
+        "figure_x_pixel": 554,
+        "figure_y_pixel": 325,
+        "pressure_gpa": 40.97168270227537,
+        "volume_a3_per_formula_unit": 22.89098754608161,
+        "volume_a3_conventional_cell": 366.2558007373058,
+        "pressure_digitization_bound_gpa": 0.15686265575197247,
+        "volume_digitization_bound_a3_per_formula_unit": 0.020348794219860713,
+        "table10_counterpart": 1,
+        "model_pressure_gpa": 40.88006947150005,
+        "pressure_residual_gpa": -0.09161323077532302,
+        "residual_interval_gpa": [
+          -0.5079455539909148,
+          0.32559767572683285
+        ],
+        "within_reading_bounds": true
+      },
+      {
+        "marker": 8,
+        "figure_x_pixel": 732,
+        "figure_y_pixel": 431,
+        "pressure_gpa": 47.95207088323815,
+        "volume_a3_per_formula_unit": 22.351744499255304,
+        "volume_a3_conventional_cell": 357.62791198808486,
+        "pressure_digitization_bound_gpa": 0.15686265575197247,
+        "volume_digitization_bound_a3_per_formula_unit": 0.020348794219860713,
+        "table10_counterpart": 1,
+        "model_pressure_gpa": 48.0864631043501,
+        "pressure_residual_gpa": 0.13439222111195193,
+        "residual_interval_gpa": [
+          -0.30635741741602374,
+          0.5761111875392899
+        ],
+        "within_reading_bounds": true
+      }
+    ],
+    "two_pixel_sensitivity": {
+      "markers_outside_bounds": [
+        3,
+        4
+      ],
+      "qualification": "The agreement conclusion depends on the stated analyst reading bound. A tighter +/-2 pixel total bound excludes markers 3 and 4; no sub-resolution or exact-curve agreement is established."
+    },
+    "qualification": "Agreement within analyst graphical reading bounds only; not author-fit reproduction or physical validation."
+  }
+}

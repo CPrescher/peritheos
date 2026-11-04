@@ -1,0 +1,3111 @@
+{
+  "audit_date": "2026-10-25",
+  "source_sha256": {
+    "coesite_final.xlsx": "a451c3cc7728f66d33b8a14bac27c53bca8a20f38e964f1975db6c6474fc76ab",
+    "coeII-plot.dat": "dbe88e69780a1dff041dadd3a9547a1e95bc2bf4bf8d5fcf10c4da76af8ca560"
+  },
+  "parameter_agreement": {
+    "status": "parity",
+    "scope": "parameter_agreement",
+    "finding": "Central-coefficient parity is achieved; the author's fit values are reproduced at reported precision.",
+    "central_coefficient_parity_achieved": true,
+    "author_fit_values_reproduced_at_reported_precision": true,
+    "basis": "All three replayed central coefficients round to the publication's printed central values; not a confidence/covariance comparison.",
+    "published": [
+      34.2,
+      103.0,
+      3.02
+    ],
+    "half_printed_units": [
+      0.005,
+      0.5,
+      0.005
+    ],
+    "each_parameter_within_printing_interval": [
+      true,
+      true,
+      true
+    ]
+  },
+  "author_workflow": {
+    "status": "not_assessed",
+    "scope": "author_workflow",
+    "qualification": "Central-coefficient parity is achieved; the author's fit values are reproduced at reported precision. The recovered author input selection and communicated pressure weighting establish central-value reproduction. Original EoSFit settings and covariance were not supplied; uncertainty reproduction and every software-configuration detail remain unverified."
+  },
+  "export_phase_counts": {
+    "coesite-I": 8,
+    "coesite-II": 4,
+    "coesite-III": 10
+  },
+  "author_protocol_pressure_weighted_replay": {
+    "parameters_v0_per_formula_unit_k0_gpa_kprime": [
+      34.20403298954001,
+      102.72949806087128,
+      3.024480753153906
+    ],
+    "observations": 22,
+    "measured_rows": 21,
+    "pressure_rms_gpa": 0.4829677665627512,
+    "maximum_absolute_pressure_residual_gpa": 1.106517206586517,
+    "sum_squared_objective": 93.97428387958774,
+    "residuals_gpa": [
+      -0.5276981130622254,
+      0.533549720165766,
+      -0.02645027983423276,
+      -0.05920075785714829,
+      0.8635671143054431,
+      0.9015671143054433,
+      -0.5376981130622234,
+      0.07331203085805171,
+      0.49454972016576804,
+      -0.07468796914194797,
+      1.106517206586517,
+      0.18499634947034593,
+      0.5891037255075489,
+      0.6021745091761126,
+      -9.179571026283849e-07,
+      0.17561954929616475,
+      0.14265052859503236,
+      0.2997643102477401,
+      0.12275503932676379,
+      -0.09772016042371412,
+      -0.1844370422753947,
+      -0.5414412091661056
+    ],
+    "objective": "pressure residuals divided by exported sigma_P",
+    "volume_errors_used_in_objective": false,
+    "free_parameters": [
+      "V0",
+      "K0",
+      "K0_prime"
+    ]
+  },
+  "workbook_precision_reconstruction": {
+    "parameters_v0_per_formula_unit_k0_gpa_kprime": [
+      34.20378298378815,
+      102.7506046282335,
+      3.0229277219633826
+    ],
+    "observations": 22,
+    "measured_rows": 21,
+    "pressure_rms_gpa": 0.48248534330688164,
+    "maximum_absolute_pressure_residual_gpa": 1.1048879010106099,
+    "sum_squared_objective": 93.59058492323956,
+    "residuals_gpa": [
+      -0.5284808679624255,
+      0.53350121831485,
+      -0.02715469952653038,
+      -0.06030250282699967,
+      0.8622022017731972,
+      0.9006022017732,
+      -0.537624768864088,
+      0.07244220254342792,
+      0.4944628673328566,
+      -0.07464390922485009,
+      1.1048879010106099,
+      0.18254418136159245,
+      0.5883010858793014,
+      0.6009367397935641,
+      -9.141546867901901e-07,
+      0.17446787829248356,
+      0.14266944584756125,
+      0.299088500770905,
+      0.12209134360599982,
+      -0.09905204382743982,
+      -0.18344373416306325,
+      -0.5425559818657888
+    ],
+    "objective": "pressure residuals divided by exported sigma_P",
+    "volume_errors_used_in_objective": false,
+    "free_parameters": [
+      "V0",
+      "K0",
+      "K0_prime"
+    ],
+    "definition": "Underlying workbook P and sigma_P and literature V/Z; current-study V/Z rounded to one decimal as demonstrated by its number format and DAT export. This is a file-supported reconstruction of precision before plot export, not a recovered original EoSFit settings file.",
+    "input_p_v_sigma_p_sigma_v": [
+      [
+        25.577426079928102,
+        28.4,
+        0.30884964264779935,
+        0.028125
+      ],
+      [
+        25.72451219169638,
+        28.2,
+        0.287105730481934,
+        0.025
+      ],
+      [
+        26.28516810953776,
+        28.2,
+        0.2696826113301825,
+        0.009375
+      ],
+      [
+        30.12388494251406,
+        27.6,
+        0.40171336672999947,
+        0.01875
+      ],
+      [
+        27.9024,
+        27.8,
+        0.5166800277883022,
+        0.023095833333333333
+      ],
+      [
+        27.863999999999997,
+        27.8,
+        0.3789525076661399,
+        0.011691666666666668
+      ],
+      [
+        25.586569980829765,
+        28.4,
+        0.2935869309346021,
+        0.020833333333333332
+      ],
+      [
+        25.577426079928102,
+        28.3,
+        0.30884964264779935,
+        0.014212500000000001
+      ],
+      [
+        25.763550542678374,
+        28.2,
+        0.2943362666635709,
+        0.016666666666666666
+      ],
+      [
+        25.72451219169638,
+        28.3,
+        0.287105730481934,
+        0.0130625
+      ],
+      [
+        30.289133459303077,
+        27.4,
+        0.39414145681188245,
+        0.0164375
+      ],
+      [
+        36.8635332615466,
+        26.6,
+        0.43400028735826446,
+        0.029166666666666664
+      ],
+      [
+        26.28516810953776,
+        28.1,
+        0.2696826113301825,
+        0.016666666666666666
+      ],
+      [
+        30.12388494251406,
+        27.5,
+        0.40171336672999947,
+        0.02285
+      ],
+      [
+        0.0001,
+        34.20375,
+        0.0001,
+        0.04125
+      ],
+      [
+        2.42,
+        33.38125,
+        0.05,
+        0.0125
+      ],
+      [
+        5.16,
+        32.6,
+        0.06,
+        0.0125
+      ],
+      [
+        9.24,
+        31.50625,
+        0.09,
+        0.0125
+      ],
+      [
+        12.14,
+        30.87125,
+        0.09,
+        0.01125
+      ],
+      [
+        14.9,
+        30.319375,
+        0.25,
+        0.01
+      ],
+      [
+        17.8,
+        29.746875,
+        0.05,
+        0.009375
+      ],
+      [
+        20.3,
+        29.33625,
+        0.15,
+        0.009375
+      ]
+    ]
+  },
+  "sensitivity_controls_not_replacement_eos": {
+    "same_22_unweighted": {
+      "parameters_v0_per_formula_unit_k0_gpa_kprime": [
+        34.14077781170287,
+        107.45611534175664,
+        2.6782004107295116
+      ],
+      "observations": 22,
+      "measured_rows": 21,
+      "pressure_rms_gpa": 0.40638734056435943,
+      "maximum_absolute_pressure_residual_gpa": 0.6881569000451435,
+      "sum_squared_objective": 3.633314752561398,
+      "residuals_gpa": [
+        -0.6731576861459381,
+        0.34474099534532954,
+        -0.21525900465466918,
+        -0.41105165151063616,
+        0.5719017058262992,
+        0.6099017058262994,
+        -0.6831576861459361,
+        -0.09318240982988968,
+        0.3057409953453316,
+        -0.24118240982988937,
+        0.6881569000451435,
+        -0.570837084869737,
+        0.37666190489315454,
+        0.2178833468924104,
+        -0.19841194360001596,
+        0.0718205748334988,
+        0.11402001480506385,
+        0.34267077471861995,
+        0.18294605073714187,
+        -0.04110563827517666,
+        -0.15359468132110976,
+        -0.5454171480035797
+      ],
+      "objective": "unweighted pressure residuals",
+      "volume_errors_used_in_objective": false,
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ]
+    },
+    "same_pressure_weights_without_derived_anchor_21": {
+      "parameters_v0_per_formula_unit_k0_gpa_kprime": [
+        34.08535185465438,
+        109.81551705645391,
+        2.622779141525175
+      ],
+      "observations": 21,
+      "measured_rows": 21,
+      "pressure_rms_gpa": 0.4261044114849715,
+      "maximum_absolute_pressure_residual_gpa": 0.8364179529933082,
+      "sum_squared_objective": 59.095814976072305,
+      "residuals_gpa": [
+        -0.5533333821258672,
+        0.47144414222504594,
+        -0.08855585777495278,
+        -0.2671846222204799,
+        0.7106754864566653,
+        0.7486754864566656,
+        -0.5633333821258653,
+        0.030146760022191188,
+        0.432444142225048,
+        -0.1178532399778085,
+        0.8364179529933082,
+        -0.41320794894092927,
+        0.5066024615551505,
+        0.36403831829682076,
+        -0.06376801130487353,
+        0.02252130435988775,
+        0.31259427085302427,
+        0.18759470671963996,
+        -0.007346905948324434,
+        -0.09122729543315344,
+        -0.4637987026015402
+      ],
+      "objective": "pressure residuals divided by exported sigma_P",
+      "volume_errors_used_in_objective": false,
+      "free_parameters": [
+        "V0",
+        "K0",
+        "K0_prime"
+      ]
+    }
+  },
+  "derived_anchor": {
+    "export_point": 15,
+    "dat_line": 23,
+    "export_p_v_sigma_p_sigma_v": [
+      0.0001,
+      34.204,
+      0.0001,
+      0.041248
+    ],
+    "workbook_origin": "LIT!N2:T2 (2014 fitted ambient values), copied into LIT!AA2:AD2",
+    "qualification": "Earlier fitted EOS output, not an independent measured ambient observation. Tiny sigma_P effectively fixes V0 in the pressure-only replay; sigma_V is not propagated in that objective."
+  },
+  "saved_calculated_curve": {
+    "rows": 100,
+    "decoded_bm3_coefficients_not_a_measurement_refit": [
+      34.20382172945892,
+      102.74828651994778,
+      3.0230555373031374
+    ],
+    "decoding_pressure_rms_gpa": 0.0017578006624135827,
+    "decoding_maximum_absolute_pressure_residual_gpa": 0.003203089612142662,
+    "checks": [
+      {
+        "line": 33,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0014016088386682446,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0028781324183668744,
+            7.50012668613298e-05
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0006072412337185806,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0020834906490208027,
+            0.0008690947222518286
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.001455087919212339,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.002931618470317643,
+            2.1529156630561985e-05
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 34,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0013454324525270789,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0001537615187224839,
+            0.002844714294457623
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.002069031641791258,
+          "coordinate_rounding_residual_interval_gpa": [
+            0.0005701078528879966,
+            0.003568043317157349
+          ],
+          "crosses_export_rounding_box": false
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0012937284417615935,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.00020547221133557225,
+            0.0027930169643777536
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 35,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0009406953606015955,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0005809862514166153,
+            0.002462466178855288
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0015961899246774713,
+          "coordinate_rounding_residual_interval_gpa": [
+            7.477436287586792e-05,
+            0.0031176947094709584
+          ],
+          "crosses_export_rounding_box": false
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0008906510665444567,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0006310369312345354,
+            0.00241242826937918
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 36,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.00012380322958294165,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0014203458095258803,
+            0.0016680428108174494
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0007133209433664023,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0008305663546910313,
+            0.002257298801247587
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 7.531742037614197e-05,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.001468837699903247,
+            0.0016195630814788142
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 37,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0012713573190925587,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0028829428794623357,
+            0.00034032011882700886
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0007456792689182201,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0023570075712824323,
+            0.0008657409297931906
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0013183855445995096,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0029299768731347875,
+            0.00029329766019903225
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 38,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0002849604449977061,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0019191271934790866,
+            0.0013492995266610741
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0001785164961813912,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.001455397687463833,
+            0.0018125239227537726
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.000330620616518118,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.001964792809412863,
+            0.0013036447982124333
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 39,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.00017607359279070423,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.001832774107002999,
+            0.0014807214887058162
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.00022736890545616006,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.001429083907959594,
+            0.0018839163069466203
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0002204668195122661,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0018771724462938177,
+            0.0014363333731552963
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 40,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0011376732477152984,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0028168489302085042,
+            0.0005415983441361405
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0007920968976389275,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0024710299101902145,
+            0.0008869320461197816
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.00118089990084691,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0028600803562151,
+            0.0004983764623518461
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 41,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -6.125590810368564e-05,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.001763031344422128,
+            0.001640616788372018
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.00022814632829648573,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0014733916772544653,
+            0.0019297816169370208
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.000103406620028057,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0018051864788035665,
+            0.001598470497317539
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 42,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.00035735305196737954,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.002081652235452758,
+            0.0013670447391920248
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0001219408991830484,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0018460080531879086,
+            0.0016022248865636968
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.000398527680004257,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.002122830927979713,
+            0.0013258741740731494
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 43,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.001168815522131439,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0005781197037943997,
+            0.0029158507113660193
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0013519622609097226,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0003947465442326603,
+            0.0030987710545211655
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0011285256725099835,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0006184132494206906,
+            0.0028755645561160392
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 44,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0010126405580135334,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0007568367480494942,
+            0.002782219178643075
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0011457128064540356,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.000623543843735419,
+            0.0029150707974756607
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0009731366061460633,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0007963440202467531,
+            0.002742718545374334
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 45,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0010285759791868188,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0028204895298911126,
+            0.0007634402320890743
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0009433990401204184,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0027350978504241397,
+            0.0008484024582910976
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.001067391485083391,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0028593079735044213,
+            0.0007246276621915015
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 46,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0016301339715454333,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.003444573957934516,
+            0.0001844100280870009
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0015911052827055627,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0034053366460247148,
+            0.00022323012253888663
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0016683518057085678,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0034827943370423498,
+            0.0001461947370868799
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 47,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0008629105932129733,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0026999632049768962,
+            0.000974247390859162
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.000868263473578601,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0027051137822651228,
+            0.0009686922372660334
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0009006221838454564,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0027376769376408205,
+            0.0009365379402961338
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 48,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0012008213274983248,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.000658926003347382,
+            0.003060675395712309
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0011528721237183959,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0007066794273331567,
+            0.0030125304432608857
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0011635239554079746,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0006962251042441636,
+            0.0030233797504397586
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 49,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0008224738695936651,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0010598298868265132,
+            0.002704885721225736
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0007341091989738757,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0011480054400436757,
+            0.0026163319655756467
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0007854955406223496,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0010968095252072985,
+            0.002667908699645949
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 50,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0016010085565278942,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0003039197666261373,
+            0.003506046337930613
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.001474019896707368,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0004307261704941112,
+            0.003378875455846142
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0015642579568817538,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0003406712463078776,
+            0.003469296616201767
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 51,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0004954771997169871,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0024228721919739016,
+            0.0014320286052740272
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0006589339690821205,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0025861536962361598,
+            0.001268396605738964
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0005320926221275002,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0024594880593946655,
+            0.0013954136257643412
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 52,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0017804835790338203,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0037303990166250856,
+            0.0001695440301556772
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0019786191115098717,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0039283664686768915,
+            -2.8759546542467262e-05
+          ],
+          "crosses_export_rounding_box": false
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.001817053995914364,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0037669694339106385,
+            0.00013297361146236142
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 53,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0015116186271288967,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0004610934986022386,
+            0.003484444300831946
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0012802827692039997,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0006922687293675622,
+            0.00325294785329433
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0014750019617677523,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.000497709705522098,
+            0.0034478271746980482
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 54,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0016545288745399844,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.00034080007019010594,
+            0.0036499727337906407
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0013921379916661536,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0006030378997223806,
+            0.003387428836480133
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0016177755062214416,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0003775525160847337,
+            0.003613218440680299
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 55,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0015695702246798504,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.003587323143737109,
+            0.00044829896468190356
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0018609084156695488,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0038785159668899283,
+            0.00015681544612711207
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0016065480013285338,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.003624299529398911,
+            0.0004113197945692093
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 56,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.000417668376666569,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.002458109915011164,
+            0.0016228908046471702
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0007364367534599126,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0027767408787369163,
+            0.001303985056500423
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0004549628459642463,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0024954025105348165,
+            0.0015855944590228432
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 57,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0011352190296367581,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0009279410245230935,
+            0.003198498102056746
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0007908489551695652,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0012721818311103306,
+            0.0028539988028200014
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0010975175294056783,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0009656401587960772,
+            0.003160794233282971
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 58,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0010682073877053,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.003153870064773301,
+            0.0010175756706765071
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0014361048951130329,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.00352164654947984,
+            0.0006495571851523607
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0011064003507730291,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0031920601657056125,
+            0.0009793798428194833
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 59,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.000983172157019041,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0011252509335601957,
+            0.003091717008437911
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0005933231013930396,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0015149874857769419,
+            0.002701755495413849
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0009443931020385321,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0011640266159247403,
+            0.0030529345780578865
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 60,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.000986923635975856,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.003117875481814636,
+            0.0011441513368914968
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0013966810447616496,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.003527528997606666,
+            0.000734290082618827
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0010263705824264946,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0031573185415751936,
+            0.0011047005009405808
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 61,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0009116151038828235,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0016921183505047566,
+            0.0035154730676527635
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0004835591377485571,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0021200793106768145,
+            0.0030873221446192645
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0008714043522548565,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0017323246869676012,
+            0.0034752578979659887
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 62,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.00038074012382161015,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0030070074598143037,
+            0.0022456530895613724
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0008250896475345826,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0034512709460248203,
+            0.0018012175788513218
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.00042179348331039535,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0030480558727372653,
+            0.00220459478045143
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 63,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0014053724140996593,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0012436764446643878,
+            0.00405454853388143
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0009463687547164312,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.001702603313512796,
+            0.00359546813617051
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0013633794734975169,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0012856638926503905,
+            0.004012550097620249
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 64,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0013727664455860378,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004044332748875945,
+            0.001298928487109663
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0018444646785393815,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004515963509000187,
+            0.0008271628350104976
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.001415774404364356,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0040873346667069654,
+            0.001255914484165288
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 65,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0001664431525920662,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.002860769064584545,
+            0.0025280127724052193
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.000649171364429435,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.003343439401270132,
+            0.0020452267408277436
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0002105639294853745,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.002904883237498268,
+            0.002483885388308238
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 66,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0006326736305162228,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0020843939686052693,
+            0.00334987262580988
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.00014072596808034632,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.002576293526612261,
+            0.0028578769159874895
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0005873539883403112,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.002129706435455958,
+            0.0033045458050402488
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 67,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.001930010117762393,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0008097755980198684,
+            0.0046699286120368555
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.001430644314106999,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0013091032381691292,
+            0.004170524703583922
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0018834064113271154,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0008563715496734403,
+            0.0046233171473861745
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 68,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0016301515208763107,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0011323230324400413,
+            0.0043927602337330285
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0011251581365581131,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0016372883613211542,
+            0.003887738854354339
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0015821794772712394,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0011802867337440404,
+            0.004344779844398516
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 69,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0006368776354950256,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0021482507101104886,
+            0.003422141520127653
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0001280349429109151,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0026570756192363376,
+            0.0029132811061547415
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0005874539862009698,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0021976654217521485,
+            0.0033727089296586854
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 70,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.001146800588117003,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.003954541859666705,
+            0.0016610775999765792
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0016577281514216224,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004465462071978621,
+            0.0011501427494149397
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0011977580287663159,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004005489759702385,
+            0.0016101106150170352
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 71,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0008424262916495451,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0019881577575855403,
+            0.0036731486492893595
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.000331169580883639,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.002499417837585227,
+            0.0031618953732799326
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0007898337219245377,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0020407401687556614,
+            0.0036205459172578003
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 72,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0017708833365617238,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004623983653095465,
+            0.001082356660962347
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.002280722271047253,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0051338367026900755,
+            0.0005725319087268588
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.001825171741849374,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004678261282048624,
+            0.0010280574754517602
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 73,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0017183756480321222,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004594215700477022,
+            0.0011576054718958062
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0022250326762041084,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.005100897876619825,
+            0.0006509736606812311
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0017744611828689472,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004650289826306775,
+            0.0011015085240373423
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 74,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0020363370505265266,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0008624684892968304,
+            0.004935285058452976
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0015346730944276743,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0013641689198600204,
+            0.004433657647716416
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0019783506506438897,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0009204428322124869,
+            0.004877286597535502
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 75,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.00015711921624017577,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.003078542853280908,
+            0.002764448268743891
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.000652122780548936,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0035735942282393296,
+            0.0022694925877715377
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.00021706185535919076,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0031384727884447017,
+            0.0027044929215556124
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 76,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0012404727268524596,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0017037880933887806,
+            0.0041848787885570005
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0007539438221311201,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.002190376437308572,
+            0.0036984093975416243
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.001178470431856482,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0017657770224221991,
+            0.004122863123289022
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 77,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.002329409088048351,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.000637616903624405,
+            0.005296581710577897
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0018530731512775844,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0011140240539440072,
+            0.004820317063789048
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0022652693849778416,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0007017425717634751,
+            0.0052324279682665065
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 78,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0010069121669786796,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0019828007568101214,
+            0.003996773106553775
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0005424628077292937,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.002447333245157779,
+            0.00353240695474355
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0009405589392983416,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.002049139274134859,
+            0.003930405164108919
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 79,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0018302944049750636,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004842609757492511,
+            0.0011821703434193864
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0022811898874799397,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.005293600420824163,
+            0.0007313701219047175
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0018989355578398204,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004911235518427759,
+            0.0011135137940172513
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 80,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0012158346923243357,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004250963222837356,
+            0.0018194446270385356
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0016513219388833988,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004686557997022334,
+            0.0013840649904146574
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0012868685483304887,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004321980989882235,
+            0.001748394677495213
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 81,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0022336789657835254,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.00529152905786745,
+            0.0008243233028721875
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0026520985153553056,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.005710068615314867,
+            0.0004060238454250964
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0023071790474951115,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.005365012347557041,
+            0.0007508064245165258
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 82,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0011724751720265658,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.001908305599954474,
+            0.004253409521243867
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0007730179287968042,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0023078956313860033,
+            0.0038540851525254993
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0010964022457997658,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0019843610157330716,
+            0.004177319079744279
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 83,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.001826452335059514,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0012771602299963547,
+            0.004930219872161246
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0014476058498260613,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0016561524138509753,
+            0.004551519173752183
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0017477340835156951,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0013558602466794412,
+            0.004851483380797106
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 84,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0006218128585793181,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.002504526129975204,
+            0.0037483082076299468
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0002651927565793244,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.002861304965136924,
+            0.003391846928998632
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0005403788471447513,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.002585941176583617,
+            0.00366685522624266
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 85,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0025482054980088265,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0056971590332146604,
+            0.0006009057792866201
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0028810180434923893,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.006030143464343496,
+            0.0002682652118686235
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0026324235772001714,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0057813574122107525,
+            0.0005166679947485875
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 86,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0024472621273972095,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.005619030046698725,
+            0.0007246649279508688
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0027543514191314955,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.005926304677355887,
+            0.000417761069670064
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.00253437127272349,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0057061187410951675,
+            0.0006375353264154171
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 87,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0019535479608236983,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0012412359529463401,
+            0.005148492416925166
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0016741413693956986,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0015208416435008587,
+            0.004869285021303682
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0018634385008269305,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0013313241954904242,
+            0.005058361734132433
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 88,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0021876556315092444,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.005405011189470343,
+            0.0010298618479822608
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0024382275180983015,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.005655795853442669,
+            0.0007795028374886215
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.002280788982766069,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.005498122562595853,
+            0.0009367065131264951
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 89,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0023255539712074835,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0009148937690852676,
+            0.0055661650439020605
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.002106206788432985,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0011344679114237977,
+            0.00534704492180893
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.002229243619151333,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.001011181355565327,
+            0.0054698319207560075
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 90,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.000921756270880536,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004184838487827136,
+            0.002341490661478929
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0011088074856360208,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004372130748798497,
+            0.0021546805960994675
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0010212623500862605,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004284321020779913,
+            0.002241961030236439
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 91,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0010322081511233705,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004318116485684698,
+            0.0022538662934010745
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0011849982896983136,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004471162062529288,
+            0.0021013316984905828
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0011350187933416578,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004420902785128078,
+            0.0021510313025601135
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 92,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.003020756609927844,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.00028817109391710005,
+            0.0063298518299745865
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.002904235233479824,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0004049626122224481,
+            0.006213600703055988
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0029145303854463123,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0003943721631500807,
+            0.006223600444329236
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 93,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0020636350401659342,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.005395101351115983,
+            0.0012680001638898375
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.002142976535399299,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.005474727569733773,
+            0.0011889435018659356
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.002173286192249435,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.00550472654355616,
+            0.0011583230460416871
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 94,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0015935241844644565,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0017610065366255867,
+            0.004948225207392909
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0015539365934671423,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0018008939624003517,
+            0.004908937563385507
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0014802856754272398,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0018742182535227414,
+            0.004834959900016145
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 95,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0026451993953457986,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0007322446928483828,
+            0.006022815184749675
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0026468123454392867,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0007309467804681447,
+            0.006024743287074585
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.002528314468268178,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0008491019915766174,
+            0.005905902622853176
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 96,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0009790382520904473,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.002421161273353789,
+            0.004379410868164513
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0010232492957094053,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.002377280553755412,
+            0.004423952352770044
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.000858450707745817,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0025417203495656793,
+            0.0042587948492460725
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 97,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0025172799894193076,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.005940070135505238,
+            0.000905684626481218
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.002429123967527147,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.005852259799230097,
+            0.0009941864533082878
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0026416234111756864,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.006064384246506904,
+            0.0007813118874011593
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 98,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0018266056438882572,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0016193068409044997,
+            0.005272694009946122
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0019614469897071274,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0014848270961174137,
+            0.005407897078534063
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0016983354077524382,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0017475468945029604,
+            0.005144393584565421
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 99,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0026407621722199792,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.006109274922078356,
+            0.0008279278380527444
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0024586236825996366,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.005927513777827187,
+            0.001010443797330396
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.002772951164065063,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.006241432870016439,
+            0.0006957077955469515
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 100,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.001779236112454896,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0017124114247373257,
+            0.005271062321654085
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.002011494289892113,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0014805469027585616,
+            0.00550371428128571
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0016429532300570315,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0018486623721756246,
+            0.005134747497422154
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 101,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.002839978855092795,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.006354225115924095,
+            0.0006744474562552227
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.002557099658329065,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.006071755695909786,
+            0.00095773655896636
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.002980341232348138,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.006494554678635467,
+            0.0005340522573860085
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 102,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0024738849822050213,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0010634972265677334,
+            0.006011448652529339
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.002810289173059033,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0007275195111056121,
+            0.006348279450467231
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.002329263820843863,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0012080846634106024,
+            0.005866793759345512
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 103,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0024808727992500224,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.006040840808537951,
+            0.0010792780484081277
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0020905581776240467,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.005650969153666807,
+            0.0014700357710992762
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0026297317431840384,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.006189665130243327,
+            0.0009303844750050416
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 104,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0015417089804259376,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0020413846534772517,
+            0.005124986862227843
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0019889185778367846,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0015946351033164774,
+            0.005572656643792584
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0013884288583057014,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.002194629224899103,
+            0.004971671181994708
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 105,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.002276814769150093,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0013292114304661595,
+            0.005883026613915376
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.002782137687454167,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0008243656923809795,
+            0.006388826851921436
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.002119068391237988,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0014869213274266713,
+            0.005725243747516373
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 106,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.00039166496059905853,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004020423535727957,
+            0.0032372806443277113
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0001729269995465188,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0034563259314808192,
+            0.0038023671023559302
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0005539191353740591,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004182640298090234,
+            0.0030749890494092824
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 107,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0007236180155345551,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0029280424486124446,
+            0.004375466903770331
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0013495941949699386,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.002302578122780119,
+            0.005001955081564091
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0005567413970126722,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0030948807067865403,
+            0.004208551917191272
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 108,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.002705858172486586,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0063802116177562596,
+            0.0009686850780248335
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.002017402160902293,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.005692284990356455,
+            0.0016576706212099168
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0028773952560712246,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0065517093923475045,
+            0.0007971086776024094
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 109,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.002992872691219617,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0007047224484963976,
+            0.006690659050246239
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0037470266070300795,
+          "coordinate_rounding_residual_interval_gpa": [
+            4.8883929373744195e-05,
+            0.0074453606541382555
+          ],
+          "crosses_export_rounding_box": false
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.002816479749132128,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0008810751004553197,
+            0.006514225809901575
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 110,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.001345159882944813,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.005065399369797774,
+            0.0023752722002896576
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0005253356977874546,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0042461406039997485,
+            0.0031956619577293566
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0015263643458673926,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0052465625771169755,
+            0.0021940264735462733
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 111,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0020014693887020485,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.005744516263245458,
+            0.0017417714685983299
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0011138457500443621,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004857476248560033,
+            0.002629978886904638
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.002187600270346479,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0059306049073875045,
+            0.0015555983411168484
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 112,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0009567515878465827,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004722769991150955,
+            0.0028094621940581987
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 8.391500934123997e-07,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.003765781410535851,
+            0.00376765524776701
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0011479257388771202,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004913900906188928,
+            0.002618244798490821
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 113,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0028084278128766016,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.000980727364087386,
+            0.006597779773500179
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0038381924236787768,
+          "coordinate_rounding_residual_interval_gpa": [
+            4.841622165940862e-05,
+            0.007628165570622514
+          ],
+          "crosses_export_rounding_box": false
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.002612091556237317,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0011770193691695852,
+            0.006401399256663609
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 114,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.002688915099785305,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.001123146842054723,
+            0.006501175215721133
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0037918198612842957,
+          "coordinate_rounding_residual_interval_gpa": [
+            -2.0881985175691398e-05,
+            0.00760472004602164
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.002487386441867301,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0013246302333378424,
+            0.006299601282282907
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 115,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0014340184407011236,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.005268749850596777,
+            0.0024009125186701397
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0002570820637188831,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004092472258012236,
+            0.0035785078470027543
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0016407656550683214,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.005475450784210523,
+            0.0021941190144580958
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 116,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0019635982639769622,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.00582115642702874,
+            0.0018941608326663584
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0007104591437467889,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004568695299415282,
+            0.0031479781153755937
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0021756806009882723,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.006033191452427644,
+            0.0016820311749796701
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 117,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0008818361144307119,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004762379320585097,
+            0.0029989094181424036
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.00044971462929410677,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.003431526111516092,
+            0.004331157869462032
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0010993720528809092,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004979866899745389,
+            0.002781325111214983
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 118,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.002829370927436514,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0010743166184497,
+            0.0067332622015499055
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.00424158056189583,
+          "coordinate_rounding_residual_interval_gpa": [
+            0.00033717559980317446,
+            0.008146189428238415
+          ],
+          "crosses_export_rounding_box": false
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.002606260964789442,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.001297377156895152,
+            0.006510102805322049
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 119,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0023344614085658577,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0015921205415878603,
+            0.006261248472931413
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.003828141126582807,
+          "coordinate_rounding_residual_interval_gpa": [
+            -9.917810884729761e-05,
+            0.007755665655054145
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0021057560265163033,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0018207754363075423,
+            0.006032492593853078
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 120,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0024865449889475144,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0064357640518935,
+            0.001462880557518531
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0009106655787007867,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004860641770740415,
+            0.003039517278793369
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.002720862710660299,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.006670030225279788,
+            0.0012285112778087637
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 121,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0031355460871438368,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0008368769098723305,
+            0.00710817697054722
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0047973815606781045,
+          "coordinate_rounding_residual_interval_gpa": [
+            0.0008241808886282342,
+            0.008770790304019727
+          ],
+          "crosses_export_rounding_box": false
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0028953931145636602,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0010769772367140718,
+            0.006867971342330748
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 122,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.00337401294231654,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0006213530221259589,
+            0.007369588179336972
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.005122528382671021,
+          "coordinate_rounding_residual_interval_gpa": [
+            0.0011263642235803673,
+            0.009118902002335005
+          ],
+          "crosses_export_rounding_box": false
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0031280083187326113,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0008673039049611475,
+            0.007123529804850648
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 123,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0008920278992334829,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004910068459814454,
+            0.003126223302786002
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0009438057296975444,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.003075053505696701,
+            0.004962875797716038
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0011438958957228351,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.005161881623415354,
+            0.0028743004632758584
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 124,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0027011390372564392,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.006742002470915054,
+            0.0013399364148796167
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.0007757570879789455,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004817460012709773,
+            0.0032661580496124998
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0029589892686416874,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.006999796760489119,
+            0.0010820302312168906
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 125,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0020372594756281615,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.006101094923316452,
+            0.0020267893754990496
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -2.0062492339434357e-05,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0040847585888030835,
+            0.0040448472050300666
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0023012126516803733,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.006364991031340139,
+            0.0017627791207885934
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 126,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0021157651052305937,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.001971192361757801,
+            0.006202937368520622
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.004227081004728461,
+          "coordinate_rounding_residual_interval_gpa": [
+            0.000139241384509603,
+            0.008315135622140701
+          ],
+          "crosses_export_rounding_box": false
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0018455863981401421,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0022413128569880314,
+            0.0059327004389402305
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 127,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0005539378659662475,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.003555860134476063,
+            0.0046639520378022326
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.002759906512963539,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0013507950897917453,
+            0.006870824490974314
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.000277527871567429,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0038322107771548986,
+            0.004387482680812127
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 128,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.001421019063293727,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0027117656222443998,
+            0.005554021302778267
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.003723932453333134,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.00040977762829186304,
+            0.007857860296319075
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.0011382560273318632,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.002994468149211116,
+            0.0052711977469144244
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 129,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.002579073235054352,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0067345537256002785,
+            0.00157662617350951
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": -0.00017878112903702004,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004335208738758922,
+            0.0039778656093361064
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.0028681895683817515,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.007023608397290104,
+            0.0012874481674813865
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 130,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0031459574709700178,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0010328016647704885,
+            0.007324936922799452
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0056478444387337845,
+          "coordinate_rounding_residual_interval_gpa": [
+            0.0014681156904856607,
+            0.009827793716979727
+          ],
+          "crosses_export_rounding_box": false
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.002850241369635853,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0013284549119916278,
+            0.0070291579560048945
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 131,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": -0.0024609484300341933,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.006662248045685715,
+            0.0017405728542314591
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0001409684056099536,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.004061322808126988,
+            0.00434348150515973
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": -0.002763135488386581,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.006964371085253163,
+            0.0014383217655051794
+          ],
+          "crosses_export_rounding_box": true
+        }
+      },
+      {
+        "line": 132,
+        "author_communicated_curve": {
+          "pressure_residual_gpa": 0.0006870175153963487,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0035374069637228445,
+            0.004911665049448288
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "weighted_replay": {
+          "pressure_residual_gpa": 0.0033932527098770038,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0008321861338771441,
+            0.007618914829109258
+          ],
+          "crosses_export_rounding_box": true
+        },
+        "workbook_precision_reconstruction": {
+          "pressure_residual_gpa": 0.00037810938378868286,
+          "coordinate_rounding_residual_interval_gpa": [
+            -0.0038462498713158766,
+            0.004602691682137561
+          ],
+          "crosses_export_rounding_box": true
+        }
+      }
+    ],
+    "author_communicated_curve_compatible_rows": 100,
+    "weighted_replay_compatible_rows": 90,
+    "workbook_precision_reconstruction_compatible_rows": 100,
+    "author_communicated_coefficients_on_22_export_rows": {
+      "pressure_rms_gpa": 0.482543556594178,
+      "maximum_absolute_pressure_residual_gpa": 1.1052354379855487,
+      "residuals_gpa": [
+        -0.5279193967190707,
+        0.5331620613316126,
+        -0.02683793866838613,
+        -0.06022184278861431,
+        0.8627809454633919,
+        0.9007809454633922,
+        -0.5379193967190687,
+        0.0730101619518777,
+        0.49416206133161467,
+        -0.07498983804812198,
+        1.1052354379855487,
+        0.18238052743861033,
+        0.5886249104871943,
+        0.6010264016331952,
+        -0.0007008033696811799,
+        0.17533725929481436,
+        0.14270667238822465,
+        0.3001597255811834,
+        0.12325003544577662,
+        -0.09721360467760043,
+        -0.18400770818792012,
+        -0.5411333790854691
+      ]
+    }
+  },
+  "qualifications": [
+    "21 measured rows plus one derived ambient anchor, not 22 independent measurements.",
+    "Workbook cached formulas were inspected without refreshing or editing the workbook.",
+    "Current-study V/Z rounded to 0.1 A3; sigma_V rounded to 0.01 A3 in export.",
+    "Published coefficients and original 24-row diagnostic retained; catalog integration is separate from this read-only scientific replay.",
+    "Exclusion identities established by supplied files; individual scientific rejection reasons remain only partly recalled by the author.",
+    "Repeated measurements and the prior-EOS ambient anchor are not established as statistically independent observations."
+  ]
+}

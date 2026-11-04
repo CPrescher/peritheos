@@ -1,0 +1,87 @@
+{
+  "source_sha256": "776ca4ca61872b7540c1ebaa70c29046f84a41c2d0700725d009eba203bd3cb5",
+  "source_location": "Figure 1, PDF page 2, red combined coesite-IV/V experimental-fit curve",
+  "pressure_tick_gpa": [
+    0,
+    10,
+    20,
+    30,
+    40,
+    50,
+    60,
+    70
+  ],
+  "pressure_tick_x_pdf_points": [
+    351.89001464,
+    378.01201438,
+    404.04001424999996,
+    430.06901357,
+    456.19201276999996,
+    482.22101209,
+    508.24801250999997,
+    534.37101171
+  ],
+  "volume_tick_a3_per_fu": [
+    20,
+    22,
+    24,
+    26,
+    28,
+    30,
+    32,
+    34
+  ],
+  "volume_tick_y_pdf_points": [
+    218.98398257999986,
+    196.56798221999986,
+    174.24398281999981,
+    151.8289819099998,
+    129.50598195999976,
+    107.09098104999975,
+    84.67598013999975,
+    62.3519807399997
+  ],
+  "path": [
+    [
+      "m",
+      [
+        437.0960083,
+        180.51397753999993
+      ]
+    ],
+    [
+      "l",
+      [
+        439.75800824,
+        181.55897748999996
+      ]
+    ],
+    [
+      "c",
+      [
+        474.39100645999997,
+        194.82397794999997
+      ],
+      [
+        510.38600921,
+        204.25197839999998
+      ],
+      [
+        546.62200927,
+        211.95697833999998
+      ]
+    ],
+    [
+      "l",
+      [
+        549.18701171,
+        212.52297640999996
+      ]
+    ]
+  ],
+  "linewidth_pdf_points": 0.475,
+  "source_doi": "10.1038/s41467-018-07265-z",
+  "source_url": "https://www.nature.com/articles/s41467-018-07265-z.pdf",
+  "source_license": "CC-BY-4.0; attribution to Bykova et al. (2018). No new license claim over source figure.",
+  "extraction_method": "PDF vector path and axis-tick coordinates extracted with pdfplumber from primary PDF page 2; cubic Bezier controls preserved. These describe a published fitted curve, not measurements."
+}

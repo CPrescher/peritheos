@@ -9,7 +9,7 @@
   "eos_records": [
     {
       "identifier": "coesite_iv_bykova_2018_am05_static_bm3_refit",
-      "label": "Bykova et al. (2018), coesite-IV static AM05 BM3 reconstruction",
+      "label": "Peritheos coesite-IV BM3 refit of Bykova et al. (2018) calculated states",
       "model": "BM3",
       "temperature_ref": 0.0,
       "parameters": {
@@ -20,23 +20,25 @@
       "parameter_error_confidence": null,
       "experimental_pressure_range_gpa": [27.0, 48.0],
       "experimental_temperature_range_k": [0.0, 0.0],
-      "pressure_range_status": "reported_qualitatively",
+      "pressure_range_status": "theoretical",
       "validity": {
         "pressure_gpa": [27.0, 48.0],
         "temperature_k": [0.0, 0.0],
         "notes": [
-          "Metastable static AM05 branch; the source reports spontaneous coesite-IV to coesite-V relaxation at the smaller 352.35 A3 cell volume."
+          "Metastable static AM05 branch; the source reports spontaneous coesite-IV to coesite-V relaxation at the smaller 352.35 A3 cell volume.",
+          "The three numerical fit inputs span 39-48 GPa. The approximate 27-48 GPa plotted branch is checked separately using digitized calculated markers; neither this range nor a 0 K curve establishes experimental phase stability or thermal behavior."
         ]
       },
       "determination_method": "theoretical",
-      "record_kind": "derived",
+      "record_kind": "refit",
       "equation_kind": "isothermal",
       "volume_basis": {"kind": "formula_units", "formula_units": 16.0, "molar_mass_g_mol": 60.083},
       "sample_composition": "Ideal SiO2, fully relaxed metastable coesite-IV structure.",
+      "notes": "Replays the stored Peritheos one-parameter refit, not a published V0 or the authors' E-P-V regression. K0=168.52 GPa and K0-prime=3.34 are adopted from Supplementary Table 11 and held fixed. Three calculated Table 10 pressures are printed as whole GPa; they are not exact states. The V0 formal standard error is conditional residual-scatter covariance, not a source uncertainty or a rounding/systematic error budget. The unweighted residual sum per degree of freedom is not a statistical reduced chi-square. Figure 6 supplies separate graphical checks, including five points beyond the three apparent table counterparts; none is fitted. See the dedicated coesite-IV audit for reading bounds and limitations.",
       "derivation": {
         "source_kind": "published_table",
         "source_identifier": "coesite_iv_bykova_2018_table10_calc_pv",
-        "method": "One-parameter BM3 reconstruction: refine V0 against exact Table 10 P-V states while holding Supplementary Table 11 K0 and K0_prime fixed.",
+        "method": "One-parameter Peritheos BM3 refit: refine V0 against the three coesite-IV Table 10 P-V rows at their printed precision while holding Supplementary Table 11 K0 and K0_prime fixed. V0 is not published.",
         "sampling_domain": {
           "pressure_gpa": [39.0, 48.0]
         },
@@ -80,12 +82,14 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "similar",
-            "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "status": "parity",
+            "scope": "independent_refit",
+            "source_status": "parity",
+            "basis": "Reproduction of the registered Peritheos refit's stored coefficients under its declared protocol.",
+            "basis_code": "registered_peritheos_refit_reproduced",
             "qualifications": [
-              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
+              "This comparison concerns the stored independent Peritheos refit, not recovery of the original publication's coefficients or author workflow.",
+              "Replays the stored Peritheos one-parameter refit, not a published V0 or the authors' E-P-V regression. K0=168.52 GPa and K0-prime=3.34 are adopted from Supplementary Table 11 and held fixed. Three calculated Table 10 pressures are printed as whole GPa; they are not exact states. The V0 formal standard error is conditional residual-scatter covariance, not a source uncertainty or a rounding/systematic error budget. The unweighted residual sum per degree of freedom is not a statistical reduced chi-square. Figure 6 supplies separate graphical checks, including five points beyond the three apparent table counterparts; none is fitted. See the dedicated coesite-IV audit for reading bounds and limitations."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/coesite_iv/#record-coesite_iv_bykova_2018_am05_static_bm3_refit",
             "report_path": "docs/reconstruction-reports/coesite_iv.md#record-coesite_iv_bykova_2018_am05_static_bm3_refit",
@@ -94,66 +98,74 @@
                 "parameter": "V0",
                 "published": 438.6702,
                 "published_error": null,
-                "refit": 438.6702184996092,
-                "refit_error": 0.08425558150456118,
-                "difference": 1.8499609154787322e-05,
-                "relative_difference": 4.2172021611651126e-08,
+                "refit": 438.6702185173588,
+                "refit_error": 0.08425558245083585,
+                "difference": 1.8517358796543704e-05,
+                "relative_difference": 4.2212483994909395e-08,
                 "similar": true,
                 "within_combined_2sigma": null
               }
             ],
             "fit": {
-              "fit_kind": "isothermal_pv",
+              "fit_kind": "stored_refit_reproduction",
               "objective": "pressure_residuals",
-              "selection": "all rows",
+              "selection": "all three coesite-IV Table 10 rows; Figure 6 excluded",
               "columns": {"pressure": "pressure_gpa", "temperature": null, "volume": "volume_a3_conventional_cell"},
-              "absolute_sigma": true,
+              "weighting": "Equal pressure weights; no source standard deviations supplied.",
+              "absolute_sigma": false,
               "free_parameters": ["V0"],
               "fixed_parameters": ["K0", "K0_prime"],
+              "fixed_values": {"K0": 168.52, "K0_prime": 3.34},
               "observations": 3,
               "observed_pressure_range_gpa": [39.0, 48.0],
-              "observed_temperature_range_k": null,
               "observed_volume_range": [357.8274, 368.5011],
               "degrees_of_freedom": 2,
               "solver_success": true,
-              "solver_message": "Both `ftol` and `xtol` termination conditions are satisfied.",
-              "rmse_gpa": 0.0808114094403155,
-              "published_rmse_gpa": 0.08081141041630165,
-              "reduced_chi_square": 0.009795725843595468,
-              "dataset_identifiers": ["coesite_iv_bykova_2018_table10_calc_pv"]
+              "rmse_gpa": 0.08081140944031408,
+              "published_rmse_gpa": 0.08081141041630033,
+              "covariance_convention": "Residual-scaled conditional one-parameter covariance. Formal V0 error excludes pressure rounding, fixed-modulus uncertainty, DFT systematics and model inadequacy; not a source error or confidence interval.",
+              "comparison_scope": "Stored Peritheos V0 at its registered four-decimal precision; not a published coefficient.",
+              "dataset_identifiers": ["coesite_iv_bykova_2018_table10_calc_pv"],
+              "reproduction_report": "docs/literature-reproductions/coesite-iv-bykova-2018.md"
             },
             "report": "docs/data/primary-eos-refits.json"
           }
         },
         "scientific_validation": {
           "status": "primary_source_validated",
-          "note": "Independently checked against the cited primary publication (published article or official/author copy); no external software catalog was used as scientific authority.",
-          "audit_date": "2026-09-01",
+          "note": "The source inputs and conditional Peritheos refit are traceable to the primary publication. V0 is not a published coefficient. Independent Figure 6 readings check the unchanged curve at graphical resolution; source-author regression, physical accuracy and total parameter uncertainty are not established.",
+          "audit_date": "2026-10-23",
           "verified_fields": ["equation", "parameters", "units", "reference_state", "phase", "published_uncertainties", "validity"],
           "primary_source_check": {
             "access_url": "https://www.nature.com/articles/s41467-018-07265-z",
             "doi": "10.1038/s41467-018-07265-z",
             "locations": ["Methods: Ab initio calculations", "Supplementary Figure 6", "Supplementary Tables 10-11"],
-            "finding": "Independent calculated coesite-IV BM3; V0 reconstructed transparently because only K0 and K0' are printed."
+            "finding": "Supplementary Table 11 publishes K0=168.52 GPa and K0_prime=3.34, but no V0. The stored V0 is a conditional Peritheos one-parameter fit, quantitatively checked against Figure 6 without fitting its markers."
           },
           "primary_data_check": {
             "status": "bundled",
-            "audit_date": "2026-09-05",
+            "audit_date": "2026-10-23",
             "dataset_identifiers": ["coesite_iv_bykova_2018_table10_calc_pv"],
-            "finding": "All three exact calculated Table 10 states that remain coesite-IV are transcribed."
+            "finding": "Three calculated coesite-IV Table 10 rows are preserved verbatim, including their whole-GPa pressure precision. Figure 6 digitization is a separate graphical check and is not a fit dataset."
+          },
+          "figure_check": {
+            "dataset_identifier": "coesite_iv_bykova_2018_figure6_digitized",
+            "audit": "docs/literature-reproductions/coesite-iv-bykova-2018.md",
+            "result": "All eight calculated coesite-IV markers, including five additional to the three apparent Table 10 counterparts, are consistent with the unchanged curve within the declared graphical coordinate bounds.",
+            "not_fit_input": true
           }
         },
         "parameter_provenance": {
-          "determination_method": "Bykova (2018), Methods: static VASP AM05 E(V) calculations supply the one-parameter BM3 refit; a Peritheos refit of calculated states remains theoretical.",
+          "determination_method": "Static VASP AM05 calculated states and published theoretical moduli from Bykova (2018); the Peritheos fit remains theoretical.",
           "equation": "Methods: calculated E-P-V states fitted with third-order Birch-Murnaghan.",
-          "parameters": "K0 and K0' are published in Supplementary Table 11. V0 is reconstructed by least squares from the three unambiguously coesite-IV exact calculated states in Supplementary Table 10, holding the published K0 and K0' fixed.",
+          "parameters": "K0 and K0_prime are adopted from Supplementary Table 11 and fixed only in this Peritheos refit. V0 is not printed by the source: it is fitted to the three Table 10 calculated coesite-IV states at printed precision. None of these constraints establishes source-author coefficient reproduction.",
           "method": "Static 0 K VASP AM05 calculations; one-parameter reproducible refit."
         },
         "fit_provenance": {
           "software": {"name": "Peritheos", "version": "0.6.0"},
           "dataset": "coesite_iv_bykova_2018_table10_calc_pv",
           "selection": {
-            "predicate": "three Table 10 calculated states that remain coesite-IV",
+            "predicate": "all three Table 10 calculated states that remain coesite-IV; no digitized Figure 6 points",
             "included_rows": 3,
             "excluded_rows": 0
           },
@@ -166,7 +178,174 @@
             "pressure_residual_rmse_gpa": 0.080812,
             "max_absolute_pressure_residual_gpa": 0.108394
           },
-          "reproduction": {"script": "scripts/reproduce_tranche_b_mineral_eos.py", "solver": "scipy.optimize.least_squares"}
+          "reproduction": {
+            "script": "scripts/reproduce_bykova_2018_coesite_iv.py",
+            "solver": "scipy.optimize.least_squares",
+            "original_script": "scripts/reproduce_tranche_b_mineral_eos.py"
+          },
+          "uncertainty_treatment": "Formal V0 error from residual-scaled, one-parameter local covariance with both moduli and volumes fixed. It is diagnostic only and excludes whole-GPa pressure rounding, unknown fixed-modulus errors, DFT systematics and model inadequacy. No statistical reduced chi-square or confidence interval is established.",
+          "source_precision": {
+            "pressure_gpa": "Printed integer calculated pressures; nearest-integer +/-0.5 GPa intervals are a diagnostic assumption, not published standard deviations.",
+            "rounding_compatible_V0_interval_a3": [438.08947212677515, 439.2672041486377],
+            "interval_is_confidence_interval": false
+          },
+          "figure_validation": {
+            "dataset_identifier": "coesite_iv_bykova_2018_figure6_digitized",
+            "fitted": false,
+            "report": "docs/literature-reproductions/coesite-iv-bykova-2018.md"
+          },
+          "weighting": "Equal pressure weights; no reported source standard deviations."
+        }
+      }
+    },
+    {
+      "identifier": "coesite_iv_v_bykova_2018_experimental_bm2_reference",
+      "label": "Bykova et al. (2018), combined coesite-IV/V experimental BM2 at 32.7 GPa",
+      "model": "BM2Reference",
+      "temperature_ref": 298.0,
+      "parameters": {
+        "V0": {"value": 375.04, "error": 0.48},
+        "K0": {"value": 254.0, "error": 9.0},
+        "P0": {"value": 32.7, "error": null, "fixed": true}
+      },
+      "parameter_error_confidence": null,
+      "experimental_pressure_range_gpa": [29.9, 70.4],
+      "pressure_range_status": "reported_exactly",
+      "validity": {
+        "pressure_gpa": [29.9, 70.4],
+        "notes": [
+          "Joint empirical IV/V branch, not a single-phase stability interval. Reproduce the published curve in the observed range; do not extrapolate to ambient pressure or use as a pressure calibrant."
+        ]
+      },
+      "determination_method": "experimental",
+      "record_kind": "published",
+      "equation_kind": "isothermal",
+      "default": false,
+      "phase_scope": ["coesite_iv", "coesite_v"],
+      "sample_composition": "SiO2: jointly fitted coesite-IV and coesite-V observations, not a physical mixture EOS.",
+      "notes": "Published joint coesite-IV/V room-temperature empirical fit, not a pure-phase EOS. The explicit 32.7 GPa reference-pressure BM2 reproduces Figure 1's red vector curve within its stroke/calibration bounds. All 16 Table 2 observations are retained: pressure RMS 4.04659 GPa; maximum 11.85457 GPa at the 44.5 GPa coesite-V datum. The source acknowledges significant between-run scatter. Original objective, weights, row mask, fixed/free reference-volume choice and covariance are unspecified. The independent equal-weight diagnostic does not recover the source coefficients and is not adopted. Source-equation validation is not author-fit parity or physical validation. See the dedicated experimental audit.",
+      "temperature_ref_provenance": {
+        "kind": "assumed_room_temperature",
+        "reported_condition": "room temperature",
+        "note": "298 K is a nominal convention, not a measured temperature or thermal model."
+      },
+      "published_reference_state": {
+        "pressure_gpa": 32.7,
+        "volume_a3_per_formula_unit": 23.44,
+        "volume_error_a3_per_formula_unit": 0.03,
+        "bulk_modulus_gpa": 254.0,
+        "bulk_modulus_error_gpa": 9.0,
+        "error_meaning": "Printed error widths; confidence and covariance unspecified."
+      },
+      "fit_datasets": ["coesite_iv_v_bykova_2018_table2_pv"],
+      "parameter_covariance": null,
+      "reference": {
+        "authors": [
+          "Bykova",
+          "Bykov",
+          "Cernok",
+          "Tidholm",
+          "Simak",
+          "Hellman",
+          "Belov",
+          "Abrikosov",
+          "Liermann",
+          "Hanfland",
+          "Prakapenka",
+          "Prescher",
+          "Dubrovinskaia",
+          "Dubrovinsky"
+        ],
+        "year": 2018,
+        "title": "Metastable silica high pressure polymorphs as structural proxies of deep Earth silicate melts",
+        "source": "Nature Communications",
+        "volume": "9",
+        "locator": "4789",
+        "doi": "10.1038/s41467-018-07265-z"
+      },
+      "pressure_calibration": {
+        "status": "unresolved",
+        "methods": [
+          {
+            "kind": "other",
+            "notes": "X-ray diffraction from Ne; reference EOS version unresolved.",
+            "calibrant": "Ne",
+            "source_location": "Methods: Experimental details"
+          }
+        ],
+        "recalculation": {
+          "status": "not_possible",
+          "notes": "Ne is explicitly the pressure standard. An exact EOS version and paired row-level Ne volumes were not identified; neither is inferred from software or date."
+        },
+        "audit_date": "2026-10-24"
+      },
+      "evidence": {
+        "reproduction": {
+          "assessment": {
+            "status": "source_reconstruction",
+            "scope": "source_equation",
+            "source_status": "source_reconstruction",
+            "basis": "Published joint coesite-IV/V room-temperature empirical fit, not a pure-phase EOS. The explicit 32.7 GPa reference-pressure BM2 reproduces Figure 1's red vector curve within its stroke/calibration bounds. All 16 Table 2 observations are retained: pressure RMS 4.04659 GPa; maximum 11.85457 GPa at the 44.5 GPa coesite-V datum. The source acknowledges significant between-run scatter. Original objective, weights, row mask, fixed/free reference-volume choice and covariance are unspecified. The independent equal-weight diagnostic does not recover the source coefficients and is not adopted. Source-equation validation is not author-fit parity or physical validation. See the dedicated experimental audit. Retained for reproduction of the published joint empirical curve. Large observation residuals, unresolved fitting protocol, stress sensitivity and joint-phase scope preclude recommendation for quantitative pure-phase predictions or pressure calibration. Explicit selection only.",
+            "qualifications": [
+              "Retained for reproduction of the published joint empirical curve. Large observation residuals, unresolved fitting protocol, stress sensitivity and joint-phase scope preclude recommendation for quantitative pure-phase predictions or pressure calibration. Explicit selection only.",
+              "Usage recommendation: not_recommended",
+              "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use.",
+              "No reconstructed coefficient table is recorded for this assessment; no missing values have been inferred."
+            ],
+            "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/coesite_iv/#record-coesite_iv_v_bykova_2018_experimental_bm2_reference",
+            "report_path": "docs/reconstruction-reports/coesite_iv.md#record-coesite_iv_v_bykova_2018_experimental_bm2_reference",
+            "fit": {
+              "fit_kind": "source_curve_validation_only",
+              "fixed_parameters": ["P0"],
+              "fixed_values": {"P0": 32.7},
+              "observations": 16,
+              "published_rmse_gpa": 4.046586960906344,
+              "comparison_scope": "Published Figure 1 curve at graphical resolution, with observation residuals reported separately; not source-author coefficient parity.",
+              "reconstruction_kind": "finite_pressure_reference_bm2",
+              "dataset_identifiers": ["coesite_iv_v_bykova_2018_table2_pv"],
+              "reproduction_report": "docs/literature-reproductions/coesite-iv-v-bykova-2018-experimental.md"
+            },
+            "report": "docs/data/primary-eos-refits.json"
+          }
+        },
+        "parameter_provenance": {
+          "equation": "Figure 1 caption and Supplementary Figure 9: second-order Birch-Murnaghan at 32.7 GPa. P=P0+1.5*K0*((V0/V)^(7/3)-(V0/V)^(5/3)) is identified against the primary red vector curve.",
+          "parameters": "V32.7/Z=23.44(3) A3 and K32.7=254(9) GPa retained. V0=16*23.44=375.04 A3 and error=16*0.03=0.48 A3. V0/K0 are reference-pressure values, not ambient values. P0=32.7 is the fixed reference coordinate, not a fitted pressure.",
+          "method": "Room-temperature joint empirical compression fit. Author objective, weights and fixed/free reference-volume choice unspecified."
+        },
+        "scientific_validation": {
+          "status": "primary_source_validated",
+          "audit_date": "2026-10-24",
+          "note": "Published joint coesite-IV/V room-temperature empirical fit, not a pure-phase EOS. The explicit 32.7 GPa reference-pressure BM2 reproduces Figure 1's red vector curve within its stroke/calibration bounds. All 16 Table 2 observations are retained: pressure RMS 4.04659 GPa; maximum 11.85457 GPa at the 44.5 GPa coesite-V datum. The source acknowledges significant between-run scatter. Original objective, weights, row mask, fixed/free reference-volume choice and covariance are unspecified. The independent equal-weight diagnostic does not recover the source coefficients and is not adopted. Source-equation validation is not author-fit parity or physical validation. See the dedicated experimental audit.",
+          "usage_recommendation": "not_recommended",
+          "recommendation_reason": "Retained for reproduction of the published joint empirical curve. Large observation residuals, unresolved fitting protocol, stress sensitivity and joint-phase scope preclude recommendation for quantitative pure-phase predictions or pressure calibration. Explicit selection only.",
+          "primary_source_check": {
+            "access_url": "https://www.nature.com/articles/s41467-018-07265-z",
+            "doi": "10.1038/s41467-018-07265-z",
+            "locations": [
+              "Figure 1 caption and red vector curve, PDF page 2",
+              "Supplementary Table 2, PDF page 13",
+              "Supplementary Figure 9"
+            ],
+            "finding": "The published coefficients with an explicit 32.7 GPa reference reproduce the drawn red curve; all observation residuals and unresolved author-fit details are separately retained."
+          },
+          "primary_data_check": {
+            "status": "bundled",
+            "dataset_identifiers": ["coesite_iv_v_bykova_2018_table2_pv"],
+            "finding": "All 12 coesite-IV and four coesite-V Table 2 rows, with original P/V/error tokens, printed V/Z and sample IDs. No row excluded."
+          },
+          "curve_check": {
+            "report": "docs/literature-reproductions/coesite-iv-v-bykova-2018-experimental.md",
+            "checkpoints": 23,
+            "source_kind": "published_fitted_curve_vector_path",
+            "result": "All checkpoints within source stroke/calibration bounds.",
+            "source_resource": {
+              "path": "datasets/coesite-iv-v-bykova-2018-figure1-vector.json",
+              "sha256": "e8c2a5db546bed199aa1310c592b56bc9afad4150b829081c4ebf163cfdf03ee",
+              "kind": "published_fitted_curve_vector_path",
+              "not_measured_observations": true
+            }
+          }
         }
       }
     }
@@ -178,12 +357,12 @@
   "space_group_number": 2,
   "atom_sites": [],
   "peaks": [],
-  "notes": "Metastable high-pressure silica polymorph containing tetra-, penta-, and hexa-coordinated Si. The EOS reference volume is a documented one-parameter reconstruction from exact primary Table 10 calculated P-V states because Supplementary Table 11 publishes K0 and K0' but omits V0.",
+  "notes": "Metastable high-pressure silica polymorph containing tetra-, penta-, and hexa-coordinated Si. The conditional Peritheos static AM05 refit and the published room-temperature joint coesite-IV/V empirical curve are separate records. The joint curve uses an explicit 32.7 GPa pressure reference, is not a pure-phase EOS and is not an automatic default; see each record's qualifications.",
   "datasets": [
     {
       "identifier": "coesite_iv_bykova_2018_table10_calc_pv",
       "kind": "theoretical_pressure_volume",
-      "description": "Exact static AM05 coesite-IV calculated pressure-volume states from primary Supplementary Table 10, excluding the smaller-volume relaxation that transforms to coesite-V.",
+      "description": "Static AM05 coesite-IV calculated P-V states transcribed from Supplementary Table 10 at printed precision, excluding the relaxation that transforms to coesite-V.",
       "reference": {
         "authors": [
           "Bykova",
@@ -225,7 +404,7 @@
         "media_type": "text/csv"
       },
       "used_by_eos_records": ["coesite_iv_bykova_2018_am05_static_bm3_refit"],
-      "notes": "Volumes per formula unit are exact division by Z=16. The fit reconstruction fixes the published K0 and K0'.",
+      "notes": "Volumes per formula unit are division by Z=16. Calculated pressures are printed as whole GPa, not exact pressures or reported standard deviations. Only these three rows enter the V0 fit, with published moduli fixed.",
       "provenance": {
         "type": "transcribed_from_table",
         "method": "Pressure and conventional-cell volume transcribed verbatim; per-formula-unit volume derived by division by 16.",
@@ -233,6 +412,166 @@
         "quality_control": {"row_count": 3, "bm3_pressure_rmse_gpa": 0.080812},
         "transcribed_on": "2026-09-05"
       }
+    },
+    {
+      "identifier": "coesite_iv_bykova_2018_figure6_digitized",
+      "kind": "theoretical_pressure_volume",
+      "description": "Eight digitized calculated coesite-IV yellow diamonds from Supplementary Figure 6, including five additional graphical checks beyond the three apparent Table 10 counterparts. Supporting validation only; never fitted.",
+      "reference": {
+        "authors": [
+          "Bykova",
+          "Bykov",
+          "Cernok",
+          "Tidholm",
+          "Simak",
+          "Hellman",
+          "Belov",
+          "Abrikosov",
+          "Liermann",
+          "Hanfland",
+          "Prakapenka",
+          "Prescher",
+          "Dubrovinskaia",
+          "Dubrovinsky"
+        ],
+        "year": 2018,
+        "title": "Metastable silica high pressure polymorphs as structural proxies of deep Earth silicate melts",
+        "source": "Nature Communications",
+        "volume": "9",
+        "locator": "4789",
+        "doi": "10.1038/s41467-018-07265-z"
+      },
+      "source_location": "Supplementary Figure 6, PDF page 7",
+      "source_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-018-07265-z/MediaObjects/41467_2018_7265_MOESM1_ESM.pdf",
+      "columns": [
+        {"name": "marker", "quantity": "row_identifier", "unit": "1", "role": "value"},
+        {"name": "figure_x_pixel", "quantity": "pixel_coordinate", "unit": "pixel", "role": "value"},
+        {"name": "figure_y_pixel", "quantity": "pixel_coordinate", "unit": "pixel", "role": "value"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "volume_a3_per_formula_unit", "quantity": "volume", "unit": "angstrom^3/formula_unit", "role": "value"},
+        {
+          "name": "volume_a3_conventional_cell",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "pressure_digitization_bound_gpa",
+          "quantity": "digitization_resolution",
+          "unit": "GPa",
+          "role": "bound"
+        },
+        {
+          "name": "volume_digitization_bound_a3_per_formula_unit",
+          "quantity": "digitization_resolution",
+          "unit": "angstrom^3/formula_unit",
+          "role": "bound"
+        },
+        {"name": "table10_counterpart", "quantity": "row_selection_flag", "unit": "1", "role": "value"}
+      ],
+      "resource": {
+        "path": "datasets/coesite-iv-bykova-2018-figure6-digitized.csv",
+        "sha256": "e333c6a04873c1907278a0d081ba177c8576e5c872ab6b8ac2e3d8cfd439686c",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": [],
+      "notes": "Graphical calculated points, not exact numerical DFT output or experimental measurements. Four-pixel total coordinate-reading bounds are conservative analyst bounds, not source standard deviations. Markers 5, 7 and 8 are excluded from the additional-point comparison as apparent Table 10 counterparts.",
+      "provenance": {
+        "type": "digitized_primary_figure",
+        "source_pdf_sha256": "9d4bcb36ae6a89b19f5bbcc3fc671f3c1bfc6530a76915382c6132d3d907e459",
+        "transcribed_on": "2026-10-23",
+        "method": "Manual yellow-diamond center readings from the source two-tile 1430x915 pixel raster without rescaling; independent affine axis maps from all tick readings.",
+        "pixel_readings_and_calibration": "docs/data/coesite-iv-bykova-2018-figure6-digitization.json",
+        "validation_report": "docs/literature-reproductions/coesite-iv-bykova-2018.md"
+      }
+    },
+    {
+      "identifier": "coesite_iv_v_bykova_2018_table2_pv",
+      "kind": "pressure_volume",
+      "description": "All combined coesite-IV/V experimental Table 2 P-V observations, including between-run scatter. Original tokens and separately printed V/Z values are preserved.",
+      "reference": {
+        "authors": [
+          "Bykova",
+          "Bykov",
+          "Cernok",
+          "Tidholm",
+          "Simak",
+          "Hellman",
+          "Belov",
+          "Abrikosov",
+          "Liermann",
+          "Hanfland",
+          "Prakapenka",
+          "Prescher",
+          "Dubrovinskaia",
+          "Dubrovinsky"
+        ],
+        "year": 2018,
+        "title": "Metastable silica high pressure polymorphs as structural proxies of deep Earth silicate melts",
+        "source": "Nature Communications",
+        "volume": "9",
+        "locator": "4789",
+        "doi": "10.1038/s41467-018-07265-z"
+      },
+      "source_location": "Supplementary Table 2, PDF page 13, coesite-IV and coesite-V blocks",
+      "source_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-018-07265-z/MediaObjects/41467_2018_7265_MOESM1_ESM.pdf",
+      "columns": [
+        {"name": "source_row", "quantity": "row_identifier", "unit": "1", "role": "value"},
+        {"name": "phase", "quantity": "phase", "unit": "1", "role": "value"},
+        {"name": "sample_id", "quantity": "sample_identifier", "unit": "1", "role": "value"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {
+          "name": "pressure_error_gpa",
+          "quantity": "pressure",
+          "unit": "GPa",
+          "role": "uncertainty",
+          "of": "pressure_gpa"
+        },
+        {
+          "name": "volume_a3_conventional_cell",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "value"
+        },
+        {
+          "name": "volume_error_a3_conventional_cell",
+          "quantity": "volume",
+          "unit": "angstrom^3/conventional_unit_cell",
+          "role": "uncertainty",
+          "of": "volume_a3_conventional_cell"
+        },
+        {
+          "name": "reported_volume_a3_per_formula_unit",
+          "quantity": "volume",
+          "unit": "angstrom^3/formula_unit",
+          "role": "value"
+        },
+        {
+          "name": "reported_volume_error_a3_per_formula_unit",
+          "quantity": "volume",
+          "unit": "angstrom^3/formula_unit",
+          "role": "uncertainty",
+          "of": "reported_volume_a3_per_formula_unit"
+        },
+        {"name": "pressure_token", "quantity": "source_token", "unit": "1", "role": "value"},
+        {"name": "volume_token", "quantity": "source_token", "unit": "1", "role": "value"},
+        {"name": "volume_per_formula_unit_token", "quantity": "source_token", "unit": "1", "role": "value"}
+      ],
+      "resource": {
+        "path": "datasets/coesite-iv-v-bykova-2018-table2-pv.csv",
+        "sha256": "b750673a49ef8c2d56241bd810a4d8f0b0ada801c65df850573ae579089f57de",
+        "media_type": "text/csv"
+      },
+      "used_by_eos_records": ["coesite_iv_v_bykova_2018_experimental_bm2_reference"],
+      "provenance": {
+        "type": "transcribed_from_table",
+        "source_pdf_sha256": "9d4bcb36ae6a89b19f5bbcc3fc671f3c1bfc6530a76915382c6132d3d907e459",
+        "transcribed_on": "2026-10-24",
+        "method": "Primary table text verified against rendered page. Parenthetical errors decoded by printed decimal place; no confidence convention inferred.",
+        "row_count": 16
+      },
+      "uncertainty": {"reported_as": "parenthetical error widths; confidence convention unspecified", "covariance": "not_reported"},
+      "notes": "Cell V and printed V/Z have different rounding; preserve both. Regression use of error widths is unknown. The unweighted diagnostic uses cell V; no paired Ne volumes recovered."
     }
   ]
 }

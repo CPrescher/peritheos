@@ -1,0 +1,26 @@
+{
+  "source_doi": "10.1038/s41467-018-07265-z",
+  "audit_date": "2026-10-24",
+  "figure1": {
+    "source": "Article PDF page 2, black coesite-I/II/III fitted curve",
+    "raster": "Render page 2 at 400 dpi with pdftoppm, crop at x=1810, y=220, width=1250, height=1080. Coordinates below refer to that crop; origin at upper left.",
+    "pressure_ticks_gpa_and_x_pixel": [[0,145],[10,290],[20,435],[30,580],[40,724],[50,869],[60,1014],[70,1159]],
+    "volume_ticks_a3_per_formula_unit_and_y_pixel": [[34,127],[32,251],[30,375],[28,499],[26,623],[24,748],[22,872],[20,996]],
+    "curve_pixels": [[210,199.5],[250,245.5],[310,308.5],[380,373],[470,446],[620,549],[640,561]],
+    "coordinate_bound_pixels": 2,
+    "method": "Manually select unobscured black-curve sections, away from symbols and polyhedra. At each selected column, read the midpoint of the dark curve stroke. Independent affine maps use the listed axis ticks. These are fitted-curve readings, not observations or fit inputs."
+  },
+  "figure6": {
+    "source": "Supplementary Figure 6, PDF page 7, purple calculated coesite-V triangles and purple smooth curve",
+    "raster": "Concatenate the two original embedded JPEG tiles vertically without rescaling, giving the same 1430 by 915 raster used in coesite-iv-bykova-2018-figure6-digitization.json. Coordinates have their origin at its upper left.",
+    "pressure_ticks_gpa_and_x_pixel": [[30,274],[35,402],[40,529],[45,657],[50,784],[55,912],[60,1039],[65,1167],[70,1294]],
+    "volume_ticks_a3_per_formula_unit_and_y_pixel": [[24,107],[23.5,205],[23,304],[22.5,402],[22,500],[21.5,598],[21,697]],
+    "marker_pixels": [[175,147],[260,217],[308,253],[375,295],[402,312],[422,326],[598,430],[726,495],[871,567],[968,615],[1048,657],[1130,708]],
+    "curve_pixels": [[220,192],[340,270],[470,352],[650,457],[800,537],[920,599],[1000,636],[1090,680],[1100,684]],
+    "coordinate_bound_pixels": 4,
+    "method": "Manually read the bounding-box centers of all 12 purple triangular calculated markers, excluding legend symbols and experimental crosses. Separately read nine unobscured purple smooth-curve sections away from triangular outlines; the colored stroke locates each ordinate. Do not shift marker readings onto the curve. No graphical point enters a fit. Marker 10 is the apparent counterpart of the 57 GPa Table 10 anchor; it is excluded from the additional-marker statistic.",
+    "anchor_marker": 10,
+    "bound_meaning": "Analyst total coordinate half-width: two pixels for reading the center/stroke and two for calibration, JPEG antialiasing and tile placement. This is not a source error, standard deviation or confidence interval. A doubled eight-pixel sensitivity check is also reported."
+  },
+  "limitations": "Pixel bounds describe reading resolution only. The digitized source curve is an independent check on its represented formula, not on experimental accuracy or author fitting workflow. Calculated markers may have entered the original fit. Their residuals need not vanish: the source may have fit energies as well as pressures and volumes. Original DFT grid, fit V0, weights and covariance remain unavailable."
+}
