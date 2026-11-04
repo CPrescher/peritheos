@@ -1,5 +1,12 @@
 # Code, data and redistribution
 
+The [0.17.3 license inventory](research/license-inventory.md) accounts for all
+published archive files and catalog components, including inline scientific
+data, original author artifacts and third-party code. Its
+[source-by-source dataset index](data/license-inventory/dataset-sources.md)
+lists both recorded grants and unresolved rights. The inventory is evidence
+for downstream review, not a blanket redistribution clearance.
+
 Peritheos implementation code and contributor-written research scripts use
 the MIT (Expat) license. Bundled scientific data have source-specific terms.
 Article citations in scripts identify scientific sources; they do not change

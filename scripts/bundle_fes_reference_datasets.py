@@ -25,6 +25,12 @@ AUTHOR = ROOT / "docs/data/fes-author-eosfit/sources"
 SOURCE = DATA / "morard_2026_author_sources"
 RECORD = "fes_vi_morard_2026_bm3_mgd"
 PREFIX = "fes_morard_2026_author_"
+AUTHOR_LICENSE = {
+    "license": "CC-BY-4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_scope": "Author-held rights only, as confirmed by Clemens Prescher on 2026-11-04; third-party literature inputs retain their source terms.",
+    "license_notice": "datasets/fes-morard-2026-author-inputs.LICENSE.md",
+}
 REFERENCE = read_material(CARD)["eos_records"][0]["reference"]
 VALUE_COLUMNS = [
     ("pressure_gpa", "pressure", "GPa"),
@@ -207,7 +213,7 @@ def metadata(identifier, filename, rows, label, source_filename, notes):
         "reference": REFERENCE,
         "source_location": f"Author-supplied {source_filename}; original data rows (header excluded), retrieved 2026-10-03.",
         "source_url": "https://doi.org/10.1103/h4pj-rvxx",
-        "license": "unspecified",
+        **AUTHOR_LICENSE,
         "used_by_eos_records": [],
         "related_eos_records": [RECORD],
         "columns": columns,
@@ -377,7 +383,11 @@ def build():
                 "role": "published numerical transcription"
                 if original.name.endswith(".csv")
                 else "user-supplied author file",
-                "license": "unspecified",
+                **(
+                    {"license": "unspecified"}
+                    if original.name.endswith(".csv")
+                    else AUTHOR_LICENSE
+                ),
                 "bundled": True,
             }
         )

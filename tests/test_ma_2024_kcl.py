@@ -35,6 +35,10 @@ from scripts.reproduce_ma_2024_kcl import (
 ROOT = Path(__file__).resolve().parents[1]
 
 
+@pytest.mark.skipif(
+    not SUPPLEMENT.is_file(),
+    reason="Publisher DOCX is repository-only audit evidence, excluded from distributions",
+)
 def test_publisher_supplement_custody_and_printed_table_agreement(tmp_path):
     assert hashlib.sha256(SUPPLEMENT.read_bytes()).hexdigest() == SUPPLEMENT_SHA256
     check = publisher_supplement_check()
@@ -301,6 +305,10 @@ def test_api_native_python_inversion_and_roundtrip():
     )
 
 
+@pytest.mark.skipif(
+    not SUPPLEMENT.is_file(),
+    reason="Full source replay requires the excluded publisher DOCX audit evidence",
+)
 def test_committed_report_has_source_grid_precision_and_scientific_limits():
     report = json.loads(
         (ROOT / "docs/data/ma-2024-kcl-reproduction.json").read_text(encoding="utf-8")

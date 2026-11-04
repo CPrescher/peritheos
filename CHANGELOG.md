@@ -5,6 +5,29 @@ All notable changes to Peritheos are documented here. The project follows
 
 ## [Unreleased]
 
+## [0.17.4] - 2026-11-04
+
+### Fixed
+
+- Inventory every file in the 36 published 0.17.3 archives, all dataset/EOS/
+  structure components and the normal/build Rust dependency closure. Record
+  exact archive hashes, source terms, limited grants and unresolved actions
+  without changing scientific source values or claiming blanket clearance.
+  Keep the inventory reproducible across workspace-only version bumps and
+  checkout line endings while rejecting dependency version or checksum changes.
+- Record maintainer-confirmed CC BY 4.0 permissions for the named Coesite,
+  Fe7C3 and Morard FeS author files and their numerical extractions. Preserve
+  third-party source terms, original bytes and scientific use restrictions.
+  Refresh observation-view declaration bindings for these metadata-only
+  updates, preserving observation arrays and model selections.
+  Retain historical audit snapshots through exact license-only digest chains
+  and refresh only the coverage report's material-file fingerprint.
+- Exclude Ma (2024)'s publisher supporting DOCX from wheels and source
+  distributions, correcting its inadvertent inclusion in 0.17.3. Preserve the
+  original repository audit evidence and scientific findings. Continue to
+  distribute the separately licensed CC BY 4.0 Mendeley workbook and numerical
+  extractions, and document the repository-only source checks.
+
 ## [0.17.3] - 2026-11-04
 
 ### Added

@@ -27,10 +27,12 @@ attributed to the authors.
 - The older deposit `10.17632/mws6hnp49j.1` is **not** used as scientific input.
 - The publisher lists `2024JB028819-sup-0001-Supporting Information SI-S01.docx`.
   Direct shell requests returned HTTP 403, but the official publisher browser
-  download succeeded. The unchanged original is bundled as
+  download succeeded. The unchanged original is retained in the repository as
   `peritheos/data/datasets/ma_2024_sources/supporting-information.docx`, SHA-256
   `427318e7e0a536d7f7635da07ec305fa2bb809832f457cfeefcafc68918a6c01`.
-  All ten rendered pages were inspected, including Text S1 and Figures S1-S3.
+  It is excluded from wheels and source distributions following its inadvertent
+  inclusion in 0.17.3. All ten rendered pages were inspected, including Text S1
+  and Figures S1-S3.
   The final publisher PDF was also downloaded and Equation 9 visually checked
   on p. 7; its checksum is recorded in the manifest.
 - The final Mendeley file inventory exposes one file, the workbook. Its four
@@ -49,6 +51,13 @@ project license. The article-associated publisher license is CC BY-NC-ND 4.0;
 no independent license notice appears in the supplement. Its unchanged copy
 is retained as source evidence, without assigning the Mendeley workbook's
 license to it. Acquisition date: 8 October 2026.
+
+The publisher-DOCX comparison and full `scripts/reproduce_ma_2024_kcl.py`
+replay require that repository-only evidence file. These are maintenance
+checks, not installed-package functionality. The two source-dependent tests
+skip when it is absent; the distributed Mendeley workbook, numerical datasets
+and executable EOS remain available without it. Existing saved comparison
+findings are preserved rather than presented as a fresh source check.
 
 The supplement's S1/S3/S4 numbers and both Ma parameter rows in S2 agree
 with the final workbook at printed precision. S2 comparison rows for other

@@ -44,11 +44,14 @@ file lists and qualifications control; a family name is not a blanket grant.
 | Cementite Ono–Mibe | [Unspecified source terms; contributor CC0](datasets/cementite-ono-mibe-2010.LICENSE.md) |
 | Cementite Sata/Li | [Unspecified source terms; contributor CC0](datasets/cementite-sata-2010.LICENSE.md) |
 | Cementite Takahashi, Litasov and Prescher | [Separate source scopes](datasets/cementite-sources.LICENSE.md) |
+| Coesite Bykova author inputs | [Maintainer-declared author CC BY 4.0; third-party inputs separate](datasets/coesite-bykova-2018-author-inputs.LICENSE.md) |
 | Diopside | [Unspecified source terms; contributor CC0](datasets/diopside.LICENSE.md) |
 | Dorfman co-compression tables | [Contributor-only CC0 scope](datasets/dorfman-2012-tables-s1-s6-cocompression.LICENSE.md) |
 | Ferrous ringwoodite | [Source terms and contributor CC0](datasets/ferrous-ringwoodite.LICENSE.md) |
+| FeS Morard author inputs | [Maintainer-reported author CC BY 4.0; literature inputs separate](datasets/fes-morard-2026-author-inputs.LICENSE.md) |
 | Forsterite Katsura workbook, MATLAB and table recovery | [Zenodo CC BY 4.0 and separate 2009 terms](datasets/forsterite-katsura-2022.LICENSE.md) |
 | KCl Ma Mendeley workbook and extractions | [Source CC BY 4.0](datasets/ma_2024_sources/LICENSE.md) |
+| Fe7C3 Prescher author inputs and fit export | [Author-declared CC BY 4.0; Table S4 separate](datasets/iron-carbide-fe7c3-prescher-2015-author-inputs.LICENSE.md) |
 | MgO Tange input recovery | [COD CC0 and LASL public-domain inputs](datasets/mgo-tange-2009-redistributable-inputs.LICENSE.md) |
 | Phase E | [Unspecified source terms; contributor CC0](datasets/phase-e-crichton-ross-2000.LICENSE.md) |
 | Rubidium halide Farla supplement | [Source CC BY 4.0 and contributor scope](datasets/rubidium-halides-farla-2025.LICENSE.md) |
@@ -62,6 +65,11 @@ file format or the absence of another notice. This also applies to inline EOS
 and structural data and to author inputs with limited provenance-only use.
 
 ## Installed packages and downstream redistribution
+
+The [file and catalog license inventory](https://github.com/CPrescher/peritheos/blob/v0.17.4/docs/research/license-inventory.md)
+accounts for the published 0.17.3 archives and records the author-permission
+and packaging updates introduced in 0.17.4. It lists scoped grants and
+unresolved source rights; it is not a blanket redistribution clearance.
 
 This guide and the dataset notices are installed under `peritheos/data/`.
 The distribution's `License-File` metadata also includes these notices, the
@@ -84,6 +92,12 @@ preserved publisher full texts and private evidence excluded by the build
 configuration are not covered by contributor dedications or distributed by
 virtue of being retained locally. Inspect the actual archive being repackaged;
 repository, source-distribution and wheel contents differ.
+
+Ma's publisher supporting DOCX is repository-only audit evidence and is
+excluded from both distribution formats. Its separate source terms are not
+covered by the CC BY 4.0 grant for Ma's Mendeley workbook, which remains
+distributed. The DOCX was inadvertently included in 0.17.3; the exclusion
+applies to subsequent builds.
 
 For Debian-style copyright inventories, record code and data separately and
 retain the individual source notices. An unspecified source license is an

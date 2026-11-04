@@ -1,0 +1,590 @@
+{
+  "reviewed_on": "2026-11-04",
+  "limits": [
+    "Complete member coverage for all 36 official PyPI 0.17.3 archives. All 35 wheels have identical numerical/source payloads; five documentation/notice paths have CRLF-only variants, recorded by exact hash. This is an evidence inventory, not Debian acceptance or a legal finding about copyrightability.",
+    "Open declarations from existing metadata are distinguished from fresh confirmation by an original rights holder. No license is inferred from public access, scientific validation, article citation, file extension or directory.",
+    "Local author grants are a separate overlay and are not misrepresented as notices shipped in 0.17.3. Maintainer-reported permission is not independently authenticated correspondence.",
+    "Every EOS record and material structure/diffraction component is enumerated, including inline data. Unknown terms do not establish that numerical facts are restricted or that they may be redistributed.",
+    "The source archive contains historical reports and generated plots with mixed provenance. MIT covers contributor narrative/code, not automatically every embedded source element.",
+    "Rust inventory covers the all-target normal/build dependency graph from Cargo.lock. Build tools are included; dev-only packages excluded. This is not an exact linked-code or Rust standard-library inventory for every wheel.",
+    "External Python dependencies are installed separately, not bundled by virtue of Requires-Dist; native dependency notice compliance remains a separate recorded action.",
+    "This inventory records the immutable published 0.17.3 release plus current data/rights overlays introduced in 0.17.4. Inventory tooling and reports were added after 0.17.3 and are not claimed to be files in its archived distributions."
+  ],
+  "local_distribution_exclusions": [
+    "peritheos/data/datasets/ma_2024_sources/supporting-information.docx"
+  ],
+  "scopes": [
+    {
+      "id": "ma-publisher-docx",
+      "files": [
+        "peritheos/data/datasets/ma_2024_sources/supporting-information.docx"
+      ],
+      "status": "restricted_source",
+      "declared_license": "CC-BY-NC-ND-4.0 (article); no separate DOCX grant",
+      "evidence": [
+        "peritheos/data/datasets/ma_2024_sources/manifest.json#/publisher_supplement"
+      ],
+      "scope": "Publisher DOCX; the Mendeley CC BY license does not apply. Excluded from subsequent local builds.",
+      "action": "Obtain a suitable separate grant or a documented factual-data assessment; otherwise exclude from a cleared source archive. Preserve original audit evidence.",
+      "local_only": false
+    },
+    {
+      "id": "fei-source-figures",
+      "files": [
+        "docs/data/fei-2007-thermal-source-figures/fei2004-figure4.jpg",
+        "docs/data/fei-2007-thermal-source-figures/figure2.png",
+        "docs/data/fei-2007-thermal-source-figures/figure4.png",
+        "docs/data/fei-2007-thermal-source-figures/figure5.png"
+      ],
+      "status": "source_terms_not_recorded",
+      "declared_license": "unspecified",
+      "evidence": [
+        "scripts/plot_fei_2004_2007_platinum_refits.py",
+        "docs/data/fei-2007-thermal-source-figures/"
+      ],
+      "scope": "Original/source figure images, including a Fei 2004 figure crop. Scientific checking is not redistribution permission; no project-MIT fallback.",
+      "action": "Obtain a suitable separate grant or a documented factual-data assessment; otherwise exclude from a cleared source archive. Preserve original audit evidence.",
+      "local_only": false
+    },
+    {
+      "id": "tateno-workbook",
+      "files": [
+        "peritheos/data/datasets/kcl_variant_sources/6779TableS1 revised.xlsx"
+      ],
+      "status": "source_terms_not_recorded",
+      "declared_license": "unspecified",
+      "evidence": [
+        "peritheos/data/datasets/kcl_variant_sources/manifest.json#/sources/0",
+        "https://doi.org/10.2138/am-2019-6779"
+      ],
+      "scope": "Official MSA supplement AM-19-56779.zip; public availability does not establish CC0.",
+      "action": "Obtain a suitable separate grant or a documented factual-data assessment; otherwise exclude from a cleared source archive. Preserve original audit evidence.",
+      "local_only": false
+    },
+    {
+      "id": "legacy-cod-cif-terms",
+      "files": [
+        "peritheos/data/datasets/vanadium-james-1960-9012770.cif",
+        "peritheos/data/datasets/superhydrous-phase-b-koch-muller-2005-mkm0105.cif"
+      ],
+      "status": "limited_or_unspecified_source",
+      "declared_license": "Legacy CIF header: use within the scientific community with attribution; no explicit CC0 in these files",
+      "evidence": [
+        "peritheos/data/datasets/vanadium-james-1960-9012770.cif#header",
+        "peritheos/data/datasets/superhydrous-phase-b-koch-muller-2005-mkm0105.cif#header"
+      ],
+      "scope": "These preserved COD/AMCSD files carry a different legacy header from brucite COD 1000054. Do not assign CC0 solely from the COD filename or location.",
+      "action": "Confirm whether a current COD grant covers these specific legacy AMCSD entries, or obtain a documented rights/factual-data assessment before clearing them.",
+      "local_only": false
+    },
+    {
+      "id": "ma-mendeley",
+      "files": [
+        "peritheos/data/datasets/kcl-ma-2024-table-s1-acoustic.csv",
+        "peritheos/data/datasets/kcl-ma-2024-table-s1-walker-recalibrated.csv",
+        "peritheos/data/datasets/kcl-ma-2024-table-s3-model-grid.csv",
+        "peritheos/data/datasets/kcl-ma-2024-table-s4-model-grid.csv",
+        "peritheos/data/datasets/ma_2024_sources/cached-cells.json",
+        "peritheos/data/datasets/ma_2024_sources/data-tables.xlsx"
+      ],
+      "status": "open_source_declared",
+      "declared_license": "CC-BY-4.0",
+      "evidence": [
+        "peritheos/data/datasets/ma_2024_sources/LICENSE.md",
+        "https://doi.org/10.17632/7svmv9hvft.1"
+      ],
+      "scope": "Named Mendeley workbook and extractions; excludes publisher DOCX.",
+      "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+      "local_only": false
+    },
+    {
+      "id": "hu-pangaea",
+      "files": [
+        "peritheos/data/datasets/cementite-hu-2019-table1-tokens.csv",
+        "peritheos/data/research/cementite/hu-2019-pangaea-table1.xlsx"
+      ],
+      "status": "open_source_declared",
+      "declared_license": "CC-BY-4.0",
+      "evidence": [
+        "peritheos/data/datasets/cementite-hu-2019.LICENSE.md",
+        "https://doi.org/10.1594/PANGAEA.905474"
+      ],
+      "scope": "PANGAEA observations and original workbook; not an article-wide grant.",
+      "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+      "local_only": false
+    },
+    {
+      "id": "katsura-zenodo",
+      "files": [
+        "docs/data/forsterite-katsura-2022-sources/forsterite-katsura-2022-author-fitting.m",
+        "docs/data/forsterite-katsura-2022-sources/forsterite-katsura-2022-author-geotherm.m"
+      ],
+      "status": "third_party_code_open",
+      "declared_license": "CC-BY-4.0",
+      "evidence": [
+        "peritheos/data/datasets/forsterite-katsura-2022.LICENSE.md",
+        "https://doi.org/10.5281/zenodo.5644426",
+        "https://doi.org/10.5281/zenodo.5903286"
+      ],
+      "scope": "Original Katsura workbook/MATLAB and olivine extraction; not MIT and not a grant for the 2009 paper.",
+      "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+      "local_only": false
+    },
+    {
+      "id": "katsura-data",
+      "files": [
+        "docs/data/forsterite-katsura-2022-sources/forsterite-katsura-2022-source.xlsx",
+        "peritheos/data/datasets/forsterite-katsura-2022-olivine-pvt.csv"
+      ],
+      "status": "open_source_declared",
+      "declared_license": "CC-BY-4.0",
+      "evidence": [
+        "peritheos/data/datasets/forsterite-katsura-2022.LICENSE.md",
+        "https://doi.org/10.5281/zenodo.5644426",
+        "https://doi.org/10.5281/zenodo.5903286"
+      ],
+      "scope": "Original Katsura workbook/MATLAB and olivine extraction; not MIT and not a grant for the 2009 paper.",
+      "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+      "local_only": false
+    },
+    {
+      "id": "zhu-mendeley",
+      "files": [
+        "peritheos/data/datasets/zhu-2025-au-shock.csv",
+        "peritheos/data/datasets/zhu-2025-au-zero-pressure-thermal-expansion.csv",
+        "peritheos/data/datasets/zhu-2025-mgo-pvt.csv",
+        "peritheos/data/datasets/zhu-2025-pt-shock.csv",
+        "peritheos/data/datasets/zhu-2025-pt-zero-pressure-thermal-expansion.csv"
+      ],
+      "status": "open_source_declared",
+      "declared_license": "CC-BY-4.0",
+      "evidence": [
+        "peritheos/data/datasets/zhu-2025-mendeley-data.LICENSE.md",
+        "https://doi.org/10.17632/6kxnhc2g73.3"
+      ],
+      "scope": "Five named normalized numerical datasets; original active-row tokens retained.",
+      "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+      "local_only": false
+    },
+    {
+      "id": "farla-figshare",
+      "files": [
+        "peritheos/data/datasets/rubidium-halides-farla-2025-rbbr-benchmarks.csv",
+        "peritheos/data/datasets/rubidium-halides-farla-2025-rbbr-observations.csv",
+        "peritheos/data/datasets/rubidium-halides-farla-2025-rbcl-benchmarks.csv",
+        "peritheos/data/datasets/rubidium-halides-farla-2025-rbcl-observations.csv",
+        "peritheos/data/datasets/rubidium-halides-farla-2025-rbi-benchmarks.csv",
+        "peritheos/data/datasets/rubidium-halides-farla-2025-rbi-observations.csv",
+        "peritheos/data/datasets/rubidium-halides-farla-2025-source-tables.json"
+      ],
+      "status": "open_source_declared",
+      "declared_license": "CC-BY-4.0",
+      "evidence": [
+        "peritheos/data/datasets/rubidium-halides-farla-2025.LICENSE.md",
+        "https://doi.org/10.60893/figshare.jap.28515917.v1"
+      ],
+      "scope": "Official numerical S1-S7 tables and explicit extractions; author-input calibrant facts are separate.",
+      "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+      "local_only": false
+    },
+    {
+      "id": "morard-figshare",
+      "files": [
+        "peritheos/data/datasets/fes-morard-2026-paired-kcl.csv",
+        "peritheos/data/datasets/morard_2026_sources/FeS-GSAS.csv",
+        "peritheos/data/datasets/morard_2026_sources/FeS_PTconditions.xlsx"
+      ],
+      "status": "open_source_declared",
+      "declared_license": "CC-BY-4.0",
+      "evidence": [
+        "peritheos/data/datasets/morard_2026_sources/manifest.json",
+        "https://doi.org/10.6084/m9.figshare.28143683.v1"
+      ],
+      "scope": "Public deposit, distinct from final supplied Table S1 and private author fitting files.",
+      "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+      "local_only": false
+    },
+    {
+      "id": "mgo-cod-lasl",
+      "files": [
+        "peritheos/data/datasets/mgo-dubrovinsky-1997-cod-thermal-expansion.csv",
+        "peritheos/data/datasets/mgo-fiquet-1999-cod-thermal-expansion.csv",
+        "peritheos/data/datasets/mgo-marsh-1980-lasl-single-crystal-hugoniot.csv"
+      ],
+      "status": "open_source_declared",
+      "declared_license": "CC0-1.0 / public-domain source",
+      "evidence": [
+        "peritheos/data/datasets/mgo-tange-2009-redistributable-inputs.LICENSE.md"
+      ],
+      "scope": "Only these COD and LASL inputs; not a grant for all MgO data or every government-contracted publication.",
+      "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+      "local_only": false
+    },
+    {
+      "id": "brucite-cod",
+      "files": [
+        "peritheos/data/datasets/brucite-zigan-1967-cod-1000054.cif"
+      ],
+      "status": "open_source_declared",
+      "declared_license": "Public-domain archive declaration",
+      "evidence": [
+        "peritheos/data/datasets/brucite.LICENSE.md",
+        "https://www.crystallography.net/cod/1000054.cif"
+      ],
+      "scope": "COD archival-file grant; not a grant over the original paper.",
+      "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+      "local_only": false
+    },
+    {
+      "id": "dewaele-2018-open",
+      "files": [
+        "peritheos/data/datasets/gold-dewaele-2018-tables-4-5-au-re.csv"
+      ],
+      "status": "open_source_declared",
+      "declared_license": "CC-BY-4.0",
+      "evidence": [
+        "peritheos/data/datasets/sakai-2025-au.LICENSE.md",
+        "https://doi.org/10.1038/s41467-018-05294-2"
+      ],
+      "scope": "Dewaele 2018 source; do not apply Sakai 2025 NC/ND terms merely because the file is used in that recovery.",
+      "action": "Preserve attribution, full license and change notices; verify source scope and third-party exclusions before Debian clearance.",
+      "local_only": false
+    },
+    {
+      "id": "fe7c3-author",
+      "files": [
+        "peritheos/data/datasets/iron-carbide-fe7c3-prescher-2015-author-fit-export.txt",
+        "peritheos/data/datasets/iron-carbide-fe7c3-prescher-2015-author-fit.csv",
+        "peritheos/data/datasets/iron-carbide-fe7c3-prescher-2015-author-input.txt"
+      ],
+      "status": "author_permission_declared",
+      "declared_license": "CC-BY-4.0",
+      "evidence": [
+        "peritheos/data/datasets/iron-carbide-fe7c3-prescher-2015-author-inputs.LICENSE.md"
+      ],
+      "scope": "Clemens Prescher author/maintainer declaration on 2026-11-04; excludes the separate Table S4 transcription.",
+      "action": "Preserve CC BY 4.0 attribution and the dated author/maintainer declaration; do not extend it to publisher files or separate Table S4.",
+      "local_only": true
+    },
+    {
+      "id": "coesite-author",
+      "files": [
+        "peritheos/data/datasets/coesite-i-iii-bykova-2018-author-eosfit-plot.dat",
+        "peritheos/data/datasets/coesite-i-iii-bykova-2018-author-fit-export.csv"
+      ],
+      "status": "mixed_author_permission",
+      "declared_license": "CC-BY-4.0 for author-held rights",
+      "evidence": [
+        "peritheos/data/datasets/coesite-bykova-2018-author-inputs.LICENSE.md"
+      ],
+      "scope": "Maintainer declaration on 2026-11-04; includes an explicitly derived Cernok anchor with third-party source terms unchanged.",
+      "action": "Preserve CC BY 4.0 attribution and the dated maintainer declaration; assess embedded literature inputs separately.",
+      "local_only": true
+    },
+    {
+      "id": "morard-author",
+      "files": [
+        "docs/data/fes-author-eosfit/sources/FeS6.eos",
+        "docs/data/fes-author-eosfit/sources/FeS6EOSfittot-SataOhfuji-300K.dat",
+        "peritheos/data/datasets/fes-morard-2026-author-literature-cold.csv",
+        "peritheos/data/datasets/fes-morard-2026-author-without-additional-cold.csv",
+        "peritheos/data/datasets/morard_2026_author_sources/FeS6.eos",
+        "peritheos/data/datasets/morard_2026_author_sources/FeS6EOSfittot-SataOhfuji-300K.dat"
+      ],
+      "status": "mixed_author_permission",
+      "declared_license": "CC-BY-4.0 for author-held rights",
+      "evidence": [
+        "peritheos/data/datasets/fes-morard-2026-author-inputs.LICENSE.md"
+      ],
+      "scope": "Maintainer-reported permission on 2026-11-04; literature inputs remain separate; does not cover the additional 178-row file or final Table S1.",
+      "action": "Preserve CC BY 4.0 attribution and the dated maintainer declaration; assess embedded literature inputs separately.",
+      "local_only": true
+    },
+    {
+      "id": "limited-brown-nacl-1999",
+      "files": [
+        "peritheos/data/datasets/brown-nacl-1999-boehler-1981-table1.csv",
+        "peritheos/data/datasets/brown-nacl-1999-boehler-kennedy-1980-table1.csv",
+        "peritheos/data/datasets/brown-nacl-1999-brown-table1-comparison.csv",
+        "peritheos/data/datasets/brown-nacl-1999-brown-table2-comparison.csv",
+        "peritheos/data/datasets/brown-nacl-1999-fritz-1971-table1.csv",
+        "peritheos/data/datasets/brown-nacl-1999-fritz-1971-table4-checkpoints.csv",
+        "peritheos/data/datasets/brown-nacl-1999-janaf-1971-nacl-cr-cp.csv",
+        "peritheos/data/datasets/brown-nacl-1999-published-coefficients.json",
+        "peritheos/data/datasets/brown-nacl-1999-source.json",
+        "peritheos/data/datasets/brown-nacl-1999-spetzler-1972-table4-ks.csv",
+        "peritheos/data/datasets/brown-nacl-1999-yamamoto-1987-table2-errors.csv",
+        "peritheos/data/datasets/brown-nacl-1999-yamamoto-1987-table2.csv",
+        "peritheos/data/datasets/brown-nacl-1999.LICENSE.md"
+      ],
+      "status": "limited_or_unspecified_source",
+      "declared_license": "Contributor-only CC0; source terms unresolved",
+      "evidence": [
+        "peritheos/data/datasets/brown-nacl-1999.LICENSE.md"
+      ],
+      "scope": "The contributor dedication does not establish third-party source rights. Scientific numerical-fact applicability remains a separate assessment.",
+      "action": "Obtain a suitable separate grant or a documented factual-data assessment; otherwise exclude from a cleared source archive. Preserve original audit evidence.",
+      "local_only": false
+    },
+    {
+      "id": "limited-brucite",
+      "files": [
+        "peritheos/data/datasets/brucite-fukui-2003-table1.csv",
+        "peritheos/data/datasets/brucite-fukui-2003-table4.csv",
+        "peritheos/data/datasets/brucite-he-2023-table43.cif",
+        "peritheos/data/datasets/brucite-source.json",
+        "peritheos/data/datasets/brucite-xia-1998-table6.csv",
+        "peritheos/data/datasets/brucite-zigan-1967-cod-1000054.cif"
+      ],
+      "status": "limited_or_unspecified_source",
+      "declared_license": "Contributor-only CC0; source terms unresolved",
+      "evidence": [
+        "peritheos/data/datasets/brucite.LICENSE.md"
+      ],
+      "scope": "The contributor dedication does not establish third-party source rights. Scientific numerical-fact applicability remains a separate assessment.",
+      "action": "Obtain a suitable separate grant or a documented factual-data assessment; otherwise exclude from a cleared source archive. Preserve original audit evidence.",
+      "local_only": false
+    },
+    {
+      "id": "limited-ca-perovskite-fu-2023-observations",
+      "files": [
+        "peritheos/data/datasets/ca-perovskite-fu-2023-candidate-observations.csv",
+        "peritheos/data/datasets/ca-perovskite-fu-2023-observations.LICENSE.md",
+        "peritheos/data/datasets/ca-perovskite-greaux-2019-figure3b.csv",
+        "peritheos/data/datasets/ca-perovskite-sun-2016-table1-pvt.csv"
+      ],
+      "status": "limited_or_unspecified_source",
+      "declared_license": "Contributor-only CC0; source terms unresolved",
+      "evidence": [
+        "peritheos/data/datasets/ca-perovskite-fu-2023-observations.LICENSE.md"
+      ],
+      "scope": "The contributor dedication does not establish third-party source rights. Scientific numerical-fact applicability remains a separate assessment.",
+      "action": "Obtain a suitable separate grant or a documented factual-data assessment; otherwise exclude from a cleared source archive. Preserve original audit evidence.",
+      "local_only": false
+    },
+    {
+      "id": "limited-ca-perovskite-noguchi-2013-table1",
+      "files": [
+        "peritheos/data/datasets/ca-perovskite-noguchi-2013-table1.LICENSE.md",
+        "peritheos/data/datasets/ca-perovskite-noguchi-2013-table1.csv"
+      ],
+      "status": "limited_or_unspecified_source",
+      "declared_license": "Contributor-only CC0; source terms unresolved",
+      "evidence": [
+        "peritheos/data/datasets/ca-perovskite-noguchi-2013-table1.LICENSE.md"
+      ],
+      "scope": "The contributor dedication does not establish third-party source rights. Scientific numerical-fact applicability remains a separate assessment.",
+      "action": "Obtain a suitable separate grant or a documented factual-data assessment; otherwise exclude from a cleared source archive. Preserve original audit evidence.",
+      "local_only": false
+    },
+    {
+      "id": "limited-cementite-ono-mibe-2010",
+      "files": [
+        "peritheos/data/datasets/cementite-ono-mibe-2010-source.json",
+        "peritheos/data/datasets/cementite-ono-mibe-2010-table1-tokens.csv",
+        "peritheos/data/datasets/cementite-ono-mibe-2010.LICENSE.md"
+      ],
+      "status": "limited_or_unspecified_source",
+      "declared_license": "Contributor-only CC0; source terms unresolved",
+      "evidence": [
+        "peritheos/data/datasets/cementite-ono-mibe-2010.LICENSE.md"
+      ],
+      "scope": "The contributor dedication does not establish third-party source rights. Scientific numerical-fact applicability remains a separate assessment.",
+      "action": "Obtain a suitable separate grant or a documented factual-data assessment; otherwise exclude from a cleared source archive. Preserve original audit evidence.",
+      "local_only": false
+    },
+    {
+      "id": "limited-cementite-sata-2010",
+      "files": [
+        "peritheos/data/datasets/cementite-sata-2010-selected-pv.csv",
+        "peritheos/data/datasets/cementite-sata-2010-source.json",
+        "peritheos/data/datasets/cementite-sata-2010-table1-tokens.csv",
+        "peritheos/data/datasets/cementite-sata-2010-table1.csv",
+        "peritheos/data/datasets/cementite-sata-2010-table4-peaks.csv",
+        "peritheos/data/datasets/cementite-sata-2010.LICENSE.md"
+      ],
+      "status": "limited_or_unspecified_source",
+      "declared_license": "Contributor-only CC0; source terms unresolved",
+      "evidence": [
+        "peritheos/data/datasets/cementite-sata-2010.LICENSE.md"
+      ],
+      "scope": "The contributor dedication does not establish third-party source rights. Scientific numerical-fact applicability remains a separate assessment.",
+      "action": "Obtain a suitable separate grant or a documented factual-data assessment; otherwise exclude from a cleared source archive. Preserve original audit evidence.",
+      "local_only": false
+    },
+    {
+      "id": "limited-cementite-sources",
+      "files": [
+        "peritheos/data/datasets/cementite-litasov-2013-table1-tokens.json",
+        "peritheos/data/datasets/cementite-litasov-2013-table1.csv",
+        "peritheos/data/datasets/cementite-prescher-2012-table-s1-tokens.json",
+        "peritheos/data/datasets/cementite-prescher-2012-table-s1.csv"
+      ],
+      "status": "limited_or_unspecified_source",
+      "declared_license": "Contributor-only CC0; source terms unresolved",
+      "evidence": [
+        "peritheos/data/datasets/cementite-sources.LICENSE.md"
+      ],
+      "scope": "The contributor dedication does not establish third-party source rights. Scientific numerical-fact applicability remains a separate assessment.",
+      "action": "Obtain a suitable separate grant or a documented factual-data assessment; otherwise exclude from a cleared source archive. Preserve original audit evidence.",
+      "local_only": false
+    },
+    {
+      "id": "limited-diopside",
+      "files": [
+        "peritheos/data/datasets/diopside-source-audit.json",
+        "peritheos/data/datasets/diopside-thompson-2008-table1-original.txt",
+        "peritheos/data/datasets/diopside-thompson-2008-table1.csv",
+        "peritheos/data/datasets/diopside-thompson-2008-table2-ambient-structure.csv",
+        "peritheos/data/datasets/diopside-zhao-1998-corrected-pvt.README.md",
+        "peritheos/data/datasets/diopside-zhao-1998-table1-corrected-pvt.csv",
+        "peritheos/data/datasets/diopside-zhao-1998-table1-original.txt",
+        "peritheos/data/datasets/diopside-zhao-1998-table1.csv"
+      ],
+      "status": "limited_or_unspecified_source",
+      "declared_license": "Contributor-only CC0; source terms unresolved",
+      "evidence": [
+        "peritheos/data/datasets/diopside.LICENSE.md"
+      ],
+      "scope": "The contributor dedication does not establish third-party source rights. Scientific numerical-fact applicability remains a separate assessment.",
+      "action": "Obtain a suitable separate grant or a documented factual-data assessment; otherwise exclude from a cleared source archive. Preserve original audit evidence.",
+      "local_only": false
+    },
+    {
+      "id": "limited-dorfman-2012-tables-s1-s6-cocompression",
+      "files": [
+        "peritheos/data/datasets/dorfman-2012-tables-s1-s6-cocompression.LICENSE.md",
+        "peritheos/data/datasets/dorfman-2012-tables-s1-s6-cocompression.csv"
+      ],
+      "status": "limited_or_unspecified_source",
+      "declared_license": "Contributor-only CC0; source terms unresolved",
+      "evidence": [
+        "peritheos/data/datasets/dorfman-2012-tables-s1-s6-cocompression.LICENSE.md"
+      ],
+      "scope": "The contributor dedication does not establish third-party source rights. Scientific numerical-fact applicability remains a separate assessment.",
+      "action": "Obtain a suitable separate grant or a documented factual-data assessment; otherwise exclude from a cleared source archive. Preserve original audit evidence.",
+      "local_only": false
+    },
+    {
+      "id": "limited-ferrous-ringwoodite",
+      "files": [
+        "peritheos/data/datasets/ferrous-ringwoodite-armentrout-2011-figure-s1-temperatures.csv",
+        "peritheos/data/datasets/ferrous-ringwoodite-armentrout-2011-figure1-checkpoints.csv",
+        "peritheos/data/datasets/ferrous-ringwoodite-armentrout-2011-table-s1-raw.csv",
+        "peritheos/data/datasets/ferrous-ringwoodite-armentrout-2011-table-s1.csv",
+        "peritheos/data/datasets/ferrous-ringwoodite-armentrout-2012-figure9-checkpoints.csv",
+        "peritheos/data/datasets/ferrous-ringwoodite-brown-1999-table1.csv",
+        "peritheos/data/datasets/ferrous-ringwoodite-brown-1999-table2.csv",
+        "peritheos/data/datasets/ferrous-ringwoodite-finger-1979-table2.csv",
+        "peritheos/data/datasets/ferrous-ringwoodite-liu-2008-table1.csv",
+        "peritheos/data/datasets/ferrous-ringwoodite-source.json",
+        "peritheos/data/datasets/ferrous-ringwoodite-stixrude-2005-table-a1.csv",
+        "peritheos/data/datasets/ferrous-ringwoodite-suzuki-1979-table2-calculated.csv"
+      ],
+      "status": "limited_or_unspecified_source",
+      "declared_license": "Contributor-only CC0; source terms unresolved",
+      "evidence": [
+        "peritheos/data/datasets/ferrous-ringwoodite.LICENSE.md"
+      ],
+      "scope": "The contributor dedication does not establish third-party source rights. Scientific numerical-fact applicability remains a separate assessment.",
+      "action": "Obtain a suitable separate grant or a documented factual-data assessment; otherwise exclude from a cleared source archive. Preserve original audit evidence.",
+      "local_only": false
+    },
+    {
+      "id": "limited-forsterite-katsura-2022",
+      "files": [
+        "peritheos/data/datasets/forsterite-katsura-2009-source.json",
+        "peritheos/data/datasets/forsterite-katsura-2009-table1.csv"
+      ],
+      "status": "limited_or_unspecified_source",
+      "declared_license": "Contributor-only CC0; source terms unresolved",
+      "evidence": [
+        "peritheos/data/datasets/forsterite-katsura-2022.LICENSE.md"
+      ],
+      "scope": "The contributor dedication does not establish third-party source rights. Scientific numerical-fact applicability remains a separate assessment.",
+      "action": "Obtain a suitable separate grant or a documented factual-data assessment; otherwise exclude from a cleared source archive. Preserve original audit evidence.",
+      "local_only": false
+    },
+    {
+      "id": "limited-phase-e-crichton-ross-2000",
+      "files": [
+        "peritheos/data/datasets/phase-e-crichton-ross-2000-source.json",
+        "peritheos/data/datasets/phase-e-crichton-ross-2000-table1.csv",
+        "peritheos/data/datasets/phase-e-crichton-ross-2000.LICENSE.md"
+      ],
+      "status": "limited_or_unspecified_source",
+      "declared_license": "Contributor-only CC0; source terms unresolved",
+      "evidence": [
+        "peritheos/data/datasets/phase-e-crichton-ross-2000.LICENSE.md"
+      ],
+      "scope": "The contributor dedication does not establish third-party source rights. Scientific numerical-fact applicability remains a separate assessment.",
+      "action": "Obtain a suitable separate grant or a documented factual-data assessment; otherwise exclude from a cleared source archive. Preserve original audit evidence.",
+      "local_only": false
+    },
+    {
+      "id": "limited-ye-2017-300k-cocompression",
+      "files": [
+        "peritheos/data/datasets/ye-2017-300k-cocompression.LICENSE.md",
+        "peritheos/data/datasets/ye-2017-data-s1-au-mgo-300k.csv",
+        "peritheos/data/datasets/ye-2017-data-s2-pt-mgo-300k.csv"
+      ],
+      "status": "limited_or_unspecified_source",
+      "declared_license": "Contributor-only CC0; source terms unresolved",
+      "evidence": [
+        "peritheos/data/datasets/ye-2017-300k-cocompression.LICENSE.md"
+      ],
+      "scope": "The contributor dedication does not establish third-party source rights. Scientific numerical-fact applicability remains a separate assessment.",
+      "action": "Obtain a suitable separate grant or a documented factual-data assessment; otherwise exclude from a cleared source archive. Preserve original audit evidence.",
+      "local_only": false
+    },
+    {
+      "id": "sakai-2025-restricted",
+      "files": [
+        "peritheos/data/datasets/copper-sakai-2025-table-s9-rs-eos-grid.csv",
+        "peritheos/data/datasets/gold-sakai-2025-table-s4-au-w-volumes.csv",
+        "peritheos/data/datasets/gold-sakai-2025-table-s9-rs-eos-grid.csv",
+        "peritheos/data/datasets/iron-sakai-2025-table-s6-measured-pairs.csv",
+        "peritheos/data/datasets/iron-sakai-2025-table-s9-rs-eos-grid.csv",
+        "peritheos/data/datasets/mgo-sakai-2025-table-s7-measured-pairs.csv",
+        "peritheos/data/datasets/mgo-sakai-2025-table-s9-rs-eos-grid.csv",
+        "peritheos/data/datasets/molybdenum-sakai-2025-table-s5-measured-pairs.csv",
+        "peritheos/data/datasets/molybdenum-sakai-2025-table-s9-rs-eos-grid.csv",
+        "peritheos/data/datasets/nacl_b2-sakai-2025-table-s9-rs-eos-grid.csv",
+        "peritheos/data/datasets/platinum-sakai-2025-table-s2-measured-pairs.csv",
+        "peritheos/data/datasets/platinum-sakai-2025-table-s9-rs-eos-grid.csv",
+        "peritheos/data/datasets/rhenium-sakai-2025-table-s1-measured-pairs.csv",
+        "peritheos/data/datasets/rhenium-sakai-2025-table-s9-rs-eos-grid.csv",
+        "peritheos/data/datasets/sakai-2025-au-calibration-paired-volumes.csv",
+        "peritheos/data/datasets/sakai-2025-network-paired-volumes.csv",
+        "peritheos/data/datasets/sakai-2025-table-s14-cu-anchor-calculated.csv",
+        "peritheos/data/datasets/sakai-2025-table-s8-calibration-lineage.csv",
+        "peritheos/data/datasets/tungsten-sakai-2025-table-s3-measured-pairs.csv",
+        "peritheos/data/datasets/tungsten-sakai-2025-table-s9-rs-eos-grid.csv"
+      ],
+      "status": "restricted_source",
+      "declared_license": "CC-BY-NC-ND-4.0 (source); contributor-only CC0",
+      "evidence": [
+        "peritheos/data/datasets/sakai-2025-au.LICENSE.md",
+        "https://doi.org/10.1038/s43246-025-00792-5"
+      ],
+      "scope": "Numerical transcriptions/calculations derived from the restricted source; this is a source-rights flag, not a finding that every numerical fact is copyrightable.",
+      "action": "Obtain a suitable separate grant or a documented factual-data assessment; otherwise exclude from a cleared source archive. Preserve original audit evidence.",
+      "local_only": false
+    },
+    {
+      "id": "ismailova-2016-nc",
+      "files": [
+        "peritheos/data/datasets/fe088sio3-bridgmanite-ismailova-2016-table-s2-selected-crystallography.csv"
+      ],
+      "status": "restricted_source",
+      "declared_license": "CC-BY-NC-4.0",
+      "evidence": [
+        "peritheos/data/materials/fe088sio3_bridgmanite.eosmat#/datasets/0",
+        "https://doi.org/10.1126/sciadv.1600427"
+      ],
+      "scope": "Article/supplement license declaration; numerical-fact applicability needs assessment.",
+      "action": "Obtain a suitable separate grant or a documented factual-data assessment; otherwise exclude from a cleared source archive. Preserve original audit evidence.",
+      "local_only": false
+    }
+  ]
+}

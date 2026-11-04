@@ -1,0 +1,453 @@
+{
+  "schema": "peritheos.license-inventory.v1",
+  "reviewed_on": "2026-11-04",
+  "release_version": "0.17.3",
+  "overlay_package_version": "0.17.4",
+  "archives": [
+    {
+      "id": "a01",
+      "filename": "peritheos-0.17.3-cp310-cp310-macosx_10_12_x86_64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "2eb9e2952295005141a13e39a05a5dbbe18ab34311c6916b4135659935fe6538",
+      "url": "https://files.pythonhosted.org/packages/36/65/42e6179045ae2b3da6bffc3bc18da7a9cb1a3d8d3174c2d39049633e1c67/peritheos-0.17.3-cp310-cp310-macosx_10_12_x86_64.whl",
+      "size": 5782639,
+      "files": 920
+    },
+    {
+      "id": "a02",
+      "filename": "peritheos-0.17.3-cp310-cp310-macosx_11_0_arm64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "c8ab534c8f71150ccd174a9c86085e9b00370f258e33a3b1036617556805e594",
+      "url": "https://files.pythonhosted.org/packages/26/ae/21ca3759bd03993481b097e8eb90d72e7ccb499e6bc8f3a8c187238e5585/peritheos-0.17.3-cp310-cp310-macosx_11_0_arm64.whl",
+      "size": 5759130,
+      "files": 920
+    },
+    {
+      "id": "a03",
+      "filename": "peritheos-0.17.3-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "a2979c7e4fdc97eb279bcebb98411f33bca35f09411b4679741cfa6fc99d7798",
+      "url": "https://files.pythonhosted.org/packages/31/84/06493c2fb7fd94f4e868f557be76c3eb903ec46f56ff4d578f180b9dfcd7/peritheos-0.17.3-cp310-cp310-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+      "size": 5823638,
+      "files": 920
+    },
+    {
+      "id": "a04",
+      "filename": "peritheos-0.17.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "7a7b055f9894a2bcbed91c1b0c433b2872ef786f4b67f18787d2388ce3358cf0",
+      "url": "https://files.pythonhosted.org/packages/b4/8f/45800d5399445d62e3154234dcdba32289c1e068925cacc8256b5a3d6d7f/peritheos-0.17.3-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "size": 5863309,
+      "files": 920
+    },
+    {
+      "id": "a05",
+      "filename": "peritheos-0.17.3-cp310-cp310-win_amd64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "10b32e8d370e1920d6c3a97890cff3d93d55ee141dcd5b0c04a7d919ecc41480",
+      "url": "https://files.pythonhosted.org/packages/a5/ad/8f015cb4bf6e87283b3f9d625fa3d6305f634f15a22aa709ca3443bfaa27/peritheos-0.17.3-cp310-cp310-win_amd64.whl",
+      "size": 5669096,
+      "files": 920
+    },
+    {
+      "id": "a06",
+      "filename": "peritheos-0.17.3-cp311-cp311-macosx_10_12_x86_64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "63f2237b9479016831f9a7b9677764a6845c5e20315f3b2fd629c6f7ac5c1d99",
+      "url": "https://files.pythonhosted.org/packages/d0/06/f5604708cd3201ad49a5301b0c0be8db38e85d085afeac65b88ca9cfe6f1/peritheos-0.17.3-cp311-cp311-macosx_10_12_x86_64.whl",
+      "size": 5781870,
+      "files": 920
+    },
+    {
+      "id": "a07",
+      "filename": "peritheos-0.17.3-cp311-cp311-macosx_11_0_arm64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "268a4309caf13d16f536712b99e2b7b8310368185bcff57638be0b8192e4336a",
+      "url": "https://files.pythonhosted.org/packages/d8/39/c6b62a6c707f4aa25ed807d82f80012acfd9d49f7f087deae2bec3061b28/peritheos-0.17.3-cp311-cp311-macosx_11_0_arm64.whl",
+      "size": 5758399,
+      "files": 920
+    },
+    {
+      "id": "a08",
+      "filename": "peritheos-0.17.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "02798ef4b81e6b36fd16d9b7ef4882d7c0c359d2bcffee3b514f33f69533c7c2",
+      "url": "https://files.pythonhosted.org/packages/fe/2b/80bc826ea88c837dacbaef57dcd81abc11e03381527a5c2e56a12275fe10/peritheos-0.17.3-cp311-cp311-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+      "size": 5823237,
+      "files": 920
+    },
+    {
+      "id": "a09",
+      "filename": "peritheos-0.17.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "07e657c67a876a0bb18ca421ec0097be026285f6fce74ffbd03f3ee7aaefe213",
+      "url": "https://files.pythonhosted.org/packages/a9/a9/96b15e4d566e1c5c87f17aca75ef10e8ebb884ba60ed8f90c5602db05d3d/peritheos-0.17.3-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "size": 5861532,
+      "files": 920
+    },
+    {
+      "id": "a10",
+      "filename": "peritheos-0.17.3-cp311-cp311-win_amd64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "dda87177c36fbdd3ef450ec20783571ceaaac1f03ccea2a793d708d9bc197d9e",
+      "url": "https://files.pythonhosted.org/packages/1b/f8/94f61a4a0891184ef2b04c84e0f941c892c9869fb34d4e55a78a192d8de2/peritheos-0.17.3-cp311-cp311-win_amd64.whl",
+      "size": 5669283,
+      "files": 920
+    },
+    {
+      "id": "a11",
+      "filename": "peritheos-0.17.3-cp312-cp312-macosx_10_12_x86_64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "1518c11eddace9a58a5da430ad03ae67a840f36c6bd5dc4745718df0b3f5db2b",
+      "url": "https://files.pythonhosted.org/packages/61/b9/e89dee530a0cd2124ac6d562bbd8f648707570559d268bc8237cf083c841/peritheos-0.17.3-cp312-cp312-macosx_10_12_x86_64.whl",
+      "size": 5785875,
+      "files": 920
+    },
+    {
+      "id": "a12",
+      "filename": "peritheos-0.17.3-cp312-cp312-macosx_11_0_arm64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "5f8234b6877e8d97943d93de4813e4a884f876308d65936c0dba97e48d3deec6",
+      "url": "https://files.pythonhosted.org/packages/62/9f/5b32537f946f9319bb58c6bb3efa0d73c7b9821b217af5762d4cf00ea4fe/peritheos-0.17.3-cp312-cp312-macosx_11_0_arm64.whl",
+      "size": 5749577,
+      "files": 920
+    },
+    {
+      "id": "a13",
+      "filename": "peritheos-0.17.3-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "8217109273c82f8871061d2f85a8b40e2a3ff47c940c1c86ff0196fd39d7812f",
+      "url": "https://files.pythonhosted.org/packages/64/37/c66758cc93acdd209d128398cf97a0bae255e91d934f71bb7f99994ed7a9/peritheos-0.17.3-cp312-cp312-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+      "size": 5814834,
+      "files": 920
+    },
+    {
+      "id": "a14",
+      "filename": "peritheos-0.17.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "8df55feec1462d19b2733bc9589482cab22ae97a10de75aaa09d8ca6b414319e",
+      "url": "https://files.pythonhosted.org/packages/41/1f/1be9038c4646eb7d17759a61298fcb6f3f3890a566cbda28475731fe282d/peritheos-0.17.3-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "size": 5855401,
+      "files": 920
+    },
+    {
+      "id": "a15",
+      "filename": "peritheos-0.17.3-cp312-cp312-win_amd64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "a545b1e8a3fa0f6ea2272f13b5d521335dbf8bbebb32bacc23841ccbb7db2f6f",
+      "url": "https://files.pythonhosted.org/packages/c1/91/fd790df125ce627aa3dd30e00d172c3db4a8a3aaa7b4448e427d6fc5bdf7/peritheos-0.17.3-cp312-cp312-win_amd64.whl",
+      "size": 5664025,
+      "files": 920
+    },
+    {
+      "id": "a16",
+      "filename": "peritheos-0.17.3-cp313-cp313-macosx_10_12_x86_64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "e531f797ac3a97159ac3c43a4da5198e0a535dd4b5aa1407a79ea18d200a61c8",
+      "url": "https://files.pythonhosted.org/packages/4d/85/bfc64c76c976c3b9e35f698c3fd6d1cfcbda493e9c6a67bfacb77ac3754c/peritheos-0.17.3-cp313-cp313-macosx_10_12_x86_64.whl",
+      "size": 5784797,
+      "files": 920
+    },
+    {
+      "id": "a17",
+      "filename": "peritheos-0.17.3-cp313-cp313-macosx_11_0_arm64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "4a8b4250dcf5630cfa94755bdfe3991aa2abe33af5f76e7f4606d1e5d696c709",
+      "url": "https://files.pythonhosted.org/packages/dc/92/6b0b70eb920d6963883128aa2c13ffa6af295ab64cd9f8ac9d60e17f63ff/peritheos-0.17.3-cp313-cp313-macosx_11_0_arm64.whl",
+      "size": 5749839,
+      "files": 920
+    },
+    {
+      "id": "a18",
+      "filename": "peritheos-0.17.3-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "9b9823509fe30e2718d7a2e5210d0d25d16c7420a4689c9ab2ac27483116824d",
+      "url": "https://files.pythonhosted.org/packages/d7/32/b851758c455c73c7f8af988e9a7ca94bd661fa7bfb3c3a0876b2dbd3b39b/peritheos-0.17.3-cp313-cp313-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+      "size": 5814515,
+      "files": 920
+    },
+    {
+      "id": "a19",
+      "filename": "peritheos-0.17.3-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "ab0ec89fc17d30320d6340aa73230e54302db7b154013fb8155f9694ae4c3ae2",
+      "url": "https://files.pythonhosted.org/packages/e7/37/20a74b30ebdd195aa66a901f45a0aaeb71ea693252576a3aec1cac6c462a/peritheos-0.17.3-cp313-cp313-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "size": 5853841,
+      "files": 920
+    },
+    {
+      "id": "a20",
+      "filename": "peritheos-0.17.3-cp313-cp313-win_amd64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "1d09e5d51e8402500d93b9d85be8cb88049d6f3a2242c10339d6fd6657fba138",
+      "url": "https://files.pythonhosted.org/packages/f6/fe/c160e156bef29eb22c64943e5b8f2107afdc5915063af7addee40ebe905f/peritheos-0.17.3-cp313-cp313-win_amd64.whl",
+      "size": 5664332,
+      "files": 920
+    },
+    {
+      "id": "a21",
+      "filename": "peritheos-0.17.3-cp314-cp314-macosx_10_12_x86_64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "1eb307f8c482b146d243e443a9c020d956fa5301adc341424782df3f59f71a81",
+      "url": "https://files.pythonhosted.org/packages/6c/41/afb309556614c3ffc78477a2c1c956c2fc41d6ee5bb3ee3717db92e35475/peritheos-0.17.3-cp314-cp314-macosx_10_12_x86_64.whl",
+      "size": 5786205,
+      "files": 920
+    },
+    {
+      "id": "a22",
+      "filename": "peritheos-0.17.3-cp314-cp314-macosx_11_0_arm64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "730a61a09f33a6ac3340b4f3675b888f0c409756d087790acf060690ed912d8b",
+      "url": "https://files.pythonhosted.org/packages/2c/99/5d29abfa40cf9e505c64a0e365b3fbbec1e014597ed788e7aa2a9f9c0df9/peritheos-0.17.3-cp314-cp314-macosx_11_0_arm64.whl",
+      "size": 5750120,
+      "files": 920
+    },
+    {
+      "id": "a23",
+      "filename": "peritheos-0.17.3-cp314-cp314-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "598d1446fe1c3885d00cbad0858da9c02aa013f859bf80124e6bea499d210745",
+      "url": "https://files.pythonhosted.org/packages/f7/72/762c896fd4229abea0ccb06d93f3c8afc85c10cab29b7a15912b61f8e1f4/peritheos-0.17.3-cp314-cp314-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+      "size": 5816421,
+      "files": 920
+    },
+    {
+      "id": "a24",
+      "filename": "peritheos-0.17.3-cp314-cp314-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "91f7499bcb16b8d959c77db8a749d517facc3dc25c1535c633646d641fbdb0d6",
+      "url": "https://files.pythonhosted.org/packages/c3/53/76e221837b09a22524640b46d80681ca3365aeadf0c24dcae3a7dd74dd6e/peritheos-0.17.3-cp314-cp314-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "size": 5856479,
+      "files": 920
+    },
+    {
+      "id": "a25",
+      "filename": "peritheos-0.17.3-cp314-cp314-win_amd64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "429e1d5bdfd5dd4d475c07bd0ba3ce6be3b83035f4159610ebefc16fe9492039",
+      "url": "https://files.pythonhosted.org/packages/88/a0/3bc3f1eda8f9b2b6c7fb397d1cd8027668350afb8cf7d1dd92ae63030175/peritheos-0.17.3-cp314-cp314-win_amd64.whl",
+      "size": 5665023,
+      "files": 920
+    },
+    {
+      "id": "a26",
+      "filename": "peritheos-0.17.3-cp314-cp314t-macosx_10_12_x86_64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "c63895f431d947cbdf1bff7776e256999c6a132646d43d8dbac9cd017213d482",
+      "url": "https://files.pythonhosted.org/packages/20/ce/ce8cfd11deb3ca8f3d16e02549036cc32db99aee238cbaefc4cf7d5cb155/peritheos-0.17.3-cp314-cp314t-macosx_10_12_x86_64.whl",
+      "size": 5783642,
+      "files": 920
+    },
+    {
+      "id": "a27",
+      "filename": "peritheos-0.17.3-cp314-cp314t-macosx_11_0_arm64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "90ee631eb5dc5433ffefcb8398330ad53b2c930a1980bbdbc4433c50639c88bf",
+      "url": "https://files.pythonhosted.org/packages/9c/16/e8aabafcced7b7a53a5c9d0eb31a99af93249c88ac93ecf35245cbfc47db/peritheos-0.17.3-cp314-cp314t-macosx_11_0_arm64.whl",
+      "size": 5749766,
+      "files": 920
+    },
+    {
+      "id": "a28",
+      "filename": "peritheos-0.17.3-cp314-cp314t-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "0f8ab6ce768daa5da4cb1b0a5655a9736ea1543c6ed7c45e239085f20de97b15",
+      "url": "https://files.pythonhosted.org/packages/fc/04/69474ec364221773d5200890c2c4b5ef3352826649a0664cb7ac18b65611/peritheos-0.17.3-cp314-cp314t-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+      "size": 5813240,
+      "files": 920
+    },
+    {
+      "id": "a29",
+      "filename": "peritheos-0.17.3-cp314-cp314t-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "acb3f54cc7734e505a84ebd2154df440783596d094e2b592c5cf6bb901b7db4f",
+      "url": "https://files.pythonhosted.org/packages/44/30/367ffcb80541b306b5f3542191009dabd9e0f05b8672f33b3f59415fce2d/peritheos-0.17.3-cp314-cp314t-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "size": 5853288,
+      "files": 920
+    },
+    {
+      "id": "a30",
+      "filename": "peritheos-0.17.3-cp314-cp314t-win_amd64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "84a24c220bb34dfde0664dcc3a5dbb5c4d7e8bb34d061a0ca472f5ccc009ac25",
+      "url": "https://files.pythonhosted.org/packages/1d/d8/662e3a16196face737f2d78af9037c3f1ac060199b043e6bc25c0bdd3174/peritheos-0.17.3-cp314-cp314t-win_amd64.whl",
+      "size": 5662502,
+      "files": 920
+    },
+    {
+      "id": "a31",
+      "filename": "peritheos-0.17.3-cp39-cp39-macosx_10_12_x86_64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "b92deb16e872d551d1951bdfe90247460b197d4e0a5ef74c26248f940a446798",
+      "url": "https://files.pythonhosted.org/packages/24/b5/abebcd3b13560041a3b1bf49041940c0ab72ecc6ac7476d555f570b5677a/peritheos-0.17.3-cp39-cp39-macosx_10_12_x86_64.whl",
+      "size": 5784784,
+      "files": 920
+    },
+    {
+      "id": "a32",
+      "filename": "peritheos-0.17.3-cp39-cp39-macosx_11_0_arm64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "7350ddf2c8482c1f7fb03b19bbbcb1f71da5cb2dd3e18eab512912f14d1e5fae",
+      "url": "https://files.pythonhosted.org/packages/9d/2f/e182a47c80775d24350dcd129915cb58e5d14af9e1ddafa2c5adb2bcd254/peritheos-0.17.3-cp39-cp39-macosx_11_0_arm64.whl",
+      "size": 5761155,
+      "files": 920
+    },
+    {
+      "id": "a33",
+      "filename": "peritheos-0.17.3-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "7a480377ff08b4e8e6b204af2ffd804e063d4acfecadf13e2b6e7e37a49c9fe1",
+      "url": "https://files.pythonhosted.org/packages/16/97/7109c56ee32854f61ac8e912641626e07b5c93bf3a481a0452f3218ff2bf/peritheos-0.17.3-cp39-cp39-manylinux_2_17_aarch64.manylinux2014_aarch64.whl",
+      "size": 5825437,
+      "files": 920
+    },
+    {
+      "id": "a34",
+      "filename": "peritheos-0.17.3-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "c8d3137bffa0c1461abdc2ec5a1c3345a7986ae0ad21b000f41f69033de04077",
+      "url": "https://files.pythonhosted.org/packages/9b/dd/5bf66720e32492d7004d12af9fd646fb665fb94b0a2869218281ef144345/peritheos-0.17.3-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "size": 5864983,
+      "files": 920
+    },
+    {
+      "id": "a35",
+      "filename": "peritheos-0.17.3-cp39-cp39-win_amd64.whl",
+      "kind": "bdist_wheel",
+      "sha256": "d3dbdc29ca8e7ef340ddd5759e6d759c539bcc0a1091fd3dbc4df9a6172846a7",
+      "url": "https://files.pythonhosted.org/packages/9c/80/f3ef0be3518563a25c48affabef6c656f77f8532862a7225400b7aad90dc/peritheos-0.17.3-cp39-cp39-win_amd64.whl",
+      "size": 5671448,
+      "files": 920
+    },
+    {
+      "id": "a36",
+      "filename": "peritheos-0.17.3.tar.gz",
+      "kind": "sdist",
+      "sha256": "03f8fa20a1954b0423261f7814034db5cb47964b4dce70716c1052ccfbf10b04",
+      "url": "https://files.pythonhosted.org/packages/6b/d6/785aecfca07afd208934ce579b6e73d591f27b3014421a6fe489395d8325/peritheos-0.17.3.tar.gz",
+      "size": 51979109,
+      "files": 5226
+    }
+  ],
+  "published_wheels_checked": 35,
+  "all_wheel_data_bytes_identical": false,
+  "wheel_data_differences_from_first_wheel": {
+    "peritheos-0.17.3-cp310-cp310-win_amd64.whl": {
+      "byte_differences": [
+        "peritheos/data/LICENSING.md",
+        "peritheos/data/datasets/fei-2007/.gitattributes",
+        "peritheos/data/datasets/ma_2024_sources/LICENSE.md",
+        "peritheos/data/materials/README.md",
+        "peritheos/data/research/dewaele-2008-paw/README.md"
+      ],
+      "differences_after_crlf_normalization": []
+    },
+    "peritheos-0.17.3-cp311-cp311-win_amd64.whl": {
+      "byte_differences": [
+        "peritheos/data/LICENSING.md",
+        "peritheos/data/datasets/fei-2007/.gitattributes",
+        "peritheos/data/datasets/ma_2024_sources/LICENSE.md",
+        "peritheos/data/materials/README.md",
+        "peritheos/data/research/dewaele-2008-paw/README.md"
+      ],
+      "differences_after_crlf_normalization": []
+    },
+    "peritheos-0.17.3-cp312-cp312-win_amd64.whl": {
+      "byte_differences": [
+        "peritheos/data/LICENSING.md",
+        "peritheos/data/datasets/fei-2007/.gitattributes",
+        "peritheos/data/datasets/ma_2024_sources/LICENSE.md",
+        "peritheos/data/materials/README.md",
+        "peritheos/data/research/dewaele-2008-paw/README.md"
+      ],
+      "differences_after_crlf_normalization": []
+    },
+    "peritheos-0.17.3-cp313-cp313-win_amd64.whl": {
+      "byte_differences": [
+        "peritheos/data/LICENSING.md",
+        "peritheos/data/datasets/fei-2007/.gitattributes",
+        "peritheos/data/datasets/ma_2024_sources/LICENSE.md",
+        "peritheos/data/materials/README.md",
+        "peritheos/data/research/dewaele-2008-paw/README.md"
+      ],
+      "differences_after_crlf_normalization": []
+    },
+    "peritheos-0.17.3-cp314-cp314-win_amd64.whl": {
+      "byte_differences": [
+        "peritheos/data/LICENSING.md",
+        "peritheos/data/datasets/fei-2007/.gitattributes",
+        "peritheos/data/datasets/ma_2024_sources/LICENSE.md",
+        "peritheos/data/materials/README.md",
+        "peritheos/data/research/dewaele-2008-paw/README.md"
+      ],
+      "differences_after_crlf_normalization": []
+    },
+    "peritheos-0.17.3-cp314-cp314t-win_amd64.whl": {
+      "byte_differences": [
+        "peritheos/data/LICENSING.md",
+        "peritheos/data/datasets/fei-2007/.gitattributes",
+        "peritheos/data/datasets/ma_2024_sources/LICENSE.md",
+        "peritheos/data/materials/README.md",
+        "peritheos/data/research/dewaele-2008-paw/README.md"
+      ],
+      "differences_after_crlf_normalization": []
+    },
+    "peritheos-0.17.3-cp39-cp39-win_amd64.whl": {
+      "byte_differences": [
+        "peritheos/data/LICENSING.md",
+        "peritheos/data/datasets/fei-2007/.gitattributes",
+        "peritheos/data/datasets/ma_2024_sources/LICENSE.md",
+        "peritheos/data/materials/README.md",
+        "peritheos/data/research/dewaele-2008-paw/README.md"
+      ],
+      "differences_after_crlf_normalization": []
+    }
+  },
+  "all_wheel_data_identical_after_crlf_normalization": true,
+  "release_file_variants": 5404,
+  "release_paths": 5282,
+  "release_components": {
+    "dataset": 449,
+    "eos": 685,
+    "structure_and_diffraction": 234
+  },
+  "local_dataset_statuses": {
+    "author_permission_declared": 1,
+    "limited_or_unspecified_source": 71,
+    "mixed_author_permission": 3,
+    "open_license_declared": 22,
+    "open_source_declared": 21,
+    "restricted_source": 20,
+    "source_terms_not_recorded": 311
+  },
+  "local_file_statuses": {
+    "author_permission_declared": 3,
+    "build_metadata": 108,
+    "license_notice": 59,
+    "limited_or_unspecified_source": 102,
+    "mixed_author_permission": 8,
+    "mixed_scientific_content": 3401,
+    "native_binary": 35,
+    "open_license_declared": 17,
+    "open_source_declared": 30,
+    "project_mit": 515,
+    "restricted_source": 22,
+    "source_terms_not_recorded": 1105,
+    "third_party_code_open": 2
+  },
+  "rust_dependency_components": 47,
+  "python_requires_dist_not_bundled": [
+    "numpy>=1.22.0",
+    "scipy>=1.9.3"
+  ],
+  "limits": [
+    "Complete member coverage for all 36 official PyPI 0.17.3 archives. All 35 wheels have identical numerical/source payloads; five documentation/notice paths have CRLF-only variants, recorded by exact hash. This is an evidence inventory, not Debian acceptance or a legal finding about copyrightability.",
+    "Open declarations from existing metadata are distinguished from fresh confirmation by an original rights holder. No license is inferred from public access, scientific validation, article citation, file extension or directory.",
+    "Local author grants are a separate overlay and are not misrepresented as notices shipped in 0.17.3. Maintainer-reported permission is not independently authenticated correspondence.",
+    "Every EOS record and material structure/diffraction component is enumerated, including inline data. Unknown terms do not establish that numerical facts are restricted or that they may be redistributed.",
+    "The source archive contains historical reports and generated plots with mixed provenance. MIT covers contributor narrative/code, not automatically every embedded source element.",
+    "Rust inventory covers the all-target normal/build dependency graph from Cargo.lock. Build tools are included; dev-only packages excluded. This is not an exact linked-code or Rust standard-library inventory for every wheel.",
+    "External Python dependencies are installed separately, not bundled by virtue of Requires-Dist; native dependency notice compliance remains a separate recorded action.",
+    "This inventory records the immutable published 0.17.3 release plus current data/rights overlays introduced in 0.17.4. Inventory tooling and reports were added after 0.17.3 and are not claimed to be files in its archived distributions."
+  ]
+}

@@ -100,6 +100,9 @@ exclude = [
     "output/**/email-to-*",
     "output/**/zotero-*",
     "docs/data/fei-2007-gold-follow-up-sources/ye-2017-intercomparison.pdf",
+    # The independently licensed Mendeley workbook remains distributed.
+    # This publisher supplement is retained only as repository audit evidence.
+    "peritheos/data/datasets/ma_2024_sources/supporting-information.docx",
 ]
 
 [tool.ruff]
