@@ -1,5 +1,17 @@
 # Morard et al. (2026): FeS phase diagram and thermal EOS
 
+**Live-record review, 1 November 2026:** The stored staged diagnostic already
+has a scoped `parity` assessment for conditional parameter agreement from the
+25 October combined-width/numerical-similarity review. See the
+[scoped review](similar-parameter-review.md).
+The source-width confidence is unspecified; this is not a formal statistical
+test. The deferred source status, executable-loading restrictions and unresolved
+full residual-envelope/calibration findings below remain unchanged.
+The supplied author-used inputs are confirmed complete. The exact original
+20210609 GUI executable was not located in the bounded availability check;
+no new GUI experiment or fitting was performed. See the
+[current status and next actionable addition](fes-eosfit-direct.md#current-status-and-original-gui-availability-review-2026-11-01).
+
 Audit date: 2026-10-02. Source: Morard, Antonangeli, Miozzi, Baron, Edmund,
 Cerantola and Mezouar, *Physical Review Materials* **10**, 063605,
 [DOI 10.1103/h4pj-rvxx](https://doi.org/10.1103/h4pj-rvxx).
@@ -176,11 +188,14 @@ document with `Material.from_eosmat(document, require_primary_validation=False)`
 this retains the deferred status. No validated default or replacement refit
 is added.
 
-The decisive remaining inputs are the final EosFit model/input/output files,
-cold-fit observation selection and source pressure scales, exact thermal
-convention, Table S2 and Figure S5. The final Table S1 pressure reduction has
-been recovered independently; the exact source regression remains unavailable.
-See the
+The supplied EosFit model and selected input are now confirmed complete;
+Figure S5 and its visual qualification are retained in the later author-input
+audit. These are recovered evidence, not outstanding data requests. The saved
+model confirms full integrated MGD with q=1. Exact original-GUI regression
+controls and publication outputs remain unverified, and the separately fitted
+legacy cold rows' pressure-scale mapping remains unresolved. The supplement
+contains no Table S2 despite its caption reference. The final Table S1 pressure
+reduction has been recovered independently. See the
 [reviewed data request](../dataset-requests.md#morard-et-al-2026-fes).
 No author outreach was performed.
 

@@ -136,8 +136,9 @@ residual is 0.40849 GPa for the published coefficients and 0.40838 GPa for
 the reconstruction; the largest published residual is 0.77234 GPa.
 These residuals are disclosed rather than claiming that all observations lie
 within the Appendix's aggregate uncertainty. The ledger classification is
-`similar`: numerical coefficient agreement is established, while formal
-uncertainty parity is unavailable.
+now conditional parameter parity at verified printed precision, as recorded in
+the [parameter-scope review](similar-parameter-review.md). Formal uncertainty
+parity remains unavailable; no absent error or covariance is inferred.
 
 The source does not explicitly enumerate regression weights. The reconstruction
 uses equal weights on the isochore slopes, which recovers Table III. Changing

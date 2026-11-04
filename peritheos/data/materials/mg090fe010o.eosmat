@@ -500,12 +500,13 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "similar",
+            "status": "parity",
             "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "source_status": "parity",
+            "basis": "Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.",
+            "basis_code": "conditional_reported_widths_and_print_precision",
             "qualifications": [
-              "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
+              "Every compared free coefficient meets its printed source error width or the explicitly verified half-last-digit tolerance where source errors are absent. Printing precision is not a confidence interval. Table S1 prints K0 as integer GPa: half-last-digit tolerance is 0.5 GPa, not an invented standard error. Only K0 is varied in the existing six-row cold LS fit, with each source V0/K0-prime fixed. No fit is preferred; uncertainty, exact source weighting and spin-mixture reproduction remain unestablished. Source tokens: peritheos/data/datasets/mg090fe010o-marquardt-2009-table-s1-ls-models.csv. Earlier audit wording (superseded only for the named numerical scope): One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg090fe010o/#record-mg090fe010o_marquardt_2009b_ls_bm3_s1_01",
@@ -541,6 +542,7 @@
               "rmse_gpa": 0.315422303696759,
               "published_rmse_gpa": 1.2831719717741563,
               "reduced_chi_square": 0.4456888108063467,
+              "comparison_scope": "Compared free coefficients: K0; scope=parameter_agreement",
               "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
             },
             "report": "docs/data/primary-eos-refits.json"
@@ -665,12 +667,13 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "similar",
+            "status": "parity",
             "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "source_status": "parity",
+            "basis": "Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.",
+            "basis_code": "conditional_reported_widths_and_print_precision",
             "qualifications": [
-              "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
+              "Every compared free coefficient meets its printed source error width or the explicitly verified half-last-digit tolerance where source errors are absent. Printing precision is not a confidence interval. Table S1 prints K0 as integer GPa: half-last-digit tolerance is 0.5 GPa, not an invented standard error. Only K0 is varied in the existing six-row cold LS fit, with each source V0/K0-prime fixed. No fit is preferred; uncertainty, exact source weighting and spin-mixture reproduction remain unestablished. Source tokens: peritheos/data/datasets/mg090fe010o-marquardt-2009-table-s1-ls-models.csv. Earlier audit wording (superseded only for the named numerical scope): One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg090fe010o/#record-mg090fe010o_marquardt_2009b_ls_bm3_s1_02",
@@ -706,6 +709,7 @@
               "rmse_gpa": 0.3387918149481032,
               "published_rmse_gpa": 1.4379533452433428,
               "reduced_chi_square": 0.5327517448336939,
+              "comparison_scope": "Compared free coefficients: K0; scope=parameter_agreement",
               "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
             },
             "report": "docs/data/primary-eos-refits.json"
@@ -830,12 +834,13 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "similar",
+            "status": "parity",
             "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "source_status": "parity",
+            "basis": "Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.",
+            "basis_code": "conditional_reported_widths_and_print_precision",
             "qualifications": [
-              "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
+              "Every compared free coefficient meets its printed source error width or the explicitly verified half-last-digit tolerance where source errors are absent. Printing precision is not a confidence interval. Table S1 prints K0 as integer GPa: half-last-digit tolerance is 0.5 GPa, not an invented standard error. Only K0 is varied in the existing six-row cold LS fit, with each source V0/K0-prime fixed. No fit is preferred; uncertainty, exact source weighting and spin-mixture reproduction remain unestablished. Source tokens: peritheos/data/datasets/mg090fe010o-marquardt-2009-table-s1-ls-models.csv. Earlier audit wording (superseded only for the named numerical scope): One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg090fe010o/#record-mg090fe010o_marquardt_2009b_ls_bm3_s1_03",
@@ -871,6 +876,7 @@
               "rmse_gpa": 0.3630727561610341,
               "published_rmse_gpa": 1.6161681138842996,
               "reduced_chi_square": 0.6353857659233374,
+              "comparison_scope": "Compared free coefficients: K0; scope=parameter_agreement",
               "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
             },
             "report": "docs/data/primary-eos-refits.json"
@@ -1325,12 +1331,13 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "similar",
+            "status": "parity",
             "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "source_status": "parity",
+            "basis": "Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.",
+            "basis_code": "conditional_reported_widths_and_print_precision",
             "qualifications": [
-              "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
+              "Every compared free coefficient meets its printed source error width or the explicitly verified half-last-digit tolerance where source errors are absent. Printing precision is not a confidence interval. Table S1 prints K0 as integer GPa: half-last-digit tolerance is 0.5 GPa, not an invented standard error. Only K0 is varied in the existing six-row cold LS fit, with each source V0/K0-prime fixed. No fit is preferred; uncertainty, exact source weighting and spin-mixture reproduction remain unestablished. Source tokens: peritheos/data/datasets/mg090fe010o-marquardt-2009-table-s1-ls-models.csv. Earlier audit wording (superseded only for the named numerical scope): One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg090fe010o/#record-mg090fe010o_marquardt_2009b_ls_bm3_s1_06",
@@ -1366,6 +1373,7 @@
               "rmse_gpa": 0.29295056320964075,
               "published_rmse_gpa": 1.152395203577993,
               "reduced_chi_square": 0.3733074048405004,
+              "comparison_scope": "Compared free coefficients: K0; scope=parameter_agreement",
               "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
             },
             "report": "docs/data/primary-eos-refits.json"
@@ -1655,12 +1663,13 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "similar",
+            "status": "parity",
             "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "source_status": "parity",
+            "basis": "Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.",
+            "basis_code": "conditional_reported_widths_and_print_precision",
             "qualifications": [
-              "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
+              "Every compared free coefficient meets its printed source error width or the explicitly verified half-last-digit tolerance where source errors are absent. Printing precision is not a confidence interval. Table S1 prints K0 as integer GPa: half-last-digit tolerance is 0.5 GPa, not an invented standard error. Only K0 is varied in the existing six-row cold LS fit, with each source V0/K0-prime fixed. No fit is preferred; uncertainty, exact source weighting and spin-mixture reproduction remain unestablished. Source tokens: peritheos/data/datasets/mg090fe010o-marquardt-2009-table-s1-ls-models.csv. Earlier audit wording (superseded only for the named numerical scope): One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg090fe010o/#record-mg090fe010o_marquardt_2009b_ls_bm3_s1_08",
@@ -1696,6 +1705,7 @@
               "rmse_gpa": 0.34776862004931813,
               "published_rmse_gpa": 1.465219048351091,
               "reduced_chi_square": 0.5719827642349108,
+              "comparison_scope": "Compared free coefficients: K0; scope=parameter_agreement",
               "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
             },
             "report": "docs/data/primary-eos-refits.json"
@@ -1820,12 +1830,13 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "similar",
+            "status": "parity",
             "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "source_status": "parity",
+            "basis": "Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.",
+            "basis_code": "conditional_reported_widths_and_print_precision",
             "qualifications": [
-              "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
+              "Every compared free coefficient meets its printed source error width or the explicitly verified half-last-digit tolerance where source errors are absent. Printing precision is not a confidence interval. Table S1 prints K0 as integer GPa: half-last-digit tolerance is 0.5 GPa, not an invented standard error. Only K0 is varied in the existing six-row cold LS fit, with each source V0/K0-prime fixed. No fit is preferred; uncertainty, exact source weighting and spin-mixture reproduction remain unestablished. Source tokens: peritheos/data/datasets/mg090fe010o-marquardt-2009-table-s1-ls-models.csv. Earlier audit wording (superseded only for the named numerical scope): One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg090fe010o/#record-mg090fe010o_marquardt_2009b_ls_bm3_s1_09",
@@ -1861,6 +1872,7 @@
               "rmse_gpa": 0.20955008251941537,
               "published_rmse_gpa": 0.7160328495544448,
               "reduced_chi_square": 0.16452768052798022,
+              "comparison_scope": "Compared free coefficients: K0; scope=parameter_agreement",
               "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
             },
             "report": "docs/data/primary-eos-refits.json"
@@ -1985,12 +1997,13 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "similar",
+            "status": "parity",
             "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "source_status": "parity",
+            "basis": "Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.",
+            "basis_code": "conditional_reported_widths_and_print_precision",
             "qualifications": [
-              "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
+              "Every compared free coefficient meets its printed source error width or the explicitly verified half-last-digit tolerance where source errors are absent. Printing precision is not a confidence interval. Table S1 prints K0 as integer GPa: half-last-digit tolerance is 0.5 GPa, not an invented standard error. Only K0 is varied in the existing six-row cold LS fit, with each source V0/K0-prime fixed. No fit is preferred; uncertainty, exact source weighting and spin-mixture reproduction remain unestablished. Source tokens: peritheos/data/datasets/mg090fe010o-marquardt-2009-table-s1-ls-models.csv. Earlier audit wording (superseded only for the named numerical scope): One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg090fe010o/#record-mg090fe010o_marquardt_2009b_ls_bm3_s1_10",
@@ -2026,6 +2039,7 @@
               "rmse_gpa": 0.23629886605941916,
               "published_rmse_gpa": 0.8228740729169969,
               "reduced_chi_square": 0.22201503013098103,
+              "comparison_scope": "Compared free coefficients: K0; scope=parameter_agreement",
               "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
             },
             "report": "docs/data/primary-eos-refits.json"
@@ -2150,12 +2164,13 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "similar",
+            "status": "parity",
             "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "source_status": "parity",
+            "basis": "Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.",
+            "basis_code": "conditional_reported_widths_and_print_precision",
             "qualifications": [
-              "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
+              "Every compared free coefficient meets its printed source error width or the explicitly verified half-last-digit tolerance where source errors are absent. Printing precision is not a confidence interval. Table S1 prints K0 as integer GPa: half-last-digit tolerance is 0.5 GPa, not an invented standard error. Only K0 is varied in the existing six-row cold LS fit, with each source V0/K0-prime fixed. No fit is preferred; uncertainty, exact source weighting and spin-mixture reproduction remain unestablished. Source tokens: peritheos/data/datasets/mg090fe010o-marquardt-2009-table-s1-ls-models.csv. Earlier audit wording (superseded only for the named numerical scope): One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg090fe010o/#record-mg090fe010o_marquardt_2009b_ls_bm3_s1_11",
@@ -2191,6 +2206,7 @@
               "rmse_gpa": 0.266036563136773,
               "published_rmse_gpa": 1.0167839863494872,
               "reduced_chi_square": 0.2967768505543612,
+              "comparison_scope": "Compared free coefficients: K0; scope=parameter_agreement",
               "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
             },
             "report": "docs/data/primary-eos-refits.json"
@@ -2315,12 +2331,13 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "similar",
+            "status": "parity",
             "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "source_status": "parity",
+            "basis": "Conditional numerical agreement within reported source error widths where available, and explicitly verified half-last-digit printing tolerances otherwise. Printing precision is not a standard error or confidence interval; fixed constraints and source-equation versus independent-data scope remain explicit.",
+            "basis_code": "conditional_reported_widths_and_print_precision",
             "qualifications": [
-              "One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
+              "Every compared free coefficient meets its printed source error width or the explicitly verified half-last-digit tolerance where source errors are absent. Printing precision is not a confidence interval. Table S1 prints K0 as integer GPa: half-last-digit tolerance is 0.5 GPa, not an invented standard error. Only K0 is varied in the existing six-row cold LS fit, with each source V0/K0-prime fixed. No fit is preferred; uncertainty, exact source weighting and spin-mixture reproduction remain unestablished. Source tokens: peritheos/data/datasets/mg090fe010o-marquardt-2009-table-s1-ls-models.csv. Earlier audit wording (superseded only for the named numerical scope): One of 12 alternative constrained LS fits from EPSL Table S1. Only six Table 2 rows above 63 GPa are fitted, with printed V0 and K0 prime fixed. Source objective weights and coefficient standard errors are not reported; the refit errors are residual-scaled diagnostics, not published uncertainties.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/mg090fe010o/#record-mg090fe010o_marquardt_2009b_ls_bm3_s1_12",
@@ -2356,6 +2373,7 @@
               "rmse_gpa": 0.29717076738997106,
               "published_rmse_gpa": 1.1577417383961768,
               "reduced_chi_square": 0.38907522705329806,
+              "comparison_scope": "Compared free coefficients: K0; scope=parameter_agreement",
               "dataset_identifiers": ["mg090fe010o_marquardt_2009_table2_pv"]
             },
             "report": "docs/data/primary-eos-refits.json"

@@ -1,5 +1,7 @@
 # Chidester et al. (2018): experimental ThO2 thermal equations of state
 
+**Uncertainty follow-up, 25 October 2026:** The [record-by-record uncertainty reconstruction](uncertainty-reconstruction.md) supplies the current conditional errors and numerical labels for the selected records from this source. The earlier reconstruction descriptions below retain their original scientific qualifications; statements about missing reconstruction errors or their former ledger labels describe the assessment before that follow-up. Source coefficients, observations, calibration limits and use restrictions are unchanged.
+
 Two published experimental records are accepted, as separate materials:
 `thorianite_chidester_2018_bm3_linear_thermal` and
 `tho2_cotunnite_chidester_2018_bm3_linear_thermal`. No computed EOS or

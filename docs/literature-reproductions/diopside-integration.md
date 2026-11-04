@@ -1,5 +1,11 @@
 # Diopside integration note
 
+**Shared integration completed on 2026-10-16.** The source/refit ledgers,
+manifest, coverage, catalog expectations and documentation have been reconciled.
+See the [combined integration report](../research/catalog-integration-2026-10-16.md) for current checks and
+qualifications. Earlier pending-check lists below preserve the scoped handoff
+history; scientific evidence gaps remain as stated in the source audit.
+
 G02 adds the material `diopside` locally. Thompson and Downs (2008) static BM3
 is the room-temperature default; Zhao et al. (1998) supplies the published
 thermal BM3. Published-model and parameter parity are established within

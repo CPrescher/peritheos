@@ -1,5 +1,11 @@
 # Forsterite G01 integration note
 
+**Shared integration completed on 2026-10-16.** The source/refit ledgers,
+manifest, coverage, catalog expectations and documentation have been reconciled.
+See the [combined integration report](../research/catalog-integration-2026-10-16.md) for current checks and
+qualifications. Earlier pending-check lists below preserve the scoped handoff
+history; scientific evidence gaps remain as stated in the source audit.
+
 2026-10-15: local material-specific work only. No commit, push, publication,
 author contact, or message to another chat was performed.
 

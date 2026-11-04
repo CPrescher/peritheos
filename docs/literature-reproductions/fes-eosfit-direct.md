@@ -1,5 +1,10 @@
 # FeS: direct refits with the official EosFit console
 
+Current status was rechecked on **1 November 2026** against the live material
+record and the later parameter-scope review. The numerical audits below are
+complete; the exact original-GUI comparison remains unavailable. See the
+[availability review](#current-status-and-original-gui-availability-review-2026-11-01).
+
 Run date: 2026-10-03. **The data can be refitted in the actual EosFit7c
 program. All six runs below converged.** This is separate from an independent
 implementation or an extracted CrysFML calculation harness.
@@ -732,8 +737,75 @@ cold-then-thermal reproduced-cold fits.
 
 The [parameter comparison](../data/fes-author-staged/parameter-comparison.json)
 records interval overlap, central-value containment, descriptive error ratios
-and the separate residual diagnostics. The fit reproduction is classified **`similar`** in both the material metadata
-and primary refit ledger. The separate residual-claim status remains
+and the separate residual diagnostics. The 3 October fit reproduction was
+classified **`similar`**; the later scoped assessment is recorded below. The
+separate residual-claim status remains
 `not_reproduced`. The source card retains its existing deferred availability
 status; parameter agreement and the remaining source qualifications are
 recorded separately. Neither qualification means EosFit cannot fit the data.
+
+### Current status and original-GUI availability review (2026-11-01)
+
+The live `fes_vi.eosmat` record already has
+`evidence.reproduction.assessment.status: parity`, scoped to
+`parameter_agreement` under `conditional_combined_error_parameter_agreement`.
+This is the completed [25 October parameter-scope review](similar-parameter-review.md),
+not a new fit or a new classification from this availability check. The retained
+`scientific_validation.reproduction_status: similar` describes the earlier
+comparison. Source availability remains deferred, and the separate full
+residual-envelope claim remains `not_reproduced`. These fields do not establish
+exact publication digits, original GUI workflow, physical validation or a use
+recommendation. In particular, the saved-author-model replay still has thermal
+RMS 1.6317545 GPa, maximum absolute residual 5.0579 GPa and 14/146 hot rows
+outside ±3 GPa. No fitting was repeated for this review.
+
+The supplied model identifies GUI **20210609**. No newer empirical GUI comparison
+was found in the repository's FeS audits, manifests or scripts. A bounded
+filename search, including ignored files, of `/Applications`, `~/Applications`, `~/Downloads`,
+`/private/tmp`, `~/Codex` and `~/Programming` located no original GUI executable.
+The existing [version audit](../data/fes-eosfit-version-audit/manifest.json)
+identifies the previously inspected replacement Mac GUI as **20211014** and
+explicitly records that the original GUI was not run.
+The retained Mac GUI in
+`tmp/rubidium-halides-farla-2025/eosfit-runtime/eosfit-package/Payload/Applications/EoSFit7/`
+was checked directly: its embedded banner is 20211014 and its SHA-256 matches
+that version audit; the adjacent console hash also matches the audited console.
+The retained `tmp/morard-2026/cold-sources/eosfit-linux64.tar.gz` is incomplete:
+reading its 28,414,653-byte inner-package entry fails with unexpected end of
+data. No original GUI executable was recovered from that archive.
+
+The [official distribution page](https://www.rossangel.com/text_eosfit.htm),
+checked on 1 November, still directs users to replacement installers for the
+June 2021 GUI's graphics crashes. A bounded official-site search located no
+20210609 archive. This does not establish absence from other archives or
+private copies; it leaves the requested **exact original-GUI versus console**
+experiment unavailable from the sources checked. A replacement-release GUI
+control could provide additional evidence, but would need its own build label
+and would not complete that historical comparison. Matching pressure routines
+alone also does not establish identical regression controls.
+
+If the original GUI is recovered, use the existing confirmed complete
+`FeS6EOSfittot-SataOhfuji-300K.dat` and `FeS6.eos`, preserving source bytes and
+the saved 298 K reference. Record loaded/active groups and cold/hot row counts,
+P/V/T error contributions versus equal pressure weights, cold and thermal model
+selections, fixed/free coefficients, estimation and refinement/termination
+controls. Compare saved-model pressure replay and the reported cold-then-gamma
+stages with the archived console controls; identify any 300 K control separately.
+Keep all 11 rejected quenched rows excluded. Preserve coefficient agreement and
+residual-envelope comparisons as distinct results. No repeat request for the
+same data/model files is needed.
+
+At the time of this availability review, the next actionable catalog addition
+was the staged **Finger (1979) Fe2SiO4
+ringwoodite static ambient-cell reconstruction**, G05/C10. Its candidate card
+exists at `output/material-candidates/ferrous-ringwoodite/ferrous_ringwoodite.eosmat`,
+while `peritheos/data/materials/ferrous_ringwoodite.eosmat` is absent. Review and
+integrate the separately labeled derived static record with its **296.15 K,
+0–4 GPa** limits and catalog checks, following the existing
+[handoff and acceptance conditions](../research/ferrous-ringwoodite-armentrout-2011-integration.md).
+The Armentrout–Kavner (2011) thermal record has separate unresolved qualifications;
+it is not implicitly accepted with the static reconstruction. This review does
+not install either record or change any catalog scientific classification.
+The subsequently authorized [1 November static-only integration](../research/ferrous-ringwoodite-armentrout-2011-integration.md#installed-static-reconstruction-1-november-2026)
+has now installed the Finger reconstruction separately; the historical
+availability findings and thermal-candidate hold above are unchanged.

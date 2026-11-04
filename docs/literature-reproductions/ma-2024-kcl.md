@@ -1,5 +1,7 @@
 # Ma, Sumita and Murakami (2024): B2-KCl primary pressure scale
 
+**Uncertainty follow-up, 25 October 2026:** The [record-by-record uncertainty reconstruction](uncertainty-reconstruction.md) supplies the current conditional errors and numerical labels for the selected records from this source. The earlier reconstruction descriptions below retain their original scientific qualifications; statements about missing reconstruction errors or their former ledger labels describe the assessment before that follow-up. Source coefficients, observations, calibration limits and use restrictions are unchanged.
+
 The nondefault `kcl_b2_ma_2024_bm3_mgd` record implements the final published
 Table 1 BM3 reference isotherm plus Mie-Grüneisen-Debye thermal increment.
 The existing Dewaele default and all earlier KCl records are retained.

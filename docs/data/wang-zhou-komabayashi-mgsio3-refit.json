@@ -79,7 +79,7 @@
       "qualification": "All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity."
     },
     "akimotoite_wang_2004_t0150_bm3": {
-      "status": "similar",
+      "status": "parity",
       "observations": 10,
       "selection": "All 298 K rows in Table 2, run T0150 (NaCl)",
       "source_orders": [
@@ -116,7 +116,7 @@
           "published": 263.9,
           "published_error": 0.2,
           "refit": 263.92988199814727,
-          "refit_error": null,
+          "refit_error": 0.22805269932699332,
           "difference": 0.02988199814728887,
           "relative_difference": 0.00011323227793591842,
           "within_reported_error": true,
@@ -127,7 +127,7 @@
           "published": 5.6,
           "published_error": 0.8,
           "refit": 5.568904317198652,
-          "refit_error": null,
+          "refit_error": 0.7582159403598088,
           "difference": -0.031095682801347557,
           "relative_difference": 0.0055528005002406355,
           "within_reported_error": true,
@@ -138,7 +138,89 @@
       "published_rmse_gpa": 0.3479117607818186,
       "solver_success": true,
       "stages": [],
-      "qualification": "All free coefficients agree within the printed source errors. Exact optimizer, weighting, covariance and confidence convention are not recovered; common-ledger classification is similar, not strict statistical parity."
+      "qualification": "Conditional numerical parameter parity: both free coefficients agree within the printed source error widths, with reconstructed local standard errors comparable to those widths. Covariance uses residual-scaled unweighted pressure least squares with K0=210 GPa fixed. The source confidence convention, original weighting and covariance remain unknown; no formal combined-two-sigma or author-workflow reproduction is claimed. See docs/literature-reproductions/wang-zhou-komabayashi-mgsio3.md#t0150-uncertainty-reconstruction for the uncertainty budget.",
+      "parity_basis": "within_reported_parameter_errors",
+      "weighting": "Equal weight per pressure residual; absolute_sigma=False; residual variance estimated with n-2 degrees of freedom.",
+      "absolute_sigma": false,
+      "degrees_of_freedom": 8,
+      "parameter_covariance": [
+        [
+          0.05200803367032802,
+          -0.14508354900808135
+        ],
+        [
+          -0.14508354900808135,
+          0.574891412215709
+        ]
+      ],
+      "covariance_convention": "s^2 (J^T J)^-1; s^2=sum(pressure residual^2)/(n-2); analytic BM3 Jacobian; errors are local 1-standard-error estimates, not published errors",
+      "covariance": {
+        "parameters": [
+          "V0",
+          "K0_prime"
+        ],
+        "parameter_units": [
+          "angstrom^3 per conventional cell (Z=6)",
+          "1"
+        ],
+        "matrix": [
+          [
+            0.05200803367032802,
+            -0.14508354900808135
+          ],
+          [
+            -0.14508354900808135,
+            0.574891412215709
+          ]
+        ],
+        "standard_errors": {
+          "V0": 0.22805269932699332,
+          "K0_prime": 0.7582159403598088
+        },
+        "correlation_matrix": [
+          [
+            1.0,
+            -0.8390542528162951
+          ],
+          [
+            -0.8390542528162951,
+            1.0
+          ]
+        ],
+        "degrees_of_freedom": 8,
+        "residual_variance_gpa2": 0.15067258184969456,
+        "residual_standard_error_gpa": 0.38816566289368587,
+        "local_student_t_95_intervals": {
+          "V0": [
+            263.40399153045473,
+            264.4557724658398
+          ],
+          "K0_prime": [
+            3.820455223351218,
+            7.317353411046087
+          ]
+        },
+        "convention": "s^2 (J^T J)^-1; s^2=sum(pressure residual^2)/(n-2); analytic BM3 Jacobian; errors are local 1-standard-error estimates, not published errors",
+        "assumptions": [
+          "Independent, equal-variance pressure residuals; variance estimated from residual scatter, not supplied pressure errors.",
+          "Observed volumes are conditioned on; printed volume errors are not weights in this pressure-residual reconstruction.",
+          "K0=210 GPa is fixed; its uncertainty, shared pressure-calibration systematics and correlations between observations are not propagated.",
+          "Source confidence convention and original weighting/covariance are unknown; no formal combined-two-sigma comparison is asserted.",
+          "Student-t intervals use 8 residual degrees of freedom and a local linear approximation; they are conditional, marginal intervals."
+        ],
+        "volume_weighting_sensitivity": {
+          "objective": "sum(((V_model(P)-V_observed)/printed_V_error)^2)",
+          "parameters": {
+            "V0": 263.9430207187381,
+            "K0_prime": 6.144136970477449
+          },
+          "weighted_sum_squares": 387.39854752559353,
+          "degrees_of_freedom": 8,
+          "weighted_sum_squares_per_dof": 48.42481844069919,
+          "solver_success": true,
+          "qualification": "Sensitivity diagnostic only; source V error confidence is unspecified and P errors are unavailable. The large standardized scatter shows that the printed V widths alone cannot explain the data under exact P. This is not a recovered author objective or a replacement catalog EOS."
+        }
+      }
     },
     "akimotoite_zhou_2014_300k_bm3": {
       "status": "similar",

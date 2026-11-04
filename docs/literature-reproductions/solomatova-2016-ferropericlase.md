@@ -1,5 +1,16 @@
 # Solomatova et al. (2016): spin-crossover ferropericlase branches
 
+**Parameter-scope follow-up, 25 October 2026:** The
+[record-by-record review](similar-parameter-review.md) identifies five
+conditional target-branch parameter matches within printed source widths:
+Fp48 HS/LS, Fei-data Mg0.61Fe0.39O HS, Zhuravlev-data Mg0.61Fe0.39O LS,
+and Chen-data nominal Mg0.65Fe0.35O LS. They remain conditional on the existing
+coupled objective, Table 2 priors and fixed constraints. Covariance is still
+unavailable; this does not independently validate the priors, spin crossover
+or original MINUTI protocol. The grouped reproduction summaries below retain
+the earlier coupled-workflow classifications; the linked record assessments
+identify the current narrower branch outcomes.
+
 Primary source: N. V. Solomatova, J. M. Jackson, W. Sturhahn, J. K. Wicks,
 J. Zhao, T. S. Toellner, B. Kalkan, and W. M. Steinhardt, “Equation of state and
 spin crossover of (Mg,Fe)O at high pressure, with implications for explaining

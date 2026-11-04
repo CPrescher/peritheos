@@ -1,5 +1,7 @@
 # Iron: Brown (2000), Dubrovinsky (2000), Yamazaki (2012), Sakai (2014), and Dewaele (2006)
 
+**Uncertainty follow-up, 25 October 2026:** The [record-by-record uncertainty reconstruction](uncertainty-reconstruction.md) supplies the current conditional errors and numerical labels for the selected records from this source. The earlier reconstruction descriptions below retain their original scientific qualifications; statements about missing reconstruction errors or their former ledger labels describe the assessment before that follow-up. Source coefficients, observations, calibration limits and use restrictions are unchanged.
+
 > Current disposition (17 October 2026): the five Sakai (2014) Fe-Ni thermal
 > variants are **not recommended** and are retained as explicit-selection
 > `not_reproduced` records. Historical acceptance statements below are superseded

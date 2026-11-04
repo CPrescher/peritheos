@@ -62,12 +62,13 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "similar",
+            "status": "parity",
             "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "source_status": "parity",
+            "basis": "Agreement within the source's reported parameter error widths; this is not an inferred confidence convention.",
+            "basis_code": "within_reported_parameter_errors",
             "qualifications": [
-              "Point estimates fall within the published errors, but source weighting and covariance are unspecified. All 27 printed 300 K rows are retained; the source RMS range is not recovered. The conflicting thermal coefficient is withheld. See literature-reproductions/litasov-2013-siderite.md.",
+              "Every compared free central value lies inside its printed source error width, with finite reconstructed standard errors under the explicit conditional error model. This is numerical parameter parity, not a formal source-confidence test or recovery of author workflow. Agreement concerns K0 and K0-prime on all 27 printed 300 K rows, conditional on source-fixed V0=293.4 A^3, original printed Au pressures and equal pressure-residual weights. The published-curve pressure RMS remains 0.22958 GPa, outside the manuscript's reported 0.11-0.17 GPa range; that source-data agreement finding is unresolved separately. Exact pressure-scale realization, original objective/weights and author workflow remain unrecovered. No thermal-coefficient conflict or use restriction is resolved by this parameter comparison. Existing reconstructed errors retained; no source confidence convention inferred. Earlier audit statement (superseded only as to missing reconstruction uncertainty and the resulting numerical label): Point estimates fall within the published errors, but source weighting and covariance are unspecified. All 27 printed 300 K rows are retained; the source RMS range is not recovered. The conflicting thermal coefficient is withheld. See literature-reproductions/litasov-2013-siderite.md. See docs/literature-reproductions/uncertainty-reconstruction.md for the complete conditional uncertainty budget.",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/siderite_fe095mn005/#record-siderite_fe095mn005_litasov_2013_bm3",
@@ -82,7 +83,8 @@
                 "difference": 0.22421307528250622,
                 "relative_difference": 0.0018684422940208852,
                 "similar": true,
-                "within_combined_2sigma": null
+                "within_combined_2sigma": null,
+                "within_reported_error": true
               },
               {
                 "parameter": "K0_prime",
@@ -93,12 +95,14 @@
                 "difference": 0.002213986270923396,
                 "relative_difference": 0.0006201642215471698,
                 "similar": true,
-                "within_combined_2sigma": null
+                "within_combined_2sigma": null,
+                "within_reported_error": true
               }
             ],
             "fit": {
               "fit_kind": "fixed_V0_linearized_bm3",
               "objective": "unweighted_pressure_residuals",
+              "weighting": "Existing reconstructed errors retained; no source confidence convention inferred.",
               "absolute_sigma": false,
               "free_parameters": ["K0", "K0_prime"],
               "fixed_parameters": ["V0"],
@@ -108,6 +112,22 @@
               "solver_success": true,
               "rmse_gpa": 0.22730866010656467,
               "published_rmse_gpa": 0.22958469054073105,
+              "covariance": {
+                "parameters": ["K0", "K0_prime"],
+                "standard_errors": {"K0": 1.322686992288662, "K0_prime": 0.13418562510556464},
+                "method": "Previously reconstructed standard errors retained unchanged; no missing off-diagonal covariance inferred.",
+                "previous_assessment": {
+                  "status": "similar",
+                  "qualification": "Point estimates fall within the published errors, but source weighting and covariance are unspecified. All 27 printed 300 K rows are retained; the source RMS range is not recovered. The conflicting thermal coefficient is withheld. See literature-reproductions/litasov-2013-siderite.md."
+                },
+                "assumptions": [
+                  "Existing reconstructed errors retained; no source confidence convention inferred.",
+                  "Local standard errors condition on the recorded row selection, fixed/adopted parameters and pressure-coordinate reduction; calibration systematics and cross-row correlations are not propagated.",
+                  "Residual-scaled estimates assume independent residuals with common variance after any frozen weighting. They are not published parameter uncertainties or a recovered author error budget.",
+                  "Student-t intervals, where supplied, are marginal local approximations, not exact nonlinear or joint confidence regions.",
+                  "Source error confidence is retained as reported (including Dewaele's 95% intervals); missing confidence remains unknown and no new combined-two-sigma flag is inferred."
+                ]
+              },
               "dataset_identifiers": ["siderite_fe095mn005_litasov_2013_table2_pvt"]
             },
             "report": "docs/data/primary-eos-refits.json"

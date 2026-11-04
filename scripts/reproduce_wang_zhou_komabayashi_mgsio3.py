@@ -17,6 +17,7 @@ from pathlib import Path
 import numpy as np
 from scipy.constants import Avogadro
 from scipy.optimize import least_squares
+from scipy.stats import t as student_t
 
 from peritheos.eos.rt import BM3
 from peritheos.eos.thermal import ThermalReferenceStateEOS
@@ -33,6 +34,94 @@ IDS = (
     "akimotoite_zhou_2014_300k_bm3",
     "mgsio3_post_perovskite_komabayashi_2008_thermal_bm3",
 )
+WANG_T0150 = IDS[1]
+
+
+def static_pressure_uncertainty(volume, parameters, residuals):
+    """Local OLS covariance, conditional on exact volumes and fixed K0=210.
+
+    Estimate the common pressure-residual variance with n-2 degrees of freedom.
+    The analytic BM3 Jacobian avoids optimizer finite-difference step dependence.
+    This is a reconstruction error model, not the source's unpublished protocol.
+    """
+    volume = np.asarray(volume, dtype=float)
+    residuals = np.asarray(residuals, dtype=float)
+    v0, kp = parameters
+    dof = len(volume) - 2
+    if dof <= 0 or volume.shape != residuals.shape:
+        raise ValueError("Covariance requires matching arrays and n > 2")
+    x = (v0 / volume) ** (1 / 3)
+    a = x**7 - x**5
+    b = 1 + 0.75 * (kp - 4) * (x**2 - 1)
+    jacobian = np.column_stack(
+        (
+            1.5
+            * 210
+            / (3 * v0)
+            * ((7 * x**7 - 5 * x**5) * b + 1.5 * (kp - 4) * a * x**2),
+            1.125 * 210 * a * (x**2 - 1),
+        )
+    )
+    _, singular, vt = np.linalg.svd(jacobian, full_matrices=False)
+    if singular[-1] <= np.finfo(float).eps * max(jacobian.shape) * singular[0]:
+        raise ValueError("Cannot estimate covariance for a rank-deficient fit")
+    variance = float(residuals @ residuals / dof)
+    covariance = (vt.T / singular**2) @ vt * variance
+    errors = np.sqrt(np.diag(covariance))
+    return dict(
+        parameters=["V0", "K0_prime"],
+        parameter_units=["angstrom^3 per conventional cell (Z=6)", "1"],
+        matrix=covariance.tolist(),
+        standard_errors=dict(zip(("V0", "K0_prime"), map(float, errors))),
+        correlation_matrix=(covariance / np.outer(errors, errors)).tolist(),
+        degrees_of_freedom=dof,
+        residual_variance_gpa2=variance,
+        residual_standard_error_gpa=float(np.sqrt(variance)),
+        local_student_t_95_intervals={
+            name: [
+                float(value - student_t.ppf(0.975, dof) * error),
+                float(value + student_t.ppf(0.975, dof) * error),
+            ]
+            for name, value, error in zip(("V0", "K0_prime"), parameters, errors)
+        },
+        convention="s^2 (J^T J)^-1; s^2=sum(pressure residual^2)/(n-2); analytic BM3 Jacobian; errors are local 1-standard-error estimates, not published errors",
+        assumptions=[
+            "Independent, equal-variance pressure residuals; variance estimated from residual scatter, not supplied pressure errors.",
+            "Observed volumes are conditioned on; printed volume errors are not weights in this pressure-residual reconstruction.",
+            "K0=210 GPa is fixed; its uncertainty, shared pressure-calibration systematics and correlations between observations are not propagated.",
+            "Source confidence convention and original weighting/covariance are unknown; no formal combined-two-sigma comparison is asserted.",
+            f"Student-t intervals use {dof} residual degrees of freedom and a local linear approximation; they are conditional, marginal intervals.",
+        ],
+    )
+
+
+def wang_t0150_volume_weighting_diagnostic(initial):
+    """Check the printed V widths without inventing missing pressure errors."""
+    selected = [
+        r
+        for r in rows(WANG)
+        if r["run"] == "T0150" and float(r["temperature_k"]) == 298
+    ]
+    v, p, widths = np.array(
+        [
+            (
+                float(r["unit_cell_volume_a3"]),
+                float(r["pressure_original_gpa"]),
+                float(r["unit_cell_volume_uncertainty_a3"]),
+            )
+            for r in selected
+        ]
+    ).T
+    fit = solve(lambda x: (BM3(x[0], 210, x[1]).volume(p) - v) / widths, initial)
+    return dict(
+        objective="sum(((V_model(P)-V_observed)/printed_V_error)^2)",
+        parameters=dict(zip(("V0", "K0_prime"), map(float, fit.x))),
+        weighted_sum_squares=float(fit.fun @ fit.fun),
+        degrees_of_freedom=len(v) - 2,
+        weighted_sum_squares_per_dof=float(fit.fun @ fit.fun / (len(v) - 2)),
+        solver_success=bool(fit.success),
+        qualification="Sensitivity diagnostic only; source V error confidence is unspecified and P errors are unavailable. The large standardized scatter shows that the printed V widths alone cannot explain the data under exact P. This is not a recovered author objective or a replacement catalog EOS.",
+    )
 
 
 def rows(filename):
@@ -222,6 +311,31 @@ def reproduce():
                 rounded_K0_sensitivity=sensitivity,
                 derived_alpha0=1.7e-5 - 300 * fitted["alpha1"],
             )
+        if identifier == WANG_T0150:
+            uncertainty = static_pressure_uncertainty(v, fit.x, fit.fun)
+            outcome = results[identifier]
+            for parameter in outcome["parameters"]:
+                parameter["refit_error"] = uncertainty["standard_errors"][
+                    parameter["parameter"]
+                ]
+            outcome.update(
+                status="parity"
+                if all(p["within_reported_error"] for p in outcome["parameters"])
+                else "parity_not_achieved",
+                parity_basis="within_reported_parameter_errors",
+                weighting="Equal weight per pressure residual; absolute_sigma=False; residual variance estimated with n-2 degrees of freedom.",
+                absolute_sigma=False,
+                degrees_of_freedom=uncertainty["degrees_of_freedom"],
+                parameter_covariance=uncertainty["matrix"],
+                covariance_convention=uncertainty["convention"],
+                covariance={
+                    **uncertainty,
+                    "volume_weighting_sensitivity": wang_t0150_volume_weighting_diagnostic(
+                        fit.x
+                    ),
+                },
+                qualification="Conditional numerical parameter parity: both free coefficients agree within the printed source error widths, with reconstructed local standard errors comparable to those widths. Covariance uses residual-scaled unweighted pressure least squares with K0=210 GPa fixed. The source confidence convention, original weighting and covariance remain unknown; no formal combined-two-sigma or author-workflow reproduction is claimed. See docs/literature-reproductions/wang-zhou-komabayashi-mgsio3.md#t0150-uncertainty-reconstruction for the uncertainty budget.",
+            )
     return dict(
         format="peritheos.wang-zhou-komabayashi-mgsio3-refit",
         format_version=1,
@@ -240,8 +354,20 @@ def reproduce():
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--check", action="store_true")
+    parser.add_argument(
+        "--record",
+        choices=IDS,
+        help="Update/check only this fit, retaining the other saved results",
+    )
     args = parser.parse_args()
     report = reproduce()
+    if args.record:
+        saved = json.loads(REPORT.read_text())
+        if saved["source_sha256"] != report["source_sha256"]:
+            raise SystemExit(
+                "Source datasets changed; run the complete reconstruction before a selective update"
+            )
+        report["fits"] = {**saved["fits"], args.record: report["fits"][args.record]}
     if not all(
         p["within_reported_error"]
         for f in report["fits"].values()

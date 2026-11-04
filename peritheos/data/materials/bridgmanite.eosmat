@@ -57,11 +57,13 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "similar",
+            "status": "parity",
             "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "source_status": "parity",
+            "basis": "Conditional parameter agreement under both the combined-error comparison and numerical similarity screen; source confidence conventions remain explicit, and unknown source confidence or shared-data covariance does not become a formal confidence test or author-workflow reproduction.",
+            "basis_code": "conditional_combined_error_parameter_agreement",
             "qualifications": [
+              "Every compared free coefficient meets both the combined-two-width diagnostic and numerical similarity screen. Source confidence and shared-data covariance are not inferred. Recovered missing ledger theta0/gamma0/q errors from primary Table 2, whose footnote explicitly identifies standard deviations. Source a=1 is fixed and b maps to q. Existing 42-row errors-in-variables fit and fixed V0 are unchanged. Source: https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011JB008988 Earlier audit wording (superseded only for the named numerical scope): ",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/bridgmanite/#record-bridgmanite_tange_2012_bm3_1",
@@ -92,7 +94,7 @@
               {
                 "parameter": "theta0",
                 "published": 950.0,
-                "published_error": null,
+                "published_error": 150.0,
                 "refit": 1086.2748429366031,
                 "refit_error": 142.3372117417155,
                 "difference": 136.27484293660314,
@@ -103,7 +105,7 @@
               {
                 "parameter": "gamma0",
                 "published": 1.54,
-                "published_error": null,
+                "published_error": 0.09,
                 "refit": 1.656240872686995,
                 "refit_error": 0.09333637945441978,
                 "difference": 0.11624087268699501,
@@ -114,7 +116,7 @@
               {
                 "parameter": "q",
                 "published": 1.5,
-                "published_error": null,
+                "published_error": 0.3,
                 "refit": 1.664036179285288,
                 "refit_error": 0.2576471653327304,
                 "difference": 0.16403617928528802,
@@ -141,6 +143,7 @@
               "rmse_gpa": 0.14546196922271423,
               "published_rmse_gpa": 0.29288359405650327,
               "reduced_chi_square": 0.8343143632916399,
+              "comparison_scope": "Compared free coefficients: rt_eos.K0, rt_eos.K0_prime, theta0, gamma0, q; scope=parameter_agreement",
               "dataset_identifiers": ["bridgmanite_tange_2012_table1_pvt"]
             },
             "report": "docs/data/primary-eos-refits.json"
@@ -226,11 +229,13 @@
       "evidence": {
         "reproduction": {
           "assessment": {
-            "status": "similar",
+            "status": "parity",
             "scope": "parameter_agreement",
-            "source_status": "similar",
-            "basis": "Every compared free coefficient meets either the recorded combined-two-sigma comparison or parameter-specific numerical similarity screen; the audit does not classify the complete comparison as parity.",
+            "source_status": "parity",
+            "basis": "Conditional parameter agreement under both the combined-error comparison and numerical similarity screen; source confidence conventions remain explicit, and unknown source confidence or shared-data covariance does not become a formal confidence test or author-workflow reproduction.",
+            "basis_code": "conditional_combined_error_parameter_agreement",
             "qualifications": [
+              "Every compared free coefficient meets both the combined-two-width diagnostic and numerical similarity screen. Source confidence and shared-data covariance are not inferred. Recovered missing ledger theta0/gamma0/q errors from primary Table 2, whose footnote explicitly identifies standard deviations. Source a=1 is fixed and b maps to q. Existing 42-row errors-in-variables fit and fixed V0 are unchanged. Source: https://agupubs.onlinelibrary.wiley.com/doi/full/10.1029/2011JB008988 Earlier audit wording (superseded only for the named numerical scope): ",
               "This named numerical assessment alone does not establish author-workflow reproduction, physical accuracy or recommendation for use."
             ],
             "report_url": "https://peritheos.readthedocs.io/en/latest/reconstruction-reports/bridgmanite/#record-bridgmanite_tange_2012_vinet_2",
@@ -261,7 +266,7 @@
               {
                 "parameter": "theta0",
                 "published": 940.0,
-                "published_error": null,
+                "published_error": 140.0,
                 "refit": 1056.9221699968332,
                 "refit_error": 134.7340535372431,
                 "difference": 116.92216999683319,
@@ -272,7 +277,7 @@
               {
                 "parameter": "gamma0",
                 "published": 1.55,
-                "published_error": null,
+                "published_error": 0.09,
                 "refit": 1.6411659546684216,
                 "refit_error": 0.08636308988288818,
                 "difference": 0.09116595466842159,
@@ -283,7 +288,7 @@
               {
                 "parameter": "q",
                 "published": 1.1,
-                "published_error": null,
+                "published_error": 0.3,
                 "refit": 1.2063128272580372,
                 "refit_error": 0.2419367925321258,
                 "difference": 0.10631282725803715,
@@ -310,6 +315,7 @@
               "rmse_gpa": 0.14848743433412506,
               "published_rmse_gpa": 0.2993188690148455,
               "reduced_chi_square": 0.9008642312013324,
+              "comparison_scope": "Compared free coefficients: rt_eos.K0, rt_eos.K0_prime, theta0, gamma0, q; scope=parameter_agreement",
               "dataset_identifiers": ["bridgmanite_tange_2012_table1_pvt"]
             },
             "report": "docs/data/primary-eos-refits.json"

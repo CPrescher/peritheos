@@ -210,7 +210,13 @@ def test_global_refits_select_six_ls_rows_and_do_not_claim_uncertainty_parity():
     assert records[RECORD]["status"] == "not_refittable"
     for rid in LS_RECORDS:
         r = records[rid]
-        assert r["status"] == "similar"
+        p = r["parameters"][0]
+        at_printed_precision = abs(p["refit"] - p["published"]) <= 0.5
+        assert r["status"] == ("parity" if at_printed_precision else "similar")
+        if at_printed_precision:
+            assert (
+                r["parity_basis"] == "conditional_reported_widths_and_print_precision"
+            )
         assert r["observations"] == 6
         assert r["selection"] == "spin_region=low_spin"
         assert r["fixed_parameters"] == ["V0", "K0_prime"]
