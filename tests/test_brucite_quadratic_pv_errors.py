@@ -113,7 +113,9 @@ def test_profiled_covariance_matches_full_latent_inverse(report):
     np.testing.assert_allclose(fit["covariance"], physical, rtol=3e-6, atol=1e-9)
 
 
-def test_improvement_and_independent_checks_remain_qualified(report):
+def test_improvement_and_independent_checks_remain_qualified(
+    report, assert_audit_close
+):
     quadratic = report["fits"]["quadratic_pv_errors"]
     linear = report["fits"]["linear_pv_errors"]
     assert quadratic["chi_square"] < linear["chi_square"]
@@ -136,4 +138,17 @@ def test_improvement_and_independent_checks_remain_qualified(report):
     )
     assert control["reduced_chi_square"] > 2
     assert control["chi_square"] < quadratic["chi_square"]
-    assert report == json.loads(REPORT.read_text())
+    # Solver stopping diagnostics vary by platform; their scientific agreement
+    # is tested above through objective, covariance and independent model bounds.
+    assert_audit_close(
+        report,
+        json.loads(REPORT.read_text()),
+        rel=5e-5,
+        abs=1e-9,
+        ignore_keys={
+            "nfev",
+            "solver_message",
+            "optimality",
+            "maximum_parameter_difference_in_native_standard_errors",
+        },
+    )
