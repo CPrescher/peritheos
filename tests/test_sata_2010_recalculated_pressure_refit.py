@@ -1,5 +1,6 @@
 """Matched pressure-recalculation refits remain separate from the source EOS."""
 
+import copy
 import csv
 import json
 
@@ -98,7 +99,7 @@ def test_linear_refits_match_independent_nonlinear_objective_and_prior_diagnosti
 
 def test_both_pressure_coordinates_and_reference_form_are_compared_without_promotion(
     report,
-    assert_audit_close,
+    assert_pressure_refit_report_close,
 ):
     cross = report["cross_evaluation"]
     assert cross["published_BM3"]["on_original_pressures"]["rmse_gpa"] == pytest.approx(
@@ -120,4 +121,41 @@ def test_both_pressure_coordinates_and_reference_form_are_compared_without_promo
     )
     assert len(report["residuals"]) == 12
     archived = json.loads(REPORT.read_text())
-    assert_audit_close(report, archived, rel=1e-11, abs=1e-10)
+    assert_pressure_refit_report_close(report, archived)
+
+
+@pytest.mark.parametrize(
+    "path",
+    [
+        ("inputs", 0, "volume_a3"),
+        ("inputs", 0, "error_volume_a3"),
+        ("inputs", 0, "published_pressure_gpa"),
+        ("inputs", 9, "fit_pressure_gpa"),
+        ("residuals", 9, "fit_pressure_gpa"),
+        ("residuals", 0, "volume_a3"),
+        ("reference_mBM3_check", "fixed_Vr_cell_a3"),
+        ("fixed_V0_BM3", "original_pressures", "fixed_values", "V0_cell_a3"),
+        ("original_pressure_range_gpa", 1),
+    ],
+)
+def test_report_replay_rejects_changed_observations_and_fixed_anchors(
+    path, assert_pressure_refit_report_close
+):
+    archived = json.loads(REPORT.read_text(encoding="utf-8"))
+    changed = copy.deepcopy(archived)
+    value = changed
+    for key in path[:-1]:
+        value = value[key]
+    value[path[-1]] += 1e-12
+    with pytest.raises(AssertionError):
+        assert_pressure_refit_report_close(archived, changed)
+
+
+def test_report_replay_accepts_only_calculated_pressure_roundoff(
+    assert_pressure_refit_report_close,
+):
+    archived = json.loads(REPORT.read_text(encoding="utf-8"))
+    changed = copy.deepcopy(archived)
+    changed["inputs"][0]["fit_pressure_gpa"] += 1e-12
+    changed["residuals"][0]["fit_pressure_gpa"] += 1e-12
+    assert_pressure_refit_report_close(changed, archived)

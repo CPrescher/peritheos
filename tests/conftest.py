@@ -6,6 +6,23 @@ from fnmatch import fnmatchcase
 import numpy as np
 import pytest
 
+SOURCE_EVIDENCE_FLOAT_PATHS = {
+    "source_equation": ("predicted_volume_a3[[]*]", "difference_a3[[]*]"),
+    "source_equation_check": (
+        "residuals_km_s[[]*]",
+        "rms_km_s",
+        "max_abs_residual_over_reported_Us_width",
+    ),
+    "rankine_hugoniot_replay": (
+        "rows[[]*].replayed_pressure_gpa",
+        "rows[[]*].pressure_difference_gpa",
+        "rows[[]*].replayed_density_g_cm3",
+        "rows[[]*].density_difference_g_cm3",
+        "max_abs_pressure_difference_gpa",
+        "max_abs_density_difference_g_cm3",
+    ),
+}
+
 
 @pytest.fixture(scope="session")
 def _reproduction_cache():
@@ -50,7 +67,9 @@ def assert_audit_close():
     ):
         floating = isinstance(expected, (float, np.floating))
         if floating and (
-            float_paths is None or any(fnmatchcase(path, p) for p in float_paths)
+            float_paths is None
+            or path in float_paths
+            or any(fnmatchcase(path, p) for p in float_paths)
         ):
             assert isinstance(actual, (float, np.floating)), path
             assert actual == pytest.approx(expected, rel=rel, abs=abs), path
@@ -142,7 +161,15 @@ def assert_record_replay_close(assert_audit_close, assert_assessment_close):
             "rankine_hugoniot_replay",
         ):
             if key in right:
-                assert_audit_close(left.pop(key), right.pop(key), rel=1e-12, abs=1e-10)
+                assert_audit_close(
+                    left.pop(key),
+                    right.pop(key),
+                    rel=1e-12,
+                    abs=1e-10,
+                    float_paths=tuple(
+                        f"report.{p}" for p in SOURCE_EVIDENCE_FLOAT_PATHS[key]
+                    ),
+                )
         if "independent_diagnostic_refit" in right:
             assert_audit_close(
                 left.pop("independent_diagnostic_refit"),
@@ -155,5 +182,95 @@ def assert_record_replay_close(assert_audit_close, assert_assessment_close):
                 ),
             )
         assert actual == expected
+
+    return compare
+
+
+@pytest.fixture
+def assert_hugoniot_report_close(assert_audit_close):
+    """Only computed shock diagnostics vary; coefficients and normalization do not."""
+    paths = [
+        f"report.{section}.{p}"
+        for section in ("source_equation_check", "rankine_hugoniot_replay")
+        for p in SOURCE_EVIDENCE_FLOAT_PATHS[section]
+    ]
+    paths += [
+        f"report.independent_diagnostic_refit.{p}"
+        for p in (
+            "parameters_c0_s[[]*]",
+            "residual_scaled_standard_errors[[]*]",
+            "covariance[[]*]",
+            "residuals_km_s[[]*]",
+            "rms_km_s",
+        )
+    ]
+
+    def compare(actual, expected):
+        assert_audit_close(actual, expected, rel=1e-12, abs=1e-12, float_paths=paths)
+
+    return compare
+
+
+@pytest.fixture
+def assert_pressure_refit_report_close(assert_audit_close):
+    """Preserve measured inputs, fixed anchors and decisions in pressure refits."""
+
+    def compare(actual, expected):
+        paths = ["report.diagnostic_input_pressure_range_gpa[[]*]"]
+        for section, fields in (
+            (
+                "fixed_V0_BM3",
+                (
+                    "parameters",
+                    "conditional_standard_errors",
+                    "conditional_covariance",
+                    "residual_gpa",
+                    "rmse_gpa",
+                    "max_abs_gpa",
+                ),
+            ),
+            (
+                "reference_mBM3_check",
+                (
+                    "parameters_Pr_Kr_Kprime",
+                    "standard_errors",
+                    "covariance",
+                    "residual_gpa",
+                    "rmse_gpa",
+                    "max_abs_gpa",
+                ),
+            ),
+        ):
+            for coordinate in ("original_pressures", "recalculated_Sata_unchanged_Li"):
+                for field in fields:
+                    prefix = f"report.{section}.{coordinate}.{field}"
+                    paths.extend((prefix, prefix + "[[]*]"))
+            paths.append(
+                f"report.{section}.coefficient_shift_recalculated_minus_original[[]*]"
+            )
+        for model in expected["cross_evaluation"]:
+            for coordinate in expected["cross_evaluation"][model]:
+                for field in ("rmse_gpa", "max_abs_gpa", "residual_gpa"):
+                    prefix = f"report.cross_evaluation.{model}.{coordinate}.{field}"
+                    paths.extend((prefix, prefix + "[[]*]"))
+        for i, row in enumerate(expected["inputs"]):
+            if row["source"] == 0:
+                paths += [
+                    f"report.inputs[{i}].{key}"
+                    for key in ("fit_pressure_gpa", "pressure_shift_gpa")
+                ]
+        for i, row in enumerate(expected["residuals"]):
+            if row["source"] == 0:
+                paths.append(f"report.residuals[{i}].fit_pressure_gpa")
+            paths += [
+                f"report.residuals[{i}].{model}_residual_{coordinate}_gpa"
+                for model in (
+                    "published_BM3",
+                    "original_pressure_diagnostic_BM3",
+                    "recalculated_pressure_diagnostic_BM3",
+                )
+                for coordinate in ("original", "recalculated")
+            ]
+        assert_audit_close(actual, expected, rel=1e-11, abs=1e-10, float_paths=paths)
 
     return compare

@@ -108,15 +108,27 @@ def test_record_replay_preserves_published_coefficients_and_workflow_claim(
             "reproduction": {
                 "assessment": {"status": "parity"},
                 "author_workflow_reproduced": False,
-                "source_equation": {"predicted_pressure": [10.0]},
+                "source_equation": {
+                    "predicted_volume_a3": [10.0],
+                    "pixel_checkpoints": [[142.5, 131.0]],
+                    "tolerance_a3": 0.41,
+                },
             }
         },
     }
     fresh = copy.deepcopy(archived)
-    fresh["evidence"]["reproduction"]["source_equation"]["predicted_pressure"][0] += (
+    fresh["evidence"]["reproduction"]["source_equation"]["predicted_volume_a3"][0] += (
         1e-12
     )
     assert_record_replay_close(fresh, archived)
+    for field, value in (
+        ("pixel_checkpoints", [[142.500000000001, 131.0]]),
+        ("tolerance_a3", 0.41000000001),
+    ):
+        changed = copy.deepcopy(fresh)
+        changed["evidence"]["reproduction"]["source_equation"][field] = value
+        with pytest.raises(AssertionError):
+            assert_record_replay_close(changed, archived)
     changed = copy.deepcopy(fresh)
     changed["parameters"]["K0"]["value"] += 1e-10
     with pytest.raises(AssertionError):
