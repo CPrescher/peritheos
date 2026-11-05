@@ -11,7 +11,8 @@
     "This inventory records the immutable published 0.17.3 release plus current data/rights overlays. Author declarations and Ma DOCX exclusion shipped in 0.17.4. Subsequent Fei image removal, numerical plot replacements, and Tateno workbook/Chidester ZIP exclusions apply only to later builds; 0.17.4 archives remain unchanged. Inventory tooling and reports were added after 0.17.3 and are not claimed to be files in its archived distributions.",
     "The subsequent CIF review records current COD CC0 declarations against matched source files without rewriting their legacy headers. He (2023) thesis/table reuse terms remain unresolved; failed live repository requests are not licensing evidence. Historical release-state classifications are retained.",
     "After 0.17.4 the He brucite CIF and copied structural values were replaced by CC0 COD 1000054. Original evidence and the obsolete pre-disposition card are private; published archives and all EOS numerical evidence are unchanged.",
-    "The 5 November numerical redistribution review separately records factual-content admission decisions. These do not turn unknown source terms into open grants. The newly verified Zenodo source grant and iridium article NC/ND declaration are current-only overlays."
+    "The 5 November numerical redistribution review separately records factual-content admission decisions. These do not turn unknown source terms into open grants. The newly verified Zenodo source grant and iridium article NC/ND declaration are current-only overlays.",
+    "The ten inherited reflection arrays are superseded in current source/core builds by independently calculated X-ray patterns. Original arrays/documents and the prior inventory remain privately preserved. This does not alter published archives or grant publication-wide rights; FeH2/two SnO2 structural parameters retain explicit source-term caveats."
   ],
   "local_distribution_exclusions": [
     "peritheos/data/datasets/ma_2024_sources/supporting-information.docx",
@@ -25,6 +26,22 @@
     "output/material-candidates/brucite/brucite-before-disposition-2026-10-17.eosmat"
   ],
   "scopes": [
+    {
+      "id": "independent-reference-patterns",
+      "files": [
+        "peritheos/data/calculated-pattern-inputs.json",
+        "peritheos/data/datasets/calculated-patterns.LICENSE.md"
+      ],
+      "status": "limited_or_unspecified_source",
+      "declared_license": "CC0-1.0 for contributor-held input arrangement/output rights; source terms separate",
+      "evidence": [
+        "docs/data/calculated-pattern-replacement.json",
+        "docs/research/calculated-reference-patterns.md"
+      ],
+      "scope": "Ten independently calculated arrays. Six COD CC0 source CIFs; one independently authored ideal rocksalt model; three models use attributed numerical structural parameters without a separately established publication grant. No inherited intensity arrays or publisher artifacts included.",
+      "action": "Retain source terms, method, model/occupancy limitations and calculated-data labels. Do not imply source-publication clearance.",
+      "local_only": true
+    },
     {
       "id": "zenodo-zhu-2020-reviewed-source",
       "files": [
@@ -146,7 +163,13 @@
         "peritheos/data/datasets/vanadium-james-1960-9012770.cif",
         "peritheos/data/datasets/superhydrous-phase-b-koch-muller-2005-mkm0105.cif",
         "peritheos/data/datasets/brucite-zigan-1967-cod-1000054.cif",
-        "peritheos/data/datasets/mgsio3-post-perovskite-murakami-2004-cod-9009217.cif"
+        "peritheos/data/datasets/mgsio3-post-perovskite-murakami-2004-cod-9009217.cif",
+        "peritheos/data/datasets/pattern-source-cod-9007338.cif",
+        "peritheos/data/datasets/pattern-source-cod-1566661.cif",
+        "peritheos/data/datasets/pattern-source-cod-9010029.cif",
+        "peritheos/data/datasets/pattern-source-cod-9006822.cif",
+        "peritheos/data/datasets/pattern-source-cod-9005757.cif",
+        "peritheos/data/datasets/pattern-source-cod-9001848.cif"
       ],
       "status": "open_source_declared",
       "declared_license": "CC0-1.0 (COD data declaration)",
@@ -154,7 +177,8 @@
         "peritheos/data/datasets/cod-cif-sources.LICENSE.md",
         "peritheos/data/datasets/cif-license-review.json",
         "https://www.crystallography.net/cod/#license",
-        "docs/data/post-perovskite-cod-replacement.json"
+        "docs/data/post-perovskite-cod-replacement.json",
+        "docs/data/calculated-pattern-replacement.json"
       ],
       "scope": "Only the four named COD resources, including newly acquired 9009217 shared by two post-perovskite structures. Exact original/served hashes, comment-only server differences and source limitations are recorded in the installed CIF review. Previous CIF bytes and historical source notices remain unchanged; original article rights are separate.",
       "action": "Retain COD identifiers, original scientific attribution, full CC0 text and the installed review receipt; do not extend the data grant to publications or the He thesis CIF.",

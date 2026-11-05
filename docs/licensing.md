@@ -33,11 +33,18 @@ The [EOS/structure compilation review](research/eos-structure-compilation-rights
 now accounts for all 685 parameter records and 234 structural/diffraction
 components, with exact source/runtime bindings. It preserves the pinned Dioptas
 MIT notice and separates numerical-content assessments from remaining
-collection/acquisition questions: seven Holland/THERMOCALC extracts and ten legacy
-peak lists. These 17 components remain present
+collection/acquisition questions: seven Holland/THERMOCALC extracts remain present
 in the runtime package and need resolution or explicit downstream exclusion
 before claiming an entirely cleared archive. No source grant, scientific
 reclassification or dataset selection change is made by this review.
+
+The [calculated-pattern replacement](research/calculated-reference-patterns.md)
+supersedes all ten inherited arrays with independently computed X-ray patterns.
+Six source CIFs have COD CC0 declarations and one ideal model is independently
+authored. FeH2 and the two SnO2 models use attributed numerical structural
+parameters under an explicit factual-content assessment; no separate publication
+grant was established. Contributor-output CC0 does not relicense those sources.
+Original arrays and full records remain privately preserved.
 
 The [post-perovskite COD replacement](research/post-perovskite-cod-replacement.md)
 resolves the two former ICSD-linked structural inputs through freshly acquired

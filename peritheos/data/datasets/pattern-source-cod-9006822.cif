@@ -1,0 +1,87 @@
+#------------------------------------------------------------------------------
+#$Date: 2024-05-02 12:48:35 +0200 (Thu 02 de May de 2024) $
+#$Revision: 291455 $
+#$URL: svn://www.crystallography.net/cod/cif/9/00/68/9006822.cif $
+#------------------------------------------------------------------------------
+#
+# This file is available in the Crystallography Open Database (COD),
+# http://www.crystallography.net/. The original data for this entry
+# were provided the American Mineralogist Crystal Structure Database,
+# http://rruff.geo.arizona.edu/AMS/amcsd.php
+#
+# The file may be used within the scientific community so long as
+# proper attribution is given to the journal article from which the
+# data were obtained.
+#
+data_9006822
+loop_
+_publ_author_name
+'Kagi, H.'
+'Parise, J. B.'
+'Cho, H.'
+'Rossman, G. R.'
+'Loveday, J. S.'
+_publ_section_title
+;
+ Hydrogen bonding interactions in phase A [Mg7Si2O8(OH)6]
+ at ambient and high pressure
+ Sample: P = 0 GPa
+;
+_journal_name_full               'Physics and Chemistry of Minerals'
+_journal_page_first              225
+_journal_page_last               233
+_journal_paper_doi               10.1007/s002690050251
+_journal_volume                  27
+_journal_year                    2000
+_chemical_formula_sum            'H6 Mg7 O14 Si2'
+_space_group_IT_number           173
+_symmetry_space_group_name_Hall  'P 6c'
+_symmetry_space_group_name_H-M   'P 63'
+_cell_angle_alpha                90
+_cell_angle_beta                 90
+_cell_angle_gamma                120
+_cell_length_a                   7.8563
+_cell_length_b                   7.8563
+_cell_length_c                   9.5642
+_cell_formula_units_Z            2
+_cell_volume                     511.229
+_diffrn_ambient_pressure         0
+_exptl_crystal_density_diffrn    2.965
+_cod_depositor_comments
+;
+ Adding the _atom_site_type_symbol data item.
+
+ Antanas Vaitkus,
+ 2017-02-17
+;
+_cod_original_formula_sum        'Mg7 Si2 O14 H6'
+_cod_database_code               9006822
+loop_
+_symmetry_equiv_pos_as_xyz
+x,y,z
+x-y,x,1/2+z
+-y,x-y,z
+-x,-y,1/2+z
+-x+y,-x,z
+y,-x+y,1/2+z
+loop_
+_atom_site_label
+_atom_site_type_symbol
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_U_iso_or_equiv
+Mg1 Mg 0.37220 0.45470 0.38570 0.00988
+Mg2 Mg 0.22520 0.24380 0.11270 0.00988
+Mg3 Mg 0.33333 0.66667 0.10290 0.00988
+Si1 Si 0.66667 0.33333 0.17410 0.00849
+Si2 Si 0.00000 0.00000 0.40180 0.00849
+O1 O 0.20010 0.02740 -0.02400 0.00937
+O2 O 0.47660 0.09880 0.48440 0.00937
+O3 O 0.45380 0.29470 0.23200 0.00937
+O4 O 0.17040 0.43670 0.23980 0.00937
+O5 O 0.66667 0.33333 0.00000 0.00937
+O6 O 0.00000 0.00000 0.23230 0.00937
+HD1 H 0.45500 0.16100 0.40500 0.03293
+HD2 H 0.03800 0.36100 0.24000 0.03293
+_database_code_amcsd 0008404

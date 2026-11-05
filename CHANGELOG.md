@@ -18,6 +18,14 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Changed
 
+- Replace all ten inherited peak lists (452 rows) with 1,154 independently
+  calculated X-ray reference lines. Preserve originals privately, all EOS and
+  observation evidence, and explicit proxy/occupancy limits. Add six CC0 COD
+  CIF inputs and an independent ideal model; three published numerical-parameter
+  models retain source-license caveats. Correct the SnO2 structure citation,
+  update the Fe3S proxy from COD, and ship reproducible inputs and scoped notices.
+  The seven Holland/THERMOCALC collection cases remain unresolved.
+
 - Replace the two ICSD-linked post-perovskite structural inputs with freshly
   acquired CC0 COD 9009217. Preserve original records privately and all existing
   cell/site numbers, EOS parameters, observations and scientific dispositions.

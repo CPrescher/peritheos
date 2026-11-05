@@ -120,7 +120,8 @@ def runtime_document(original):
         doc["source"] = {
             k: _summary(v)
             for k, v in doc["source"].items()
-            if k.startswith("structure_") or k in ("reference", "url", "doi")
+            if k.startswith(("structure_", "pattern_"))
+            or k in ("reference", "url", "doi")
         }
     return doc
 
@@ -235,6 +236,13 @@ def stage_core(destination, root=ROOT):
         "vanadium-james-1960-9012770.cif",
         "superhydrous-phase-b-koch-muller-2005-mkm0105.cif",
         "mgsio3-post-perovskite-murakami-2004-cod-9009217.cif",
+        "pattern-source-cod-9007338.cif",
+        "pattern-source-cod-1566661.cif",
+        "pattern-source-cod-9010029.cif",
+        "pattern-source-cod-9006822.cif",
+        "pattern-source-cod-9005757.cif",
+        "pattern-source-cod-9001848.cif",
+        "calculated-patterns.LICENSE.md",
         "cod-cif-sources.LICENSE.md",
         "dioptas-materials.LICENSE.md",
         "eos-structure-compilations.LICENSE.md",

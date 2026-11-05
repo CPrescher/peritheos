@@ -59,8 +59,11 @@ The later [EOS/structure review](eos-structure-compilation-rights.md) completes
 the current component inventory: 678 EOS and 183 structural components receive
 scoped numerical-content assessments, five structures retain their named COD
 source scopes, and 36 materials contain no structural values. Seven
-Holland/THERMOCALC extracts and ten inherited peak arrays remain unresolved and
-present in runtime exports. The two formerly ICSD-linked topologies were
+Holland/THERMOCALC extracts remain unresolved and present in runtime exports.
+The ten inherited arrays were [replaced by independent X-ray calculations](calculated-reference-patterns.md),
+using six COD CC0 CIFs, an independently authored ideal model and three scoped
+numerical-parameter models without a separate source-publication grant.
+Original arrays remain private; generated-output CC0 is not a source grant. The two formerly ICSD-linked topologies were
 [reacquired from CC0 COD 9009217](post-perovskite-cod-replacement.md), preserving
 all cell/site values and the Fe-bearing pure-MgSiO3 proxy limitation. The exact Dioptas
 upstream MIT notice is now retained. The

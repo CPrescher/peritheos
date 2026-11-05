@@ -1,0 +1,305 @@
+{
+  "schema": "peritheos.calculated-powder-inputs.v1",
+  "generator": "scripts/calculate_reference_patterns.py",
+  "dependency": "gemmi==0.7.4",
+  "output_license": "CC0-1.0 for independently generated numerical arrays; input source licenses remain separate",
+  "method": {
+    "radiation": "non-resonant X-ray",
+    "scattering_factors": "Gemmi IT92 neutral atoms; D uses H electron form factor",
+    "intensity": "sum |F(hkl)|^2 over all reciprocal vectors with the same d, including Friedel pairs, normalized to maximum 100",
+    "d_min_angstrom": 0.8,
+    "d_max_angstrom": 20.0,
+    "omitted": "Lorentz-polarization, absorption, preferred orientation, anomalous dispersion, thermal displacement and instrumental broadening",
+    "rounding": "d: 10 decimal places; relative intensity: 8 decimal places",
+    "zero_threshold_relative_to_maximum_unmerged_intensity": 1e-12,
+    "special_position_snap_tolerance": 5e-06
+  },
+  "materials": {
+    "fe3s": {
+      "lattice": {
+        "a": 9.144,
+        "b": 9.144,
+        "c": 4.509,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 90.0
+      },
+      "space_group": "I-4",
+      "space_group_number": 82,
+      "qualification": "Fe3P-type topology proxy from meteoritic (Fe,Ni)3P COD 9007338: replace all Ni by Fe and P by S. This is not a refined Fe3S structure or a prediction of experimental intensities. The existing Fe3S reference cell is retained.",
+      "cod_id": "9007338",
+      "resource": "datasets/pattern-source-cod-9007338.cif",
+      "sha256": "167da3f6bae80981ea0ba20cbef9a68ef8a1bc8d3daf457754391328ca38b911",
+      "source_license": "CC0-1.0",
+      "source_url": "https://qiserver.ugr.es/cod/9007338.cif",
+      "substitutions": {
+        "Ni": {
+          "Fe": 1
+        },
+        "P": {
+          "S": 1
+        }
+      }
+    },
+    "iceviii": {
+      "lattice": {
+        "a": 4.4493,
+        "b": 4.4493,
+        "c": 6.413,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 90.0
+      },
+      "space_group": "I41/amd",
+      "space_group_number": 141,
+      "qualification": "COD 1566661 is the cited Besson deuterated ice VIII structure at 2.8 GPa / 296 K. Reference cell retained. These are X-ray electron-scattering intensities, not neutron intensities; D has the H form factor.",
+      "cod_id": "1566661",
+      "resource": "datasets/pattern-source-cod-1566661.cif",
+      "sha256": "40f2bbb356817544a5547a3ada76caee26efc7a059703814e2f841b1b800c02d",
+      "source_license": "CC0-1.0",
+      "source_url": "https://qiserver.ugr.es/cod/1566661.cif",
+      "substitutions": {}
+    },
+    "majorite": {
+      "lattice": {
+        "a": 11.501,
+        "b": 11.501,
+        "c": 11.48,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 90.0
+      },
+      "space_group": "I41/a",
+      "space_group_number": 88,
+      "qualification": "COD 9010029 Angel et al. (1989), including reported Mg/Si occupational disorder. Calculate in the CIF native origin using its explicit symmetry operations. Existing EOSMAT sites use an equivalent x+1/2 origin. Reference cell retained.",
+      "cod_id": "9010029",
+      "resource": "datasets/pattern-source-cod-9010029.cif",
+      "sha256": "0d5ee44b0395eceeb67da49d1b27e5862c2f54f20c5eaf81ae674c5ee6329ee5",
+      "source_license": "CC0-1.0",
+      "source_url": "https://qiserver.ugr.es/cod/9010029.cif",
+      "substitutions": {}
+    },
+    "mg7si2o8": {
+      "lattice": {
+        "a": 7.8603,
+        "b": 7.8603,
+        "c": 9.573,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 120.0
+      },
+      "space_group": "P63",
+      "space_group_number": 173,
+      "qualification": "COD 9006822 Kagi et al. (2000) supplies both heavy atoms and H sites, with the heavy-atom model inherited from Horiuchi et al. Reference cell remains the existing Horiuchi cell (7.8603,7.8603,9.573 A), rather than the slightly smaller CIF cell. Rounded special thirds are snapped within 5e-6 before symmetry expansion. No measured peak strengths are represented.",
+      "cod_id": "9006822",
+      "resource": "datasets/pattern-source-cod-9006822.cif",
+      "sha256": "5659e2a004bcbb17ac41368395b54dfc4206537b4ac14ad039b871146756a31d",
+      "source_license": "CC0-1.0",
+      "source_url": "https://qiserver.ugr.es/cod/9006822.cif",
+      "substitutions": {}
+    },
+    "perovskite_orthorhombic": {
+      "lattice": {
+        "a": 4.7963,
+        "b": 4.9346,
+        "c": 6.9092,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 90.0
+      },
+      "space_group": "Pbnm",
+      "space_group_number": 62,
+      "qualification": "Pure MgSiO3 COD 9005757 (Yagi et al. 1978) geometry used as an explicit topology proxy for nominal Mg0.88Fe0.12SiO3. Replace the Mg site by 0.88 Mg + 0.12 Fe statistically; retain the existing EOS reference cell. No Fe-bearing specimen refinement or site preference determination is claimed.",
+      "cod_id": "9005757",
+      "resource": "datasets/pattern-source-cod-9005757.cif",
+      "sha256": "c344ec3ba86009f95072825ca6974c31458664ead19edc429b52624b5ce88c55",
+      "source_license": "CC0-1.0",
+      "source_url": "https://qiserver.ugr.es/cod/9005757.cif",
+      "substitutions": {
+        "Mg": {
+          "Mg": 0.88,
+          "Fe": 0.12
+        }
+      }
+    },
+    "phase_d": {
+      "lattice": {
+        "a": 4.7453,
+        "b": 4.7453,
+        "c": 4.345,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 120.0
+      },
+      "space_group": "P-31m",
+      "space_group_number": 162,
+      "qualification": "COD 9001848 Yang, Prewitt and Frost (1997), including reported occupancies, Mg1.11Si1.89H2.22O6 per cell. Retain existing reference cell. Rounded special thirds are snapped within 5e-6. No Fe site occupancy is invented: the EOS sample contains about 3.7 wt% Fe, so this is a structural surrogate.",
+      "cod_id": "9001848",
+      "resource": "datasets/pattern-source-cod-9001848.cif",
+      "sha256": "8571264372bc1d9a3313eeff45bae304996c8ad0df5c52f468d33912262b1536",
+      "source_license": "CC0-1.0",
+      "source_url": "https://qiserver.ugr.es/cod/9001848.cif",
+      "substitutions": {}
+    },
+    "mgfe60o": {
+      "lattice": {
+        "a": 4.2805,
+        "b": 4.2805,
+        "c": 4.2805,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 90.0
+      },
+      "space_group": "Fm-3m",
+      "space_group_number": 225,
+      "qualification": "Independently authored ideal Fm-3m rocksalt model: 4a (0,0,0) with statistical 0.4 Mg + 0.6 Fe and 4b (1/2,1/2,1/2) O. This nominal model is dedicated to CC0 by the Peritheos contributors; numerical lattice constants remain attributed to Richet et al. (1989). No refined disorder or measured intensities are supplied.",
+      "source_license": "CC0-1.0 (independent ideal model)",
+      "atom_sites": [
+        {
+          "element": "Mg",
+          "wyckoff": "4a",
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "occupancy": 0.4
+        },
+        {
+          "element": "Fe",
+          "wyckoff": "4a",
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "occupancy": 0.6
+        },
+        {
+          "element": "O",
+          "wyckoff": "4b",
+          "x": 0.5,
+          "y": 0.5,
+          "z": 0.5,
+          "occupancy": 1.0
+        }
+      ],
+      "substitutions": {}
+    },
+    "feh2": {
+      "lattice": {
+        "a": 2.714,
+        "b": 2.714,
+        "c": 9.2142,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 90.0
+      },
+      "space_group": "I4/mmm",
+      "space_group_number": 139,
+      "atom_sites": [
+        {
+          "element": "Fe",
+          "wyckoff": "4e",
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.853,
+          "occupancy": 1.0
+        },
+        {
+          "element": "H",
+          "wyckoff": "4c",
+          "x": 0.0,
+          "y": 0.5,
+          "z": 0.0,
+          "occupancy": 1.0
+        },
+        {
+          "element": "H",
+          "wyckoff": "4d",
+          "x": 0.0,
+          "y": 0.5,
+          "z": 0.25,
+          "occupancy": 1.0
+        }
+      ],
+      "substitutions": {},
+      "source_license": "No separate source grant established; assessed numerical structural parameters, not an openly licensed publisher artifact",
+      "assessment": "numerical_structure_assessment",
+      "input_format_license": "CC0-1.0 for contributor transcription/arrangement rights only; source publications are separate",
+      "source_doi": "10.1103/PhysRevLett.113.265504",
+      "source_location": "Figure 2 and pp. 265504-2, 265504-4",
+      "qualification": "Independent calculation using the published I4/mmm model: Fe 4e z=0.853 from the 67 GPa X-ray refinement, H 4c/4d from the original DFT model. Retain existing reference lattice a=2.714, c=9.2142 A rather than the 67 GPa experimental cell. Hydrogen sites are calculated, not experimentally refined; nominal FeH2 may have vacancies. No 2018 NC supplement is used. No claim of current thermodynamic stability or superiority over later hydrogen models."
+    },
+    "sno2_cubic_27gpa": {
+      "lattice": {
+        "a": 4.9201,
+        "b": 4.9201,
+        "c": 4.9201,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 90.0
+      },
+      "space_group": "Pa-3",
+      "space_group_number": 205,
+      "atom_sites": [
+        {
+          "element": "Sn",
+          "wyckoff": "4a",
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "occupancy": 1.0
+        },
+        {
+          "element": "O",
+          "wyckoff": "8c",
+          "x": 0.346,
+          "y": 0.346,
+          "z": 0.346,
+          "occupancy": 1.0
+        }
+      ],
+      "substitutions": {},
+      "source_license": "No separate source grant established; assessed numerical structural parameters, not an openly licensed publisher artifact",
+      "assessment": "numerical_structure_assessment",
+      "input_format_license": "CC0-1.0 for contributor transcription/arrangement rights only; source publications are separate",
+      "source_doi": "10.1107/S1600577519003904",
+      "source_location": "Introduction: Sn 4a and O 8c u=0.346 (reference model, not the refined 44.5 GPa value)",
+      "qualification": "Independent calculation from the reported ideal Pa-3 numerical model: Sn 4a and O 8c u=0.346 (Sneed et al. 2019). Use the existing reference cell, not a new pressure-dependent positional refinement. Source reports oxygen disorder; this ordered approximation does not model it. The 48 GPa structural reference does not extend the separate EOS 16.09-28.85 GPa applicability range. The retained u=0.346 is the introduction's reference value, not the paper's refined u=0.3343(5) at 44.5 GPa."
+    },
+    "sno2_pa_3_at_48gpa": {
+      "lattice": {
+        "a": 4.87,
+        "b": 4.87,
+        "c": 4.87,
+        "alpha": 90.0,
+        "beta": 90.0,
+        "gamma": 90.0
+      },
+      "space_group": "Pa-3",
+      "space_group_number": 205,
+      "atom_sites": [
+        {
+          "element": "Sn",
+          "wyckoff": "4a",
+          "x": 0.0,
+          "y": 0.0,
+          "z": 0.0,
+          "occupancy": 1.0
+        },
+        {
+          "element": "O",
+          "wyckoff": "8c",
+          "x": 0.346,
+          "y": 0.346,
+          "z": 0.346,
+          "occupancy": 1.0
+        }
+      ],
+      "substitutions": {},
+      "source_license": "No separate source grant established; assessed numerical structural parameters, not an openly licensed publisher artifact",
+      "assessment": "numerical_structure_assessment",
+      "input_format_license": "CC0-1.0 for contributor transcription/arrangement rights only; source publications are separate",
+      "source_doi": "10.1107/S1600577519003904",
+      "source_location": "Introduction: Sn 4a and O 8c u=0.346 (reference model, not the refined 44.5 GPa value)",
+      "qualification": "Independent calculation from the reported ideal Pa-3 numerical model: Sn 4a and O 8c u=0.346 (Sneed et al. 2019). Use the existing reference cell, not a new pressure-dependent positional refinement. Source reports oxygen disorder; this ordered approximation does not model it. The 48 GPa structural reference does not extend the separate EOS 16.09-28.85 GPa applicability range. The retained u=0.346 is the introduction's reference value, not the paper's refined u=0.3343(5) at 44.5 GPa."
+    }
+  }
+}

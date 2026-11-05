@@ -52,3 +52,12 @@ The former He (2023) thesis transcription was replaced after 0.17.4. Its CIF
 and copied coordinates/refinement are no longer distribution inputs; original
 evidence is preserved privately. This COD grant does not extend to that thesis.
 The historical unresolved review is retained under `removed_files` in the receipt.
+
+Six further unchanged COD CIFs (`pattern-source-cod-*.cif`) support the independent
+powder calculations: 9007338, 1566661, 9010029, 9006822, 9005757 and 9001848.
+The same COD data/database CC0 declaration applies. Original headers and source
+citations are preserved. See `calculated-patterns.LICENSE.md`,
+`cif-license-review.json` and `../calculated-pattern-inputs.json` for source
+hashes, reference-cell overrides, substitutions and proxy limitations. These
+CIF grants do not extend to the three other factual-parameter models, their
+publications, any EOS or observation dataset.

@@ -12,7 +12,10 @@ from peritheos import Material, get_material_document, load_eosmat
 from peritheos.eosmat import validate_eosmat_document
 from peritheos_build import ROOT, digest, stage_core
 from scripts.merge_source_bindings import accepts_merge_binding
-from scripts.scientific_source_snapshot import scientific_sha256
+from scripts.scientific_source_snapshot import (
+    assert_snapshot_lineage,
+    scientific_snapshot,
+)
 
 PROOF_PATH = ROOT / "docs/data/post-perovskite-cod-replacement.json"
 PROOF = json.loads(PROOF_PATH.read_bytes())
@@ -108,7 +111,7 @@ def test_both_cells_and_sites_regenerate_from_cod_without_numeric_change():
 
 
 def test_only_root_source_and_notes_change_with_exact_frozen_source_pairs():
-    assert scientific_sha256() == PROOF["catalog_scientific_sha256"]
+    assert_snapshot_lineage(scientific_snapshot(), PROOF["catalog_scientific_sha256"])
     for material, binding in PROOF["material_bindings"].items():
         path = ROOT / "peritheos/data/materials" / f"{material}.eosmat"
         payload = path.read_bytes()
@@ -154,7 +157,7 @@ def test_current_review_has_five_cod_components_and_no_icsd_case():
     )
     assert review["counts"]["assessments"]["cod_source_and_numerical_changes"] == 5
     assert "icsd_acquisition_review_required" not in review["counts"]["assessments"]
-    assert sum(e["assessment"].endswith("required") for e in review["entries"]) == 17
+    assert sum(e["assessment"].endswith("required") for e in review["entries"]) == 7
     assert (
         review["post_perovskite_cod_replacement"]["sha256"]
         == hashlib.sha256(PROOF_PATH.read_bytes()).hexdigest()

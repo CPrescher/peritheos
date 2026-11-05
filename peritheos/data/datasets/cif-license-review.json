@@ -1,7 +1,7 @@
 {
   "schema": "peritheos.cif-license-review.v1",
   "reviewed_on": "2026-11-04",
-  "scope": "Current bundled CIF source declarations plus historical removal receipt. On 2026-11-05 the He structure was replaced with COD 1000054; other CIF payloads and EOS evidence remain unchanged. No publication-wide grant is inferred. A subsequent 2026-11-05 source replacement adds CC0 COD 9009217 for two post-perovskite structural records without changing numerical model values.",
+  "scope": "Current bundled CIF source declarations plus historical removal receipt. On 2026-11-05 the He structure was replaced with COD 1000054; other CIF payloads and EOS evidence remain unchanged. No publication-wide grant is inferred. A subsequent 2026-11-05 source replacement adds CC0 COD 9009217 for two post-perovskite structural records without changing numerical model values. Six additional unchanged COD source CIFs support independently calculated reference patterns; proxy substitutions, reference-cell overrides and numerical-parameter-only inputs are separately documented.",
   "cod_policy": {
     "url": "https://www.crystallography.net/cod/",
     "retrieved_sha256": "59957a39a570af7b9194b2c703ebdb0a20310af20b3445f5baf49c2f63f22cbd",
@@ -129,6 +129,90 @@
         "sha256": "999bb55448a969afb6f6f8c57c2e9b0d9931154fa32f2e88cae223800594d594",
         "bytes": 8028
       }
+    },
+    {
+      "file": "pattern-source-cod-9007338.cif",
+      "cod_id": "9007338",
+      "local_sha256": "167da3f6bae80981ea0ba20cbef9a68ef8a1bc8d3daf457754391328ca38b911",
+      "cif_payload_sha256_ignoring_only_svn_date_url": "4facc854a7d5bf56efbd40322e11cd18f8c3a6c60e32fb8e42b04cb6955defbd",
+      "status": "open_source_declared",
+      "source_license": "CC0-1.0, as declared by COD for its data/database",
+      "retrieval": {
+        "url": "https://qiserver.ugr.es/cod/9007338.cif",
+        "sha256": "167da3f6bae80981ea0ba20cbef9a68ef8a1bc8d3daf457754391328ca38b911",
+        "bytes": 3125
+      },
+      "qualification": "Fe3P-type topology proxy from meteoritic (Fe,Ni)3P COD 9007338: replace all Ni by Fe and P by S. This is not a refined Fe3S structure or a prediction of experimental intensities. The existing Fe3S reference cell is retained. Original CIF bytes and headers retained; publication itself not licensed by COD."
+    },
+    {
+      "file": "pattern-source-cod-1566661.cif",
+      "cod_id": "1566661",
+      "local_sha256": "40f2bbb356817544a5547a3ada76caee26efc7a059703814e2f841b1b800c02d",
+      "cif_payload_sha256_ignoring_only_svn_date_url": "e0b9462480cbc03af64642df15342037737e6b84875e6d36f470c7332793ffe4",
+      "status": "open_source_declared",
+      "source_license": "CC0-1.0, as declared by COD for its data/database",
+      "retrieval": {
+        "url": "https://qiserver.ugr.es/cod/1566661.cif",
+        "sha256": "40f2bbb356817544a5547a3ada76caee26efc7a059703814e2f841b1b800c02d",
+        "bytes": 2887
+      },
+      "qualification": "COD 1566661 is the cited Besson deuterated ice VIII structure at 2.8 GPa / 296 K. Reference cell retained. These are X-ray electron-scattering intensities, not neutron intensities; D has the H form factor. Original CIF bytes and headers retained; publication itself not licensed by COD."
+    },
+    {
+      "file": "pattern-source-cod-9010029.cif",
+      "cod_id": "9010029",
+      "local_sha256": "0d5ee44b0395eceeb67da49d1b27e5862c2f54f20c5eaf81ae674c5ee6329ee5",
+      "cif_payload_sha256_ignoring_only_svn_date_url": "f8ee8aa41d18063f766bb4df6fd3a95c4f1de358872ee141e84ba369424be38e",
+      "status": "open_source_declared",
+      "source_license": "CC0-1.0, as declared by COD for its data/database",
+      "retrieval": {
+        "url": "https://qiserver.ugr.es/cod/9010029.cif",
+        "sha256": "0d5ee44b0395eceeb67da49d1b27e5862c2f54f20c5eaf81ae674c5ee6329ee5",
+        "bytes": 3170
+      },
+      "qualification": "COD 9010029 Angel et al. (1989), including reported Mg/Si occupational disorder. Calculate in the CIF native origin using its explicit symmetry operations. Existing EOSMAT sites use an equivalent x+1/2 origin. Reference cell retained. Original CIF bytes and headers retained; publication itself not licensed by COD."
+    },
+    {
+      "file": "pattern-source-cod-9006822.cif",
+      "cod_id": "9006822",
+      "local_sha256": "5659e2a004bcbb17ac41368395b54dfc4206537b4ac14ad039b871146756a31d",
+      "cif_payload_sha256_ignoring_only_svn_date_url": "fca4e166eaba095e290b06a157ba72077f13f5d58ae1353db4896d92cfe247e9",
+      "status": "open_source_declared",
+      "source_license": "CC0-1.0, as declared by COD for its data/database",
+      "retrieval": {
+        "url": "https://qiserver.ugr.es/cod/9006822.cif",
+        "sha256": "5659e2a004bcbb17ac41368395b54dfc4206537b4ac14ad039b871146756a31d",
+        "bytes": 2722
+      },
+      "qualification": "COD 9006822 Kagi et al. (2000) supplies both heavy atoms and H sites, with the heavy-atom model inherited from Horiuchi et al. Reference cell remains the existing Horiuchi cell (7.8603,7.8603,9.573 A), rather than the slightly smaller CIF cell. Rounded special thirds are snapped within 5e-6 before symmetry expansion. No measured peak strengths are represented. Original CIF bytes and headers retained; publication itself not licensed by COD."
+    },
+    {
+      "file": "pattern-source-cod-9005757.cif",
+      "cod_id": "9005757",
+      "local_sha256": "c344ec3ba86009f95072825ca6974c31458664ead19edc429b52624b5ce88c55",
+      "cif_payload_sha256_ignoring_only_svn_date_url": "14908b24c0386c1985a6471feba63f6420b3bd78d674b578175e929824c045f5",
+      "status": "open_source_declared",
+      "source_license": "CC0-1.0, as declared by COD for its data/database",
+      "retrieval": {
+        "url": "https://qiserver.ugr.es/cod/9005757.cif",
+        "sha256": "c344ec3ba86009f95072825ca6974c31458664ead19edc429b52624b5ce88c55",
+        "bytes": 2453
+      },
+      "qualification": "Pure MgSiO3 COD 9005757 (Yagi et al. 1978) geometry used as an explicit topology proxy for nominal Mg0.88Fe0.12SiO3. Replace the Mg site by 0.88 Mg + 0.12 Fe statistically; retain the existing EOS reference cell. No Fe-bearing specimen refinement or site preference determination is claimed. Original CIF bytes and headers retained; publication itself not licensed by COD."
+    },
+    {
+      "file": "pattern-source-cod-9001848.cif",
+      "cod_id": "9001848",
+      "local_sha256": "8571264372bc1d9a3313eeff45bae304996c8ad0df5c52f468d33912262b1536",
+      "cif_payload_sha256_ignoring_only_svn_date_url": "751e1fa03bf08ba5c141f4a318dca7ccce4c88d5198e4c4c2adedd13ab214688",
+      "status": "open_source_declared",
+      "source_license": "CC0-1.0, as declared by COD for its data/database",
+      "retrieval": {
+        "url": "https://qiserver.ugr.es/cod/9001848.cif",
+        "sha256": "8571264372bc1d9a3313eeff45bae304996c8ad0df5c52f468d33912262b1536",
+        "bytes": 3117
+      },
+      "qualification": "COD 9001848 Yang, Prewitt and Frost (1997), including reported occupancies, Mg1.11Si1.89H2.22O6 per cell. Retain existing reference cell. Rounded special thirds are snapped within 5e-6. No Fe site occupancy is invented: the EOS sample contains about 3.7 wt% Fe, so this is a structural surrogate. Original CIF bytes and headers retained; publication itself not licensed by COD."
     }
   ],
   "limits": [

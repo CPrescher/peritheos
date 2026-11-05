@@ -286,7 +286,7 @@ def independent_generation_baseline():
     from pathlib import Path
 
     from scripts.scientific_source_snapshot import (
-        scientific_sha256,
+        assert_snapshot_lineage,
         scientific_snapshot,
     )
 
@@ -294,7 +294,9 @@ def independent_generation_baseline():
     proof = json.loads(
         (root / "docs/data/independent-lineage-buffers.json").read_bytes()
     )
-    assert scientific_sha256() == proof["after_catalog_scientific_sha256"]
+    assert_snapshot_lineage(
+        scientific_snapshot(), proof["after_catalog_scientific_sha256"]
+    )
     originals = {}
     for material, binding in proof["prior_documents"].items():
         payload = (root / "peritheos/data/materials" / f"{material}.eosmat").read_text()
@@ -329,12 +331,5 @@ def independent_generation_baseline():
                 retained.append(dataset)
         document["datasets"] = retained
     assert removed == set(proof["added_dataset_declarations"])
-    assert (
-        hashlib.sha256(
-            json.dumps(
-                snapshot, sort_keys=True, separators=(",", ":"), allow_nan=False
-            ).encode()
-        ).hexdigest()
-        == proof["before_catalog_scientific_sha256"]
-    )
+    assert_snapshot_lineage(snapshot, proof["before_catalog_scientific_sha256"])
     return {"proof": proof, "original_material_bytes": originals, "snapshot": snapshot}

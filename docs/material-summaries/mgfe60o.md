@@ -26,7 +26,7 @@ and recommendation for use are distinct assessments.
 | Stored EOS records | 3 |
 | Observation datasets | 1 |
 
-MW60 magnesiowustite containing 60 mol% FeO. The EOS volume uses the four-cation/four-anion conventional rocksalt cell. The legacy diffraction peaks are retained for interchange.
+Historical material/card import retained as provenance; the inherited hkl/d/intensity array is superseded and preserved privately with its full original document. The present peaks are independent kinematic X-ray calculations (0.8-20 A, sum multiplicity\*\|F\|^2, maximum 100), not measured intensities or a recovered source-card selection. Independently authored ideal Fm-3m rocksalt model: 4a (0,0,0) with statistical 0.4 Mg + 0.6 Fe and 4b (1/2,1/2,1/2) O. This nominal model is dedicated to CC0 by the Peritheos contributors; numerical lattice constants remain attributed to Richet et al. (1989). No refined disorder or measured intensities are supplied. Original scientific EOS evidence, observations and applicability limits are unchanged.
 
 ## Automatic selections
 

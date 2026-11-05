@@ -23,7 +23,7 @@ and recommendation for use are distinct assessments.
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac\_user\_jcpds/Mg7Si2O8(OH)6-phaseA.jcpds, JCPDS/dac\_user\_jcpds/Users data/Mg7Si2O8(OH)6-phaseA\_.jcpds, JCPDS/dac\_user\_jcpds/Users data/Mg7Si2O8(OH)6-phaseA\_1.jcpds. Mg, Si, and O coordinates are from Horiuchi et al., American Mineralogist 64, 593-598 (1979), COD 9000724. The two ambient-pressure H sites are from the deuterated neutron refinement of Kagi et al., Phys. Chem. Miner. 27, 225-233 (2000), doi:10.1007/s002690050251. The legacy peaks are retained.
+Historical material/card import retained as provenance; the inherited hkl/d/intensity array is superseded and preserved privately with its full original document. The present peaks are independent kinematic X-ray calculations (0.8-20 A, sum multiplicity\*\|F\|^2, maximum 100), not measured intensities or a recovered source-card selection. COD 9006822 Kagi et al. (2000) supplies both heavy atoms and H sites, with the heavy-atom model inherited from Horiuchi et al. Reference cell remains the existing Horiuchi cell (7.8603,7.8603,9.573 A), rather than the slightly smaller CIF cell. Rounded special thirds are snapped within 5e-6 before symmetry expansion. No measured peak strengths are represented. Original scientific EOS evidence, observations and applicability limits are unchanged.
 
 ## Automatic selections
 

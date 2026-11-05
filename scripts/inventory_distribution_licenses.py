@@ -370,6 +370,25 @@ def components(payloads, scopes, current, component_review=None):
                     ),
                     required_action=scope["action"],
                 )
+        if (
+            current
+            and document.get("source", {}).get("pattern_kind")
+            == "independently_calculated_xray"
+        ):
+            rows[-1].update(
+                content_kind="Independently calculated X-ray reference pattern and attributed structural model",
+                scope_note="Generated outputs CC0 for contributor-held rights. See calculated-pattern-inputs.json for each input: six COD CC0 CIFs, one ideal model, three numerical-parameter assessments without a source-publication grant. No inherited peak collection is used.",
+                rights_statements=compact(
+                    {
+                        "pattern_output_license": document["source"][
+                            "pattern_output_license"
+                        ],
+                        "pattern_input_source_terms": document["source"][
+                            "pattern_input_source_terms"
+                        ],
+                    }
+                ),
+            )
     by_doi = defaultdict(list)
     for row in rows:
         ref = json.loads(row["source"])

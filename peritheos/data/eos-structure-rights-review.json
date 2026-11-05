@@ -2,8 +2,8 @@
   "schema": "peritheos.eos-structure-rights-review.v1",
   "reviewed_on": "2026-11-05",
   "baseline_commit": "62f147dea8f1bfa8272a1409dc806c2b9d3d678f",
-  "policy_sha256": "c8ef2d1056d927552d20a99e93885e760b3373401a88cdfe90290e22687ecc6a",
-  "catalog_scientific_sha256": "cfa0fff415cf0b01eb3fb2f59edfe177aba3b0153d0a78b38cf474f4a6167240",
+  "policy_sha256": "91d8656c22f5e3f4dd670e6739a0211b403c31d0e1707f06a912f785c7e775ec",
+  "catalog_scientific_sha256": "c0d4a555a1750ee5cd69ba18ec6dda841297b662d1c9bbbaa51d2c7e0ce2fd7c",
   "scope": "A rights/provenance review of current EOS parameters and structural/diffraction components, not a new source license or a distribution exclusion policy.",
   "limits": [
     "Assessment concerns the existing normalized numerical records and cited lineage; no fresh transcription or legal clearance of every original publication is claimed.",
@@ -11,7 +11,8 @@
     "Unknown original terms remain unknown. An article or deposit grant does not automatically cover an entire material.",
     "No new contributor dedication or source grant is made; retain existing scoped notices and scientific qualifications.",
     "The remaining 17 unresolved components remain in the current runtime export; this review does not silently remove structures, peaks or EOS records. They require a follow-up before claiming an entirely cleared archive.",
-    "The dataset selection, including five held original entries, is unchanged. Previously published archives and historical inventory rows remain historical evidence."
+    "The dataset selection, including five held original entries, is unchanged. Previously published archives and historical inventory rows remain historical evidence.",
+    "The ten inherited arrays were subsequently replaced by independent calculations. Original arrays/full records remain private with hashes; generated intensity patterns are not measurements. Six COD CIFs and an independently authored ideal model have explicit CC0 declarations. FeH2 and two SnO2 inputs remain scoped numerical-content assessments without a separate publication grant."
   ],
   "counts": {
     "materials": 234,
@@ -21,7 +22,7 @@
     "migration_records": 144,
     "assessments": {
       "cod_source_and_numerical_changes": 5,
-      "legacy_peak_collection_review_required": 10,
+      "independently_calculated_pattern": 10,
       "no_structural_values": 36,
       "numerical_parameter_assessment": 678,
       "numerical_structure_assessment": 183,
@@ -138,6 +139,10 @@
     "previous_review_sha256": "e9a0f6ed5f88a907c2e88e20cdab81f8180480e43b7e6583b1568d671fe95ddc",
     "scope": "Two structural sources independently replaced with COD 9009217. All numeric/scientific model values unchanged; prior EOS decisions and remaining collection cases unchanged."
   },
+  "calculated_pattern_replacement": {
+    "receipt": "docs/data/calculated-pattern-replacement.json",
+    "sha256": "37e42fa789b3070410b88ec381759626f259c47fcc0ae87061e98bf73e9bb891"
+  },
   "material_sha256": {
     "peritheos/data/materials/akimotoite.eosmat": "23757b5ebe1ce85c7cdf562e80007ddb7e5ae48544837635d48bb8c2ae65b8b5",
     "peritheos/data/materials/al2o3_perovskite.eosmat": "8fdd24e38736fe8d8464d790a14f7b5ba9f9e3e83427f2fbdac493676acaeab2",
@@ -200,10 +205,10 @@
     "peritheos/data/materials/fe09ni01_hcp.eosmat": "160693d305a1ea0195ed78a40353000f72f3f64e1e207dc76c752f4b85e59408",
     "peritheos/data/materials/fe2o3.eosmat": "fbaf6005f1b24e26050456c56124ba9cbf145f585c98fe7ead889ff886b05e99",
     "peritheos/data/materials/fe3o4.eosmat": "c5ee99d0f782bfa6024889638430448dc1a8dc4de4503e7ae64db3a4a5176275",
-    "peritheos/data/materials/fe3s.eosmat": "51be914081d5ef86939e20d20f3b1921adbebaf0d12412b6da2e839c4fc76a97",
+    "peritheos/data/materials/fe3s.eosmat": "2da5bf1e2003cd8f44c93263a64126c2484a5b52dc2e4dd5ade43fa4ded15a25",
     "peritheos/data/materials/fe_bearing_al_phase_d.eosmat": "b95a97557f4f4d39ab178ec524ca6f3276b03f39bad88dec706485c103ad7721",
     "peritheos/data/materials/fe_fcc.eosmat": "67ae1ea599b755389a17bd7c0fbdf5d5577c068da65d408cb76b383dd9f07333",
-    "peritheos/data/materials/feh2.eosmat": "778d47a7b0219986ad8314fbf0aecc7db01dff24ead246a639887f45a899809d",
+    "peritheos/data/materials/feh2.eosmat": "f43d368df95d4630cba243bdbd00c539b81384ae306f718a2cb984e648dbe010",
     "peritheos/data/materials/feh3.eosmat": "2b667859d1b060ce440b111ef12b7b6393e14b9b01c7be90f6f7b1c53d82466c",
     "peritheos/data/materials/feo.eosmat": "13727ceec50c6c0ca7c24c257e56c42c7bbe20470b699157ac1492525fd11cc2",
     "peritheos/data/materials/feo_b8_2.eosmat": "b845816505347e369ffc3a0be818f0596378e185632deda97296de3d8e4d3db6",
@@ -226,7 +231,7 @@
     "peritheos/data/materials/hydrous_stishovite_nisr_2017.eosmat": "250f132a00bbf2bd0a2d46daa065e4831245643e0d76e78cdc65c722c4eaf4da",
     "peritheos/data/materials/ice_vi.eosmat": "40ee658212ca026081273e1a39bba1c152157d02dfa9fd9c77dd5720d53848eb",
     "peritheos/data/materials/ice_vii.eosmat": "788b0b073a0575dcbbde67b5dc3a64028dad2e44d6a6b344cbd7ef6c3e4aca62",
-    "peritheos/data/materials/iceviii.eosmat": "e2a39e460dd02fa05655099989c79e4ce405930e240e6fd2bf2bc7efa74b248c",
+    "peritheos/data/materials/iceviii.eosmat": "b08c73ba4af82690bb5889bc8d41fefa014c3fd0cc71d92487c00e2f67302422",
     "peritheos/data/materials/indium_nitride.eosmat": "01472cff93a29961296e003148cadbdd88bf1652e1f1513753791c73b0a25035",
     "peritheos/data/materials/iridium.eosmat": "a1b2ad65ad6efc1da2f645d0b0e97062037964100a46494ed3ac8003a13c4f6a",
     "peritheos/data/materials/iron.eosmat": "c580009d59ed2224383bbc31f897d05581ff788fbe10c9a4de26985c69ce8efb",
@@ -248,7 +253,7 @@
     "peritheos/data/materials/magnesite.eosmat": "e9f8c98a7ef600b47b64c3890dd2932df600aaa494fbee21b12b15bc390110f7",
     "peritheos/data/materials/magnesium_bcc.eosmat": "89a1351096a105a706168374f4826842ffa9f9381d4dc41236969dd5e15fb43c",
     "peritheos/data/materials/magnesium_hcp.eosmat": "b82e6383f60bccd4bfb0beaec20bd4e9fb6c935ef43c6b3b43b328b840cbd6d9",
-    "peritheos/data/materials/majorite.eosmat": "68bba460da2c5d0689b541f39a4113c16c20c6374f64d8fdd4c258ee0235549a",
+    "peritheos/data/materials/majorite.eosmat": "95fa6350d156fce15982664d93f4c61f870888c48b3c87f1835893a36c634cf9",
     "peritheos/data/materials/manganese_alpha.eosmat": "94a444987adc1069abee2fa3096c4d559a7b8d4e71593f6c7a8cbf4db0888fe3",
     "peritheos/data/materials/mg0125fe0875o.eosmat": "94e58e65514a738fca702780d274492c780d98a6a7f529eb0e9da25e0b355ca7",
     "peritheos/data/materials/mg0215fe0762vac0023o_b1.eosmat": "ee7fa202baa1af76b006d099d1eb599a07e55b0cd0a21e1e4a3e8daf592b3b19",
@@ -284,14 +289,14 @@
     "peritheos/data/materials/mg0991fe0008mn0001co3_magnesite.eosmat": "2e8eeb59ad5c2adedf03b656dfceff19c718ba24b32af89a87fed93b12e0944c",
     "peritheos/data/materials/mg09al02si09o3_bridgmanite.eosmat": "9152fbef31569f4997c0c9223c5165480fcfc21083bd7ac58a1401793e7de393",
     "peritheos/data/materials/mg09fe01sio3_bridgmanite.eosmat": "2720a2c8ee29a4c0225ba5f425f5847236d019be35d1b2573c654bc5dc21388a",
-    "peritheos/data/materials/mg7si2o8.eosmat": "11bd47896004c6afea95a18d59c4afffd224112634e09510cb45b394ef6dd855",
+    "peritheos/data/materials/mg7si2o8.eosmat": "2af6bbe5145d42ff9a89c4e829cafd2ab164441ec7fe2c075bf02b6c302db7cb",
     "peritheos/data/materials/mgal00625h00625si09375o3_bridgmanite.eosmat": "438573231e3fe2ef73c77d1e194d398755c4dd1034ebf5f786214a8b9e70a17a",
     "peritheos/data/materials/mgal00625h00625si09375o3_post_perovskite.eosmat": "58af58efac89594612dfbdfde3fded01cc5d2209e9b78134888f02ced52a2080",
     "peritheos/data/materials/mgal0125si0875o29375_bridgmanite.eosmat": "1ef35abbffa37e09329040636ed8c9358db620f9a812dacbf258a6f6720ec922",
     "peritheos/data/materials/mgal0125si0875o29375_post_perovskite.eosmat": "04c7f5843ff21b52b1aaf5de0113def374a825ea4706402e1cd9751ae00b95d0",
     "peritheos/data/materials/mgal2o4_cafe2o4.eosmat": "a1250cec20d4e4b043c111c5995505408c82426aad8ebc54fdce6b9e81fc0fc5",
     "peritheos/data/materials/mgal2o4_cati2o4.eosmat": "f439feabe331af4325b444cb55f785d7c923b78b013fc8ba45cb9cee3e57a12d",
-    "peritheos/data/materials/mgfe60o.eosmat": "20777c25d6f8ffa4e503f9050bce89b7a62f65747f704ceca38ac4b6f461cfc0",
+    "peritheos/data/materials/mgfe60o.eosmat": "55c6fccbee7a5e3740c38ceadf016beb3dea41ac4aaa590a9c7572566c2b7147",
     "peritheos/data/materials/mgfe94o_b1.eosmat": "d0feace230a1f5aa164f30a2a3cfc5358e225e86fecf0c97c5a20efe72e9511e",
     "peritheos/data/materials/mgfe94o_rhombohedral.eosmat": "d57537f68521515fc535e6d5e176eff79d8b1648ee9533cd2985c2ff0c5aad89",
     "peritheos/data/materials/mggeo3_post_perovskite.eosmat": "3ddafa62dc064b45924eb21c00f674ece03f8770ba79f45e30be16b980ab8b98",
@@ -321,8 +326,8 @@
     "peritheos/data/materials/osmium.eosmat": "d9ae730539177e9c4a221fd6c4a651d3361b7fa296c96441794c524bcbc46236",
     "peritheos/data/materials/palladium.eosmat": "f324551378c5cc16192e01acdd0277c18a834b6df08ee6ded25efd3b7a50e5b5",
     "peritheos/data/materials/pbs_b1.eosmat": "2518014200cbf810ed29bd5fb7f33d58244140a406af885e7c0d60c39d062ff7",
-    "peritheos/data/materials/perovskite_orthorhombic.eosmat": "8f85500870e33f8b5a21e4d9f37a7e826c156b77e79d889d8710df16f8808a5a",
-    "peritheos/data/materials/phase_d.eosmat": "b1697f4a0766b0a9f4c18064b52dfe9e206b9c8f031ec8b7ecb96def6d500399",
+    "peritheos/data/materials/perovskite_orthorhombic.eosmat": "dd7929eead62e7227f1d2a8cc193b3237869d285aaad163d0b70be3e1ea48cb1",
+    "peritheos/data/materials/phase_d.eosmat": "c9a204f6d6dfd788994fab3b7015f5d7b48610e36e8b003ab77889e49c52863e",
     "peritheos/data/materials/phase_e_fe0072.eosmat": "9e3a5df9c62bbdeaa7cfadc37f1a59852bff080e15ab0c6a2d6759b7f7c4a7df",
     "peritheos/data/materials/phase_egg.eosmat": "44162fc0f358a8e010b51a0da5c86e9a75afe1e6e2bc2cfb2cec2063c7ad9bca",
     "peritheos/data/materials/phase_h.eosmat": "45737fdeb09245ec89e6ed85c28a7c5a220ed81896800b7a87b1aaec857c6f7d",
@@ -350,8 +355,8 @@
     "peritheos/data/materials/silver.eosmat": "bd64feb56d8f772014de0de0e216e98a5d58878a46b74c76f3869fa143c633b9",
     "peritheos/data/materials/sio2_stv_andr.eosmat": "ba211c4295801a9bebe9c90d4f24452db371f65276372c2b9fb9f4dc0546fc4b",
     "peritheos/data/materials/sno2.eosmat": "c366801b5719e216ff06f7b92078e1d0189eebd03a5742246f9dd28f954b6524",
-    "peritheos/data/materials/sno2_cubic_27gpa.eosmat": "88ab189520c8b606a909ad4ce28fe63fc2ee964c0085e4c6b56561d6fed89c09",
-    "peritheos/data/materials/sno2_pa_3_at_48gpa.eosmat": "ed6f69cdcb9148193bfc7b68aa12489a2b1d7b34901ec44f436af28df135515d",
+    "peritheos/data/materials/sno2_cubic_27gpa.eosmat": "afc4aa112747ef3ddad9b41e404ff74905fbd10d48879d10fc273f3180b8690a",
+    "peritheos/data/materials/sno2_pa_3_at_48gpa.eosmat": "d1769a27480586a469c517968a038ca63cc03744a43540c9f243d7799ccf846e",
     "peritheos/data/materials/sro.eosmat": "6d2c744a660e5a736c374043aee3d39e7087952b7febcf3eed024361291854ae",
     "peritheos/data/materials/sro_b2.eosmat": "8f9a509e34247d8153304811285637d2ac375c71a27549305a43136cc2dcd907",
     "peritheos/data/materials/srsio3_6h_perovskite.eosmat": "1edbf2d4ede501395ce97940e7e4ee9a40b4e050412226317d989416da8c6b9e",
@@ -375,6 +380,7 @@
     "peritheos/data/materials/zirconium_omega.eosmat": "9ca986a36f8ad246a529d24f8db65b68458cb5c96ec9521816c88f4660713ecf"
   },
   "rationales": {
+    "independently_calculated_pattern": "Independent kinematic X-ray reflection array, not an inherited card or measured intensities. Input models, source checksums, proxy/occupancy limits and omitted corrections are explicit in calculated-pattern-inputs.json. Six CIFs carry COD CC0 declarations; one ideal model is independently authored. FeH2 and two SnO2 models use attributed numerical structural parameters under a scoped factual-content assessment, without a separate publication grant. CC0 covers contributor-held generated-output rights only; EOS/observation/source-publication rights remain separate.",
     "numerical_parameter_assessment": "Normalized numerical EOS coefficients, uncertainty/convention metadata and independently implemented equations, with source attribution. No source table layout, author software or source artwork is licensed by this assessment. Related dataset grants are not extended to these parameters. Source/collection/contract scope remains qualified in the notice.",
     "thermodynamic_collection_review_required": "Seven four-coefficient isothermal extracts share the official ds62 thermodynamic collection. The recovered artifact/README contain no explicit redistribution grant; academic availability is not general permission. Assess collection/acquisition rights or obtain an exact grant before claiming unrestricted clearance. No THERMOCALC software is shipped.",
     "numerical_structure_assessment": "Normalized lattice, symmetry, coordinate/occupancy or explicitly idealized structural facts. Preserve the cited source, proxy/normalization and missing-structure qualifications. COD references without a verified resource binding remain provenance leads, not new grants. No blanket publication, database or acquisition-contract clearance is asserted.",
@@ -7725,23 +7731,19 @@
       "material": "fe3s",
       "identifier": "fe3s",
       "evidence": "peritheos/data/materials/fe3s.eosmat#/",
-      "source_sha256": "370072b815c368f52b6f84b3306117d311384ba7aeae55af4bfb5d26cf946b26",
-      "runtime_sha256": "370072b815c368f52b6f84b3306117d311384ba7aeae55af4bfb5d26cf946b26",
-      "assessment": "legacy_peak_collection_review_required",
-      "source_license": "No new source grant established by this review",
+      "source_sha256": "259a10bf6d0e7c27bf7754a0bf739cf129d1c885bb3e1b57b4172fa735881915",
+      "runtime_sha256": "259a10bf6d0e7c27bf7754a0bf739cf129d1c885bb3e1b57b4172fa735881915",
+      "assessment": "independently_calculated_pattern",
+      "source_license": "CC0-1.0; generated outputs CC0, contributor-held rights only",
       "site_count": 4,
-      "peak_count": 18,
-      "provenance_sha256": "9941977bc28cf56dab5966617acf45d18b19ec5f66cecec2d5eed4c8480a1618",
+      "peak_count": 123,
+      "provenance_sha256": "cd8841477072d7703516541290547ceedd08eac9f5351ba753dd666edc1abc18",
       "provenance_fields": [
+        "source",
         "notes"
       ],
       "cod_id": null,
-      "legacy_source_comparison": {
-        "source_file": "dioptas/resources/eos_database/fe3s.json",
-        "source_sha256": "3319be14c390c9c3cea2c335ed990bdee92862d23065c1f27e693c85d9a32fbd",
-        "peaks_sha256": "64d8c2915531b6d103849cd495ec30d810f5f07fae6c2c1fd5448afff464e4d4",
-        "peak_count": 18
-      }
+      "legacy_source_comparison": null
     },
     {
       "key": "eos/fe_bearing_al_phase_d/fe_bearing_al_phase_d_criniti_2023_bm3_1",
@@ -7913,23 +7915,19 @@
       "material": "feh2",
       "identifier": "feh2",
       "evidence": "peritheos/data/materials/feh2.eosmat#/",
-      "source_sha256": "57e9c32357321a539c9f9d0122dd95503d07268ecb8802553bfdcacbe96b2356",
-      "runtime_sha256": "57e9c32357321a539c9f9d0122dd95503d07268ecb8802553bfdcacbe96b2356",
-      "assessment": "legacy_peak_collection_review_required",
-      "source_license": "No new source grant established by this review",
+      "source_sha256": "fe009e9b0521f4f477d0aba818237d93c806a30aa80cef2fed7ce22bde3b186f",
+      "runtime_sha256": "fe009e9b0521f4f477d0aba818237d93c806a30aa80cef2fed7ce22bde3b186f",
+      "assessment": "independently_calculated_pattern",
+      "source_license": "No separate source grant established; assessed numerical structural parameters, not an openly licensed publisher artifact; generated outputs CC0, contributor-held rights only",
       "site_count": 3,
-      "peak_count": 10,
-      "provenance_sha256": "f270113b4febaffe41a8ccb12a88421f14f982341e294dd1e66e68f4100a31ec",
+      "peak_count": 36,
+      "provenance_sha256": "a5efa6c3145d3b33e313f87a3f8c2c55a3ebdcb4fa7866d156529b9e5666dc29",
       "provenance_fields": [
+        "source",
         "notes"
       ],
       "cod_id": null,
-      "legacy_source_comparison": {
-        "source_file": "dioptas/resources/eos_database/feh2.json",
-        "source_sha256": "f1b87851ff4ce362d768bf3dee5a89a65444a447b682a8b14e7b29b01e014898",
-        "peaks_sha256": "a21994c262a43896cb75dd39a716fa1d8416af8b0af0baeaefa93015fa4eddce",
-        "peak_count": 10
-      }
+      "legacy_source_comparison": null
     },
     {
       "key": "eos/feh3/feh3_p_pin_2014_vinet_1",
@@ -10017,23 +10015,19 @@
       "material": "iceviii",
       "identifier": "iceviii",
       "evidence": "peritheos/data/materials/iceviii.eosmat#/",
-      "source_sha256": "a837458c5f53143a4f83cf7d6e84de697d7a8b408416f60e5c779c039eac3579",
-      "runtime_sha256": "a837458c5f53143a4f83cf7d6e84de697d7a8b408416f60e5c779c039eac3579",
-      "assessment": "legacy_peak_collection_review_required",
-      "source_license": "No new source grant established by this review",
+      "source_sha256": "825ab49d285483517cd53f33545a35c31dc43a93a199c1c7b775e74b19f3ad0b",
+      "runtime_sha256": "825ab49d285483517cd53f33545a35c31dc43a93a199c1c7b775e74b19f3ad0b",
+      "assessment": "independently_calculated_pattern",
+      "source_license": "CC0-1.0; generated outputs CC0, contributor-held rights only",
       "site_count": 2,
-      "peak_count": 33,
-      "provenance_sha256": "161b22eb84efcf465f76b52f61805ec71f122c4a4645978eeaca33bd8c429468",
+      "peak_count": 41,
+      "provenance_sha256": "c87fed89b0ecb570bfbc7cc61c3d2eb37111b2a35b9bdd3a298fe3cb5620196a",
       "provenance_fields": [
+        "source",
         "notes"
       ],
       "cod_id": null,
-      "legacy_source_comparison": {
-        "source_file": "dioptas/resources/eos_database/iceviii.json",
-        "source_sha256": "34fa61250660731a07ef1727805cc1e3bdd7dfb810514dbc3fa9a825123a2ab0",
-        "peaks_sha256": "730197723a76399ba1d43c6da984b41eb63a0fdb924f94a45475d30b678b8cfe",
-        "peak_count": 33
-      }
+      "legacy_source_comparison": null
     },
     {
       "key": "eos/indium_nitride/indium_nitride_munoz_1993_murnaghan_1",
@@ -12708,23 +12702,19 @@
       "material": "majorite",
       "identifier": "majorite",
       "evidence": "peritheos/data/materials/majorite.eosmat#/",
-      "source_sha256": "2742ab575c3e6dfd1ffeea6d566882099d39056e9a0a8ce9198756558af03b95",
-      "runtime_sha256": "2742ab575c3e6dfd1ffeea6d566882099d39056e9a0a8ce9198756558af03b95",
-      "assessment": "legacy_peak_collection_review_required",
-      "source_license": "No new source grant established by this review",
+      "source_sha256": "2b8b4f3aed5e06649e0c55b305fb5ab71818b24e76005058883f3f2802bd0d77",
+      "runtime_sha256": "2b8b4f3aed5e06649e0c55b305fb5ab71818b24e76005058883f3f2802bd0d77",
+      "assessment": "independently_calculated_pattern",
+      "source_license": "CC0-1.0; generated outputs CC0, contributor-held rights only",
       "site_count": 15,
-      "peak_count": 103,
-      "provenance_sha256": "e9ab56f78c4a511dd362e84c50125b02cdab6ab1159e905088e7dfeb4b9e8721",
+      "peak_count": 410,
+      "provenance_sha256": "44196dbb7da6563fb688a564b70e9399b30ad2fc12a40881ddd1b4f00ba3973f",
       "provenance_fields": [
+        "source",
         "notes"
       ],
       "cod_id": null,
-      "legacy_source_comparison": {
-        "source_file": "dioptas/resources/eos_database/mgsio3.json",
-        "source_sha256": "e8d183685b37d04316a96647f7f678aae25fa7675b506e3916aa147288174a0e",
-        "peaks_sha256": "f46313a733bda7c0e8b99f19ebb81721dc9698cac5538a618ac4b2f01c1f41d1",
-        "peak_count": 103
-      }
+      "legacy_source_comparison": null
     },
     {
       "key": "eos/manganese_alpha/manganese_alpha_magad_weiss_2021_bm3_1",
@@ -16152,23 +16142,19 @@
       "material": "mg7si2o8",
       "identifier": "mg7si2o8",
       "evidence": "peritheos/data/materials/mg7si2o8.eosmat#/",
-      "source_sha256": "3436a3501f71ef84b1b07eff11298d1418a1b1e967338f9f907170abc3c065c8",
-      "runtime_sha256": "3436a3501f71ef84b1b07eff11298d1418a1b1e967338f9f907170abc3c065c8",
-      "assessment": "legacy_peak_collection_review_required",
-      "source_license": "No new source grant established by this review",
+      "source_sha256": "c4d5de5b7793ab44da3ea2d350b237650006d98bbcf13e1fa3c4054de69f52c2",
+      "runtime_sha256": "c4d5de5b7793ab44da3ea2d350b237650006d98bbcf13e1fa3c4054de69f52c2",
+      "assessment": "independently_calculated_pattern",
+      "source_license": "CC0-1.0; generated outputs CC0, contributor-held rights only",
       "site_count": 13,
-      "peak_count": 35,
-      "provenance_sha256": "6e402b9f6559b20f7ba4947d12d5e88b4f68cb612d0952eee3ec33ba0e07ca93",
+      "peak_count": 241,
+      "provenance_sha256": "532240fab052795a4dc9d67bb9e52c2214771974289139c7022bcc704375c72f",
       "provenance_fields": [
+        "source",
         "notes"
       ],
       "cod_id": null,
-      "legacy_source_comparison": {
-        "source_file": "dioptas/resources/eos_database/mg7si2o8.json",
-        "source_sha256": "eb3f8a66121bbc393b4f310912a270f24c3a6d86ab357b9798bff45c48911310",
-        "peaks_sha256": "7eac3803eed2b223560e709464012245535ceada5bb74a334d008096e7ecffc9",
-        "peak_count": 35
-      }
+      "legacy_source_comparison": null
     },
     {
       "key": "eos/mgal00625h00625si09375o3_bridgmanite/mgal00625h00625si09375o3_bridgmanite_akber_knutson_2005_gga_bm3",
@@ -16684,23 +16670,19 @@
       "material": "mgfe60o",
       "identifier": "mgfe60o",
       "evidence": "peritheos/data/materials/mgfe60o.eosmat#/",
-      "source_sha256": "3fd3f86f6cccbcacfc8ac38e21573918a85d3e69445573ce56da53f9b681fc09",
-      "runtime_sha256": "3fd3f86f6cccbcacfc8ac38e21573918a85d3e69445573ce56da53f9b681fc09",
-      "assessment": "legacy_peak_collection_review_required",
-      "source_license": "No new source grant established by this review",
+      "source_sha256": "cb4de9d4aa1b193c99b64f9cc3cdccc6fd61fe23807803292fffa46d7e3ea8c0",
+      "runtime_sha256": "cb4de9d4aa1b193c99b64f9cc3cdccc6fd61fe23807803292fffa46d7e3ea8c0",
+      "assessment": "independently_calculated_pattern",
+      "source_license": "CC0-1.0 (independent ideal model); generated outputs CC0, contributor-held rights only",
       "site_count": 3,
       "peak_count": 10,
-      "provenance_sha256": "3dae3a7fba769155cf8db5823ccc35f29b45dc3b8b000367e5b6539015904a8c",
+      "provenance_sha256": "f3f39c3c359bfc179d9e064bb2bb65b8133ee116ad2c64224743f95b10081190",
       "provenance_fields": [
+        "source",
         "notes"
       ],
       "cod_id": null,
-      "legacy_source_comparison": {
-        "source_file": "dioptas/resources/eos_database/mgfe60o.json",
-        "source_sha256": "8cc7c55460bcfef681887272b151fff0fb2bdfb99495993d13afc3d12d2240ca",
-        "peaks_sha256": "479f938e9a42ad34c9946738f59b4fd95d74ab03d76ee020e8d70538cf099438",
-        "peak_count": 10
-      }
+      "legacy_source_comparison": null
     },
     {
       "key": "eos/mgfe94o_b1/mgfe94o_b1_dobrosavljevic_2019_bm3_1",
@@ -20790,23 +20772,19 @@
       "material": "perovskite_orthorhombic",
       "identifier": "perovskite_orthorhombic",
       "evidence": "peritheos/data/materials/perovskite_orthorhombic.eosmat#/",
-      "source_sha256": "b6b2f3105ab73fbcc968ae88d9a56bacb3db144e6cbda8a7c709d724f9c65c83",
-      "runtime_sha256": "b6b2f3105ab73fbcc968ae88d9a56bacb3db144e6cbda8a7c709d724f9c65c83",
-      "assessment": "legacy_peak_collection_review_required",
-      "source_license": "No new source grant established by this review",
+      "source_sha256": "9f37f7245150a0338ea0be42cd19dcf2592cdbc28d31ea5c77e9767d5010442d",
+      "runtime_sha256": "9f37f7245150a0338ea0be42cd19dcf2592cdbc28d31ea5c77e9767d5010442d",
+      "assessment": "independently_calculated_pattern",
+      "source_license": "CC0-1.0; generated outputs CC0, contributor-held rights only",
       "site_count": 5,
-      "peak_count": 156,
-      "provenance_sha256": "e370cd2ea06279dc70318272b18ad945d0c4da070d7c11251653fb6a67a12117",
+      "peak_count": 181,
+      "provenance_sha256": "0bdee1a4f6dc2d8183bf2382df1f71b468e6a85535310944788fdc1814da87ff",
       "provenance_fields": [
+        "source",
         "notes"
       ],
       "cod_id": null,
-      "legacy_source_comparison": {
-        "source_file": "dioptas/resources/eos_database/perovskite_orthorhombic.json",
-        "source_sha256": "a50b37972fca577e5e81cc43ac32f29366efc192c0f5755db7aa4b837fae674c",
-        "peaks_sha256": "3cb6c1aba9f2f4daff163b5ad7765fda8a66e088c39bb9233f0aea29758da47f",
-        "peak_count": 156
-      }
+      "legacy_source_comparison": null
     },
     {
       "key": "eos/phase_d/phase_d_ant_a_shieh_2000_bm2_1",
@@ -20880,23 +20858,19 @@
       "material": "phase_d",
       "identifier": "phase_d",
       "evidence": "peritheos/data/materials/phase_d.eosmat#/",
-      "source_sha256": "25d6445d0b9d06e75e48521c57cceda05554923806f4a93bd50d196845089c98",
-      "runtime_sha256": "25d6445d0b9d06e75e48521c57cceda05554923806f4a93bd50d196845089c98",
-      "assessment": "legacy_peak_collection_review_required",
-      "source_license": "No new source grant established by this review",
+      "source_sha256": "1e79602b2e35c60129c4720f52c8d6818b0c918b292ae9732750a6b11e91b79b",
+      "runtime_sha256": "1e79602b2e35c60129c4720f52c8d6818b0c918b292ae9732750a6b11e91b79b",
+      "assessment": "independently_calculated_pattern",
+      "source_license": "CC0-1.0; generated outputs CC0, contributor-held rights only",
       "site_count": 5,
-      "peak_count": 65,
-      "provenance_sha256": "2da1af0b417d7e03c0c03893fe12da7cdedc82a8561b37b4a5fa54f4d701d915",
+      "peak_count": 54,
+      "provenance_sha256": "851e86a1abc8d65ca0e24cb19a9783e2d656b0a5d71aed498c02f3b425ca39cb",
       "provenance_fields": [
+        "source",
         "notes"
       ],
       "cod_id": null,
-      "legacy_source_comparison": {
-        "source_file": "dioptas/resources/eos_database/phase_d.json",
-        "source_sha256": "bcdaff05398b5fe5f8827a0dc108550e52924dfbdad40052ee327d701ec6e6ba",
-        "peaks_sha256": "42571bdc2ea45f16d4ca5bd79521084478dc3cf151ec766f087a3a288a44443e",
-        "peak_count": 65
-      }
+      "legacy_source_comparison": null
     },
     {
       "key": "eos/phase_e_fe0072/phase_e_fe0072_crichton_ross_2000_bm3",
@@ -23547,23 +23521,19 @@
       "material": "sno2_cubic_27gpa",
       "identifier": "sno2_cubic_27gpa",
       "evidence": "peritheos/data/materials/sno2_cubic_27gpa.eosmat#/",
-      "source_sha256": "977f9c772a9d065ccb57a164385240e084b544ca9b8e18010cd134f3cea756c9",
-      "runtime_sha256": "977f9c772a9d065ccb57a164385240e084b544ca9b8e18010cd134f3cea756c9",
-      "assessment": "legacy_peak_collection_review_required",
-      "source_license": "No new source grant established by this review",
+      "source_sha256": "c3d24c12448cf0e294e8019b17111578cc067667122b6e801f3a4e655e609376",
+      "runtime_sha256": "c3d24c12448cf0e294e8019b17111578cc067667122b6e801f3a4e655e609376",
+      "assessment": "independently_calculated_pattern",
+      "source_license": "No separate source grant established; assessed numerical structural parameters, not an openly licensed publisher artifact; generated outputs CC0, contributor-held rights only",
       "site_count": 2,
-      "peak_count": 11,
-      "provenance_sha256": "719f81838fd76e58ccb364dd0281a87d9220600d73c734c230eeeee1f200e584",
+      "peak_count": 29,
+      "provenance_sha256": "d4908952090e6f5fd8f7b8081d1da5edf85934e81839391c2b10d2d6a4bc346c",
       "provenance_fields": [
+        "source",
         "notes"
       ],
       "cod_id": null,
-      "legacy_source_comparison": {
-        "source_file": "dioptas/resources/eos_database/sno2_cubic_27gpa.json",
-        "source_sha256": "53416f441cb8589d655d6fc9b18866f62a76d7357d8f32e26ad11c166383ed4e",
-        "peaks_sha256": "6b3c1224bf05c06e73c4f73f26228ed0fdfb90dca0858c2b1252e11471120c70",
-        "peak_count": 11
-      }
+      "legacy_source_comparison": null
     },
     {
       "key": "eos/sno2_pa_3_at_48gpa/sno2_pa_3_at_48gpa_ono_2000_bm3_1",
@@ -23608,23 +23578,19 @@
       "material": "sno2_pa_3_at_48gpa",
       "identifier": "sno2_pa_3_at_48gpa",
       "evidence": "peritheos/data/materials/sno2_pa_3_at_48gpa.eosmat#/",
-      "source_sha256": "39da86b8066a17976ac7b8e4f07fc828a4078e8fcae6b2a5ec826c0e01f52c34",
-      "runtime_sha256": "39da86b8066a17976ac7b8e4f07fc828a4078e8fcae6b2a5ec826c0e01f52c34",
-      "assessment": "legacy_peak_collection_review_required",
-      "source_license": "No new source grant established by this review",
+      "source_sha256": "5b8df6efac35d276822e6136f7cbd57234471115cedc622d79e7633dbbe15ca8",
+      "runtime_sha256": "5b8df6efac35d276822e6136f7cbd57234471115cedc622d79e7633dbbe15ca8",
+      "assessment": "independently_calculated_pattern",
+      "source_license": "No separate source grant established; assessed numerical structural parameters, not an openly licensed publisher artifact; generated outputs CC0, contributor-held rights only",
       "site_count": 2,
-      "peak_count": 11,
-      "provenance_sha256": "25f8c7352a5392659adf50b70be53e24551a50c1e3c5b5a9addca910bd4d0aca",
+      "peak_count": 29,
+      "provenance_sha256": "2d7778fe53476ab48799b37defcc2a9572cb46b933aa2caa629d896f0b8b87d1",
       "provenance_fields": [
+        "source",
         "notes"
       ],
       "cod_id": null,
-      "legacy_source_comparison": {
-        "source_file": "dioptas/resources/eos_database/sno2_pa_3_at_48gpa.json",
-        "source_sha256": "2b3b1c644da566233560ea069bddc615135534b8091ae8b7bb27b49bdc653561",
-        "peaks_sha256": "47170355225d6c5d32662370c05dc83e15bfecd727cc6de4a54d7f6b02d36b44",
-        "peak_count": 11
-      }
+      "legacy_source_comparison": null
     },
     {
       "key": "eos/sro/sro_liu_1973_bm3_1",

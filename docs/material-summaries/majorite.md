@@ -25,7 +25,7 @@ and recommendation for use are distinct assessments.
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Tetragonal MgSiO3 majorite consolidated from the duplicate Dioptas/JCPDS majorite and mgsio3-maj entries. The richer mgsio3-maj diffraction list is retained. The full I41/a structure, including partial Mg-Si octahedral disorder, is from Angel et al., American Mineralogist 74, 509-512 (1989), COD 9010029. The published coordinates were shifted by +1/2 along x to restore the standard I41/a origin specified in the paper's Table 2 note. Their conventional cell contains eight Mg4Si4O12 garnet units, equivalent to 32 MgSiO3 units; this corrects the earlier Z=16 metadata. Source file(s): JCPDS/current user/jcpds/mgsio3-maj.jcpds, JCPDS/dac\_user\_jcpds/mgsio3-maj.jcpds, JCPDS/current user/jcpds/ver3/majorite.jcpds.
+Historical material/card import retained as provenance; the inherited hkl/d/intensity array is superseded and preserved privately with its full original document. The present peaks are independent kinematic X-ray calculations (0.8-20 A, sum multiplicity\*\|F\|^2, maximum 100), not measured intensities or a recovered source-card selection. COD 9010029 Angel et al. (1989), including reported Mg/Si occupational disorder. Calculate in the CIF native origin using its explicit symmetry operations. Existing EOSMAT sites use an equivalent x+1/2 origin. Reference cell retained. Original scientific EOS evidence, observations and applicability limits are unchanged.
 
 ## Automatic selections
 

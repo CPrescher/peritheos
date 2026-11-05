@@ -24,7 +24,7 @@ and recommendation for use are distinct assessments.
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/current user/jcpds/mg0.8fe0.2sio3-opv.jcpds. Knittle and Jeanloz, Science 235, 668-670 (1987), doi:10.1126/science.235.4789.668, establish orthorhombic (Mg0.88Fe0.12)SiO3 perovskite but do not report a positional refinement. The representative Pbnm coordinates are the ambient MgSiO3 refinement of Yagi et al., Phys. Chem. Miner. 3, 97-110 (1978), doi:10.1007/BF00308114, with Mg/Fe mixed on the A site at the EOS composition. This proxy enables extended-range reflection calculations but is not an exact refinement of the EOS specimen; the legacy peaks are retained.
+Historical material/card import retained as provenance; the inherited hkl/d/intensity array is superseded and preserved privately with its full original document. The present peaks are independent kinematic X-ray calculations (0.8-20 A, sum multiplicity\*\|F\|^2, maximum 100), not measured intensities or a recovered source-card selection. Pure MgSiO3 COD 9005757 (Yagi et al. 1978) geometry used as an explicit topology proxy for nominal Mg0.88Fe0.12SiO3. Replace the Mg site by 0.88 Mg + 0.12 Fe statistically; retain the existing EOS reference cell. No Fe-bearing specimen refinement or site preference determination is claimed. Original scientific EOS evidence, observations and applicability limits are unchanged.
 
 ## Automatic selections
 

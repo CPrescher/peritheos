@@ -99,3 +99,50 @@ def scientific_sha256(root: Path = ROOT) -> str:
 
 if __name__ == "__main__":
     print(scientific_sha256())
+
+
+def assert_snapshot_lineage(snapshot: dict, historical_sha256: str) -> None:
+    """Verify history across the explicitly authorized powder-pattern replacement.
+
+    Original peak arrays remain private. Public receipts bind their digests,
+    the exact new arrays, and unchanged scientific projections at each earlier
+    stage. This never reports a historical digest as the current full digest.
+    """
+    import copy
+
+    def fingerprint(value):
+        return hashlib.sha256(
+            json.dumps(
+                value, sort_keys=True, separators=(",", ":"), allow_nan=False
+            ).encode()
+        ).hexdigest()
+
+    if fingerprint(snapshot) == historical_sha256:
+        return
+    proof = json.loads(
+        (ROOT / "docs/data/calculated-pattern-replacement.json").read_bytes()
+    )
+    assert historical_sha256 in proof["historical_snapshot_projections"]
+    projected = copy.deepcopy(snapshot)
+    seen = set()
+    for document in projected["documents"]:
+        material = document["identifier"]
+        if material in proof["material_bindings"]:
+            binding = proof["material_bindings"][material]
+            # build.digest uses UTF-8 text; the scientific snapshot uses ASCII.
+            from peritheos_build import digest
+
+            assert digest(document["peaks"]) == binding["calculated_peaks_sha256"]
+            document.pop("peaks")
+            if material == "fe3s":
+                assert (
+                    digest(document["atom_sites"])
+                    == binding["calculated_atom_sites_sha256"]
+                )
+                document.pop("atom_sites")
+            seen.add(material)
+    assert seen == set(proof["material_bindings"])
+    assert (
+        fingerprint(projected)
+        == proof["historical_snapshot_projections"][historical_sha256]
+    )

@@ -148,18 +148,44 @@
     {"element": "H", "wyckoff": "4d", "x": 0.0, "y": 0.5, "z": 0.25, "occupancy": 1.0}
   ],
   "peaks": [
-    [2, 1, 1, 1.2033, 10.0],
-    [2, 0, 0, 1.357, 10.0],
-    [1, 1, 4, 1.4745, 50.0],
-    [0, 0, 6, 1.5357, 10.0],
-    [1, 1, 2, 1.7715, 10.0],
-    [1, 1, 0, 1.9191, 50.0],
-    [1, 0, 3, 2.0338, 100.0],
-    [0, 0, 4, 2.3036, 50.0],
-    [1, 0, 1, 2.6034, 100.0],
-    [0, 0, 2, 4.6071, 50.0]
+    [0, 0, 2, 4.6071, 3.42035428],
+    [0, 1, 1, 2.6034163294, 50.48185355],
+    [0, 0, 4, 2.30355, 20.25433808],
+    [0, 1, 3, 2.0337647161, 100.0],
+    [1, 1, 0, 1.9190878041, 49.6884003],
+    [1, 1, 2, 1.7715389931, 7.51050467],
+    [0, 0, 6, 1.5357, 11.64384829],
+    [0, 1, 5, 1.5245929253, 0.75152889],
+    [1, 1, 4, 1.47445318, 63.68230205],
+    [0, 2, 0, 1.357, 38.56079733],
+    [0, 2, 2, 1.3017081647, 5.09829917],
+    [1, 2, 1, 1.2033427578, 44.14499574],
+    [1, 1, 6, 1.1990492377, 32.84079018],
+    [0, 1, 7, 1.184363548, 57.26569626],
+    [0, 2, 4, 1.1692073856, 39.68063258],
+    [0, 0, 8, 1.151775, 3.14835102],
+    [1, 2, 3, 1.128795814, 95.17011679],
+    [0, 2, 6, 1.016882358, 24.94099454],
+    [1, 2, 5, 1.0136379019, 0.80765911],
+    [1, 1, 8, 0.9875657312, 8.08644504],
+    [2, 2, 0, 0.9595439021, 21.37306629],
+    [0, 1, 9, 0.9579099492, 8.0853365],
+    [2, 2, 2, 0.9393856257, 2.96679398],
+    [0, 0, 10, 0.92142, 9.27629636],
+    [0, 3, 1, 0.9003375983, 13.40427953],
+    [1, 2, 7, 0.8923050376, 70.17111846],
+    [2, 2, 4, 0.8857694966, 25.07924655],
+    [0, 2, 8, 0.8781173008, 7.52248812],
+    [0, 3, 3, 0.8678054431, 29.95632511],
+    [1, 3, 0, 0.858242157, 32.91769627],
+    [1, 3, 2, 0.8437271668, 4.88099953],
+    [1, 1, 10, 0.8306378309, 30.7198392],
+    [2, 2, 6, 0.8137555628, 16.68342273],
+    [0, 3, 5, 0.8120900073, 0.27063814],
+    [1, 3, 4, 0.8042368807, 44.64629677],
+    [0, 1, 11, 0.800398658, 16.37748355]
   ],
-  "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/FeH2_tetragonal.jcpds. The I4/mmm structure is from Pepin et al., Phys. Rev. Lett. 113, 265504 (2014), doi:10.1103/PhysRevLett.113.265504. Fe was experimentally refined at 67 GPa; the two H sites were obtained by DFT because hydrogen positions could not be determined from the X-ray data. Fractional coordinates are paired here with the legacy reference lattice to enable full-range reflection generation; the legacy peaks are retained.",
+  "notes": "Historical material/card import retained as provenance; the inherited hkl/d/intensity array is superseded and preserved privately with its full original document. The present peaks are independent kinematic X-ray calculations (0.8-20 A, sum multiplicity*|F|^2, maximum 100), not measured intensities or a recovered source-card selection. Independent calculation using the published I4/mmm model: Fe 4e z=0.853 from the 67 GPa X-ray refinement, H 4c/4d from the original DFT model. Retain existing reference lattice a=2.714, c=9.2142 A rather than the 67 GPa experimental cell. Hydrogen sites are calculated, not experimentally refined; nominal FeH2 may have vacancies. No 2018 NC supplement is used. No claim of current thermodynamic stability or superiority over later hydrogen models. Original scientific EOS evidence, observations and applicability limits are unchanged.",
   "datasets": [
     {
       "identifier": "feh2_pepin_2014_figure3_digitized",
@@ -244,5 +270,15 @@
       },
       "source_url": "https://harvest.aps.org/v2/journals/articles/10.1103/PhysRevLett.113.265504/fulltext"
     }
-  ]
+  ],
+  "source": {
+    "pattern_kind": "independently_calculated_xray",
+    "pattern_inputs": "calculated-pattern-inputs.json",
+    "pattern_input_model": "feh2",
+    "pattern_generator": "scripts/calculate_reference_patterns.py (gemmi==0.7.4)",
+    "pattern_output_license": "CC0-1.0, contributor-held rights only; source terms separate",
+    "pattern_license_notice": "datasets/calculated-patterns.LICENSE.md",
+    "pattern_input_source_terms": "No separate source grant established; assessed numerical structural parameters, not an openly licensed publisher artifact",
+    "pattern_qualification": "Independent calculation using the published I4/mmm model: Fe 4e z=0.853 from the 67 GPa X-ray refinement, H 4c/4d from the original DFT model. Retain existing reference lattice a=2.714, c=9.2142 A rather than the 67 GPa experimental cell. Hydrogen sites are calculated, not experimentally refined; nominal FeH2 may have vacancies. No 2018 NC supplement is used. No claim of current thermodynamic stability or superiority over later hydrogen models."
+  }
 }

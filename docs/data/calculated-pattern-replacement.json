@@ -1,0 +1,311 @@
+{
+  "schema": "peritheos.calculated-pattern-replacement.v1",
+  "reviewed_on": "2026-11-05",
+  "baseline_commit": "42abd74128f9374666d73f5a0b54fd3927d100f8",
+  "scope": "Replace ten inherited reflection arrays by independently calculated X-ray patterns. Preserve all EOS records, observation datasets, existing lattice metrics and classifications. Fe3S proxy atom sites are independently replaced by a COD-derived proxy; this is not specimen refinement. Source-publication grants are not inferred for FeH2 and the two SnO2 models.",
+  "before_catalog_scientific_sha256": "cfa0fff415cf0b01eb3fb2f59edfe177aba3b0153d0a78b38cf474f4a6167240",
+  "material_bindings": {
+    "fe3s": {
+      "path": "peritheos/data/materials/fe3s.eosmat",
+      "before_sha256": "51be914081d5ef86939e20d20f3b1921adbebaf0d12412b6da2e839c4fc76a97",
+      "before_normalized_sha256": "186f6016652f220f3e1ab31d641288bf5f7f8228d4abbbb09f8cfe4652a543e3",
+      "original_peaks_sha256": "64d8c2915531b6d103849cd495ec30d810f5f07fae6c2c1fd5448afff464e4d4",
+      "original_peak_count": 18,
+      "changed_root_fields": [
+        "notes",
+        "source",
+        "peaks",
+        "atom_sites"
+      ],
+      "unchanged_projection_sha256": "2a799bf22d35055f0bf4927fe3963cdddf573052884f9d4199574a5ee1a281f6",
+      "after_sha256": "2da5bf1e2003cd8f44c93263a64126c2484a5b52dc2e4dd5ade43fa4ded15a25",
+      "calculated_peaks_sha256": "81547f14f461f6c8b5e24f9012ae330d2cd6534c5b5c65e1879c7791a6c164f3",
+      "calculated_peak_count": 123,
+      "cell_contents": {
+        "Fe": 24.0,
+        "S": 8.0
+      },
+      "input_source_terms": "CC0-1.0",
+      "after_normalized_sha256": "bddaa17e90ab2aa953af235b20178a008b47db057bd6b323eb2274d936d8f98b",
+      "calculated_atom_sites_sha256": "c510723a3d032da695698884a992b453a6013063d2136f07592242ee2f20ef37"
+    },
+    "iceviii": {
+      "path": "peritheos/data/materials/iceviii.eosmat",
+      "before_sha256": "e2a39e460dd02fa05655099989c79e4ce405930e240e6fd2bf2bc7efa74b248c",
+      "before_normalized_sha256": "bd51a4db5ba929ab677eeaddd535de885a2245d4f0540f8fe536c9ef2cfde1b6",
+      "original_peaks_sha256": "730197723a76399ba1d43c6da984b41eb63a0fdb924f94a45475d30b678b8cfe",
+      "original_peak_count": 33,
+      "changed_root_fields": [
+        "notes",
+        "source",
+        "peaks"
+      ],
+      "unchanged_projection_sha256": "66c7941e0e9edc70ee35870ac99c6d3a1f1ac02a68e6851804390c7a49993786",
+      "after_sha256": "b08c73ba4af82690bb5889bc8d41fefa014c3fd0cc71d92487c00e2f67302422",
+      "calculated_peaks_sha256": "28753790d96a5c0cdc12e9994c4e14ca12e5b89da7546989c0100f35c8ad67f4",
+      "calculated_peak_count": 41,
+      "cell_contents": {
+        "D": 16.0,
+        "O": 8.0
+      },
+      "input_source_terms": "CC0-1.0",
+      "after_normalized_sha256": "b29c3fe3c88882f2d3d3651c6de1714a549c174614d693f6e0ac75f4a3be2c13"
+    },
+    "majorite": {
+      "path": "peritheos/data/materials/majorite.eosmat",
+      "before_sha256": "68bba460da2c5d0689b541f39a4113c16c20c6374f64d8fdd4c258ee0235549a",
+      "before_normalized_sha256": "7480dae0d4bc0b557a238457dd49193d611fe3f0fb3da06b6f58278c55618ea2",
+      "original_peaks_sha256": "f46313a733bda7c0e8b99f19ebb81721dc9698cac5538a618ac4b2f01c1f41d1",
+      "original_peak_count": 103,
+      "changed_root_fields": [
+        "notes",
+        "source",
+        "peaks"
+      ],
+      "unchanged_projection_sha256": "6eea060059083d8d1f4dd4e0380eb54cf4e5bbec1f605b06709f6761a199bc23",
+      "after_sha256": "95fa6350d156fce15982664d93f4c61f870888c48b3c87f1835893a36c634cf9",
+      "calculated_peaks_sha256": "59547d31d5e9ace0e28749ad4176c48b9aa0e6e20cd12f06494c8a76ffe2813f",
+      "calculated_peak_count": 410,
+      "cell_contents": {
+        "Mg": 32.0,
+        "O": 96.0,
+        "Si": 32.0
+      },
+      "input_source_terms": "CC0-1.0",
+      "after_normalized_sha256": "e49f1fbfa01abe94d3855b864faada54e9e4fde29f4faa2ec5a9748534daa144"
+    },
+    "mg7si2o8": {
+      "path": "peritheos/data/materials/mg7si2o8.eosmat",
+      "before_sha256": "11bd47896004c6afea95a18d59c4afffd224112634e09510cb45b394ef6dd855",
+      "before_normalized_sha256": "e6ebe604ed16cafd734c7d30d5407f664ddfbd26dafc451ae88125d6be48f822",
+      "original_peaks_sha256": "7eac3803eed2b223560e709464012245535ceada5bb74a334d008096e7ecffc9",
+      "original_peak_count": 35,
+      "changed_root_fields": [
+        "notes",
+        "source",
+        "peaks"
+      ],
+      "unchanged_projection_sha256": "25b6b067750c853089a06a482519da888d874bd5179b221affb55426a56bc388",
+      "after_sha256": "2af6bbe5145d42ff9a89c4e829cafd2ab164441ec7fe2c075bf02b6c302db7cb",
+      "calculated_peaks_sha256": "53fe8977f4269b08abd930858a8a6463beed7aad731eb7ced0ea4f8e08f374fc",
+      "calculated_peak_count": 241,
+      "cell_contents": {
+        "H": 12.0,
+        "Mg": 14.0,
+        "O": 28.0,
+        "Si": 4.0
+      },
+      "input_source_terms": "CC0-1.0",
+      "after_normalized_sha256": "7b41696b3636e7fdd7497e9c5b38b2af594445c8baad461c1c337a89b0cbb8fb"
+    },
+    "perovskite_orthorhombic": {
+      "path": "peritheos/data/materials/perovskite_orthorhombic.eosmat",
+      "before_sha256": "8f85500870e33f8b5a21e4d9f37a7e826c156b77e79d889d8710df16f8808a5a",
+      "before_normalized_sha256": "41bf95cc016069c432512dfde553c356fb035d84060ec72cfd3f78f86fd793fc",
+      "original_peaks_sha256": "3cb6c1aba9f2f4daff163b5ad7765fda8a66e088c39bb9233f0aea29758da47f",
+      "original_peak_count": 156,
+      "changed_root_fields": [
+        "notes",
+        "source",
+        "peaks"
+      ],
+      "unchanged_projection_sha256": "bae5f2cfa7da5326a777ff1b6bee1ee0a1c70a28f16a29b2a93b81ac733ee33c",
+      "after_sha256": "dd7929eead62e7227f1d2a8cc193b3237869d285aaad163d0b70be3e1ea48cb1",
+      "calculated_peaks_sha256": "21998f0ecc8e3e9f3152eb4bb2d71bb4792f7c8be17ff16168f61d380c5f0c50",
+      "calculated_peak_count": 181,
+      "cell_contents": {
+        "Fe": 0.48,
+        "Mg": 3.52,
+        "O": 12.0,
+        "Si": 4.0
+      },
+      "input_source_terms": "CC0-1.0",
+      "after_normalized_sha256": "236145b9b1b0a5d68d88e2a7c1922ff54b5b8c5a6d320d16a702b22d0694e323"
+    },
+    "phase_d": {
+      "path": "peritheos/data/materials/phase_d.eosmat",
+      "before_sha256": "b1697f4a0766b0a9f4c18064b52dfe9e206b9c8f031ec8b7ecb96def6d500399",
+      "before_normalized_sha256": "dc7be2a6ace03021aaf9235c7c77e0bb2ba2d6b4a338da8fec61641855315dab",
+      "original_peaks_sha256": "42571bdc2ea45f16d4ca5bd79521084478dc3cf151ec766f087a3a288a44443e",
+      "original_peak_count": 65,
+      "changed_root_fields": [
+        "notes",
+        "source",
+        "peaks"
+      ],
+      "unchanged_projection_sha256": "1fccc02dc7025b1e049b8134377d3324aedfb22bc43547c6c74affdae5b22c18",
+      "after_sha256": "c9a204f6d6dfd788994fab3b7015f5d7b48610e36e8b003ab77889e49c52863e",
+      "calculated_peaks_sha256": "92034b38de586962a7d195da41770e8a4836cf9150048196f04dc158c6b76789",
+      "calculated_peak_count": 54,
+      "cell_contents": {
+        "H": 2.22,
+        "Mg": 1.1099999999999999,
+        "O": 6.0,
+        "Si": 1.89
+      },
+      "input_source_terms": "CC0-1.0",
+      "after_normalized_sha256": "5e746a8278a9848bd7092a82c58f3e2181053dee6e1a88fa4ac15465176c4d18"
+    },
+    "mgfe60o": {
+      "path": "peritheos/data/materials/mgfe60o.eosmat",
+      "before_sha256": "20777c25d6f8ffa4e503f9050bce89b7a62f65747f704ceca38ac4b6f461cfc0",
+      "before_normalized_sha256": "2b54be20f11918af687c37ef7455b95f7c357d938d92183f92bbc7bb62485373",
+      "original_peaks_sha256": "479f938e9a42ad34c9946738f59b4fd95d74ab03d76ee020e8d70538cf099438",
+      "original_peak_count": 10,
+      "changed_root_fields": [
+        "notes",
+        "source",
+        "peaks"
+      ],
+      "unchanged_projection_sha256": "3c2c5600ccd7fca2068db9ebf1249fd4122774a838de0273b8a836a843d9b28a",
+      "after_sha256": "55c6fccbee7a5e3740c38ceadf016beb3dea41ac4aaa590a9c7572566c2b7147",
+      "calculated_peaks_sha256": "c54310f2d4b43daf7de7dd3caa78a61fd23791132bb33e8d0132aeadb4d40a45",
+      "calculated_peak_count": 10,
+      "cell_contents": {
+        "Fe": 2.4,
+        "Mg": 1.6,
+        "O": 4.0
+      },
+      "input_source_terms": "CC0-1.0 (independent ideal model)",
+      "after_normalized_sha256": "832b1c9cf224662ca5381f1984e1dcb89e613ebb30748ea2184c48e50fe76cc2"
+    },
+    "feh2": {
+      "path": "peritheos/data/materials/feh2.eosmat",
+      "before_sha256": "778d47a7b0219986ad8314fbf0aecc7db01dff24ead246a639887f45a899809d",
+      "before_normalized_sha256": "2c90ad129b80d7edd2b80443f52191d79ba6b5e363ff831c7e7ee5cdf34e80dd",
+      "original_peaks_sha256": "a21994c262a43896cb75dd39a716fa1d8416af8b0af0baeaefa93015fa4eddce",
+      "original_peak_count": 10,
+      "changed_root_fields": [
+        "notes",
+        "source",
+        "peaks"
+      ],
+      "unchanged_projection_sha256": "902ad565959304b7f505e3b1a8996bb50f8d5bac830dbfc6e6e839bf171fd8bb",
+      "after_sha256": "f43d368df95d4630cba243bdbd00c539b81384ae306f718a2cb984e648dbe010",
+      "calculated_peaks_sha256": "a649aab9a6d8c5a7f7d78e0390673539452d3cedd5cb053b62a2f8901a0be372",
+      "calculated_peak_count": 36,
+      "cell_contents": {
+        "Fe": 4.0,
+        "H": 8.0
+      },
+      "input_source_terms": "No separate source grant established; assessed numerical structural parameters, not an openly licensed publisher artifact",
+      "after_normalized_sha256": "8daedfbb6f89a7ed0ea2eae711c43471234539cf6fb1d9b1b5c23b55157fb843"
+    },
+    "sno2_cubic_27gpa": {
+      "path": "peritheos/data/materials/sno2_cubic_27gpa.eosmat",
+      "before_sha256": "88ab189520c8b606a909ad4ce28fe63fc2ee964c0085e4c6b56561d6fed89c09",
+      "before_normalized_sha256": "c3a0dd21831f2dc1199fd45ad769813e9070e628922131ee60a77e48c3671158",
+      "original_peaks_sha256": "6b3c1224bf05c06e73c4f73f26228ed0fdfb90dca0858c2b1252e11471120c70",
+      "original_peak_count": 11,
+      "changed_root_fields": [
+        "notes",
+        "source",
+        "peaks"
+      ],
+      "unchanged_projection_sha256": "8050783ee7951eb62b2b18a8de557c0d59bbd5e0b03d0d0311556f65040d62db",
+      "after_sha256": "afc4aa112747ef3ddad9b41e404ff74905fbd10d48879d10fc273f3180b8690a",
+      "calculated_peaks_sha256": "f74d4d8144aa833361ea42a3b715ab78e3e531c77e301371cc034e7cfb3dc5e1",
+      "calculated_peak_count": 29,
+      "cell_contents": {
+        "O": 8.0,
+        "Sn": 4.0
+      },
+      "input_source_terms": "No separate source grant established; assessed numerical structural parameters, not an openly licensed publisher artifact",
+      "after_normalized_sha256": "4c27cd452b32eff38c571d035f1ddb410bef21e0bf60b0687b72d3c9f6dbe741"
+    },
+    "sno2_pa_3_at_48gpa": {
+      "path": "peritheos/data/materials/sno2_pa_3_at_48gpa.eosmat",
+      "before_sha256": "ed6f69cdcb9148193bfc7b68aa12489a2b1d7b34901ec44f436af28df135515d",
+      "before_normalized_sha256": "4cf6975651020c1bf2021c9b2096150f9931898594125b5ff5d17d1c73445a9b",
+      "original_peaks_sha256": "47170355225d6c5d32662370c05dc83e15bfecd727cc6de4a54d7f6b02d36b44",
+      "original_peak_count": 11,
+      "changed_root_fields": [
+        "notes",
+        "source",
+        "peaks"
+      ],
+      "unchanged_projection_sha256": "040481cf47d9d90a67d0b687de228676ce1389aace282d23f64ab9eed67d29af",
+      "after_sha256": "d1769a27480586a469c517968a038ca63cc03744a43540c9f243d7799ccf846e",
+      "calculated_peaks_sha256": "ab192fc6f1850c99a0b4915ef91569182da73ebc1aba341a22c242618d16eb4f",
+      "calculated_peak_count": 29,
+      "cell_contents": {
+        "O": 8.0,
+        "Sn": 4.0
+      },
+      "input_source_terms": "No separate source grant established; assessed numerical structural parameters, not an openly licensed publisher artifact",
+      "after_normalized_sha256": "1f6de19691c833dafc92ca94f76ec800333fb8ff72b5fc8a1717288b670284b5"
+    }
+  },
+  "bindings": {
+    "release_document": {
+      "peritheos/data/materials/fe3s.eosmat": {
+        "historical_sha256": "186f6016652f220f3e1ab31d641288bf5f7f8228d4abbbb09f8cfe4652a543e3",
+        "previous_reviewed_sha256": "186f6016652f220f3e1ab31d641288bf5f7f8228d4abbbb09f8cfe4652a543e3",
+        "replacement_sha256": "bddaa17e90ab2aa953af235b20178a008b47db057bd6b323eb2274d936d8f98b"
+      },
+      "peritheos/data/materials/iceviii.eosmat": {
+        "historical_sha256": "bd51a4db5ba929ab677eeaddd535de885a2245d4f0540f8fe536c9ef2cfde1b6",
+        "previous_reviewed_sha256": "bd51a4db5ba929ab677eeaddd535de885a2245d4f0540f8fe536c9ef2cfde1b6",
+        "replacement_sha256": "b29c3fe3c88882f2d3d3651c6de1714a549c174614d693f6e0ac75f4a3be2c13"
+      },
+      "peritheos/data/materials/majorite.eosmat": {
+        "historical_sha256": "7480dae0d4bc0b557a238457dd49193d611fe3f0fb3da06b6f58278c55618ea2",
+        "previous_reviewed_sha256": "7480dae0d4bc0b557a238457dd49193d611fe3f0fb3da06b6f58278c55618ea2",
+        "replacement_sha256": "e49f1fbfa01abe94d3855b864faada54e9e4fde29f4faa2ec5a9748534daa144"
+      },
+      "peritheos/data/materials/mg7si2o8.eosmat": {
+        "historical_sha256": "e6ebe604ed16cafd734c7d30d5407f664ddfbd26dafc451ae88125d6be48f822",
+        "previous_reviewed_sha256": "e6ebe604ed16cafd734c7d30d5407f664ddfbd26dafc451ae88125d6be48f822",
+        "replacement_sha256": "7b41696b3636e7fdd7497e9c5b38b2af594445c8baad461c1c337a89b0cbb8fb"
+      },
+      "peritheos/data/materials/perovskite_orthorhombic.eosmat": {
+        "historical_sha256": "33d1adb76acd6f903b48870e67de5a5b066f421b235408057406a1241524658e",
+        "previous_reviewed_sha256": "41bf95cc016069c432512dfde553c356fb035d84060ec72cfd3f78f86fd793fc",
+        "replacement_sha256": "236145b9b1b0a5d68d88e2a7c1922ff54b5b8c5a6d320d16a702b22d0694e323"
+      },
+      "peritheos/data/materials/phase_d.eosmat": {
+        "historical_sha256": "dc7be2a6ace03021aaf9235c7c77e0bb2ba2d6b4a338da8fec61641855315dab",
+        "previous_reviewed_sha256": "dc7be2a6ace03021aaf9235c7c77e0bb2ba2d6b4a338da8fec61641855315dab",
+        "replacement_sha256": "5e746a8278a9848bd7092a82c58f3e2181053dee6e1a88fa4ac15465176c4d18"
+      },
+      "peritheos/data/materials/mgfe60o.eosmat": {
+        "historical_sha256": "716bffd68de0f38bcb763de9d1eb9d5da368c4d8b855efed1a68bd3386826e18",
+        "previous_reviewed_sha256": "2b54be20f11918af687c37ef7455b95f7c357d938d92183f92bbc7bb62485373",
+        "replacement_sha256": "832b1c9cf224662ca5381f1984e1dcb89e613ebb30748ea2184c48e50fe76cc2"
+      },
+      "peritheos/data/materials/feh2.eosmat": {
+        "historical_sha256": "2c90ad129b80d7edd2b80443f52191d79ba6b5e363ff831c7e7ee5cdf34e80dd",
+        "previous_reviewed_sha256": "2c90ad129b80d7edd2b80443f52191d79ba6b5e363ff831c7e7ee5cdf34e80dd",
+        "replacement_sha256": "8daedfbb6f89a7ed0ea2eae711c43471234539cf6fb1d9b1b5c23b55157fb843"
+      },
+      "peritheos/data/materials/sno2_cubic_27gpa.eosmat": {
+        "historical_sha256": "c3a0dd21831f2dc1199fd45ad769813e9070e628922131ee60a77e48c3671158",
+        "previous_reviewed_sha256": "c3a0dd21831f2dc1199fd45ad769813e9070e628922131ee60a77e48c3671158",
+        "replacement_sha256": "4c27cd452b32eff38c571d035f1ddb410bef21e0bf60b0687b72d3c9f6dbe741"
+      },
+      "peritheos/data/materials/sno2_pa_3_at_48gpa.eosmat": {
+        "historical_sha256": "4cf6975651020c1bf2021c9b2096150f9931898594125b5ff5d17d1c73445a9b",
+        "previous_reviewed_sha256": "4cf6975651020c1bf2021c9b2096150f9931898594125b5ff5d17d1c73445a9b",
+        "replacement_sha256": "1f6de19691c833dafc92ca94f76ec800333fb8ff72b5fc8a1717288b670284b5"
+      }
+    },
+    "similar_document": {
+      "perovskite_orthorhombic": {
+        "historical_sha256": "33d1adb76acd6f903b48870e67de5a5b066f421b235408057406a1241524658e",
+        "previous_reviewed_sha256": "41bf95cc016069c432512dfde553c356fb035d84060ec72cfd3f78f86fd793fc",
+        "replacement_sha256": "236145b9b1b0a5d68d88e2a7c1922ff54b5b8c5a6d320d16a702b22d0694e323"
+      }
+    }
+  },
+  "historical_snapshot_projections": {
+    "cfa0fff415cf0b01eb3fb2f59edfe177aba3b0153d0a78b38cf474f4a6167240": "db2dbf10b4687a6903bfdc7a33773c9455bb93e654ffb8479aaece920c5e4a18",
+    "0b6613957dc3ad639272ece80ae1f8c5ccc78266984107dcec4937dd38004d6c": "370cd32ae11b76516015014a794d1b77a201e1a65b0a55f0e355bd0d8647319d",
+    "f61144ebfd9c0c2a5509948eeae4ddf7e07d5c01ff50b091cee6bb3672adedec": "fbf6140d03399c687e65ba04b202a04240f6c056b76a41fbefb826d4aa563299",
+    "87d241c0ad69e61118619a0fa7776a5a61b7a06906cb883e23944298c140a6e0": "9a718a2cead6cc06399376dcb75937a4a43051421c4985bf33aecdab23e51c09"
+  },
+  "after_catalog_scientific_sha256": "c0d4a555a1750ee5cd69ba18ec6dda841297b662d1c9bbbaa51d2c7e0ce2fd7c",
+  "inputs_sha256": "c561a03377a3e61a9571f285939b085f6de492c575ae51fb82bfa5578596b159",
+  "original_peak_count": 452,
+  "calculated_peak_count": 1154,
+  "private_preservation_manifest_sha256": "f29bb540158844a909f1743b8779058e4cf9330133633c7ec6f613aac5de6e0c"
+}

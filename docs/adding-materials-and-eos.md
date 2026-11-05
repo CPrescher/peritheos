@@ -493,3 +493,20 @@ Do not add a member list: membership is derived from material cards. Leave
 unrelated or uncertain materials unassigned; no single-member family is needed.
 Run the catalog family and `.eosmat` tests after editing membership. Families
 are discovery metadata and do not define mixing or interpolation rules.
+
+For independently calculated reference peak arrays, keep the structural input
+license/assessment separate from the generated-output dedication. Preserve the
+source cell versus reference-cell distinction, occupational disorder, proxy
+substitutions, scattering convention and omitted intensity corrections. See
+[the ten-pattern replacement](research/calculated-reference-patterns.md) for a
+repository-only reproducible calculation and private preservation receipt.
+Installed core records expose `source.pattern_kind`, `source.pattern_inputs` and
+`source.pattern_input_source_terms`; no observation extra is needed to read them:
+
+```python
+from peritheos import get_material_document
+
+record = get_material_document("feh2")
+assert record["source"]["pattern_kind"] == "independently_calculated_xray"
+print(record["source"]["pattern_input_source_terms"])
+```

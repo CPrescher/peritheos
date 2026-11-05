@@ -12,7 +12,7 @@ validity limits, source citations, calibration conventions and scientific
 qualifications. The source repository retains the complete scientific evidence;
 runtime exports do not change published values or recommendation status.
 
-The four archived COD CIFs retain their public-domain/CC0 source declarations.
+The ten archived COD CIFs retain their public-domain/CC0 source declarations.
 See the [COD notice](datasets/cod-cif-sources.LICENSE.md), `datasets/cif-license-review.json`
 and the full CC0 text in the distribution's license metadata. Other inline
 structures and parameter compilations retain their individual provenance;
@@ -21,13 +21,17 @@ this packaging split alone does not establish Debian clearance for every entry.
 The installed `eos-structure-rights-review.json` separately assesses all 685 EOS
 records and 234 structural/diffraction components. See
 [the compilation notice](datasets/eos-structure-compilations.LICENSE.md) for the numerical-content basis
-and exact unresolved cases: seven Holland/THERMOCALC parameter extracts and ten
-inherited peak arrays. These 17
-components remain present; no blanket clearance or source grant is asserted.
+and the seven unresolved Holland/THERMOCALC parameter extracts, which remain
+present. The ten inherited peak arrays are replaced by independently calculated
+X-ray patterns; see [their scoped notice](datasets/calculated-patterns.LICENSE.md)
+and `calculated-pattern-inputs.json`. Six inputs use COD CC0 CIFs, one is an
+independently authored ideal model, and three use attributed numerical structural
+parameters without a separate source-publication grant. Generated-output CC0
+covers contributor-held rights only. No blanket clearance is asserted.
 The two formerly ICSD-linked post-perovskite topologies now use freshly acquired
 CC0 COD 9009217 data. Their numerical values are unchanged, with ab initio
 coordinate/observed-cell and pure-MgSiO3 proxy qualifications retained.
-The four named COD resource scopes remain separate from EOS/observation rights.
+The ten named COD resource scopes remain separate from EOS/observation rights.
 The pinned Dioptas migration's complete upstream MIT attribution is retained
 in [the Dioptas notice](datasets/dioptas-materials.LICENSE.md); it does not clear third-party rights.
 

@@ -24,7 +24,7 @@ and recommendation for use are distinct assessments.
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac\_user\_jcpds/Users data/sno2\_cubic\_27GPa.jcpds. The cubic PdF2/pyrite-type model uses Sn 4a and O 8c with u=0.346, as reported for high-pressure cubic SnO2 by Smith et al., J. Synchrotron Rad. 26, 858-867 (2019), doi:10.1107/S1600577519005579. The legacy 26.6 GPa peaks are retained.
+Historical material/card import retained as provenance; the inherited hkl/d/intensity array is superseded and preserved privately with its full original document. The present peaks are independent kinematic X-ray calculations (0.8-20 A, sum multiplicity\*\|F\|^2, maximum 100), not measured intensities or a recovered source-card selection. Independent calculation from the reported ideal Pa-3 numerical model: Sn 4a and O 8c u=0.346 (Sneed et al. 2019). Use the existing reference cell, not a new pressure-dependent positional refinement. Source reports oxygen disorder; this ordered approximation does not model it. The 48 GPa structural reference does not extend the separate EOS 16.09-28.85 GPa applicability range. The retained u=0.346 is the introduction's reference value, not the paper's refined u=0.3343(5) at 44.5 GPa. Original scientific EOS evidence, observations and applicability limits are unchanged.
 
 ## Automatic selections
 

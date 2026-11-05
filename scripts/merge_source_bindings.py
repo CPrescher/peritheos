@@ -64,6 +64,15 @@ def accepts_merge_binding(
         (ROOT / "docs/data/post-perovskite-cod-replacement.json").read_bytes()
     )
     structure = replacement["bindings"].get(context, {}).get(identifier, {})
+    if bool(structure) and (
+        structure["historical_sha256"] == expected
+        and structure["replacement_sha256"] == actual
+    ):
+        return True
+    replacement = json.loads(
+        (ROOT / "docs/data/calculated-pattern-replacement.json").read_bytes()
+    )
+    structure = replacement["bindings"].get(context, {}).get(identifier, {})
     return bool(structure) and (
         structure["historical_sha256"] == expected
         and structure["replacement_sha256"] == actual

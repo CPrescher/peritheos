@@ -42,6 +42,16 @@ STRUCTURE_PROVENANCE = (
     "phase_references",
 )
 RATIONALES = {
+    "independently_calculated_pattern": (
+        "Independent kinematic X-ray reflection array, not an inherited card or "
+        "measured intensities. Input models, source checksums, proxy/occupancy "
+        "limits and omitted corrections are explicit in calculated-pattern-inputs.json. "
+        "Six CIFs carry COD CC0 declarations; one ideal model is independently "
+        "authored. FeH2 and two SnO2 models use attributed numerical structural "
+        "parameters under a scoped factual-content assessment, without a separate "
+        "publication grant. CC0 covers contributor-held generated-output rights "
+        "only; EOS/observation/source-publication rights remain separate."
+    ),
     "numerical_parameter_assessment": (
         "Normalized numerical EOS coefficients, uncertainty/convention metadata and "
         "independently implemented equations, with source attribution. No source "
@@ -155,7 +165,14 @@ def build_review(root=ROOT):
             entries.append(entry)
             groups[source_key].append(entry)
         fields = {k: document[k] for k in STRUCTURE_FIELDS if k in document}
-        if material in policy["legacy_patterns"]:
+        if material in policy["calculated_patterns"]:
+            decision = "independently_calculated_pattern"
+            if (
+                digest(document["peaks"])
+                != policy["calculated_patterns"][material]["peaks_sha256"]
+            ):
+                raise ValueError("Calculated pattern changed; review required")
+        elif material in policy["legacy_patterns"]:
             decision = "legacy_peak_collection_review_required"
             if (
                 digest(document["peaks"])
@@ -182,7 +199,11 @@ def build_review(root=ROOT):
                     {k: runtime[k] for k in STRUCTURE_FIELDS if k in runtime}
                 ),
                 "assessment": decision,
-                "source_license": "Scoped COD CC0 declaration; corrections separate"
+                "source_license": policy["calculated_patterns"][material][
+                    "source_terms"
+                ]
+                if material in policy["calculated_patterns"]
+                else "Scoped COD CC0 declaration; corrections separate"
                 if material in policy["cod_structures"]
                 else "No new source grant established by this review",
                 "site_count": len(document.get("atom_sites", [])),
@@ -217,6 +238,7 @@ def build_review(root=ROOT):
         "thermodynamic_source": policy["thermodynamic_source"],
         "primary_sources": policy["primary_sources"],
         "post_perovskite_cod_replacement": policy["post_perovskite_cod_replacement"],
+        "calculated_pattern_replacement": policy["calculated_pattern_replacement"],
         "material_sha256": policy["material_sha256"],
         "rationales": RATIONALES,
         "entries": entries,

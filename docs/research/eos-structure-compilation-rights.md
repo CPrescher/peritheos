@@ -3,8 +3,9 @@
 Reviewed 5 November 2026 against `73bb757a`. This completes a component-level
 rights/provenance inventory of the **685 EOS records and 234 structural/diffraction
 components** in the current checkout. It does not establish universal rights
-clearance. Scientific values and recommendation classifications
-are unchanged. A subsequent [COD replacement](post-perovskite-cod-replacement.md) changes only the two post-perovskite source/notes blocks and resolves their former ICSD acquisition cases. No EOS or observation selection changes.
+clearance. EOS values, observations and recommendation classifications are unchanged.
+The later [powder-pattern replacement](calculated-reference-patterns.md) explicitly
+changes ten diffraction arrays and the Fe3S structural proxy; historical receipts remain intact. A subsequent [COD replacement](post-perovskite-cod-replacement.md) changes only the two post-perovskite source/notes blocks and resolves their former ICSD acquisition cases. No EOS or observation selection changes.
 
 | Assessed content | Components | Finding |
 | --- | ---: | --- |
@@ -13,7 +14,7 @@ are unchanged. A subsequent [COD replacement](post-perovskite-cod-replacement.md
 | Inline structures and numerical fallbacks | 183 | Scoped numerical-content assessment; source/proxy qualifications retained |
 | Structures tied to four reviewed COD resources | 5 | Recorded COD CC0 source scope, with numerical changes distinguished |
 | Materials with no lattice, sites or peaks | 36 | No structural model values to assess; no missing values invented |
-| Inherited beamline peak arrays | 10 | Earlier acquisition/collection rights unresolved |
+| Independently calculated reference patterns | 10 | Replaces inherited arrays; six COD CC0 inputs, one ideal model, three numerical-parameter assessments |
 | Former ICSD-linked post-perovskite topology | 0 unresolved | Two inputs replaced with CC0 COD 9009217; included in the five COD components |
 
 These are components, not independent experiments. The EOS references form
@@ -112,9 +113,9 @@ not the complete thermodynamic collection, axfiles or THERMOCALC executable.
 The separate commercial product Thermo-Calc is unrelated; its terms do not
 apply merely because the names resemble one another.
 
-### Ten inherited peak lists
+### Resolved by replacement: ten inherited peak lists
 
-| Material | Retained rows |
+| Material | Historical rows (private) |
 | --- | ---: |
 | fe3s | 18 |
 | feh2 | 10 |
@@ -127,7 +128,7 @@ apply merely because the names resemble one another.
 | sno2_cubic_27gpa | 11 |
 | sno2_pa_3_at_48gpa | 11 |
 
-All **452** normalized hkl/d/intensity rows match the corresponding pinned
+Before replacement, all **452** normalized hkl/d/intensity rows match the corresponding pinned
 Dioptas arrays exactly, including the `mgsio3.json` origin of majorite. Upstream
 file hashes and peak-array digests bind those comparisons. No primary
 acquisition agreement or original card-maker grant was established. The
@@ -136,10 +137,11 @@ describes its Powder Diffraction File as licensed/copyrighted; a `.jcpds`
 filename alone does not establish that these arrays came from that product.
 Conversely, public Git hosting and a later MIT notice do not prove they did not.
 
-**Action:** trace the actual card acquisition/creator and applicable grant.
-Alternatively, independently generate a separately named pattern from a
-suitably sourced structure, preserving the original privately and distinguishing
-calculated from measured intensities. No such replacement is performed here.
+The [calculation follow-up](calculated-reference-patterns.md) now replaces all
+of these arrays with independent calculated patterns, using explicit input
+models rather than the inherited reflection selection/intensities. Originals
+remain privately preserved. This resolves the inherited collection as a current
+distribution input; the three factual-parameter models retain source-term caveats.
 Other JCPDS card-number citations without imported peak arrays are provenance
 leads, not automatically additional copies of the ICDD database.
 
@@ -165,7 +167,7 @@ Coesite-V still has no structural model and is not an additional ICSD input.
 
 ## Distribution and preservation
 
-The four reviewed, checksum-bound COD resources retain their
+The ten reviewed, checksum-bound COD resources retain their
 recorded source declaration. COD's [current mirror](https://cod.psdi.ac.uk/)
 confirms a CC0 dedication of the data and database. The new review does not
 extend it to other inline COD references without a verified resource binding.
@@ -176,9 +178,8 @@ privately preserved and excluded; it is not reinstated.
 The runtime and optional packages ship this review and the scoped compilation
 and Dioptas notices. The optional package still selects 451 material plus two
 Barker entries, using 392 CSV resources. Its original five holds are unchanged.
-The 17 components needing further review above remain in the current runtime
-export; this commit documents them rather than silently changing scientific
-content. They need resolution or explicit downstream exclusion before claiming
+The seven Holland components needing further review above remain in the current runtime
+export; the pattern replacement does not resolve their collection/acquisition scope. They need resolution or explicit downstream exclusion before claiming
 an entirely cleared runtime archive. Neither the optional split nor this
 assessment is Debian approval. Published 0.17.3/0.17.4 archives remain unchanged.
 

@@ -26,7 +26,8 @@ upstream MIT notice for the pinned Dioptas material-library migration is in
 upstream contributors; it cannot clear third-party publications, inherited
 card collections or acquisition agreements. Other original source terms remain
 unspecified unless an exact applicable declaration is already recorded.
-No new CC0 dedication or source grant is created here.
+The separate calculation notice dedicates contributor-held output/arrangement
+rights only; this assessment creates no source grant.
 
 The named COD resources 1000054 (brucite), 9012770 (vanadium), 9007379
 (superhydrous phase B) and 9009217 (post-perovskite) retain the CC0 declaration documented in
@@ -51,15 +52,15 @@ cleared source archive:
   other implementations; neither establishes unrestricted redistribution of
   this extract. Collection/acquisition rights need a specific assessment or
   suitable permission. No THERMOCALC program, axfile or full dataset ships.
-* **Ten inherited peak arrays**: fe3s, feh2, iceviii, majorite, mg7si2o8,
-  mgfe60o, perovskite_orthorhombic, phase_d, sno2_cubic_27gpa and
-  sno2_pa_3_at_48gpa. All 452 hkl/d/intensity rows exactly match their pinned
-  Dioptas source arrays. Earlier acquisition/collection rights are not
-  authenticated by Dioptas's MIT notice. A `.jcpds` filename alone does not
-  establish ICDD/Powder Diffraction File origin or permission. Trace the
-  original cards, obtain an applicable grant or independently regenerate a
-  separately identified pattern from suitably sourced structures. Matching
-  calculated lines alone would not recover measured source intensities.
+The ten inherited peak arrays were subsequently replaced by independent X-ray
+calculations. See `calculated-patterns.LICENSE.md` and the installed
+`calculated-pattern-inputs.json` for exact models, source hashes, method and
+limits. Six unchanged source CIFs carry COD CC0 declarations, one rocksalt model
+is independently authored, and FeH2/two SnO2 models use attributed numerical
+structural parameters without a separate source-publication grant. Generated
+outputs/input arrangement have contributor-only CC0 scope; publications remain
+separate. The original 452 rows and complete records are preserved privately.
+The current 1,154 calculated lines do not recover measured source intensities.
 
 The two formerly ICSD-linked post-perovskite topology records were subsequently
 replaced with freshly acquired CC0 COD 9009217 data. Their original records
@@ -67,7 +68,7 @@ and reviews remain private evidence. New COD input reproduces all previous
 coordinates and scaled-cell values exactly; it does not relicense the earlier
 acquisition path. The ab initio-coordinate/observed-cell distinction and the
 Fe-bearing material's pure-MgSiO3 proxy limit remain explicit. These two cases
-are no longer unresolved distribution inputs; the 17 cases above remain.
+are no longer unresolved distribution inputs; the seven Holland cases above remain.
 
 The three newer, position-only fallback lists (two Nisr hydrous-silica records
 and phase_e_fe0072) are separately assessed numerical hkl identities, calculated
@@ -88,7 +89,7 @@ There is no automatic exemption based on a row count, scientific validation,
 public access, a file extension or a change of format. Repeated/systematic
 extractions and the combined source group matter as well as individual records.
 
-For the remaining 678 EOS and 183 inline structural components, the review
+For the 678 EOS and 183 other inline structural components, the review
 records a scoped numerical-content assessment. It does not freshly verify every
 primary publication, authenticate every contributor grant or audit historical
 access agreements. Existing source terms and uncertainty/proxy/recommendation

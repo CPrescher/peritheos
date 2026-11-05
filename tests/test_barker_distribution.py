@@ -15,7 +15,10 @@ from peritheos import (
     list_studies,
 )
 from peritheos_build import ROOT, digest, stage_core, stage_datasets
-from scripts.scientific_source_snapshot import scientific_sha256
+from scripts.scientific_source_snapshot import (
+    assert_snapshot_lineage,
+    scientific_snapshot,
+)
 
 STUDY = "argon_barker_1987"
 LIQUID = "argon_barker_1987_table1_liquid"
@@ -43,7 +46,7 @@ def test_original_study_and_all_numerical_evidence_survive_additive_metadata():
         hashlib.sha256((json.dumps(restored, indent=2) + "\n").encode()).hexdigest()
         == PROOF["original_study_sha256"]
     )
-    assert scientific_sha256() == PROOF["catalog_scientific_sha256"]
+    assert_snapshot_lineage(scientific_snapshot(), PROOF["catalog_scientific_sha256"])
     assert current["phase"] is None
     assert current["reproduction"]["status"] == "not_reproduced"
     assert current["reproduction"]["eos_record_identifiers"] == []

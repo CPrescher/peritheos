@@ -1445,8 +1445,9 @@ def test_former_peak_only_materials_have_source_backed_crystal_models():
     assert fe3s["space_group"] == "I-4"
     assert fe3s["space_group_number"] == 82
     assert fe3s["formula_units_per_cell"] == 8
-    assert "approximate Fe3P-type proxy" in fe3s["notes"]
-    assert "not be presented as its original structure" in fe3s["notes"]
+    assert "Fe3P-type topology proxy" in fe3s["notes"]
+    assert "not a refined Fe3S structure" in fe3s["notes"]
+    assert fe3s["source"]["structure_cod_id"] == "9007338"
 
 
 def test_b4c_primary_data_transcription_is_complete():

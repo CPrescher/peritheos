@@ -1,0 +1,104 @@
+#------------------------------------------------------------------------------
+#$Date: 2024-08-07 19:09:39 +0200 (Wed 07 de Aug de 2024) $
+#$Revision: 294031 $
+#$URL: svn://www.crystallography.net/cod/cif/9/00/18/9001848.cif $
+#------------------------------------------------------------------------------
+#
+# This file is available in the Crystallography Open Database (COD),
+# http://www.crystallography.net/. The original data for this entry
+# were provided the American Mineralogist Crystal Structure Database,
+# http://rruff.geo.arizona.edu/AMS/amcsd.php
+#
+# The file may be used within the scientific community so long as
+# proper attribution is given to the journal article from which the
+# data were obtained.
+#
+data_9001848
+loop_
+_publ_author_name
+'Yang, H.'
+'Prewitt, C. T.'
+'Frost, D. J.'
+_publ_section_title
+;
+ Crystal structure of the dense hydrous magnesium silicate, phase D
+;
+_journal_name_full               'American Mineralogist'
+_journal_page_first              651
+_journal_page_last               654
+_journal_volume                  82
+_journal_year                    1997
+_chemical_formula_sum            'H2.22 Mg1.11 O6 Si1.89'
+_chemical_name_mineral           Phase-D
+_space_group_IT_number           162
+_symmetry_space_group_name_Hall  '-P 3 2'
+_symmetry_space_group_name_H-M   'P -3 1 m'
+_cell_angle_alpha                90
+_cell_angle_beta                 90
+_cell_angle_gamma                120
+_cell_formula_units_Z            1
+_cell_length_a                   4.7453
+_cell_length_b                   4.7453
+_cell_length_c                   4.3450
+_cell_volume                     84.732
+_database_code_amcsd             0001904
+_exptl_crystal_density_diffrn    3.494
+_cod_original_formula_sum        'Mg1.11 Si1.89 H2.22 O6'
+_cod_database_code               9001848
+loop_
+_space_group_symop_operation_xyz
+x,y,z
+x-y,-y,z
+y,-x+y,-z
+-y,-x,-z
+-x+y,-x,z
+-x,-x+y,z
+-x,-y,-z
+-x+y,y,-z
+-y,x-y,z
+y,x,z
+x-y,x,-z
+x,x-y,-z
+loop_
+_atom_site_aniso_label
+_atom_site_aniso_U_11
+_atom_site_aniso_U_22
+_atom_site_aniso_U_33
+_atom_site_aniso_U_12
+_atom_site_aniso_U_13
+_atom_site_aniso_U_23
+Mg1 0.02755 0.02755 0.00947 0.01377 0.00000 0.00000
+Si 0.00744 0.00744 0.00612 0.00372 0.00000 0.00000
+Mg2 0.00744 0.00744 0.00612 0.00372 0.00000 0.00000
+O 0.00779 0.00881 0.01148 0.00441 -0.00018 0.00000
+loop_
+_atom_site_label
+_atom_site_fract_x
+_atom_site_fract_y
+_atom_site_fract_z
+_atom_site_occupancy
+_atom_site_U_iso_or_equiv
+Mg1 0.00000 0.00000 0.00000 1.00000 ?
+Si 0.66667 0.33333 0.50000 0.94500 ?
+Mg2 0.66667 0.33333 0.50000 0.05500 ?
+H 0.53600 0.00000 0.09100 0.37000 0.01140
+O 0.63270 0.00000 0.27160 1.00000 ?
+loop_
+_cod_changelog_entry_id
+_cod_changelog_entry_author
+_cod_changelog_entry_date
+_cod_changelog_entry_text
+1
+;cod-tools version 3.10.1
+Id: cif_fix_AMCSD_atom_labels 10224 2024-08-07 11:09:31Z saulius
+;
+2024-08-07T19:38:18+03:00
+;Changed the following '_atom_site_label' values:
+the first duplicated label 'Mg'  converted to 'Mg1'
+duplicated label 'Mg' at index 2 converted to 'Mg2'
+;
+loop_
+_cod_related_entry_id
+_cod_related_entry_database
+_cod_related_entry_code
+1 AMCSD 0001904

@@ -24,7 +24,7 @@ and recommendation for use are distinct assessments.
 | Stored EOS records | 2 |
 | Observation datasets | 1 |
 
-Hexagonal phase-D diffraction interchange record. The crystallographic pattern was imported from Dioptas/JCPDS, while both executable EOS records use the separately printed AntA and AntB ambient volumes in Shieh et al. (2000), Table 2. Phase D is compositionally variable; the paper's antigorite starting material contained about 3.7 wt% Fe.
+Historical material/card import retained as provenance; the inherited hkl/d/intensity array is superseded and preserved privately with its full original document. The present peaks are independent kinematic X-ray calculations (0.8-20 A, sum multiplicity\*\|F\|^2, maximum 100), not measured intensities or a recovered source-card selection. COD 9001848 Yang, Prewitt and Frost (1997), including reported occupancies, Mg1.11Si1.89H2.22O6 per cell. Retain existing reference cell. Rounded special thirds are snapped within 5e-6. No Fe site occupancy is invented: the EOS sample contains about 3.7 wt% Fe, so this is a structural surrogate. Original scientific EOS evidence, observations and applicability limits are unchanged.
 
 ## Automatic selections
 

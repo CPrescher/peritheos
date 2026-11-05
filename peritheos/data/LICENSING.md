@@ -42,10 +42,14 @@ of the source data.
 The component-level `eos-structure-rights-review.json` assesses the 685 EOS
 records and 234 structural/diffraction components separately from observations.
 Its source fingerprints and `eos-structure-compilations.LICENSE.md` distinguish
-numerical-content assessments, four verified named COD resources and
-unresolved cases: seven Holland/THERMOCALC extracts and ten inherited peak lists.
-Those 17 components remain present in the runtime
-export; this is not blanket clearance. The original Dioptas migration's complete
+numerical-content assessments, ten verified named COD resources and
+seven unresolved Holland/THERMOCALC extracts, which remain in runtime exports.
+The ten inherited peak lists have been replaced by independently calculated
+X-ray arrays. See [the calculation notice](datasets/calculated-patterns.LICENSE.md)
+and `calculated-pattern-inputs.json`: six COD CC0 structural inputs, one independently
+authored ideal model, and three attributed numerical-parameter models without
+a separate source-publication grant. Generated-output CC0 covers contributor-held
+rights only; this is not blanket clearance. The original Dioptas migration's complete
 MIT notice is retained separately; it cannot grant underlying third-party rights.
 The two formerly ICSD-linked post-perovskite topologies now use CC0 COD 9009217,
 preserving all numerical values and the Fe-bearing pure-MgSiO3 proxy limitation.
@@ -90,7 +94,7 @@ file format or the absence of another notice. This also applies to inline EOS
 and structural data and to author inputs with limited provenance-only use.
 
 The installed [CIF license review](datasets/cif-license-review.json) records
-source URLs, hashes and the current COD data declaration for the four named
+source URLs, hashes and the current COD data declaration for the ten named
 COD CIFs. It preserves legacy headers and structural values. The He (2023)
 thesis-derived brucite CIF was subsequently replaced by COD 1000054 and its
 original evidence preserved privately. Its source grant remains unresolved;

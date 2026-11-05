@@ -23,7 +23,7 @@ and recommendation for use are distinct assessments.
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac\_user\_jcpds/Fe3S-Fei.jcpds, JCPDS/dac\_user\_jcpds/Fe3S\_calc.jcpds. Fei et al., American Mineralogist 85, 1830-1833 (2000), doi:10.2138/am-2000-11-1229, identify the phase as Fe3P-type I-4; the reported cell and density imply Z=8. The atom sites are an explicitly approximate Fe3P-type proxy based on the near-end-member Fe3P schreibersite refinement Htr of Britvin et al., American Mineralogist 106, 1520-1529 (2021), doi:10.2138/am-2021-7766: its P site is replaced by S while the three Fe sites are retained. These coordinates were not refined for the Fe3S specimen and must not be presented as its original structure; calculated intensities are approximate, while the legacy Fe3S peaks remain authoritative where available.
+Historical material/card import retained as provenance; the inherited hkl/d/intensity array is superseded and preserved privately with its full original document. The present peaks are independent kinematic X-ray calculations (0.8-20 A, sum multiplicity\*\|F\|^2, maximum 100), not measured intensities or a recovered source-card selection. Fe3P-type topology proxy from meteoritic (Fe,Ni)3P COD 9007338: replace all Ni by Fe and P by S. This is not a refined Fe3S structure or a prediction of experimental intensities. The existing Fe3S reference cell is retained. Original scientific EOS evidence, observations and applicability limits are unchanged. The root atom sites now use this same COD-derived Fe3S proxy, replacing the earlier Britvin Fe3P proxy; neither is an experimental Fe3S refinement.
 
 ## Automatic selections
 

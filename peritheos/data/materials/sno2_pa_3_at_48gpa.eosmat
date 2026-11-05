@@ -167,19 +167,37 @@
     {"element": "O", "wyckoff": "8c", "x": 0.346, "y": 0.346, "z": 0.346, "occupancy": 1.0}
   ],
   "peaks": [
-    [4, 2, 2, 0.9941, 15.0],
-    [4, 2, 0, 1.089, 20.0],
-    [3, 3, 1, 1.1173, 65.0],
-    [4, 0, 0, 1.2175, 20.0],
-    [2, 2, 2, 1.4058, 5.0],
-    [3, 1, 1, 1.4684, 100.0],
-    [2, 2, 0, 1.7218, 80.0],
-    [2, 1, 1, 1.9882, 5.0],
-    [2, 1, 0, 2.1779, 15.0],
-    [2, 0, 0, 2.435, 85.0],
-    [1, 1, 1, 2.8117, 80.0]
+    [1, 1, 1, 2.811695811, 42.2862776],
+    [0, 0, 2, 2.435, 26.51652873],
+    [0, 2, 1, 2.1779302101, 2.54452704],
+    [1, 1, 2, 1.9881691746, 1.42390185],
+    [0, 2, 2, 1.7218050122, 53.94822752],
+    [1, 2, 2, 1.6233333333, 0.38988606],
+    [1, 1, 3, 1.4683602481, 100.0],
+    [2, 2, 2, 1.4058479055, 27.37304443],
+    [0, 2, 3, 1.3506949778, 0.08577606],
+    [1, 2, 3, 1.3015622481, 1.85811167],
+    [0, 0, 4, 1.2175, 12.95859033],
+    [0, 4, 1, 1.1811484939, 0.40597626],
+    [1, 1, 4, 1.1478700081, 0.23506376],
+    [1, 3, 3, 1.1172546239, 51.86214487],
+    [0, 2, 4, 1.088965105, 68.42216826],
+    [1, 2, 4, 1.0627211254, 0.74972254],
+    [2, 3, 3, 1.0382874887, 0.08925449],
+    [2, 2, 4, 0.9940845873, 53.29503721],
+    [0, 4, 3, 0.974, 0.02090188],
+    [1, 3, 4, 0.9550855781, 0.47201624],
+    [1, 1, 5, 0.937231937, 73.10251962],
+    [0, 2, 5, 0.9043362969, 0.66484684],
+    [1, 2, 5, 0.889136285, 0.39949305],
+    [0, 4, 4, 0.8609025061, 27.20156211],
+    [1, 4, 4, 0.8477581845, 0.35289865],
+    [3, 3, 4, 0.8351981096, 0.02907844],
+    [1, 3, 5, 0.8231802441, 87.44224741],
+    [0, 0, 6, 0.8116666667, 53.00683927],
+    [0, 6, 1, 0.8006230682, 0.08248437]
   ],
-  "notes": "Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac_user_jcpds/Users data/sno2_cubic_48GPa.jcpds. The cubic PdF2/pyrite-type model uses Sn 4a and O 8c with u=0.346, as reported for high-pressure cubic SnO2 by Smith et al., J. Synchrotron Rad. 26, 858-867 (2019), doi:10.1107/S1600577519005579; that study confirms the structure near this pressure. The legacy 48 GPa peaks are retained. The separate Ono et al. EOS record remains limited to its published 16.09-28.85 GPa range.",
+  "notes": "Historical material/card import retained as provenance; the inherited hkl/d/intensity array is superseded and preserved privately with its full original document. The present peaks are independent kinematic X-ray calculations (0.8-20 A, sum multiplicity*|F|^2, maximum 100), not measured intensities or a recovered source-card selection. Independent calculation from the reported ideal Pa-3 numerical model: Sn 4a and O 8c u=0.346 (Sneed et al. 2019). Use the existing reference cell, not a new pressure-dependent positional refinement. Source reports oxygen disorder; this ordered approximation does not model it. The 48 GPa structural reference does not extend the separate EOS 16.09-28.85 GPa applicability range. The retained u=0.346 is the introduction's reference value, not the paper's refined u=0.3343(5) at 44.5 GPa. Original scientific EOS evidence, observations and applicability limits are unchanged.",
   "datasets": [
     {
       "identifier": "sno2_ono_2000_table2_pvt",
@@ -228,5 +246,15 @@
       "notes": "The table contains 34 observations from experiment S145 and six from S192. Parenthetical last-digit pressure and volume uncertainties are retained as generic bounds because the paper does not label their statistical meaning. Pressure was obtained from Au using the Jamieson et al. (1982) EOS (K0=177 GPa, K0'=4.8), with a stated pressure uncertainty within +/-0.2 GPa. The paper says initial-heating data were excluded from Fig. 4 because of deviatoric stress but does not identify those rows individually, so the complete printed table is preserved.",
       "source_url": "https://doi.org/10.1007/s002690000108"
     }
-  ]
+  ],
+  "source": {
+    "pattern_kind": "independently_calculated_xray",
+    "pattern_inputs": "calculated-pattern-inputs.json",
+    "pattern_input_model": "sno2_pa_3_at_48gpa",
+    "pattern_generator": "scripts/calculate_reference_patterns.py (gemmi==0.7.4)",
+    "pattern_output_license": "CC0-1.0, contributor-held rights only; source terms separate",
+    "pattern_license_notice": "datasets/calculated-patterns.LICENSE.md",
+    "pattern_input_source_terms": "No separate source grant established; assessed numerical structural parameters, not an openly licensed publisher artifact",
+    "pattern_qualification": "Independent calculation from the reported ideal Pa-3 numerical model: Sn 4a and O 8c u=0.346 (Sneed et al. 2019). Use the existing reference cell, not a new pressure-dependent positional refinement. Source reports oxygen disorder; this ordered approximation does not model it. The 48 GPa structural reference does not extend the separate EOS 16.09-28.85 GPa applicability range. The retained u=0.346 is the introduction's reference value, not the paper's refined u=0.3343(5) at 44.5 GPa."
+  }
 }

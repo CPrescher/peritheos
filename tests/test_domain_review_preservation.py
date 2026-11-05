@@ -1,11 +1,11 @@
 """The domain review freezes scientific values independently of metadata pins."""
 
 import copy
-import hashlib
 import json
 from pathlib import Path
 
 from scripts.merge_source_bindings import accepts_merge_binding
+from scripts.scientific_source_snapshot import assert_snapshot_lineage
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -49,28 +49,16 @@ def test_reviewed_coefficients_units_and_source_arrays_remain_exact(
                 retained.append(dataset)
         document["datasets"] = retained
     assert removed == added
-    assert (
-        hashlib.sha256(
-            json.dumps(
-                snapshot, sort_keys=True, separators=(",", ":"), allow_nan=False
-            ).encode()
-        ).hexdigest()
-        == replacement["after_catalog_scientific_sha256"]
-    )
+    assert_snapshot_lineage(snapshot, replacement["after_catalog_scientific_sha256"])
     for document in snapshot["documents"]:
         if document["identifier"] == "brucite":
             for key in ("lattice", "atom_sites"):
                 document.pop(key)
-    fingerprint = hashlib.sha256(
-        json.dumps(
-            snapshot, sort_keys=True, separators=(",", ":"), allow_nan=False
-        ).encode()
-    ).hexdigest()
-    assert (
-        fingerprint
-        == replacement[
+    assert_snapshot_lineage(
+        snapshot,
+        replacement[
             "unchanged_catalog_excluding_brucite_lattice_and_atom_sites_sha256"
-        ]
+        ],
     )
 
 

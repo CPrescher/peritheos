@@ -23,7 +23,7 @@ and recommendation for use are distinct assessments.
 | Stored EOS records | 1 |
 | Observation datasets | 1 |
 
-Imported 12.08.2026 from a beamline jcpds collection. Source file(s): JCPDS/dac\_user\_jcpds/FeH2\_tetragonal.jcpds. The I4/mmm structure is from Pepin et al., Phys. Rev. Lett. 113, 265504 (2014), doi:10.1103/PhysRevLett.113.265504. Fe was experimentally refined at 67 GPa; the two H sites were obtained by DFT because hydrogen positions could not be determined from the X-ray data. Fractional coordinates are paired here with the legacy reference lattice to enable full-range reflection generation; the legacy peaks are retained.
+Historical material/card import retained as provenance; the inherited hkl/d/intensity array is superseded and preserved privately with its full original document. The present peaks are independent kinematic X-ray calculations (0.8-20 A, sum multiplicity\*\|F\|^2, maximum 100), not measured intensities or a recovered source-card selection. Independent calculation using the published I4/mmm model: Fe 4e z=0.853 from the 67 GPa X-ray refinement, H 4c/4d from the original DFT model. Retain existing reference lattice a=2.714, c=9.2142 A rather than the 67 GPa experimental cell. Hydrogen sites are calculated, not experimentally refined; nominal FeH2 may have vacancies. No 2018 NC supplement is used. No claim of current thermodynamic stability or superiority over later hydrogen models. Original scientific EOS evidence, observations and applicability limits are unchanged.
 
 ## Automatic selections
 

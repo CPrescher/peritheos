@@ -314,18 +314,18 @@
     {"element": "O", "wyckoff": "4b", "x": 0.5, "y": 0.5, "z": 0.5, "occupancy": 1.0}
   ],
   "peaks": [
-    [5, 1, 1, 0.8238, 3.0],
-    [4, 2, 2, 0.8738, 15.0],
-    [4, 2, 0, 0.9571, 17.0],
-    [3, 3, 1, 0.982, 2.0],
-    [4, 0, 0, 1.0701, 5.0],
-    [2, 2, 2, 1.2357, 12.0],
-    [3, 1, 1, 1.2906, 4.0],
-    [2, 2, 0, 1.5134, 52.0],
-    [2, 0, 0, 2.1402, 100.0],
-    [1, 1, 1, 2.4713, 10.0]
+    [1, 1, 1, 2.4713478273, 25.31886352],
+    [0, 0, 2, 2.14025, 75.77795296],
+    [0, 2, 2, 1.5133852884, 100.0],
+    [1, 1, 3, 1.2906193105, 48.93016813],
+    [2, 2, 2, 1.2356739136, 48.37610224],
+    [0, 0, 4, 1.070125, 28.02652457],
+    [1, 3, 3, 0.9820140488, 32.64684772],
+    [0, 2, 4, 0.9571488978, 90.64093887],
+    [2, 2, 4, 0.8737534037, 75.88914715],
+    [1, 1, 5, 0.8237826091, 31.05067624]
   ],
-  "notes": "MW60 magnesiowustite containing 60 mol% FeO. The EOS volume uses the four-cation/four-anion conventional rocksalt cell. The legacy diffraction peaks are retained for interchange.",
+  "notes": "Historical material/card import retained as provenance; the inherited hkl/d/intensity array is superseded and preserved privately with its full original document. The present peaks are independent kinematic X-ray calculations (0.8-20 A, sum multiplicity*|F|^2, maximum 100), not measured intensities or a recovered source-card selection. Independently authored ideal Fm-3m rocksalt model: 4a (0,0,0) with statistical 0.4 Mg + 0.6 Fe and 4b (1/2,1/2,1/2) O. This nominal model is dedicated to CC0 by the Peritheos contributors; numerical lattice constants remain attributed to Richet et al. (1989). No refined disorder or measured intensities are supplied. Original scientific EOS evidence, observations and applicability limits are unchanged.",
   "datasets": [
     {
       "identifier": "mgfe60o_richet_1989_table2_compression",
@@ -369,5 +369,15 @@
       "notes": "The source gives row-wise pressure errors and selected lattice-parameter errors; omitted values remain blank rather than being inferred.",
       "source_url": "https://doi.org/10.1029/JB094iB03p03037"
     }
-  ]
+  ],
+  "source": {
+    "pattern_kind": "independently_calculated_xray",
+    "pattern_inputs": "calculated-pattern-inputs.json",
+    "pattern_input_model": "mgfe60o",
+    "pattern_generator": "scripts/calculate_reference_patterns.py (gemmi==0.7.4)",
+    "pattern_output_license": "CC0-1.0, contributor-held rights only; source terms separate",
+    "pattern_license_notice": "datasets/calculated-patterns.LICENSE.md",
+    "pattern_input_source_terms": "CC0-1.0 (independent ideal model)",
+    "pattern_qualification": "Independently authored ideal Fm-3m rocksalt model: 4a (0,0,0) with statistical 0.4 Mg + 0.6 Fe and 4b (1/2,1/2,1/2) O. This nominal model is dedicated to CC0 by the Peritheos contributors; numerical lattice constants remain attributed to Richet et al. (1989). No refined disorder or measured intensities are supplied."
+  }
 }

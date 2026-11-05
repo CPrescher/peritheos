@@ -31,7 +31,7 @@ def test_complete_review_is_source_bound_and_scientific_content_is_unchanged():
         "migration_records": 144,
         "assessments": {
             "cod_source_and_numerical_changes": 5,
-            "legacy_peak_collection_review_required": 10,
+            "independently_calculated_pattern": 10,
             "no_structural_values": 36,
             "numerical_parameter_assessment": 678,
             "numerical_structure_assessment": 183,
@@ -50,13 +50,14 @@ def test_complete_review_is_source_bound_and_scientific_content_is_unchanged():
             by_key[f"structure/{material}"]["assessment"]
             == "numerical_structure_assessment"
         )
+    assert not any(e.get("legacy_source_comparison") for e in review["entries"])
     assert (
         sum(
-            e["legacy_source_comparison"]["peak_count"]
+            e["peak_count"]
             for e in review["entries"]
-            if e.get("legacy_source_comparison")
+            if e["assessment"] == "independently_calculated_pattern"
         )
-        == 452
+        == 1154
     )
 
 
