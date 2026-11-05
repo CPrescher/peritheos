@@ -1,6 +1,7 @@
 """Distribution boundaries preserve models without redistributing observations."""
 
 import copy
+import hashlib
 import json
 from types import SimpleNamespace
 
@@ -71,14 +72,50 @@ def test_optional_export_is_exactly_allowlisted_and_source_preserving(tmp_path):
     stage = stage_datasets(tmp_path / "optional")
     package = stage / "peritheos_datasets"
     manifest = json.loads((package / "manifest.json").read_bytes())
-    assert manifest["dataset_count"] == 44
+    assert manifest["dataset_count"] == 409
+    review_path = package / "redistribution-review.json"
+    review = json.loads(review_path.read_bytes())
+    assert (
+        hashlib.sha256(review_path.read_bytes()).hexdigest()
+        == manifest["policy"]["redistribution_review"]["sha256"]
+    )
+    reviewed = {e["review_key"]: e for e in review["entries"]}
+    originals = {}
+    for path in (ROOT / "peritheos/data/materials").glob("*.eosmat"):
+        document = json.loads(path.read_bytes())
+        originals.update(
+            {f"{path.stem}/{d['identifier']}": d for d in document.get("datasets", [])}
+        )
+    assert set(reviewed) == set(originals)
+    for key, entry in reviewed.items():
+        assert entry["declaration_sha256"] == digest(originals[key])
+        assert entry["resource"] == originals[key].get("resource")
+    selected = {
+        f"{e['material']}/{e['dataset']}" for e in manifest["policy"]["datasets"]
+    }
+    assert selected == {
+        k for k, e in reviewed.items() if e["decision"] in {"admit", "retain"}
+    }
+    held_files = {
+        e["resource"]["path"]
+        for e in review["entries"]
+        if e["decision"] == "hold" and e["resource"]
+    }
+    assert held_files.isdisjoint(manifest["resources"])
+    assert (package / "notices/numerical-transcriptions.LICENSE.md").is_file()
     expected_files = set()
     for entry in manifest["policy"]["datasets"]:
-        assert entry["source_status"] in {
-            "open_license_declared",
-            "open_source_declared",
-            "author_permission_declared",
-        }
+        if entry.get("review_key"):
+            assessment = reviewed[entry["review_key"]]
+            assert assessment["decision"] == "admit"
+            assert assessment["basis"] == entry["redistribution_basis"]
+            assert assessment["source_status"] == entry["source_status"]
+        else:
+            assert entry["source_status"] in {
+                "open_license_declared",
+                "open_source_declared",
+                "author_permission_declared",
+            }
         material = json.loads(
             (
                 ROOT / "peritheos/data/materials" / f"{entry['material']}.eosmat"
@@ -177,6 +214,8 @@ def test_optional_install_hydrates_inline_and_csv_data_without_changing_models(
     for name, identifier in [
         ("b4c", "b4c_somayazulu_2023_table4_pvt"),
         ("mgo", "zhu_2025_mgo_pvt"),
+        ("brucite", "brucite_fukui_2003_table4"),
+        ("coesite", "coesite_i_iii_bykova_2018_author_fit_export"),
     ]:
         document = get_material_document(name)
         declaration = next(
@@ -185,9 +224,11 @@ def test_optional_install_hydrates_inline_and_csv_data_without_changing_models(
         assert "distribution" not in declaration
         assert len(peritheos.datasets.Dataset.from_mapping(declaration)) > 0
     # Version-compatible installation does not imply every research dataset is admitted.
-    document = get_material_document("brucite")
+    document = get_material_document("gold")
     with pytest.raises(DatasetError) as error:
-        Material.from_eosmat(document).get_dataset("brucite_fukui_2003_table4")
+        Material.from_eosmat(document).get_dataset(
+            "gold_sakai_2025_table_s4_au_w_volumes"
+        )
     assert error.value.code == "dataset.not_distributed"
     # Corrupt optional bytes fail the same checksum verification as core resources.
     declaration = next(
@@ -225,16 +266,79 @@ def test_optional_dependency_and_data_project_versions_are_release_consistent():
     assert f'dependencies = ["peritheos=={release}"]' in project
 
 
-def test_optional_export_refuses_a_restricted_source_scope(tmp_path):
+@pytest.mark.parametrize(
+    "status",
+    [
+        "restricted_source",
+        "source_terms_not_recorded",
+        "limited_or_unspecified_source",
+        "mixed_author_permission",
+    ],
+)
+def test_optional_export_refuses_an_unreviewed_source_scope(tmp_path, status):
     root = tmp_path / "source"
     (root / "peritheos").mkdir(parents=True)
     (root / "peritheos/__init__.py").write_text('__version__ = "0.17.4"\n')
     policy = root / "packages/peritheos-datasets/datasets.json"
     policy.parent.mkdir(parents=True)
     policy.write_text(
-        json.dumps(
-            {"datasets": [{"source_status": "restricted_source", "dataset": "blocked"}]}
-        )
+        json.dumps({"datasets": [{"source_status": status, "dataset": "blocked"}]})
     )
     with pytest.raises(ValueError, match="unapproved source scope"):
+        stage_datasets(tmp_path / "optional", root=root)
+
+
+@pytest.mark.parametrize(
+    "change",
+    ["review_bytes", "missing_assessment", "held", "wrong_resource", "wrong_basis"],
+)
+def test_numerical_admission_requires_exact_review_binding(tmp_path, change):
+    root = tmp_path / "source"
+    (root / "peritheos").mkdir(parents=True)
+    (root / "peritheos/__init__.py").write_text('__version__ = "0.17.4"\n')
+    policy = json.loads(
+        (ROOT / "packages/peritheos-datasets/datasets.json").read_bytes()
+    )
+    entry = next(
+        e
+        for e in policy["datasets"]
+        if e.get("redistribution_basis") == "numerical_facts_assessment"
+    )
+    policy["datasets"] = [entry]
+    receipt = policy["redistribution_review"]
+    review = json.loads((ROOT / receipt["path"]).read_bytes())
+    assessment = next(
+        e for e in review["entries"] if e["review_key"] == entry["review_key"]
+    )
+    if change == "missing_assessment":
+        review["entries"] = []
+    elif change == "held":
+        assessment["decision"] = "hold"
+    elif change == "wrong_resource":
+        assessment["resource"]["sha256"] = "bad"
+        material_path = (
+            root / "peritheos/data/materials" / f"{entry['material']}.eosmat"
+        )
+        material_path.parent.mkdir(parents=True)
+        material_path.write_bytes(
+            (ROOT / "peritheos/data/materials" / material_path.name).read_bytes()
+        )
+    elif change == "wrong_basis":
+        entry["redistribution_basis"] = "unreviewed"
+    payload = json.dumps(review, ensure_ascii=False, indent=2).encode() + b"\n"
+    review_path = root / receipt["path"]
+    review_path.parent.mkdir(parents=True)
+    review_path.write_bytes(payload)
+    if change != "review_bytes":
+        receipt["sha256"] = hashlib.sha256(payload).hexdigest()
+    else:
+        review_path.write_bytes(payload + b" ")
+    policy_path = root / "packages/peritheos-datasets/datasets.json"
+    policy_path.parent.mkdir(parents=True)
+    policy_path.write_text(json.dumps(policy))
+    message = {
+        "review_bytes": "review changed",
+        "wrong_resource": "resource binding changed",
+    }.get(change, "unapproved source scope")
+    with pytest.raises(ValueError, match=message):
         stage_datasets(tmp_path / "optional", root=root)

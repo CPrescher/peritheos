@@ -5,13 +5,22 @@ Install `peritheos[datasets]` to request the matching data package. Installing
 `peritheos` alone supplies structures, EOS parameters and scientific provenance
 without experimental observations. Neither installation downloads data at runtime.
 
-Only the dataset declarations explicitly listed in `datasets.json` in the
-source repository are admitted. They have recorded open or author-declared
-source terms. Mixed author/literature, unresolved and NC/ND sources are not
-included. This is not a clearance of every dataset in the research repository.
-The installed `peritheos_datasets/manifest.json` records the exact selection,
-declaration fingerprints and original resource checksums. All numerical source
-values, error conventions, attribution and data licenses are preserved.
+The explicit policy selects 409 material dataset entries: 44 with previously
+recorded source/author terms, 363 admitted after a numerical factual-content
+assessment, one newly verified CC BY 4.0 deposit extraction and one author export
+with a separately assessed numerical literature anchor. Forty material entries
+remain held, including known NC/ND cases and unresolved collections/mixed inputs.
+Two further supporting-study entries remain outside this package interface.
+
+Factual-content admission is a maintainer assessment, not a new source license,
+legal opinion or Debian approval. Unspecified source terms remain unspecified.
+Contributor CC0 dedications do not override third-party rights. The installed
+`peritheos_datasets/redistribution-review.json` identifies the exact decisions,
+source references, limitations and held entries. The accompanying numerical
+transcription notice explains copyright, collection and contractual caveats.
+`manifest.json` records the policy binding, declaration fingerprints and original
+resource checksums. Numerical values, error conventions, attribution, original
+source-license fields and scientific qualifications are preserved.
 
 The data package version must match the library version. Dataset access through
 Peritheos verifies resource checksums. Other source evidence is available through

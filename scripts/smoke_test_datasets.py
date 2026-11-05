@@ -16,6 +16,18 @@ def main():
     package = resources.files("peritheos_datasets")
     manifest = json.loads(package.joinpath("manifest.json").read_text(encoding="utf-8"))
     assert version("peritheos") == version("peritheos-datasets") == manifest["version"]
+    review_bytes = package.joinpath("redistribution-review.json").read_bytes()
+    assert (
+        hashlib.sha256(review_bytes).hexdigest()
+        == manifest["policy"]["redistribution_review"]["sha256"]
+    )
+    reviewed = {e["review_key"]: e for e in json.loads(review_bytes)["entries"]}
+    held_files = {
+        e["resource"]["path"]
+        for e in reviewed.values()
+        if e["decision"] == "hold" and e["resource"]
+    }
+    assert held_files.isdisjoint(manifest["resources"])
     for relative, checksum in manifest["resources"].items():
         assert (
             hashlib.sha256(
@@ -28,9 +40,25 @@ def main():
         declaration = next(
             d for d in document["datasets"] if d["identifier"] == entry["dataset"]
         )
+        if entry.get("review_key"):
+            assessment = reviewed[entry["review_key"]]
+            assert assessment["decision"] == "admit"
+            assert assessment["basis"] == entry["redistribution_basis"]
+            assert assessment["source_status"] == entry["source_status"]
+            assert assessment["declaration_sha256"] == entry["declaration_sha256"]
+            assert assessment["resource"] == declaration.get("resource")
         assert len(Dataset.from_mapping(declaration)) > 0
+        # Package policy binds the complete declaration, including inline views.
+        # Observation registry bindings below deliberately exclude those views.
+        declaration_bytes = json.dumps(
+            declaration,
+            sort_keys=True,
+            separators=(",", ":"),
+            ensure_ascii=False,
+            allow_nan=False,
+        ).encode()
         assert (
-            observation_source_fingerprint(declaration) == entry["declaration_sha256"]
+            hashlib.sha256(declaration_bytes).hexdigest() == entry["declaration_sha256"]
         )
     assert len(get_material("mgo").get_dataset("zhu_2025_mgo_pvt")) > 0
     for entry in observation_registry()["datasets"]:

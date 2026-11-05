@@ -48,23 +48,28 @@ values or detailed research archives, plus a separate optional dataset archive.
 The `local` inventory below remains an inventory of research checkout resources,
 not a promise that those files are included by either build. The optional
 package uses the explicit source-scoped allowlist in
-`packages/peritheos-datasets/datasets.json` (44 entries); its installed manifest
+`packages/peritheos-datasets/datasets.json` (409 entries after the
+[numerical redistribution review](numerical-dataset-redistribution.md)); its installed manifest
 records exact admitted declarations and resource hashes. No scope is extended
 to adjacent source files. The runtime export retains structure/EOS parameters,
 dataset descriptions and checksums, scientific qualifications and evidence links.
 Remaining structure/parameter compilation rights still need assessment.
+
+The 5 November review adds a verified Zenodo source grant and an iridium source
+NC/ND qualification to the local overlay. Its factual numerical admissions are
+separate distribution decisions; the source-rights statuses below remain explicit.
 
 ## Dataset findings
 
 | Local status | Entries | Meaning |
 | --- | ---: | --- |
 | `open_license_declared` | 22 | Explicit open license in existing dataset metadata; not independent authentication of all underlying rights. |
-| `open_source_declared` | 21 | A named source/deposit grant mapped to the resource, with its scope. |
+| `open_source_declared` | 22 | A named source/deposit grant mapped to the resource, with its scope. |
 | `author_permission_declared` | 1 | Fe7C3 author input: dated author/maintainer CC BY 4.0 declaration. |
 | `mixed_author_permission` | 3 | Coesite/Morard author-held rights are CC BY 4.0; literature inputs remain separate. |
 | `limited_or_unspecified_source` | 71 | Contributor-only dedications, source qualifications, or explicitly unspecified terms. |
-| `restricted_source` | 20 | Source NC/ND terms require an applicability assessment or separate grant. Not a finding that every fact/calculated output inherits them. |
-| `source_terms_not_recorded` | 311 | No applicable grant established by the component metadata and reviewed scopes. |
+| `restricted_source` | 22 | Source NC/ND terms require an applicability assessment or separate grant. Not a finding that every fact/calculated output inherits them. |
+| `source_terms_not_recorded` | 308 | No applicable grant established by the component metadata and reviewed scopes. |
 
 The 685 EOS and 234 structure/diffraction entries have no separate
 component-level license assertions. Their citations and available provenance

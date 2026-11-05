@@ -239,14 +239,41 @@ def stage_datasets(destination, root=ROOT):
     policy = json.loads(
         (root / "packages/peritheos-datasets/datasets.json").read_text(encoding="utf-8")
     )
+    review = None
+    reviewed_entries = {}
+    if "redistribution_review" in policy:
+        receipt = policy["redistribution_review"]
+        review_path = root / receipt["path"]
+        payload = review_path.read_bytes()
+        if hashlib.sha256(payload).hexdigest() != receipt["sha256"]:
+            raise ValueError(
+                "Numerical redistribution review changed; review the policy binding"
+            )
+        review = json.loads(payload)
+        reviewed_entries = {e["review_key"]: e for e in review["entries"]}
+        write_json(package / "redistribution-review.json", review)
     definitions = {}
     resource_hashes = {}
     for entry in policy["datasets"]:
-        if entry["source_status"] not in {
+        licensed = entry["source_status"] in {
             "open_license_declared",
             "open_source_declared",
             "author_permission_declared",
-        }:
+        }
+        if entry.get("review_key"):
+            assessment = reviewed_entries.get(entry.get("review_key"), {})
+            if not (
+                assessment.get("decision") == "admit"
+                and assessment.get("basis") == entry.get("redistribution_basis")
+                and assessment.get("declaration_sha256") == entry["declaration_sha256"]
+                and assessment.get("material") == entry["material"]
+                and assessment.get("dataset") == entry["dataset"]
+                and assessment.get("source_status") == entry["source_status"]
+            ):
+                raise ValueError(
+                    f"Optional dataset has an unapproved source scope: {entry['dataset']}"
+                )
+        elif not licensed:
             raise ValueError(
                 f"Optional dataset has an unapproved source scope: {entry['dataset']}"
             )
@@ -263,6 +290,13 @@ def stage_datasets(destination, root=ROOT):
             raise ValueError(
                 f"Optional dataset declaration changed; review {material}/{entry['dataset']}"
             )
+        if entry.get("review_key"):
+            if reviewed_entries[entry["review_key"]].get("resource") != ds.get(
+                "resource"
+            ):
+                raise ValueError(
+                    f"Numerical review resource binding changed: {entry['dataset']}"
+                )
         definitions.setdefault(material, []).append(ds)
         if "resource" in ds:
             resource = ds["resource"]
@@ -305,6 +339,11 @@ def stage_datasets(destination, root=ROOT):
         root / "peritheos/data/datasets/ma_2024_sources/LICENSE.md",
         notices / "ma-2024.LICENSE.md",
     )
+    if review is not None:
+        shutil.copy2(
+            root / "packages/peritheos-datasets/NUMERICAL-TRANSCRIPTIONS.LICENSE.md",
+            notices / "numerical-transcriptions.LICENSE.md",
+        )
     shutil.copytree(root / "LICENSES", destination / "LICENSES")
     shutil.copy2(root / "LICENSE", destination / "LICENSE")
     shutil.copy2(

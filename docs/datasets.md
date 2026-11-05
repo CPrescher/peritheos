@@ -31,6 +31,12 @@ their recorded source terms. A listed dataset identifier is not a promise that
 its observations are included in the optional package. Material metadata links
 the source evidence through `data_availability`.
 
+The current selection contains 409 material dataset entries. The
+[numerical redistribution review](research/numerical-dataset-redistribution.md)
+distinguishes source grants from factual-content assessments and lists 40 held
+material entries and two deferred supporting-study entries. An admission does not
+turn unspecified source terms into an open license or establish Debian acceptance.
+
 For reuse and redistribution, see [code and data licensing](licensing.md).
 Dataset source terms are separate from the library's MIT code license.
 

@@ -10,7 +10,8 @@
     "External Python dependencies are installed separately, not bundled by virtue of Requires-Dist; native dependency notice compliance remains a separate recorded action.",
     "This inventory records the immutable published 0.17.3 release plus current data/rights overlays. Author declarations and Ma DOCX exclusion shipped in 0.17.4. Subsequent Fei image removal, numerical plot replacements, and Tateno workbook/Chidester ZIP exclusions apply only to later builds; 0.17.4 archives remain unchanged. Inventory tooling and reports were added after 0.17.3 and are not claimed to be files in its archived distributions.",
     "The subsequent CIF review records current COD CC0 declarations against matched source files without rewriting their legacy headers. He (2023) thesis/table reuse terms remain unresolved; failed live repository requests are not licensing evidence. Historical release-state classifications are retained.",
-    "After 0.17.4 the He brucite CIF and copied structural values were replaced by CC0 COD 1000054. Original evidence and the obsolete pre-disposition card are private; published archives and all EOS numerical evidence are unchanged."
+    "After 0.17.4 the He brucite CIF and copied structural values were replaced by CC0 COD 1000054. Original evidence and the obsolete pre-disposition card are private; published archives and all EOS numerical evidence are unchanged.",
+    "The 5 November numerical redistribution review separately records factual-content admission decisions. These do not turn unknown source terms into open grants. The newly verified Zenodo source grant and iridium article NC/ND declaration are current-only overlays."
   ],
   "local_distribution_exclusions": [
     "peritheos/data/datasets/ma_2024_sources/supporting-information.docx",
@@ -24,6 +25,37 @@
     "output/material-candidates/brucite/brucite-before-disposition-2026-10-17.eosmat"
   ],
   "scopes": [
+    {
+      "id": "zenodo-zhu-2020-reviewed-source",
+      "files": [
+        "peritheos/data/datasets/fa50-bridgmanite-zhu-2020-zenodo-latticeparameters.csv"
+      ],
+      "status": "open_source_declared",
+      "declared_license": "CC-BY-4.0 (Zenodo 3747000 v2 dataset)",
+      "evidence": [
+        "https://zenodo.org/records/3747000",
+        "docs/data/numerical-redistribution-review.json"
+      ],
+      "scope": "Named normalized extraction from latticeparameters.xlsx and EoS-Ffplot-bulkv.xlsx. Deposit license and both original curation SHA-256 values freshly verified. Does not cover unrelated publications or files.",
+      "action": "Retain source attribution, CC BY 4.0, normalization/derived flags and exact source checksums.",
+      "local_only": true
+    },
+    {
+      "id": "iridium-anzellini-2025-reviewed-nc-nd",
+      "files": [
+        "peritheos/data/datasets/iridium-anzellini-2025-tables-s1-s3-pvt.csv",
+        "peritheos/data/datasets/iridium-anzellini-2025-figure4-300k-830k-vector-digitized.csv"
+      ],
+      "status": "restricted_source",
+      "declared_license": "CC-BY-NC-ND-4.0 (article); separate dataset grant not verified",
+      "evidence": [
+        "https://www.nature.com/articles/s43246-025-00963-4.pdf",
+        "docs/data/numerical-redistribution-review.json"
+      ],
+      "scope": "Source article final-page Open Access notice freshly verified. Normalized numerical transcriptions and vector readouts remain held pending source-specific applicability or permission review; this is not a finding that all numerical facts inherit the article restriction.",
+      "action": "Retain the source declaration and hold these recoveries from the optional distribution until the applicable rights or a separate grant are resolved.",
+      "local_only": true
+    },
     {
       "id": "ma-publisher-docx",
       "files": [

@@ -25,7 +25,10 @@ with another compiler requires reviewing its matching standard-library notices.
 Experimental data are optional: `python -m pip install "peritheos[datasets]"` adds
 the matching `peritheos-datasets` distribution. That package admits only an
 explicit source-scoped selection and includes its own dataset notices and
-licenses. Unresolved or NC/ND resources are not silently included by that extra.
+licenses. Its installed review distinguishes recorded source grants from
+maintainer factual-content assessments. Unspecified source terms remain
+unspecified, and admission is not Debian approval. Identified NC/ND cases and
+unresolved collections/mixed inputs remain held as listed in that review.
 No installation downloads observations at runtime. Other evidence and terms
 are linked from the material's `data_availability` metadata.
 

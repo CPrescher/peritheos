@@ -127,7 +127,7 @@ Generated from all 449 catalog dataset entries. Counts are entries, not independ
 | [Anzellini 2022: 10.1038/s41598-022-10523-2](https://doi.org/10.1038/s41598-022-10523-2) | 1 | chromium | open_license_declared |
 | [Rodrigo-Ramon 2024: 10.1038/s41598-024-78006-0](https://doi.org/10.1038/s41598-024-78006-0) | 1 | rhodium | open_license_declared |
 | [Sakai 2025: 10.1038/s43246-025-00792-5](https://doi.org/10.1038/s43246-025-00792-5) | 19 | copper ; gold ; iron ; mgo ; molybdenum ; nacl_b2 ; platinum ; rhenium ; tungsten | restricted_source |
-| [Anzellini 2025: 10.1038/s43246-025-00963-4](https://doi.org/10.1038/s43246-025-00963-4) | 2 | iridium | source_terms_not_recorded |
+| [Anzellini 2025: 10.1038/s43246-025-00963-4](https://doi.org/10.1038/s43246-025-00963-4) | 2 | iridium | restricted_source |
 | [Tsuchiya 2015: 10.1038/srep15534](https://doi.org/10.1038/srep15534) | 1 | phase_h | source_terms_not_recorded |
 | [Sakai 2016: 10.1038/srep22652](https://doi.org/10.1038/srep22652) | 2 | mgsio3_post_perovskite | open_license_declared |
 | [Muhammad 2024: 10.1039/D4NR00093E](https://doi.org/10.1039/D4NR00093E) | 1 | boron_nitride_hexagonal | source_terms_not_recorded |
@@ -252,7 +252,7 @@ Generated from all 449 catalog dataset entries. Counts are entries, not independ
 | [Dobrosavljevic 2019: 10.3390/min9120762](https://doi.org/10.3390/min9120762) | 2 | mgfe94o_b1 ; mgfe94o_rhombohedral | source_terms_not_recorded |
 | [Zhao 1998: 10.4131/jshpreview.7.25](https://doi.org/10.4131/jshpreview.7.25) | 2 | diopside | limited_or_unspecified_source |
 | [Béjina 2021: 10.5194/ejm-33-519-2021](https://doi.org/10.5194/ejm-33-519-2021) | 1 | fayalite | open_license_declared |
-| [Zhu 2020: 10.5281/zenodo.3747000](https://doi.org/10.5281/zenodo.3747000) | 1 | mg05fe05al05si05o3_bridgmanite | source_terms_not_recorded |
+| [Zhu 2020: 10.5281/zenodo.3747000](https://doi.org/10.5281/zenodo.3747000) | 1 | mg05fe05al05si05o3_bridgmanite | open_source_declared |
 | [Morard 2025: 10.6084/m9.figshare.28143683.v1](https://doi.org/10.6084/m9.figshare.28143683.v1) | 1 | fes_vi | open_source_declared |
 | [Somayazulu 2023: 10.6084/m9.figshare.c.6751752](https://doi.org/10.6084/m9.figshare.c.6751752) | 1 | b4c | open_license_declared |
 | Finger, L. W. 1979: Crystal structures and electron densities of nickel and iron silicate spinels at elevated temperature or pressure | 1 | ferrous_ringwoodite | limited_or_unspecified_source |

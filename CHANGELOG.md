@@ -10,9 +10,14 @@ All notable changes to Peritheos are documented here. The project follows
 - Split experimental observation values from the default Python distribution.
   `peritheos` retains structures, EOS parameters, uncertainties, calibration and
   source/validation summaries; `peritheos[datasets]` adds the version-matched
-  `peritheos-datasets` package. Initially admit 44 explicitly source-scoped
-  entries. Preserve complete repository evidence and original numerical values;
-  build separate, standalone source archives without mutating the checkout.
+  `peritheos-datasets` package. Select 409 material dataset entries after the
+  numerical redistribution review: preserve the 44 earlier source declarations,
+  add 363 scoped factual-content assessments, one verified Zenodo CC BY 4.0
+  extraction and one author export with a separately assessed literature anchor.
+  Hold 40 entries, including newly identified iridium NC/ND sources; retain source
+  licensing caveats and exact installed review/manifest bindings. Preserve complete
+  repository evidence and original numerical values; build separate, standalone
+  source archives without mutating the checkout.
   Missing optional data report installation/source guidance. No runtime network
   access or automatic download is introduced. This changes default observation
   availability; the split has not yet been released.
