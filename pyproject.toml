@@ -42,7 +42,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-data = ["peritheos-datasets==0.17.4"]
+datasets = ["peritheos-datasets==0.17.4"]
 
 [tool.uv.sources]
 peritheos-datasets = {path = "packages/peritheos-datasets"}

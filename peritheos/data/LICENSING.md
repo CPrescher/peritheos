@@ -2,7 +2,7 @@
 
 The source checkout retains complete research evidence. Published builds now
 export a runtime package without experimental observation values and a separate
-optional `peritheos-datasets` package selected by `peritheos[data]`. Each has its
+optional `peritheos-datasets` package selected by `peritheos[datasets]`. Each has its
 own source archive. The runtime archive installs a shorter, scope-specific
 version of this guide. The source inventory below describes research resources,
 not a claim that every resource is installed by either package. This split is

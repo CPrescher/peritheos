@@ -2,7 +2,7 @@
 
 The normal Peritheos distribution supplies structures and EOS parameters
 without experimental observations. Consumers must treat observation access as
-optional: `peritheos[data]` adds selected source-scoped datasets and other evidence
+optional: `peritheos[datasets]` adds selected source-scoped datasets and other evidence
 is linked from material metadata. Dataset descriptions can be present even when
 their values are not installed. This does not change EOS evaluation or require
 network access for phase calculations.

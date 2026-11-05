@@ -4,10 +4,10 @@ The default installation contains dataset descriptions and checksums, not
 experimental observation values. To add the selected, source-scoped datasets:
 
 ```bash
-python -m pip install "peritheos[data]"
+python -m pip install "peritheos[datasets]"
 ```
 
-`data` requests the matching `peritheos-datasets` package. It does not change
+`datasets` requests the matching `peritheos-datasets` package. It does not change
 the library implementation. A complete installed-package example is:
 
 ```python

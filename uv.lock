@@ -3642,7 +3642,7 @@ dependencies = [
 ]
 
 [package.optional-dependencies]
-data = [
+datasets = [
     { name = "peritheos-datasets" },
 ]
 
@@ -3680,10 +3680,10 @@ release = [
 [package.metadata]
 requires-dist = [
     { name = "numpy", specifier = ">=1.22.0" },
-    { name = "peritheos-datasets", marker = "extra == 'data'", directory = "packages/peritheos-datasets" },
+    { name = "peritheos-datasets", marker = "extra == 'datasets'", directory = "packages/peritheos-datasets" },
     { name = "scipy", specifier = ">=1.9.3" },
 ]
-provides-extras = ["data"]
+provides-extras = ["datasets"]
 
 [package.metadata.requires-dev]
 dev = [

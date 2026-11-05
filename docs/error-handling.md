@@ -71,7 +71,7 @@ reports integrity and media-type failures. Examples are listed below.
 | `dataset.invalid` | dataset metadata, column selection, or conversion is invalid |
 | `dataset.not_found` | dataset or column identifier does not exist |
 | `dataset.checksum_mismatch` | resource bytes do not match the declared SHA-256 checksum |
-| `dataset.package_not_installed` | optional observation values are absent; install `peritheos[data]` for selected datasets |
+| `dataset.package_not_installed` | optional observation values are absent; install `peritheos[datasets]` for selected datasets |
 | `dataset.not_distributed` | the requested source is outside the optional package's explicit selection |
 | `dataset.package_version_mismatch` | the optional dataset package and library versions differ; install matching versions |
 | `dataset.unsupported_media_type` | resource media type is not supported (currently only `text/csv`) |

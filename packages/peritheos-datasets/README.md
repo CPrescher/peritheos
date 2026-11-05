@@ -1,7 +1,7 @@
 # Optional Peritheos datasets
 
 This package adds selected observation datasets to the Peritheos library.
-Install `peritheos[data]` to request the matching data package. Installing
+Install `peritheos[datasets]` to request the matching data package. Installing
 `peritheos` alone supplies structures, EOS parameters and scientific provenance
 without experimental observations. Neither installation downloads data at runtime.
 

@@ -22,7 +22,7 @@ Compiled Rust third-party licenses and source attributions are in
 `third_party/rust/NOTICE.md` and the complete adjacent notice bundle. A rebuild
 with another compiler requires reviewing its matching standard-library notices.
 
-Experimental data are optional: `python -m pip install "peritheos[data]"` adds
+Experimental data are optional: `python -m pip install "peritheos[datasets]"` adds
 the matching `peritheos-datasets` distribution. That package admits only an
 explicit source-scoped selection and includes its own dataset notices and
 licenses. Unresolved or NC/ND resources are not silently included by that extra.

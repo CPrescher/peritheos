@@ -2,7 +2,7 @@
 
 The unreleased distribution split makes experimental observations optional:
 `pip install peritheos` supplies the library, structures and EOS parameters;
-`pip install "peritheos[data]"` additionally installs `peritheos-datasets`.
+`pip install "peritheos[datasets]"` additionally installs `peritheos-datasets`.
 The two packages have separate source archives. The optional package contains
 44 explicitly selected entries with recorded open/author-declared source terms;
 it excludes mixed author/literature, unresolved and NC/ND sources. See the

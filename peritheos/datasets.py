@@ -461,7 +461,7 @@ def _load_resource_rows(
             else:
                 raise DatasetError(
                     f"Dataset resource {resource.path!r} is not installed. "
-                    'Install selected datasets with `python -m pip install "peritheos[data]"`.',
+                    'Install selected datasets with `python -m pip install "peritheos[datasets]"`.',
                     code="dataset.package_not_installed",
                     operation="load_dataset",
                 ) from error

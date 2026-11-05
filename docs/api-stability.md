@@ -11,7 +11,7 @@ change must be prominent in the changelog and release notes.
 
 The split Python distribution keeps EOS calculations, structures, parameters
 and scientific qualifications in `peritheos`. Experimental observation values
-are optional through `peritheos[data]`, which installs a matching
+are optional through `peritheos[datasets]`, which installs a matching
 `peritheos-datasets` version. Runtime dataset declarations remain discoverable;
 accessing absent values raises an actionable `DatasetError`, rather than
 returning an empty table. Not every research source is admitted to that package.

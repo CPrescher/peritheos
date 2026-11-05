@@ -466,7 +466,7 @@ jobs:
         shell: bash
         run: |
           uv pip install --python "${RUNNER_TEMP}/peritheos-smoke/bin/python" \
-            --no-index --find-links dist "peritheos[data]"
+            --no-index --find-links dist "peritheos[datasets]"
           cp scripts/smoke_test_datasets.py "${RUNNER_TEMP}/smoke_test_datasets.py"
           cd "${RUNNER_TEMP}"
           "${RUNNER_TEMP}/peritheos-smoke/bin/python" smoke_test_datasets.py

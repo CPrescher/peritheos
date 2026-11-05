@@ -44,8 +44,8 @@ source-rights review and an explicit allowlist edit; neighboring artifacts are
 not copied. The initial selection has 44 entries. Mixed author/literature,
 unresolved and NC/ND sources remain excluded.
 
-`peritheos[data]` requests the optional dependency declared under
-`[project.optional-dependencies]`; `data` is not a second library build. Pin
+`peritheos[datasets]` requests the optional dependency declared under
+`[project.optional-dependencies]`; `datasets` is not a second library build. Pin
 both project versions and the extra together when preparing a release. Configure
 the new `peritheos-datasets` PyPI project with the same trusted-publisher workflow
 and environment before publishing the first split release. Local builds do not

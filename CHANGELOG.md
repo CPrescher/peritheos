@@ -9,7 +9,7 @@ All notable changes to Peritheos are documented here. The project follows
 
 - Split experimental observation values from the default Python distribution.
   `peritheos` retains structures, EOS parameters, uncertainties, calibration and
-  source/validation summaries; `peritheos[data]` adds the version-matched
+  source/validation summaries; `peritheos[datasets]` adds the version-matched
   `peritheos-datasets` package. Initially admit 44 explicitly source-scoped
   entries. Preserve complete repository evidence and original numerical values;
   build separate, standalone source archives without mutating the checkout.

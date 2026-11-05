@@ -20,7 +20,7 @@ def data_package():
         raise DatasetError(
             f"peritheos-datasets {peritheos_datasets.__version__} does not match "
             f"Peritheos {__version__}. Install matching versions with "
-            '`python -m pip install --upgrade "peritheos[data]"`.',
+            '`python -m pip install --upgrade "peritheos[datasets]"`.',
             code="dataset.package_version_mismatch",
             operation="load_dataset",
         )
@@ -48,7 +48,7 @@ def unavailable_dataset(material, identifier, availability):
     if package is None:
         message = (
             f"Observation dataset {identifier!r} is not installed. "
-            'Install selected datasets with `python -m pip install "peritheos[data]"`. '
+            'Install selected datasets with `python -m pip install "peritheos[datasets]"`. '
             f"Other source datasets and their terms: {url}"
         )
         code = "dataset.package_not_installed"

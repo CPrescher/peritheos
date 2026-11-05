@@ -83,10 +83,10 @@ provenance without experimental observation values or research archives.
 To add the selected, source-scoped observation datasets:
 
 ```bash
-pip install "peritheos[data]"
+pip install "peritheos[datasets]"
 ```
 
-`data` is a packaging extra: it adds the matching `peritheos-datasets` package.
+`datasets` is a packaging extra: it adds the matching `peritheos-datasets` package.
 EOS evaluation and fitting your own measurements work without that extra.
 Other original evidence remains in the cited repositories and linked material
 pages; inclusion in the optional package depends on recorded source terms.
@@ -132,7 +132,7 @@ gold = search_eos_records(formula="Au", thermal=True, pressure_gpa=200.0)[0]
 hot_pressure = gold.pressure(volume=55.0, temperature=2000.0)
 ```
 
-With `peritheos[data]` installed, selected observation tables have the same provenance-aware interface whether
+With `peritheos[datasets]` installed, selected observation tables have the same provenance-aware interface whether
 their rows are embedded in `.eosmat` or stored as packaged CSV resources. The
 resource checksum is verified automatically:
 

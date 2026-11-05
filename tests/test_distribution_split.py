@@ -142,7 +142,7 @@ def test_runtime_eos_works_without_data_and_missing_data_has_actionable_error(
         material.default_record().pressure(volumes, 300),
         before.default_record().pressure(volumes, 300),
     )
-    with pytest.raises(DatasetError, match=r"peritheos\[data\]") as error:
+    with pytest.raises(DatasetError, match=r"peritheos\[datasets\]") as error:
         material.get_dataset("brucite_fukui_2003_table4")
     assert error.value.code == "dataset.package_not_installed"
 
@@ -217,7 +217,7 @@ def test_mismatched_optional_version_does_not_block_eos_document_loading(monkeyp
 def test_optional_dependency_and_data_project_versions_are_release_consistent():
     release = version()
     assert (
-        f'data = ["peritheos-datasets=={release}"]'
+        f'datasets = ["peritheos-datasets=={release}"]'
         in (ROOT / "pyproject.toml").read_text()
     )
     project = (ROOT / "packages/peritheos-datasets/pyproject.toml").read_text()
