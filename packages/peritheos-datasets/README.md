@@ -5,12 +5,17 @@ Install `peritheos[datasets]` to request the matching data package. Installing
 `peritheos` alone supplies structures, EOS parameters and scientific provenance
 without experimental observations. Neither installation downloads data at runtime.
 
-The explicit policy selects 415 material dataset entries: 44 with previously
+The explicit policy selects 427 material dataset entries: 44 with previously
 recorded source/author terms, 363 admitted after a numerical factual-content
 assessment, one newly verified CC BY 4.0 deposit extraction, three author datasets
 with separately assessed numerical literature inputs, and four separately named
-Campbell polynomial-evaluation entries. Thirty-eight material entries
-remain held, including known NC/ND cases and original unresolved collections.
+Campbell polynomial-evaluation entries. This follow-up also admits ten views of
+the shared Shen/Smith numerical collection and two fixed historical excerpts.
+Twenty-six material entries
+remain held: the known NC/ND cases and original Campbell integration tables.
+The three newly admitted resources retain their original unspecified or
+all-rights-reserved terms; their installed scoped notice explains the numerical
+and collection assessments, source-access limits and downstream qualifications.
 The new Campbell entries are calculated approximations, not the original
 integration tables; their source mismatch and scientific limitations remain explicit.
 Two further supporting-study entries remain outside this package interface.

@@ -20,8 +20,7 @@ The factual-content assessments distinguish individual values from protected
 expression and independently protected compilations/databases. They do not
 claim that every scientific table is unprotected, that all experimental data
 are exempt from database rights, or that a particular row count guarantees
-an insubstantial extraction. The identified large collections, heterogeneous
-compilations and known NC/ND cases remain held as
+an insubstantial extraction. The original Campbell integration collection and known NC/ND cases remain held as
 listed in the review. Source access and scientific verification are not grants.
 
 ## Rights and attribution remain separate
@@ -71,3 +70,13 @@ installed notice and declaration document the formula, source parameters, CC0
 contributor scope, approximation error and unresolved IW maximum-misfit mismatch.
 Full thermochemical reintegration and original author-workflow parity are not
 claimed. The original integration collection remains excluded.
+
+## Shen/Smith and historical collection follow-up
+
+The installed `shen_historical_review` receipt admits the complete normalized
+Shen/Smith primary-experiment numerical record and the two named fixed historical
+excerpts after individual assessments. See `shen-historical-collections.LICENSE.md`
+for source-specific reasoning and access limits. This does not rely on a row-count
+threshold or blanket experimental-data exemption. The historical database-term
+assessment does not extinguish publication copyright or create a worldwide public-
+domain declaration. No source license grant or Debian acceptance is asserted.

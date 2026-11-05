@@ -2,11 +2,15 @@
 
 Reviewed 5 November 2026. This follows the initial
 [numerical redistribution review](numerical-dataset-redistribution.md).
-The current optional selection is **415 of 453 material dataset entries**:
+At this review stage the optional selection was **415 of 453 material dataset entries**:
 two previously held Morard entries are admitted, and four new material entries
 expose one separately generated Campbell polynomial grid. The 38 remaining held
 entries include the unchanged original Campbell integration collection.
 The two Barker supporting-study entries remain deferred. The split is unreleased.
+
+The subsequent [collection review](shen-historical-redistribution-review.md)
+raises the current selection to **427 of 453 entries, with 26 held**. The
+415-entry count above describes the preceding Morard/Campbell stage.
 
 ## Morard: all 21 cold inputs identified
 

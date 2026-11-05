@@ -31,11 +31,14 @@ their recorded source terms. A listed dataset identifier is not a promise that
 its observations are included in the optional package. Material metadata links
 the source evidence through `data_availability`.
 
-The current selection contains 415 material dataset entries. The
+The current selection contains 427 material dataset entries. The
 [numerical redistribution review](research/numerical-dataset-redistribution.md)
-distinguishes source grants from factual-content assessments and lists 38 held
+distinguishes source grants from factual-content assessments and lists 26 held
 material entries and two deferred supporting-study entries. The [Morard/Campbell follow-up](research/morard-campbell-redistribution-followup.md)
 records the subsequent source tracing and independently calculated tables.
+The [collection review](research/shen-historical-redistribution-review.md) admits
+the Shen/Smith numerical record and two fixed historical excerpts without
+asserting new source licenses.
 An admission does not
 turn unspecified source terms into an open license or establish Debian acceptance.
 

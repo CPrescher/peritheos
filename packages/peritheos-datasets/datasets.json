@@ -1,7 +1,7 @@
 {
   "schema": "peritheos.optional-datasets.v1",
   "reviewed_on": "2026-11-05",
-  "scope": "Explicit source-scoped selection of recorded license/author declarations and separately bound factual numerical redistribution assessments. Original source terms, attribution and scientific qualifications remain unchanged. Admission does not establish Debian acceptance or a new source grant. Named unresolved collections/NC-ND/compilation cases remain held. Follow-up admits two traced Morard inputs and four separately calculated Campbell polynomial approximations; original Campbell integration tables remain excluded.",
+  "scope": "Explicit selection of recorded source/author grants and separately bound numerical-content assessments. The 427 admitted material entries retain their original source terms, attribution and scientific qualifications. This includes separately calculated Campbell polynomial approximations, the traced Morard inputs, the Shen/Smith primary-experiment collection and two fixed historical numerical excerpts. No new source grant or Debian acceptance is asserted. Remaining holds are the known NC/ND cases and original Campbell integration collection.",
   "datasets": [
     {
       "material": "al_bearing_phase_d",
@@ -4478,10 +4478,130 @@
       "scope": "independent_mathematical_evaluation",
       "redistribution_basis": "independent_mathematical_evaluation",
       "review_key": "nickel_oxide_b1/campbell_2009_independent_buffer_polynomial_grid"
+    },
+    {
+      "material": "cu_handbook_1972_legacy",
+      "dataset": "aip_handbook_table4d12_cu",
+      "declaration_sha256": "0ac70b2ce1615f715739504930ac4512b29dd5db59b62fbb67fd6a31920d3203",
+      "source_status": "limited_or_unspecified_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#cu_handbook_1972_legacy/aip_handbook_table4d12_cu",
+      "scope": "historical_numerical_compilation_assessment",
+      "redistribution_basis": "historical_numerical_compilation_assessment",
+      "review_key": "cu_handbook_1972_legacy/aip_handbook_table4d12_cu"
+    },
+    {
+      "material": "fe",
+      "dataset": "shen_smith_2026_table_s1_simultaneous_volumes",
+      "declaration_sha256": "8bea40b418b4865ea1720934285f0803281392b45ac1fb87008bac6afb33bd35",
+      "source_status": "source_terms_not_recorded",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#fe/shen_smith_2026_table_s1_simultaneous_volumes",
+      "scope": "primary_experiment_collection_assessment",
+      "redistribution_basis": "primary_experiment_collection_assessment",
+      "review_key": "fe/shen_smith_2026_table_s1_simultaneous_volumes"
+    },
+    {
+      "material": "gold",
+      "dataset": "shen_smith_2026_table_s1_simultaneous_volumes",
+      "declaration_sha256": "8f21094359a9379557b494ca517331dbf7139358ed14e3040c92bc50fcc40291",
+      "source_status": "source_terms_not_recorded",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#gold/shen_smith_2026_table_s1_simultaneous_volumes",
+      "scope": "primary_experiment_collection_assessment",
+      "redistribution_basis": "primary_experiment_collection_assessment",
+      "review_key": "gold/shen_smith_2026_table_s1_simultaneous_volumes"
+    },
+    {
+      "material": "gold",
+      "dataset": "gold_anderson_1989_table1_thermodynamic_inputs",
+      "declaration_sha256": "6c92ad6e80f6233abe4ca380f73c84799ca97495c9700250c3338eccca1f1795",
+      "source_status": "source_terms_not_recorded",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#gold/gold_anderson_1989_table1_thermodynamic_inputs",
+      "scope": "historical_numerical_compilation_assessment",
+      "redistribution_basis": "historical_numerical_compilation_assessment",
+      "review_key": "gold/gold_anderson_1989_table1_thermodynamic_inputs"
+    },
+    {
+      "material": "iron",
+      "dataset": "shen_smith_2026_table_s1_simultaneous_volumes",
+      "declaration_sha256": "ea82456cce26b72b9030a53cff524965a19c33999f240ce5dc22b6379c76fdd2",
+      "source_status": "source_terms_not_recorded",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#iron/shen_smith_2026_table_s1_simultaneous_volumes",
+      "scope": "primary_experiment_collection_assessment",
+      "redistribution_basis": "primary_experiment_collection_assessment",
+      "review_key": "iron/shen_smith_2026_table_s1_simultaneous_volumes"
+    },
+    {
+      "material": "mgo",
+      "dataset": "shen_smith_2026_table_s1_simultaneous_volumes",
+      "declaration_sha256": "1387a4960486b31694118f0d4948741f1057a1f3efd371faead1b68aa7b82023",
+      "source_status": "source_terms_not_recorded",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#mgo/shen_smith_2026_table_s1_simultaneous_volumes",
+      "scope": "primary_experiment_collection_assessment",
+      "redistribution_basis": "primary_experiment_collection_assessment",
+      "review_key": "mgo/shen_smith_2026_table_s1_simultaneous_volumes"
+    },
+    {
+      "material": "molybdenum",
+      "dataset": "shen_smith_2026_table_s1_simultaneous_volumes",
+      "declaration_sha256": "f6ec4ca1e82d7115bf3e70489f9b612af8232b750a0f4eeb333d6272b837c8c9",
+      "source_status": "source_terms_not_recorded",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#molybdenum/shen_smith_2026_table_s1_simultaneous_volumes",
+      "scope": "primary_experiment_collection_assessment",
+      "redistribution_basis": "primary_experiment_collection_assessment",
+      "review_key": "molybdenum/shen_smith_2026_table_s1_simultaneous_volumes"
+    },
+    {
+      "material": "nacl_b1",
+      "dataset": "shen_smith_2026_table_s1_simultaneous_volumes",
+      "declaration_sha256": "21073b7bc807bf22531a2b51a2b5eac255d1d9642a6a9a11949d2458f3dc9b85",
+      "source_status": "source_terms_not_recorded",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#nacl_b1/shen_smith_2026_table_s1_simultaneous_volumes",
+      "scope": "primary_experiment_collection_assessment",
+      "redistribution_basis": "primary_experiment_collection_assessment",
+      "review_key": "nacl_b1/shen_smith_2026_table_s1_simultaneous_volumes"
+    },
+    {
+      "material": "nacl_b2",
+      "dataset": "shen_smith_2026_table_s1_simultaneous_volumes",
+      "declaration_sha256": "0be8248df7de66a7700314d854d5b40a3650edc08457104e87ff24d4e734b273",
+      "source_status": "source_terms_not_recorded",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#nacl_b2/shen_smith_2026_table_s1_simultaneous_volumes",
+      "scope": "primary_experiment_collection_assessment",
+      "redistribution_basis": "primary_experiment_collection_assessment",
+      "review_key": "nacl_b2/shen_smith_2026_table_s1_simultaneous_volumes"
+    },
+    {
+      "material": "platinum",
+      "dataset": "shen_smith_2026_table_s1_simultaneous_volumes",
+      "declaration_sha256": "79ad22e4a2069c8ef6a5fc390d07f7a2e1ab871b5d20f73285771d3fb1638ab9",
+      "source_status": "source_terms_not_recorded",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#platinum/shen_smith_2026_table_s1_simultaneous_volumes",
+      "scope": "primary_experiment_collection_assessment",
+      "redistribution_basis": "primary_experiment_collection_assessment",
+      "review_key": "platinum/shen_smith_2026_table_s1_simultaneous_volumes"
+    },
+    {
+      "material": "tantalum",
+      "dataset": "shen_smith_2026_table_s1_simultaneous_volumes",
+      "declaration_sha256": "00bc44814622b9b31ef081cb578f9c0a435933e6c58e27d58f878f1fa3d08b27",
+      "source_status": "source_terms_not_recorded",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#tantalum/shen_smith_2026_table_s1_simultaneous_volumes",
+      "scope": "primary_experiment_collection_assessment",
+      "redistribution_basis": "primary_experiment_collection_assessment",
+      "review_key": "tantalum/shen_smith_2026_table_s1_simultaneous_volumes"
+    },
+    {
+      "material": "tungsten",
+      "dataset": "shen_smith_2026_table_s1_simultaneous_volumes",
+      "declaration_sha256": "31ce51613919831464297fe0ccd74aea001c515874c4bbfe734263ea0a9da236",
+      "source_status": "source_terms_not_recorded",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#tungsten/shen_smith_2026_table_s1_simultaneous_volumes",
+      "scope": "primary_experiment_collection_assessment",
+      "redistribution_basis": "primary_experiment_collection_assessment",
+      "review_key": "tungsten/shen_smith_2026_table_s1_simultaneous_volumes"
     }
   ],
   "redistribution_review": {
     "path": "docs/data/numerical-redistribution-review.json",
-    "sha256": "f3f10bb07cb5a8fba32f8d9369676c8a1715c8822cbb85658f96007ba3b6be93"
+    "sha256": "80a15a64b8ea38d3f9dbca9223f2542d6dc7cbcad347de52ba2344c1c7831f66"
   }
 }

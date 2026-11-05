@@ -72,7 +72,7 @@ def test_optional_export_is_exactly_allowlisted_and_source_preserving(tmp_path):
     stage = stage_datasets(tmp_path / "optional")
     package = stage / "peritheos_datasets"
     manifest = json.loads((package / "manifest.json").read_bytes())
-    assert manifest["dataset_count"] == 415
+    assert manifest["dataset_count"] == 427
     review_path = package / "redistribution-review.json"
     review = json.loads(review_path.read_bytes())
     assert (

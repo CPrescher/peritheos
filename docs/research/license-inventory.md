@@ -48,7 +48,7 @@ values or detailed research archives, plus a separate optional dataset archive.
 The `local` inventory below remains an inventory of research checkout resources,
 not a promise that those files are included by either build. The optional
 package uses the explicit source-scoped allowlist in
-`packages/peritheos-datasets/datasets.json` (415 entries after the
+`packages/peritheos-datasets/datasets.json` (427 entries after the
 [numerical redistribution review](numerical-dataset-redistribution.md)); its installed manifest
 records exact admitted declarations and resource hashes. No scope is extended
 to adjacent source files. The runtime export retains structure/EOS parameters,
@@ -65,6 +65,12 @@ the historical release remains 449). Morard's mixed source-rights status is
 retained even though row identities are now traced and redistribution admitted
 on the separate author-grant/factual-content basis. The original Campbell
 integration collection remains held; new polynomial outputs are distinct.
+
+The [Shen/Smith and historical collection review](shen-historical-redistribution-review.md)
+admits twelve more existing entries backed by three unchanged numerical files.
+It assesses the complete experimental collection and the fixed historical
+excerpts individually. No original source-rights assertion or scientific
+classification changes; the rights-status totals below remain unchanged.
 
 ## Dataset findings
 

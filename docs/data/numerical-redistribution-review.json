@@ -2,7 +2,7 @@
   "schema": "peritheos.numerical-redistribution-review.v1",
   "reviewed_on": "2026-11-05",
   "baseline_commit": "bfa7e16486a0539ee22b3ad4d3c4de9208c806d7",
-  "scope": "Maintainer redistribution assessment of existing normalized numerical resources. All 405 previously omitted material dataset entries were content/provenance-screened; the 44 previously admitted entries retain their original source-declaration basis. This is not a fresh scientific transcription audit, exhaustive source-contract review, legal opinion or Debian acceptance. Every numerical resource/declaration remains unchanged. Follow-up: two Morard entries admitted after a bound row-level lineage review; four newly calculated Campbell polynomial declarations added separately from original outputs.",
+  "scope": "Maintainer redistribution assessment of existing normalized numerical resources. All 405 previously omitted material dataset entries were content/provenance-screened; the 44 previously admitted entries retain their original source-declaration basis. This is not a fresh scientific transcription audit, exhaustive source-contract review, legal opinion or Debian acceptance. Every numerical resource/declaration remains unchanged. Follow-up: two Morard entries admitted after a bound row-level lineage review; four newly calculated Campbell polynomial declarations added separately from original outputs. Collection follow-up: the complete normalized Shen/Smith primary-experiment results and the two named fixed historical numerical excerpts are admitted after distinct source/collection assessments, with no new source license or scientific changes.",
   "legal_context": [
     {
       "url": "https://creativecommons.org/faq/#which-components-of-databases-are-protected-by-copyright",
@@ -26,9 +26,10 @@
     "CC0 covers contributor-held transcription/normalization/metadata/arrangement rights only. Existing source and author licenses/attributions remain in each declaration and notice.",
     "No source PDFs, images, workbook containers, original author software or long source prose are admitted by these decisions. Ordinary column/row labels and contributor diagnostic comments remain.",
     "Content/provenance screening is not independent source-value verification. Existing scientific holds, derived/digitized distinctions and uncertainty meanings remain unchanged.",
-    "Substantiality has no universal numerical row-count cutoff. Original large complete workbook collections and identified historical compilations are held for separate assessment, without finding that every number is protected.",
+    "Substantiality has no universal numerical row-count cutoff. Complete collections and historical compilations require case-specific assessment. The three resources named in the collection follow-up are now admitted; the original Campbell integration collection remains held. This is not a blanket exemption for experimental data or numerical compilations.",
     "The two Barker supporting-study datasets are outside the current material-dataset package interface and remain a separate technical/source review item. Their omission is not a restrictive-license finding.",
-    "Debian may require a different factual-data/database-rights assessment or exclusion. The installed review ledger makes source-declaration admissions and maintainer factual assessments separately identifiable."
+    "Debian may require a different factual-data/database-rights assessment or exclusion. The installed review ledger makes source-declaration admissions and maintainer factual assessments separately identifiable.",
+    "The fixed historical database-term assessment is separate from continuing publication copyright and is not a worldwide public-domain declaration. Later qualifying database investment can create new rights; contracts were not exhaustively audited."
   ],
   "entries": [
     {
@@ -5252,9 +5253,9 @@
       "review_key": "cu_handbook_1972_legacy/aip_handbook_table4d12_cu",
       "material": "cu_handbook_1972_legacy",
       "dataset": "aip_handbook_table4d12_cu",
-      "decision": "hold",
-      "basis": "historical_compilation",
-      "rationale": "Handbook or heterogeneous multi-source compilation rather than a directly identified original experimental series. Upstream compilation/collection scope and source-specific rights remain unresolved.",
+      "decision": "admit",
+      "basis": "historical_numerical_compilation_assessment",
+      "rationale": "Limited Cu-only numerical excerpt in normalized pressure/ratio columns, not a copy of the handbook table design, other columns, captions or prose. Functional ascending pressure sequence and numerical results are assessed separately from protected expression. The fixed 1972 collection predates the German 1983 transitional window; no later revised database is used. This supports the numerical admission, not an assertion that the handbook is public domain.",
       "previous_source_status": "limited_or_unspecified_source",
       "source_status": "limited_or_unspecified_source",
       "declaration_sha256": "0ac70b2ce1615f715739504930ac4512b29dd5db59b62fbb67fd6a31920d3203",
@@ -5290,7 +5291,18 @@
       "source_location": "Table 4d-12, Cu column, populated rows from 15 through 340 kbar",
       "source_license_as_recorded": "All rights reserved source; limited factual Cu excerpt manually transcribed for scientific verification.",
       "provenance_type_as_recorded": "not separately specified",
-      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access."
+      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access.",
+      "prior_decision": {
+        "commit": "db93e2cf",
+        "decision": "hold",
+        "basis": "historical_compilation",
+        "rationale": "Handbook or heterogeneous multi-source compilation rather than a directly identified original experimental series. Upstream compilation/collection scope and source-specific rights remain unresolved."
+      },
+      "followup_evidence": {
+        "path": "docs/data/shen-historical-redistribution-review.json",
+        "sha256": "1180d0dc85e0fca4b349bab270666bab2567f623362d75cf455840f9b8be11b7",
+        "installed_receipt": "shen_historical_review"
+      }
     },
     {
       "review_key": "delta_alooh/delta_alooh_vanpeteghem_2002_table1_pv",
@@ -5918,9 +5930,9 @@
       "review_key": "fe/shen_smith_2026_table_s1_simultaneous_volumes",
       "material": "fe",
       "dataset": "shen_smith_2026_table_s1_simultaneous_volumes",
-      "decision": "hold",
-      "basis": "large_collection",
-      "rationale": "Complete multi-material workbook collection retained as a whole. Independent obtaining/verification/presentation investment and collection-level rights have not been resolved; no numerical row-count threshold or automatic experiment-data exemption is asserted.",
+      "decision": "admit",
+      "basis": "primary_experiment_collection_assessment",
+      "rationale": "Homogeneous primary numerical measurements/derived lattice volumes from two purpose-run experiments, with in-measurement peak fitting/uncertainty generation and pressure-drift checks. The distributed flat CSV contains numerical values, errors and ordinary row/phase labels, not artwork, article prose, source-sheet layout or software. The paper describes experimental data creation; no separate substantial collection investment independent of that creation was established in the inspected evidence. Full-collection reuse is acknowledged and is not characterized as insubstantial. This remains a reasoned maintainer assessment, not proof that qualifying independent investment or acquisition restrictions are absent.",
       "previous_source_status": "source_terms_not_recorded",
       "source_status": "source_terms_not_recorded",
       "declaration_sha256": "8bea40b418b4865ea1720934285f0803281392b45ac1fb87008bac6afb33bd35",
@@ -5967,7 +5979,18 @@
       "source_location": "Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets",
       "source_license_as_recorded": null,
       "provenance_type_as_recorded": "not separately specified",
-      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access."
+      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access.",
+      "prior_decision": {
+        "commit": "db93e2cf",
+        "decision": "hold",
+        "basis": "large_collection",
+        "rationale": "Complete multi-material workbook collection retained as a whole. Independent obtaining/verification/presentation investment and collection-level rights have not been resolved; no numerical row-count threshold or automatic experiment-data exemption is asserted."
+      },
+      "followup_evidence": {
+        "path": "docs/data/shen-historical-redistribution-review.json",
+        "sha256": "1180d0dc85e0fca4b349bab270666bab2567f623362d75cf455840f9b8be11b7",
+        "installed_receipt": "shen_historical_review"
+      }
     },
     {
       "review_key": "fe/fe_dewaele_2008_source_table",
@@ -9136,9 +9159,9 @@
       "review_key": "gold/shen_smith_2026_table_s1_simultaneous_volumes",
       "material": "gold",
       "dataset": "shen_smith_2026_table_s1_simultaneous_volumes",
-      "decision": "hold",
-      "basis": "large_collection",
-      "rationale": "Complete multi-material workbook collection retained as a whole. Independent obtaining/verification/presentation investment and collection-level rights have not been resolved; no numerical row-count threshold or automatic experiment-data exemption is asserted.",
+      "decision": "admit",
+      "basis": "primary_experiment_collection_assessment",
+      "rationale": "Homogeneous primary numerical measurements/derived lattice volumes from two purpose-run experiments, with in-measurement peak fitting/uncertainty generation and pressure-drift checks. The distributed flat CSV contains numerical values, errors and ordinary row/phase labels, not artwork, article prose, source-sheet layout or software. The paper describes experimental data creation; no separate substantial collection investment independent of that creation was established in the inspected evidence. Full-collection reuse is acknowledged and is not characterized as insubstantial. This remains a reasoned maintainer assessment, not proof that qualifying independent investment or acquisition restrictions are absent.",
       "previous_source_status": "source_terms_not_recorded",
       "source_status": "source_terms_not_recorded",
       "declaration_sha256": "8f21094359a9379557b494ca517331dbf7139358ed14e3040c92bc50fcc40291",
@@ -9185,7 +9208,18 @@
       "source_location": "Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets",
       "source_license_as_recorded": null,
       "provenance_type_as_recorded": "not separately specified",
-      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access."
+      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access.",
+      "prior_decision": {
+        "commit": "db93e2cf",
+        "decision": "hold",
+        "basis": "large_collection",
+        "rationale": "Complete multi-material workbook collection retained as a whole. Independent obtaining/verification/presentation investment and collection-level rights have not been resolved; no numerical row-count threshold or automatic experiment-data exemption is asserted."
+      },
+      "followup_evidence": {
+        "path": "docs/data/shen-historical-redistribution-review.json",
+        "sha256": "1180d0dc85e0fca4b349bab270666bab2567f623362d75cf455840f9b8be11b7",
+        "installed_receipt": "shen_historical_review"
+      }
     },
     {
       "review_key": "gold/gold_takemura_2008_table3_compression",
@@ -9481,9 +9515,9 @@
       "review_key": "gold/gold_anderson_1989_table1_thermodynamic_inputs",
       "material": "gold",
       "dataset": "gold_anderson_1989_table1_thermodynamic_inputs",
-      "decision": "hold",
-      "basis": "historical_compilation",
-      "rationale": "Handbook or heterogeneous multi-source compilation rather than a directly identified original experimental series. Upstream compilation/collection scope and source-specific rights remain unresolved.",
+      "decision": "admit",
+      "basis": "historical_numerical_compilation_assessment",
+      "rationale": "Standalone numerical properties, interpolated/smoothed scientific outputs and analytical evaluations in normalized scientific fields, retaining provenance identifiers. No original table design, figure, caption or explanatory prose is copied. Any German transitional database-maker term for the fixed 1989 collection has elapsed by 2026; the named upstream collections are older. No later substantially reinvested collection is extracted. Article/compilation copyright is not assumed expired; the numerical facts/method outputs and functional ordering are assessed separately.",
       "previous_source_status": "source_terms_not_recorded",
       "source_status": "source_terms_not_recorded",
       "declaration_sha256": "6c92ad6e80f6233abe4ca380f73c84799ca97495c9700250c3338eccca1f1795",
@@ -9541,7 +9575,18 @@
       "source_location": "Section II, Equations (4)-(5), and Table I, page 1535",
       "source_license_as_recorded": null,
       "provenance_type_as_recorded": "transcribed_from_primary_source_table",
-      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access."
+      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access.",
+      "prior_decision": {
+        "commit": "db93e2cf",
+        "decision": "hold",
+        "basis": "historical_compilation",
+        "rationale": "Handbook or heterogeneous multi-source compilation rather than a directly identified original experimental series. Upstream compilation/collection scope and source-specific rights remain unresolved."
+      },
+      "followup_evidence": {
+        "path": "docs/data/shen-historical-redistribution-review.json",
+        "sha256": "1180d0dc85e0fca4b349bab270666bab2567f623362d75cf455840f9b8be11b7",
+        "installed_receipt": "shen_historical_review"
+      }
     },
     {
       "review_key": "gold/gold_anderson_1989_table2_temperature_derivatives",
@@ -10741,9 +10786,9 @@
       "review_key": "iron/shen_smith_2026_table_s1_simultaneous_volumes",
       "material": "iron",
       "dataset": "shen_smith_2026_table_s1_simultaneous_volumes",
-      "decision": "hold",
-      "basis": "large_collection",
-      "rationale": "Complete multi-material workbook collection retained as a whole. Independent obtaining/verification/presentation investment and collection-level rights have not been resolved; no numerical row-count threshold or automatic experiment-data exemption is asserted.",
+      "decision": "admit",
+      "basis": "primary_experiment_collection_assessment",
+      "rationale": "Homogeneous primary numerical measurements/derived lattice volumes from two purpose-run experiments, with in-measurement peak fitting/uncertainty generation and pressure-drift checks. The distributed flat CSV contains numerical values, errors and ordinary row/phase labels, not artwork, article prose, source-sheet layout or software. The paper describes experimental data creation; no separate substantial collection investment independent of that creation was established in the inspected evidence. Full-collection reuse is acknowledged and is not characterized as insubstantial. This remains a reasoned maintainer assessment, not proof that qualifying independent investment or acquisition restrictions are absent.",
       "previous_source_status": "source_terms_not_recorded",
       "source_status": "source_terms_not_recorded",
       "declaration_sha256": "ea82456cce26b72b9030a53cff524965a19c33999f240ce5dc22b6379c76fdd2",
@@ -10790,7 +10835,18 @@
       "source_location": "Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets",
       "source_license_as_recorded": null,
       "provenance_type_as_recorded": "not separately specified",
-      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access."
+      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access.",
+      "prior_decision": {
+        "commit": "db93e2cf",
+        "decision": "hold",
+        "basis": "large_collection",
+        "rationale": "Complete multi-material workbook collection retained as a whole. Independent obtaining/verification/presentation investment and collection-level rights have not been resolved; no numerical row-count threshold or automatic experiment-data exemption is asserted."
+      },
+      "followup_evidence": {
+        "path": "docs/data/shen-historical-redistribution-review.json",
+        "sha256": "1180d0dc85e0fca4b349bab270666bab2567f623362d75cf455840f9b8be11b7",
+        "installed_receipt": "shen_historical_review"
+      }
     },
     {
       "review_key": "iron/iron_mao_1990_table1_compression",
@@ -16069,9 +16125,9 @@
       "review_key": "mgo/shen_smith_2026_table_s1_simultaneous_volumes",
       "material": "mgo",
       "dataset": "shen_smith_2026_table_s1_simultaneous_volumes",
-      "decision": "hold",
-      "basis": "large_collection",
-      "rationale": "Complete multi-material workbook collection retained as a whole. Independent obtaining/verification/presentation investment and collection-level rights have not been resolved; no numerical row-count threshold or automatic experiment-data exemption is asserted.",
+      "decision": "admit",
+      "basis": "primary_experiment_collection_assessment",
+      "rationale": "Homogeneous primary numerical measurements/derived lattice volumes from two purpose-run experiments, with in-measurement peak fitting/uncertainty generation and pressure-drift checks. The distributed flat CSV contains numerical values, errors and ordinary row/phase labels, not artwork, article prose, source-sheet layout or software. The paper describes experimental data creation; no separate substantial collection investment independent of that creation was established in the inspected evidence. Full-collection reuse is acknowledged and is not characterized as insubstantial. This remains a reasoned maintainer assessment, not proof that qualifying independent investment or acquisition restrictions are absent.",
       "previous_source_status": "source_terms_not_recorded",
       "source_status": "source_terms_not_recorded",
       "declaration_sha256": "1387a4960486b31694118f0d4948741f1057a1f3efd371faead1b68aa7b82023",
@@ -16118,7 +16174,18 @@
       "source_location": "Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets",
       "source_license_as_recorded": null,
       "provenance_type_as_recorded": "not separately specified",
-      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access."
+      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access.",
+      "prior_decision": {
+        "commit": "db93e2cf",
+        "decision": "hold",
+        "basis": "large_collection",
+        "rationale": "Complete multi-material workbook collection retained as a whole. Independent obtaining/verification/presentation investment and collection-level rights have not been resolved; no numerical row-count threshold or automatic experiment-data exemption is asserted."
+      },
+      "followup_evidence": {
+        "path": "docs/data/shen-historical-redistribution-review.json",
+        "sha256": "1180d0dc85e0fca4b349bab270666bab2567f623362d75cf455840f9b8be11b7",
+        "installed_receipt": "shen_historical_review"
+      }
     },
     {
       "review_key": "mgo/mgo_li_2006_table1_elasticity",
@@ -17649,9 +17716,9 @@
       "review_key": "molybdenum/shen_smith_2026_table_s1_simultaneous_volumes",
       "material": "molybdenum",
       "dataset": "shen_smith_2026_table_s1_simultaneous_volumes",
-      "decision": "hold",
-      "basis": "large_collection",
-      "rationale": "Complete multi-material workbook collection retained as a whole. Independent obtaining/verification/presentation investment and collection-level rights have not been resolved; no numerical row-count threshold or automatic experiment-data exemption is asserted.",
+      "decision": "admit",
+      "basis": "primary_experiment_collection_assessment",
+      "rationale": "Homogeneous primary numerical measurements/derived lattice volumes from two purpose-run experiments, with in-measurement peak fitting/uncertainty generation and pressure-drift checks. The distributed flat CSV contains numerical values, errors and ordinary row/phase labels, not artwork, article prose, source-sheet layout or software. The paper describes experimental data creation; no separate substantial collection investment independent of that creation was established in the inspected evidence. Full-collection reuse is acknowledged and is not characterized as insubstantial. This remains a reasoned maintainer assessment, not proof that qualifying independent investment or acquisition restrictions are absent.",
       "previous_source_status": "source_terms_not_recorded",
       "source_status": "source_terms_not_recorded",
       "declaration_sha256": "f6ec4ca1e82d7115bf3e70489f9b612af8232b750a0f4eeb333d6272b837c8c9",
@@ -17698,7 +17765,18 @@
       "source_location": "Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets",
       "source_license_as_recorded": null,
       "provenance_type_as_recorded": "not separately specified",
-      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access."
+      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access.",
+      "prior_decision": {
+        "commit": "db93e2cf",
+        "decision": "hold",
+        "basis": "large_collection",
+        "rationale": "Complete multi-material workbook collection retained as a whole. Independent obtaining/verification/presentation investment and collection-level rights have not been resolved; no numerical row-count threshold or automatic experiment-data exemption is asserted."
+      },
+      "followup_evidence": {
+        "path": "docs/data/shen-historical-redistribution-review.json",
+        "sha256": "1180d0dc85e0fca4b349bab270666bab2567f623362d75cf455840f9b8be11b7",
+        "installed_receipt": "shen_historical_review"
+      }
     },
     {
       "review_key": "molybdenum/molybdenum_dewaele_2008_table2_compression",
@@ -18202,9 +18280,9 @@
       "review_key": "nacl_b1/shen_smith_2026_table_s1_simultaneous_volumes",
       "material": "nacl_b1",
       "dataset": "shen_smith_2026_table_s1_simultaneous_volumes",
-      "decision": "hold",
-      "basis": "large_collection",
-      "rationale": "Complete multi-material workbook collection retained as a whole. Independent obtaining/verification/presentation investment and collection-level rights have not been resolved; no numerical row-count threshold or automatic experiment-data exemption is asserted.",
+      "decision": "admit",
+      "basis": "primary_experiment_collection_assessment",
+      "rationale": "Homogeneous primary numerical measurements/derived lattice volumes from two purpose-run experiments, with in-measurement peak fitting/uncertainty generation and pressure-drift checks. The distributed flat CSV contains numerical values, errors and ordinary row/phase labels, not artwork, article prose, source-sheet layout or software. The paper describes experimental data creation; no separate substantial collection investment independent of that creation was established in the inspected evidence. Full-collection reuse is acknowledged and is not characterized as insubstantial. This remains a reasoned maintainer assessment, not proof that qualifying independent investment or acquisition restrictions are absent.",
       "previous_source_status": "source_terms_not_recorded",
       "source_status": "source_terms_not_recorded",
       "declaration_sha256": "21073b7bc807bf22531a2b51a2b5eac255d1d9642a6a9a11949d2458f3dc9b85",
@@ -18251,7 +18329,18 @@
       "source_location": "Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets",
       "source_license_as_recorded": null,
       "provenance_type_as_recorded": "not separately specified",
-      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access."
+      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access.",
+      "prior_decision": {
+        "commit": "db93e2cf",
+        "decision": "hold",
+        "basis": "large_collection",
+        "rationale": "Complete multi-material workbook collection retained as a whole. Independent obtaining/verification/presentation investment and collection-level rights have not been resolved; no numerical row-count threshold or automatic experiment-data exemption is asserted."
+      },
+      "followup_evidence": {
+        "path": "docs/data/shen-historical-redistribution-review.json",
+        "sha256": "1180d0dc85e0fca4b349bab270666bab2567f623362d75cf455840f9b8be11b7",
+        "installed_receipt": "shen_historical_review"
+      }
     },
     {
       "review_key": "nacl_b2/nacl_b2_sakai_2025_table_s9_rs_eos_grid",
@@ -18346,9 +18435,9 @@
       "review_key": "nacl_b2/shen_smith_2026_table_s1_simultaneous_volumes",
       "material": "nacl_b2",
       "dataset": "shen_smith_2026_table_s1_simultaneous_volumes",
-      "decision": "hold",
-      "basis": "large_collection",
-      "rationale": "Complete multi-material workbook collection retained as a whole. Independent obtaining/verification/presentation investment and collection-level rights have not been resolved; no numerical row-count threshold or automatic experiment-data exemption is asserted.",
+      "decision": "admit",
+      "basis": "primary_experiment_collection_assessment",
+      "rationale": "Homogeneous primary numerical measurements/derived lattice volumes from two purpose-run experiments, with in-measurement peak fitting/uncertainty generation and pressure-drift checks. The distributed flat CSV contains numerical values, errors and ordinary row/phase labels, not artwork, article prose, source-sheet layout or software. The paper describes experimental data creation; no separate substantial collection investment independent of that creation was established in the inspected evidence. Full-collection reuse is acknowledged and is not characterized as insubstantial. This remains a reasoned maintainer assessment, not proof that qualifying independent investment or acquisition restrictions are absent.",
       "previous_source_status": "source_terms_not_recorded",
       "source_status": "source_terms_not_recorded",
       "declaration_sha256": "0be8248df7de66a7700314d854d5b40a3650edc08457104e87ff24d4e734b273",
@@ -18395,7 +18484,18 @@
       "source_location": "Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets",
       "source_license_as_recorded": null,
       "provenance_type_as_recorded": "not separately specified",
-      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access."
+      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access.",
+      "prior_decision": {
+        "commit": "db93e2cf",
+        "decision": "hold",
+        "basis": "large_collection",
+        "rationale": "Complete multi-material workbook collection retained as a whole. Independent obtaining/verification/presentation investment and collection-level rights have not been resolved; no numerical row-count threshold or automatic experiment-data exemption is asserted."
+      },
+      "followup_evidence": {
+        "path": "docs/data/shen-historical-redistribution-review.json",
+        "sha256": "1180d0dc85e0fca4b349bab270666bab2567f623362d75cf455840f9b8be11b7",
+        "installed_receipt": "shen_historical_review"
+      }
     },
     {
       "review_key": "nacl_b2/nacl_b2_sakai_2011_table1",
@@ -20118,9 +20218,9 @@
       "review_key": "platinum/shen_smith_2026_table_s1_simultaneous_volumes",
       "material": "platinum",
       "dataset": "shen_smith_2026_table_s1_simultaneous_volumes",
-      "decision": "hold",
-      "basis": "large_collection",
-      "rationale": "Complete multi-material workbook collection retained as a whole. Independent obtaining/verification/presentation investment and collection-level rights have not been resolved; no numerical row-count threshold or automatic experiment-data exemption is asserted.",
+      "decision": "admit",
+      "basis": "primary_experiment_collection_assessment",
+      "rationale": "Homogeneous primary numerical measurements/derived lattice volumes from two purpose-run experiments, with in-measurement peak fitting/uncertainty generation and pressure-drift checks. The distributed flat CSV contains numerical values, errors and ordinary row/phase labels, not artwork, article prose, source-sheet layout or software. The paper describes experimental data creation; no separate substantial collection investment independent of that creation was established in the inspected evidence. Full-collection reuse is acknowledged and is not characterized as insubstantial. This remains a reasoned maintainer assessment, not proof that qualifying independent investment or acquisition restrictions are absent.",
       "previous_source_status": "source_terms_not_recorded",
       "source_status": "source_terms_not_recorded",
       "declaration_sha256": "79ad22e4a2069c8ef6a5fc390d07f7a2e1ab871b5d20f73285771d3fb1638ab9",
@@ -20167,7 +20267,18 @@
       "source_location": "Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets",
       "source_license_as_recorded": null,
       "provenance_type_as_recorded": "not separately specified",
-      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access."
+      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access.",
+      "prior_decision": {
+        "commit": "db93e2cf",
+        "decision": "hold",
+        "basis": "large_collection",
+        "rationale": "Complete multi-material workbook collection retained as a whole. Independent obtaining/verification/presentation investment and collection-level rights have not been resolved; no numerical row-count threshold or automatic experiment-data exemption is asserted."
+      },
+      "followup_evidence": {
+        "path": "docs/data/shen-historical-redistribution-review.json",
+        "sha256": "1180d0dc85e0fca4b349bab270666bab2567f623362d75cf455840f9b8be11b7",
+        "installed_receipt": "shen_historical_review"
+      }
     },
     {
       "review_key": "platinum/dorfman_2012_tables_s1_s6_cocompression",
@@ -23454,9 +23565,9 @@
       "review_key": "tantalum/shen_smith_2026_table_s1_simultaneous_volumes",
       "material": "tantalum",
       "dataset": "shen_smith_2026_table_s1_simultaneous_volumes",
-      "decision": "hold",
-      "basis": "large_collection",
-      "rationale": "Complete multi-material workbook collection retained as a whole. Independent obtaining/verification/presentation investment and collection-level rights have not been resolved; no numerical row-count threshold or automatic experiment-data exemption is asserted.",
+      "decision": "admit",
+      "basis": "primary_experiment_collection_assessment",
+      "rationale": "Homogeneous primary numerical measurements/derived lattice volumes from two purpose-run experiments, with in-measurement peak fitting/uncertainty generation and pressure-drift checks. The distributed flat CSV contains numerical values, errors and ordinary row/phase labels, not artwork, article prose, source-sheet layout or software. The paper describes experimental data creation; no separate substantial collection investment independent of that creation was established in the inspected evidence. Full-collection reuse is acknowledged and is not characterized as insubstantial. This remains a reasoned maintainer assessment, not proof that qualifying independent investment or acquisition restrictions are absent.",
       "previous_source_status": "source_terms_not_recorded",
       "source_status": "source_terms_not_recorded",
       "declaration_sha256": "00bc44814622b9b31ef081cb578f9c0a435933e6c58e27d58f878f1fa3d08b27",
@@ -23503,7 +23614,18 @@
       "source_location": "Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets",
       "source_license_as_recorded": null,
       "provenance_type_as_recorded": "not separately specified",
-      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access."
+      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access.",
+      "prior_decision": {
+        "commit": "db93e2cf",
+        "decision": "hold",
+        "basis": "large_collection",
+        "rationale": "Complete multi-material workbook collection retained as a whole. Independent obtaining/verification/presentation investment and collection-level rights have not been resolved; no numerical row-count threshold or automatic experiment-data exemption is asserted."
+      },
+      "followup_evidence": {
+        "path": "docs/data/shen-historical-redistribution-review.json",
+        "sha256": "1180d0dc85e0fca4b349bab270666bab2567f623362d75cf455840f9b8be11b7",
+        "installed_receipt": "shen_historical_review"
+      }
     },
     {
       "review_key": "tantalum/tantalum_dewaele_2004_table1_compression",
@@ -23870,9 +23992,9 @@
       "review_key": "tungsten/shen_smith_2026_table_s1_simultaneous_volumes",
       "material": "tungsten",
       "dataset": "shen_smith_2026_table_s1_simultaneous_volumes",
-      "decision": "hold",
-      "basis": "large_collection",
-      "rationale": "Complete multi-material workbook collection retained as a whole. Independent obtaining/verification/presentation investment and collection-level rights have not been resolved; no numerical row-count threshold or automatic experiment-data exemption is asserted.",
+      "decision": "admit",
+      "basis": "primary_experiment_collection_assessment",
+      "rationale": "Homogeneous primary numerical measurements/derived lattice volumes from two purpose-run experiments, with in-measurement peak fitting/uncertainty generation and pressure-drift checks. The distributed flat CSV contains numerical values, errors and ordinary row/phase labels, not artwork, article prose, source-sheet layout or software. The paper describes experimental data creation; no separate substantial collection investment independent of that creation was established in the inspected evidence. Full-collection reuse is acknowledged and is not characterized as insubstantial. This remains a reasoned maintainer assessment, not proof that qualifying independent investment or acquisition restrictions are absent.",
       "previous_source_status": "source_terms_not_recorded",
       "source_status": "source_terms_not_recorded",
       "declaration_sha256": "31ce51613919831464297fe0ccd74aea001c515874c4bbfe734263ea0a9da236",
@@ -23919,7 +24041,18 @@
       "source_location": "Supplemental Table S1 workbook, DAC-1 and DAC-2 worksheets",
       "source_license_as_recorded": null,
       "provenance_type_as_recorded": "not separately specified",
-      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access."
+      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access.",
+      "prior_decision": {
+        "commit": "db93e2cf",
+        "decision": "hold",
+        "basis": "large_collection",
+        "rationale": "Complete multi-material workbook collection retained as a whole. Independent obtaining/verification/presentation investment and collection-level rights have not been resolved; no numerical row-count threshold or automatic experiment-data exemption is asserted."
+      },
+      "followup_evidence": {
+        "path": "docs/data/shen-historical-redistribution-review.json",
+        "sha256": "1180d0dc85e0fca4b349bab270666bab2567f623362d75cf455840f9b8be11b7",
+        "installed_receipt": "shen_historical_review"
+      }
     },
     {
       "review_key": "tungsten/tungsten_sakai_2025_table_s3_measured_pairs",
@@ -24810,17 +24943,18 @@
   "counts": {
     "catalog_entries": 453,
     "previously_admitted": 44,
-    "newly_admitted": 371,
-    "admitted_total": 415,
-    "held_material_entries": 38,
+    "newly_admitted": 383,
+    "admitted_total": 427,
+    "held_material_entries": 26,
     "held_by_basis": {
       "source_nc_nd": 22,
-      "historical_compilation": 2,
-      "large_collection": 14
+      "large_collection": 4
     },
     "new_admissions_by_basis": {
       "numerical_facts_assessment": 363,
       "author_grant_and_numerical_facts": 3,
+      "historical_numerical_compilation_assessment": 2,
+      "primary_experiment_collection_assessment": 10,
       "verified_source_grant": 1,
       "independent_mathematical_evaluation": 4
     }
@@ -25229,5 +25363,306 @@
     "newly_admitted_existing_entries": 2,
     "new_calculated_entries": 4,
     "report": "docs/research/morard-campbell-redistribution-followup.md"
+  },
+  "shen_historical_review": {
+    "schema": "peritheos.shen-historical-redistribution-review.v1",
+    "reviewed_on": "2026-11-05",
+    "baseline_commit": "db93e2cf",
+    "scope": "Admission assessment for three preserved numerical resources represented by twelve material dataset entries. No numerical resource, original declaration, source-rights assertion, scientific classification or catalog coefficient is modified. This is not a new source grant, legal opinion, exhaustive contract audit or Debian approval.",
+    "catalog_scientific_sha256": "0b6613957dc3ad639272ece80ae1f8c5ccc78266984107dcec4937dd38004d6c",
+    "material_file_bindings": {
+      "peritheos/data/materials/cu_handbook_1972_legacy.eosmat": "381288abb91a3ddcf475860f14d1bc47e51f6f7dd4bde5cfaecaef80577e099c",
+      "peritheos/data/materials/fe.eosmat": "41c8aaecb75e458fa66c340eb73087dc9512a9eb1c0c1b8955d8409c26516cb2",
+      "peritheos/data/materials/gold.eosmat": "088a72c5efb540fb63a4a3b83723c73fbcb40f477ace023f4a15f872e15b76be",
+      "peritheos/data/materials/iron.eosmat": "c580009d59ed2224383bbc31f897d05581ff788fbe10c9a4de26985c69ce8efb",
+      "peritheos/data/materials/mgo.eosmat": "027516fc44bdca4200ac08ca4f0dd9e1e24009ca60b742883249da0eab451248",
+      "peritheos/data/materials/molybdenum.eosmat": "dde317560bb05acb56e63bcac0151a75caabde4b28b0a0f8ca9b731e54781e85",
+      "peritheos/data/materials/nacl_b1.eosmat": "135750d890b344281ad68843910c951d4e50b483902109dda1eaf3057e86954f",
+      "peritheos/data/materials/nacl_b2.eosmat": "61354e5d5b566724dc311d9324d679b8463efc82468de219fb6cd40fabb88b14",
+      "peritheos/data/materials/platinum.eosmat": "cf23af9492ff1b17c87ac91547948aa2e3d5f6ec738e2cf7d60d7e1a1003878c",
+      "peritheos/data/materials/tantalum.eosmat": "2a6acbd00fa5b124bbfacc4e2e8513e9424ff18bb9dc5d4a1c7846e7483516a0",
+      "peritheos/data/materials/tungsten.eosmat": "c0e85791ed89ac04eeaeb36e0706f4439941179d8f6680fa86b09bae5c19cf63"
+    },
+    "resource_bindings": {
+      "peritheos/data/datasets/aip-handbook-table4d12-cu.csv": "67adb43b73806d5d1b3e31d4a9d9d645a2fa718a21f83641d4f433a568fb24ce",
+      "peritheos/data/datasets/shen-smith-2026-table-s1-volumes.csv": "1e8841829f67a7bdbcd654d3a4b87dcdbbaa81bc700b73e9c1800ae71d989f36",
+      "peritheos/data/datasets/gold-anderson-1989-table1-thermodynamic-inputs.csv": "6a460edad1925133feb9edbf2d0bad9d27dd1677a2e14821fb0f3a65f174253e"
+    },
+    "declaration_bindings": {
+      "cu_handbook_1972_legacy/aip_handbook_table4d12_cu": "0ac70b2ce1615f715739504930ac4512b29dd5db59b62fbb67fd6a31920d3203",
+      "fe/shen_smith_2026_table_s1_simultaneous_volumes": "8bea40b418b4865ea1720934285f0803281392b45ac1fb87008bac6afb33bd35",
+      "gold/shen_smith_2026_table_s1_simultaneous_volumes": "8f21094359a9379557b494ca517331dbf7139358ed14e3040c92bc50fcc40291",
+      "gold/gold_anderson_1989_table1_thermodynamic_inputs": "6c92ad6e80f6233abe4ca380f73c84799ca97495c9700250c3338eccca1f1795",
+      "iron/shen_smith_2026_table_s1_simultaneous_volumes": "ea82456cce26b72b9030a53cff524965a19c33999f240ce5dc22b6379c76fdd2",
+      "mgo/shen_smith_2026_table_s1_simultaneous_volumes": "1387a4960486b31694118f0d4948741f1057a1f3efd371faead1b68aa7b82023",
+      "molybdenum/shen_smith_2026_table_s1_simultaneous_volumes": "f6ec4ca1e82d7115bf3e70489f9b612af8232b750a0f4eeb333d6272b837c8c9",
+      "nacl_b1/shen_smith_2026_table_s1_simultaneous_volumes": "21073b7bc807bf22531a2b51a2b5eac255d1d9642a6a9a11949d2458f3dc9b85",
+      "nacl_b2/shen_smith_2026_table_s1_simultaneous_volumes": "0be8248df7de66a7700314d854d5b40a3650edc08457104e87ff24d4e734b273",
+      "platinum/shen_smith_2026_table_s1_simultaneous_volumes": "79ad22e4a2069c8ef6a5fc390d07f7a2e1ab871b5d20f73285771d3fb1638ab9",
+      "tantalum/shen_smith_2026_table_s1_simultaneous_volumes": "00bc44814622b9b31ef081cb578f9c0a435933e6c58e27d58f878f1fa3d08b27",
+      "tungsten/shen_smith_2026_table_s1_simultaneous_volumes": "31ce51613919831464297fe0ccd74aea001c515874c4bbfe734263ea0a9da236"
+    },
+    "source_evidence": {
+      "shen_smith": {
+        "doi": "10.1103/fxgq-96sg",
+        "source_pdf_sha256": "fb101fe78237c91077586d8999103a10c7ee75813a13ada441ee81a880c83f72",
+        "source_location": "Final article Sections II.B-II.C, III.A-III.B, Data Availability; Supplemental Table S1 DAC-1 and DAC-2.",
+        "original_workbook_sha256_as_previously_verified": "339eb0d160316ef3e32abe67c5d5e917dfc6be4b4fbf726287680cca61596565",
+        "prior_verification": "docs/literature-reproductions/shen-smith-2026-cu-refits.md",
+        "rights": "Final article prints copyright 2026 American Physical Society. Official supplement landing page requires subscription. No separate open data grant located; availability is not permission.",
+        "assessment": "Homogeneous primary numerical measurements/derived lattice volumes from two purpose-run experiments, with in-measurement peak fitting/uncertainty generation and pressure-drift checks. The distributed flat CSV contains numerical values, errors and ordinary row/phase labels, not artwork, article prose, source-sheet layout or software. The paper describes experimental data creation; no separate substantial collection investment independent of that creation was established in the inspected evidence. Full-collection reuse is acknowledged and is not characterized as insubstantial. This remains a reasoned maintainer assessment, not proof that qualifying independent investment or acquisition restrictions are absent.",
+        "limits": [
+          "Data creation is not a categorical database-rights exemption; independent verification/presentation investment can still qualify.",
+          "Author affiliation or funding is not used to infer nationality, EU eligibility, public-domain status or permission.",
+          "Acquisition/subscription contracts have not been exhaustively audited.",
+          "No EOS coefficient, selection mask, fit label or recommendation is changed."
+        ],
+        "profile": {
+          "rows": 3511,
+          "columns": [
+            "experiment",
+            "run_number",
+            "phase",
+            "measurement_sequence",
+            "unit_cell_volume_a3",
+            "unit_cell_volume_standard_error_a3"
+          ],
+          "phase_counts": {
+            "Pt": 843,
+            "Ta": 392,
+            "Cu": 422,
+            "Au": 422,
+            "Mo": 283,
+            "bcc-Fe": 42,
+            "hcp-Fe": 380,
+            "W": 335,
+            "MgO": 194,
+            "NaCl-B1": 67,
+            "NaCl-B2": 131
+          },
+          "experiments": {
+            "DAC-1": {
+              "rows": 1595,
+              "distinct_runs": 228,
+              "run_range": [
+                1,
+                228
+              ]
+            },
+            "DAC-2": {
+              "rows": 1916,
+              "distinct_runs": 194,
+              "run_range": [
+                1,
+                194
+              ]
+            }
+          },
+          "sequence_counts": {
+            "first": 421,
+            "": 2668,
+            "last": 422
+          },
+          "missing_first_pt": [
+            {
+              "experiment": "DAC-2",
+              "run_number": 194
+            }
+          ],
+          "source_discrepancy": "Paper Section II.B and Figure 2 state 229 DAC-1 compression steps; the preserved normalized workbook transcription contains contiguous numbered DAC-1 runs 1-228. No extra run is invented.",
+          "verification_scope": "Fresh final article methods inspected; exact normalized CSV inspected. Prior official-workbook verification is retained, not represented as a fresh binary or cell comparison. Fresh workbook URL returned 403."
+        }
+      },
+      "aip_copper": {
+        "reference": "Kennedy and Keeler, American Institute of Physics Handbook, 3rd edition, 1972, Table 4d-12, Cu column, page 4-100",
+        "rows": 25,
+        "source_document_sha256_as_previously_verified": "dda86a046830f63d95933b01e5b56bce9a46572a038ba37e68ceee9f2e059dad",
+        "source_access": "Prior visually verified Cu-column transcription and preserved handbook-source context. Original full book is no longer at its recorded location; no fresh page or binary verification is claimed.",
+        "prior_verification": [
+          "docs/literature-reproductions/aip-handbook-cu-vinet-refit.md",
+          "scripts/recover_dewaele_2008_handbook.py"
+        ],
+        "ancestry": "Table 4d-12 contains calculated 25 C isotherms reduced from selected shock data; section 4d-2 cites van Thiel, Compendium of Shock Wave Data, UCRL-50108 (1966). Exact original shock selections/reduction inputs remain unavailable. No US-government or open license is inferred for that report.",
+        "assessment": "Limited Cu-only numerical excerpt in normalized pressure/ratio columns, not a copy of the handbook table design, other columns, captions or prose. Functional ascending pressure sequence and numerical results are assessed separately from protected expression. The fixed 1972 collection predates the German 1983 transitional window; no later revised database is used. This supports the numerical admission, not an assertion that the handbook is public domain.",
+        "scientific_limits": [
+          "25 C = 298.15 K; these are shock-reduced calculated isotherm entries, not direct static observations.",
+          "Printed 09900 at 15 kbar remains interpreted as 0.9900 with the existing explicit note.",
+          "Blank Cu cells at 5 and 10 kbar remain absent; no zero-pressure anchor or uncertainty is added.",
+          "Phase remains unresolved; no default or refit disposition changes."
+        ]
+      },
+      "anderson_gold": {
+        "doi": "10.1063/1.342969",
+        "source_location": "1989 original article Table I, p.1535; Section II, Equations 4-5; references 10-16, p.1543.",
+        "fresh_pdf_sha256": "0d2e21ec06c895c2dd601a0d6004c2207b1edc5040208f1de6c3ad009805abb8",
+        "legacy_source_pdf_sha256": "38a4a6276270c3777d20c0437e22103612c32f5c0b622ebba32f3532499f9024",
+        "pdf_version_qualification": "Fresh Zotero PDF has different exact bytes from the earlier curation copy and contains a download cover/timestamp. Table I and methods were read and visually compared; byte equality to the historical PDF is not asserted.",
+        "rows": 20,
+        "upstream_sources": [
+          {
+            "id": "hultgren_1963",
+            "reference": "Hultgren, Orr, Anderson and Kelley, Selected Values of Thermodynamic Properties of Metals and Alloys (Wiley, 1963), source reference 10",
+            "role": "Low-temperature Cp, including Anderson interpolation to unlisted temperatures; 14 Cp rows."
+          },
+          {
+            "id": "barin_knacke_1973_equation4",
+            "reference": "Barin and Knacke, Thermochemical Properties of Inorganic Substances (Springer, 1973), reference 11",
+            "role": "High-temperature analytical Cp law, Anderson Eq.4; five Cp rows."
+          },
+          {
+            "id": "white_collins_1972_smoothed",
+            "reference": "White and Collins, Journal of Low Temperature Physics 7, 43 (1972), reference 13",
+            "role": "Low-temperature expansivity inputs, combined with AIP/Touloukian values and hand-smoothed by Anderson; 11 low-temperature expansivity rows."
+          },
+          {
+            "id": "aip_handbook_1972",
+            "reference": "D. E. Gray, editor, AIP Handbook, 3rd edition (McGraw-Hill, 1972), reference 14",
+            "role": "Expansivity input, not the separate Kennedy/Keeler copper column."
+          },
+          {
+            "id": "touloukian_1975",
+            "reference": "Touloukian, Kirby, Taylor and Lee, Thermal Expansion of Metallic Elements and Alloys, Thermophysical Properties of Matter, volume 12 (1975), reference 12",
+            "role": "Expansivity review and values; Anderson quadratic above 250 K supplies eight high-temperature expansivity rows."
+          },
+          {
+            "id": "neighbours_alers_1958",
+            "reference": "Neighbours and Alers, Physical Review 111, 707 (1958), reference 15",
+            "role": "14 low-temperature elastic-mode rows."
+          },
+          {
+            "id": "chang_himmel_1966",
+            "reference": "Chang and Himmel, Journal of Applied Physics 37, 3567 (1966), reference 16",
+            "role": "Six higher-temperature elastic-mode rows, including separate 300 K values."
+          }
+        ],
+        "assessment": "Standalone numerical properties, interpolated/smoothed scientific outputs and analytical evaluations in normalized scientific fields, retaining provenance identifiers. No original table design, figure, caption or explanatory prose is copied. Any German transitional database-maker term for the fixed 1989 collection has elapsed by 2026; the named upstream collections are older. No later substantially reinvested collection is extracted. Article/compilation copyright is not assumed expired; the numerical facts/method outputs and functional ordering are assessed separately.",
+        "scientific_limits": [
+          "The table is heterogeneous thermodynamic input, not a common P-V-T observation matrix.",
+          "The two 300 K elastic branches and blank Cp/expansivity cells remain distinct.",
+          "Printed Cp=1.1288 and separately identified reconstruction=1.2888 remain unchanged.",
+          "Hand smoothing is a source method, not independently reproduced upstream data. No global refit or new EOS recommendation is introduced."
+        ]
+      }
+    },
+    "legal_framework": [
+      {
+        "url": "https://www.gesetze-im-internet.de/urhg/__2.html",
+        "scope": "Original scientific expression may be protected; numbers are not categorically exempt just because they appear in a scientific table."
+      },
+      {
+        "url": "https://www.gesetze-im-internet.de/urhg/__87a.html",
+        "scope": "Substantial independent obtaining, verification or presentation investment can create database-maker rights; substantive changes with new qualifying investment can create a new database."
+      },
+      {
+        "url": "https://www.gesetze-im-internet.de/urhg/__87d.html",
+        "scope": "German database-maker rights have a fifteen-year term, subject to the statutory calculation rule."
+      },
+      {
+        "url": "https://www.gesetze-im-internet.de/urhg/__137g.html",
+        "scope": "German transitional protection covers databases made 1983-1997 with a term starting 1 January 1998. This is relevant to the fixed 1989 table, not a blanket expiry of article copyright."
+      },
+      {
+        "url": "https://eur-lex.europa.eu/legal-content/EN/ALL/?uri=celex:62002CJ0203",
+        "scope": "C-203/02 paragraphs 31-36 distinguish creating data from qualifying database investment, including the independent-verification/presentation qualification. Only official indexed excerpts were available; direct endpoints returned challenge/empty content."
+      },
+      {
+        "url": "https://www.copyright.gov/title17/92chap1.html#103",
+        "scope": "Compilation copyright does not extend ownership to pre-existing material; functional mathematical/scientific content is assessed separately from protected arrangement."
+      },
+      {
+        "url": "https://creativecommons.org/faq/#which-components-of-databases-are-protected-by-copyright",
+        "scope": "Separate facts, original selection/arrangement, sheet layout and independent database rights. No universal row-count threshold or automatic experimental-data exemption."
+      }
+    ],
+    "fresh_source_receipts": [
+      {
+        "id": "shen-smith-2026-primary",
+        "sha256": "fb101fe78237c91077586d8999103a10c7ee75813a13ada441ee81a880c83f72",
+        "bytes": 2971002,
+        "zotero_attachment": "C2SW6GFW"
+      },
+      {
+        "id": "anderson-1989-primary",
+        "sha256": "0d2e21ec06c895c2dd601a0d6004c2207b1edc5040208f1de6c3ad009805abb8",
+        "bytes": 1630613,
+        "zotero_attachment": "IJ9TMXKL"
+      },
+      {
+        "id": "anderson-1989-primary-alternate",
+        "sha256": "06da7f9d623dd65e415c4d7db4da41a45d8d323e2362c3c870b03d786b913b79",
+        "bytes": 1332188,
+        "zotero_attachment": "GHRBW9BZ"
+      }
+    ],
+    "fresh_retrievals": [
+      {
+        "id": "aps-current-supplement",
+        "url": "https://journals.aps.org/prb/supplemental/10.1103/fxgq-96sg/Table-S1.xlsx",
+        "error": "HTTP Error 403: Forbidden",
+        "usable_content": false
+      },
+      {
+        "id": "aps-harvest-primary",
+        "url": "https://harvest.aps.org/v2/journals/articles/10.1103/fxgq-96sg/fulltext",
+        "error": "HTTP Error 401: Unauthorized",
+        "usable_content": false
+      },
+      {
+        "id": "urhg87a",
+        "url": "https://www.gesetze-im-internet.de/urhg/__87a.html",
+        "sha256": "15f33364dbfeb118e20f9a7a22cb3c938b87f992ee929eeee27a3fce12403afd",
+        "bytes": 4115,
+        "content_type": "text/html",
+        "is_pdf": false,
+        "is_xlsx": false,
+        "usable_content": true
+      },
+      {
+        "id": "urhg87d",
+        "url": "https://www.gesetze-im-internet.de/urhg/__87d.html",
+        "sha256": "337c00c4fb3a82ea4c053cbf6cb805b65b2fc7f0ba94adcef0cb2496675fa12b",
+        "bytes": 3696,
+        "content_type": "text/html",
+        "is_pdf": false,
+        "is_xlsx": false,
+        "usable_content": true
+      },
+      {
+        "id": "urhg137g",
+        "url": "https://www.gesetze-im-internet.de/urhg/__137g.html",
+        "sha256": "be6dfcdd2f1175ebaff1dabfd0b53d972cee8d1294b885e48fdaffa176786ec3",
+        "bytes": 4037,
+        "content_type": "text/html",
+        "is_pdf": false,
+        "is_xlsx": false,
+        "usable_content": true
+      },
+      {
+        "id": "c20302",
+        "url": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX%3A62002CJ0203",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "content_type": "text/html; charset=UTF-8",
+        "is_pdf": false,
+        "is_xlsx": false,
+        "usable_content": false,
+        "result": "Empty non-PDF response; not usable source evidence"
+      }
+    ],
+    "contract_and_scope_limits": [
+      "Source terms remain unspecified or all-rights-reserved as originally recorded; they are not relabeled CC0/CC BY.",
+      "Existing contributor dedications apply only where actually made, within rights held by the dedicating contributor.",
+      "Old database-maker terms do not extinguish publication copyright or create a global public-domain guarantee. Later substantial qualifying investment can create fresh rights.",
+      "The source original PDFs/workbooks are not admitted or copied into either package.",
+      "Downstream distributors may adopt a narrower assessment and exclude these resources using the bound manifest/review."
+    ]
+  },
+  "collection_followup": {
+    "baseline_commit": "db93e2cf",
+    "reviewed_on": "2026-11-05",
+    "newly_admitted_existing_entries": 12,
+    "distinct_numerical_resources": 3,
+    "new_source_grants": 0,
+    "report": "docs/research/shen-historical-redistribution-review.md"
   }
 }

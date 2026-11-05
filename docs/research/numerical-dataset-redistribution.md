@@ -7,8 +7,9 @@ The package split is unreleased; published 0.17.4 archives are unchanged.
 
 The [Morard/Campbell follow-up](morard-campbell-redistribution-followup.md)
 subsequently admits two traced Morard inputs and four newly calculated Campbell
-polynomial entries. **The current selection is 415 of 453 material entries,
-with 38 held**. The counts, held table and source-screen decisions below record
+polynomial entries. The [collection follow-up](shen-historical-redistribution-review.md) then admits
+twelve more entries backed by three unchanged numerical files.
+**The current selection is 427 of 453 material entries, with 26 held**. The counts, held table and source-screen decisions below record
 the initial 409-of-449 review; the bound JSON ledger includes the follow-up.
 Original Campbell integration results remain held.
 
