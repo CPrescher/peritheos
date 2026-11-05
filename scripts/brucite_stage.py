@@ -223,7 +223,7 @@ def staged_document():
                 "scientific_validation": {
                     "status": "pending_primary_source_check",
                     "audit_date": "2026-10-16",
-                    "note": "Source equation and printed coefficients audited; retained as staged research candidate. Direct primary structural verification is resolved using He (2023). Broad phase-resolved acceptance and exact original fit workflow remain unresolved."
+                    "note": "Source equation and printed coefficients audited; retained as staged research candidate. Ambient structure uses CC0 COD 1000054; original structural paper not directly inspected. Broad phase-resolved acceptance and exact original fit workflow remain unresolved."
                     + (
                         " At 873 K the printed curve has an unexplained 0.486 GPa RMS offset and a maximum residual of 6.71 combined observational standard errors; conditional coefficient agreement does not resolve this."
                         if temperature == 873
@@ -291,7 +291,7 @@ def staged_document():
                 "wyckoff": "2d",
                 "x": 1 / 3,
                 "y": 2 / 3,
-                "z": 0.2189,
+                "z": float(parse_number(structure["sites"][1]["z"])[0]),
                 "occupancy": 1,
             },
             {
@@ -300,7 +300,7 @@ def staged_document():
                 "wyckoff": "2d",
                 "x": 1 / 3,
                 "y": 2 / 3,
-                "z": 0.4108,
+                "z": float(parse_number(structure["sites"][2]["z"])[0]),
                 "occupancy": 1,
             },
         ],
@@ -309,20 +309,21 @@ def staged_document():
             "structure_reference": structure["reference"],
             "structure_source_kind": structure["source_kind"],
             "structure_access_url": structure["access_url"],
-            "structure_dataset": "datasets/brucite-he-2023-table43.cif",
+            "structure_dataset": "datasets/" + structure["cif_file"],
             "structure_dataset_sha256": hashlib.sha256(
-                (DATA / "brucite-he-2023-table43.cif").read_bytes()
+                (DATA / structure["cif_file"]).read_bytes()
             ).hexdigest(),
             "structure_metric_volume_a3": float(np.sqrt(3) / 2 * a**2 * c),
-            "structure_printed_volume_a3": 40.9437,
+            "structure_printed_volume_a3": structure["cell"]["printed_volume_a3"],
             "structure_errors": {
-                "a_angstrom": 0.00003,
-                "c_angstrom": 0.00005,
-                "O_z": 0.0002,
-                "H_z": 0.0004,
+                "a_angstrom": float(parse_number(structure["cell"]["a_angstrom"])[1]),
+                "c_angstrom": float(parse_number(structure["cell"]["c_angstrom"])[1]),
+                "O_z": float(parse_number(structure["sites"][1]["z"])[1]),
+                "H_z": float(parse_number(structure["sites"][2]["z"])[1]),
             },
             "structure_refinement": structure["refinement"],
-            "structure_atomic_displacements_a2": structure["atomic_displacements_a2"],
+            "structure_license": structure["source_license"],
+            "structure_cod_id": structure["cod_id"],
             "structure_normalization": structure["normalization"],
             "structure_cell_vs_eos": "Ambient structural cell has a different sample/reference from Fukui V0=40.917(12) A^3; no rescaling applied.",
             "structure_acceptance_limit": structure["acceptance_limit"],
@@ -403,7 +404,7 @@ def conditional_thermal_document():
                 "Source temperature-slope intercepts are unreported. This diagnostic assumes the separately printed 300 K slice supplies them; it is not an exact published surface or independent refit.",
             ],
         },
-        notes="Conditional audit surface enabled by dKprime_dT support. Uses printed source temperature slopes and assumed 300 K intercepts. No regression performed; no new accepted phase-spanning EOS. Broad phase scope and source observation holds remain; the ambient primary structure check is resolved.",
+        notes="Conditional audit surface enabled by dKprime_dT support. Uses printed source temperature slopes and assumed 300 K intercepts. No regression performed; no new accepted phase-spanning EOS. Broad phase scope and source observation holds remain; the ambient COD structure is checked, not the original structural paper.",
     )
     record.pop("fit_provenance")
     record["parameter_provenance"]["thermal"] = (
@@ -411,7 +412,7 @@ def conditional_thermal_document():
         "The 300 K values K0=41.8 GPa and Kprime=6.6 are adopted as assumed intercepts; the author regression's separately fitted intercepts are unreported."
     )
     record["scientific_validation"].update(
-        note="Diagnostic conditional surface, not a validated published thermal parameterization. Runtime mapping and the ambient primary structure are verified; source line intercepts, broad phase scope and isotherm residual questions remain unresolved.",
+        note="Diagnostic conditional surface, not a validated published thermal parameterization. Runtime mapping and the ambient COD structure are verified; original structural paper, source line intercepts, broad phase scope and isotherm residual questions remain unresolved.",
         numerical_reproduction={
             "independent_equation_checkpoint": {
                 "volume_a3": 34,
@@ -655,7 +656,7 @@ def audit_document():
     )
     document["notes"] = (
         phase_note
-        + " Direct ambient average F-free hydrogenated structure from He (2023), Table 4.3. Source structure and EOS samples differ; no rescaling. All 102 Fukui/Xia observations preserved."
+        + " Ambient Mg(OH)2 structure from Zigan and Rothbauer (1967), CC0 COD 1000054; original structural paper not directly inspected. Source structure and EOS samples differ; no rescaling. All 102 Fukui/Xia observations preserved."
     )
     # The source manifest retains the historical investigation state. This
     # current curation decision supersedes its earlier integration proposal.

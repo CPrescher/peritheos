@@ -1,6 +1,6 @@
 # COD crystallographic CIF source terms
 
-Reviewed 4 November 2026. This notice covers only:
+Reviewed 4 November 2026; brucite rechecked 5 November 2026. This notice covers only:
 
 | Bundled file | COD entry and original source |
 | --- | --- |
@@ -19,13 +19,16 @@ byte-for-byte; the superhydrous-phase-B copy matches the
 [primary COD file](https://www.crystallography.net/cod/9007379.cif) byte-for-byte.
 Primary/mirror variants differ only in SVN date and URL comments. All other
 CIF bytes match, including the legacy attribution headers. Those headers and
-all structural values are preserved unchanged. Brucite retains its existing
-archival public-domain statement; its source file was not downloaded again.
+all structural values are preserved unchanged. Brucite now supplies the active structural reference. A fresh primary COD
+download on 5 November matches the preserved archival copy except for SVN
+Date/URL comments; all other bytes are identical. The original 1967 article
+has not been directly inspected.
 
 Exact source URLs, hashes, comparison method and limitations are recorded in
 `cif-license-review.json`, installed beside this notice. This is a recorded
 COD data grant, not a new license for the original journal articles.
 
-`brucite-he-2023-table43.cif` is outside this scope. Its thesis source terms
-remain unresolved; see `brucite.LICENSE.md` and the review receipt. No CC0
-source grant is inferred for that separate contributor transcription.
+The former He (2023) thesis transcription was replaced after 0.17.4. Its CIF
+and copied coordinates/refinement are no longer distribution inputs; original
+evidence is preserved privately. This COD grant does not extend to that thesis.
+The historical unresolved review is retained under `removed_files` in the receipt.

@@ -39,10 +39,21 @@ def accepts_merge_binding(
     ):
         return True
     review = license_metadata_bindings().get(context, {}).get(identifier, {})
-    return bool(review) and (
+    if bool(review) and (
         review.get("historical_sha256") == expected
         and review.get("licensed_sha256") == actual
         and (not entry or entry.get("historical_sha256") == expected)
         and review.get("previous_reviewed_sha256")
         == (entry["merged_sha256"] if entry else expected)
+    ):
+        return True
+    # A separately authorized structural substitution is not a license-only
+    # edit. Keep its exact pair in its own receipt and the original pins intact.
+    replacement = json.loads(
+        (ROOT / "docs/data/brucite-structure-replacement.json").read_bytes()
+    )
+    structure = replacement["bindings"].get(context, {}).get(identifier, {})
+    return bool(structure) and (
+        structure["historical_sha256"] == expected
+        and structure["replacement_sha256"] == actual
     )

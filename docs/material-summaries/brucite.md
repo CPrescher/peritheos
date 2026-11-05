@@ -19,14 +19,14 @@ and recommendation for use are distinct assessments.
 | Cell contents | One Mg(OH)2 formula unit, five atoms, in the primitive hexagonal setting of trigonal P -3 m 1. Conventional and primitive cells coincide; all EOS volumes use Z=1. |
 | Crystal system | TRIGONAL |
 | Space group | P -3 m 1 |
-| Reference lattice | {"a": 3.14771, "b": 3.14771, "c": 4.77163, "alpha": 90, "beta": 90, "gamma": 120} |
+| Reference lattice | {"a": 3.142, "b": 3.142, "c": 4.766, "alpha": 90, "beta": 90, "gamma": 120} |
 | Pressure unit | GPa |
 | Temperature unit | K |
 | Volume unit | Å³ per conventional unit cell |
 | Stored EOS records | 3 |
 | Observation datasets | 3 |
 
-Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only. Direct ambient average F-free hydrogenated structure from He (2023), Table 4.3. Source structure and EOS samples differ; no rescaling. All 102 Fukui/Xia observations preserved.
+Layered brucite lattice-average empirical volume EOS, including H rearrangement; not a hydrogen-order-resolved thermodynamic fit or a phase-boundary model. Fukui describes a higher-order H change; Sun (2025) XRD supports the layered average lattice beyond this range. Ambient atomic sites are a reference only. Ambient Mg(OH)2 structure from Zigan and Rothbauer (1967), CC0 COD 1000054; original structural paper not directly inspected. Source structure and EOS samples differ; no rescaling. All 102 Fukui/Xia observations preserved.
 
 ## Automatic selections
 

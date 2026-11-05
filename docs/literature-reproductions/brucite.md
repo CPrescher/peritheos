@@ -20,7 +20,8 @@ reproducible optimizer are insufficient to recommend a replacement EOS.
 | Published 300, 473 and 673 K BM3 isotherms | Retained individually over their source-checked measured pressure spans; 300 K remains the default |
 | Original 873 K curve and 300 K anchored continuous reconstruction | `not_reproduced`, not recommended; withheld from executable discovery |
 | All seven Peritheos refits, including curved expansion | Diagnostic evidence only; withheld from executable discovery |
-| Printed coefficients, 102 Fukui/Xia observations, uncertainties and structural sources | Preserved without correction |
+| Printed coefficients, 102 Fukui/Xia observations and uncertainties | Preserved without correction |
+| Ambient structural reference | CC0 COD 1000054; superseded He evidence preserved privately |
 
 The three retained isotherms do not provide a continuous temperature model or
 validate the full published thermal EOS. Their conditional parameter agreement
@@ -43,7 +44,7 @@ as part of this curation task.
 | Fukui et al. (2003), [10.1007/s00269-003-0353-z](https://doi.org/10.1007/s00269-003-0353-z) | Final six-page typeset article, [archived PDF](https://repository.geologyscience.ru/bitstream/handle/123456789/35277/Fuku_03.pdf?sequence=1); equations, all tables and relevant figures visually inspected | 11 ambient expansion observations, 37 compression observations, reported errors, four isotherms, temperature slopes and limitations recovered |
 | Xia et al. (1998), [10.2138/am-1998-0107](https://doi.org/10.2138/am-1998-0107) | Final seven-page article, [MSA/RRUFF archive](https://www.rruff.net/doclib/am/vol83/AM83_68.pdf); Table 6, Table 7 and Eqs. 5-8 visually inspected | All 54 P-V-T rows recovered; full thermal parameterization held for missing inputs |
 | Zigan and Rothbauer (1967), *Neutronenbeugungsmessungen am Brucit*, 137-143 | [COD 1000054 archival CIF](https://qiserver.ugr.es/cod/1000054.cif), not the original printed paper | Complete ambient ordered-H structure retained; direct primary-paper confirmation remains outstanding |
-| He (2023), doctoral thesis, [10.15083/0002012205](https://doi.org/10.15083/0002012205) | Primary institutional-repository thesis; Table 4.3 and continuation, printed pp. 81–82 (PDF pp. 89–90), directly rendered and inspected | Complete ambient neutron refinement of fluorine-free hydrogenated Mg(OH)2; active structure source |
+| He (2023), doctoral thesis, [10.15083/0002012205](https://doi.org/10.15083/0002012205) | Primary institutional-repository thesis; Table 4.3 and continuation, printed pp. 81–82 (PDF pp. 89–90), directly rendered and inspected | Former structure source; original evidence preserved privately after the 2026-11-05 replacement with CC0 COD 1000054 |
 | Duffy et al. (1995), [10.2138/am-1995-3-403](https://doi.org/10.2138/am-1995-3-403) | Final primary paper, pp. 225–226 and Fig. 4 | New modes at 4.4 GPa; weaker feature at 1.1 GPa after pressure cycling may be residual transformation |
 | Wu et al. (2026), [10.3390/molecules31101631](https://doi.org/10.3390/molecules31101631) | Final open-access primary article, particularly Sections 3–4 and Figs. 6–7 | Medium-dependent room-temperature onsets and temperature dependence; inconsistent printed P–T assignments retained, not turned into an executable boundary |
 | Sun et al. (2025), [10.1016/j.gsf.2024.101940](https://doi.org/10.1016/j.gsf.2024.101940) | Final primary [article](https://zhangdongzhou.github.io/pub/Sun_GeoFront_2025.pdf), Sections 3/4.1 and Fig. 4, directly inspected | Layered average lattice retained beyond Fukui's pressure span; no Sun EOS coefficients imported |
@@ -70,25 +71,38 @@ brucite compositions, or deuterated Mg(OD)2 parameters.
 The composition is Mg(OH)2, one Mg, two O and two H atoms per formula unit.
 The reference structure is the ambient **average single-site** trigonal
 **P -3 m 1** model, number 164, in the primitive hexagonal setting, **Z=1**.
-He (2023), Table 4.3, reports a=b=3.14771(3), c=4.77163(5) angstrom and
-V=40.9437(7) A^3. Mg occupies 1a (0,0,0), O occupies 2d
-(1/3,2/3,0.2189(2)), and H occupies 2d (1/3,2/3,0.4108(4)), all fully
-occupied. The sites reproduce Mg(OH)2 exactly. The source's fluorinated
-Table 4.5 and deuterated Table 4.7 are separate samples and are not substituted.
+The active structure now comes from Zigan and Rothbauer (1967), as archived
+in [COD 1000054](https://www.crystallography.net/cod/1000054.html) under COD's
+explicit CC0 data declaration. The CIF reports a=b=3.142(1), c=4.766(2) Å and
+V=40.7 Å³. Mg occupies 1a (0,0,0), O occupies 2d (1/3,2/3,0.2216(7)), and
+H occupies 2d (1/3,2/3,0.4303(12)), all fully occupied. The sites reproduce
+Mg(OH)2 exactly. COD reports R=0.08 and no disorder. No unreported temperature,
+pressure, displacement parameters or refinement statistics are inferred.
 
-The primary source reports 173 observations, wRp=0.0101 and chi-squared=4.275.
-The source manifest retains the Table 4.3 atomic-displacement values and
-geometry, including the mean-site O–H distance 0.915(2) angstrom and the
-motion-corrected value 0.9528 angstrom. The corrected distance is **not** used
-to shift H to a fabricated coordinate. “Single-site” describes the average
-refinement; it does not establish perfectly immobile protons.
+The CIF is preserved verbatim, including its public-domain header. The material
+uses exact special-position thirds in place of the CIF's rounded .3333/.6667;
+refined z coordinates and cell metrics are unchanged. The metric cell volume
+is about 40.7471 Å³, consistent with the CIF's one-decimal 40.7 Å³. This is a
+separate structural sample from Fukui's EOS anchor; no rescaling is applied.
+The structure is an ambient average single-site reference, not a high-pressure
+H-order or anisotropic compression model. The original 1967 paper has not been
+directly inspected; this is a verified COD transcription, not a new claim of
+primary-paper verification.
 
-The contributor transcription `brucite-he-2023-table43.cif` and the source PDF
-are checksummed. Exact special-position thirds are used; refined coordinates
-and cell metrics are not rescaled. He’s structural sample and Fukui’s EOS
-sample have distinct reference volumes. The old Zigan/Rothbauer archived CIF
-and its unresolved original-paper access are preserved as historical evidence,
-but catalog acceptance no longer depends on that indirect transcription.
+On 5 November 2026, a fresh primary COD CIF download matched the existing
+archival copy after removing only SVN Date/URL comment lines. The entry and
+CC0 policy were checked; hashes and comparison scope are in the installed
+`cif-license-review.json` receipt.
+
+This replaces the former He (2023) thesis structure because its source reuse
+grant was unresolved. The original CIF, source-manifest block, material cards,
+pre-disposition snapshot, reports and available thesis evidence are preserved
+privately with hashes. Copied He coordinates and refinement metadata are no
+longer distribution inputs. This is a source substitution, not a correction
+of He's refinement or a change to any EOS fit, observations or recommendation.
+The historical original report inputs are preserved; current report input hashes
+are rebound only after verifying that every EOS input and numerical result is
+unchanged.
 
 Every EOS volume is A^3 per Z=1 cell. Conversion to cm^3/mol of formula units
 is multiplication by 0.602214076: Fukui's 300 K anchor is

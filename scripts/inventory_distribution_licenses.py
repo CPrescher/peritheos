@@ -270,6 +270,26 @@ def components(payloads, scopes, current):
                     }
                 )
         # A material file is not just its datasets: do not omit structures/peaks.
+        structural_source = {
+            k: document[k] for k in ("reference", "source", "notes") if k in document
+        }
+        if material == "brucite" and not current:
+            # Inventory the historical thesis source without redistributing its
+            # superseded refinement through this generated report. Exact source
+            # archives/hashes and the complete original inventory are preserved.
+            structural_source["source"] = {
+                k: v
+                for k, v in document.get("source", {}).items()
+                if k
+                in (
+                    "structure_reference",
+                    "structure_access_url",
+                    "structure_source_kind",
+                    "structure_dataset",
+                    "structure_dataset_sha256",
+                    "source_manifest",
+                )
+            }
         rows.append(
             {
                 "kind": "structure_and_diffraction",
@@ -282,19 +302,40 @@ def components(payloads, scopes, current):
                 "content_kind": "structural facts and/or imported diffraction data",
                 "scope_note": "No blanket license is inferred from the material's EOS or dataset licenses.",
                 "related_rights_evidence": "",
-                "source": compact(
-                    {
-                        k: document[k]
-                        for k in ("reference", "source", "notes")
-                        if k in document
-                    }
-                ),
+                "source": compact(structural_source),
                 "rights_statements": compact(
                     {k: document[k] for k in RIGHTS_KEYS if k in document}
                 ),
                 "required_action": "Assess structural facts, source compilation rights and any imported peak patterns separately; a dataset license is not a blanket grant for the material.",
             }
         )
+        if material == "brucite":
+            row = rows[-1]
+            if not current:
+                row["scope_note"] += (
+                    " Superseded He refinement values are omitted from this"
+                    " inventory; original values/inventory preserved privately."
+                )
+            elif document.get("source", {}).get(
+                "structure_cod_id"
+            ) == "1000054" and not document.get("peaks"):
+                resource = "peritheos/data/" + document["source"]["structure_dataset"]
+                scope = match_scope(resource, scopes, current)
+                if scope and scope["id"] == "cod-cif-current-review":
+                    row.update(
+                        resource=resource,
+                        status=scope["status"],
+                        scope=scope["id"],
+                        scope_note="CC0 COD 1000054 structural reference only; no imported peak pattern. Original paper not directly inspected; EOS/data source terms remain separate.",
+                        rights_statements=compact(
+                            {
+                                "structure_license": document["source"][
+                                    "structure_license"
+                                ]
+                            }
+                        ),
+                        required_action=scope["action"],
+                    )
     by_doi = defaultdict(list)
     for row in rows:
         ref = json.loads(row["source"])

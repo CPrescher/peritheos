@@ -125,21 +125,34 @@ def test_brucite_ambient_ordered_structure_is_separate(candidate):
         counts[site["element"]] += int(site["wyckoff"][:-1]) * site["occupancy"]
     assert counts == {"Mg": 1, "O": 2, "H": 2}
     assert document["atom_sites"][1]["x"] == 1 / 3
-    assert document["atom_sites"][2]["z"] == 0.4108
+    assert document["atom_sites"][1]["z"] == 0.2216
+    assert document["atom_sites"][2]["z"] == 0.4303
     lattice = document["lattice"]
     volume = np.sqrt(3) / 2 * lattice["a"] ** 2 * lattice["c"]
-    assert volume == pytest.approx(40.9437, abs=0.0001)
+    assert lattice["a"] == 3.142
+    assert lattice["c"] == 4.766
+    assert volume == pytest.approx(40.7, abs=0.05)
     assert volume != pytest.approx(40.917, abs=0.01)
     structure = document["source"]
-    assert "Primary doctoral thesis" in structure["structure_source_kind"]
+    assert "COD 1000054" in structure["structure_source_kind"]
+    assert structure["structure_cod_id"] == "1000054"
+    assert structure["structure_license"] == "CC0-1.0 (COD data declaration)"
     cif = DATA.parent / structure["structure_dataset"]
     assert (
         hashlib.sha256(cif.read_bytes()).hexdigest()
         == structure["structure_dataset_sha256"]
     )
-    assert "0.2189(2)" in cif.read_text()
-    assert "0.4108(4)" in cif.read_text()
-    assert structure["structure_reference"]["doi"] == "10.15083/0002012205"
+    assert "0.2216(7)" in cif.read_text()
+    assert "0.4303(12)" in cif.read_text()
+    assert structure["structure_reference"]["authors"] == ["Zigan", "Rothbauer"]
+    assert structure["structure_errors"] == {
+        "a_angstrom": 0.001,
+        "c_angstrom": 0.002,
+        "O_z": 0.0007,
+        "H_z": 0.0012,
+    }
+    assert structure["structure_refinement"] == {"R_factor_all": 0.08}
+    assert "structure_atomic_displacements_a2" not in structure
     # Mg(OH)2 has 5 atoms per formula unit; no factor of 4/5/Avogadro belongs
     # in the BM3 cell-volume calculation or dimensionless expansion integral.
     assert source()["volume_basis"]["atoms_per_formula_unit"] == 5
@@ -405,10 +418,10 @@ def test_brucite_independent_refits_use_table_rows_and_retain_conditional_covari
 def test_primary_structure_and_phase_sources_do_not_imply_universal_boundary():
     src = source()["sources"]
     structure = src["structure"]
-    assert structure["refinement"]["Nobs"] == 173
-    assert structure["refinement"]["O_H_angstrom"] == "0.915(2)"
-    assert structure["refinement"]["motion_corrected_O_H_angstrom"] == 0.9528
-    assert src["structure_zigan_1967_archive"]["sites"][2]["z"] == "0.4303(12)"
+    assert structure["refinement"] == {"R_factor_all": 0.08}
+    assert structure["sites"][2]["z"] == "0.4303(12)"
+    assert "primary article itself not accessed" in structure["source_kind"]
+    assert "atomic_displacements_a2" not in structure
     assert src["duffy_1995_phase"]["primary_findings"]["new_modes_gpa"] == 4.4
     phase = src["wu_2026_phase"]
     assert phase["reported_boundary"]["slope_gpa_per_k"] == -0.008

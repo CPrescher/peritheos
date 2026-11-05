@@ -9,7 +9,8 @@
     "Rust inventory covers the all-target normal/build dependency graph from Cargo.lock. Build tools are included; dev-only packages excluded. This is not an exact linked-code or Rust standard-library inventory for every wheel.",
     "External Python dependencies are installed separately, not bundled by virtue of Requires-Dist; native dependency notice compliance remains a separate recorded action.",
     "This inventory records the immutable published 0.17.3 release plus current data/rights overlays. Author declarations and Ma DOCX exclusion shipped in 0.17.4. Subsequent Fei image removal, numerical plot replacements, and Tateno workbook/Chidester ZIP exclusions apply only to later builds; 0.17.4 archives remain unchanged. Inventory tooling and reports were added after 0.17.3 and are not claimed to be files in its archived distributions.",
-    "The subsequent CIF review records current COD CC0 declarations against matched source files without rewriting their legacy headers. He (2023) thesis/table reuse terms remain unresolved; failed live repository requests are not licensing evidence. Historical release-state classifications are retained."
+    "The subsequent CIF review records current COD CC0 declarations against matched source files without rewriting their legacy headers. He (2023) thesis/table reuse terms remain unresolved; failed live repository requests are not licensing evidence. Historical release-state classifications are retained.",
+    "After 0.17.4 the He brucite CIF and copied structural values were replaced by CC0 COD 1000054. Original evidence and the obsolete pre-disposition card are private; published archives and all EOS numerical evidence are unchanged."
   ],
   "local_distribution_exclusions": [
     "peritheos/data/datasets/ma_2024_sources/supporting-information.docx",
@@ -18,7 +19,9 @@
     "docs/data/fei-2007-thermal-source-figures/figure4.png",
     "docs/data/fei-2007-thermal-source-figures/figure5.png",
     "peritheos/data/datasets/kcl_variant_sources/6779TableS1 revised.xlsx",
-    "peritheos/data/datasets/chidester_2018_sources/AM-18-56212.zip"
+    "peritheos/data/datasets/chidester_2018_sources/AM-18-56212.zip",
+    "peritheos/data/datasets/brucite-he-2023-table43.cif",
+    "output/material-candidates/brucite/brucite-before-disposition-2026-10-17.eosmat"
   ],
   "scopes": [
     {
@@ -119,7 +122,7 @@
         "peritheos/data/datasets/cif-license-review.json",
         "https://www.crystallography.net/cod/#license"
       ],
-      "scope": "Only the three named COD CIF resources. Vanadium matches the COD mirror exactly and superhydrous phase B matches primary COD exactly; primary/mirror variants differ only in SVN Date/URL comments. Brucite retains its existing archival public-domain basis. Original article rights are separate. CIF bytes are unchanged.",
+      "scope": "Only the three named COD resources. Vanadium matches the mirror exactly and superhydrous phase B matches primary COD exactly. A fresh 2026-11-05 primary brucite CIF matches the original bundled mirror copy apart from SVN Date/URL comments; brucite is now the active structural reference. All bundled COD CIF bytes are unchanged; original article rights are separate.",
       "action": "Retain COD identifiers, original scientific attribution, full CC0 text and the installed review receipt; do not extend the data grant to publications or the He thesis CIF.",
       "local_only": true
     },
@@ -136,7 +139,7 @@
         "https://repository.dl.itc.u-tokyo.ac.jp/records/2012205"
       ],
       "scope": "Factual Table 4.3 contributor transcription only; no verified source reuse grant for the thesis/table. Live institutional record/API/file-detail requests failed, so public availability and the incomplete indexed metadata are not treated as permission.",
-      "action": "Keep original source terms unresolved; obtain a source-specific grant or a documented numerical-facts/rights assessment accepted downstream. No inference that every numerical fact is protected.",
+      "action": "Excluded after 0.17.4 and replaced with CC0 COD 1000054, including inline coordinates/refinement in material cards. Original evidence preserved privately; source terms remain unresolved, not relabeled.",
       "local_only": true
     },
     {

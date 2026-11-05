@@ -6,7 +6,8 @@ use peritheos::{load_eosmat, load_eosmat_str};
 fn brucite_catalog_preserves_only_the_three_retained_published_isotherms() {
     let path = Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/data/brucite.eosmat");
     let material = load_eosmat(path).unwrap();
-    assert_eq!(material.document["atom_sites"][2]["z"], 0.4108);
+    assert_eq!(material.document["atom_sites"][2]["z"], 0.4303);
+    assert_eq!(material.document["source"]["structure_cod_id"], "1000054");
     assert_eq!(material.document["formula_units_per_cell"], 1);
     let static_record = material.record("brucite_fukui_2003_300k_bm3").unwrap();
     assert_eq!(

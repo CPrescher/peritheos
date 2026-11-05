@@ -1,0 +1,33 @@
+{
+  "schema": "peritheos.brucite-structure-replacement.v1",
+  "date": "2026-11-05",
+  "before_catalog_scientific_sha256": "ad4faddd0d53dafefd997f662d86e846ad53fc1690152444ed384bb80fa97934",
+  "after_catalog_scientific_sha256": "f61144ebfd9c0c2a5509948eeae4ddf7e07d5c01ff50b091cee6bb3672adedec",
+  "unchanged_catalog_excluding_brucite_lattice_and_atom_sites_sha256": "87d241c0ad69e61118619a0fa7776a5a61b7a06906cb883e23944298c140a6e0",
+  "changed_scientific_fields": [
+    "brucite.lattice",
+    "brucite.atom_sites"
+  ],
+  "old_structure": "He (2023), Table 4.3; source terms unresolved; original preserved privately",
+  "old_cif_sha256": "9983ea18cf364ef6b7378b44b0b0a20e28b29c4d08b6c76399e9d79605b915ff",
+  "new_structure": "Zigan and Rothbauer (1967), CC0 COD 1000054",
+  "new_cif_sha256": "1defd6b791e80c0ce967ea13a4457559e46d23028fb6f9796c5215871542eba1",
+  "private_preservation_manifest_sha256": "5986488ef1098576dd6723e766ba61fb4b12605f7d733e37df2688a709fc8b5b",
+  "scope": "Structure source substitution only; all other scientific snapshot fields, all EOS records, datasets, source tokens and numerical audit results verified unchanged. Staged wording now identifies COD verification rather than direct primary-thesis verification. Historical PR27 receipt remains unchanged.",
+  "bindings": {
+    "release_document": {
+      "peritheos/data/materials/brucite.eosmat": {
+        "historical_sha256": "bb5eb8767f044b72256580089406242ed5d03e82acaa51bf9f43692afaa52802",
+        "replacement_sha256": "9b1c8b0ac066dc75aca7d3e1d3fdeda33ade3ff0d53f25d1c7c9f9bd08cd4c49"
+      }
+    }
+  },
+  "observation_identity_update": {
+    "before": "f87032e7f209f27c3d56c7fcb417a9b4d3150a2668c158e9b5bc7741bff75396",
+    "after": "c696c3070d7862e4c87155641078d1b5e4c6595764b343c13c9eb6e961b98b25",
+    "datasets": [
+      "brucite_fukui_2003_table4"
+    ],
+    "scope": "Only brucite material-identity bindings updated for the licensed structure. All observation views, dataset declarations and numerical resource bindings unchanged."
+  }
+}

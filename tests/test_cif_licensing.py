@@ -1,5 +1,6 @@
 """CIF source grants must be file-scoped and leave structural evidence intact."""
 
+import csv
 import hashlib
 import json
 from pathlib import Path
@@ -30,10 +31,6 @@ def review():
         (
             "brucite-zigan-1967-cod-1000054.cif",
             "1defd6b791e80c0ce967ea13a4457559e46d23028fb6f9796c5215871542eba1",
-        ),
-        (
-            "brucite-he-2023-table43.cif",
-            "9983ea18cf364ef6b7378b44b0b0a20e28b29c4d08b6c76399e9d79605b915ff",
         ),
     ],
 )
@@ -78,3 +75,42 @@ def test_current_cod_review_is_scoped_and_historical_inventory_is_preserved():
     )
     assert he["status"] == "limited_or_unspecified_source"
     assert he["id"] != "cod-cif-current-review"
+
+
+def test_superseded_he_structure_is_not_a_distribution_input():
+    removed = review()["removed_files"][0]
+    assert removed["file"] == "brucite-he-2023-table43.cif"
+    assert not (DATA / removed["file"]).exists()
+    assert removed["distribution_status"] == "removed_after_0.17.4"
+    assert removed["replacement"] == "brucite-zigan-1967-cod-1000054.cif"
+    source = json.loads((DATA / "brucite-source.json").read_bytes())
+    assert "structure_zigan_1967_archive" not in source["sources"]
+    assert source["sources"]["structure"]["cod_id"] == "1000054"
+    # Source/CIF change must remove copied thesis refinement, not just its filename.
+    assert source["sources"]["structure"]["refinement"] == {"R_factor_all": 0.08}
+    for path in [
+        ROOT / "peritheos/data/materials/brucite.eosmat",
+        *(ROOT / "crates/peritheos/tests/data").glob("brucite*.eosmat"),
+        *(ROOT / "output/material-candidates/brucite").glob("*.eosmat"),
+    ]:
+        document = json.loads(path.read_bytes())
+        assert document["source"]["structure_cod_id"] == "1000054", path
+        assert document["atom_sites"][2]["z"] == 0.4303, path
+        assert "structure_atomic_displacements_a2" not in document["source"], path
+
+
+def test_inventory_retains_historical_provenance_without_thesis_refinement():
+    with (ROOT / "docs/data/license-inventory/catalog-components.csv").open() as f:
+        rows = [
+            r
+            for r in csv.DictReader(f)
+            if r["material"] == "brucite" and r["kind"] == "structure_and_diffraction"
+        ]
+    historical = next(r for r in rows if r["state"] == "release")
+    source = json.loads(historical["source"])["source"]
+    assert source["structure_reference"]["doi"] == "10.15083/0002012205"
+    assert "structure_refinement" not in source
+    assert "structure_atomic_displacements_a2" not in source
+    current = next(r for r in rows if r["state"] == "local")
+    assert current["status"] == "open_source_declared"
+    assert current["scope"] == "cod-cif-current-review"

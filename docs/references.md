@@ -6,12 +6,16 @@
   [doi:10.1007/s00269-003-0353-z](https://doi.org/10.1007/s00269-003-0353-z).
   Published 300/473/673 K isotherms retained; full thermal EOS not recommended
   because published-data parity was not achieved. All 48 observations retained. See the [brucite audit](literature-reproductions/brucite.md).
+- Zigan, F. & Rothbauer, R. (1967). Neutronenbeugungsmessungen am Brucit.
+  *Neues Jahrbuch fuer Mineralogie, Monatshefte*, 137–143.
+  Active brucite structural reference via [CC0 COD 1000054](https://www.crystallography.net/cod/1000054.html);
+  original printed article not directly inspected.
 - He, Xuejing (2023). *Hydrogen-bonding configurations of magnesium
   hydroxyfluoride and fluorine-doped magnesium hydroxide under high pressure*.
   Doctoral thesis, University of Tokyo, Table 4.3, pp. 81–82.
   [Institutional repository](https://doi.org/10.15083/0002012205).
-  Direct primary neutron structure of the fluorine-free hydrogenated sample;
-  the thesis became public in March 2025.
+  Historical structure source, replaced by CC0 COD 1000054 after 0.17.4;
+  original evidence is preserved privately.
 - Xia, X., Weidner, D. J. & Zhao, H. (1998). Equation of state of brucite:
   Single-crystal Brillouin spectroscopy study and polycrystalline
   pressure-volume-temperature measurement. *American Mineralogist*, **83**, 68–74.

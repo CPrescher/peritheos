@@ -20,22 +20,8 @@ transcriptions attributed to:
   its statement that data were placed in the public domain by contributors.
   COD's current CC0 data declaration is documented separately in
   `cod-cif-sources.LICENSE.md` and `cif-license-review.json`. These archive/data
-  statements do not establish the rights in the original paper.
-- He, Xuejing (2023), *Hydrogen-bonding configurations of magnesium
-  hydroxyfluoride and fluorine-doped magnesium hydroxide under high pressure*,
-  doctoral thesis, University of Tokyo, Table 4.3, pp. 81-82,
-  [institutional repository](https://doi.org/10.15083/0002012205).
-  `brucite-he-2023-table43.cif` is a contributor transcription of the
-  fluorine-free, hydrogenated sample. The thesis became public in 2025;
-  source numerical-data terms remain **unspecified**. In the 4 November 2026
-  license review, the indexed institutional record showed no populated file
-  license, while live record/API/file-detail requests failed (HTTP 503;
-  browser record request HTTP 429). No fresh thesis/table reuse grant was
-  established. These access failures do not prove that no grant exists.
-  The current COD CC0 declaration does not apply to this separate thesis
-  transcription. Exact review scope and failed retrieval URLs are retained in
-  `cif-license-review.json`. A rights-holder grant or a downstream-accepted
-  numerical-facts assessment is still needed to resolve source terms.
+  statements do not establish the rights in the original paper. This is now
+  the active structural reference; the original paper was not directly inspected.
 - Duffy et al. (1995), *American Mineralogist* **80**, 222-230,
   [doi:10.2138/am-1995-3-403](https://doi.org/10.2138/am-1995-3-403),
   for phase annotations; source numerical-data terms unspecified.
@@ -55,3 +41,15 @@ reason to omit recoverable factual observations.
 Downloaded papers and rendered pages under `output/material-candidates/brucite/`
 are local audit working copies. They are not redistributable data resources
 under this dedication and are not part of the proposed installed material.
+
+## Superseded thesis structure
+
+After 0.17.4, the He (2023) Table 4.3 contributor CIF and its copied structural
+coordinates/refinement were removed from distribution inputs and replaced by
+CC0 COD 1000054. Original CIF, source manifest, material cards and available
+thesis evidence are preserved privately with verified hashes. The former
+source grant remains unresolved; this replacement does not relicense it.
+Historical review details and the original CIF hash remain in the
+`removed_files` section of `cif-license-review.json`. Existing published
+archives are unchanged. Fukui/Xia numerical observations and EOS records are
+unchanged; their separate source terms above still apply.

@@ -31,7 +31,7 @@ they have no separate CSV.
 | [Rust components](../data/license-inventory/cargo-components.csv) | 47 normal/build dependency packages, declared licenses, source URLs and hashes of available license texts. |
 | [Archive receipt and totals](../data/license-inventory/summary.json) | All archive URLs, digests, coverage counts, status totals, wheel comparisons and limitations. |
 | [Reviewed scopes](../data/license-inventory-scopes.json) | Explicit file-level interpretations and evidence; these do not grant permissions or replace original notices. |
-| [CIF license review](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/cif-license-review.json) | Exact COD source-file comparisons, current CC0 declaration and unresolved He thesis-source terms; installed with the package. |
+| [CIF license review](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/cif-license-review.json) | Exact COD source-file comparisons, current CC0 declaration and historical He removal receipt; installed with the package. |
 | [License-only source bindings](../data/license-metadata-source-bindings.json) | Exact before/after licensing fields and whole-document digest chains; previous release/merge/cohort snapshots remain unchanged. |
 
 The `release` state describes what shipped in 0.17.3. The `local` overlay
@@ -144,15 +144,18 @@ the `local` overlay records this subsequent clarification. The installed
 [review receipt](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/cif-license-review.json) retain
 exact URLs, original/served hashes and the comparison method.
 
-**He (2023) brucite CIF: source terms still unresolved.** This is a Peritheos
-transcription of thesis Table 4.3, not a COD input. The indexed institutional
-record has no populated file license; live institutional record/API/file-detail
-requests returned HTTP 503 (browser record request HTTP 429). No fresh source
-reuse grant was established. Failed access and public availability are not
-permission evidence, nor proof that no grant exists. Keep the contributor CC0
-scope separate from original thesis/table rights and seek a dataset-specific
-grant or a documented downstream rights assessment. The existing scientific
-inspection, original thesis hash and all CIF values remain preserved.
+**He (2023) brucite structure: replaced after 0.17.4.** The thesis CIF and
+copied lattice/sites/refinement have been replaced with CC0 COD 1000054,
+Zigan and Rothbauer (1967). Originals, original source manifest/cards and
+available thesis evidence are preserved privately with verified hashes.
+The obsolete pre-disposition snapshot is also private; current audit fixtures
+use the COD structure while retaining all EOS records and scientific findings.
+A fresh primary COD download on 5 November 2026 matches the bundled archival
+CIF apart from SVN Date/URL comments. The original 1967 article has not been
+directly inspected. The historical unresolved He license review remains in
+`removed_files` in the installed receipt, without implying a source grant.
+Published 0.17.3/0.17.4 archives are unchanged. The separate unresolved source
+terms of the retained Fukui/Xia numerical transcriptions are unchanged.
 
 **Contributor-only CC0 and missing terms.** The Brown, brucite, Ca-perovskite,
 several cementite, diopside, Dorfman, ferrous-ringwoodite, Katsura-2009, phase-E

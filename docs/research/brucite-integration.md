@@ -90,10 +90,13 @@ fixed V0/alpha assumptions, objective and selection. Published coefficients
 remain in separate records. The original source-slope reconstruction also
 remains available with `not_reproduced` and explicit-selection qualifications.
 
-The active ambient structure is the directly inspected fluorine-free hydrogenated
-neutron refinement in He (2023), Table 4.3, DOI
-[10.15083/0002012205](https://doi.org/10.15083/0002012205). The Zigan archive
-is retained separately. All 102 Fukui/Xia observations, errors and original
+The ambient structural reference was subsequently replaced on 2026-11-05 by
+Zigan and Rothbauer (1967), CC0 COD 1000054. The former He (2023) structure,
+original cards and source evidence are preserved privately; copied thesis
+coordinates/refinement are excluded from subsequent distributions. The current
+[structure audit](../literature-reproductions/brucite.md#identity-structure-and-normalization)
+records this source substitution and its original-paper verification limit.
+All 102 Fukui/Xia observations, errors and original
 source tokens remain intact. Paired Au readings, original weights, full precision
 and author covariance are still unavailable; these do not prevent a clearly
 attributed independent table-data regression.

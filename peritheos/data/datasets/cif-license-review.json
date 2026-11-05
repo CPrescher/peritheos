@@ -1,7 +1,7 @@
 {
   "schema": "peritheos.cif-license-review.v1",
   "reviewed_on": "2026-11-04",
-  "scope": "File-level source-license review only. CIF bytes, structural values, material declarations and historical scientific findings are unchanged. No publication-wide rights grant is inferred.",
+  "scope": "Current bundled CIF source declarations plus historical removal receipt. On 2026-11-05 the He structure was replaced with COD 1000054; other CIF payloads and EOS evidence remain unchanged. No publication-wide grant is inferred.",
   "cod_policy": {
     "url": "https://www.crystallography.net/cod/",
     "retrieved_sha256": "59957a39a570af7b9194b2c703ebdb0a20310af20b3445f5baf49c2f63f22cbd",
@@ -67,9 +67,32 @@
       "local_sha256": "1defd6b791e80c0ce967ea13a4457559e46d23028fb6f9796c5215871542eba1",
       "status": "open_source_declared",
       "source_license": "Original archival public-domain header; current COD CC0 data declaration",
-      "source_url": "https://qiserver.ugr.es/cod/1000054.cif",
-      "qualification": "Existing archival provenance is retained. This entry was not downloaded again in this review."
-    },
+      "qualification": "Fresh primary COD record and CIF checked on 2026-11-05. Primary file differs from preserved mirror copy only in SVN Date/URL comments. All other bytes, including lattice, H coordinates and source header match; original 1967 paper not directly inspected.",
+      "source_versions": [
+        {
+          "url": "https://www.crystallography.net/cod/1000054.cif",
+          "sha256": "1ed399e34ded7a955099e802062a504fb9ecf7bc735aa141e87c226e701ce9a6",
+          "bytes": 2519,
+          "exact_byte_match": false,
+          "cif_payload_match_ignoring_only_svn_date_url": true
+        },
+        {
+          "url": "https://qiserver.ugr.es/cod/1000054.cif",
+          "sha256": "1defd6b791e80c0ce967ea13a4457559e46d23028fb6f9796c5215871542eba1",
+          "bytes": 2495,
+          "exact_byte_match": true,
+          "cif_payload_match_ignoring_only_svn_date_url": true,
+          "retrieval_scope": "Original bundled mirror copy; fresh mirror request timed out on 2026-11-05."
+        }
+      ],
+      "cif_payload_sha256_ignoring_only_svn_date_url": "b02a7a3e949311790782af86c80fca1479af5efa1ad8b0e14728b197877df255"
+    }
+  ],
+  "limits": [
+    "COD grants are recorded as source declarations, not independent authentication of every underlying contributor right.",
+    "HTTP failures at the thesis repository are access limitations, not licensing evidence. Unverified source terms remain unspecified."
+  ],
+  "removed_files": [
     {
       "file": "brucite-he-2023-table43.cif",
       "local_sha256": "9983ea18cf364ef6b7378b44b0b0a20e28b29c4d08b6c76399e9d79605b915ff",
@@ -96,11 +119,18 @@
         }
       ],
       "qualification": "The indexed institutional record displays the thesis with an unpopulated license column; that incomplete observation is not evidence that no grant exists. Live record/API/file-detail requests returned HTTP 503 (browser record request returned 429), so no fresh source license could be verified. Public availability and a contributor dedication do not establish original thesis rights. This is not a finding that factual numerical values are copyrighted or non-free.",
-      "required_action": "Obtain a dataset-specific grant from the relevant rights holder, or a documented numerical-facts/rights assessment accepted by the downstream reviewer."
+      "required_action": "Obtain a dataset-specific grant from the relevant rights holder, or a documented numerical-facts/rights assessment accepted by the downstream reviewer.",
+      "distribution_status": "removed_after_0.17.4",
+      "removed_on": "2026-11-05",
+      "replacement": "brucite-zigan-1967-cod-1000054.cif",
+      "preservation": "Original evidence retained privately; source grant remains unresolved."
     }
   ],
-  "limits": [
-    "COD grants are recorded as source declarations, not independent authentication of every underlying contributor right.",
-    "HTTP failures at the thesis repository are access limitations, not licensing evidence. Unverified source terms remain unspecified."
-  ]
+  "brucite_rechecked_on": "2026-11-05",
+  "brucite_record": {
+    "url": "https://www.crystallography.net/cod/1000054.html",
+    "sha256": "155ae196ac86b394ba4f1bd15ff5851ec80fc754339469d5ca93e07e6199e28c",
+    "checked_on": "2026-11-05",
+    "observations": "Brucite, H2 Mg O2; space group 164, Z=1, complete sites, no disorder reported, R=0.08. Entry footer explicitly declares COD data/database CC0."
+  }
 }

@@ -7,6 +7,12 @@ All notable changes to Peritheos are documented here. The project follows
 
 ### Fixed
 
+- Replace the He thesis brucite structural reference with the explicitly CC0
+  Zigan/Rothbauer COD 1000054 CIF. Preserve original evidence privately and
+  exclude the superseded CIF and copied coordinates/refinement from future
+  distributions. Retain all EOS coefficients, observations and dispositions;
+  update structural provenance, license notices and inventory.
+
 - Remove the four Fei publisher/source raster figures from the source tree and
   future distributions. Replace three plots that embedded them with numerical
   readout/calculation plots. Preserve original hashes, calibrated pixel readouts,

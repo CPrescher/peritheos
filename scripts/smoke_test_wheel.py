@@ -52,6 +52,10 @@ def main():
     for path in installed_licenses.values():
         assert path.is_file() and path.stat().st_size > 0
     data = package.joinpath("data")
+    assert not data.joinpath("datasets", "brucite-he-2023-table43.cif").is_file()
+    brucite = json.loads(data.joinpath("materials", "brucite.eosmat").read_bytes())
+    assert brucite["source"]["structure_cod_id"] == "1000054"
+    assert brucite["atom_sites"][2]["z"] == 0.4303
     assert not data.joinpath(
         "datasets", "ma_2024_sources", "supporting-information.docx"
     ).is_file(), "The Ma publisher supplement must not be distributed"

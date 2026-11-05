@@ -38,7 +38,7 @@ file lists and qualifications control; a family name is not a blanket grant.
 | Dataset or investigation | Notice |
 | --- | --- |
 | Brown NaCl historical recovery | [Brown rights and provenance](datasets/brown-nacl-1999.LICENSE.md) |
-| Brucite, including COD and thesis structures | [Brucite source terms](datasets/brucite.LICENSE.md) |
+| Brucite numerical data and CC0 COD structure | [Brucite source terms](datasets/brucite.LICENSE.md) |
 | Ca-perovskite Fu/Sun/Gréaux observations | [Contributor-only CC0 scope](datasets/ca-perovskite-fu-2023-observations.LICENSE.md) |
 | Ca-perovskite Noguchi Table 1 | [Contributor-only CC0 scope](datasets/ca-perovskite-noguchi-2013-table1.LICENSE.md) |
 | Cementite Hu/PANGAEA shock dataset | [Source CC BY 4.0](datasets/cementite-hu-2019.LICENSE.md) |

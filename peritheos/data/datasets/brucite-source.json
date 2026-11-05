@@ -1016,146 +1016,6 @@
         "Eq. (7) is exponential integrated alpha, not direct linear expansion."
       ]
     },
-    "structure": {
-      "reference": {
-        "authors": [
-          "He, Xuejing"
-        ],
-        "year": 2023,
-        "title": "Hydrogen-bonding configurations of magnesium hydroxyfluoride and fluorine-doped magnesium hydroxide under high pressure",
-        "source": "Doctoral thesis, University of Tokyo",
-        "locator": "Table 4.3, pp. 81-82; Section 4.3.1.1, p. 80",
-        "doi": "10.15083/0002012205"
-      },
-      "access_url": "https://repository.dl.itc.u-tokyo.ac.jp/record/2012205/files/A40857.pdf",
-      "source_kind": "Primary doctoral thesis: directly inspected neutron powder refinement of fluorine-free hydrogenated Mg(OH)2, not its substituted/deuterated samples",
-      "pdf_sha256": "c32fc2f616d638fb4c4e474d06583ba3cf58526a3f2f95402f67d0e9079203be",
-      "archive_terms": "Institutional repository made thesis public 2025-03-28; source-data licence unspecified. Contributor factual transcription rights only are CC0.",
-      "cell": {
-        "a_angstrom": "3.14771(3)",
-        "b_angstrom": "3.14771(3)",
-        "c_angstrom": "4.77163(5)",
-        "alpha_deg": 90,
-        "beta_deg": 90,
-        "gamma_deg": 120,
-        "printed_volume_a3": 40.9437,
-        "volume_error_a3": 0.0007,
-        "space_group": "P -3 m 1",
-        "space_group_number": 164,
-        "Z": 1
-      },
-      "sites": [
-        {
-          "label": "Mg1",
-          "element": "Mg",
-          "wyckoff": "1a",
-          "x": "0",
-          "y": "0",
-          "z": "0",
-          "occupancy": 1
-        },
-        {
-          "label": "O1",
-          "element": "O",
-          "wyckoff": "2d",
-          "x": "1/3",
-          "y": "2/3",
-          "z": "0.2189(2)",
-          "occupancy": 1
-        },
-        {
-          "label": "H1",
-          "element": "H",
-          "wyckoff": "2d",
-          "x": "1/3",
-          "y": "2/3",
-          "z": "0.4108(4)",
-          "occupancy": 1
-        }
-      ],
-      "atomic_displacements_a2": {
-        "Mg_Uiso": "0.0057(3)",
-        "O_Uiso": "0.0047",
-        "H_U11": "0.0394(5)",
-        "H_U33": "0.0171(10)",
-        "H_U12": "0.0197(2)"
-      },
-      "refinement": {
-        "wRp": 0.0101,
-        "Rp": 0.007,
-        "R_F_squared": 0.095,
-        "Nobs": 173,
-        "chi_squared": 4.275,
-        "O_H_angstrom": "0.915(2)",
-        "motion_corrected_O_H_angstrom": 0.9528,
-        "H_O_angstrom": "2.535(2)",
-        "O_O_angstrom": "3.240(2)",
-        "O_H_O_angle_deg": "134.20(4)"
-      },
-      "normalization": "Exact special-position thirds; no lattice rescaling or changes to refined z. Preserve mean H position, not a site shifted to match the motion-corrected O-H bond length. Coordinates specify the ambient average single-site model, not perfectly immobile protons.",
-      "acceptance_limit": "Direct primary structural verification resolved. Ambient average structure only; no pressure-dependent coordinates, disordered phase or anisotropic compression model implied.",
-      "cif_file": "brucite-he-2023-table43.cif",
-      "visual_check": "Table 4.3 and continuation directly inspected at PDF pages 89-90 (printed pp. 81-82); F-free Mg(OH)2 explicitly separated from Table 4.5 fluorinated and Table 4.7 deuterated samples."
-    },
-    "structure_zigan_1967_archive": {
-      "reference": {
-        "authors": [
-          "Zigan",
-          "Rothbauer"
-        ],
-        "year": 1967,
-        "title": "Neutronenbeugungsmessungen am Brucit",
-        "source": "Neues Jahrbuch fuer Mineralogie, Monatshefte",
-        "volume": "1967",
-        "locator": "137-143"
-      },
-      "access_url": "https://qiserver.ugr.es/cod/1000054.cif",
-      "source_kind": "COD 1000054 archival transcription of primary neutron structure; primary article itself not accessed",
-      "archive_terms": "CIF header: all data placed in public domain by contributors. This is an archive statement, not a new claim to rights in the original paper.",
-      "cell": {
-        "a_angstrom": "3.142(1)",
-        "b_angstrom": "3.142(1)",
-        "c_angstrom": "4.766(2)",
-        "alpha_deg": 90,
-        "beta_deg": 90,
-        "gamma_deg": 120,
-        "printed_volume_a3": 40.7,
-        "space_group": "P -3 m 1",
-        "space_group_number": 164,
-        "Z": 1
-      },
-      "sites": [
-        {
-          "label": "Mg1",
-          "element": "Mg",
-          "wyckoff": "1a",
-          "x": "0",
-          "y": "0",
-          "z": "0",
-          "occupancy": 1
-        },
-        {
-          "label": "O1",
-          "element": "O",
-          "wyckoff": "2d",
-          "x": "1/3",
-          "y": "2/3",
-          "z": "0.2216(7)",
-          "occupancy": 1
-        },
-        {
-          "label": "H1",
-          "element": "H",
-          "wyckoff": "2d",
-          "x": "1/3",
-          "y": "2/3",
-          "z": "0.4303(12)",
-          "occupancy": 1
-        }
-      ],
-      "normalization": "Replace archive rounded special coordinates .3333/.6667 by exact 1/3,2/3; no refined z or lattice rescaling. Ambient ordered-H reference model only.",
-      "acceptance_limit": "Archived numerical diffraction model is complete and auditable; direct primary-paper confirmation remains an integration limitation."
-    },
     "duffy_1995_phase": {
       "doi": "10.2138/am-1995-3-403",
       "citation": "Duffy TS, Meade C, Fei Y, Mao HK, Hemley RJ (1995), American Mineralogist 80, 222-230",
@@ -1200,7 +1060,7 @@
       "use": "Evidence for pressure/temperature/medium dependence only. No automatic phase boundary evaluator or new disordered-phase EOS."
     },
     "sun_2025_phase": {
-      "title": "Stability and physical properties of brucite at high pressures and temperatures: Implication for Earth\u2019s deep water cycle",
+      "title": "Stability and physical properties of brucite at high pressures and temperatures: Implication for Earth’s deep water cycle",
       "doi": "10.1016/j.gsf.2024.101940",
       "year": 2025,
       "url": "https://zhangdongzhou.github.io/pub/Sun_GeoFront_2025.pdf",
@@ -1208,13 +1068,80 @@
       "source_kind": "Directly inspected final primary article, Geoscience Frontiers 16, 101940, Sections 3 and 4.1, pp. 3-5; Fig. 4",
       "primary_findings": [
         "No detectable change in polycrystalline XRD up to 63 GPa/800 K before dehydration; full-profile refinements favor the layered average P -3 m 1 lattice over proposed P -3 and P 41 21 2 alternatives at representative conditions.",
-        "X-rays and average-lattice refinements do not uniquely establish H ordering. These results support a bulk lattice-average EOS over Fukui\u2019s measured range, not a universal H-order phase boundary or equilibrium-stability claim."
+        "X-rays and average-lattice refinements do not uniquely establish H ordering. These results support a bulk lattice-average EOS over Fukui’s measured range, not a universal H-order phase boundary or equilibrium-stability claim."
       ],
       "source_inconsistencies": [
         "Fig. 4 labels comparison at 14 GPa/600 K while Section 4.1 says 15 GPa/600 K. Both retained; neither sets a boundary.",
         "Section 4 discussion of some dehydration observations conflicts with Section 3; those statements are not used to install a dehydration boundary."
       ],
       "parameter_import": "None. Sun numerical EOS coefficients and supplements are outside this Fukui-specific integration."
+    },
+    "structure": {
+      "reference": {
+        "authors": [
+          "Zigan",
+          "Rothbauer"
+        ],
+        "year": 1967,
+        "title": "Neutronenbeugungsmessungen am Brucit",
+        "source": "Neues Jahrbuch fuer Mineralogie, Monatshefte",
+        "volume": "1967",
+        "locator": "137-143"
+      },
+      "access_url": "https://qiserver.ugr.es/cod/1000054.cif",
+      "source_kind": "COD 1000054 archival transcription of primary neutron structure; primary article itself not accessed",
+      "archive_terms": "Original CIF public-domain header and current COD CC0 declaration for its data/database; original publication rights are separate.",
+      "cell": {
+        "a_angstrom": "3.142(1)",
+        "b_angstrom": "3.142(1)",
+        "c_angstrom": "4.766(2)",
+        "alpha_deg": 90,
+        "beta_deg": 90,
+        "gamma_deg": 120,
+        "printed_volume_a3": 40.7,
+        "space_group": "P -3 m 1",
+        "space_group_number": 164,
+        "Z": 1
+      },
+      "sites": [
+        {
+          "label": "Mg1",
+          "element": "Mg",
+          "wyckoff": "1a",
+          "x": "0",
+          "y": "0",
+          "z": "0",
+          "occupancy": 1
+        },
+        {
+          "label": "O1",
+          "element": "O",
+          "wyckoff": "2d",
+          "x": "1/3",
+          "y": "2/3",
+          "z": "0.2216(7)",
+          "occupancy": 1
+        },
+        {
+          "label": "H1",
+          "element": "H",
+          "wyckoff": "2d",
+          "x": "1/3",
+          "y": "2/3",
+          "z": "0.4303(12)",
+          "occupancy": 1
+        }
+      ],
+      "normalization": "Replace CIF rounded special-position coordinates .3333/.6667 with exact 1/3,2/3. Preserve refined z, occupancies and cell metrics; no rescaling to the separate Fukui EOS reference volume. Average single-site H model only.",
+      "acceptance_limit": "COD archival structure and current record checked on 2026-11-05; original 1967 paper not directly inspected. Ambient average single-site model only, not pressure-dependent H ordering or anisotropic compression.",
+      "cif_file": "brucite-zigan-1967-cod-1000054.cif",
+      "cod_id": "1000054",
+      "source_license": "CC0-1.0 (COD data declaration)",
+      "license_url": "https://www.crystallography.net/cod/#license",
+      "record_url": "https://www.crystallography.net/cod/1000054.html",
+      "refinement": {
+        "R_factor_all": 0.08
+      }
     }
   },
   "rights": {
@@ -1266,5 +1193,13 @@
       "Source covariance unavailable; new fit covariance conditional on fixed source V0 and alpha",
       "No atomic high-pressure H refinement or phase-equilibrium/dehydration model"
     ]
+  },
+  "structure_replacement": {
+    "date": "2026-11-05",
+    "reason": "Use the explicitly CC0 COD structure instead of the thesis transcription with unresolved source terms.",
+    "previous_source": "He (2023), thesis Table 4.3; DOI 10.15083/0002012205",
+    "previous_cif_sha256": "9983ea18cf364ef6b7378b44b0b0a20e28b29c4d08b6c76399e9d79605b915ff",
+    "preservation": "Original CIF, source manifest, material cards, audit reports and available thesis evidence preserved privately; original copied coordinates/refinement removed from distribution inputs.",
+    "scientific_scope": "Structural reference only; all Fukui/Xia observations, EOS coefficients, calibrations and scientific dispositions retained unchanged."
   }
 }

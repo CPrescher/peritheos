@@ -1,9 +1,12 @@
 """The domain review freezes scientific values independently of metadata pins."""
 
+import copy
+import hashlib
 import json
 from pathlib import Path
 
-from scripts.scientific_source_snapshot import scientific_sha256
+from scripts.merge_source_bindings import accepts_merge_binding
+from scripts.scientific_source_snapshot import scientific_sha256, scientific_snapshot
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -14,4 +17,41 @@ def test_reviewed_coefficients_units_and_source_arrays_remain_exact():
             encoding="utf-8"
         )
     )
-    assert scientific_sha256() == review["catalog_scientific_sha256"]
+    replacement = json.loads(
+        (ROOT / "docs/data/brucite-structure-replacement.json").read_bytes()
+    )
+    assert (
+        review["catalog_scientific_sha256"]
+        == replacement["before_catalog_scientific_sha256"]
+    )
+    assert scientific_sha256() == replacement["after_catalog_scientific_sha256"]
+    snapshot = copy.deepcopy(scientific_snapshot())
+    for document in snapshot["documents"]:
+        if document["identifier"] == "brucite":
+            for key in ("lattice", "atom_sites"):
+                document.pop(key)
+    fingerprint = hashlib.sha256(
+        json.dumps(
+            snapshot, sort_keys=True, separators=(",", ":"), allow_nan=False
+        ).encode()
+    ).hexdigest()
+    assert (
+        fingerprint
+        == replacement[
+            "unchanged_catalog_excluding_brucite_lattice_and_atom_sites_sha256"
+        ]
+    )
+
+
+def test_structure_replacement_accepts_only_the_exact_reviewed_pair():
+    replacement = json.loads(
+        (ROOT / "docs/data/brucite-structure-replacement.json").read_bytes()
+    )
+    context = "release_document"
+    name = "peritheos/data/materials/brucite.eosmat"
+    binding = replacement["bindings"][context][name]
+    old, new = binding["historical_sha256"], binding["replacement_sha256"]
+    assert accepts_merge_binding(context, name, old, new)
+    assert not accepts_merge_binding(context, name, "0" * 64, new)
+    assert not accepts_merge_binding(context, name, old, "0" * 64)
+    assert not accepts_merge_binding("unreviewed", name, old, new)
