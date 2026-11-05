@@ -1,58 +1,66 @@
 # Optional Peritheos datasets
 
-This package adds selected observation datasets to the Peritheos library.
-Install `peritheos[datasets]` to request the matching data package. Installing
-`peritheos` alone supplies structures, EOS parameters and scientific provenance
-without experimental observations. Neither installation downloads data at runtime.
+`peritheos-datasets` adds selected numerical tables to the Peritheos library.
+Install it through `python -m pip install "peritheos[datasets]"`. The installer
+selects matching versions of both distributions.
 
-The explicit policy selects 451 material dataset entries plus two Barker
-supporting-study entries (453 total). The material selection comprises: 44 with previously
-recorded source/author terms, 363 admitted after a numerical factual-content
-assessment, one newly verified CC BY 4.0 deposit extraction, three author datasets
-with separately assessed numerical literature inputs, and four separately named
-Campbell polynomial-evaluation entries. This follow-up also admits ten views of
-the shared Shen/Smith numerical collection and two fixed historical excerpts.
-Another 21 existing Sakai/Ismailova/iridium numerical entries are admitted under
-source-specific applicability assessments, with all NC/ND source notices retained.
-Five material entries remain held: Sakai Table S8 literature lineage and four
-views of the original Campbell integration collection. These decisions concern
-general redistribution, independently of whether a consumer needs datasets.
-Three separate new declarations expose a 37-edge primary-resource lineage graph
-and two views of a 1717-row calculated relative NNO pressure integral. These are
-partial reconstructions: author selections, absolute Gibbs baselines and the
-full Campbell integration tables are not recovered. Original identifiers are
-not repurposed; the installed notice explains the source comparison and limits.
-The three collection-follow-up resources retain their original unspecified or
-all-rights-reserved terms; their installed scoped notice explains the numerical
-and collection assessments, source-access limits and downstream qualifications.
-The new Campbell entries are calculated approximations, not the original
-integration tables; their source mismatch and scientific limitations remain explicit.
-Barker Table I (seven liquid comparison rows) and selected Figure 5 readouts
-(21 theoretical curve samples, 11 Ross experimental marks) are admitted after
-a separate numerical-content assessment. Use `get_study_dataset()`; no crystal
-phase or executable Barker EOS is inferred. Its source publication copyright
-and unknown data-grant status remain explicit in the installed notice and review.
+The normal `peritheos` package already contains the calculation library,
+structures, EOS parameters and dataset descriptions. Use it on its own for
+applications such as Dioptas and for fitting your own observations. Installing
+this optional package adds values; it does not install a second EOS implementation
+or download additional source files at runtime.
 
-Factual-content admission is a maintainer assessment, not a new source license,
-legal opinion or Debian approval. Unspecified source terms remain unspecified.
-Contributor CC0 dedications do not override third-party rights. The installed
-`peritheos_datasets/redistribution-review.json` identifies the exact decisions,
-source references, limitations and held entries. The accompanying numerical
-transcription notice explains copyright, collection and contractual caveats.
-`manifest.json` records the policy binding, declaration fingerprints and original
-resource checksums. Numerical values, error conventions, attribution, original
-source-license fields and scientific qualifications are preserved.
+## What is included in 0.18.0?
 
-The data package version must match the library version. Dataset access through
-Peritheos verifies resource checksums. Other source evidence is available through
-the cited original deposits and links from the Peritheos material records.
+| Content | Amount and location |
+| --- | --- |
+| Material dataset entries | 451, with declarations in `peritheos_datasets/declarations/` |
+| Supporting-study entries | 2 Barker tables, in `peritheos_datasets/study-declarations/` |
+| Numerical CSV resources | 392, under `peritheos_datasets/data/datasets/` |
+| Small inline tables | 14, within the declaration JSON files |
+| Source notices and inclusion decisions | `peritheos_datasets/notices/`, `manifest.json` and `redistribution-review.json` |
 
-Code is MIT; data retain their individual terms. Full licenses and scoped notices
-are included in this distribution. A contributor dedication does not relicense
-third-party sources. Please cite the original authors and report transformations.
+The **453 entries** can share resource files. They include measurements, numerical
+figure readouts, explicitly calculated tables and a partial source-lineage graph;
+these are not 453 independent experiments. Original identifiers, units, errors,
+attribution and scientific qualifications are retained.
 
-The separate `eos-structure-rights-review.json` and compilation notice document
-the runtime package's EOS/structure assessment and unresolved collection cases.
-Their presence does not add observations or extend this dataset selection.
-The pinned Dioptas upstream MIT attribution is also preserved; it cannot clear
-third-party publications or inherited beamline-card acquisition rights.
+This package contains no original papers, publisher artwork, source workbooks,
+author software or detailed research archives. It has no separate crystal
+structure or EOS parameter library: those remain in core.
+
+## What is not included?
+
+The original Sakai Table S8 lineage resource and the Campbell Tables S4/S5
+integration resource are excluded. They account for five material entries,
+because the Campbell file is referenced by four materials. Separately named
+partial lineage, polynomial and relative-pressure calculations are included;
+they do not reproduce the complete original tables or author workflows. Their
+approximation and missing-baseline limits remain in their declarations/notices.
+
+Barker's two resources are supporting-study data, accessed with
+`get_study_dataset()`. They do not define a crystal phase or an executable
+Barker EOS, and the original unreproduced-model status remains explicit.
+
+## Licenses and reuse
+
+Some datasets have an explicit source or author license, such as CC BY 4.0.
+Others are numerical transcriptions included after reviewing the particular
+content. **Including a transcription is not a new license for its source.**
+The original source notices remain, including NC/ND notices for 21 entries.
+Contributor CC0 statements cover only the contributor's own work.
+
+For an individual entry, read its declaration and source notice. `manifest.json`
+lists exactly what is installed; `redistribution-review.json` explains the
+reviewed inclusion/exclusion decisions. `admit` means selected for this package,
+not “open license granted”. The numerical-transcription notice and the
+source-specific notices retain the detailed reasoning and limits.
+
+These decisions concern general redistribution of this optional package. Debian
+or another distributor may assess them separately. Packaging the normal
+`peritheos` library does not require packaging this collection.
+
+Code remains MIT; data retain their individual recorded terms. Keep source
+attribution, applicable license texts and descriptions of changes. The
+[package comparison and current inventory](https://github.com/CPrescher/peritheos/blob/main/docs/research/license-inventory.md)
+explain the two distributions and identify the preserved detailed reports.

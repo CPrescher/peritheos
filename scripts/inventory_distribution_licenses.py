@@ -653,13 +653,12 @@ def source_inventory(rows):
 
 def dataset_source_report(rows):
     """Readable publication index; exact file membership stays in the CSVs."""
-    sources = source_inventory(
-        [r for r in rows if r["state"] == "local" and r["kind"] == "dataset"]
-    )
+    entries = [r for r in rows if r["state"] == "local" and r["kind"] == "dataset"]
+    sources = source_inventory(entries)
     text = [
         "# Dataset source-rights index",
         "",
-        "Generated from all 449 catalog dataset entries. Counts are entries, not independent experiments or unique physical files. Source grouping does not extend a dataset grant to an entire publication. See [the inventory review](../../research/license-inventory.md) for status meanings and limitations.",
+        f"Generated from {len(entries)} material dataset entries in the research checkout. This is a source index, not the shipping list of either Python package. Entries can share files and are not counts of independent experiments. See [the current package inventory](../../research/license-inventory.md) for the 0.18.0 contents and the meaning of these labels. A source group does not give every item the same license.",
         "",
         "| Source | Dataset entries | Materials | Recorded statuses |",
         "| --- | ---: | --- | --- |",

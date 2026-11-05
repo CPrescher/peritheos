@@ -1,54 +1,64 @@
-# Peritheos runtime package: code, structures and EOS parameters
+# Peritheos: core package contents and licenses
 
-Peritheos code is MIT. Crystal structures and compiled scientific parameters
-retain their own provenance; the code license is not a blanket grant of
-third-party rights. Numerical facts, independently implemented equations,
-publication text and source compilations are distinct questions.
+This is the core `peritheos` distribution, introduced with the package split in
+0.18.0. Install it with `python -m pip install peritheos`. It supplies the library,
+structures and EOS parameters needed for calculations and applications such as
+Dioptas. The optional observation package is not a dependency of this install.
 
-This package contains no experimental observation tables, original author
-artifacts, workbook-cell extractions or detailed numerical research archives.
-EOSMAT records preserve coefficients, units, uncertainties, reference states,
-validity limits, source citations, calibration conventions and scientific
-qualifications. The source repository retains the complete scientific evidence;
-runtime exports do not change published values or recommendation status.
+## What is included?
 
-The ten archived COD CIFs retain their public-domain/CC0 source declarations.
-See the [COD notice](datasets/cod-cif-sources.LICENSE.md), `datasets/cif-license-review.json`
-and the full CC0 text in the distribution's license metadata. Other inline
-structures and parameter compilations retain their individual provenance;
-this packaging split alone does not establish Debian clearance for every entry.
+- The Python/Rust calculation and fitting library.
+- 234 material documents with 685 EOS records, including coefficients, units,
+  uncertainties, reference states, source citations and scientific qualifications.
+- Crystal structures, 10 COD CIF files and 10 calculated reference diffraction
+  patterns. Structural and proxy limitations remain in their material records.
+- Dataset descriptions, references and checksums, so users can discover source
+  observations without having their values installed.
+- The applicable license texts, source notices and review records.
 
-The installed `eos-structure-rights-review.json` separately assesses all 685 EOS
-records and 234 structural/diffraction components. See
-[the compilation notice](datasets/eos-structure-compilations.LICENSE.md) for the numerical-content basis
-and the seven unresolved Holland/THERMOCALC parameter extracts, which remain
-present. The ten inherited peak arrays are replaced by independently calculated
-X-ray patterns; see [their scoped notice](datasets/calculated-patterns.LICENSE.md)
-and `calculated-pattern-inputs.json`. Six inputs use COD CC0 CIFs, one is an
-independently authored ideal model, and three use attributed numerical structural
-parameters without a separate source-publication grant. Generated-output CC0
-covers contributor-held rights only. No blanket clearance is asserted.
-The two formerly ICSD-linked post-perovskite topologies now use freshly acquired
-CC0 COD 9009217 data. Their numerical values are unchanged, with ab initio
-coordinate/observed-cell and pure-MgSiO3 proxy qualifications retained.
-The ten named COD resource scopes remain separate from EOS/observation rights.
-The pinned Dioptas migration's complete upstream MIT attribution is retained
-in [the Dioptas notice](datasets/dioptas-materials.LICENSE.md); it does not clear third-party rights.
+**There are no experimental observation tables or CSV resources in this
+package.** Original author workbooks, publisher artwork and detailed research
+archives are also excluded. The wheel and the official core source distribution
+use the same scientific-content boundary. A full Git repository snapshot contains
+additional research evidence and is not the same archive.
 
-Compiled Rust third-party licenses and source attributions are in
-`third_party/rust/NOTICE.md` and the complete adjacent notice bundle. A rebuild
-with another compiler requires reviewing its matching standard-library notices.
+The directory `peritheos/data/datasets/` in core holds the CIFs and their notices;
+it does not contain the optional observation tables. The material documents also
+contain scientific numbers, such as EOS coefficients and calculated peak lines.
+“Without datasets” means without the optional numerical tables, not without any
+scientific data.
 
-Experimental data are optional: `python -m pip install "peritheos[datasets]"` adds
-the matching `peritheos-datasets` distribution. That package admits only an
-explicit source-scoped selection and includes its own dataset notices and
-licenses. Its installed review distinguishes recorded source grants from
-maintainer factual-content assessments. Unspecified source terms remain
-unspecified, and admission is not Debian approval. The 21 admitted NC/ND
-numerical extractions retain source-specific qualifications; five original
-Sakai/Campbell dataset entries remain held as listed in that review.
-No installation downloads observations at runtime. Other evidence and terms
-are linked from the material's `data_availability` metadata.
+## Which licenses apply?
 
-Detailed repository license inventory:
-https://github.com/CPrescher/peritheos/blob/main/docs/research/license-inventory.md
+| Content | License or source information |
+| --- | --- |
+| Peritheos code | MIT, in the supplied `LICENSE`. |
+| Rust dependencies and standard library | Full license texts and attributions in [the Rust notice bundle](third_party/rust/NOTICE.md). |
+| Ten COD CIFs | CC0 source declarations, with original attribution and recorded changes in [the COD notice](datasets/cod-cif-sources.LICENSE.md). |
+| EOS parameters and other structural values | Scientific references and numerical-content review in [the compilation notice](datasets/eos-structure-compilations.LICENSE.md) and `eos-structure-rights-review.json`. No blanket license for the cited papers or source collections is asserted. |
+| Calculated reference patterns | Inputs, contributor rights and model limits in [the pattern notice](datasets/calculated-patterns.LICENSE.md) and `calculated-pattern-inputs.json`. Six inputs are COD CIFs, one model is independently authored and three use attributed numerical structural parameters. |
+| Material definitions migrated from Dioptas | Original MIT attribution in [the Dioptas notice](datasets/dioptas-materials.LICENSE.md). |
+
+If rebuilding with another Rust version, check its standard-library notices too.
+The supplied bundle records the compiler used for the official wheels.
+
+Source license statements and our assessment of numerical reuse are different
+records. The detailed review retains questions about the Holland parameter
+extracts; it does not establish that those numerical coefficients must be
+removed. An absent source-data license is not by itself a finding that a
+numerical parameter is prohibited from reuse.
+
+## Adding observation data
+
+`python -m pip install "peritheos[datasets]"` adds the matching
+`peritheos-datasets` distribution. In 0.18.0 it supplies 451 material entries and
+two supporting-study entries, using 392 CSV files and 14 inline tables. It has
+its own source notices and selection review. It does not include every dataset
+described by the core catalog, and access does not download missing data at
+runtime.
+
+For the package comparison, source archive names and packaging guidance, see
+[packages and licensing](https://github.com/CPrescher/peritheos/blob/main/docs/licensing.md).
+The [current inventory](https://github.com/CPrescher/peritheos/blob/main/docs/research/license-inventory.md)
+links the detailed evidence without treating the old research checkout as the
+contents of either current package.

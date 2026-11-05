@@ -31,25 +31,19 @@ their recorded source terms. A listed dataset identifier is not a promise that
 its observations are included in the optional package. Material metadata links
 the source evidence through `data_availability`.
 
-The current selection contains 451 material dataset entries plus two Barker
-supporting-study entries (453 total, 392 CSV resources). The
-[numerical redistribution review](research/numerical-dataset-redistribution.md)
-distinguishes source grants from factual-content assessments and lists five held
-material entries. The [Barker follow-up](research/barker-1987-redistribution.md)
-admits its two numerical resources through a separate study namespace. The [Morard/Campbell follow-up](research/morard-campbell-redistribution-followup.md)
-records the subsequent source tracing and independently calculated tables.
-The [collection review](research/shen-historical-redistribution-review.md) admits
-the Shen/Smith numerical record and two fixed historical excerpts without
-asserting new source licenses. The
-[Sakai/Ismailova/iridium review](research/restricted-source-numerical-review.md)
-admits 21 further numerical extractions while preserving source NC/ND notices.
-Sakai Table S8 and the original Campbell integration results remain held. The
-[independent-generation follow-up](research/independent-lineage-buffers.md) adds
-a separate 37-edge primary-resource graph and the calculated NNO pressure
-contribution. The latter lacks an absolute Gibbs baseline; it is not the full
-source buffer table. These three new declarations bring the catalog to 456 entries.
-An admission does not
-turn unspecified source terms into an open license or establish Debian acceptance.
+In 0.18.0 the optional package supplies **451 material entries and two Barker
+supporting-study entries**. These use 392 CSV files and 14 small tables embedded
+in JSON; entries can share files. The tables include measured observations,
+numerical figure readouts and explicitly identified calculations.
+
+Five material entries are not supplied: the original Sakai Table S8 lineage
+resource and four views of the original Campbell integration resource. Some
+separately named partial calculations are included, with their limits recorded;
+they are not replacements for the complete original tables.
+
+For an exact package comparison, the excluded identifiers and the meaning of the
+license/review labels, see the [current package inventory](research/license-inventory.md).
+Scientific qualifications and source terms remain in the individual records.
 
 Supporting studies are available without inventing a material or executable EOS:
 

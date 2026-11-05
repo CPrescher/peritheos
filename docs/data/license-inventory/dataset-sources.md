@@ -1,6 +1,6 @@
 # Dataset source-rights index
 
-Generated from all 449 catalog dataset entries. Counts are entries, not independent experiments or unique physical files. Source grouping does not extend a dataset grant to an entire publication. See [the inventory review](../../research/license-inventory.md) for status meanings and limitations.
+Generated from 456 material dataset entries in the research checkout. This is a source index, not the shipping list of either Python package. Entries can share files and are not counts of independent experiments. See [the current package inventory](../../research/license-inventory.md) for the 0.18.0 contents and the meaning of these labels. A source group does not give every item the same license.
 
 | Source | Dataset entries | Materials | Recorded statuses |
 | --- | ---: | --- | --- |

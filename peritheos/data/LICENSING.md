@@ -8,6 +8,13 @@ version of this guide. The source inventory below describes research resources,
 not a claim that every resource is installed by either package. This split is
 introduced in 0.18.0; previously published 0.17.4 archives are unchanged.
 
+For the current package comparison and packaging instructions, start with
+[packages and licensing](https://github.com/CPrescher/peritheos/blob/main/docs/licensing.md).
+The normal package contains structures, EOS parameters, calculated patterns and
+dataset descriptions. Only the optional package adds the selected observation
+and other numerical tables. Neither Python source distribution includes the
+complete research checkout described below.
+
 Peritheos code uses the **MIT (Expat) license**. The scientific data bundled
 with that code have **source-specific terms**. An article citation establishes
 scientific provenance; it is not, by itself, a permission to redistribute.
@@ -102,7 +109,7 @@ the replacement does not relicense that former thesis transcription.
 
 ## Installed packages and downstream redistribution
 
-The [file and catalog license inventory](https://github.com/CPrescher/peritheos/blob/v0.17.4/docs/research/license-inventory.md)
+The [file and catalog license inventory](https://github.com/CPrescher/peritheos/blob/main/docs/research/license-inventory.md)
 accounts for the published 0.17.3 archives and records the author-permission
 and packaging updates introduced in 0.17.4. It lists scoped grants and
 unresolved source rights; it is not a blanket redistribution clearance.

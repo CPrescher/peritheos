@@ -1,135 +1,117 @@
-# Code, data and redistribution
+# Packages and licensing
 
-The unreleased distribution split makes experimental observations optional:
-`pip install peritheos` supplies the library, structures and EOS parameters;
-`pip install "peritheos[datasets]"` additionally installs `peritheos-datasets`.
-The two packages have separate source archives. The optional package contains
-451 explicitly selected material dataset entries and two Barker supporting-study
-entries, including separately assessed
-numerical transcriptions. Source grants and factual-content assessments remain
-distinct; unspecified source terms are not relabeled open. Five material entries
-remain held: Sakai Table S8 and four views of the original Campbell integration collection. The [numerical redistribution review](research/numerical-dataset-redistribution.md)
-records every decision and the collection, source and Debian qualifications.
-The [Morard/Campbell follow-up](research/morard-campbell-redistribution-followup.md)
-identifies all selected cold-row sources and separately calculated buffer
-polynomial approximations; original Campbell integration tables remain held. See the
-[installation and data-access guide](datasets.md). The
-[Shen/Smith and historical collection review](research/shen-historical-redistribution-review.md)
-adds three unchanged numerical resources under source-specific assessments;
-original source terms and all scientific qualifications remain explicit. The
-[Sakai/Ismailova/iridium review](research/restricted-source-numerical-review.md)
-admits 21 numerical extractions on an applicability assessment, preserving all
-NC/ND source flags. This concerns general redistribution of the optional data
-package; core `peritheos` is independently installable without these values.
-The [independent-generation follow-up](research/independent-lineage-buffers.md)
-adds a separate partial lineage graph and a relative NNO pressure integral. It
-does not establish full Campbell absolute-table regeneration or admit the held
-originals. This reduces distributed
-source content; it is not a blanket Debian clearance of remaining structural
-facts or EOS parameter compilations. Complete research evidence remains in the
-repository. The published 0.17.4 archives are unchanged.
+Since **0.18.0**, Peritheos has two Python distributions. For Dioptas, start with
+**`peritheos` alone**. The optional package supplies observation tables and other
+numerical datasets for researchers who want those inputs.
 
-The [EOS/structure compilation review](research/eos-structure-compilation-rights.md)
-now accounts for all 685 parameter records and 234 structural/diffraction
-components, with exact source/runtime bindings. It preserves the pinned Dioptas
-MIT notice and separates numerical-content assessments from remaining
-collection/acquisition questions: seven Holland/THERMOCALC extracts remain present
-in the runtime package and need resolution or explicit downstream exclusion
-before claiming an entirely cleared archive. No source grant, scientific
-reclassification or dataset selection change is made by this review.
+## What each package contains
 
-The [calculated-pattern replacement](research/calculated-reference-patterns.md)
-supersedes all ten inherited arrays with independently computed X-ray patterns.
-Six source CIFs have COD CC0 declarations and one ideal model is independently
-authored. FeH2 and the two SnO2 models use attributed numerical structural
-parameters under an explicit factual-content assessment; no separate publication
-grant was established. Contributor-output CC0 does not relicense those sources.
-Original arrays and full records remain privately preserved.
+| Content | `peritheos` | `peritheos-datasets` |
+| --- | --- | --- |
+| Python/Rust library, EOS calculations and fitting your own data | Yes | Uses the core library |
+| Material descriptions, crystal structures and EOS parameters | 234 material documents and 685 EOS records | No separate EOS or structure library |
+| Structural CIF files and calculated reference diffraction patterns | 10 COD CIFs and 10 calculated patterns | No CIFs or separate pattern library |
+| Dataset descriptions, citations and checksums | Yes; descriptions do not include observation values | Complete declarations for selected datasets |
+| Experimental tables, numerical figure readouts and selected calculated datasets | No | 451 material entries and 2 supporting-study entries |
+| CSV resources | None | 392 files, shared by some entries; 14 further tables are embedded in JSON |
+| Original papers, publisher artwork, source workbooks and detailed research archives | No | No |
+| License texts, source notices and provenance needed for the packaged content | Yes | Yes |
 
-The [post-perovskite COD replacement](research/post-perovskite-cod-replacement.md)
-resolves the two former ICSD-linked structural inputs through freshly acquired
-CC0 COD 9009217. All existing cell/site values regenerate exactly; source wording
-now identifies ab initio coordinates using the observed high-pressure cell.
-The Fe-bearing material retains its explicit pure-MgSiO3 topology proxy. Original
-records and earlier source evidence remain privately preserved.
+These are the contents of the **released 0.18.0 wheels and source distributions**.
+The Git repository contains additional research evidence. A GitHub-generated
+“Source code” ZIP/tarball is a repository snapshot, not the smaller PyPI source
+distribution. The [package inventory](research/license-inventory.md) identifies
+the release archives and their installed paths.
 
+The core package still contains scientific data: structures, coefficients,
+uncertainties and calculated diffraction lines. Here, “without datasets” means
+**without the observation tables and other numerical datasets supplied by the
+optional package**. The legacy directory name `peritheos/data/datasets/` also
+holds the core CIF files and their notices; that name does not mean experimental
+tables are installed.
 
-The [0.17.3 license inventory](research/license-inventory.md) accounts for all
-published archive files and catalog components, including inline scientific
-data, original author artifacts and third-party code. Its
-[source-by-source dataset index](data/license-inventory/dataset-sources.md)
-lists both recorded grants and unresolved rights. The inventory is evidence
-for downstream review, not a blanket redistribution clearance.
+A core dataset description can still record the absent table's source license,
+including an NC/ND label. That metadata is not evidence that its numerical table
+is shipped, or a license for the whole library. Use the package contents and
+manifest to determine which resources are present.
 
-After 0.17.4, the original Fei source images have been removed from the source
-tree and excluded from future distributions. Three plots that embedded those
-images have been replaced with plots of preserved numerical readouts and
-calculations. Source hashes and scientific evidence remain traceable; the
-original artwork is private audit evidence. This correction does not alter
-the already published 0.17.4 archives or resolve numerical-data rights.
-The original Tateno KCl workbook and redundant Chidester supplement ZIP have
-also been moved to private evidence storage and excluded from both package
-formats. Their source manifests, checksums and unchanged numerical CSVs remain.
+## Installation
 
-The [CIF license review](research/license-inventory.md#specific-findings-and-actions)
-records matched COD files and the current CC0 source declaration for the named
-vanadium, superhydrous-phase-B and archival brucite CIFs. He (2023)'s former
-thesis structure has been replaced with CC0 COD 1000054. Original He evidence
-is preserved privately, without asserting a new source grant.
+For calculations, structures, EOS parameters and fitting your own observations:
 
-The [Rust third-party notice audit](research/rust-third-party-notices.md)
-documents the complete installed notice bundle, source/archive verification,
-platform roles and audited release compiler. License texts, additional source
-attributions and the full standard-library copyright document ship in both
-package formats and their license metadata. Extra native libraries trigger a
-new audit through the installed smoke check.
-
-The [Barker review](research/barker-1987-redistribution.md) admits two unchanged
-numerical resources through the supporting-study interface. No open source-data
-grant was found; inclusion relies on the scoped numerical-content assessment.
-Only newly added contributor-held metadata/annotations receive a CC0 dedication.
-The source artwork/PDF, absent crystal-phase identity and unreproduced Monte
-Carlo implementation are not supplied or relabeled by the admission.
-
-A [Morard author-data permission template](research/morard-data-permission-template.md)
-is available for file-specific confirmation. It is an unsigned draft and does
-not extend the existing author-file grant until confirmation is recorded.
-
-Peritheos implementation code and contributor-written research scripts use
-the MIT (Expat) license. Bundled scientific data have source-specific terms.
-Article citations in scripts identify scientific sources; they do not change
-the script's code license. Original author code retained as evidence keeps its
-own license.
-
-The [installed licensing guide](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/LICENSING.md)
-explains the scopes, indexes every standalone dataset notice, and describes
-the different contents of wheels and source distributions. It is also available
-from any installed package:
-
-```python
-from importlib.resources import files
-
-print(files("peritheos").joinpath("data/LICENSING.md").read_text(encoding="utf-8"))
+```bash
+python -m pip install peritheos
 ```
 
-A contributor CC0 notice covers only the rights explicitly held and dedicated
-by that contributor. It does not relicense third-party source data or an
-associated paper. Some source datasets explicitly use CC BY 4.0 or CC0; others
-have unspecified terms. Keep the original source attribution, notices and
-descriptions of changes when redistributing data. Missing terms remain
-unspecified, including for resources without a standalone license file.
+To add the selected bundled datasets:
 
-The Python distribution's `LicenseRef-Peritheos-Distribution` metadata refers
-to this component-specific scope. Its `License-File` entries include the code
-license, installed guide, dataset notices and complete Creative Commons texts.
-This documents the distributed components without asserting that all bundled
-data have an established open source-data license.
+```bash
+python -m pip install "peritheos[datasets]"
+```
 
-The [CC BY 4.0 legal code](https://creativecommons.org/licenses/by/4.0/legalcode.en)
-defines attribution and modification notices and limits the grant to rights
-the licensor can grant. The
-[Python packaging specification](https://packaging.python.org/en/latest/specifications/core-metadata/#license-expression)
-defines license expressions for the containing distribution, rather than only
-its implementation code. Downstream distributors should assess the individual
-resources against their own policies, including the
-[Debian Free Software Guidelines](https://www.debian.org/social_contract#guidelines).
+The `datasets` extra asks the installer for the matching version of
+`peritheos-datasets`. It does not select another implementation of Peritheos.
+Data access does not download missing files at runtime. See
+[loading datasets](datasets.md) for the API and missing-data messages.
+
+## Which licenses apply
+
+| Component | What to retain when redistributing it |
+| --- | --- |
+| Peritheos code and contributor-written scripts | MIT license in `LICENSE`. A script's paper citation identifies its scientific source; it does not apply the paper's license to the script. |
+| Rust dependencies and standard library | The supplied third-party license and attribution bundle, starting at `peritheos/data/third_party/rust/NOTICE.md`. |
+| The ten core COD CIF files | Their CC0 source notice, original attribution and recorded changes. See `peritheos/data/datasets/cod-cif-sources.LICENSE.md`. |
+| Other structures, EOS coefficients and calculated patterns | Their references and the supplied structure/parameter/pattern notices. These document the numerical content and its sources; they do not grant rights in an entire paper or database. |
+| Optional datasets with an explicit source or author license | The license and attribution recorded for that dataset, including descriptions of changes. |
+| Optional numerical transcriptions without an applicable source-data license | The original source notices and our documented reason for including the numerical content. Inclusion is not a new CC BY or CC0 license. |
+
+A paper's license, permission for an author file and a contributor's dedication
+can cover different things. A contributor CC0 statement covers only that
+contributor's work. Source terms and our decision to include a numerical
+transcription are therefore recorded separately. The
+[package inventory](research/license-inventory.md) explains these cases in plain
+language and links to the individual records.
+
+The package metadata uses `LicenseRef-Peritheos-Distribution` because an archive
+contains components with different terms. This is a pointer to the supplied
+notices, not an additional license. Peritheos code remains MIT.
+
+## What should a Debian maintainer check?
+
+For **core Peritheos**, the intended packaging route is:
+
+1. Use the official `peritheos` source distribution for 0.18.0, rather than the
+   full Git repository snapshot. The observation tables and research archives
+   have already been left out of that distribution.
+2. Build and test Dioptas with the core package. Do not request its `datasets`
+   extra or add `peritheos-datasets` as a dependency unless the application needs
+   those bundled observations.
+3. Retain the MIT, Rust, COD and other source notices for the components actually
+   packaged, using Debian's normal copyright-file conventions. If a particular
+   EOS or structure source needs further assessment, the
+   [component index](data/license-inventory/eos-structure-review.csv) identifies
+   its material, record and source.
+
+We are not asking Debian to review the optional observation collection merely
+to package the core library. We also do not have a confirmed list of core files
+that Debian must remove. The detailed review records questions about source
+collections, including the Holland parameter extracts; it does not establish
+that individual coefficients are prohibited from reuse.
+
+Packaging **`peritheos-datasets`** would be a separate task. It contains numerical
+transcriptions admitted on a documented assessment as well as explicitly
+licensed data. In particular, 21 entries retain NC/ND notices from their sources;
+we have not relabeled those sources as freely licensed. A distributor considering
+that package needs to decide whether it accepts the documented basis for those
+specific numerical extractions. This is not needed for the core-only route.
+
+## More detail
+
+- [Current package inventory](research/license-inventory.md): exact counts,
+  locations, exclusions and how to read the supplied records.
+- [Preserved 0.17.3 audit and later source-tree notes](research/license-inventory-0.17.3.md):
+  the earlier archive investigation, before the split. Its `release` and `local`
+  rows do not describe the contents of the 0.18.0 packages.
+- [EOS and structure review](research/eos-structure-compilation-rights.md) and
+  [numerical dataset review](research/numerical-dataset-redistribution.md):
+  the detailed source investigations, retained as evidence.
