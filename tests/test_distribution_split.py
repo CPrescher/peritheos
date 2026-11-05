@@ -72,7 +72,7 @@ def test_optional_export_is_exactly_allowlisted_and_source_preserving(tmp_path):
     stage = stage_datasets(tmp_path / "optional")
     package = stage / "peritheos_datasets"
     manifest = json.loads((package / "manifest.json").read_bytes())
-    assert manifest["dataset_count"] == 409
+    assert manifest["dataset_count"] == 415
     review_path = package / "redistribution-review.json"
     review = json.loads(review_path.read_bytes())
     assert (
@@ -216,6 +216,8 @@ def test_optional_install_hydrates_inline_and_csv_data_without_changing_models(
         ("mgo", "zhu_2025_mgo_pvt"),
         ("brucite", "brucite_fukui_2003_table4"),
         ("coesite", "coesite_i_iii_bykova_2018_author_fit_export"),
+        ("fes_vi", "fes_morard_2026_author_literature_cold_pv"),
+        ("nickel", "campbell_2009_independent_buffer_polynomial_grid"),
     ]:
         document = get_material_document(name)
         declaration = next(

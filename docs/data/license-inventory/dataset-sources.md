@@ -40,7 +40,7 @@ Generated from all 449 catalog dataset entries. Counts are entries, not independ
 | [Guignot 2007: 10.1016/j.epsl.2007.01.025](https://doi.org/10.1016/j.epsl.2007.01.025) | 2 | mgsio3_post_perovskite | source_terms_not_recorded |
 | [Komabayashi 2008: 10.1016/j.epsl.2007.10.036](https://doi.org/10.1016/j.epsl.2007.10.036) | 1 | mgsio3_post_perovskite | source_terms_not_recorded |
 | [Seagle 2008: 10.1016/j.epsl.2007.11.004](https://doi.org/10.1016/j.epsl.2007.11.004) | 2 | fe_fcc ; feo | source_terms_not_recorded |
-| [Campbell 2009: 10.1016/j.epsl.2009.07.022](https://doi.org/10.1016/j.epsl.2009.07.022) | 8 | fe_fcc ; feo ; nickel ; nickel_oxide_b1 | source_terms_not_recorded |
+| [Campbell 2009: 10.1016/j.epsl.2009.07.022](https://doi.org/10.1016/j.epsl.2009.07.022) | 12 | fe_fcc ; feo ; nickel ; nickel_oxide_b1 | limited_or_unspecified_source ; source_terms_not_recorded |
 | [Marquardt 2009: 10.1016/j.epsl.2009.08.017](https://doi.org/10.1016/j.epsl.2009.08.017) | 3 | mg090fe010o | source_terms_not_recorded |
 | [Fischer 2011: 10.1016/j.epsl.2011.02.025](https://doi.org/10.1016/j.epsl.2011.02.025) | 2 | feo ; feo_b8_2 | source_terms_not_recorded |
 | [Fischer 2012: 10.1016/j.epsl.2012.09.022](https://doi.org/10.1016/j.epsl.2012.09.022) | 1 | fe073si027_d03 | source_terms_not_recorded |

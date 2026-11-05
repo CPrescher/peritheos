@@ -5,7 +5,14 @@ normalized resources at `bfa7e164`. This is a maintainer redistribution assessme
 not legal advice, an exhaustive source-contract audit or Debian acceptance.
 The package split is unreleased; published 0.17.4 archives are unchanged.
 
-## Selection
+The [Morard/Campbell follow-up](morard-campbell-redistribution-followup.md)
+subsequently admits two traced Morard inputs and four newly calculated Campbell
+polynomial entries. **The current selection is 415 of 453 material entries,
+with 38 held**. The counts, held table and source-screen decisions below record
+the initial 409-of-449 review; the bound JSON ledger includes the follow-up.
+Original Campbell integration results remain held.
+
+## Initial selection
 
 `peritheos[datasets]` now selects **409 of 449 material dataset entries**, up from
 44. Entries can share a file and are not counts of independent experiments.

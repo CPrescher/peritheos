@@ -139,7 +139,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Indium Nitride](indium_nitride.md) | InN | 1 | 0 |
 | [Iridium](iridium.md) | Ir | 1 | 2 |
 | [Iron](iron.md) | Fe | 38 | 15 |
-| [Iron (fcc)](fe_fcc.md) | Fe | 1 | 3 |
+| [Iron (fcc)](fe_fcc.md) | Fe | 1 | 4 |
 | [Iron carbide (orthorhombic Fe7C3)](iron_carbide_fe7c3.md) | Fe7C3 | 1 | 2 |
 | [Iron silicate post-perovskite](fesio3_post_perovskite.md) | FeSiO3 | 1 | 0 |
 | [Iron silicate post-perovskite II](fesio3_post_perovskite_ii.md) | FeSiO3 | 1 | 0 |
@@ -178,8 +178,8 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Natural Fe9 post-perovskite](mg090fe009al0005ca0005sio3_post_perovskite.md) | Mg0.90Fe0.09Al0.005Ca0.005SiO3 | 2 | 1 |
 | [Natural magnesite (Harwood 2212)](mg0991fe0008mn0001co3_magnesite.md) | Mg0.991Fe0.008Mn0.001CO3 | 2 | 1 |
 | [Neon (fcc)](neon_fcc.md) | Ne | 3 | 5 |
-| [Nickel](nickel.md) | Ni | 6 | 4 |
-| [Nickel oxide (cubic B1 model)](nickel_oxide_b1.md) | NiO | 1 | 2 |
+| [Nickel](nickel.md) | Ni | 6 | 5 |
+| [Nickel oxide (cubic B1 model)](nickel_oxide_b1.md) | NiO | 1 | 3 |
 | [Nickel oxide (rhombohedral B1)](nickel_oxide.md) | NiO | 2 | 1 |
 | [Niobium](niobium.md) | Nb | 2 | 1 |
 | [NiS](nis.md) | NiS | 1 | 1 |
@@ -239,7 +239,7 @@ See [Reading and editing EOSMAT](../eosmat-authoring.md) for the simple template
 | [Vanadium (bcc)](vanadium_bcc.md) | V | 1 | 2 |
 | [Wadsleyite](wadsleyite.md) | Mg2SiO4 | 1 | 1 |
 | [Wollastonite](wollastonite.md) | CaSiO3 | 1 | 0 |
-| [Wüstite B1](feo.md) | FeO | 5 | 6 |
+| [Wüstite B1](feo.md) | FeO | 5 | 7 |
 | [Zinc (hcp)](zinc_hcp.md) | Zn | 4 | 2 |
 | [Zinc oxide (rocksalt B1)](zinc_oxide_rocksalt.md) | ZnO | 1 | 1 |
 | [Zinc oxide (wurtzite B4)](zinc_oxide_wurtzite.md) | ZnO | 1 | 1 |

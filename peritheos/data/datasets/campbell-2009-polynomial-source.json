@@ -1,0 +1,76 @@
+{
+  "schema": "peritheos.campbell-buffer-polynomials.v1",
+  "source_reference": {
+    "authors": [
+      "Campbell",
+      "Danielson",
+      "Righter",
+      "Seagle",
+      "Wang",
+      "Prakapenka"
+    ],
+    "year": 2009,
+    "title": "High pressure effects on the iron–iron oxide and nickel–nickel oxide oxygen fugacity buffers",
+    "source": "Earth and Planetary Science Letters",
+    "volume": "286",
+    "locator": "556-564",
+    "doi": "10.1016/j.epsl.2009.07.022"
+  },
+  "source_url": "https://ars.els-cdn.com/content/image/1-s2.0-S0012821X09004373-mmc2.xls",
+  "source_sha256": "b857b9e40f76389dd78da9b757c504b17607d69e4cdc55087fff6e2cb8566f30",
+  "source_location": "Tables S4-S5, formula row 26; coefficient names B28 onward; values B29 onward; fit summaries rows 31-32. Excel coordinates are one-based.",
+  "formula": "sum(a[k]*P**k) + sum(b[k]*P**k)/T",
+  "units": {
+    "pressure": "GPa",
+    "temperature": "K",
+    "output": "log10 oxygen fugacity, source convention"
+  },
+  "grid": {
+    "pressure_gpa": {
+      "start": 0,
+      "stop_inclusive": 100,
+      "step": 1
+    },
+    "temperature_k": {
+      "start": 1000,
+      "stop_inclusive": 2600,
+      "step": 100
+    }
+  },
+  "coefficients": {
+    "Table S4": {
+      "a": [
+        6.54106,
+        0.0012324
+      ],
+      "b": [
+        -28163.6,
+        546.32,
+        -1.13412,
+        0.0019274
+      ],
+      "rms_printed": 0.018,
+      "max_printed": 0.046
+    },
+    "Table S5": {
+      "a": [
+        8.699,
+        0.01642,
+        -0.0002755,
+        2.683e-06,
+        -1.015e-08
+      ],
+      "b": [
+        -24205.0,
+        444.73,
+        -0.59288,
+        0.0015292
+      ],
+      "rms_printed": 0.013,
+      "max_printed": 0.054
+    }
+  },
+  "source_terms": "No open grant established for the original workbook or tabulated collection. Only mathematical formula/coefficients are used to generate the separate output. Original source table rows are not generator inputs.",
+  "calculation_scope": "Independent polynomial evaluation, not reintegration of the thermodynamic EOS, not recovery of unrounded author outputs, not experimental observations. Original scientific holds remain unchanged.",
+  "iw_maximum_misfit_qualification": "Evaluating the supplied coefficients against the original grid gives maximum difference 0.0513611263, above the workbook stated 0.046. The discrepancy is preserved without refitting or attributing it to rounding."
+}

@@ -21,7 +21,7 @@ expression and independently protected compilations/databases. They do not
 claim that every scientific table is unprotected, that all experimental data
 are exempt from database rights, or that a particular row count guarantees
 an insubstantial extraction. The identified large collections, heterogeneous
-compilations, unresolved mixed inputs and known NC/ND cases remain held as
+compilations and known NC/ND cases remain held as
 listed in the review. Source access and scientific verification are not grants.
 
 ## Rights and attribution remain separate
@@ -55,3 +55,19 @@ separately from source-license admissions using the installed ledger.
 Legal/source framework and source-specific decisions are documented in the
 repository report `docs/research/numerical-dataset-redistribution.md` and the
 installed review. Original evidence remains unchanged and traceable.
+
+## Morard/Campbell follow-up
+
+The installed review now includes `morard_cold_lineage`: all 21 selected cold
+rows trace to Ohfuji (2007) and Ono/Kikegawa (2006), with the original assigned
+errors, conversion factor and 101.2/101.1 GPa difference preserved. The recorded
+author-held grant is combined with a separate numerical factual assessment;
+no new license is inferred for the original publications. Ono attribution uses
+indexed primary table text, not a fresh PDF binary/layout verification.
+
+The separately named Campbell polynomial grid is newly calculated from source
+coefficients, not copied from the held original integration tables. Its dedicated
+installed notice and declaration document the formula, source parameters, CC0
+contributor scope, approximation error and unresolved IW maximum-misfit mismatch.
+Full thermochemical reintegration and original author-workflow parity are not
+claimed. The original integration collection remains excluded.

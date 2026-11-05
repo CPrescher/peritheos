@@ -1,0 +1,67 @@
+{
+  "reviewed_on": "2026-11-05",
+  "baseline_commit": "3d15f445",
+  "before_catalog_scientific_sha256": "f61144ebfd9c0c2a5509948eeae4ddf7e07d5c01ff50b091cee6bb3672adedec",
+  "after_catalog_scientific_sha256": "0b6613957dc3ad639272ece80ae1f8c5ccc78266984107dcec4937dd38004d6c",
+  "added_dataset_declarations": {
+    "fe_fcc/campbell_2009_independent_buffer_polynomial_grid": "e000b51511026a9bcb5aa1d79c12131302f11b716db0a827d4b95033f6a3f2b4",
+    "feo/campbell_2009_independent_buffer_polynomial_grid": "af196ca7c2401e941a9d39fadba2ac5e08a2ed47e1f6e40a27d54aebcf74c0a4",
+    "nickel/campbell_2009_independent_buffer_polynomial_grid": "900ec8320060741786fc81a9306a664d629d359bcdc45e87b59a4d7913e8eb0b",
+    "nickel_oxide_b1/campbell_2009_independent_buffer_polynomial_grid": "e8e691d639d37ad9cbbe5fe8ff89cbbcfb20ef732b1e78aecaede1f78c6187ee"
+  },
+  "unchanged_documents": {
+    "fes_vi": "5703bd53519147fd5853f986c1b3f216882b0d60e4b330bcdb90ba67f1cd3aeb"
+  },
+  "prior_documents": {
+    "fe_fcc": {
+      "sha256": "8cc673f04bd479f83f5f753068010e727f0f6620757db966cda2290ac849afe4",
+      "semantic_sha256": "969a4d9255cd0882b9e8b056786969680b9e32cdd85e4629a2ac7d20ee14243e",
+      "added_identifier": "campbell_2009_independent_buffer_polynomial_grid"
+    },
+    "feo": {
+      "sha256": "0fd2be2896e12e7df4e85ade9a3bd17779f97f77c22c20eee1f9e5f96102be64",
+      "semantic_sha256": "079f367d7de0fa978c9b1f0b8673c7e08917ba46d727c846e2e19864f6101d1c",
+      "added_identifier": "campbell_2009_independent_buffer_polynomial_grid"
+    },
+    "nickel": {
+      "sha256": "13f88efb5ab865af61de0b2039c98f494a8c05c32cbd205dac7f905aff63cce2",
+      "semantic_sha256": "dd12da0f7539572fda2f2998d47756e0a672da8c56a4e076cd082d63641461bb",
+      "added_identifier": "campbell_2009_independent_buffer_polynomial_grid"
+    },
+    "nickel_oxide_b1": {
+      "sha256": "7bfc2d4e92e448670a64af5a2281f92b904c115a37048c37ee542bd75ab5dd58",
+      "semantic_sha256": "026bc01eb10014eb60482555c086b38dc899ae9477af3da29e34c254cd633455",
+      "added_identifier": "campbell_2009_independent_buffer_polynomial_grid"
+    }
+  },
+  "source_resource_bindings": {
+    "fes-morard-2026-author-literature-cold.csv": "9471b47aae3add1819d470d63094411c28101f4a4b64ee04928ea5e86ba1453c",
+    "fes-morard-2026-author-without-additional-cold.csv": "190cc615d5b601675fa7c99ae9e3869aedc16f7a9baea05433cd610620f10742",
+    "morard_2026_author_sources/FeS6EOSfittot-SataOhfuji-300K.dat": "463b97a3e39c32c4457ad5c37b2f93f56c92f13b878ff9c017b9c1b0e6014f8e"
+  },
+  "calculation_comparison": {
+    "sha256": "2dd69807f80c1091dd2f38dea83e91a33ee8f94abfdaa38ff57589d14c3a6155",
+    "comparison": {
+      "Table S4": {
+        "rows": 1717,
+        "rmse_log10_fugacity": 0.01757083635898949,
+        "maximum_absolute_difference_log10_fugacity": 0.0513611262325,
+        "maximum_difference_temperature_k": 1000.0,
+        "maximum_difference_pressure_gpa": 100.0
+      },
+      "Table S5": {
+        "rows": 1717,
+        "rmse_log10_fugacity": 0.013040409408383292,
+        "maximum_absolute_difference_log10_fugacity": 0.05389992863229942,
+        "maximum_difference_temperature_k": 1000.0,
+        "maximum_difference_pressure_gpa": 0.0
+      }
+    }
+  },
+  "source_verification_limits": [
+    "Ono original PDF binary requests failed; indexed primary Table 2 text used.",
+    "Ohfuji mapping reuses the preserved exact primary-PDF receipt.",
+    "Full Campbell thermochemical reintegration is not recovered; published polynomial approximations are independently evaluated."
+  ],
+  "rights_scope": "Morard author-held CC BY 4.0 plus numerical factual assessment; Campbell contributor-generated output CC0 scope plus mathematical evaluation assessment; no new third-party source license or Debian acceptance asserted."
+}

@@ -1346,6 +1346,98 @@
         "type": "transcribed_official_supplement",
         "source_workbook_sha256": "b857b9e40f76389dd78da9b757c504b17607d69e4cdc55087fff6e2cb8566f30"
       }
+    },
+    {
+      "identifier": "campbell_2009_independent_buffer_polynomial_grid",
+      "kind": "model_output",
+      "description": "Independently calculated IW and NNO polynomial grid (3434 outputs), approximating Campbell Tables S4-S5; not copied integration results or experimental observations.",
+      "source_location": "Tables S4-S5, formula row 26; coefficient names B28 onward; values B29 onward; fit summaries rows 31-32. Excel coordinates are one-based.",
+      "source_url": "https://ars.els-cdn.com/content/image/1-s2.0-S0012821X09004373-mmc2.xls",
+      "reference": {
+        "authors": ["Campbell", "Danielson", "Righter", "Seagle", "Wang", "Prakapenka"],
+        "year": 2009,
+        "title": "High pressure effects on the iron–iron oxide and nickel–nickel oxide oxygen fugacity buffers",
+        "source": "Earth and Planetary Science Letters",
+        "volume": "286",
+        "locator": "556-564",
+        "doi": "10.1016/j.epsl.2009.07.022"
+      },
+      "license": "CC0-1.0",
+      "license_scope": "Contributor-held rights in this independently generated numerical grid only; no new source-data/workbook license is asserted. Published mathematical coefficients are evaluated, not the original output collection copied.",
+      "license_notice": "datasets/campbell-2009-polynomial.LICENSE.md",
+      "columns": [
+        {"name": "source_polynomial", "quantity": "source_identifier", "unit": "1", "role": "flag"},
+        {"name": "temperature_k", "quantity": "temperature", "unit": "K", "role": "value"},
+        {"name": "pressure_gpa", "quantity": "pressure", "unit": "GPa", "role": "value"},
+        {"name": "log10_fugacity", "quantity": "log10_oxygen_fugacity", "unit": "1", "role": "value"}
+      ],
+      "resource": {
+        "path": "datasets/campbell-2009-independent-polynomial-grid.csv",
+        "media_type": "text/csv",
+        "sha256": "2dd69807f80c1091dd2f38dea83e91a33ee8f94abfdaa38ff57589d14c3a6155",
+        "row_count": 3434
+      },
+      "used_by_eos_records": [],
+      "related_eos_records": ["feo_campbell_2009_bm3_mgd"],
+      "provenance": {
+        "type": "independent_polynomial_evaluation",
+        "generator": "scripts/generate_campbell_2009_polynomial_tables.py",
+        "source_parameters": {
+          "schema": "peritheos.campbell-buffer-polynomials.v1",
+          "source_reference": {
+            "authors": ["Campbell", "Danielson", "Righter", "Seagle", "Wang", "Prakapenka"],
+            "year": 2009,
+            "title": "High pressure effects on the iron–iron oxide and nickel–nickel oxide oxygen fugacity buffers",
+            "source": "Earth and Planetary Science Letters",
+            "volume": "286",
+            "locator": "556-564",
+            "doi": "10.1016/j.epsl.2009.07.022"
+          },
+          "source_url": "https://ars.els-cdn.com/content/image/1-s2.0-S0012821X09004373-mmc2.xls",
+          "source_sha256": "b857b9e40f76389dd78da9b757c504b17607d69e4cdc55087fff6e2cb8566f30",
+          "source_location": "Tables S4-S5, formula row 26; coefficient names B28 onward; values B29 onward; fit summaries rows 31-32. Excel coordinates are one-based.",
+          "formula": "sum(a[k]*P**k) + sum(b[k]*P**k)/T",
+          "units": {"pressure": "GPa", "temperature": "K", "output": "log10 oxygen fugacity, source convention"},
+          "grid": {
+            "pressure_gpa": {"start": 0, "stop_inclusive": 100, "step": 1},
+            "temperature_k": {"start": 1000, "stop_inclusive": 2600, "step": 100}
+          },
+          "coefficients": {
+            "Table S4": {
+              "a": [6.54106, 0.0012324],
+              "b": [-28163.6, 546.32, -1.13412, 0.0019274],
+              "rms_printed": 0.018,
+              "max_printed": 0.046
+            },
+            "Table S5": {
+              "a": [8.699, 0.01642, -0.0002755, 2.683e-06, -1.015e-08],
+              "b": [-24205.0, 444.73, -0.59288, 0.0015292],
+              "rms_printed": 0.013,
+              "max_printed": 0.054
+            }
+          },
+          "source_terms": "No open grant established for the original workbook or tabulated collection. Only mathematical formula/coefficients are used to generate the separate output. Original source table rows are not generator inputs.",
+          "calculation_scope": "Independent polynomial evaluation, not reintegration of the thermodynamic EOS, not recovery of unrounded author outputs, not experimental observations. Original scientific holds remain unchanged.",
+          "iw_maximum_misfit_qualification": "Evaluating the supplied coefficients against the original grid gives maximum difference 0.0513611263, above the workbook stated 0.046. The discrepancy is preserved without refitting or attributing it to rounding."
+        },
+        "original_comparison": {
+          "Table S4": {
+            "rows": 1717,
+            "rmse_log10_fugacity": 0.01757083635898949,
+            "maximum_absolute_difference_log10_fugacity": 0.0513611262325,
+            "maximum_difference_temperature_k": 1000.0,
+            "maximum_difference_pressure_gpa": 100.0
+          },
+          "Table S5": {
+            "rows": 1717,
+            "rmse_log10_fugacity": 0.013040409408383292,
+            "maximum_absolute_difference_log10_fugacity": 0.05389992863229942,
+            "maximum_difference_temperature_k": 1000.0,
+            "maximum_difference_pressure_gpa": 0.0
+          }
+        }
+      },
+      "notes": "Calculated model output on 0-100 GPa and 1000-2600 K grid. A polynomial approximation, not thermochemical reintegration or a validated replacement EOS. IW actual maximum mismatch is 0.0513611263 versus source stated 0.046; NNO maximum is 0.0538999287. Original integration table and scientific dispositions are preserved. Not used for EOS fitting or validation promotion."
     }
   ]
 }

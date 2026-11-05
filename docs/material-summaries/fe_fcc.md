@@ -23,7 +23,7 @@ and recommendation for use are distinct assessments.
 | Temperature unit | K |
 | Volume unit | Å³ per conventional unit cell |
 | Stored EOS records | 1 |
-| Observation datasets | 3 |
+| Observation datasets | 4 |
 
 Diffraction reference is Nishihara et al. (2012), sample M620 at 17.59 GPa and 1273 K, a=3.521 A, not the extrapolated 295 K zero-pressure EOS cell. Pure fcc Fe is distinct from bcc and hcp Fe; the EOS reference does not imply ambient phase stability.
 
@@ -301,3 +301,22 @@ Parameter covariance is not supplied.
 
 [Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/campbell-2009-tables-s4-s5-buffer-results.csv)
 — SHA-256 `95f0bfe5c2541885fc80bee1b3759b4ab2f6f23a9e9e13251b9dc0f81f1a2699`.
+
+### campbell\_2009\_independent\_buffer\_polynomial\_grid
+
+- **Description:** Independently calculated IW and NNO polynomial grid (3434 outputs), approximating Campbell Tables S4-S5; not copied integration results or experimental observations.
+- **Kind:** model\_output
+- **Reference:**
+    - **Authors:** Campbell; Danielson; Righter; Seagle; Wang; Prakapenka
+    - **Year:** 2009
+    - **Title:** High pressure effects on the iron–iron oxide and nickel–nickel oxide oxygen fugacity buffers
+    - **Source:** Earth and Planetary Science Letters
+    - **Volume:** 286
+    - **Locator:** 556-564
+    - **DOI:** 10.1016/j.epsl.2009.07.022
+- **Source location:** Tables S4-S5, formula row 26; coefficient names B28 onward; values B29 onward; fit summaries rows 31-32. Excel coordinates are one-based.
+- **Associated EOS records:** None declared
+- **Notes:** Calculated model output on 0-100 GPa and 1000-2600 K grid. A polynomial approximation, not thermochemical reintegration or a validated replacement EOS. IW actual maximum mismatch is 0.0513611263 versus source stated 0.046; NNO maximum is 0.0538999287. Original integration table and scientific dispositions are preserved. Not used for EOS fitting or validation promotion.
+
+[Observation resource](https://github.com/CPrescher/peritheos/blob/main/peritheos/data/datasets/campbell-2009-independent-polynomial-grid.csv)
+— SHA-256 `2dd69807f80c1091dd2f38dea83e91a33ee8f94abfdaa38ff57589d14c3a6155`.

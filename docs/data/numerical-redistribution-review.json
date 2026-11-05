@@ -2,7 +2,7 @@
   "schema": "peritheos.numerical-redistribution-review.v1",
   "reviewed_on": "2026-11-05",
   "baseline_commit": "bfa7e16486a0539ee22b3ad4d3c4de9208c806d7",
-  "scope": "Maintainer redistribution assessment of existing normalized numerical resources. All 405 previously omitted material dataset entries were content/provenance-screened; the 44 previously admitted entries retain their original source-declaration basis. This is not a fresh scientific transcription audit, exhaustive source-contract review, legal opinion or Debian acceptance. Every numerical resource/declaration remains unchanged.",
+  "scope": "Maintainer redistribution assessment of existing normalized numerical resources. All 405 previously omitted material dataset entries were content/provenance-screened; the 44 previously admitted entries retain their original source-declaration basis. This is not a fresh scientific transcription audit, exhaustive source-contract review, legal opinion or Debian acceptance. Every numerical resource/declaration remains unchanged. Follow-up: two Morard entries admitted after a bound row-level lineage review; four newly calculated Campbell polynomial declarations added separately from original outputs.",
   "legal_context": [
     {
       "url": "https://creativecommons.org/faq/#which-components-of-databases-are-protected-by-copyright",
@@ -26,7 +26,7 @@
     "CC0 covers contributor-held transcription/normalization/metadata/arrangement rights only. Existing source and author licenses/attributions remain in each declaration and notice.",
     "No source PDFs, images, workbook containers, original author software or long source prose are admitted by these decisions. Ordinary column/row labels and contributor diagnostic comments remain.",
     "Content/provenance screening is not independent source-value verification. Existing scientific holds, derived/digitized distinctions and uncertainty meanings remain unchanged.",
-    "Substantiality has no universal numerical row-count cutoff. Large complete workbook collections and identified historical compilations are held for separate assessment, without finding that every number is protected.",
+    "Substantiality has no universal numerical row-count cutoff. Original large complete workbook collections and identified historical compilations are held for separate assessment, without finding that every number is protected.",
     "The two Barker supporting-study datasets are outside the current material-dataset package interface and remain a separate technical/source review item. Their omission is not a restrictive-license finding.",
     "Debian may require a different factual-data/database-rights assessment or exclusion. The installed review ledger makes source-declaration admissions and maintainer factual assessments separately identifiable."
   ],
@@ -7684,9 +7684,9 @@
       "review_key": "fes_vi/fes_morard_2026_author_without_additional_cold_pvt",
       "material": "fes_vi",
       "dataset": "fes_morard_2026_author_without_additional_cold_pvt",
-      "decision": "hold",
-      "basis": "mixed_unidentified_inputs",
-      "rationale": "The maintainer-reported author CC BY grant covers author-held rights, but original-study identities of some reused cold rows remain unresolved. A file-wide statement cannot settle those unidentified source/collection rights.",
+      "decision": "admit",
+      "basis": "author_grant_and_numerical_facts",
+      "rationale": "All 21 literature cold inputs are now identified by exact published cell volumes using the preserved author conversion factor: 13 Ohfuji (2007), reprinted Sata (2010), and eight Ono/Kikegawa (2006). Original errors and the 101.2/101.1 GPa difference are retained. Author-held rights retain the recorded CC BY 4.0 grant; numerical literature content is separately assessed as facts, without asserting an open source grant or complete source-calibration reproduction.",
       "previous_source_status": "mixed_author_permission",
       "source_status": "mixed_author_permission",
       "declaration_sha256": "bdb7202591e10125c4dc1c88dba738d4e2283cd30a7f12149b9873560054ba7f",
@@ -7740,15 +7740,26 @@
       "source_location": "Author-supplied FeS6EOSfittot-SataOhfuji-300K.dat; original data rows (header excluded), retrieved 2026-10-03.",
       "source_license_as_recorded": "CC-BY-4.0",
       "provenance_type_as_recorded": "not separately specified",
-      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access."
+      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access.",
+      "prior_decision": {
+        "commit": "3d15f445",
+        "decision": "hold",
+        "basis": "mixed_unidentified_inputs",
+        "rationale": "The maintainer-reported author CC BY grant covers author-held rights, but original-study identities of some reused cold rows remain unresolved. A file-wide statement cannot settle those unidentified source/collection rights."
+      },
+      "followup_evidence": {
+        "path": "peritheos/data/datasets/morard-cold-source-lineage.json",
+        "sha256": "654b2692dd0c19081882c48477a5a0e77586a3b63318031fc04920060578808d",
+        "installed_receipt": "morard_cold_lineage"
+      }
     },
     {
       "review_key": "fes_vi/fes_morard_2026_author_literature_cold_pv",
       "material": "fes_vi",
       "dataset": "fes_morard_2026_author_literature_cold_pv",
-      "decision": "hold",
-      "basis": "mixed_unidentified_inputs",
-      "rationale": "The maintainer-reported author CC BY grant covers author-held rights, but original-study identities of some reused cold rows remain unresolved. A file-wide statement cannot settle those unidentified source/collection rights.",
+      "decision": "admit",
+      "basis": "author_grant_and_numerical_facts",
+      "rationale": "All 21 literature cold inputs are now identified by exact published cell volumes using the preserved author conversion factor: 13 Ohfuji (2007), reprinted Sata (2010), and eight Ono/Kikegawa (2006). Original errors and the 101.2/101.1 GPa difference are retained. Author-held rights retain the recorded CC BY 4.0 grant; numerical literature content is separately assessed as facts, without asserting an open source grant or complete source-calibration reproduction.",
       "previous_source_status": "mixed_author_permission",
       "source_status": "mixed_author_permission",
       "declaration_sha256": "1c45bef731b212d09a5f63e086ce84551eb85869270b98e1e35772dc8503ae4d",
@@ -7802,7 +7813,18 @@
       "source_location": "Author-supplied FeS6EOSfittot-SataOhfuji-300K.dat; original data rows (header excluded), retrieved 2026-10-03.",
       "source_license_as_recorded": "CC-BY-4.0",
       "provenance_type_as_recorded": "not separately specified",
-      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access."
+      "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access.",
+      "prior_decision": {
+        "commit": "3d15f445",
+        "decision": "hold",
+        "basis": "mixed_unidentified_inputs",
+        "rationale": "The maintainer-reported author CC BY grant covers author-held rights, but original-study identities of some reused cold rows remain unresolved. A file-wide statement cannot settle those unidentified source/collection rights."
+      },
+      "followup_evidence": {
+        "path": "peritheos/data/datasets/morard-cold-source-lineage.json",
+        "sha256": "654b2692dd0c19081882c48477a5a0e77586a3b63318031fc04920060578808d",
+        "installed_receipt": "morard_cold_lineage"
+      }
     },
     {
       "review_key": "fes_vi/fes_sata_2010_table1_vi_pv",
@@ -24565,6 +24587,210 @@
       "source_license_as_recorded": null,
       "provenance_type_as_recorded": "not separately specified",
       "source_verification_scope": "Preserved contributor declaration and actual normalized data inspected; source numbers/scientific classifications not re-audited. No new original-study license is inferred from source access."
+    },
+    {
+      "review_key": "fe_fcc/campbell_2009_independent_buffer_polynomial_grid",
+      "material": "fe_fcc",
+      "dataset": "campbell_2009_independent_buffer_polynomial_grid",
+      "decision": "admit",
+      "basis": "independent_mathematical_evaluation",
+      "rationale": "New contributor-calculated outputs evaluate the published mathematical polynomial coefficients. The generator never reads original integration output rows; comparison against the originals is a separate validation step. No source collection, layout, prose or software is copied into this generated grid. This is an approximation, not original-table reproduction or a new source-data grant. IW maximum-misfit discrepancy and existing scientific holds remain explicit.",
+      "previous_source_status": "not_previously_cataloged",
+      "source_status": "limited_or_unspecified_source",
+      "declaration_sha256": "e000b51511026a9bcb5aa1d79c12131302f11b716db0a827d4b95033f6a3f2b4",
+      "resource": {
+        "path": "datasets/campbell-2009-independent-polynomial-grid.csv",
+        "media_type": "text/csv",
+        "sha256": "2dd69807f80c1091dd2f38dea83e91a33ee8f94abfdaa38ff57589d14c3a6155",
+        "row_count": 3434
+      },
+      "rows": 3434,
+      "content_kind": "model_output",
+      "columns": [
+        "source_polynomial",
+        "temperature_k",
+        "pressure_gpa",
+        "log10_fugacity"
+      ],
+      "text_content_profile": {
+        "source_polynomial": {
+          "distinct_values": 2,
+          "maximum_length": 8
+        }
+      },
+      "source_reference": {
+        "authors": [
+          "Campbell",
+          "Danielson",
+          "Righter",
+          "Seagle",
+          "Wang",
+          "Prakapenka"
+        ],
+        "year": 2009,
+        "title": "High pressure effects on the iron–iron oxide and nickel–nickel oxide oxygen fugacity buffers",
+        "source": "Earth and Planetary Science Letters",
+        "volume": "286",
+        "locator": "556-564",
+        "doi": "10.1016/j.epsl.2009.07.022"
+      },
+      "source_location": "Tables S4-S5, formula row 26; coefficient names B28 onward; values B29 onward; fit summaries rows 31-32. Excel coordinates are one-based.",
+      "source_license_as_recorded": "CC0-1.0",
+      "provenance_type_as_recorded": "independent_polynomial_evaluation",
+      "source_verification_scope": "Official workbook binary hash verified against original curation; numerical coefficients/formulas inspected. New polynomial evaluations compared with every original integration-grid key, without altering original outputs."
+    },
+    {
+      "review_key": "feo/campbell_2009_independent_buffer_polynomial_grid",
+      "material": "feo",
+      "dataset": "campbell_2009_independent_buffer_polynomial_grid",
+      "decision": "admit",
+      "basis": "independent_mathematical_evaluation",
+      "rationale": "New contributor-calculated outputs evaluate the published mathematical polynomial coefficients. The generator never reads original integration output rows; comparison against the originals is a separate validation step. No source collection, layout, prose or software is copied into this generated grid. This is an approximation, not original-table reproduction or a new source-data grant. IW maximum-misfit discrepancy and existing scientific holds remain explicit.",
+      "previous_source_status": "not_previously_cataloged",
+      "source_status": "limited_or_unspecified_source",
+      "declaration_sha256": "af196ca7c2401e941a9d39fadba2ac5e08a2ed47e1f6e40a27d54aebcf74c0a4",
+      "resource": {
+        "path": "datasets/campbell-2009-independent-polynomial-grid.csv",
+        "media_type": "text/csv",
+        "sha256": "2dd69807f80c1091dd2f38dea83e91a33ee8f94abfdaa38ff57589d14c3a6155",
+        "row_count": 3434
+      },
+      "rows": 3434,
+      "content_kind": "model_output",
+      "columns": [
+        "source_polynomial",
+        "temperature_k",
+        "pressure_gpa",
+        "log10_fugacity"
+      ],
+      "text_content_profile": {
+        "source_polynomial": {
+          "distinct_values": 2,
+          "maximum_length": 8
+        }
+      },
+      "source_reference": {
+        "authors": [
+          "Campbell",
+          "Danielson",
+          "Righter",
+          "Seagle",
+          "Wang",
+          "Prakapenka"
+        ],
+        "year": 2009,
+        "title": "High pressure effects on the iron–iron oxide and nickel–nickel oxide oxygen fugacity buffers",
+        "source": "Earth and Planetary Science Letters",
+        "volume": "286",
+        "locator": "556-564",
+        "doi": "10.1016/j.epsl.2009.07.022"
+      },
+      "source_location": "Tables S4-S5, formula row 26; coefficient names B28 onward; values B29 onward; fit summaries rows 31-32. Excel coordinates are one-based.",
+      "source_license_as_recorded": "CC0-1.0",
+      "provenance_type_as_recorded": "independent_polynomial_evaluation",
+      "source_verification_scope": "Official workbook binary hash verified against original curation; numerical coefficients/formulas inspected. New polynomial evaluations compared with every original integration-grid key, without altering original outputs."
+    },
+    {
+      "review_key": "nickel/campbell_2009_independent_buffer_polynomial_grid",
+      "material": "nickel",
+      "dataset": "campbell_2009_independent_buffer_polynomial_grid",
+      "decision": "admit",
+      "basis": "independent_mathematical_evaluation",
+      "rationale": "New contributor-calculated outputs evaluate the published mathematical polynomial coefficients. The generator never reads original integration output rows; comparison against the originals is a separate validation step. No source collection, layout, prose or software is copied into this generated grid. This is an approximation, not original-table reproduction or a new source-data grant. IW maximum-misfit discrepancy and existing scientific holds remain explicit.",
+      "previous_source_status": "not_previously_cataloged",
+      "source_status": "limited_or_unspecified_source",
+      "declaration_sha256": "900ec8320060741786fc81a9306a664d629d359bcdc45e87b59a4d7913e8eb0b",
+      "resource": {
+        "path": "datasets/campbell-2009-independent-polynomial-grid.csv",
+        "media_type": "text/csv",
+        "sha256": "2dd69807f80c1091dd2f38dea83e91a33ee8f94abfdaa38ff57589d14c3a6155",
+        "row_count": 3434
+      },
+      "rows": 3434,
+      "content_kind": "model_output",
+      "columns": [
+        "source_polynomial",
+        "temperature_k",
+        "pressure_gpa",
+        "log10_fugacity"
+      ],
+      "text_content_profile": {
+        "source_polynomial": {
+          "distinct_values": 2,
+          "maximum_length": 8
+        }
+      },
+      "source_reference": {
+        "authors": [
+          "Campbell",
+          "Danielson",
+          "Righter",
+          "Seagle",
+          "Wang",
+          "Prakapenka"
+        ],
+        "year": 2009,
+        "title": "High pressure effects on the iron–iron oxide and nickel–nickel oxide oxygen fugacity buffers",
+        "source": "Earth and Planetary Science Letters",
+        "volume": "286",
+        "locator": "556-564",
+        "doi": "10.1016/j.epsl.2009.07.022"
+      },
+      "source_location": "Tables S4-S5, formula row 26; coefficient names B28 onward; values B29 onward; fit summaries rows 31-32. Excel coordinates are one-based.",
+      "source_license_as_recorded": "CC0-1.0",
+      "provenance_type_as_recorded": "independent_polynomial_evaluation",
+      "source_verification_scope": "Official workbook binary hash verified against original curation; numerical coefficients/formulas inspected. New polynomial evaluations compared with every original integration-grid key, without altering original outputs."
+    },
+    {
+      "review_key": "nickel_oxide_b1/campbell_2009_independent_buffer_polynomial_grid",
+      "material": "nickel_oxide_b1",
+      "dataset": "campbell_2009_independent_buffer_polynomial_grid",
+      "decision": "admit",
+      "basis": "independent_mathematical_evaluation",
+      "rationale": "New contributor-calculated outputs evaluate the published mathematical polynomial coefficients. The generator never reads original integration output rows; comparison against the originals is a separate validation step. No source collection, layout, prose or software is copied into this generated grid. This is an approximation, not original-table reproduction or a new source-data grant. IW maximum-misfit discrepancy and existing scientific holds remain explicit.",
+      "previous_source_status": "not_previously_cataloged",
+      "source_status": "limited_or_unspecified_source",
+      "declaration_sha256": "e8e691d639d37ad9cbbe5fe8ff89cbbcfb20ef732b1e78aecaede1f78c6187ee",
+      "resource": {
+        "path": "datasets/campbell-2009-independent-polynomial-grid.csv",
+        "media_type": "text/csv",
+        "sha256": "2dd69807f80c1091dd2f38dea83e91a33ee8f94abfdaa38ff57589d14c3a6155",
+        "row_count": 3434
+      },
+      "rows": 3434,
+      "content_kind": "model_output",
+      "columns": [
+        "source_polynomial",
+        "temperature_k",
+        "pressure_gpa",
+        "log10_fugacity"
+      ],
+      "text_content_profile": {
+        "source_polynomial": {
+          "distinct_values": 2,
+          "maximum_length": 8
+        }
+      },
+      "source_reference": {
+        "authors": [
+          "Campbell",
+          "Danielson",
+          "Righter",
+          "Seagle",
+          "Wang",
+          "Prakapenka"
+        ],
+        "year": 2009,
+        "title": "High pressure effects on the iron–iron oxide and nickel–nickel oxide oxygen fugacity buffers",
+        "source": "Earth and Planetary Science Letters",
+        "volume": "286",
+        "locator": "556-564",
+        "doi": "10.1016/j.epsl.2009.07.022"
+      },
+      "source_location": "Tables S4-S5, formula row 26; coefficient names B28 onward; values B29 onward; fit summaries rows 31-32. Excel coordinates are one-based.",
+      "source_license_as_recorded": "CC0-1.0",
+      "provenance_type_as_recorded": "independent_polynomial_evaluation",
+      "source_verification_scope": "Official workbook binary hash verified against original curation; numerical coefficients/formulas inspected. New polynomial evaluations compared with every original integration-grid key, without altering original outputs."
     }
   ],
   "supporting_studies": [
@@ -24582,21 +24808,21 @@
     }
   ],
   "counts": {
-    "catalog_entries": 449,
+    "catalog_entries": 453,
     "previously_admitted": 44,
-    "newly_admitted": 365,
-    "admitted_total": 409,
-    "held_material_entries": 40,
+    "newly_admitted": 371,
+    "admitted_total": 415,
+    "held_material_entries": 38,
     "held_by_basis": {
       "source_nc_nd": 22,
       "historical_compilation": 2,
-      "large_collection": 14,
-      "mixed_unidentified_inputs": 2
+      "large_collection": 14
     },
     "new_admissions_by_basis": {
       "numerical_facts_assessment": 363,
-      "author_grant_and_numerical_facts": 1,
-      "verified_source_grant": 1
+      "author_grant_and_numerical_facts": 3,
+      "verified_source_grant": 1,
+      "independent_mathematical_evaluation": 4
     }
   },
   "source_retrievals": [
@@ -24670,5 +24896,338 @@
       "repository_md5": "md5:158a81d1777fd8cf7562eab740015a45",
       "matches_original_curation_sha256": true
     }
-  ]
+  ],
+  "morard_cold_lineage": {
+    "schema": "peritheos.morard-cold-source-lineage.v1",
+    "reviewed_on": "2026-11-05",
+    "scope": "Identifies the 21 preserved author cold inputs by paired published pressure and volume. Does not infer undocumented author acquisition, pressure reprocessing or regression choices. Original DAT/CSV bytes and assigned errors remain unchanged.",
+    "author_volume_conversion_factor": "0.15055 cm3/mol per angstrom3 conventional Z=4 cell; corresponds to rounded Avogadro 6.022e23, not a replacement with the exact SI value.",
+    "source_terms": "No open source-data grant established for Ohfuji/Ono publications. Admission is a scoped factual numerical assessment plus the existing author-held CC BY 4.0 declaration, not a new source grant. No PDF, layout, figures or article prose is bundled.",
+    "uncertainty_qualification": "Author fit errors (1% P, 0.5% V, 5 K) are assigned regression inputs, not the original last-digit table errors. Parenthesized original tokens are retained separately; no confidence or covariance is inferred.",
+    "pressure_difference_qualification": "literature_cold_012 is 101.2 GPa in the author input, 101.1 GPa in Ohfuji/Sata. Difference remains unexplained and preserved, not silently corrected.",
+    "sources": {
+      "ohfuji_2007": {
+        "authors": [
+          "Ohfuji",
+          "Sata",
+          "Kobayashi",
+          "Ohishi",
+          "Hirose",
+          "Irifune"
+        ],
+        "year": 2007,
+        "doi": "10.1007/s00269-007-0151-0",
+        "source_location": "Table 2, 13 room-temperature VI rows",
+        "prior_receipt": "docs/data/fes-ohfuji-2007-identity-check.json",
+        "prior_receipt_sha256": "09d5d53b3cf793b88d7512f8e0547e21399636c9b7308df5c1541bb8c48d5078",
+        "prior_source_pdf_sha256": "32dfaacda85477dab9f4aa5f8f27f487b872e8412f35151dd8ea66700c35a0dc",
+        "reprint_doi": "10.1029/2009JB006975"
+      },
+      "ono_kikegawa_2006": {
+        "authors": [
+          "Ono",
+          "Kikegawa"
+        ],
+        "year": 2006,
+        "doi": "10.2138/am.2006.2347",
+        "title": "High-pressure study of FeS, between 20 and 120 GPa, using synchrotron X-ray powder diffraction",
+        "source_location": "Table 2, page 1943, eight orthorhombic VI rows",
+        "url": "https://rruff.info/uploads/AM91_1941.pdf",
+        "source_access": "Primary publication indexed text; no fresh PDF binary obtained. Author filename SataOhfuji is not a complete original-study attribution.",
+        "grant_verified": false
+      }
+    },
+    "bindings": {
+      "fes-morard-2026-author-literature-cold.csv": "9471b47aae3add1819d470d63094411c28101f4a4b64ee04928ea5e86ba1453c",
+      "fes-morard-2026-author-without-additional-cold.csv": "190cc615d5b601675fa7c99ae9e3869aedc16f7a9baea05433cd610620f10742",
+      "morard_2026_author_sources/FeS6EOSfittot-SataOhfuji-300K.dat": "463b97a3e39c32c4457ad5c37b2f93f56c92f13b878ff9c017b9c1b0e6014f8e"
+    },
+    "source_counts": {
+      "ohfuji_2007": 13,
+      "ono_kikegawa_2006": 8
+    },
+    "rows": [
+      {
+        "observation_id": "literature_cold_001",
+        "author_input_row": 147,
+        "source": "ohfuji_2007",
+        "source_location": "Table 2, run 3, experiment 108",
+        "source_pressure_token_gpa": "39.0(1)",
+        "source_cell_volume_token_angstrom3": "82.92(3)",
+        "author_pressure_gpa": "39",
+        "author_molar_volume_cm3_mol": "12.483606",
+        "volume_match_difference_cm3_mol": "0E-7",
+        "author_minus_source_pressure_gpa": "0.0",
+        "source_verification_scope": "Preserved original-PDF numerical transcription and source PDF hash in the prior identity receipt; rechecked against its 13 explicit row mappings and the Sata numerical reprint."
+      },
+      {
+        "observation_id": "literature_cold_002",
+        "author_input_row": 148,
+        "source": "ohfuji_2007",
+        "source_location": "Table 2, run 3, experiment 140",
+        "source_pressure_token_gpa": "44.3(1)",
+        "source_cell_volume_token_angstrom3": "81.74(3)",
+        "author_pressure_gpa": "44.3",
+        "author_molar_volume_cm3_mol": "12.305957",
+        "volume_match_difference_cm3_mol": "0E-7",
+        "author_minus_source_pressure_gpa": "0.0",
+        "source_verification_scope": "Preserved original-PDF numerical transcription and source PDF hash in the prior identity receipt; rechecked against its 13 explicit row mappings and the Sata numerical reprint."
+      },
+      {
+        "observation_id": "literature_cold_003",
+        "author_input_row": 149,
+        "source": "ohfuji_2007",
+        "source_location": "Table 2, run 4, experiment 51",
+        "source_pressure_token_gpa": "112.3(5)",
+        "source_cell_volume_token_angstrom3": "69.94(6)",
+        "author_pressure_gpa": "112.3",
+        "author_molar_volume_cm3_mol": "10.529467",
+        "volume_match_difference_cm3_mol": "0E-7",
+        "author_minus_source_pressure_gpa": "0.0",
+        "source_verification_scope": "Preserved original-PDF numerical transcription and source PDF hash in the prior identity receipt; rechecked against its 13 explicit row mappings and the Sata numerical reprint."
+      },
+      {
+        "observation_id": "literature_cold_004",
+        "author_input_row": 150,
+        "source": "ohfuji_2007",
+        "source_location": "Table 2, run 4, experiment 63",
+        "source_pressure_token_gpa": "130.6(5)",
+        "source_cell_volume_token_angstrom3": "68.25(5)",
+        "author_pressure_gpa": "130.6",
+        "author_molar_volume_cm3_mol": "10.2750375",
+        "volume_match_difference_cm3_mol": "0E-7",
+        "author_minus_source_pressure_gpa": "0.0",
+        "source_verification_scope": "Preserved original-PDF numerical transcription and source PDF hash in the prior identity receipt; rechecked against its 13 explicit row mappings and the Sata numerical reprint."
+      },
+      {
+        "observation_id": "literature_cold_005",
+        "author_input_row": 151,
+        "source": "ohfuji_2007",
+        "source_location": "Table 2, run 4, experiment 73",
+        "source_pressure_token_gpa": "148.5(6)",
+        "source_cell_volume_token_angstrom3": "66.49(5)",
+        "author_pressure_gpa": "148.5",
+        "author_molar_volume_cm3_mol": "10.0100695",
+        "volume_match_difference_cm3_mol": "0E-7",
+        "author_minus_source_pressure_gpa": "0.0",
+        "source_verification_scope": "Preserved original-PDF numerical transcription and source PDF hash in the prior identity receipt; rechecked against its 13 explicit row mappings and the Sata numerical reprint."
+      },
+      {
+        "observation_id": "literature_cold_006",
+        "author_input_row": 152,
+        "source": "ohfuji_2007",
+        "source_location": "Table 2, run 4, experiment 84",
+        "source_pressure_token_gpa": "170.5(6)",
+        "source_cell_volume_token_angstrom3": "64.71(5)",
+        "author_pressure_gpa": "170.5",
+        "author_molar_volume_cm3_mol": "9.7420905",
+        "volume_match_difference_cm3_mol": "0E-7",
+        "author_minus_source_pressure_gpa": "0.0",
+        "source_verification_scope": "Preserved original-PDF numerical transcription and source PDF hash in the prior identity receipt; rechecked against its 13 explicit row mappings and the Sata numerical reprint."
+      },
+      {
+        "observation_id": "literature_cold_007",
+        "author_input_row": 153,
+        "source": "ohfuji_2007",
+        "source_location": "Table 2, run 4, experiment 100b",
+        "source_pressure_token_gpa": "185.5(6)",
+        "source_cell_volume_token_angstrom3": "62.92(5)",
+        "author_pressure_gpa": "185.5",
+        "author_molar_volume_cm3_mol": "9.472606",
+        "volume_match_difference_cm3_mol": "0E-7",
+        "author_minus_source_pressure_gpa": "0.0",
+        "source_verification_scope": "Preserved original-PDF numerical transcription and source PDF hash in the prior identity receipt; rechecked against its 13 explicit row mappings and the Sata numerical reprint."
+      },
+      {
+        "observation_id": "literature_cold_008",
+        "author_input_row": 154,
+        "source": "ohfuji_2007",
+        "source_location": "Table 2, run 4, experiment 119b",
+        "source_pressure_token_gpa": "198.2(7)",
+        "source_cell_volume_token_angstrom3": "62.30(5)",
+        "author_pressure_gpa": "198.2",
+        "author_molar_volume_cm3_mol": "9.379265",
+        "volume_match_difference_cm3_mol": "0E-7",
+        "author_minus_source_pressure_gpa": "0.0",
+        "source_verification_scope": "Preserved original-PDF numerical transcription and source PDF hash in the prior identity receipt; rechecked against its 13 explicit row mappings and the Sata numerical reprint."
+      },
+      {
+        "observation_id": "literature_cold_009",
+        "author_input_row": 155,
+        "source": "ohfuji_2007",
+        "source_location": "Table 2, run 4, experiment 139b",
+        "source_pressure_token_gpa": "214.5(7)",
+        "source_cell_volume_token_angstrom3": "61.31(5)",
+        "author_pressure_gpa": "214.5",
+        "author_molar_volume_cm3_mol": "9.2302205",
+        "volume_match_difference_cm3_mol": "0E-7",
+        "author_minus_source_pressure_gpa": "0.0",
+        "source_verification_scope": "Preserved original-PDF numerical transcription and source PDF hash in the prior identity receipt; rechecked against its 13 explicit row mappings and the Sata numerical reprint."
+      },
+      {
+        "observation_id": "literature_cold_010",
+        "author_input_row": 156,
+        "source": "ohfuji_2007",
+        "source_location": "Table 2, run 1, experiment 38",
+        "source_pressure_token_gpa": "68.9(4)",
+        "source_cell_volume_token_angstrom3": "76.71(3)",
+        "author_pressure_gpa": "68.9",
+        "author_molar_volume_cm3_mol": "11.5486905",
+        "volume_match_difference_cm3_mol": "0E-7",
+        "author_minus_source_pressure_gpa": "0.0",
+        "source_verification_scope": "Preserved original-PDF numerical transcription and source PDF hash in the prior identity receipt; rechecked against its 13 explicit row mappings and the Sata numerical reprint."
+      },
+      {
+        "observation_id": "literature_cold_011",
+        "author_input_row": 157,
+        "source": "ohfuji_2007",
+        "source_location": "Table 2, run 1, experiment 69",
+        "source_pressure_token_gpa": "84.8(4)",
+        "source_cell_volume_token_angstrom3": "73.56(3)",
+        "author_pressure_gpa": "84.8",
+        "author_molar_volume_cm3_mol": "11.074458",
+        "volume_match_difference_cm3_mol": "0E-7",
+        "author_minus_source_pressure_gpa": "0.0",
+        "source_verification_scope": "Preserved original-PDF numerical transcription and source PDF hash in the prior identity receipt; rechecked against its 13 explicit row mappings and the Sata numerical reprint."
+      },
+      {
+        "observation_id": "literature_cold_012",
+        "author_input_row": 158,
+        "source": "ohfuji_2007",
+        "source_location": "Table 2, run 2, experiment 40",
+        "source_pressure_token_gpa": "101.1(2)",
+        "source_cell_volume_token_angstrom3": "71.30(3)",
+        "author_pressure_gpa": "101.2",
+        "author_molar_volume_cm3_mol": "10.734215",
+        "volume_match_difference_cm3_mol": "0E-7",
+        "author_minus_source_pressure_gpa": "0.1",
+        "source_verification_scope": "Preserved original-PDF numerical transcription and source PDF hash in the prior identity receipt; rechecked against its 13 explicit row mappings and the Sata numerical reprint."
+      },
+      {
+        "observation_id": "literature_cold_013",
+        "author_input_row": 159,
+        "source": "ohfuji_2007",
+        "source_location": "Table 2, run 2, experiment 62",
+        "source_pressure_token_gpa": "70.3(1)",
+        "source_cell_volume_token_angstrom3": "76.22(2)",
+        "author_pressure_gpa": "70.3",
+        "author_molar_volume_cm3_mol": "11.474921",
+        "volume_match_difference_cm3_mol": "0E-7",
+        "author_minus_source_pressure_gpa": "0.0",
+        "source_verification_scope": "Preserved original-PDF numerical transcription and source PDF hash in the prior identity receipt; rechecked against its 13 explicit row mappings and the Sata numerical reprint."
+      },
+      {
+        "observation_id": "literature_cold_014",
+        "author_input_row": 160,
+        "source": "ono_kikegawa_2006",
+        "source_location": "Table 2, page 1943, FeS VI row 1",
+        "source_pressure_token_gpa": "43.2(1)",
+        "source_cell_volume_token_angstrom3": "82.32(9)",
+        "author_pressure_gpa": "43.2",
+        "author_molar_volume_cm3_mol": "12.393276",
+        "volume_match_difference_cm3_mol": "0E-7",
+        "author_minus_source_pressure_gpa": "0.0",
+        "source_verification_scope": "Indexed text of the primary published Table 2 at RRUFF; fresh direct PDF requests returned 403/timeouts, so no fresh PDF binary/layout verification is claimed."
+      },
+      {
+        "observation_id": "literature_cold_015",
+        "author_input_row": 161,
+        "source": "ono_kikegawa_2006",
+        "source_location": "Table 2, page 1943, FeS VI row 2",
+        "source_pressure_token_gpa": "49.3(1)",
+        "source_cell_volume_token_angstrom3": "81.07(11)",
+        "author_pressure_gpa": "49.3",
+        "author_molar_volume_cm3_mol": "12.2050885",
+        "volume_match_difference_cm3_mol": "0E-7",
+        "author_minus_source_pressure_gpa": "0.0",
+        "source_verification_scope": "Indexed text of the primary published Table 2 at RRUFF; fresh direct PDF requests returned 403/timeouts, so no fresh PDF binary/layout verification is claimed."
+      },
+      {
+        "observation_id": "literature_cold_016",
+        "author_input_row": 162,
+        "source": "ono_kikegawa_2006",
+        "source_location": "Table 2, page 1943, FeS VI row 3",
+        "source_pressure_token_gpa": "56.3(1)",
+        "source_cell_volume_token_angstrom3": "78.59(9)",
+        "author_pressure_gpa": "56.3",
+        "author_molar_volume_cm3_mol": "11.8317245",
+        "volume_match_difference_cm3_mol": "0E-7",
+        "author_minus_source_pressure_gpa": "0.0",
+        "source_verification_scope": "Indexed text of the primary published Table 2 at RRUFF; fresh direct PDF requests returned 403/timeouts, so no fresh PDF binary/layout verification is claimed."
+      },
+      {
+        "observation_id": "literature_cold_017",
+        "author_input_row": 163,
+        "source": "ono_kikegawa_2006",
+        "source_location": "Table 2, page 1943, FeS VI row 4",
+        "source_pressure_token_gpa": "58.9(2)",
+        "source_cell_volume_token_angstrom3": "78.63(9)",
+        "author_pressure_gpa": "58.9",
+        "author_molar_volume_cm3_mol": "11.8377465",
+        "volume_match_difference_cm3_mol": "0E-7",
+        "author_minus_source_pressure_gpa": "0.0",
+        "source_verification_scope": "Indexed text of the primary published Table 2 at RRUFF; fresh direct PDF requests returned 403/timeouts, so no fresh PDF binary/layout verification is claimed."
+      },
+      {
+        "observation_id": "literature_cold_018",
+        "author_input_row": 164,
+        "source": "ono_kikegawa_2006",
+        "source_location": "Table 2, page 1943, FeS VI row 5",
+        "source_pressure_token_gpa": "64.7(1)",
+        "source_cell_volume_token_angstrom3": "77.55(6)",
+        "author_pressure_gpa": "64.7",
+        "author_molar_volume_cm3_mol": "11.6751525",
+        "volume_match_difference_cm3_mol": "0E-7",
+        "author_minus_source_pressure_gpa": "0.0",
+        "source_verification_scope": "Indexed text of the primary published Table 2 at RRUFF; fresh direct PDF requests returned 403/timeouts, so no fresh PDF binary/layout verification is claimed."
+      },
+      {
+        "observation_id": "literature_cold_019",
+        "author_input_row": 165,
+        "source": "ono_kikegawa_2006",
+        "source_location": "Table 2, page 1943, FeS VI row 6",
+        "source_pressure_token_gpa": "67.2(1)",
+        "source_cell_volume_token_angstrom3": "76.96(12)",
+        "author_pressure_gpa": "67.2",
+        "author_molar_volume_cm3_mol": "11.586328",
+        "volume_match_difference_cm3_mol": "0E-7",
+        "author_minus_source_pressure_gpa": "0.0",
+        "source_verification_scope": "Indexed text of the primary published Table 2 at RRUFF; fresh direct PDF requests returned 403/timeouts, so no fresh PDF binary/layout verification is claimed."
+      },
+      {
+        "observation_id": "literature_cold_020",
+        "author_input_row": 166,
+        "source": "ono_kikegawa_2006",
+        "source_location": "Table 2, page 1943, FeS VI row 7",
+        "source_pressure_token_gpa": "110.6(2)",
+        "source_cell_volume_token_angstrom3": "70.04(5)",
+        "author_pressure_gpa": "110.6",
+        "author_molar_volume_cm3_mol": "10.544522",
+        "volume_match_difference_cm3_mol": "0E-7",
+        "author_minus_source_pressure_gpa": "0.0",
+        "source_verification_scope": "Indexed text of the primary published Table 2 at RRUFF; fresh direct PDF requests returned 403/timeouts, so no fresh PDF binary/layout verification is claimed."
+      },
+      {
+        "observation_id": "literature_cold_021",
+        "author_input_row": 167,
+        "source": "ono_kikegawa_2006",
+        "source_location": "Table 2, page 1943, FeS VI row 8",
+        "source_pressure_token_gpa": "120.1(3)",
+        "source_cell_volume_token_angstrom3": "68.85(5)",
+        "author_pressure_gpa": "120.1",
+        "author_molar_volume_cm3_mol": "10.3653675",
+        "volume_match_difference_cm3_mol": "0E-7",
+        "author_minus_source_pressure_gpa": "0.0",
+        "source_verification_scope": "Indexed text of the primary published Table 2 at RRUFF; fresh direct PDF requests returned 403/timeouts, so no fresh PDF binary/layout verification is claimed."
+      }
+    ]
+  },
+  "followup": {
+    "reviewed_on": "2026-11-05",
+    "baseline_commit": "3d15f445",
+    "scope": "Resolve Morard cold-source identification and add four separately named independently evaluated Campbell polynomial datasets. Original declarations/resources and scientific dispositions are preserved. Original Campbell integration collection remains held.",
+    "newly_admitted_existing_entries": 2,
+    "new_calculated_entries": 4,
+    "report": "docs/research/morard-campbell-redistribution-followup.md"
+  }
 }

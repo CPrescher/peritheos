@@ -24,8 +24,35 @@ def test_reviewed_coefficients_units_and_source_arrays_remain_exact():
         review["catalog_scientific_sha256"]
         == replacement["before_catalog_scientific_sha256"]
     )
-    assert scientific_sha256() == replacement["after_catalog_scientific_sha256"]
+    followup = json.loads(
+        (ROOT / "docs/data/morard-campbell-redistribution-followup.json").read_bytes()
+    )
+    assert (
+        followup["before_catalog_scientific_sha256"]
+        == replacement["after_catalog_scientific_sha256"]
+    )
+    assert scientific_sha256() == followup["after_catalog_scientific_sha256"]
     snapshot = copy.deepcopy(scientific_snapshot())
+    added = set(followup["added_dataset_declarations"])
+    removed = set()
+    for document in snapshot["documents"]:
+        retained = []
+        for dataset in document["datasets"]:
+            key = document["identifier"] + "/" + dataset["identifier"]
+            if key in added:
+                removed.add(key)
+            else:
+                retained.append(dataset)
+        document["datasets"] = retained
+    assert removed == added
+    assert (
+        hashlib.sha256(
+            json.dumps(
+                snapshot, sort_keys=True, separators=(",", ":"), allow_nan=False
+            ).encode()
+        ).hexdigest()
+        == replacement["after_catalog_scientific_sha256"]
+    )
     for document in snapshot["documents"]:
         if document["identifier"] == "brucite":
             for key in ("lattice", "atom_sites"):

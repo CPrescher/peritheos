@@ -1,7 +1,7 @@
 {
   "schema": "peritheos.optional-datasets.v1",
   "reviewed_on": "2026-11-05",
-  "scope": "Explicit source-scoped selection of recorded license/author declarations and separately bound factual numerical redistribution assessments. Original source terms, attribution and scientific qualifications remain unchanged. Admission does not establish Debian acceptance or a new source grant. Named unresolved collections/NC-ND/compilation cases remain held.",
+  "scope": "Explicit source-scoped selection of recorded license/author declarations and separately bound factual numerical redistribution assessments. Original source terms, attribution and scientific qualifications remain unchanged. Admission does not establish Debian acceptance or a new source grant. Named unresolved collections/NC-ND/compilation cases remain held. Follow-up admits two traced Morard inputs and four separately calculated Campbell polynomial approximations; original Campbell integration tables remain excluded.",
   "datasets": [
     {
       "material": "al_bearing_phase_d",
@@ -4418,10 +4418,70 @@
       "scope": "numerical_facts_assessment",
       "redistribution_basis": "numerical_facts_assessment",
       "review_key": "zirconium_omega/zirconium_omega_mchardy_2026_table_s7_compression"
+    },
+    {
+      "material": "fes_vi",
+      "dataset": "fes_morard_2026_author_without_additional_cold_pvt",
+      "declaration_sha256": "bdb7202591e10125c4dc1c88dba738d4e2283cd30a7f12149b9873560054ba7f",
+      "source_status": "mixed_author_permission",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#fes_vi/fes_morard_2026_author_without_additional_cold_pvt",
+      "scope": "author_grant_and_numerical_facts",
+      "redistribution_basis": "author_grant_and_numerical_facts",
+      "review_key": "fes_vi/fes_morard_2026_author_without_additional_cold_pvt"
+    },
+    {
+      "material": "fes_vi",
+      "dataset": "fes_morard_2026_author_literature_cold_pv",
+      "declaration_sha256": "1c45bef731b212d09a5f63e086ce84551eb85869270b98e1e35772dc8503ae4d",
+      "source_status": "mixed_author_permission",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#fes_vi/fes_morard_2026_author_literature_cold_pv",
+      "scope": "author_grant_and_numerical_facts",
+      "redistribution_basis": "author_grant_and_numerical_facts",
+      "review_key": "fes_vi/fes_morard_2026_author_literature_cold_pv"
+    },
+    {
+      "material": "fe_fcc",
+      "dataset": "campbell_2009_independent_buffer_polynomial_grid",
+      "declaration_sha256": "e000b51511026a9bcb5aa1d79c12131302f11b716db0a827d4b95033f6a3f2b4",
+      "source_status": "limited_or_unspecified_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#fe_fcc/campbell_2009_independent_buffer_polynomial_grid",
+      "scope": "independent_mathematical_evaluation",
+      "redistribution_basis": "independent_mathematical_evaluation",
+      "review_key": "fe_fcc/campbell_2009_independent_buffer_polynomial_grid"
+    },
+    {
+      "material": "feo",
+      "dataset": "campbell_2009_independent_buffer_polynomial_grid",
+      "declaration_sha256": "af196ca7c2401e941a9d39fadba2ac5e08a2ed47e1f6e40a27d54aebcf74c0a4",
+      "source_status": "limited_or_unspecified_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#feo/campbell_2009_independent_buffer_polynomial_grid",
+      "scope": "independent_mathematical_evaluation",
+      "redistribution_basis": "independent_mathematical_evaluation",
+      "review_key": "feo/campbell_2009_independent_buffer_polynomial_grid"
+    },
+    {
+      "material": "nickel",
+      "dataset": "campbell_2009_independent_buffer_polynomial_grid",
+      "declaration_sha256": "900ec8320060741786fc81a9306a664d629d359bcdc45e87b59a4d7913e8eb0b",
+      "source_status": "limited_or_unspecified_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#nickel/campbell_2009_independent_buffer_polynomial_grid",
+      "scope": "independent_mathematical_evaluation",
+      "redistribution_basis": "independent_mathematical_evaluation",
+      "review_key": "nickel/campbell_2009_independent_buffer_polynomial_grid"
+    },
+    {
+      "material": "nickel_oxide_b1",
+      "dataset": "campbell_2009_independent_buffer_polynomial_grid",
+      "declaration_sha256": "e8e691d639d37ad9cbbe5fe8ff89cbbcfb20ef732b1e78aecaede1f78c6187ee",
+      "source_status": "limited_or_unspecified_source",
+      "rights_evidence": "docs/data/numerical-redistribution-review.json#nickel_oxide_b1/campbell_2009_independent_buffer_polynomial_grid",
+      "scope": "independent_mathematical_evaluation",
+      "redistribution_basis": "independent_mathematical_evaluation",
+      "review_key": "nickel_oxide_b1/campbell_2009_independent_buffer_polynomial_grid"
     }
   ],
   "redistribution_review": {
     "path": "docs/data/numerical-redistribution-review.json",
-    "sha256": "12e32ebe807afaa7054f5f52e5fb32b4b62d1e82d91f69a790dd5dae8cbf6ff3"
+    "sha256": "f3f10bb07cb5a8fba32f8d9369676c8a1715c8822cbb85658f96007ba3b6be93"
   }
 }

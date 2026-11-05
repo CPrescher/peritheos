@@ -10,11 +10,15 @@ All notable changes to Peritheos are documented here. The project follows
 - Split experimental observation values from the default Python distribution.
   `peritheos` retains structures, EOS parameters, uncertainties, calibration and
   source/validation summaries; `peritheos[datasets]` adds the version-matched
-  `peritheos-datasets` package. Select 409 material dataset entries after the
+  `peritheos-datasets` package. Select 415 material dataset entries after the
   numerical redistribution review: preserve the 44 earlier source declarations,
   add 363 scoped factual-content assessments, one verified Zenodo CC BY 4.0
-  extraction and one author export with a separately assessed literature anchor.
-  Hold 40 entries, including newly identified iridium NC/ND sources; retain source
+  extraction and three author datasets with separately assessed literature inputs.
+  Add four independently calculated Campbell polynomial entries, preserving the
+  original integration tables as held evidence and their approximation mismatch.
+  Trace all 21 selected Morard cold rows to Ohfuji (2007) and Ono/Kikegawa (2006)
+  without changing original values, errors or source declarations.
+  Hold 38 entries, including newly identified iridium NC/ND sources; retain source
   licensing caveats and exact installed review/manifest bindings. Preserve complete
   repository evidence and original numerical values; build separate, standalone
   source archives without mutating the checkout.
