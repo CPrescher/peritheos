@@ -140,3 +140,10 @@ Repository maintenance checks:
 uv run python scripts/generate_campbell_2009_polynomial_tables.py --check
 uv run pytest -q -W error tests/test_morard_campbell_redistribution.py tests/test_distribution_split.py tests/test_domain_review_preservation.py
 ```
+
+The polynomial replay checks exact table/pressure/temperature identities and
+row ordering, with an absolute 1e-12 log10-fugacity roundoff allowance for
+platform-dependent summation and `.15g` serialization. This is separate from
+the exact retained resource SHA-256: release preparation does not rewrite
+any grid values or original evidence. The generator reports both its generated
+payload hash and the retained-file hash.

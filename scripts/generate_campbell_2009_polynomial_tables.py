@@ -65,6 +65,33 @@ def generate(source=SOURCE):
     return buffer.getvalue().encode()
 
 
+def check_generated(payload, retained):
+    """Check the exact grid and numerical replay, preserving retained bytes.
+
+    Python summation implementations can change the last decimal of .15g
+    output. Across this bounded grid, 1e-12 in log10(fO2) covers binary
+    summation and serialization roundoff, far below source coefficient precision.
+    Distribution resource checksums remain exact and separate from this replay.
+    """
+    actual = list(csv.reader(io.StringIO(payload.decode("utf-8"))))
+    expected = list(csv.reader(io.StringIO(retained.decode("utf-8"))))
+    if (
+        len(actual) < 2
+        or len(expected) < 2
+        or actual[0] != expected[0]
+        or len(actual) != len(expected)
+    ):
+        raise ValueError("Calculated Campbell polynomial grid structure differs")
+    for line, (row, previous) in enumerate(zip(actual[1:], expected[1:]), start=2):
+        if len(row) != 4 or len(previous) != 4 or row[:3] != previous[:3]:
+            raise ValueError(f"Calculated Campbell grid identity differs at row {line}")
+        value, stored = float(row[3]), float(previous[3])
+        if not (math.isfinite(value) and math.isfinite(stored)) or not math.isclose(
+            value, stored, rel_tol=0, abs_tol=1e-12
+        ):
+            raise ValueError(f"Calculated Campbell value differs at row {line}")
+
+
 def compare_original(payload, original=ORIGINAL):
     """Match every P/T/table key; never use original outputs to generate rows."""
     generated = {
@@ -115,14 +142,17 @@ def main():
     args = parser.parse_args()
     payload = generate()
     if args.check:
-        if OUTPUT.read_bytes() != payload:
-            raise SystemExit("Calculated Campbell polynomial grid is stale")
+        try:
+            check_generated(payload, OUTPUT.read_bytes())
+        except ValueError as error:
+            raise SystemExit(str(error)) from error
     else:
         OUTPUT.write_bytes(payload)
     print(
         json.dumps(
             {
                 "sha256": hashlib.sha256(payload).hexdigest(),
+                "retained_sha256": hashlib.sha256(OUTPUT.read_bytes()).hexdigest(),
                 "comparison": compare_original(payload),
             },
             indent=2,

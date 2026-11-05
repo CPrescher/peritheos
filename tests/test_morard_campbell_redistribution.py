@@ -78,7 +78,7 @@ def test_campbell_generator_uses_coefficients_without_original_output_access(
     import scripts.generate_campbell_2009_polynomial_tables as generator
 
     monkeypatch.setattr(generator, "ORIGINAL", tmp_path / "absent-original.csv")
-    assert generate() == OUTPUT.read_bytes()
+    generator.check_generated(generate(), OUTPUT.read_bytes())
     configuration = json.loads(SOURCE.read_bytes())
     iw = configuration["coefficients"]["Table S4"]
     nno = configuration["coefficients"]["Table S5"]
@@ -142,3 +142,27 @@ def test_new_calculated_declaration_preserves_the_complete_previous_material(
     assert len(Dataset.from_mapping(added)) == 3434
     loaded = get_material_document(material)
     assert any(d["identifier"] == added["identifier"] for d in loaded["datasets"])
+
+
+def test_campbell_replay_allows_only_roundoff_and_preserves_exact_grid_keys():
+    from scripts.generate_campbell_2009_polynomial_tables import check_generated
+
+    header = "source_polynomial,temperature_k,pressure_gpa,log10_fugacity\n"
+    retained = (header + "Table S4,1000,32,-5.1990450368\n").encode()
+    alternate = (header + "Table S4,1000,32,-5.19904503679999\n").encode()
+    check_generated(alternate, retained)
+    for changed in (
+        header + "Table S4,1000,32,-5.1990450367\n",
+        header + "Table S5,1000,32,-5.1990450368\n",
+        header + "Table S4,1100,32,-5.1990450368\n",
+        header + "Table S4,1000,33,-5.1990450368\n",
+        header + "Table S4,1000,32,inf\n",
+        header + "Table S4,1000,32,nan\n",
+        header,
+    ):
+        with pytest.raises(ValueError):
+            check_generated(changed.encode(), retained)
+    assert (
+        hashlib.sha256(OUTPUT.read_bytes()).hexdigest()
+        == "2dd69807f80c1091dd2f38dea83e91a33ee8f94abfdaa38ff57589d14c3a6155"
+    )
